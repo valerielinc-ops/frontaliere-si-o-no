@@ -35720,6 +35720,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dichiarazione-andreoli-san-marino-rtv': {
+    title: 'Dichiarazione Andreoli San Marino RTV | Frontaliere Ticino',
+    description: 'La dichiarazione di Andreoli su San Marino RTV ha suscitato interesse tra i frontalieri. Scopri le implicazioni pratiche. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, dichiarazione, andreoli, marino, suscitato',
+    ogTitle: 'Dichiarazione Andreoli San Marino RTV',
+    ogDescription: 'La dichiarazione di Andreoli su San Marino RTV ha suscitato interesse tra i frontalieri. Scopri le implicazioni pratiche.',
+    canonicalPath: '/articoli-frontaliere/dichiarazione-andreoli-san-marino-rtv',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dichiarazione Andreoli San Marino RTV",
+      "description": "La dichiarazione di Andreoli su San Marino RTV ha suscitato interesse tra i frontalieri. Scopri le implicazioni pratiche. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dichiarazione-andreoli-san-marino-rtv.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza di Locarno con persone che camminano e parlano, mostrando la vita vivace di un comune di confine ticinese"
+      },
+      "datePublished": "2026-05-11T20:01:50+00:00",
+      "dateModified": "2026-05-11T20:01:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dichiarazione-andreoli-san-marino-rtv`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-calo-potere-acquisto-lamal-contromisure-ticino': {
+    title: 'Calo potere d\'acquisto e LAMal: la Regione invoca contromisure',
+    description: 'La Regione Ticino annuncia contromisure per contrastare il calo del potere d\'acquisto e supportare LAMal, l\'iniziativa per la rilevazione dati unica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, calo, potere, acquisto, lamal',
+    ogTitle: 'Calo potere d\'acquisto e LAMal: contromisure per il Ticino',
+    ogDescription: 'La Regione Ticino annuncia contromisure per contrastare il calo del potere d\'acquisto e supportare LAMal, l\'iniziativa per la rilevazione dati unica.',
+    canonicalPath: '/articoli-frontaliere/calo-potere-acquisto-lamal-contromisure-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Calo potere d'acquisto e LAMal: la Regione invoca contromisure",
+      "description": "La Regione Ticino annuncia contromisure per contrastare il calo del potere d'acquisto e supportare LAMal, l'iniziativa per la rilevazione dati unica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calo-potere-acquisto-lamal-contromisure-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano, con l'accento sulla zona finanziaria, che mostra l'attività economica della città e il confine italo-svizzero."
+      },
+      "datePublished": "2026-05-11T20:18:46+00:00",
+      "dateModified": "2026-05-11T20:18:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calo-potere-acquisto-lamal-contromisure-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-05-11T11:00:49.249Z",
+  "generatedAt": "2026-05-11T21:23:50.379Z",
   "total": 2,
-  "newCount": 4,
+  "newCount": 3,
   "updatedCount": 0,
   "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 2819,
-  "avgDurationMs": 2819,
+  "durationMs": 2733,
+  "avgDurationMs": 2733,
   "durationHistory": [
-    2819
+    2733
   ],
   "newJobs": [
     {
@@ -37,7 +37,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9518&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-11T11:00:47.411Z",
+      "crawledAt": "2026-05-11T21:23:48.524Z",
       "_qualityScore": 43,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -47,12 +47,12 @@
       }
     },
     {
-      "id": "alpiq-f241151c4e10",
-      "slug": "head-enterprise-risk-management-all-alpiq-olten",
+      "id": "alpiq-3452a89e108f",
+      "slug": "legal-counsel-senior-legal-counsel-all-alpiq-olten",
       "company": "Alpiq",
       "companyKey": "alpiq",
       "companyDomain": "alpiq.com",
-      "title": "Head Enterprise Risk Management (all)",
+      "title": "Legal Counsel / Senior Legal Counsel (all)",
       "location": "Olten",
       "canton": "",
       "postalCode": "4600",
@@ -66,15 +66,15 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-11",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9510",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9510&lang=en_GB",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9486",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9486&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-11T11:00:47.412Z",
-      "_qualityScore": 56,
+      "sourceLang": "de",
+      "crawledAt": "2026-05-11T21:23:48.525Z",
+      "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 14,
         "translation": 4,
         "completeness": 17
       }
@@ -103,40 +103,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-11T11:00:47.412Z",
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "alpiq-3452a89e108f",
-      "slug": "legal-counsel-senior-legal-counsel-all-alpiq-olten",
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Legal Counsel / Senior Legal Counsel (all)",
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-11",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9486",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9486&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-11T11:00:47.412Z",
+      "crawledAt": "2026-05-11T21:23:48.525Z",
       "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,

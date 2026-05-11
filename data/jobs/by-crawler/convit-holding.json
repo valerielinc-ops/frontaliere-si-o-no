@@ -1,6 +1,6 @@
 {
   "crawlerKey": "convit-holding",
-  "assembledAt": "2026-05-11T11:28:02.244Z",
+  "assembledAt": "2026-05-11T21:51:05.121Z",
   "jobs": [
     {
       "id": "convit-4c8a4aa9db48",
@@ -44,7 +44,6 @@
         "de": "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -60,7 +59,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-b4a4c8b586ae",
@@ -104,7 +104,6 @@
         "de": "tirocinante-consulenza-previdenziale-formazione-gratuita-homeoffice-possibile-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "tirocinante-consulenza-previdenziale-formazione-gratuita-homeoffice-possibile-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -120,7 +119,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-c1169f315f41",
@@ -164,7 +164,6 @@
         "de": "strategia-finanziaria-fisso-bonus-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "strategia-finanziaria-fisso-bonus-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -180,7 +179,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-3a7fe8d411e8",
@@ -279,11 +279,10 @@
       },
       "slugByLocale": {
         "it": "previdenza-e-risparmio-junior-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "previdenza-e-risparmio-junior-convit-via-al-mulino-22a-6814-cadempino",
+        "en": "security-and-savings-junior-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
         "de": "previdenza-e-risparmio-junior-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "previdenza-e-risparmio-junior-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
@@ -299,7 +298,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-caf5f01686c7",
@@ -343,7 +343,6 @@
         "de": "posizione-di-ingresso-consulenza-finanziaria-formazione-gratuita-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "posizione-di-ingresso-consulenza-finanziaria-formazione-gratuita-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -359,7 +358,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-449bd0ca970e",
@@ -399,11 +399,10 @@
       },
       "slugByLocale": {
         "it": "pianificazione-finanziaria-junior-mentoring-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "pianificazione-finanziaria-junior-mentoring-convit-via-al-mulino-22a-6814-cadempino",
+        "en": "financial-planning-junior-mentoring-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
         "de": "pianificazione-finanziaria-junior-mentoring-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "pianificazione-finanziaria-junior-mentoring-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -419,7 +418,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-73953b1cec9c",
@@ -463,7 +463,6 @@
         "de": "pianificatore-finanziario-regionale-junior-ibrido-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "pianificatore-finanziario-regionale-junior-ibrido-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -479,7 +478,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-4935af8fcde3",
@@ -519,11 +519,10 @@
       },
       "slugByLocale": {
         "it": "pianificatore-finanziario-junior-ibrido-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "pianificatore-finanziario-junior-ibrido-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino",
+        "en": "financial-planner-junior-hybrid-ote-up-to-7-500-chf-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
         "de": "pianificatore-finanziario-junior-ibrido-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "pianificatore-finanziario-junior-ibrido-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -539,7 +538,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-c39d88b881ee",
@@ -583,7 +583,6 @@
         "de": "pianificatore-finanziario-entrata-laterale-fisso-bonus-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "pianificatore-finanziario-entrata-laterale-fisso-bonus-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -599,7 +598,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-49ead986df83",
@@ -643,7 +643,6 @@
         "de": "ingresso-consulenza-previdenziale-formazione-gratuita-tempo-parziale-o-100-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "ingresso-consulenza-previdenziale-formazione-gratuita-tempo-parziale-o-100-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -659,7 +658,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-215362568962",
@@ -703,7 +703,6 @@
         "de": "ingresso-consulenza-finanziaria-3a-3b-orari-flessibili-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "ingresso-consulenza-finanziaria-3a-3b-orari-flessibili-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -719,7 +718,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-27b91666f795",
@@ -1220,7 +1220,6 @@
         "de": "consulenza-vendite-finanza-previdenza-fisso-bonus-ibrido-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulenza-vendite-finanza-previdenza-fisso-bonus-ibrido-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -1236,7 +1235,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-a4637c9069b8",
@@ -1276,11 +1276,10 @@
       },
       "slugByLocale": {
         "it": "consulenza-previdenziale-3a-3b-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "consulenza-previdenziale-3a-3b-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
+        "en": "preliminary-advice-3a-3b-homeoffice-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
         "de": "consulenza-previdenziale-3a-3b-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulenza-previdenziale-3a-3b-homeoffice-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -1296,7 +1295,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-cfded655d12b",
@@ -1340,7 +1340,6 @@
         "de": "consulenza-investimenti-previdenza-entrata-laterale-benvenuti-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulenza-investimenti-previdenza-entrata-laterale-benvenuti-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -1356,7 +1355,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-e9d466895266",
@@ -1400,7 +1400,6 @@
         "de": "consulenza-finanziaria-starter-senza-esperienza-tempo-parziale-o-100-ibrido-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulenza-finanziaria-starter-senza-esperienza-tempo-parziale-o-100-ibrido-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -1416,7 +1415,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-a762fbb5e1b9",
@@ -1460,7 +1460,6 @@
         "de": "consulenza-finanziaria-regionale-svizzera-tedesca-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulenza-finanziaria-regionale-svizzera-tedesca-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -1476,7 +1475,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-5ae4b7525b5a",
@@ -1520,7 +1520,6 @@
         "de": "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -1536,7 +1535,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-e470d47ccc0c",
@@ -1580,7 +1580,6 @@
         "de": "consulenza-finanziaria-entrata-laterale-tempo-parziale-lavoro-secondario-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulenza-finanziaria-entrata-laterale-tempo-parziale-lavoro-secondario-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -1596,7 +1595,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-7ff7bd30ff95",
@@ -1640,7 +1640,6 @@
         "de": "consulenza-finanziaria-entrata-laterale-fisso-bonus-tempo-parziale-o-100-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulenza-finanziaria-entrata-laterale-fisso-bonus-tempo-parziale-o-100-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -1656,7 +1655,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-8f22587a0203",
@@ -1700,7 +1700,6 @@
         "de": "consulenza-clienti-finanza-ibrido-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulenza-clienti-finanza-ibrido-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -1716,7 +1715,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-61e45957498d",
@@ -1760,7 +1760,6 @@
         "de": "consulente-soluzioni-finanziarie-junior-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-soluzioni-finanziarie-junior-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -1776,7 +1775,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-b64e72d6fb63",
@@ -1820,7 +1820,6 @@
         "de": "consulente-risparmio-previdenza-junior-ibrido-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-risparmio-previdenza-junior-ibrido-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71500,
       "currency": "CHF",
@@ -1836,7 +1835,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-f442c148c570",
@@ -1880,7 +1880,6 @@
         "de": "consulente-previdenziale-senza-formazione-ibrido-fisso-bonus-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-senza-formazione-ibrido-fisso-bonus-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -1896,7 +1895,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-7587b9c18242",
@@ -1940,7 +1940,6 @@
         "de": "consulente-previdenziale-senza-esperienza-formazione-gratuita-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-senza-esperienza-formazione-gratuita-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -1956,7 +1955,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-2686a4fe2751",
@@ -2000,7 +2000,6 @@
         "de": "consulente-previdenziale-pianificazione-ibrido-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-pianificazione-ibrido-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -2016,7 +2015,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-0ba4fc14f88e",
@@ -2060,7 +2060,6 @@
         "de": "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -2076,7 +2075,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-a39ca3976752",
@@ -2120,7 +2120,6 @@
         "de": "consulente-previdenziale-junior-senza-esperienza-formazione-gratuita-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-junior-senza-esperienza-formazione-gratuita-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71500,
       "currency": "CHF",
@@ -2136,7 +2135,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-86aebd1f888a",
@@ -2180,7 +2180,6 @@
         "de": "consulente-previdenziale-junior-percorso-di-carriera-bonus-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-junior-percorso-di-carriera-bonus-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71500,
       "currency": "CHF",
@@ -2196,7 +2195,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-b6496a6408b9",
@@ -2236,11 +2236,10 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-junior-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "consulente-previdenziale-junior-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino",
+        "en": "private-consultant-junior-ote-up-to-7-500-chf-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
         "de": "consulente-previdenziale-junior-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-junior-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71500,
       "currency": "CHF",
@@ -2256,7 +2255,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-6794ae8064d0",
@@ -2300,7 +2300,6 @@
         "de": "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71500,
       "currency": "CHF",
@@ -2316,7 +2315,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-ae8e2d729db0",
@@ -2360,7 +2360,6 @@
         "de": "consulente-previdenziale-junior-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-junior-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71500,
       "currency": "CHF",
@@ -2376,7 +2375,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-a8bd8aa65c8c",
@@ -2420,7 +2420,6 @@
         "de": "consulente-previdenziale-junior-10-100-formazione-e-certificazione-vbv-gratuita-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-junior-10-100-formazione-e-certificazione-vbv-gratuita-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71500,
       "currency": "CHF",
@@ -2436,7 +2435,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-1e872e1a4221",
@@ -2480,7 +2480,6 @@
         "de": "consulente-previdenziale-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -2496,7 +2495,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-7fd409506c68",
@@ -2540,7 +2540,6 @@
         "de": "consulente-previdenziale-ibrido-ingresso-senza-esperienza-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-ibrido-ingresso-senza-esperienza-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -2556,7 +2555,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-f2b12fa24a77",
@@ -2600,7 +2600,6 @@
         "de": "consulente-previdenziale-finanziario-entrata-laterale-ibrido-fisso-bonus-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-finanziario-entrata-laterale-ibrido-fisso-bonus-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -2616,7 +2615,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-52e8a7e703b7",
@@ -2660,7 +2660,6 @@
         "de": "consulente-previdenziale-familiare-junior-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-familiare-junior-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71500,
       "currency": "CHF",
@@ -2676,7 +2675,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-797b2e5c312b",
@@ -2720,7 +2720,6 @@
         "de": "consulente-previdenziale-3a-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-3a-entrata-laterale-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -2736,7 +2735,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-cdf168c2d43b",
@@ -2780,7 +2780,6 @@
         "de": "consulente-previdenziale-3a-3b-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-3a-3b-tempo-indeterminato-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -2796,7 +2795,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-b02f1a7392f5",
@@ -2840,7 +2840,6 @@
         "de": "consulente-previdenza-pmi-entrata-laterale-tempo-indeterminato-ibrido-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenza-pmi-entrata-laterale-tempo-indeterminato-ibrido-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -2856,7 +2855,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-8b83d8fd7720",
@@ -2900,7 +2900,6 @@
         "de": "consulente-pianificazione-pensionistica-budget-entrata-laterale-homeoffice-possibile-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-pianificazione-pensionistica-budget-entrata-laterale-homeoffice-possibile-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -2916,7 +2915,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-69e3cc554668",
@@ -2956,11 +2956,10 @@
       },
       "slugByLocale": {
         "it": "consulente-pianificazione-pensionistica-3a-3b-junior-mentoring-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "consulente-pianificazione-pensionistica-3a-3b-junior-mentoring-convit-via-al-mulino-22a-6814-cadempino",
+        "en": "consultant-pension-planning-3a-3b-junior-mentoring-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
         "de": "consulente-pianificazione-pensionistica-3a-3b-junior-mentoring-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-pianificazione-pensionistica-3a-3b-junior-mentoring-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -2976,7 +2975,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-88933ac2336d",
@@ -3020,7 +3020,6 @@
         "de": "consulente-per-clienti-privati-previdenza-finanza-entrata-laterale-homeoffice-possibile-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-per-clienti-privati-previdenza-finanza-entrata-laterale-homeoffice-possibile-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -3036,7 +3035,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-ef437a958206",
@@ -3080,7 +3080,6 @@
         "de": "consulente-per-clienti-privati-pianificazione-patrimoniale-ibrido-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-per-clienti-privati-pianificazione-patrimoniale-ibrido-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -3096,7 +3095,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-c522c29389dc",
@@ -3140,7 +3140,6 @@
         "de": "consulente-previdenziale-entrata-laterale-ibrido-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-entrata-laterale-ibrido-homeoffice-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -3156,7 +3155,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-1c41290844c3",
@@ -3200,7 +3200,6 @@
         "de": "consulente-per-clienti-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-per-clienti-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -3216,7 +3215,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-3787e158a8d5",
@@ -3260,7 +3260,6 @@
         "de": "consulente-per-clienti-privati-piani-di-risparmio-junior-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-per-clienti-privati-piani-di-risparmio-junior-homeoffice-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71500,
       "currency": "CHF",
@@ -3276,7 +3275,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-1c1006f76a77",
@@ -3316,11 +3316,10 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-3a-3b-junior-ibrido-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
-        "en": "consulente-previdenziale-3a-3b-junior-ibrido-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
+        "en": "3a-3b-junior-ibrido-homeoffice-convit-holding-gmbh-via-al-mulino-22a-6814-cadempino",
         "de": "consulente-previdenziale-3a-3b-junior-ibrido-homeoffice-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-previdenziale-3a-3b-junior-ibrido-homeoffice-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71500,
       "currency": "CHF",
@@ -3336,7 +3335,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-98e6fbb7c70a",
@@ -3380,7 +3380,6 @@
         "de": "consulente-per-clienti-privati-patrimonio-entrata-laterale-ibrido-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-per-clienti-privati-patrimonio-entrata-laterale-ibrido-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -3396,7 +3395,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-adb2e2bc3e10",
@@ -3440,7 +3440,6 @@
         "de": "consulente-per-clienti-privati-finanza-junior-homeoffice-ibrido-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-per-clienti-privati-finanza-junior-homeoffice-ibrido-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -3456,7 +3455,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-08fe4147e1c3",
@@ -3500,7 +3500,6 @@
         "de": "consulente-per-clienti-privati-finanza-entrata-laterale-ibrido-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-per-clienti-privati-finanza-entrata-laterale-ibrido-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -3516,7 +3515,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-3acf0ffc799f",
@@ -3560,7 +3560,6 @@
         "de": "consulente-per-clienti-privati-finanza-entrata-laterale-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-per-clienti-privati-finanza-entrata-laterale-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -3576,7 +3575,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     },
     {
       "id": "convit-b35bd71ca9f9",
@@ -3620,7 +3620,6 @@
         "de": "consulente-per-clienti-privati-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino",
         "fr": "consulente-per-clienti-privati-3a-3b-ibrido-convit-via-al-mulino-22a-6814-cadempino"
       },
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
@@ -3636,7 +3635,8 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:55:46.893Z"
+      "firstSeenAt": "2026-05-10T09:55:46.893Z",
+      "needsRetranslation": true
     }
   ]
 }

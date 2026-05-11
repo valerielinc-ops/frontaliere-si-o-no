@@ -19,6 +19,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { tokenizeIt, jaccardSim, containmentSim } from '../scripts/lib/it-text-similarity.mjs';
+import { filterDistinctive } from '../scripts/lib/dup-stoplist.mjs';
 
 const ROOT = resolve(__dirname, '..');
 const src = readFileSync(resolve(ROOT, 'scripts/create-article.mjs'), 'utf8');
@@ -34,15 +35,17 @@ type CheckResult =
   | { duplicate: false }
   | { duplicate: true; signal: string; sim: number; existingId: string; existingTitle: string };
 
-// The function references `read`, `tokenizeIt`, `jaccardSim`, `containmentSim` — inject them.
+// The function references `read`, `tokenizeIt`, `jaccardSim`, `containmentSim`,
+// and `filterDistinctive` — inject them.
 const runner = new Function(
   'read',
   'tokenizeIt',
   'jaccardSim',
   'containmentSim',
+  'filterDistinctive',
   `${fnMatch[0]}\nreturn preFlightHeadlineCheck;`,
 );
-const preFlightHeadlineCheck = runner(read, tokenizeIt, jaccardSim, containmentSim) as (
+const preFlightHeadlineCheck = runner(read, tokenizeIt, jaccardSim, containmentSim, filterDistinctive) as (
   headline: string,
 ) => CheckResult;
 

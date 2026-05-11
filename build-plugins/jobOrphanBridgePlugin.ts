@@ -72,6 +72,7 @@ import type { Plugin } from 'vite';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import { getCantonForSlug } from './shared/slugCantonIndex';
+import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBreadcrumb';
 import type { Locale } from '../services/i18n';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -246,6 +247,7 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
   const orphanPath = buildOrphanPath(locale, entry.slug);
   const currentPath = `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/${entry.currentSlug!}/`.replace(/\/+/g, '/');
   const canonicalUrl = buildCanonicalForMatched(locale, entry.currentSlug!);
+  const orphanAbsoluteUrl = `${BASE_URL}${orphanPath}`;
 
   const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
     <header style="margin-bottom:16px">
@@ -254,6 +256,17 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
     <p style="margin:0 0 12px;font-size:15.5px">${esc(copy.matchedLede)}</p>
     <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(buildSectionCanonical(locale, entry.currentSlug || entry.slug))}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
   </main>`;
+
+  // Breadcrumb describes the orphan URL the visitor actually landed on
+  // (canonical points to the live job, but the bridge is what's served).
+  const breadcrumbLd = buildBridgeBreadcrumbLd({
+    locale,
+    baseUrl: BASE_URL,
+    sectionLabel: JOBS_SECTION_LABEL[locale],
+    sectionPath: `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/\/+/g, '/'),
+    pageLabel: copy.matchedH1,
+    canonicalUrl: orphanAbsoluteUrl,
+  });
 
   return buildSeoPageHtml({
     locale,
@@ -264,7 +277,7 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
     ogType: 'website',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: '',
-    jsonLdScripts: [],
+    jsonLdScripts: [breadcrumbLd],
     extraHeadHtml: buildMatchedRewriteScript(orphanPath, currentPath),
     bodyHtml,
     distDir,
@@ -276,8 +289,12 @@ function renderExpiredPage(entry: OrphanEntry, distDir: string): string {
   const locale = entry.locale;
   const copy = COPY[locale];
   const companyHint = humanizeCompanyHint(entry.company);
+  // Canonical points to the canton-aware section landing for expired entries
+  // (Phase 8.3 cathedral: uses slug→canton inference). BreadcrumbList still
+  // describes the bridge URL the visitor landed on (orphanAbsoluteUrl).
   const canonicalUrl = buildSectionCanonical(locale, entry.slug);
   const sectionPath = buildSectionCanonical(locale, entry.slug);
+  const orphanAbsoluteUrl = `${BASE_URL}${buildOrphanPath(locale, entry.slug)}`;
 
   const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
     <header style="margin-bottom:16px">
@@ -286,6 +303,15 @@ function renderExpiredPage(entry: OrphanEntry, distDir: string): string {
     <p style="margin:0 0 12px;font-size:15.5px">${esc(copy.expiredLede)}</p>
     <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(sectionPath)}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
   </main>`;
+
+  const breadcrumbLd = buildBridgeBreadcrumbLd({
+    locale,
+    baseUrl: BASE_URL,
+    sectionLabel: JOBS_SECTION_LABEL[locale],
+    sectionPath: `${LOCALE_PREFIX[locale]}/${SECTION_SLUG[locale]}/`.replace(/\/+/g, '/'),
+    pageLabel: copy.expiredH1(companyHint),
+    canonicalUrl: orphanAbsoluteUrl,
+  });
 
   return buildSeoPageHtml({
     locale,
@@ -296,7 +322,7 @@ function renderExpiredPage(entry: OrphanEntry, distDir: string): string {
     ogType: 'website',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: '',
-    jsonLdScripts: [],
+    jsonLdScripts: [breadcrumbLd],
     bodyHtml,
     distDir,
     seoMainClass: 'cluster-seo-prose',

@@ -116,11 +116,25 @@ jobs:
           path: /tmp/pre-deploy-snapshot
 
       - name: Download previous-slug winners (optional)
-        uses: actions/download-artifact@v5
-        continue-on-error: true   # winners file uploaded only when changed
-        with:
-          name: winners-${{ inputs.deploy_run_id }}
-          path: /tmp/winners
+        # The build job only uploads `winners-${RUN_ID}` when
+        # `data/previous-slug-winners.json` actually changed in the
+        # build commit. Most builds → no upload → download would emit
+        # a noisy "Artifact not found" annotation if we used
+        # actions/download-artifact (continue-on-error suppresses the
+        # failure but NOT the annotation). `gh run download` fails
+        # silently with a clean stderr message instead.
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p /tmp/winners
+          if gh run download "${{ inputs.deploy_run_id }}" \
+               --name "winners-${{ inputs.deploy_run_id }}" \
+               --dir /tmp/winners 2>/dev/null; then
+            echo "[winners] downloaded artifact for run ${{ inputs.deploy_run_id }}"
+          else
+            echo "[winners] artifact not present (file unchanged this build) — skipping"
+          fi
 
       - name: Extract dist/ + restore data files from artifact
         run: |
