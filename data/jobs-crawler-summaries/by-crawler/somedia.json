@@ -1,18 +1,19 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-05-11T12:31:45.146Z",
+  "generatedAt": "2026-05-11T22:54:17.283Z",
   "total": 7,
-  "newCount": 2,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10939,
-  "avgDurationMs": 10939,
+  "durationMs": 9540,
+  "avgDurationMs": 9540,
   "durationHistory": [
-    10939
+    9540
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "somedia-bc1f17e99892",
       "slug": "teamleiter-in-logistik-100-somedia-ch",
@@ -25,7 +26,7 @@
       "url": "https://jobs.somedia.ch/Teamleiterin-Logistik-100-de-j384.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T12:31:36.041Z",
+      "crawledAt": "2026-05-11T22:54:09.506Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -46,11 +47,12 @@
         "identifier": "",
         "hiringOrganization": "Somedia Press AG"
       },
-      "_qualityScore": 70,
+      "firstSeenAt": "2026-05-11T12:31:36.041Z",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -66,7 +68,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T12:31:42.396Z",
+      "crawledAt": "2026-05-11T22:54:14.976Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -87,16 +89,16 @@
         "identifier": "",
         "hiringOrganization": "communicaziun.ch ag"
       },
-      "_qualityScore": 70,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-11T12:31:42.396Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 18,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "somedia-b1a7615c5298",
       "slug": "grafiker-in-80-100-somedia-ch",
@@ -109,7 +111,7 @@
       "url": "https://jobs.somedia.ch/Grafikerin-80-100-de-j387.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T12:31:41.560Z",
+      "crawledAt": "2026-05-11T22:54:14.197Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -152,7 +154,7 @@
       "url": "https://jobs.somedia.ch/Leiterin-People-Culture-Leiterin-HR-100-de-j371.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T12:31:40.540Z",
+      "crawledAt": "2026-05-11T22:54:13.319Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -194,7 +196,7 @@
       "url": "https://jobs.somedia.ch/Projektleiterin-Marketing-80100-de-j385.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T12:31:38.219Z",
+      "crawledAt": "2026-05-11T22:54:11.374Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -237,7 +239,7 @@
       "url": "https://jobs.somedia.ch/Praktikantin-Multimediaproduktion-100-de-j374.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T12:31:39.377Z",
+      "crawledAt": "2026-05-11T22:54:12.348Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -279,7 +281,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-80-100-de-j380.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T12:31:37.046Z",
+      "crawledAt": "2026-05-11T22:54:10.390Z",
       "addressLocality": "Uznach",
       "addressCountry": "CH",
       "country": "CH",
