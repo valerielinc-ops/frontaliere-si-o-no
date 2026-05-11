@@ -109,6 +109,10 @@ export interface LocaleCopy {
   pageNavigatorLabel: string;
   citySectionLabel: string;
   alphabeticalLabel: string;
+  /** H1 suffix used when matchingJobs.length === 0 — forward-framed
+   *  ("alert quotidiano" / "daily alert") so the static-body H1 differs
+   *  from <title> without surfacing a "0 offerte" negative-signal. */
+  alertCta: string;
 }
 
 export const COPY: Record<Locale, LocaleCopy> = {
@@ -133,6 +137,7 @@ export const COPY: Record<Locale, LocaleCopy> = {
     pageNavigatorLabel: 'Pagina',
     citySectionLabel: 'Per città',
     alphabeticalLabel: 'Altre ricerche',
+    alertCta: 'alert quotidiano nuove offerte',
   },
   en: {
     homeBreadcrumb: 'Home',
@@ -155,6 +160,7 @@ export const COPY: Record<Locale, LocaleCopy> = {
     pageNavigatorLabel: 'Page',
     citySectionLabel: 'By city',
     alphabeticalLabel: 'Other searches',
+    alertCta: 'daily alert for new openings',
   },
   de: {
     homeBreadcrumb: 'Home',
@@ -177,6 +183,7 @@ export const COPY: Record<Locale, LocaleCopy> = {
     pageNavigatorLabel: 'Seite',
     citySectionLabel: 'Nach Stadt',
     alphabeticalLabel: 'Weitere Suchen',
+    alertCta: 'täglicher Alert für neue Inserate',
   },
   fr: {
     homeBreadcrumb: 'Home',
@@ -199,6 +206,7 @@ export const COPY: Record<Locale, LocaleCopy> = {
     pageNavigatorLabel: 'Page',
     citySectionLabel: 'Par ville',
     alphabeticalLabel: 'Autres recherches',
+    alertCta: 'alerte quotidienne pour nouvelles offres',
   },
 };
 

@@ -179,7 +179,7 @@ function main() {
 
   fs.writeFileSync(CANDIDATES_PATH, JSON.stringify(data, null, 2) + '\n', 'utf-8');
   console.log(`\nWrote ${synthetic.length} synthetic candidates to ${path.relative(ROOT, CANDIDATES_PATH)}`);
-  console.log('Next deploy will attempt OR-fill matching on these and emit any that pass MIN_MATCHING_JOBS=3.');
+  console.log('Next deploy will emit these as cluster pages (MIN_MATCHING_JOBS=0 floor; pages with zero AND/OR matches still render as alert-CTA landings).');
 }
 
 main();
