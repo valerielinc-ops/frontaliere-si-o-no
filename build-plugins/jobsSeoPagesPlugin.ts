@@ -6172,6 +6172,217 @@ ${alternates}
  }
  }
 
+ /* ── Per-canton company hubs (Phase 3.3) ─────────────────────
+  * Additive: for every non-TI canton, for every company with ≥ 3 jobs in
+  * that canton, emit /cerca-lavoro-{cantonSlug}/azienda-{companySlug}/ —
+  * a thin per-canton company hub page (H1, intro, filtered job list,
+  * canonical pointing at itself).
+  *
+  * TI company hubs at /cerca-lavoro-ticino/azienda-{slug}/ stay byte-
+  * identical — handled exclusively by the legacy `for (const [cSlug, ...]
+  * of companyMap)` emit block above. BRAND_CANONICAL_MAP and
+  * EMPLOYER_BRANDS aliasing are NOT touched: TI canonical for a brand
+  * stays the TI URL, and the new per-canton hubs each carry their own
+  * self-canonical `<link rel="canonical">`.
+  *
+  * Rationale for the thin variant (see CLAUDE.md / orchestrator note):
+  * the full TI company-hub template (curated EOC/Lidl prose, founded/size
+  * enrichment, full sector/city chip rows, curated FAQ) is too entangled
+  * with BRAND_CANONICAL_MAP to safely fork per-canton without risking the
+  * TI canonical. The thin variant ships the SEO funnel today; richer
+  * per-canton enrichment can land as a follow-up.
+  */
+ {
+ const MIN_JOBS_PER_CANTON_COMPANY = 3;
+ const COMPANY_CANTON_JOB_CAP = 30;
+ // Bucket (canton, companyCanonicalSlug) → jobs[], with display-name.
+ type CompCanton = { name: string; jobs: typeof validJobs };
+ const cantonCompanyBuckets: Map<string, Map<string, CompCanton>> = new Map();
+ for (const job of validJobs) {
+ const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ if (c === 'TI') continue;
+ const canonical = canonicalCompanySlugBuild(job.company, job.companyKey);
+ if (!canonical) continue;
+ if (!cantonCompanyBuckets.has(c)) cantonCompanyBuckets.set(c, new Map());
+ const byCompany = cantonCompanyBuckets.get(c)!;
+ if (!byCompany.has(canonical)) byCompany.set(canonical, { name: job.company, jobs: [] });
+ byCompany.get(canonical)!.jobs.push(job);
+ }
+ const cantonDisplayLocalComp = (canton: string, locale: typeof localeList[number]): string => {
+ const dn = CANTON_DISPLAY?.[canton];
+ if (dn) return dn;
+ const section = sharedResolveCantonSection(locale, canton);
+ return section.replace(/^(cerca-lavoro-|find-jobs-|jobs-im-|jobs-in-der-|trouver-emploi-)/, '');
+ };
+ const companyCantonSitemapEntries: string[] = [];
+ let companyCantonPagesCount = 0;
+ for (const canton of SHARED_ALL_CANTON_CODES) {
+ if (canton === 'TI') continue;
+ const byCompany = cantonCompanyBuckets.get(canton);
+ if (!byCompany) continue;
+ for (const [cSlug, { name: companyName, jobs: companyJobs }] of byCompany) {
+ if (companyJobs.length < MIN_JOBS_PER_CANTON_COMPANY) continue;
+ const sortedJobs = [...companyJobs].sort((a: any, b: any) => {
+ const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
+ const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
+ if (da !== db) return da - db;
+ return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
+ });
+ const cappedJobs = sortedJobs.slice(0, COMPANY_CANTON_JOB_CAP);
+ for (const locale of localeList) {
+ const __tCompanyCanton = startTimer();
+ const sectionSlug = sharedResolveCantonSection(locale, canton);
+ const prefix = companyRoutePrefix[locale];
+ const fullSlug = `${prefix}-${cSlug}`;
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${fullSlug}`.replace(/\/+/g, '/'));
+ const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+ const cDisplay = cantonDisplayLocalComp(canton, locale);
+ const year = new Date().getFullYear();
+ const pageTitle = buildEmployerHubTitle({
+ locale,
+ companyDisplay: `${companyName} (${cDisplay})`,
+ count: companyJobs.length,
+ year,
+ });
+ const pageDesc = locale === 'it' ? `${companyJobs.length} offerte di lavoro presso ${companyName} in ${cDisplay}. Annunci aggiornati quotidianamente. Candidati come frontaliere o residente.`
+ : locale === 'en' ? `${companyJobs.length} job openings at ${companyName} in ${cDisplay}. Updated daily. Apply as cross-border worker or resident.`
+ : locale === 'de' ? `${companyJobs.length} Stellenangebote bei ${companyName} in ${cDisplay}. Täglich aktualisiert. Bewerben Sie sich als Grenzgänger oder Einwohner.`
+ : `${companyJobs.length} offres d'emploi chez ${companyName} à ${cDisplay}. Mises à jour quotidiennement. Candidatez comme frontalier ou résident.`;
+ const pageHeading = locale === 'it' ? `Offerte di lavoro presso ${companyName} in ${cDisplay}`
+ : locale === 'en' ? `Job openings at ${companyName} in ${cDisplay}`
+ : locale === 'de' ? `Stellenangebote bei ${companyName} in ${cDisplay}`
+ : `Offres d'emploi chez ${companyName} à ${cDisplay}`;
+ const altPairs = localeList.map((al) => {
+ const alSection = sharedResolveCantonSection(al, canton);
+ const alPrefix = companyRoutePrefix[al];
+ const alSlug = `${alPrefix}-${cSlug}`;
+ const alPath = `${localePrefix[al]}/${alSection}/${alSlug}`.replace(/\/+/g, '/');
+ return { lang: al, href: `${BASE_URL}${withSlash(alPath)}` };
+ });
+ const xDefaultHref = altPairs.find((p) => p.lang === 'it')?.href ?? altPairs[0]?.href ?? '';
+ const alternates = [
+ ...altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
+ ...(xDefaultHref ? [` <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`] : []),
+ ].join('\n');
+ const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
+ const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
+ const breadcrumbLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
+ { '@type': 'ListItem', position: 2, name: sectionLabel, item: sectionRootUrl },
+ { '@type': 'ListItem', position: 3, name: pageHeading, item: canonicalUrl },
+ ],
+ });
+ const collectionLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'CollectionPage',
+ name: pageTitle,
+ url: canonicalUrl,
+ description: pageDesc,
+ inLanguage: locale,
+ isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL },
+ });
+ const itemListLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'ItemList',
+ name: pageTitle,
+ numberOfItems: cappedJobs.length,
+ itemListElement: cappedJobs.slice(0, 10).map((job: any, i: number) => ({
+ '@type': 'ListItem',
+ position: i + 1,
+ name: String(job?.titleByLocale?.[locale] || job.title || ''),
+ url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}`,
+ })),
+ });
+ // Light Organization JSON-LD — derived from job data (no curated overlay).
+ const companyLocations = [...new Set(cappedJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
+ const primaryLocation = companyLocations[0] || '';
+ const orgLdObj: Record<string, unknown> = {
+ '@context': 'https://schema.org',
+ '@type': 'Organization',
+ name: companyName,
+ address: {
+ '@type': 'PostalAddress',
+ ...(primaryLocation ? { addressLocality: primaryLocation } : {}),
+ addressRegion: cDisplay,
+ addressCountry: 'CH',
+ },
+ numberOfEmployees: {
+ '@type': 'QuantitativeValue',
+ value: companyJobs.length,
+ unitText: openPositionsUnit[locale],
+ },
+ };
+ const organizationLd = JSON.stringify(orgLdObj);
+ const listHtml = cappedJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
+ const intro = (() => {
+ if (locale === 'it') return `<p>Sono attualmente <strong>${companyJobs.length} le offerte di lavoro</strong> presso ${esc(companyName)} in ${esc(cDisplay)}, distribuite in ${companyLocations.length} ${companyLocations.length === 1 ? 'località' : 'località'}. Gli annunci sono aggiornati quotidianamente dal nostro crawler automatico.</p>`;
+ if (locale === 'en') return `<p>There are currently <strong>${companyJobs.length} job openings</strong> at ${esc(companyName)} in ${esc(cDisplay)}, across ${companyLocations.length} location${companyLocations.length === 1 ? '' : 's'}. Listings are refreshed daily by our automated crawler.</p>`;
+ if (locale === 'de') return `<p>Derzeit sind <strong>${companyJobs.length} Stellenangebote</strong> bei ${esc(companyName)} in ${esc(cDisplay)} verfügbar, an ${companyLocations.length} Standort${companyLocations.length === 1 ? '' : 'en'}. Täglich aktualisiert.</p>`;
+ return `<p>${companyJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles chez ${esc(companyName)} à ${esc(cDisplay)}, sur ${companyLocations.length} site${companyLocations.length === 1 ? '' : 's'}. Mises à jour quotidiennement.</p>`;
+ })();
+ const marketSection = (() => {
+ if (locale === 'it') return `<section style="margin-top:20px"><h2>Lavorare presso ${esc(companyName)} in ${esc(cDisplay)}</h2><p>${esc(companyName)} è una delle aziende che assumono in ${esc(cDisplay)}. Per i lavoratori frontalieri con Permesso G, la Svizzera applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto.</p></section>`;
+ if (locale === 'en') return `<section style="margin-top:20px"><h2>Working at ${esc(companyName)} in ${esc(cDisplay)}</h2><p>${esc(companyName)} is among the hiring companies in ${esc(cDisplay)}. For cross-border workers with a G Permit, Switzerland applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary.</p></section>`;
+ if (locale === 'de') return `<section style="margin-top:20px"><h2>Arbeiten bei ${esc(companyName)} in ${esc(cDisplay)}</h2><p>${esc(companyName)} gehört zu den einstellenden Unternehmen in ${esc(cDisplay)}. Für Grenzgänger mit G-Bewilligung erhebt die Schweiz eine Quellensteuer. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>.</p></section>`;
+ return `<section style="margin-top:20px"><h2>Travailler chez ${esc(companyName)} à ${esc(cDisplay)}</h2><p>${esc(companyName)} fait partie des entreprises qui recrutent à ${esc(cDisplay)}. Pour les frontaliers avec un permis G, la Suisse applique un impôt à la source. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a>.</p></section>`;
+ })();
+ const openAllLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true }))}`;
+ const html = buildSimplePage({
+ locale,
+ title: pageTitle,
+ description: pageDesc,
+ canonicalUrl,
+ ogLocale: localeOg[locale],
+ hreflangHtml: alternates,
+ jsonLdScripts: [breadcrumbLd, collectionLd, itemListLd, organizationLd],
+ entryJs: hasSpaBundle ? entryJs : undefined,
+ entryCss: hasSpaBundle ? entryCss : undefined,
+ bodyHtml,
+ });
+ const COMPANY_CANTON_HARD_BUDGET = 195 * 1024;
+ const htmlBytes = Buffer.byteLength(html, 'utf-8');
+ if (htmlBytes > COMPANY_CANTON_HARD_BUDGET) {
+ throw new Error(
+ `[jobs-seo-pages] Per-canton company hub ${canonicalPath} renders to ` +
+ `${(htmlBytes / 1024).toFixed(1)} KB — exceeds hard budget of ` +
+ `${COMPANY_CANTON_HARD_BUDGET / 1024} KB.`
+ );
+ }
+ const outDir = np.join(distDir, canonicalPath.slice(1));
+ activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
+ _md(outDir);
+ _qw(np.join(outDir, 'index.html'), html);
+ const flatPath = canonicalPath.replace(/\/+$/, '');
+ if (flatPath) { const flatFile = np.join(distDir, flatPath.slice(1) + '.html'); _md(np.dirname(flatFile)); _qwFlat(flatFile, html); }
+ companyCantonPagesCount++;
+ recordEmit('company-canton-hub', __tCompanyCanton);
+ }
+ // Sitemap entry (priority 0.75 mirroring TI company hubs).
+ const itSection = sharedResolveCantonSection('it', canton);
+ const itFullSlug = `${companyRoutePrefix.it}-${cSlug}`;
+ const itPath = `/${itSection}/${itFullSlug}/`.replace(/\/+/g, '/');
+ const smAlternates = localeList.map((l) => {
+ const lSection = sharedResolveCantonSection(l, canton);
+ const lFullSlug = `${companyRoutePrefix[l]}-${cSlug}`;
+ const lp = `${localePrefix[l]}/${lSection}/${lFullSlug}/`.replace(/\/+/g, '/');
+ return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${lp}" />`;
+ }).join('\n');
+ companyCantonSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${smAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.75</priority>\n </url>`);
+ }
+ }
+ if (companyCantonPagesCount > 0) {
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${companyCantonPagesCount} per-canton company hub pages`);
+ const companyCantonEntriesJoined = companyCantonSitemapEntries.join('\n');
+ editorialEntries = editorialEntries
+ ? `${editorialEntries}\n${companyCantonEntriesJoined}`
+ : companyCantonEntriesJoined;
+ }
+ }
+
  /* ── GSC-driven keyword landing pages ──────────────────────── */
  let keywordPageCount = 0;
  const keywordSitemapEntries: string[] = [];

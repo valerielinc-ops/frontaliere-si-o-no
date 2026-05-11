@@ -73,3 +73,67 @@ describe('cathedral — per-canton sector hubs (Phase 3.2)', () => {
     );
   });
 });
+
+/**
+ * Phase 3.3 — per-canton company hubs (additive, thin variant).
+ *
+ * TI canonical for company hubs stays at /cerca-lavoro-ticino/azienda-{slug}/.
+ * The new per-canton hubs each self-canonicalize and serve filtered job
+ * listings for jobs from that company in that specific canton.
+ */
+describe('cathedral — per-canton company hubs (Phase 3.3)', () => {
+  it('per-canton company hubs emit when canton has the company with ≥3 jobs', () => {
+    if (!fs.existsSync(DIST)) return;
+    const nonTiSections = [
+      'cerca-lavoro-zurigo',
+      'cerca-lavoro-ginevra',
+      'cerca-lavoro-vaud',
+      'cerca-lavoro-berna',
+      'cerca-lavoro-argovia',
+      'cerca-lavoro-san-gallo',
+    ];
+    let anyCompanyHub: { section: string; entry: string } | null = null;
+    for (const sec of nonTiSections) {
+      const dir = path.join(DIST, sec);
+      if (!fs.existsSync(dir)) continue;
+      const hit = fs.readdirSync(dir).find((e) => e.startsWith('azienda-'));
+      if (hit) {
+        anyCompanyHub = { section: sec, entry: hit };
+        break;
+      }
+    }
+    expect(anyCompanyHub, 'No per-canton company hub emitted under any sampled non-TI canton').not.toBeNull();
+    if (anyCompanyHub) {
+      const f = path.join(DIST, anyCompanyHub.section, anyCompanyHub.entry, 'index.html');
+      expect(fs.existsSync(f)).toBe(true);
+      const html = fs.readFileSync(f, 'utf-8');
+      expect(html, 'per-canton company hub must self-canonicalize').toMatch(
+        new RegExp(
+          `<link rel="canonical" href="https://frontaliereticino\\.ch/${anyCompanyHub.section}/${anyCompanyHub.entry}/"`,
+        ),
+      );
+    }
+  });
+
+  it('TI company hub at /cerca-lavoro-ticino/azienda-{slug}/ stays intact (byte-identical legacy)', () => {
+    if (!fs.existsSync(DIST)) return;
+    const tiDir = path.join(DIST, 'cerca-lavoro-ticino');
+    if (!fs.existsSync(tiDir)) return;
+    const aziendaEntries = fs.readdirSync(tiDir).filter((e) => e.startsWith('azienda-'));
+    if (aziendaEntries.length === 0) return;
+    // Sample the first one — verify it carries its TI canonical (legacy
+    // semantics: a TI company hub canonical is its own TI URL, unless
+    // BRAND_CANONICAL_MAP redirects it to a sibling — either way Phase 3.3
+    // does not alter the TI emit).
+    const sampled = aziendaEntries[0];
+    const f = path.join(tiDir, sampled, 'index.html');
+    if (!fs.existsSync(f)) return;
+    const html = fs.readFileSync(f, 'utf-8');
+    // TI hub must reference itself somewhere as canonical OR a sibling TI
+    // company hub (BRAND_CANONICAL_MAP rerouting). Either way, never a
+    // non-TI section.
+    expect(html, 'TI legacy company hub canonical must stay under /cerca-lavoro-ticino/').toMatch(
+      /<link rel="canonical" href="https:\/\/frontaliereticino\.ch\/cerca-lavoro-ticino\/azienda-/,
+    );
+  });
+});
