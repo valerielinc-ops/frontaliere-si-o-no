@@ -1,18 +1,55 @@
 {
   "key": "spital-limmattal",
   "label": "Spital Limmattal",
-  "generatedAt": "2026-05-10T22:26:32.754Z",
-  "total": 48,
-  "newCount": 48,
-  "updatedCount": 0,
+  "generatedAt": "2026-05-11T12:32:41.769Z",
+  "total": 49,
+  "newCount": 1,
+  "updatedCount": 48,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 25452,
-  "avgDurationMs": 25452,
+  "durationMs": 25751,
+  "avgDurationMs": 25751,
   "durationHistory": [
-    25452
+    25751
   ],
   "newJobs": [
+    {
+      "id": "spital-limmattal-43d9e6b2c61a",
+      "slug": "pflegehelfer-in-langzeitpflege-f-u00fcr-den-pool-spital-limmattal-ch",
+      "company": "Spital Limmattal",
+      "companyKey": "spital-limmattal",
+      "companyDomain": "spital-limmattal.ch",
+      "title": "Pflegehelfer:in Langzeitpflege f\\u00fcr den Pool",
+      "location": "Schlieren",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/486538/0733/pub/3/index.html",
+      "source": "Spital Limmattal Dedicated Parser (Refline)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-11T12:32:39.205Z",
+      "addressLocality": "Schlieren",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8952",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-11",
+      "applyUrl": "https://apply.refline.ch/486538/0733/pub/3/index.html",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "spital-limmattal-99dc82dcb950",
       "slug": "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-spital-limmattal-ch",
@@ -25,7 +62,7 @@
       "url": "https://apply.refline.ch/486538/0410/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:08.275Z",
+      "crawledAt": "2026-05-11T12:32:17.074Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -40,11 +77,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0410/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:08.275Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -60,7 +98,7 @@
       "url": "https://apply.refline.ch/486538/0484/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:08.761Z",
+      "crawledAt": "2026-05-11T12:32:17.549Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -75,11 +113,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0484/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:08.761Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -95,7 +134,7 @@
       "url": "https://apply.refline.ch/486538/0492/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:09.227Z",
+      "crawledAt": "2026-05-11T12:32:18.002Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -110,11 +149,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0492/pub/3/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:09.227Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -130,7 +170,7 @@
       "url": "https://apply.refline.ch/486538/0549/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:09.700Z",
+      "crawledAt": "2026-05-11T12:32:18.454Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -145,11 +185,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0549/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:09.700Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -165,7 +206,7 @@
       "url": "https://apply.refline.ch/486538/0550/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:10.166Z",
+      "crawledAt": "2026-05-11T12:32:18.908Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -180,11 +221,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0550/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:10.166Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -200,7 +242,7 @@
       "url": "https://apply.refline.ch/486538/0551/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:10.634Z",
+      "crawledAt": "2026-05-11T12:32:19.360Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -215,11 +257,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0551/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:10.634Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -235,7 +278,7 @@
       "url": "https://apply.refline.ch/486538/0604/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:11.101Z",
+      "crawledAt": "2026-05-11T12:32:19.813Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -250,11 +293,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0604/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:11.101Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -270,7 +314,7 @@
       "url": "https://apply.refline.ch/486538/0582/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:11.567Z",
+      "crawledAt": "2026-05-11T12:32:20.278Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -285,11 +329,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0582/pub/3/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:11.567Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -305,7 +350,7 @@
       "url": "https://apply.refline.ch/486538/0377/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:12.031Z",
+      "crawledAt": "2026-05-11T12:32:20.732Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -320,11 +365,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0377/pub/4/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:12.031Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -340,7 +386,7 @@
       "url": "https://apply.refline.ch/486538/0482/pub/7/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:12.498Z",
+      "crawledAt": "2026-05-11T12:32:21.184Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -355,11 +401,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0482/pub/7/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:12.498Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -375,7 +422,7 @@
       "url": "https://apply.refline.ch/486538/0505/pub/7/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:12.962Z",
+      "crawledAt": "2026-05-11T12:32:21.636Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -390,11 +437,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0505/pub/7/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:12.962Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -410,7 +458,7 @@
       "url": "https://apply.refline.ch/486538/0579/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:13.428Z",
+      "crawledAt": "2026-05-11T12:32:22.089Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -428,11 +476,12 @@
       "pensumMin": 40,
       "pensumMax": 70,
       "pensum": "40 - 70%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:13.428Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -448,7 +497,7 @@
       "url": "https://apply.refline.ch/486538/0650/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:13.894Z",
+      "crawledAt": "2026-05-11T12:32:22.542Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -463,11 +512,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0650/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:13.894Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -483,7 +533,7 @@
       "url": "https://apply.refline.ch/486538/0661/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:14.358Z",
+      "crawledAt": "2026-05-11T12:32:22.994Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -498,11 +548,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0661/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:14.358Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -518,7 +569,7 @@
       "url": "https://apply.refline.ch/486538/0662/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:14.823Z",
+      "crawledAt": "2026-05-11T12:32:23.449Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -533,11 +584,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0662/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:14.823Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -553,7 +605,7 @@
       "url": "https://apply.refline.ch/486538/0664/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:15.288Z",
+      "crawledAt": "2026-05-11T12:32:23.903Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -568,11 +620,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0664/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:15.288Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -588,7 +641,7 @@
       "url": "https://apply.refline.ch/486538/0665/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:15.751Z",
+      "crawledAt": "2026-05-11T12:32:24.354Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -603,11 +656,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0665/pub/2/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:15.751Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -623,7 +677,7 @@
       "url": "https://apply.refline.ch/486538/0307/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:16.215Z",
+      "crawledAt": "2026-05-11T12:32:24.808Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -638,11 +692,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0307/pub/4/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:16.215Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -658,7 +713,7 @@
       "url": "https://apply.refline.ch/486538/0694/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:16.680Z",
+      "crawledAt": "2026-05-11T12:32:25.264Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -673,11 +728,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0694/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:16.680Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -693,7 +749,7 @@
       "url": "https://apply.refline.ch/486538/0710/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:17.143Z",
+      "crawledAt": "2026-05-11T12:32:25.719Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -708,11 +764,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0710/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:17.143Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -728,7 +785,7 @@
       "url": "https://apply.refline.ch/486538/0711/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:17.608Z",
+      "crawledAt": "2026-05-11T12:32:26.177Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -743,11 +800,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0711/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:17.608Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -763,7 +821,7 @@
       "url": "https://apply.refline.ch/486538/0708/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:18.073Z",
+      "crawledAt": "2026-05-11T12:32:26.635Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -781,11 +839,12 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:18.073Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -801,7 +860,7 @@
       "url": "https://apply.refline.ch/486538/0624/pub/4/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:18.538Z",
+      "crawledAt": "2026-05-11T12:32:27.087Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -816,11 +875,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0624/pub/4/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:18.538Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -836,7 +896,7 @@
       "url": "https://apply.refline.ch/486538/0676/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:19.002Z",
+      "crawledAt": "2026-05-11T12:32:27.540Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -851,11 +911,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0676/pub/3/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:19.002Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -871,7 +932,7 @@
       "url": "https://apply.refline.ch/486538/0719/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:19.466Z",
+      "crawledAt": "2026-05-11T12:32:27.993Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -886,11 +947,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0719/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:19.466Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -906,7 +968,7 @@
       "url": "https://apply.refline.ch/486538/0732/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:19.933Z",
+      "crawledAt": "2026-05-11T12:32:28.658Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -921,11 +983,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0732/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:19.933Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -941,7 +1004,7 @@
       "url": "https://apply.refline.ch/486538/0737/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:20.399Z",
+      "crawledAt": "2026-05-11T12:32:29.139Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -956,11 +1019,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0737/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:20.399Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -976,7 +1040,7 @@
       "url": "https://apply.refline.ch/486538/0738/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:20.864Z",
+      "crawledAt": "2026-05-11T12:32:29.593Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -991,11 +1055,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0738/pub/1/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:20.864Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1011,7 +1076,7 @@
       "url": "https://apply.refline.ch/486538/0552/pub/2/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:21.329Z",
+      "crawledAt": "2026-05-11T12:32:30.047Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1026,11 +1091,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0552/pub/2/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:21.329Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1046,7 +1112,7 @@
       "url": "https://apply.refline.ch/486538/0627/pub/3/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T22:26:21.796Z",
+      "crawledAt": "2026-05-11T12:32:30.498Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1061,16 +1127,16 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://apply.refline.ch/486538/0627/pub/3/index.html",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-10T22:26:21.796Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
