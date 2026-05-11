@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tether",
-  "assembledAt": "2026-05-10T22:35:00.394Z",
+  "assembledAt": "2026-05-11T12:41:16.884Z",
   "jobs": [
     {
       "id": "tether-163fdd7ecddc",
@@ -33,7 +33,7 @@
       "url": "https://tether.recruitee.com/o/software-engineer-mobile-development-crypto-wallets-100-remote-2-sw",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.975Z",
+      "crawledAt": "2026-05-11T12:41:13.906Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -89,6 +89,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:32:40.218Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -133,7 +134,7 @@
       "url": "https://tether.recruitee.com/o/lead-software-engineer-mobile-development-crypto-wallets-100-remote-sw",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.957Z",
+      "crawledAt": "2026-05-11T12:41:13.888Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -195,6 +196,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:32:40.218Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -239,7 +241,7 @@
       "url": "https://tether.recruitee.com/o/vendor-procurement-manager-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.948Z",
+      "crawledAt": "2026-05-11T12:41:13.880Z",
       "addressLocality": "Madrid",
       "addressRegion": "Comunidad de Madrid",
       "addressCountry": "",
@@ -313,7 +315,7 @@
       "url": "https://tether.recruitee.com/o/research-engineer-intern-videomultimodal-llm-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.942Z",
+      "crawledAt": "2026-05-11T12:41:13.873Z",
       "addressLocality": "Roma",
       "addressRegion": "Lazio",
       "addressCountry": "",
@@ -391,7 +393,7 @@
       "url": "https://tether.recruitee.com/o/account-manager-100-remote-poland",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.932Z",
+      "crawledAt": "2026-05-11T12:41:13.864Z",
       "addressLocality": "Warsaw",
       "addressRegion": "Mazowieckie",
       "addressCountry": "",
@@ -428,9 +430,9 @@
     },
     {
       "id": "tether-ef6d0a66588e",
-      "slug": "solutions-partner-manager-100-remoto-tether-operations-london",
+      "slug": "soluzioni-partner-manager-100-a-distanza-tether-operations-london",
       "slugByLocale": {
-        "it": "solutions-partner-manager-100-remoto-tether-operations-london",
+        "it": "soluzioni-partner-manager-100-a-distanza-tether-operations-london",
         "en": "solutions-partner-manager-100-remote-tether-ch",
         "de": "solutions-partner-manager-100-remote-tether-ch-5",
         "fr": "gestionnaire-de-partenaires-de-solutions-100-a-distance-tether-operations-london"
@@ -457,7 +459,7 @@
       "url": "https://tether.recruitee.com/o/solutions-partner-manager-100-remote-2-uk",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.919Z",
+      "crawledAt": "2026-05-11T12:41:13.851Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -477,6 +479,14 @@
       "department": "Data",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "solutions-partner-manager-100-remoto-tether-operations-london"
+        ]
+      },
+      "previousSlugs": [
+        "solutions-partner-manager-100-remoto-tether-operations-london"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.645Z",
       "salaryMin": 68000,
@@ -523,7 +533,7 @@
       "url": "https://tether.recruitee.com/o/ai-filmmaker-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.909Z",
+      "crawledAt": "2026-05-11T12:41:13.841Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -575,6 +585,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:32:40.218Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -619,7 +630,7 @@
       "url": "https://tether.recruitee.com/o/social-media-manager-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.840Z",
+      "crawledAt": "2026-05-11T12:41:13.773Z",
       "addressLocality": "Lisbon",
       "addressRegion": "Lisboa",
       "addressCountry": "",
@@ -685,7 +696,7 @@
       "url": "https://tether.recruitee.com/o/marketing-project-manager-100-remote-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.831Z",
+      "crawledAt": "2026-05-11T12:41:13.763Z",
       "addressLocality": "Lisbon",
       "addressRegion": "Lisboa",
       "addressCountry": "",
@@ -751,7 +762,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-pre-training-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.821Z",
+      "crawledAt": "2026-05-11T12:41:13.753Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -814,6 +825,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:32:40.218Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -858,7 +870,7 @@
       "url": "https://tether.recruitee.com/o/account-and-project-manager-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.752Z",
+      "crawledAt": "2026-05-11T12:41:13.685Z",
       "addressLocality": "Madrid",
       "addressRegion": "Comunidad de Madrid",
       "addressCountry": "",
@@ -924,7 +936,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-pre-training-100-remote-sf",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.728Z",
+      "crawledAt": "2026-05-11T12:41:13.661Z",
       "addressLocality": "San Francisco",
       "addressRegion": "California",
       "addressCountry": "",
@@ -990,7 +1002,7 @@
       "url": "https://tether.recruitee.com/o/senior-blockchain-expansion-manager-100-remote-2",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.714Z",
+      "crawledAt": "2026-05-11T12:41:13.648Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1063,7 +1075,7 @@
       "url": "https://tether.recruitee.com/o/backend-engineer-wallets-100-remote-22",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.693Z",
+      "crawledAt": "2026-05-11T12:41:13.627Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1094,6 +1106,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:32:40.218Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1138,7 +1151,7 @@
       "url": "https://tether.recruitee.com/o/senior-frontend-developer-100-remote-argentina",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.669Z",
+      "crawledAt": "2026-05-11T12:41:13.602Z",
       "addressLocality": "Buenos Aires",
       "addressRegion": "Buenos Aires",
       "addressCountry": "",
@@ -1158,14 +1171,14 @@
       "department": "Data",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-frontend-developer-100-remoto-tether-operations-buenos-aires"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-frontend-developer-100-remoto-tether-operations-buenos-aires"
         ]
       },
-      "previousSlugs": [
-        "senior-frontend-developer-100-remoto-tether-operations-buenos-aires"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.398Z",
       "salaryMin": 79500,
@@ -1212,7 +1225,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-and-licensing-middle-east-4",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.656Z",
+      "crawledAt": "2026-05-11T12:41:13.589Z",
       "addressLocality": "Riyadh",
       "addressRegion": "Mecca Province",
       "addressCountry": "",
@@ -1232,14 +1245,14 @@
       "department": "Regulatory Affairs and Licensing",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "capo-degli-affari-regolatori-e-del-licensing-medio-oriente-tether-operations-riyadh"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "capo-degli-affari-regolatori-e-del-licensing-medio-oriente-tether-operations-riyadh"
         ]
       },
-      "previousSlugs": [
-        "capo-degli-affari-regolatori-e-del-licensing-medio-oriente-tether-operations-riyadh"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.385Z",
       "salaryMin": 68000,
@@ -1286,7 +1299,7 @@
       "url": "https://tether.recruitee.com/o/head-of-licensing-and-regulatory-authorisations-8",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.631Z",
+      "crawledAt": "2026-05-11T12:41:13.565Z",
       "addressLocality": "Abu Dhabi",
       "addressRegion": "Abu Dhabi",
       "addressCountry": "",
@@ -1306,14 +1319,14 @@
       "department": "Regulatory Affairs and Licensing",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "responsabile-licenze-e-autorizzazioni-regolamentari-tether-operations-abu-dhabi"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-licenze-e-autorizzazioni-regolamentari-tether-operations-abu-dhabi"
         ]
       },
-      "previousSlugs": [
-        "responsabile-licenze-e-autorizzazioni-regolamentari-tether-operations-abu-dhabi"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.361Z",
       "salaryMin": 68000,
@@ -1360,7 +1373,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-expertise-in-ai-governance-ai-policy-global-exposure-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.628Z",
+      "crawledAt": "2026-05-11T12:41:13.561Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1439,7 +1452,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-ai-and-p2p-100-remote-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.622Z",
+      "crawledAt": "2026-05-11T12:41:13.556Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -1459,14 +1472,14 @@
       "department": "Regulatory Affairs and Licensing",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "capo-degli-affari-regolatori-ai-e-p2p-100-a-distanza-tether-operations-london"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "capo-degli-affari-regolatori-ai-e-p2p-100-a-distanza-tether-operations-london"
         ]
       },
-      "previousSlugs": [
-        "capo-degli-affari-regolatori-ai-e-p2p-100-a-distanza-tether-operations-london"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.351Z",
       "salaryMin": 68000,
@@ -1513,7 +1526,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-lead-argentina",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.615Z",
+      "crawledAt": "2026-05-11T12:41:13.549Z",
       "addressLocality": "Buenos Aires",
       "addressRegion": "Buenos Aires",
       "addressCountry": "",
@@ -1579,7 +1592,7 @@
       "url": "https://tether.recruitee.com/o/technical-product-manager-qvac-100-remote-sw",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.601Z",
+      "crawledAt": "2026-05-11T12:41:13.534Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1652,7 +1665,7 @@
       "url": "https://tether.recruitee.com/o/developer-relations-switzerland",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.574Z",
+      "crawledAt": "2026-05-11T12:41:13.508Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1729,7 +1742,7 @@
       "url": "https://tether.recruitee.com/o/developer-relations-p2p-brazil",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.518Z",
+      "crawledAt": "2026-05-11T12:41:13.450Z",
       "addressLocality": "Sao Paulo",
       "addressRegion": "São Paulo",
       "addressCountry": "",
@@ -1749,14 +1762,14 @@
       "department": "Operations",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sviluppatore-relazioni-p2p-100-remoto-tether-operations-sao-paulo"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sviluppatore-relazioni-p2p-100-remoto-tether-operations-sao-paulo"
         ]
       },
-      "previousSlugs": [
-        "sviluppatore-relazioni-p2p-100-remoto-tether-operations-sao-paulo"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.248Z",
       "salaryMin": 51500,
@@ -1803,7 +1816,7 @@
       "url": "https://tether.recruitee.com/o/senior-manager-asset-management-reporting-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.514Z",
+      "crawledAt": "2026-05-11T12:41:13.446Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1876,7 +1889,7 @@
       "url": "https://tether.recruitee.com/o/associate-senior-associate-reporting-skills-asset-management",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.504Z",
+      "crawledAt": "2026-05-11T12:41:13.437Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -1896,6 +1909,14 @@
       "department": "Investment",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "associate-senior-associate-reporting-skills-asset-management-tether-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-senior-associate-reporting-skills-asset-management-tether-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.235Z",
       "salaryMin": 68000,
@@ -1909,15 +1930,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "associate-senior-associate-reporting-skills-asset-management-tether-ch"
-        ]
-      },
-      "previousSlugs": [
-        "associate-senior-associate-reporting-skills-asset-management-tether-ch"
-      ]
+      }
     },
     {
       "id": "tether-896f76244aad",
@@ -1950,7 +1963,7 @@
       "url": "https://tether.recruitee.com/o/ai-product-manager-100-remote-5",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.481Z",
+      "crawledAt": "2026-05-11T12:41:13.415Z",
       "addressLocality": "Delhi",
       "addressRegion": "Delhi",
       "addressCountry": "",
@@ -2016,7 +2029,7 @@
       "url": "https://tether.recruitee.com/o/technical-product-manager-hadron-100-remote-11",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.453Z",
+      "crawledAt": "2026-05-11T12:41:13.388Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2081,7 +2094,7 @@
       "url": "https://tether.recruitee.com/o/senior-frontend-developer-kyc-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.432Z",
+      "crawledAt": "2026-05-11T12:41:13.367Z",
       "addressLocality": "Amsterdam",
       "addressRegion": "Noord-Holland",
       "addressCountry": "",
@@ -2147,7 +2160,7 @@
       "url": "https://tether.recruitee.com/o/backend-engineer-wallets-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.428Z",
+      "crawledAt": "2026-05-11T12:41:13.364Z",
       "addressLocality": "Abu Dhabi",
       "addressRegion": "Abu Dhabi",
       "addressCountry": "",
@@ -2167,14 +2180,14 @@
       "department": "",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "backend-engineer-portafogli-100-remoto-in-tutto-il-mondo-tether-operations-abu-dhabi"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "backend-engineer-portafogli-100-remoto-in-tutto-il-mondo-tether-operations-abu-dhabi"
         ]
       },
-      "previousSlugs": [
-        "backend-engineer-portafogli-100-remoto-in-tutto-il-mondo-tether-operations-abu-dhabi"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.157Z",
       "salaryMin": 49500,
@@ -2221,7 +2234,7 @@
       "url": "https://tether.recruitee.com/o/technical-lead-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.425Z",
+      "crawledAt": "2026-05-11T12:41:13.360Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -2287,7 +2300,7 @@
       "url": "https://tether.recruitee.com/o/lead-software-engineer-mobile-development-crypto-wallets-100-remote-world",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.422Z",
+      "crawledAt": "2026-05-11T12:41:13.357Z",
       "addressLocality": "Islamabad",
       "addressRegion": "Islamabad",
       "addressCountry": "",
@@ -2307,14 +2320,14 @@
       "department": "Data",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "lead-software-engineer-sviluppo-mobile-crypto-wallets-100-remoto-a-livello-mondiale-tether-operations-islamabad"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lead-software-engineer-sviluppo-mobile-crypto-wallets-100-remoto-a-livello-mondiale-tether-operations-islamabad"
         ]
       },
-      "previousSlugs": [
-        "lead-software-engineer-sviluppo-mobile-crypto-wallets-100-remoto-a-livello-mondiale-tether-operations-islamabad"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.151Z",
       "salaryMin": 68000,
@@ -2361,7 +2374,7 @@
       "url": "https://tether.recruitee.com/o/react-native-developer-wallet-team-100-remote-world",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.418Z",
+      "crawledAt": "2026-05-11T12:41:13.354Z",
       "addressLocality": "Delhi",
       "addressRegion": "Delhi",
       "addressCountry": "",
@@ -2381,14 +2394,14 @@
       "department": "Data",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "react-native-developer-wallet-team-100-remoto-in-tutto-il-mondo-tether-operations-delhi"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "react-native-developer-wallet-team-100-remoto-in-tutto-il-mondo-tether-operations-delhi"
         ]
       },
-      "previousSlugs": [
-        "react-native-developer-wallet-team-100-remoto-in-tutto-il-mondo-tether-operations-delhi"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.147Z",
       "salaryMin": 51500,
@@ -2435,7 +2448,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-pre-training-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.415Z",
+      "crawledAt": "2026-05-11T12:41:13.350Z",
       "addressLocality": "Sao Paulo",
       "addressRegion": "São Paulo",
       "addressCountry": "",
@@ -2455,14 +2468,14 @@
       "department": "Data",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "ai-research-engineer-pre-training-100-remoto-in-tutto-il-mondo-tether-operations-sao-paulo"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ai-research-engineer-pre-training-100-remoto-in-tutto-il-mondo-tether-operations-sao-paulo"
         ]
       },
-      "previousSlugs": [
-        "ai-research-engineer-pre-training-100-remoto-in-tutto-il-mondo-tether-operations-sao-paulo"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.144Z",
       "salaryMin": 49500,
@@ -2509,7 +2522,7 @@
       "url": "https://tether.recruitee.com/o/technical-product-manager-hadron-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.412Z",
+      "crawledAt": "2026-05-11T12:41:13.347Z",
       "addressLocality": "Islamabad",
       "addressRegion": "Islamabad",
       "addressCountry": "",
@@ -2575,7 +2588,7 @@
       "url": "https://tether.recruitee.com/o/senior-backend-developer-nodejs-worldwilde",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.408Z",
+      "crawledAt": "2026-05-11T12:41:13.343Z",
       "addressLocality": "Bucharest",
       "addressRegion": "București",
       "addressCountry": "",
@@ -2595,14 +2608,14 @@
       "department": "Development",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-backend-developer-100-remoto-a-livello-mondiale-tether-operations-bucharest"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-backend-developer-100-remoto-a-livello-mondiale-tether-operations-bucharest"
         ]
       },
-      "previousSlugs": [
-        "senior-backend-developer-100-remoto-a-livello-mondiale-tether-operations-bucharest"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.137Z",
       "salaryMin": 79500,
@@ -2649,7 +2662,7 @@
       "url": "https://tether.recruitee.com/o/technical-product-manager-qvac-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.405Z",
+      "crawledAt": "2026-05-11T12:41:13.340Z",
       "addressLocality": "Dubai",
       "addressRegion": "Dubai",
       "addressCountry": "",
@@ -2669,6 +2682,14 @@
       "department": "Product​",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "technical-product-manager-qvac-100-remoto-a-livello-mondiale-tether-operations-dubai"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-manager-qvac-100-remoto-a-livello-mondiale-tether-operations-dubai"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.134Z",
       "salaryMin": 68000,
@@ -2682,15 +2703,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "technical-product-manager-qvac-100-remoto-a-livello-mondiale-tether-operations-dubai"
-        ]
-      },
-      "previousSlugs": [
-        "technical-product-manager-qvac-100-remoto-a-livello-mondiale-tether-operations-dubai"
-      ]
+      }
     },
     {
       "id": "tether-341b15777e8c",
@@ -2723,7 +2736,7 @@
       "url": "https://tether.recruitee.com/o/developer-relations-ai-worldwilde",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.401Z",
+      "crawledAt": "2026-05-11T12:41:13.337Z",
       "addressLocality": "Cairo",
       "addressRegion": "Al Qalyūbīyah",
       "addressCountry": "",
@@ -2743,14 +2756,14 @@
       "department": "",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sviluppatore-relazioni-ai-100-remoto-in-tutto-il-mondo-tether-operations-cairo"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sviluppatore-relazioni-ai-100-remoto-in-tutto-il-mondo-tether-operations-cairo"
         ]
       },
-      "previousSlugs": [
-        "sviluppatore-relazioni-ai-100-remoto-in-tutto-il-mondo-tether-operations-cairo"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.130Z",
       "salaryMin": 51500,
@@ -2797,7 +2810,7 @@
       "url": "https://tether.recruitee.com/o/senior-fullstack-developer-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.397Z",
+      "crawledAt": "2026-05-11T12:41:13.333Z",
       "addressLocality": "Roma",
       "addressRegion": "Lazio",
       "addressCountry": "",
@@ -2817,8 +2830,9 @@
       "department": "Data",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:59:12.126Z",
+      "previousSlugs": [
+        "senior-fullstack-developer-100-remote-worldwide-tether-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-fullstack-developer-100-remote-worldwide-tether-ch"
@@ -2830,9 +2844,8 @@
           "senior-fullstack-developer-100-remote-worldwide-tether-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-fullstack-developer-100-remote-worldwide-tether-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:59:12.126Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -2877,7 +2890,7 @@
       "url": "https://tether.recruitee.com/o/developer-relations-p2p-worldwilde",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.394Z",
+      "crawledAt": "2026-05-11T12:41:13.330Z",
       "addressLocality": "Amsterdam",
       "addressRegion": "Noord-Holland",
       "addressCountry": "",
@@ -2897,14 +2910,14 @@
       "department": "",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "sviluppatore-relazioni-p2p-100-remoto-in-tutto-il-mondo-tether-operations-amsterdam"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sviluppatore-relazioni-p2p-100-remoto-in-tutto-il-mondo-tether-operations-amsterdam"
         ]
       },
-      "previousSlugs": [
-        "sviluppatore-relazioni-p2p-100-remoto-in-tutto-il-mondo-tether-operations-amsterdam"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.123Z",
       "salaryMin": 51500,
@@ -2951,7 +2964,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-southern-africa-lead-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.390Z",
+      "crawledAt": "2026-05-11T12:41:13.326Z",
       "addressLocality": "Cape Town",
       "addressRegion": "Western Cape",
       "addressCountry": "",
@@ -2971,6 +2984,14 @@
       "department": "Regulatory Affairs and Licensing",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "affari-regolatori-e-licenze-responsabile-dell-africa-australe-100-da-remoto-tether-operations-cape-town"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "affari-regolatori-e-licenze-responsabile-dell-africa-australe-100-da-remoto-tether-operations-cape-town"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.119Z",
       "salaryMin": 68000,
@@ -2984,15 +3005,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "affari-regolatori-e-licenze-responsabile-dell-africa-australe-100-da-remoto-tether-operations-cape-town"
-        ]
-      },
-      "previousSlugs": [
-        "affari-regolatori-e-licenze-responsabile-dell-africa-australe-100-da-remoto-tether-operations-cape-town"
-      ]
+      }
     },
     {
       "id": "tether-2f8011d6a6a4",
@@ -3025,7 +3038,7 @@
       "url": "https://tether.recruitee.com/o/ai-filmmaker-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.387Z",
+      "crawledAt": "2026-05-11T12:41:13.322Z",
       "addressLocality": "Buenos Aires",
       "addressRegion": "Buenos Aires",
       "addressCountry": "",
@@ -3091,7 +3104,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-reinforcement-learning-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.384Z",
+      "crawledAt": "2026-05-11T12:41:13.319Z",
       "addressLocality": "Roma",
       "addressRegion": "Lazio",
       "addressCountry": "",
@@ -3111,14 +3124,14 @@
       "department": "Data",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "ai-research-engineer-reinforcement-learning-100-remoto-in-tutto-il-mondo-tether-operations-milan"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ai-research-engineer-reinforcement-learning-100-remoto-in-tutto-il-mondo-tether-operations-milan"
         ]
       },
-      "previousSlugs": [
-        "ai-research-engineer-reinforcement-learning-100-remoto-in-tutto-il-mondo-tether-operations-milan"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.113Z",
       "salaryMin": 49500,
@@ -3165,7 +3178,7 @@
       "url": "https://tether.recruitee.com/o/ai-inference-engineer-qvac-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.380Z",
+      "crawledAt": "2026-05-11T12:41:13.316Z",
       "addressLocality": "Bogotá",
       "addressRegion": "Distrito Capital de Bogotá",
       "addressCountry": "",
@@ -3185,14 +3198,14 @@
       "department": "Data",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "ingegnere-di-inferenza-ai-qvac-100-remoto-in-tutto-il-mondo-tether-operations-bogota"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ingegnere-di-inferenza-ai-qvac-100-remoto-in-tutto-il-mondo-tether-operations-bogota"
         ]
       },
-      "previousSlugs": [
-        "ingegnere-di-inferenza-ai-qvac-100-remoto-in-tutto-il-mondo-tether-operations-bogota"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.109Z",
       "salaryMin": 49500,
@@ -3239,7 +3252,7 @@
       "url": "https://tether.recruitee.com/o/machine-learning-engineer-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.377Z",
+      "crawledAt": "2026-05-11T12:41:13.313Z",
       "addressLocality": "Roma",
       "addressRegion": "Lazio",
       "addressCountry": "",
@@ -3259,14 +3272,14 @@
       "department": "Tether Evo",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "ingegnere-di-machine-learning-100-remoto-a-livello-mondiale-tether-operations-milan"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ingegnere-di-machine-learning-100-remoto-a-livello-mondiale-tether-operations-milan"
         ]
       },
-      "previousSlugs": [
-        "ingegnere-di-machine-learning-100-remoto-a-livello-mondiale-tether-operations-milan"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:12.106Z",
       "salaryMin": 49500,
@@ -3313,7 +3326,7 @@
       "url": "https://tether.recruitee.com/o/senior-backend-developer-switzerland",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.332Z",
+      "crawledAt": "2026-05-11T12:41:13.267Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3386,7 +3399,7 @@
       "url": "https://tether.recruitee.com/o/social-media-manager-aitech-100-remote-13",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.311Z",
+      "crawledAt": "2026-05-11T12:41:13.246Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3459,7 +3472,7 @@
       "url": "https://tether.recruitee.com/o/technical-lead-100-remote-19",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.262Z",
+      "crawledAt": "2026-05-11T12:41:13.198Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3561,7 +3574,7 @@
       "url": "https://tether.recruitee.com/o/investment-associate-rise-fund-100-remote-4",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.210Z",
+      "crawledAt": "2026-05-11T12:41:13.146Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3638,7 +3651,7 @@
       "url": "https://tether.recruitee.com/o/compliance-governance-analyst-100-remote-9",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.204Z",
+      "crawledAt": "2026-05-11T12:41:13.140Z",
       "addressLocality": "Sofia",
       "addressRegion": "Sofia",
       "addressCountry": "",
@@ -3658,14 +3671,14 @@
       "department": "Compliance",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "analista-di-governance-di-conformita-100-a-distanza-tether-operations-sofia"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "analista-di-governance-di-conformita-100-a-distanza-tether-operations-sofia"
         ]
       },
-      "previousSlugs": [
-        "analista-di-governance-di-conformita-100-a-distanza-tether-operations-sofia"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:11.935Z",
       "salaryMin": 49500,
@@ -3683,9 +3696,9 @@
     },
     {
       "id": "tether-7532bc3dd5cb",
-      "slug": "responsabile-del-programma-associato-100-remoto-in-tutto-il-mondo-tether-operations-milan",
+      "slug": "program-manager-associato-100-remote-worldwide-tether-operations-roma",
       "slugByLocale": {
-        "it": "responsabile-del-programma-associato-100-remoto-in-tutto-il-mondo-tether-operations-milan",
+        "it": "program-manager-associato-100-remote-worldwide-tether-operations-roma",
         "en": "program-manager-associate-100-remote-worldwide-tether-ch",
         "de": "program-manager-associate-weltweit-zu-100-remote-tether-operations-milan",
         "fr": "responsable-de-programme-associe-100-teletravail-mondial-tether-operations-milan"
@@ -3712,7 +3725,7 @@
       "url": "https://tether.recruitee.com/o/program-manager-associate-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.201Z",
+      "crawledAt": "2026-05-11T12:41:13.137Z",
       "addressLocality": "Roma",
       "addressRegion": "Lazio",
       "addressCountry": "",
@@ -3732,6 +3745,14 @@
       "department": "Data",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-del-programma-associato-100-remoto-in-tutto-il-mondo-tether-operations-milan"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-del-programma-associato-100-remoto-in-tutto-il-mondo-tether-operations-milan"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:11.931Z",
       "salaryMin": 68000,
@@ -3778,7 +3799,7 @@
       "url": "https://tether.recruitee.com/o/machine-learning-engineer-intern",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.198Z",
+      "crawledAt": "2026-05-11T12:41:13.134Z",
       "addressLocality": "Rio de Janeiro",
       "addressRegion": "Rio de Janeiro",
       "addressCountry": "",
@@ -3798,14 +3819,14 @@
       "department": "Tether Evo",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "ingegnere-di-apprendimento-automatico-interno-100-remoto-in-tutto-il-mondo-tether-operations-rio-de-janeiro"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ingegnere-di-apprendimento-automatico-interno-100-remoto-in-tutto-il-mondo-tether-operations-rio-de-janeiro"
         ]
       },
-      "previousSlugs": [
-        "ingegnere-di-apprendimento-automatico-interno-100-remoto-in-tutto-il-mondo-tether-operations-rio-de-janeiro"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:11.928Z",
       "salaryMin": 41600,
@@ -3852,7 +3873,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-japan-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.194Z",
+      "crawledAt": "2026-05-11T12:41:13.131Z",
       "addressLocality": "Osaka",
       "addressRegion": "Osaka",
       "addressCountry": "",
@@ -3872,14 +3893,14 @@
       "department": "Regulatory Affairs and Licensing",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "capo-degli-affari-regolatori-giappone-tether-operations-osaka"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "capo-degli-affari-regolatori-giappone-tether-operations-osaka"
         ]
       },
-      "previousSlugs": [
-        "capo-degli-affari-regolatori-giappone-tether-operations-osaka"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:11.925Z",
       "salaryMin": 68000,
@@ -3926,7 +3947,7 @@
       "url": "https://tether.recruitee.com/o/technical-project-manager-qvac-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.191Z",
+      "crawledAt": "2026-05-11T12:41:13.127Z",
       "addressLocality": "Warsaw",
       "addressRegion": "Mazowieckie",
       "addressCountry": "",
@@ -3992,7 +4013,7 @@
       "url": "https://tether.recruitee.com/o/machine-learning-engineer-intern-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.164Z",
+      "crawledAt": "2026-05-11T12:41:13.100Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -4066,7 +4087,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.128Z",
+      "crawledAt": "2026-05-11T12:41:13.065Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -4153,7 +4174,7 @@
       "url": "https://tether.recruitee.com/o/technical-project-manager-qvac-100-remote-swiss",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.107Z",
+      "crawledAt": "2026-05-11T12:41:13.045Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -4226,7 +4247,7 @@
       "url": "https://tether.recruitee.com/o/engagement-manager-100-remote-6",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.080Z",
+      "crawledAt": "2026-05-11T12:41:13.025Z",
       "addressLocality": "Budapest",
       "addressRegion": "Budapest",
       "addressCountry": "",
@@ -4246,6 +4267,14 @@
       "department": "Expansion",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "engagement-manager-100-remote-tether-ch-6"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "engagement-manager-100-remote-tether-ch-6"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:11.814Z",
       "salaryMin": 68000,
@@ -4259,15 +4288,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "engagement-manager-100-remote-tether-ch-6"
-        ]
-      },
-      "previousSlugs": [
-        "engagement-manager-100-remote-tether-ch-6"
-      ]
+      }
     },
     {
       "id": "tether-c8df8efa66e7",
@@ -4300,7 +4321,7 @@
       "url": "https://tether.recruitee.com/o/developer-advocate-p2p-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.076Z",
+      "crawledAt": "2026-05-11T12:41:13.021Z",
       "addressLocality": "Amsterdam",
       "addressRegion": "Noord-Holland",
       "addressCountry": "",
@@ -4320,8 +4341,9 @@
       "department": "Development",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:59:11.810Z",
+      "previousSlugs": [
+        "developer-advocate-p2p-100-remote-worldwide-tether-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "developer-advocate-p2p-100-remote-worldwide-tether-ch"
@@ -4333,9 +4355,8 @@
           "developer-advocate-p2p-100-remote-worldwide-tether-ch"
         ]
       },
-      "previousSlugs": [
-        "developer-advocate-p2p-100-remote-worldwide-tether-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:59:11.810Z",
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -4380,7 +4401,7 @@
       "url": "https://tether.recruitee.com/o/economic-policy-analyst-100-remote-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.062Z",
+      "crawledAt": "2026-05-11T12:41:13.007Z",
       "addressLocality": "Brussels",
       "addressRegion": "Brussels",
       "addressCountry": "",
@@ -4400,8 +4421,9 @@
       "department": "Economics",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:59:11.797Z",
+      "previousSlugs": [
+        "economic-policy-analyst-100-remote-tether-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "economic-policy-analyst-100-remote-tether-ch"
@@ -4410,9 +4432,8 @@
           "economic-policy-analyst-100-remote-tether-ch"
         ]
       },
-      "previousSlugs": [
-        "economic-policy-analyst-100-remote-tether-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:59:11.797Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4457,7 +4478,7 @@
       "url": "https://tether.recruitee.com/o/research-analyst-100-remote-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.055Z",
+      "crawledAt": "2026-05-11T12:41:13.000Z",
       "addressLocality": "Roma",
       "addressRegion": "Lazio",
       "addressCountry": "",
@@ -4484,10 +4505,10 @@
         "it": [
           "stablecoin-research-analyst-100-remote-tether-ch"
         ],
-        "fr": [
+        "de": [
           "stablecoin-research-analyst-100-remote-tether-ch"
         ],
-        "de": [
+        "fr": [
           "stablecoin-research-analyst-100-remote-tether-ch"
         ]
       },
@@ -4508,9 +4529,9 @@
     },
     {
       "id": "tether-626b0d80c219",
-      "slug": "expansion-manager-tokenization-100-remote-tether-ch",
+      "slug": "expansion-manager-tokenization-100-remoto-tether-operations-hong-kong",
       "slugByLocale": {
-        "it": "expansion-manager-tokenization-100-remote-tether-ch",
+        "it": "expansion-manager-tokenization-100-remoto-tether-operations-hong-kong",
         "en": "expansion-manager-tokenization-100-remote-tether-ch",
         "de": "expansion-manager-tokenization-100-remote-tether-ch",
         "fr": "expansion-manager-tokenization-100-remote-tether-ch"
@@ -4537,7 +4558,7 @@
       "url": "https://tether.recruitee.com/o/expansion-manager-tokenization-100-remote-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:56.051Z",
+      "crawledAt": "2026-05-11T12:41:12.996Z",
       "addressLocality": "Hong Kong",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -4559,6 +4580,14 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:11.786Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expansion-manager-tokenization-100-remote-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "expansion-manager-tokenization-100-remote-tether-ch"
+      ],
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4603,7 +4632,7 @@
       "url": "https://tether.recruitee.com/o/data-and-payments-compliance-analyst-100-remote-4",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:53.636Z",
+      "crawledAt": "2026-05-11T12:41:10.527Z",
       "addressLocality": "Santiago de Chile",
       "addressRegion": "Región Metropolitana de Santiago",
       "addressCountry": "",
@@ -4623,8 +4652,9 @@
       "department": "Compliance",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:59:09.148Z",
+      "previousSlugs": [
+        "data-and-payments-compliance-analyst-100-remote-tether-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "data-and-payments-compliance-analyst-100-remote-tether-ch"
@@ -4633,9 +4663,8 @@
           "data-and-payments-compliance-analyst-100-remote-tether-ch"
         ]
       },
-      "previousSlugs": [
-        "data-and-payments-compliance-analyst-100-remote-tether-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:59:09.148Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4680,7 +4709,7 @@
       "url": "https://tether.recruitee.com/o/legal-and-compliance-analyst-100-remote-4",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:52.526Z",
+      "crawledAt": "2026-05-11T12:41:09.407Z",
       "addressLocality": "Brussels",
       "addressRegion": "Brussels",
       "addressCountry": "",
@@ -4700,8 +4729,9 @@
       "department": "Legal",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:59:08.036Z",
+      "previousSlugs": [
+        "sr-legal-and-compliance-analyst-100-remote-tether-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sr-legal-and-compliance-analyst-100-remote-tether-ch"
@@ -4710,9 +4740,8 @@
           "sr-legal-and-compliance-analyst-100-remote-tether-ch"
         ]
       },
-      "previousSlugs": [
-        "sr-legal-and-compliance-analyst-100-remote-tether-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:59:08.036Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4757,7 +4786,7 @@
       "url": "https://tether.recruitee.com/o/staff-nodejs-engineer-100-remote-10",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:50.743Z",
+      "crawledAt": "2026-05-11T12:41:07.897Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4836,7 +4865,7 @@
       "url": "https://tether.recruitee.com/o/jr-legal-compliance-analyst-100-remote-2",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:49.368Z",
+      "crawledAt": "2026-05-11T12:41:06.441Z",
       "addressLocality": "Warsaw",
       "addressRegion": "Mazowieckie",
       "addressCountry": "",
@@ -4856,8 +4885,9 @@
       "department": "Legal",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:59:05.271Z",
+      "previousSlugs": [
+        "jr-legal-compliance-analyst-100-remote-tether-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "jr-legal-compliance-analyst-100-remote-tether-ch"
@@ -4866,9 +4896,8 @@
           "jr-legal-compliance-analyst-100-remote-tether-ch"
         ]
       },
-      "previousSlugs": [
-        "jr-legal-compliance-analyst-100-remote-tether-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T10:59:05.271Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -4913,7 +4942,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-lead-mexico-and-colombia-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:47.886Z",
+      "crawledAt": "2026-05-11T12:41:04.817Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -4933,6 +4962,14 @@
       "department": "Regulatory Affairs and Licensing",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:03.649Z",
       "salaryMin": 68000,
@@ -4946,15 +4983,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch"
-        ]
-      },
-      "previousSlugs": [
-        "regulatory-affairs-and-licensing-lead-mexico-and-colombia-tether-ch"
-      ]
+      }
     },
     {
       "id": "tether-57aebf79fc7f",
@@ -4987,7 +5016,7 @@
       "url": "https://tether.recruitee.com/o/engagement-manager-ai-implementations-4",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-10T22:34:47.864Z",
+      "crawledAt": "2026-05-11T12:41:04.797Z",
       "addressLocality": "Warsaw",
       "addressRegion": "Mazowieckie",
       "addressCountry": "",
@@ -5007,6 +5036,14 @@
       "department": "",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "engagement-manager-ai-implementations-tether-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "engagement-manager-ai-implementations-tether-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:59:03.627Z",
       "salaryMin": 68000,
@@ -5020,15 +5057,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "engagement-manager-ai-implementations-tether-ch"
-        ]
-      },
-      "previousSlugs": [
-        "engagement-manager-ai-implementations-tether-ch"
-      ]
+      }
     }
   ]
 }
