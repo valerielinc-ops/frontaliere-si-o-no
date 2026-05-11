@@ -1,61 +1,21 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-05-10T21:37:36.459Z",
-  "total": 3,
+  "generatedAt": "2026-05-11T11:43:02.961Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 16012,
-  "avgDurationMs": 16012,
+  "unchangedCount": 2,
+  "durationMs": 13035,
+  "avgDurationMs": 13035,
   "durationHistory": [
-    16012
+    13035
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
-    {
-      "id": "company-qbnh3b",
-      "slug": "consulente-di-vendita-per-la-casa-elettrica-e-multimediale-fust-chur-graubunden-517de0",
-      "company": "Fust",
-      "title": "Verkaufsberater:in für Elektrohaushalt und Multimedia",
-      "location": "Chur, Graubünden",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "url": "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/c87c0b89-2043-49e7-9531-4ef66d0bb29a",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-05-06T21:58:47.775Z",
-      "firstSeenAt": "2026-05-06T21:58:47.775Z",
-      "sourceLang": "de",
-      "streetAddress": "Via Industria 1",
-      "postalCode": "6593",
-      "addressLocality": "Cadenazzo",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "id": "company-29z0lf",
       "slug": "home-fornitore-negli-elettrodomestici-elettrici-fust-cadenazzo",
