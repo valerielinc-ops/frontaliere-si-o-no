@@ -37,7 +37,10 @@ interface VisualCase {
 }
 
 const CASES: VisualCase[] = [
-  { name: 'home', url: '/' },
+  // Home renders CalcolatoreTabContent: InputCard is lazy + its locale chunk
+  // (`it-calculator.ts`) is lazy too. Without a ready selector the screenshot
+  // can fire while SkeletonInputCard is still rendered, producing ~11% diff.
+  { name: 'home', url: '/', readySelector: '[data-testid="calculator-input-card"]' },
   {
     name: 'salary-calculator',
     url: '/calcola-stipendio/',

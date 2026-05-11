@@ -385,7 +385,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  };
 
  return (
- <div className="bg-surface/90 rounded-[2rem] shadow-xl border border-edge h-full flex flex-col overflow-hidden transition-colors duration-300">
+ <div data-testid="calculator-input-card" className="bg-surface/90 rounded-[2rem] shadow-xl border border-edge h-full flex flex-col overflow-hidden transition-colors duration-300">
  {/* Header */}
  <div className="p-5 border-b border-edge flex items-center justify-between bg-surface/50 z-10">
  <div className="flex items-center gap-3">
