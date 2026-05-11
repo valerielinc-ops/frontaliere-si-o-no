@@ -11,19 +11,61 @@
     "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro"
   ],
   "notes": "Dedicated Engel & Völkers Switzerland crawler. Parses the Next.js SSR careers page HTML. Keeps TI + GR jobs from Ticino Premium Properties SA and other regional offices.",
-  "updatedAt": "2026-03-17T18:22:15.333Z",
+  "updatedAt": "2026-05-11T17:24:52.835Z",
   "seedMetaByUrl": {
-    "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c3bc26ca-013d-4028-ab5c-9fc4b1b71239": {
+    "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/da8aa31b-7f06-4058-86c1-2d0c58bf5d86": {
       "location": "Lugano",
       "canton": "TI",
       "company": "Ticino Premium Properties SA",
-      "postedDate": "2026-03-17"
+      "postedDate": "2026-05-11"
+    },
+    "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/811857cd-17ba-45da-ba12-d066407d01c5": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Ticino Premium Properties SA",
+      "postedDate": "2026-05-11"
+    },
+    "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/550a5ca8-0011-4cbe-9e37-402d6f165d8b": {
+      "location": "Ascona",
+      "canton": "TI",
+      "company": "Ticino Premium Properties SA",
+      "postedDate": "2026-05-11"
     },
     "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/abf1e661-be5d-49ce-8b28-780c4c3ec23c": {
       "location": "Ascona",
       "canton": "TI",
       "company": "Ticino Premium Properties SA",
-      "postedDate": "2026-03-17"
+      "postedDate": "2026-05-11"
+    },
+    "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/3a5547d3-87bc-4ff8-92a2-6637e2b635c7": {
+      "location": "Schaffhausen",
+      "canton": "AG",
+      "company": "buutiq Immobilien AG",
+      "postedDate": "2026-05-11"
+    },
+    "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ae5d8cf-36be-489f-b24a-0f6bbec962d3": {
+      "location": "St. Gallen",
+      "canton": "AG",
+      "company": "buutiq Immobilien AG",
+      "postedDate": "2026-05-11"
+    },
+    "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981": {
+      "location": "Frauenfeld",
+      "canton": "AG",
+      "company": "buutiq Immobilien AG",
+      "postedDate": "2026-05-11"
+    },
+    "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/d73b3b54-fa87-47ce-b04b-ed260187c751": {
+      "location": "Schaffhausen",
+      "canton": "AG",
+      "company": "buutiq Immobilien AG",
+      "postedDate": "2026-05-11"
+    },
+    "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/557bf4f6-cce2-4bd1-92fd-7228c45dafb7": {
+      "location": "St. Gallen",
+      "canton": "AG",
+      "company": "buutiq Immobilien AG",
+      "postedDate": "2026-05-11"
     }
   }
 }
