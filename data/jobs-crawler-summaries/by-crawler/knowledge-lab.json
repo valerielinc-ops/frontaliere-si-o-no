@@ -1,16 +1,16 @@
 {
   "key": "knowledge-lab",
   "label": "Knowledge Lab",
-  "generatedAt": "2026-05-10T21:53:21.963Z",
+  "generatedAt": "2026-05-11T11:58:57.771Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 449,
-  "avgDurationMs": 449,
+  "durationMs": 465,
+  "avgDurationMs": 465,
   "durationHistory": [
-    449
+    465
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -121,11 +121,11 @@
       "streetAddress": "Via Giuseppe Buffi 13",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-10T10:24:48.366Z",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 19,
         "completeness": 25
       }
     },

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "knowledge-lab",
-  "assembledAt": "2026-05-10T21:53:21.962Z",
+  "assembledAt": "2026-05-11T11:58:57.746Z",
   "jobs": [
     {
       "title": "Platform Engineer (80-100%)",
@@ -159,7 +159,7 @@
     },
     {
       "title": "Initiative Application",
-      "slug": "initiative-application-knowledge-lab-zurich",
+      "slug": "iniziativa-knowledge-lab-zurich",
       "url": "https://klab.freshteam.com/jobs/i3GLY8sDKKC5/initiative-application",
       "applyUrl": "https://klab.freshteam.com/jobs/i3GLY8sDKKC5/initiative-application",
       "company": "Knowledge Lab",
@@ -193,13 +193,12 @@
         "fr": "Entfalte dein Potenzial bei Knowledge Lab! Du hast einzigartige Fähigkeiten und Ideen, die du in unser Team einbringen möchtest, findest aber gerade keine passende Stellenausschreibung? Bei Knowledge Lab sind wir immer auf der Suche nach aussergewöhnlichen Talenten, die unsere Vision teilen und mit uns wachsen möchten. Was du mitbringen solltest: • Ein Herz, das für Innovation und Fortschritt schlägt • Den Mut, neue Wege zu gehen und eigene Ideen einzubringen • Eine Leidenschaft für konstantes Lernen und persönliche Entwicklung Was dich erwartet: • Eine Kultur, die Neugier, Kreativität und Zusammenarbeit fördert • Ein Team, das Wert auf Innovation und kontinuierliche Verbesserung legt • Die Möglichkeit, aktiv an spannenden Projekten mitzuarbeiten und echten Einfluss zu nehmen Bist du bereit, Teil unseres Teams zu werden? Lass uns gerne deinen CV zukommen und wir melden uns bei dir, sobald sich eine passende Möglichkeit ergibt. Wir sind gespannt darauf, mehr über dich zu erfahren!"
       },
       "slugByLocale": {
-        "it": "initiative-application-knowledge-lab-zurich",
+        "it": "iniziativa-knowledge-lab-zurich",
         "en": "initiative-application-knowledge-lab-zurich",
         "de": "initiative-application-knowledge-lab-zurich",
         "fr": "initiative-application-knowledge-lab-zurich"
       },
       "id": "knowledge-lab-943ae501998f",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -215,7 +214,16 @@
       },
       "streetAddress": "Via Giuseppe Buffi 13",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T10:24:48.366Z"
+      "firstSeenAt": "2026-05-10T10:24:48.366Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "initiative-application-knowledge-lab-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "initiative-application-knowledge-lab-zurich"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "(Senior) Avaloq Consultant (80-100%)",
