@@ -168,7 +168,7 @@ export function buildEocRegeneratedSlug(job, location) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   if (!baseSlug) return '';
-  if (!suffix) return baseSlug.slice(0, 90);
+  if (!suffix) return baseSlug.slice(0, 200);
   // Reserve room for the `-{suffix}` tail (7 chars) so the final slug stays ≤ 90.
   const baseMaxLen = Math.max(0, 90 - (suffix.length + 1));
   const trimmedBase = baseSlug.slice(0, baseMaxLen).replace(/-+$/, '');

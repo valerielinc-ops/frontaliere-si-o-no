@@ -1042,7 +1042,7 @@ function slugifyTerm(value = ''): string {
  .replace(/[\u0300-\u036f]/g, '')
  .replace(/[^a-z0-9]+/g, '-')
  .replace(/^-+|-+$/g, '')
- .slice(0, 90);
+ .slice(0, 200);
 }
 
 function ensureTrailingSlash(value: string): string {

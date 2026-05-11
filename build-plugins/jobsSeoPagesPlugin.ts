@@ -1035,7 +1035,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .replace(/[\u0300-\u036f]/g, '')
  .replace(/[^a-z0-9]+/g, '-')
  .replace(/^-+|-+$/g, '')
- .slice(0, 90);
+ .slice(0, 200);
  const localeList = JOB_SEO_LOCALES;
  const localizedSlug = (job: any, locale: 'it' | 'en' | 'de' | 'fr') => {
  // 1. Explicit per-locale slug (from AI-translated crawlers)

@@ -360,10 +360,18 @@ describe('slugifyJobPart — edge cases', () => {
     expect(slugifyJobPart('!!!hello!!!')).toBe('hello');
   });
 
-  it('caps length at 90 chars', () => {
-    const longInput = 'a'.repeat(150);
+  it('caps length at 200 chars (pathological-input guard, not URL-budget gate)', () => {
+    // The cap was lowered to 90 → raised to 200 (2026-05-11) after the
+    // 90-char fallback in this slugifier turned out to be the upstream
+    // driver of ~17 GSC "Indicizzata Non trovata" job-detail orphans.
+    // Real slugs in jobs.json max out at ~152 chars; the 200 cap remains
+    // a defensive guardrail for truly pathological titles, not a URL
+    // length budget (Google handles URLs up to 2048 chars).
+    const longInput = 'a'.repeat(300);
     const out = slugifyJobPart(longInput);
-    expect(out.length).toBeLessThanOrEqual(90);
+    expect(out.length).toBeLessThanOrEqual(200);
+    // And the cap does NOT kick in for typical 150-char inputs anymore.
+    expect(slugifyJobPart('a'.repeat(150)).length).toBe(150);
   });
 
   it('returns empty string for zero-input edge cases', () => {
