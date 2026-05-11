@@ -7391,6 +7391,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.referendum-castelli-bellinzona-2026.title': 'Bellinzona Castles referendum: the people decide',
     'blog.article.referendum-castelli-bellinzona-2026.excerpt': 'Over 4,600 signatures collected against the credit for the Fortress project. The referendum succeeded, now it\'s up to the citizens.',
     'blog.article.referendum-castelli-bellinzona-2026.imageAlt': 'Castelgrande in Bellinzona, UNESCO World Heritage site, with the Swiss-Italian border in the background',
+    'blog.article.maratona-schlumpf-ginevra-2026.title': 'Fabienne Schlumpf second in Geneva: marathon return without disappointing',
+    'blog.article.maratona-schlumpf-ginevra-2026.excerpt': 'The Swiss national record holder finishes second in the Geneva marathon with a time of 2 hours 31\'15\'\'',
+    'blog.article.maratona-schlumpf-ginevra-2026.imageAlt': 'Fabienne Schlumpf running the marathon in Geneva, with the city skyline and Lake Geneva in the background',
 };
 
 export default blogMetaEn;

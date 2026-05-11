@@ -7392,6 +7392,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.referendum-castelli-bellinzona-2026.title': 'Référendum sur les châteaux de Bellinzone : le peuple décide',
     'blog.article.referendum-castelli-bellinzona-2026.excerpt': 'Plus de 4.600 signatures recueillies contre le crédit pour le projet Forteresse. Le référendum a réussi, maintenant la parole est aux citoyens',
     'blog.article.referendum-castelli-bellinzona-2026.imageAlt': 'Castelgrande à Bellinzone, site du patrimoine mondial de l\'UNESCO, avec la frontière suisse-italienne en arrière-plan',
+    'blog.article.maratona-schlumpf-ginevra-2026.title': 'Fabienne Schlumpf deuxième à Genève: retour en marathon sans décevoir',
+    'blog.article.maratona-schlumpf-ginevra-2026.excerpt': 'La primatiste nationale suisse se classe deuxième au marathon de Genève avec un temps de 2 heures 31\'15\'\'',
+    'blog.article.maratona-schlumpf-ginevra-2026.imageAlt': 'Fabienne Schlumpf court le marathon à Genève, avec la skyline de la ville et le lac Léman en arrière-plan',
 };
 
 export default blogMetaFr;

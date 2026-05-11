@@ -23546,4 +23546,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'maratona-schlumpf-ginevra-2026',
+ category: 'novita',
+ date: '2026-05-11T00:30:45.976Z',
+ image: '/images/blog/maratona-schlumpf-ginevra-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

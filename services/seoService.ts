@@ -3706,6 +3706,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lpp-minimo-secondo-pilastro-2026': { name: 'LPP secondo pilastro', path: '/articoli-frontaliere/lpp-minimo-secondo-pilastro-2026', parent: 'blog' },
     'blog-esplosione-miniera-colombia-4-morti': { name: 'Novità', path: '/articoli-frontaliere/esplosione-miniera-colombia-4-morti', parent: 'blog' },
     'blog-referendum-castelli-bellinzona-2026': { name: 'Referendum Castelli', path: '/articoli-frontaliere/referendum-castelli-bellinzona-2026', parent: 'blog' },
+    'blog-maratona-schlumpf-ginevra-2026': { name: 'Sport', path: '/articoli-frontaliere/maratona-schlumpf-ginevra-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
