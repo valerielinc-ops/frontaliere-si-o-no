@@ -7404,6 +7404,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giro-ditalia-magnier-froidevaux-2026.title': 'Paul Magnier trionfa ancora al Giro d\'Italia: Froidevaux dodicesimo',
     'blog.article.giro-ditalia-magnier-froidevaux-2026.excerpt': 'Il francese Paul Magnier vince la terza tappa del Giro d\'Italia a Sofia, mentre il vodese Robin Froidevaux si piazza dodicesimo.',
     'blog.article.giro-ditalia-magnier-froidevaux-2026.imageAlt': 'Ciclisti del Giro d\'Italia in gara lungo le rive del Lago di Lugano, con le montagne del Ticino sullo sfondo.',
+    'blog.article.svizzeri-secondo-pilastro-casa.title': 'Comprare casa? Uno svizzero su due svuota il secondo pilastro',
+    'blog.article.svizzeri-secondo-pilastro-casa.excerpt': 'Scopri come gli svizzeri utilizzano il secondo pilastro per l\'acquisto della casa e le implicazioni per i frontalieri',
+    'blog.article.svizzeri-secondo-pilastro-casa.imageAlt': 'Vista aerea del Lago di Lugano con il confine svizzero-italiano',
 };
 
 export default blogMetaIt;

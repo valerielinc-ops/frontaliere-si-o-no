@@ -3710,6 +3710,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-siviero-rieletto-swiss-basketball': { name: 'Novità', path: '/articoli-frontaliere/siviero-rieletto-swiss-basketball', parent: 'blog' },
     'blog-ristorni-bloccati-ticino-italia': { name: 'Fiscale', path: '/articoli-frontaliere/ristorni-bloccati-ticino-italia', parent: 'blog' },
     'blog-giro-ditalia-magnier-froidevaux-2026': { name: 'Novità', path: '/articoli-frontaliere/giro-ditalia-magnier-froidevaux-2026', parent: 'blog' },
+    'blog-svizzeri-secondo-pilastro-casa': { name: 'Fiscale', path: '/articoli-frontaliere/svizzeri-secondo-pilastro-casa', parent: 'blog' },
  };
 
  const info = sectionNames[section];

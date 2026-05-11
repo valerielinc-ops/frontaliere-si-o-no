@@ -7403,6 +7403,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giro-ditalia-magnier-froidevaux-2026.title': 'Paul Magnier wins again at Giro d\'Italia: Froidevaux twelfth',
     'blog.article.giro-ditalia-magnier-froidevaux-2026.excerpt': 'Frenchman Paul Magnier wins the third stage of the Giro d\'Italia in Sofia, while Vaud\'s Robin Froidevaux finishes twelfth.',
     'blog.article.giro-ditalia-magnier-froidevaux-2026.imageAlt': 'Cyclists racing in the Giro d\'Italia along the shores of Lake Lugano, with the mountains of Ticino in the background.',
+    'blog.article.svizzeri-secondo-pilastro-casa.title': 'Buying a home? Half of Swiss use second pillar',
+    'blog.article.svizzeri-secondo-pilastro-casa.excerpt': 'Learn how Swiss residents use the second pillar for home purchases and the implications for cross-border workers',
+    'blog.article.svizzeri-secondo-pilastro-casa.imageAlt': 'Aerial view of Lake Lugano with the Swiss-Italian border',
 };
 
 export default blogMetaEn;

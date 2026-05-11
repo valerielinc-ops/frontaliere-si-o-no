@@ -23582,4 +23582,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'svizzeri-secondo-pilastro-casa',
+ category: 'fiscale',
+ date: '2026-05-11T01:42:51.737Z',
+ image: '/images/blog/svizzeri-secondo-pilastro-casa.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
