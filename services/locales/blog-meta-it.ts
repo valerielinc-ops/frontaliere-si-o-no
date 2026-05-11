@@ -7431,6 +7431,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lamal-rilevazione-dati-unica-ticino.title': 'LAMal: verso la rilevazione unica dei dati in Ticino',
     'blog.article.lamal-rilevazione-dati-unica-ticino.excerpt': 'Nuova procedura per la raccolta dei dati assicurativi in Ticino. Ecco cosa cambia per i frontalieri',
     'blog.article.lamal-rilevazione-dati-unica-ticino.imageAlt': 'Vista panoramica del Lago di Lugano con Lugano e Monte Brè',
+    'blog.article.lpp-nigri-country-manager-italia.title': 'LPP: Nigri diventa Country Manager per l\'Italia',
+    'blog.article.lpp-nigri-country-manager-italia.excerpt': 'Il gruppo LPP nomina Nigri Country Manager per l\'Italia, puntando sul value-for-money di Sinsay retail&food',
+    'blog.article.lpp-nigri-country-manager-italia.imageAlt': 'Panorama di Lugano con lago e montagne circostanti',
 };
 
 export default blogMetaIt;

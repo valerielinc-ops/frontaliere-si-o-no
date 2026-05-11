@@ -23663,4 +23663,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'lpp-nigri-country-manager-italia',
+ category: 'novita',
+ date: '2026-05-11T04:18:27.146Z',
+ image: '/images/blog/lpp-nigri-country-manager-italia.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

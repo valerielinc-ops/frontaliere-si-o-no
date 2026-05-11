@@ -7430,6 +7430,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lamal-rilevazione-dati-unica-ticino.title': 'LAMal: Einmalige Datenerfassung im Tessin',
     'blog.article.lamal-rilevazione-dati-unica-ticino.excerpt': 'Neues Verfahren für die Erfassung von Versicherungsdaten im Tessin. Hier erfahren Sie, was sich für Grenzgänger ändert.',
     'blog.article.lamal-rilevazione-dati-unica-ticino.imageAlt': 'Panoramablick auf den Luganersee mit Lugano und Monte Brè',
+    'blog.article.lpp-nigri-country-manager-italia.title': 'LPP: Nigri wird Country Manager für Italien',
+    'blog.article.lpp-nigri-country-manager-italia.excerpt': 'Die LPP-Gruppe ernannte Nigri zum Country Manager für Italien und setzt auf das Preis-Leistungs-Verhältnis von Sinsay retail&food',
+    'blog.article.lpp-nigri-country-manager-italia.imageAlt': 'Skyline von Lugano mit dem Luganersee und den umliegenden Bergen',
 };
 
 export default blogMetaDe;
