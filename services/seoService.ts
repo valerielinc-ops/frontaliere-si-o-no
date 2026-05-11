@@ -3713,6 +3713,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzeri-secondo-pilastro-casa': { name: 'Fiscale', path: '/articoli-frontaliere/svizzeri-secondo-pilastro-casa', parent: 'blog' },
     'blog-disoccupazione-frontalieri-residenti': { name: 'Disoccupazione Ticino', path: '/articoli-frontaliere/disoccupazione-frontalieri-residenti', parent: 'blog' },
     'blog-lavoro-insegnanti-ticino-opportunita': { name: 'Opportunità lavoro', path: '/articoli-frontaliere/lavoro-insegnanti-ticino-opportunita', parent: 'blog' },
+    'blog-utilifatturatolppsa-gpw': { name: 'Fiscale', path: '/articoli-frontaliere/utilifatturatolppsa-gpw', parent: 'blog' },
  };
 
  const info = sectionNames[section];

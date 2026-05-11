@@ -7412,6 +7412,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-insegnanti-ticino-opportunita.title': 'Lehrstellen im Kanton Tessin',
     'blog.article.lavoro-insegnanti-ticino-opportunita.excerpt': 'Entdecken Sie neue Lehrstellen im Kanton Tessin und wie Grenzgänger davon profitieren können',
     'blog.article.lavoro-insegnanti-ticino-opportunita.imageAlt': 'Jobmesse in Lugano, Tessin, mit Menschen, die über Arbeitsmöglichkeiten im Bildungsbereich sprechen',
+    'blog.article.utilifatturatolppsa-gpw.title': 'Gewinn und Umsatz von LPP S.A. – GPW:LPP',
+    'blog.article.utilifatturatolppsa-gpw.excerpt': 'Detaillierte Analyse der Gewinne und des Umsatzes von LPP S.A. und deren Auswirkungen auf die Grenzgänger des Tessin',
+    'blog.article.utilifatturatolppsa-gpw.imageAlt': 'Blick auf den Luganersee mit umliegenden Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

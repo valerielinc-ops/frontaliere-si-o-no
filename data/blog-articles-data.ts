@@ -23609,4 +23609,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'utilifatturatolppsa-gpw',
+ category: 'fiscale',
+ date: '2026-05-11T02:05:20.089Z',
+ image: '/images/blog/utilifatturatolppsa-gpw.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

@@ -7413,6 +7413,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-insegnanti-ticino-opportunita.title': 'Opportunità di lavoro per insegnanti nel Canton Ticino',
     'blog.article.lavoro-insegnanti-ticino-opportunita.excerpt': 'Scopri le nuove opportunità di lavoro per insegnanti nel Canton Ticino e come i frontalieri possono approfittarne',
     'blog.article.lavoro-insegnanti-ticino-opportunita.imageAlt': 'Fiera del lavoro a Lugano, Ticino, con persone che discutono opportunità di lavoro nell\'istruzione',
+    'blog.article.utilifatturatolppsa-gpw.title': 'Utili e fatturato LPP S.A. – GPW:LPP',
+    'blog.article.utilifatturatolppsa-gpw.excerpt': 'Analisi dettagliata degli utili e del fatturato di LPP S.A. e il suo impatto sui frontalieri del Ticino',
+    'blog.article.utilifatturatolppsa-gpw.imageAlt': 'Vista del Lago di Lugano con montagne e edifici circostanti',
 };
 
 export default blogMetaIt;

@@ -7412,6 +7412,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-insegnanti-ticino-opportunita.title': 'Teaching jobs in Ticino Canton',
     'blog.article.lavoro-insegnanti-ticino-opportunita.excerpt': 'Discover new teaching job opportunities in Ticino Canton and how cross-border workers can benefit',
     'blog.article.lavoro-insegnanti-ticino-opportunita.imageAlt': 'Job fair in Lugano, Ticino, with people discussing job opportunities in education',
+    'blog.article.utilifatturatolppsa-gpw.title': 'LPP S.A. profits and revenue – GPW:LPP',
+    'blog.article.utilifatturatolppsa-gpw.excerpt': 'Detailed analysis of LPP S.A.\'s profits and revenue and its impact on Ticino cross-border workers',
+    'blog.article.utilifatturatolppsa-gpw.imageAlt': 'View of Lake Lugano with surrounding mountains and buildings',
 };
 
 export default blogMetaEn;
