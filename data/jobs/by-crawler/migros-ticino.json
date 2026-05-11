@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-oi85uq",
-      "slug": "privatkundenberater-alle-migros-bank-chur-oi85uq",
+      "slug": "consulente-clienti-privato-tutti-migros-bank-chur",
       "company": "Migros Bank",
       "title": "Privatkundenberater (alle)",
       "location": "Chur",
@@ -71,7 +71,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "privatkundenberater-alle-migros-bank-chur-oi85uq",
+        "it": "consulente-clienti-privato-tutti-migros-bank-chur",
         "en": "privatkundenberater-alle-migros-bank-chur-oi85uq",
         "de": "privatkundenberater-alle-migros-bank-chur-oi85uq",
         "fr": "privatkundenberater-alle-migros-bank-chur-oi85uq"
@@ -79,11 +79,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "privatkundenberater-alle-migros-bank-chur"
+          "privatkundenberater-alle-migros-bank-chur",
+          "privatkundenberater-alle-migros-bank-chur-oi85uq"
         ]
       },
       "previousSlugs": [
-        "privatkundenberater-alle-migros-bank-chur"
+        "privatkundenberater-alle-migros-bank-chur",
+        "privatkundenberater-alle-migros-bank-chur-oi85uq"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,

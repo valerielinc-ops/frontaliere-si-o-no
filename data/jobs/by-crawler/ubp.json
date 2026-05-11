@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "ubp-5f6cbca8cc8d",
-      "slug": "apprenti-e-employe-e-de-commerce-2026-2029-ubp-ch",
+      "slug": "apprendista-commerciale-2026-2029-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "apprenti-e-employe-e-de-commerce-2026-2029-ubp-ch",
+        "it": "apprendista-commerciale-2026-2029-union-bancaire-privee-geneva-switzerland",
         "en": "apprenti-e-employe-e-de-commerce-2026-2029-ubp-ch",
         "de": "apprenti-e-employe-e-de-commerce-2026-2029-ubp-ch",
         "fr": "apprenti-e-employe-e-de-commerce-2026-2029-union-bancaire-privee-geneva-switzerland"
@@ -63,13 +63,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-employe-e-de-commerce-2026-2029-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-employe-e-de-commerce-2026-2029-ubp-ch"
+      ]
     },
     {
       "id": "ubp-5622be80e37a",
-      "slug": "banking-operations-officer-ubp-ch",
+      "slug": "agente-delle-operazioni-bancarie-union-bancaire-privee-london-united-kingdom",
       "slugByLocale": {
-        "it": "banking-operations-officer-ubp-ch",
+        "it": "agente-delle-operazioni-bancarie-union-bancaire-privee-london-united-kingdom",
         "en": "banking-operations-officer-union-bancaire-privee-london-united-kingdom",
         "de": "banking-operations-officer-ubp-ch",
         "fr": "banking-operations-officer-ubp-ch"
@@ -126,7 +134,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "banking-operations-officer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "banking-operations-officer-ubp-ch"
+      ]
     },
     {
       "id": "ubp-a6e1ffea0076",
@@ -358,9 +374,9 @@
     },
     {
       "id": "ubp-69ca21fc1d2c",
-      "slug": "middle-officer-ubp-ch",
+      "slug": "agente-centrale-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "middle-officer-ubp-ch",
+        "it": "agente-centrale-union-bancaire-privee-geneva-switzerland",
         "en": "middle-officer-union-bancaire-privee-geneva-switzerland",
         "de": "middle-officer-ubp-ch",
         "fr": "middle-officer-ubp-ch"
@@ -417,7 +433,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "middle-officer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "middle-officer-ubp-ch"
+      ]
     },
     {
       "id": "ubp-5433463079ec",
@@ -804,9 +828,9 @@
     },
     {
       "id": "ubp-228bd0b0575d",
-      "slug": "team-head-cash-services-ubp-ch",
+      "slug": "servizi-di-cassa-a-capo-squadra-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "team-head-cash-services-ubp-ch",
+        "it": "servizi-di-cassa-a-capo-squadra-union-bancaire-privee-geneva-switzerland",
         "en": "team-head-cash-services-union-bancaire-privee-geneva-switzerland",
         "de": "team-head-cash-services-ubp-ch",
         "fr": "team-head-cash-services-ubp-ch"
@@ -863,7 +887,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "team-head-cash-services-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "team-head-cash-services-ubp-ch"
+      ]
     },
     {
       "id": "ubp-2fd20487f325",
@@ -948,9 +980,9 @@
     },
     {
       "id": "ubp-3a33c75fe4ea",
-      "slug": "help-desk-officer-1st-level-of-support-ubp-ch",
+      "slug": "help-desk-officer-1-livello-di-supporto-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "help-desk-officer-1st-level-of-support-ubp-ch",
+        "it": "help-desk-officer-1-livello-di-supporto-union-bancaire-privee-geneva-switzerland",
         "en": "help-desk-officer-1st-level-of-support-union-bancaire-privee-geneva-switzerland",
         "de": "help-desk-officer-1st-level-of-support-ubp-ch",
         "fr": "help-desk-officer-1st-level-of-support-ubp-ch"
@@ -1007,7 +1039,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "help-desk-officer-1st-level-of-support-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "help-desk-officer-1st-level-of-support-ubp-ch"
+      ]
     },
     {
       "id": "ubp-55d118f292f3",
@@ -1091,9 +1131,9 @@
     },
     {
       "id": "ubp-66e580c8f3ae",
-      "slug": "facilities-officer-temporary-ubp-ch",
+      "slug": "servizi-ufficiale-temporario-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "facilities-officer-temporary-ubp-ch",
+        "it": "servizi-ufficiale-temporario-union-bancaire-privee-geneva-switzerland",
         "en": "facilities-officer-temporary-union-bancaire-privee-geneva-switzerland",
         "de": "facilities-officer-temporary-ubp-ch",
         "fr": "facilities-officer-temporary-ubp-ch"
@@ -1150,13 +1190,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "facilities-officer-temporary-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facilities-officer-temporary-ubp-ch"
+      ]
     },
     {
       "id": "ubp-4c71773b3b69",
-      "slug": "graduate-programme-operations-office-team-ubp-ch",
+      "slug": "programma-di-laurea-squadra-operativa-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "graduate-programme-operations-office-team-ubp-ch",
+        "it": "programma-di-laurea-squadra-operativa-union-bancaire-privee-geneva-switzerland",
         "en": "graduate-programme-operations-office-team-union-bancaire-privee-geneva-switzerland",
         "de": "graduate-programme-operations-office-team-ubp-ch",
         "fr": "graduate-programme-operations-office-team-ubp-ch"
@@ -1213,13 +1261,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "graduate-programme-operations-office-team-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "graduate-programme-operations-office-team-ubp-ch"
+      ]
     },
     {
       "id": "ubp-846696d844d4",
-      "slug": "graduate-programme-group-risk-management-team-ubp-ch",
+      "slug": "programma-di-laurea-gruppo-risk-management-team-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "graduate-programme-group-risk-management-team-ubp-ch",
+        "it": "programma-di-laurea-gruppo-risk-management-team-union-bancaire-privee-geneva-switzerland",
         "en": "graduate-programme-group-risk-management-team-ubp-ch",
         "de": "graduate-programme-group-risk-management-team-ubp-ch",
         "fr": "graduate-programme-group-risk-management-team-union-bancaire-privee-geneva-switzerland"
@@ -1276,13 +1332,21 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "graduate-programme-group-risk-management-team-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "graduate-programme-group-risk-management-team-ubp-ch"
+      ]
     },
     {
       "id": "ubp-7cfe17aa528a",
-      "slug": "stock-exchange-settlement-officer-ubp-ch",
+      "slug": "scambio-di-azioni-settlement-officer-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "stock-exchange-settlement-officer-ubp-ch",
+        "it": "scambio-di-azioni-settlement-officer-union-bancaire-privee-geneva-switzerland",
         "en": "stock-exchange-settlement-officer-union-bancaire-privee-geneva-switzerland",
         "de": "stock-exchange-settlement-officer-ubp-ch",
         "fr": "stock-exchange-settlement-officer-ubp-ch"
@@ -1339,13 +1403,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stock-exchange-settlement-officer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stock-exchange-settlement-officer-ubp-ch"
+      ]
     },
     {
       "id": "ubp-cdd009e6caef",
-      "slug": "institutional-client-service-officer-m-f-12-months-temporary-contract-ubp-ch",
+      "slug": "responsabile-del-servizio-clienti-istituzionale-m-f-contratto-temporaneo-di-12-mesi-union-bancaire-privee-frankfurt-am-m",
       "slugByLocale": {
-        "it": "institutional-client-service-officer-m-f-12-months-temporary-contract-ubp-ch",
+        "it": "responsabile-del-servizio-clienti-istituzionale-m-f-contratto-temporaneo-di-12-mesi-union-bancaire-privee-frankfurt-am-m",
         "en": "institutional-client-service-officer-m-f-12-months-temporary-contract-ubp-ch",
         "de": "institutional-client-service-officer-m-f-12-months-temporary-contract-ubp-ch",
         "fr": "institutional-client-service-officer-m-f-12-months-temporary-contract-union-bancaire-privee-frankfurt-am-main-germany"
@@ -1402,7 +1474,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "institutional-client-service-officer-m-f-12-months-temporary-contract-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "institutional-client-service-officer-m-f-12-months-temporary-contract-ubp-ch"
+      ]
     },
     {
       "id": "ubp-9edc4a537980",
@@ -1566,9 +1646,9 @@
     },
     {
       "id": "ubp-14e1be02c360",
-      "slug": "graduate-programme-jersey-2026-wealth-management-ubp-ch",
+      "slug": "programma-di-laurea-jersey-2026-gestione-della-ricchezza-union-bancaire-privee-jersey",
       "slugByLocale": {
-        "it": "graduate-programme-jersey-2026-wealth-management-ubp-ch",
+        "it": "programma-di-laurea-jersey-2026-gestione-della-ricchezza-union-bancaire-privee-jersey",
         "en": "graduate-programme-jersey-2026-wealth-management-ubp-ch",
         "de": "graduate-programme-jersey-2026-wealth-management-ubp-ch",
         "fr": "graduate-programme-jersey-2026-wealth-management-union-bancaire-privee-jersey"
@@ -1625,13 +1705,21 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "graduate-programme-jersey-2026-wealth-management-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "graduate-programme-jersey-2026-wealth-management-ubp-ch"
+      ]
     },
     {
       "id": "ubp-09f350a4712c",
-      "slug": "accounts-payable-officer-ubp-ch",
+      "slug": "accounts-agente-passivo-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "accounts-payable-officer-ubp-ch",
+        "it": "accounts-agente-passivo-union-bancaire-privee-geneva-switzerland",
         "en": "accounts-payable-officer-union-bancaire-privee-geneva-switzerland",
         "de": "accounts-payable-officer-ubp-ch",
         "fr": "accounts-payable-officer-ubp-ch"
@@ -1688,13 +1776,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "accounts-payable-officer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "accounts-payable-officer-ubp-ch"
+      ]
     },
     {
       "id": "ubp-cdbdb7e65fbf",
-      "slug": "process-transformation-officer-ubp-ch",
+      "slug": "responsabile-della-trasformazione-di-processo-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "process-transformation-officer-ubp-ch",
+        "it": "responsabile-della-trasformazione-di-processo-union-bancaire-privee-geneva-switzerland",
         "en": "process-transformation-officer-union-bancaire-privee-geneva-switzerland",
         "de": "process-transformation-officer-ubp-ch",
         "fr": "process-transformation-officer-ubp-ch"
@@ -1751,7 +1847,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "process-transformation-officer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "process-transformation-officer-ubp-ch"
+      ]
     },
     {
       "id": "ubp-ce333e0f2a9b",
@@ -1826,9 +1930,9 @@
     },
     {
       "id": "ubp-89a35dcb54c4",
-      "slug": "funds-execution-officer-ubp-ch",
+      "slug": "responsabile-dell-esecuzione-dei-fondi-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "funds-execution-officer-ubp-ch",
+        "it": "responsabile-dell-esecuzione-dei-fondi-union-bancaire-privee-geneva-switzerland",
         "en": "funds-execution-officer-union-bancaire-privee-geneva-switzerland",
         "de": "funds-execution-officer-ubp-ch",
         "fr": "funds-execution-officer-ubp-ch"
@@ -1885,13 +1989,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "funds-execution-officer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "funds-execution-officer-ubp-ch"
+      ]
     },
     {
       "id": "ubp-32a4e7befaf0",
-      "slug": "investor-protection-ubp-ch",
+      "slug": "protezione-degli-investitori-union-bancaire-privee-london-united-kingdom",
       "slugByLocale": {
-        "it": "investor-protection-ubp-ch",
+        "it": "protezione-degli-investitori-union-bancaire-privee-london-united-kingdom",
         "en": "investor-protection-union-bancaire-privee-london-united-kingdom",
         "de": "investor-protection-ubp-ch",
         "fr": "investor-protection-ubp-ch"
@@ -1948,7 +2060,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "investor-protection-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "investor-protection-ubp-ch"
+      ]
     },
     {
       "id": "ubp-00af29d45ac0",
@@ -2112,9 +2232,9 @@
     },
     {
       "id": "ubp-3c1092cc1a4f",
-      "slug": "business-monitoring-officer-ubp-ch",
+      "slug": "responsabile-del-monitoraggio-delle-imprese-union-bancaire-privee-london-united-kingdom",
       "slugByLocale": {
-        "it": "business-monitoring-officer-ubp-ch",
+        "it": "responsabile-del-monitoraggio-delle-imprese-union-bancaire-privee-london-united-kingdom",
         "en": "business-monitoring-officer-union-bancaire-privee-london-united-kingdom",
         "de": "business-monitoring-officer-ubp-ch",
         "fr": "business-monitoring-officer-ubp-ch"
@@ -2171,7 +2291,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "business-monitoring-officer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-monitoring-officer-ubp-ch"
+      ]
     },
     {
       "id": "ubp-0b87a0672eac",
@@ -2395,9 +2523,9 @@
     },
     {
       "id": "ubp-4eb3a1fbee4b",
-      "slug": "central-vault-operations-manager-ubp-ch",
+      "slug": "responsabile-operazioni-della-centrale-vault-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "central-vault-operations-manager-ubp-ch",
+        "it": "responsabile-operazioni-della-centrale-vault-union-bancaire-privee-geneva-switzerland",
         "en": "central-vault-operations-manager-union-bancaire-privee-geneva-switzerland",
         "de": "central-vault-operations-manager-ubp-ch",
         "fr": "central-vault-operations-manager-ubp-ch"
@@ -2454,13 +2582,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "central-vault-operations-manager-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "central-vault-operations-manager-ubp-ch"
+      ]
     },
     {
       "id": "ubp-11af519bb0a3",
-      "slug": "fixed-income-execution-trader-ubp-ch",
+      "slug": "trader-di-esecuzione-a-reddito-fisso-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "fixed-income-execution-trader-ubp-ch",
+        "it": "trader-di-esecuzione-a-reddito-fisso-union-bancaire-privee-geneva-switzerland",
         "en": "fixed-income-execution-trader-ubp-ch",
         "de": "fixed-income-execution-trader-ubp-ch",
         "fr": "fixed-income-execution-trader-union-bancaire-privee-geneva-switzerland"
@@ -2517,13 +2653,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fixed-income-execution-trader-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fixed-income-execution-trader-ubp-ch"
+      ]
     },
     {
       "id": "ubp-4376e1c85523",
-      "slug": "wm-business-risk-manager-ubp-ch",
+      "slug": "gestore-del-rischio-business-di-wm-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "wm-business-risk-manager-ubp-ch",
+        "it": "gestore-del-rischio-business-di-wm-union-bancaire-privee-geneva-switzerland",
         "en": "wm-business-risk-manager-union-bancaire-privee-geneva-switzerland",
         "de": "wm-business-risk-manager-ubp-ch",
         "fr": "wm-business-risk-manager-ubp-ch"
@@ -2580,13 +2724,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "wm-business-risk-manager-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "wm-business-risk-manager-ubp-ch"
+      ]
     },
     {
       "id": "ubp-40eb10282cdf",
-      "slug": "graduate-programme-hong-kong-2026-wealth-management-ubp-ch",
+      "slug": "programma-di-laurea-hong-kong-2026-gestione-della-ricchezza-union-bancaire-privee-hong-kong-hong-kong",
       "slugByLocale": {
-        "it": "graduate-programme-hong-kong-2026-wealth-management-ubp-ch",
+        "it": "programma-di-laurea-hong-kong-2026-gestione-della-ricchezza-union-bancaire-privee-hong-kong-hong-kong",
         "en": "graduate-programme-hong-kong-2026-wealth-management-ubp-ch",
         "de": "graduate-programme-hong-kong-2026-wealth-management-ubp-ch",
         "fr": "graduate-programme-hong-kong-2026-wealth-management-union-bancaire-privee-hong-kong-hong-kong"
@@ -2643,13 +2795,21 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "graduate-programme-hong-kong-2026-wealth-management-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "graduate-programme-hong-kong-2026-wealth-management-ubp-ch"
+      ]
     },
     {
       "id": "ubp-b14510298b0a",
-      "slug": "eam-account-manager-temporary-until-31-12-2026-ubp-ch",
+      "slug": "eam-account-manager-temporaneo-fino-al-31-12-2026-union-bancaire-privee-basel-switzerland",
       "slugByLocale": {
-        "it": "eam-account-manager-temporary-until-31-12-2026-ubp-ch",
+        "it": "eam-account-manager-temporaneo-fino-al-31-12-2026-union-bancaire-privee-basel-switzerland",
         "en": "eam-account-manager-temporary-until-31-12-2026-union-bancaire-privee-basel-switzerland",
         "de": "eam-account-manager-temporary-until-31-12-2026-ubp-ch",
         "fr": "eam-account-manager-temporary-until-31-12-2026-ubp-ch"
@@ -2706,13 +2866,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "eam-account-manager-temporary-until-31-12-2026-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "eam-account-manager-temporary-until-31-12-2026-ubp-ch"
+      ]
     },
     {
       "id": "ubp-fb02149a8a49",
-      "slug": "cyber-risk-manager-second-line-controls-ubp-ch",
+      "slug": "cyber-risk-manager-controlli-di-seconda-linea-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "cyber-risk-manager-second-line-controls-ubp-ch",
+        "it": "cyber-risk-manager-controlli-di-seconda-linea-union-bancaire-privee-geneva-switzerland",
         "en": "cyber-risk-manager-second-line-controls-union-bancaire-privee-geneva-switzerland",
         "de": "cyber-risk-manager-second-line-controls-ubp-ch",
         "fr": "cyber-risk-manager-second-line-controls-ubp-ch"
@@ -2769,7 +2937,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cyber-risk-manager-second-line-controls-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cyber-risk-manager-second-line-controls-ubp-ch"
+      ]
     },
     {
       "id": "ubp-a79968b8b298",
@@ -3429,9 +3605,9 @@
     },
     {
       "id": "ubp-3d8a65cc31b9",
-      "slug": "financial-controller-transfer-pricing-analytics-ubp-ch",
+      "slug": "controllore-finanziario-transfer-pricing-analytics-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "financial-controller-transfer-pricing-analytics-ubp-ch",
+        "it": "controllore-finanziario-transfer-pricing-analytics-union-bancaire-privee-geneva-switzerland",
         "en": "financial-controller-transfer-pricing-analytics-ubp-ch",
         "de": "financial-controller-transfer-pricing-analytics-ubp-ch",
         "fr": "financial-controller-transfer-pricing-analytics-union-bancaire-privee-geneva-switzerland"
@@ -3488,7 +3664,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-controller-transfer-pricing-analytics-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "financial-controller-transfer-pricing-analytics-ubp-ch"
+      ]
     },
     {
       "id": "ubp-1df14b2a2b73",

@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "gemeinde-st-moritz-26220aaafb72",
-      "slug": "wichtige-kontakte-gemeinde-st-moritz-ch",
+      "slug": "contatti-importanti-gemeinde-st-moritz-st-moritz",
       "slugByLocale": {
-        "it": "wichtige-kontakte-gemeinde-st-moritz-ch",
+        "it": "contatti-importanti-gemeinde-st-moritz-st-moritz",
         "en": "wichtige-kontakte-gemeinde-st-moritz-ch",
         "de": "wichtige-kontakte-gemeinde-st-moritz-ch",
         "fr": "wichtige-kontakte-gemeinde-st-moritz-ch"
@@ -62,7 +62,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "wichtige-kontakte-gemeinde-st-moritz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "wichtige-kontakte-gemeinde-st-moritz-ch"
+      ]
     }
   ]
 }

@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "lindenhofgruppe-1ec539181aee",
-      "slug": "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch",
+      "slug": "assistente-medico-medico-clinica-medica-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch",
-        "it": "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch",
+        "it": "assistente-medico-medico-clinica-medica-lindenhofgruppe-bern",
         "en": "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch",
         "fr": "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch"
       },
@@ -65,14 +65,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T21:57:57.778Z"
+      "firstSeenAt": "2026-05-10T21:57:57.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistenzarzt-arztin-medizinische-klinik-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-1d79dde9cfc8",
-      "slug": "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch",
+      "slug": "nds-intensive-care-centro-di-formazione-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch",
-        "it": "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch",
+        "it": "nds-intensive-care-centro-di-formazione-lindenhofgruppe-bern",
         "en": "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch",
         "fr": "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch"
       },
@@ -130,14 +138,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T21:57:57.777Z"
+      "firstSeenAt": "2026-05-10T21:57:57.777Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "nds-intensivpflege-weiterbildungsstelle-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-9b0f2d655436",
-      "slug": "praktikant-in-pflege-lindenhofgruppe-bern",
+      "slug": "interno-in-cura-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "praktikant-in-pflege-lindenhofgruppe-bern",
-        "it": "praktikant-in-pflege-lindenhofgruppe-bern",
+        "it": "interno-in-cura-lindenhofgruppe-bern",
         "en": "praktikant-in-pflege-lindenhofgruppe-bern",
         "fr": "praktikant-in-pflege-lindenhofgruppe-bern"
       },
@@ -185,14 +201,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-pflege-lindenhofgruppe-ch"
+          "praktikant-in-pflege-lindenhofgruppe-ch",
+          "praktikant-in-pflege-lindenhofgruppe-bern"
         ],
         "de": [
           "praktikant-in-pflege-lindenhofgruppe-ch"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-pflege-lindenhofgruppe-ch"
+        "praktikant-in-pflege-lindenhofgruppe-ch",
+        "praktikant-in-pflege-lindenhofgruppe-bern"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -283,10 +301,10 @@
     },
     {
       "id": "lindenhofgruppe-e351e6e37be6",
-      "slug": "praktikant-in-cand-med-lindenhofgruppe-ch",
+      "slug": "interno-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "praktikant-in-cand-med-lindenhofgruppe-ch",
-        "it": "praktikant-in-cand-med-lindenhofgruppe-ch",
+        "it": "interno-lindenhofgruppe-bern",
         "en": "praktikant-in-cand-med-lindenhofgruppe-ch",
         "fr": "praktikant-in-cand-med-lindenhofgruppe-ch"
       },
@@ -344,14 +362,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T21:57:57.775Z"
+      "firstSeenAt": "2026-05-10T21:57:57.775Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-cand-med-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-cand-med-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-c4d62952eb5b",
-      "slug": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
+      "slug": "infermiere-laureato-fh-hf-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
-        "it": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern",
+        "it": "infermiere-laureato-fh-hf-lindenhofgruppe-bern",
         "en": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
         "fr": "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
       },
@@ -399,11 +425,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
+          "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch"
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-ch",
+        "dipl-pflegefachfrau-mann-fh-hf-lindenhofgruppe-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -494,10 +522,10 @@
     },
     {
       "id": "lindenhofgruppe-5cb473b69d7e",
-      "slug": "lagerungspfleger-in-lindenhofgruppe-bern",
+      "slug": "cure-di-stoccaggio-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "lagerungspfleger-in-lindenhofgruppe-bern",
-        "it": "lagerungspfleger-in-lindenhofgruppe-bern",
+        "it": "cure-di-stoccaggio-lindenhofgruppe-bern",
         "en": "lagerungspfleger-in-lindenhofgruppe-bern",
         "fr": "lagerungspfleger-in-lindenhofgruppe-bern"
       },
@@ -545,14 +573,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "lagerungspfleger-in-lindenhofgruppe-ch"
+          "lagerungspfleger-in-lindenhofgruppe-ch",
+          "lagerungspfleger-in-lindenhofgruppe-bern"
         ],
         "de": [
           "lagerungspfleger-in-lindenhofgruppe-ch"
         ]
       },
       "previousSlugs": [
-        "lagerungspfleger-in-lindenhofgruppe-ch"
+        "lagerungspfleger-in-lindenhofgruppe-ch",
+        "lagerungspfleger-in-lindenhofgruppe-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -570,10 +600,10 @@
     },
     {
       "id": "lindenhofgruppe-3b53b88a2897",
-      "slug": "nds-anasthesie-weiterbildungsstelle-lindenhofgruppe-ch",
+      "slug": "nds-anesthesia-centro-di-formazione-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "nds-anasthesie-weiterbildungsstelle-lindenhofgruppe-ch",
-        "it": "nds-anasthesie-weiterbildungsstelle-lindenhofgruppe-ch",
+        "it": "nds-anesthesia-centro-di-formazione-lindenhofgruppe-bern",
         "en": "nds-anasthesie-weiterbildungsstelle-lindenhofgruppe-ch",
         "fr": "nds-anasthesie-weiterbildungsstelle-lindenhofgruppe-ch"
       },
@@ -631,14 +661,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T21:57:57.774Z"
+      "firstSeenAt": "2026-05-10T21:57:57.774Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nds-anasthesie-weiterbildungsstelle-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "nds-anasthesie-weiterbildungsstelle-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-4c2d59bc2eac",
-      "slug": "pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026-lindenhofgruppe-bern",
+      "slug": "carriera-donna-fh-in-formazione-pratica-elettiva-2026-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026-lindenhofgruppe-ch",
-        "it": "pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026-lindenhofgruppe-bern",
+        "it": "carriera-donna-fh-in-formazione-pratica-elettiva-2026-lindenhofgruppe-bern",
         "en": "pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026-lindenhofgruppe-ch",
         "fr": "pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026-lindenhofgruppe-ch"
       },
@@ -686,11 +724,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026-lindenhofgruppe-ch"
+          "pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026-lindenhofgruppe-ch",
+          "pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026-lindenhofgruppe-bern"
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026-lindenhofgruppe-ch"
+        "pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026-lindenhofgruppe-ch",
+        "pflegefachfrau-mann-fh-in-ausbildung-wahlpflichtpraktikum-2026-lindenhofgruppe-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -708,10 +748,10 @@
     },
     {
       "id": "lindenhofgruppe-cdd10f158093",
-      "slug": "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch",
+      "slug": "bachelor-of-science-in-care-modulo-aggiuntivo-b-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch",
-        "it": "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch",
+        "it": "bachelor-of-science-in-care-modulo-aggiuntivo-b-lindenhofgruppe-bern",
         "en": "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch",
         "fr": "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch"
       },
@@ -769,7 +809,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T21:57:57.773Z"
+      "firstSeenAt": "2026-05-10T21:57:57.773Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bachelor-of-science-in-pflege-zusatzmodul-b-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-6f358c06f218",
@@ -849,10 +897,10 @@
     },
     {
       "id": "lindenhofgruppe-9b90b48c12d1",
-      "slug": "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-bern",
+      "slug": "dipl-specialista-della-radiologia-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch",
-        "it": "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-bern",
+        "it": "dipl-specialista-della-radiologia-lindenhofgruppe-bern",
         "en": "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch",
         "fr": "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch"
       },
@@ -900,11 +948,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch"
+          "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch",
+          "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-bern"
         ]
       },
       "previousSlugs": [
-        "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch"
+        "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-ch",
+        "dipl-radiologiefachfrau-mann-hf-lindenhofgruppe-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -922,10 +972,10 @@
     },
     {
       "id": "lindenhofgruppe-5c892fa72a45",
-      "slug": "dipl-experte-expertin-anasthesie-nds-hf-lindenhofgruppe-ch",
+      "slug": "dipl-esperto-esperto-anestesia-nds-hf-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "dipl-experte-expertin-anasthesie-nds-hf-lindenhofgruppe-ch",
-        "it": "dipl-experte-expertin-anasthesie-nds-hf-lindenhofgruppe-ch",
+        "it": "dipl-esperto-esperto-anestesia-nds-hf-lindenhofgruppe-bern",
         "en": "dipl-experte-expertin-anasthesie-nds-hf-lindenhofgruppe-ch",
         "fr": "dipl-experte-expertin-anasthesie-nds-hf-lindenhofgruppe-ch"
       },
@@ -983,14 +1033,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T21:57:57.771Z"
+      "firstSeenAt": "2026-05-10T21:57:57.771Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-experte-expertin-anasthesie-nds-hf-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-experte-expertin-anasthesie-nds-hf-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-41ca86f5bef2",
-      "slug": "dipl-expertin-experte-notfallpflege-nds-hf-lindenhofgruppe-ch",
+      "slug": "dipl-expert-expert-emergency-care-nds-hf-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "dipl-expertin-experte-notfallpflege-nds-hf-lindenhofgruppe-ch",
-        "it": "dipl-expertin-experte-notfallpflege-nds-hf-lindenhofgruppe-ch",
+        "it": "dipl-expert-expert-emergency-care-nds-hf-lindenhofgruppe-bern",
         "en": "dipl-expertin-experte-notfallpflege-nds-hf-lindenhofgruppe-ch",
         "fr": "dipl-expertin-experte-notfallpflege-nds-hf-lindenhofgruppe-ch"
       },
@@ -1048,14 +1106,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T21:57:57.769Z"
+      "firstSeenAt": "2026-05-10T21:57:57.769Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experte-notfallpflege-nds-hf-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experte-notfallpflege-nds-hf-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-35226807f98f",
-      "slug": "nds-notfallpflege-weiterbildungsstelle-lindenhofgruppe-ch",
+      "slug": "nds-emergency-care-centro-di-formazione-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "nds-notfallpflege-weiterbildungsstelle-lindenhofgruppe-ch",
-        "it": "nds-notfallpflege-weiterbildungsstelle-lindenhofgruppe-ch",
+        "it": "nds-emergency-care-centro-di-formazione-lindenhofgruppe-bern",
         "en": "nds-notfallpflege-weiterbildungsstelle-lindenhofgruppe-ch",
         "fr": "nds-notfallpflege-weiterbildungsstelle-lindenhofgruppe-ch"
       },
@@ -1113,7 +1179,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T21:57:57.768Z"
+      "firstSeenAt": "2026-05-10T21:57:57.768Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nds-notfallpflege-weiterbildungsstelle-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "nds-notfallpflege-weiterbildungsstelle-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-fb261644b78c",
@@ -1190,10 +1264,10 @@
     },
     {
       "id": "lindenhofgruppe-46b9b378c525",
-      "slug": "oberarztin-oberarzt-notfallzentrum-lindenhofgruppe-ch",
+      "slug": "centro-di-emergenza-medico-senior-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-notfallzentrum-lindenhofgruppe-ch",
-        "it": "oberarztin-oberarzt-notfallzentrum-lindenhofgruppe-ch",
+        "it": "centro-di-emergenza-medico-senior-lindenhofgruppe-bern",
         "en": "oberarztin-oberarzt-notfallzentrum-lindenhofgruppe-ch",
         "fr": "oberarztin-oberarzt-notfallzentrum-lindenhofgruppe-ch"
       },
@@ -1251,14 +1325,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T21:57:57.766Z"
+      "firstSeenAt": "2026-05-10T21:57:57.766Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-notfallzentrum-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-notfallzentrum-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-d1d2041b7583",
-      "slug": "fachfrau-mann-gesundheit-lindenhofgruppe-bern",
+      "slug": "salute-professionale-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
-        "it": "fachfrau-mann-gesundheit-lindenhofgruppe-bern",
+        "it": "salute-professionale-lindenhofgruppe-bern",
         "en": "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
         "fr": "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
       },
@@ -1306,11 +1388,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
+          "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
+          "fachfrau-mann-gesundheit-lindenhofgruppe-bern"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
+        "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
+        "fachfrau-mann-gesundheit-lindenhofgruppe-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1328,10 +1412,10 @@
     },
     {
       "id": "lindenhofgruppe-ec8a7a8d056d",
-      "slug": "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-bern",
+      "slug": "carriera-moglie-hf-in-servizio-di-formazione-primavera-2027-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-ch",
-        "it": "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-bern",
+        "it": "carriera-moglie-hf-in-servizio-di-formazione-primavera-2027-lindenhofgruppe-bern",
         "en": "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-ch",
         "fr": "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-ch"
       },
@@ -1379,11 +1463,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-ch"
+          "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-ch",
+          "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-bern"
         ]
       },
       "previousSlugs": [
-        "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-ch"
+        "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-ch",
+        "pflegefachfrau-mann-hf-in-ausbildung-betriebsanstellung-fruhling-2027-lindenhofgruppe-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1401,10 +1487,10 @@
     },
     {
       "id": "lindenhofgruppe-d8923161b4c7",
-      "slug": "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-bern",
+      "slug": "dipl-specialista-in-allattamento-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-ch",
-        "it": "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-bern",
+        "it": "dipl-specialista-in-allattamento-lindenhofgruppe-bern",
         "en": "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-ch",
         "fr": "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-ch"
       },
@@ -1452,11 +1538,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-ch"
+          "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-ch",
+          "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-bern"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-ch"
+        "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-ch",
+        "dipl-pflegefachfrau-mann-herzkatheterlabor-lindenhofgruppe-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1620,10 +1708,10 @@
     },
     {
       "id": "lindenhofgruppe-c4e5352195c2",
-      "slug": "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-bern",
+      "slug": "dipl-specialista-della-radiologia-lindenhofgruppe-bern-cdaa54",
       "slugByLocale": {
         "de": "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-ch",
-        "it": "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-bern",
+        "it": "dipl-specialista-della-radiologia-lindenhofgruppe-bern-cdaa54",
         "en": "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-ch",
         "fr": "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-ch"
       },
@@ -1671,11 +1759,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-ch"
+          "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-ch",
+          "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-bern"
         ]
       },
       "previousSlugs": [
-        "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-ch"
+        "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-ch",
+        "dipl-radiologiefachfrau-mann-radio-onkologie-lindenhofgruppe-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1693,10 +1783,10 @@
     },
     {
       "id": "lindenhofgruppe-7512d3d70369",
-      "slug": "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch",
+      "slug": "dipl-expert-dipl-expert-anesthesia-care-nds-hf-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch",
-        "it": "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch",
+        "it": "dipl-expert-dipl-expert-anesthesia-care-nds-hf-lindenhofgruppe-bern",
         "en": "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch",
         "fr": "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch"
       },
@@ -1754,14 +1844,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T21:57:57.762Z"
+      "firstSeenAt": "2026-05-10T21:57:57.762Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-dipl-experte-anasthesiepflege-nds-hf-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-6909d27a8eb7",
-      "slug": "assistent-in-pflege-lindenhofgruppe-bern",
+      "slug": "assistente-nella-cura-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "assistent-in-pflege-lindenhofgruppe-bern",
-        "it": "assistent-in-pflege-lindenhofgruppe-bern",
+        "it": "assistente-nella-cura-lindenhofgruppe-bern",
         "en": "assistent-in-pflege-lindenhofgruppe-bern",
         "fr": "assistent-in-pflege-lindenhofgruppe-bern"
       },
@@ -1809,14 +1907,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-pflege-lindenhofgruppe-ch"
+          "assistent-in-pflege-lindenhofgruppe-ch",
+          "assistent-in-pflege-lindenhofgruppe-bern"
         ],
         "de": [
           "assistent-in-pflege-lindenhofgruppe-ch"
         ]
       },
       "previousSlugs": [
-        "assistent-in-pflege-lindenhofgruppe-ch"
+        "assistent-in-pflege-lindenhofgruppe-ch",
+        "assistent-in-pflege-lindenhofgruppe-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1907,10 +2007,10 @@
     },
     {
       "id": "lindenhofgruppe-2701663ace09",
-      "slug": "pharma-assistent-in-lindenhofgruppe-bern",
+      "slug": "assistente-farmaceutico-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "pharma-assistent-in-lindenhofgruppe-bern",
-        "it": "pharma-assistent-in-lindenhofgruppe-bern",
+        "it": "assistente-farmaceutico-lindenhofgruppe-bern",
         "en": "pharma-assistent-in-lindenhofgruppe-bern",
         "fr": "pharma-assistent-in-lindenhofgruppe-bern"
       },
@@ -1958,14 +2058,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "pharma-assistent-in-lindenhofgruppe-ch"
+          "pharma-assistent-in-lindenhofgruppe-ch",
+          "pharma-assistent-in-lindenhofgruppe-bern"
         ],
         "de": [
           "pharma-assistent-in-lindenhofgruppe-ch"
         ]
       },
       "previousSlugs": [
-        "pharma-assistent-in-lindenhofgruppe-ch"
+        "pharma-assistent-in-lindenhofgruppe-ch",
+        "pharma-assistent-in-lindenhofgruppe-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1983,10 +2085,10 @@
     },
     {
       "id": "lindenhofgruppe-d1e5a69dba2d",
-      "slug": "medizinische-codiererin-medizinischer-codierer-lindenhofgruppe-ch",
+      "slug": "encoder-medico-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "medizinische-codiererin-medizinischer-codierer-lindenhofgruppe-ch",
-        "it": "medizinische-codiererin-medizinischer-codierer-lindenhofgruppe-ch",
+        "it": "encoder-medico-lindenhofgruppe-bern",
         "en": "medizinische-codiererin-medizinischer-codierer-lindenhofgruppe-ch",
         "fr": "medizinische-codiererin-medizinischer-codierer-lindenhofgruppe-ch"
       },
@@ -2044,14 +2146,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T21:57:57.757Z"
+      "firstSeenAt": "2026-05-10T21:57:57.757Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-codiererin-medizinischer-codierer-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-codiererin-medizinischer-codierer-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-27fb1005b0fd",
-      "slug": "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch",
+      "slug": "personale-in-centro-di-emergenza-di-registrazione-paziente-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch",
-        "it": "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch",
+        "it": "personale-in-centro-di-emergenza-di-registrazione-paziente-lindenhofgruppe-bern",
         "en": "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch",
         "fr": "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
       },
@@ -2109,7 +2219,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T21:57:57.755Z"
+      "firstSeenAt": "2026-05-10T21:57:57.755Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-patientenaufnahme-notfallzentrum-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-117e47d43f00",
@@ -2332,10 +2450,10 @@
     },
     {
       "id": "lindenhofgruppe-b0f1d2b93f24",
-      "slug": "sachbearbeiter-in-leistungsmanagement-lindenhofgruppe-bern",
+      "slug": "specialista-nella-gestione-delle-prestazioni-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "sachbearbeiter-in-leistungsmanagement-lindenhofgruppe-bern",
-        "it": "sachbearbeiter-in-leistungsmanagement-lindenhofgruppe-bern",
+        "it": "specialista-nella-gestione-delle-prestazioni-lindenhofgruppe-bern",
         "en": "sachbearbeiter-in-leistungsmanagement-lindenhofgruppe-bern",
         "fr": "sachbearbeiter-in-leistungsmanagement-lindenhofgruppe-bern"
       },
@@ -2383,14 +2501,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-leistungsmanagement-lindenhofgruppe-ch"
+          "sachbearbeiter-in-leistungsmanagement-lindenhofgruppe-ch",
+          "sachbearbeiter-in-leistungsmanagement-lindenhofgruppe-bern"
         ],
         "de": [
           "sachbearbeiter-in-leistungsmanagement-lindenhofgruppe-ch"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-leistungsmanagement-lindenhofgruppe-ch"
+        "sachbearbeiter-in-leistungsmanagement-lindenhofgruppe-ch",
+        "sachbearbeiter-in-leistungsmanagement-lindenhofgruppe-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2408,10 +2528,10 @@
     },
     {
       "id": "lindenhofgruppe-0759c5414ccd",
-      "slug": "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-bern",
+      "slug": "dipartimento-operazioni-di-salute-professionale-sonnenhof-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch",
-        "it": "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-bern",
+        "it": "dipartimento-operazioni-di-salute-professionale-sonnenhof-lindenhofgruppe-bern",
         "en": "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch",
         "fr": "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch"
       },
@@ -2459,11 +2579,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch"
+          "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch",
+          "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-bern"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch"
+        "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-ch",
+        "fachfrau-mann-gesundheit-operationsabteilung-sonnenhof-lindenhofgruppe-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

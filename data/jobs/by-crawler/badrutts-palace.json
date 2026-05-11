@@ -260,9 +260,9 @@
     },
     {
       "id": "badrutts-palace-6ef14f9c9db1",
-      "slug": "assistant-manager-servizio-in-camera-badrutt-s-palace-hotel-st-moritz",
+      "slug": "assistente-responsabile-del-servizio-camera-lunedi-merdi-giorno-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
-        "it": "assistant-manager-servizio-in-camera-badrutt-s-palace-hotel-st-moritz",
+        "it": "assistente-responsabile-del-servizio-camera-lunedi-merdi-giorno-badrutt-s-palace-hotel-st-moritz",
         "en": "assistant-room-service-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "de": "assistant-room-service-manager-m-w-d-badrutts-palace-ch",
         "fr": "assistant-responsable-du-service-en-chambre-badrutt-s-palace-hotel-st-moritz"
@@ -318,7 +318,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-manager-servizio-in-camera-badrutt-s-palace-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-manager-servizio-in-camera-badrutt-s-palace-hotel-st-moritz"
+      ]
     },
     {
       "id": "badrutts-palace-13c05d3d6048",
@@ -466,9 +474,9 @@
     },
     {
       "id": "badrutts-palace-76dc46ecebf9",
-      "slug": "commis-patissier-m-w-d-badrutts-palace-ch",
+      "slug": "projektmanager-m-w-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
-        "it": "commis-patissier-m-w-d-badrutts-palace-ch",
+        "it": "projektmanager-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "en": "commis-patissier-m-w-d-badrutts-palace-ch",
         "de": "commis-patissier-m-w-d-badrutts-palace-ch",
         "fr": "commis-patissier-m-w-d-badrutt-s-palace-hotel-st-moritz"
@@ -524,7 +532,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-patissier-m-w-d-badrutts-palace-ch"
+        ]
+      },
+      "previousSlugs": [
+        "commis-patissier-m-w-d-badrutts-palace-ch"
+      ]
     }
   ]
 }

@@ -693,9 +693,9 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-05abacbd47d6",
-      "slug": "fachspezialist-fahrbahn-weichen-m-w-d-matterhorn-gotthard-bahn-ch",
+      "slug": "projektleiter-m-w-d-matterhorn-gotthard-bahn-herbriggen",
       "slugByLocale": {
-        "it": "fachspezialist-fahrbahn-weichen-m-w-d-matterhorn-gotthard-bahn-ch",
+        "it": "projektleiter-m-w-d-matterhorn-gotthard-bahn-herbriggen",
         "en": "fachspezialist-fahrbahn-weichen-m-w-d-matterhorn-gotthard-bahn-ch",
         "de": "fachspezialist-fahrbahn-weichen-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "fachspezialist-fahrbahn-weichen-m-w-d-matterhorn-gotthard-bahn-ch"
@@ -775,7 +775,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-fahrbahn-weichen-m-w-d-matterhorn-gotthard-bahn-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-fahrbahn-weichen-m-w-d-matterhorn-gotthard-bahn-ch"
+      ]
     },
     {
       "id": "matterhorn-gotthard-bahn-062e2c43af0e",
@@ -895,9 +903,9 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-0f412224b7c0",
-      "slug": "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch",
+      "slug": "pittore-di-carrozzeria-specialista-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund",
       "slugByLocale": {
-        "it": "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch",
+        "it": "pittore-di-carrozzeria-specialista-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund",
         "en": "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch",
         "de": "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch"
@@ -973,7 +981,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch"
+        ]
+      },
+      "previousSlugs": [
+        "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch"
+      ]
     }
   ]
 }

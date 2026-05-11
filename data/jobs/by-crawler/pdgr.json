@@ -3152,9 +3152,9 @@
     },
     {
       "id": "pdgr-931f5642c1d2",
-      "slug": "oberarztin-oberarzt-pdgr-ch",
+      "slug": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-pdgr-ch",
+        "it": "medico-senior-psychiatrische-dienste-graubunden-ilanz",
         "en": "oberarztin-oberarzt-pdgr-ch",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
         "fr": "oberarztin-oberarzt-pdgr-ch"
@@ -3215,7 +3215,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-pdgr-ch"
+      ]
     },
     {
       "id": "pdgr-832c5dda1296",

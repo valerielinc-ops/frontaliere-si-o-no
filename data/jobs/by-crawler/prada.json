@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "prada-332f237b0ca4",
-      "slug": "miu-miu-store-manager-saint-moritz-prada-mendrisio",
+      "slug": "mui-mui-direttore-del-negozio-saint-moritz-prada-group-st-moritz",
       "slugByLocale": {
-        "it": "miu-miu-store-manager-saint-moritz-prada-mendrisio",
+        "it": "mui-mui-direttore-del-negozio-saint-moritz-prada-group-st-moritz",
         "en": "miu-miu-store-manager-saint-moritz-prada-group-st-moritz",
         "de": "miu-miu-store-manager-saint-moritz-prada-mendrisio",
         "fr": "miu-miu-store-manager-saint-moritz-prada-mendrisio"
@@ -58,7 +58,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7500"
+      "postalCode": "7500",
+      "previousSlugsByLocale": {
+        "it": [
+          "miu-miu-store-manager-saint-moritz-prada-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "miu-miu-store-manager-saint-moritz-prada-mendrisio"
+      ]
     },
     {
       "id": "prada-b8ab80bfb2e1",

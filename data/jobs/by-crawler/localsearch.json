@@ -944,9 +944,9 @@
     },
     {
       "id": "localsearch-f60e5ed0e5dc",
-      "slug": "verkaufsberater-aussendienst-localsearch-graubunden-schweiz",
+      "slug": "consulenti-di-vendita-localsearch-graubunden-schweiz",
       "slugByLocale": {
-        "it": "verkaufsberater-aussendienst-localsearch-graubunden-schweiz",
+        "it": "consulenti-di-vendita-localsearch-graubunden-schweiz",
         "en": "verkaufsberater-aussendienst-localsearch-graubunden-schweiz",
         "de": "verkaufsberater-aussendienst-localsearch-graubunden-schweiz",
         "fr": "verkaufsberater-aussendienst-localsearch-graubunden-schweiz"
@@ -993,11 +993,13 @@
           "verkaufsberater-aussendienst-localsearch-ch"
         ],
         "it": [
-          "verkaufsberater-aussendienst-localsearch-ch"
+          "verkaufsberater-aussendienst-localsearch-ch",
+          "verkaufsberater-aussendienst-localsearch-graubunden-schweiz"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-aussendienst-localsearch-ch"
+        "verkaufsberater-aussendienst-localsearch-ch",
+        "verkaufsberater-aussendienst-localsearch-graubunden-schweiz"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:29:46.631Z",
@@ -1715,9 +1717,9 @@
     },
     {
       "id": "localsearch-f3abd9de3327",
-      "slug": "vertriebsprofi-aussendienst-localsearch-ch",
+      "slug": "professionista-di-vendita-localsearch-baselland-schweiz",
       "slugByLocale": {
-        "it": "vertriebsprofi-aussendienst-localsearch-ch",
+        "it": "professionista-di-vendita-localsearch-baselland-schweiz",
         "en": "vertriebsprofi-aussendienst-localsearch-ch",
         "de": "vertriebsprofi-aussendienst-localsearch-baselland-schweiz",
         "fr": "vertriebsprofi-aussendienst-localsearch-ch"
@@ -1773,7 +1775,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "vertriebsprofi-aussendienst-localsearch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vertriebsprofi-aussendienst-localsearch-ch"
+      ]
     },
     {
       "id": "localsearch-34e85f1335c5",

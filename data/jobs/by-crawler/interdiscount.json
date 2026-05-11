@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "interdiscount-daf3a2d3-02c",
-      "slug": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-interdiscount-sion-gare",
+      "slug": "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-acquisto-interdiscount-sion-gare",
       "slugByLocale": {
-        "it": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-interdiscount-sion-gare",
+        "it": "swc-retail-manager-progettazione-e-realizzazione-di-esperienze-di-acquisto-interdiscount-sion-gare",
         "en": "gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39-",
         "de": "gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39-",
         "fr": "gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39-"
@@ -53,11 +53,13 @@
       ],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39-"
+        "gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39-",
+        "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-interdiscount-sion-gare"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39-"
+          "gestionnaire-du-commerce-de-detail-cfc-34-conception-et-realisation-d-39-experiences-d-39-",
+          "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat-interdiscount-sion-gare"
         ]
       },
       "needsRetranslation": true,
@@ -192,9 +194,9 @@
     },
     {
       "id": "interdiscount-520de24e-8e5",
-      "slug": "gestionnaire-du-commerce-de-detail-interdiscount-sierre-manor",
+      "slug": "responsabile-del-commercio-al-dettaglio-interdiscount-sierre-manor",
       "slugByLocale": {
-        "it": "gestionnaire-du-commerce-de-detail-interdiscount-sierre-manor",
+        "it": "responsabile-del-commercio-al-dettaglio-interdiscount-sierre-manor",
         "en": "gestionnaire-du-commerce-de-detail-interdiscount-sierre-manor",
         "de": "gestionnaire-du-commerce-de-detail-interdiscount-sierre-manor",
         "fr": "gestionnaire-du-commerce-de-detail-interdiscount-sierre-manor"
@@ -254,7 +256,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-du-commerce-de-detail-interdiscount-sierre-manor"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-du-commerce-de-detail-interdiscount-sierre-manor"
+      ]
     },
     {
       "id": "interdiscount-da0b842b-36a",
@@ -446,9 +456,9 @@
     },
     {
       "id": "interdiscount-d7a2b3a9-c76",
-      "slug": "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal",
+      "slug": "responsabile-del-commercio-al-dettaglio-interdiscount-martigny-cristal",
       "slugByLocale": {
-        "it": "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal",
+        "it": "responsabile-del-commercio-al-dettaglio-interdiscount-martigny-cristal",
         "en": "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal",
         "de": "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal",
         "fr": "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal"
@@ -508,7 +518,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal"
+      ]
     }
   ]
 }

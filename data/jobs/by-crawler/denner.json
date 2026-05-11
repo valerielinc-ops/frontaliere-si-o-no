@@ -1016,12 +1016,12 @@
     },
     {
       "id": "denner-ffd819592b2e",
-      "slug": "sachbearbeiter-in-human-resources-denner",
+      "slug": "sachbearbeiter-in-risorse-umane-denner-zurich",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-human-resources-denner",
+        "it": "sachbearbeiter-in-risorse-umane-denner-zurich",
         "en": "sachbearbeiter-in-human-resources-denner",
         "de": "sachbearbeiter-in-human-resources-denner",
-        "fr": "sachbearbeiter-in-human-resources-denner"
+        "fr": "sachbearbeiter-in-ressources-humaines-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1089,7 +1089,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T11:32:41.569Z"
+      "firstSeenAt": "2026-05-11T11:32:41.569Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-human-resources-denner"
+        ],
+        "fr": [
+          "sachbearbeiter-in-human-resources-denner"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-human-resources-denner"
+      ]
     }
   ]
 }

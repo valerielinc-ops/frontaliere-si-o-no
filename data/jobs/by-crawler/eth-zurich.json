@@ -2830,7 +2830,7 @@
       "slugByLocale": {
         "it": "postdoctoral-researcher-occl-eth-zurich-ch",
         "en": "postdoctoral-researcher-occl-eth-zurich-ch",
-        "de": "postdoctoral-researcher-occl-eth-zurich-ch",
+        "de": "postdoktorand-occl-eth-zurich-singapore",
         "fr": "postdoctoral-researcher-occl-eth-zurich-ch"
       },
       "company": "ETH Zürich",
@@ -6655,10 +6655,10 @@
     },
     {
       "id": "eth-zurich-81442ddfd033",
-      "slug": "phd-researcher-tenoexo-eth-zurich-ch",
+      "slug": "ricercatore-di-dottorato-tenoexo-eth-zurich-singapore",
       "slugByLocale": {
         "en": "phd-researcher-tenoexo-eth-zurich-ch",
-        "it": "phd-researcher-tenoexo-eth-zurich-ch",
+        "it": "ricercatore-di-dottorato-tenoexo-eth-zurich-singapore",
         "de": "phd-researcher-tenoexo-eth-zurich-ch",
         "fr": "phd-researcher-tenoexo-eth-zurich-ch"
       },
@@ -6713,14 +6713,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T21:32:43.952Z"
+      "firstSeenAt": "2026-05-10T21:32:43.952Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-researcher-tenoexo-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-researcher-tenoexo-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-a1f7a479879a",
-      "slug": "phd-researcher-pdtx-eth-zurich-ch",
+      "slug": "ricercatore-di-dottorato-pdtx-eth-zurich-singapore",
       "slugByLocale": {
         "en": "phd-researcher-pdtx-eth-zurich-ch",
-        "it": "phd-researcher-pdtx-eth-zurich-ch",
+        "it": "ricercatore-di-dottorato-pdtx-eth-zurich-singapore",
         "de": "phd-researcher-pdtx-eth-zurich-ch",
         "fr": "phd-researcher-pdtx-eth-zurich-ch"
       },
@@ -6775,7 +6783,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T21:32:43.452Z"
+      "firstSeenAt": "2026-05-10T21:32:43.452Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-researcher-pdtx-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-researcher-pdtx-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-ebfe84d4baf0",

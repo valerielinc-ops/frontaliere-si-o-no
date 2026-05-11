@@ -1642,9 +1642,9 @@
     },
     {
       "id": "hopital-du-valais-4d6e8ba507e8",
-      "slug": "secretaire-medical-e-a-50-pour-le-secretariat-de-consultations-du-centre-de-la-memoire-a-l",
+      "slug": "50-per-cento-segretario-medico-per-la-segreteria-di-consultazione-del-centro-di-memoria-presso-la-clinica-st-ame-a-st-ma",
       "slugByLocale": {
-        "it": "secretaire-medical-e-a-50-pour-le-secretariat-de-consultations-du-centre-de-la-memoire-a-l",
+        "it": "50-per-cento-segretario-medico-per-la-segreteria-di-consultazione-del-centro-di-memoria-presso-la-clinica-st-ame-a-st-ma",
         "en": "secretaire-medical-e-a-50-pour-le-secretariat-de-consultations-du-centre-de-la-memoire-a-l",
         "de": "secretaire-medical-e-a-50-pour-le-secretariat-de-consultations-du-centre-de-la-memoire-a-l",
         "fr": "secretaire-medical-e-a-50-pour-le-secretariat-de-consultations-du-centre-de-la-memoire-a-l"
@@ -1704,7 +1704,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-a-50-pour-le-secretariat-de-consultations-du-centre-de-la-memoire-a-l"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-a-50-pour-le-secretariat-de-consultations-du-centre-de-la-memoire-a-l"
+      ]
     },
     {
       "id": "hopital-du-valais-598720b7d8ca",
@@ -2084,9 +2092,9 @@
     },
     {
       "id": "hopital-du-valais-2f9105512f5e",
-      "slug": "psychologue-a-80-pour-le-pole-de-psychiatrie-et-psychotherapie-service-de-la-medecine-peni",
+      "slug": "80-psicologo-per-il-pole-de-psychiatrie-e-psicotherapie-dipartimento-di-medicina-del-carcere-hopital-du-valais-granges",
       "slugByLocale": {
-        "it": "psychologue-a-80-pour-le-pole-de-psychiatrie-et-psychotherapie-service-de-la-medecine-peni",
+        "it": "80-psicologo-per-il-pole-de-psychiatrie-e-psicotherapie-dipartimento-di-medicina-del-carcere-hopital-du-valais-granges",
         "en": "psychologue-a-80-pour-le-pole-de-psychiatrie-et-psychotherapie-service-de-la-medecine-peni",
         "de": "psychologue-a-80-pour-le-pole-de-psychiatrie-et-psychotherapie-service-de-la-medecine-peni",
         "fr": "psychologue-a-80-pour-le-pole-de-psychiatrie-et-psychotherapie-service-de-la-medecine-penitentiaire-hopital-du-valais-gr"
@@ -2146,7 +2154,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-a-80-pour-le-pole-de-psychiatrie-et-psychotherapie-service-de-la-medecine-peni"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-a-80-pour-le-pole-de-psychiatrie-et-psychotherapie-service-de-la-medecine-peni"
+      ]
     },
     {
       "id": "hopital-du-valais-082d70a0d13c",

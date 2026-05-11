@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "fondation-domus-38966bcf3169",
-      "slug": "travailleur-social-60-fondation-domus-ch",
+      "slug": "lavoratore-sociale-60-fondation-domus-la-tzoumaz",
       "slugByLocale": {
-        "it": "travailleur-social-60-fondation-domus-ch",
+        "it": "lavoratore-sociale-60-fondation-domus-la-tzoumaz",
         "en": "travailleur-social-60-fondation-domus-ch",
         "de": "travailleur-social-60-fondation-domus-ch",
         "fr": "travailleur-social-60-fondation-domus-ch"
@@ -62,7 +62,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "travailleur-social-60-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "travailleur-social-60-fondation-domus-ch"
+      ]
     },
     {
       "id": "fondation-domus-10deeccd7fb8",

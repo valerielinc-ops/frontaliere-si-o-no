@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "somedia-b1a7615c5298",
-      "slug": "grafiker-in-80-100-somedia-ch",
+      "slug": "grafica-80-100-somedia-ag-ilanz",
       "slugByLocale": {
-        "it": "grafiker-in-80-100-somedia-ch",
+        "it": "grafica-80-100-somedia-ag-ilanz",
         "en": "grafiker-in-80-100-somedia-ch",
         "de": "grafiker-in-80-100-somedia-ag-ilanz",
         "fr": "grafiker-in-80-100-somedia-ch"
@@ -87,7 +87,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "grafiker-in-80-100-somedia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "grafiker-in-80-100-somedia-ch"
+      ]
     },
     {
       "id": "somedia-bac9018286e2",

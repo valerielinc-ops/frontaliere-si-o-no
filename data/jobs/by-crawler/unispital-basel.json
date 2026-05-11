@@ -77,10 +77,10 @@
     },
     {
       "id": "unispital-basel-c5eed8cbfad1",
-      "slug": "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch",
+      "slug": "intern-intern-wms-servicecenter-med-documentazione-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "praktikantin-praktikant-wms-servicecenter-med-dokumentation-universitatsspital-basel-basel",
-        "it": "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch",
+        "it": "intern-intern-wms-servicecenter-med-documentazione-universitatsspital-basel-basel",
         "en": "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch",
         "fr": "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch"
       },
@@ -138,14 +138,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.345Z"
+      "firstSeenAt": "2026-05-10T22:38:59.345Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-wms-servicecenter-med-dokumentation-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-16a75ed2779f",
-      "slug": "fachfrau-mann-gesundheit-fage-neurologie-universitatsspital-basel",
+      "slug": "specialista-mann-salute-fage-neurologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-fage-neurologie-universitatsspital-basel-basel",
-        "it": "fachfrau-mann-gesundheit-fage-neurologie-universitatsspital-basel",
+        "it": "specialista-mann-salute-fage-neurologia-universitatsspital-basel-basel",
         "en": "fachfrau-mann-gesundheit-fage-neurologie-unispital-basel-ch",
         "fr": "fachfrau-mann-gesundheit-fage-neurologie-unispital-basel-ch"
       },
@@ -193,14 +201,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-fage-neurologie-unispital-basel-ch"
+          "fachfrau-mann-gesundheit-fage-neurologie-unispital-basel-ch",
+          "fachfrau-mann-gesundheit-fage-neurologie-universitatsspital-basel"
         ],
         "de": [
           "fachfrau-mann-gesundheit-fage-neurologie-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-fage-neurologie-unispital-basel-ch"
+        "fachfrau-mann-gesundheit-fage-neurologie-unispital-basel-ch",
+        "fachfrau-mann-gesundheit-fage-neurologie-universitatsspital-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -218,10 +228,10 @@
     },
     {
       "id": "unispital-basel-7dc3af95898a",
-      "slug": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
+      "slug": "fellowship-radiologia-cortoorale-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
-        "it": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
+        "it": "fellowship-radiologia-cortoorale-universitatsspital-basel-basel",
         "en": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel",
         "fr": "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel"
       },
@@ -269,11 +279,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "fellowship-kardiothorakale-radiologie-unispital-basel-ch"
+          "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
+          "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "fellowship-kardiothorakale-radiologie-unispital-basel-ch"
+        "fellowship-kardiothorakale-radiologie-unispital-basel-ch",
+        "fellowship-kardiothorakale-radiologie-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -291,10 +303,10 @@
     },
     {
       "id": "unispital-basel-a292aece20e2",
-      "slug": "unterassistentin-unterassistent-anasthesie-universitatsspital-basel-basel",
+      "slug": "subassistante-subassistante-anestesia-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "unterassistentin-unterassistent-anasthesie-universitatsspital-basel-basel",
-        "it": "unterassistentin-unterassistent-anasthesie-universitatsspital-basel-basel",
+        "it": "subassistante-subassistante-anestesia-universitatsspital-basel-basel",
         "en": "unterassistentin-unterassistent-anasthesie-universitatsspital-basel-basel",
         "fr": "unterassistentin-unterassistent-anasthesie-universitatsspital-basel-basel"
       },
@@ -342,14 +354,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-anasthesie-unispital-basel-ch"
+          "unterassistentin-unterassistent-anasthesie-unispital-basel-ch",
+          "unterassistentin-unterassistent-anasthesie-universitatsspital-basel-basel"
         ],
         "de": [
           "unterassistentin-unterassistent-anasthesie-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "unterassistentin-unterassistent-anasthesie-unispital-basel-ch"
+        "unterassistentin-unterassistent-anasthesie-unispital-basel-ch",
+        "unterassistentin-unterassistent-anasthesie-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -443,10 +457,10 @@
     },
     {
       "id": "unispital-basel-43bf9c5d75fd",
-      "slug": "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch",
+      "slug": "medicina-del-lavoro-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-notfallmedizin-universitatsspital-basel-basel",
-        "it": "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch",
+        "it": "medicina-del-lavoro-universitatsspital-basel-basel",
         "en": "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch",
         "fr": "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch"
       },
@@ -504,14 +518,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.341Z"
+      "firstSeenAt": "2026-05-10T22:38:59.341Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-notfallmedizin-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-51047c7e39c5",
-      "slug": "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-universitatsspital-basel-basel",
+      "slug": "specialista-di-radiologia-hf-raggio-convenzionale-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-universitatsspital-basel-basel",
-        "it": "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-universitatsspital-basel-basel",
+        "it": "specialista-di-radiologia-hf-raggio-convenzionale-universitatsspital-basel-basel",
         "en": "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-universitatsspital-basel-basel",
         "fr": "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-universitatsspital-basel-basel"
       },
@@ -559,14 +581,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-unispital-basel-ch"
+          "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-unispital-basel-ch",
+          "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-universitatsspital-basel-basel"
         ],
         "de": [
           "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-unispital-basel-ch"
+        "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-unispital-basel-ch",
+        "radiologiefachfrau-radiologiefachmann-hf-konventionelles-rontgen-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -584,10 +608,10 @@
     },
     {
       "id": "unispital-basel-f370a9c2e186",
-      "slug": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
+      "slug": "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
-        "it": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
+        "it": "specialista-di-radiologia-hf-medicina-nucleare-universitatsspital-basel-basel",
         "en": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel",
         "fr": "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel"
       },
@@ -635,11 +659,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch"
+          "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
+          "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch"
+        "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-unispital-basel-ch",
+        "radiologiefachfrau-radiologiefachmann-hf-nuklearmedizin-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -730,10 +756,10 @@
     },
     {
       "id": "unispital-basel-7e895057a061",
-      "slug": "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
+      "slug": "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
-        "it": "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
+        "it": "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel",
         "en": "nds-experte-expertin-notfallpflege-nfz-universitatsspital-basel-basel",
         "fr": "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch"
       },
@@ -791,14 +817,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.338Z"
+      "firstSeenAt": "2026-05-10T22:38:59.338Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-9025212a38d2",
-      "slug": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
+      "slug": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "med-praxisassistent-in-radiologie-unispital-basel-ch",
-        "it": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
+        "it": "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "en": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "fr": "med-praxisassistent-in-radiologie-universitatsspital-basel-basel"
       },
@@ -846,11 +880,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-radiologie-unispital-basel-ch"
+          "med-praxisassistent-in-radiologie-unispital-basel-ch",
+          "med-praxisassistent-in-radiologie-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistent-in-radiologie-unispital-basel-ch"
+        "med-praxisassistent-in-radiologie-unispital-basel-ch",
+        "med-praxisassistent-in-radiologie-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -868,10 +904,10 @@
     },
     {
       "id": "unispital-basel-14812accd05b",
-      "slug": "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital-base",
+      "slug": "cura-gynecological-oncological-ambulatory-breast-clinic-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-brustklinik-universitatsspital-basel-basel",
-        "it": "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital-base",
+        "it": "cura-gynecological-oncological-ambulatory-breast-clinic-universitatsspital-basel-basel",
         "en": "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital-base",
         "fr": "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital-base"
       },
@@ -929,14 +965,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.337Z"
+      "firstSeenAt": "2026-05-10T22:38:59.337Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital-base"
+        ]
+      },
+      "previousSlugs": [
+        "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital-base"
+      ]
     },
     {
       "id": "unispital-basel-cb61e43a1183",
-      "slug": "nachdiplomstudium-nds-anasthesiepflege-universitatsspital-basel-basel",
+      "slug": "studi-post-laurea-nds-anaesthesia-cura-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "nachdiplomstudium-nds-anasthesiepflege-universitatsspital-basel-basel",
-        "it": "nachdiplomstudium-nds-anasthesiepflege-universitatsspital-basel-basel",
+        "it": "studi-post-laurea-nds-anaesthesia-cura-universitatsspital-basel-basel",
         "en": "nachdiplomstudium-nds-anasthesiepflege-universitatsspital-basel-basel",
         "fr": "nachdiplomstudium-nds-anasthesiepflege-universitatsspital-basel-basel"
       },
@@ -984,14 +1028,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-nds-anasthesiepflege-unispital-basel-ch"
+          "nachdiplomstudium-nds-anasthesiepflege-unispital-basel-ch",
+          "nachdiplomstudium-nds-anasthesiepflege-universitatsspital-basel-basel"
         ],
         "de": [
           "nachdiplomstudium-nds-anasthesiepflege-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "nachdiplomstudium-nds-anasthesiepflege-unispital-basel-ch"
+        "nachdiplomstudium-nds-anasthesiepflege-unispital-basel-ch",
+        "nachdiplomstudium-nds-anasthesiepflege-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1228,10 +1274,10 @@
     },
     {
       "id": "unispital-basel-192e91ae57e8",
-      "slug": "dipl-experte-expertin-nds-anasthesiepflege-universitatsspital-basel-basel",
+      "slug": "dipl-expert-expert-nds-anaesthesia-care-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-experte-expertin-nds-anasthesiepflege-universitatsspital-basel-basel",
-        "it": "dipl-experte-expertin-nds-anasthesiepflege-universitatsspital-basel-basel",
+        "it": "dipl-expert-expert-nds-anaesthesia-care-universitatsspital-basel-basel",
         "en": "dipl-experte-expertin-nds-anasthesiepflege-universitatsspital-basel-basel",
         "fr": "dipl-experte-expertin-nds-anasthesiepflege-universitatsspital-basel-basel"
       },
@@ -1279,14 +1325,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-experte-expertin-nds-anasthesiepflege-unispital-basel-ch"
+          "dipl-experte-expertin-nds-anasthesiepflege-unispital-basel-ch",
+          "dipl-experte-expertin-nds-anasthesiepflege-universitatsspital-basel-basel"
         ],
         "de": [
           "dipl-experte-expertin-nds-anasthesiepflege-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-experte-expertin-nds-anasthesiepflege-unispital-basel-ch"
+        "dipl-experte-expertin-nds-anasthesiepflege-unispital-basel-ch",
+        "dipl-experte-expertin-nds-anasthesiepflege-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1380,10 +1428,10 @@
     },
     {
       "id": "unispital-basel-00337b73ef4f",
-      "slug": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
+      "slug": "dipl-expert-nds-hf-ip-stazioni-intensive-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
-        "it": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
+        "it": "dipl-expert-nds-hf-ip-stazioni-intensive-universitatsspital-basel-basel",
         "en": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel",
         "fr": "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
       },
@@ -1431,11 +1479,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch"
+          "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
+          "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch"
+        "dipl-expertin-experte-nds-hf-ip-intensivstation-unispital-basel-ch",
+        "dipl-expertin-experte-nds-hf-ip-intensivstation-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1529,10 +1579,10 @@
     },
     {
       "id": "unispital-basel-fc012cc8438c",
-      "slug": "fachleitung-pflege-medizinische-kurzzeitklinik-unispital-basel-ch",
+      "slug": "cura-ambulatorio-medico-a-breve-termine-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "fachleitung-pflege-medizinische-kurzzeitklinik-universitatsspital-basel-basel",
-        "it": "fachleitung-pflege-medizinische-kurzzeitklinik-unispital-basel-ch",
+        "it": "cura-ambulatorio-medico-a-breve-termine-universitatsspital-basel-basel",
         "en": "fachleitung-pflege-medizinische-kurzzeitklinik-unispital-basel-ch",
         "fr": "fachleitung-pflege-medizinische-kurzzeitklinik-unispital-basel-ch"
       },
@@ -1590,14 +1640,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.332Z"
+      "firstSeenAt": "2026-05-10T22:38:59.332Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachleitung-pflege-medizinische-kurzzeitklinik-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachleitung-pflege-medizinische-kurzzeitklinik-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-25c43ba404f6",
-      "slug": "oberarztin-oberarzt-kardiologie-unispital-basel-ch",
+      "slug": "medico-senior-cardiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-kardiologie-universitatsspital-basel-basel",
-        "it": "oberarztin-oberarzt-kardiologie-unispital-basel-ch",
+        "it": "medico-senior-cardiologia-universitatsspital-basel-basel",
         "en": "oberarztin-oberarzt-kardiologie-unispital-basel-ch",
         "fr": "oberarztin-oberarzt-kardiologie-unispital-basel-ch"
       },
@@ -1655,14 +1713,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.331Z"
+      "firstSeenAt": "2026-05-10T22:38:59.331Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-kardiologie-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-kardiologie-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-2b5046fef3c1",
-      "slug": "fachfrau-fachmann-operationslagerungen-universitatsspital-basel-basel",
+      "slug": "specialista-esperto-nell-arte-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationslagerungen-universitatsspital-basel-basel",
-        "it": "fachfrau-fachmann-operationslagerungen-universitatsspital-basel-basel",
+        "it": "specialista-esperto-nell-arte-universitatsspital-basel-basel",
         "en": "fachfrau-fachmann-operationslagerungen-universitatsspital-basel-basel",
         "fr": "fachfrau-fachmann-operationslagerungen-universitatsspital-basel-basel"
       },
@@ -1710,14 +1776,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-operationslagerungen-unispital-basel-ch"
+          "fachfrau-fachmann-operationslagerungen-unispital-basel-ch",
+          "fachfrau-fachmann-operationslagerungen-universitatsspital-basel-basel"
         ],
         "de": [
           "fachfrau-fachmann-operationslagerungen-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-operationslagerungen-unispital-basel-ch"
+        "fachfrau-fachmann-operationslagerungen-unispital-basel-ch",
+        "fachfrau-fachmann-operationslagerungen-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1811,10 +1879,10 @@
     },
     {
       "id": "unispital-basel-677506df2085",
-      "slug": "uberwachungs-poolstudentin-poolstudent-unispital-basel-ch",
+      "slug": "sorveglianza-studente-di-piscina-studente-di-piscina-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "uberwachungs-poolstudentin-poolstudent-universitatsspital-basel-basel",
-        "it": "uberwachungs-poolstudentin-poolstudent-unispital-basel-ch",
+        "it": "sorveglianza-studente-di-piscina-studente-di-piscina-universitatsspital-basel-basel",
         "en": "uberwachungs-poolstudentin-poolstudent-unispital-basel-ch",
         "fr": "uberwachungs-poolstudentin-poolstudent-unispital-basel-ch"
       },
@@ -1872,14 +1940,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.330Z"
+      "firstSeenAt": "2026-05-10T22:38:59.330Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "uberwachungs-poolstudentin-poolstudent-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "uberwachungs-poolstudentin-poolstudent-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-0cb5c3aab548",
-      "slug": "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-universitatsspital-basel-basel",
+      "slug": "med-assistente-pratico-assistente-pratico-mpa-anestesiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-universitatsspital-basel-basel",
-        "it": "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-universitatsspital-basel-basel",
+        "it": "med-assistente-pratico-assistente-pratico-mpa-anestesiologia-universitatsspital-basel-basel",
         "en": "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-universitatsspital-basel-basel",
         "fr": "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-universitatsspital-basel-basel"
       },
@@ -1927,14 +2003,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-unispital-basel-ch"
+          "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-unispital-basel-ch",
+          "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-universitatsspital-basel-basel"
         ],
         "de": [
           "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-unispital-basel-ch"
+        "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-unispital-basel-ch",
+        "med-praxisassistentin-praxisassistent-mpa-anasthesiologie-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1952,10 +2030,10 @@
     },
     {
       "id": "unispital-basel-3300abe6a187",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+      "slug": "dipl-specialista-di-cura-hf-fh-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+        "it": "dipl-specialista-di-cura-hf-fh-universitatsspital-basel-basel",
         "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
       },
@@ -2003,11 +2081,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2025,10 +2105,10 @@
     },
     {
       "id": "unispital-basel-e287fdb78612",
-      "slug": "pflegeexpert-in-apn-nurse-practitioner-substanzgebundene-abhangigkeitserkrankungen-universitatsspital-basel-basel",
+      "slug": "esperto-di-cura-apn-nurse-practitioner-malattie-a-carico-della-sostanza-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "pflegeexpert-in-apn-nurse-practitioner-substanzgebundene-abhangigkeitserkrankungen-universitatsspital-basel-basel",
-        "it": "pflegeexpert-in-apn-nurse-practitioner-substanzgebundene-abhangigkeitserkrankungen-universitatsspital-basel-basel",
+        "it": "esperto-di-cura-apn-nurse-practitioner-malattie-a-carico-della-sostanza-universitatsspital-basel-basel",
         "en": "pflegeexpert-in-apn-nurse-practitioner-substanzgebundene-abhangigkeitserkrankungen-universitatsspital-basel-basel",
         "fr": "pflegeexpert-in-apn-nurse-practitioner-substanzgebundene-abhangigkeitserkrankungen-universitatsspital-basel-basel"
       },
@@ -2076,14 +2156,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "pflegeexpert-in-apn-nurse-practitioner-substanzgebundene-abhangigkeitserkrankungen-unispit"
+          "pflegeexpert-in-apn-nurse-practitioner-substanzgebundene-abhangigkeitserkrankungen-unispit",
+          "pflegeexpert-in-apn-nurse-practitioner-substanzgebundene-abhangigkeitserkrankungen-universitatsspital-basel-basel"
         ],
         "de": [
           "pflegeexpert-in-apn-nurse-practitioner-substanzgebundene-abhangigkeitserkrankungen-unispit"
         ]
       },
       "previousSlugs": [
-        "pflegeexpert-in-apn-nurse-practitioner-substanzgebundene-abhangigkeitserkrankungen-unispit"
+        "pflegeexpert-in-apn-nurse-practitioner-substanzgebundene-abhangigkeitserkrankungen-unispit",
+        "pflegeexpert-in-apn-nurse-practitioner-substanzgebundene-abhangigkeitserkrankungen-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2101,10 +2183,10 @@
     },
     {
       "id": "unispital-basel-693df52719f5",
-      "slug": "fachfrau-fachmann-gesundheit-fage-unispital-basel-ch",
+      "slug": "salute-professionale-fage-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-fage-universitatsspital-basel-basel",
-        "it": "fachfrau-fachmann-gesundheit-fage-unispital-basel-ch",
+        "it": "salute-professionale-fage-universitatsspital-basel-basel",
         "en": "fachfrau-fachmann-gesundheit-fage-unispital-basel-ch",
         "fr": "fachfrau-fachmann-gesundheit-fage-unispital-basel-ch"
       },
@@ -2162,7 +2244,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.327Z"
+      "firstSeenAt": "2026-05-10T22:38:59.327Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-fage-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-fage-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-0db280811fb5",
@@ -2315,10 +2405,10 @@
     },
     {
       "id": "unispital-basel-15065c78b94a",
-      "slug": "facharzt-facharztin-pathologie-unispital-basel-ch",
+      "slug": "specialista-patologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "facharzt-facharztin-pathologie-universitatsspital-basel-basel",
-        "it": "facharzt-facharztin-pathologie-unispital-basel-ch",
+        "it": "specialista-patologia-universitatsspital-basel-basel",
         "en": "facharzt-facharztin-pathologie-unispital-basel-ch",
         "fr": "facharzt-facharztin-pathologie-unispital-basel-ch"
       },
@@ -2376,14 +2466,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.325Z"
+      "firstSeenAt": "2026-05-10T22:38:59.325Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharzt-facharztin-pathologie-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharzt-facharztin-pathologie-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-37bb45003b0f",
-      "slug": "medizinische-r-praxisassistent-in-onkologie-universitatsspital-basel-basel",
+      "slug": "assistente-medico-in-oncologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-onkologie-universitatsspital-basel-basel",
-        "it": "medizinische-r-praxisassistent-in-onkologie-universitatsspital-basel-basel",
+        "it": "assistente-medico-in-oncologia-universitatsspital-basel-basel",
         "en": "medizinische-r-praxisassistent-in-onkologie-universitatsspital-basel-basel",
         "fr": "medizinische-r-praxisassistent-in-onkologie-universitatsspital-basel-basel"
       },
@@ -2431,14 +2529,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch"
+          "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch",
+          "medizinische-r-praxisassistent-in-onkologie-universitatsspital-basel-basel"
         ],
         "de": [
           "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch"
+        "medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch",
+        "medizinische-r-praxisassistent-in-onkologie-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2456,10 +2556,10 @@
     },
     {
       "id": "unispital-basel-ce0a971e0f54",
-      "slug": "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel",
+      "slug": "assistente-medico-in-policlinico-medico-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel",
-        "it": "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel",
+        "it": "assistente-medico-in-policlinico-medico-universitatsspital-basel-basel",
         "en": "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel",
         "fr": "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel"
       },
@@ -2507,14 +2607,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-medizinische-poliklinik-unispital-basel-ch"
+          "medizinische-r-praxisassistent-in-medizinische-poliklinik-unispital-basel-ch",
+          "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel"
         ],
         "de": [
           "medizinische-r-praxisassistent-in-medizinische-poliklinik-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-medizinische-poliklinik-unispital-basel-ch"
+        "medizinische-r-praxisassistent-in-medizinische-poliklinik-unispital-basel-ch",
+        "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2673,10 +2775,10 @@
     },
     {
       "id": "unispital-basel-1132d231237c",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unterstutzungszwischendienst-universitatsspital-basel-basel",
+      "slug": "dipl-assistenza-agli-anziani-hf-fh-supporto-interim-service-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unterstutzungszwischendienst-universitatsspital-basel-basel",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unterstutzungszwischendienst-universitatsspital-basel-basel",
+        "it": "dipl-assistenza-agli-anziani-hf-fh-supporto-interim-service-universitatsspital-basel-basel",
         "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unterstutzungszwischendienst-universitatsspital-basel-basel",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unterstutzungszwischendienst-universitatsspital-basel-basel"
       },
@@ -2724,14 +2826,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unterstutzungszwischendienst-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unterstutzungszwischendienst-unispital-basel-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unterstutzungszwischendienst-universitatsspital-basel-basel"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unterstutzungszwischendienst-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unterstutzungszwischendienst-unispital-basel-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unterstutzungszwischendienst-unispital-basel-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unterstutzungszwischendienst-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2749,10 +2853,10 @@
     },
     {
       "id": "unispital-basel-640a59e26647",
-      "slug": "arztsekretar-in-unispital-basel-ch",
+      "slug": "segretario-del-dottore-in-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "arztsekretar-in-universitatsspital-basel-basel",
-        "it": "arztsekretar-in-unispital-basel-ch",
+        "it": "segretario-del-dottore-in-universitatsspital-basel-basel",
         "en": "arztsekretar-in-unispital-basel-ch",
         "fr": "arztsekretar-in-unispital-basel-ch"
       },
@@ -2810,14 +2914,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.320Z"
+      "firstSeenAt": "2026-05-10T22:38:59.320Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-2441ea556dce",
-      "slug": "chefarztsekretar-in-kardiologie-universitatsspital-basel-basel",
+      "slug": "capo-medico-in-cardiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "chefarztsekretar-in-kardiologie-universitatsspital-basel-basel",
-        "it": "chefarztsekretar-in-kardiologie-universitatsspital-basel-basel",
+        "it": "capo-medico-in-cardiologia-universitatsspital-basel-basel",
         "en": "chefarztsekretar-in-kardiologie-universitatsspital-basel-basel",
         "fr": "chefarztsekretar-in-kardiologie-universitatsspital-basel-basel"
       },
@@ -2865,14 +2977,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "chefarztsekretar-in-kardiologie-unispital-basel-ch"
+          "chefarztsekretar-in-kardiologie-unispital-basel-ch",
+          "chefarztsekretar-in-kardiologie-universitatsspital-basel-basel"
         ],
         "de": [
           "chefarztsekretar-in-kardiologie-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "chefarztsekretar-in-kardiologie-unispital-basel-ch"
+        "chefarztsekretar-in-kardiologie-unispital-basel-ch",
+        "chefarztsekretar-in-kardiologie-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3042,10 +3156,10 @@
     },
     {
       "id": "unispital-basel-8e4b7c2f31ad",
-      "slug": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
+      "slug": "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
-        "it": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
+        "it": "specialista-di-radiologia-hf-mri-universitatsspital-basel-basel",
         "en": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel",
         "fr": "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel"
       },
@@ -3093,11 +3207,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch"
+          "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
+          "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch"
+        "radiologiefachfrau-radiologiefachmann-hf-mri-unispital-basel-ch",
+        "radiologiefachfrau-radiologiefachmann-hf-mri-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3115,10 +3231,10 @@
     },
     {
       "id": "unispital-basel-0f5b388512c6",
-      "slug": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel",
+      "slug": "analista-biomedico-in-hf-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel",
-        "it": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel",
+        "it": "analista-biomedico-in-hf-universitatsspital-basel-basel",
         "en": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel",
         "fr": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel"
       },
@@ -3166,14 +3282,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "biomedizinische-r-analytiker-in-hf-unispital-basel-ch"
+          "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
+          "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel"
         ],
         "de": [
           "biomedizinische-r-analytiker-in-hf-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "biomedizinische-r-analytiker-in-hf-unispital-basel-ch"
+        "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
+        "biomedizinische-r-analytiker-in-hf-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3191,10 +3309,10 @@
     },
     {
       "id": "unispital-basel-450fbf65ff80",
-      "slug": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
+      "slug": "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
-        "it": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
+        "it": "specialista-di-radiologia-hf-fh-universitatsspital-basel-basel",
         "en": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel",
         "fr": "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel"
       },
@@ -3242,11 +3360,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch"
+          "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
+          "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch"
+        "radiologiefachfrau-radiologiefachmann-hf-fh-unispital-basel-ch",
+        "radiologiefachfrau-radiologiefachmann-hf-fh-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3264,10 +3384,10 @@
     },
     {
       "id": "unispital-basel-aefaa6cee9e0",
-      "slug": "operative-r-leiter-in-geschaftsstelle-szrnk-scred-universitatsspital-basel",
+      "slug": "direttore-operativo-in-szrnk-scred-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "operative-r-leiter-in-geschaftsstelle-szrnk-scred-universitatsspital-basel-basel",
-        "it": "operative-r-leiter-in-geschaftsstelle-szrnk-scred-universitatsspital-basel",
+        "it": "direttore-operativo-in-szrnk-scred-universitatsspital-basel-basel",
         "en": "operative-r-leiter-in-geschaftsstelle-szrnk-scred-universitatsspital-basel-basel",
         "fr": "operative-r-leiter-in-geschaftsstelle-szrnk-scred-universitatsspital-basel-basel"
       },
@@ -3315,14 +3435,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "operative-r-leiter-in-geschaftsstelle-szrnk-scred-unispital-basel-ch"
+          "operative-r-leiter-in-geschaftsstelle-szrnk-scred-unispital-basel-ch",
+          "operative-r-leiter-in-geschaftsstelle-szrnk-scred-universitatsspital-basel"
         ],
         "de": [
           "operative-r-leiter-in-geschaftsstelle-szrnk-scred-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "operative-r-leiter-in-geschaftsstelle-szrnk-scred-unispital-basel-ch"
+        "operative-r-leiter-in-geschaftsstelle-szrnk-scred-unispital-basel-ch",
+        "operative-r-leiter-in-geschaftsstelle-szrnk-scred-universitatsspital-basel"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -3416,10 +3538,10 @@
     },
     {
       "id": "unispital-basel-2c661fa858f8",
-      "slug": "nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel",
+      "slug": "studi-post-laurea-nds-cura-intensiva-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel",
-        "it": "nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel",
+        "it": "studi-post-laurea-nds-cura-intensiva-universitatsspital-basel-basel",
         "en": "nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel",
         "fr": "nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel"
       },
@@ -3467,14 +3589,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "nachdiplomstudium-nds-intensivpflege-unispital-basel-ch"
+          "nachdiplomstudium-nds-intensivpflege-unispital-basel-ch",
+          "nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel"
         ],
         "de": [
           "nachdiplomstudium-nds-intensivpflege-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "nachdiplomstudium-nds-intensivpflege-unispital-basel-ch"
+        "nachdiplomstudium-nds-intensivpflege-unispital-basel-ch",
+        "nachdiplomstudium-nds-intensivpflege-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3717,10 +3841,10 @@
     },
     {
       "id": "unispital-basel-0df2f2baa5f5",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
+      "slug": "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-universitatsspital-basel-basel",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
+        "it": "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
         "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
       },
@@ -3778,7 +3902,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.312Z"
+      "firstSeenAt": "2026-05-10T22:38:59.312Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-5e6a3f52ba99",
@@ -3934,10 +4066,10 @@
     },
     {
       "id": "unispital-basel-93a9132efea8",
-      "slug": "oberarztin-oberarzt-angiologie-unispital-basel-ch",
+      "slug": "medico-senior-angiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-angiologie-universitatsspital-basel-basel",
-        "it": "oberarztin-oberarzt-angiologie-unispital-basel-ch",
+        "it": "medico-senior-angiologia-universitatsspital-basel-basel",
         "en": "oberarztin-oberarzt-angiologie-unispital-basel-ch",
         "fr": "oberarztin-oberarzt-angiologie-unispital-basel-ch"
       },
@@ -3995,14 +4127,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.311Z"
+      "firstSeenAt": "2026-05-10T22:38:59.311Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-angiologie-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-angiologie-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-efec266e609c",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
+      "slug": "dipl-specialista-hf-fh-stazione-polmonare-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
+        "it": "dipl-specialista-hf-fh-stazione-polmonare-universitatsspital-basel-basel",
         "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-universitatsspital-basel-basel",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
       },
@@ -4060,7 +4200,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.310Z"
+      "firstSeenAt": "2026-05-10T22:38:59.310Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-f0da4ea5a630",
@@ -4129,10 +4277,10 @@
     },
     {
       "id": "unispital-basel-6550c3de2cd2",
-      "slug": "praktikantin-praktikant-patientenadministration-universitatsspital-basel-basel",
+      "slug": "intern-intern-amministrazione-paziente-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "praktikantin-praktikant-patientenadministration-universitatsspital-basel-basel",
-        "it": "praktikantin-praktikant-patientenadministration-universitatsspital-basel-basel",
+        "it": "intern-intern-amministrazione-paziente-universitatsspital-basel-basel",
         "en": "praktikantin-praktikant-patientenadministration-universitatsspital-basel-basel",
         "fr": "praktikantin-praktikant-patientenadministration-universitatsspital-basel-basel"
       },
@@ -4180,14 +4328,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-praktikant-patientenadministration-unispital-basel-ch"
+          "praktikantin-praktikant-patientenadministration-unispital-basel-ch",
+          "praktikantin-praktikant-patientenadministration-universitatsspital-basel-basel"
         ],
         "de": [
           "praktikantin-praktikant-patientenadministration-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "praktikantin-praktikant-patientenadministration-unispital-basel-ch"
+        "praktikantin-praktikant-patientenadministration-unispital-basel-ch",
+        "praktikantin-praktikant-patientenadministration-universitatsspital-basel-basel"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -4506,10 +4656,10 @@
     },
     {
       "id": "unispital-basel-a732e1d3b54d",
-      "slug": "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba",
+      "slug": "analista-biomedica-nella-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-bas",
       "slugByLocale": {
         "de": "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba",
-        "it": "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba",
+        "it": "analista-biomedica-nella-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-bas",
         "en": "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba",
         "fr": "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba"
       },
@@ -4557,14 +4707,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatolog"
+          "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatolog",
+          "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba"
         ],
         "de": [
           "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatolog"
         ]
       },
       "previousSlugs": [
-        "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatolog"
+        "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatolog",
+        "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4582,10 +4734,10 @@
     },
     {
       "id": "unispital-basel-02a16ff92a29",
-      "slug": "oberarztin-oberarzt-kardiopsychosomatik-universitatsspital-basel-basel",
+      "slug": "medico-senior-kardiopsychosomatik-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-kardiopsychosomatik-universitatsspital-basel-basel",
-        "it": "oberarztin-oberarzt-kardiopsychosomatik-universitatsspital-basel-basel",
+        "it": "medico-senior-kardiopsychosomatik-universitatsspital-basel-basel",
         "en": "oberarztin-oberarzt-kardiopsychosomatik-universitatsspital-basel-basel",
         "fr": "oberarztin-oberarzt-kardiopsychosomatik-universitatsspital-basel-basel"
       },
@@ -4633,14 +4785,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-kardiopsychosomatik-unispital-basel-ch"
+          "oberarztin-oberarzt-kardiopsychosomatik-unispital-basel-ch",
+          "oberarztin-oberarzt-kardiopsychosomatik-universitatsspital-basel-basel"
         ],
         "de": [
           "oberarztin-oberarzt-kardiopsychosomatik-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-kardiopsychosomatik-unispital-basel-ch"
+        "oberarztin-oberarzt-kardiopsychosomatik-unispital-basel-ch",
+        "oberarztin-oberarzt-kardiopsychosomatik-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4658,10 +4812,10 @@
     },
     {
       "id": "unispital-basel-09a52582c9c9",
-      "slug": "pflegefachperson-hf-nephrologisches-ambulatorium-universitatsspital-basel-basel",
+      "slug": "specialista-di-cura-hf-paziente-neurologico-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "pflegefachperson-hf-nephrologisches-ambulatorium-unispital-basel-ch",
-        "it": "pflegefachperson-hf-nephrologisches-ambulatorium-universitatsspital-basel-basel",
+        "it": "specialista-di-cura-hf-paziente-neurologico-universitatsspital-basel-basel",
         "en": "pflegefachperson-hf-nephrologisches-ambulatorium-universitatsspital-basel-basel",
         "fr": "pflegefachperson-hf-nephrologisches-ambulatorium-universitatsspital-basel-basel"
       },
@@ -4709,11 +4863,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-hf-nephrologisches-ambulatorium-unispital-basel-ch"
+          "pflegefachperson-hf-nephrologisches-ambulatorium-unispital-basel-ch",
+          "pflegefachperson-hf-nephrologisches-ambulatorium-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-hf-nephrologisches-ambulatorium-unispital-basel-ch"
+        "pflegefachperson-hf-nephrologisches-ambulatorium-unispital-basel-ch",
+        "pflegefachperson-hf-nephrologisches-ambulatorium-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4731,10 +4887,10 @@
     },
     {
       "id": "unispital-basel-56955e9fa0d1",
-      "slug": "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
+      "slug": "medico-senior-brustklinik-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-brustklinik-universitatsspital-basel-basel",
-        "it": "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
+        "it": "medico-senior-brustklinik-universitatsspital-basel-basel",
         "en": "oberarztin-oberarzt-brustklinik-unispital-basel-ch",
         "fr": "oberarztin-oberarzt-brustklinik-unispital-basel-ch"
       },
@@ -4792,14 +4948,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.304Z"
+      "firstSeenAt": "2026-05-10T22:38:59.304Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-brustklinik-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-brustklinik-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-833087eadfb2",
-      "slug": "arztsekretar-in-unispital-basel-ch-2",
+      "slug": "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1",
       "slugByLocale": {
         "de": "arztsekretar-in-universitatsspital-basel-basel",
-        "it": "arztsekretar-in-unispital-basel-ch-2",
+        "it": "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1",
         "en": "arztsekretar-in-unispital-basel-ch-2",
         "fr": "arztsekretar-in-unispital-basel-ch-2"
       },
@@ -4848,10 +5012,14 @@
       "previousSlugsByLocale": {
         "de": [
           "arztsekretar-in-unispital-basel-ch"
+        ],
+        "it": [
+          "arztsekretar-in-unispital-basel-ch-2"
         ]
       },
       "previousSlugs": [
-        "arztsekretar-in-unispital-basel-ch"
+        "arztsekretar-in-unispital-basel-ch",
+        "arztsekretar-in-unispital-basel-ch-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4945,10 +5113,10 @@
     },
     {
       "id": "unispital-basel-caaa2c9ba9ea",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel",
+      "slug": "dipl-specialista-di-cura-hf-fh-medicina-acuta-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel",
+        "it": "dipl-specialista-di-cura-hf-fh-medicina-acuta-universitatsspital-basel-basel",
         "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
       },
@@ -4996,11 +5164,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5018,10 +5188,10 @@
     },
     {
       "id": "unispital-basel-ce0eeedb2f51",
-      "slug": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
+      "slug": "dipl-career-medicina-interna-7-2-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
-        "it": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
+        "it": "dipl-career-medicina-interna-7-2-universitatsspital-basel-basel",
         "en": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel",
         "fr": "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
       },
@@ -5069,11 +5239,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch"
+          "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
+          "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch"
+        "dipl-pflegefachperson-innere-medizin-7-2-unispital-basel-ch",
+        "dipl-pflegefachperson-innere-medizin-7-2-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5240,10 +5412,10 @@
     },
     {
       "id": "unispital-basel-d018b71f21cc",
-      "slug": "assistenzarztin-assistenzarzt-notfallmedizin-universitatsspital-basel-basel",
+      "slug": "assistente-medico-assistente-medico-medicina-di-emergenza-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-notfallmedizin-universitatsspital-basel-basel",
-        "it": "assistenzarztin-assistenzarzt-notfallmedizin-universitatsspital-basel-basel",
+        "it": "assistente-medico-assistente-medico-medicina-di-emergenza-universitatsspital-basel-basel",
         "en": "assistenzarztin-assistenzarzt-notfallmedizin-universitatsspital-basel-basel",
         "fr": "assistenzarztin-assistenzarzt-notfallmedizin-universitatsspital-basel-basel"
       },
@@ -5291,14 +5463,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-notfallmedizin-unispital-basel-ch"
+          "assistenzarztin-assistenzarzt-notfallmedizin-unispital-basel-ch",
+          "assistenzarztin-assistenzarzt-notfallmedizin-universitatsspital-basel-basel"
         ],
         "de": [
           "assistenzarztin-assistenzarzt-notfallmedizin-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-notfallmedizin-unispital-basel-ch"
+        "assistenzarztin-assistenzarzt-notfallmedizin-unispital-basel-ch",
+        "assistenzarztin-assistenzarzt-notfallmedizin-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5381,10 +5555,10 @@
     },
     {
       "id": "unispital-basel-a6494b93be42",
-      "slug": "logopadin-logopade-unispital-basel-ch",
+      "slug": "logopedista-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "logopadin-logopade-universitatsspital-basel-basel",
-        "it": "logopadin-logopade-unispital-basel-ch",
+        "it": "logopedista-universitatsspital-basel-basel",
         "en": "logopadin-logopade-unispital-basel-ch",
         "fr": "logopadin-logopade-unispital-basel-ch"
       },
@@ -5442,14 +5616,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.299Z"
+      "firstSeenAt": "2026-05-10T22:38:59.299Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logopadin-logopade-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "logopadin-logopade-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-c2405f01154f",
-      "slug": "projekteinkaufer-in-grossbauvorhaben-universitatsspital-basel-basel",
+      "slug": "progetto-acquirente-in-grandi-progetti-di-costruzione-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "projekteinkaufer-in-grossbauvorhaben-universitatsspital-basel-basel",
-        "it": "projekteinkaufer-in-grossbauvorhaben-universitatsspital-basel-basel",
+        "it": "progetto-acquirente-in-grandi-progetti-di-costruzione-universitatsspital-basel-basel",
         "en": "projekteinkaufer-in-grossbauvorhaben-universitatsspital-basel-basel",
         "fr": "projekteinkaufer-in-grossbauvorhaben-universitatsspital-basel-basel"
       },
@@ -5497,14 +5679,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "projekteinkaufer-in-grossbauvorhaben-unispital-basel-ch"
+          "projekteinkaufer-in-grossbauvorhaben-unispital-basel-ch",
+          "projekteinkaufer-in-grossbauvorhaben-universitatsspital-basel-basel"
         ],
         "de": [
           "projekteinkaufer-in-grossbauvorhaben-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "projekteinkaufer-in-grossbauvorhaben-unispital-basel-ch"
+        "projekteinkaufer-in-grossbauvorhaben-unispital-basel-ch",
+        "projekteinkaufer-in-grossbauvorhaben-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5522,10 +5706,10 @@
     },
     {
       "id": "unispital-basel-f28c1a8c43a1",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel",
+      "slug": "dipl-specialista-di-cura-hf-fh-medico-6-2-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-unispital-basel-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel",
+        "it": "dipl-specialista-di-cura-hf-fh-medico-6-2-universitatsspital-basel-basel",
         "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-unispital-basel-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-unispital-basel-ch"
       },
@@ -5573,11 +5757,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-unispital-basel-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-unispital-basel-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-unispital-basel-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5595,10 +5781,10 @@
     },
     {
       "id": "unispital-basel-4ea9b2f2eff2",
-      "slug": "med-praxisassistentin-praxisassistent-mpa-reproduktionsmedizin-gynakologische-endokrinologie-universitatsspital-basel-ba",
+      "slug": "med-assistente-pratico-assistente-pratico-mpa-medicina-riproduttiva-endocrinologia-ginecologica-universitatsspital-basel",
       "slugByLocale": {
         "de": "med-praxisassistentin-praxisassistent-mpa-reproduktionsmedizin-gynakologische-endokrinologie-universitatsspital-basel-ba",
-        "it": "med-praxisassistentin-praxisassistent-mpa-reproduktionsmedizin-gynakologische-endokrinologie-universitatsspital-basel-ba",
+        "it": "med-assistente-pratico-assistente-pratico-mpa-medicina-riproduttiva-endocrinologia-ginecologica-universitatsspital-basel",
         "en": "med-praxisassistentin-praxisassistent-mpa-reproduktionsmedizin-gynakologische-endokrinologie-universitatsspital-basel-ba",
         "fr": "med-praxisassistentin-praxisassistent-mpa-reproduktionsmedizin-gynakologische-endokrinologie-universitatsspital-basel-ba"
       },
@@ -5646,14 +5832,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistentin-praxisassistent-mpa-reproduktionsmedizin-amp-gynakologische-endokrin"
+          "med-praxisassistentin-praxisassistent-mpa-reproduktionsmedizin-amp-gynakologische-endokrin",
+          "med-praxisassistentin-praxisassistent-mpa-reproduktionsmedizin-gynakologische-endokrinologie-universitatsspital-basel-ba"
         ],
         "de": [
           "med-praxisassistentin-praxisassistent-mpa-reproduktionsmedizin-amp-gynakologische-endokrin"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistentin-praxisassistent-mpa-reproduktionsmedizin-amp-gynakologische-endokrin"
+        "med-praxisassistentin-praxisassistent-mpa-reproduktionsmedizin-amp-gynakologische-endokrin",
+        "med-praxisassistentin-praxisassistent-mpa-reproduktionsmedizin-gynakologische-endokrinologie-universitatsspital-basel-ba"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5671,10 +5859,10 @@
     },
     {
       "id": "unispital-basel-33a5cd24c49f",
-      "slug": "study-nurse-neurochirurgie-unispital-basel-ch",
+      "slug": "studio-infermiera-neurosurgery-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "study-nurse-neurochirurgie-unispital-basel-ch",
-        "it": "study-nurse-neurochirurgie-unispital-basel-ch",
+        "it": "studio-infermiera-neurosurgery-universitatsspital-basel-basel",
         "en": "study-nurse-neurochirurgie-unispital-basel-ch",
         "fr": "study-nurse-neurochirurgie-universitatsspital-basel-basel"
       },
@@ -5732,14 +5920,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.296Z"
+      "firstSeenAt": "2026-05-10T22:38:59.296Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "study-nurse-neurochirurgie-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "study-nurse-neurochirurgie-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-ecbe33683848",
-      "slug": "oberarztin-oberarzt-pneumologie-unispital-basel-ch",
+      "slug": "pneumologia-del-medico-senior-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-pneumologie-universitatsspital-basel-basel",
-        "it": "oberarztin-oberarzt-pneumologie-unispital-basel-ch",
+        "it": "pneumologia-del-medico-senior-universitatsspital-basel-basel",
         "en": "oberarztin-oberarzt-pneumologie-unispital-basel-ch",
         "fr": "oberarztin-oberarzt-pneumologie-unispital-basel-ch"
       },
@@ -5797,14 +5993,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.295Z"
+      "firstSeenAt": "2026-05-10T22:38:59.295Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-pneumologie-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-pneumologie-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-85af00baef15",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-universitatsspital-basel-basel",
+      "slug": "dipl-specialista-hf-fh-cardiologia-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-universitatsspital-basel-basel",
+        "it": "dipl-specialista-hf-fh-cardiologia-universitatsspital-basel-basel",
         "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch"
       },
@@ -5852,11 +6056,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-unispital-basel-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-kardiologie-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -5874,10 +6080,10 @@
     },
     {
       "id": "unispital-basel-052dfbdb7e03",
-      "slug": "pflegefachfrau-pflegefachmann-psychosomatik-unispital-basel-ch",
+      "slug": "specialista-di-cura-psychosomatik-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-psychosomatik-universitatsspital-basel-basel",
-        "it": "pflegefachfrau-pflegefachmann-psychosomatik-unispital-basel-ch",
+        "it": "specialista-di-cura-psychosomatik-universitatsspital-basel-basel",
         "en": "pflegefachfrau-pflegefachmann-psychosomatik-unispital-basel-ch",
         "fr": "pflegefachfrau-pflegefachmann-psychosomatik-unispital-basel-ch"
       },
@@ -5935,14 +6141,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.292Z"
+      "firstSeenAt": "2026-05-10T22:38:59.292Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-psychosomatik-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-psychosomatik-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-f3124a02d29e",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
+      "slug": "dipl-specialista-di-cura-hf-fh-stazione-di-biancheria-da-letto-neurologica-stroke-unit-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
+        "it": "dipl-specialista-di-cura-hf-fh-stazione-di-biancheria-da-letto-neurologica-stroke-unit-universitatsspital-basel-basel",
         "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
         "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-stroke-unit-universitatsspital-basel-basel"
       },
@@ -6000,7 +6214,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-10T22:38:59.292Z"
+      "firstSeenAt": "2026-05-10T22:38:59.292Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp"
+      ]
     },
     {
       "id": "unispital-basel-9581efd1c1d7",
@@ -6308,10 +6530,10 @@
     },
     {
       "id": "unispital-basel-20cc2021c279",
-      "slug": "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel",
+      "slug": "assistente-medico-pratico-mpa-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel",
-        "it": "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel",
+        "it": "assistente-medico-pratico-mpa-universitatsspital-basel-basel",
         "en": "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel",
         "fr": "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel"
       },
@@ -6359,14 +6581,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-mpa-unispital-basel-ch"
+          "medizinische-r-praxisassistent-in-mpa-unispital-basel-ch",
+          "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel"
         ],
         "de": [
           "medizinische-r-praxisassistent-in-mpa-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-mpa-unispital-basel-ch"
+        "medizinische-r-praxisassistent-in-mpa-unispital-basel-ch",
+        "medizinische-r-praxisassistent-in-mpa-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -6384,10 +6608,10 @@
     },
     {
       "id": "unispital-basel-cffce1280a6c",
-      "slug": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
+      "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-        "it": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
+        "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
         "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "fr": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
       },
@@ -6435,11 +6659,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeutin-physiotherapeut-unispital-basel-ch"
+          "physiotherapeutin-physiotherapeut-unispital-basel-ch",
+          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "physiotherapeutin-physiotherapeut-unispital-basel-ch"
+        "physiotherapeutin-physiotherapeut-unispital-basel-ch",
+        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -6457,10 +6683,10 @@
     },
     {
       "id": "unispital-basel-1deaa87cd3d7",
-      "slug": "projektleiter-in-beschaffung-medizintechnik-universitatsspital-basel",
+      "slug": "project-manager-nell-approvvigionamento-di-tecnologia-medica-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "projektleiter-in-beschaffung-medizintechnik-universitatsspital-basel-basel",
-        "it": "projektleiter-in-beschaffung-medizintechnik-universitatsspital-basel",
+        "it": "project-manager-nell-approvvigionamento-di-tecnologia-medica-universitatsspital-basel-basel",
         "en": "projektleiter-in-beschaffung-medizintechnik-unispital-basel-ch",
         "fr": "projektleiter-in-beschaffung-medizintechnik-unispital-basel-ch"
       },
@@ -6508,14 +6734,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-beschaffung-medizintechnik-unispital-basel-ch"
+          "projektleiter-in-beschaffung-medizintechnik-unispital-basel-ch",
+          "projektleiter-in-beschaffung-medizintechnik-universitatsspital-basel"
         ],
         "de": [
           "projektleiter-in-beschaffung-medizintechnik-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-beschaffung-medizintechnik-unispital-basel-ch"
+        "projektleiter-in-beschaffung-medizintechnik-unispital-basel-ch",
+        "projektleiter-in-beschaffung-medizintechnik-universitatsspital-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -6761,10 +6989,10 @@
     },
     {
       "id": "unispital-basel-3ebb5f701e34",
-      "slug": "leiterin-leiter-therapien-universitatsspital-basel",
+      "slug": "testa-capo-di-terapie-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "leiterin-leiter-therapien-universitatsspital-basel-basel",
-        "it": "leiterin-leiter-therapien-universitatsspital-basel",
+        "it": "testa-capo-di-terapie-universitatsspital-basel-basel",
         "en": "leiterin-leiter-therapien-unispital-basel-ch",
         "fr": "leiterin-leiter-therapien-unispital-basel-ch"
       },
@@ -6812,14 +7040,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "leiterin-leiter-therapien-unispital-basel-ch"
+          "leiterin-leiter-therapien-unispital-basel-ch",
+          "leiterin-leiter-therapien-universitatsspital-basel"
         ],
         "de": [
           "leiterin-leiter-therapien-unispital-basel-ch"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-therapien-unispital-basel-ch"
+        "leiterin-leiter-therapien-unispital-basel-ch",
+        "leiterin-leiter-therapien-universitatsspital-basel"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
