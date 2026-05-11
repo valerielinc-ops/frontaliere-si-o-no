@@ -1,18 +1,50 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-10T21:10:13.025Z",
+  "generatedAt": "2026-05-11T11:15:30.990Z",
   "total": 8,
-  "newCount": 6,
-  "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 16076,
-  "avgDurationMs": 16076,
+  "newCount": 1,
+  "updatedCount": 3,
+  "removedCount": 1,
+  "unchangedCount": 4,
+  "durationMs": 18301,
+  "avgDurationMs": 18301,
   "durationHistory": [
-    16076
+    18301
   ],
   "newJobs": [
+    {
+      "title": "Entwicklungsingenieur - Bereich Oszillierende Multifunktionswerkzeuge & Säbelsägeblätter 100% (w/m/div.) REF281021P",
+      "slug": "entwicklungsingenieur-bereich-oszillierende-multifunktionswerkzeuge-sabelsageblatter-100-w-m-div-ref281021p-bosch-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF281021P-entwicklungsingenieur-bereich-oszillierende-multifunktionswerkzeuge-saebelsaegeblaetter-100-w-m-div-ref281021p",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000125766230-entwicklungsingenieur-bereich-oszillierende-multifunktionswerkzeuge-sabelsageblatter-100-w-m-div-ref281021p?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "category": "engineering",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-11",
+      "validThrough": "",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Werkstudententätigkeit im Bereich Finance und Accounting Schweiz (w.m.div) REF285688G",
       "slug": "werkstudententatigkeit-im-bereich-finance-und-accounting-schweiz-w-m-div-ref285688g-bosch-solothurn-zuchwil",
@@ -35,12 +67,19 @@
       "sourceLang": "de",
       "postedDate": "2026-05-08",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-32c744378e61",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "postalCode": "4500",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:10:13.024Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 19,
+        "completeness": 22
       }
     },
     {
@@ -65,42 +104,19 @@
       "sourceLang": "de",
       "postedDate": "2026-05-07",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-a3309112a80e",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "postalCode": "5000",
+      "firstSeenAt": "2026-05-10T21:10:13.024Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 14
-      }
-    },
-    {
-      "title": "Key Account Manager Schweiz - Power Tools Zubehör Fachhandel 100% (w/m/div.) REF285400K",
-      "slug": "key-account-manager-schweiz-power-tools-zubehor-fachhandel-100-w-m-div-ref285400k-bosch-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF285400K-key-account-manager-schweiz-power-tools-zubehoer-fachhandel-100-w-m-div-ref285400k",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124819540-key-account-manager-schweiz-power-tools-zubehor-fachhandel-100-w-m-div-ref285400k?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-06",
-      "validThrough": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -125,44 +141,23 @@
       "sourceLang": "de",
       "postedDate": "2026-05-05",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-0ec909282cf5",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-10T21:10:13.024Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 14
+        "completeness": 22
       }
-    },
-    {
-      "title": "Sales Manager DACH – Produktmarke \"freud\" – Power Tools Accessories 100% (w/m/div.) REF284843W",
-      "slug": "sales-manager-dach-produktmarke-freud-power-tools-accessories-100-w-m-div-ref284843w-bosch-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF284843W-sales-manager-dach-produktmarke-freud-power-tools-accessories-100-w-m-div-ref284843w",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124352849-sales-manager-dach-produktmarke-freud-power-tools-accessories-100-w-m-div-ref284843w?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-04",
-      "validThrough": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 14
-      }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Werkstudent HR 50% (w/m/div.) REF284793T",
       "slug": "werkstudent-hr-50-w-m-div-ref284793t-bosch-pratteln",
@@ -185,17 +180,21 @@
       "sourceLang": "de",
       "postedDate": "2026-04-28",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-fd5eff14665c",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-10T21:10:13.024Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 21,
+        "completeness": 19
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Instandhaltung (w/m/div.) - REF285547A",
@@ -263,6 +262,80 @@
       "currency": "CHF",
       "postalCode": "1950",
       "firstSeenAt": "2026-05-10T09:43:15.857Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Key Account Manager Schweiz - Power Tools Zubehör Fachhandel 100% (w/m/div.) REF285400K",
+      "slug": "key-account-manager-schweiz-power-tools-zubehor-fachhandel-100-w-m-div-ref285400k-bosch-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF285400K-key-account-manager-schweiz-power-tools-zubehoer-fachhandel-100-w-m-div-ref285400k",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124819540-key-account-manager-schweiz-power-tools-zubehor-fachhandel-100-w-m-div-ref285400k?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-06",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-3e4035a07ad8",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "postalCode": "4500",
+      "firstSeenAt": "2026-05-10T21:10:13.024Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Sales Manager DACH – Produktmarke \"freud\" – Power Tools Accessories 100% (w/m/div.) REF284843W",
+      "slug": "sales-manager-dach-produktmarke-freud-power-tools-accessories-100-w-m-div-ref284843w-bosch-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF284843W-sales-manager-dach-produktmarke-freud-power-tools-accessories-100-w-m-div-ref284843w",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124352849-sales-manager-dach-produktmarke-freud-power-tools-accessories-100-w-m-div-ref284843w?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-04",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-1ecd0adbc5d8",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "postalCode": "4500",
+      "firstSeenAt": "2026-05-10T21:10:13.024Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
