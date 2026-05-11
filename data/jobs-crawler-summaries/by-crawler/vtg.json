@@ -1,16 +1,16 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-05-11T12:49:17.572Z",
+  "generatedAt": "2026-05-11T23:11:49.530Z",
   "total": 33,
   "newCount": 0,
-  "updatedCount": 6,
+  "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 27,
-  "durationMs": 35534,
-  "avgDurationMs": 35534,
+  "unchangedCount": 28,
+  "durationMs": 37809,
+  "avgDurationMs": 37809,
   "durationHistory": [
-    35534
+    37809
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -140,44 +140,6 @@
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Mels",
-        "canton": ""
-      },
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-05-10T11:06:13.818Z",
-      "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "sourceLang": "de",
-      "streetAddress": "Via Stazione 31",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-chp3s6",
-      "slug": "collaboratore-trice-in-wascherei-swiss-armed-forces-vtg-bern",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Mitarbeiter/-in Wäscherei",
-      "location": "Bern",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-06",
-      "url": "https://jobs.admin.ch/offene-stellen/mitarbeiter-in-waescherei/dc3e68a4-375e-4fea-a874-c593495a08e7",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Sursee",
         "canton": ""
       },
       "companyKey": "vtg",
@@ -537,6 +499,46 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-chp3s6",
+      "slug": "collaboratore-trice-in-wascherei-swiss-armed-forces-vtg-bern",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Mitarbeiter/-in Wäscherei",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-06",
+      "url": "https://jobs.admin.ch/offene-stellen/mitarbeiter-in-waescherei/dc3e68a4-375e-4fea-a874-c593495a08e7",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Sursee",
+        "canton": ""
+      },
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-05-10T11:06:13.818Z",
+      "firstSeenAt": "2026-05-10T11:06:13.818Z",
+      "sourceLang": "de",
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
