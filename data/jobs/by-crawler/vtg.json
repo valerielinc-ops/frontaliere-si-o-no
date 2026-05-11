@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-05-11T10:15:37.993Z",
+  "assembledAt": "2026-05-11T12:49:17.570Z",
   "jobs": [
     {
       "id": "company-hjhzm7",
@@ -157,7 +157,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-8lndw",
@@ -868,10 +869,10 @@
         "en": [
           "chefarztin-arzt-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-b7b6ds"
         ],
-        "fr": [
+        "de": [
           "chefarztin-arzt-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-b7b6ds"
         ],
-        "de": [
+        "fr": [
           "chefarztin-arzt-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-b7b6ds"
         ]
       },
@@ -1674,7 +1675,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-6iaf9o",
@@ -2585,7 +2587,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-jnoz9i",
