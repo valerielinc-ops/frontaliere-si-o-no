@@ -3543,23 +3543,35 @@ export function validateDedicatedLocaleCoverage({
   }
 
   if (blockingIssues.length > 0) {
-    // Detect AI/translation provider quota exhaustion — if all providers are exhausted,
-    // missing translations are expected and should be tolerated (they'll be retried next run)
-    // FRO-424: when ALL models are 429'd, tolerate ALL translation issues (not just descriptions)
+    // Detect AI/translation provider quota exhaustion — when ALL providers are
+    // 429'd, missing translations are not a content-quality failure: they're an
+    // infrastructure transient. Jobs are saved with `needsRetranslation` flag
+    // and the dedicated `translate-pending.yml` workflow retries them once
+    // quotas reset. The deploy gate (`validate-translation-completeness.mjs`)
+    // is the authoritative stop for incomplete translations — gating again at
+    // the crawler creates a chicken-and-egg: the crawler exits 1, the
+    // `Commit and push` step skips, so the new jobs (with their flag) never
+    // reach git, so translate-pending has nothing to recover.
+    //
+    // FRO-424 (initial scope): when ALL models 429'd, tolerate ALL translation issues.
+    // FRO-543 (2026-05-11): also tolerate when 3+ models 429'd OR when
+    //   SKIP_AI_TRANSLATION=1 — same root cause (transient infra), same recovery
+    //   path (translate-pending + deploy gate). Crawler-level strict mode keeps
+    //   blocking on NON-translation issues (parser bugs, missing source data).
     const TRANSLATION_ISSUES = new Set([
       'missing_description', 'untranslated_description',
       'missing_title', 'untranslated_title',
     ]);
     let effectiveTolerance = maxToleratedMissingDescriptions;
     let allAiExhausted = false;
+    let aiInfrastructureFailure = false;
     if (_aiModels) {
       try {
         const stats = _aiModels.getStats();
         allAiExhausted = !_aiModels.isAnyModelAvailable();
-        if (allAiExhausted || (stats.exhaustedModels && stats.exhaustedModels.length >= 3)) {
-          // AI quota exhausted — do NOT raise tolerance. Jobs with incomplete translations
-          // are saved with needsRetranslation flag and empty locale slots. The deploy gate
-          // (validate-translation-completeness.mjs) will block deploy until they're translated.
+        aiInfrastructureFailure =
+          allAiExhausted || (stats.exhaustedModels && stats.exhaustedModels.length >= 3);
+        if (aiInfrastructureFailure) {
           const translationIssueCount = blockingIssues.filter((i) => TRANSLATION_ISSUES.has(i.reason)).length;
           console.warn(`⚠️  AI quota exhaustion detected (${stats.exhaustedModels?.length || 0} models exhausted). ` +
             `${translationIssueCount} jobs have incomplete translations — saved with needsRetranslation flag. ` +
@@ -3568,30 +3580,34 @@ export function validateDedicatedLocaleCoverage({
       } catch { /* stats not available */ }
     }
 
-    // When SKIP_AI_TRANSLATION=1, ALL translation issues are expected — new jobs that
-    // missed cache will be translated by translate-pending.yml. Never block the crawler.
-    if (process.env.SKIP_AI_TRANSLATION === '1') {
+    // Treat SKIP_AI_TRANSLATION=1 and confirmed AI quota exhaustion as the same
+    // signal: translation issues are deferred to translate-pending.yml. This is
+    // the only place the crawler tolerates them — non-translation issues still
+    // block.
+    const deferToTranslatePending =
+      process.env.SKIP_AI_TRANSLATION === '1' || aiInfrastructureFailure;
+    if (deferToTranslatePending) {
       const translationIssues = blockingIssues.filter((i) => TRANSLATION_ISSUES.has(i.reason));
       const otherIssues = blockingIssues.filter((i) => !TRANSLATION_ISSUES.has(i.reason));
       if (translationIssues.length > 0 && otherIssues.length === 0) {
-        console.warn(`⚠️  SKIP_AI_TRANSLATION=1 — ${translationIssues.length} translation issue(s) deferred to translate-pending workflow`);
+        const reason = process.env.SKIP_AI_TRANSLATION === '1'
+          ? 'SKIP_AI_TRANSLATION=1'
+          : 'AI quota exhaustion';
+        console.warn(`⚠️  ${reason} — ${translationIssues.length} translation issue(s) deferred to translate-pending workflow`);
         softIssues.push(...translationIssues);
         blockingIssues.length = 0;
       }
     }
 
-    // Tolerate translation-related issues up to the base tolerance (FRO-317)
-    // AI exhaustion no longer inflates tolerance — incomplete jobs are saved with
-    // needsRetranslation flag and the deploy gate blocks until they're translated.
-    if (effectiveTolerance > 0) {
+    // Tolerate translation-related issues up to the base tolerance (FRO-317) —
+    // applies even when AI infrastructure looks healthy, e.g. a transient
+    // single-model 429 that left a couple of jobs untranslated.
+    if (blockingIssues.length > 0 && effectiveTolerance > 0) {
       const translationIssues = blockingIssues.filter((i) => TRANSLATION_ISSUES.has(i.reason));
       const otherIssues = blockingIssues.filter((i) => !TRANSLATION_ISSUES.has(i.reason));
       if (translationIssues.length <= effectiveTolerance && otherIssues.length === 0) {
         const sample = translationIssues.slice(0, 10).map((i) => `${i.slug} [${i.locale}] ${i.reason}`).join(', ');
         const suffix = translationIssues.length > 10 ? ` ... and ${translationIssues.length - 10} more` : '';
-        if (allAiExhausted) {
-          console.warn(`⚠️  AI quota exhausted — ${translationIssues.length} jobs saved with needsRetranslation flag`);
-        }
         console.warn(`⚠️  Tolerating ${translationIssues.length} translation issue(s) (tolerance ${effectiveTolerance}): ${sample}${suffix}`);
         softIssues.push(...translationIssues);
         blockingIssues.length = 0;
