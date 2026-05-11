@@ -272,12 +272,12 @@ export async function fetchAllSpitalThurgauJobs() {
       || `https://rekrutierung.stgag.ch/Vacancies/${id}/Application/CheckLogin/1?lang=ger`;
 
     const descBits = [];
-    if (workplace) descBits.push(`Standort: ${workplace}`);
-    if (department) descBits.push(`Abteilung: ${department}`);
-    if (branchName) descBits.push(`Bereich: ${branchName}`);
-    if (employment) descBits.push(`Pensum: ${employment}`);
-    if (contractType) descBits.push(`Anstellungsverhältnis: ${contractType}`);
-    if (rec?.startDate) descBits.push(`Eintrittsdatum: ${rec.startDate}`);
+    if (workplace) descBits.push(`• Standort: ${workplace}`);
+    if (department) descBits.push(`• Abteilung: ${department}`);
+    if (branchName) descBits.push(`• Bereich: ${branchName}`);
+    if (employment) descBits.push(`• Pensum: ${employment}`);
+    if (contractType) descBits.push(`• Anstellungsverhältnis: ${contractType}`);
+    if (rec?.startDate) descBits.push(`• Eintrittsdatum: ${rec.startDate}`);
     const descriptionText = descBits.length
       ? `${title} — ${SPITAL_THURGAU_COMPANY_NAME}.\n\n${descBits.join('\n')}`
       : `${title} — ${SPITAL_THURGAU_COMPANY_NAME}, ${city}`;

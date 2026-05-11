@@ -284,10 +284,10 @@ export async function fetchAllSolothurnerSpitaelerJobs() {
     const canton = 'SO';
 
     const descBits = [];
-    if (listing.rubric) descBits.push(`Bereich: ${listing.rubric}`);
-    if (listing.siteName) descBits.push(`Standort: ${listing.siteName}`);
-    if (listing.department) descBits.push(`Abteilung: ${listing.department}`);
-    if (listing.pensumStr) descBits.push(`Pensum: ${listing.pensumStr}`);
+    if (listing.rubric) descBits.push(`• Bereich: ${listing.rubric}`);
+    if (listing.siteName) descBits.push(`• Standort: ${listing.siteName}`);
+    if (listing.department) descBits.push(`• Abteilung: ${listing.department}`);
+    if (listing.pensumStr) descBits.push(`• Pensum: ${listing.pensumStr}`);
     const descriptionText = descBits.length
       ? `${title} — ${SOLOTHURNER_SPITAELER_COMPANY_NAME}.\n\n${descBits.join('\n')}`
       : `${title} — ${SOLOTHURNER_SPITAELER_COMPANY_NAME}, ${city}`;

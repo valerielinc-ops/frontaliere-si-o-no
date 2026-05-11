@@ -248,11 +248,47 @@ export function buildEngelvoelkersLocalizedContent(job = {}) {
   const description = String(job.description || '').trim();
   const company = String(job.company || 'Engel & Völkers').trim();
 
-  const itDesc = description
-    || `${company} cerca personale per la posizione ${title} con sede a ${location}. Settore immobiliare di pregio in ${regionIt}. Candidati tramite la pagina carriere ufficiale di Engel & Völkers.`;
-  const enDesc = `${company} is hiring for the ${title} position based in ${location}. Premium real estate sector in ${regionIt}. Apply through the official Engel & Völkers careers page.`;
-  const deDesc = `${company} sucht derzeit für die Position ${title} am Standort ${location}. Premium-Immobiliensektor im ${regionDe}. Bewerben Sie sich über die offizielle Karriereseite von Engel & Völkers.`;
-  const frDesc = `${company} recrute pour le poste ${title} basé à ${location}. Secteur immobilier de prestige au ${regionFr}. Postulez via la page carrière officielle d'Engel & Völkers.`;
+  const itStub = [
+    `${company} cerca personale per la posizione ${title} con sede a ${location}.`,
+    '',
+    'Dettagli della posizione:',
+    `• Sede: ${location}, ${regionIt}`,
+    `• Datore di lavoro: ${company}`,
+    '• Settore: Immobiliare di pregio (real estate luxury)',
+    `• Canton: ${canton}`,
+    '• Candidature: pagina carriere ufficiale di Engel & Völkers',
+  ].join('\n');
+  const itDesc = description || itStub;
+  const enDesc = [
+    `${company} is hiring for the ${title} position based in ${location}.`,
+    '',
+    'Position highlights:',
+    `• Location: ${location}, ${regionIt}`,
+    `• Employer: ${company}`,
+    '• Sector: Premium real estate',
+    `• Canton: ${canton}`,
+    '• Apply via the official Engel & Völkers careers page',
+  ].join('\n');
+  const deDesc = [
+    `${company} sucht derzeit für die Position ${title} am Standort ${location}.`,
+    '',
+    'Eckdaten der Stelle:',
+    `• Standort: ${location}, ${regionDe}`,
+    `• Arbeitgeber: ${company}`,
+    '• Branche: Premium-Immobilien (Real Estate Luxury)',
+    `• Kanton: ${canton}`,
+    '• Bewerbung über die offizielle Karriereseite von Engel & Völkers',
+  ].join('\n');
+  const frDesc = [
+    `${company} recrute pour le poste ${title} basé à ${location}.`,
+    '',
+    'Détails du poste :',
+    `• Lieu : ${location}, ${regionFr}`,
+    `• Employeur : ${company}`,
+    '• Secteur : Immobilier de prestige (real estate de luxe)',
+    `• Canton : ${canton}`,
+    '• Postuler via la page carrière officielle d\'Engel & Völkers',
+  ].join('\n');
 
   return {
     titleByLocale: { it: title, en: title, de: title, fr: title },

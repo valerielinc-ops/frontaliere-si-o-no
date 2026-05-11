@@ -216,22 +216,34 @@ export function parseReflineDetail(html = '') {
     .replace(/<nav[\s\S]*?<\/nav>/gi, '');
 
   const parts = [];
-  const blockRe = /<(?:p|li|h3|h4)[^>]*>([\s\S]*?)<\/(?:p|li|h3|h4)>/gi;
+  const blockRe = /<(p|li|h3|h4)[^>]*>([\s\S]*?)<\/\1>/gi;
   let bm;
   while ((bm = blockRe.exec(cleaned)) !== null) {
-    const text = normalizeSpace(stripHtml(bm[1]));
+    const tag = bm[1].toLowerCase();
+    const text = normalizeSpace(stripHtml(bm[2]));
     if (text.length > 30 && !/cookie|datenschutz|privacy|navigation|impressum|bewerbung absenden/i.test(text)) {
-      parts.push(text);
+      parts.push(tag === 'li' ? `• ${text}` : text);
     }
   }
-  const description = parts.join('\n\n');
+  const description = parts.join('\n');
   return { title, description };
 }
 
 /* ── Fallback description ──────────────────────────────────── */
 
 function buildFallbackDescription(title) {
-  return `${title} bei Spital Limmattal in Schlieren, Kanton Zürich.\n\nDas Spital Limmattal ist das öffentliche Akutspital für die rund 150'000 Einwohnerinnen und Einwohner des Limmattals (Bezirke Dietikon und Zürich West). Mit etwa 1'500 Mitarbeitenden bietet das «Limmi» ein modernes Arbeitsumfeld in einem Neubau (Eröffnung 2018), eine breite Palette medizinischer Fachbereiche, vielfältige Aus- und Weiterbildungsmöglichkeiten sowie attraktive Anstellungsbedingungen. Das Spital ist Lehrspital der Universität Zürich und der Höheren Fachschulen für Pflege.`;
+  return [
+    `${title} bei Spital Limmattal in Schlieren, Kanton Zürich.`,
+    '',
+    `Das Spital Limmattal ist das öffentliche Akutspital für die rund 150'000 Einwohnerinnen und Einwohner des Limmattals (Bezirke Dietikon und Zürich West). Das Spital ist Lehrspital der Universität Zürich und der Höheren Fachschulen für Pflege.`,
+    '',
+    'Das bietet «Limmi» den Mitarbeitenden:',
+    '• Modernes Arbeitsumfeld in einem Neubau (Eröffnung 2018)',
+    '• Breite Palette medizinischer Fachbereiche',
+    '• Vielfältige Aus- und Weiterbildungsmöglichkeiten',
+    '• Attraktive Anstellungsbedingungen',
+    '• Rund 1\'500 Mitarbeitende in einem kollegialen Umfeld',
+  ].join('\n');
 }
 
 /* ── Main fetch ────────────────────────────────────────────── */

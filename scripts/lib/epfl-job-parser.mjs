@@ -213,6 +213,43 @@ async function fetchSearchPage(startRow) {
   return await res.text();
 }
 
+const DETAIL_TIMEOUT_MS = 15_000;
+const DETAIL_RATE_LIMIT_MS = 400;
+
+/**
+ * Fetch the SuccessFactors detail page for an EPFL job and extract the body.
+ * EPFL uses standard CSB markup: `<div id="jobdescription">` or class variants.
+ * Falls back to <main>/<article>. Returns plain text with `\n• ` bullets
+ * (preserved by crawler-template.stripHtml). Empty string on failure.
+ */
+async function fetchEpflDetailDescription(jobUrl) {
+  if (!jobUrl) return '';
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), DETAIL_TIMEOUT_MS);
+  try {
+    const res = await fetch(jobUrl, { headers: FETCH_HEADERS, signal: ctrl.signal, redirect: 'follow' });
+    if (!res.ok) return '';
+    const html = await res.text();
+    const match =
+      html.match(/<div[^>]*\bid="jobdescription"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
+      html.match(/<div[^>]*class="[^"]*\bjobdescription\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|<\/main>)/i) ||
+      html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) ||
+      html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+    if (!match) return '';
+    const text = stripHtml(decodeEntities(match[1]));
+    return text
+      .replace(/[ \t]+/g, ' ')
+      .replace(/[ \t]*\n[ \t]*/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim()
+      .slice(0, 4000);
+  } catch {
+    return '';
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function fetchAllListings() {
   const all = [];
   const seenIds = new Set();
@@ -266,14 +303,27 @@ export async function fetchAllEpflJobs() {
     const canton = inferSwissTargetCanton(location) || 'VD';
     const publicUrl = listing.jobUrl;
 
-    // We don't fetch the detail page in the listing crawl — the description
-    // is filled by the AI localization step that runs after the crawler. The
-    // SEO-critical fields (title, location, canton, employmentType) all come
-    // from the row itself. Detail enrichment can be a follow-up if needed.
-    const fallbackDescription =
-      `${title} — EPFL (${location}). Posizione pubblicata sul portale carriere ufficiale ` +
-      `EPFL (SAP SuccessFactors). Funzione: ${listing.department || 'n/d'}. ` +
-      `Tipo contratto: ${listing.contractType || 'n/d'}.`;
+    // Always prefer the real description from the EPFL SuccessFactors detail
+    // page. Rate-limited so we don't hammer careers.epfl.ch.
+    const detailDescription = await fetchEpflDetailDescription(publicUrl);
+    if (publicUrl) {
+      await new Promise((r) => setTimeout(r, DETAIL_RATE_LIMIT_MS));
+    }
+
+    // TEMPORARY fallback used only when the detail page is unreachable. The
+    // long-term fix is upstream (anti-bot/auth blocks); <1% of fetches should
+    // hit this branch in production.
+    const fallbackBits = [
+      `${title} — EPFL (${location}).`,
+      `Posizione pubblicata sul portale carriere ufficiale EPFL (SAP SuccessFactors).`,
+      '',
+      'Dettagli della posizione:',
+      `• Sede: ${location}, Canton ${canton}`,
+      `• Funzione: ${listing.department || 'n/d'}`,
+      `• Tipo contratto: ${listing.contractType || 'n/d'}`,
+      `• Datore di lavoro: EPFL — École polytechnique fédérale de Lausanne`,
+    ];
+    const fallbackDescription = detailDescription.length >= 100 ? detailDescription : fallbackBits.join('\n');
 
     const sourceLang = detectLang(`${title} ${listing.department}`, 'fr');
     const jobSlug = slugify(`${title} epfl ${location}`);
