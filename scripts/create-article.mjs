@@ -103,6 +103,7 @@ import {
 import { buildDiscoveryPool as _buildDiscoveryPool } from './lib/discovery/discoveryPool.mjs';
 import { isNearDuplicate as _isNearDuplicateHeadline } from './lib/scheduler/slugSimilarity.mjs';
 import { fetchWordpressSearchHeadlines } from './lib/topic-sources/wordpressSearch.mjs';
+import { hasDomainAnchor } from './lib/discovery/domainAnchor.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -1532,6 +1533,14 @@ VERIFICA SISTEMATICA — controlla OGNI categoria:
    - Ministri o funzionari con nomi plausibili ma non verificabili
    - Accordi/protocolli bilaterali mai firmati (controllare attentamente)
 
+11. **RILEVANZA TOPICA AL FRONTALIERE TICINO-ITALIA (CRITICO)**: L'articolo deve avere un nesso REALE, SPECIFICO e VERIFICABILE con la vita del frontaliere Ticino-Italia. Sono nessi reali: norme/sentenze su Permesso G o B, fiscalità CH-IT (imposta alla fonte, nuovo accordo, ristorni, doppia imposizione), AVS/LPP/LAMal/CMI, busta paga svizzera, dogane/valichi (Chiasso, Brogeda, Gaggiolo, Ponte Tresa), pendolarismo CH-IT, mercato del lavoro ticinese, telelavoro frontaliere, salari ticinesi, accordi bilaterali CH-IT/UE, autostrade A2/A9 svizzere, banche e cambio CHF-EUR per frontalieri.
+
+   ${isEvergreen ? '' : 'NON sono nessi reali (segnala "critical" come "rilevanza_topica"): cronaca nera italiana o estera senza nesso lavoro CH (es. arresti per omicidio comune, eventi USA, criminalità urbana italiana), eventi sportivi, gossip, cultura locale non-frontaliera, infrastruttura italiana lontana dal confine (es. eventi a Roma/Napoli/Palermo), eventi a Malpensa SENZA impatto sui voli o trasporti frontalieri.'}
+
+   SEGNALE D'ALLARME (= "critical: rilevanza_topica"): paragrafi con titoli del tipo "Implicazioni per i frontalieri", "I frontalieri devono essere consapevoli di…", "Cosa significa per i frontalieri", su un evento SENZA implicazione concreta. Sezioni di consigli generici ("consulta un avvocato", "verifica la copertura assicurativa", "informati sui tuoi diritti") inserite per riempire spazio su un argomento non-frontaliere sono indicatori di forzatura.
+
+   ${isEvergreen ? '' : "Se l'articolo è un commento generico (procedure di estradizione generiche, consigli legali universali, considerazioni assicurative generiche) attaccato a una notizia di cronaca che NON menziona frontalieri/permesso G/AVS/LAMal/dogana/ecc. nella fonte originale, il verdetto è FAIL — l'articolo non doveva essere generato."}
+
 CRITERI DI GIUDIZIO:
 - "critical" = fatto verificabilmente FALSO, o CONTRADDICE i fatti verificati di riferimento (legge inesistente, istituzione inventata, aliquota sbagliata, evento mai avvenuto, dato che contraddice la fonte)
 - "major" = fatto sospetto non verificabile con certezza (percentuale senza fonte, dato plausibile ma non confermabile, informazione specifica aggiunta non presente nella fonte e non nei fatti verificati)
@@ -1550,7 +1559,7 @@ Rispondi SOLO in JSON valido:
   ]
 }
 
-Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fatti_inventati, persone, geografia, eu_svizzera`;
+Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fatti_inventati, persone, geografia, eu_svizzera, rilevanza_topica`;
 
   // ── Multi-model consensus: query 2 models, require agreement ──
   const verificationModels = [
@@ -2128,18 +2137,49 @@ async function scanNewsSources() {
     console.error(`  🕒 Articoli senza data esplicita: ${undated.length} (usati come fallback a bassa priorità)\n`);
   }
 
+  // ── Domain-anchor pre-filter (proven pool) ──
+  // 2026-05-11 incident: `malpensa-arresto-frontaliere-omicidio-2026` — a
+  // generic varesenews.it/feed/ headline about a US murder suspect at
+  // Malpensa entered the proven pool (no anchor gate), embedding ranker
+  // matched it against other crime articles (cosine corpus drift), score
+  // 9.73 → published as off-topic SEO slop.
+  // The discovery/suggest pipeline already filters via hasDomainAnchor
+  // (PR #73, 2026-05-11). Apply the same gate to the proven news-scan
+  // pool: drop any headline lacking a Ticino/frontalieri/CH-municipality
+  // anchor BEFORE it enters the ranker. Env-gated so we can roll back
+  // without a code change if it kills too many legit headlines.
+  const dropAnchorless = (process.env.SCAN_DROP_ANCHORLESS ?? '1') !== '0';
+  const filterByAnchor = (list) => {
+    if (!dropAnchorless) return list;
+    const kept = [];
+    let dropped = 0;
+    for (const h of list) {
+      const text = `${h.headline || ''} ${h.url || ''}`;
+      if (hasDomainAnchor(text)) {
+        kept.push(h);
+      } else {
+        dropped += 1;
+      }
+    }
+    if (dropped > 0) {
+      RUN_REPORT.headlines.droppedAnchorless = (RUN_REPORT.headlines.droppedAnchorless || 0) + dropped;
+      console.error(`  🚫 Anchor-gate: ${dropped} headline scartate (nessun token Ticino/frontaliere/comune CH/città IT confine)`);
+    }
+    return kept;
+  };
+
   // If no recent articles found, fall back to all headlines (homepage articles are likely recent)
   if (recent.length === 0) {
     console.error('  ⚠️  Nessun articolo con data negli ultimi 3 giorni — uso tutti gli headline\n');
     RUN_REPORT.headlines.usedRecent = 0;
     RUN_REPORT.headlines.usedUndated = undated.length;
-    return prioritizeFrontalieriHeadlines(allHeadlines);
+    return prioritizeFrontalieriHeadlines(filterByAnchor(allHeadlines));
   }
 
   const undatedTop = undated.slice(0, 120).map(h => ({ ...h, _undatedFallback: true }));
   RUN_REPORT.headlines.usedRecent = recent.length;
   RUN_REPORT.headlines.usedUndated = undatedTop.length;
-  return prioritizeFrontalieriHeadlines([...recent, ...undatedTop]);
+  return prioritizeFrontalieriHeadlines(filterByAnchor([...recent, ...undatedTop]));
 }
 
 // ── Frontalieri relevance pre-filter ────────────────────────
@@ -2494,6 +2534,25 @@ ${relatedContext ? `\nRELATED:\n${relatedContext}` : ''}
 ${idsSection}
 ⚠️ The "id" must NOT share >60% words with any existing ID.
 
+═══ REGOLA #0 — GATE DI RILEVANZA TOPICA (BLOCCANTE — PRIMA DI TUTTO) ═══
+
+Prima di scrivere qualunque cosa, valuta se la fonte ha un nesso REALE e VERIFICABILE con la vita del frontaliere Ticino-Italia. Esempi di nesso reale:
+- Norme/sentenze su Permesso G o B, fiscalità CH-IT (imposta alla fonte, nuovo accordo, ristorni, doppia imposizione, dichiarazione frontalieri)
+- AVS/LPP/LAMal/CMI, busta paga svizzera, secondo/terzo pilastro
+- Dogane e valichi (Chiasso, Brogeda, Gaggiolo, Ponte Tresa), pendolarismo CH-IT, autostrade A2/A9, traffico transfrontaliero, scioperi/eventi che bloccano i flussi pendolari
+- Mercato del lavoro ticinese, salari/sciopero in aziende che assumono frontalieri, telelavoro frontaliere
+- Accordi bilaterali CH-IT/UE, banche e cambio CHF-EUR, costo della vita Ticino vs Italia di confine
+
+Esempi che NON sono nesso reale: cronaca nera senza nesso lavoro CH (omicidi comuni, sparizioni, processi non-frontalieri), eventi USA/UE/ROW senza impatto pendolare, sport, cultura/intrattenimento non-frontaliero, infrastruttura italiana lontana dal confine (Roma/Napoli/Palermo), eventi a Malpensa SENZA impatto sui voli/transito frontaliero.
+
+REGOLA OPERATIVA — se il nesso NON c'è in modo concreto e specifico, devi RIFIUTARTI di generare l'articolo e restituire SOLTANTO questo JSON:
+{
+  "abort_topical_relevance": true,
+  "reason": "<1-2 frasi che spiegano perché la fonte non ha un nesso reale con il frontaliere Ticino-Italia>"
+}
+
+NON inventare un angolo "implicazioni per i frontalieri" su un evento non-frontaliero per riempire spazio. NON aggiungere paragrafi di consigli generici (consulta un avvocato, verifica l'assicurazione, conosci i tuoi diritti) come surrogato di un nesso reale. Meglio rifiutare e far passare il prossimo articolo.
+
 ═══ REGOLA #1 — FEDELTÀ ALLA FONTE (PRIORITÀ MASSIMA) ═══
 
 Il tuo articolo è una RISCRITTURA EDITORIALE della fonte, NON un articolo originale. Questo significa:
@@ -2581,14 +2640,18 @@ ANTI-RIPETITIVITÀ (CRITICO): I tre body DEVONO avere contenuti DIVERSI. Mai rip
 - body2 = ANALISI PRATICA: implicazioni per i frontalieri, confronti prima/dopo, scenari concreti. Informazione che NON era nel body1.
 - body3 = AZIONE: cosa fare concretamente, scadenze, procedura step-by-step, strumenti del sito. NON riassumere body1 o body2.
 
-REGOLA EDITORIALE FONDAMENTALE — FRONTALIERI AL CENTRO:
-Il frontaliere deve essere il PROTAGONISTA dell'articolo dall'inizio alla fine.
-NON è accettabile aggiungere una sezione "Impatto sui frontalieri" solo in fondo.
-ALMENO il 50% del testo dei campi body1, body2, body3 deve essere direttamente indirizzato al lettore frontaliere, con:
-- Dati pratici (importi CHF/EUR, scadenze, procedure, permessi)
-- Guide operative (checklist, step-by-step numerati, confronto scenari A vs B)
-- Informazioni azionabili (cosa fare, dove andare, quali documenti portare)
-Il notizia/evento è solo il punto di partenza. Il valore sta nelle implicazioni PRATICHE per chi vive in Italia e lavora in Svizzera.
+REGOLA EDITORIALE FONDAMENTALE — FRONTALIERI AL CENTRO (CONDIZIONALE):
+Se la fonte ha implicazioni CONCRETE e SPECIFICHE per il frontaliere (importi CHF/EUR cambiati, scadenze fiscali, procedure modificate, permessi, valichi, accordi CH-IT, AVS/LPP/LAMal, busta paga, autostrade A2/A9, sciopero che blocca pendolari):
+- Il frontaliere deve essere il PROTAGONISTA dell'articolo dall'inizio alla fine.
+- NON è accettabile aggiungere una sezione "Impatto sui frontalieri" solo in fondo.
+- ALMENO il 50% del testo dei campi body1, body2, body3 deve essere indirizzato al lettore frontaliere con dati pratici (importi, scadenze, procedure), guide operative (checklist, step-by-step, confronto scenari) e informazioni azionabili (cosa fare, dove andare, documenti).
+
+Se le implicazioni sono DEBOLI o GENERICHE (la fonte non parla direttamente di frontalieri, ma il contesto può essere tangenzialmente utile):
+- Limita la copertura a 1-2 paragrafi brevi di contesto. NON gonfiare l'articolo con platitudini ("consulta un avvocato", "verifica la copertura", "conosci i tuoi diritti", "informati sulle leggi locali").
+- Onestamente dichiara nel body1 cosa la fonte dice E NULLA DI PIÙ, e segnala in body2/body3 i 1-2 ganci pratici reali (se esistono). Meglio un articolo da 400 parole onesto che 1200 parole di forzatura.
+- Se anche 1-2 paragrafi di nesso reale non esistono → torna al GATE DI RILEVANZA TOPICA (REGOLA #0) e rifiuta con "abort_topical_relevance": true.
+
+Il notizia/evento è solo il punto di partenza. Il valore sta nelle implicazioni PRATICHE per chi vive in Italia e lavora in Svizzera. Se queste implicazioni non esistono, l'articolo non doveva essere generato.
 
 Genera JSON (no markdown, no code fences):
 {
@@ -2704,6 +2767,27 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     console.error(`   Raw response (last 200 chars): ...${itRaw.slice(-200)}`);
     throw new Error(`JSON non valido dalla generazione IT: ${parseErr.message}`);
   }
+
+  // ── REGOLA #0 abort gate ──
+  // The IT generation prompt instructs the model to return
+  //   { "abort_topical_relevance": true, "reason": "..." }
+  // when the source has no real frontaliere angle (Malpensa-class
+  // hallucination defense). Treat the abort as a controlled failure so
+  // the run report classifies it and the workflow's retry/self-trigger
+  // path can pick a different headline instead of publishing slop.
+  if (itData?.abort_topical_relevance === true) {
+    const reason = String(itData.reason || '').slice(0, 500) || '(no reason)';
+    console.error(`  ⏭️  [topic-gate] Generation aborted by REGOLA #0 — source lacks real frontaliere angle.`);
+    console.error(`     Reason: ${reason}`);
+    if (RUN_REPORT && typeof RUN_REPORT === 'object') {
+      RUN_REPORT.topicGateAborts = (RUN_REPORT.topicGateAborts || 0) + 1;
+      RUN_REPORT.lastTopicGateAbortReason = reason;
+    }
+    const err = new Error(`Topic-gate abort: ${reason}`);
+    err.topicGateAbort = true;
+    throw err;
+  }
+
   const itContent = normalizeItalianContentFromPayload(itData);
   if (!itContent) {
     throw new Error('Risposta IT non contiene content.it e non può essere normalizzata');
