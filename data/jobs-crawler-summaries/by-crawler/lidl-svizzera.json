@@ -1,41 +1,41 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-11T12:03:40.892Z",
+  "generatedAt": "2026-05-11T22:26:28.193Z",
   "total": 9,
   "newCount": 1,
   "updatedCount": 8,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 20578,
-  "avgDurationMs": 20578,
+  "durationMs": 12632,
+  "avgDurationMs": 12632,
   "durationHistory": [
-    20578
+    12632
   ],
   "newJobs": [
     {
-      "id": "company-ixk693",
-      "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-gravesano-ixk693",
+      "id": "company-kscbfg",
+      "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-kscbfg",
       "company": "Lidl Svizzera",
-      "title": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Gravesano",
-      "location": "Gravesano",
+      "title": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Locarno",
+      "location": "Locarno",
       "canton": "ti",
       "category": "admin",
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2025-08-05",
-      "url": "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-gravesano-588243",
+      "url": "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-588255",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Gravesano",
+        "location": "Locarno",
         "canton": "TI"
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-05-11T12:03:40.620Z",
-      "firstSeenAt": "2026-05-11T12:03:40.620Z",
+      "crawledAt": "2026-05-11T22:26:27.915Z",
+      "firstSeenAt": "2026-05-11T22:26:27.915Z",
       "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "de",
@@ -81,11 +81,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 81,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 9,
+        "translation": 15,
         "completeness": 25
       }
     },
@@ -376,28 +376,28 @@
   ],
   "removedJobs": [
     {
-      "id": "company-kscbfg",
-      "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-kscbfg",
+      "id": "company-ixk693",
+      "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-gravesano-ixk693",
       "company": "Lidl Svizzera",
-      "title": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Locarno",
-      "location": "Locarno",
+      "title": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Gravesano",
+      "location": "Gravesano",
       "canton": "ti",
       "category": "admin",
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2025-08-05",
-      "url": "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-588255",
+      "url": "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-gravesano-588243",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Locarno",
+        "location": "Gravesano",
         "canton": "TI"
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-05-10T21:57:53.287Z",
-      "firstSeenAt": "2026-05-10T21:57:53.287Z",
+      "crawledAt": "2026-05-11T12:03:40.620Z",
+      "firstSeenAt": "2026-05-11T12:03:40.620Z",
       "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "de",
@@ -409,11 +409,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 91,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 16,
         "completeness": 25
       }
     }
