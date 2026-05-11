@@ -7144,7 +7144,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2499, "name": "Altri tre arresti per la rissa in cui morì Enzo...", "url": `${BASE_URL}/articoli-frontaliere/tre-arresti-rissa-ambrosino-cavalla` },
           { "@type": "ListItem", "position": 2500, "name": "Scioperi aerei in Italia: lunedì 11 maggio voli...", "url": `${BASE_URL}/articoli-frontaliere/scioperi-aerei-italia-11-maggio-2026` },
           { "@type": "ListItem", "position": 2501, "name": "Acb in difficoltà: oltre 2 milioni di franchi d...", "url": `${BASE_URL}/articoli-frontaliere/acb-debito-futuro-2026` },
-          { "@type": "ListItem", "position": 2502, "name": "Frontaliere arrestato a Malpensa: ricercato neg...", "url": `${BASE_URL}/articoli-frontaliere/malpensa-arresto-frontaliere-omicidio-2026` },
           { "@type": "ListItem", "position": 2503, "name": "Sciopero Easyjet a Malpensa: voli a rischio l'1...", "url": `${BASE_URL}/articoli-frontaliere/sciopero-easyjet-malpensa-11-maggio-2026` },
           { "@type": "ListItem", "position": 2504, "name": "Secondo pilastro: divisione anche dopo lunga se...", "url": `${BASE_URL}/articoli-frontaliere/secondo-pilastro-diviso-frontalieri-ticino` },
           { "@type": "ListItem", "position": 2505, "name": "15enne rompe vetri ospedale Como: denunciato da...", "url": `${BASE_URL}/articoli-frontaliere/ospedale-como-frontalieri-15-maggio-2026` },

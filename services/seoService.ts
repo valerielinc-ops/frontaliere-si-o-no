@@ -3691,7 +3691,6 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tre-arresti-rissa-ambrosino-cavalla': { name: 'Novità', path: '/articoli-frontaliere/tre-arresti-rissa-ambrosino-cavalla', parent: 'blog' },
     'blog-scioperi-aerei-italia-11-maggio-2026': { name: 'Scioperi aerei', path: '/articoli-frontaliere/scioperi-aerei-italia-11-maggio-2026', parent: 'blog' },
     'blog-acb-debito-futuro-2026': { name: 'Acb in difficoltà', path: '/articoli-frontaliere/acb-debito-futuro-2026', parent: 'blog' },
-    'blog-malpensa-arresto-frontaliere-omicidio-2026': { name: 'Frontalieri', path: '/articoli-frontaliere/malpensa-arresto-frontaliere-omicidio-2026', parent: 'blog' },
     'blog-sciopero-easyjet-malpensa-11-maggio-2026': { name: 'Sciopero Easyjet', path: '/articoli-frontaliere/sciopero-easyjet-malpensa-11-maggio-2026', parent: 'blog' },
     'blog-secondo-pilastro-diviso-frontalieri-ticino': { name: 'Pensioni', path: '/articoli-frontaliere/secondo-pilastro-diviso-frontalieri-ticino', parent: 'blog' },
     'blog-ospedale-como-frontalieri-15-maggio-2026': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/ospedale-como-frontalieri-15-maggio-2026', parent: 'blog' },
