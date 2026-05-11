@@ -15,6 +15,8 @@
  *          inferLocation, isSwissJob
  */
 
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+
 /* ── Text helpers ──────────────────────────────────────────── */
 
 export function normalizeSpace(value = '') {
@@ -92,13 +94,15 @@ export function inferLocation(title = '', description = '') {
 }
 
 /**
- * Check if a job location is in Switzerland.
+ * Check if a job location is in Switzerland. Uses the canonical BFS-based
+ * check so every canton/municipality is recognized, with a fallback for
+ * empty locations (EMS HQ in Domat/Ems is assumed when no location is given).
  */
 export function isSwissJob(location = '') {
-  const loc = String(location || '').toLowerCase();
-  return /domat|ems|romanshorn|graubünden|grigioni|schweiz|svizzera|switzerland|suisse/i.test(loc)
-    || loc === '' // Default location is Swiss
-    || loc === 'domat/ems';
+  const loc = String(location || '');
+  if (!loc.trim()) return true;
+  if (/\b(schweiz|svizzera|switzerland|suisse|ch)\b/i.test(loc)) return true;
+  return isTargetSwissLocation(loc);
 }
 
 /* ── Listing page parser ───────────────────────────────────── */

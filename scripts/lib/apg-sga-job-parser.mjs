@@ -15,7 +15,7 @@ import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { inferAnyCanton, findSwissCityInText } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -199,11 +199,12 @@ function parseCareerPageHtml(html = '') {
         seen.add(title.toLowerCase());
         const fullUrl = href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
 
-        // Extract location from context
+        // Extract location from context — match against the full BFS
+        // municipality dataset so every Swiss city resolves, not just the
+        // major hubs.
         const parent = link.closest('li, tr, div, article') || link.parentElement;
-        const parentText = (parent?.textContent || '').toLowerCase();
-        const locMatch = parentText.match(/(?:lugano|zürich|zurich|bern|luzern|lausanne|genf|genève|basel|st\.\s*gallen)/i);
-        const location = locMatch ? locMatch[0] : '';
+        const parentText = parent?.textContent || '';
+        const location = findSwissCityInText(parentText) || '';
 
         jobs.push({ title, url: fullUrl, location, description: '' });
       }

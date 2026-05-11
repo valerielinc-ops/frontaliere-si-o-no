@@ -15,7 +15,7 @@ import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -205,11 +205,14 @@ function parseCareerPageHtml(html = '') {
 }
 
 /**
- * Check if a location string indicates a Swiss location.
+ * Check if a location string indicates a Swiss target location. Uses the
+ * canonical BFS-based check so every canton/municipality is recognized.
  */
 function isSwissLocation(location = '') {
-  const loc = location.toLowerCase();
-  return /schweiz|switzerland|suisse|svizzera|manno|ticino|tessin|lugano|zurich|zürich|bern|basel|ch\b/i.test(loc);
+  const loc = String(location || '');
+  if (!loc) return false;
+  if (/\b(schweiz|switzerland|suisse|svizzera|ch)\b/i.test(loc)) return true;
+  return isTargetSwissLocation(loc);
 }
 
 /**

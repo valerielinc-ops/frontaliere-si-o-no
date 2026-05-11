@@ -46,6 +46,12 @@ const ROOT = path.resolve(__dirname, '..');
 const IGNORED_FILES = new Set([
   'index.css',
   'no-dark-color-classes.test.ts',
+  // Decorative weather plugins: per-WMO-code icon hues (sun=amber, cloud=slate,
+  // rain=sky, snow=indigo, storm=violet) carry their meaning through colour
+  // and can't be remapped onto semantic tokens without losing the weather
+  // signal. Same rationale as iconBgMap object-keys in ALLOWED_HARDCODED.
+  'weatherCityPagesPlugin.ts',
+  'weatherIconsHelper.ts',
 ]);
 
 // ── dark: check ──

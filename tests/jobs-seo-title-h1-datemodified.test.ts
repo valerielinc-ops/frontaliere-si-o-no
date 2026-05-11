@@ -132,18 +132,21 @@ describe('composeJobPageTitle', () => {
  expect(out.length).toBeLessThanOrEqual(MAX);
  });
 
- it('keeps the brand suffix even when headline is long, by truncating the core', () => {
- // Universal policy: the brand suffix is ALWAYS appended; the headline is
- // truncated to make room for it. This guarantees <title> ≠ <h1>
- // (h1 has no brand suffix), preventing audit:h1-title-duplicates regressions.
+ it('drops the brand (but preserves city) when the title is too long', () => {
+ // Policy change (titleSuffix.ts): when the headline+brand exceeds the
+ // SERP cap (66 chars), the brand suffix is dropped — preferring keyword
+ // content over brand. The city-preserving core keeps the trailing city
+ // token intact regardless, even when the headline itself must be
+ // shortened to fit the 70-char cap.
  const jobTitle = 'Very Long Senior Software Engineer Position with Specialty';
  const company = 'International Consulting Group AG';
  const out = composeJobPageTitle(jobTitle, company, 'Lugano', 'it');
- expect(out.endsWith(SUFFIX)).toBe(true);
  expect(out.length).toBeLessThanOrEqual(MAX);
  // City-preserving truncation keeps the trailing city token (the city is
  // the disambiguator that prevents multi-sede titles from collapsing).
  expect(out).toContain('Lugano');
+ // The brand suffix is dropped when the title would otherwise exceed 66.
+ expect(out.endsWith(SUFFIX)).toBe(false);
  });
 
  it('includes the city in the headline', () => {

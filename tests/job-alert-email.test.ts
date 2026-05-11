@@ -400,16 +400,19 @@ describe('job alert email — universal favicon fallback', () => {
   // job URL and fall back to Google's favicon CDN. Covers long-tail employers
   // not in our 72-brand bundle (Tether Operations, Ticino Premium Properties, …).
   it('falls back to a Google Favicons URL when no bundled logo exists, using job.url host', () => {
+    // Pick a long-tail employer that is NOT in our 72-brand bundle and has no
+    // alias mapping in scripts/send-job-alerts.mjs — so tier 1 (bundled) fails
+    // and tier 2 (favicon) must kick in.
     const job = {
       ...fixtureJob(),
-      company: 'Tether Operations Limited',
-      companyKey: 'tether-operations',
-      url: 'https://tether.io/careers/ai-engineer-100-remote',
+      company: 'Nonsense Long Tail Employer XYZ',
+      companyKey: 'nonsense-long-tail-employer-xyz',
+      url: 'https://nonsense-long-tail-employer-xyz.example/careers/job-1',
     };
     const result = buildAlertEmail(fixtureAlert('it'), [job], true);
-    expect(result.html).toMatch(/google\.com\/s2\/favicons\?sz=128&domain=tether\.io/);
+    expect(result.html).toMatch(/google\.com\/s2\/favicons\?sz=128&domain=nonsense-long-tail-employer-xyz\.example/);
     // No initial-letter fallback when a favicon URL was produced.
-    expect(result.html).not.toMatch(/font-size:18px;font-weight:800;color:#f97316;">T<\/div>/);
+    expect(result.html).not.toMatch(/font-size:18px;font-weight:800;color:#f97316;">N<\/div>/);
   });
 
   it('strips a leading "careers." subdomain so favicon comes from the parent', () => {

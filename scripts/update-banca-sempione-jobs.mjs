@@ -19,7 +19,8 @@
  * Swiss offices: Lugano (HQ), Bellinzona, Locarno, Chiasso (all TI), Zurich (ZH).
  * Only Ticino jobs are kept in the board dataset.
  */
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults, isTargetCanton } from './lib/crawler-location-config.mjs';
+import { isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -176,10 +177,9 @@ export function inferLocation(title = '', contentText = '') {
 export function shouldKeepBancaSempioneJob({ location = '', canton = '', country = '' } = {}) {
   const normalizedCanton = String(canton || '').trim().toUpperCase();
   const normalizedCountry = String(country || '').trim().toUpperCase();
-  if (normalizedCanton === 'TI') return true;
   if (normalizedCountry && normalizedCountry !== 'CH') return false;
-  const normalizedLocation = normalize(String(location || ''));
-  return ['lugano', 'bellinzona', 'locarno', 'chiasso'].includes(normalizedLocation);
+  if (normalizedCanton && isTargetCanton(normalizedCanton)) return true;
+  return isTargetSwissLocation(String(location || ''));
 }
 
 /* ── Category detection ────────────────────────────────────── */

@@ -359,7 +359,9 @@ describe('Router — locale-aware job detail updates', () => {
     updatePathForLocale('en');
 
     expect(window.location.pathname).toBe(buildPath({ activeTab: 'job-board', jobSlug: englishSlug }, 'en'));
-    expect(window.history.state?.route).toEqual({ activeTab: 'job-board', jobSlug: englishSlug });
+    // The route may carry additional fields (e.g. jobBoardCanton) added by
+    // unrelated features — assert only what this test cares about.
+    expect(window.history.state?.route).toMatchObject({ activeTab: 'job-board', jobSlug: englishSlug });
   });
 });
 
