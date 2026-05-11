@@ -1,16 +1,16 @@
 {
   "key": "swatch-group-assembly",
   "label": "swatch-group-assembly",
-  "generatedAt": "2026-05-10T22:32:34.627Z",
+  "generatedAt": "2026-05-11T12:39:08.265Z",
   "total": 18,
   "newCount": 26,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21700,
-  "avgDurationMs": 21700,
+  "durationMs": 26907,
+  "avgDurationMs": 26907,
   "durationHistory": [
-    21700
+    26907
   ],
   "newJobs": [
     {
@@ -218,6 +218,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -319,11 +320,11 @@
       "salaryMax": 150000,
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 25,
+        "translation": 23,
         "completeness": 19
       }
     },
@@ -392,7 +393,7 @@
     },
     {
       "id": "company-7ua8ze",
-      "slug": "swatch-tempo-pieno-keyholder-caesers-forum-las-vegas-the-swatch-group-u-s-inc-0200-english-search-swatch-full-time-keyholder-7ua8ze",
+      "slug": "swatch-tempo-pieno-keyholder-caesers-forum-las-vegas-the-swatch-group-u-s-inc-0200-english-search-search-swatch-full-tim",
       "company": "The Swatch Group (U.S.) Inc.",
       "title": "Swatch Full Time Keyholder - Caesers Forum (Las Vegas)",
       "location": "0200 English Search Search Swatch Full Time Keyholder",
@@ -543,11 +544,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "2855",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 25,
+        "translation": 23,
         "completeness": 22
       }
     },
@@ -576,11 +577,11 @@
       "employmentType": "FULL_TIME",
       "postalCode": "1173",
       "retranslationAttempts": 1,
-      "_qualityScore": 77,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 10,
+        "translation": 13,
         "completeness": 22
       }
     },
@@ -763,11 +764,11 @@
       "salaryMax": 150000,
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 90,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 25,
+        "translation": 23,
         "completeness": 19
       }
     },
