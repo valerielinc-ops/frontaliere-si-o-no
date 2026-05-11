@@ -142,11 +142,11 @@ async function fetchAllListings() {
 }
 
 function buildPwcJob(row) {
-  const localized = buildPwcLocalizedContent(row);
+  const city = row._explodedCity || row.city || row.location || 'Switzerland';
+  const canton = inferAnyCanton(city) || '';
+  const localized = buildPwcLocalizedContent({ ...row, city });
   const detailUrl = row.directLink || CAREERS_URL;
   const applyUrl = row.applyUrl || row.directLink || CAREERS_URL;
-  const city = row.city || row.location || 'Switzerland';
-  const canton = inferAnyCanton(city) || '';
 
   return {
     title: localized.titleByLocale.it,
@@ -156,7 +156,7 @@ function buildPwcJob(row) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: row.location || city,
+    location: city,
     addressLocality: city,
     addressRegion: canton,
     addressCountry: 'CH',
@@ -178,7 +178,38 @@ function buildPwcJob(row) {
 }
 
 function jobMatchKey(job = {}) {
-  return String(job.url || '').trim().toLowerCase() || String(job.slug || '').trim().toLowerCase();
+  const url = String(job.url || '').trim().toLowerCase();
+  const city = String(job.addressLocality || job.location || '').trim().toLowerCase();
+  if (url) return `${url}#${city}`;
+  return String(job.slug || '').trim().toLowerCase();
+}
+
+function dedupeCitiesByCanton(cities) {
+  const seen = new Set();
+  const result = [];
+  for (const raw of cities) {
+    const c = String(raw || '').trim();
+    if (!c) continue;
+    const canton = inferAnyCanton(c);
+    const key = canton || c.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    result.push(c);
+  }
+  return result;
+}
+
+function explodeListings(listings) {
+  const exploded = [];
+  for (const row of listings) {
+    const candidates = [row.city, ...(row.locationAttrs || [])].filter(Boolean);
+    const cities = dedupeCitiesByCanton(candidates);
+    if (cities.length === 0) cities.push(row.city || row.location || 'Switzerland');
+    for (const city of cities) {
+      exploded.push({ ...row, _explodedCity: city });
+    }
+  }
+  return exploded;
 }
 
 function mergeJobs(discoveredJobs) {
@@ -273,7 +304,11 @@ async function main() {
     return;
   }
 
-  const allBuilt = listings.map(buildPwcJob);
+  const explodedListings = explodeListings(listings);
+  if (explodedListings.length !== listings.length) {
+    console.log(`🏙️  Multi-location explosion: ${listings.length} listings → ${explodedListings.length} per-city records`);
+  }
+  const allBuilt = explodedListings.map(buildPwcJob);
   const jobs = allBuilt.filter((job) => {
     const loc = String(job.addressLocality || job.location || '');
     if (isLocationExplicitlyForeign(loc)) {
