@@ -9954,5 +9954,117 @@
         "pending": 50
       }
     ]
+  },
+  {
+    "timestamp": "2026-05-11T04:42:46.332Z",
+    "label": "before",
+    "total": 4000,
+    "needsRetranslation": 1695,
+    "incomplete": 1545,
+    "complete": 2455,
+    "missingByLocale": {
+      "it": 1293,
+      "en": 1132,
+      "de": 292,
+      "fr": 1302
+    },
+    "topPending": [
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 192
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 153
+      },
+      {
+        "company": "Solothurner Spitäler (soH)",
+        "pending": 124
+      },
+      {
+        "company": "ETH Zürich",
+        "pending": 110
+      },
+      {
+        "company": "Universitätsspital Basel",
+        "pending": 96
+      },
+      {
+        "company": "die Mobiliar",
+        "pending": 82
+      },
+      {
+        "company": "Jumbo",
+        "pending": 77
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "Kantonsspital Winterthur (KSW)",
+        "pending": 61
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-11T05:42:40.360Z",
+    "label": "after",
+    "total": 4000,
+    "needsRetranslation": 1600,
+    "incomplete": 1446,
+    "complete": 2554,
+    "missingByLocale": {
+      "it": 1193,
+      "en": 1089,
+      "de": 228,
+      "fr": 1205
+    },
+    "topPending": [
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 192
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 153
+      },
+      {
+        "company": "Solothurner Spitäler (soH)",
+        "pending": 124
+      },
+      {
+        "company": "Universitätsspital Basel",
+        "pending": 96
+      },
+      {
+        "company": "die Mobiliar",
+        "pending": 82
+      },
+      {
+        "company": "Jumbo",
+        "pending": 77
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 76
+      },
+      {
+        "company": "Kantonsspital Winterthur (KSW)",
+        "pending": 61
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      }
+    ]
   }
 ]
