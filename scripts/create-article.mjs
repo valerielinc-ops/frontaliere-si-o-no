@@ -5943,10 +5943,21 @@ async function main() {
               console.error(`\n⚠️  ${MAX_DUPLICATE_RETRIES} tentativi ${pool.name} esauriti — tutti duplicati.`);
               break; // try next pool, then evergreen
             }
-            // Fact-check / quality failures → skip this article, try next
-            const isQualityReject = /fact-check|rigettato|veridicità|fabricat/i.test(e.message);
+            // Fact-check / quality failures → skip this article, try next.
+            // Includes REGOLA #0 topic-gate aborts: when the LLM correctly
+            // refuses to fabricate a frontaliere angle on a cronaca-nera or
+            // non-relevant source (see line ~2787), the error carries
+            // err.topicGateAbort=true. Without this branch the abort
+            // propagates to main() and fails the whole run instead of
+            // letting the loop try a different headline (run 25697916845,
+            // 2026-05-11). Same quality outcome (slop not published)
+            // but workflow stays green and retry budget is honored.
+            const isTopicGateAbort = e.topicGateAbort === true || /topic-gate abort/i.test(e.message);
+            const isQualityReject = isTopicGateAbort
+              || /fact-check|rigettato|veridicità|fabricat/i.test(e.message);
             if (isQualityReject && attempt < MAX_DUPLICATE_RETRIES) {
-              console.error(`\n⚠️  Articolo rigettato per qualità — provo un altro headline... (${attempt}/${MAX_DUPLICATE_RETRIES})\n`);
+              const tag = isTopicGateAbort ? 'topic-gate (REGOLA #0)' : 'qualità';
+              console.error(`\n⚠️  Articolo rigettato per ${tag} — provo un altro headline... (${attempt}/${MAX_DUPLICATE_RETRIES})\n`);
               url = null;
               continue;
             }
@@ -6084,11 +6095,17 @@ async function main() {
         } catch (e) {
           const isDuplicate = e.message.includes('DUPLICATO');
           if (isDuplicate) captureDuplicateReasons(e.message);
-          // Fact-check / quality failures → try next keyword instead of crashing
-          const isQualityReject = /fact-check|rigettato|veridicità|fabricat/i.test(e.message);
+          // Fact-check / quality failures → try next keyword instead of crashing.
+          // Includes REGOLA #0 topic-gate aborts — same rationale as the proven-pool
+          // branch above (~line 5946).
+          const isTopicGateAbort = e.topicGateAbort === true || /topic-gate abort/i.test(e.message);
+          const isQualityReject = isTopicGateAbort
+            || /fact-check|rigettato|veridicità|fabricat/i.test(e.message);
           if (!isDuplicate && !isQualityReject) throw e; // Infrastructure error → propagate
 
-          if (isQualityReject) {
+          if (isTopicGateAbort) {
+            console.error(`\n⚠️  Keyword evergreen rigettata da topic-gate (REGOLA #0) — cerco prossima keyword...\n`);
+          } else if (isQualityReject) {
             console.error(`\n⚠️  Articolo evergreen rigettato per qualità — cerco prossima keyword...\n`);
           } else {
             console.error(`\n🔄 Duplicato post-generazione, cerco prossima keyword sicura...\n`);
