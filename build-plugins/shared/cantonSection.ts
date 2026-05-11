@@ -54,12 +54,23 @@ export function resolveCantonSection(locale: CantonLocale, cantonCode: string): 
   return `${SECTION_PREFIX_BY_LOCALE[locale]}-${getCantonUrlSlug(code, locale)}`;
 }
 
+// Normalize for city → canton lookup. NFD-decompose, strip combining diacritics,
+// lowercase, trim. Matches input "Zurich" against stored "Zürich" so jobs whose
+// `location` comes from a non-German source still resolve to ZH.
+function normalizeCityKey(s: string): string {
+  return String(s)
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .trim();
+}
+
 const CITY_TO_CANTON: Record<string, string> = (() => {
   const out: Record<string, string> = {};
   const cantonsData = (municipalitiesFile as { cantons: Record<string, { municipalities: string[] }> }).cantons;
   for (const [canton, info] of Object.entries(cantonsData)) {
     for (const city of info.municipalities) {
-      out[city.toLowerCase().split(' (')[0].trim()] = canton;
+      out[normalizeCityKey(city).split(' (')[0].trim()] = canton;
     }
   }
   return out;
@@ -70,7 +81,7 @@ export function resolveJobCanton(job: { canton?: string; location?: string }): s
   if (explicit && (cantons[explicit] || memberToGroup[explicit])) {
     return resolveCantonGroup(explicit);
   }
-  const city = String(job.location || '').toLowerCase().split(/[,(]/)[0].trim();
+  const city = normalizeCityKey(String(job.location || '')).split(/[,(]/)[0].trim();
   if (city && CITY_TO_CANTON[city]) return resolveCantonGroup(CITY_TO_CANTON[city]);
   return 'TI';
 }
