@@ -35720,6 +35720,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dichiarazione-andreoli-san-marino-rtv': {
+    title: 'Dichiarazione Andreoli San Marino RTV | Frontaliere Ticino',
+    description: 'La dichiarazione di Andreoli su San Marino RTV ha suscitato interesse tra i frontalieri. Scopri le implicazioni pratiche. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, dichiarazione, andreoli, marino, suscitato',
+    ogTitle: 'Dichiarazione Andreoli San Marino RTV',
+    ogDescription: 'La dichiarazione di Andreoli su San Marino RTV ha suscitato interesse tra i frontalieri. Scopri le implicazioni pratiche.',
+    canonicalPath: '/articoli-frontaliere/dichiarazione-andreoli-san-marino-rtv',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dichiarazione Andreoli San Marino RTV",
+      "description": "La dichiarazione di Andreoli su San Marino RTV ha suscitato interesse tra i frontalieri. Scopri le implicazioni pratiche. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dichiarazione-andreoli-san-marino-rtv.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza di Locarno con persone che camminano e parlano, mostrando la vita vivace di un comune di confine ticinese"
+      },
+      "datePublished": "2026-05-11T20:01:50+00:00",
+      "dateModified": "2026-05-11T20:01:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dichiarazione-andreoli-san-marino-rtv`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

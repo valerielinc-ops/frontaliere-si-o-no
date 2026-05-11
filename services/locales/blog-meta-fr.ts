@@ -7451,6 +7451,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.costo-auto-pendolare-frontalieri-ticino.title': 'Coût auto frontalier Ticino : essence, vignettes, parking et usure',
     'blog.article.costo-auto-pendolare-frontalieri-ticino.excerpt': 'Analyse détaillée des coûts pour ceux qui travaillent au Ticino et utilisent la voiture pour le trajet domicile-travail : essence, vignettes, parking, usure et comparaison avec le train et le bus.',
     'blog.article.costo-auto-pendolare-frontalieri-ticino.imageAlt': 'Un travailleur frontalier se rendant au travail en voiture de la frontière italienne au canton du Tessin, avec le lac de Lugano en arrière-plan.',
+    'blog.article.dichiarazione-andreoli-san-marino-rtv.title': 'Déclaration Andreoli San Marino RTV suscite intérêt',
+    'blog.article.dichiarazione-andreoli-san-marino-rtv.excerpt': 'La déclaration de Andreoli sur San Marino RTV a suscité intérêt parmi les frontaliers. Découvrez les implications pratiques.',
+    'blog.article.dichiarazione-andreoli-san-marino-rtv.imageAlt': 'Place de Locarno avec des gens qui marchent et parlent, montrant la vie animée d\'une ville frontalière du Tessin',
 };
 
 export default blogMetaFr;

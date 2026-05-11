@@ -23726,4 +23726,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'dichiarazione-andreoli-san-marino-rtv',
+ category: 'pratico',
+ date: '2026-05-11T20:01:50.453Z',
+ image: '/images/blog/dichiarazione-andreoli-san-marino-rtv.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

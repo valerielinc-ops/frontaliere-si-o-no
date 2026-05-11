@@ -7450,6 +7450,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.costo-auto-pendolare-frontalieri-ticino.title': 'Cross-border worker car costs in Ticino: fuel, vignette, parking and wear',
     'blog.article.costo-auto-pendolare-frontalieri-ticino.excerpt': 'Detailed analysis of costs for those working in Ticino and using a car to commute: fuel, vignette, parking, wear and comparison with train and bus.',
     'blog.article.costo-auto-pendolare-frontalieri-ticino.imageAlt': 'A cross-border worker driving to work from the Italian border to the Canton of Ticino, with Lake Lugano in the background.',
+    'blog.article.dichiarazione-andreoli-san-marino-rtv.title': 'Andreoli\'s San Marino RTV statement sparks interest among cross-border workers',
+    'blog.article.dichiarazione-andreoli-san-marino-rtv.excerpt': 'Andreoli\'s declaration about San Marino RTV has caught the attention of cross-border workers. Discover the practical implications.',
+    'blog.article.dichiarazione-andreoli-san-marino-rtv.imageAlt': 'Locarno town square with people walking and talking, showcasing the vibrant life of a Ticino border town',
 };
 
 export default blogMetaEn;

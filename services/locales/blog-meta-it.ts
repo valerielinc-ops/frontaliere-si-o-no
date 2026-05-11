@@ -7451,6 +7451,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.costo-auto-pendolare-frontalieri-ticino.title': 'Costo auto pendolare frontalieri Ticino: benzina, vignette, parcheggio e usura',
     'blog.article.costo-auto-pendolare-frontalieri-ticino.excerpt': 'Analisi dettagliata dei costi per chi lavora in Ticino e usa l\'auto per pendolare: benzina, vignette, parcheggio, usura e confronto con treno e bus.',
     'blog.article.costo-auto-pendolare-frontalieri-ticino.imageAlt': 'Un lavoratore frontaliero che si reca al lavoro in auto dal confine italiano al Canton Ticino, con il Lago di Lugano sullo sfondo.',
+    'blog.article.dichiarazione-andreoli-san-marino-rtv.title': 'Dichiarazione Andreoli San Marino RTV',
+    'blog.article.dichiarazione-andreoli-san-marino-rtv.excerpt': 'La dichiarazione di Andreoli su San Marino RTV ha suscitato interesse tra i frontalieri. Scopri le implicazioni pratiche.',
+    'blog.article.dichiarazione-andreoli-san-marino-rtv.imageAlt': 'Piazza di Locarno con persone che camminano e parlano, mostrando la vita vivace di un comune di confine ticinese',
 };
 
 export default blogMetaIt;
