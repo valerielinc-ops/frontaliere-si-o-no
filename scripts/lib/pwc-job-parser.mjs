@@ -173,7 +173,7 @@ export function parsePwcJobs(data = {}) {
     const szas = j.szas || {};
     const links = j.links || {};
 
-    const locationAttrs = attrs['20'] || [];
+    const locationAttrs = (attrs['20'] || []).map(normalizeSpace).filter(Boolean);
     const lineOfService = (attrs['30'] || [])[0] || '';
     const timeType = (attrs['40'] || [])[0] || '';
     const specialism = (attrs['50'] || [])[0] || '';
@@ -190,6 +190,7 @@ export function parsePwcJobs(data = {}) {
       city,
       postalCode,
       location: locationAttrs[0] || city,
+      locationAttrs,
       region: normalizeSpace((szas['sza_location'] || {}).region || szas['sza_location.region'] || ''),
       lineOfService,
       specialism,
