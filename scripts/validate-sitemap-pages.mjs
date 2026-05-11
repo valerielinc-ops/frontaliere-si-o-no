@@ -385,19 +385,22 @@ function urlToFile_vcq(path) {
   return hasExt ? join(DIST, path) : join(DIST, path, 'index.html');
 }
 
-// ── HTML cache (one read per file path across all checks) ──────────────────
+// ── HTML reader ────────────────────────────────────────────────────────────
+//
+// Earlier versions cached every HTML body across all 4 checks. With ~132k
+// sitemap URLs averaging ~80 KB each, the cache exceeded 10 GB of resident
+// strings and OOM-killed the 4 GB-cap CI process (post-deploy run, rc=134
+// "Reached heap limit Allocation failed"). The OS page cache makes the
+// re-read across checks cheap enough that an in-process cache is not worth
+// the heap blow-up.
 
-const htmlCache = new Map();
 function readHtml(filePath) {
-  if (htmlCache.has(filePath)) return htmlCache.get(filePath);
-  let html = null;
   try {
     if (existsSync(filePath) && statSync(filePath).isFile()) {
-      html = readFileSync(filePath, 'utf-8');
+      return readFileSync(filePath, 'utf-8');
     }
   } catch { /* ignore */ }
-  htmlCache.set(filePath, html);
-  return html;
+  return null;
 }
 
 // ── Check runners ──────────────────────────────────────────────────────────
