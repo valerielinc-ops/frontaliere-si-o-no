@@ -45,6 +45,7 @@ import {
 } from './lib/crawler-summary-store.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
+import { normalizeDescriptionBullets } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
 import { inferAnyCanton, isKnownSwissCity, isCantonOnlyLabel, findSwissCityInText } from './lib/target-swiss-locations.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
@@ -604,6 +605,28 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
   // locale's active slug. Cross-locale matches are preserved for bridge pages.
   for (const job of hardened.jobs) {
     cleanPreviousSlugsPerLocale(job);
+  }
+
+  // ── Description structure normalization ───────────────────────────────
+  // Parsers that wrap their HTML stripping in a `normalizeSpace`-style helper
+  // collapse the `\n` markers that `stripHtml` produced for `<li>` items
+  // (`\n• `) into single spaces, leaving inline bullets like "... • foo • bar"
+  // that the audit's `hasStructuredContent` (`/^\s*[-•*]\s/m`) cannot detect.
+  // Centralizing the bullet-recovery step here means every crawler benefits
+  // without each parser having to remember to call it. Applied to both the
+  // source description and every locale-specific translation. Idempotent.
+  for (const job of hardened.jobs) {
+    if (typeof job.description === 'string' && job.description) {
+      const normalized = normalizeDescriptionBullets(job.description);
+      if (normalized !== job.description) job.description = normalized;
+    }
+    if (job.descriptionByLocale && typeof job.descriptionByLocale === 'object') {
+      for (const [locale, text] of Object.entries(job.descriptionByLocale)) {
+        if (typeof text !== 'string' || !text) continue;
+        const normalized = normalizeDescriptionBullets(text);
+        if (normalized !== text) job.descriptionByLocale[locale] = normalized;
+      }
+    }
   }
 
   // ── firstSeenAt backfill ──────────────────────────────────────────────
