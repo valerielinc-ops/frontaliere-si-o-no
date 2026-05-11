@@ -105,7 +105,7 @@ export async function createBrowser(options = {}) {
   const userAgent = options.userAgent || DEFAULT_USER_AGENT;
   try {
     const browser = await chromium.launch({
-      headless: 'new',
+      headless: true,
       args: ['--disable-blink-features=AutomationControlled'],
     });
     // Stash the UA on the browser instance for context creation.
