@@ -1,77 +1,5 @@
 [
   {
-    "timestamp": "2026-04-27T04:04:35.855Z",
-    "label": "before",
-    "total": 2675,
-    "needsRetranslation": 53,
-    "incomplete": 26,
-    "complete": 2649,
-    "missingByLocale": {
-      "it": 24,
-      "en": 5,
-      "de": 24,
-      "fr": 23
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-27T04:38:50.401Z",
-    "label": "after",
-    "total": 2675,
-    "needsRetranslation": 26,
-    "incomplete": 26,
-    "complete": 2649,
-    "missingByLocale": {
-      "it": 24,
-      "en": 5,
-      "de": 24,
-      "fr": 23
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-27T06:13:07.924Z",
     "label": "before",
     "total": 2675,
@@ -10028,6 +9956,118 @@
       {
         "company": "Hitachi Energy",
         "pending": 28
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-11T12:53:55.117Z",
+    "label": "before",
+    "total": 3981,
+    "needsRetranslation": 2235,
+    "incomplete": 542,
+    "complete": 3439,
+    "missingByLocale": {
+      "it": 419,
+      "en": 362,
+      "de": 233,
+      "fr": 467
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 80
+      },
+      {
+        "company": "Inter-Planing GmbH",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 48
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 27
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 20
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 16
+      },
+      {
+        "company": "Universitätsspital Basel",
+        "pending": 16
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "ETH Zürich",
+        "pending": 13
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-11T16:07:49.610Z",
+    "label": "after",
+    "total": 3981,
+    "needsRetranslation": 1106,
+    "incomplete": 432,
+    "complete": 3549,
+    "missingByLocale": {
+      "it": 373,
+      "en": 270,
+      "de": 172,
+      "fr": 377
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 80
+      },
+      {
+        "company": "Inter-Planing GmbH",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 50
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 27
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 20
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 16
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Lonza",
+        "pending": 13
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 13
+      },
+      {
+        "company": "ETH Zürich",
+        "pending": 12
       }
     ]
   }

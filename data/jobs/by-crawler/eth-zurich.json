@@ -499,7 +499,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-10T21:33:04.080Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "systems-engineer-cloud-and-platform-services-eth-zurich-ch"
@@ -739,7 +738,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:33:04.078Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -812,7 +810,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:33:04.077Z",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -923,10 +920,10 @@
       },
       "description": "Group Leader Systems Operations — Zurich. Group Leader Systems Operations - 80%-100%, Zurich, permanent",
       "descriptionByLocale": {
-        "it": "Descrizione - Operazioni di Sistemi Leader di Gruppo — Zurigo - Operazioni di Sistemi Leader di Gruppo - 80%-100%, Zurigo, permanente",
-        "en": "Group Leader Systems Operations — Zurich. Group Leader Systems Operations - 80%-100%, Zurich, permanent",
-        "de": "Beschreibung - Group Leader Systems Operations — Zürich - Group Leader Systems Operations - 80%-100%, Zürich, permanent",
-        "fr": "Descrizione - Groupe Leader Opérations Systèmes — Zurich - Groupe Leader Opérations Systèmes - 80%-100%, Zurich, permanent"
+        "it": "Descrizione\n- Operazioni di Sistemi Leader di Gruppo — Zurigo\n- Operazioni di Sistemi Leader di Gruppo - 80%-100%, Zurigo, permanente",
+        "en": "## Descrizione\n- Group Leader Systems Operations — Zurich\n- Group Leader Systems Operations - 80%-100%, Zurich, permanent",
+        "de": "Beschreibung\n- Group Leader Systems Operations — Zürich\n- Group Leader Systems Operations - 80%-100%, Zürich, permanent",
+        "fr": "Descrizione\n- Groupe Leader Opérations Systèmes — Zurich\n- Groupe Leader Opérations Systèmes - 80%-100%, Zurich, permanent"
       },
       "location": "Zurich",
       "canton": "ZH",
@@ -976,7 +973,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-a3790949c508",
@@ -1051,7 +1049,9 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-949d93976258",
@@ -1144,15 +1144,15 @@
       "titleByLocale": {
         "it": "Lehrkoordination Siedlungswasserwirtschaft (m/p/g)",
         "en": "Lehrkoordination Siedlungswasserwirtschaft (m/w/d)",
-        "de": "Lehrkoordination Siedlungswasserwirtschaft (m/w/d)",
+        "de": "Praktikant (m/w/d) im Bereich Wasserwirtschaft",
         "fr": "Lehrkoordination Siedlungswasserwirtschaft (m/w/j)"
       },
       "description": "Lehrkoordination Siedlungswasserwirtschaft (m/w/d) — Zürich. Lehrkoordination Siedlungswasserwirtschaft (m/w/d) - 100%, Zürich, befristet",
       "descriptionByLocale": {
-        "it": "Descrizione - Projektmanagement (m/w/d) - Zurigo - Projektmanagement (m/w/d) - 100%, Zurigo, befristet",
-        "en": "Descrizione - Projektmanagement (m/w/d) - Zürich - Projektmanagement (m/w/d) - 100%, Zürich, befristet",
-        "de": "Lehrkoordination Siedlungswasserwirtschaft (m/w/d) — Zürich. Lehrkoordination Siedlungswasserwirtschaft (m/w/d) - 100%, Zürich, befristet",
-        "fr": "Descrizione - Gestion du projet (m/w/d) - Zürich - Projektmanagement (m/w/d) - 100%, Zürich, befristet"
+        "it": "Descrizione\n- Projektmanagement (m/w/d) - Zurigo\n- Projektmanagement (m/w/d) - 100%, Zurigo, befristet",
+        "en": "Descrizione\n- Projektmanagement (m/w/d) - Zürich\n- Projektmanagement (m/w/d) - 100%, Zürich, befristet",
+        "de": "## Descrizione\n- Lehrkoordination Siedlungswasserwirtschaft (m/w/d) — Zürich\n- Lehrkoordination Siedlungswasserwirtschaft (m/w/d) - 100%, Zürich, befristet",
+        "fr": "Descrizione\n- Gestion du projet (m/w/d) - Zürich\n- Projektmanagement (m/w/d) - 100%, Zürich, befristet"
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -1188,7 +1188,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-a0c52f1a7438",
@@ -1323,7 +1324,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:33:04.070Z",
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -1581,10 +1581,10 @@
       },
       "description": "Postdoctoral Researcher - Bioinformatics — Zurich. Postdoctoral Researcher - Bioinformatics - 100%, Zurich, fixed-term",
       "descriptionByLocale": {
-        "it": "Descrizione - Ricercatore post-dottorato - Bioinformatica - Zurigo - Ricercatore post-dottorato - Bioinformatica - 100%, Zurigo, a tempo determinato",
+        "it": "Descrizione\n- Ricercatore post-dottorato - Bioinformatica - Zurigo\n- Ricercatore post-dottorato - Bioinformatica - 100%, Zurigo, a tempo determinato",
         "en": "Descrizione - Postdoctoral Researcher - Bioinformatics — Zürich - Postdoctoral Researcher - Bioinformatics - 100%, Zürich, fixed-term",
-        "de": "Postdoctoral Researcher - Bioinformatics — Zurich. Postdoctoral Researcher - Bioinformatics - 100%, Zurich, fixed-term",
-        "fr": "Descrizione - Chercheur postdoctoral - Bioinformatique — Zurich - Chercheur postdoctoral - Bioinformatique - 100%, Zurich, durée déterminée"
+        "de": "## Descrizione\n- Postdoctoral Researcher - Bioinformatics — Zurich\n- Postdoctoral Researcher - Bioinformatics - 100%, Zurich, fixed-term",
+        "fr": "Descrizione\n- Chercheur postdoctoral - Bioinformatique — Zurich\n- Chercheur postdoctoral - Bioinformatique - 100%, Zurich, durée déterminée"
       },
       "location": "Zurich",
       "canton": "ZH",
@@ -1618,7 +1618,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:33:04.067Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1792,10 +1791,10 @@
       },
       "description": "PhD position – Source tracking for bioaerosol — Zurich. PhD position – Source tracking for bioaerosol - 100%, Zurich, fixed-term",
       "descriptionByLocale": {
-        "it": "Descrizione - Posizione PhD – Monitoraggio sorgente per bioaerosol - 100%, Zurigo - a tempo determinato",
-        "en": "PhD position – Source tracking for bioaerosol — Zurich. PhD position – Source tracking for bioaerosol - 100%, Zurich, fixed-term",
-        "de": "Beschreibung - PhD-Position – Quelle-Tracking für Bioaerosol - 100%, Zürich - befristet",
-        "fr": "Descrizione - Poste de doctorat – Suivi des sources pour le bioaérosol - 100%, Zurich - durée déterminée"
+        "it": "Descrizione\n- Posizione PhD – Monitoraggio sorgente per bioaerosol\n- 100%, Zurigo\n- a tempo determinato",
+        "en": "## Descrizione\n- PhD position – Source tracking for bioaerosol\n- 100%, Zurich\n- fixed-term",
+        "de": "Beschreibung\n- PhD-Position – Quelle-Tracking für Bioaerosol\n- 100%, Zürich\n- befristet",
+        "fr": "Descrizione\n- Poste de doctorat – Suivi des sources pour le bioaérosol\n- 100%, Zurich\n- durée déterminée"
       },
       "location": "Zurich",
       "canton": "ZH",
@@ -1845,7 +1844,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-4ea87ef70324",
@@ -2130,7 +2130,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:33:04.059Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2353,7 +2352,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:33:04.058Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2490,7 +2488,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-10T21:33:04.057Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "phd-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich-ch"
@@ -2574,7 +2571,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:33:04.057Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2663,7 +2659,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-796394b4f9f2",
@@ -2811,7 +2808,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-d8a9e93c60e1",
@@ -2869,7 +2867,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-24bf9399ae96",
@@ -3035,10 +3034,10 @@
       "companyDomain": "ethz.ch",
       "title": "Projektleiter:in / Teilprojektleiter:in (m/w/d) Bauherrschaft Gebäudetechnik",
       "titleByLocale": {
-        "it": "Responsabile di progetto / Teilprojektleiter:in (m/w/d) Bauherrschaft Gebäudetechnik",
-        "en": "Project Manager / Teilprojektleiter:in (m/w/d) Bauherrschaft Gebäudetechnik",
+        "it": "Projektleiter:in / Projektleiter:in (m/w/d)",
+        "en": "Projektleiter:in / Projektleiter:in (m/w/d)",
         "de": "Projektleiter:in / Teilprojektleiter:in (m/w/d) Bauherrschaft Gebäudetechnik",
-        "fr": "Chef de projet / Teilprojektleiter:in (m/w/d) Bauherrschaft Gebäudetechnik"
+        "fr": "Projektleiter:in / Projektleiter:in (m/w/d)"
       },
       "description": "Projektleiter:in / Teilprojektleiter:in (m/w/d) Bauherrschaft Gebäudetechnik — Zürich. Projektleiter:in / Teilprojektleiter:in (m/w/d) Bauherrschaft Gebäudetechnik - 100%, Zürich, unbefristet",
       "descriptionByLocale": {
@@ -3097,7 +3096,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-6a8a61a83fb4",
@@ -3323,7 +3323,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-01d2c4b6506f",
@@ -3539,7 +3540,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:33:04.044Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3601,7 +3601,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-10T21:33:04.042Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "technical-director-environmental-chemical-analysis-facility-ecaf-eth-zurich-ch"
@@ -3680,7 +3679,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-91683028dba9",
@@ -3981,7 +3981,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-61a6372e4e72",
@@ -4119,7 +4120,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:33:01.522Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4287,7 +4287,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-b4c321250dcc",
@@ -4419,7 +4420,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:32:59.522Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4634,7 +4634,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-10T21:32:58.014Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "polymechaniker-in-prototypenbau-forschungssupport-m-w-d-eth-zurich-ch"
@@ -6284,7 +6283,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:32:46.973Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6590,7 +6588,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:32:44.965Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6750,7 +6747,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-a1f7a479879a",
@@ -6819,7 +6817,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-ebfe84d4baf0",
@@ -6894,7 +6893,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "eth-zurich-c574cf15ca3f",
@@ -7261,7 +7261,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T21:32:39.934Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
