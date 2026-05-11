@@ -1,9 +1,15 @@
 name: production-canary
 
 # Agent F — 5XX hardening canary.
-# Runs `npm run probe:5xx` on a schedule, on manual dispatch, and after every
-# push to main (post-deploy). Fails the workflow if any production URL returns
-# 5XX or a network error on all retry attempts.
+# Runs `npm run probe:5xx` on a schedule and on manual dispatch. Fails the
+# workflow if any production URL returns 5XX or a network error on all retry
+# attempts.
+#
+# Post-deploy probing is handled by `post-deploy-validate-live.yml` (which
+# runs `probe:5xx` + `test:e2e:live` after every deploy), so this canary
+# intentionally does NOT trigger on `push: main` — its unique value is
+# catching regressions BETWEEN deploys (Pages outage, RC config breakage,
+# DNS/CDN/cert issues, upstream rate-limits).
 #
 # No external notifications (Slack etc.) are wired — CI failure surfaces via
 # GitHub Actions status and emails project maintainers.
@@ -13,9 +19,6 @@ on:
     # Every 15 minutes. Cron runs in UTC.
     - cron: '*/15 * * * *'
   workflow_dispatch: {}
-  push:
-    branches:
-      - main
 
 concurrency:
   # Only one canary in flight at a time; cancel an older run if a newer one starts.
