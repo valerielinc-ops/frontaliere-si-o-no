@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gemeinde-st-moritz",
-  "assembledAt": "2026-05-10T21:38:18.376Z",
+  "assembledAt": "2026-05-11T11:43:42.041Z",
   "jobs": [
     {
       "id": "gemeinde-st-moritz-26220aaafb72",
@@ -33,7 +33,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:38:15.709Z",
+      "crawledAt": "2026-05-11T11:43:39.475Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -49,6 +49,14 @@
       "applyUrl": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "wichtige-kontakte-gemeinde-st-moritz-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "wichtige-kontakte-gemeinde-st-moritz-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:10:48.692Z",
       "salaryMin": 49500,
@@ -62,15 +70,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "wichtige-kontakte-gemeinde-st-moritz-ch"
-        ]
-      },
-      "previousSlugs": [
-        "wichtige-kontakte-gemeinde-st-moritz-ch"
-      ]
+      }
     }
   ]
 }
