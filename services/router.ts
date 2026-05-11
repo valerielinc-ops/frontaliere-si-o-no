@@ -2970,6 +2970,14 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
  const slug = _blogSlugs?.[article]?.[lang] ?? article;
  return finish(`${prefix}/${table.blog}/${slug}${hashSuffix}`);
  }
+ // Defense-in-depth: when the lazy-loaded blog data hasn't resolved the
+ // slug yet, parsePath returns `blogSlug` instead of `blogArticle`.
+ // Preserve it in the URL so a stray `pushRoute(route)` during the
+ // resolution window doesn't strip the slug and rewrite the URL to the
+ // hub root (e.g. /articoli-frontaliere/<slug>/ → /articoli-frontaliere/).
+ if (route.blogSlug) {
+ return finish(`${prefix}/${table.blog}/${route.blogSlug}${hashSuffix}`);
+ }
  return finish(`${prefix}/${table.blog}${hashSuffix}`);
  }
  case 'admin':

@@ -661,7 +661,19 @@ export function useNavigationState(): NavigationState {
  suppressNextRouteSyncForTabRef.current = null;
  return;
  }
- const route: AppRoute = { activeTab: 'blog', blogArticle: blogArticle || undefined };
+ // When the lazy-loaded blog data hasn't resolved the URL slug yet,
+ // the URL contains `/articoli-frontaliere/<slug>/` but `blogArticle`
+ // is still null. Re-parse the current URL to recover the pending slug
+ // and include it in the route, so `pushRoute` → `buildPath` preserves
+ // it instead of rewriting the URL to the hub root.
+ const pendingSlug = blogArticle
+ ? undefined
+ : parsePath(window.location.pathname).route.blogSlug;
+ const route: AppRoute = {
+ activeTab: 'blog',
+ blogArticle: blogArticle || undefined,
+ ...(pendingSlug ? { blogSlug: pendingSlug } : {}),
+ };
  const seoKey = getSeoSection(route);
  updateMetaTags(seoKey);
  trackSectionView(seoKey);

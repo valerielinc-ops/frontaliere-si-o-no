@@ -23,10 +23,21 @@ export const BUILD_ID = String(Date.now());
  * If the URL carries SPA-relevant query params (newsletter confirmation,
  * auth tokens, unsubscribe, etc.), save the full URL in sessionStorage and
  * redirect to / so the React app can process the action.
+ *
+ * IMPORTANT: tracking + autologin params (`ne`, `ac`) are intentionally NOT
+ * in the trigger set. They appear on EVERY newsletter content link (article,
+ * job detail, company hub) and are processed in-place by `App.tsx` after
+ * hydration — App.tsx exchanges `ac` for a fresh auth token and strips both
+ * params from the URL via `history.replaceState`. Triggering a redirect on
+ * `ne`/`ac` destroys the static document the user just landed on (and any
+ * window-seeded data like `__EXPIRED_JOB_DATA__` / `__BRIDGE_TARGET_SLUG__`)
+ * because `location.replace('/')` loads a fresh `index.html` that no longer
+ * has those globals — soft-landing pages then fall back to the generic
+ * "annuncio non trovato" view instead of the rich expired-job content.
  */
 export const SPA_ACTION_REDIRECT_SCRIPT = `<script>(function(){
  var p=new URLSearchParams(location.search);
- if(p.get('action')||p.get('ac')||p.get('at')||p.get('authToken')||p.get('newsletter_autologin')||p.get('ne')){
+ if(p.get('action')||p.get('at')||p.get('authToken')||p.get('newsletter_autologin')){
  sessionStorage.redirect=location.href;
  location.replace('/');
  }
