@@ -24,6 +24,7 @@ import { relatedSearchClustersPlugin } from './build-plugins/relatedSearchCluste
 import { staticPagesPlugin } from './build-plugins/staticPagesPlugin';
 import { sitemapAliasPlugin } from './build-plugins/sitemapAliasPlugin';
 import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
+import { calculatorLegacyAliasPlugin } from './build-plugins/calculatorLegacyAliasPlugin';
 // flatHtmlRedirectPlugin + hreflangPostprocessPlugin imports retained for
 // type re-exports / unit tests. Their plugin exports are now consumed
 // internally by `postWalkCoordinatorPlugin` (single-walk perf optimization).
@@ -184,6 +185,13 @@ export default defineConfig(({ mode }) => {
  relatedSearchClustersPlugin(__dirname),
  salaryHubPlugin(__dirname),
  legacyRedirectsPlugin(__dirname),
+ // Calculator legacy-alias pages: recover the 22 GSC 404s for
+ // `/{en|de|fr}/calcola-stipendio/?reddito=...` historical share-links.
+ // Emits 200 HTML with locale-canonical `<link rel="canonical">` + an
+ // inline pre-hydration script that rewrites the URL bar to the locale-
+ // canonical slug before the SPA boots — preserves `?reddito=...` so
+ // urlStateService prefills the simulation. No 301, AdSense fires.
+ calculatorLegacyAliasPlugin(__dirname),
  // AE-7 — after static pages are written, inject a contextual link into
  // a handful of parent pages so the comparisons hub has inbound links
  // from homepage + confronti hub + salary pillars. Idempotent.
