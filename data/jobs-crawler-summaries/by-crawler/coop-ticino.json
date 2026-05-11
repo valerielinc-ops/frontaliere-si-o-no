@@ -1,18 +1,19 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-05-11T11:35:13.199Z",
+  "generatedAt": "2026-05-11T21:58:44.359Z",
   "total": 156,
-  "newCount": 3,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 153,
-  "durationMs": 479517,
-  "avgDurationMs": 479517,
+  "unchangedCount": 155,
+  "durationMs": 514921,
+  "avgDurationMs": 514921,
   "durationHistory": [
-    479517
+    514921
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-3pl1h6",
       "slug": "kochin-koch-m-w-d-coop-ristorante-davos-platz",
@@ -38,14 +39,20 @@
       "firstSeenAt": "2026-05-11T11:30:28.503Z",
       "needsRetranslation": true,
       "addressLocality": "Davos",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-pa5qt0",
       "slug": "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz",
@@ -71,12 +78,15 @@
       "firstSeenAt": "2026-05-11T11:30:28.503Z",
       "needsRetranslation": true,
       "addressLocality": "Davos",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -104,18 +114,17 @@
       "firstSeenAt": "2026-05-11T11:30:28.503Z",
       "needsRetranslation": true,
       "addressLocality": "Felsberg",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-4c7u4w",
       "slug": "zusatzlehre-als-detailhandelsfachfrau-mann-efz-jumbo-grigioni-2",
@@ -139,11 +148,9 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-10T09:58:53.007Z",
       "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "needsRetranslation": true,
       "addressLocality": "Dietlikon",
       "salaryMin": 85500,
       "salaryMax": 150000,
-      "retranslationAttempts": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -175,11 +182,10 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-10T09:58:53.007Z",
       "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "needsRetranslation": true,
       "addressLocality": "Felsberg",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "retranslationAttempts": 2,
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -211,11 +217,10 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-10T09:58:53.007Z",
       "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "retranslationAttempts": 2,
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -247,11 +252,10 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-10T09:58:53.007Z",
       "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "retranslationAttempts": 2,
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -283,11 +287,10 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-10T09:58:53.007Z",
       "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "retranslationAttempts": 2,
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -323,7 +326,7 @@
       "addressLocality": "Graubünden",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -359,7 +362,7 @@
       "addressLocality": "Lenzburg 1",
       "salaryMin": 59000,
       "salaryMax": 90500,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -736,7 +739,7 @@
       "addressLocality": "Gossau",
       "salaryMin": 85500,
       "salaryMax": 150000,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -772,7 +775,7 @@
       "addressLocality": "Gossau",
       "salaryMin": 85500,
       "salaryMax": 150000,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -808,7 +811,7 @@
       "addressLocality": "Gossau",
       "salaryMin": 85500,
       "salaryMax": 150000,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -844,7 +847,7 @@
       "addressLocality": "Gossau",
       "salaryMin": 85500,
       "salaryMax": 150000,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -880,7 +883,7 @@
       "addressLocality": "Gossau",
       "salaryMin": 85500,
       "salaryMax": 150000,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -916,7 +919,7 @@
       "addressLocality": "Gossau",
       "salaryMin": 85500,
       "salaryMax": 150000,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -952,7 +955,7 @@
       "addressLocality": "Gossau",
       "salaryMin": 85500,
       "salaryMax": 150000,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -988,7 +991,7 @@
       "addressLocality": "Gossau",
       "salaryMin": 85500,
       "salaryMax": 150000,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1058,7 +1061,7 @@
       "addressLocality": "Lenzburg 1",
       "salaryMin": 59000,
       "salaryMax": 90500,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1094,79 +1097,7 @@
       "addressLocality": "Lenzburg 1",
       "salaryMin": 59000,
       "salaryMax": 90500,
-      "retranslationAttempts": 1,
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 15,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-paz7ck",
-      "slug": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-paz7ck",
-      "company": "Jumbo",
-      "title": "Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
-      "location": "Lenzburg 1",
-      "canton": "TI",
-      "category": "sales",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-01",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/c597e73f-348a-4e59-bff3-f246089fe0ac",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-10T09:58:53.007Z",
-      "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "needsRetranslation": true,
-      "addressLocality": "Lenzburg 1",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "retranslationAttempts": 1,
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 15,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-u93w1d",
-      "slug": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-u93w1d",
-      "company": "Jumbo",
-      "title": "Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
-      "location": "Lenzburg 1",
-      "canton": "TI",
-      "category": "sales",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-01",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/855a2b6e-13fa-47de-a2f7-1e02cf3704a7",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-10T09:58:53.007Z",
-      "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "needsRetranslation": true,
-      "addressLocality": "Lenzburg 1",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
