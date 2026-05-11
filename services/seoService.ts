@@ -3721,6 +3721,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lamal-rilevazione-dati-unica-ticino': { name: 'LAMal Ticino', path: '/articoli-frontaliere/lamal-rilevazione-dati-unica-ticino', parent: 'blog' },
     'blog-lpp-nigri-country-manager-italia': { name: 'LPP Nigri Italia', path: '/articoli-frontaliere/lpp-nigri-country-manager-italia', parent: 'blog' },
     'blog-stipendi-frontalieri-inflazione-ticino': { name: 'Stipendi frontalieri', path: '/articoli-frontaliere/stipendi-frontalieri-inflazione-ticino', parent: 'blog' },
+    'blog-tassa-successione-svizzera-ocse': { name: 'Fiscale', path: '/articoli-frontaliere/tassa-successione-svizzera-ocse', parent: 'blog' },
  };
 
  const info = sectionNames[section];

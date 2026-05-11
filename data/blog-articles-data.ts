@@ -23681,4 +23681,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'tassa-successione-svizzera-ocse',
+ category: 'fiscale',
+ date: '2026-05-11T06:33:27.289Z',
+ image: '/images/blog/tassa-successione-svizzera-ocse.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

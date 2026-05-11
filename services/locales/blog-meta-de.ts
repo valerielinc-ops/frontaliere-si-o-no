@@ -7436,6 +7436,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stipendi-frontalieri-inflazione-ticino.title': 'Grenzgängergehälter steigen, Inflation frisst sie auf',
     'blog.article.stipendi-frontalieri-inflazione-ticino.excerpt': 'Grenzgängergehälter steigen, aber die Inflation könnte die Vorteile zunichtemachen. Hier ist, was sich ändert',
     'blog.article.stipendi-frontalieri-inflazione-ticino.imageAlt': 'Blick auf den Luganersee mit Finanzdokumenten und einem Taschenrechner',
+    'blog.article.tassa-successione-svizzera-ocse.title': 'Erbschaftssteuer Schweiz: OCSE-Vergleich',
+    'blog.article.tassa-successione-svizzera-ocse.excerpt': 'Die Erbschaftssteuer in der Schweiz ist im Vergleich zum Rest der OCSE nicht so niedrig. Erfahren Sie mehr.',
+    'blog.article.tassa-successione-svizzera-ocse.imageAlt': 'Luganersee mit Blick auf die Berge und die Skyline der Stadt',
 };
 
 export default blogMetaDe;

@@ -35525,6 +35525,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-successione-svizzera-ocse': {
+    title: 'Tassa successione Svizzera: confronto OCSE | Frontaliere Ticino',
+    description: 'La tassa sulla successione in Svizzera non è così leggera rispetto al resto dell\'OCSE. Scopri di più. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, successione, confronto, ocse',
+    ogTitle: 'Tassa successione Svizzera: confronto OCSE',
+    ogDescription: 'La tassa sulla successione in Svizzera non è così leggera rispetto al resto dell\'OCSE. Scopri di più.',
+    canonicalPath: '/articoli-frontaliere/tassa-successione-svizzera-ocse',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa successione Svizzera: confronto OCSE",
+      "description": "La tassa sulla successione in Svizzera non è così leggera rispetto al resto dell'OCSE. Scopri di più. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassa-successione-svizzera-ocse.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sulle montagne e sullo skyline della città"
+      },
+      "datePublished": "2026-05-11T06:33:27+00:00",
+      "dateModified": "2026-05-11T06:33:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-successione-svizzera-ocse`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

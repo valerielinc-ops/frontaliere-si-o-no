@@ -7437,6 +7437,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stipendi-frontalieri-inflazione-ticino.title': 'Salaire des frontaliers en hausse, mais l\'inflation les érode',
     'blog.article.stipendi-frontalieri-inflazione-ticino.excerpt': 'Augmentation des salaires pour les frontaliers, mais l\'inflation pourrait annuler les bénéfices. Voici ce qui change',
     'blog.article.stipendi-frontalieri-inflazione-ticino.imageAlt': 'Vue du lac de Lugano avec des documents financiers et une calculatrice',
+    'blog.article.tassa-successione-svizzera-ocse.title': 'Impôt sur les successions en Suisse : comparaison OCDE',
+    'blog.article.tassa-successione-svizzera-ocse.excerpt': 'L\'impôt sur les successions en Suisse n\'est pas si léger par rapport au reste de l\'OCDE. En savoir plus.',
+    'blog.article.tassa-successione-svizzera-ocse.imageAlt': 'Lac de Lugano avec vue sur les montagnes et la skyline de la ville',
 };
 
 export default blogMetaFr;

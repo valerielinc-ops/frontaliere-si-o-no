@@ -7437,6 +7437,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stipendi-frontalieri-inflazione-ticino.title': 'Stipendi frontalieri in aumento, ma l\'inflazione li erode',
     'blog.article.stipendi-frontalieri-inflazione-ticino.excerpt': 'Aumento degli stipendi per i frontalieri, ma l\'inflazione potrebbe annullare i benefici. Ecco cosa cambia',
     'blog.article.stipendi-frontalieri-inflazione-ticino.imageAlt': 'Vista del lago di Lugano con documenti finanziari e una calcolatrice',
+    'blog.article.tassa-successione-svizzera-ocse.title': 'Tassa successione Svizzera: confronto OCSE',
+    'blog.article.tassa-successione-svizzera-ocse.excerpt': 'La tassa sulla successione in Svizzera non è così leggera rispetto al resto dell\'OCSE. Scopri di più.',
+    'blog.article.tassa-successione-svizzera-ocse.imageAlt': 'Lago di Lugano con vista sulle montagne e sullo skyline della città',
 };
 
 export default blogMetaIt;

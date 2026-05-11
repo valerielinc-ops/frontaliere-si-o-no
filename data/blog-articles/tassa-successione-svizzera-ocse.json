@@ -1,0 +1,40 @@
+{
+  "id": "tassa-successione-svizzera-ocse",
+  "slug": "tassa-successione-svizzera-ocse",
+  "publishedAt": "2026-05-11T06:33:28.985Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 11.980987632559092,
+    "confidence": 0.8,
+    "finalScore": 9.584790106047274,
+    "topK": [
+      {
+        "slug": "iva-bassa-svizzera-immagine-ingannevole",
+        "cosine": 0.7723483421892957
+      },
+      {
+        "slug": "tassa-transito-svizzera-2023",
+        "cosine": 0.7636749492815221
+      },
+      {
+        "slug": "tassa-transito-parlamento-ticino",
+        "cosine": 0.7625936295150406
+      },
+      {
+        "slug": "tassazione-individuale-svizzera",
+        "cosine": 0.7561279042971146
+      },
+      {
+        "slug": "kebab-case-rossi-bruxelles-ticino",
+        "cosine": 0.7527575160045592
+      }
+    ],
+    "score": 2.3961975265118185,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

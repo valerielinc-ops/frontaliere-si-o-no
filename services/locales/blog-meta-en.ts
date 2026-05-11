@@ -7436,6 +7436,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.stipendi-frontalieri-inflazione-ticino.title': 'Cross-border worker salaries rise, but inflation eats into gains',
     'blog.article.stipendi-frontalieri-inflazione-ticino.excerpt': 'Cross-border worker salaries are increasing, but inflation could cancel out the benefits. Here\'s what\'s changing',
     'blog.article.stipendi-frontalieri-inflazione-ticino.imageAlt': 'Lake Lugano view with financial documents and a calculator',
+    'blog.article.tassa-successione-svizzera-ocse.title': 'Switzerland inheritance tax: OECD comparison',
+    'blog.article.tassa-successione-svizzera-ocse.excerpt': 'Switzerland\'s inheritance tax isn\'t as light as the rest of the OECD. Learn more.',
+    'blog.article.tassa-successione-svizzera-ocse.imageAlt': 'Lake Lugano with a view of the mountains and city skyline',
 };
 
 export default blogMetaEn;
