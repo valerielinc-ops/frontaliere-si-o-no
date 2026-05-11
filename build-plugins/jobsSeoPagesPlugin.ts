@@ -5381,6 +5381,132 @@ ${alternates}
  }
  if (paginationPageCount > 0) console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${paginationPageCount} paginated listing pages (${totalListingPages - 1} pages \u00d7 4 locales)`);
 
+ /* \u2500\u2500 Per-canton paginated listing pages (Phase 3.5) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+  * Additive: for every non-TI canton with >= 2 * JOBS_PER_LISTING_PAGE
+  * jobs (>= 40), emit /cerca-lavoro-{cantonSlug}/pagina-N/ pages.
+  * TI is NOT iterated here \u2014 the legacy TI emit above is byte-identical.
+  */
+ {
+ // Group validJobs by resolved canton.
+ const jobsByCanton: Map<string, typeof validJobs> = new Map();
+ for (const job of validJobs) {
+ const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ if (!jobsByCanton.has(c)) jobsByCanton.set(c, []);
+ jobsByCanton.get(c)!.push(job);
+ }
+ // Display names for the canton in body copy (use canton URL slug as fallback).
+ const cantonDisplayLocal = (canton: string, locale: typeof localeList[number]): string => {
+ const dn = CANTON_DISPLAY?.[canton];
+ if (dn) return dn;
+ // Fallback to capitalised URL slug from cantonSection (rare).
+ const section = sharedResolveCantonSection(locale, canton);
+ return section.replace(/^(cerca-lavoro-|find-jobs-|jobs-im-|jobs-in-der-|trouver-emploi-)/, '');
+ };
+ for (const canton of SHARED_ALL_CANTON_CODES) {
+ if (canton === 'TI') continue; // TI handled by legacy block above
+ const cJobs = jobsByCanton.get(canton) ?? [];
+ if (cJobs.length < 2 * JOBS_PER_LISTING_PAGE) continue;
+ const cSorted = [...cJobs].sort((a: any, b: any) => {
+ const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
+ const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
+ if (da !== db) return da - db;
+ return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
+ });
+ const cTotalPages = Math.min(MAX_LISTING_PAGES, Math.ceil(cSorted.length / JOBS_PER_LISTING_PAGE));
+ for (let pageNum = 2; pageNum <= cTotalPages; pageNum++) {
+ const startIdx = (pageNum - 1) * JOBS_PER_LISTING_PAGE;
+ const pgJobs = cSorted.slice(startIdx, startIdx + JOBS_PER_LISTING_PAGE);
+ if (pgJobs.length === 0) break;
+ for (const locale of localeList) {
+ const __tPaginated = startTimer();
+ const sectionSlug = sharedResolveCantonSection(locale, canton);
+ const pgSlug = `${paginationSlugs[locale]}-${pageNum}`;
+ const pgCanonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${pgSlug}`.replace(/\/+/g, '/'));
+ const pgCanonicalUrl = `${BASE_URL}${pgCanonicalPath}`;
+ const cDisplay = cantonDisplayLocal(canton, locale);
+ const pgFrom = startIdx + 1;
+ const pgTo = Math.min(startIdx + JOBS_PER_LISTING_PAGE, cSorted.length);
+ const pgTitle = locale === 'it' ? `Lavoro in ${cDisplay} - Pagina ${pageNum} | Frontaliere Ticino`
+ : locale === 'en' ? `Jobs in ${cDisplay} - Page ${pageNum} | Frontaliere Ticino`
+ : locale === 'de' ? `Stellen ${cDisplay} - Seite ${pageNum} | Frontaliere Ticino`
+ : `Emploi \u00e0 ${cDisplay} - Page ${pageNum} | Frontaliere Ticino`;
+ const pgDesc = locale === 'it' ? `Pagina ${pageNum}: annunci di lavoro dal ${pgFrom} al ${pgTo} in ${cDisplay}. Offerte aggiornate quotidianamente.`
+ : locale === 'en' ? `Page ${pageNum}: job listings ${pgFrom}\u2013${pgTo} in ${cDisplay}. Updated daily from Swiss career portals.`
+ : locale === 'de' ? `Seite ${pageNum}: Stellenangebote ${pgFrom}\u2013${pgTo} in ${cDisplay}. T\u00e4glich aktualisiert.`
+ : `Page ${pageNum}: offres d'emploi ${pgFrom}\u2013${pgTo} \u00e0 ${cDisplay}. Mises \u00e0 jour quotidiennement.`;
+ const pgHeading = locale === 'it' ? `Offerte di lavoro in ${cDisplay} \u2014 Pagina ${pageNum}`
+ : locale === 'en' ? `Job openings in ${cDisplay} \u2014 Page ${pageNum}`
+ : locale === 'de' ? `Stellenangebote ${cDisplay} \u2014 Seite ${pageNum}`
+ : `Offres d'emploi \u00e0 ${cDisplay} \u2014 Page ${pageNum}`;
+ const pgAlternates = localeList.map((al) => {
+ const alSection = sharedResolveCantonSection(al, canton);
+ const alSlug = `${paginationSlugs[al]}-${pageNum}`;
+ const alPath = `${localePrefix[al]}/${alSection}/${alSlug}`.replace(/\/+/g, '/');
+ return ` <link rel="alternate" hreflang="${al}" href="${BASE_URL}${withSlash(alPath)}">`;
+ }).join('\n');
+ const itSection = sharedResolveCantonSection('it', canton);
+ const pgXDefault = ` <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withSlash(`/${itSection}/${paginationSlugs.it}-${pageNum}`.replace(/\/+/g, '/'))}">`;
+ const pgSectionPath = `${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/');
+ const pgPrevHref = pageNum === 2 ? `${BASE_URL}${withSlash(pgSectionPath)}` : `${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${pageNum - 1}`.replace(/\/+/g, '/'))}`;
+ const pgNextHref = pageNum < cTotalPages ? `${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${pageNum + 1}`.replace(/\/+/g, '/'))}` : '';
+ const pgPrevLink = ` <link rel="prev" href="${pgPrevHref}">`;
+ const pgNextLink = pgNextHref ? `\n <link rel="next" href="${pgNextHref}">` : '';
+ const pgListHtml = pgJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
+ const pgCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
+ const pgItemLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => ({ '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}` })) });
+ const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
+ const pgHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
+ const pgListName = locale === 'it' ? `Lavoro in ${cDisplay}` : locale === 'en' ? `Jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Emploi \u00e0 ${cDisplay}`;
+ const pgBreadcrumbLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: pgHomeUrl },
+ { '@type': 'ListItem', position: 2, name: pgListName, item: pgMainUrl },
+ { '@type': 'ListItem', position: 3, name: pgHeading, item: pgCanonicalUrl },
+ ],
+ });
+ const pgNav: string[] = [`<a href="${pgMainUrl}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 12px">1</a>`];
+ for (let np2 = Math.max(2, pageNum - 2); np2 <= Math.min(cTotalPages, pageNum + 2); np2++) {
+ if (np2 === pageNum) { pgNav.push(`<strong>${np2}</strong>`); continue; }
+ pgNav.push(`<a href="${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${np2}`.replace(/\/+/g, '/'))}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 12px">${np2}</a>`);
+ }
+ const pgBackLabel = locale === 'it' ? 'Torna alla lista completa' : locale === 'en' ? 'Back to full listing' : locale === 'de' ? 'Zur\u00fcck zur Liste' : 'Retour \u00e0 la liste';
+ const pgHtml = buildSimplePage({
+ locale,
+ title: pgTitle,
+ description: pgDesc,
+ canonicalUrl: pgCanonicalUrl,
+ ogLocale: localeOg[locale],
+ hreflangHtml: `${pgAlternates}\n${pgXDefault}`,
+ extraHeadHtml: `${pgPrevLink}${pgNextLink}`,
+ jsonLdScripts: [pgCollLd, pgItemLd, pgBreadcrumbLd],
+ entryJs: hasSpaBundle ? entryJs : undefined,
+ entryCss: hasSpaBundle ? entryCss : undefined,
+ bodyHtml: `<h1>${esc(pgHeading)}</h1>\n <p>${esc(pgDesc)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true }))}`,
+ });
+ const pgOutDir = np.join(distDir, pgCanonicalPath.slice(1));
+ activeJobDirs.add(pgCanonicalPath.slice(1).replace(/\/+$/, ''));
+ _md(pgOutDir);
+ _qw(np.join(pgOutDir, 'index.html'), pgHtml);
+ const pgFlatPath = pgCanonicalPath.replace(/\/+$/, '');
+ if (pgFlatPath) { const pgFlatFile = np.join(distDir, pgFlatPath.slice(1) + '.html'); _md(np.dirname(pgFlatFile)); _qw(pgFlatFile, pgHtml); }
+ paginationPageCount++;
+ recordEmit('paginated-listing', __tPaginated);
+ }
+ const pgItSlugCanton = `${paginationSlugs.it}-${pageNum}`;
+ const pgItPathCanton = withSlash(`/${itSection}/${pgItSlugCanton}`.replace(/\/+/g, '/'));
+ const pgSmAlternates = localeList.map((l) => {
+ const lSection = sharedResolveCantonSection(l, canton);
+ const ls = `${paginationSlugs[l]}-${pageNum}`;
+ const lp = `${localePrefix[l]}/${lSection}/${ls}`.replace(/\/+/g, '/');
+ return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(lp)}" />`;
+ }).join('\n');
+ paginationSitemapEntries.push(` <url>\n <loc>${BASE_URL}${pgItPathCanton}</loc>\n${pgSmAlternates}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPathCanton}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>0.4</priority>\n </url>`);
+ }
+ }
+ }
+
  /* ── Category listing pages (/cerca-lavoro-ticino/categoria-sanita/) ── */
  const catSlugsMap: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
  health: { it: 'sanita', en: 'health', de: 'gesundheit', fr: 'sante' },
