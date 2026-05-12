@@ -3223,6 +3223,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const prev = prevAuthUserRef.current;
  prevAuthUserRef.current = authUser;
  if (prev || !authUser || !enableJobAlerts) return;
+ // Need email + uid to call subscribeJobAlertOneTap from the prompt itself.
+ if (!userEmail || !userId) return;
  if (sessionStorage.getItem('jobAlertPostAuthPromptDismissed') === '1') return;
  const trimmed = (searchQuery || '').trim();
  let keyword = '';
@@ -3238,7 +3240,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setPostAuthPromptKeyword(keyword);
  setPostAuthPromptSource(source);
  setPostAuthPromptVisible(true);
- }, [authUser, enableJobAlerts, searchQuery, bestRelatedSearchKeyword]);
+ }, [authUser, enableJobAlerts, searchQuery, bestRelatedSearchKeyword, userEmail, userId]);
 
  // Helper: apply ALL non-search filters (company, location, category,
  // contract, sector, date, newOnly). Reused by both the strict AND-match
@@ -7372,21 +7374,29 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  )}
 
- {postAuthPromptVisible && (
+ {postAuthPromptVisible && userEmail && userId && (
  <Suspense fallback={null}>
  <JobAlertPostAuthPrompt
  keyword={postAuthPromptKeyword}
- onAccept={() => {
- Analytics.trackJobAlertCtaClick(`post_auth_prompt_${postAuthPromptSource}`, 'open', postAuthPromptKeyword);
+ userId={userId}
+ email={userEmail}
+ locale={locale}
+ onAccepted={() => {
+ Analytics.trackJobAlertCtaClick(`post_auth_prompt_${postAuthPromptSource}`, 'accept', postAuthPromptKeyword);
  sessionStorage.setItem('jobAlertPostAuthPromptDismissed', '1');
- setPostAuthPromptVisible(false);
- window.dispatchEvent(new CustomEvent('openJobAlert'));
  }}
- onDismiss={() => {
+ onDismissed={() => {
  Analytics.trackJobAlertCtaClick(`post_auth_prompt_${postAuthPromptSource}`, 'dismiss', postAuthPromptKeyword);
  sessionStorage.setItem('jobAlertPostAuthPromptDismissed', '1');
- setPostAuthPromptVisible(false);
  }}
+ onErrored={() => {
+ Analytics.trackJobAlertCtaClick(`post_auth_prompt_${postAuthPromptSource}`, 'error', postAuthPromptKeyword);
+ }}
+ onPersonalize={() => {
+ Analytics.trackJobAlertCtaClick(`post_auth_prompt_${postAuthPromptSource}`, 'open', postAuthPromptKeyword);
+ window.dispatchEvent(new CustomEvent('openJobAlert', { detail: { keyword: postAuthPromptKeyword } }));
+ }}
+ onClose={() => setPostAuthPromptVisible(false)}
  />
  </Suspense>
  )}
