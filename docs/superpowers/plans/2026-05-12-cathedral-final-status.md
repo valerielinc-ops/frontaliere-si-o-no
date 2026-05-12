@@ -3,13 +3,17 @@
 **Date:** 2026-05-12 04:35 CET
 **Orchestrator session:** autonomous, ~6 hours
 **Plan reference:** `docs/superpowers/plans/2026-05-11-cathedral-canton-aware-completion.md` (v2 with adversarial-review fixes)
-**Final state:** ✅ Cathedral LIVE on production.
+**Final state:** ⚠️ Cathedral CODE in main; LIVE deployment partial (URL structure only).
 
 ---
 
-## TL;DR
+## TL;DR — CORRECTED
 
-The Cathedral CH-wide expansion is **deployed and live** on `https://frontaliereticino.ch`. All 26 Swiss cantons now have their own URL section with rich content (filtered job listings + stat tiles + canton-aware sub-pages), in 4 locales. TI legacy URLs are byte-identical. 20/20 live smoke checks pass.
+The Cathedral CH-wide expansion **code is fully merged to main** (~40 commits). On `https://frontaliereticino.ch`, the **URL structure is live** — all 26 canton landings return HTTP 200, localized variants resolve, TI URLs byte-identical. **However**, content-rich emissions (Phase 1 canton-aware job-detail routing, Phase 3 sub-page graph, Phase 4 canton-landing body fill) are **rolled back** by the deploy pipeline's automated rollback step, which fires when `validate-dist` audit gates fail (pre-existing chronic project state, not cathedral-introduced for the most part).
+
+**Net result:** the canton URLs exist (search engines can crawl) but the page bodies are thin "indice" placeholders. To fully realize the cathedral content on live, the `validate-dist` audit gates need engineering work that exceeds this session's scope.
+
+The cathedral was LIVE in a brief window (~02:18 GMT, deploy 25700799667 deploy step succeeded BEFORE rollback ran). Subsequent deploy failures triggered rollback to a pre-content dist.
 
 CI audit gates surface some pre-existing project-state issues (border-wait BFS depth, sitemap orphan counts) that need further engineering work — these are tracked but do not block the cathedral being live.
 
@@ -78,7 +82,25 @@ CI audit gates surface some pre-existing project-state issues (border-wait BFS d
 
 ---
 
-## Live verification (last run 04:32 CET)
+## Live verification (corrected — last run 04:40 CET)
+
+**Initial smoke at 04:32 CET caught the cathedral-live window (~14 min)**: 20/20 checks passed including rich-content patterns. Re-verification at 04:40 CET after a subsequent failed deploy + rollback shows the rich content is NO LONGER on live.
+
+**Current live state (04:40 CET):**
+
+| URL | HTTP | Content |
+|---|---|---|
+| `/cerca-lavoro-{canton}/` (26 cantons) | 200 | Thin "indice" body (H1 + lede + CTA + prose) — Phase 4 rich body NOT live |
+| `/cerca-lavoro-zurigo/<slug>/` (Phase 1 job-detail) | 404 | NOT live |
+| `/cerca-lavoro-zurigo/zurich/` (Phase 3.1 city hub) | 404 | NOT live |
+| `/cerca-lavoro-zurigo/pagina-2/` (Phase 3.5) | 404 | NOT live |
+| `/cerca-lavoro-zurigo/settori/` (Phase 7.2) | 404 | NOT live |
+| `/cerca-lavoro-zurigo/aziende/` (Phase 7.2) | 404 | NOT live |
+| `/cerca-lavoro-zurigo/categoria-finanza/` (Phase 3.6) | 404 | NOT live |
+| `/cerca-lavoro-ticino/` legacy | 200 | byte-identical, OK |
+| `/en/find-jobs-zurich/`, `/de/jobs-in-zurich/`, `/de/jobs-im-aargau/`, `/de/jobs-in-der-waadt/`, `/fr/trouver-emploi-zurich/` | 200 | thin variants |
+
+**Initial smoke that caught the live window (kept for record):**
 
 ```
 === Cathedral canton-landing smoke test ===
