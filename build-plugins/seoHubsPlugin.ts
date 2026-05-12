@@ -1436,7 +1436,22 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
 
     const total = items.length;
     const totalPages = Math.max(1, Math.ceil(total / pageSize));
+    // Cap non-IT page-N>1 emission (2026-05-13): the master jobs hub has
+    // ~400 pages × 4 locales = ~1600 thin paginated HTML files at ~150 KB
+    // each = ~240 MB of dist — the dominant source of the deploy artifact
+    // crossing the 1 GB Pages cap + the text-html-ratio regression (471 →
+    // 1917 offenders, all `find-jobs-ticino/all/page-N` family). IT keeps
+    // every page-N as static HTML (canonical for search). Non-IT locales
+    // emit only page-1 — page-N>1 routes via the SPA shell.
+    //
+    // Hreflang impact: buildHtml only emits hreflang alternates on page-1
+    // (see line 661), so dropping non-IT page-N HTML doesn't break per-page
+    // hreflang signals. The sitemap entry for IT page-N>1 also drops its
+    // `xhtml:link` alternates (would 404 otherwise) — page-1 keeps the
+    // full 4-locale alternate set.
+    const emitNonItPageN = false;
     for (let page = 1; page <= totalPages; page++) {
+      if (page > 1 && locale !== 'it' && !emitNonItPageN) continue;
       const slice = items.slice((page - 1) * pageSize, page * pageSize);
       const html = buildHtml({
         locale, hubKey, basePath, page, totalPages,
@@ -1447,14 +1462,19 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
 
       // Sitemap: only emit IT entries (one per (hub, page) tuple), matches existing pattern
       if (locale === 'it') {
-        const altLinks = HUB_LOCALES.map((alt) => {
-          const altBase = alt === 'it' ? HUB_SLUGS.it[
-            hubKey === 'jobs' ? 'jobsAll' : hubKey === 'sectors' ? 'sectorsAll' : hubKey === 'companies' ? 'companiesAll' : 'articlesAll'
-          ] : HUB_SLUGS[alt][
-            hubKey === 'jobs' ? 'jobsAll' : hubKey === 'sectors' ? 'sectorsAll' : hubKey === 'companies' ? 'companiesAll' : 'articlesAll'
-          ];
-          return `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${page === 1 ? altBase : paginatedPath(altBase, page)}" />`;
-        }).join('\n');
+        // Hreflang alternates: page-1 ships the full 4-locale set; page-N>1
+        // ships IT-only (non-IT page-N HTML is no longer emitted, so listing
+        // those URLs as alternates would advertise 404s).
+        const altLinks = page === 1
+          ? HUB_LOCALES.map((alt) => {
+              const altBase = alt === 'it' ? HUB_SLUGS.it[
+                hubKey === 'jobs' ? 'jobsAll' : hubKey === 'sectors' ? 'sectorsAll' : hubKey === 'companies' ? 'companiesAll' : 'articlesAll'
+              ] : HUB_SLUGS[alt][
+                hubKey === 'jobs' ? 'jobsAll' : hubKey === 'sectors' ? 'sectorsAll' : hubKey === 'companies' ? 'companiesAll' : 'articlesAll'
+              ];
+              return `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altBase}" />`;
+            }).join('\n')
+          : `    <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}${canonicalPath}" />`;
         const url = `${BASE_URL}${canonicalPath}`;
         const priority = page === 1 ? '0.7' : '0.5';
         sitemapEntries.push(
