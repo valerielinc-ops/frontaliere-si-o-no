@@ -108,11 +108,16 @@ jobs:
           URLs that recovered are dropped from compat."
 
           # Centralized rebase-retry helper survives concurrent pushes from
-          # other workflows. The two staged files are exclusively owned by
-          # this workflow, so rebasing onto a newer main is always safe —
-          # there cannot be a conflict on our changes (no --regenerate-cmd
-          # needed; an unexpected conflict surfaces as a hard failure).
-          bash scripts/lib/git-push-with-retry.sh
+          # other workflows. `data/seo-404-compat-paths.json` is shared with
+          # sync-gsc-orphans.yml and a handful of slug-maintenance scripts,
+          # so a rebase conflict on `paths` is possible (run 25716042219).
+          # The in-place resolver does a 3-way set merge:
+          #   final = upstream ∪ (local − base) − (base − local)
+          # `data/inspection-state.json` is single-writer (this workflow);
+          # if it ever conflicts the resolver fails loud rather than masking
+          # a real bug.
+          bash scripts/lib/git-push-with-retry.sh \
+            --in-place-resolver-cmd "node scripts/lib/resolve-404-compat-conflict.mjs && git add -A"
 
           echo "has_changes=true" >> "$GITHUB_OUTPUT"
 

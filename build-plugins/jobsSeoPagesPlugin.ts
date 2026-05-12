@@ -1920,27 +1920,32 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  }
 
- // Per-locale active-job path dedup. cleanup-jobs.mjs dedupes by
- // `job.slug` (the canonical IT slug), but two distinct jobs can pass
- // that filter with different IT slugs while still converging on the
- // same DE/EN/FR locale slug — for example two `tally-weijl-aarau`
+ // Per-(canton, locale, slug) active-job path dedup. cleanup-jobs.mjs
+ // dedupes by `job.slug` (the canonical IT slug), but two distinct jobs
+ // can pass that filter with different IT slugs while still converging
+ // on the same DE/EN/FR locale slug — for example two `tally-weijl`
  // postings whose IT titles differ slightly but whose German/English
- // translations slugify identically. Each then emits an active-job
- // page at /de/jobs-im-tessin/{same-slug}/index.html, producing the
- // 204-collision-per-build pattern in run 25312882900.
+ // translations slugify identically.
  //
- // validJobs is already sorted DESC by recency above, so the FIRST job
- // for any colliding (locale, slug) is the most recent. We register it
- // in this Set and skip later jobs that would write to the same path.
- // Their original IT canonical (which IS unique because cleanup ensured
- // it) still emits — only the colliding locale variants are suppressed.
- const emittedActiveJobPaths = new Set<string>();
- // Companion to emittedActiveJobPaths: tracks (canton, locale, slug) tuples
- // that actually emit HTML. The sitemap shard push (validate:sitemap-pages
- // gate) reads this set to suppress URLs whose HTML would point at a
- // canton-section path that the per-job dedup already skipped — keeping
+ // Phase 8a (2026-05-12): the dedup key now includes the canton, so two
+ // jobs that share `(locale, slug)` but live in different cantons each
+ // emit their own HTML under their canton-section path
+ // (e.g. /de/jobs-im-basel/{slug}/ AND /de/jobs-im-zurich/{slug}/).
+ // Previously the key was `(locale, slug)`, which silently suppressed
+ // 20 of 21 DE files in the localsearch.ch cross-canton collision and
+ // forced the Phase 3 hreflang band-aid (drop-all-below-5). With the
+ // canton in the key the cross-canton collision evaporates.
+ //
+ // Same-canton (canton, locale, slug) collisions still resolve last-add-
+ // wins: validJobs is sorted DESC by recency above, so the FIRST job
+ // for any colliding tuple is the most recent. The IT canonical (unique
+ // by cleanup) always emits — only colliding locale-variants within the
+ // same canton are suppressed.
+ //
+ // The sitemap shard push below reads this same Set to suppress URLs
+ // whose HTML would point at a path the per-job dedup skipped — keeping
  // sitemap and dist/ byte-for-byte consistent.
- const emittedActiveCantonSectionPaths = new Set<string>();
+ const emittedActiveJobPaths = new Set<string>();
 
  for (const job of validJobs) {
  const perLocaleSlug = {
@@ -1958,13 +1963,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // already won this path; emitting again would only register a
  // collision in dist/.write-collisions.json without changing the
  // bytes on disk (Map last-add-wins inside the WriteCollector).
- const __activeJobKey = `${locale}:${perLocaleSlug[locale]}`;
+ const __activeJobKey = `${jobCanton}:${locale}:${perLocaleSlug[locale]}`;
  if (emittedActiveJobPaths.has(__activeJobKey)) {
  recordEmit('active-job', __tActiveJob);
  continue;
  }
  emittedActiveJobPaths.add(__activeJobKey);
- emittedActiveCantonSectionPaths.add(`${jobCanton}|${locale}|${perLocaleSlug[locale]}`);
  const canonicalPath = withSlash(relPath);
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  // Cannibalization fix: <link rel="canonical"> and og:url may point to a
@@ -7612,13 +7616,14 @@ ${alternates}
        // brand hub — audit:sitemap-canonicals fails.
        if (resolveCanonicalUrl(perLocaleSlugMap[locale], localeUrl) !== localeUrl) continue;
        // P2-emit-consistency: the per-job emit loop dedups by
-       // (locale, perLocaleSlug). When two jobs share a slug but live in
-       // different cantons, only the most-recent wins and emits HTML at
-       // its own canton path; the loser's URL never materializes. If we
-       // still pushed the loser's (canton, slug) here, validate-sitemap-pages
-       // would flag it as missing-html. Gate on the set captured during emit.
-       const emittedKey = `${groupJobCanton}|${locale}|${perLocaleSlugMap[locale]}`;
-       if (!emittedActiveCantonSectionPaths.has(emittedKey)) continue;
+       // (canton, locale, perLocaleSlug). When two jobs share the SAME
+       // (canton, locale, slug) tuple only the most-recent wins and emits
+       // HTML; the loser's URL never materializes. If we still pushed the
+       // loser here, validate-sitemap-pages would flag it as missing-html.
+       // Gate on the same set the per-job emit populated. Phase 8a unified
+       // this key with `emittedActiveJobPaths` — same shape, same delimiter.
+       const emittedKey = `${groupJobCanton}:${locale}:${perLocaleSlugMap[locale]}`;
+       if (!emittedActiveJobPaths.has(emittedKey)) continue;
        shardUrls.push({
          loc: localeUrl,
          lastmod,
@@ -8051,8 +8056,17 @@ ${alternates}
  }
  if (!tracking[job.slug]) {
  tracking[job.slug] = {};
+ // Phase 8c — emit the tracking entry under the JOB'S canton-aware
+ // section (e.g. /cerca-lavoro-zurigo/, /de/jobs-in-zurich/) instead of
+ // the legacy TI section. Soft-landing emission downstream reads this
+ // path directly + checks activeJobDirs for collisions; before the
+ // canton-aware switch the TI URL would either land a stale soft-
+ // landing or, worse, clobber an active non-TI page at the same slug.
+ // TI invariance is preserved by buildCantonAwareSection (early-return
+ // on code === 'TI' returns the legacy section verbatim).
+ const jobCantonForTracking = sharedResolveJobCanton(job as { canton?: string; location?: string });
  for (const locale of localeList) {
- const relPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/');
+ const relPath = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCantonForTracking)}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/');
  tracking[job.slug][locale] = relPath;
  }
  }
