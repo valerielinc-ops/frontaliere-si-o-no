@@ -1,49 +1,18 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-12T10:49:56.464Z",
+  "generatedAt": "2026-05-12T21:41:04.707Z",
   "total": 8,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 15310,
-  "avgDurationMs": 15310,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 14777,
+  "avgDurationMs": 14777,
   "durationHistory": [
-    15310
+    14777
   ],
-  "newJobs": [
-    {
-      "title": "Werkstudent HR 50% (w/m/div.) REF284793T",
-      "slug": "werkstudent-hr-50-w-m-div-ref284793t-bosch-pratteln",
-      "url": "https://jobs.bosch.com/en/job/REF284793T-werkstudent-hr-50-w-m-div-ref284793t",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000123388209-werkstudent-hr-50-w-m-div-ref284793t?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Pratteln",
-      "addressLocality": "Pratteln",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "canton": "BL",
-      "country": "CH",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-28",
-      "validThrough": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Entwicklungsingenieur - Bereich Oszillierende Multifunktionswerkzeuge & Säbelsägeblätter 100% (w/m/div.) REF281021P",
@@ -68,7 +37,6 @@
       "postedDate": "2026-05-11",
       "validThrough": "",
       "id": "bosch-thermotechnik-ag-f398ac133165",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -111,8 +79,8 @@
       "currency": "CHF",
       "postalCode": "4500",
       "firstSeenAt": "2026-05-10T21:10:13.024Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -149,8 +117,8 @@
       "currency": "CHF",
       "postalCode": "1950",
       "firstSeenAt": "2026-05-10T09:43:15.857Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -223,8 +191,8 @@
       "currency": "CHF",
       "postalCode": "1950",
       "firstSeenAt": "2026-05-10T09:43:15.857Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -261,8 +229,8 @@
       "currency": "CHF",
       "postalCode": "4500",
       "firstSeenAt": "2026-05-10T21:10:13.024Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -308,20 +276,21 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Sales Manager DACH – Produktmarke \"freud\" – Power Tools Accessories 100% (w/m/div.) REF284843W",
-      "slug": "sales-manager-dach-marchio-prodotto-freud-accessori-per-strumenti-di-alimentazione-100-w-m-div-ref284843w-bosch-thermote",
-      "url": "https://jobs.bosch.com/en/job/REF284843W-sales-manager-dach-produktmarke-freud-power-tools-accessories-100-w-m-div-ref284843w",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124352849-sales-manager-dach-produktmarke-freud-power-tools-accessories-100-w-m-div-ref284843w?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
+      "title": "Werkstudent HR 50% (w/m/div.) REF284793T",
+      "slug": "werkstudent-hr-50-w-m-div-ref284793t-bosch-pratteln",
+      "url": "https://jobs.bosch.com/en/job/REF284793T-werkstudent-hr-50-w-m-div-ref284793t",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000123388209-werkstudent-hr-50-w-m-div-ref284793t?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
       "company": "Bosch Thermotechnik AG",
       "companyKey": "bosch-thermotechnik-ag",
       "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "FR",
+      "location": "Pratteln",
+      "addressLocality": "Pratteln",
+      "addressRegion": "BL",
       "addressCountry": "CH",
-      "canton": "FR",
+      "canton": "BL",
       "country": "CH",
       "employmentType": "part-time",
       "contractType": "part-time",
@@ -329,22 +298,21 @@
       "sector": "Energia",
       "source": "bosch-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-04",
+      "postedDate": "2026-04-28",
       "validThrough": "",
-      "id": "bosch-thermotechnik-ag-1ecd0adbc5d8",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "id": "bosch-thermotechnik-ag-fd5eff14665c",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
-      "postalCode": "4500",
-      "firstSeenAt": "2026-05-10T21:10:13.024Z",
-      "_qualityScore": 88,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-12T10:49:56.463Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
-        "completeness": 22
+        "translation": 21,
+        "completeness": 19
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }
