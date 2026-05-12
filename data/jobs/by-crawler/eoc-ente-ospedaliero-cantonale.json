@@ -582,7 +582,7 @@
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -631,7 +631,8 @@
         "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano",
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
         "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-lugano",
-        "administrative-staff-eoc-ente-ospedaliero-cantonale-lugano"
+        "administrative-staff-eoc-ente-ospedaliero-cantonale-lugano",
+        "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -642,7 +643,8 @@
         ],
         "de": [
           "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano",
-          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "fr": [
           "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-lugano"
@@ -1915,7 +1917,7 @@
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -1954,7 +1956,8 @@
         ],
         "de": [
           "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       },
       "previousSlugs": [
@@ -1964,7 +1967,8 @@
         "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -2011,7 +2015,7 @@
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
+        "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -2043,7 +2047,8 @@
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -2054,7 +2059,8 @@
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
           "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
@@ -2109,7 +2115,7 @@
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be",
+        "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -2141,7 +2147,8 @@
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -2152,7 +2159,8 @@
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
           "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-fbf7be"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
@@ -2228,7 +2236,7 @@
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-050a3d",
+        "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "previousSlugs": [
@@ -2240,7 +2248,8 @@
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -2256,7 +2265,8 @@
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
           "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-050a3d"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
@@ -2329,7 +2339,7 @@
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-401a08",
+        "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "previousSlugs": [
@@ -2341,7 +2351,8 @@
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
       ],
       "sourceLang": "it",
       "previousSlugsByLocale": {
@@ -2357,7 +2368,8 @@
         "de": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
           "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "graduierte-physiotherapeutin-eoc-ente-ospedaliero-cantonale-novaggio-401a08"
         ],
         "fr": [
           "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
@@ -3686,9 +3698,9 @@
       },
       "descriptionByLocale": {
         "it": "## Descrizione\nTecnico di sala operatoria (TSO) e/o infermiere/a strumentista - Ausschreibung\nL’EOC l’ospedale multisito del Ticino è presente con i suoi istituti sull'intero territorio cantonale per un totale di 1’000 posti letto. L’organizzazione permette di combinare efficacemente approccio locale e visione d'insieme, garantendo alla popolazione un'offerta ospedaliera globale e di prossimità, indipendentemente dal luogo in cui sono richiesti i servizi. Grazie all’impegno e alla competenza degli oltre 5’000 collaboratori e alla loro attenzione verso la relazione umana, l’EOC assicura un’assistenza sanitaria di qualità a 380'000 pazienti all’anno. La seguente posizione è rivolta ai candidati che desiderano inoltrare una candidatura spontanea quale Tecnico di sala operatoria (TSO) e/o infermiere/a strumentista\n\n## Profilo\nIl Servizio infermieristico dell'Ospedale Regionale \"La Carità\" di Locarno impiega ca. 400 collaboratori, ripartiti nei diversi reparti in un contesto di Cure basate sulla relazione. Le persone che stiamo cercando avranno la possibilità di prestare la loro attività lavorativa in 4 sale nelle quali vengono trattate le seguenti specialità:\n- chirurgia generale\n- chirurgia vascolare\n- chirurgia della mano\n- chirurgia maxillo-facciale\n- ginecologia\n- ortopedia e traumatologia\n- otorinolaringoiatria\n- urologia\n- interventi in regime ambulatoriale\n\n## Requisiti\n- diploma svizzero di tecnico di sala operatoria (TSO) oppure diploma svizzero di infermiere/a con specializzazione svizzera di strumentista oppure laurea in cure infermieristiche (Italia o altri paesi europei) riconosciuta dalla Croce Rossa Svizzera (o titoli equivalenti riconosciuti)\n- comprovata esperienza (almeno 3 anni) di strumentazione in sala operatoria\n- Verranno prese in considerazione le candidature in grado di strumentare idealmente tutte le discipline chirurgiche sopra menzionate (o la maggior parte di esse)\n\n## Osservazioni\n- Le candidature di coloro che non possiedono i requisiti sopraindicati non saranno prese in alcun caso in considerazione e di conseguenza verranno eliminate dalla nostra banca dati\n- La valutazione delle candidature verrà fatta solo in caso di esigenze di servizio\n- Trattandosi di una posizione per candidature spontanee non vengono rilasciate informazioni telefoniche\n\n## Contatto\nEOC - il nostro ospedale. Interessato/a?",
-        "en": "Description\nOperating room technician (TSO) and/or nurse/a instrumentist - Ausschreibung\nThe EOC the multisite Ticino hospital is present with its institutes on the whole cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of over 5,000 employees and their attention to the human relationship, EOC provides quality healthcare to 380,000 patients per year. The following position is addressed to candidates wishing to apply spontaneously as Operating Room Technician (TSO) and/or nurse/to instrumental\n\nProfile\nThe Nursing Service of the Regional Hospital \"La Carità\" in Locarno employs about 400 employees, distributed in the different departments in a context of Cure based on the report. The people we are looking for will have the opportunity to lend their work in 4 rooms in which the following specialties are treated:\n- general surgery\n- Vascular surgery\n- hand surgery\n- maxillofacial surgery\n- Gynaecology\n- orthopaedics and traumatology\n- otolaryngology\n- urology\n- outpatient interventions\n\nRequirements\n- Swiss diploma of operating room technician (TSO) or Swiss diploma of nurses with Swiss specialization of instrumentalist or undergraduate in nursing care (Italy or other European countries) recognized by the Swiss Red Cross (or equivalent qualifications recognised)\n- proven experience (at least 3 years) of instrumentation in the operating room\n- Applications will be taken into account to ideally exploit all the surgical disciplines mentioned above (or most of them)\n\nComments\n- Applications of those who do not have the above requirements will not be taken into account in any case and will therefore be deleted from our database\n- Applications will be assessed only in case of service requirements\n- As a position for spontaneous applications, telephone information is not released\n\nContact\nEOC - our hospital. Interested?",
-        "de": "Warenbezeichnung\nBetriebsraumtechniker (TSO) und/oder Krankenschwester/Instrument - Ausschreibung\nDas EOC das Multisite Ticino Krankenhaus ist mit seinen Instituten auf dem gesamten Kantongebiet für insgesamt 1’000 Betten. Die Organisation ermöglicht es, den lokalen Ansatz und die Gesamtsicht effektiv zu kombinieren, um der Bevölkerung ein globales und nahe gelegenes Krankenhausangebot zu gewährleisten, unabhängig davon, wo die Dienstleistungen erforderlich sind. Dank des Engagements und der Expertise von über 5.000 Mitarbeitern und ihrer Aufmerksamkeit auf die menschliche Beziehung bietet das EOC eine qualitativ hochwertige Gesundheitsversorgung für 380.000 Patienten pro Jahr. Die folgende Position richtet sich an Kandidaten, die sich spontan als Operationssaaltechniker (TSO) und/oder Krankenschwester/Instrument bewerben möchten.\n\nProfil\nDer Pflegedienst des Regionalkrankenhauses \"La Carità\" in Locarno beschäftigt rund 400 Mitarbeiter, verteilt in den verschiedenen Abteilungen in einem Kontext von Cure basierend auf dem Bericht. Die Menschen, die wir suchen, werden die Möglichkeit haben, ihre Arbeit in 4 Räumen zu verleihen, in denen die folgenden Spezialitäten behandelt werden:\n- Allgemeine Chirurgie\n- Gefäßchirurgie\n- Handchirurgie\n- maxillofacial Chirurgie\n- Gynäkologie\n- Orthopädie und Traumatologie\n- otolaryngology\n- Urologie\n- ambulante Eingriffe\n\nAnforderungen\n- Schweizer Diplom des Betriebszimmertechnikers (TSO) oder Schweizer Diplom von Krankenschwestern mit Schweizer Spezialisierung von Instrumentalisten oder Undergraduate in der Pflege (Italien oder andere europäische Länder) vom Schweizer Roten Kreuz anerkannt (oder gleichwertige Qualifikationen anerkannt)\n- nachgewiesene Erfahrung (mindestens 3 Jahre) der Instrumentierung im Operationssaal\n- Anwendungen werden berücksichtigt, um alle oben genannten chirurgischen Disziplinen optimal auszunutzen (oder die meisten von ihnen)\n\nBemerkungen\n- Anwendungen von denen, die die oben genannten Anforderungen nicht haben, werden in keinem Fall berücksichtigt und werden daher aus unserer Datenbank gelöscht\n- Die Bewerbungen werden nur bei Leistungsanforderungen bewertet\n- Als Position für spontane Anwendungen werden keine Telefoninformationen veröffentlicht\n\nKontakt\nEOC - unser Krankenhaus. Interessant?",
-        "fr": "Désignation des marchandises\nTechnicien en salle d'opération (TSO) et/ou infirmier/instrumentiste - Ausschreibung\nL'EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1.000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre d'hôpital globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 5 000 employés et à l'attention qu'ils portent à la relation humaine, EOC fournit des soins de qualité à 380 000 patients par année. Le poste suivant s'adresse aux candidats qui désirent postuler spontanément comme technicien en salle d'opération (BST) et/ou infirmier/infirmier\n\nProfil\nLe service de soins infirmiers de l'hôpital régional \"La Carità\" à Locarno emploie environ 400 employés, répartis dans les différents départements dans un contexte de Cure basé sur le rapport. Les personnes que nous recherchons auront la possibilité de prêter leur travail dans 4 chambres dans lesquelles les spécialités suivantes sont traitées:\n- chirurgie générale\n- Chirurgie vasculaire\n- chirurgie des mains\n- chirurgie maxillofaciale\n- Gynécologie\n- orthopédie et traumatologie\n- otolaryngologie\n- urologie\n- interventions ambulatoires\n\nExigences\n- Diplôme suisse de technicien en salle d'opération (TSO) ou diplôme suisse d'infirmières avec spécialisation suisse d'instrumentiste ou de premier cycle en soins infirmiers (Italie ou autres pays européens) reconnu par la Croix-Rouge suisse (ou qualifications équivalentes reconnues)\n- expérience prouvée (au moins 3 ans) de l'instrumentation dans la salle d'opération\n- Les applications seront prises en compte pour exploiter idéalement toutes les disciplines chirurgicales mentionnées ci-dessus (ou la plupart d'entre elles)\n\nCommentaires\n- Les applications de ceux qui n'ont pas les exigences ci-dessus ne seront en aucun cas prises en compte et seront donc supprimées de notre base de données\n- Les demandes seront évaluées uniquement en cas d'exigences de service\n- En tant que poste pour les demandes spontanées, les renseignements téléphoniques ne sont pas communiqués\n\nCoordonnées\nEOC - notre hôpital. Intéressé ?"
+        "en": "Description\nOperating Room Technique (TSO) and/or Nursing/To Instrumentist - Ausschreibung\nThe EOC the multisite Ticino hospital is present with its institutes on the whole cantonal territory for a total of 1’000 beds. The organization allows to effectively combine local approach and overall vision, ensuring the population a global and proximity hospital offer, regardless of where the services are required. Thanks to the commitment and expertise of over 5,000 employees and their attention to the human relationship, EOC provides quality health care to 380,000 patients per year. The following position is addressed to candidates wishing to submit a spontaneous application such as Operating Room Technician (TSO) and/or nurse/to instrumentalist\n\nProfile\nThe Nursing Service of the Regional Hospital \"La Carità\" in Locarno employs approximately 400 employees, divided into different departments in a context of the Cure based on the report. The people we are looking for will have the opportunity to lend their work in 4 rooms in which the following specialties are treated:\n- general surgery\n- Vascular surgery\n- hand surgery\n- maxillo-facial surgery\n- Gynaecology\n- orthopaedics and traumatology\n- otolaryngology\n- urology\n- outpatient interventions\n\nRequirements\n- Swiss diploma of operating room technician (TSO) or Swiss diploma of nurses with Swiss specialization of instrumentalist or undergraduate in nursing care (Italy or other European countries) recognized by the Swiss Red Cross (or equivalent qualifications recognised)\n- proven experience (at least 3 years) of instrumentation in the operating room\n- Applications will be taken into account to ideally exploit all the surgical disciplines mentioned above (or most of them)\n\nComments\n- Applications of those who do not have the above requirements will not be taken into account in any case and will therefore be deleted from our database\n- Applications will be assessed only in case of service requirements\n- As a position for spontaneous applications, telephone information is not released\n\nContact\nEOC - our hospital. Interested?",
+        "de": "Warenbezeichnung\nOperating Room Technique (TSO) und/oder Nursing/To Instrumentist - Ausschreibung\nDas EOC das Multisite Ticino Krankenhaus ist mit seinen Instituten auf dem gesamten Kantongebiet für insgesamt 1’000 Betten. Die Organisation ermöglicht es, den lokalen Ansatz und die Gesamtsicht effektiv zu kombinieren, um der Bevölkerung ein globales und nahe gelegenes Krankenhausangebot zu gewährleisten, unabhängig davon, wo die Dienstleistungen erforderlich sind. Dank des Engagements und der Expertise von über 5.000 Mitarbeitern und ihrer Aufmerksamkeit auf die menschliche Beziehung bietet EOC eine qualitativ hochwertige Gesundheitsversorgung für 380.000 Patienten pro Jahr. Die folgende Position richtet sich an Kandidaten, die eine spontane Anwendung wie Operations Room Technician (TSO) und/oder Krankenschwester/Instrument einreichen möchten\n\nProfil\nDer Pflegedienst des Regionalkrankenhauses \"La Carità\" in Locarno beschäftigt ca. 400 Mitarbeiter, die in einem Kontext des Cure auf der Grundlage des Berichts in verschiedene Abteilungen unterteilt sind. Die Menschen, die wir suchen, werden die Möglichkeit haben, ihre Arbeit in 4 Räumen zu verleihen, in denen die folgenden Spezialitäten behandelt werden:\n- Allgemeine Chirurgie\n- Gefäßchirurgie\n- Handchirurgie\n- Gesichtschirurgie\n- Gynäkologie\n- Orthopädie und Traumatologie\n- otolaryngology\n- Urologie\n- ambulante Eingriffe\n\nAnforderungen\n- Schweizer Abitur des Betriebszimmertechnikers (TSO) oder Schweizer Abitur von Krankenschwestern mit Schweizer Spezialisierung von Instrumentalisten oder Bachelor in Pflege (Italien oder andere europäische Länder) anerkannt durch das Schweizer Rote Kreuz (oder gleichwertige Qualifikationen anerkannt)\n- nachgewiesene Erfahrung (mindestens 3 Jahre) der Instrumentierung im Operationssaal\n- Anwendungen werden berücksichtigt, um alle oben genannten chirurgischen Disziplinen optimal auszunutzen (oder die meisten davon)\n\nBemerkungen\n- Anwendungen von denen, die die oben genannten Anforderungen nicht haben, werden in keinem Fall berücksichtigt und werden daher aus unserer Datenbank gelöscht\n- Die Bewerbungen werden nur bei Leistungsanforderungen bewertet\n- Als Position für spontane Anwendungen werden keine Telefoninformationen veröffentlicht\n\nKontakt\nEOC - unser Krankenhaus. Interessant?",
+        "fr": "Désignation des marchandises\nTechnique de salle d'opération (TSO) et/ou soins infirmiers/aux instrumentistes - Ausschreibung\nL'EOC l'hôpital multisite du Tessin est présent avec ses instituts sur l'ensemble du territoire cantonal pour un total de 1000 lits. L'organisation permet de combiner efficacement l'approche locale et la vision globale, en assurant à la population une offre hospitalière globale et de proximité, peu importe où les services sont requis. Grâce à l'engagement et à l'expertise de plus de 5 000 employés et à l'attention qu'ils portent à la relation humaine, le COE fournit des soins de santé de qualité à 380 000 patients par année. Le poste suivant s'adresse aux candidats qui souhaitent présenter une demande spontanée, comme le technicien en salle d'opération (TSO) ou l'infirmière ou l'instrumentiste.\n\nProfil\nLe service de soins infirmiers de l'hôpital régional \"La Carità\" à Locarno emploie environ 400 employés, répartis en différents départements dans un contexte de la Cure basé sur le rapport. Les personnes que nous recherchons auront la possibilité de prêter leur travail dans 4 chambres dans lesquelles les spécialités suivantes sont traitées:\n- chirurgie générale\n- Chirurgie vasculaire\n- chirurgie manuelle\n- chirurgie maxillo-faciale\n- Gynécologie\n- orthopédie et traumatologie\n- otolaryngologie\n- urologie\n- interventions ambulatoires\n\nExigences\n- Diplôme suisse de technicien en salle d'opération (TSO) ou diplôme suisse d'infirmières avec spécialisation suisse d'instrumentiste ou de premier cycle en soins infirmiers (Italie ou autres pays européens) reconnu par la Croix-Rouge suisse (ou qualifications équivalentes reconnues)\n- expérience éprouvée (au moins 3 ans) de l'instrumentation dans la salle d'opération\n- Les applications seront prises en compte pour exploiter idéalement toutes les disciplines chirurgicales mentionnées ci-dessus (ou la plupart d'entre elles)\n\nCommentaires\n- Les applications de ceux qui n'ont pas les exigences ci-dessus ne seront en aucun cas prises en compte et seront donc supprimées de notre base de données\n- Les demandes seront évaluées uniquement en cas d'exigences de service\n- En tant que poste pour les demandes spontanées, les informations téléphoniques ne sont pas divulguées\n\nPersonne à contacter\nEOC - notre hôpital. Intéressé ?"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
@@ -4132,7 +4144,7 @@
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -4176,7 +4188,8 @@
         ],
         "de": [
           "sachbearbeiter-in-verwaltung-eoc-ente-ospedaliero-cantonale-novaggio",
-          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "fr": [
           "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-novaggio"
@@ -4187,7 +4200,8 @@
         "administrative-employee-eoc-ente-ospedaliero-cantonale-novaggio",
         "sachbearbeiter-in-verwaltung-eoc-ente-ospedaliero-cantonale-novaggio",
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-novaggio"
+        "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-novaggio",
+        "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {

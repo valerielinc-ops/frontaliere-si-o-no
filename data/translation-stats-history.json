@@ -10150,5 +10150,117 @@
         "pending": 10
       }
     ]
+  },
+  {
+    "timestamp": "2026-05-12T04:27:22.037Z",
+    "label": "before",
+    "total": 4330,
+    "needsRetranslation": 1294,
+    "incomplete": 582,
+    "complete": 3748,
+    "missingByLocale": {
+      "it": 457,
+      "en": 430,
+      "de": 148,
+      "fr": 457
+    },
+    "topPending": [
+      {
+        "company": "Elektro-Bau AG Rothrist",
+        "pending": 153
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 83
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 74
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 20
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 16
+      },
+      {
+        "company": "IWC",
+        "pending": 16
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "PEMSA",
+        "pending": 11
+      },
+      {
+        "company": "EMS-Chemie AG",
+        "pending": 10
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-12T06:15:03.282Z",
+    "label": "after",
+    "total": 4330,
+    "needsRetranslation": 1118,
+    "incomplete": 534,
+    "complete": 3796,
+    "missingByLocale": {
+      "it": 431,
+      "en": 399,
+      "de": 123,
+      "fr": 426
+    },
+    "topPending": [
+      {
+        "company": "Elektro-Bau AG Rothrist",
+        "pending": 153
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 83
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 74
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 20
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 16
+      },
+      {
+        "company": "IWC",
+        "pending": 16
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Lonza",
+        "pending": 10
+      },
+      {
+        "company": "Pictet Group",
+        "pending": 10
+      }
+    ]
   }
 ]
