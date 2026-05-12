@@ -94,16 +94,36 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
   // 100/page, totalPages can be in the hundreds — wrapped in <details>
   // collapsible so the visible UX is a single "Sfoglia tutto l'archivio
   // offerte per pagina (N pagine)" toggle.
+  //
+  // Page-weight guard: for very long archives (e.g. TI with ~400 pages)
+  // emitting one anchor per page-N pushed the IT root over the 200 KB
+  // audit:page-weight budget (~93 KB just for this nav). Crawler reach
+  // is preserved by the sequential prev/next/first/last links emitted on
+  // every `/tutti/page-N/` page itself, so we only need head+tail anchors
+  // here. We render pages 1..PAGINATOR_HEAD + last PAGINATOR_TAIL pages
+  // with a non-link ellipsis between them. For small archives
+  // (totalPages <= PAGINATOR_HEAD + PAGINATOR_TAIL) we still emit every
+  // page — byte-identical to the legacy output for cathedral cantons
+  // (which all have small page counts).
   if (totalPages > 1) {
     const jobsNavLabel = locale === 'it' ? 'Sfoglia tutto l\'archivio offerte per pagina'
       : locale === 'en' ? 'Browse the full job archive by page'
       : locale === 'de' ? 'Vollständiges Stellenarchiv nach Seite durchsuchen'
       : 'Parcourir toutes les offres par page';
     const jobsPageWord = locale === 'it' ? 'Pagina' : locale === 'en' ? 'Page' : locale === 'de' ? 'Seite' : 'Page';
-    const jobsAnchors: string[] = [];
-    for (let p = 1; p <= totalPages; p++) {
+    const PAGINATOR_HEAD = 20;
+    const PAGINATOR_TAIL = 5;
+    const anchorFor = (p: number): string => {
       const href = paginatedPath(archiveBaseHref, p);
-      jobsAnchors.push(`<a href="${href}" style="display:inline-block;padding:3px 8px;margin:1px;border-radius:4px;background:#f1f5f9;color:#1e293b;text-decoration:none;font-size:12px;border:1px solid #e2e8f0">${jobsPageWord}&nbsp;${p}</a>`);
+      return `<a href="${href}" style="display:inline-block;padding:3px 8px;margin:1px;border-radius:4px;background:#f1f5f9;color:#1e293b;text-decoration:none;font-size:12px;border:1px solid #e2e8f0">${jobsPageWord}&nbsp;${p}</a>`;
+    };
+    const jobsAnchors: string[] = [];
+    if (totalPages <= PAGINATOR_HEAD + PAGINATOR_TAIL) {
+      for (let p = 1; p <= totalPages; p++) jobsAnchors.push(anchorFor(p));
+    } else {
+      for (let p = 1; p <= PAGINATOR_HEAD; p++) jobsAnchors.push(anchorFor(p));
+      jobsAnchors.push('<span aria-hidden="true" style="display:inline-block;padding:3px 4px;margin:1px;font-size:12px;color:#64748b">…</span>');
+      for (let p = totalPages - PAGINATOR_TAIL + 1; p <= totalPages; p++) jobsAnchors.push(anchorFor(p));
     }
     out.push(
       `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:#1e293b;padding:.25rem 0">${esc(jobsNavLabel)} (${totalPages} pagine)</summary><nav aria-label="${esc(jobsNavLabel)}" style="margin-top:.5rem;line-height:1.8">${jobsAnchors.join('')}</nav></details>`,
