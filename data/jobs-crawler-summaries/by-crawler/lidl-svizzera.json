@@ -1,18 +1,19 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-12T11:40:44.780Z",
+  "generatedAt": "2026-05-12T22:29:34.204Z",
   "total": 9,
-  "newCount": 1,
-  "updatedCount": 8,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 9,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16518,
-  "avgDurationMs": 16518,
+  "durationMs": 13470,
+  "avgDurationMs": 13470,
   "durationHistory": [
-    16518
+    13470
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-ixk693",
       "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-gravesano-ixk693",
@@ -39,16 +40,20 @@
       "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "de",
-      "_qualityScore": 63,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Gravesano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 2,
-        "completeness": 14
+        "translation": 6,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-jb4io9",
       "slug": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jb4io9",
@@ -82,11 +87,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "retranslationAttempts": 1,
-      "_qualityScore": 81,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 9,
+        "translation": 15,
         "completeness": 25
       }
     },
@@ -374,48 +379,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "company-kscbfg",
-      "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-kscbfg",
-      "company": "Lidl Svizzera",
-      "title": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Locarno",
-      "location": "Locarno",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-05",
-      "url": "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-588255",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Locarno",
-        "canton": "TI"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-05-11T22:26:27.915Z",
-      "firstSeenAt": "2026-05-11T22:26:27.915Z",
-      "country": "CH",
-      "sourceLang": "de",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "streetAddress": "Via Industria 7",
-      "postalCode": "6593",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
