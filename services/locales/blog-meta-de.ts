@@ -7476,6 +7476,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.title': 'Menschenhandel am Grenzübergang Tresa: Was ändert sich für Grenzgänger?',
     'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.excerpt': 'Kurdisch-türkisches Kriminalitätsnetzwerk zerschlagen. Risiko verstärkter Kontrollen und Staus an den Grenzübergängen. Hier die praktischen Folgen für Arbeitnehmer im Tessin.',
     'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.imageAlt': 'GrenzKontrollen in Ponte Tresa nach Zerschlagung von Menschenschmuggler-Netzwerk',
+    'blog.article.iniziative-cassa-malati-ticino-2026.title': 'Ticino: Umsetzungstermine der Krankenkassen-Initiativen im Juni',
+    'blog.article.iniziative-cassa-malati-ticino-2026.excerpt': 'Der Grossrat diskutiert im Juni den Zeitplan für die Umsetzung der Gesundheitsinitiativen. Doch die Finanzierung bleibt unsicher.',
+    'blog.article.iniziative-cassa-malati-ticino-2026.imageAlt': 'Regierungsgebäude Bellinzona, Sitz des Tessiner Grossrats',
 };
 
 export default blogMetaDe;

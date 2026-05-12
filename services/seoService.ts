@@ -3735,6 +3735,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-luino-pd-frontalieri-2026': { name: 'Luino, il Pd: «La destra si accanisce sui', path: '/articoli-frontaliere/luino-pd-frontalieri-2026', parent: 'blog' },
     'blog-tassa-salute-frontalieri-licata-2026': { name: 'Fiscale', path: '/articoli-frontaliere/tassa-salute-frontalieri-licata-2026', parent: 'blog' },
     'blog-traffico-umani-valico-tresa-impatto-frontalieri': { name: 'Sicurezza frontalieri', path: '/articoli-frontaliere/traffico-umani-valico-tresa-impatto-frontalieri', parent: 'blog' },
+    'blog-iniziative-cassa-malati-ticino-2026': { name: 'Sanità', path: '/articoli-frontaliere/iniziative-cassa-malati-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

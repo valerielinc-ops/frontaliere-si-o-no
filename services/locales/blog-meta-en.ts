@@ -7477,6 +7477,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.title': 'Human Trafficking at Tresa Border: Impact on Cross-Border Workers?',
     'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.excerpt': 'Kurdish-Turkish criminal network dismantled. Risk of intensified checks and queues at border crossings. Practical consequences for Ticino cross-border commuters.',
     'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.imageAlt': 'Border controls at Ponte Tresa crossing after human trafficking network dismantled',
+    'blog.article.iniziative-cassa-malati-ticino-2026.title': 'Ticino: Health Insurance Initiatives\' Implementation Dates Set for June',
+    'blog.article.iniziative-cassa-malati-ticino-2026.excerpt': 'The Grand Council will discuss the timelines for implementing healthcare initiatives in June. However, funding remains uncertain.',
+    'blog.article.iniziative-cassa-malati-ticino-2026.imageAlt': 'Government Palace in Bellinzona, seat of the Ticino Cantonal Council',
 };
 
 export default blogMetaEn;

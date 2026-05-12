@@ -7478,6 +7478,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.title': 'Traffico di esseri umani al valico di Tresa: cosa cambia per i frontalieri?',
     'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.excerpt': 'Smantellata rete criminale curdo-turca. Rischio controlli intensificati e code ai valichi. Ecco le conseguenze pratiche per chi lavora in Ticino.',
     'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.imageAlt': 'Controlli al valico di Ponte Tresa dopo smantellamento rete traffico esseri umani',
+    'blog.article.iniziative-cassa-malati-ticino-2026.title': 'Ticino, iniziative cassa malati: date di attuazione in arrivo a giugno',
+    'blog.article.iniziative-cassa-malati-ticino-2026.excerpt': 'Il Gran Consiglio discuterà a giugno le tempistiche per l\'implementazione delle iniziative sulla sanità. Ma il finanziamento rimane incerto.',
+    'blog.article.iniziative-cassa-malati-ticino-2026.imageAlt': 'Palazzo del Governo di Bellinzona, sede del Gran Consiglio ticinese',
 };
 
 export default blogMetaIt;
