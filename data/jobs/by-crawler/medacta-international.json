@@ -1,6 +1,6 @@
 {
   "crawlerKey": "medacta-international",
-  "assembledAt": "2026-05-11T22:33:07.900Z",
+  "assembledAt": "2026-05-12T11:40:53.247Z",
   "jobs": [
     {
       "id": "medacta-92188",
@@ -70,7 +70,7 @@
       "crawledAt": "2026-03-16T05:45:53.981Z",
       "slugByLocale": {
         "it": "tesi-r-s-ortopedia-medacta-international-sa-castel-san-pietro",
-        "en": "thesis-r-d-orthopedics-medacta-international-sa-castel-san-pietro",
+        "en": "thesis-r-d-orthopedics-medacta-international-sa-rancate",
         "de": "thesis-r-d-orthopadie-medacta-international-sa-rancate",
         "fr": "thesis-r-d-orthopedie-medacta-international-sa-rancate"
       },
@@ -384,9 +384,9 @@
           "ricerca-e-sviluppo-tesi-ortopedica-medacta-international-sa-castel-san-pietro",
           "diplomarbeit-f-e-orthopadie-medacta-international-sa-rancate",
           "these-r-d-orthopedie-medacta-international-sa-rancate",
-          "thesis-r-d-orthopedics-medacta-international-sa-rancate",
           "thesis-r-d-orthopadie-medacta-international-sa-rancate-b5sfyt",
-          "thesis-r-d-orthopedie-medacta-international-sa-rancate-b5sfyt"
+          "thesis-r-d-orthopedie-medacta-international-sa-rancate-b5sfyt",
+          "thesis-r-d-orthopedics-medacta-international-sa-castel-san-pietro"
         ],
         "de": [
           "ricerca-e-sviluppo-tesi-ortopedica-medacta-international-sa-castel-san-pietro",
@@ -405,7 +405,8 @@
           "thesis-r-d-orthopedie-medacta-international-sa-rancate-b5sfyt"
         ]
       },
-      "firstSeenAt": "2026-03-16T05:45:53.981Z"
+      "firstSeenAt": "2026-03-16T05:45:53.981Z",
+      "needsRetranslation": true
     },
     {
       "id": "medacta-96190",
@@ -854,7 +855,8 @@
           "operateur-pre-post-revetement-medacta-international-sa-castel-san-pietro"
         ]
       },
-      "firstSeenAt": "2026-03-16T05:45:47.673Z"
+      "firstSeenAt": "2026-03-16T05:45:47.673Z",
+      "needsRetranslation": true
     },
     {
       "id": "medacta-97004",
@@ -1238,7 +1240,8 @@
           "operateur-de-meulage-et-polissage-3-equipes-medacta-international-sa-castel-san-pietro"
         ]
       },
-      "firstSeenAt": "2026-03-16T05:45:46.498Z"
+      "firstSeenAt": "2026-03-16T05:45:46.498Z",
+      "needsRetranslation": true
     }
   ]
 }
