@@ -1,16 +1,16 @@
 {
   "key": "coopers",
   "label": "Coopers Group AG",
-  "generatedAt": "2026-05-12T11:00:01.686Z",
+  "generatedAt": "2026-05-12T21:55:00.755Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8167,
-  "avgDurationMs": 8167,
+  "durationMs": 8441,
+  "avgDurationMs": 8441,
   "durationHistory": [
-    8167
+    8441
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=M75DO9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T10:59:57.014Z",
+      "crawledAt": "2026-05-12T21:54:56.085Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=Z2EB28",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T10:59:58.271Z",
+      "crawledAt": "2026-05-12T21:54:57.506Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=LB3C09",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T10:59:59.543Z",
+      "crawledAt": "2026-05-12T21:54:58.734Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -131,7 +131,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T10:59:55.723Z",
+      "crawledAt": "2026-05-12T21:54:54.210Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -155,45 +155,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "coopers-208b4c7c95ef",
-      "slug": "specialista-di-controllo-del-documento-m-f-d-coopers-group-ag-wallis",
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Document Control Specialist (m/f/d)",
-      "location": "Wallis",
-      "canton": "VS",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=JU7Z25",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-11T21:52:18.718Z",
-      "addressLocality": "Wallis",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-04",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=JU7Z25",
-      "firstSeenAt": "2026-05-06T10:44:53.480Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "postalCode": "1950",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

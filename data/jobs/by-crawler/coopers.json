@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-05-12T11:00:01.685Z",
+  "assembledAt": "2026-05-12T21:55:00.755Z",
   "jobs": [
     {
       "id": "coopers-37a85ee20e7e",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=LB3C09",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T10:59:59.543Z",
+      "crawledAt": "2026-05-12T21:54:58.734Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -82,6 +82,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:37:47.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -127,7 +128,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=Z2EB28",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T10:59:58.271Z",
+      "crawledAt": "2026-05-12T21:54:57.506Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -159,6 +160,7 @@
         ]
       },
       "firstSeenAt": "2026-05-06T21:45:34.396Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -204,7 +206,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=M75DO9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T10:59:57.014Z",
+      "crawledAt": "2026-05-12T21:54:56.085Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -247,6 +249,7 @@
         ]
       },
       "firstSeenAt": "2026-05-06T10:44:50.919Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -292,7 +295,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T10:59:55.723Z",
+      "crawledAt": "2026-05-12T21:54:54.210Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
