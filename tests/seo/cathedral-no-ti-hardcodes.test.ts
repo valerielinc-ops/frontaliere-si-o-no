@@ -109,20 +109,20 @@ const ALLOWLIST = [
 
   // ── staticPagesPlugin: section→category / section→label maps. These ARE
   //    keyed by the TI legacy section name; they are data, not links. ──
-  //    Lines shifted +129 by the BFS-depth TI hub deep-navigator data-prep
-  //    block added in closeBundle (May 2026 — bfs-depth gate fix). The
-  //    previous +1 shift from Phase 8(g) canton-hub-editorial helper
-  //    import at the top of the file (buildCantonHubEditorial) is included.
-  'build-plugins/staticPagesPlugin.ts:897',
-  'build-plugins/staticPagesPlugin.ts:898',
-  'build-plugins/staticPagesPlugin.ts:899',
-  'build-plugins/staticPagesPlugin.ts:900',
-  'build-plugins/staticPagesPlugin.ts:919',
-  'build-plugins/staticPagesPlugin.ts:920',
-  'build-plugins/staticPagesPlugin.ts:1454',
-  'build-plugins/staticPagesPlugin.ts:1479',
-  'build-plugins/staticPagesPlugin.ts:1504',
-  'build-plugins/staticPagesPlugin.ts:1772',
+  //    Lines shifted +197 by the BFS-depth non-TI canton deep-navigator
+  //    data-prep block added in closeBundle (May 2026, run 25739076601 —
+  //    bfs-depth gate fix for the 23 non-TI cathedral cantons). The previous
+  //    +129 shift from PR #133 TI hub deep-navigator data-prep is included.
+  'build-plugins/staticPagesPlugin.ts:1094',
+  'build-plugins/staticPagesPlugin.ts:1095',
+  'build-plugins/staticPagesPlugin.ts:1096',
+  'build-plugins/staticPagesPlugin.ts:1097',
+  'build-plugins/staticPagesPlugin.ts:1116',
+  'build-plugins/staticPagesPlugin.ts:1117',
+  'build-plugins/staticPagesPlugin.ts:1651',
+  'build-plugins/staticPagesPlugin.ts:1676',
+  'build-plugins/staticPagesPlugin.ts:1701',
+  'build-plugins/staticPagesPlugin.ts:1969',
 
   // ── shared/hubChrome.ts: per-locale hub-chrome registry keyed on TI section name ──
   'build-plugins/shared/hubChrome.ts:106',
