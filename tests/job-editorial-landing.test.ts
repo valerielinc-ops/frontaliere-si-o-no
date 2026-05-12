@@ -273,7 +273,10 @@ describe('jobEditorialLanding', () => {
     expect(model.title).toContain('Foglio ufficiale');
     expect(model.totalJobs).toBe(2);
     expect(model.feed.jobs).toHaveLength(2);
-    expect(model.latestJobs).toHaveLength(2);
+    // latestJobs is deduped against feed.jobs by href to keep emitted HTML
+    // under the 200 KB page-weight gate. Both fixture jobs are already in
+    // feed, so latestJobs collapses to empty here.
+    expect(model.latestJobs).toHaveLength(0);
     expect(model.feed.jobs[0]).toMatchObject({ company: 'Repubblica e Cantone Ticino' });
     expect(model.explainerCards).toHaveLength(3);
     expect(model.faq).toHaveLength(3);

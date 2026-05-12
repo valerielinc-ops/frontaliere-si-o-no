@@ -1289,6 +1289,32 @@ function sortByFreshness(jobs: JobLike[], now: Date): JobLike[] {
  });
 }
 
+/**
+ * Strip from `latest` any entry whose href already appears in `primary`.
+ *
+ * Editorial location/type/sector landing pages render two job-tile lists:
+ * - `feed.jobs` (capped at 18-30): all matching jobs, freshest first
+ * - `latestJobs` (capped at 12-15): only jobs from the last 3 days
+ *
+ * Since `latestJobs` is built from the same `matches` array and sorted by
+ * recency, when fewer than ~30 jobs match the city × sector slice (common
+ * case for small cantons/sectors), the entire `latestJobs` slice duplicates
+ * the head of `feed.jobs` — pushing rendered HTML over the 200 KB
+ * page-weight gate without adding any new content for the user.
+ *
+ * Deduping at the model layer preserves both sections (and the structured-
+ * data ItemList) while emitting each job-tile exactly once per page.
+ *
+ * @param latest Candidate "latest" entries (already capped + sorted by recency).
+ * @param primary Entries already shown in the main feed.
+ * @returns `latest` with any href present in `primary` removed.
+ */
+function dedupeAgainst(latest: LandingJobLink[], primary: LandingJobLink[]): LandingJobLink[] {
+  if (latest.length === 0 || primary.length === 0) return latest;
+  const seen = new Set(primary.map((j) => j.href));
+  return latest.filter((j) => !seen.has(j.href));
+}
+
 function toLinkedJobs(jobs: JobLike[], now: Date, locale: JobLandingLocale, options: { baseUrl: string; localePrefix: string; sectionSlug: string; localizedSlug: (job: JobLike, locale: JobLandingLocale) => string }, max = 12): LandingJobLink[] {
  return sortByFreshness(jobs, now).slice(0, max).map((job) => {
   const j = job as Record<string, unknown>;
@@ -1646,6 +1672,8 @@ export function buildJobOfficialGazetteLandingModel(options: {
  const officialJobs = options.jobs.filter((job) => isOfficialGazetteJob(job));
  const latestJobs = officialJobs.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
  const allJobsHref = ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}`.replace(/\/+/g, '/')}`);
+ const feedJobs = toLinkedJobs(officialJobs, now, locale, { ...options, baseUrl }, 18);
+ const latestJobsLinked = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12), feedJobs);
  return {
  kind: 'official-gazette',
  slug: JOB_OFFICIAL_GAZETTE_LANDING_SLUGS[locale],
@@ -1656,9 +1684,9 @@ export function buildJobOfficialGazetteLandingModel(options: {
  updatedLabel: copy.updatedLabel,
  countsLabel: copy.countsLabel,
  totalJobs: officialJobs.length,
- feed: { label: copy.feedLabel, jobs: toLinkedJobs(officialJobs, now, locale, { ...options, baseUrl }, 18) },
+ feed: { label: copy.feedLabel, jobs: feedJobs },
  latestLabel: copy.latestLabel,
- latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
+ latestJobs: latestJobsLinked,
  explainerTitle: copy.explainerTitle,
  explainerCards: copy.explainerCards,
  officialSourceLabel: copy.officialSourceLabel,
@@ -1769,6 +1797,8 @@ export function buildJobNursesHubLandingModel(options: {
  ? [...options.partition.nursing]
  : options.jobs.filter((job) => isNursingHubJob(job));
  const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
+ const feedJobs = toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18);
+ const latestJobsLinked = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12), feedJobs);
  return {
  kind: 'nurses-hub',
  slug: (JOB_NURSES_HUB_SLUGS_BY_CANTON[cantonCode] || JOB_NURSES_HUB_SLUGS)[locale],
@@ -1779,9 +1809,9 @@ export function buildJobNursesHubLandingModel(options: {
  updatedLabel: copy.updatedLabel,
  countsLabel: copy.countsLabel,
  totalJobs: matches.length,
- feed: { label: copy.feedLabel, jobs: toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18) },
+ feed: { label: copy.feedLabel, jobs: feedJobs },
  latestLabel: copy.latestLabel,
- latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
+ latestJobs: latestJobsLinked,
  variantTitle: copy.variantTitle,
  variants: buildCareVariantLinks({ jobs: options.jobs, locale, now, baseUrl, localePrefix: options.localePrefix, sectionSlug: options.sectionSlug, partition: options.partition }),
  explainerCards: copy.explainerCards,
@@ -1852,6 +1882,8 @@ export function buildJobCareVariantLandingModel(options: {
  ? `Diese Seite fokussiert den Gesundheits-Hub auf ${label.toLowerCase()}, damit Sie die relevantesten Stellen schneller sehen.`
  : `Cette page resserre le hub sante sur les roles ${label.toLowerCase()} pour aller directement aux offres les plus pertinentes.`;
  const siblingLinks = buildCareVariantLinks({ jobs: options.jobs, locale, now, baseUrl, localePrefix: options.localePrefix, sectionSlug: options.sectionSlug, partition: options.partition }).filter((entry) => entry.key !== clusterKey);
+ const feedJobs = toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18);
+ const latestJobsLinked = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12), feedJobs);
  return {
  kind: 'care-variant',
  slug: careClusterSlug(clusterKey, cantonCode, locale),
@@ -1865,10 +1897,10 @@ export function buildJobCareVariantLandingModel(options: {
  totalJobs: matches.length,
  feed: {
  label: locale === 'it' ? `Offerte ${label.toLowerCase()}` : locale === 'en' ? `${label} job offers` : locale === 'de' ? `${label} Jobs` : `Offres ${label.toLowerCase()}`,
- jobs: toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18),
+ jobs: feedJobs,
  },
  latestLabel: locale === 'it' ? `Nuove offerte ${label.toLowerCase()} negli ultimi 3 giorni` : locale === 'en' ? `Newest ${label.toLowerCase()} jobs in the last 3 days` : locale === 'de' ? `Neueste ${label.toLowerCase()} der letzten 3 Tage` : `Nouvelles offres ${label.toLowerCase()} des 3 derniers jours`,
- latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
+ latestJobs: latestJobsLinked,
  parentHubHref: ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${(JOB_NURSES_HUB_SLUGS_BY_CANTON[cantonCode] || JOB_NURSES_HUB_SLUGS)[locale]}`.replace(/\/+/g, '/')}`),
  siblingLinks,
  openAllLabel: locale === 'it' ? `Vedi tutte le offerte in ${cd.it}` : locale === 'en' ? `See all jobs in ${cd.en}` : locale === 'de' ? `Alle Jobs ${germanCantonPrep(cd.de)} ansehen` : `Voir toutes les offres ${frenchCantonPrep(cd.fr)}`,
@@ -1971,6 +2003,8 @@ export function buildJobLocationLandingModel(options: {
  ? [...partitionLocationJobs]
  : options.jobs.filter((job) => matchesLocation(job, location));
  const latestJobs = locationJobs.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
+ const feedJobsLocCity = toLinkedJobs(locationJobs, now, locale, { ...options, baseUrl }, 25);
+ const latestJobsLocCity = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12), feedJobsLocCity);
  return {
  kind: 'location',
  slug: buildLocationSlug(locale, location),
@@ -1991,9 +2025,9 @@ export function buildJobLocationLandingModel(options: {
  // pages is achieved via paginated /<city>/page-N/ archives + the
  // per-detail related-jobs cross-link block (see jobsSeoPagesPlugin),
  // not by packing more cards onto the city hub itself.
- feed: { label: copy.feedLabel(location), jobs: toLinkedJobs(locationJobs, now, locale, { ...options, baseUrl }, 25) },
+ feed: { label: copy.feedLabel(location), jobs: feedJobsLocCity },
  latestLabel: copy.latestLabel(location),
- latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
+ latestJobs: latestJobsLocCity,
  relatedTypeLinks: buildLocationTypeLinks({ ...options, location, now, baseUrl, partition: options.partition }),
  relatedSectorLinks: buildLocationSectorLinks({ ...options, location, now, baseUrl, partition: options.partition }),
  openAllLabel: copy.openAll,
@@ -2026,6 +2060,8 @@ export function buildJobLocationTypeLandingModel(options: {
  : options.jobs.filter((job) => matchesLocation(job, location) && typeDef.matcher(job));
  const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
  const siblingTypeLinks = buildLocationTypeLinks({ ...options, location, now, baseUrl, partition: options.partition }).filter((link) => link.key !== typeKey);
+ const feedJobsLocType = toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 30);
+ const latestJobsLocType = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 15), feedJobsLocType);
  return {
  kind: 'location-type',
  slug: buildLocationTypeSlug(locale, location, typeKey),
@@ -2040,9 +2076,9 @@ export function buildJobLocationTypeLandingModel(options: {
  countsLabel: copy.countsLabel,
  totalJobs: matches.length,
  // Page-weight cap (see buildJobLocationLandingModel comment).
- feed: { label: copy.feedLabel(label, location), jobs: toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 30) },
+ feed: { label: copy.feedLabel(label, location), jobs: feedJobsLocType },
  latestLabel: copy.latestLabel(label, location),
- latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 15),
+ latestJobs: latestJobsLocType,
  parentLocationHref: ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${buildLocationSlug(locale, location)}`.replace(/\/+/g, '/')}`),
  siblingTypeLinks,
  openAllLabel: copy.openAll,
@@ -2075,6 +2111,8 @@ export function buildJobLocationSectorLandingModel(options: {
  : options.jobs.filter((job) => matchesLocation(job, location) && sectorDef.matcher(job));
  const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
  const siblingSectorLinks = buildLocationSectorLinks({ ...options, location, now, baseUrl, partition: options.partition }).filter((link) => link.key !== sectorKey);
+ const feedJobsLocSector = toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 30);
+ const latestJobsLocSector = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 15), feedJobsLocSector);
  return {
  kind: 'location-sector',
  slug: buildLocationSectorSlug(locale, location, sectorKey),
@@ -2089,9 +2127,9 @@ export function buildJobLocationSectorLandingModel(options: {
  countsLabel: copy.countsLabel,
  totalJobs: matches.length,
  // Page-weight cap (see buildJobLocationLandingModel comment).
- feed: { label: copy.feedLabel(label, location), jobs: toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 30) },
+ feed: { label: copy.feedLabel(label, location), jobs: feedJobsLocSector },
  latestLabel: copy.latestLabel(label, location),
- latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 15),
+ latestJobs: latestJobsLocSector,
  parentLocationHref: ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${buildLocationSlug(locale, location)}`.replace(/\/+/g, '/')}`),
  siblingSectorLinks,
  openAllLabel: copy.openAll,
@@ -2201,6 +2239,8 @@ export function buildJobSectorRegionLandingModel(options: {
  })
  .filter(Boolean) as SectorLink[];
 
+ const feedJobsSectorRegion = toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18);
+ const latestJobsSectorRegion = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12), feedJobsSectorRegion);
  return {
  kind: 'sector-region',
  slug,
@@ -2212,9 +2252,9 @@ export function buildJobSectorRegionLandingModel(options: {
  updatedLabel: copy.updatedLabel,
  countsLabel: copy.countsLabel,
  totalJobs: matches.length,
- feed: { label: copy.feedLabel(label), jobs: toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18) },
+ feed: { label: copy.feedLabel(label), jobs: feedJobsSectorRegion },
  latestLabel: copy.latestLabel(label),
- latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
+ latestJobs: latestJobsSectorRegion,
  siblingSectorLinks,
  openAllLabel: copy.openAll,
  };
@@ -2384,6 +2424,8 @@ export function buildJobPartTimeLandingModel(options: {
  })
  .sort((a, b) => b.count - a.count);
 
+ const feedJobsPartTime = toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18);
+ const latestJobsPartTime = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12), feedJobsPartTime);
  return {
  kind: 'part-time',
  // Phase 8 sub-PR (d): the canton-aware table is the single source of
@@ -2401,9 +2443,9 @@ export function buildJobPartTimeLandingModel(options: {
  updatedLabel: copy.updatedLabel,
  countsLabel: copy.countsLabel,
  totalJobs: matches.length,
- feed: { label: copy.feedLabel, jobs: toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18) },
+ feed: { label: copy.feedLabel, jobs: feedJobsPartTime },
  latestLabel: copy.latestLabel,
- latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
+ latestJobs: latestJobsPartTime,
  cityLinks,
  cityHubLabel: copy.cityHub,
  faq: copy.faq,

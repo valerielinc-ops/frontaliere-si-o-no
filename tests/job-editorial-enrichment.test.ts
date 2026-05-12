@@ -71,18 +71,22 @@ describe('editorial landing — job-link enrichment', () => {
     expect(link.datePosted?.startsWith('2026-04-26')).toBe(true);
   });
 
-  it('preserves enrichment on jobLocation feed and latestJobs', () => {
+  it('preserves enrichment on jobLocation feed (latestJobs deduped against feed)', () => {
     const model = buildJobLocationLandingModel({
       ...COMMON_OPTS,
       jobs: [SOURCE],
       location: 'Lugano',
     });
 
+    // The job is enriched once on the main feed.
     expect(model.feed.jobs[0].companyKey).toBe('acme-sa');
     expect(model.feed.jobs[0].salaryMin).toBe(75000);
     expect(model.feed.jobs[0].contract).toBe('full-time');
-    expect(model.latestJobs[0].featured).toBe(true);
-    expect(model.latestJobs[0].canton).toBe('TI');
+    expect(model.feed.jobs[0].featured).toBe(true);
+    expect(model.feed.jobs[0].canton).toBe('TI');
+    // latestJobs is deduped against feed.jobs by href (page-weight guard):
+    // when the single fixture job is already in feed, latestJobs is empty.
+    expect(model.latestJobs).toHaveLength(0);
   });
 
   it('preserves enrichment on jobLocationSector feed', () => {
