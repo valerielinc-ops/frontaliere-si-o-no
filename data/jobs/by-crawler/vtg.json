@@ -1,10 +1,10 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-05-11T23:12:02.349Z",
+  "assembledAt": "2026-05-12T12:20:06.703Z",
   "jobs": [
     {
       "id": "company-hjhzm7",
-      "slug": "sattler-in-textilcenter-sursee-swiss-armed-forces-vtg-bellinzona",
+      "slug": "sattler-in-textilcenter-sursee-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Sattler/-in (Textilcenter Sursee)",
       "location": "Bern",
@@ -41,7 +41,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "sattler-in-textilcenter-sursee-swiss-armed-forces-vtg-bellinzona",
+        "it": "sattler-in-textilcenter-sursee-swiss-armed-forces-vtg-bern",
         "en": "sattler-in-te-sur-swiss-armed-forces-vtg-bern-hjhzm7",
         "de": "sattler-in-te-grafftilcenter-sursee-swiss-armed-forces-vtg-bern-hjhzm7",
         "fr": "sattler-in-centre-textile-de-sursee-swiss-armed-forces-vtg-bern-hjhzm7"
@@ -49,13 +49,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "sattler-in-textilcenter-sursee-swiss-armed-forces-vtg-bern",
-          "sattler-in-textilcenter-sursee-swiss-armed-forces-vtg-bern-hjhzm7"
+          "sattler-in-textilcenter-sursee-swiss-armed-forces-vtg-bern-hjhzm7",
+          "sattler-in-textilcenter-sursee-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
-        "sattler-in-textilcenter-sursee-swiss-armed-forces-vtg-bern",
-        "sattler-in-textilcenter-sursee-swiss-armed-forces-vtg-bern-hjhzm7"
+        "sattler-in-textilcenter-sursee-swiss-armed-forces-vtg-bern-hjhzm7",
+        "sattler-in-textilcenter-sursee-swiss-armed-forces-vtg-bellinzona"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -117,7 +117,7 @@
       "slugByLocale": {
         "it": "specialista-del-data-center-in-ict-swiss-armed-forces-vtg-bern",
         "en": "data-center-specialist-in-ict-swiss-armed-forces-vtg-bern",
-        "de": "rechenzentrum-spezialist-in-ikt-swiss-armed-forces-vtg-bellinzona",
+        "de": "rechenzentrum-spezialist-in-ikt-swiss-armed-forces-vtg-bern",
         "fr": "specialiste-des-centres-de-donnees-tic-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -133,12 +133,14 @@
           "rechenzentrum-spezialist-in-ikt-swiss-armed-forces-vtg-bern-v4y5uq"
         ],
         "de": [
-          "rechenzentrum-spezialist-in-ikt-swiss-armed-forces-vtg-bern-v4y5uq"
+          "rechenzentrum-spezialist-in-ikt-swiss-armed-forces-vtg-bern-v4y5uq",
+          "rechenzentrum-spezialist-in-ikt-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "rechenzentrum-spezialist-in-ikt-swiss-armed-forces-vtg-bern",
-        "rechenzentrum-spezialist-in-ikt-swiss-armed-forces-vtg-bern-v4y5uq"
+        "rechenzentrum-spezialist-in-ikt-swiss-armed-forces-vtg-bern-v4y5uq",
+        "rechenzentrum-spezialist-in-ikt-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -157,7 +159,8 @@
       "addressLocality": "Bern",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-8lndw",
@@ -195,7 +198,7 @@
       "slugByLocale": {
         "it": "hlks-riscaldamento-ventilazione-aria-condizionata-sanitari-swiss-armed-forces-vtg-bern",
         "en": "hlks-heating-ventilation-air-conditioning-sanitary-facilities-swiss-armed-forces-vtg-bern",
-        "de": "spezialist-in-technik-hlks-heizung-luftung-klima-sanitar-swiss-armed-forces-vtg-bellinzona",
+        "de": "spezialist-in-technik-hlks-heizung-luftung-klima-sanitar-swiss-armed-forces-vtg-bern",
         "fr": "hlks-chauffage-ventilation-climatisation-sanitaires-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -211,12 +214,14 @@
           "spezialist-in-technik-hlks-heizung-luftung-klima-sanitar-swiss-armed-forces-vtg-bern-08lndw"
         ],
         "de": [
-          "spezialist-in-technik-hlks-heizung-luftung-klima-sanitar-swiss-armed-forces-vtg-bern-08lndw"
+          "spezialist-in-technik-hlks-heizung-luftung-klima-sanitar-swiss-armed-forces-vtg-bern-08lndw",
+          "spezialist-in-technik-hlks-heizung-luftung-klima-sanitar-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "spezialist-in-technik-hlks-heizung-luftung-klima-sanitar-swiss-armed-forces-vtg-bern",
-        "spezialist-in-technik-hlks-heizung-luftung-klima-sanitar-swiss-armed-forces-vtg-bern-08lndw"
+        "spezialist-in-technik-hlks-heizung-luftung-klima-sanitar-swiss-armed-forces-vtg-bern-08lndw",
+        "spezialist-in-technik-hlks-heizung-luftung-klima-sanitar-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -278,7 +283,7 @@
       "slugByLocale": {
         "it": "dottor-arzt-reclutamento-presso-il-centro-di-reclutamento-mels-swiss-armed-forces-vtg-bern",
         "en": "doctor-arzt-recruiting-at-the-recruitment-center-mels-swiss-armed-forces-vtg-bern",
-        "de": "arztin-arzt-rekrutierung-im-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bellinzona",
+        "de": "arztin-arzt-rekrutierung-im-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern",
         "fr": "doctor-arzt-recrutement-au-centre-de-recrutement-mels-swiss-armed-forces-vtg-bellinzona"
       },
       "sourceLang": "de",
@@ -291,7 +296,8 @@
           "arztin-arzt-rekrutierung-im-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-8fkp0u"
         ],
         "de": [
-          "arztin-arzt-rekrutierung-im-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-8fkp0u"
+          "arztin-arzt-rekrutierung-im-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-8fkp0u",
+          "arztin-arzt-rekrutierung-im-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bellinzona"
         ],
         "fr": [
           "arztin-arzt-rekrutierung-im-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-8fkp0u"
@@ -299,7 +305,8 @@
       },
       "previousSlugs": [
         "arztin-arzt-rekrutierung-im-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern",
-        "arztin-arzt-rekrutierung-im-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-8fkp0u"
+        "arztin-arzt-rekrutierung-im-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-8fkp0u",
+        "arztin-arzt-rekrutierung-im-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -322,7 +329,7 @@
     },
     {
       "id": "company-40eki6",
-      "slug": "meccatronica-automobilistica-swiss-armed-forces-vtg-bellinzona",
+      "slug": "meccatronica-automobilistica-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Automobil-Mechatroniker/-in",
       "location": "Bern",
@@ -354,24 +361,28 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "meccatronica-automobilistica-swiss-armed-forces-vtg-bellinzona",
+        "it": "meccatronica-automobilistica-swiss-armed-forces-vtg-bern",
         "en": "automotive-mechatronics-swiss-armed-forces-vtg-bern-40eki6",
-        "de": "automobil-mechatroniker-in-swiss-armed-forces-vtg-bellinzona",
+        "de": "automobil-mechatroniker-in-swiss-armed-forces-vtg-bern",
         "fr": "mecatronique-automobile-swiss-armed-forces-vtg-bern-40eki6"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "automobil-mechatroniker-in-swiss-armed-forces-vtg-bern",
-          "automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-40eki6"
+          "automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-40eki6",
+          "meccatronica-automobilistica-swiss-armed-forces-vtg-bellinzona"
         ],
         "de": [
-          "automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-40eki6"
+          "automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-40eki6",
+          "automobil-mechatroniker-in-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "automobil-mechatroniker-in-swiss-armed-forces-vtg-bern",
         "automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-40eki6",
+        "meccatronica-automobilistica-swiss-armed-forces-vtg-bellinzona",
+        "automobil-mechatroniker-in-swiss-armed-forces-vtg-bellinzona",
         "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-bellinzona",
         "apprentice-automotive-mechanic-efz-passenger-vehicle-sector-swiss-armed-forces-vtg-rivera",
         "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-bellinzona",
@@ -444,7 +455,7 @@
       "slugByLocale": {
         "it": "personale-attenzione-al-reclutamento-swiss-armed-forces-vtg-bern",
         "en": "personnel-focus-on-recruitment-swiss-armed-forces-vtg-bern",
-        "de": "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bellinzona",
+        "de": "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern",
         "fr": "personnel-accent-sur-le-recrutement-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -460,12 +471,14 @@
           "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern-etokcg"
         ],
         "de": [
-          "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern-etokcg"
+          "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern-etokcg",
+          "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern",
-        "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern-etokcg"
+        "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bern-etokcg",
+        "sachbearbeiter-in-personal-schwerpunkt-rekrutierung-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -527,7 +540,7 @@
       "slugByLocale": {
         "it": "personale-scientifico-industriale-swiss-armed-forces-vtg-bern",
         "en": "scientific-industry-staff-swiss-armed-forces-vtg-bern",
-        "de": "wissenschaftliche-r-mitarbeiter-in-swiss-armed-forces-vtg-bellinzona",
+        "de": "wissenschaftliche-r-mitarbeiter-in-swiss-armed-forces-vtg-bern",
         "fr": "personnel-scientifique-industriel-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -543,13 +556,15 @@
           "wissenschaftliche-r-mitarbeiter-in-swiss-armed-forces-vtg-bern-gt0ems"
         ],
         "de": [
-          "wissenschaftliche-r-mitarbeiter-in-swiss-armed-forces-vtg-bern-gt0ems"
+          "wissenschaftliche-r-mitarbeiter-in-swiss-armed-forces-vtg-bern-gt0ems",
+          "wissenschaftliche-r-mitarbeiter-in-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "wissenschaftliche-r-mitarbeiter-in-swiss-armed-forces-vtg-bern",
         "wissenschaftliche-r-collaboratore-trice-in-swiss-armed-forces-vtg-bern-gt0ems",
-        "wissenschaftliche-r-mitarbeiter-in-swiss-armed-forces-vtg-bern-gt0ems"
+        "wissenschaftliche-r-mitarbeiter-in-swiss-armed-forces-vtg-bern-gt0ems",
+        "wissenschaftliche-r-mitarbeiter-in-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -606,7 +621,7 @@
       "slugByLocale": {
         "it": "staff-in-operazione-di-costruzione-mollis-swiss-armed-forces-vtg-bern",
         "en": "staff-in-building-operation-mollis-swiss-armed-forces-vtg-bellinzona",
-        "de": "mitarbeiter-in-gebaudebetrieb-mollis-swiss-armed-forces-vtg-bellinzona",
+        "de": "mitarbeiter-in-gebaudebetrieb-mollis-swiss-armed-forces-vtg-bern",
         "fr": "personnel-dans-le-batiment-mollis-swiss-armed-forces-vtg-bellinzona"
       },
       "sourceLang": "de",
@@ -619,7 +634,8 @@
           "mitarbeiter-in-gebaudebetrieb-mollis-swiss-armed-forces-vtg-bern-e6dvt1"
         ],
         "de": [
-          "mitarbeiter-in-gebaudebetrieb-mollis-swiss-armed-forces-vtg-bern-e6dvt1"
+          "mitarbeiter-in-gebaudebetrieb-mollis-swiss-armed-forces-vtg-bern-e6dvt1",
+          "mitarbeiter-in-gebaudebetrieb-mollis-swiss-armed-forces-vtg-bellinzona"
         ],
         "fr": [
           "mitarbeiter-in-gebaudebetrieb-mollis-swiss-armed-forces-vtg-bern-e6dvt1"
@@ -629,6 +645,7 @@
         "mitarbeiter-in-gebaudebetrieb-mollis-swiss-armed-forces-vtg-bern",
         "collaboratore-trice-in-gebaudebetrieb-mollis-swiss-armed-forces-vtg-bern-e6dvt1",
         "mitarbeiter-in-gebaudebetrieb-mollis-swiss-armed-forces-vtg-bern-e6dvt1",
+        "mitarbeiter-in-gebaudebetrieb-mollis-swiss-armed-forces-vtg-bellinzona",
         "staff-in-costruzione-operazione-glarus-sud-swiss-armed-forces-vtg-bellinzona",
         "staff-in-building-operation-glarus-sud-swiss-armed-forces-vtg-bellinzona",
         "mitarbeiter-in-gebaudebetrieb-glarus-sud-swiss-armed-forces-vtg-bellinzona",
@@ -702,7 +719,7 @@
       "slugByLocale": {
         "it": "capo-sartoria-centro-tessile-sursee-swiss-armed-forces-vtg-bern",
         "en": "head-of-tailoring-textilcenter-sursee-swiss-armed-forces-vtg-bellinzona",
-        "de": "chef-in-schneiderei-textilcenter-sursee-swiss-armed-forces-vtg-bellinzona",
+        "de": "chef-in-schneiderei-textilcenter-sursee-swiss-armed-forces-vtg-bern",
         "fr": "chef-in-schneiderei-sursee-textilcenter-swiss-armed-forces-vtg-bellinzona"
       },
       "sourceLang": "de",
@@ -715,7 +732,8 @@
           "chef-in-schneiderei-textilcenter-sursee-swiss-armed-forces-vtg-bern-ef6h2c"
         ],
         "de": [
-          "chef-in-schneiderei-textilcenter-sursee-swiss-armed-forces-vtg-bern-ef6h2c"
+          "chef-in-schneiderei-textilcenter-sursee-swiss-armed-forces-vtg-bern-ef6h2c",
+          "chef-in-schneiderei-textilcenter-sursee-swiss-armed-forces-vtg-bellinzona"
         ],
         "fr": [
           "chef-in-schneiderei-textilcenter-sursee-swiss-armed-forces-vtg-bern-ef6h2c"
@@ -723,7 +741,8 @@
       },
       "previousSlugs": [
         "chef-in-schneiderei-textilcenter-sursee-swiss-armed-forces-vtg-bern",
-        "chef-in-schneiderei-textilcenter-sursee-swiss-armed-forces-vtg-bern-ef6h2c"
+        "chef-in-schneiderei-textilcenter-sursee-swiss-armed-forces-vtg-bern-ef6h2c",
+        "chef-in-schneiderei-textilcenter-sursee-swiss-armed-forces-vtg-bellinzona"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -785,7 +804,7 @@
       "slugByLocale": {
         "it": "meccanico-dell-aviazione-swiss-armed-forces-vtg-bellinzona",
         "en": "aircraft-mechanic-swiss-armed-forces-vtg-bern-qblpi0",
-        "de": "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-bellinzona",
+        "de": "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-bern",
         "fr": "mecanicien-aeronautique-swiss-armed-forces-vtg-bern-qblpi0"
       },
       "sourceLang": "de",
@@ -795,12 +814,14 @@
           "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-bern-qblpi0"
         ],
         "de": [
-          "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-bern-qblpi0"
+          "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-bern-qblpi0",
+          "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-bern",
-        "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-bern-qblpi0"
+        "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-bern-qblpi0",
+        "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -862,7 +883,7 @@
       "slugByLocale": {
         "it": "centro-di-reclutamento-medico-capo-mels-swiss-armed-forces-vtg-bern",
         "en": "chief-physician-recruitment-center-mels-swiss-armed-forces-vtg-bern",
-        "de": "chefarztin-arzt-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bellinzona",
+        "de": "chefarztin-arzt-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern",
         "fr": "centre-de-recrutement-des-medecins-en-chef-mels-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -875,7 +896,8 @@
           "chefarztin-arzt-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-b7b6ds"
         ],
         "de": [
-          "chefarztin-arzt-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-b7b6ds"
+          "chefarztin-arzt-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-b7b6ds",
+          "chefarztin-arzt-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bellinzona"
         ],
         "fr": [
           "chefarztin-arzt-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-b7b6ds"
@@ -883,7 +905,8 @@
       },
       "previousSlugs": [
         "chefarztin-arzt-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern",
-        "chefarztin-arzt-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-b7b6ds"
+        "chefarztin-arzt-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bern-b7b6ds",
+        "chefarztin-arzt-rekrutierungszentrum-mels-swiss-armed-forces-vtg-bellinzona"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -945,7 +968,7 @@
       "slugByLocale": {
         "it": "velivolo-meccanico-campo-militare-alpnach-swiss-armed-forces-vtg-bern",
         "en": "aircraft-mechanic-military-airfield-alpnach-swiss-armed-forces-vtg-bern",
-        "de": "luftfahrzeugmechaniker-in-militarflugplatz-alpnach-swiss-armed-forces-vtg-bellinzona",
+        "de": "luftfahrzeugmechaniker-in-militarflugplatz-alpnach-swiss-armed-forces-vtg-bern",
         "fr": "mecanicien-d-aeronefs-aerodrome-militaire-alpnach-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -961,12 +984,14 @@
           "luftfahrzeugmechaniker-in-militarflugplatz-alpnach-swiss-armed-forces-vtg-bern-u9uu98"
         ],
         "de": [
-          "luftfahrzeugmechaniker-in-militarflugplatz-alpnach-swiss-armed-forces-vtg-bern-u9uu98"
+          "luftfahrzeugmechaniker-in-militarflugplatz-alpnach-swiss-armed-forces-vtg-bern-u9uu98",
+          "luftfahrzeugmechaniker-in-militarflugplatz-alpnach-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "luftfahrzeugmechaniker-in-militarflugplatz-alpnach-swiss-armed-forces-vtg-bern",
-        "luftfahrzeugmechaniker-in-militarflugplatz-alpnach-swiss-armed-forces-vtg-bern-u9uu98"
+        "luftfahrzeugmechaniker-in-militarflugplatz-alpnach-swiss-armed-forces-vtg-bern-u9uu98",
+        "luftfahrzeugmechaniker-in-militarflugplatz-alpnach-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1008,7 +1033,7 @@
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "slugByLocale": {
-        "de": "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bellinzona",
+        "de": "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bern",
         "it": "esci-dalla-routine-diventa-un-ufficiale-professionista-swiss-armed-forces-vtg-bern",
         "en": "get-out-of-the-routine-become-a-professional-officer-swiss-armed-forces-vtg-bern",
         "fr": "sortir-de-la-routine-devenir-administrateur-swiss-armed-forces-vtg-bern"
@@ -1034,7 +1059,7 @@
         ],
         "de": [
           "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-          "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bern"
+          "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bellinzona"
         ],
         "en": [
           "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
@@ -1046,7 +1071,8 @@
       "previousSlugs": [
         "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bern",
-        "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
+        "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
+        "raus-aus-der-routine-werde-berufsoffizier-in-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1088,7 +1114,7 @@
       "crawledAt": "2026-05-10T11:06:13.818Z",
       "firstSeenAt": "2026-05-10T11:06:13.818Z",
       "slugByLocale": {
-        "de": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bellinzona",
+        "de": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern",
         "it": "la-tua-professione-dovrebbe-offrire-di-piu-diventa-un-assistente-professionale-swiss-armed-forces-vtg-bern",
         "en": "your-profession-should-offer-more-become-a-professional-assistant-swiss-armed-forces-vtg-bern",
         "fr": "votre-profession-devrait-offrir-plus-devenez-assistant-professionnel-swiss-armed-forces-vtg-bern"
@@ -1118,7 +1144,7 @@
         ],
         "de": [
           "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
-          "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern"
+          "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bellinzona"
         ],
         "fr": [
           "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk",
@@ -1129,7 +1155,8 @@
         "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
         "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bern",
         "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funk",
-        "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
+        "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
+        "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1152,7 +1179,7 @@
     },
     {
       "id": "company-6gmxu3",
-      "slug": "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bellinzona",
+      "slug": "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Mannschaft und Kader im gastgewerblichen Bereich (m/w)",
       "location": "Bern",
@@ -1184,22 +1211,24 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bellinzona",
+        "it": "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-swiss-armed-forces-vtg-bern",
         "en": "team-und-kader-im-gastronomy-m-w-swiss-armed-forces-vtg-bellinzona",
-        "de": "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-swiss-armed-forces-vtg-bellinzona",
+        "de": "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-swiss-armed-forces-vtg-bern",
         "fr": "team-und-kader-im-gastronomie-m-w-swiss-armed-forces-vtg-bellinzona"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern",
-          "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3"
+          "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3",
+          "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bellinzona"
         ],
         "en": [
           "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3"
         ],
         "de": [
-          "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3"
+          "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3",
+          "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-swiss-armed-forces-vtg-bellinzona"
         ],
         "fr": [
           "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3"
@@ -1208,7 +1237,9 @@
       "previousSlugs": [
         "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern",
         "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3",
-        "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3"
+        "mannschaft-e-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bellinzona",
+        "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-d-swiss-armed-forces-vtg-bern-6gmxu3",
+        "mannschaft-und-kader-im-gastgewerblichen-bereich-m-w-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1264,7 +1295,7 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "autista-in-comando-swiss-armed-forces-vtg-bellinzona",
-        "en": "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bellinzona",
+        "en": "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern",
         "de": "fahrer-in-transportregal-swiss-armed-forces-vtg-bern-4hynmv",
         "fr": "conducteur-in-commande-swiss-armed-forces-vtg-bern-4hynmv"
       },
@@ -1275,12 +1306,14 @@
           "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv"
         ],
         "en": [
-          "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv"
+          "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv",
+          "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern",
-        "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv"
+        "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bern-4hynmv",
+        "fahrer-in-transporthelfer-in-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -1337,7 +1370,7 @@
       "slugByLocale": {
         "it": "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bellinzona",
         "en": "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
-        "de": "mannschaft-und-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bellinzona",
+        "de": "mannschaft-und-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bern",
         "fr": "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl"
       },
       "sourceLang": "de",
@@ -1347,13 +1380,15 @@
           "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl"
         ],
         "de": [
-          "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl"
+          "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
+          "mannschaft-und-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern",
         "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
-        "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl"
+        "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
+        "mannschaft-und-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1409,7 +1444,7 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "agenti-del-personale-swiss-armed-forces-vtg-bern",
-        "en": "staff-officers-hq-kfor-swiss-armed-forces-vtg-bellinzona",
+        "en": "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern",
         "de": "personalverantwortliche-hq-kfor-swiss-armed-forces-vtg-bellinzona",
         "fr": "fonctionnaires-swiss-armed-forces-vtg-bellinzona"
       },
@@ -1420,7 +1455,8 @@
           "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern-o3sbqw"
         ],
         "en": [
-          "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern-o3sbqw"
+          "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern-o3sbqw",
+          "staff-officers-hq-kfor-swiss-armed-forces-vtg-bellinzona"
         ],
         "de": [
           "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern-o3sbqw"
@@ -1431,7 +1467,8 @@
       },
       "previousSlugs": [
         "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern",
-        "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern-o3sbqw"
+        "staff-officers-hq-kfor-swiss-armed-forces-vtg-bern-o3sbqw",
+        "staff-officers-hq-kfor-swiss-armed-forces-vtg-bellinzona"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1488,7 +1525,7 @@
       "slugByLocale": {
         "it": "camion-automobile-meccatronica-swiss-armed-forces-vtg-bern",
         "en": "truck-automobile-mechatronics-swiss-armed-forces-vtg-bern",
-        "de": "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bellinzona",
+        "de": "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bern",
         "fr": "camion-machitronique-automobile-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -1504,12 +1541,14 @@
           "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-p0hvci"
         ],
         "de": [
-          "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-p0hvci"
+          "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-p0hvci",
+          "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bern",
-        "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-p0hvci"
+        "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bern-p0hvci",
+        "lkw-automobil-mechatroniker-in-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1566,17 +1605,21 @@
       "slugByLocale": {
         "it": "pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern-szsnuw",
         "en": "projektleiter-m-w-d-swiss-armed-forces-vtg-bern-szsnuw",
-        "de": "pionier-maurer-m-w-swiss-armed-forces-vtg-bellinzona",
+        "de": "pionier-maurer-m-w-swiss-armed-forces-vtg-bern",
         "fr": "projektleiter-m-w-d-swiss-armed-forces-vtg-bern-szsnuw"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern"
+        ],
+        "de": [
+          "pionier-maurer-m-w-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
-        "pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern"
+        "pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern",
+        "pionier-maurer-m-w-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1595,7 +1638,8 @@
       "addressLocality": "Bern",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-6iaf9o",
@@ -1633,7 +1677,7 @@
       "slugByLocale": {
         "it": "squadre-e-quadri-di-tutti-i-livelli-nel-campo-della-costruzione-alta-bassa-swiss-armed-forces-vtg-bern",
         "en": "team-and-cadres-of-all-levels-in-the-field-of-high-low-construction-swiss-armed-forces-vtg-bern",
-        "de": "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bellinzona",
+        "de": "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern",
         "fr": "equipe-et-cadres-de-tous-niveaux-dans-le-domaine-de-la-construction-haute-faible-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -1649,13 +1693,15 @@
           "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern-6iaf9o"
         ],
         "de": [
-          "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern-6iaf9o"
+          "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern-6iaf9o",
+          "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern",
         "mannschaft-e-kader-aller-stufen-im-bereich-hoch-genio-civile-swiss-armed-forces-vtg-bern-6iaf9o",
-        "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern-6iaf9o"
+        "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bern-6iaf9o",
+        "mannschaft-und-kader-aller-stufen-im-bereich-hoch-tiefbau-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1717,8 +1763,8 @@
       "slugByLocale": {
         "it": "infrastrutture-specialista-in-sanitario-swiss-armed-forces-vtg-bern",
         "en": "infrastructure-specialist-in-sanitary-swiss-armed-forces-vtg-bern",
-        "de": "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bellinzona",
-        "fr": "specialiste-des-infrastructures-en-sanitaire-swiss-armed-forces-vtg-bellinzona"
+        "de": "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern",
+        "fr": "specialiste-des-infrastructures-en-sanitaire-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -1731,16 +1777,18 @@
         ],
         "fr": [
           "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw",
-          "specialiste-des-infrastructures-en-sanitaire-swiss-armed-forces-vtg-bern"
+          "specialiste-des-infrastructures-en-sanitaire-swiss-armed-forces-vtg-bellinzona"
         ],
         "de": [
-          "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw"
+          "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw",
+          "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern",
         "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bern-4u21rw",
-        "specialiste-des-infrastructures-en-sanitaire-swiss-armed-forces-vtg-bern"
+        "specialiste-des-infrastructures-en-sanitaire-swiss-armed-forces-vtg-bellinzona",
+        "infrastruktur-spezialist-in-sanitar-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1763,7 +1811,7 @@
     },
     {
       "id": "company-r2rk7v",
-      "slug": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bellinzona",
+      "slug": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Infrastruktur Spezialist/in Elektrik / Starkstrom",
       "location": "Bern",
@@ -1800,25 +1848,25 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bellinzona",
+        "it": "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern",
         "en": "infrastructure-specialist-in-electrical-power-swiss-armed-forces-vtg-bern",
         "de": "sachbearbeiter-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
-        "fr": "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bellinzona"
+        "fr": "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern",
-          "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v"
+          "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
+          "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bellinzona"
         ],
         "fr": [
-          "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bern"
+          "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
-        "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern",
         "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bern-r2rk7v",
-        "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bern"
+        "infrastruktur-spezialist-in-elektrik-starkstrom-swiss-armed-forces-vtg-bellinzona",
+        "specialiste-des-infrastructures-electriques-electriques-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1880,7 +1928,7 @@
       "slugByLocale": {
         "it": "specialista-della-tecnologia-dell-informazione-swiss-armed-forces-vtg-bern",
         "en": "information-technology-specialist-swiss-armed-forces-vtg-bern",
-        "de": "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bellinzona",
+        "de": "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bern",
         "fr": "specialiste-des-technologies-de-l-information-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -1896,12 +1944,14 @@
           "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bern-ta786n"
         ],
         "de": [
-          "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bern-ta786n"
+          "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bern-ta786n",
+          "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bern",
-        "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bern-ta786n"
+        "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bern-ta786n",
+        "ubermittlungs-informatikspezialist-in-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1963,7 +2013,7 @@
       "slugByLocale": {
         "it": "consulente-senior-m-w-swiss-armed-forces-vtg-bern",
         "en": "senior-consultant-m-w-swiss-armed-forces-vtg-bern",
-        "de": "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-swiss-armed-forces-vtg-bellinzona",
+        "de": "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-swiss-armed-forces-vtg-bern",
         "fr": "consultant-principal-m-m-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -1979,13 +2029,15 @@
           "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d"
         ],
         "de": [
-          "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d"
+          "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
+          "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern",
         "offiziere-per-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
-        "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d"
+        "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-d-swiss-armed-forces-vtg-bern-qtsz9d",
+        "offiziere-fur-friedensfordernde-auslandseinsatze-m-w-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2008,7 +2060,7 @@
     },
     {
       "id": "company-q6f59r",
-      "slug": "projektleiter-m-w-d-swiss-armed-forces-vtg-bellinzona",
+      "slug": "projektleiter-m-w-d-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Militärisches Kaderspersonal (m/w)",
       "location": "Bern",
@@ -2045,24 +2097,28 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "projektleiter-m-w-swiss-armed-forces-vtg-bellinzona",
+        "it": "projektleiter-m-w-swiss-armed-forces-vtg-bern",
         "en": "projektleiter-m-w-d-swiss-armed-forces-vtg-bern-q6f59r",
-        "de": "militarisches-kaderspersonal-m-w-swiss-armed-forces-vtg-bellinzona",
+        "de": "militarisches-kaderspersonal-m-w-swiss-armed-forces-vtg-bern",
         "fr": "projektleiter-m-w-d-swiss-armed-forces-vtg-bern-q6f59r"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern",
-          "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern-q6f59r"
+          "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern-q6f59r",
+          "projektleiter-m-w-swiss-armed-forces-vtg-bellinzona"
         ],
         "de": [
-          "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern-q6f59r"
+          "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern-q6f59r",
+          "militarisches-kaderspersonal-m-w-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern",
-        "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern-q6f59r"
+        "militarisches-kaderspersonal-m-w-d-swiss-armed-forces-vtg-bern-q6f59r",
+        "projektleiter-m-w-swiss-armed-forces-vtg-bellinzona",
+        "militarisches-kaderspersonal-m-w-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -2124,7 +2180,7 @@
       "slugByLocale": {
         "it": "account-manager-m-w-swiss-armed-forces-vtg-bern",
         "en": "account-manager-m-w-swiss-armed-forces-vtg-bellinzona",
-        "de": "observer-lmt-lot-m-w-swiss-armed-forces-vtg-bellinzona",
+        "de": "observer-lmt-lot-m-w-swiss-armed-forces-vtg-bern",
         "fr": "gestionnaire-de-comptes-m-m-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -2140,12 +2196,14 @@
           "observer-lmt-lot-m-w-d-swiss-armed-forces-vtg-bern-i476a6"
         ],
         "de": [
-          "observer-lmt-lot-m-w-d-swiss-armed-forces-vtg-bern-i476a6"
+          "observer-lmt-lot-m-w-d-swiss-armed-forces-vtg-bern-i476a6",
+          "observer-lmt-lot-m-w-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "observer-lmt-lot-m-w-d-swiss-armed-forces-vtg-bern",
         "observer-lmt-lot-m-w-d-swiss-armed-forces-vtg-bern-i476a6",
+        "observer-lmt-lot-m-w-swiss-armed-forces-vtg-bellinzona",
         "responsabile-ordini-fornitura-e-operativita-swiss-armed-forces-vtg-bern",
         "order-manager-provision-and-operation-swiss-armed-forces-vtg-bern",
         "auftragssteurer-in-bereitstellung-und-betrieb-swiss-armed-forces-vtg-bellinzona",
@@ -2215,7 +2273,7 @@
       "slugByLocale": {
         "it": "assistente-nella-linea-centrale-alc-monteceneri-swiss-armed-forces-vtg-bellinzona",
         "en": "assistant-in-the-center-line-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491",
-        "de": "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bellinzona",
+        "de": "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern",
         "fr": "assistant-sur-la-ligne-centrale-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491"
       },
       "sourceLang": "de",
@@ -2225,12 +2283,14 @@
           "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491"
         ],
         "de": [
-          "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491"
+          "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491",
+          "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern",
-        "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491"
+        "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bern-8ci491",
+        "assistent-in-der-centerleitung-alc-monteceneri-swiss-armed-forces-vtg-bellinzona"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2292,7 +2352,7 @@
       "slugByLocale": {
         "it": "operatore-di-manutenzione-edifici-thusis-swiss-armed-forces-vtg-bern",
         "en": "building-operations-worker-thusis-swiss-armed-forces-vtg-bellinzona",
-        "de": "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bellinzona",
+        "de": "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern",
         "fr": "operateur-de-maintenance-des-batiments-thusis-swiss-armed-forces-vtg-bellinzona"
       },
       "sourceLang": "de",
@@ -2305,7 +2365,8 @@
           "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo"
         ],
         "de": [
-          "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo"
+          "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo",
+          "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bellinzona"
         ],
         "fr": [
           "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo"
@@ -2314,7 +2375,8 @@
       "previousSlugs": [
         "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern",
         "collaboratore-trice-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo",
-        "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo"
+        "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bern-lz4syo",
+        "mitarbeiter-in-gebaudebetrieb-thusis-swiss-armed-forces-vtg-bellinzona"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2376,7 +2438,7 @@
       "slugByLocale": {
         "it": "operatore-di-impianti-tecnici-swiss-armed-forces-vtg-bern",
         "en": "facility-operations-technician-swiss-armed-forces-vtg-bern",
-        "de": "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bellinzona",
+        "de": "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern",
         "fr": "technicien-en-installations-techniques-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -2389,7 +2451,8 @@
           "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide"
         ],
         "de": [
-          "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide"
+          "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide",
+          "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bellinzona"
         ],
         "fr": [
           "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide"
@@ -2398,7 +2461,8 @@
       "previousSlugs": [
         "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern",
         "collaboratore-trice-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide",
-        "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide"
+        "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bern-hkdide",
+        "mitarbeiter-in-gebaudebetrieb-chur-swiss-armed-forces-vtg-bellinzona"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2460,8 +2524,8 @@
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-vorortlager-swiss-armed-forces-vtg-chur",
         "en": "logistics-department-swiss-armed-forces-vtg-bellinzona",
-        "de": "logistiker-in-vorortlager-swiss-armed-forces-vtg-bellinzona",
-        "fr": "logistiker-in-vorortlager-swiss-armed-forces-vtg-bellinzona"
+        "de": "logistiker-in-vorortlager-swiss-armed-forces-vtg-bern",
+        "fr": "logistiker-in-vorortlager-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -2473,15 +2537,18 @@
           "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9"
         ],
         "de": [
-          "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9"
+          "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9",
+          "logistiker-in-vorortlager-swiss-armed-forces-vtg-bellinzona"
         ],
         "fr": [
-          "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9"
+          "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9",
+          "logistiker-in-vorortlager-swiss-armed-forces-vtg-bellinzona"
         ]
       },
       "previousSlugs": [
         "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur",
         "logistiker-in-vorortlager-swiss-armed-forces-vtg-chur-v433d9",
+        "logistiker-in-vorortlager-swiss-armed-forces-vtg-bellinzona",
         "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-ambri",
         "logistics-lager-ambri-andermatt-swiss-armed-forces-vtg-bellinzona",
         "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-bellinzona",
@@ -2506,7 +2573,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-jnoz9i",
@@ -2549,7 +2617,7 @@
       "slugByLocale": {
         "it": "fachspezialist-in-planung-e-controlling-stv-chef-in-swiss-armed-forces-vtg-bellinzona",
         "en": "fachspezialist-in-planung-und-controlling-stv-chef-in-swiss-armed-forces-vtg-monteceneri-ti-jnoz9i",
-        "de": "fachspezialist-in-planung-und-controlling-stv-chef-in-swiss-armed-forces-vtg-bellinzona",
+        "de": "fachspezialist-in-planung-und-controlling-stv-chef-in-swiss-armed-forces-vtg-bern",
         "fr": "specialiste-en-planification-et-controle-chef-stv-in-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
@@ -2559,7 +2627,8 @@
           "fachspezialist-in-planung-e-controlling-stv-chef-in-swiss-armed-forces-vtg-monteceneri-ti-jnoz9i"
         ],
         "de": [
-          "fachspezialist-in-planung-und-controlling-stv-chef-in-swiss-armed-forces-vtg-monteceneri-ti-jnoz9i"
+          "fachspezialist-in-planung-und-controlling-stv-chef-in-swiss-armed-forces-vtg-monteceneri-ti-jnoz9i",
+          "fachspezialist-in-planung-und-controlling-stv-chef-in-swiss-armed-forces-vtg-bellinzona"
         ],
         "fr": [
           "fachspezialist-in-planung-und-controlling-stv-chef-in-swiss-armed-forces-vtg-monteceneri-ti-jnoz9i"
@@ -2568,7 +2637,8 @@
       "previousSlugs": [
         "fachspezialist-in-planung-und-controlling-stv-chef-in-swiss-armed-forces-vtg-monteceneri-ti",
         "fachspezialist-in-planung-e-controlling-stv-chef-in-swiss-armed-forces-vtg-monteceneri-ti-jnoz9i",
-        "fachspezialist-in-planung-und-controlling-stv-chef-in-swiss-armed-forces-vtg-monteceneri-ti-jnoz9i"
+        "fachspezialist-in-planung-und-controlling-stv-chef-in-swiss-armed-forces-vtg-monteceneri-ti-jnoz9i",
+        "fachspezialist-in-planung-und-controlling-stv-chef-in-swiss-armed-forces-vtg-bellinzona"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
