@@ -766,11 +766,11 @@
     },
     {
       "id": "swiss-life-d19c34b9869e",
-      "slug": "consulente-previdenziale-e-finanziario-f-m-d-romandia-swiss-life-sion",
+      "slug": "consulente-consulente-in-previdenza-e-finanza-f-m-d-romandia-swiss-life-lausanne",
       "slugByLocale": {
-        "it": "consulente-previdenziale-e-finanziario-f-m-d-romandia-swiss-life-sion",
+        "it": "consulente-consulente-in-previdenza-e-finanza-f-m-d-romandia-swiss-life-lausanne",
         "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-romandie-swiss-life-ch",
-        "de": "vorsorge-und-finanzberater-w-m-d-romandie-swiss-life-sion",
+        "de": "beraterin-beraterin-fur-vorsorge-und-finanzen-f-m-d-romandie-swiss-life-lausanne",
         "fr": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-romandie-swiss-life-ch"
       },
       "company": "Swiss Life",
@@ -844,17 +844,23 @@
       "hiringOrganization": "Swiss Life AG",
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-romandie-swiss-life-ch",
+        "consulente-previdenziale-e-finanziario-f-m-d-romandia-swiss-life-sion",
         "provident-and-finance-advisor-e-h-d-romandie-swiss-life-sion",
         "welfare-and-finance-advisor-f-h-d-romandie-swiss-life-sion",
+        "vorsorge-und-finanzberater-w-m-d-romandie-swiss-life-sion",
         "consulente-consulente-in-previdenza-e-finanza-f-m-d-romandia-swiss-life-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-romandie-swiss-life-ch"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-romandie-swiss-life-ch",
+          "consulente-previdenziale-e-finanziario-f-m-d-romandia-swiss-life-sion"
         ],
         "en": [
           "provident-and-finance-advisor-e-h-d-romandie-swiss-life-sion",
           "welfare-and-finance-advisor-f-h-d-romandie-swiss-life-sion"
+        ],
+        "de": [
+          "vorsorge-und-finanzberater-w-m-d-romandie-swiss-life-sion"
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:35.812Z",

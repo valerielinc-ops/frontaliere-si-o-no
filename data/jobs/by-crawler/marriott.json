@@ -3214,12 +3214,12 @@
     },
     {
       "id": "marriott-7cfe6116d628",
-      "slug": "welcome-ambassador-bellboy-winter-26-27-w-verbier-marriott-verbier",
+      "slug": "supervisore-del-pavimento-di-pulizia-capitano-dello-stirale-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "housekeeping-floor-supervisor-style-captain-w-verbier-marriott-verbier",
-        "it": "welcome-ambassador-bellboy-winter-26-27-w-verbier-marriott-verbier",
+        "it": "supervisore-del-pavimento-di-pulizia-capitano-dello-stirale-w-verbier-marriott-international-verbier",
         "de": "willkommensambassador-portier-winter-26-27-w-verbier-marriott-international-verbier",
-        "fr": "ambassadeur-d-accueil-concierge-hiver-26-27-w-verbier-marriott-international-verbier"
+        "fr": "surveillant-du-plancher-de-la-maison-capitaine-de-style-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -3283,7 +3283,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T22:31:56.029Z"
+      "firstSeenAt": "2026-05-11T22:31:56.029Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "welcome-ambassador-bellboy-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "ambassadeur-d-accueil-concierge-hiver-26-27-w-verbier-marriott-international-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "welcome-ambassador-bellboy-winter-26-27-w-verbier-marriott-verbier",
+        "ambassadeur-d-accueil-concierge-hiver-26-27-w-verbier-marriott-international-verbier"
+      ]
     },
     {
       "id": "marriott-58ece54c74fb",
@@ -3624,12 +3636,12 @@
     },
     {
       "id": "marriott-80574d0958d9",
-      "slug": "f-b-service-expert-in-room-dining-marriott-zurich",
+      "slug": "esperto-di-servizi-f-b-cena-in-camera-marriott-international-zurich",
       "slugByLocale": {
         "en": "f-b-service-expert-in-room-dining-marriott-zurich",
-        "it": "f-b-service-expert-in-room-dining-marriott-zurich",
+        "it": "esperto-di-servizi-f-b-cena-in-camera-marriott-international-zurich",
         "de": "f-b-service-expert-in-room-dining-marriott-zurich",
-        "fr": "f-b-service-expert-in-room-dining-marriott-zurich"
+        "fr": "expert-en-services-f-b-salle-a-manger-marriott-international-zurich"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -3693,7 +3705,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T22:31:56.023Z"
+      "firstSeenAt": "2026-05-11T22:31:56.023Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-service-expert-in-room-dining-marriott-zurich"
+        ],
+        "fr": [
+          "f-b-service-expert-in-room-dining-marriott-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-service-expert-in-room-dining-marriott-zurich"
+      ]
     },
     {
       "id": "marriott-7f1bfc1278f9",
@@ -3917,11 +3940,11 @@
     },
     {
       "id": "marriott-1b222818043a",
-      "slug": "coordinateur-commercial-groupes-marriott-geneva",
+      "slug": "gruppi-commerciali-di-coordinamento-marriott-international-geneva",
       "slugByLocale": {
         "en": "coordinateur-commercial-groupes-marriott-geneva",
-        "it": "coordinateur-commercial-groupes-marriott-geneva",
-        "de": "coordinateur-commercial-groupes-marriott-geneva",
+        "it": "gruppi-commerciali-di-coordinamento-marriott-international-geneva",
+        "de": "handelskoordinatorgruppen-marriott-international-geneva",
         "fr": "coordinateur-commercial-groupes-marriott-geneva"
       },
       "company": "Marriott International",
@@ -3986,7 +4009,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T22:31:56.020Z"
+      "firstSeenAt": "2026-05-11T22:31:56.020Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-commercial-groupes-marriott-geneva"
+        ],
+        "de": [
+          "coordinateur-commercial-groupes-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-commercial-groupes-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-7a55a7a6f053",
@@ -4390,7 +4424,7 @@
       "slugByLocale": {
         "en": "chef-de-rang-marriott-geneva",
         "it": "chef-de-rang-marriott-geneva",
-        "de": "chef-de-rang-marriott-geneva",
+        "de": "kuchenhilfskraft-marriott-international-geneva",
         "fr": "chef-de-rang-marriott-geneva"
       },
       "company": "Marriott International",

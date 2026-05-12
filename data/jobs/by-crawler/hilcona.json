@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-3e7e02ff1b7a",
-      "slug": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
+      "slug": "elettrotecnico-di-impianto-geiser-ag-schlieren",
       "slugByLocale": {
         "de": "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
-        "it": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
+        "it": "elettrotecnico-di-impianto-geiser-ag-schlieren",
         "en": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren",
-        "fr": "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
+        "fr": "electricien-d-installation-geiser-ag-schlieren"
       },
       "company": "Geiser AG",
       "companyKey": "hilcona",
@@ -48,11 +48,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "betriebselektriker-betriebselektrikerin-hilcona-schlieren"
+          "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
+          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
+        ],
+        "fr": [
+          "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
         ]
       },
       "previousSlugs": [
-        "betriebselektriker-betriebselektrikerin-hilcona-schlieren"
+        "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
+        "betriebselektriker-betriebselektrikerin-geiser-ag-schlieren"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -71,12 +76,12 @@
     },
     {
       "id": "hilcona-a00f5903faec",
-      "slug": "stv-gruppenleiter-stv-gruppenleiterin-ruesterei-hilcona-schlieren",
+      "slug": "responsabile-di-magazzino-geiser-ag-schlieren",
       "slugByLocale": {
         "de": "stv-gruppenleiter-stv-gruppenleiterin-ruesterei-hilcona-schlieren",
-        "it": "stv-gruppenleiter-stv-gruppenleiterin-ruesterei-hilcona-schlieren",
-        "en": "stv-gruppenleiter-stv-gruppenleiterin-ruesterei-hilcona-schlieren",
-        "fr": "stv-gruppenleiter-stv-gruppenleiterin-ruesterei-hilcona-schlieren"
+        "it": "responsabile-di-magazzino-geiser-ag-schlieren",
+        "en": "warehouse-group-leader-geiser-ag-schlieren",
+        "fr": "responsable-d-entrepot-geiser-ag-schlieren"
       },
       "company": "Geiser AG",
       "companyKey": "hilcona",
@@ -126,7 +131,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-11T22:14:05.363Z"
+      "firstSeenAt": "2026-05-11T22:14:05.363Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-gruppenleiter-stv-gruppenleiterin-ruesterei-hilcona-schlieren"
+        ],
+        "en": [
+          "stv-gruppenleiter-stv-gruppenleiterin-ruesterei-hilcona-schlieren"
+        ],
+        "fr": [
+          "stv-gruppenleiter-stv-gruppenleiterin-ruesterei-hilcona-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "stv-gruppenleiter-stv-gruppenleiterin-ruesterei-hilcona-schlieren"
+      ]
     },
     {
       "id": "hilcona-adce8436eeba",
