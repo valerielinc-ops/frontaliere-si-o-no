@@ -1935,6 +1935,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Their original IT canonical (which IS unique because cleanup ensured
  // it) still emits — only the colliding locale variants are suppressed.
  const emittedActiveJobPaths = new Set<string>();
+ // Companion to emittedActiveJobPaths: tracks (canton, locale, slug) tuples
+ // that actually emit HTML. The sitemap shard push (validate:sitemap-pages
+ // gate) reads this set to suppress URLs whose HTML would point at a
+ // canton-section path that the per-job dedup already skipped — keeping
+ // sitemap and dist/ byte-for-byte consistent.
+ const emittedActiveCantonSectionPaths = new Set<string>();
 
  for (const job of validJobs) {
  const perLocaleSlug = {
@@ -1958,6 +1964,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  continue;
  }
  emittedActiveJobPaths.add(__activeJobKey);
+ emittedActiveCantonSectionPaths.add(`${jobCanton}|${locale}|${perLocaleSlug[locale]}`);
  const canonicalPath = withSlash(relPath);
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  // Cannibalization fix: <link rel="canonical"> and og:url may point to a
@@ -7604,6 +7611,14 @@ ${alternates}
        // its rendered HTML carries `<link rel="canonical">` pointing at the
        // brand hub — audit:sitemap-canonicals fails.
        if (resolveCanonicalUrl(perLocaleSlugMap[locale], localeUrl) !== localeUrl) continue;
+       // P2-emit-consistency: the per-job emit loop dedups by
+       // (locale, perLocaleSlug). When two jobs share a slug but live in
+       // different cantons, only the most-recent wins and emits HTML at
+       // its own canton path; the loser's URL never materializes. If we
+       // still pushed the loser's (canton, slug) here, validate-sitemap-pages
+       // would flag it as missing-html. Gate on the set captured during emit.
+       const emittedKey = `${groupJobCanton}|${locale}|${perLocaleSlugMap[locale]}`;
+       if (!emittedActiveCantonSectionPaths.has(emittedKey)) continue;
        shardUrls.push({
          loc: localeUrl,
          lastmod,
