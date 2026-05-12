@@ -4287,12 +4287,18 @@ export function registerJobSlug(job, registry) {
   const slug = String(job.slug || '').trim();
   if (!slug) return;
   if (registry[fp]) return; // Never overwrite — immutable
+  // Persist canton at registration time so downstream consumers (and the
+  // cathedral-slug-registry-canton-backfill test gate) don't see new
+  // entries without canton. Falls back to TI when neither job.canton nor
+  // job.location resolves — matches the back-fill migration semantics.
+  const canton = String(job.canton || '').toUpperCase().trim() || 'TI';
   registry[fp] = {
     canonicalSlug: slug,
     slugByLocale: job.slugByLocale && typeof job.slugByLocale === 'object'
       ? { ...job.slugByLocale }
       : {},
     createdAt: new Date().toISOString().slice(0, 10),
+    canton,
   };
 }
 
