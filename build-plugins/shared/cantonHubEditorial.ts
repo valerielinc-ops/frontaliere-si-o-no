@@ -90,10 +90,14 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
   }
 
   // ── 2. Deep-link archive navigator ────────────────────────────────────
-  // Same locale-aware labels as the TI hub. With ~30k slugs paginated at
-  // 100/page, totalPages can be in the hundreds — wrapped in <details>
-  // collapsible so the visible UX is a single "Sfoglia tutto l'archivio
-  // offerte per pagina (N pagine)" toggle.
+  // Only emitted for the TI hub. Non-TI canton hubs are page-1-only as
+  // static HTML (see seoHubsPlugin.emitThinCantonHubs — `tutti/page-N` for
+  // N>1 reverted 2026-05-12 to keep the dist under the 1 GB Pages cap +
+  // restore text-html-ratio on those leaves). Emitting page-N anchors
+  // here for non-TI cantons would produce 404 links since the static HTML
+  // doesn't exist (SPA shell would render, but the URL is not a canton
+  // listing). TI keeps the navigator because its master `emitHub`
+  // (`seoHubsPlugin`) still emits every page-N HTML.
   //
   // Page-weight guard: for very long archives (e.g. TI with ~400 pages)
   // emitting one anchor per page-N pushed the IT root over the 200 KB
@@ -105,7 +109,7 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
   // (totalPages <= PAGINATOR_HEAD + PAGINATOR_TAIL) we still emit every
   // page — byte-identical to the legacy output for cathedral cantons
   // (which all have small page counts).
-  if (totalPages > 1) {
+  if (isTi && totalPages > 1) {
     const jobsNavLabel = locale === 'it' ? 'Sfoglia tutto l\'archivio offerte per pagina'
       : locale === 'en' ? 'Browse the full job archive by page'
       : locale === 'de' ? 'Vollständiges Stellenarchiv nach Seite durchsuchen'
