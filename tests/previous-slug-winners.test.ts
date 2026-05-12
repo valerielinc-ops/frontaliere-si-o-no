@@ -115,12 +115,12 @@ describe('previousSlugWinners', () => {
  describe('resolveWinner — registry behaviour', () => {
  it('returns null for empty candidates', () => {
  const winners: WinnersFile = {};
- expect(resolveWinner(winners, 'en', 'old', [], NOW)).toBeNull();
+ expect(resolveWinner(winners, 'TI', 'en', 'old', [], NOW)).toBeNull();
  });
 
  it('single candidate is a trivial winner — does NOT mutate the registry', () => {
  const winners: WinnersFile = {};
- const out = resolveWinner(winners, 'en', 'old', [
+ const out = resolveWinner(winners, 'TI', 'en', 'old', [
  { jobIdentifier: 'job-a', canonicalSlug: 'old' },
  ], NOW);
  expect(out!.winnerJobIdentifier).toBe('job-a');
@@ -129,11 +129,11 @@ describe('previousSlugWinners', () => {
 
  it('multi-candidate first-time decision writes a registry entry', () => {
  const winners: WinnersFile = {};
- resolveWinner(winners, 'en', 'foo', [
+ resolveWinner(winners, 'TI', 'en', 'foo', [
  { jobIdentifier: 'job-a', canonicalSlug: 'foo-bar' },
  { jobIdentifier: 'job-b', canonicalSlug: 'foo' },
  ], NOW);
- const key = makeKey('en', 'foo');
+ const key = makeKey('TI', 'en', 'foo');
  expect(winners[key]).toBeDefined();
  expect(winners[key].winnerJobIdentifier).toBe('job-b');
  expect(winners[key].candidatesCount).toBe(2);
@@ -141,7 +141,7 @@ describe('previousSlugWinners', () => {
 
  it('reuses prior decision when the winner is still in the candidates list and TOUCHES lastSeenAt', () => {
  const winners: WinnersFile = {
- [makeKey('en', 'shared')]: {
+ [makeKey('TI', 'en', 'shared')]: {
  winnerJobIdentifier: 'job-aaa',
  winnerCanonical: 'shared-old',
  decidedAt: '2026-01-01T00:00:00.000Z',
@@ -150,7 +150,7 @@ describe('previousSlugWinners', () => {
  candidatesCount: 2,
  },
  };
- const out = resolveWinner(winners, 'en', 'shared', [
+ const out = resolveWinner(winners, 'TI', 'en', 'shared', [
  { jobIdentifier: 'job-aaa', canonicalSlug: 'shared-old' },
  { jobIdentifier: 'job-bbb', canonicalSlug: 'completely-different-slug' },
  ], NOW);
@@ -159,22 +159,23 @@ describe('previousSlugWinners', () => {
  expect(out!.decidedAt).toBe('2026-01-01T00:00:00.000Z');
  // lastSeenAt is bumped to NOW so the prune routine sees this entry as alive.
  expect(out!.lastSeenAt).toBe(NOW);
- expect(winners[makeKey('en', 'shared')].lastSeenAt).toBe(NOW);
+ expect(winners[makeKey('TI', 'en', 'shared')].lastSeenAt).toBe(NOW);
  });
 
- it('reuse: skips touch if lastSeenAt is already === now (idempotent)', () => {
+ it('reuse: skips touch if lastSeenAt is already === now AND canton stamped (idempotent)', () => {
  const winners: WinnersFile = {
- [makeKey('en', 'shared')]: {
+ [makeKey('TI', 'en', 'shared')]: {
  winnerJobIdentifier: 'job-aaa',
  winnerCanonical: 'shared-old',
  decidedAt: '2026-01-01T00:00:00.000Z',
  lastSeenAt: NOW,
  score: 1,
  candidatesCount: 2,
+ canton: 'TI',
  },
  };
- const before = winners[makeKey('en', 'shared')];
- const out = resolveWinner(winners, 'en', 'shared', [
+ const before = winners[makeKey('TI', 'en', 'shared')];
+ const out = resolveWinner(winners, 'TI', 'en', 'shared', [
  { jobIdentifier: 'job-aaa', canonicalSlug: 'shared-old' },
  { jobIdentifier: 'job-bbb', canonicalSlug: 'completely-different-slug' },
  ], NOW);
@@ -186,7 +187,7 @@ describe('previousSlugWinners', () => {
  // is no longer in candidates, we adopt whoever IS in candidates so the
  // file always reflects the current canonical (not a stale reference).
  const winners: WinnersFile = {
- [makeKey('en', 'shared')]: {
+ [makeKey('TI', 'en', 'shared')]: {
  winnerJobIdentifier: 'job-removed',
  winnerCanonical: 'shared-old',
  decidedAt: '2026-01-01T00:00:00.000Z',
@@ -195,7 +196,7 @@ describe('previousSlugWinners', () => {
  candidatesCount: 2,
  },
  };
- const out = resolveWinner(winners, 'en', 'shared', [
+ const out = resolveWinner(winners, 'TI', 'en', 'shared', [
  { jobIdentifier: 'job-still-here', canonicalSlug: 'shared-similar' },
  ], NOW);
  expect(out!.winnerJobIdentifier).toBe('job-still-here');
@@ -203,12 +204,12 @@ describe('previousSlugWinners', () => {
  expect(out!.lastSeenAt).toBe(NOW);
  // Registry IS updated even though only one candidate remained — keeps
  // the file consistent with the live state.
- expect(winners[makeKey('en', 'shared')].winnerJobIdentifier).toBe('job-still-here');
+ expect(winners[makeKey('TI', 'en', 'shared')].winnerJobIdentifier).toBe('job-still-here');
  });
 
  it('re-elects when prior winner removed AND multiple new candidates exist', () => {
  const winners: WinnersFile = {
- [makeKey('en', 'shared')]: {
+ [makeKey('TI', 'en', 'shared')]: {
  winnerJobIdentifier: 'job-removed',
  winnerCanonical: 'gone-slug',
  decidedAt: '2026-01-01T00:00:00.000Z',
@@ -217,7 +218,7 @@ describe('previousSlugWinners', () => {
  candidatesCount: 3,
  },
  };
- const out = resolveWinner(winners, 'en', 'shared', [
+ const out = resolveWinner(winners, 'TI', 'en', 'shared', [
  { jobIdentifier: 'job-aaa', canonicalSlug: 'shared-similar' },
  { jobIdentifier: 'job-bbb', canonicalSlug: 'totally-other' },
  ], NOW);
@@ -225,7 +226,7 @@ describe('previousSlugWinners', () => {
  expect(out!.decidedAt).toBe(NOW);
  expect(out!.lastSeenAt).toBe(NOW);
  // Registry updated.
- expect(winners[makeKey('en', 'shared')].winnerJobIdentifier).toBe('job-aaa');
+ expect(winners[makeKey('TI', 'en', 'shared')].winnerJobIdentifier).toBe('job-aaa');
  });
  });
 
@@ -238,7 +239,7 @@ describe('previousSlugWinners', () => {
 
  it('keeps entries whose lastSeenAt is within the TTL window', () => {
  const winners: WinnersFile = {
- [makeKey('en', 'fresh')]: {
+ [makeKey('TI', 'en', 'fresh')]: {
  winnerJobIdentifier: 'job', winnerCanonical: 'x', decidedAt: oneDayBefore,
  lastSeenAt: oneDayBefore, score: 0.5, candidatesCount: 2,
  },
@@ -250,11 +251,11 @@ describe('previousSlugWinners', () => {
 
  it('removes entries whose lastSeenAt is older than TTL', () => {
  const winners: WinnersFile = {
- [makeKey('en', 'stale')]: {
+ [makeKey('TI', 'en', 'stale')]: {
  winnerJobIdentifier: 'job', winnerCanonical: 'x', decidedAt: fortyDaysBefore,
  lastSeenAt: fortyDaysBefore, score: 0.5, candidatesCount: 2,
  },
- [makeKey('en', 'older')]: {
+ [makeKey('TI', 'en', 'older')]: {
  winnerJobIdentifier: 'job', winnerCanonical: 'x', decidedAt: fiftyDaysBefore,
  lastSeenAt: fiftyDaysBefore, score: 0.5, candidatesCount: 2,
  },
@@ -266,24 +267,24 @@ describe('previousSlugWinners', () => {
 
  it('mixed entries: keeps fresh, removes stale', () => {
  const winners: WinnersFile = {
- [makeKey('en', 'fresh')]: {
+ [makeKey('TI', 'en', 'fresh')]: {
  winnerJobIdentifier: 'a', winnerCanonical: 'x', decidedAt: oneDayBefore,
  lastSeenAt: oneDayBefore, score: 0, candidatesCount: 1,
  },
- [makeKey('en', 'stale')]: {
+ [makeKey('TI', 'en', 'stale')]: {
  winnerJobIdentifier: 'b', winnerCanonical: 'y', decidedAt: fortyDaysBefore,
  lastSeenAt: fortyDaysBefore, score: 0, candidatesCount: 1,
  },
  };
  const pruned = pruneStaleWinners(winners, TTL_MS, NOW_PRUNE);
  expect(pruned).toBe(1);
- expect(Object.keys(winners)).toEqual([makeKey('en', 'fresh')]);
+ expect(Object.keys(winners)).toEqual([makeKey('TI', 'en', 'fresh')]);
  });
 
  it('backward compat: entry without lastSeenAt falls back to decidedAt', () => {
  // Simulate an entry written before lastSeenAt was added — only decidedAt.
  const winners: WinnersFile = {
- [makeKey('en', 'old')]: {
+ [makeKey('TI', 'en', 'old')]: {
  winnerJobIdentifier: 'job', winnerCanonical: 'x', decidedAt: oneDayBefore,
  lastSeenAt: '', // empty — must fall back
  score: 0, candidatesCount: 1,
@@ -301,7 +302,7 @@ describe('previousSlugWinners', () => {
 
  it('returns 0 when `now` is unparseable (defensive — never purge on bad input)', () => {
  const winners: WinnersFile = {
- [makeKey('en', 'fresh')]: {
+ [makeKey('TI', 'en', 'fresh')]: {
  winnerJobIdentifier: 'job', winnerCanonical: 'x', decidedAt: oneDayBefore,
  lastSeenAt: oneDayBefore, score: 0, candidatesCount: 1,
  },
@@ -333,7 +334,7 @@ describe('previousSlugWinners', () => {
  it('saveWinners + loadWinners is a roundtrip', () => {
  const file = path.join(tmp, 'round.json');
  const data: WinnersFile = {
- [makeKey('en', 'foo')]: {
+ [makeKey('TI', 'en', 'foo')]: {
  winnerJobIdentifier: 'job-a',
  winnerCanonical: 'foo-bar',
  decidedAt: NOW,
@@ -349,16 +350,16 @@ describe('previousSlugWinners', () => {
  it('saveWinners sorts keys for stable diffs', () => {
  const file = path.join(tmp, 'sorted.json');
  saveWinners(file, {
- [makeKey('en', 'zzz')]: {
+ [makeKey('TI', 'en', 'zzz')]: {
  winnerJobIdentifier: 'job', winnerCanonical: 'zzz', decidedAt: NOW, lastSeenAt: NOW, score: 0, candidatesCount: 1,
  },
- [makeKey('en', 'aaa')]: {
+ [makeKey('TI', 'en', 'aaa')]: {
  winnerJobIdentifier: 'job', winnerCanonical: 'aaa', decidedAt: NOW, lastSeenAt: NOW, score: 0, candidatesCount: 1,
  },
  });
  const raw = fs.readFileSync(file, 'utf-8');
- const aaaPos = raw.indexOf('en::aaa');
- const zzzPos = raw.indexOf('en::zzz');
+ const aaaPos = raw.indexOf('TI::en::aaa');
+ const zzzPos = raw.indexOf('TI::en::zzz');
  expect(aaaPos).toBeGreaterThan(0);
  expect(zzzPos).toBeGreaterThan(aaaPos);
  });

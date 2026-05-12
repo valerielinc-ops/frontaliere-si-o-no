@@ -7392,9 +7392,13 @@ ${alternates}
  if (localeAwareAll.size === 0 && legacyOnly.length === 0) continue;
 
  const currentItSlug = localizedSlug(job, 'it');
- const currentItPath = withSlash(`/${sectionByLocale.it}/${currentItSlug}`.replace(/\/+/g, '/'));
+ // Phase 8b: previousSlugs sitemap entries live at the JOB'S canton path,
+ // not the legacy TI section. Compute once per job; reused inside addEntry
+ // and the canonicalAlternates emit below.
+ const jobCantonForSitemapPrevSlugs = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ const currentItPath = withSlash(`/${buildCantonAwareSection('it', jobCantonForSitemapPrevSlugs)}/${currentItSlug}`.replace(/\/+/g, '/'));
  const canonicalAlternates = localeList.map((l) => {
- const p = `${localePrefix[l]}/${sectionByLocale[l]}/${localizedSlug(job, l)}`.replace(/\/+/g, '/');
+ const p = `${localePrefix[l]}/${buildCantonAwareSection(l, jobCantonForSitemapPrevSlugs)}/${localizedSlug(job, l)}`.replace(/\/+/g, '/');
  return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
  }).join('\n');
  const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${currentItPath}" />`;
@@ -7404,7 +7408,7 @@ ${alternates}
  const currentSlug = localizedSlug(job, locale);
  if (!ps || ps === currentSlug) return;
  if (!jobHtmlCache.has(`${locale}:${currentSlug}`)) return;
- const psRelPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${ps}`.replace(/\/+/g, '/').replace(/^\//, '');
+ const psRelPath = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCantonForSitemapPrevSlugs)}/${ps}`.replace(/\/+/g, '/').replace(/^\//, '');
  if (activeJobDirs.has(psRelPath)) return;
  if (prevSlugSitemapPaths.has(psRelPath)) return;
  prevSlugSitemapPaths.add(psRelPath);
@@ -9563,10 +9567,22 @@ ${hreflangLinks}
  // for the full rationale and heuristic.
 
  // Pre-scan #1: build the claimant map BEFORE the emit loop. For each
- // (locale, oldSlug) pair, list every active job that claims it via either
- // previousSlugsByLocale[locale] or the legacy flat previousSlugs (locale-
- // unattributed entries fan out across all locales).
+ // (canton, locale, oldSlug) triple, list every active job in that canton
+ // that claims the oldSlug via either previousSlugsByLocale[locale] or the
+ // legacy flat previousSlugs (locale-unattributed entries fan out across
+ // all locales).
+ //
+ // Phase 8b (2026-05-12): canton is the first key segment because the
+ // bridge URL path now derives from the job's canton (e.g. a ZH job emits
+ // its bridge under /cerca-lavoro-zurigo/). Two jobs in different cantons
+ // that legitimately share a prevSlug emit DIFFERENT bridge URLs —
+ // ownership is per (canton, locale, oldSlug), not per (locale, oldSlug).
  const previousSlugClaimants = new Map<string, PreviousSlugCandidate[]>();
+ // Cache key → canton so we can re-derive the canton for the resolveWinner
+ // call without re-splitting the composite key (split('::', 3) doesn't help
+ // when oldSlug itself contains '::', and historically slugs don't but the
+ // contract shouldn't depend on that).
+ const cantonByKey = new Map<string, string>();
  for (const job of validJobs) {
  const localeAwareAll = new Set<string>();
  const pslByLocale = (job as any).previousSlugsByLocale;
@@ -9579,6 +9595,7 @@ ${hreflangLinks}
  ? job.previousSlugs.filter((s: string) => !localeAwareAll.has(s))
  : [];
  if (localeAwareAll.size === 0 && legacyOnly.length === 0) continue;
+ const jobCantonForClaim = sharedResolveJobCanton(job as { canton?: string; location?: string });
  for (const locale of localeList) {
  const currentSlug = localizedSlug(job, locale);
  if (!currentSlug) continue;
@@ -9587,14 +9604,17 @@ ${hreflangLinks}
  for (const oldSlug of prevSlugsForLocale) {
  if (!oldSlug || oldSlug === currentSlug) continue;
  if (RESERVED_HUB_SLUGS.has(oldSlug)) continue;
- const key = previousSlugWinnerKey(locale, oldSlug);
+ const key = previousSlugWinnerKey(jobCantonForClaim, locale, oldSlug);
  const list = previousSlugClaimants.get(key);
  const candidate: PreviousSlugCandidate = {
  jobIdentifier: String((job as any).id || (job as any).slug || currentSlug),
  canonicalSlug: currentSlug,
  };
  if (list) list.push(candidate);
- else previousSlugClaimants.set(key, [candidate]);
+ else {
+ previousSlugClaimants.set(key, [candidate]);
+ cantonByKey.set(key, jobCantonForClaim);
+ }
  }
  }
  }
@@ -9618,9 +9638,17 @@ ${hreflangLinks}
  const nowIso = new Date().toISOString().slice(0, 10) + 'T00:00:00.000Z';
  let multiClaimantKeys = 0;
  for (const [key, candidates] of previousSlugClaimants) {
- const [locale, oldSlug] = key.split('::', 2);
+ // Key shape: `${canton}::${locale}::${oldSlug}`. We split on the FIRST
+ // two '::' separators only, so an oldSlug containing '::' (defensive —
+ // not expected in real slugs) is preserved as the remainder.
+ const firstSep = key.indexOf('::');
+ const secondSep = firstSep >= 0 ? key.indexOf('::', firstSep + 2) : -1;
+ if (firstSep < 0 || secondSep < 0) continue;
+ const canton = key.slice(0, firstSep);
+ const locale = key.slice(firstSep + 2, secondSep);
+ const oldSlug = key.slice(secondSep + 2);
  if (candidates.length > 1) multiClaimantKeys += 1;
- const winner = resolveWinner(previousSlugWinners, locale, oldSlug, candidates, nowIso);
+ const winner = resolveWinner(previousSlugWinners, canton, locale, oldSlug, candidates, nowIso);
  if (winner) winnerByPrevSlugKey.set(key, winner.winnerJobIdentifier);
  }
  if (multiClaimantKeys > 0) {
@@ -9675,6 +9703,11 @@ ${hreflangLinks}
  };
 
  const myJobIdentifier = String((job as any).id || (job as any).slug || currentSlug);
+ // Canton resolution is per-job (not per-oldSlug) — the same job emits all
+ // its bridges under the same section regardless of locale-aware vs legacy
+ // previousSlugs entries.
+ const jobCantonForBridge = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ const bridgeSection = buildCantonAwareSection(locale, jobCantonForBridge);
  for (const oldSlug of prevSlugsForLocale) {
  if (oldSlug === currentSlug) continue;
  // Skip bridge generation when the previousSlug is a reserved sector/city
@@ -9684,17 +9717,20 @@ ${hreflangLinks}
  // jobSectorPagesPlugin's curated sector hub at the same path and sends
  // both users and Google to a job soft-landing instead of the canonical hub.
  if (RESERVED_HUB_SLUGS.has(oldSlug)) continue;
- // Dedup at write time: if multiple active jobs share this prevSlug, only
- // the registered winner emits the bridge. Other claimants skip silently —
- // their canonical content is still indexed at THEIR own canonical URL,
- // and the bridge URL stably points at the winner's canonical across builds.
- const winnerKey = previousSlugWinnerKey(locale, oldSlug);
+ // Dedup at write time: if multiple active jobs share this prevSlug WITHIN
+ // THIS CANTON, only the registered winner emits the bridge. Other
+ // claimants skip silently — their canonical content is still indexed at
+ // THEIR own canonical URL, and the bridge URL stably points at the
+ // winner's canonical across builds. Phase 8b: ownership is per
+ // (canton, locale, oldSlug); jobs in different cantons that share an old
+ // slug emit at DIFFERENT URLs and never collide here.
+ const winnerKey = previousSlugWinnerKey(jobCantonForBridge, locale, oldSlug);
  const winnerId = winnerByPrevSlugKey.get(winnerKey);
  if (winnerId && winnerId !== myJobIdentifier) {
  bridgeSkippedNotWinner += 1;
  continue;
  }
- const oldPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${oldSlug}`.replace(/\/+/g, '/');
+ const oldPath = `${localePrefix[locale]}/${bridgeSection}/${oldSlug}`.replace(/\/+/g, '/');
  const oldRelPath = oldPath.replace(/^\//, '');
  // Skip if an active job page already occupies this path (buffered writes
  // are invisible to fs.existsSync — use the activeJobDirs set instead).
