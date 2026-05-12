@@ -364,27 +364,42 @@ jobs:
           # input now only controls whether the deploy steps are skipped
           # (for profile-only investigation runs).
           #
-          # PARALLEL is now the default (flipped 2026-05-10 after run
+          # PARALLEL was the default 2026-05-10 → 2026-05-12 after run
           # 25612758703 measured build job wall 716s → 634s = -82s
-          # / -11.5% with NO OOM). The May 9-10 memory optimizations
+          # / -11.5% with NO OOM. The May 9-10 memory optimizations
           # (inverted index in cluster plugin, bridge-direct emit
           # cluster + jobs-seo, auto-flush 5000) cap per-plugin peak
-          # heap at ~150 MB so 4-5 concurrent closeBundle hooks stay
-          # well under the 7 GB ubuntu-latest budget.
+          # heap at ~150 MB so 4-5 concurrent closeBundle hooks stayed
+          # well under the 7 GB ubuntu-latest budget at that scale.
           #
-          # Sequential mode is opt-in for two scenarios:
-          #   - profile_sequential=true   → clean per-plugin wall_s
-          #     numbers without overlap noise (profile dispatch runs
-          #     should pair this with the per-run-id concurrency group
-          #     so profiling isn't cancelled by a cron storm)
-          #   - parallel_plugins=true     → explicit force parallel
-          #     (overrides profile_sequential — useful when testing
-          #     parallel via dispatch with isolated concurrency)
+          # FLIPPED BACK TO SEQUENTIAL 2026-05-12 (run 25737586562 +
+          # 25733510850, docs/PROFILE-MAY12.md). Post-cathedral-expansion
+          # the build crossed the contention crossover point:
+          #   parallel build job:   1631s (run 25733510850, 2026-05-12)
+          #   sequential build job: 1180s (run 25737586562, 2026-05-12)
+          #   Δ = -451s = -28% wall, sequential WINS.
+          # Cause: cathedral added ~16k new SEO pages + heavier per-canton
+          # work; job-og-images's 4-worker pool now degrades 15× in
+          # parallel (903s vs 61s sequential, [profile-detail] confirms
+          # cpu_s=231 → 4-worker @ 96% efficiency in sequential, vs
+          # event-loop starvation in parallel). The ~12-plugin "cluster
+          # at 350s wall" was pure starvation: cpu_s = 0.12-3.16 for
+          # plugins reporting 350s — they were waiting, not working.
+          # Sequential build also restores the silent-tail signal:
+          # jobs-seo Flushed→profile gap goes from 38s parallel to 0s
+          # sequential.
           #
-          # Logic: sequential ONLY when profile_sequential=true AND
-          # parallel_plugins != true. Push/cron and bare dispatch get
-          # parallel by default.
-          SEQUENTIAL_PROFILE: ${{ github.event.inputs.profile_sequential == 'true' && github.event.inputs.parallel_plugins != 'true' && '1' || '' }}
+          # Parallel mode is opt-in via `parallel_plugins=true` dispatch
+          # input for A/B testing or measuring how the crossover moves
+          # as build scale changes. `profile_sequential=true` still gates
+          # the deploy-step skips for investigation-only runs (it no
+          # longer needs to toggle SEQUENTIAL_PROFILE — that's now on
+          # by default).
+          #
+          # Logic: parallel ONLY when parallel_plugins=true explicitly.
+          # Everything else (push, cron, bare dispatch, profile dispatch)
+          # gets sequential.
+          SEQUENTIAL_PROFILE: ${{ github.event.inputs.parallel_plugins == 'true' && '' || '1' }}
           # Opt-in jobsSeoPagesPlugin per-category profiler. Emits a sorted
           # table at end of the plugin's closeBundle showing count + total +
           # avg + p50 + p99 + min + max (ms) for each emission category
