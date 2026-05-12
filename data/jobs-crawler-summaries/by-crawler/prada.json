@@ -1,18 +1,19 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-05-12T11:51:32.444Z",
+  "generatedAt": "2026-05-12T22:46:59.178Z",
   "total": 5,
-  "newCount": 3,
-  "updatedCount": 2,
-  "removedCount": 2,
+  "newCount": 0,
+  "updatedCount": 5,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5975,
-  "avgDurationMs": 5975,
+  "durationMs": 5259,
+  "avgDurationMs": 5259,
   "durationHistory": [
-    5975
+    5259
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-2c9c0bb89dd2",
       "slug": "modellista-abbigliamento-sportivo-performance-prada-linea-rossa-prada-group-montevarchi-modellista-abbigliamento-sportivoperformance-prada-linea-rossa",
@@ -33,12 +34,13 @@
       "url": "https://jobs.pradagroup.com/job/Montevarchi-Modellista-Abbigliamento-SportivoPerformance-Prada-Linea-Rossa/1383321433/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-12T11:51:28.770Z",
-      "_qualityScore": 63,
+      "crawledAt": "2026-05-12T22:46:55.965Z",
+      "firstSeenAt": "2026-05-12T11:51:28.770Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -62,12 +64,14 @@
       "url": "https://jobs.pradagroup.com/job/Taichung-PRADA-Client-Advisor-Taichung/1392606633/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:30.100Z",
-      "_qualityScore": 63,
+      "crawledAt": "2026-05-12T22:46:57.036Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-12T11:51:30.100Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -91,17 +95,17 @@
       "url": "https://jobs.pradagroup.com/job/Seoul-Accountant-%28Contractor%29/1392681933/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:30.447Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-05-12T22:46:57.299Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-12T11:51:30.447Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "prada-332f237b0ca4",
       "slug": "miu-miu-store-manager-saint-moritz-prada-group-st-moritz",
@@ -122,7 +126,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:28.477Z",
+      "crawledAt": "2026-05-12T22:46:55.738Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:42:23.255Z",
       "_qualityScore": 76,
@@ -153,7 +157,7 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-PRADA-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:28.139Z",
+      "crawledAt": "2026-05-12T22:46:55.453Z",
       "firstSeenAt": "2026-04-20T05:11:26.980Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -164,76 +168,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "prada-b90a5bad3e34",
-      "slug": "prada-client-consulente-taichung-prada-group-taichung",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "PRADA, Client Advisor, Taichung",
-      "location": "Taichung",
-      "canton": "TI",
-      "addressLocality": "Taichung",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-11",
-      "url": "https://jobs.pradagroup.com/job/Taichung-PRADA%2C-Client-Advisor%2C-Taichung/1392153033/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-11T22:43:45.385Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T12:21:11.027Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "postalCode": "6500",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 21,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "prada-47c4ee6edbad",
-      "slug": "stock-associate-miu-miu-miami-design-district-prada-group-miami-stock-associate-miu-miu-miami-design-district",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "Stock Associate Miu Miu Miami Design District",
-      "location": "Miami Stock Associate Miu Miu Miami Design District",
-      "canton": "TI",
-      "addressLocality": "Miami Stock Associate Miu Miu Miami Design District",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-11",
-      "url": "https://jobs.pradagroup.com/job/Miami-Stock-Associate-Miu-Miu-Miami-Design-District-OH/1392527533/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-11T22:43:44.847Z",
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "postalCode": "6500",
-      "firstSeenAt": "2026-05-11T22:43:44.847Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 19,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "prada-2d8f05e979e3",
@@ -255,8 +190,9 @@
       "url": "https://jobs.pradagroup.com/job/Seoul-Accountant-%28Contractor%29/1392681933/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:30.447Z",
+      "crawledAt": "2026-05-12T22:46:57.299Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-12T11:51:30.447Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "postalCode": "6500",
@@ -270,7 +206,7 @@
     },
     {
       "id": "prada-49f4423f91c4",
-      "slug": "prada-client-advisor-taichung-prada-group-taichung",
+      "slug": "prada-client-consulente-taichung-prada-group-taichung",
       "company": "Prada Group",
       "companyKey": "prada",
       "companyDomain": "pradagroup.com",
@@ -288,8 +224,9 @@
       "url": "https://jobs.pradagroup.com/job/Taichung-PRADA-Client-Advisor-Taichung/1392606633/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:30.100Z",
+      "crawledAt": "2026-05-12T22:46:57.036Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-12T11:51:30.100Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "postalCode": "6500",
@@ -321,16 +258,16 @@
       "url": "https://jobs.pradagroup.com/job/Montevarchi-Modellista-Abbigliamento-SportivoPerformance-Prada-Linea-Rossa/1383321433/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-12T11:51:28.770Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-05-12T22:46:55.965Z",
+      "firstSeenAt": "2026-05-12T11:51:28.770Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "postalCode": "7000",
-      "_qualityScore": 83,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -354,7 +291,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:28.477Z",
+      "crawledAt": "2026-05-12T22:46:55.738Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:42:23.255Z",
       "salaryMin": 68000,
@@ -388,7 +325,7 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-PRADA-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:28.139Z",
+      "crawledAt": "2026-05-12T22:46:55.453Z",
       "firstSeenAt": "2026-04-20T05:11:26.980Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
