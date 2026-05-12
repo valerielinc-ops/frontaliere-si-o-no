@@ -92,13 +92,15 @@ const ALLOWLIST = [
   //    Lines shift as Phase 7.2 / future per-canton emit blocks grow; we
   //    allowlist a small range around the known stable site.
   // Lines shifted by the cantonSeoProse helper import + block added in
-  // buildThinCantonHubHtml (May 2026 — text-to-html-ratio gate fix).
-  'build-plugins/seoHubsPlugin.ts:1183',
-  'build-plugins/seoHubsPlugin.ts:1199',
-  'build-plugins/seoHubsPlugin.ts:1227',
-  'build-plugins/seoHubsPlugin.ts:1228',
-  'build-plugins/seoHubsPlugin.ts:1243',
-  'build-plugins/seoHubsPlugin.ts:1244',
+  // buildThinCantonHubHtml (May 2026 — text-to-html-ratio gate fix). Lines
+  // shifted again on 2026-05-12 by the BFS-depth `tutti` pagination fix
+  // (paginationHtml block in buildThinCantonHubHtml + jobPerLocale plumbing
+  // in emitThinCantonHubs). The 4 literals all live on 2 paired template
+  // literals (sectors hub + companies hub), each spanning 2 lines.
+  'build-plugins/seoHubsPlugin.ts:1323',
+  'build-plugins/seoHubsPlugin.ts:1324',
+  'build-plugins/seoHubsPlugin.ts:1339',
+  'build-plugins/seoHubsPlugin.ts:1340',
 
   // ── professionLandingsLinksPlugin: TI hub injection targets (intentional —
   //    the prose explicitly references "10 most-searched roles in Ticino"). ──
