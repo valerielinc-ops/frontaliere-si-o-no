@@ -218,6 +218,55 @@ function checkFrontaliereDensity(itBody) {
   };
 }
 
+// ── Broader topical relevance gate ──────────────────────────
+// Used to skip headlines and source pages that mention a Ticino/CH/border
+// town (passing the geographic anchor-gate) but have zero work / fiscal /
+// permit / commute / economy signal. Catches "chiesetta ortodossa
+// macedone a Locarno", "richiedenti asilo Locarnese", "risotto bronzo
+// nazionale Gallarate" — geographically anchored, topically irrelevant.
+const TOPICAL_KEYWORDS = [
+  // Work / employment / income
+  'lavor', 'impieg', 'assun', 'licenzia', 'disoccup', 'occupaz',
+  'stipendi', 'salari', ' paga', 'busta paga', 'reddito', 'compens',
+  'mercato del lavoro', 'posti di lavoro', 'personale', 'organico',
+  // Cross-border markers
+  'frontalier', 'transfrontalier', 'cross-border', 'pendolar',
+  'permesso g', 'permesso b', 'permesso l', 'permesso di lavoro',
+  'dogana', 'doganale', 'valico', 'frontier',
+  // Fiscal / pension / health insurance
+  'fisco', 'fiscal', 'tass', 'impost', 'irpef', 'ritenuta',
+  'imposta alla fonte', 'doppia imposizione', 'ristorn',
+  'accordo fiscale', 'nuovo accordo', 'tassazione',
+  'avs', 'ahv', 'lpp', 'lamal', 'cassa malati', 'pension', 'previdenz',
+  'secondo pilastro', 'terzo pilastro',
+  // Economy / business
+  'economi', 'mercato', 'inflazion', 'rincari', 'carovita',
+  'cambio', 'franco svizzer', ' chf', 'eur/chf',
+  'impres', 'azien', 'industri', 'fabbric', 'multinazional',
+  'banc', 'bors', 'investiment', 'finanz',
+  // Transport / commute
+  'treno', 'ferrovi', 'tilo', 'autostrada', 'mobilit', 'traffic',
+  // Housing
+  'alloggio', 'affitto', 'immobil',
+  // Policy / politics affecting frontalieri
+  'referendum', 'votazion', 'parlament', 'consigli federal',
+  'sindacat', 'sciopero', 'ccl', 'contratto collettivo',
+  // Education / training tied to work
+  'formaz', 'apprendistat', 'tirocin',
+];
+
+function hasTopicalSignal(text) {
+  if (!text || typeof text !== 'string') return false;
+  const lower = text.toLowerCase();
+  return TOPICAL_KEYWORDS.some(k => lower.includes(k));
+}
+
+function countTopicalHits(text) {
+  if (!text || typeof text !== 'string') return 0;
+  const lower = text.toLowerCase();
+  return TOPICAL_KEYWORDS.reduce((acc, k) => acc + (lower.split(k).length - 1), 0);
+}
+
 // ── Config ──────────────────────────────────────────────────
 // Gemini — image generation (text calls now go through centralized ai-models.mjs)
 const GEMINI_API_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
@@ -2193,21 +2242,38 @@ async function scanNewsSources() {
   // anchor BEFORE it enters the ranker. Env-gated so we can roll back
   // without a code change if it kills too many legit headlines.
   const dropAnchorless = (process.env.SCAN_DROP_ANCHORLESS ?? '1') !== '0';
+  // Topical pre-filter (2026-05-12): geographic anchor-gate is too permissive
+  // (any CH municipality / IT border town passes — including "chiesetta
+  // ortodossa Locarno", "asilo nido Sesto Calende", "risotto cuoco Gallarate").
+  // 8/10 recent runs reached callGemini, generated the IT body, then skipped
+  // at density-check ~6340 — burning ~10 min/run of LLM quota. Add a topical
+  // gate (work/fisco/permess/economy/transport/policy) requiring both
+  // geographic AND topical signal. Env-gated for rollback.
+  const dropNonTopical = (process.env.SCAN_DROP_NON_TOPICAL ?? '1') !== '0';
   const filterByAnchor = (list) => {
-    if (!dropAnchorless) return list;
+    if (!dropAnchorless && !dropNonTopical) return list;
     const kept = [];
-    let dropped = 0;
+    let droppedAnchor = 0;
+    let droppedTopic = 0;
     for (const h of list) {
       const text = `${h.headline || ''} ${h.url || ''}`;
-      if (hasDomainAnchor(text)) {
-        kept.push(h);
-      } else {
-        dropped += 1;
+      if (dropAnchorless && !hasDomainAnchor(text)) {
+        droppedAnchor += 1;
+        continue;
       }
+      if (dropNonTopical && !hasTopicalSignal(text)) {
+        droppedTopic += 1;
+        continue;
+      }
+      kept.push(h);
     }
-    if (dropped > 0) {
-      RUN_REPORT.headlines.droppedAnchorless = (RUN_REPORT.headlines.droppedAnchorless || 0) + dropped;
-      console.error(`  🚫 Anchor-gate: ${dropped} headline scartate (nessun token Ticino/frontaliere/comune CH/città IT confine)`);
+    if (droppedAnchor > 0) {
+      RUN_REPORT.headlines.droppedAnchorless = (RUN_REPORT.headlines.droppedAnchorless || 0) + droppedAnchor;
+      console.error(`  🚫 Anchor-gate: ${droppedAnchor} headline scartate (nessun token Ticino/frontaliere/comune CH/città IT confine)`);
+    }
+    if (droppedTopic > 0) {
+      RUN_REPORT.headlines.droppedNonTopical = (RUN_REPORT.headlines.droppedNonTopical || 0) + droppedTopic;
+      console.error(`  🚫 Topical-gate: ${droppedTopic} headline scartate (nessun token lavoro/fisco/permess/economi/transport/policy)`);
     }
     return kept;
   };
@@ -2277,8 +2343,21 @@ function prioritizeFrontalieriHeadlines(headlines) {
     }
   }
 
+  // Threshold (2026-05-12): when boosted pool is healthy (>= MIN_BOOSTED), drop
+  // the rest entirely so the ranker can't pick a non-frontalieri headline.
+  // Below threshold we fall back to concatenation to preserve coverage during
+  // a quiet news cycle. Env-gated for rollback.
+  const MIN_BOOSTED = Number(process.env.MIN_BOOSTED_HEADLINES ?? '10');
+  const keepNonBoosted = (process.env.SCAN_KEEP_NON_BOOSTED ?? '0') !== '0';
+
+  if (boosted.length >= MIN_BOOSTED && !keepNonBoosted) {
+    console.error(`  🎯 Pre-filtro frontalieri: ${boosted.length} articoli direttamente rilevanti (drop ${rest.length} non-boosted, soglia=${MIN_BOOSTED})`);
+    console.error(`     Keyword trovate negli headline: ${boosted.map(h => `"${h.headline.slice(0, 60)}…"`).slice(0, 5).join(', ')}`);
+    return boosted;
+  }
+
   if (boosted.length > 0) {
-    console.error(`  🎯 Pre-filtro frontalieri: ${boosted.length} articoli direttamente rilevanti (su ${headlines.length} totali)`);
+    console.error(`  🎯 Pre-filtro frontalieri: ${boosted.length} articoli direttamente rilevanti (su ${headlines.length} totali, sotto soglia ${MIN_BOOSTED} → mantengo non-boosted come fallback)`);
     console.error(`     Keyword trovate negli headline: ${boosted.map(h => `"${h.headline.slice(0, 60)}…"`).slice(0, 5).join(', ')}`);
     // Return boosted first, then the rest — Gemini will see the most relevant ones at the top
     return [...boosted, ...rest];
@@ -6268,6 +6347,32 @@ async function main() {
 async function generateAndValidateArticle(url, sourceContext = null) {
   // Step 1: Fetch page content
   const pageContent = await fetchPageContent(url);
+
+  // Step 1b: Early topical pre-flight on the source page itself (2026-05-12).
+  // Why: the geographic anchor-gate is too permissive (any Locarnese /
+  // Gallarate / Varese mention passes). The expensive density check at
+  // ~line 6340 fires AFTER the full IT body + FAQ are generated — burning
+  // ~10 min of LLM quota per skipped run (observed 8/10 recent runs hit
+  // this path). Inspecting the source URL text BEFORE the first callGemini
+  // costs ~50ms and catches the same off-topic pages with zero false
+  // negatives on observed cases (asilo, chiesetta, cuoco, etc.). A
+  // legitimate frontaliere article contains at least one
+  // lavoro/fisco/permesso/transport/economy token in the source body.
+  // Env-gated for rollback.
+  const dropOffTopicSource = (process.env.SOURCE_DROP_OFF_TOPIC ?? '1') !== '0';
+  if (dropOffTopicSource && typeof pageContent === 'string' && pageContent.length > 0) {
+    const sourceHits = countTopicalHits(pageContent);
+    if (sourceHits === 0) {
+      console.error(`\n⏭️  Source non frontaliere-rilevante (pre-LLM): 0 topical hits sul testo sorgente (URL: ${url}). Salto questo run prima del primo callGemini.`);
+      finalizeRunReport('skipped', {
+        notes: [
+          ...RUN_REPORT.notes,
+          `Source skipped pre-LLM: 0 topical hits (url=${url})`,
+        ],
+      });
+      process.exit(0);
+    }
+  }
 
   // Step 2: Generate Italian content + metadata (no translations yet), with aggressive min-word retries
   // Rotates through GPT-4o → GPT-4o-mini → Gemini with escalating prompts
