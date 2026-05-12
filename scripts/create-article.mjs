@@ -3060,8 +3060,20 @@ async function translateArticle(data) {
       if (ch === '"') { inStr = !inStr; out += ch; continue; }
       if (inStr && ch === '\n') { out += '\\n'; continue; }
       if (inStr && ch === '\r') { continue; }
+      // Some models emit markdown bold markers (`**` / `***`) between JSON
+      // properties instead of commas — collapse a run of stray `*` outside
+      // strings into a single comma so the structure stays valid.
+      if (!inStr && ch === '*') {
+        while (i + 1 < c.length && c[i + 1] === '*') i++;
+        out += ',';
+        continue;
+      }
       out += ch;
     }
+    // Normalize accidental double commas introduced by the `***` → `,` swap
+    // when a comma already separated the properties, and trim trailing commas
+    // before closers.
+    out = out.replace(/,(\s*,)+/g, ',').replace(/,(\s*[}\]])/g, '$1');
     return out;
   };
 
