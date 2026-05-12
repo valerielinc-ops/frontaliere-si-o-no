@@ -48,6 +48,7 @@ import {
   type ChCantonJobsIndex,
   type WeeklyCountableJob,
 } from './weeklyEmployersPlugin';
+import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale } from './shared/cantonSeoProse';
 import {
   MIN_JOBS_FOR_CANTON_PAGE,
   WEEKLY_EMPLOYERS_SECTION,
@@ -387,6 +388,23 @@ function renderEmployersPage(inp: RenderInputs): string {
     <p>${esc(c.methodologyP2)}</p>
   </section>`;
 
+  // ── audit:text-html-ratio gate (Semrush) ──────────────────────────
+  // The canton companies-hiring hub was emitting ~9.9 KB with ~700 bytes
+  // text (~7-9 % ratio). Append the canton-aware prose helper for the
+  // companies-hub slot (intro + methodology + permit context + FAQ +
+  // cross-links). Placed BELOW the table per CLAUDE.md mobile-first
+  // rules so the data stays above the fold on small viewports.
+  const proseOpts = {
+    locale: inp.locale as CantonSeoLocale,
+    cantonDisplay: cantonName,
+    slot: 'companies-hub' as const,
+    entityName: null,
+    countHint: inp.totalEmployers,
+    ctaHref: inp.searchHref,
+    ctaLabel: c.ctaLabel,
+  };
+  const proseHtml = renderCantonSeoProse(proseOpts);
+
   const main = `<main class="seo-static-content" style="max-width:960px;margin:0 auto;padding:24px 16px">
     ${breadcrumb}
     ${headerBlock}
@@ -395,6 +413,7 @@ function renderEmployersPage(inp: RenderInputs): string {
     ${employerTable}
     ${methodologyBlock}
     <p style="margin-top:24px"><a href="${esc(inp.searchHref)}" style="${LINK_ACCENT_STYLE}">${esc(c.ctaLabel)} →</a></p>
+    ${proseHtml}
   </main>`;
 
   const breadcrumbLd = JSON.stringify({
@@ -406,6 +425,12 @@ function renderEmployersPage(inp: RenderInputs): string {
       { '@type': 'ListItem', position: 3, name: cantonName, item: `${BASE_URL}${inp.canonicalPath}` },
       { '@type': 'ListItem', position: 4, name: c.breadcrumbSection, item: `${BASE_URL}${inp.canonicalPath}` },
     ],
+  });
+  const faqLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: inp.locale,
+    mainEntity: buildCantonSeoProseFaqItems(proseOpts),
   });
 
   const title = `${c.titlePrefix} ${cantonName}`;
@@ -424,7 +449,7 @@ function renderEmployersPage(inp: RenderInputs): string {
     description,
     canonicalUrl: `${BASE_URL}${inp.canonicalPath}`,
     bodyHtml: main,
-    jsonLdScripts: [breadcrumbLd],
+    jsonLdScripts: [breadcrumbLd, faqLd],
     ogLocale: OG_LOCALE[inp.locale],
     robots: robotsValue,
     distDir: inp.distDir,

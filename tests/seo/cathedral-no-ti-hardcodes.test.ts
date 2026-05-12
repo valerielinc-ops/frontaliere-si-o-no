@@ -45,11 +45,13 @@ const ALLOWLIST = [
   'build-plugins/cityJobsHub.ts:112',
   'build-plugins/cityJobsHub.ts:113',
   'build-plugins/cityJobsHub.ts:114',
-  'build-plugins/companyHubBridgePlugin.ts:40',
+  // Lines shifted +1 by the cantonSeoProse helper import added at the top
+  // of the file (May 2026 — text-to-html-ratio gate fix).
   'build-plugins/companyHubBridgePlugin.ts:41',
   'build-plugins/companyHubBridgePlugin.ts:42',
   'build-plugins/companyHubBridgePlugin.ts:43',
   'build-plugins/companyHubBridgePlugin.ts:44',
+  'build-plugins/companyHubBridgePlugin.ts:45',
   'build-plugins/jobOrphanBridgePlugin.ts:83',
   'build-plugins/jobOrphanBridgePlugin.ts:84',
   'build-plugins/jobOrphanBridgePlugin.ts:85',
@@ -67,11 +69,13 @@ const ALLOWLIST = [
   'build-plugins/legacyRedirectsPlugin.ts:282',
   'build-plugins/legacyRedirectsPlugin.ts:283',
   'build-plugins/legacyRedirectsPlugin.ts:284',
-  'build-plugins/locationHubBridgePlugin.ts:51',
+  // Lines shifted +1 by the cantonSeoProse helper import added at the top
+  // of the file (May 2026 — text-to-html-ratio gate fix).
   'build-plugins/locationHubBridgePlugin.ts:52',
   'build-plugins/locationHubBridgePlugin.ts:53',
   'build-plugins/locationHubBridgePlugin.ts:54',
   'build-plugins/locationHubBridgePlugin.ts:55',
+  'build-plugins/locationHubBridgePlugin.ts:56',
   'build-plugins/orphanQueryLandingPlugin.ts:436',
   'build-plugins/orphanQueryLandingPlugin.ts:437',
   'build-plugins/orphanQueryLandingPlugin.ts:438',
@@ -85,10 +89,14 @@ const ALLOWLIST = [
   //    the TI hub. Aggregator/per-canton hubs live in a different code path. ──
   //    Lines shift as Phase 7.2 / future per-canton emit blocks grow; we
   //    allowlist a small range around the known stable site.
-  'build-plugins/seoHubsPlugin.ts:1175',
-  'build-plugins/seoHubsPlugin.ts:1191',
-  'build-plugins/seoHubsPlugin.ts:1219',
-  'build-plugins/seoHubsPlugin.ts:1235',
+  // Lines shifted by the cantonSeoProse helper import + block added in
+  // buildThinCantonHubHtml (May 2026 — text-to-html-ratio gate fix).
+  'build-plugins/seoHubsPlugin.ts:1183',
+  'build-plugins/seoHubsPlugin.ts:1199',
+  'build-plugins/seoHubsPlugin.ts:1227',
+  'build-plugins/seoHubsPlugin.ts:1228',
+  'build-plugins/seoHubsPlugin.ts:1243',
+  'build-plugins/seoHubsPlugin.ts:1244',
 
   // ── professionLandingsLinksPlugin: TI hub injection targets (intentional —
   //    the prose explicitly references "10 most-searched roles in Ticino"). ──

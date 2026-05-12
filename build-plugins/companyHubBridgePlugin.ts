@@ -33,6 +33,7 @@ import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBreadcrumb';
+import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale } from './shared/cantonSeoProse';
 import type { Locale } from '../services/i18n';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -143,10 +144,29 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
   const copy = COPY[locale];
   const hubPath = buildHubPath(locale, entry.companySlug);
   const canonicalUrl = `${BASE_URL}${hubPath}`;
+  // ── audit:text-html-ratio gate (Semrush "low text/HTML") ──────────
+  // The matched bridge page was emitting ~6.5 KB of HTML with ~400 bytes
+  // of visible prose (~6 % ratio). Append the canton-aware SEO prose
+  // helper (intro + methodology + permit context + 4 FAQ + cross-links)
+  // BELOW the data block so mobile-first content positioning is
+  // preserved (CLAUDE.md non-negotiables #15/#17).
+  const proseOpts = {
+    locale: locale as CantonSeoLocale,
+    // The bridge plugin targets TI-section URLs (cerca-lavoro-ticino/);
+    // canton display is Ticino for every entry in this plugin's data file.
+    cantonDisplay: locale === 'it' ? 'Ticino' : locale === 'en' ? 'Ticino' : locale === 'de' ? 'Tessin' : 'Tessin',
+    slot: 'company-landing' as const,
+    entityName: entry.displayName,
+    countHint: entry.jobCount,
+    ctaHref: buildSectionCanonical(locale),
+    ctaLabel: copy.browseAllLabel,
+  };
+  const proseHtml = renderCantonSeoProse(proseOpts);
   const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
     <header style="margin-bottom:16px"><h1 style="font-size:26px;font-weight:700;color:var(--color-heading);margin:0 0 8px;letter-spacing:-0.01em">${esc(copy.matchedH1(entry.displayName, entry.jobCount))}</h1></header>
     <p style="margin:0 0 12px;font-size:15.5px">${esc(copy.matchedLede(entry.displayName, entry.jobCount))}</p>
     <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(buildSectionCanonical(locale))}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
+    ${proseHtml}
   </main>`;
   const breadcrumbLd = buildBridgeBreadcrumbLd({
     locale,
@@ -156,11 +176,17 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
     pageLabel: entry.displayName,
     canonicalUrl,
   });
+  const faqLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: locale,
+    mainEntity: buildCantonSeoProseFaqItems(proseOpts),
+  });
   return buildSeoPageHtml({
     locale, title: copy.matchedTitle(entry.displayName, entry.jobCount),
     description: copy.matchedDescription(entry.displayName, entry.jobCount),
     canonicalUrl, robots: 'index,follow', ogType: 'website', ogLocale: OG_LOCALE[locale],
-    hreflangHtml: '', jsonLdScripts: [breadcrumbLd], bodyHtml, distDir, seoMainClass: 'cluster-seo-prose',
+    hreflangHtml: '', jsonLdScripts: [breadcrumbLd, faqLd], bodyHtml, distDir, seoMainClass: 'cluster-seo-prose',
   });
 }
 
@@ -172,10 +198,25 @@ function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
   const canonicalUrl = buildSectionCanonical(locale);
   const sectionPath = buildSectionCanonical(locale);
   const hubAbsoluteUrl = `${BASE_URL}${buildHubPath(locale, entry.companySlug)}`;
+  // ── audit:text-html-ratio gate ────────────────────────────────────
+  // Unmatched bridge pages emitted ~6.4 KB of HTML with ~350 bytes
+  // visible text (~5.4 % ratio). Append canton-aware prose helper for
+  // company-landing slot. Same mobile-first positioning as matched.
+  const proseOpts = {
+    locale: locale as CantonSeoLocale,
+    cantonDisplay: locale === 'it' ? 'Ticino' : locale === 'en' ? 'Ticino' : locale === 'de' ? 'Tessin' : 'Tessin',
+    slot: 'company-landing' as const,
+    entityName: entry.displayName,
+    countHint: null,
+    ctaHref: sectionPath,
+    ctaLabel: copy.browseAllLabel,
+  };
+  const proseHtml = renderCantonSeoProse(proseOpts);
   const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
     <header style="margin-bottom:16px"><h1 style="font-size:26px;font-weight:700;color:var(--color-heading);margin:0 0 8px;letter-spacing:-0.01em">${esc(copy.unmatchedH1(entry.displayName))}</h1></header>
     <p style="margin:0 0 12px;font-size:15.5px">${esc(copy.unmatchedLede)}</p>
     <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(sectionPath)}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
+    ${proseHtml}
   </main>`;
   const breadcrumbLd = buildBridgeBreadcrumbLd({
     locale,
@@ -185,10 +226,16 @@ function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
     pageLabel: entry.displayName,
     canonicalUrl: hubAbsoluteUrl,
   });
+  const faqLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    inLanguage: locale,
+    mainEntity: buildCantonSeoProseFaqItems(proseOpts),
+  });
   return buildSeoPageHtml({
     locale, title: copy.unmatchedTitle, description: copy.unmatchedDescription,
     canonicalUrl, robots: 'index,follow', ogType: 'website', ogLocale: OG_LOCALE[locale],
-    hreflangHtml: '', jsonLdScripts: [breadcrumbLd], bodyHtml, distDir, seoMainClass: 'cluster-seo-prose',
+    hreflangHtml: '', jsonLdScripts: [breadcrumbLd, faqLd], bodyHtml, distDir, seoMainClass: 'cluster-seo-prose',
   });
 }
 
