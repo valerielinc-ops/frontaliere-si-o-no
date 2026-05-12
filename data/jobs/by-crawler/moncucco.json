@@ -1,6 +1,6 @@
 {
   "crawlerKey": "moncucco",
-  "assembledAt": "2026-05-12T11:45:30.047Z",
+  "assembledAt": "2026-05-12T22:40:53.060Z",
   "jobs": [
     {
       "id": "moncucco-fcae970fb0ac",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.moncucco.ch/ematologo.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-12T11:45:28.743Z",
+      "crawledAt": "2026-05-12T22:40:51.331Z",
       "previousSlugsByLocale": {
         "it": [
           "ematologo-lugano-moncucco"
@@ -62,6 +62,7 @@
         "ematologo-lugano-moncucco"
       ],
       "firstSeenAt": "2026-05-08T10:23:46.959Z",
+      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -120,8 +121,9 @@
       "applyUrl": "https://www.moncucco.ch/assistente_studio_medico.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-12T11:45:28.451Z",
+      "crawledAt": "2026-05-12T22:40:51.078Z",
       "firstSeenAt": "2026-05-08T10:23:46.724Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -180,7 +182,7 @@
       "applyUrl": "https://www.moncucco.ch/psicologo_specialista_neuropsicologia_fsp2.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-12T11:45:28.232Z",
+      "crawledAt": "2026-05-12T22:40:50.806Z",
       "requirementsByLocale": {},
       "previousSlugs": [
         "psicologo-a-specialista-in-neuropsicologia-fsp-gruppo-ospedaliero-moncucco-lugano"
@@ -196,75 +198,6 @@
           "@type": "QuantitativeValue",
           "minValue": 70500,
           "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "moncucco-27ddd0bcdce5",
-      "slug": "ergoterapista-gruppo-ospedaliero-moncucco-lugano",
-      "slugByLocale": {
-        "it": "ergoterapista-gruppo-ospedaliero-moncucco-lugano",
-        "en": "occupational-therapist-gruppo-ospedaliero-moncucco-lugano",
-        "de": "ergotherapeut-gruppo-ospedaliero-moncucco-lugano",
-        "fr": "ergotherapeute-gruppo-ospedaliero-moncucco-lugano"
-      },
-      "company": "Gruppo Ospedaliero Moncucco",
-      "companyKey": "moncucco",
-      "companyDomain": "moncucco.ch",
-      "title": "Ergoterapista",
-      "titleByLocale": {
-        "it": "Ergoterapista",
-        "en": "Occupational Therapist",
-        "de": "Ergotherapeut",
-        "fr": "Ergothérapeute"
-      },
-      "description": "Il Gruppo Ospedaliero Moncucco che gestisce la Clinica Moncucco e la Clinica Santa Chiara cerca per completare il proprio organico un/una \n\n \n\n Ergoterapista \n\n \n\n Il suo profilo: \n\n \n\n• Diploma SUPSI o equivalente \n\n• Esperienza di almeno 2 anni in ambito ospedaliero, clinico o studio privato \n\n• Buona conoscenza del territorio regionale, cantonale e nazionale e della rete sanitaria \n\n• Buona conoscenza dell’italiano e di una seconda lingua nazionale \n\n• Residente in Svizzera \n\n \n \n\n Cosa ci contraddistingue: \n\n \n\n• Solidi valori aziendali \n\n• Struttura ospedaliera in rapida evoluzione \n\n• Ottimo inserimento nella regione \n\n• Ottime prestazioni sociali \n\n• Ottime possibilità di formazione continua \n\n• Contributi alla mobilità e vicinanza ai mezzi di trasporto pubblici \n\n \n \n\n \n\n Gli interessati sono pregati di inviare la loro candidatura entro il 20.02.2026 al servizio risorse umane del Gruppo Ospedaliero Moncucco ( candidature@moncucco.ch ) indicando nell’oggetto “Concorso ergoterapista”. \n\n \n\n Informazioni possono essere richieste a Vincenzo Coppolino, Caposervizio area infermieristica e medico tecnica, vincenzo.coppolino@moncucco.ch . \n\n \n\n Verrà data risposta solo ai candidati il cui profilo corrisponde a quello ricercato. \n\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t\t\t Percentuale di impiego:\n 100% o da convenire \n\n\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\t\t\t \n\t\t\t\t\t\t\t\t\t\t Disponibilità:\n 01.05.2026",
-      "descriptionByLocale": {
-        "it": "Il Gruppo Ospedaliero Moncucco che gestisce la Clinica Moncucco e la Clinica Santa Chiara cerca per completare il proprio organico un/una Ergoterapista Il suo profilo:\n• Diploma SUPSI o equivalente\n• Esperienza di almeno 2 anni in ambito ospedaliero, clinico o studio privato\n• Buona conoscenza del territorio regionale, cantonale e nazionale e della rete sanitaria\n• Buona conoscenza dell’italiano e di una seconda lingua nazionale\n• Residente in Svizzera Cosa ci contraddistingue:\n• Solidi valori aziendali\n• Struttura ospedaliera in rapida evoluzione\n• Ottimo inserimento nella regione\n• Ottime prestazioni sociali\n• Ottime possibilità di formazione continua\n• Contributi alla mobilità e vicinanza ai mezzi di trasporto pubblici Gli interessati sono pregati di inviare la loro candidatura entro il 20.02.2026 al servizio risorse umane del Gruppo Ospedaliero Moncucco ( candidature@moncucco.ch ) indicando nell’oggetto “Concorso ergoterapista”. Informazioni possono essere richieste a Vincenzo Coppolino, Caposervizio area infermieristica e medico tecnica, vincenzo.coppolino@moncucco.ch . Verrà data risposta solo ai candidati il cui profilo corrisponde a quello ricercato. Percentuale di impiego: 100% o da convenire Disponibilità: 01.05.2026",
-        "en": "Emergency and urgent care T+ 41 91 960 85 64 Clinica Moncucco T+ 41 91 756 48 44 Clinica Santa Chiara The facilities Clinica Moncucco Via Soldino 5 6900 Lugano Care departments 15:00 - 20:00 Intensive care 15:00 - 20:00 Discover Clinica Santa Chiara Via Stefano Franscini 4 6601 Locarno Care departments 15:00 - 20:00 Intensive care 15:00 - 20:00 Discover Specializations Anesthesiology Wound care and stomatherapy Intensive and intermediate care Dietetics Physiotherapy Analysis laboratory Nuclear medicine Podiatry Diagnostic and interventional radiology Radiotherapy Pain therapy Clinical Research Unit (CRU) Surgery Hand surgery Endocrine surgery General surgery Plastic, reconstructive, and aesthetic surgery Vascular surgery Visceral surgery Ophthalmology Otorhinolaryngology (ENT) Urology Oncology Palliative care Hematology and hemostasis Medical genetics Medical oncology Internal medicine Angiology Cardiology Endocrinology and diabetology Gastroenterology Travel medicine General internal medicine Nephrology Neurology Pulmonology Infection prevention and infectious diseases Hepatology unit Orthopedics and traumatology Orthopedics Traumatology Spinal surgery Spinal surgery and neurosurgery Gynecology Gynecology Immunorheumatology Clinical immunology Rheumatology Geriatrics Geriatrics Osteology Obesity care Obesity surgery Metabolic disorders Colorectal cancer care Center for colorectal cancer care Senology Senology Emergency care Emergency care Doctors Information and documents Useful documents Become a supporter Requests for hospitalizations and exams Visiting hours Information for the release of medical documentation Information for hospitalization Quality policy evaluation form The Group Media Area Work with us Contacts The Group Media Area Work with us Contacts",
-        "de": "Notfall- und Akutversorgung T+ 41 91 960 85 64 Clinica Moncucco T+ 41 91 756 48 44 Clinica Santa Chiara Die Einrichtungen Clinica Moncucco Via Soldino 5 6900 Lugano Pflegeabteilungen 15:00 - 20:00 Intensivpflege 15:00 - 20:00 Entdecken Clinica Santa Chiara Via Stefano Franscini 4 6601 Locarno Pflegeabteilungen 15:00 - 20:00 Intensivpflege 15:00 - 20:00 Entdecken Spezialisierungen Anästhesiologie Wundversorgung und Stomatherapie Intensiv- und Zwischenpflege Diätetik Physiotherapie Analyselabor Nuklearmedizin Podologie Diagnostische und interventionelle Radiologie Strahlentherapie Schmerztherapie Klinische Forschungsabteilung (CRU) Chirurgie Handchirurgie Endokrine Chirurgie Allgemeinchirurgie Plastische, rekonstruktive und ästhetische Chirurgie Gefäßchirurgie Viszeralchirurgie Augenheilkunde Hals-Nasen-Ohren-Heilkunde (HNO) Urologie Onkologie Palliativpflege Hämatologie und Hämostase Medizinische Genetik Medizinische Onkologie Innere Medizin Angiologie Kardiologie Endokrinologie und Diabetologie Gastroenterologie Reisemedizin Allgemeine Innere Medizin Nephrologie Neurologie Pneumologie Infektionsprävention und Infektionskrankheiten Hepatologie-Einheit Orthopädie und Traumatologie Orthopädie Traumatologie Wirbelsäulenchirurgie Wirbelsäulenchirurgie und Neurochirurgie Gynäkologie Gynäkologie Immunrheumatologie Klinische Immunologie Rheumatologie Geriatrie Geriatrie Osteologie Adipositasversorgung Adipositaschirurgie Stoffwechselstörungen Kolorektale Krebsversorgung Zentrum für kolorektale Krebsversorgung Senologie Senologie Notfallversorgung Notfallversorgung Ärzte Informationen und Dokumente Nützliche Dokumente Werden Sie Unterstützer Anfragen für Krankenhausaufenthalte und Untersuchungen Besuchszeiten Informationen zur Herausgabe medizinischer Unterlagen Informationen zur stationären Behandlung Bewertungsformular für Qualitätspolitik Die Gruppe Medienbereich Arbeiten Sie mit uns Kontakte Die Gruppe Medienbereich Arbeiten Sie mit uns Kontakte",
-        "fr": "Urgences et soins immédiats T+ 41 91 960 85 64 Clinica Moncucco T+ 41 91 756 48 44 Clinica Santa Chiara Les établissements Clinica Moncucco Via Soldino 5 6900 Lugano Départements de soins 15:00 - 20:00 Soins intensifs 15:00 - 20:00 Découvrir Clinica Santa Chiara Via Stefano Franscini 4 6601 Locarno Départements de soins 15:00 - 20:00 Soins intensifs 15:00 - 20:00 Découvrir Spécialisations Anesthésiologie Soins des plaies et stomathérapie Soins intensifs et intermédiaires Diététique Physiothérapie Laboratoire d'analyse Médecine nucléaire Podologie Radiologie diagnostique et interventionnelle Radiothérapie Thérapie de la douleur Unité de recherche clinique (URC) Chirurgie Chirurgie de la main Chirurgie endocrinienne Chirurgie générale Chirurgie plastique, reconstructive et esthétique Chirurgie vasculaire Chirurgie viscérale Ophtalmologie Oto-rhino-laryngologie (ORL) Urologie Oncologie Soins palliatifs Hématologie et hémostase Génétique médicale Oncologie médicale Médecine interne Angiologie Cardiologie Endocrinologie et diabétologie Gastroentérologie Médecine du voyage Médecine interne générale Néphrologie Neurologie Pneumologie Prévention des infections et maladies infectieuses Unité d'hépatologie Orthopédie et traumatologie Orthopédie Traumatologie Chirurgie de la colonne vertébrale Chirurgie de la colonne vertébrale et neurochirurgie Gynécologie Gynécologie Immunorhumatologie Immunologie clinique Rhumatologie Gériatrie Gériatrie Ostéologie Soins de l'obésité Chirurgie de l'obésité Troubles métaboliques Soins des cancers colorectaux Centre de soins des cancers colorectaux Sénologie Sénologie Urgences Urgences Médecins Informations et documents Documents utiles Devenez soutien Demandes d'hospitalisations et examens Horaires de visite Informations pour la délivrance de documents médicaux Informations pour l'hospitalisation Formulaire d'évaluation et politique de qualité Le Groupe Espace Média Travaillez avec nous Contacts Le Groupe Espace Média Travaillez avec nous Contacts"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "rehabilitation",
-      "sector": "Sanità / Ospedaliero",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "featured": false,
-      "postedDate": "2026-04-12",
-      "url": "https://www.moncucco.ch/ergoterapista.php5",
-      "applyUrl": "https://www.moncucco.ch/ergoterapista.php5",
-      "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-05-12T11:45:27.998Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ergoterapista-lugano-moncucco"
-        ]
-      },
-      "previousSlugs": [
-        "ergoterapista-lugano-moncucco"
-      ],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-04-12T07:52:02.693Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
