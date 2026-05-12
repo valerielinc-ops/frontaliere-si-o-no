@@ -1,77 +1,5 @@
 [
   {
-    "timestamp": "2026-04-27T06:13:07.924Z",
-    "label": "before",
-    "total": 2675,
-    "needsRetranslation": 26,
-    "incomplete": 26,
-    "complete": 2649,
-    "missingByLocale": {
-      "it": 24,
-      "en": 5,
-      "de": 24,
-      "fr": 23
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-27T06:30:23.802Z",
-    "label": "after",
-    "total": 2675,
-    "needsRetranslation": 45,
-    "incomplete": 26,
-    "complete": 2649,
-    "missingByLocale": {
-      "it": 24,
-      "en": 5,
-      "de": 24,
-      "fr": 23
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-27T08:54:02.449Z",
     "label": "before",
     "total": 2614,
@@ -10068,6 +9996,118 @@
       {
         "company": "ETH Zürich",
         "pending": 12
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-11T23:16:17.469Z",
+    "label": "before",
+    "total": 4330,
+    "needsRetranslation": 2478,
+    "incomplete": 684,
+    "complete": 3646,
+    "missingByLocale": {
+      "it": 493,
+      "en": 496,
+      "de": 168,
+      "fr": 469
+    },
+    "topPending": [
+      {
+        "company": "Elektro-Bau AG Rothrist",
+        "pending": 153
+      },
+      {
+        "company": "IWC",
+        "pending": 106
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 83
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 76
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 20
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 16
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "PEMSA",
+        "pending": 11
+      },
+      {
+        "company": "EMS-Chemie AG",
+        "pending": 10
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-12T00:16:39.673Z",
+    "label": "after",
+    "total": 4330,
+    "needsRetranslation": 1294,
+    "incomplete": 582,
+    "complete": 3748,
+    "missingByLocale": {
+      "it": 457,
+      "en": 430,
+      "de": 148,
+      "fr": 457
+    },
+    "topPending": [
+      {
+        "company": "Elektro-Bau AG Rothrist",
+        "pending": 153
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 83
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 74
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 20
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 16
+      },
+      {
+        "company": "IWC",
+        "pending": 16
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "PEMSA",
+        "pending": 11
+      },
+      {
+        "company": "EMS-Chemie AG",
+        "pending": 10
       }
     ]
   }
