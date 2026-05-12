@@ -747,7 +747,8 @@
     "emigrazione-cassa-pensione-risparmio-imposte",
     "incentivi-assunzioni-2026-sgravi-contributivi",
     "hendsichen-arresto-francese-autodiebstahl",
-    "lpp-nigri-country-manager-italia"
+    "lpp-nigri-country-manager-italia",
+    "frontaliere-pensione-avs-inps-2026"
   ],
   "failed": [
     {
@@ -6629,8 +6630,23 @@
       "id": "frontalieri-ticino-calo-2026",
       "error": "Unterminated string in JSON at position 1032 (line 12 column 164)",
       "at": "2026-05-11T04:44:37.604Z"
+    },
+    {
+      "id": "berna-skopje-scambi-economici-2026",
+      "error": "Unterminated string in JSON at position 285 (line 4 column 157)",
+      "at": "2026-05-12T04:15:34.295Z"
+    },
+    {
+      "id": "fiaccola-sacconago-speranza-amicizia",
+      "error": "Unterminated string in JSON at position 203 (line 4 column 135)",
+      "at": "2026-05-12T04:15:53.965Z"
+    },
+    {
+      "id": "frontalieri-ticino-calo-2026",
+      "error": "Unterminated string in JSON at position 183 (line 4 column 72)",
+      "at": "2026-05-12T04:16:29.775Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-05-11T04:45:06.551Z"
+  "updatedAt": "2026-05-12T04:16:29.775Z"
 }
