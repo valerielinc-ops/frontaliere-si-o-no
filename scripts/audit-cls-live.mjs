@@ -110,17 +110,54 @@ function saveBaseline(baseline) {
   writeFileSync(BASELINE_PATH, JSON.stringify(baseline, null, 2) + '\n', 'utf-8');
 }
 
+// Retry on transient PSI 5xx errors (Lighthouse-side flakes). Backoff: 2s/4s/8s.
+// PSI returns 500/502 surprisingly often under load; treating them as hard
+// failures fails the deploy gate even when Google is the problem, not us.
+// 4xx errors (bad URL, missing key, quota) are NOT retried — they indicate
+// a configuration bug that retrying cannot fix.
+const PSI_MAX_ATTEMPTS = 3;
+const PSI_RETRY_BASE_MS = 2000;
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 async function runPsi(url, strategy) {
   const params = new URLSearchParams({ url, strategy, category: 'performance' });
   if (API_KEY) params.set('key', API_KEY);
   const endpoint = `${PSI_ENDPOINT}?${params.toString()}`;
-  const r = await fetch(endpoint, { method: 'GET' });
-  if (!r.ok) {
-    const t = await r.text();
-    throw new Error(`PSI ${r.status} for ${url} (${strategy}): ${t.slice(0, 200)}`);
-  }
-  const j = await r.json();
 
+  let lastError = null;
+  for (let attempt = 1; attempt <= PSI_MAX_ATTEMPTS; attempt++) {
+    let r;
+    try {
+      r = await fetch(endpoint, { method: 'GET' });
+    } catch (e) {
+      // Network-layer failure (DNS, ECONNRESET, abort). Treat as transient.
+      lastError = new Error(`PSI network error for ${url} (${strategy}): ${e.message || e}`);
+      if (attempt < PSI_MAX_ATTEMPTS) {
+        await sleep(PSI_RETRY_BASE_MS * Math.pow(2, attempt - 1));
+        continue;
+      }
+      throw lastError;
+    }
+    if (r.ok) {
+      const j = await r.json();
+      return parsePsiResponse(j);
+    }
+    const body = await r.text();
+    const isTransient5xx = r.status >= 500 && r.status < 600;
+    lastError = new Error(`PSI ${r.status} for ${url} (${strategy}): ${body.slice(0, 200)}`);
+    if (!isTransient5xx || attempt >= PSI_MAX_ATTEMPTS) {
+      throw lastError;
+    }
+    await sleep(PSI_RETRY_BASE_MS * Math.pow(2, attempt - 1));
+  }
+  // Defensive — unreachable, the loop always either returns or throws.
+  throw lastError || new Error(`PSI failed after ${PSI_MAX_ATTEMPTS} attempts for ${url} (${strategy})`);
+}
+
+function parsePsiResponse(j) {
   // CrUX field (real users, 28-day rolling window). Only present if URL has
   // enough traffic. CrUX returns p75 of CLS distribution.
   const cruxField = j.loadingExperience?.metrics?.CUMULATIVE_LAYOUT_SHIFT_SCORE;
