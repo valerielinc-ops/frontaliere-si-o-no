@@ -1,59 +1,19 @@
 {
   "key": "allianz-suisse",
   "label": "Tessin",
-  "generatedAt": "2026-05-11T21:23:11.068Z",
+  "generatedAt": "2026-05-12T10:30:39.854Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 6,
-  "durationMs": 12198,
-  "avgDurationMs": 12198,
+  "updatedCount": 6,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 12105,
+  "avgDurationMs": 12105,
   "durationHistory": [
-    12198
+    12105
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Consulente per l’agenzia generale Chur 100%",
-      "slug": "consulente-per-l-agenzia-generale-chur-100-allianz-suisse-sargans",
-      "url": "https://recruitingapp-2872.umantis.com/Vacancies/677/Description/4",
-      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/677/Application/CheckLogin/4",
-      "company": "Allianz Suisse",
-      "companyKey": "allianz-suisse",
-      "companyDomain": "umantis.com",
-      "location": "Sargans",
-      "addressLocality": "Sargans",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Assicurazioni",
-      "source": "allianz-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-11",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 54000,
-      "salaryMax": 73000,
-      "currency": "CHF",
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "id": "allianz-suisse-9fdedf1fbc14",
-      "firstSeenAt": "2026-04-13T21:01:46.149Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Responsabile vendite nel servizio esterno (f/m/d), 100%, Bellinzona",
       "slug": "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona",
@@ -72,7 +32,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-11",
+      "postedDate": "2026-05-12",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -109,7 +69,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-11",
+      "postedDate": "2026-05-12",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -146,7 +106,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-11",
+      "postedDate": "2026-05-12",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -183,7 +143,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-11",
+      "postedDate": "2026-05-12",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -220,12 +180,11 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-11",
+      "postedDate": "2026-05-12",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
       "id": "allianz-suisse-673166e2ef7b",
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 89000,
       "currency": "CHF",
@@ -258,7 +217,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-11",
+      "postedDate": "2026-05-12",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -277,5 +236,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
