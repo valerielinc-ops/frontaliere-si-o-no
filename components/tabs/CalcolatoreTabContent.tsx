@@ -11,6 +11,7 @@ import {
  SkeletonNewsTicker,
  SkeletonWeeklyFact,
  SkeletonInputCard,
+ SkeletonMobileCalc,
 } from '@/components/shared/Skeletons';
 import AiExtractableTable from '@/components/shared/AiExtractableTable';
 import FaqAccordion from '@/components/shared/FaqAccordion';
@@ -123,9 +124,15 @@ export default function CalcolatoreTabContent() {
  </div>
  )}
 
- {/* Mobile: Results-first bottom-sheet layout */}
+ {/* Mobile: Results-first bottom-sheet layout.
+   CLS fix (2026-05-12): the Suspense fallback MUST match the real
+   MobileCalcLayout height. Previously used SkeletonInputCard (~750px
+   tall desktop form skeleton) which created a ~440px upward layout
+   shift the moment the mobile-calc chunk arrived — root cause of the
+   home@mobile CLS=1.05 regression (CrUX, 28-day rolling). The compact
+   SkeletonMobileCalc mirrors the real component (~260px). */}
  <div className={`md:hidden transition-opacity duration-200${isResultStale ? ' opacity-50' : ''}`}>
- <Suspense fallback={<SkeletonInputCard />}>
+ <Suspense fallback={<SkeletonMobileCalc />}>
  <MobileCalcLayout
  inputs={inputs}
  setInputs={setInputs}
@@ -170,9 +177,15 @@ export default function CalcolatoreTabContent() {
  </div>
 
  {/* Mobile: widgets below results — stable outer div prevents CLS during skeleton→real swap.
-     Inline style mirrors min-h-[160px] so the reservation applies even if Tailwind utility
-     hasn't loaded yet (async CSS). Without it, deferred widgets cause +0.16 CLS on mobile. */}
- <div className="md:hidden space-y-2 mt-6 min-h-[160px]" style={{ minHeight: 160 }}>
+     Inline style mirrors the Tailwind utility so the reservation applies even if Tailwind
+     hasn't loaded yet (async CSS). Without it, deferred widgets cause +0.16 CLS on mobile.
+     CLS fix (2026-05-12): bumped 160 → 192 to cover the realistic max real-content
+     height (NewsFeed 34 + WeeklyFact 34-50 + JobCTA ~52 + DailyDialect 34 + gaps).
+     The previous 160 was sized for the all-skeleton fallback (4 × 34 + 24 gaps = 160)
+     and undersized once the real JobBoard CTA + line-clamp-2 WeeklyFact rendered.
+     Skeleton fallback inside enlarged to four h-[44px] slots so the fallback itself
+     also fills the reserved space, preventing a 32px upward shift when fallback shows. */}
+ <div className="md:hidden space-y-2 mt-6 min-h-[192px]" style={{ minHeight: 192 }}>
  {showDeferredHomeWidgets ? (
  // Same as desktop: contain render errors in mobile home widgets so a
  // failure does not blank the homepage on small screens. The whole
@@ -181,7 +194,7 @@ export default function CalcolatoreTabContent() {
  <div aria-hidden="true" className="space-y-2">
  <SkeletonNewsTicker />
  <SkeletonWeeklyFact />
- <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
+ <div className="h-[44px] rounded-xl bg-surface-raised animate-pulse" />
  <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
  </div>
  }>
@@ -215,7 +228,7 @@ export default function CalcolatoreTabContent() {
  <div aria-hidden="true" className="space-y-2">
  <SkeletonNewsTicker />
  <SkeletonWeeklyFact />
- <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
+ <div className="h-[44px] rounded-xl bg-surface-raised animate-pulse" />
  <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
  </div>
  )}
