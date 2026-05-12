@@ -52,11 +52,13 @@ const ALLOWLIST = [
   'build-plugins/companyHubBridgePlugin.ts:43',
   'build-plugins/companyHubBridgePlugin.ts:44',
   'build-plugins/companyHubBridgePlugin.ts:45',
-  'build-plugins/jobOrphanBridgePlugin.ts:83',
+  // Lines shifted +1 by the bridgePageProse helper import added at the
+  // top of the file (May 2026 — text-to-html-ratio gate fix).
   'build-plugins/jobOrphanBridgePlugin.ts:84',
   'build-plugins/jobOrphanBridgePlugin.ts:85',
   'build-plugins/jobOrphanBridgePlugin.ts:86',
   'build-plugins/jobOrphanBridgePlugin.ts:87',
+  'build-plugins/jobOrphanBridgePlugin.ts:88',
   'build-plugins/jobRecencyPagesPlugin.ts:53',
   'build-plugins/jobRecencyPagesPlugin.ts:54',
   'build-plugins/jobRecencyPagesPlugin.ts:55',
