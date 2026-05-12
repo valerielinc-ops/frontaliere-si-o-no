@@ -140,9 +140,7 @@
       },
       "previousSlugs": [
         "assistent-in-der-centerleitung-alc-monteceneri-confederazione-monteceneri"
-      ],
-      "retranslationAttempts": 2,
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Greffier/greffière de langue française, pour la Cour des affaires pénales",
@@ -360,7 +358,9 @@
       },
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
-      "firstSeenAt": "2026-04-17T09:38:44.875Z"
+      "firstSeenAt": "2026-04-17T09:38:44.875Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "Raus aus der Routine? Werde Berufsoffizier/-in",
@@ -587,7 +587,6 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-10T09:52:25.687Z",
-      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "asyl-dolmetscher-in-confederazione-alle-standorte-des-sem"
@@ -595,8 +594,7 @@
       },
       "previousSlugs": [
         "asyl-dolmetscher-in-confederazione-alle-standorte-des-sem"
-      ],
-      "needsRetranslation": true
+      ]
     }
   ]
 }
