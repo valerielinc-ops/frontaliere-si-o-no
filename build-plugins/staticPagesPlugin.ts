@@ -29,6 +29,9 @@ import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
 import { ALL_CANTON_CODES, AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { getJobTodayLandingSlug, getJobNursesHubSlug, getJobPartTimeLandingSlug, careClusterSlug } from './jobEditorialLanding';
+import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG, jobMatchesSector as jobMatchesSectorImpl, type SectorHubKey } from './jobSectorLanding';
+import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
+import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 
 // ── SPA shell <title> handling ────────────────────────────────────────
 // Universal rule: headline VERBATIM, brand suffix appended only when total
@@ -824,6 +827,200 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
 
  console.log(`\x1b[36m[static-pages]\x1b[0m TI hub navigators: pagination=${tiPaginationPages} pages, companies=${tiTopCompanies.length}, search-clusters it=${tiSearchClusters.it.length}/en=${tiSearchClusters.en.length}/de=${tiSearchClusters.de.length}/fr=${tiSearchClusters.fr.length}`);
+
+ /* ── BFS-depth closure (May 2026, run 25739076601) — non-TI canton deep navigators ──
+  *
+  * The cathedral expansion to 26 cantons emits per-canton sector hubs
+  * (`/cerca-lavoro-argovia/ingegneri/`), editorial slot pages
+  * (`/cerca-lavoro-giura/oggi/`), city hubs (`/cerca-lavoro-appenzello/herisau/`),
+  * and company-canton hubs (`/cerca-lavoro-basilea/azienda-tally-weijl-basel/`).
+  * The non-TI canton hub already links its own leaves via the `data-canton-explore`
+  * navigator in `jobsSeoPagesPlugin.ts`, BUT pages with `cantonCount <
+  * MIN_JOBS_FOR_CANTON_PAGE` (5) are emitted as `noindex,follow`. The
+  * `audit-bfs-depth.mjs` BFS walker treats `noindex` as a dead-end (line 275),
+  * so every leaf under a thin-canton hub becomes `depth=unreachable` even
+  * though the URL is in the sitemap. The same issue affects edge cases where
+  * the per-canton hub's `Esplora` slug set diverges from what the emitter
+  * actually wrote (e.g. sector hubs use `ingegneri` whereas the explore nav
+  * was historically wired to `categoria-ingegneria`).
+  *
+  * Fix: pre-compute the per-canton link set (sector hubs gated by ≥3 matching
+  * jobs, editorial slot pages gated by ≥MIN_JOBS_FOR_CANTON_PAGE, top company
+  * hubs gated MIN=3, city hubs from `getCantonCities`), then push a single
+  * collapsible `<details>` navigator on every TI hub (locale-aware) that links
+  * all 23 non-TI cantons' leaves. Since the TI hub is at depth 1 from `/`
+  * and is always `index,follow`, every leaf lifts to BFS depth 2. Page weight
+  * is bounded by gates: per-canton ≤7 editorial + ≤10 sector + ≤6 company +
+  * ≤8 city = ~31 anchors × 23 cantons = ~720 anchors total, all inside a
+  * collapsed `<details>` so mobile fold stays clean (CLAUDE.md #15/#16).
+  */
+ type NonTiNavLocale = 'it' | 'en' | 'de' | 'fr';
+ type NonTiCantonNavEntry = {
+   /** Canton ISO code (e.g. 'AG', 'BS'). */
+   canton: string;
+   /** Display label per locale, e.g. 'Argovia' / 'Aargau' / 'Argovie'. */
+   labels: Record<NonTiNavLocale, string>;
+   /** Editorial slot slugs per locale (oggi/infermieri/lavoro-part-time/cliniche/case-anziani/oss/educatori). */
+   editorialSlots: Record<NonTiNavLocale, Array<{ slug: string; label: string }>>;
+   /** Sector hub slugs per locale (ingegneri, autisti, …) — only those with ≥3 matching jobs. */
+   sectorSlugs: Record<NonTiNavLocale, Array<{ slug: string; label: string }>>;
+   /** Top company hubs (≥3 jobs, top 6) — slug is `azienda-{cSlug}` per locale prefix. */
+   companyHubs: Record<NonTiNavLocale, Array<{ slug: string; label: string }>>;
+   /** City hubs (top 8 cities by job count, from data/canton-municipalities.json). */
+   cityHubs: Array<{ slug: string; label: string }>;
+ };
+ const nonTiCantonNavEntries: NonTiCantonNavEntry[] = [];
+ try {
+   const jobsRaw = JSON.parse(fs.readFileSync(np.resolve(rootDir, 'data/jobs.json'), 'utf-8')) as Array<Record<string, unknown>>;
+   if (Array.isArray(jobsRaw)) {
+     // Aggregate per-canton job sets ONCE. The resolveJobCanton heuristic
+     // in shared/cantonSection.ts mirrors what jobsSeoPagesPlugin uses to
+     // bucket jobs (canton explicit + location fallback).
+     const cantonJobs = new Map<string, Array<Record<string, unknown>>>();
+     for (const j of jobsRaw) {
+       const c = String((j as { canton?: string }).canton || '').toUpperCase().trim();
+       if (c) {
+         if (!cantonJobs.has(c)) cantonJobs.set(c, []);
+         cantonJobs.get(c)!.push(j);
+         continue;
+       }
+       // Best-effort city → canton fallback (mirrors getCityCanton's bare
+       // lookup; near-misses are fine because the navigator only links
+       // pages that pass an emitter-mirroring gate downstream).
+       const loc = String((j as { location?: string }).location || '').trim();
+       if (!loc) continue;
+       // Skip — the explicit-canton bucket above covers the vast majority.
+       // Edge cases without canton + with a Swiss-city location would need
+       // the full getCityCanton resolver and are < 1 % of the corpus.
+     }
+     const CANTON_DISPLAY_NAV: Record<NonTiNavLocale, Record<string, string>> = {
+       it: { AG: 'Argovia', AI: 'Appenzello Interno', AR: 'Appenzello Esterno', BE: 'Berna', BL: 'Basilea Campagna', BS: 'Basilea Città', FR: 'Friburgo', GE: 'Ginevra', GL: 'Glarona', GR: 'Grigioni', JU: 'Giura', LU: 'Lucerna', NE: 'Neuchâtel', NW: 'Nidvaldo', OW: 'Obvaldo', SG: 'San Gallo', SH: 'Sciaffusa', SO: 'Soletta', SZ: 'Svitto', TG: 'Turgovia', UR: 'Uri', VD: 'Vaud', VS: 'Vallese', ZG: 'Zugo', ZH: 'Zurigo' },
+       en: { AG: 'Aargau', AI: 'Appenzell Innerrhoden', AR: 'Appenzell Ausserrhoden', BE: 'Bern', BL: 'Basel-Country', BS: 'Basel-City', FR: 'Fribourg', GE: 'Geneva', GL: 'Glarus', GR: 'Graubünden', JU: 'Jura', LU: 'Lucerne', NE: 'Neuchâtel', NW: 'Nidwalden', OW: 'Obwalden', SG: 'St. Gallen', SH: 'Schaffhausen', SO: 'Solothurn', SZ: 'Schwyz', TG: 'Thurgau', UR: 'Uri', VD: 'Vaud', VS: 'Valais', ZG: 'Zug', ZH: 'Zurich' },
+       de: { AG: 'Aargau', AI: 'Appenzell Innerrhoden', AR: 'Appenzell Ausserrhoden', BE: 'Bern', BL: 'Basel-Land', BS: 'Basel-Stadt', FR: 'Freiburg', GE: 'Genf', GL: 'Glarus', GR: 'Graubünden', JU: 'Jura', LU: 'Luzern', NE: 'Neuenburg', NW: 'Nidwalden', OW: 'Obwalden', SG: 'St. Gallen', SH: 'Schaffhausen', SO: 'Solothurn', SZ: 'Schwyz', TG: 'Thurgau', UR: 'Uri', VD: 'Waadt', VS: 'Wallis', ZG: 'Zug', ZH: 'Zürich' },
+       fr: { AG: 'Argovie', AI: 'Appenzell Rhodes-Intérieures', AR: 'Appenzell Rhodes-Extérieures', BE: 'Berne', BL: 'Bâle-Campagne', BS: 'Bâle-Ville', FR: 'Fribourg', GE: 'Genève', GL: 'Glaris', GR: 'Grisons', JU: 'Jura', LU: 'Lucerne', NE: 'Neuchâtel', NW: 'Nidwald', OW: 'Obwald', SG: 'Saint-Gall', SH: 'Schaffhouse', SO: 'Soleure', SZ: 'Schwytz', TG: 'Thurgovie', UR: 'Uri', VD: 'Vaud', VS: 'Valais', ZG: 'Zoug', ZH: 'Zurich' },
+     };
+     // Sector display labels (capitalised) per locale — used for anchor text.
+     // Mirror SECTOR_HUB_DISPLAY but locally to avoid cross-module coupling.
+     const SECTOR_LABEL_NAV: Record<NonTiNavLocale, Record<SectorHubKey, string>> = {
+       it: { infermieri: 'Infermieri', 'case-anziani': 'Case anziani', educatori: 'Educatori', ingegneri: 'Ingegneri', autisti: 'Autisti', sviluppatori: 'Sviluppatori', ristorazione: 'Ristorazione', oss: 'Operatori socio-sanitari', logistica: 'Logistica', apprendistato: 'Apprendistato' },
+       en: { infermieri: 'Nurses', 'case-anziani': 'Elderly care', educatori: 'Educators', ingegneri: 'Engineers', autisti: 'Drivers', sviluppatori: 'Developers', ristorazione: 'Hospitality', oss: 'Healthcare assistants', logistica: 'Logistics', apprendistato: 'Apprenticeships' },
+       de: { infermieri: 'Pflegepersonal', 'case-anziani': 'Altenpflege', educatori: 'Erzieher', ingegneri: 'Ingenieure', autisti: 'Fahrer', sviluppatori: 'Entwickler', ristorazione: 'Gastronomie', oss: 'Pflegeassistenz', logistica: 'Logistik', apprendistato: 'Lehrstellen' },
+       fr: { infermieri: 'Infirmiers', 'case-anziani': 'Maisons de retraite', educatori: 'Éducateurs', ingegneri: 'Ingénieurs', autisti: 'Chauffeurs', sviluppatori: 'Développeurs', ristorazione: 'Restauration', oss: 'Aides-soignants', logistica: 'Logistique', apprendistato: 'Apprentissages' },
+     };
+     const EDITORIAL_LABEL_NAV: Record<NonTiNavLocale, { today: string; nurses: string; partTime: string; clinics: string; careHomes: string; oss: string; educators: string }> = {
+       it: { today: 'Offerte di oggi', nurses: 'Infermieri', partTime: 'Part-time', clinics: 'Cliniche', careHomes: 'Case anziani', oss: 'OSS', educators: 'Educatori' },
+       en: { today: 'Jobs today', nurses: 'Nursing', partTime: 'Part-time', clinics: 'Clinics', careHomes: 'Care homes', oss: 'Healthcare assistants', educators: 'Educators' },
+       de: { today: 'Heute', nurses: 'Pflege', partTime: 'Teilzeit', clinics: 'Kliniken', careHomes: 'Altersheime', oss: 'Pflegeassistenz', educators: 'Erzieher' },
+       fr: { today: "Aujourd'hui", nurses: 'Infirmiers', partTime: 'Temps partiel', clinics: 'Cliniques', careHomes: 'Maisons retraite', oss: 'Aides-soignants', educators: 'Éducateurs' },
+     };
+     const COMPANY_PREFIX_NAV: Record<NonTiNavLocale, string> = { it: 'azienda', en: 'company', de: 'unternehmen', fr: 'entreprise' };
+
+     // Top 8 cities by job count per canton (anchors the city-hub block).
+     // Use canonical canton municipality list so we only link cities that
+     // actually have an emitted hub (gate mirrors cityJobsHub.ts emit).
+     for (const code of ALL_CANTON_CODES) {
+       if (code === 'TI') continue;
+       const jobs = cantonJobs.get(code) ?? [];
+       if (jobs.length === 0) continue;
+       // ── sector hubs: gate ≥3 matching jobs (mirror MIN_JOBS_PER_CANTON_SECTOR
+       //    at jobsSeoPagesPlugin.ts:6052) AND ≥MIN_JOBS_FOR_CANTON_PAGE total
+       //    (mirror line 6080); reuse jobMatchesSector for accuracy.
+       const sectorSlugsPerLocale: Record<NonTiNavLocale, Array<{ slug: string; label: string }>> = { it: [], en: [], de: [], fr: [] };
+       if (jobs.length >= MIN_JOBS_FOR_CANTON_PAGE) {
+         for (const sector of SECTOR_HUB_KEYS) {
+           let n = 0;
+           for (const j of jobs) {
+             // Lazy import shape: pass through type since the helper checks each field individually.
+             if (jobMatchesSectorImpl(j as never, sector)) n++;
+             if (n >= 3) break;
+           }
+           if (n >= 3) {
+             for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+               sectorSlugsPerLocale[loc].push({ slug: SECTOR_HUB_SLUG[loc][sector], label: SECTOR_LABEL_NAV[loc][sector] });
+             }
+           }
+         }
+       }
+       // ── editorial slots: ALWAYS emitted for every cathedral canton
+       //    regardless of meetsThreshold (the emitter is in jobsSeoPagesPlugin
+       //    via buildJobCareVariantLandingModel + getJobTodayLandingSlug etc.).
+       //    We link all 7 unconditionally — they always exist on disk.
+       const editorialSlotsPerLocale: Record<NonTiNavLocale, Array<{ slug: string; label: string }>> = { it: [], en: [], de: [], fr: [] };
+       for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+         const L = EDITORIAL_LABEL_NAV[loc];
+         editorialSlotsPerLocale[loc].push(
+           { slug: getJobTodayLandingSlug(loc as CantonLocale, code), label: L.today },
+           { slug: getJobNursesHubSlug(loc as CantonLocale, code), label: L.nurses },
+           { slug: getJobPartTimeLandingSlug(loc as CantonLocale, code), label: L.partTime },
+           { slug: careClusterSlug('clinics', code, loc as CantonLocale), label: L.clinics },
+           { slug: careClusterSlug('careHomes', code, loc as CantonLocale), label: L.careHomes },
+           { slug: careClusterSlug('oss', code, loc as CantonLocale), label: L.oss },
+           { slug: careClusterSlug('educators', code, loc as CantonLocale), label: L.educators },
+         );
+       }
+       // ── company hubs: mirror MIN_JOBS_PER_CANTON_COMPANY=3 + top 6 (line 8156-8175).
+       //    Slug match is the canonical company id; for the local compute we
+       //    use the same lower-kebab fallback as the TI nav data-prep above.
+       const companyCounts = new Map<string, { name: string; count: number }>();
+       for (const j of jobs) {
+         const co = String((j as { company?: string }).company || '').trim();
+         const coKey = String((j as { companyKey?: string }).companyKey || '').trim();
+         const slug = coKey || co.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+         if (!slug || slug.length < 2) continue;
+         const cur = companyCounts.get(slug);
+         if (cur) cur.count++;
+         else companyCounts.set(slug, { name: co || slug, count: 1 });
+       }
+       const topCompanies = [...companyCounts.entries()]
+         .filter(([, v]) => v.count >= 3)
+         .sort((a, b) => b[1].count - a[1].count || a[0].localeCompare(b[0]))
+         .slice(0, 6);
+       const companyHubsPerLocale: Record<NonTiNavLocale, Array<{ slug: string; label: string }>> = { it: [], en: [], de: [], fr: [] };
+       for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+         const pfx = COMPANY_PREFIX_NAV[loc];
+         for (const [cSlug, v] of topCompanies) companyHubsPerLocale[loc].push({ slug: `${pfx}-${cSlug}`, label: v.name });
+       }
+       // ── city hubs: top 8 cities by job count, normalized via the same
+       //    `normalizeCitySlug` the emitter (`cityJobsHub.ts`) uses. Cap 8 to
+       //    mirror the canton "Top cities" Esplora navigator (line 8044).
+       const cityCounts = new Map<string, { label: string; count: number }>();
+       for (const j of jobs) {
+         const loc = String((j as { location?: string }).location || '').trim();
+         if (!loc) continue;
+         // Strip postal codes / brackets so the city slug matches the hub URL.
+         const cleaned = loc.replace(/^\s*\d{4}\s+/, '').replace(/\s*\([^)]*\)\s*/g, ' ').trim();
+         const firstToken = cleaned.split(/[,/]/)[0].trim();
+         if (!firstToken) continue;
+         const slug = normalizeCitySlug(firstToken);
+         if (!slug) continue;
+         const cur = cityCounts.get(slug);
+         if (cur) cur.count++;
+         else cityCounts.set(slug, { label: firstToken, count: 1 });
+       }
+       // Cross-check against canonical municipalities so we only link slugs
+       // the cathedral actually emits (avoids 404s for malformed locations).
+       const knownCitySlugs = new Set(getCantonCities(code).map((c) => normalizeCitySlug(c)).filter(Boolean));
+       const cityHubs = [...cityCounts.entries()]
+         .filter(([slug]) => knownCitySlugs.has(slug))
+         .sort((a, b) => b[1].count - a[1].count || a[0].localeCompare(b[0]))
+         .slice(0, 8)
+         .map(([slug, v]) => ({ slug, label: v.label }));
+
+       nonTiCantonNavEntries.push({
+         canton: code,
+         labels: { it: CANTON_DISPLAY_NAV.it[code] ?? code, en: CANTON_DISPLAY_NAV.en[code] ?? code, de: CANTON_DISPLAY_NAV.de[code] ?? code, fr: CANTON_DISPLAY_NAV.fr[code] ?? code },
+         editorialSlots: editorialSlotsPerLocale,
+         sectorSlugs: sectorSlugsPerLocale,
+         companyHubs: companyHubsPerLocale,
+         cityHubs,
+       });
+     }
+   }
+ } catch (e) {
+   console.warn('[static-pages] Could not compute nonTiCantonNavEntries from jobs.json:', e);
+ }
+
+ console.log(`\x1b[36m[static-pages]\x1b[0m Non-TI canton nav entries: ${nonTiCantonNavEntries.length} cantons (avg ${nonTiCantonNavEntries.length > 0 ? Math.round(nonTiCantonNavEntries.reduce((s, e) => s + e.editorialSlots.it.length + e.sectorSlugs.it.length + e.companyHubs.it.length + e.cityHubs.length, 0) / nonTiCantonNavEntries.length) : 0} links/canton in IT)`);
 
  /* ── 0. Find entry JS/CSS bundle + Italian locale chunk ────── */
  // IMPORTANT: Extract from Vite-generated index.html to get the correct entry
@@ -2855,6 +3052,88 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  editorialBlocks.push(
  `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem" open><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:#1e293b;padding:.25rem 0">${esc(cantonNavLabel)} (${codesForNav.length})</summary><nav aria-label="${esc(cantonNavLabel)}" style="margin-top:.5rem;line-height:1.9">${cantonAnchors.join('')}</nav></details>`,
  );
+ }
+ // ── BFS-depth closure (May 2026, run 25739076601) — per-canton deep leaves ──
+ // Iterate every non-TI canton and push a collapsed <details> linking that
+ // canton's sector hubs, editorial slot pages, top company hubs, and top
+ // city hubs. Sits BELOW the canton list so the user-facing summary stays
+ // compact; collapsed by default so mobile fold remains intact. The TI hub
+ // is at BFS depth 1, so every link inside this block resolves at depth 2.
+ // Fixes the ~399 sitemap-jobs.xml depth>4 regression caused by
+ // cathedral-expansion canton hubs being `noindex,follow` (which the BFS
+ // walker treats as a dead-end, leaving their leaves unreachable).
+ if (nonTiCantonNavEntries.length > 0) {
+ const navLocale = locale as NonTiNavLocale;
+ const localePref = navLocale === 'it' ? '' : `${navLocale}/`;
+ const pillBaseStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#f1f5f9;color:#1e293b;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #cbd5e1';
+ const pillEditorialStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#eef2ff;color:#312e81;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #c7d2fe';
+ const pillSectorStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #bbf7d0';
+ const pillCompanyStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#fef3c7;color:#854d0e;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #fcd34d';
+ const outerNavLabel = navLocale === 'it' ? 'Esplora i cantoni in dettaglio'
+   : navLocale === 'en' ? 'Explore cantons in detail'
+   : navLocale === 'de' ? 'Kantone im Detail erkunden'
+   : 'Explorer les cantons en détail';
+ const editorialLabel = navLocale === 'it' ? 'Pagine in evidenza'
+   : navLocale === 'en' ? 'Featured pages'
+   : navLocale === 'de' ? 'Empfohlene Seiten'
+   : 'Pages à la une';
+ const sectorLabel = navLocale === 'it' ? 'Settori'
+   : navLocale === 'en' ? 'Sectors'
+   : navLocale === 'de' ? 'Branchen'
+   : 'Secteurs';
+ const companyLabel = navLocale === 'it' ? 'Aziende che assumono'
+   : navLocale === 'en' ? 'Top employers'
+   : navLocale === 'de' ? 'Top-Arbeitgeber'
+   : 'Employeurs principaux';
+ const cityLabel = navLocale === 'it' ? 'Città principali'
+   : navLocale === 'en' ? 'Top cities'
+   : navLocale === 'de' ? 'Top-Städte'
+   : 'Villes principales';
+ const subSectionDetails: string[] = [];
+ for (const e of nonTiCantonNavEntries) {
+   const cantonSection = resolveCantonSection(navLocale as CantonLocale, e.canton);
+   const cantonBase = `/${localePref}${cantonSection}/`.replace(/\/+/g, '/');
+   const cantonDisplay = e.labels[navLocale];
+   const blocks: string[] = [];
+   // Editorial slots (7 anchors).
+   if (e.editorialSlots[navLocale].length > 0) {
+     const anchors = e.editorialSlots[navLocale]
+       .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillEditorialStyle}">${esc(it.label)}</a>`)
+       .join('');
+     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(editorialLabel)}:</strong> ${anchors}</div>`);
+   }
+   // Sector hubs (≤10).
+   if (e.sectorSlugs[navLocale].length > 0) {
+     const anchors = e.sectorSlugs[navLocale]
+       .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillSectorStyle}">${esc(it.label)}</a>`)
+       .join('');
+     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(sectorLabel)}:</strong> ${anchors}</div>`);
+   }
+   // Top company hubs (≤6).
+   if (e.companyHubs[navLocale].length > 0) {
+     const anchors = e.companyHubs[navLocale]
+       .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillCompanyStyle}">${esc(it.label)}</a>`)
+       .join('');
+     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(companyLabel)}:</strong> ${anchors}</div>`);
+   }
+   // City hubs (≤8) — slug is locale-agnostic (citySlug normalised).
+   if (e.cityHubs.length > 0) {
+     const anchors = e.cityHubs
+       .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillBaseStyle}">${esc(it.label)}</a>`)
+       .join('');
+     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(cityLabel)}:</strong> ${anchors}</div>`);
+   }
+   if (blocks.length === 0) continue;
+   const totalCount = e.editorialSlots[navLocale].length + e.sectorSlugs[navLocale].length + e.companyHubs[navLocale].length + e.cityHubs.length;
+   subSectionDetails.push(
+     `<details style="margin:.25rem 0;border-left:3px solid #cbd5e1;padding:.25rem .5rem"><summary style="cursor:pointer;font-weight:600;font-size:.85rem;color:#334155">${esc(cantonDisplay)} (${totalCount})</summary><div style="margin-top:.25rem">${blocks.join('')}</div></details>`,
+   );
+ }
+ if (subSectionDetails.length > 0) {
+   editorialBlocks.push(
+     `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:#1e293b;padding:.25rem 0">${esc(outerNavLabel)} (${subSectionDetails.length})</summary><div style="margin-top:.5rem">${subSectionDetails.join('')}</div></details>`,
+   );
+ }
  }
  }
  // ── BFS-depth closure (May 2026) — TI hub deep navigators ─────────
