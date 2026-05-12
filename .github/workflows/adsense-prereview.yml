@@ -41,6 +41,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Assemble jobs dataset from per-crawler slices
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
       - name: Build
         run: npm run build:prod
 
