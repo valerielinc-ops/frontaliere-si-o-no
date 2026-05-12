@@ -35798,6 +35798,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-temporali-grandine-luganese-11-maggio-2026': {
+    title: 'Temporali e grandine nel Luganese: allerta livello 3',
+    description: 'MeteoSvizzera ha diramato un\'allerta maltempo livello 3 per il Luganese e il Bellinzonese. Grandine a Capriasca, rischio frane e allagamenti. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, temporali, grandine, luganese, allerta',
+    ogTitle: 'Temporali e grandine nel Luganese: allerta livello 3',
+    ogDescription: 'MeteoSvizzera ha diramato un\'allerta maltempo livello 3 per il Luganese e il Bellinzonese. Grandine a Capriasca, rischio frane e allagamenti',
+    canonicalPath: '/articoli-frontaliere/temporali-grandine-luganese-11-maggio-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Temporali e grandine nel Luganese: allerta livello 3",
+      "description": "MeteoSvizzera ha diramato un'allerta maltempo livello 3 per il Luganese e il Bellinzonese. Grandine a Capriasca, rischio frane e allagamenti. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/temporali-grandine-luganese-11-maggio-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano durante un temporale con grandine"
+      },
+      "datePublished": "2026-05-12T05:22:15+00:00",
+      "dateModified": "2026-05-12T05:22:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/temporali-grandine-luganese-11-maggio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

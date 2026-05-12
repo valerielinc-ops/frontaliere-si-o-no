@@ -7457,6 +7457,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.title': 'Chute du pouvoir d\'achat et LAMal: le Canton appelle à des contre-mesures',
     'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.excerpt': 'Le Canton du Tessin annonce des contre-mesures pour contrer la baisse du pouvoir d\'achat et soutenir LAMal, l\'initiative pour la collecte de données unique.',
     'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.imageAlt': 'Vue panoramique de Lugano, mettant l\'accent sur le quartier financier, mettant en évidence l\'activité économique de la ville et la frontière suisse-italienne.',
+    'blog.article.temporali-grandine-luganese-11-maggio-2026.title': 'Orages et grêle dans le Luganais : alerte niveau 3',
+    'blog.article.temporali-grandine-luganese-11-maggio-2026.excerpt': 'MétéoSuisse a émis une alerte météo de niveau 3 pour le Luganais et le Bellinzonais. Grêle à Capriasca, risque de glissements de terrain et d\'inondations',
+    'blog.article.temporali-grandine-luganese-11-maggio-2026.imageAlt': 'Vue aérienne du lac de Lugano pendant un orage avec de la grêle',
 };
 
 export default blogMetaFr;

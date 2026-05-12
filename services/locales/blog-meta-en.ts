@@ -7456,6 +7456,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.title': 'Falling purchasing power and LAMal: Ticino calls for countermeasures',
     'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.excerpt': 'Ticino Region announces countermeasures to combat falling purchasing power and support LAMal, the unique data collection initiative.',
     'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.imageAlt': 'Panoramic view of Lugano, focusing on the financial district, highlighting the city\'s economic activity and the Swiss-Italian border.',
+    'blog.article.temporali-grandine-luganese-11-maggio-2026.title': 'Thunderstorms and hail in Lugano: level 3 alert',
+    'blog.article.temporali-grandine-luganese-11-maggio-2026.excerpt': 'MeteoSwiss has issued a level 3 bad weather alert for Lugano and Bellinzona. Hail in Capriasca, risk of landslides and flooding',
+    'blog.article.temporali-grandine-luganese-11-maggio-2026.imageAlt': 'Aerial view of Lake Lugano during a storm with hail',
 };
 
 export default blogMetaEn;

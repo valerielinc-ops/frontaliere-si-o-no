@@ -7457,6 +7457,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.title': 'Calo potere d\'acquisto e LAMal: la Regione invoca contromisure',
     'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.excerpt': 'La Regione Ticino annuncia contromisure per contrastare il calo del potere d\'acquisto e supportare LAMal, l\'iniziativa per la rilevazione dati unica.',
     'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.imageAlt': 'Vista panoramica di Lugano, con l\'accento sulla zona finanziaria, che mostra l\'attività economica della città e il confine italo-svizzero.',
+    'blog.article.temporali-grandine-luganese-11-maggio-2026.title': 'Temporali e grandine nel Luganese: allerta livello 3',
+    'blog.article.temporali-grandine-luganese-11-maggio-2026.excerpt': 'MeteoSvizzera ha diramato un\'allerta maltempo livello 3 per il Luganese e il Bellinzonese. Grandine a Capriasca, rischio frane e allagamenti',
+    'blog.article.temporali-grandine-luganese-11-maggio-2026.imageAlt': 'Vista aerea del Lago di Lugano durante un temporale con grandine',
 };
 
 export default blogMetaIt;

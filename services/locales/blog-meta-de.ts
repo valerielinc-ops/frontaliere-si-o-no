@@ -7455,6 +7455,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.title': 'Einkaufskraftverlust und LAMal: Kanton Tessin fordert Gegenmassnahmen',
     'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.excerpt': 'Der Kanton Tessin kündigt Gegenmassnahmen an, um den Einkaufskraftverlust zu bekämpfen und LAMal, das Initiative zur einheitlichen Datenerfassung, zu unterstützen.',
     'blog.article.calo-potere-acquisto-lamal-contromisure-ticino.imageAlt': 'Panoramablick auf Lugano mit Fokus auf den Finanzbezirk, der die wirtschaftliche Aktivität der Stadt und die schweizerisch-italienische Grenze zeigt.',
+    'blog.article.temporali-grandine-luganese-11-maggio-2026.title': 'Gewitter und Hagel im Luganer Raum: Warnstufe 3',
+    'blog.article.temporali-grandine-luganese-11-maggio-2026.excerpt': 'MeteoSchweiz hat eine Unwetterwarnung der Stufe 3 für den Luganer Raum und das Bellinzona-Gebiet herausgegeben. Hagel in Capriasca, Erdrutsch- und Überschwemmungsgefahr',
+    'blog.article.temporali-grandine-luganese-11-maggio-2026.imageAlt': 'Luftaufnahme des Luganersees während eines Sturms mit Hagel',
 };
 
 export default blogMetaDe;
