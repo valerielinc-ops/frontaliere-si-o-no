@@ -575,7 +575,7 @@ function makeTodayCopy(cantonCode: string): Record<JobLandingLocale, {
  internalLinks: ['Neue Jobs in den letzten 24 Stunden', 'Jobs der letzten 3 Tage', `Teilzeitjobs ${germanCantonPrep(cd.de)}`],
  },
  fr: {
- title: `Offres d'emploi ${frenchCantonPrep(cd.fr)} aujourd'hui | 24h + 3 jours`,
+ title: `Emplois ${frenchCantonPrep(cd.fr)} aujourd'hui | 24h + 3 jours`,
  heading: `Offres d'emploi ${frenchCantonPrep(cd.fr)} aujourd'hui`,
  description: `Consultez les offres d'emploi ${frenchCantonPrep(cd.fr)} publiees aujourd'hui ou ces 3 derniers jours, avec blocs 24h, temps partiel et villes.`,
  intro: `Cette landing page regroupe les offres les plus recentes de notre job board ${frenchCantonPrep(cd.fr)} et les organise en blocs utiles pour lire rapidement le marche.`,
@@ -610,7 +610,7 @@ const OFFICIAL_GAZETTE_COPY: Record<JobLandingLocale, {
  faq: Array<{ question: string; answer: string }>;
 }> = {
  it: {
- title: 'Foglio ufficiale offerte di lavoro Ticino | Concorsi pubblici e fonti ufficiali',
+ title: 'Foglio ufficiale lavoro Ticino | Concorsi pubblici',
  heading: 'Foglio ufficiale offerte di lavoro Ticino',
  description: (count) => `Consulta ${count} concorsi pubblici e offerte dal Foglio ufficiale del Ticino indicizzati da Frontaliere Ticino, con spiegazione su concorsi, job board e fonti.`,
  intro: 'Questa pagina ti aiuta a distinguere tra concorsi pubblici, annunci del nostro job board e fonti ufficiali cantonali. Qui trovi soprattutto concorsi pubblici indicizzati da fonti ufficiali come concorsi.ti.ch, con link interni alle schede gia pulite e leggibili.',
@@ -652,7 +652,7 @@ const OFFICIAL_GAZETTE_COPY: Record<JobLandingLocale, {
  ],
  },
  en: {
- title: 'Official Gazette Ticino jobs | Public competitions and official sources',
+ title: 'Official Gazette Ticino jobs | Public competitions',
  heading: 'Official Gazette jobs in Ticino',
  description: (count) => `Browse ${count} public competitions and jobs from the Ticino Official Gazette indexed by Frontaliere Ticino, with public vs job board vs official sources explained.`,
  intro: 'This page helps you understand the difference between public competitions, our broader job board and official canton sources. It focuses on public-sector listings already indexed from official sources such as concorsi.ti.ch.',
@@ -694,7 +694,7 @@ const OFFICIAL_GAZETTE_COPY: Record<JobLandingLocale, {
  ],
  },
  de: {
- title: 'Amtsblatt Stellen Tessin | Offentliche Ausschreibungen und offizielle Quellen',
+ title: 'Amtsblatt Stellen Tessin | Offentliche Ausschreibungen',
  heading: 'Amtsblatt-Stellen im Tessin',
  description: (count) => `Entdecken Sie ${count} offentliche Ausschreibungen aus offiziellen Tessiner Quellen, indexiert von Frontaliere Ticino, mit Erklarung zu Wettbewerb und Quellen.`,
  intro: 'Diese Seite hilft bei der Unterscheidung zwischen offentlichen Ausschreibungen, unserem umfassenderen Job Board und offiziellen kantonalen Quellen. Im Fokus stehen bereits indexierte Ausschreibungen aus offiziellen Quellen wie concorsi.ti.ch.',
@@ -736,7 +736,7 @@ const OFFICIAL_GAZETTE_COPY: Record<JobLandingLocale, {
  ],
  },
  fr: {
- title: "Feuille officielle emplois Tessin | Concours publics et sources officielles",
+ title: "Feuille officielle emplois Tessin | Concours publics",
  heading: "Emplois de la Feuille officielle au Tessin",
  description: (count) => `Consultez ${count} concours publics et offres de sources officielles du Tessin indexes par Frontaliere Ticino, avec explication concours, job board et sources.`,
  intro: "Cette page vous aide a distinguer les concours publics, notre job board plus large et les sources officielles cantonales. Elle se concentre sur les offres publiques deja indexees depuis des sources officielles comme concorsi.ti.ch.",
@@ -796,7 +796,7 @@ function makeNursesHubCopy(cantonCode: string): Record<JobLandingLocale, {
  const cd = CANTON_DISPLAY_LOCALE[cantonCode] || CANTON_DISPLAY_LOCALE['TI'];
  return {
  it: {
- title: `Infermieri in ${cd.it} | Cliniche, case anziani, OSS ed educatori`,
+ title: `Infermieri ${cd.it} | Cliniche, case anziani e OSS`,
  heading: `Infermieri e sanita in ${cd.it}`,
  description: (count) => `Scopri ${count} offerte per infermieri, OSS, educatori e ruoli nelle cliniche o case anziani in ${cd.it}, con pagine dedicate ai cluster che convertono meglio.`,
  intro: `Questo hub raccoglie i lavori sanita e care che intercettano piu domanda: infermieri, OSS, educatori, cliniche private e case anziani. Serve per trovare piu velocemente le opportunita davvero vicine al tuo profilo.`,
@@ -818,7 +818,7 @@ function makeNursesHubCopy(cantonCode: string): Record<JobLandingLocale, {
  openAll: `Vedi tutte le offerte in ${cd.it}`,
  },
  en: {
- title: `Nurses in ${cd.en} | Clinics, care homes, healthcare assistants and educators`,
+ title: `Nurses in ${cd.en} | Clinics, care homes and OSS`,
  heading: `Nurses and healthcare jobs in ${cd.en}`,
  description: (count) => `Browse ${count} nursing, healthcare assistant, educator and clinic or care home jobs in ${cd.en}, with dedicated pages for top converting clusters.`,
  intro: 'This hub groups together the healthcare and care jobs that attract the strongest demand: nurses, healthcare assistants, educators, private clinics and care homes.',
@@ -840,7 +840,7 @@ function makeNursesHubCopy(cantonCode: string): Record<JobLandingLocale, {
  openAll: `See all jobs in ${cd.en}`,
  },
  de: {
- title: `Pflege Jobs ${germanCantonPrep(cd.de)} | Kliniken, Altersheime, OSS und Erzieher`,
+ title: `Pflege Jobs ${germanCantonPrep(cd.de)} | Kliniken & OSS`,
  heading: `Pflege- und Gesundheitsjobs ${germanCantonPrep(cd.de)}`,
  description: (count) => `Entdecken Sie ${count} Pflege-, OSS-, Erzieher- und Klinikstellen ${germanCantonPrep(cd.de)}, mit eigenen Seiten fur die relevantesten Cluster.`,
  intro: 'Dieser Hub bundelt die Gesundheits- und Care-Jobs mit hoher Nachfrage: Pflege, Betreuung, Erziehung, Kliniken und Altersheime.',
@@ -862,7 +862,7 @@ function makeNursesHubCopy(cantonCode: string): Record<JobLandingLocale, {
  openAll: `Alle Jobs ${germanCantonPrep(cd.de)} ansehen`,
  },
  fr: {
- title: `Infirmiers ${frenchCantonPrep(cd.fr)} | Cliniques, EMS, OSS et educateurs`,
+ title: `Infirmiers ${frenchCantonPrep(cd.fr)} | Cliniques & EMS`,
  heading: `Infirmiers et sante ${frenchCantonPrep(cd.fr)}`,
  description: (count) => `Consultez ${count} offres infirmiers, OSS, educateurs et cliniques ou EMS ${frenchCantonPrep(cd.fr)}, avec pages dediees aux sous-clusters performants.`,
  intro: `Ce hub regroupe les offres sante et care qui attirent le plus de demande: infirmiers, OSS, educateurs, cliniques privees et maisons de retraite.`,
@@ -1820,15 +1820,21 @@ export function buildJobCareVariantLandingModel(options: {
  const label = careClusterLabel(clusterKey, cantonCode, locale);
  const cd = CANTON_DISPLAY_LOCALE[cantonCode] || CANTON_DISPLAY_LOCALE['TI'];
  const isEducators = clusterKey === 'educators';
+ // Title: the `label` already contains the canton display + preposition
+ // (e.g. "Maisons de retraite dans le canton de Schaffhouse"). The trailing
+ // suffix MUST NOT repeat the canton — duplicating it pushed FR/EN titles
+ // past 80-104 chars and tanked the audit:title-length ratchet (Phase 8a
+ // canton expansion). Short suffix only; brand dropped by titleSuffix.ts
+ // when total exceeds the 66-char cap.
  const title = locale === 'it'
  ? isEducators
- ? `Concorso Educatore ${cd.it} | Offerte lavoro educatori`
- : `${label} | Offerte di lavoro aggiornate in ${cd.it}`
+ ? `Concorso Educatore ${cd.it} | Offerte aggiornate`
+ : `${label} | Offerte aggiornate`
  : locale === 'en'
- ? `${label} | Updated job offers in ${cd.en}`
+ ? `${label} | Updated job offers`
  : locale === 'de'
- ? `${label} | Aktuelle Jobangebote ${germanCantonPrep(cd.de)}`
- : `${label} | Offres d'emploi a jour ${frenchCantonPrep(cd.fr)}`;
+ ? `${label} | Aktuelle Jobangebote`
+ : `${label} | Offres a jour`;
  const description = locale === 'it'
  ? isEducators
  ? `Concorso educatore ${cd.it}: ${matches.length} offerte di lavoro per educatori dell'infanzia, educatrici e pedagoghi con candidature dirette.`
@@ -2140,7 +2146,7 @@ function makeSectorRegionCopy(cantonCode: string): Record<JobLandingLocale, {
  },
  fr: {
  heading: (label) => `Emplois ${label} ${frenchCantonPrep(cd.fr)}`,
- title: (label) => `Emplois ${label} ${frenchCantonPrep(cd.fr)} | Offres a jour`,
+ title: (label) => `Emplois ${label} ${frenchCantonPrep(cd.fr)}`,
  description: (label, count) => `Decouvrez ${count} offres d'emploi dans le secteur ${label.toLowerCase()} ${frenchCantonPrep(cd.fr)}. Mises a jour quotidiennement pour les frontaliers.`,
  intro: (label) => `Toutes les offres dans le secteur ${label.toLowerCase()} disponibles ${frenchCantonPrep(cd.fr)} pour les frontaliers.`,
  countsLabel: 'annonces actives',
@@ -2230,7 +2236,7 @@ function makePartTimeCopy(cantonCode: string): Record<JobLandingLocale, {
  const cd = CANTON_DISPLAY_LOCALE[cantonCode] || CANTON_DISPLAY_LOCALE['TI'];
  return {
  it: {
- title: `Lavoro part-time in ${cd.it} | Offerte a tempo parziale per frontalieri`,
+ title: `Lavoro part-time ${cd.it} | Posti flessibili frontalieri`,
  heading: `Lavoro part-time in ${cd.it}`,
  description: (count) => `Scopri ${count} offerte part-time in ${cd.it} per frontalieri. Posizioni a tempo parziale aggiornate da aziende svizzere, con filtri per citta e settore.`,
  intro: `Questa landing raccoglie tutte le offerte a tempo parziale disponibili nel Canton ${cd.it}, ideale per chi cerca flessibilita lavorativa come frontaliere. Le posizioni spaziano da contratti al 20% fino al 80% e coprono tutti i principali settori.`,
@@ -2256,7 +2262,7 @@ function makePartTimeCopy(cantonCode: string): Record<JobLandingLocale, {
  ],
  },
  en: {
- title: `Part-time jobs in ${cd.en} | Flexible positions for cross-border workers`,
+ title: `Part-time jobs in ${cd.en} | Flexible cross-border roles`,
  heading: `Part-time jobs in ${cd.en}`,
  description: (count) => `Browse ${count} part-time jobs in ${cd.en} for cross-border workers. Flexible positions updated daily, filterable by city, sector and employment percentage.`,
  intro: `This page collects all part-time positions available in Canton ${cd.en}, ideal for cross-border workers seeking flexibility. Roles range from 20% to 80% contracts across all major sectors.`,
@@ -2282,7 +2288,7 @@ function makePartTimeCopy(cantonCode: string): Record<JobLandingLocale, {
  ],
  },
  de: {
- title: `Teilzeitjobs ${germanCantonPrep(cd.de)} | Flexible Stellen fur Grenzganger`,
+ title: `Teilzeitjobs ${germanCantonPrep(cd.de)} | Flexible Stellen`,
  heading: `Teilzeitjobs ${germanCantonPrep(cd.de)}`,
  description: (count) => `Entdecken Sie ${count} Teilzeitstellen ${germanCantonPrep(cd.de)} fur Grenzganger. Flexible Positionen taglich aktualisiert, filterbar nach Stadt und Branche.`,
  intro: `Diese Seite sammelt alle Teilzeitstellen im Kanton ${cd.de}, ideal fur Grenzganger auf der Suche nach flexibler Arbeit. Die Positionen reichen von 20%- bis 80%-Vertragen in allen wichtigen Branchen.`,
@@ -2308,7 +2314,7 @@ function makePartTimeCopy(cantonCode: string): Record<JobLandingLocale, {
  ],
  },
  fr: {
- title: `Emploi temps partiel ${frenchCantonPrep(cd.fr)} | Postes flexibles pour frontaliers`,
+ title: `Temps partiel ${frenchCantonPrep(cd.fr)} | Postes flexibles`,
  heading: `Emploi temps partiel ${frenchCantonPrep(cd.fr)}`,
  description: (count) => `Consultez ${count} offres a temps partiel ${frenchCantonPrep(cd.fr)} pour frontaliers. Postes flexibles mis a jour quotidiennement, filtrables par ville et secteur.`,
  intro: `Cette page regroupe toutes les offres a temps partiel disponibles dans le canton ${cd.fr}, ideales pour les frontaliers a la recherche de flexibilite. Les postes vont de contrats a 20% jusqu'a 80% dans tous les secteurs majeurs.`,
