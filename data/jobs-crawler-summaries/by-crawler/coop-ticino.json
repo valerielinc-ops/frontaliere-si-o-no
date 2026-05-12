@@ -1,24 +1,59 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-05-12T11:07:41.787Z",
-  "total": 155,
-  "newCount": 2,
-  "updatedCount": 0,
+  "generatedAt": "2026-05-12T21:59:39.839Z",
+  "total": 156,
+  "newCount": 1,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 153,
-  "durationMs": 523144,
-  "avgDurationMs": 523144,
+  "unchangedCount": 152,
+  "durationMs": 400909,
+  "avgDurationMs": 400909,
   "durationHistory": [
-    523144
+    400909
   ],
   "newJobs": [
+    {
+      "id": "company-o367qu",
+      "slug": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Rayonleiter:in Nonfood",
+      "location": "Klosters-Serneus",
+      "canton": "GR",
+      "category": "finance",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-12",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-nonfood/9c47ef21-c7a9-41b4-81c2-219652c1469e",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-12T21:56:31.332Z",
+      "firstSeenAt": "2026-05-12T21:56:31.332Z",
+      "needsRetranslation": true,
+      "addressLocality": "Klosters-Serneus",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "company-6azqre",
       "slug": "verkaufsberater-in-tessin-steinfels-swiss-winterthur-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in Tessin",
-      "location": "Winterthur",
+      "location": "Lugano",
       "canton": "TI",
       "category": "admin",
       "contract": "part-time",
@@ -37,13 +72,16 @@
       "crawledAt": "2026-05-12T11:04:10.406Z",
       "firstSeenAt": "2026-05-12T11:04:10.406Z",
       "needsRetranslation": true,
-      "addressLocality": "Winterthur",
-      "_qualityScore": 67,
+      "addressLocality": "Lugano",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -71,81 +109,8 @@
       "firstSeenAt": "2026-05-12T11:04:10.406Z",
       "needsRetranslation": true,
       "addressLocality": "Felsberg",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "company-3pl1h6",
-      "slug": "kochin-koch-m-w-d-coop-ristorante-davos-platz",
-      "company": "Coop Genossenschaft",
-      "title": "Köchin / Koch (w/m/d)",
-      "location": "Davos",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-11",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/d7fe65c8-b6b5-47e4-a159-9dc816e8c6c4",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-11T11:30:28.503Z",
-      "firstSeenAt": "2026-05-11T11:30:28.503Z",
-      "addressLocality": "Davos",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
-      "retranslationAttempts": 1,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-pa5qt0",
-      "slug": "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz",
-      "company": "Coop Genossenschaft",
-      "title": "Mitarbeiter:in Gastronomie",
-      "location": "Davos",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-11",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/f0073708-008c-4183-8eed-1c83d7f34000",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-11T11:30:28.503Z",
-      "firstSeenAt": "2026-05-11T11:30:28.503Z",
-      "addressLocality": "Davos",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
       "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -182,7 +147,81 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "company-3pl1h6",
+      "slug": "kochin-koch-m-w-d-coop-ristorante-davos-platz",
+      "company": "Coop Genossenschaft",
+      "title": "Köchin / Koch (w/m/d)",
+      "location": "Davos",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-11",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/d7fe65c8-b6b5-47e4-a159-9dc816e8c6c4",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-11T11:30:28.503Z",
+      "firstSeenAt": "2026-05-11T11:30:28.503Z",
+      "addressLocality": "Davos",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-pa5qt0",
+      "slug": "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz",
+      "company": "Coop Genossenschaft",
+      "title": "Mitarbeiter:in Gastronomie",
+      "location": "Davos",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-11",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/f0073708-008c-4183-8eed-1c83d7f34000",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-11T11:30:28.503Z",
+      "firstSeenAt": "2026-05-11T11:30:28.503Z",
+      "addressLocality": "Davos",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -217,8 +256,6 @@
       "addressLocality": "Dietlikon",
       "salaryMin": 85500,
       "salaryMax": 150000,
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -254,6 +291,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -289,6 +327,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -324,6 +363,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -359,6 +399,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -394,6 +435,7 @@
       "salaryMin": 59000,
       "salaryMax": 90500,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -770,6 +812,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -805,6 +848,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -840,6 +884,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -875,6 +920,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -910,6 +956,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -945,6 +992,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -980,6 +1028,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1015,6 +1064,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1084,6 +1134,7 @@
       "salaryMin": 59000,
       "salaryMax": 90500,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1119,6 +1170,43 @@
       "salaryMin": 59000,
       "salaryMax": 90500,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 15,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-paz7ck",
+      "slug": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-paz7ck",
+      "company": "Jumbo",
+      "title": "Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
+      "location": "Lenzburg 1",
+      "canton": "TI",
+      "category": "sales",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-08-01",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/c597e73f-348a-4e59-bff3-f246089fe0ac",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-10T09:58:53.007Z",
+      "firstSeenAt": "2026-05-10T09:58:53.007Z",
+      "addressLocality": "Lenzburg 1",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
