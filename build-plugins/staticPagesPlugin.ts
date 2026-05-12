@@ -25,6 +25,9 @@ import {
 } from './jobBoardSeo';
 import { emitSeoHubs } from './seoHubsPlugin';
 import { ARTICLES_PAGE_SIZE, JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, type HubLocale as ArchiveHubLocale } from './seoHubsData';
+import { ALL_CANTON_CODES, AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './shared/cantonSection';
+import cantonSlugFile from '../data/canton-url-slugs.json';
+import { getJobTodayLandingSlug } from './jobEditorialLanding';
 
 // ── SPA shell <title> handling ────────────────────────────────────────
 // Universal rule: headline VERBATIM, brand suffix appended only when total
@@ -2682,6 +2685,53 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  editorialBlocks.push(
  `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:#1e293b;padding:.25rem 0">${esc(jobsNavLabel)} (${jobsTotalPages} pagine)</summary><nav aria-label="${esc(jobsNavLabel)}" style="margin-top:.5rem;line-height:1.8">${jobsAnchors.join('')}</nav></details>`,
  );
+ }
+ // Cathedral canton navigator \u2014 closes the +909 sitemap-jobs.xml offenders
+ // (audit-max-bfs-depth) by linking every cathedral canton hub + per-canton
+ // "today" landing from the legacy TI hub. Without this, the canton URLs
+ // are reachable only via the sitemap (BFS depth = unreachable from /).
+ {
+ const cantonLocale = locale as CantonLocale;
+ const cantonDataAny = cantonSlugFile as { cantons: Record<string, Record<string, string>> };
+ const cantonNavLabel = locale === 'it' ? 'Esplora per cantone svizzero'
+   : locale === 'en' ? 'Browse by Swiss canton'
+   : locale === 'de' ? 'Nach Schweizer Kanton suchen'
+   : 'Parcourir par canton suisse';
+ const todayLabel = locale === 'it' ? 'offerte oggi'
+   : locale === 'en' ? 'jobs today'
+   : locale === 'de' ? 'Stellen heute'
+   : 'offres aujourd\'hui';
+ const tiSection = resolveCantonSection(cantonLocale, 'TI');
+ const cantonAnchors: string[] = [];
+ // Iterate every canton (including TI for completeness, but TI hub link
+ // is the page itself \u2014 skip self).
+ const codesForNav = [...ALL_CANTON_CODES, AGGREGATE_KEY].filter((c) => c !== 'TI');
+ for (const code of codesForNav) {
+ const cantonSlug = cantonDataAny.cantons?.[code]?.[locale] ?? cantonDataAny.cantons?.[code]?.it;
+ const aggregateSlug = (cantonSlugFile as { aggregate?: Record<string, string> }).aggregate?.[locale];
+ const slugForLabel = code === AGGREGATE_KEY ? aggregateSlug : cantonSlug;
+ if (!slugForLabel) continue;
+ const cantonSection = resolveCantonSection(cantonLocale, code);
+ const cantonHubHref = `/${(locale === 'it' ? '' : `${locale}/`)}${cantonSection}/`.replace(/\/+/g, '/');
+ const displayLabel = slugForLabel
+   .split('-')
+   .map((w: string) => w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w)
+   .join(' ');
+ cantonAnchors.push(`<a href="${cantonHubHref}" style="display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#eef2ff;color:#312e81;text-decoration:none;font-size:13px;font-weight:600;border:1px solid #c7d2fe">${esc(displayLabel)}</a>`);
+ // Per-canton "today" landing lives under the legacy TI section path
+ // (`/cerca-lavoro-ticino/offerte-di-lavoro-{slug}-oggi/`).
+ // Use the canonical slug helper so it always matches the emitter.
+ if (code !== AGGREGATE_KEY) {
+ const todaySlug = getJobTodayLandingSlug(cantonLocale, code);
+ const todayHref = `/${(locale === 'it' ? '' : `${locale}/`)}${tiSection}/${todaySlug}/`.replace(/\/+/g, '/');
+ cantonAnchors.push(`<a href="${todayHref}" style="display:inline-block;padding:3px 8px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;border:1px solid #bbf7d0">${esc(displayLabel)} &mdash; ${esc(todayLabel)}</a>`);
+ }
+ }
+ if (cantonAnchors.length > 0) {
+ editorialBlocks.push(
+ `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem" open><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:#1e293b;padding:.25rem 0">${esc(cantonNavLabel)} (${codesForNav.length})</summary><nav aria-label="${esc(cantonNavLabel)}" style="margin-top:.5rem;line-height:1.9">${cantonAnchors.join('')}</nav></details>`,
+ );
+ }
  }
  editorialBlocks.push(
  `La sezione <strong>offerte lavoro Ticino</strong> raccoglie annunci pubblicati su fonti aziendali ufficiali, con normalizzazione dei dati principali per facilitare il confronto tra ruolo, sede, contratto e coerenza con il proprio profilo professionale. Gli annunci provengono da oltre 100 aziende ticinesi monitorate quotidianamente da crawler dedicati.`,

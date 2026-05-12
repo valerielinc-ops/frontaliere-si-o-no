@@ -42,6 +42,23 @@ describe('resolveJobCanton', () => {
   it('defaults to TI when canton unresolved', () => {
     expect(resolveJobCanton({ canton: '', location: '' })).toBe('TI');
   });
+  it('tokenises multi-word locations (Davos Klosters → GR)', () => {
+    expect(resolveJobCanton({ canton: '', location: 'Davos Klosters' })).toBe('GR');
+  });
+  it('strips airport-style suffix (Zürich Flughafen → ZH)', () => {
+    expect(resolveJobCanton({ canton: '', location: 'Zürich Flughafen' })).toBe('ZH');
+  });
+  it('honours embedded canton code (Aesch ZH → ZH, not BL)', () => {
+    expect(resolveJobCanton({ canton: '', location: 'Aesch ZH' })).toBe('ZH');
+  });
+  it('resolves canonical St-prefixed form (St. Gallen → SG)', () => {
+    expect(resolveJobCanton({ canton: '', location: 'St. Gallen' })).toBe('SG');
+  });
+  it('resolves German long form (Sankt Gallen → SG)', () => {
+    // Resolver normalises "Sankt X" → "St. X" before the bare-city
+    // lookup, so the official municipality entry ("st. gallen") matches.
+    expect(resolveJobCanton({ canton: '', location: 'Sankt Gallen' })).toBe('SG');
+  });
 });
 
 describe('cantonCities', () => {
