@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "denner-76629a4676a2",
-      "slug": "verkaufer-in-im-stundenlohn-denner-spreitenbach",
+      "slug": "venditore-in-salario-orario-denner-spreitenbach",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-spreitenbach",
-        "en": "verkaufer-in-im-stundenlohn-denner-spreitenbach",
+        "it": "venditore-in-salario-orario-denner-spreitenbach",
+        "en": "seller-in-in-hourly-wage-denner-spreitenbach",
         "de": "verkaufer-in-im-stundenlohn-denner-spreitenbach",
-        "fr": "verkaufer-in-im-stundenlohn-denner-spreitenbach"
+        "fr": "vendeur-en-salaire-horaire-denner-spreitenbach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -68,20 +68,24 @@
       "crawledAt": "2026-05-11T21:55:36.532Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-spreitenbach"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-spreitenbach"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-spreitenbach"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-spreitenbach",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -298,9 +302,9 @@
       "slug": "logistiker-in-filiale-denner-schaffhausen",
       "slugByLocale": {
         "it": "logistiker-in-filiale-denner-schaffhausen",
-        "en": "logistiker-in-filiale-denner-schaffhausen",
+        "en": "logistics-branch-denner-schaffhausen",
         "de": "logistiker-in-filiale-denner-schaffhausen",
-        "fr": "logistiker-in-filiale-denner-schaffhausen"
+        "fr": "branche-logistique-denner-schaffhausen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -381,12 +385,12 @@
     },
     {
       "id": "denner-6e783f74fd65",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-gossau-zh",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-nella-gestione-delle-branche-denner-gossau-zh",
+        "en": "assistant-in-branch-management-denner-gossau-zh",
         "de": "assistent-in-filialleitung-denner-gossau-zh",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-des-directions-generales-denner-gossau-zh"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -446,10 +450,21 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
+        ],
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -566,7 +581,7 @@
         "it": "student-in-come-ferienaushilfe-denner-dielsdorf",
         "en": "student-in-als-ferienaushilfe-denner-dielsdorf",
         "de": "student-in-als-ferienaushilfe-denner",
-        "fr": "student-in-als-ferienaushilfe-denner"
+        "fr": "etudiant-en-vacances-denner-dielsdorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -628,6 +643,9 @@
         ],
         "en": [
           "student-in-als-ferienaushilfe-denner-horw"
+        ],
+        "fr": [
+          "student-in-als-ferienaushilfe-denner"
         ]
       },
       "previousSlugs": [
@@ -741,11 +759,11 @@
     },
     {
       "id": "denner-5972e427cb8f",
-      "slug": "vendeur-vendeuse-denner-thonex",
+      "slug": "venditore-venditore-denner-thonex",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-denner-thonex",
-        "en": "vendeur-vendeuse-denner",
-        "de": "vendeur-vendeuse-denner",
+        "it": "venditore-venditore-denner-thonex",
+        "en": "seller-seller-denner-thonex",
+        "de": "verkaufer-denner-thonex",
         "fr": "vendeur-vendeuse-denner-thonex"
       },
       "company": "Denner",
@@ -806,15 +824,23 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-denner-geneve",
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "vendeur-vendeuse-denner-thonex"
         ],
         "fr": [
           "vendeur-vendeuse-denner-geneve"
+        ],
+        "en": [
+          "vendeur-vendeuse-denner"
+        ],
+        "de": [
+          "vendeur-vendeuse-denner"
         ]
       },
       "previousSlugs": [
         "vendeur-vendeuse-denner-geneve",
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "vendeur-vendeuse-denner-thonex"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

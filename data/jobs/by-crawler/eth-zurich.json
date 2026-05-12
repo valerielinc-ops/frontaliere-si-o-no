@@ -1130,12 +1130,12 @@
     },
     {
       "id": "eth-zurich-d8e4fa21c8ba",
-      "slug": "lehrkoordination-siedlungswasserwirtschaft-m-w-d-eth-zurich-ch",
+      "slug": "gestione-del-prodotto-m-w-d-eth-zurich-zurich-85e6fb",
       "slugByLocale": {
-        "it": "lehrkoordination-siedlungswasserwirtschaft-m-w-d-eth-zurich-ch",
+        "it": "gestione-del-prodotto-m-w-d-eth-zurich-zurich-85e6fb",
         "en": "lehrkoordination-siedlungswasserwirtschaft-m-w-d-eth-zurich-ch",
         "de": "lehrkoordination-siedlungswasserwirtschaft-m-w-d-eth-zurich-ch",
-        "fr": "lehrkoordination-siedlungswasserwirtschaft-m-w-d-eth-zurich-ch"
+        "fr": "gestion-du-projet-m-w-d-eth-zurich-zurich-85e6fb"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -1187,14 +1187,25 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrkoordination-siedlungswasserwirtschaft-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "lehrkoordination-siedlungswasserwirtschaft-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lehrkoordination-siedlungswasserwirtschaft-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-a0c52f1a7438",
       "slug": "hausmeister-in-m-w-d-sede-honggerberg-area-edifici-hi-eth-zurich-zurich",
       "slugByLocale": {
         "it": "hausmeister-in-m-w-d-sede-honggerberg-area-edifici-hi-eth-zurich-zurich",
-        "en": "hausmeister-in-m-w-d-honggerberg-campus-building-area-hi-eth-zurich-zurich",
+        "en": "projektmanager-in-m-w-d-standort-honggerberg-eth-zurich-zurich",
         "de": "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch",
         "fr": "hausmeister-in-m-w-d-site-honggerberg-zone-de-batiments-hi-eth-zurich-zurich"
       },
@@ -1236,14 +1247,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch"
+        "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch",
+        "hausmeister-in-m-w-d-honggerberg-campus-building-area-hi-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch"
         ],
         "en": [
-          "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch"
+          "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch",
+          "hausmeister-in-m-w-d-honggerberg-campus-building-area-hi-eth-zurich-zurich"
         ],
         "fr": [
           "hausmeister-in-m-w-d-standort-honggerberg-gebaudebereich-hi-eth-zurich-ch"
@@ -2086,7 +2099,7 @@
         "it": "phd-posizione-in-gestione-e-organizzazione-ricerca-ai-in-gestione-strategica-eth-zurich-zurich",
         "en": "phd-position-in-management-and-organization-research-ai-in-strategic-management-eth-zurich",
         "de": "phd-position-in-management-and-organization-research-ai-in-strategic-management-eth-zurich",
-        "fr": "phd-position-in-management-and-organization-research-ai-in-strategic-management-eth-zurich"
+        "fr": "poste-de-doctorat-en-gestion-et-recherche-organisationnelle-ia-en-gestion-strategique-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -2130,6 +2143,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "phd-position-in-management-and-organization-research-ai-in-strategic-management-eth-zurich"
+        ],
+        "fr": [
           "phd-position-in-management-and-organization-research-ai-in-strategic-management-eth-zurich"
         ]
       },
@@ -2375,12 +2391,12 @@
     },
     {
       "id": "eth-zurich-dfa025158c84",
-      "slug": "phd-position-in-advanced-bioelectronic-electrical-conversion-ricerca-eth-zurich-basel",
+      "slug": "phd-posizione-nella-ricerca-avanzata-di-bioelettronica-e-conversione-elettrica-eth-zurich-basel",
       "slugByLocale": {
-        "it": "phd-position-in-advanced-bioelectronic-electrical-conversion-ricerca-eth-zurich-basel",
+        "it": "phd-posizione-nella-ricerca-avanzata-di-bioelettronica-e-conversione-elettrica-eth-zurich-basel",
         "en": "phd-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich-ch",
         "de": "phd-position-in-advanced-bioelectronic-electrical-conversion-forschung-eth-zurich-basel",
-        "fr": "phd-position-in-advanced-bioelectronic-electrical-conversion-recherche-eth-zurich-basel"
+        "fr": "doctorat-en-recherche-avancee-en-bioelectronique-et-en-conversion-electrique-eth-zurich-basel"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -2420,17 +2436,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich-ch"
+        "phd-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich-ch",
+        "phd-position-in-advanced-bioelectronic-electrical-conversion-ricerca-eth-zurich-basel",
+        "phd-position-in-advanced-bioelectronic-electrical-conversion-recherche-eth-zurich-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich-ch"
+          "phd-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich-ch",
+          "phd-position-in-advanced-bioelectronic-electrical-conversion-ricerca-eth-zurich-basel"
         ],
         "de": [
           "phd-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich-ch"
         ],
         "fr": [
-          "phd-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich-ch"
+          "phd-position-in-advanced-bioelectronic-electrical-conversion-research-eth-zurich-ch",
+          "phd-position-in-advanced-bioelectronic-electrical-conversion-recherche-eth-zurich-basel"
         ]
       },
       "firstSeenAt": "2026-05-10T21:33:04.057Z",
@@ -2600,10 +2620,10 @@
     },
     {
       "id": "eth-zurich-796394b4f9f2",
-      "slug": "collaboratore-trice-geschirrkuche-sterilisation-e-labortechnik-m-w-d-eth-zurich-basel",
+      "slug": "consulente-senior-m-w-d-eth-zurich-basel",
       "slugByLocale": {
-        "it": "collaboratore-trice-geschirrkuche-sterilisation-e-labortechnik-m-w-d-eth-zurich-basel",
-        "en": "associate-geschirrkuche-sterilisation-und-labortechnik-m-w-d-eth-zurich-basel",
+        "it": "consulente-senior-m-w-d-eth-zurich-basel",
+        "en": "senior-consultant-m-w-d-eth-zurich-basel",
         "de": "mitarbeiter-in-geschirrkuche-sterilisation-und-labortechnik-m-w-d-eth-zurich-ch",
         "fr": "collaborateur-trice-geschirrkuche-sterilisation-und-labortechnik-m-w-d-eth-zurich-basel"
       },
@@ -2645,14 +2665,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-geschirrkuche-sterilisation-und-labortechnik-m-w-d-eth-zurich-ch"
+        "mitarbeiter-in-geschirrkuche-sterilisation-und-labortechnik-m-w-d-eth-zurich-ch",
+        "collaboratore-trice-geschirrkuche-sterilisation-e-labortechnik-m-w-d-eth-zurich-basel",
+        "associate-geschirrkuche-sterilisation-und-labortechnik-m-w-d-eth-zurich-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-geschirrkuche-sterilisation-und-labortechnik-m-w-d-eth-zurich-ch"
+          "mitarbeiter-in-geschirrkuche-sterilisation-und-labortechnik-m-w-d-eth-zurich-ch",
+          "collaboratore-trice-geschirrkuche-sterilisation-e-labortechnik-m-w-d-eth-zurich-basel"
         ],
         "en": [
-          "mitarbeiter-in-geschirrkuche-sterilisation-und-labortechnik-m-w-d-eth-zurich-ch"
+          "mitarbeiter-in-geschirrkuche-sterilisation-und-labortechnik-m-w-d-eth-zurich-ch",
+          "associate-geschirrkuche-sterilisation-und-labortechnik-m-w-d-eth-zurich-basel"
         ],
         "fr": [
           "mitarbeiter-in-geschirrkuche-sterilisation-und-labortechnik-m-w-d-eth-zurich-ch"
@@ -2675,10 +2699,10 @@
     },
     {
       "id": "eth-zurich-6fab1ef61402",
-      "slug": "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-m-w-d-eth-zurich",
+      "slug": "specialista-in-sicurezza-sul-lavoro-e-protezione-della-salute-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-m-w-d-eth-zurich",
-        "en": "senior-consultant-m-w-d-eth-zurich-zurich",
+        "it": "specialista-in-sicurezza-sul-lavoro-e-protezione-della-salute-m-f-d-eth-zurich-zurich",
+        "en": "specialist-in-occupational-safety-and-health-m-f-d-eth-zurich-zurich",
         "de": "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-m-w-d-eth-zurich-ch",
         "fr": "consultant-principal-m-m-j-eth-zurich-zurich"
       },
@@ -2720,14 +2744,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-m-w-d-eth-zurich-ch"
+        "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-m-w-d-eth-zurich-ch",
+        "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-m-w-d-eth-zurich",
+        "senior-consultant-m-w-d-eth-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-m-w-d-eth-zurich-ch"
+          "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-m-w-d-eth-zurich-ch",
+          "spezialist-in-arbeitssicherheit-e-gesundheitsschutz-m-w-d-eth-zurich"
         ],
         "en": [
-          "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-m-w-d-eth-zurich-ch"
+          "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-m-w-d-eth-zurich-ch",
+          "senior-consultant-m-w-d-eth-zurich-zurich"
         ],
         "fr": [
           "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-m-w-d-eth-zurich-ch"
@@ -3035,9 +3063,9 @@
     },
     {
       "id": "eth-zurich-8b84e6924a99",
-      "slug": "responsabile-di-progetto-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich",
+      "slug": "projektleiter-in-projektleiter-in-m-w-d-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "responsabile-di-progetto-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich",
+        "it": "projektleiter-in-projektleiter-in-m-w-d-eth-zurich-zurich",
         "en": "project-manager-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich-zurich",
         "de": "projektleiter-in-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich-ch",
         "fr": "chef-de-projet-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich-zurich"
@@ -3081,20 +3109,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-in-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich-ch",
-        "projektleiter-in-projektleiter-in-m-w-d-eth-zurich-zurich"
+        "responsabile-di-progetto-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich-ch",
-          "projektleiter-in-projektleiter-in-m-w-d-eth-zurich-zurich"
+          "responsabile-di-progetto-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich"
         ],
         "en": [
-          "projektleiter-in-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich-ch",
-          "projektleiter-in-projektleiter-in-m-w-d-eth-zurich-zurich"
+          "projektleiter-in-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich-ch"
         ],
         "fr": [
-          "projektleiter-in-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich-ch",
-          "projektleiter-in-projektleiter-in-m-w-d-eth-zurich-zurich"
+          "projektleiter-in-teilprojektleiter-in-m-w-d-bauherrschaft-gebaudetechnik-eth-zurich-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T21:33:04.050Z",
@@ -3499,7 +3525,7 @@
       "slugByLocale": {
         "it": "due-studenti-di-dottorato-in-ecofisiologia-vegetale-e-servizi-ecosistemici-di-miscele-di-colture-progetto-phenomix-eth-z",
         "en": "two-doctoral-students-in-plant-ecophysiology-and-ecosystem-services-of-crop-mixtures-project-phenomix-eth-zurich-zurich",
-        "de": "two-doctoral-students-in-plant-ecophysiology-and-ecosystem-services-of-crop-mixtures-proje",
+        "de": "zwei-doktoranden-in-pflanzenokophysiologie-und-okosystemleistungen-von-kulturmischungen-projekt-phenomix-eth-zurich-zuri",
         "fr": "deux-doctorants-en-ecophysiologie-vegetale-et-services-ecosystemiques-de-melanges-de-cultures-projet-phenomix-eth-zurich"
       },
       "company": "ETH Zürich",
@@ -3547,6 +3573,9 @@
           "two-doctoral-students-in-plant-ecophysiology-and-ecosystem-services-of-crop-mixtures-proje"
         ],
         "fr": [
+          "two-doctoral-students-in-plant-ecophysiology-and-ecosystem-services-of-crop-mixtures-proje"
+        ],
+        "de": [
           "two-doctoral-students-in-plant-ecophysiology-and-ecosystem-services-of-crop-mixtures-proje"
         ]
       },
@@ -7062,12 +7091,12 @@
     },
     {
       "id": "eth-zurich-daa619b7f10d",
-      "slug": "kommunikationsspezialist-in-m-w-d-eth-zurich-ch",
+      "slug": "specialista-in-comunicazione-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "kommunikationsspezialist-in-m-w-d-eth-zurich-ch",
-        "it": "kommunikationsspezialist-in-m-w-d-eth-zurich-ch",
-        "en": "kommunikationsspezialist-in-m-w-d-eth-zurich-ch",
-        "fr": "kommunikationsspezialist-in-m-w-d-eth-zurich-ch"
+        "it": "specialista-in-comunicazione-m-f-d-eth-zurich-zurich",
+        "en": "communication-specialist-m-f-d-eth-zurich-zurich",
+        "fr": "specialiste-en-communication-m-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7123,7 +7152,21 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-05-11T22:01:07.675Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "kommunikationsspezialist-in-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "kommunikationsspezialist-in-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "kommunikationsspezialist-in-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kommunikationsspezialist-in-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-127b933af08b",
@@ -7814,12 +7857,12 @@
     },
     {
       "id": "eth-zurich-f83e5138df99",
-      "slug": "praktikum-auf-der-medienstelle-der-hochschulkommunikation-m-w-d-eth-zurich-ch",
+      "slug": "tirocinio-presso-l-ufficio-stampa-della-comunicazione-dell-eth-m-f-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "praktikum-auf-der-medienstelle-der-hochschulkommunikation-m-w-d-eth-zurich-ch",
-        "it": "praktikum-auf-der-medienstelle-der-hochschulkommunikation-m-w-d-eth-zurich-ch",
-        "en": "praktikum-auf-der-medienstelle-der-hochschulkommunikation-m-w-d-eth-zurich-ch",
-        "fr": "praktikum-auf-der-medienstelle-der-hochschulkommunikation-m-w-d-eth-zurich-ch"
+        "it": "tirocinio-presso-l-ufficio-stampa-della-comunicazione-dell-eth-m-f-d-eth-zurich-zurich",
+        "en": "internship-at-the-media-office-of-university-communication-m-f-d-eth-zurich-zurich",
+        "fr": "stage-au-bureau-de-presse-de-la-communication-de-l-eth-m-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7873,7 +7916,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-11T22:01:02.371Z"
+      "firstSeenAt": "2026-05-11T22:01:02.371Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-auf-der-medienstelle-der-hochschulkommunikation-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "praktikum-auf-der-medienstelle-der-hochschulkommunikation-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "praktikum-auf-der-medienstelle-der-hochschulkommunikation-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-auf-der-medienstelle-der-hochschulkommunikation-m-w-d-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-a2ef5a54681d",
