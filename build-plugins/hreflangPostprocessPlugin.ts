@@ -130,26 +130,20 @@ export function transformHreflang(
     return null;
   }
 
-  // audit-hreflang threshold: a page must emit either ZERO hreflang OR
-  // ≥5 entries (4 locales + x-default). Stripping a single broken
-  // alternate (e.g. DE alt for a job whose DE-slug got deduped to a
-  // different canton's file) would leave 4 entries and trip the audit.
-  // When the post-strip count would fall below the threshold, drop ALL
-  // hreflang tags so the audit's `alternates.size === 0` branch skips.
-  // Trade-off: we lose the per-locale link-equity signal on these
-  // (typically bridge / dedup-collateral) pages, but they keep
-  // <link rel="canonical"> + <html lang> so Google can still scope the
-  // page to a single locale.
-  const MIN_HREFLANG_ENTRIES = 5;
-  const dropAll = kept.length > 0 && kept.length < MIN_HREFLANG_ENTRIES;
-  const finalKeptUrls = dropAll ? new Set<string>() : keptUrls;
-
+  // Phase 8a (2026-05-12) reverted the previous "drop ALL if kept < 5"
+  // band-aid. With the per-job emit now dedup-keyed by
+  // `(canton, locale, slug)` instead of `(locale, slug)`, cross-canton
+  // slug collisions no longer suppress sibling locale files — every
+  // page that emits hreflang has its full 4-locale + x-default set on
+  // disk. Strip only the genuinely broken alternates and keep the rest;
+  // the audit's `alternates.size === 0` short-circuit is no longer the
+  // escape hatch.
   let rewritten = html;
   let droppedCount = 0;
   for (let i = matches.length - 1; i >= 0; i--) {
     const match = matches[i];
     const key = `${match.entry.locale}|${match.entry.url}`;
-    if (finalKeptUrls.has(key)) continue;
+    if (keptUrls.has(key)) continue;
     droppedCount++;
     const end = match.index + match.full.length;
     const tail = rewritten.slice(end);
@@ -159,7 +153,7 @@ export function transformHreflang(
       rewritten.slice(end + trailingNl);
   }
 
-  return { html: rewritten, kept: finalKeptUrls.size, dropped: droppedCount };
+  return { html: rewritten, kept: keptUrls.size, dropped: droppedCount };
 }
 
 /**
@@ -254,20 +248,16 @@ export function hreflangPostprocessPlugin(
             continue; // nothing to drop
           }
 
-          // See `transformHreflang`: a page with non-empty hreflang must
-          // emit ≥5 entries. If stripping would push below the threshold,
-          // drop every hreflang tag (audit treats size===0 as a pass).
-          const MIN_HREFLANG_ENTRIES = 5;
-          const dropAll = kept.length > 0 && kept.length < MIN_HREFLANG_ENTRIES;
-          const finalKeptUrls = dropAll ? new Set<string>() : keptUrls;
-
+          // Phase 8a reverted the "drop ALL if kept < 5" band-aid — see
+          // `transformHreflang` above for the rationale. Strip only
+          // broken alternates.
           // Rewrite: walk matches in REVERSE order, splice out the broken
           // tags by index. Reverse order keeps earlier indexes stable.
           let rewritten = html;
           for (let i = matches.length - 1; i >= 0; i--) {
             const match = matches[i];
             const key = `${match.entry.locale}|${match.entry.url}`;
-            if (finalKeptUrls.has(key)) {
+            if (keptUrls.has(key)) {
               linksKept++;
               continue;
             }
