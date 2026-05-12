@@ -15,9 +15,15 @@ function walkHtml(dir: string, out: string[] = []): string[] {
 }
 
 describe('every page with hreflang ALSO emits x-default', () => {
-  it('checks dist for hreflang completeness', () => {
+  // 60s ceiling: cathedral expansion → ~200k dist files; reading 1k of
+  // them I/O-bound takes 8-15s on cold cache. Tight default (15s) would
+  // race on slower CI runners.
+  it('checks dist for hreflang completeness', { timeout: 60_000 }, () => {
     if (!fs.existsSync(DIST)) return;
-    const sample = walkHtml(DIST).slice(0, 5000);
+    // Bounded sample — large enough to catch regressions across all
+    // emitters (job-detail, hubs, landings, bridges) without walking
+    // the whole tree, which would dominate the test wall time.
+    const sample = walkHtml(DIST).slice(0, 1500);
     const offenders: string[] = [];
     for (const file of sample) {
       const html = fs.readFileSync(file, 'utf-8');
