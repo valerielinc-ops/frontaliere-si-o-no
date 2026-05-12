@@ -57,6 +57,7 @@ import {
   type SnapshotCity,
 } from './jobMarketSnapshotPlugin';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
+import { buildSnapshotProseBlock } from './shared/cantonSnapshotProse';
 
 // ── Local types — kept loose; the TI-side JobRecord is already compatible. ──
 interface JobLike {
@@ -495,6 +496,23 @@ function renderSnapshotPage(inp: RenderInputs): string {
     <p>${esc(c.methodologyP2)}</p>
   </section>`;
 
+  // Deep-dive prose (PR #140-style): 4 paragraphs ~110-160 words each adding
+  // ~1.6-2.0 KB of visible text per page, lifting the text-to-HTML ratio
+  // above the 12% bar with margin against data drift. Pure: identical
+  // inputs return identical HTML. Locale + canton-distance-band aware so
+  // two cantons emit different prose (cross-page duplicate-content safe).
+  const topSectorLabel = inp.topSectors.length ? inp.topSectors[0].label : null;
+  const topCityName = inp.topCities.length ? inp.topCities[0].name : null;
+  const snapshotProseBlock = buildSnapshotProseBlock({
+    locale: inp.locale,
+    cantonDisplay: cantonName,
+    totalJobs: inp.totalJobs,
+    topSectorLabel,
+    topCityName,
+    ctaHref: inp.hiringHubHref,
+    ctaLabel: c.ctaLabel,
+  });
+
   const main = `<main class="seo-static-content" style="max-width:960px;margin:0 auto;padding:24px 16px">
     ${breadcrumb}
     ${headerBlock}
@@ -503,6 +521,7 @@ function renderSnapshotPage(inp: RenderInputs): string {
     ${cityTable}
     ${sectorTable}
     ${methodologyBlock}
+    ${snapshotProseBlock}
     <p style="margin-top:24px"><a href="${esc(inp.hiringHubHref)}" style="${LINK_ACCENT_STYLE}">${esc(c.ctaLabel)} →</a></p>
   </main>`;
 
