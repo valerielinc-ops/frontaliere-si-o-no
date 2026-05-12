@@ -8127,6 +8127,77 @@ ${alternates}
        editorialSlotPages.push({ slug: getJobNursesHubSlug(entry.locale, entry.key), label: nursesLabels[entry.locale] });
        editorialSlotPages.push({ slug: getJobPartTimeLandingSlug(entry.locale, entry.key), label: partTimeLabels[entry.locale] });
        editorialSlotPages.push({ slug: careClusterSlug('clinics', entry.key, entry.locale), label: clinicsLabels[entry.locale] });
+       // BFS-depth closure (Phase 8a follow-up — May 2026): non-cliniche care
+       // clusters (case anziani, OSS, educatori) were emitted by
+       // `buildJobCareVariantLandingModel` but unreachable from the canton
+       // hub, leaving ~250 orphan URLs in sitemap-jobs.xml. Add the 3
+       // remaining cluster slots so every care leaf is at BFS depth ≤ 3.
+       const careHomesLabels: Record<CantonLocale, string> = {
+         it: 'Case anziani', en: 'Care homes', de: 'Altersheime', fr: 'Maisons de retraite',
+       };
+       const ossLabels: Record<CantonLocale, string> = {
+         it: 'OSS e assistenza', en: 'Healthcare assistants', de: 'Pflegeassistenz', fr: 'OSS et assistance',
+       };
+       const educatorsLabels: Record<CantonLocale, string> = {
+         it: 'Educatori', en: 'Educators', de: 'Erzieher', fr: 'Educateurs',
+       };
+       editorialSlotPages.push({ slug: careClusterSlug('careHomes', entry.key, entry.locale), label: careHomesLabels[entry.locale] });
+       editorialSlotPages.push({ slug: careClusterSlug('oss', entry.key, entry.locale), label: ossLabels[entry.locale] });
+       editorialSlotPages.push({ slug: careClusterSlug('educators', entry.key, entry.locale), label: educatorsLabels[entry.locale] });
+
+       // BFS-depth closure (Phase 8a follow-up — May 2026): top company hubs
+       // (`/cerca-lavoro-{canton}/azienda-{empKey}/`) are emitted by the
+       // per-canton company-hub block (~line 6275-6400) using
+       // `canonicalCompanySlugBuild`, gated MIN_JOBS_PER_CANTON_COMPANY=3.
+       // Re-derive the slug here using the SAME `canonicalCompanySlugBuild`
+       // helper so the hrefs exactly match what's emitted. Top 6 by job
+       // count keeps the navigator focused; ties broken by slug for
+       // determinism.
+       const companyHubs: Array<{ slug: string; label: string }> = [];
+       if (entry.key !== AGGREGATE_KEY) {
+         const companyCounts = new Map<string, { name: string; count: number }>();
+         for (const j of cantonJobsAll) {
+           const jc = j as { company?: string; companyKey?: string };
+           const cSlug = canonicalCompanySlugBuild(jc.company || '', jc.companyKey);
+           if (!cSlug) continue;
+           const cur = companyCounts.get(cSlug);
+           if (cur) { cur.count++; }
+           else { companyCounts.set(cSlug, { name: String(jc.company || cSlug), count: 1 }); }
+         }
+         const sorted = [...companyCounts.entries()]
+           .filter(([, v]) => v.count >= 3) // mirror MIN_JOBS_PER_CANTON_COMPANY
+           .sort((a, b) => b[1].count - a[1].count || a[0].localeCompare(b[0]))
+           .slice(0, 6);
+         const compPrefix = companyRoutePrefix[entry.locale];
+         for (const [cSlug, v] of sorted) {
+           companyHubs.push({ slug: `${compPrefix}-${cSlug}`, label: v.name });
+         }
+       }
+
+       // BFS-depth closure (Phase 8a follow-up — May 2026): full pagination
+       // ladder. The per-canton paginated listing emit (`/cerca-lavoro-
+       // {canton}/pagina-N/`, ~line 5622) only emits when canton has
+       // ≥ 2 × JOBS_PER_LISTING_PAGE = 40 jobs and caps at MAX_LISTING_PAGES.
+       // Mirror that gate here so we only link pages that actually exist.
+       // Linking ALL pages (not just neighbours) brings every paginated leaf
+       // to BFS depth 3 from `/`.
+       const paginationLinks: Array<{ slug: string; label: string }> = [];
+       if (entry.key !== AGGREGATE_KEY) {
+         const JOBS_PER_LISTING_PAGE_NAV = 20;
+         const MAX_LISTING_PAGES_NAV = 25;
+         const cantonJobCount = cantonJobsAll.length;
+         if (cantonJobCount >= 2 * JOBS_PER_LISTING_PAGE_NAV) {
+           const paginationSlugsNav: Record<CantonLocale, string> = { it: 'pagina', en: 'page', de: 'seite', fr: 'page' };
+           const cTotalPages = Math.min(MAX_LISTING_PAGES_NAV, Math.ceil(cantonJobCount / JOBS_PER_LISTING_PAGE_NAV));
+           const pagLabel = entry.locale === 'en' || entry.locale === 'fr' ? 'p.' : entry.locale === 'de' ? 'S.' : 'p.';
+           for (let p = 2; p <= cTotalPages; p++) {
+             paginationLinks.push({
+               slug: `${paginationSlugsNav[entry.locale]}-${p}`,
+               label: `${pagLabel} ${p}`,
+             });
+           }
+         }
+       }
 
        const exploreTitle = (() => {
          switch (entry.locale) {
@@ -8148,6 +8219,14 @@ ${alternates}
          : entry.locale === 'de' ? 'Empfohlene Seiten'
          : entry.locale === 'fr' ? 'Pages à la une'
          : 'Pagine in evidenza';
+       const colCompaniesLabel = entry.locale === 'en' ? 'Top employers'
+         : entry.locale === 'de' ? 'Top-Arbeitgeber'
+         : entry.locale === 'fr' ? 'Employeurs principaux'
+         : 'Aziende che assumono';
+       const colPaginationLabel = entry.locale === 'en' ? 'Browse by page'
+         : entry.locale === 'de' ? 'Weitere Seiten'
+         : entry.locale === 'fr' ? 'Plus de pages'
+         : 'Altre pagine';
        const linkStyle = 'display:inline-block;padding:6px 12px;margin:0 6px 6px 0;border-radius:6px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-link);text-decoration:none;font-size:14px;line-height:1.3';
        const renderLinks = (items: Array<{ slug: string; label: string }>): string =>
          items
@@ -8175,6 +8254,22 @@ ${alternates}
            `<div data-explore-editorial style="margin:0 0 12px">` +
            `<h3 style="font-size:15px;margin:0 0 8px;color:var(--color-heading);font-weight:600">${esc(colEditorialLabel)}</h3>` +
            `<div>${renderLinks(editorialSlotPages)}</div>` +
+           `</div>`,
+         );
+       }
+       if (companyHubs.length > 0) {
+         blocks.push(
+           `<div data-explore-companies style="margin:0 0 12px">` +
+           `<h3 style="font-size:15px;margin:0 0 8px;color:var(--color-heading);font-weight:600">${esc(colCompaniesLabel)}</h3>` +
+           `<div>${renderLinks(companyHubs)}</div>` +
+           `</div>`,
+         );
+       }
+       if (paginationLinks.length > 0) {
+         blocks.push(
+           `<div data-explore-pagination style="margin:0 0 12px">` +
+           `<h3 style="font-size:15px;margin:0 0 8px;color:var(--color-heading);font-weight:600">${esc(colPaginationLabel)}</h3>` +
+           `<div>${renderLinks(paginationLinks)}</div>` +
            `</div>`,
          );
        }
