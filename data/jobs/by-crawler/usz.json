@@ -1819,9 +1819,9 @@
       "slug": "techn-assistente-di-sterilizzazione-in-servizio-tardivo-fki-50-universitatsspital-zurich-usz-schlieren",
       "slugByLocale": {
         "it": "techn-assistente-di-sterilizzazione-in-servizio-tardivo-fki-50-universitatsspital-zurich-usz-schlieren",
-        "en": "techn-sterilisationsassistent-in-spatdienst-fki-50-usz-ch",
+        "en": "techn-sterilization-assistant-in-late-service-fki-50-universitatsspital-zurich-usz-schlieren",
         "de": "techn-sterilisationsassistent-in-spatdienst-fki-50-usz-ch",
-        "fr": "techn-sterilisationsassistent-in-spatdienst-fki-50-usz-ch"
+        "fr": "technique-assistant-de-sterilisation-en-service-tardif-fki-50-universitatsspital-zurich-usz-schlieren"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -1868,6 +1868,12 @@
       "previousSlugsByLocale": {
         "it": [
           "techn-sterilisationsassistent-in-spatdienst-fki-50-usz-ch"
+        ],
+        "en": [
+          "techn-sterilisationsassistent-in-spatdienst-fki-50-usz-ch"
+        ],
+        "fr": [
+          "techn-sterilisationsassistent-in-spatdienst-fki-50-usz-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:39:40.393Z",
@@ -1889,9 +1895,9 @@
       "slug": "assistenti-di-sterilizzazione-in-80-100-universitatsspital-zurich-usz-schlieren",
       "slugByLocale": {
         "it": "assistenti-di-sterilizzazione-in-80-100-universitatsspital-zurich-usz-schlieren",
-        "en": "techn-sterilisationsassisten-in-80-100-usz-ch",
+        "en": "techn-sterilization-assistants-in-80-100-universitatsspital-zurich-usz-schlieren",
         "de": "techn-sterilisationsassisten-in-80-100-usz-ch",
-        "fr": "techn-sterilisationsassisten-in-80-100-usz-ch"
+        "fr": "techn-assistants-de-sterilisation-dans-80-100-universitatsspital-zurich-usz-schlieren"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -1937,6 +1943,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "techn-sterilisationsassisten-in-80-100-usz-ch"
+        ],
+        "en": [
+          "techn-sterilisationsassisten-in-80-100-usz-ch"
+        ],
+        "fr": [
           "techn-sterilisationsassisten-in-80-100-usz-ch"
         ]
       },
@@ -3620,9 +3632,9 @@
     },
     {
       "id": "usz-84685eeb6a73",
-      "slug": "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch",
+      "slug": "cure-speciali-specialista-in-tecnica-chirurgica-hf-in-chirurgia-neurochirurgica-80-100-universitatsspital-zurich-usz-cam",
       "slugByLocale": {
-        "it": "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch",
+        "it": "cure-speciali-specialista-in-tecnica-chirurgica-hf-in-chirurgia-neurochirurgica-80-100-universitatsspital-zurich-usz-cam",
         "en": "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch",
         "de": "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch",
         "fr": "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch"
@@ -3680,7 +3692,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialpflege-fachperson-operationstechnik-hf-neurochirurgischer-op-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-8810c0ec36fa",
@@ -4198,9 +4218,9 @@
     },
     {
       "id": "usz-73056cfbea0c",
-      "slug": "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus",
+      "slug": "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus",
+        "it": "cure-speciali-post-laurea-nds-cure-di-emergenza-universitatsspital-zurich-usz-campus",
         "en": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
         "de": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
         "fr": "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch"
@@ -4246,12 +4266,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
-        "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus"
+        "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus",
+        "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialpflege-nachdiplomstudium-nds-notfallpflege-usz-ch",
-          "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus"
+          "assistenza-speciale-studi-post-laurea-nds-assistenza-di-emergenza-universitatsspital-zurich-usz-campus",
+          "spezialpflege-nachdiplomstudium-nds-notfallpflege-universitatsspital-zurich-usz-campus"
         ]
       },
       "needsRetranslation": true,
@@ -4781,9 +4803,9 @@
     },
     {
       "id": "usz-e71544125c19",
-      "slug": "assistenzarztinnen-assistenzarzte-w-m-d-im-rotationsprogramm-der-allgemeinen-inneren-medizin-80-100-universitatsspital-z",
+      "slug": "medici-assistenti-f-m-d-nel-programma-di-rotazione-della-medicina-interna-generale-80-100-universitatsspital-zurich-usz-",
       "slugByLocale": {
-        "it": "assistenzarztinnen-assistenzarzte-w-m-d-im-rotationsprogramm-der-allgemeinen-inneren-medizin-80-100-universitatsspital-z",
+        "it": "medici-assistenti-f-m-d-nel-programma-di-rotazione-della-medicina-interna-generale-80-100-universitatsspital-zurich-usz-",
         "en": "assistenzarztinnen-assistenzarzte-w-m-d-im-rotationsprogramm-der-allgemeinen-inneren-medizin-80-100-universitatsspital-z",
         "de": "assistenzarztinnen-assistenzarzte-w-m-d-im-rotationsprogramm-der-allgemeinen-inneren-medizin-80-100-universitatsspital-z",
         "fr": "assistenzarztinnen-assistenzarzte-w-m-d-im-rotationsprogramm-der-allgemeinen-inneren-medizin-80-100-universitatsspital-z"
@@ -4832,12 +4854,14 @@
           "assistenzarztinnen-assistenzarzte-w-m-d-im-rotationsprogramm-der-allgemeinen-inneren-mediz"
         ],
         "it": [
-          "assistenzarztinnen-assistenzarzte-w-m-d-im-rotationsprogramm-der-allgemeinen-inneren-mediz-2"
+          "assistenzarztinnen-assistenzarzte-w-m-d-im-rotationsprogramm-der-allgemeinen-inneren-mediz-2",
+          "assistenzarztinnen-assistenzarzte-w-m-d-im-rotationsprogramm-der-allgemeinen-inneren-medizin-80-100-universitatsspital-z"
         ]
       },
       "previousSlugs": [
         "assistenzarztinnen-assistenzarzte-w-m-d-im-rotationsprogramm-der-allgemeinen-inneren-mediz",
-        "assistenzarztinnen-assistenzarzte-w-m-d-im-rotationsprogramm-der-allgemeinen-inneren-mediz-2"
+        "assistenzarztinnen-assistenzarzte-w-m-d-im-rotationsprogramm-der-allgemeinen-inneren-mediz-2",
+        "assistenzarztinnen-assistenzarzte-w-m-d-im-rotationsprogramm-der-allgemeinen-inneren-medizin-80-100-universitatsspital-z"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-11T12:46:04.036Z",
@@ -5787,12 +5811,12 @@
     },
     {
       "id": "usz-840e5ec7ed1a",
-      "slug": "collaboratore-trice-zentrallager-80-100-universitatsspital-zurich-usz-schlieren",
+      "slug": "personale-nel-magazzino-centrale-80-100-universitatsspital-zurich-usz-schlieren",
       "slugByLocale": {
-        "it": "collaboratore-trice-zentrallager-80-100-universitatsspital-zurich-usz-schlieren",
+        "it": "personale-nel-magazzino-centrale-80-100-universitatsspital-zurich-usz-schlieren",
         "en": "associate-zentrallager-80-100-universitatsspital-zurich-usz-schlieren",
         "de": "mitarbeiter-in-zentrallager-80-100-usz-ch",
-        "fr": "collaborateur-trice-zentrallager-80-100-universitatsspital-zurich-usz-schlieren"
+        "fr": "personnel-dans-l-entrepot-central-80-100-universitatsspital-zurich-usz-schlieren"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -5834,17 +5858,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-zentrallager-80-100-usz-ch"
+        "mitarbeiter-in-zentrallager-80-100-usz-ch",
+        "collaboratore-trice-zentrallager-80-100-universitatsspital-zurich-usz-schlieren",
+        "collaborateur-trice-zentrallager-80-100-universitatsspital-zurich-usz-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-zentrallager-80-100-usz-ch"
+          "mitarbeiter-in-zentrallager-80-100-usz-ch",
+          "collaboratore-trice-zentrallager-80-100-universitatsspital-zurich-usz-schlieren"
         ],
         "en": [
           "mitarbeiter-in-zentrallager-80-100-usz-ch"
         ],
         "fr": [
-          "mitarbeiter-in-zentrallager-80-100-usz-ch"
+          "mitarbeiter-in-zentrallager-80-100-usz-ch",
+          "collaborateur-trice-zentrallager-80-100-universitatsspital-zurich-usz-schlieren"
         ]
       },
       "firstSeenAt": "2026-05-10T22:39:40.297Z",
@@ -12760,9 +12788,9 @@
     },
     {
       "id": "usz-05b771e7656d",
-      "slug": "spezialpflege-springerpool-fachperson-operationstechnik-hf-80-100-usz-ch",
+      "slug": "cura-speciale-springerpool-specialista-in-tecnica-chirurgica-hf-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "spezialpflege-springerpool-fachperson-operationstechnik-hf-80-100-usz-ch",
+        "it": "cura-speciale-springerpool-specialista-in-tecnica-chirurgica-hf-80-100-universitatsspital-zurich-usz-campus",
         "en": "spezialpflege-springerpool-fachperson-operationstechnik-hf-80-100-usz-ch",
         "de": "spezialpflege-springerpool-fachperson-operationstechnik-hf-80-100-usz-ch",
         "fr": "spezialpflege-springerpool-fachperson-operationstechnik-hf-80-100-usz-ch"
@@ -12820,7 +12848,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialpflege-springerpool-fachperson-operationstechnik-hf-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialpflege-springerpool-fachperson-operationstechnik-hf-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-6cd9589de126",
@@ -13184,9 +13220,9 @@
     },
     {
       "id": "usz-624a342d51fb",
-      "slug": "leitung-stationare-pflege-ii-a-80-100-usz-ch",
+      "slug": "direzione-infermieristica-ospedaliera-ii-a-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "leitung-stationare-pflege-ii-a-80-100-usz-ch",
+        "it": "direzione-infermieristica-ospedaliera-ii-a-80-100-universitatsspital-zurich-usz-campus",
         "en": "leitung-stationare-pflege-ii-a-80-100-usz-ch",
         "de": "leitung-stationare-pflege-ii-a-80-100-usz-ch",
         "fr": "leitung-stationare-pflege-ii-a-80-100-usz-ch"
@@ -13244,7 +13280,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-stationare-pflege-ii-a-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-stationare-pflege-ii-a-80-100-usz-ch"
+      ]
     }
   ]
 }

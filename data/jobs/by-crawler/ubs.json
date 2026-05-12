@@ -146,9 +146,9 @@
     },
     {
       "id": "ubs-8ae871d3c84f",
-      "slug": "us-rates-strategist-ubs",
+      "slug": "stratega-dei-tassi-negli-stati-uniti-ubs",
       "slugByLocale": {
-        "it": "us-rates-strategist-ubs",
+        "it": "stratega-dei-tassi-negli-stati-uniti-ubs",
         "en": "us-rates-strategist-ubs",
         "de": "us-rates-strategist-ubs",
         "fr": "us-rates-strategist-ubs"
@@ -200,11 +200,13 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "tassi-usa-strategista-ubs"
+        "tassi-usa-strategista-ubs",
+        "us-rates-strategist-ubs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tassi-usa-strategista-ubs"
+          "tassi-usa-strategista-ubs",
+          "us-rates-strategist-ubs"
         ]
       },
       "needsRetranslation": true,
@@ -770,9 +772,9 @@
     },
     {
       "id": "ubs-3b53e19dc7fe",
-      "slug": "branch-office-administrator-ubs",
+      "slug": "amministratore-di-filiale-ubs",
       "slugByLocale": {
-        "it": "branch-office-administrator-ubs",
+        "it": "amministratore-di-filiale-ubs",
         "en": "branch-office-administrator-ubs",
         "de": "branch-office-administrator-ubs",
         "fr": "branch-office-administrator-ubs"
@@ -824,11 +826,13 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "amministratore-di-ufficio-di-filiale-ubs"
+        "amministratore-di-ufficio-di-filiale-ubs",
+        "branch-office-administrator-ubs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "amministratore-di-ufficio-di-filiale-ubs"
+          "amministratore-di-ufficio-di-filiale-ubs",
+          "branch-office-administrator-ubs"
         ]
       },
       "needsRetranslation": true,
@@ -1979,9 +1983,9 @@
     },
     {
       "id": "ubs-5ff1005d6ad4",
-      "slug": "fixed-income-structurer-ubs",
+      "slug": "strutturatore-di-reddito-fisso-ubs",
       "slugByLocale": {
-        "it": "fixed-income-structurer-ubs",
+        "it": "strutturatore-di-reddito-fisso-ubs",
         "en": "fixed-income-structurer-ubs",
         "de": "fixed-income-structurer-ubs",
         "fr": "fixed-income-structurer-ubs"
@@ -2033,11 +2037,13 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "struttura-a-reddito-fisso-ubs"
+        "struttura-a-reddito-fisso-ubs",
+        "fixed-income-structurer-ubs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "struttura-a-reddito-fisso-ubs"
+          "struttura-a-reddito-fisso-ubs",
+          "fixed-income-structurer-ubs"
         ]
       },
       "needsRetranslation": true,
@@ -2207,10 +2213,10 @@
     },
     {
       "id": "ubs-570857831c4f",
-      "slug": "client-associate-ubs-3",
+      "slug": "cliente-associato-ubs-f6cfbd",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "client-associate-ubs-3",
+        "it": "cliente-associato-ubs-f6cfbd",
         "de": "client-associate-ubs-3",
         "fr": "client-associate-ubs-3"
       },
@@ -2275,14 +2281,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T23:07:45.193Z"
+      "firstSeenAt": "2026-05-11T23:07:45.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs-3"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs-3"
+      ]
     },
     {
       "id": "ubs-390325925784",
-      "slug": "trust-officer-ubs",
+      "slug": "funzionario-fiduciario-ubs",
       "slugByLocale": {
         "en": "trust-officer-ubs",
-        "it": "trust-officer-ubs",
+        "it": "funzionario-fiduciario-ubs",
         "de": "trust-officer-ubs",
         "fr": "trust-officer-ubs"
       },
@@ -2347,14 +2361,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T23:07:45.191Z"
+      "firstSeenAt": "2026-05-11T23:07:45.191Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "trust-officer-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "trust-officer-ubs"
+      ]
     },
     {
       "id": "ubs-8429bf392f5b",
-      "slug": "client-account-manager-ubs",
+      "slug": "gestione-account-cliente-ubs",
       "slugByLocale": {
         "en": "client-account-manager-ubs",
-        "it": "client-account-manager-ubs",
+        "it": "gestione-account-cliente-ubs",
         "de": "client-account-manager-ubs",
         "fr": "client-account-manager-ubs"
       },
@@ -2419,14 +2441,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T23:07:45.190Z"
+      "firstSeenAt": "2026-05-11T23:07:45.190Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-account-manager-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "client-account-manager-ubs"
+      ]
     },
     {
       "id": "ubs-5b4d38f44a93",
-      "slug": "client-account-manager-ubs-2",
+      "slug": "gestione-account-cliente-ubs-b6979d",
       "slugByLocale": {
         "en": "client-account-manager-ubs",
-        "it": "client-account-manager-ubs-2",
+        "it": "gestione-account-cliente-ubs-b6979d",
         "de": "client-account-manager-ubs-2",
         "fr": "client-account-manager-ubs-2"
       },
@@ -2491,7 +2521,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T23:07:45.188Z"
+      "firstSeenAt": "2026-05-11T23:07:45.188Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-account-manager-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "client-account-manager-ubs-2"
+      ]
     },
     {
       "id": "ubs-d19ae8aa4826",
@@ -2707,9 +2745,9 @@
     },
     {
       "id": "ubs-65b50dd6c5a4",
-      "slug": "receptionist-ubs",
+      "slug": "ricezionista-d-albergo-ubs",
       "slugByLocale": {
-        "it": "receptionist-ubs",
+        "it": "ricezionista-d-albergo-ubs",
         "en": "receptionist-ubs",
         "de": "receptionist-ubs",
         "fr": "receptionist-ubs"
@@ -2773,7 +2811,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "receptionist-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "receptionist-ubs"
+      ]
     },
     {
       "id": "ubs-464b4e3d2795",

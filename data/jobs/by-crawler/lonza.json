@@ -2011,9 +2011,9 @@
     },
     {
       "id": "lonza-45ca71b2b8e4",
-      "slug": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
+      "slug": "msat-process-expert-mammifero-a-monte-su-larga-scala-m-f-d-lonza-ch",
       "slugByLocale": {
-        "it": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
+        "it": "msat-process-expert-mammifero-a-monte-su-larga-scala-m-f-d-lonza-ch",
         "en": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
         "de": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
         "fr": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch"
@@ -2069,7 +2069,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-e323c31ba039",
@@ -2259,10 +2267,10 @@
     },
     {
       "id": "lonza-65553d5c3a1c",
-      "slug": "biotechnologist-m-f-d-lonza-ch",
+      "slug": "biotecnologo-m-f-d-lonza-ch",
       "slugByLocale": {
         "de": "biotechnologist-m-f-d-lonza-ch",
-        "it": "biotechnologist-m-f-d-lonza-ch",
+        "it": "biotecnologo-m-f-d-lonza-ch",
         "en": "biotechnologist-m-f-d-lonza-ch",
         "fr": "biotechnologist-m-f-d-lonza-ch"
       },
@@ -2319,7 +2327,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T22:29:30.856Z"
+      "firstSeenAt": "2026-05-11T22:29:30.856Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "biotechnologist-m-f-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "biotechnologist-m-f-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-3c2064421417",

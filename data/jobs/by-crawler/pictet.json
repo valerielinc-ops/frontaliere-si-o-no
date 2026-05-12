@@ -264,10 +264,10 @@
     },
     {
       "id": "pictet-610fea3b3811",
-      "slug": "client-relationship-officer-pictet-paris",
+      "slug": "responsabile-relazioni-cliente-pictet-group-paris",
       "slugByLocale": {
         "fr": "client-relationship-officer-pictet-paris",
-        "it": "client-relationship-officer-pictet-paris",
+        "it": "responsabile-relazioni-cliente-pictet-group-paris",
         "en": "client-relationship-officer-pictet-paris",
         "de": "client-relationship-officer-pictet-paris"
       },
@@ -325,7 +325,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T22:42:36.838Z"
+      "firstSeenAt": "2026-05-11T22:42:36.838Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-officer-pictet-paris"
+        ]
+      },
+      "previousSlugs": [
+        "client-relationship-officer-pictet-paris"
+      ]
     },
     {
       "id": "pictet-56c61993c4cc",
@@ -394,10 +402,10 @@
     },
     {
       "id": "pictet-bb67e73aedfe",
-      "slug": "event-manager-pictet-geneva",
+      "slug": "gestione-eventi-pictet-group-geneva",
       "slugByLocale": {
         "en": "event-manager-pictet-geneva",
-        "it": "event-manager-pictet-geneva",
+        "it": "gestione-eventi-pictet-group-geneva",
         "de": "event-manager-pictet-geneva",
         "fr": "event-manager-pictet-geneva"
       },
@@ -455,7 +463,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T22:42:35.703Z"
+      "firstSeenAt": "2026-05-11T22:42:35.703Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "event-manager-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "event-manager-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-4963ef2f939e",
@@ -589,10 +605,10 @@
     },
     {
       "id": "pictet-d49a74fa534d",
-      "slug": "senior-manager-strategic-planning-financial-analysis-pictet-geneva",
+      "slug": "senior-manager-pianificazione-strategica-e-analisi-finanziaria-pictet-group-geneva",
       "slugByLocale": {
         "en": "senior-manager-strategic-planning-financial-analysis-pictet-geneva",
-        "it": "senior-manager-strategic-planning-financial-analysis-pictet-geneva",
+        "it": "senior-manager-pianificazione-strategica-e-analisi-finanziaria-pictet-group-geneva",
         "de": "senior-manager-strategic-planning-financial-analysis-pictet-geneva",
         "fr": "senior-manager-strategic-planning-financial-analysis-pictet-geneva"
       },
@@ -650,7 +666,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-11T22:42:33.199Z"
+      "firstSeenAt": "2026-05-11T22:42:33.199Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-strategic-planning-financial-analysis-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-strategic-planning-financial-analysis-pictet-geneva"
+      ]
     }
   ]
 }

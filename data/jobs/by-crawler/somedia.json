@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "somedia-9a0ca8ab845a",
-      "slug": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
+      "slug": "amministratore-delegato-a-communicaziun-ch-100-somedia-ag-ilanz",
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
+        "it": "amministratore-delegato-a-communicaziun-ch-100-somedia-ag-ilanz",
         "en": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
         "de": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
         "fr": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
@@ -87,7 +87,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
+      ]
     },
     {
       "id": "somedia-b1a7615c5298",

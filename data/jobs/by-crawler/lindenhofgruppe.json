@@ -1077,10 +1077,10 @@
     },
     {
       "id": "lindenhofgruppe-35226807f98f",
-      "slug": "nds-emergency-care-centro-di-formazione-lindenhofgruppe-bern",
+      "slug": "infermiere-d-emergenza-posizione-di-formazione-lindenhofgruppe-bern",
       "slugByLocale": {
-        "it": "nds-emergency-care-centro-di-formazione-lindenhofgruppe-bern",
-        "en": "nds-emergency-care-training-centre-lindenhofgruppe-bern",
+        "it": "infermiere-d-emergenza-posizione-di-formazione-lindenhofgruppe-bern",
+        "en": "emergency-nursing-training-position-lindenhofgruppe-bern",
         "de": "nds-notfallpflege-weiterbildungsstelle-lindenhofgruppe-ch",
         "fr": "nds-emergency-care-centre-de-formation-lindenhofgruppe-bern"
       },
@@ -1124,14 +1124,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "nds-notfallpflege-weiterbildungsstelle-lindenhofgruppe-ch"
+        "nds-notfallpflege-weiterbildungsstelle-lindenhofgruppe-ch",
+        "nds-emergency-care-centro-di-formazione-lindenhofgruppe-bern",
+        "nds-emergency-care-training-centre-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nds-notfallpflege-weiterbildungsstelle-lindenhofgruppe-ch"
+          "nds-notfallpflege-weiterbildungsstelle-lindenhofgruppe-ch",
+          "nds-emergency-care-centro-di-formazione-lindenhofgruppe-bern"
         ],
         "en": [
-          "nds-notfallpflege-weiterbildungsstelle-lindenhofgruppe-ch"
+          "nds-notfallpflege-weiterbildungsstelle-lindenhofgruppe-ch",
+          "nds-emergency-care-training-centre-lindenhofgruppe-bern"
         ],
         "fr": [
           "nds-notfallpflege-weiterbildungsstelle-lindenhofgruppe-ch"
@@ -1385,7 +1389,7 @@
         "it": "salute-professionale-lindenhofgruppe-bern",
         "en": "healthcare-professional-lindenhofgruppe-bern",
         "de": "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
-        "fr": "infirmier-ere-professionnel-le-lindenhofgruppe-bern"
+        "fr": "sante-professionnelle-lindenhofgruppe-bern-ede4bc"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -1428,7 +1432,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
-        "fachfrau-mann-gesundheit-lindenhofgruppe-bern"
+        "fachfrau-mann-gesundheit-lindenhofgruppe-bern",
+        "infirmier-ere-professionnel-le-lindenhofgruppe-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1439,7 +1444,8 @@
           "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
         ],
         "fr": [
-          "fachfrau-mann-gesundheit-lindenhofgruppe-ch"
+          "fachfrau-mann-gesundheit-lindenhofgruppe-ch",
+          "infirmier-ere-professionnel-le-lindenhofgruppe-bern"
         ]
       },
       "firstSeenAt": "2026-05-10T21:57:57.765Z",
