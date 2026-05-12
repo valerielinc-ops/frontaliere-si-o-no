@@ -1,18 +1,60 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-05-12T12:10:04.223Z",
-  "total": 13,
-  "newCount": 13,
+  "generatedAt": "2026-05-12T23:04:39.321Z",
+  "total": 14,
+  "newCount": 14,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 83430,
-  "avgDurationMs": 83430,
+  "durationMs": 42197,
+  "avgDurationMs": 42197,
   "durationHistory": [
-    83430
+    42197
   ],
   "newJobs": [
+    {
+      "id": "company-l4ti34",
+      "slug": "responsabile-innovazione-e-trasformazione-digitale-supsi-dti-servizi-amministrativi-supsi",
+      "company": "SUPSI / DTI",
+      "title": "Responsabile Innovazione e Trasformazione Digitale",
+      "location": "Servizi amministrativi SUPSI",
+      "canton": "TI",
+      "category": "engineering",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-12",
+      "url": "https://www.supsi.ch/bando26_4006",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Servizi amministrativi SUPSI",
+        "canton": "TI"
+      },
+      "companyKey": "supsi-dti",
+      "companyDomain": "supsi.ch",
+      "crawledAt": "2026-05-12T23:04:15.211Z",
+      "firstSeenAt": "2026-05-12T23:04:15.211Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 79500,
+      "salaryMax": 120500,
+      "streetAddress": "Via Cantonale 2C",
+      "postalCode": "6928",
+      "addressLocality": "Servizi amministrativi SUPSI",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
     {
       "id": "company-l4u547",
       "slug": "assistente-bachelor-in-formazione-master-in-ambito-bioelettronica-per-lo-sviluppo-di-bioreattori-miniaturizzati-organ-on-chip-supsi-dti-luga",
