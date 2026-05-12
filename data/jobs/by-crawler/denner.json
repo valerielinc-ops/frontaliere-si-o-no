@@ -377,12 +377,12 @@
     },
     {
       "id": "denner-f1df80707343",
-      "slug": "verkaufer-in-im-stundenlohn-denner-sissach",
+      "slug": "venditore-in-salario-orario-denner-sissach",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-sissach",
-        "en": "verkaufer-in-im-stundenlohn-denner-sissach",
+        "it": "venditore-in-salario-orario-denner-sissach",
+        "en": "seller-in-in-hourly-wage-denner-sissach",
         "de": "verkaufer-in-im-stundenlohn-denner-sissach",
-        "fr": "verkaufer-in-im-stundenlohn-denner-sissach"
+        "fr": "vendeur-en-salaire-horaire-denner-sissach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -441,20 +441,24 @@
       "crawledAt": "2026-05-12T11:03:19.736Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-sissach"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-sissach"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-sissach"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-sissach",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -659,12 +663,12 @@
     },
     {
       "id": "denner-fed8192f3b22",
-      "slug": "filialleiter-in-in-ausbildung-denner-winterthur",
+      "slug": "capofila-dell-istruzione-denner-winterthur",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-winterthur",
-        "en": "filialleiter-in-in-ausbildung-denner-winterthur",
+        "it": "capofila-dell-istruzione-denner-winterthur",
+        "en": "head-of-branch-in-education-denner-winterthur",
         "de": "filialleiter-in-in-ausbildung-denner-winterthur",
-        "fr": "filialleiter-in-in-ausbildung-denner-winterthur"
+        "fr": "chef-de-division-en-education-denner-winterthur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -723,20 +727,24 @@
       "crawledAt": "2026-05-12T11:03:17.400Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-winterthur"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-winterthur"
         ],
         "de": [
           "filialleiter-in-in-ausbildung-denner-allschwil"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-winterthur"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-winterthur",
         "filialleiter-in-in-ausbildung-denner-allschwil"
       ],
       "salaryMin": 59000,
@@ -755,12 +763,12 @@
     },
     {
       "id": "denner-ce1029722758",
-      "slug": "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner",
+      "slug": "responsabile-vendite-in-denner-partner-in-educazione-regione-berna-fribourg-denner-bern",
       "slugByLocale": {
-        "it": "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner",
+        "it": "responsabile-vendite-in-denner-partner-in-educazione-regione-berna-fribourg-denner-bern",
         "en": "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner",
         "de": "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner",
-        "fr": "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner"
+        "fr": "directeur-des-ventes-a-denner-region-berne-fribourg-denner-bern"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -831,16 +839,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-12T11:03:16.930Z"
+      "firstSeenAt": "2026-05-12T11:03:16.930Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner"
+        ],
+        "fr": [
+          "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsleiter-in-denner-partner-in-ausbildung-region-bern-fribourg-denner"
+      ]
     },
     {
       "id": "denner-271acf93cc20",
       "slug": "filialleiter-in-denner-herisau",
       "slugByLocale": {
         "it": "filialleiter-in-denner-herisau",
-        "en": "filialleiter-in-denner-herisau",
+        "en": "head-of-branch-in-denner-herisau",
         "de": "filialleiter-in-denner-herisau",
-        "fr": "filialleiter-in-denner-herisau"
+        "fr": "chef-de-branche-denner-herisau"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -933,12 +952,12 @@
     },
     {
       "id": "denner-c81d819efe2a",
-      "slug": "stv-filialleiter-in-in-ausbildung-denner",
+      "slug": "stv-branch-manager-in-formazione-denner-chur",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-in-ausbildung-denner",
-        "en": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
+        "it": "stv-branch-manager-in-formazione-denner-chur",
+        "en": "stv-branch-manager-in-in-training-denner-chur",
         "de": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
-        "fr": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
+        "fr": "directeur-de-la-branche-stv-en-formation-denner-chur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -997,11 +1016,20 @@
       "crawledAt": "2026-05-12T11:03:12.979Z",
       "previousSlugsByLocale": {
         "it": [
-          "vice-responsabile-di-filiale-in-formazione-denner-chur"
+          "vice-responsabile-di-filiale-in-formazione-denner-chur",
+          "stv-filialleiter-in-in-ausbildung-denner"
+        ],
+        "en": [
+          "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
+        ],
+        "fr": [
+          "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
         ]
       },
       "previousSlugs": [
-        "vice-responsabile-di-filiale-in-formazione-denner-chur"
+        "vice-responsabile-di-filiale-in-formazione-denner-chur",
+        "stv-filialleiter-in-in-ausbildung-denner",
+        "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

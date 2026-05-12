@@ -460,8 +460,8 @@
       "slugByLocale": {
         "fr": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-bienne-mobiliar-ch",
         "it": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-bienne-mobiliar-ch",
-        "en": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-bienne-mobiliar-ch",
-        "de": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-bienne-mobiliar-ch"
+        "en": "insurance-and-provident-advisor-f-h-d-at-bienne-general-agency-die-mobiliar-biel",
+        "de": "versicherungs-und-versicherungsberater-f-h-d-bei-der-bienne-general-agency-die-mobiliar-biel"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -689,9 +689,9 @@
     },
     {
       "id": "mobiliar-36ed1a81d1a9",
-      "slug": "senior-account-manager-m-d-die-mobiliar-schwyz",
+      "slug": "versicherungs-e-vorsorgeberater-w-m-d-agenzia-generale-schwyz-die-mobiliar-schwyz",
       "slugByLocale": {
-        "it": "senior-account-manager-m-d-die-mobiliar-schwyz",
+        "it": "versicherungs-e-vorsorgeberater-w-m-d-agenzia-generale-schwyz-die-mobiliar-schwyz",
         "en": "senior-account-manager-m-d-die-mobiliar-schwyz",
         "de": "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-mobiliar-ch",
         "fr": "directeur-principal-des-comptes-m-j-die-mobiliar-schwyz"
@@ -752,13 +752,13 @@
       "previousSlugs": [
         "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-mobiliar-ch",
         "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-schwyz-die-mobiliar-schwyz",
-        "versicherungs-e-vorsorgeberater-w-m-d-agenzia-generale-schwyz-die-mobiliar-schwyz"
+        "senior-account-manager-m-d-die-mobiliar-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-mobiliar-ch",
           "versicherungs-e-vorsorgeberater-m-w-d-agenzia-generale-schwyz-die-mobiliar-schwyz",
-          "versicherungs-e-vorsorgeberater-w-m-d-agenzia-generale-schwyz-die-mobiliar-schwyz"
+          "senior-account-manager-m-d-die-mobiliar-schwyz"
         ],
         "en": [
           "versicherungs-und-vorsorgeberater-w-m-d-generalagentur-schwyz-mobiliar-ch"
@@ -1038,12 +1038,12 @@
     },
     {
       "id": "mobiliar-f48c812bfd17",
-      "slug": "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-m-w-d-die-mobiliar-lausanne",
+      "slug": "gestore-specializzato-nel-supporto-vendite-presso-l-agenzia-generale-di-losanna-nord-vaud-f-m-d-die-mobiliar-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-f-h-",
-        "it": "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-m-w-d-die-mobiliar-lausanne",
-        "en": "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-f-h-",
-        "de": "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-f-h-"
+        "it": "gestore-specializzato-nel-supporto-vendite-presso-l-agenzia-generale-di-losanna-nord-vaud-f-m-d-die-mobiliar-lausanne",
+        "en": "specialized-sales-support-manager-at-the-general-agency-lausanne-north-vaud-f-m-d-die-mobiliar-lausanne",
+        "de": "spezialisierter-verkaufsunterstutzungsmanager-in-der-generalagentur-lausanne-nord-waadt-f-m-d-die-mobiliar-lausanne"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -1099,7 +1099,22 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-10T22:09:48.954Z"
+      "firstSeenAt": "2026-05-10T22:09:48.954Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-m-w-d-die-mobiliar-lausanne"
+        ],
+        "en": [
+          "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-f-h-"
+        ],
+        "de": [
+          "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-f-h-"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-m-w-d-die-mobiliar-lausanne",
+        "gestionnaire-specialise-du-support-vente-a-l-agence-generale-de-lausanne-nord-vaudois-f-h-"
+      ]
     },
     {
       "id": "mobiliar-6de9ce67bf2a",
@@ -2754,12 +2769,12 @@
     },
     {
       "id": "mobiliar-91edcd1b9bca",
-      "slug": "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudois-m-w-d-die-mobiliar-yverdon",
+      "slug": "gestore-specializzato-nel-supporto-vendite-broker-presso-l-agenzia-generale-lausanne-nord-vaudois-f-h-d-die-mobiliar-yve",
       "slugByLocale": {
         "fr": "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudois-f-h-d-die-mobiliar-yverdon",
-        "it": "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudois-m-w-d-die-mobiliar-yverdon",
-        "en": "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo",
-        "de": "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo"
+        "it": "gestore-specializzato-nel-supporto-vendite-broker-presso-l-agenzia-generale-lausanne-nord-vaudois-f-h-d-die-mobiliar-yve",
+        "en": "specialized-sales-support-manager-for-brokers-at-general-agency-lausanne-nord-vaudois-f-m-d-die-mobiliar-yverdon",
+        "de": "spezialisierter-verkaufsunterstutzungsmanager-fur-makler-bei-der-generalagentur-lausanne-nord-waadt-m-w-d-die-mobiliar-y"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -2805,10 +2820,20 @@
       "previousSlugsByLocale": {
         "fr": [
           "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo"
+        ],
+        "it": [
+          "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudois-m-w-d-die-mobiliar-yverdon"
+        ],
+        "en": [
+          "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo"
+        ],
+        "de": [
+          "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo"
+        "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudo",
+        "gestionnaire-specialise-du-support-vente-courtiers-a-l-agence-generale-lausanne-nord-vaudois-m-w-d-die-mobiliar-yverdon"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3663,8 +3688,8 @@
       "slugByLocale": {
         "fr": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier",
         "it": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier",
-        "en": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier",
-        "de": "conseiller-en-assurances-et-en-prevoyance-f-h-d-a-l-agence-generale-de-moutier-saint-imier"
+        "en": "insurance-and-provident-advisor-f-h-d-at-moutier-general-agency-saint-imier-die-mobiliar-moutier",
+        "de": "versicherungs-und-versicherungsberater-f-h-d-bei-moutier-general-agency-saint-imier-die-mobiliar-moutier"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
