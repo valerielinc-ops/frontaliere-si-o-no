@@ -8056,8 +8056,17 @@ ${alternates}
  }
  if (!tracking[job.slug]) {
  tracking[job.slug] = {};
+ // Phase 8c — emit the tracking entry under the JOB'S canton-aware
+ // section (e.g. /cerca-lavoro-zurigo/, /de/jobs-in-zurich/) instead of
+ // the legacy TI section. Soft-landing emission downstream reads this
+ // path directly + checks activeJobDirs for collisions; before the
+ // canton-aware switch the TI URL would either land a stale soft-
+ // landing or, worse, clobber an active non-TI page at the same slug.
+ // TI invariance is preserved by buildCantonAwareSection (early-return
+ // on code === 'TI' returns the legacy section verbatim).
+ const jobCantonForTracking = sharedResolveJobCanton(job as { canton?: string; location?: string });
  for (const locale of localeList) {
- const relPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/');
+ const relPath = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCantonForTracking)}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/');
  tracking[job.slug][locale] = relPath;
  }
  }
