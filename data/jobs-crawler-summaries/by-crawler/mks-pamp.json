@@ -1,19 +1,59 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-05-11T22:37:10.269Z",
+  "generatedAt": "2026-05-12T11:44:55.122Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 8740,
-  "avgDurationMs": 8740,
+  "unchangedCount": 4,
+  "durationMs": 8948,
+  "avgDurationMs": 8948,
   "durationHistory": [
-    8740
+    8948
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "title": "Metal &amp; Inventory Controller",
+      "slug": "metal-amp-inventory-controller-mks-pamp-castel-san-pietro",
+      "url": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
+      "applyUrl": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
+      "company": "MKS PAMP",
+      "companyKey": "mks-pamp",
+      "companyDomain": "mkspamp.com",
+      "location": "Castel San Pietro",
+      "addressLocality": "Castel San Pietro",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "finance",
+      "sector": "Metalli preziosi",
+      "source": "mkspamp-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-02-04",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "streetAddress": "Via delle Fornaci",
+      "postalCode": "6828",
+      "id": "mks-pamp-3b2040222bc6",
+      "firstSeenAt": "2026-04-13T22:10:50.570Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Operatore Trattamenti Reflui",
       "slug": "operatore-trattamenti-reflui-mks-pamp-castel-san-pietro",
@@ -83,43 +123,6 @@
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Metal &amp; Inventory Controller",
-      "slug": "metal-amp-inventory-controller-mks-pamp-castel-san-pietro",
-      "url": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
-      "applyUrl": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
-      "company": "MKS PAMP",
-      "companyKey": "mks-pamp",
-      "companyDomain": "mkspamp.com",
-      "location": "Castel San Pietro",
-      "addressLocality": "Castel San Pietro",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "finance",
-      "sector": "Metalli preziosi",
-      "source": "mkspamp-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-02-04",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "streetAddress": "Via delle Fornaci",
-      "postalCode": "6828",
-      "id": "mks-pamp-3b2040222bc6",
-      "firstSeenAt": "2026-04-13T22:10:50.570Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
         "richness": 18,
         "translation": 25,
         "completeness": 25
@@ -199,7 +202,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
