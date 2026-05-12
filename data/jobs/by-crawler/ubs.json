@@ -3680,10 +3680,10 @@
     },
     {
       "id": "ubs-3d41d6d18dc8",
-      "slug": "finance-analyst-ubs",
+      "slug": "finanza-analista-ubs",
       "slugByLocale": {
         "en": "finance-analyst-ubs",
-        "it": "finance-analyst-ubs",
+        "it": "finanza-analista-ubs",
         "de": "finance-analyst-ubs",
         "fr": "finance-analyst-ubs"
       },
@@ -3748,7 +3748,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-12T12:15:35.648Z"
+      "firstSeenAt": "2026-05-12T12:15:35.648Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "finance-analyst-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "finance-analyst-ubs"
+      ]
     },
     {
       "id": "ubs-56f5bf8440e2",

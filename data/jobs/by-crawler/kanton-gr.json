@@ -641,12 +641,12 @@
     },
     {
       "id": "kanton-gr-caf89d639787",
-      "slug": "collaboratore-trice-in-betreuungs-e-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis",
+      "slug": "servizio-di-assistenza-e-sicurezza-kantonale-verwaltung-graubunden-cazis",
       "slugByLocale": {
         "de": "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis",
-        "it": "collaboratore-trice-in-betreuungs-e-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis",
-        "en": "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis",
-        "fr": "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
+        "it": "servizio-di-assistenza-e-sicurezza-kantonale-verwaltung-graubunden-cazis",
+        "en": "staff-in-care-and-security-service-kantonale-verwaltung-graubunden-cazis",
+        "fr": "personnel-service-des-soins-et-de-la-securite-kantonale-verwaltung-graubunden-cazis"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -695,14 +695,23 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch"
+          "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch",
+          "collaboratore-trice-in-betreuungs-e-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
         ],
         "de": [
           "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
+        ],
+        "fr": [
+          "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch"
+        "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch",
+        "collaboratore-trice-in-betreuungs-e-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis",
+        "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

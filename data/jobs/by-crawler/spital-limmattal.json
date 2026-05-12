@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-limmattal-d19f90b9cc62",
-      "slug": "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumato",
+      "slug": "stv-leading-u00c4rztin-stv-medico-senior-nella-clinica-f-u00fcr-orthop-u00e4die-traumatologia-e-chirurgia-della-mano-spi",
       "slugByLocale": {
         "de": "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumatologie-und-handchirurgie-spital",
-        "it": "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumato",
-        "en": "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumato",
-        "fr": "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumato"
+        "it": "stv-leading-u00c4rztin-stv-medico-senior-nella-clinica-f-u00fcr-orthop-u00e4die-traumatologia-e-chirurgia-della-mano-spi",
+        "en": "stv-leading-u00c4rztin-stv-senior-doctor-in-the-clinic-f-u00fcr-orthop-u00e4die-traumatology-and-hand-surgery-spital-lim",
+        "fr": "stv-dirigeant-u00c4rztin-stv-medecin-principal-dans-la-clinique-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -64,16 +64,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-12T12:03:07.112Z"
+      "firstSeenAt": "2026-05-12T12:03:07.112Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumato"
+        ],
+        "en": [
+          "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumato"
+        ],
+        "fr": [
+          "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumato"
+        ]
+      },
+      "previousSlugs": [
+        "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumato"
+      ]
     },
     {
       "id": "spital-limmattal-dc1b8aed6ae1",
-      "slug": "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch",
+      "slug": "specialista-in-contabilita-aziendale-60-100-spital-limmattal-schlieren",
       "slugByLocale": {
         "de": "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch",
-        "it": "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch",
-        "en": "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch",
-        "fr": "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch"
+        "it": "specialista-in-contabilita-aziendale-60-100-spital-limmattal-schlieren",
+        "en": "specialist-in-business-accounting-60-100-spital-limmattal-schlieren",
+        "fr": "specialiste-en-comptabilite-d-entreprise-60-100-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -131,7 +145,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-12T12:03:06.679Z"
+      "firstSeenAt": "2026-05-12T12:03:06.679Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch"
+        ],
+        "en": [
+          "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch"
+        ],
+        "fr": [
+          "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-betriebsbuchhaltung-60-100-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-23ce8ea00d4d",

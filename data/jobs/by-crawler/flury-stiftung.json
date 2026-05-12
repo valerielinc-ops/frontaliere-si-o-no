@@ -1220,8 +1220,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-40-100-altersheim-schiers-flury-stiftung-schiers",
         "it": "fachperson-gesundheit-o-dipl-pflegefachperson-hf-fh-40-100-altersheim-schiers-flury-stiftung-schiers",
-        "en": "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-40-100-altersheim-schiers-flury-stiftung-schiers",
-        "fr": "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-40-100-altersheim-schiers-flury-stiftung-schiers"
+        "en": "subject-health-or-dipl-career-hf-fh-40-100-altersheim-schiers-flury-stiftung-schiers",
+        "fr": "sujet-sante-ou-dipl-carriere-hf-fh-40-100-altersheim-schiers-flury-stiftung-schiers"
       },
       "company": "Flury Stiftung",
       "companyKey": "flury-stiftung",
@@ -1273,10 +1273,17 @@
         ],
         "de": [
           "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-40-100-altersheim-schiers-flury-sti"
+        ],
+        "en": [
+          "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-40-100-altersheim-schiers-flury-stiftung-schiers"
+        ],
+        "fr": [
+          "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-40-100-altersheim-schiers-flury-stiftung-schiers"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-40-100-altersheim-schiers-flury-sti"
+        "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-40-100-altersheim-schiers-flury-sti",
+        "fachperson-gesundheit-oder-dipl-pflegefachperson-hf-fh-40-100-altersheim-schiers-flury-stiftung-schiers"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

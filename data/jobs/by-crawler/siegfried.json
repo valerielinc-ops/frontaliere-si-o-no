@@ -1749,10 +1749,10 @@
     },
     {
       "id": "siegfried-ac6024cfb924",
-      "slug": "executive-assistant-siegfried-ch",
+      "slug": "assistente-esecutivo-siegfried-zofingen",
       "slugByLocale": {
         "de": "executive-assistant-siegfried-ch",
-        "it": "executive-assistant-siegfried-ch",
+        "it": "assistente-esecutivo-siegfried-zofingen",
         "en": "executive-assistant-siegfried-ch",
         "fr": "executive-assistant-siegfried-zofingen"
       },
@@ -1810,7 +1810,15 @@
         }
       },
       "postalCode": "5000",
-      "firstSeenAt": "2026-05-12T11:59:11.839Z"
+      "firstSeenAt": "2026-05-12T11:59:11.839Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "executive-assistant-siegfried-ch"
+        ]
+      },
+      "previousSlugs": [
+        "executive-assistant-siegfried-ch"
+      ]
     }
   ]
 }

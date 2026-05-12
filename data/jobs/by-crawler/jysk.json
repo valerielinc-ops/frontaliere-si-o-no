@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-v6twcb",
-      "slug": "jchde-verkaufer-in-con-lagerverantwortung-a-60-jysk-stans-v6twcb",
+      "slug": "jchde-procuratore-con-responsabilita-del-magazzino-a-60-jysk-stans",
       "company": "JYSK",
       "title": "JCHDE_Verkäufer/in mit Lagerverantwortung (a) 60%",
       "location": "Stans",
@@ -36,19 +36,28 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "jchde-verkaufer-in-con-lagerverantwortung-a-60-jysk-stans-v6twcb",
-        "en": "jchde-verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans-v6twcb",
+        "it": "jchde-procuratore-con-responsabilita-del-magazzino-a-60-jysk-stans",
+        "en": "jchde-procurator-with-warehouse-responsibility-a-60-jysk-stans",
         "de": "jchde-verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans-v6twcb",
-        "fr": "jchde-verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans-v6twcb"
+        "fr": "jchde-procureur-responsable-de-l-entrepot-a-60-jysk-stans"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "jchde-verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans"
+          "jchde-verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans",
+          "jchde-verkaufer-in-con-lagerverantwortung-a-60-jysk-stans-v6twcb"
+        ],
+        "en": [
+          "jchde-verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans-v6twcb"
+        ],
+        "fr": [
+          "jchde-verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans-v6twcb"
         ]
       },
       "previousSlugs": [
-        "jchde-verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans"
+        "jchde-verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans",
+        "jchde-verkaufer-in-con-lagerverantwortung-a-60-jysk-stans-v6twcb",
+        "jchde-verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans-v6twcb"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

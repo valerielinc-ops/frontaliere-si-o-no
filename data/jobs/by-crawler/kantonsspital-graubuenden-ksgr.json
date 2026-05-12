@@ -23,9 +23,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-05-12T11:31:11.346Z",
-      "slug": "bereichsleiter-in-qualitats-prozess-und-risikomanagement-kantonsspital-graubunden-chur",
+      "slug": "responsabile-della-gestione-della-qualita-dei-processi-e-dei-rischi-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "bereichsleiter-in-qualitats-prozess-und-risikomanagement-kantonsspital-graubunden-chur"
+        "de": "bereichsleiter-in-qualitats-prozess-und-risikomanagement-kantonsspital-graubunden-chur",
+        "it": "responsabile-della-gestione-della-qualita-dei-processi-e-dei-rischi-kantonsspital-graubunden-chur",
+        "en": "head-of-division-in-quality-process-and-risk-management-kantonsspital-graubunden-chur",
+        "fr": "chef-de-la-gestion-de-la-qualite-des-processus-et-des-risques-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Bereichsleiter:in Qualitäts-, Prozess- und Risikomanagement",
@@ -54,7 +57,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-12T11:31:11.346Z"
+      "firstSeenAt": "2026-05-12T11:31:11.346Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bereichsleiter-in-qualitats-prozess-und-risikomanagement-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "bereichsleiter-in-qualitats-prozess-und-risikomanagement-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10032363",
@@ -1090,8 +1101,7 @@
       "featured": false,
       "previousSlugs": [
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
-        "diet-chef-kantonsspital-graubunden-chur",
-        "berufslehre-kochin-koch-kantonsspital-graubunden-chur"
+        "diet-chef-kantonsspital-graubunden-chur"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
