@@ -1,24 +1,22 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-05-11T22:06:00.749Z",
+  "generatedAt": "2026-05-12T11:13:46.764Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 11425,
-  "avgDurationMs": 11425,
+  "unchangedCount": 0,
+  "durationMs": 12218,
+  "avgDurationMs": 12218,
   "durationHistory": [
-    11425
+    12218
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "company-29z0lf",
-      "slug": "home-fornitore-negli-elettrodomestici-elettrici-fust-cadenazzo",
+      "slug": "home-fornitore-negli-elettrodomestici-elettrici-fust-grigioni",
       "company": "Fust",
       "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
       "location": "Grigioni",
@@ -42,7 +40,7 @@
       "sourceLang": "de",
       "streetAddress": "Via Industria 1",
       "postalCode": "6593",
-      "addressLocality": "Cadenazzo",
+      "addressLocality": "Grigioni",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
@@ -58,7 +56,7 @@
     },
     {
       "id": "company-ke4f2c",
-      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-cadenazzo",
+      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino",
       "company": "Fust",
       "title": "Montatore/trice di impianti sanitari per cucine & bagni",
       "location": "Bellinzona, Ticino",
@@ -82,7 +80,7 @@
       "sourceLang": "it",
       "streetAddress": "Via Industria 1",
       "postalCode": "6593",
-      "addressLocality": "Cadenazzo",
+      "addressLocality": "Bellinzona, Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
@@ -96,5 +94,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
