@@ -23,11 +23,13 @@ const ALLOWLIST = [
   'build-plugins/shared/cantonSection.ts',
 
   // ── jobsSeoPagesPlugin: sectionByLocale legacy preservation (TI default) ──
-  'build-plugins/jobsSeoPagesPlugin.ts:780',
+  // Lines shifted +1 by the Phase 8(g) imports added at the top of the
+  // file (HUB_JOBS_PAGE_SIZE / hubSlugFor / buildCantonHubEditorial).
   'build-plugins/jobsSeoPagesPlugin.ts:781',
   'build-plugins/jobsSeoPagesPlugin.ts:782',
   'build-plugins/jobsSeoPagesPlugin.ts:783',
-  'build-plugins/jobsSeoPagesPlugin.ts:788',          // jsdoc reference to the legacy slugs
+  'build-plugins/jobsSeoPagesPlugin.ts:784',
+  'build-plugins/jobsSeoPagesPlugin.ts:789',          // jsdoc reference to the legacy slugs
 
   // ── jobBoardSeo: TI legacy job-board landing paths (kept for legacy entry) ──
   'build-plugins/jobBoardSeo.ts:38',
@@ -96,18 +98,18 @@ const ALLOWLIST = [
 
   // ── staticPagesPlugin: section→category / section→label maps. These ARE
   //    keyed by the TI legacy section name; they are data, not links. ──
-  //    Lines shifted +3 by the Phase 4 canton-navigator imports added at
-  //    the top of the file (cantonSection + canton-url-slugs + jobEditorialLanding).
-  'build-plugins/staticPagesPlugin.ts:767',
+  //    Lines shifted +1 by the Phase 8(g) canton-hub-editorial helper
+  //    import at the top of the file (buildCantonHubEditorial).
   'build-plugins/staticPagesPlugin.ts:768',
   'build-plugins/staticPagesPlugin.ts:769',
   'build-plugins/staticPagesPlugin.ts:770',
-  'build-plugins/staticPagesPlugin.ts:789',
+  'build-plugins/staticPagesPlugin.ts:771',
   'build-plugins/staticPagesPlugin.ts:790',
-  'build-plugins/staticPagesPlugin.ts:1324',
-  'build-plugins/staticPagesPlugin.ts:1349',
-  'build-plugins/staticPagesPlugin.ts:1374',
-  'build-plugins/staticPagesPlugin.ts:1642',
+  'build-plugins/staticPagesPlugin.ts:791',
+  'build-plugins/staticPagesPlugin.ts:1325',
+  'build-plugins/staticPagesPlugin.ts:1350',
+  'build-plugins/staticPagesPlugin.ts:1375',
+  'build-plugins/staticPagesPlugin.ts:1643',
 
   // ── shared/hubChrome.ts: per-locale hub-chrome registry keyed on TI section name ──
   'build-plugins/shared/hubChrome.ts:106',
