@@ -2,14 +2,14 @@
   "version": 1,
   "snoozes": {
     "A.1.cluster-monoculture": {
-      "consecutiveDays": 1,
-      "lastSeen": "2026-05-11",
+      "consecutiveDays": 2,
+      "lastSeen": "2026-05-12",
       "snoozedUntil": null
     },
     "B.5.cluster-stats-degenerate": {
-      "consecutiveDays": 4,
-      "lastSeen": "2026-05-11",
-      "snoozedUntil": "2026-05-18"
+      "consecutiveDays": 5,
+      "lastSeen": "2026-05-12",
+      "snoozedUntil": "2026-05-19"
     }
   }
 }
