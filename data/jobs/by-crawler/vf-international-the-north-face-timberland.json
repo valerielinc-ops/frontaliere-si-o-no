@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vf-international-the-north-face-timberland",
-  "assembledAt": "2026-05-11T23:09:41.507Z",
+  "assembledAt": "2026-05-12T12:17:53.673Z",
   "jobs": [
     {
       "id": "company-wi3k2",
@@ -251,7 +251,8 @@
       "addressLocality": "EMEA · CHE · Stabio · VF Campus VF1",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-6sjj96",
@@ -259,7 +260,7 @@
       "company": "VF International (The North Face, Timberland)",
       "title": "Senior Outerwear Designer, Global Apparel (Timberland)",
       "location": "EMEA · CHE · Stabio · VF Campus VF1",
-      "canton": "TI",
+      "canton": "AI",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
@@ -588,7 +589,8 @@
       "addressLocality": "EMEA · CHE · Stabio · VF Campus VF1",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-rm634f",
@@ -663,7 +665,8 @@
       "addressLocality": "EMEA · CHE · Landquart · Outlet - NAP",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-27nahc",
@@ -701,7 +704,7 @@
       "slugByLocale": {
         "it": "venditore-orario-di-partenza-8-ore-vf-international-the-north-face-timberland-emea-che-landquart-landquart-tnf",
         "en": "seller-part-time-8-hours-vf-international-the-north-face-timberland-emea-che-landquart-landquart-tnf",
-        "de": "verkauferin-teilzeit-8-std-vf-international-the-north-face-timberland-stabio",
+        "de": "verkauferin-teilzeit-8-std-vf-international-the-north-face-timberland-emea-che-landquart-landquart-tnf",
         "fr": "vendeur-temps-partiel-8-heures-vf-international-the-north-face-timberland-emea-che-landquart-landquart-tnf"
       },
       "sourceLang": "de",
@@ -731,7 +734,8 @@
           "verkauferin-teilzeit-8-std-vf-international-the-north-face-timberland-emea-che-landquart-landquart-tnf-27nahc"
         ],
         "de": [
-          "verkauferin-teilzeit-8-std-vf-international-the-north-face-timberland-emea-che-landquart-landquart-tnf-27nahc"
+          "verkauferin-teilzeit-8-std-vf-international-the-north-face-timberland-emea-che-landquart-landquart-tnf-27nahc",
+          "verkauferin-teilzeit-8-std-vf-international-the-north-face-timberland-stabio"
         ],
         "fr": [
           "verkauferin-teilzeit-8-std-vf-international-the-north-face-timberland-emea-che-landquart-landquart-tnf-27nahc"
@@ -739,6 +743,7 @@
       },
       "previousSlugs": [
         "verkauferin-teilzeit-8-std-vf-international-the-north-face-timberland-emea-che-landquart-landquart-tnf-27nahc",
+        "verkauferin-teilzeit-8-std-vf-international-the-north-face-timberland-stabio",
         "venditore-part-time-8-ore-vf-international-the-north-face-timberland-emea-che-landquart-landquart-tnf",
         "venditore-part-time-8-ore-vf-international-the-north-face-timberland-stabio",
         "sales-associate-part-time-8-hours-vf-international-the-north-face-timberland-emea-che-landquart-landquart-tnf",
@@ -1382,7 +1387,7 @@
       "company": "VF International (The North Face, Timberland)",
       "title": "PSS Analyst - THE NORTH FACE",
       "location": "EMEA · CHE · Stabio · VF Campus VF1",
-      "canton": "TI",
+      "canton": "FR",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
@@ -1424,7 +1429,7 @@
         ]
       },
       "featured": false,
-      "postedDate": "2026-05-11",
+      "postedDate": "2026-05-12",
       "url": "https://vfc.wd5.myworkdayjobs.com/vfc_careers/job/EMEA--CHE--Stabio--VF-Campus-VF1/PSS-Analyst---THE-NORTH-FACE_R-20230303-0011",
       "source": "Company Careers Crawler",
       "companyKey": "vf-international-the-north-face-timberland",
@@ -1493,7 +1498,7 @@
       "company": "VF International (The North Face, Timberland)",
       "title": "Head of Product Development and Materials",
       "location": "EMEA · CHE · Stabio · VF Campus VF1",
-      "canton": "TI",
+      "canton": "FR",
       "category": "finance",
       "contract": "part-time",
       "currency": "CHF",
@@ -1513,7 +1518,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "featured": false,
-      "postedDate": "2026-05-11",
+      "postedDate": "2026-05-12",
       "url": "https://vfc.wd5.myworkdayjobs.com/vfc_careers/job/EMEA--CHE--Stabio--VF-Campus-VF1/Head-of-Product-Development-and-Materials_R-20260325-0013-1",
       "source": "Company Careers Crawler",
       "companyKey": "vf-international-the-north-face-timberland",
