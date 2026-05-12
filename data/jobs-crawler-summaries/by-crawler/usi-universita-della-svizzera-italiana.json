@@ -1,18 +1,50 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-05-12T12:17:03.657Z",
-  "total": 21,
-  "newCount": 0,
+  "generatedAt": "2026-05-12T23:12:27.055Z",
+  "total": 22,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 20,
-  "durationMs": 56763,
-  "avgDurationMs": 56763,
+  "durationMs": 59518,
+  "avgDurationMs": 59518,
   "durationHistory": [
-    56763
+    59518
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-collab-carriere-eventi-comunicazione.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-collab-carriere-eventi-comunicazione.pdf",
+      "title": "Collaboratrice/tore carriere, eventi e comunicazione",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "collaboratrice-tore-carriere-eventi-e-comunicazione-usi",
+      "department": "Servizio carriere e alumni",
+      "category": "staff",
+      "datePosted": "2026-05-12",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "id": "usi-universita-della-svizzera-italiana-d2ffb583e412",
+      "sourceLang": "it",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-postdoc-isat-2025.pdf",
