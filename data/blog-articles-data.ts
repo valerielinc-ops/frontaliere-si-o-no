@@ -23798,4 +23798,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'traffico-umani-valico-tresa-impatto-frontalieri',
+ category: 'pratico',
+ date: '2026-05-12T20:44:11.036Z',
+ image: '/images/blog/traffico-umani-valico-tresa-impatto-frontalieri.jpg',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

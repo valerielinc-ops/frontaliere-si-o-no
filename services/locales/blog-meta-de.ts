@@ -7473,6 +7473,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-licata-2026.title': 'Stopp der Gesundheitssteuer für Grenzgänger: Licata fordert nationalen Dialog',
     'blog.article.tassa-salute-frontalieri-licata-2026.excerpt': 'Ratsherr Licata stellt sich gegen die neue Gesundheitssteuer für die \'historischen\' Grenzgänger und fordert regionale Einheitlichkeit. Mittel aus dem Steuerabkommen, um Gesundheitspersonal in Italien zu halten.',
     'blog.article.tassa-salute-frontalieri-licata-2026.imageAlt': 'Regierungspalast in Bellinzona, institutioneller Sitz des Kantons Tessin',
+    'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.title': 'Menschenhandel am Grenzübergang Tresa: Was ändert sich für Grenzgänger?',
+    'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.excerpt': 'Kurdisch-türkisches Kriminalitätsnetzwerk zerschlagen. Risiko verstärkter Kontrollen und Staus an den Grenzübergängen. Hier die praktischen Folgen für Arbeitnehmer im Tessin.',
+    'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.imageAlt': 'GrenzKontrollen in Ponte Tresa nach Zerschlagung von Menschenschmuggler-Netzwerk',
 };
 
 export default blogMetaDe;

@@ -7475,6 +7475,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-licata-2026.title': 'Stop alla tassa salute per frontalieri: Licata chiede confronto nazionale',
     'blog.article.tassa-salute-frontalieri-licata-2026.excerpt': 'Il consigliere Licata si oppone alla nuova tassa sanitaria per i frontalieri \'storici\' e chiede uniformità regionale. Fondi dall\'accordo fiscale per trattenere operatori sanitari in Italia.',
     'blog.article.tassa-salute-frontalieri-licata-2026.imageAlt': 'Palazzo del Governo di Bellinzona, sede istituzionale del Canton Ticino',
+    'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.title': 'Traffico di esseri umani al valico di Tresa: cosa cambia per i frontalieri?',
+    'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.excerpt': 'Smantellata rete criminale curdo-turca. Rischio controlli intensificati e code ai valichi. Ecco le conseguenze pratiche per chi lavora in Ticino.',
+    'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.imageAlt': 'Controlli al valico di Ponte Tresa dopo smantellamento rete traffico esseri umani',
 };
 
 export default blogMetaIt;

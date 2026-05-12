@@ -36032,6 +36032,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-traffico-umani-valico-tresa-impatto-frontalieri': {
+    title: 'Traffico di esseri umani al valico di Tresa: cosa cambia per i frontalieri?',
+    description: 'Arrestata rete criminale a Ponte Tresa. Aumento controlli, code e rischi per i frontalieri Ticino. Cosa fare e come proteggersi. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, esseri, umani, valico',
+    ogTitle: 'Allerta frontalieri: controlli intensificati al valico di Tresa dopo traffici illeciti',
+    ogDescription: 'Smantellata rete criminale curdo-turca. Rischio code e controlli severi per chi lavora in Ticino. Misure di sicurezza e diritti dei frontalieri.',
+    canonicalPath: '/articoli-frontaliere/traffico-umani-valico-tresa-impatto-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico di esseri umani al valico di Tresa: cosa cambia per i frontalieri?",
+      "description": "Arrestata rete criminale a Ponte Tresa. Aumento controlli, code e rischi per i frontalieri Ticino. Cosa fare e come proteggersi. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-umani-valico-tresa-impatto-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Controlli al valico di Ponte Tresa dopo smantellamento rete traffico esseri umani"
+      },
+      "datePublished": "2026-05-12T20:44:11+00:00",
+      "dateModified": "2026-05-12T20:44:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-umani-valico-tresa-impatto-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

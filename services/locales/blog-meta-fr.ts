@@ -7475,6 +7475,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-licata-2026.title': 'Fin de la taxe santé pour frontaliers : Licata demande un débat national',
     'blog.article.tassa-salute-frontalieri-licata-2026.excerpt': 'Le conseiller Licata s\'oppose à la nouvelle taxe sanitaire pour les frontaliers \'historiques\' et demande une uniformité régionale. Fonds de l\'accord fiscal pour retenir les professionnels de santé en Italie.',
     'blog.article.tassa-salute-frontalieri-licata-2026.imageAlt': 'Palais du Gouvernement à Bellinzona, siège institutionnel du Canton du Tessin',
+    'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.title': 'Trafic humain à Tresa : conséquences pour les frontaliers ?',
+    'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.excerpt': 'Démantèlement d\'un réseau criminel kurde-turc. Risque de contrôles intensifiés et de files d\'attente aux postes-frontière. Voici les conséquences pratiques pour ceux qui travaillent au Tessin.',
+    'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.imageAlt': 'Contrôles frontaliers à Ponte Tresa après le démantèlement d\'un réseau de traite d\'êtres humains',
 };
 
 export default blogMetaFr;

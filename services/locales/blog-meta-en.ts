@@ -7474,6 +7474,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-licata-2026.title': 'Stop health tax for cross-border workers: Licata seeks national debate',
     'blog.article.tassa-salute-frontalieri-licata-2026.excerpt': 'Councillor Licata opposes the new healthcare tax for \'historic\' cross-border workers and calls for regional uniformity. Funds from the tax agreement to retain healthcare workers in Italy.',
     'blog.article.tassa-salute-frontalieri-licata-2026.imageAlt': 'Government Palace in Bellinzona, institutional seat of Canton Ticino',
+    'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.title': 'Human Trafficking at Tresa Border: Impact on Cross-Border Workers?',
+    'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.excerpt': 'Kurdish-Turkish criminal network dismantled. Risk of intensified checks and queues at border crossings. Practical consequences for Ticino cross-border commuters.',
+    'blog.article.traffico-umani-valico-tresa-impatto-frontalieri.imageAlt': 'Border controls at Ponte Tresa crossing after human trafficking network dismantled',
 };
 
 export default blogMetaEn;

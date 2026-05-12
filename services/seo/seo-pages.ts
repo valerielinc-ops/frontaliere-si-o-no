@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2546,
+ "numberOfItems": 2547,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7186,7 +7186,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2543, "name": "Allerta meteo per temporali e grandine nel vare...", "url": `${BASE_URL}/articoli-frontaliere/temporali-grandine-varesotto-allerta-meteo` },
           { "@type": "ListItem", "position": 2544, "name": "Orchestra Le Nove: concerti a Lugano e Bellinzo...", "url": `${BASE_URL}/articoli-frontaliere/orchestra-le-nove-lugano-bellinzona` },
           { "@type": "ListItem", "position": 2545, "name": "Luino, il Pd: 'Destra accanisce sui frontalieri'.", "url": `${BASE_URL}/articoli-frontaliere/luino-pd-frontalieri-2026` },
-          { "@type": "ListItem", "position": 2546, "name": "Stop alla tassa salute per frontalieri: Licata ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-licata-2026` }
+          { "@type": "ListItem", "position": 2546, "name": "Stop alla tassa salute per frontalieri: Licata ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-licata-2026` },
+          { "@type": "ListItem", "position": 2547, "name": "Traffico di esseri umani al valico di Tresa: co...", "url": `${BASE_URL}/articoli-frontaliere/traffico-umani-valico-tresa-impatto-frontalieri` }
  ]
  },
  {

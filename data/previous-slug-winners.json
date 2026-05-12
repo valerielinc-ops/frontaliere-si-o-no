@@ -53,6 +53,24 @@
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
+  "BASILEA::de::servicetechniker-m-w-d-otis-nenzlingerweg-2": {
+    "winnerJobIdentifier": "otis-00f533d5f119",
+    "winnerCanonical": "service-techniker-m-w-d-otis-sa-nenzlingerweg-2",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.6,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::en::dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch": {
+    "winnerJobIdentifier": "unispital-basel-e94993893b1b",
+    "winnerCanonical": "dipl-care-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.3529,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::en::fachfrau-fachmann-hr-administration-unispital-basel-ch": {
     "winnerJobIdentifier": "unispital-basel-f0da4ea5a630",
     "winnerCanonical": "professional-hr-administration-universitatsspital-basel-basel",
@@ -77,6 +95,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.3,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::fr::dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch": {
+    "winnerJobIdentifier": "unispital-basel-e94993893b1b",
+    "winnerCanonical": "dipl-specialiste-des-soins-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -116,6 +143,15 @@
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
+  "BASILEA::fr::physiotherapeutin-physiotherapeut-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-cffce1280a6c",
+    "winnerCanonical": "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::fr::servicetechniker-m-w-d-otis-nenzlingerweg-2": {
     "winnerJobIdentifier": "otis-00f533d5f119",
     "winnerCanonical": "servicetechniker-m-w-d-otis-sa-reinach",
@@ -141,6 +177,24 @@
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.4615,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch": {
+    "winnerJobIdentifier": "unispital-basel-f28c1a8c43a1",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.4667,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::dipl-specialista-di-cura-hf-fh-medico-6-2-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-e94993893b1b",
+    "winnerCanonical": "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.5333,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::it::fachfrau-fachmann-hr-administration-unispital-basel-ch": {
@@ -176,6 +230,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::physiotherapeutin-physiotherapeut-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-cffce1280a6c",
+    "winnerCanonical": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.4,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -260,6 +323,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::de::expert-en-genie-logiciel-r-d-100-agie-charmilles-sa-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-fba13c9a1e4c",
+    "winnerCanonical": "software-engineer-expert-r-d-100-agie-charmilles-biel-bienne",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.5714,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::de::formation-en-vente-au-detail-afc-creation-d-experiences-d-achat-fust-swiss-household-services-ag-tenero-contra": {
     "winnerJobIdentifier": "company-oal0zl",
     "winnerCanonical": "einzelhandelsspezialist-efz-einkaufserlebnisse-schaffen-interdiscount-jegensdorf",
@@ -275,6 +347,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::de::ingenieur-du-logiciel-plc-r-d-100-agie-charmilles-sa-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-a2e273efe44c",
+    "winnerCanonical": "software-plc-engineer-r-d-100-agie-charmilles-biel-bienne",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.5714,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -404,6 +485,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::de::technical-expert-m-w-d-otis-belp": {
+    "winnerJobIdentifier": "otis-89c5140e6854",
+    "winnerCanonical": "technischer-sachverstandiger-m-w-d-otis-sa-belp",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::de::technicien-en-metrologie-100-agie-charmilles-sa-biel-bienne": {
     "winnerJobIdentifier": "agie-charmilles-49a88eb1478c",
     "winnerCanonical": "sap-developer-100-agie-charmilles-biel-bienne",
@@ -494,6 +584,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::en::expert-en-genie-logiciel-r-d-100-agie-charmilles-sa-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-fba13c9a1e4c",
+    "winnerCanonical": "software-engineer-expert-r-d-100-agie-charmilles-biel-bienne",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.5714,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::en::fachfrau-mann-gesundheit-lindenhofgruppe-ch": {
     "winnerJobIdentifier": "lindenhofgruppe-c97d1d5c372f",
     "winnerCanonical": "professional-health-lindenhofgruppe-bern",
@@ -518,6 +617,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::en::ingenieur-du-logiciel-plc-r-d-100-agie-charmilles-sa-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-a2e273efe44c",
+    "winnerCanonical": "software-plc-engineer-r-d-100-agie-charmilles-biel-bienne",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.5714,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -890,6 +998,24 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::fr::software-engineer-expert-r-d-100-agie-charmilles-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-24a01c95baf5",
+    "winnerCanonical": "software-engineer-expert-r-d-agie-charmilles-biel-bienne",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.9,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::fr::software-plc-engineer-r-d-100-agie-charmilles-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-3709aa7e95e4",
+    "winnerCanonical": "software-plc-engineer-r-d-agie-charmilles-biel-bienne",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.9,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::fr::specialiste-du-commerce-de-detail-efz-creer-des-experiences-d-achat-fust-swiss-household-services-ag-tenero-contra": {
     "winnerJobIdentifier": "company-oal0zl",
     "winnerCanonical": "specialiste-du-commerce-de-detail-efz-creer-des-experiences-d-achat-interdiscount-jegensdorf",
@@ -905,6 +1031,15 @@
     "decidedAt": "2026-05-07T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::fr::technical-expert-m-w-d-otis-belp": {
+    "winnerJobIdentifier": "otis-89c5140e6854",
+    "winnerCanonical": "expert-technique-m-w-d-otis-sa-belp",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -998,6 +1133,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::it::expert-en-genie-logiciel-r-d-100-agie-charmilles-sa-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-fba13c9a1e4c",
+    "winnerCanonical": "software-engineer-expert-r-d-100-agie-charmilles-biel-bienne",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.5714,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::fachfrau-mann-gesundheit-lindenhofgruppe-bern": {
     "winnerJobIdentifier": "lindenhofgruppe-d1d2041b7583",
     "winnerCanonical": "salute-professionale-lindenhofgruppe-bern",
@@ -1022,6 +1166,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::ingenieur-du-logiciel-plc-r-d-100-agie-charmilles-sa-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-a2e273efe44c",
+    "winnerCanonical": "software-plc-engineer-r-d-100-agie-charmilles-biel-bienne",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.5714,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -2573,6 +2726,15 @@
     "candidatesCount": 2,
     "canton": "LU"
   },
+  "LU::en::leiter-in-dezentrale-flexibilitat-w-m-d-899faac0-c9e8-4073-9a39-de103bda52f9": {
+    "winnerJobIdentifier": "axpo-group-1f38a3272a45",
+    "winnerCanonical": "manager-m-d-ckw-emmen",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.1333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::en::technicien-de-centre-de-donnees-suisse-ruswil-sur-place-reboot-monkey-ruswil": {
     "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
     "winnerCanonical": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
@@ -2669,6 +2831,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.2308,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::leiter-in-dezentrale-flexibilitat-w-m-d-899faac0-c9e8-4073-9a39-de103bda52f9": {
+    "winnerJobIdentifier": "axpo-group-1f38a3272a45",
+    "winnerCanonical": "gestionnaire-m-d-ckw-emmen",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.1333,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -2777,6 +2948,33 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.2308,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::leiter-in-dezentrale-flexibilitat-w-m-d-899faac0-c9e8-4073-9a39-de103bda52f9": {
+    "winnerJobIdentifier": "axpo-group-843edeb2654f",
+    "winnerCanonical": "responsabile-dezentrale-flexibilitat-w-m-d-ckw-emmen",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::manager-m-d-ckw-emmen-be3ff5": {
+    "winnerJobIdentifier": "axpo-group-1f38a3272a45",
+    "winnerCanonical": "responsabile-kundengeschaft-netze-w-m-d-ckw-emmen",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::responsabile-dezentrale-flexibilitat-m-w-d-ckw-emmen": {
+    "winnerJobIdentifier": "axpo-group-843edeb2654f",
+    "winnerCanonical": "responsabile-dezentrale-flexibilitat-w-m-d-ckw-emmen",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 1,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -3473,6 +3671,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::de::krankenschwester-mit-spezialisierung-auf-anasthesie-eoc-ente-ospedaliero-cantonale-mendrisio": {
+    "winnerJobIdentifier": "company-uil19q",
+    "winnerCanonical": "spezialisierte-krankenschwestern-krankenschwestern-eoc-ente-ospedaliero-cantonale-mendrisio",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::de::kundenberaterin-basis-bern-m-w-d-banca-cler-bellinzona": {
     "winnerJobIdentifier": "company-a7q9i9",
     "winnerCanonical": "kundenberaterin-individual-und-stellvertretende-filialleiterin-solothurn-w-m-banca-cler-bellinzona",
@@ -3516,6 +3723,15 @@
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.4667,
     "candidatesCount": 1,
+    "canton": "TI"
+  },
+  "TI::de::levatrice-ostetrica-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikzn4",
+    "winnerCanonical": "levatrice-ostetrica-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
     "canton": "TI"
   },
   "TI::de::levatrice-ostetrica-eoc-ente-ospedaliero-cantonale-locarno": {
@@ -3788,6 +4004,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::en::assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano-uikz1l": {
+    "winnerJobIdentifier": "company-uil1tg",
+    "winnerCanonical": "career-or-health-care-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::en::assistente-di-studio-medico-60-70-eoc-ente-ospedaliero-cantonale-locarno-uilqdx": {
     "winnerJobIdentifier": "company-uilqdx",
     "winnerCanonical": "medical-study-assistant-60-70-eoc-ente-ospedaliero-cantonale-locarno",
@@ -4046,6 +4271,24 @@
     "decidedAt": "2026-04-30T13:24:06.236Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::medico-assistente-ginecologia-e-ostetricia-eoc-ente-ospedaliero-cantonale-mendrisio-uil4vw": {
+    "winnerJobIdentifier": "company-uilmk0",
+    "winnerCanonical": "assistant-doctor-gynaecology-and-obstetrics-eoc-ente-ospedaliero-cantonale-mendrisio",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.3125,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::medico-assistente-medicina-interna-eoc-ente-ospedaliero-cantonale-mendrisio-uil1yo": {
+    "winnerJobIdentifier": "company-uil1yo",
+    "winnerCanonical": "doctor-assistant-internal-medicine-eoc-ente-ospedaliero-cantonale-mendrisio",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.3571,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -4478,6 +4721,15 @@
     "decidedAt": "2026-04-30T15:42:20.795Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.875,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::fr::infirmiere-specialisee-en-anesthesie-eoc-ente-ospedaliero-cantonale-mendrisio": {
+    "winnerJobIdentifier": "company-uil19q",
+    "winnerCanonical": "infirmieres-et-infirmiers-specialises-eoc-ente-ospedaliero-cantonale-mendrisio",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.3846,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -5237,6 +5489,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::it::levatrice-ostetrica-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikzn4",
+    "winnerCanonical": "levatrice-ostetrica-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::it::medecin-adjoint-eoc-ente-ospedaliero-cantonale-lugano": {
     "winnerJobIdentifier": "company-uilm0d",
     "winnerCanonical": "medico-assistente-eoc-ente-ospedaliero-cantonale-bellinzona",
@@ -5315,6 +5576,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::ostetrica-eoc-ente-ospedaliero-cantonale-locarno": {
+    "winnerJobIdentifier": "company-uikzn4",
+    "winnerCanonical": "levatrice-ostetrica-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.8571,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -5603,6 +5873,24 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
+  "VD::fr::position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne-aab331": {
+    "winnerJobIdentifier": "epfl-ad8241ec0d43",
+    "winnerCanonical": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.9333,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
+  "VD::fr::postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne": {
+    "winnerJobIdentifier": "epfl-ad8241ec0d43",
+    "winnerCanonical": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.2381,
     "candidatesCount": 2,
     "canton": "VD"
   },
