@@ -1,18 +1,19 @@
 {
   "key": "mabetex",
   "label": "Mabetex Group",
-  "generatedAt": "2026-05-11T22:31:07.984Z",
+  "generatedAt": "2026-05-12T11:39:07.386Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2553,
-  "avgDurationMs": 2553,
+  "durationMs": 2848,
+  "avgDurationMs": 2848,
   "durationHistory": [
-    2553
+    2848
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "mabetex-d49cdecce749",
       "slug": "project-manager-lugano-mabetex",
@@ -38,17 +39,17 @@
       "applyUrl": "https://www.mabetex.com/career/",
       "source": "Mabetex Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-11T22:31:06.468Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-05-12T11:39:05.711Z",
+      "firstSeenAt": "2026-05-11T22:31:06.468Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
