@@ -76,6 +76,7 @@ import {
 import {
   stripCompetitorPromotion,
   sanitizeNavLinkSemantics,
+  stripFabricatedExamples,
 } from './lib/article-sanitizers.mjs';
 import {
   PERFORMANCE_PATH as ARTICLE_PERF_PATH,
@@ -1530,6 +1531,18 @@ VERIFICA SISTEMATICA — controlla OGNI categoria:
 
 7. **FATTI INVENTATI**: Cerca eventi, conferenze, referendum, proteste, dichiarazioni che sembrano plausibili ma potrebbero non essere mai avvenuti. SEGNALE D'ALLARME: eventi descritti con molti dettagli specifici (data precisa, luogo, partecipanti) che non appaiono in nessuna fonte nota.
 
+   **SOTTOCATEGORIA — ESEMPI CONCRETI FABBRICATI (CRITICAL — incidente 2026-05-12 USZ whistleblower)**: scrutina con MASSIMA attenzione le sezioni titolate "Esempi concreti / Casi pratici / Casi reali / Per esempio / Caso 1, Caso 2". Pattern shipped che il fact-check aveva mancato:
+   - "Lugano: Un'infermiera frontaliera ha segnalato carenze igieniche..."
+   - "Chiasso: Un medico ha denunciato pratiche non etiche..."
+   - "Un infermiere dell'ORL ha ottenuto il recupero di CHF 50.000..."
+   - "Un medico dell'Ospedale Civico di Lugano ha denunciato pratiche di bilancio fraudolente, risultando in un'indagine della FINMA"
+
+   REGOLA: qualunque bullet o paragrafo che combini (a) [Città CH o nome ospedale/azienda] + (b) [ruolo professionale: infermiere/medico/operaio/impiegato/chirurgo] + (c) [verbo specifico: ha segnalato/denunciato/ottenuto/recuperato] + (d) [esito o cifra specifica: CHF nnn, indagine, risarcimento, recupero], SENZA che il caso compaia nella fonte originale → CRITICAL: fatti_inventati. Onere della prova: l'articolo deve PROVARE che il caso esiste nella fonte; altrimenti è inventato per gonfiare la rilevanza frontaliere.
+
+   Anche istituzioni applicate al dominio sbagliato sono CRITICAL: FINMA è autorità per mercati finanziari/banche, NON per ospedali/sanità. Citarla in contesti sanitari = fabbricazione di istituzione → critical:istituzioni.
+
+   Leggi/sigle che sembrano plausibili ma non esistono = critical:leggi. Esempi shipped: "LProtInfo del 2023" (inesistente — è art. 321a CO), "LPAP del 2000" (è LPers, non LPAP). Se non puoi verificare la SIGLA UFFICIALE della legge, è critical.
+
 8. **NOMI DI PERSONE E CITAZIONI**: Verifica che ogni persona citata (politici, consiglieri federali, funzionari) esista realmente con il ruolo indicato. Consiglieri federali attuali (2024-2027): Baume-Schneider, Parmelin, Cassis, Keller-Sutter, Amherd, Jans, Rösti. Citazioni dirette ("ha dichiarato:") di persone non verificabili sono quasi sempre inventate dall'IA.
 
 9. **SVIZZERA ≠ UE**: La Svizzera NON è membro dell'Unione Europea né dello Spazio Economico Europeo (SEE/EEA). Frasi come "accordo EU-Svizzera", "normativa UE applicabile in Svizzera" o "la Svizzera come membro" sono ERRORI. I rapporti sono regolati da Accordi Bilaterali I (1999) e II (2004).
@@ -2700,6 +2713,27 @@ Se le implicazioni sono DEBOLI o GENERICHE (la fonte non parla direttamente di f
 
 Il notizia/evento è solo il punto di partenza. Il valore sta nelle implicazioni PRATICHE per chi vive in Italia e lavora in Svizzera. Se queste implicazioni non esistono, l'articolo non doveva essere generato.
 
+═══ DIVIETO ASSOLUTO — INVENZIONE DI CASI O ESEMPI (CRITICO) ═══
+
+È VIETATO inventare casi specifici (persona + luogo + ruolo + verbo + esito/cifra) per gonfiare la rilevanza frontaliere o riempire spazio. Il fact-check tratta come FALSE INFORMATION qualunque "esempio concreto" non presente nella fonte.
+
+PATTERN ESPLICITAMENTE PROIBITI (anche se sembrano plausibili):
+- "Lugano: Un'infermiera frontaliera ha segnalato carenze igieniche..." (FABBRICAZIONE)
+- "Chiasso: Un medico ha denunciato pratiche non etiche..." (FABBRICAZIONE)
+- "Un infermiere dell'ORL ha ottenuto un recupero di CHF 50.000..." (FABBRICAZIONE)
+- "Un medico dell'Ospedale Civico di Lugano ha denunciato..." (FABBRICAZIONE)
+- Qualunque bullet del tipo "- [Città CH]: Un [ruolo] ha [verbo]..." dove né la persona, né il luogo, né il caso sono nella fonte originale.
+- Qualunque legge inventata con sigla approssimativa: "LProtInfo 2023" (non esiste — è art. 321a CO), "LPAP 2000" (è LPers, non LPAP). Se non sei certo della SIGLA UFFICIALE di una legge, NON citarla.
+
+REGOLE OPERATIVE:
+1. Sezioni titolate "Esempi concreti / Casi pratici / Casi reali / Per esempio" sono AMMESSE solo se gli esempi vengono ESPLICITAMENTE dalla fonte (con citazione/dettagli verificabili nella fonte originale).
+2. Se la fonte non contiene casi reali → OMETTI la sezione "Esempi concreti". Mai inventare per riempire.
+3. Se hai bisogno di un esempio ipotetico, usa frasing GENERICO E DICHIARATAMENTE IPOTETICO: "Un frontaliere che si trovi in una situazione simile potrebbe…" (senza nomi di città, ruoli specifici o cifre inventate).
+4. Cifre specifiche (CHF 50.000, 200 CHF, 1.80 CHF/litro, percentuali precise) sono AMMESSE solo se nella fonte o in dato pubblico ufficiale. Se non puoi citare la fonte, non inserire il numero.
+5. Nomi di istituzioni (FINMA, USTAT, UFAS, INSAI, SUVA) sono AMMESSI solo se RILEVANTI per il caso. FINMA = mercati finanziari/banche, NON ospedali/sanità. Non applicare istituzioni a domini sbagliati.
+
+VIOLAZIONE = articolo bocciato in fact-check con verdict=FAIL + critical:fatti_inventati. Il sistema rimuove automaticamente sezioni "Esempi concreti" sospette anche se passano il fact-check.
+
 Genera JSON (no markdown, no code fences):
 {
   "id": "kebab-case-3-5-words-max-40-chars",
@@ -3606,7 +3640,17 @@ function validate(data) {
       // generation step and are not re-checked semantically (Italian
       // keywords don't transfer 1:1 across locales).
       if (locale === 'it') {
-        const comp = stripCompetitorPromotion(text);
+        // 3) Strip fabricated "Esempi concreti / Casi pratici" sections
+        //    that the LLM injects to force frontaliere relevance on a
+        //    non-frontaliere source. See incident 2026-05-12 article
+        //    `direttrice-unispital-zurigo-whistleblower` — body1 and
+        //    body3 both ended with invented Ticino case bullets.
+        //    Conservative: requires heading match + ≥1 suspicious bullet.
+        const fab = stripFabricatedExamples(text);
+        if (fab.removedSections > 0) {
+          console.error(`  🧹  Strippate ${fab.removedSections} sezioni "Esempi concreti" fabbricate in ${locale}.${field} — es: ${(fab.examples[0] || '').slice(0, 80)}`);
+        }
+        const comp = stripCompetitorPromotion(fab.text);
         if (comp.removed > 0) {
           console.error(`  🧹  Rimossa promozione competitor in ${locale}.${field}: ${comp.removed} frase(i) — es: "${(comp.examples[0] || '').slice(0, 80)}..."`);
         }

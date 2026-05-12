@@ -397,17 +397,197 @@ export function sanitizeNavLinkSemantics(text) {
   return { text: result, stripped, examples };
 }
 
+// ─── Forced fabricated frontaliere examples ──────────────────────────
+//
+// Pattern observed live on 2026-05-12 article
+// `direttrice-unispital-zurigo-whistleblower` (run 25715879161): the
+// LLM took a Zurich whistleblower story and force-injected invented
+// "frontaliere-relevant" cases to satisfy the keyword-density gate:
+//
+//   #### Esempi concreti
+//   - Lugano: Un'infermiera frontaliera ha segnalato carenze igieniche…
+//   - Chiasso: Un medico ha denunciato pratiche non etiche, ottenendo…
+//
+//   ### Esempi concreti
+//   - Un infermiere dell'ORL ha segnalato irregolarità nella gestione
+//     dei farmaci, portando a un'indagine interna e al recupero di
+//     CHF 50.000.
+//   - Un medico dell'Ospedale Civico di Lugano ha denunciato pratiche
+//     di bilancio fraudolente, risultando in un'indagine della FINMA.
+//
+// All four bullets are fabricated. None appears in the source article.
+// They exist only to bolt a Ticino frontaliere angle onto a story
+// that has no such angle.
+//
+// Detection signal: a markdown heading (###, ####, ##) whose label
+// contains "Esempi concreti / Casi pratici / Casi reali / Esempi
+// reali / Per esempio" followed by 1+ bullets each matching:
+//
+//   - <CH city/locality>: …
+//   - Un/Una <role> [in|a|dell'|del] <CH locality>… <specific outcome>
+//
+// where <role> is from a short list of medical/work roles and the
+// outcome contains specific verbs (segnalato, denunciato, ottenuto,
+// risultato, recupero, indagine, …) and/or specific numbers/currencies.
+// Sections matching the heading + ≥1 suspicious bullet are STRIPPED
+// (heading + all consecutive bullets dropped). Quality-preserving:
+// the rest of the article is untouched.
+//
+// Conservative: requires BOTH the heading signal AND a suspicious
+// bullet so we don't accidentally strip legitimate sections.
+
+const FABRICATED_EXAMPLES_HEADING_RE = /^(?:#{2,4})\s*(?:Esempi\s+concreti|Esempi\s+pratici|Casi\s+pratici|Casi\s+reali|Esempi\s+reali|Casi\s+specifici|Per\s+esempio[:.]?)\s*$/im;
+
+// Curated list of CH/IT-border localities that the LLM picks when
+// fabricating examples. Lowercased, stem-friendly.
+const CH_LOCALITY_TOKENS = [
+  'lugano', 'bellinzona', 'mendrisio', 'chiasso', 'locarno', 'biasca',
+  'gordola', 'massagno', 'paradiso', 'stabio', 'coldrerio', 'balerna',
+  'morbio', 'caslano', 'breganzona', 'giubiasco', 'losone', 'capolago',
+  'melide', 'rancate', 'comano', 'cadempino', 'manno', 'magliaso',
+  'montagnola', 'sementina', 'tesserete', 'agno', 'taverne', 'cadenazzo',
+  'gambarogno', 'lamone', 'savosa', 'porza', 'arbedo', 'cugnasco',
+  'minusio', 'muralto', 'tenero', 'gentilino', 'collina d\'oro',
+  'zurigo', 'zürich', 'berna', 'basilea', 'ginevra', 'losanna',
+  'como', 'varese', 'milano', // (LLM also injects these as proximity hooks)
+];
+const CH_LOCALITY_RE = new RegExp(
+  `\\b(?:${CH_LOCALITY_TOKENS.join('|')})\\b`,
+  'i',
+);
+
+// Worker roles that the LLM consistently picks when fabricating.
+// Italian plural/feminine forms: infermiere/infermiera/infermieri, etc.
+const FAB_ROLE_RE = /\b(?:infermier[aei]\b|medico\b|medica\b|medici\b|dottore\b|dottoressa\b|dottori\b|impiegat[aoie]\b|operai[ao]\b|operaio\b|operaia\b|tecnic[aoi]\b|chirurg[aoi]\b|frontalier[aei]\b|lavorator[eai]\b)/i;
+
+// Specific outcome verbs / nouns the LLM uses to make the case sound
+// concrete and verifiable. Combined with role + locality + (number
+// OR a definite article + named institution) → strong fabrication
+// signal.
+const FAB_OUTCOME_RE = /\b(?:ha\s+(?:segnalato|denunciato|ottenuto|ricevuto|recuperato|risultato)|denunci[oa]\b|segnal[oa]\b|risarciment|recupero\s+di|indagine\s+(?:interna|della\s+FINMA|delle?\s+autorit))/i;
+
+// Specific monetary amount in CHF/EUR/euro/franchi as additional
+// signal — fabricated examples almost always include a fake number to
+// look convincing.
+const FAB_MONEY_RE = /(?:CHF|EUR|€|euro|franchi|fr\.)\s*\d/i;
+
+// "Lugano:" / "Chiasso:" / "Un'infermiera…" pattern in a bullet line.
+const SUSPICIOUS_BULLET_RE = /^[\s>]*[-*•]\s*(?:[\p{Emoji}\p{Extended_Pictographic}]\s*)?(.{2,300})$/u;
+
+function bulletLooksFabricated(line) {
+  const m = line.match(SUSPICIOUS_BULLET_RE);
+  if (!m) return false;
+  const text = m[1];
+  // Pattern A: "Lugano: …" / "Chiasso: …" — locality prefix on bullet
+  const localityPrefix = /^\s*[A-ZÀ-Ý][\w\s'-]{2,30}:\s+/.test(text)
+    && CH_LOCALITY_RE.test(text.slice(0, 40));
+  // Pattern B: "Un/Una <role> dell'/della <named institution>…"
+  const roleAndInstitution =
+    FAB_ROLE_RE.test(text) &&
+    (/\bdel(?:l['ae])?\s+[A-Z][\w\s]+/.test(text) || CH_LOCALITY_RE.test(text));
+  // Strong signal: role + outcome + (locality OR amount)
+  const roleOutcome = FAB_ROLE_RE.test(text) && FAB_OUTCOME_RE.test(text);
+  const hasLocOrMoney = CH_LOCALITY_RE.test(text) || FAB_MONEY_RE.test(text);
+
+  // A bullet is "fabricated-looking" when:
+  //   • it has a locality prefix AND mentions a role, OR
+  //   • it describes role+institution+outcome, OR
+  //   • role + outcome + (locality OR money) — most common shipped pattern
+  return (
+    (localityPrefix && FAB_ROLE_RE.test(text)) ||
+    (roleAndInstitution && FAB_OUTCOME_RE.test(text)) ||
+    (roleOutcome && hasLocOrMoney)
+  );
+}
+
 /**
- * Apply both sanitizers to a body field on the IT locale. Returns the
+ * Detect and strip "Esempi concreti / Casi" sections whose bullets
+ * look fabricated (locality + role + specific outcome / amount).
+ *
+ * Conservative: requires BOTH the heading signal AND ≥1 fabricated
+ * bullet. Legitimate sections without role+outcome patterns survive.
+ *
+ * Strips the heading + the consecutive bullet block (until first
+ * non-bullet line or another heading). Leaves the rest intact.
+ *
+ * @param {string} text — IT body content
+ * @returns {{ text: string, removedSections: number, examples: string[] }}
+ */
+export function stripFabricatedExamples(text) {
+  if (!text || typeof text !== 'string') {
+    return { text: text || '', removedSections: 0, examples: [] };
+  }
+
+  const lines = text.split('\n');
+  const out = [];
+  const examples = [];
+  let removed = 0;
+  let i = 0;
+  while (i < lines.length) {
+    const line = lines[i];
+    if (!FABRICATED_EXAMPLES_HEADING_RE.test(line)) {
+      out.push(line);
+      i += 1;
+      continue;
+    }
+    // Collect consecutive bullet lines + blank lines until next heading
+    // or non-bullet/non-blank content.
+    const sectionStart = i;
+    let j = i + 1;
+    const sectionBullets = [];
+    while (j < lines.length) {
+      const lj = lines[j];
+      if (/^\s*$/.test(lj)) { j += 1; continue; }
+      if (/^[\s>]*[-*•]\s+/.test(lj)) { sectionBullets.push(lj); j += 1; continue; }
+      break; // hit heading or paragraph
+    }
+
+    const suspicious = sectionBullets.some(bulletLooksFabricated);
+    if (suspicious) {
+      removed += 1;
+      if (examples.length < 3) {
+        const sample = sectionBullets.find(bulletLooksFabricated) || sectionBullets[0] || '';
+        examples.push(sample.trim().slice(0, 120));
+      }
+      // Drop heading + bullets entirely. Skip blank lines immediately
+      // after so we don't leave a double newline gap.
+      i = j;
+      while (i < lines.length && /^\s*$/.test(lines[i])) i += 1;
+      continue;
+    }
+
+    // Section looks legitimate — keep heading + bullets verbatim.
+    for (let k = sectionStart; k < j; k += 1) out.push(lines[k]);
+    i = j;
+  }
+
+  return { text: out.join('\n'), removedSections: removed, examples };
+}
+
+/**
+ * Apply all sanitizers to a body field on the IT locale. Returns the
  * sanitized text plus per-step stats so the caller can log a single
  * summary line. Translations are NOT touched here — they go through
  * the per-locale nav-action validity check in create-article.mjs.
  *
+ * Order: fabricated examples → competitor promo → nav: semantics.
+ * Fabricated examples first so the stripped bullets don't accidentally
+ * leave orphan "Iscriviti a X" or invalid nav links behind.
+ *
  * @param {string} text
- * @returns {{ text: string, competitorRemoved: number, competitorExamples: string[], navStripped: number, navExamples: string[] }}
+ * @returns {{
+ *   text: string,
+ *   competitorRemoved: number,
+ *   competitorExamples: string[],
+ *   navStripped: number,
+ *   navExamples: string[],
+ *   fabricatedSectionsRemoved: number,
+ *   fabricatedExamples: string[],
+ * }}
  */
 export function sanitizeBodyIt(text) {
-  const c = stripCompetitorPromotion(text);
+  const f = stripFabricatedExamples(text);
+  const c = stripCompetitorPromotion(f.text);
   const n = sanitizeNavLinkSemantics(c.text);
   return {
     text: n.text,
@@ -415,5 +595,7 @@ export function sanitizeBodyIt(text) {
     competitorExamples: c.examples,
     navStripped: n.stripped,
     navExamples: n.examples,
+    fabricatedSectionsRemoved: f.removedSections,
+    fabricatedExamples: f.examples,
   };
 }
