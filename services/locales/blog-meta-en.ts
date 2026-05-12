@@ -7471,6 +7471,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.luino-pd-frontalieri-2026.title': 'Luino: Pd Criticizes Centrodestra Policies for Cross-Border Workers',
     'blog.article.luino-pd-frontalieri-2026.excerpt': 'The Pd criticizes the centrodestra\'s fiscal and healthcare policies for cross-border workers.',
     'blog.article.luino-pd-frontalieri-2026.imageAlt': 'Lugano view from the lake',
+    'blog.article.tassa-salute-frontalieri-licata-2026.title': 'Stop health tax for cross-border workers: Licata seeks national debate',
+    'blog.article.tassa-salute-frontalieri-licata-2026.excerpt': 'Councillor Licata opposes the new healthcare tax for \'historic\' cross-border workers and calls for regional uniformity. Funds from the tax agreement to retain healthcare workers in Italy.',
+    'blog.article.tassa-salute-frontalieri-licata-2026.imageAlt': 'Government Palace in Bellinzona, institutional seat of Canton Ticino',
 };
 
 export default blogMetaEn;

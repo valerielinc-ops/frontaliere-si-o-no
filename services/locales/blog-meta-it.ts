@@ -7472,6 +7472,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.luino-pd-frontalieri-2026.title': 'Luino, il Pd: \'Destra accanisce sui frontalieri\'.',
     'blog.article.luino-pd-frontalieri-2026.excerpt': 'Il Pd critica le politiche fiscali e sanitarie del centrodestra per i frontalieri.',
     'blog.article.luino-pd-frontalieri-2026.imageAlt': 'Lugano vista dal lago',
+    'blog.article.tassa-salute-frontalieri-licata-2026.title': 'Stop alla tassa salute per frontalieri: Licata chiede confronto nazionale',
+    'blog.article.tassa-salute-frontalieri-licata-2026.excerpt': 'Il consigliere Licata si oppone alla nuova tassa sanitaria per i frontalieri \'storici\' e chiede uniformità regionale. Fondi dall\'accordo fiscale per trattenere operatori sanitari in Italia.',
+    'blog.article.tassa-salute-frontalieri-licata-2026.imageAlt': 'Palazzo del Governo di Bellinzona, sede istituzionale del Canton Ticino',
 };
 
 export default blogMetaIt;

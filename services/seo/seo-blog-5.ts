@@ -35993,6 +35993,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-salute-frontalieri-licata-2026': {
+    title: 'Stop alla tassa salute per frontalieri: Licata chiede confronto nazionale',
+    description: 'Licata (Forza Italia) si oppone alla tassa sanitaria per frontalieri pre-2026 e chiede regole nazionali. Fondi dall\'accordo Italia-Svizzera per sanità di',
+    keywords: 'frontalieri, ticino, svizzera, italia, stop, alla, tassa, salute',
+    ogTitle: 'Frontalieri: stop alla tassa salute. Licata difende i lavoratori storici',
+    ogDescription: 'La battaglia contro la tassa sanitaria per i frontalieri pre-2026. Licata chiede un tavolo nazionale e fondi per la sanità di confine.',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-licata-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stop alla tassa salute per frontalieri: Licata chiede confronto nazionale",
+      "description": "Licata (Forza Italia) si oppone alla tassa sanitaria per frontalieri pre-2026 e chiede regole nazionali. Fondi dall'accordo Italia-Svizzera per sanità di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-licata-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo del Governo di Bellinzona, sede istituzionale del Canton Ticino"
+      },
+      "datePublished": "2026-05-12T16:17:11+00:00",
+      "dateModified": "2026-05-12T16:17:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-licata-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

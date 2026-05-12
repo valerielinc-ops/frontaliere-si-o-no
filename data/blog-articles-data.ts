@@ -23789,4 +23789,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'tassa-salute-frontalieri-licata-2026',
+ category: 'fiscale',
+ date: '2026-05-12T16:17:11.573Z',
+ image: '/images/blog/tassa-salute-frontalieri-licata-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

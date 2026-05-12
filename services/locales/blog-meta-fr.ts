@@ -7472,6 +7472,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.luino-pd-frontalieri-2026.title': 'Luino, le PD: \'La droite s\'acharne sur les frontaliers\'',
     'blog.article.luino-pd-frontalieri-2026.excerpt': 'Le PD critique les politiques fiscales et sanitaires de la droite pour les frontaliers.',
     'blog.article.luino-pd-frontalieri-2026.imageAlt': 'Lugano vue du lac',
+    'blog.article.tassa-salute-frontalieri-licata-2026.title': 'Fin de la taxe santé pour frontaliers : Licata demande un débat national',
+    'blog.article.tassa-salute-frontalieri-licata-2026.excerpt': 'Le conseiller Licata s\'oppose à la nouvelle taxe sanitaire pour les frontaliers \'historiques\' et demande une uniformité régionale. Fonds de l\'accord fiscal pour retenir les professionnels de santé en Italie.',
+    'blog.article.tassa-salute-frontalieri-licata-2026.imageAlt': 'Palais du Gouvernement à Bellinzona, siège institutionnel du Canton du Tessin',
 };
 
 export default blogMetaFr;
