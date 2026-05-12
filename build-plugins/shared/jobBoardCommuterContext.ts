@@ -398,11 +398,19 @@ export interface JobBoardCommuterContextOpts {
    * read when `cantonDisplay` is set. Defaults to `'canton-hub'` for safety.
    */
   cantonSlot?: CantonSeoSlot | null;
+  /**
+   * Optional entity name (city display for `city-landing`, company name for
+   * `company-landing`). When set, the canton prose helper substitutes the
+   * entity into its intro + FAQ wording, making per-page strings unique and
+   * avoiding cross-page boilerplate duplication. Only read when
+   * `cantonDisplay` is set AND `cantonSlot` is an entity-aware slot.
+   */
+  cantonEntityName?: string | null;
 }
 
 // Memo cache for the appended canton-prose block. Each non-TI editorial page
-// re-emits the same (canton × locale × slot) combination identically, so
-// caching avoids ~400 redundant string builds across the build. Key fields
+// re-emits the same (canton × locale × slot × entity) combination identically,
+// so caching avoids ~400 redundant string builds across the build. Key fields
 // are the only inputs that drive the helper output.
 const cantonProseCache = new Map<string, string>();
 
@@ -410,15 +418,17 @@ function getCantonProseBlock(
   locale: CommuterLocale,
   cantonDisplay: string,
   slot: CantonSeoSlot,
+  entityName: string | null,
 ): string {
-  const key = `${locale}::${cantonDisplay}::${slot}`;
+  const entityKey = entityName ? entityName.trim() : '';
+  const key = `${locale}::${cantonDisplay}::${slot}::${entityKey}`;
   const cached = cantonProseCache.get(key);
   if (cached !== undefined) return cached;
   const html = renderCantonSeoProse({
     locale,
     cantonDisplay,
     slot,
-    entityName: null,
+    entityName: entityKey || null,
     countHint: null,
     ctaHref: null,
     ctaLabel: null,
@@ -450,6 +460,7 @@ export function renderJobBoardCommuterContext(
     omitCommute = false,
     cantonDisplay = null,
     cantonSlot = null,
+    cantonEntityName = null,
   } = opts;
   const row = omitCommute ? null : resolveCommuteRow(location);
   const copy = COPY[locale];
@@ -487,7 +498,12 @@ export function renderJobBoardCommuterContext(
     const isTicino = displayLower === 'ticino' || displayLower === 'tessin';
     if (!isTicino) {
       const slot: CantonSeoSlot = cantonSlot || 'canton-hub';
-      cantonBlock = getCantonProseBlock(locale, cantonDisplay.trim(), slot);
+      cantonBlock = getCantonProseBlock(
+        locale,
+        cantonDisplay.trim(),
+        slot,
+        cantonEntityName,
+      );
     }
   }
 
