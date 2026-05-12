@@ -49,6 +49,7 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { renderBridgePageProse, type BridgePageKind } from './shared/bridgePageProse';
 import type { Locale } from '../services/i18n';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -200,6 +201,18 @@ function buildRewriteScript(orphanPath: string, canonicalPath: string): string {
   return `<script>(function(){try{if(location.pathname===${safeOrphan}){history.replaceState(null,'',${safeCanonical}+location.search+location.hash);}}catch(e){}})();</script>`;
 }
 
+/**
+ * Map the cohort name from `data/legacy-aliases.json` to the shared
+ * bridge-prose `bridgeKind`. Drives the opener wording so two cohorts
+ * (e.g. blog vs fuel-station) never share the same intro paragraph.
+ */
+function bridgeKindForCohort(cohort: string): BridgePageKind {
+  if (cohort.startsWith('blog')) return 'article';
+  if (cohort.startsWith('fuelStation')) return 'fuel-station';
+  if (cohort.startsWith('jobLegacy')) return 'job-matched';
+  return 'generic';
+}
+
 function renderPage(entry: AliasEntry, distDir: string): string {
   const locale = entry.locale;
   const copy = COPY[locale];
@@ -207,12 +220,22 @@ function renderPage(entry: AliasEntry, distDir: string): string {
   const canonicalUrl = `${BASE_URL}${entry.canonicalPath}`;
   const orphanAbsoluteUrl = `${BASE_URL}${entry.orphanPath}`;
 
+  // Append the shared bridge-page prose (~1.6-2.0 KB visible text) below
+  // the existing CTA so the page clears the `audit:text-html-ratio` gate
+  // (~5 % → ~13 %). Placed AFTER the link so the call-to-action stays the
+  // first interactive element on mobile per CLAUDE.md non-negotiables
+  // #15-17. The prose is parametric (locale × cohort kind) and memoized
+  // — no two cohorts share the same opening paragraph.
+  const bridgeKind = bridgeKindForCohort(entry.cohort);
+  const bridgeProse = renderBridgePageProse({ locale, bridgeKind });
+
   const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
     <header style="margin-bottom:16px">
       <h1 style="font-size:26px;font-weight:700;color:var(--color-heading);margin:0 0 8px;letter-spacing:-0.01em">${esc(block.h1)}</h1>
     </header>
     <p style="margin:0 0 12px;font-size:15.5px">${esc(block.lede)}</p>
     <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(canonicalUrl)}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
+    ${bridgeProse}
   </main>`;
 
   // Breadcrumb describes the orphan URL the visitor actually landed on
