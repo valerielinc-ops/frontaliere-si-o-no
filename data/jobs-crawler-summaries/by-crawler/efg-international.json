@@ -1,19 +1,275 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-05-11T21:58:04.115Z",
+  "generatedAt": "2026-05-12T11:05:55.546Z",
   "total": 30,
   "newCount": 0,
-  "updatedCount": 23,
+  "updatedCount": 25,
   "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 23241,
-  "avgDurationMs": 23241,
+  "unchangedCount": 5,
+  "durationMs": 26226,
+  "avgDurationMs": 26226,
   "durationHistory": [
-    23241
+    26226
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "efg-6212",
+      "slug": "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Finance Data Analytics & Power BI Internship",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-17",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6212",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [],
+            "requirements": [
+              "University student, preferably in Finance.",
+              "Project management or Finance competencies (including basic knowledge of derivatives).",
+              "Fluent in English.",
+              "Rigorous, result-driven, and good relationship skills are required qualities for this position.",
+              "Able to work from the Geneva Office, reporting to a UK – London based line manager."
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "University student, preferably in Finance.",
+              "Project management or Finance competencies (including basic knowledge of derivatives).",
+              "Fluent in English."
+            ],
+            "keywords": [
+              "University student",
+              "Project management or Finance competencies (including basic knowledge of derivatives).",
+              "Fluent in English.",
+              "Rigorous",
+              "Able to work from the Geneva Office"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Power BI Reconciliation",
+                "paragraphs": [],
+                "bullets": [
+                  "Assist in the reconciliation of net other income revenue, using Power BI to cross-validate accounting data from multiple sources (statutory and consolidation levels), ensuring data integrity and consistency.",
+                  "Support the automation of reconciliation processes, reducing manual effort and minimizing errors in financial reporting."
+                ]
+              },
+              {
+                "id": "details",
+                "heading": "Dashboard Development",
+                "paragraphs": [],
+                "bullets": [
+                  "Collaborate with technical Power BI specialists to design, develop, and maintain interactive dashboards and reports tailored for financial data reconciliation and control.",
+                  "Enhance real-time visibility for finance teams, enabling faster identification and resolution of reconciliation discrepancies."
+                ]
+              },
+              {
+                "id": "details",
+                "heading": "Process Improvement",
+                "paragraphs": [],
+                "bullets": [
+                  "Conduct in-depth analysis of existing reconciliation workflows and lead discussions with key stakeholders to define and implement a target operating model, integrating Power BI as a core tool for reconciliation and reporting.",
+                  "Project manage the transformation of reconciliation processes, from requirements gathering to implementation and user training."
+                ]
+              },
+              {
+                "id": "details",
+                "heading": "Internal Controls & Compliance",
+                "paragraphs": [],
+                "bullets": [
+                  "Strengthen the Internal Control Signoff (ICS) process by embedding automated reconciliation checks within Power BI reports, supporting audit readiness and compliance with IFRS standards.",
+                  "Contribute to the update of the Accounting Manual, reflecting improved reconciliation practices and Power BI integration."
+                ]
+              },
+              {
+                "id": "details",
+                "heading": "Stakeholder Engagement",
+                "paragraphs": [],
+                "bullets": [
+                  "Act as a bridge between finance, IT, and management teams, ensuring alignment of reconciliation objectives and smooth adoption of new Power BI tools."
+                ]
+              },
+              {
+                "id": "details",
+                "heading": "INFORMATION",
+                "paragraphs": [
+                  "The internship will last 7 months starting asap and his based in Geneva"
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-12T11:05:53.341Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-17",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.910Z",
+      "needsRetranslation": true,
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6209",
+      "slug": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich",
+      "company": "EFG International AG",
+      "title": "Operational Risk and Advisory IT and Information Security Specialist",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-31",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6209",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "The position of Operational Risk and Advisory Specialist is within the Operational Risk Function, a critical component of the second line of defense. This role is responsible for providing comprehensive oversight of operational risk activities, with a strong emphasis on new technologies, information security, and cyber risks. The Operational Risk function engages in advisory, risk assessment, analysis, and reporting to the Bank’s governing bodies."
+            ],
+            "responsibilities": [
+              "<strong>Development, Implementation, and Execution of Risk Activities:</strong> <ul> <li>Enhance the risk management framework in relation to risk assessment and advisory, particularly in relation to new technologies, information security and cyber risks.",
+              "Collaborate with business units to integrate advanced risk management practices into their operations.",
+              "<strong>Risk Assessment and Analysis:</strong> <ul> <li>Conduct ad hoc risk assessments and analyses, especially concerning information security and cyber threats, to identify potential issues and propose efficient mitigating measures.",
+              "Perform incident analysis to determine root causes, identify mitigating actions, and ensure follow-up.",
+              "<strong>Advisory Support:</strong> <ul> <li>Provide advisory support to Business Units, including reviewing the Internal Control Framework with a focus IT and Information Security in the way they support the sustainable business development of the Bank",
+              "Offer expert advice on risk mitigation strategies, particularly related to information security and emerging technologies.",
+              "<strong>Reporting and Communication:</strong> <ul> <li>Report and present risk assessment results to the Risk Control leadership group and other relevant stakeholders, with a focus on cyber risk and technological vulnerabilities.",
+              "Prepare detailed risk reports and presentations for executive review.",
+              "<strong>Digital Solutions Deployment:</strong> <ul> <li>Actively participate in deploying new digital solutions to support the implementation of the internal control system globally, ensuring these solutions address information security and cyber risk concerns."
+            ],
+            "requirements": [
+              "University degree in business administration, economics, science, information security, or a related field.",
+              "10 years of working experience, including consulting or audit at a leading professional services firm and/or in a comparable position at a market-leading bank.",
+              "Strong understanding of core banking systems, end-to-end transaction processing, and cybersecurity principles.",
+              "Proven ability to write reports and communicate effectively with a senior audience.",
+              "Excellent analytical skills and a structured approach to problem-solving and reporting.",
+              "Exceptional communication skills in English, both written and spoken.",
+              "Capacity to work autonomously and as part of a global team in a fast-paced environment.",
+              "Experience with new technologies and a deep understanding of information security and cyber risk management."
+            ],
+            "benefits": [
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
+              "<strong>Passionate</strong>: Being committed and striving for excellence.",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "<strong>Development, Implementation, and Execution of Risk Activities:</strong> <ul> <li>Enhance the risk management framework in relation to risk assessment and advisory, particularly in relation to new technologies, information security and cyber risks.",
+              "Collaborate with business units to integrate advanced risk management practices into their operations.",
+              "<strong>Risk Assessment and Analysis:</strong> <ul> <li>Conduct ad hoc risk assessments and analyses, especially concerning information security and cyber threats, to identify potential issues and propose efficient mitigating measures.",
+              "University degree in business administration, economics, science, information security, or a related field.",
+              "10 years of working experience, including consulting or audit at a leading professional services firm and/or in a comparable position at a market-leading bank.",
+              "Strong understanding of core banking systems, end-to-end transaction processing, and cybersecurity principles.",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
+            ],
+            "keywords": [
+              "University degree in business administration",
+              "10 years of working experience",
+              "Strong understanding of core banking systems",
+              "Proven ability to write reports and communicate effectively with a senior audience.",
+              "Excellent analytical skills and a structured approach to problem-solving and reporting.",
+              "<strong>Development",
+              "Collaborate with business units to integrate advanced risk management practices into their operations.",
+              "<strong>Risk Assessment and Analysis",
+              "Perform incident analysis to determine root causes"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-12T11:05:53.340Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "datePosted": "2026-03-31",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.908Z",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
     {
       "id": "efg-6203",
       "slug": "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
@@ -47,7 +303,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.948Z",
+      "crawledAt": "2026-05-12T11:05:53.339Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -163,10 +419,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.946Z",
+      "crawledAt": "2026-05-12T11:05:53.338Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2026-04-15",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -175,11 +430,12 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.905Z",
-      "_qualityScore": 96,
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -217,7 +473,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.945Z",
+      "crawledAt": "2026-05-12T11:05:53.337Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "needsRetranslation": true,
@@ -229,7 +485,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T10:03:04.489Z",
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -347,10 +603,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.943Z",
+      "crawledAt": "2026-05-12T11:05:53.335Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2026-04-01",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -359,11 +614,12 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.902Z",
-      "_qualityScore": 89,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -479,8 +735,8 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.942Z",
-      "addressLocality": "Lugano",
+      "crawledAt": "2026-05-12T11:05:53.333Z",
+      "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
       "salaryMin": 85500,
@@ -579,7 +835,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.941Z",
+      "crawledAt": "2026-05-12T11:05:53.331Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -660,10 +916,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.940Z",
+      "crawledAt": "2026-05-12T11:05:53.330Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2026-04-02",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -672,11 +927,12 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.898Z",
-      "_qualityScore": 96,
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -777,7 +1033,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.939Z",
+      "crawledAt": "2026-05-12T11:05:53.330Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -891,10 +1147,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.938Z",
+      "crawledAt": "2026-05-12T11:05:53.328Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2026-03-25",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -903,11 +1158,11 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.896Z",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -945,10 +1200,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.936Z",
+      "crawledAt": "2026-05-12T11:05:53.326Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2026-04-07",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -957,11 +1211,12 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.894Z",
-      "_qualityScore": 93,
+      "needsRetranslation": true,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -1023,7 +1278,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.935Z",
+      "crawledAt": "2026-05-12T11:05:53.325Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -1077,7 +1332,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.933Z",
+      "crawledAt": "2026-05-12T11:05:53.323Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1130,10 +1385,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.932Z",
+      "crawledAt": "2026-05-12T11:05:53.322Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2026-04-08",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -1142,11 +1396,12 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.890Z",
-      "_qualityScore": 95,
+      "needsRetranslation": true,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -1252,7 +1507,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.931Z",
+      "crawledAt": "2026-05-12T11:05:53.321Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1277,7 +1532,7 @@
       "id": "efg-5967",
       "slug": "foundation-manager-efg-international-ag-lugano-n93k14",
       "company": "EFG International AG",
-      "title": "Foundation Manager",
+      "title": "Pension Fund Manager",
       "location": "Zurich",
       "canton": "ZH",
       "category": "finance",
@@ -1380,8 +1635,8 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.930Z",
-      "addressLocality": "Lugano",
+      "crawledAt": "2026-05-12T11:05:53.320Z",
+      "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
       "salaryMin": 109000,
@@ -1435,10 +1690,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.929Z",
+      "crawledAt": "2026-05-12T11:05:53.319Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2025-12-10",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1447,11 +1701,11 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.887Z",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -1489,7 +1743,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.928Z",
+      "crawledAt": "2026-05-12T11:05:53.318Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1602,10 +1856,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.927Z",
+      "crawledAt": "2026-05-12T11:05:53.317Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2025-12-02",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -1614,11 +1867,11 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.885Z",
-      "_qualityScore": 91,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -1725,10 +1978,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.925Z",
+      "crawledAt": "2026-05-12T11:05:53.315Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2026-04-14",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -1737,11 +1989,12 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.883Z",
-      "_qualityScore": 96,
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -1873,10 +2126,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.923Z",
+      "crawledAt": "2026-05-12T11:05:53.313Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2026-02-11",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -1885,11 +2137,12 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.881Z",
-      "_qualityScore": 94,
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -1938,7 +2191,6 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
-      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2145,10 +2397,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.950Z",
+      "crawledAt": "2026-05-12T11:05:53.342Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2026-04-17",
       "salaryMin": 59500,
       "salaryMax": 104000,
@@ -2157,267 +2408,12 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.911Z",
-      "_qualityScore": 95,
+      "needsRetranslation": true,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6212",
-      "slug": "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Finance Data Analytics & Power BI Internship",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-17",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6212",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [],
-            "requirements": [
-              "University student, preferably in Finance.",
-              "Project management or Finance competencies (including basic knowledge of derivatives).",
-              "Fluent in English.",
-              "Rigorous, result-driven, and good relationship skills are required qualities for this position.",
-              "Able to work from the Geneva Office, reporting to a UK – London based line manager."
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "University student, preferably in Finance.",
-              "Project management or Finance competencies (including basic knowledge of derivatives).",
-              "Fluent in English."
-            ],
-            "keywords": [
-              "University student",
-              "Project management or Finance competencies (including basic knowledge of derivatives).",
-              "Fluent in English.",
-              "Rigorous",
-              "Able to work from the Geneva Office"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Power BI Reconciliation",
-                "paragraphs": [],
-                "bullets": [
-                  "Assist in the reconciliation of net other income revenue, using Power BI to cross-validate accounting data from multiple sources (statutory and consolidation levels), ensuring data integrity and consistency.",
-                  "Support the automation of reconciliation processes, reducing manual effort and minimizing errors in financial reporting."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "Dashboard Development",
-                "paragraphs": [],
-                "bullets": [
-                  "Collaborate with technical Power BI specialists to design, develop, and maintain interactive dashboards and reports tailored for financial data reconciliation and control.",
-                  "Enhance real-time visibility for finance teams, enabling faster identification and resolution of reconciliation discrepancies."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "Process Improvement",
-                "paragraphs": [],
-                "bullets": [
-                  "Conduct in-depth analysis of existing reconciliation workflows and lead discussions with key stakeholders to define and implement a target operating model, integrating Power BI as a core tool for reconciliation and reporting.",
-                  "Project manage the transformation of reconciliation processes, from requirements gathering to implementation and user training."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "Internal Controls & Compliance",
-                "paragraphs": [],
-                "bullets": [
-                  "Strengthen the Internal Control Signoff (ICS) process by embedding automated reconciliation checks within Power BI reports, supporting audit readiness and compliance with IFRS standards.",
-                  "Contribute to the update of the Accounting Manual, reflecting improved reconciliation practices and Power BI integration."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "Stakeholder Engagement",
-                "paragraphs": [],
-                "bullets": [
-                  "Act as a bridge between finance, IT, and management teams, ensuring alignment of reconciliation objectives and smooth adoption of new Power BI tools."
-                ]
-              },
-              {
-                "id": "details",
-                "heading": "INFORMATION",
-                "paragraphs": [
-                  "The internship will last 7 months starting asap and his based in Geneva"
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-11T21:58:01.950Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "datePosted": "2026-04-17",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.910Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 25,
-        "translation": 21,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6209",
-      "slug": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich",
-      "company": "EFG International AG",
-      "title": "Operational Risk and Advisory IT and Information Security Specialist",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-31",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6209",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "The position of Operational Risk and Advisory Specialist is within the Operational Risk Function, a critical component of the second line of defense. This role is responsible for providing comprehensive oversight of operational risk activities, with a strong emphasis on new technologies, information security, and cyber risks. The Operational Risk function engages in advisory, risk assessment, analysis, and reporting to the Bank’s governing bodies."
-            ],
-            "responsibilities": [
-              "<strong>Development, Implementation, and Execution of Risk Activities:</strong> <ul> <li>Enhance the risk management framework in relation to risk assessment and advisory, particularly in relation to new technologies, information security and cyber risks.",
-              "Collaborate with business units to integrate advanced risk management practices into their operations.",
-              "<strong>Risk Assessment and Analysis:</strong> <ul> <li>Conduct ad hoc risk assessments and analyses, especially concerning information security and cyber threats, to identify potential issues and propose efficient mitigating measures.",
-              "Perform incident analysis to determine root causes, identify mitigating actions, and ensure follow-up.",
-              "<strong>Advisory Support:</strong> <ul> <li>Provide advisory support to Business Units, including reviewing the Internal Control Framework with a focus IT and Information Security in the way they support the sustainable business development of the Bank",
-              "Offer expert advice on risk mitigation strategies, particularly related to information security and emerging technologies.",
-              "<strong>Reporting and Communication:</strong> <ul> <li>Report and present risk assessment results to the Risk Control leadership group and other relevant stakeholders, with a focus on cyber risk and technological vulnerabilities.",
-              "Prepare detailed risk reports and presentations for executive review.",
-              "<strong>Digital Solutions Deployment:</strong> <ul> <li>Actively participate in deploying new digital solutions to support the implementation of the internal control system globally, ensuring these solutions address information security and cyber risk concerns."
-            ],
-            "requirements": [
-              "University degree in business administration, economics, science, information security, or a related field.",
-              "10 years of working experience, including consulting or audit at a leading professional services firm and/or in a comparable position at a market-leading bank.",
-              "Strong understanding of core banking systems, end-to-end transaction processing, and cybersecurity principles.",
-              "Proven ability to write reports and communicate effectively with a senior audience.",
-              "Excellent analytical skills and a structured approach to problem-solving and reporting.",
-              "Exceptional communication skills in English, both written and spoken.",
-              "Capacity to work autonomously and as part of a global team in a fast-paced environment.",
-              "Experience with new technologies and a deep understanding of information security and cyber risk management."
-            ],
-            "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
-              "<strong>Passionate</strong>: Being committed and striving for excellence.",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "<strong>Development, Implementation, and Execution of Risk Activities:</strong> <ul> <li>Enhance the risk management framework in relation to risk assessment and advisory, particularly in relation to new technologies, information security and cyber risks.",
-              "Collaborate with business units to integrate advanced risk management practices into their operations.",
-              "<strong>Risk Assessment and Analysis:</strong> <ul> <li>Conduct ad hoc risk assessments and analyses, especially concerning information security and cyber threats, to identify potential issues and propose efficient mitigating measures.",
-              "University degree in business administration, economics, science, information security, or a related field.",
-              "10 years of working experience, including consulting or audit at a leading professional services firm and/or in a comparable position at a market-leading bank.",
-              "Strong understanding of core banking systems, end-to-end transaction processing, and cybersecurity principles.",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
-            ],
-            "keywords": [
-              "University degree in business administration",
-              "10 years of working experience",
-              "Strong understanding of core banking systems",
-              "Proven ability to write reports and communicate effectively with a senior audience.",
-              "Excellent analytical skills and a structured approach to problem-solving and reporting.",
-              "<strong>Development",
-              "Collaborate with business units to integrate advanced risk management practices into their operations.",
-              "<strong>Risk Assessment and Analysis",
-              "Perform incident analysis to determine root causes"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-11T21:58:01.949Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "datePosted": "2026-03-31",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.908Z",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -2496,10 +2492,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.947Z",
+      "crawledAt": "2026-05-12T11:05:53.339Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2026-04-09",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -2508,11 +2503,11 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.907Z",
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -2620,10 +2615,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.937Z",
+      "crawledAt": "2026-05-12T11:05:53.327Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2026-01-19",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2632,11 +2626,12 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.895Z",
-      "_qualityScore": 94,
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -2674,10 +2669,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.934Z",
+      "crawledAt": "2026-05-12T11:05:53.324Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2026-04-21",
       "salaryMin": 142000,
       "salaryMax": 249500,
@@ -2686,11 +2680,12 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.892Z",
-      "_qualityScore": 95,
+      "needsRetranslation": true,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -2766,10 +2761,9 @@
           }
         }
       },
-      "crawledAt": "2026-05-11T21:58:01.920Z",
+      "crawledAt": "2026-05-12T11:05:53.311Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2026-05-08",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -2778,11 +2772,11 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.879Z",
-      "_qualityScore": 93,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
