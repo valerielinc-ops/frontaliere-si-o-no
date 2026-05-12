@@ -95,12 +95,15 @@ const ALLOWLIST = [
   // buildThinCantonHubHtml (May 2026 — text-to-html-ratio gate fix). Lines
   // shifted again on 2026-05-12 by the BFS-depth `tutti` pagination fix
   // (paginationHtml block in buildThinCantonHubHtml + jobPerLocale plumbing
-  // in emitThinCantonHubs). The 4 literals all live on 2 paired template
+  // in emitThinCantonHubs), and once more on 2026-05-12 by the flat-ladder
+  // navigator added inside renderPagination (BFS-depth closure run
+  // 25753701178 — every page-N now lists every other page-N inside a
+  // collapsed <details>). The 4 literals all live on 2 paired template
   // literals (sectors hub + companies hub), each spanning 2 lines.
-  'build-plugins/seoHubsPlugin.ts:1323',
-  'build-plugins/seoHubsPlugin.ts:1324',
-  'build-plugins/seoHubsPlugin.ts:1339',
-  'build-plugins/seoHubsPlugin.ts:1340',
+  'build-plugins/seoHubsPlugin.ts:1364',
+  'build-plugins/seoHubsPlugin.ts:1365',
+  'build-plugins/seoHubsPlugin.ts:1380',
+  'build-plugins/seoHubsPlugin.ts:1381',
 
   // ── professionLandingsLinksPlugin: TI hub injection targets (intentional —
   //    the prose explicitly references "10 most-searched roles in Ticino"). ──
@@ -115,16 +118,20 @@ const ALLOWLIST = [
   //    data-prep block added in closeBundle (May 2026, run 25739076601 —
   //    bfs-depth gate fix for the 23 non-TI cathedral cantons). The previous
   //    +129 shift from PR #133 TI hub deep-navigator data-prep is included.
-  'build-plugins/staticPagesPlugin.ts:1094',
-  'build-plugins/staticPagesPlugin.ts:1095',
-  'build-plugins/staticPagesPlugin.ts:1096',
-  'build-plugins/staticPagesPlugin.ts:1097',
-  'build-plugins/staticPagesPlugin.ts:1116',
-  'build-plugins/staticPagesPlugin.ts:1117',
-  'build-plugins/staticPagesPlugin.ts:1651',
-  'build-plugins/staticPagesPlugin.ts:1676',
-  'build-plugins/staticPagesPlugin.ts:1701',
-  'build-plugins/staticPagesPlugin.ts:1969',
+  //    Lines shifted again on 2026-05-12 by the homepage canton-nav helper
+  //    (`buildHomepageCantonNavHtml`) added between `injectHomepageSeoContent`
+  //    and `injectCalculatorSeoContent` — BFS-depth closure run 25753701178.
+  //    Every entry shifts by the same +74 lines (helper block size).
+  'build-plugins/staticPagesPlugin.ts:1168',
+  'build-plugins/staticPagesPlugin.ts:1169',
+  'build-plugins/staticPagesPlugin.ts:1170',
+  'build-plugins/staticPagesPlugin.ts:1171',
+  'build-plugins/staticPagesPlugin.ts:1190',
+  'build-plugins/staticPagesPlugin.ts:1191',
+  'build-plugins/staticPagesPlugin.ts:1725',
+  'build-plugins/staticPagesPlugin.ts:1750',
+  'build-plugins/staticPagesPlugin.ts:1775',
+  'build-plugins/staticPagesPlugin.ts:2043',
 
   // ── shared/hubChrome.ts: per-locale hub-chrome registry keyed on TI section name ──
   'build-plugins/shared/hubChrome.ts:106',

@@ -808,7 +808,21 @@ function updatedLabel(locale: HubLocale): string {
 }
 
 function renderPagination(locale: HubLocale, basePath: string, current: number, total: number): string {
-  // Compact pagination: prev, 1, current-1, current, current+1, last, next
+  // Compact pagination (visible): prev, 1, current-1, current, current+1, last, next.
+  // Plus a FLAT crawler-facing navigator inside a collapsed <details> linking
+  // every page-N (BFS-depth closure 2026-05-12 run 25753701178 — without
+  // every page-N anchor on every page, leaves on page-3..N regress past BFS
+  // depth 4 since the compact nav only links 1, n-1, n+1, last from any
+  // given page — page-2 ↔ page-3 is a single hop, but page-1 → page-50 is a
+  // chain of length ~25 via the compact ladder, pushing leaves on page-25+
+  // to BFS depth > 4). The flat ladder collapses every page-N to a single
+  // hop from any other page-N, so every job leaf sits at depth 4 from `/`:
+  //   /  → /cerca-lavoro-ticino/tutti/   (page 1, depth 1)
+  //      → /cerca-lavoro-ticino/tutti/page-N/ (depth 2 via flat nav)
+  //      → /cerca-lavoro-{canton}/{slug}/  (depth 3, anchor on page-N)
+  // The <details> stays collapsed by default — mobile fold is preserved
+  // (CLAUDE.md #15/#16), and the BFS walker / crawlers parse every `<a>`
+  // inside `<details>` regardless of `open` state.
   const pages = new Set<number>();
   pages.add(1);
   pages.add(total);
@@ -839,7 +853,33 @@ function renderPagination(locale: HubLocale, basePath: string, current: number, 
   if (current < total) {
     parts.push(`<a href="${BASE_URL}${paginatedPath(basePath, current + 1)}" style="${baseStyle}" rel="next">${nextLabel}</a>`);
   }
-  return `<nav aria-label="Pagination" style="margin-top:32px;text-align:center">${parts.join('')}</nav>`;
+  const compactNav = `<nav aria-label="Pagination" style="margin-top:32px;text-align:center">${parts.join('')}</nav>`;
+
+  // Flat ladder — every page-N anchor, collapsed for mobile.
+  // Skip when totalPages ≤ 1 (no pagination needed) or ≤ 5 (compact nav
+  // already shows all pages, ladder would be redundant).
+  if (total <= 5) return compactNav;
+  const flatLabel = {
+    it: "Sfoglia tutto l'archivio per pagina",
+    en: 'Browse the full archive by page',
+    de: 'Vollständiges Archiv nach Seite durchsuchen',
+    fr: 'Parcourir toutes les archives par page',
+  }[locale];
+  const pageWord = locale === 'de' ? 'Seite' : locale === 'fr' || locale === 'en' ? 'Page' : 'Pagina';
+  const flatPillStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:var(--color-surface);color:var(--color-link);text-decoration:none;font-size:13px;border:1px solid var(--color-edge)';
+  const flatActiveStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:var(--color-accent);color:var(--color-on-accent);font-size:13px;font-weight:700';
+  const flatAnchors: string[] = [];
+  for (let p = 1; p <= total; p++) {
+    const href = `${BASE_URL}${paginatedPath(basePath, p)}`;
+    if (p === current) {
+      flatAnchors.push(`<strong style="${flatActiveStyle}" aria-current="page">${pageWord}&nbsp;${p}</strong>`);
+    } else {
+      flatAnchors.push(`<a href="${href}" style="${flatPillStyle}">${pageWord}&nbsp;${p}</a>`);
+    }
+  }
+  const flatNav = `<nav aria-label="${flatLabel}" style="margin-top:16px;max-width:1080px"><details style="border:1px solid var(--color-edge);border-radius:8px;padding:.5rem .75rem;background:var(--color-surface-alt)"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--color-heading);padding:.25rem 0">${flatLabel} (${total})</summary><div style="margin-top:.5rem;line-height:1.9">${flatAnchors.join('')}</div></details></nav>`;
+
+  return `${compactNav}${flatNav}`;
 }
 
 interface EmitArgs {
