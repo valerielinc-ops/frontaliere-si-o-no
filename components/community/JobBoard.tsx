@@ -112,6 +112,7 @@ import {
  extractRelatedTopicTokens,
  isValidRelatedSearchTerm,
  buildRelatedSearches,
+ pickBestRelatedSearchForPrompt,
 } from '@/services/relatedSearchClusters';
 export { buildSearchSlug } from '@/services/relatedSearchClusters';
 import { handleCompanyLogoError } from '@/services/logoService';
@@ -2478,6 +2479,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // and they were actively searching, invite them to also create an alert.
  // Session-scoped dismissal to avoid nagging.
  const [postAuthPromptVisible, setPostAuthPromptVisible] = useState(false);
+ const [postAuthPromptKeyword, setPostAuthPromptKeyword] = useState('');
+ const [postAuthPromptSource, setPostAuthPromptSource] = useState<'search' | 'detail'>('search');
  // Job-detail alert prompt: gentle 1-tap subscription when a logged-in user
  // opens a single job detail. Independent from postAuthPromptVisible.
  const [jobDetailPromptVisible, setJobDetailPromptVisible] = useState(false);
@@ -2488,15 +2491,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, []);
  const [searchQuery, setSearchQuery] = useState(() => parseSearchSlugFilter(initialJobSlug) || readSearchQueryFromUrl());
  const deferredSearchQuery = useDeferredValue(searchQuery);
- useEffect(() => {
- const prev = prevAuthUserRef.current;
- prevAuthUserRef.current = authUser;
- if (prev || !authUser || !enableJobAlerts) return;
- if (sessionStorage.getItem('jobAlertPostAuthPromptDismissed') === '1') return;
- const q = (searchQuery || '').trim();
- if (q.length < 2) return;
- setPostAuthPromptVisible(true);
- }, [authUser, enableJobAlerts, searchQuery]);
+ // Post-auth prompt trigger effect: see definition below, after
+ // `bestRelatedSearchKeyword` is in scope (needs selectedJob + sortedJobs +
+ // indexedQueryMatch, all declared further down).
  const [selectedCategory, setSelectedCategory] = useState<JobCategory | 'all'>('all');
  const [selectedContract, setSelectedContract] = useState<ContractType | 'all'>('all');
  const [selectedCompany, setSelectedCompany] = useState<string>('all');
@@ -3202,6 +3199,46 @@ const JobBoard: React.FC<JobBoardProps> = ({
  },
  [searchIndex],
  );
+
+ // Highest-result related-search candidate for the currently open job
+ // detail. Powers the post-login alert prompt fallback when the user has
+ // no active text query but is reading a single job. Pure template-only
+ // candidates (no async canonical content) so it resolves synchronously.
+ const bestRelatedSearchKeyword = useMemo(() => {
+ if (!selectedJob) return null;
+ return pickBestRelatedSearchForPrompt({
+ job: selectedJob,
+ locale,
+ jobs: sortedJobs,
+ matches: indexedQueryMatch,
+ });
+ }, [selectedJob, locale, sortedJobs, indexedQueryMatch]);
+
+ // Post-auth prompt trigger: fires once per session when the user transitions
+ // null → authUser. Keyword resolution priority:
+ //   1. Active search query (≥2 chars)
+ //   2. Top related-search keyword for the open job detail
+ //   3. None → don't fire
+ useEffect(() => {
+ const prev = prevAuthUserRef.current;
+ prevAuthUserRef.current = authUser;
+ if (prev || !authUser || !enableJobAlerts) return;
+ if (sessionStorage.getItem('jobAlertPostAuthPromptDismissed') === '1') return;
+ const trimmed = (searchQuery || '').trim();
+ let keyword = '';
+ let source: 'search' | 'detail' = 'search';
+ if (trimmed.length >= 2) {
+ keyword = trimmed;
+ source = 'search';
+ } else if (bestRelatedSearchKeyword) {
+ keyword = bestRelatedSearchKeyword;
+ source = 'detail';
+ }
+ if (!keyword) return;
+ setPostAuthPromptKeyword(keyword);
+ setPostAuthPromptSource(source);
+ setPostAuthPromptVisible(true);
+ }, [authUser, enableJobAlerts, searchQuery, bestRelatedSearchKeyword]);
 
  // Helper: apply ALL non-search filters (company, location, category,
  // contract, sector, date, newOnly). Reused by both the strict AND-match
@@ -7338,15 +7375,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {postAuthPromptVisible && (
  <Suspense fallback={null}>
  <JobAlertPostAuthPrompt
- keyword={searchQuery.trim()}
+ keyword={postAuthPromptKeyword}
  onAccept={() => {
- Analytics.trackJobAlertCtaClick('post_auth_prompt', 'open', searchQuery.trim());
+ Analytics.trackJobAlertCtaClick(`post_auth_prompt_${postAuthPromptSource}`, 'open', postAuthPromptKeyword);
  sessionStorage.setItem('jobAlertPostAuthPromptDismissed', '1');
  setPostAuthPromptVisible(false);
  window.dispatchEvent(new CustomEvent('openJobAlert'));
  }}
  onDismiss={() => {
- Analytics.trackJobAlertCtaClick('post_auth_prompt', 'dismiss', searchQuery.trim());
+ Analytics.trackJobAlertCtaClick(`post_auth_prompt_${postAuthPromptSource}`, 'dismiss', postAuthPromptKeyword);
  sessionStorage.setItem('jobAlertPostAuthPromptDismissed', '1');
  setPostAuthPromptVisible(false);
  }}
