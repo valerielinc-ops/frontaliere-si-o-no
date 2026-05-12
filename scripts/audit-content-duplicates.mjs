@@ -28,6 +28,7 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative, sep } from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { writeAuditReport } from './lib/auditReport.mjs';
 
 const CLUSTER_THRESHOLD = 5;
 const MAX_REPORTED = 20;
@@ -312,7 +313,7 @@ function printReport(result) {
   }
 }
 
-function main() {
+async function main() {
   const arg = process.argv[2];
   const distDir = arg ? arg : 'dist';
   const result = audit(distDir);
@@ -322,6 +323,26 @@ function main() {
       `\n[audit-content-duplicates] FAIL — at least one locale exceeded the ${CLUSTER_THRESHOLD}-cluster threshold.`,
     );
   }
+
+  // Structured JSON report: each offender is one duplicate cluster, keyed by
+  // first page in the cluster. `metric` = cluster size (pages sharing the
+  // body hash); `feature` = locale.
+  const offenders = result.duplicates.map((c) => ({
+    path: c.paths[0],
+    feature: c.locale,
+    metric: c.paths.length,
+    ratio: null,
+    hash: c.hash,
+    pages: c.paths,
+  }));
+  await writeAuditReport({
+    audit: 'content-duplicates',
+    passed: result.exitCode === 0,
+    threshold: { metric: 'clustersPerLocale', value: CLUSTER_THRESHOLD, comparator: '<=' },
+    offenders,
+    byFeature: result.totals,
+  });
+
   process.exit(result.exitCode);
 }
 
@@ -329,7 +350,10 @@ function main() {
 const invokedPath = process.argv[1] ? process.argv[1] : '';
 const thisPath = fileURLToPath(import.meta.url);
 if (invokedPath === thisPath) {
-  main();
+  main().catch((err) => {
+    console.error('[audit-content-duplicates] crashed:', err);
+    process.exit(2);
+  });
 }
 
 export { audit, extractBodyText, inferLocale, sha256 };

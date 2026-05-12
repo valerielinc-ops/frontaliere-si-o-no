@@ -21,12 +21,30 @@ import { readdir, readFile, stat } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
+import { writeAuditReport } from './lib/auditReport.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const DIST = join(ROOT, 'dist');
 
 const MAX_HTML_BYTES = 200 * 1024; // 200 KB per CLAUDE.md non-negotiable perf gate.
+
+/**
+ * Cheap feature bucket for offender grouping. Mirrors the classification the
+ * other audits use (notably audit-text-html-ratio.mjs). Kept lightweight on
+ * purpose — full plugin attribution lives in audit-text-html-ratio.mjs.
+ * @param {string} relPath repo-relative path
+ */
+function featureForPath(relPath) {
+  const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
+  if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\//.test(p)) return 'job-board';
+  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|unternehmen-einstellen|firmen-die-einstellen|entreprises-recrutent|entreprises-qui-recrutent)\//.test(p)) return 'weekly-employers';
+  if (/(?:^|\/)(?:prezzi-benzina|prezzi-diesel|prezzi-carburante-svizzera|gasoline-price-switzerland|diesel-price-switzerland|prix-essence-suisse|prix-diesel-suisse|prix-gasoil-suisse|fuel-prices-switzerland|benzinpreis-schweiz|dieselpreis-schweiz|benzinpreise-schweiz)\//.test(p)) return 'fuel-daily';
+  if (/(?:^|\/)(?:articoli-frontaliere|cross-border-articles|grenzgaenger-artikel|articles-frontalier|blog|articles)\//.test(p)) return 'blog';
+  if (/(?:^|\/)(?:traffico-dogane|border-wait|wartezeit-grenze|temps-attente-douane)\//.test(p)) return 'border-wait';
+  if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
+  return 'spa-other';
+}
 
 const args = new Set(process.argv.slice(2));
 const MODE_SUMMARY = args.has('--summary');
@@ -139,6 +157,50 @@ async function main() {
   }
 
   const hasOffenders = offenders.oversized.length > 0 || offenders.imgMissingAttrs.length > 0;
+
+  // ── Structured offender list for both stdout + JSON report ──
+  // We surface offenders even when the gate passes, so audit-reports/ always
+  // captures the current state and run-over-run diffs are possible. Sort
+  // oversized offenders worst-first (biggest bytes); merge with img-issue
+  // offenders so a single `topOffenders` slice carries both failure modes.
+  /** @type {Array<{path:string, feature:string, metric:number, ratio:null, kind:string, inlineJs:number, inlineCss:number, imgIssues?:Array<{tag:string,missing:string[]}>}>} */
+  const structuredOffenders = [];
+  const oversizedDetail = report
+    .filter((r) => r.bytes > MAX_HTML_BYTES)
+    .sort((a, b) => b.bytes - a.bytes);
+  for (const r of oversizedDetail) {
+    structuredOffenders.push({
+      path: r.file,
+      feature: featureForPath(r.file),
+      metric: r.bytes,
+      ratio: null,
+      kind: 'oversized',
+      inlineJs: r.inlineJs,
+      inlineCss: r.inlineCss,
+    });
+  }
+  // Deduplicate img-issue offenders that are also oversized — same file
+  // shouldn't appear twice; widen the existing entry's `kind` instead.
+  const oversizedSet = new Set(oversizedDetail.map((r) => r.file));
+  for (const o of offenders.imgMissingAttrs) {
+    if (oversizedSet.has(o.file)) {
+      const ex = structuredOffenders.find((s) => s.path === o.file);
+      if (ex) { ex.kind = 'oversized+img-attrs'; ex.imgIssues = o.issues; }
+      continue;
+    }
+    const matched = report.find((r) => r.file === o.file);
+    structuredOffenders.push({
+      path: o.file,
+      feature: featureForPath(o.file),
+      metric: matched ? matched.bytes : 0,
+      ratio: null,
+      kind: 'img-attrs',
+      inlineJs: matched ? matched.inlineJs : 0,
+      inlineCss: matched ? matched.inlineCss : 0,
+      imgIssues: o.issues.slice(0, 3),
+    });
+  }
+
   if (hasOffenders) {
     if (offenders.oversized.length > 0) {
       console.error(`\nFAIL: ${offenders.oversized.length} page(s) exceed ${MAX_HTML_BYTES / 1024} KB HTML budget:`);
@@ -158,10 +220,49 @@ async function main() {
         }
       }
     }
+
+    // ── Always print top-30 + per-feature breakdown on FAIL so CI logs
+    //    carry enough signal to diagnose without artifact downloads. ──
+    /** @type {Record<string, number>} */
+    const byFeature = {};
+    for (const s of structuredOffenders) {
+      byFeature[s.feature] = (byFeature[s.feature] ?? 0) + 1;
+    }
+    if (Object.keys(byFeature).length > 0) {
+      console.error('\nOffenders by feature:');
+      for (const [feature, count] of Object.entries(byFeature).sort((a, b) => b[1] - a[1])) {
+        console.error(`  ${String(count).padStart(6)}  ${feature}`);
+      }
+    }
+    const TOP = 30;
+    if (structuredOffenders.length > 0) {
+      console.error(`\nTop ${Math.min(TOP, structuredOffenders.length)} offenders (worst first):`);
+      for (const s of structuredOffenders.slice(0, TOP)) {
+        const sizeKb = (s.metric / 1024).toFixed(1).padStart(7);
+        console.error(`  ${sizeKb} KB  [${s.kind}]  ${s.path}  (feature=${s.feature})`);
+      }
+    }
+
+    await writeAuditReport({
+      audit: 'page-weight',
+      passed: false,
+      threshold: { metric: 'bytes', value: MAX_HTML_BYTES, comparator: '<=' },
+      baselineFile: null,
+      baselineDelta: null,
+      offenders: structuredOffenders,
+    });
     process.exit(1);
   }
 
   console.log(`\nOK: all ${report.length} pages within budget and <img> attrs present.`);
+  // On pass we still emit a report (offendersTotal=0) so artifact diffs
+  // between runs can show "regression introduced N new offenders".
+  await writeAuditReport({
+    audit: 'page-weight',
+    passed: true,
+    threshold: { metric: 'bytes', value: MAX_HTML_BYTES, comparator: '<=' },
+    offenders: [],
+  });
 }
 
 main().catch(err => {

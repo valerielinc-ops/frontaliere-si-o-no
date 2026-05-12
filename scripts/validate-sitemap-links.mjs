@@ -13,6 +13,7 @@
  */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
+import { writeAuditReport } from './lib/auditReport.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
@@ -116,6 +117,11 @@ for (const file of sitemapFiles) {
 
 console.log(`\n📊 Total: ${totalUrls} URLs checked across ${sitemapFiles.length} sitemaps`);
 
+const _byFeatureForReport = {};
+for (const m of missing) {
+  _byFeatureForReport[m.sitemap] = (_byFeatureForReport[m.sitemap] ?? 0) + 1;
+}
+
 if (missingCount > 0) {
   console.error(`\n❌ ${missingCount} sitemap URL(s) have no corresponding static page in dist/:\n`);
   for (const { sitemap, url } of missing) {
@@ -125,7 +131,28 @@ if (missingCount > 0) {
     '\n💡 Fix: Ensure the page has a SEO_METADATA entry with canonicalPath, ' +
     'is listed in the correct sitemap, and the build plugin generates its static HTML.\n'
   );
+  await writeAuditReport({
+    audit: 'validate-sitemap-links',
+    passed: false,
+    threshold: { metric: 'count', value: 0, comparator: '<=' },
+    offenders: missing.map((m) => ({
+      path: m.url,
+      feature: m.sitemap,
+      metric: 1,
+      ratio: null,
+      distPath: m.distPath,
+    })),
+    byFeature: _byFeatureForReport,
+    extra: { totalUrls, sitemapFiles: sitemapFiles.length },
+  });
   process.exit(1);
 }
 
 console.log('\n✅ All sitemap URLs have corresponding static pages in dist/.\n');
+await writeAuditReport({
+  audit: 'validate-sitemap-links',
+  passed: true,
+  threshold: { metric: 'count', value: 0, comparator: '<=' },
+  offenders: [],
+  extra: { totalUrls, sitemapFiles: sitemapFiles.length },
+});

@@ -131,6 +131,22 @@ jobs:
           path: reports/cls-*.json
           retention-days: 30
 
+      # On failure, also upload the structured audit-reports/cls-live.json
+      # produced by scripts/lib/auditReport.mjs. The full PSI / Lighthouse JSON
+      # is embedded for every hard CLS regression so a debug agent can replay
+      # the attribution evidence offline without re-running PSI (which is
+      # quota-limited and ~30 min serial). Tied to failure() to stay within
+      # the free-tier retention budget.
+      - name: Upload audit reports on failure
+        if: failure()
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: audit-reports-live-${{ github.run_id }}-${{ github.run_attempt }}
+          path: dist/audit-reports/**
+          if-no-files-found: ignore
+          retention-days: 7
+
       # Visual regression on the LIVE site. Skipped until linux baselines
       # are committed (run regenerate-visual-baselines.yml workflow_dispatch
       # to generate them). On failure, validate-live fails → rollback fires

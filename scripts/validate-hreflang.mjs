@@ -2,6 +2,7 @@
 
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
+import { writeAuditReport } from './lib/auditReport.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -71,6 +72,23 @@ for (const page of pages) {
  }
 }
 
+const _offendersForReport = failures.map((f) => {
+ // Each failure is "<relPath> — <reason>"; split on " — ".
+ const idx = f.indexOf(' — ');
+ const p = idx > 0 ? f.slice(0, idx) : f;
+ const reason = idx > 0 ? f.slice(idx + 3) : f;
+ // Classify by reason kind for byFeature breakdown.
+ let kind = 'other';
+ if (reason.startsWith('missing hreflang')) kind = 'missing';
+ else if (reason.startsWith('x-default')) kind = 'xDefaultMismatch';
+ else if (reason.startsWith('hreflang')) kind = 'targetMissing';
+ return { path: p, feature: kind, metric: 1, ratio: null, reason };
+});
+const _byFeatureForReport = {};
+for (const o of _offendersForReport) {
+ _byFeatureForReport[o.feature] = (_byFeatureForReport[o.feature] ?? 0) + 1;
+}
+
 if (failures.length > 0) {
  console.error(`❌ Hreflang validation failed: ${failures.length} issue(s)`);
  for (const failure of failures.slice(0, 100)) {
@@ -79,7 +97,22 @@ if (failures.length > 0) {
  if (failures.length > 100) {
   console.error(`... and ${failures.length - 100} more`);
  }
+ await writeAuditReport({
+  audit: 'validate-hreflang',
+  passed: false,
+  threshold: { metric: 'count', value: 0, comparator: '<=' },
+  offenders: _offendersForReport,
+  byFeature: _byFeatureForReport,
+  extra: { pagesScanned: pages.length },
+ });
  process.exit(1);
 }
 
 console.log(`✅ Hreflang validation passed on ${pages.length} sitemap page(s).`);
+await writeAuditReport({
+ audit: 'validate-hreflang',
+ passed: true,
+ threshold: { metric: 'count', value: 0, comparator: '<=' },
+ offenders: [],
+ extra: { pagesScanned: pages.length },
+});

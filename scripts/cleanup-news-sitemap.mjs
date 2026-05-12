@@ -28,6 +28,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { writeAuditReport } from './lib/auditReport.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = resolve(__dirname, '..');
@@ -250,6 +251,32 @@ async function main() {
   if (DRY_RUN && !APPLY) {
     console.log('(dry-run — no files modified; use --apply to rewrite)');
   }
+
+  // Structured report — informational. The audit always passes; the JSON
+  // captures how many URLs would be / were stripped so debug agents can see
+  // it from the artifact.
+  const _flatOffenders = [];
+  const _byFile = {};
+  for (const fr of report.files) {
+    _byFile[fr.file] = fr.removedCount;
+    for (const r of fr.removed) {
+      _flatOffenders.push({
+        path: typeof r === 'string' ? r : (r && r.loc) || String(r),
+        feature: fr.file,
+        metric: 1,
+        ratio: null,
+        reason: r && r.reason ? r.reason : null,
+      });
+    }
+  }
+  await writeAuditReport({
+    audit: 'news-sitemap',
+    passed: true,
+    threshold: null,
+    offenders: _flatOffenders,
+    byFeature: _byFile,
+    extra: { mode: report.mode, whitelistTokens: report.whitelistTokens },
+  });
 }
 
 main().catch((err) => {

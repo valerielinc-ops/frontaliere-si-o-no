@@ -78,6 +78,25 @@ jobs:
         continue-on-error: true
         run: node scripts/cathedral-seo-gates-check.mjs
 
+      # On failure (any gate regressed or errored), upload the structured
+      # per-audit JSON reports plus sitemaps so the issue auto-filer below
+      # links to an artifact a debug agent can download and analyse offline,
+      # instead of re-running `npm run build:ci` to reproduce. 7-day retention
+      # matches the rest of the post-build pipeline.
+      - name: Upload audit reports + sitemaps on failure
+        if: failure() || steps.gates.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: audit-reports-cathedral-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            dist/audit-reports/**
+            dist/sitemap.xml
+            dist/sitemap-*.xml
+            data/cathedral-seo-gates-verdict.json
+          if-no-files-found: ignore
+          retention-days: 7
+
       - name: Emit job summary
         if: always()
         run: |

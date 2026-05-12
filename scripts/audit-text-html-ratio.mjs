@@ -52,6 +52,7 @@ import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import { join, relative, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
+import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -245,11 +246,38 @@ async function main() {
 
   const offenders = report.filter(r => r.ratio <= THRESHOLD).sort((a, b) => a.ratio - b.ratio);
 
+  // Structured offenders for the JSON report — same data the human summary
+  // uses, normalised to the shared schema (`metric` = ratio percent).
+  const structuredOffenders = offenders.map((r) => ({
+    path: r.file,
+    feature: r.feature,
+    metric: Number(r.ratio.toFixed(2)),
+    ratio: Number(r.ratio.toFixed(2)),
+    htmlBytes: r.htmlBytes,
+    textBytes: r.textBytes,
+  }));
+  /** @type {Record<string, number>} */
+  const byFeatureCountForReport = {};
+  for (const r of offenders) {
+    byFeatureCountForReport[r.feature] = (byFeatureCountForReport[r.feature] ?? 0) + 1;
+  }
+  /** Shared writer wrapping the helper so each exit branch is one line. */
+  const writeReport = (passed, baselineDelta) => writeAuditReport({
+    audit: 'text-html-ratio',
+    passed,
+    threshold: { metric: 'ratio', value: THRESHOLD, comparator: '>=' },
+    baselineFile: relBaseline(typeof BASELINE_PATH === 'string' ? BASELINE_PATH : null),
+    baselineDelta,
+    offenders: structuredOffenders,
+    byFeature: byFeatureCountForReport,
+  });
+
   if (MODE_CSV) {
     console.log('file,feature,html_bytes,text_bytes,ratio_pct');
     for (const r of offenders) {
       console.log(`${r.file},${r.feature},${r.htmlBytes},${r.textBytes},${r.ratio.toFixed(2)}`);
     }
+    await writeReport(!(FAIL && offenders.length > 0), null);
     process.exit(FAIL && offenders.length > 0 ? 1 : 0);
   }
 
@@ -271,6 +299,7 @@ async function main() {
       byFeature,
       worst: offenders.slice(0, LIMIT),
     }, null, 2));
+    await writeReport(!(FAIL && offenders.length > 0), null);
     process.exit(FAIL && offenders.length > 0 ? 1 : 0);
   }
 
@@ -410,12 +439,16 @@ async function main() {
       console.error('   pages have dropped below the threshold — fix that, do not ratchet up.');
       console.error('');
       console.error('See CLAUDE.md > "SEO content gate" for the full playbook.');
+      await writeReport(false, { before: baseTotal, after: offenders.length, regression: offenders.length - baseTotal });
       process.exit(1);
     }
     const totalDelta = baseTotal - offenders.length;
     console.log(`\nratchet OK: ${offenders.length} offenders ≤ baseline ${baseTotal} (${totalDelta >= 0 ? '−' : '+'}${Math.abs(totalDelta)})`);
+    await writeReport(true, { before: baseTotal, after: offenders.length, regression: Math.max(0, offenders.length - baseTotal) });
+    process.exit(FAIL && offenders.length > 0 ? 1 : 0);
   }
 
+  await writeReport(!(FAIL && offenders.length > 0), null);
   process.exit(FAIL && offenders.length > 0 ? 1 : 0);
 }
 
