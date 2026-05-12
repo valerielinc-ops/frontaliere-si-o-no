@@ -3904,9 +3904,14 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  const pushEditorialSitemapEntry = (
  buildModel: (locale: typeof localeList[number]) => { slug: string },
  priority: string,
+ // Phase 8 sub-PR (d): per-canton editorial emit lives at a canton-aware
+ // section (e.g. `cerca-lavoro-zurigo`). Defaults to the legacy TI
+ // section for backward compatibility (non-canton editorial pages: the
+ // official gazette).
+ sectionFor: (locale: typeof localeList[number]) => string = (l) => sectionByLocale[l],
  ) => {
  const itModel = buildModel('it');
- const itPath = withSlash(`/${sectionByLocale.it}/${itModel.slug}`.replace(/\/+/g, '/'));
+ const itPath = withSlash(`/${sectionFor('it')}/${itModel.slug}`.replace(/\/+/g, '/'));
  // Sitemap-jobs alignment (Issue 18): never advertise a URL whose static
  // HTML wasn't actually emitted to dist/. The same plugin emits both the
  // page HTML and the sitemap entry; if an earlier step skipped emission
@@ -3919,7 +3924,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  if (!itEmitted) return;
  const alternateLinks = localeList.map((locale) => {
  const localeModel = buildModel(locale);
- const path = `${localePrefix[locale]}/${sectionByLocale[locale]}/${localeModel.slug}`.replace(/\/+/g, '/');
+ const path = `${localePrefix[locale]}/${sectionFor(locale)}/${localeModel.slug}`.replace(/\/+/g, '/');
  return ` <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${withSlash(path)}" />`;
  }).join('\n');
  editorialSitemapEntries.push(` <url>\n <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n <lastmod>${dateStamp}</lastmod>\n <changefreq>daily</changefreq>\n <priority>${priority}</priority>\n </url>`);
@@ -3939,6 +3944,13 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
 
  for (const editorialCanton of EDITORIAL_CANTONS) {
  if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) continue;
+ // Phase 8 sub-PR (d): for non-TI editorial cantons the URL section
+ // becomes the canton-aware form (e.g. `cerca-lavoro-zurigo`) and the
+ // model emits a short slug (`oggi` / `today` / `heute` / `aujourdhui`).
+ // TI continues to use the legacy `sectionByLocale[locale]` value,
+ // which `buildCantonAwareSection(locale, 'TI')` returns by design,
+ // so TI URLs stay byte-identical.
+ const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  for (const locale of localeList) {
  const __tEdJobsToday = startTimer();
  const model = buildJobTodayLandingModel({
@@ -3947,12 +3959,12 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  now: new Date().toISOString(),
  localizedSlug,
  baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[locale],
+ sectionSlug: sectionByLocaleCanton(locale),
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
  });
 
- const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}/${model.slug}`.replace(/\/+/g, '/'));
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  // x-default required by audit-hreflang alongside the 4 locale entries.
  // OPT: hreflang only needs the slug per locale — call the lightweight
@@ -3962,7 +3974,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  // 12 editorial-jobs-today emits = ~3.7s of build wall.
  const todayHreflangPairs = localeList.map((altLocale) => {
  const altSlug = getJobTodayLandingSlug(altLocale, editorialCanton);
- const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altSlug}`.replace(/\/+/g, '/');
+ const altPath = `${localePrefix[altLocale]}/${sectionByLocaleCanton(altLocale)}/${altSlug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
  // audit-hreflang requires 5 entries — force x-default with canonicalUrl fallback.
@@ -3971,14 +3983,14 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  ...todayHreflangPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
  ` <link rel="alternate" hreflang="x-default" href="${xDefaultToday}">`,
  ].join('\n');
- const openAllHref = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
+ const openAllHref = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}`.replace(/\/+/g, '/'))}`;
  const cityCards = model.sections.cities.length > 0
  ? model.sections.cities.map((city) => city.href
      ? `<a href="${city.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(city.name)}</span><span style="color:var(--color-link)">${city.count}</span></a>`
      : `<div style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);font-weight:600"><span>${esc(city.name)}</span><span style="color:var(--color-link)">${city.count}</span></div>`).join('')
  : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
  const internalLinks = model.internalLinks.map((item) => `<a href="${item.href}" style="display:inline-flex;padding:8px 12px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);text-decoration:none;font-weight:700;font-size:13px">${esc(item.label)}</a>`).join('');
- const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
+ const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}`.replace(/\/+/g, '/'))}`;
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
  locale,
  name: model.heading,
@@ -4081,10 +4093,10 @@ ${alternates}
  now: new Date().toISOString(),
  localizedSlug,
  baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[locale],
+ sectionSlug: sectionByLocaleCanton(locale),
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
- }), '0.8');
+ }), '0.8', sectionByLocaleCanton);
  }
 
  for (const locale of localeList) {
@@ -4243,6 +4255,8 @@ ${alternates}
 
  for (const editorialCanton of EDITORIAL_CANTONS) {
  if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) continue;
+ // Phase 8 sub-PR (d): canton-aware section + short slug for non-TI.
+ const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  for (const locale of localeList) {
  const __tEdNurses = startTimer();
  const model = buildJobNursesHubLandingModel({
@@ -4251,13 +4265,13 @@ ${alternates}
  now: new Date().toISOString(),
  localizedSlug,
  baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[locale],
+ sectionSlug: sectionByLocaleCanton(locale),
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
  partition: careClusterPartition,
  });
  editorialSearchSlugsByLocale.get(locale)?.add(model.slug);
- const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}/${model.slug}`.replace(/\/+/g, '/'));
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const _altPairs = localeList
  .map((altLocale) => {
@@ -4267,12 +4281,12 @@ ${alternates}
  now: new Date().toISOString(),
  localizedSlug,
  baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[altLocale],
+ sectionSlug: sectionByLocaleCanton(altLocale),
  localePrefix: localePrefix[altLocale],
  canton: editorialCanton,
  partition: careClusterPartition,
  });
- const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
+ const altPath = `${localePrefix[altLocale]}/${sectionByLocaleCanton(altLocale)}/${altModel.slug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
  const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
@@ -4284,7 +4298,7 @@ ${alternates}
  ? model.variants.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-link)">${link.count}</span></a>`).join('')
  : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
  const explainerCards = model.explainerCards.map((card) => `<div style="padding:18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)"><h3 style="margin:0 0 8px;font-size:18px;color:var(--color-heading)">${esc(card.title)}</h3><p style="margin:0;color:var(--color-subtle);line-height:1.7">${esc(card.body)}</p></div>`).join('');
- const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
+ const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}`.replace(/\/+/g, '/'))}`;
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
  locale,
  name: model.heading,
@@ -4408,16 +4422,18 @@ ${alternates}
  now: new Date().toISOString(),
  localizedSlug,
  baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[locale],
+ sectionSlug: sectionByLocaleCanton(locale),
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
  partition: careClusterPartition,
- }), '0.77');
+ }), '0.77', sectionByLocaleCanton);
  }
 
  /* ── Editorial landing: global part-time ───────────────────── */
  for (const editorialCanton of EDITORIAL_CANTONS) {
  if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) continue;
+ // Phase 8 sub-PR (d): canton-aware section + short slug for non-TI.
+ const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  for (const locale of localeList) {
  const __tEdPartTimeCanton = startTimer();
  const model = buildJobPartTimeLandingModel({
@@ -4426,12 +4442,12 @@ ${alternates}
  now: new Date().toISOString(),
  localizedSlug,
  baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[locale],
+ sectionSlug: sectionByLocaleCanton(locale),
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
  });
  editorialSearchSlugsByLocale.get(locale)?.add(model.slug);
- const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}/${model.slug}`.replace(/\/+/g, '/'));
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const _altPairs = localeList
  .map((altLocale) => {
@@ -4441,11 +4457,11 @@ ${alternates}
  now: new Date().toISOString(),
  localizedSlug,
  baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[altLocale],
+ sectionSlug: sectionByLocaleCanton(altLocale),
  localePrefix: localePrefix[altLocale],
  canton: editorialCanton,
  });
- const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
+ const altPath = `${localePrefix[altLocale]}/${sectionByLocaleCanton(altLocale)}/${altModel.slug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
  const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
@@ -4453,7 +4469,7 @@ ${alternates}
   ..._altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
   ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
  ].join('\n');
- const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
+ const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}`.replace(/\/+/g, '/'))}`;
  const cityCards = model.cityLinks.length > 0
  ? model.cityLinks.map((city) => city.href
      ? `<a href="${city.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(city.name)}</span><span style="color:var(--color-link)">${city.count}</span></a>`
@@ -4571,15 +4587,17 @@ ${alternates}
  now: new Date().toISOString(),
  localizedSlug,
  baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[locale],
+ sectionSlug: sectionByLocaleCanton(locale),
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
- }), '0.76');
+ }), '0.76', sectionByLocaleCanton);
  }
 
  for (const clusterKey of editorialCareKeys) {
  for (const editorialCanton of EDITORIAL_CANTONS) {
  if ((editorialCantonJobCounts.get(editorialCanton) ?? 0) < MIN_JOBS_FOR_CANTON_PAGE) continue;
+ // Phase 8 sub-PR (d): canton-aware section + short slug for non-TI.
+ const sectionByLocaleCanton = (l: 'it' | 'en' | 'de' | 'fr') => buildCantonAwareSection(l, editorialCanton);
  const italianCareModel = buildJobCareVariantLandingModel({
  jobs: validJobs,
  locale: 'it',
@@ -4587,7 +4605,7 @@ ${alternates}
  now: new Date().toISOString(),
  localizedSlug,
  baseUrl: BASE_URL,
- sectionSlug: sectionByLocale.it,
+ sectionSlug: sectionByLocaleCanton('it'),
  localePrefix: localePrefix.it,
  canton: editorialCanton,
  partition: careClusterPartition,
@@ -4603,13 +4621,13 @@ ${alternates}
  now: new Date().toISOString(),
  localizedSlug,
  baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[locale],
+ sectionSlug: sectionByLocaleCanton(locale),
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
  partition: careClusterPartition,
  });
  editorialSearchSlugsByLocale.get(locale)?.add(model.slug);
- const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
+ const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}/${model.slug}`.replace(/\/+/g, '/'));
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const _altPairs = localeList
  .map((altLocale) => {
@@ -4620,12 +4638,12 @@ ${alternates}
  now: new Date().toISOString(),
  localizedSlug,
  baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[altLocale],
+ sectionSlug: sectionByLocaleCanton(altLocale),
  localePrefix: localePrefix[altLocale],
  canton: editorialCanton,
  partition: careClusterPartition,
  });
- const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
+ const altPath = `${localePrefix[altLocale]}/${sectionByLocaleCanton(altLocale)}/${altModel.slug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
  const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
@@ -4636,7 +4654,7 @@ ${alternates}
  const siblingLinks = model.siblingLinks.length > 0
  ? model.siblingLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-link)">${link.count}</span></a>`).join('')
  : '<p style="margin:0;color:var(--color-subtle);font-size:14px">—</p>';
- const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
+ const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocaleCanton(locale)}`.replace(/\/+/g, '/'))}`;
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
  locale,
  name: model.heading,
@@ -4735,11 +4753,11 @@ ${alternates}
  now: new Date().toISOString(),
  localizedSlug,
  baseUrl: BASE_URL,
- sectionSlug: sectionByLocale[locale],
+ sectionSlug: sectionByLocaleCanton(locale),
  localePrefix: localePrefix[locale],
  canton: editorialCanton,
  partition: careClusterPartition,
- }), '0.71');
+ }), '0.71', sectionByLocaleCanton);
  }
  }
 

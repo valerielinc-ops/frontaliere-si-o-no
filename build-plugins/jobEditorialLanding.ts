@@ -94,55 +94,65 @@ export const EDITORIAL_CANTONS: readonly string[] = Object.freeze(
 // (Phase 5 P1-A — TI editorial URLs must stay invariant). Remaining cantons
 // auto-generated from CANTON_SLUG_LOCALE with locale-specific templates.
 
+// Phase 8 sub-PR (d): Non-TI/GR/VS cantons use a SHORT slug
+// (`oggi` / `today` / `heute` / `aujourdhui`) so the URL becomes
+// `/cerca-lavoro-{canton}/oggi/` instead of nesting a canton-named slug
+// under the TI section. TI/GR/VS legacy slugs are preserved byte-identical
+// (test suite locks these). Pair the short slug with the canton-aware
+// section produced by `buildCantonAwareSection(locale, canton)`.
 const JOB_TODAY_LANDING_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, string>> = (() => {
  const out: Record<string, Record<JobLandingLocale, string>> = {
   TI: { it: 'offerte-di-lavoro-ticino-oggi', en: 'ticino-jobs-today', de: 'jobs-tessin-heute', fr: 'offres-emploi-tessin-aujourdhui' },
   GR: { it: 'offerte-di-lavoro-grigioni-oggi', en: 'graubunden-jobs-today', de: 'jobs-graubunden-heute', fr: 'offres-emploi-grisons-aujourdhui' },
   VS: { it: 'offerte-di-lavoro-vallese-oggi', en: 'valais-jobs-today', de: 'jobs-wallis-heute', fr: 'offres-emploi-valais-aujourdhui' },
  };
- for (const [code, slugs] of Object.entries(CANTON_SLUG_LOCALE)) {
+ for (const code of Object.keys(CANTON_SLUG_LOCALE)) {
   if (out[code]) continue;
   out[code] = {
-   it: `offerte-di-lavoro-${slugs.it}-oggi`,
-   en: `${slugs.en}-jobs-today`,
-   de: `jobs-${slugs.de}-heute`,
-   fr: `offres-emploi-${slugs.fr}-aujourdhui`,
+   it: 'oggi',
+   en: 'today',
+   de: 'heute',
+   fr: 'aujourdhui',
   };
  }
  return out;
 })();
 
+// Phase 8 sub-PR (d): non-TI/GR/VS cantons collapse to a short slug; the
+// canton is encoded in the section segment (`/cerca-lavoro-{canton}/`).
 const JOB_NURSES_HUB_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, string>> = (() => {
  const out: Record<string, Record<JobLandingLocale, string>> = {
   TI: { it: 'infermieri-in-ticino', en: 'nurses-in-ticino', de: 'pflege-jobs-im-tessin', fr: 'infirmiers-au-tessin' },
   GR: { it: 'infermieri-in-grigioni', en: 'nurses-in-graubunden', de: 'pflege-jobs-in-graubunden', fr: 'infirmiers-aux-grisons' },
   VS: { it: 'infermieri-in-vallese', en: 'nurses-in-valais', de: 'pflege-jobs-im-wallis', fr: 'infirmiers-en-valais' },
  };
- for (const [code, slugs] of Object.entries(CANTON_SLUG_LOCALE)) {
+ for (const code of Object.keys(CANTON_SLUG_LOCALE)) {
   if (out[code]) continue;
   out[code] = {
-   it: `infermieri-in-${slugs.it}`,
-   en: `nurses-in-${slugs.en}`,
-   de: `pflege-jobs-in-${slugs.de}`,
-   fr: `infirmiers-dans-le-canton-de-${slugs.fr}`,
+   it: 'infermieri',
+   en: 'nurses',
+   de: 'pflege-jobs',
+   fr: 'infirmiers',
   };
  }
  return out;
 })();
 
+// Phase 8 sub-PR (d): non-TI/GR/VS cantons collapse to a short slug; the
+// canton is encoded in the section segment (`/cerca-lavoro-{canton}/`).
 const JOB_PART_TIME_LANDING_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, string>> = (() => {
  const out: Record<string, Record<JobLandingLocale, string>> = {
   TI: { it: 'lavoro-part-time-ticino', en: 'part-time-jobs-ticino', de: 'teilzeit-jobs-tessin', fr: 'emploi-temps-partiel-tessin' },
   GR: { it: 'lavoro-part-time-grigioni', en: 'part-time-jobs-graubunden', de: 'teilzeit-jobs-graubunden', fr: 'emploi-temps-partiel-grisons' },
   VS: { it: 'lavoro-part-time-vallese', en: 'part-time-jobs-valais', de: 'teilzeit-jobs-wallis', fr: 'emploi-temps-partiel-valais' },
  };
- for (const [code, slugs] of Object.entries(CANTON_SLUG_LOCALE)) {
+ for (const code of Object.keys(CANTON_SLUG_LOCALE)) {
   if (out[code]) continue;
   out[code] = {
-   it: `lavoro-part-time-${slugs.it}`,
-   en: `part-time-jobs-${slugs.en}`,
-   de: `teilzeit-jobs-${slugs.de}`,
-   fr: `emploi-temps-partiel-${slugs.fr}`,
+   it: 'lavoro-part-time',
+   en: 'part-time-jobs',
+   de: 'teilzeit-jobs',
+   fr: 'emploi-temps-partiel',
   };
  }
  return out;
@@ -862,15 +872,25 @@ function makeNursesHubCopy(cantonCode: string): Record<JobLandingLocale, {
 
 const NURSES_HUB_COPY = makeNursesHubCopy('TI');
 
+// Phase 8 sub-PR (d): TI/GR/VS retain legacy form `cliniche-ticino` (canton
+// embedded in slug) for URL invariance — those URLs are locked by tests and
+// by the production index. For the other 21 cantons, the slug collapses to
+// the short form (e.g. `cliniche`) because the canton is already encoded in
+// the section segment via `buildCantonAwareSection(locale, canton)`. The
+// trailing `-jobs` suffix in EN/DE is preserved for TI/GR/VS only.
+const _LEGACY_CARE_CLUSTER_CANTONS = new Set(['TI', 'GR', 'VS']);
 function careClusterSlug(key: JobCareClusterKey, cantonCode: string, locale: JobLandingLocale): string {
- const cantonSlug = CANTON_SLUG_LOCALE[cantonCode]?.[locale] || CANTON_SLUG_LOCALE['TI'][locale];
  const base: Record<JobCareClusterKey, Record<JobLandingLocale, string>> = {
  clinics: { it: 'cliniche', en: 'clinics', de: 'kliniken', fr: 'cliniques' },
  careHomes: { it: 'case-anziani', en: 'care-homes', de: 'altersheime', fr: 'maisons-retraite' },
  oss: { it: 'oss', en: 'healthcare-assistants', de: 'pflegeassistenz', fr: 'oss' },
  educators: { it: 'educatori', en: 'educators', de: 'paedagogen', fr: 'educateurs' },
  };
- return `${base[key][locale]}-${cantonSlug}${locale === 'en' || locale === 'de' ? '-jobs' : ''}`;
+ if (_LEGACY_CARE_CLUSTER_CANTONS.has(cantonCode)) {
+   const cantonSlug = CANTON_SLUG_LOCALE[cantonCode]?.[locale] || CANTON_SLUG_LOCALE['TI'][locale];
+   return `${base[key][locale]}-${cantonSlug}${locale === 'en' || locale === 'de' ? '-jobs' : ''}`;
+ }
+ return base[key][locale];
 }
 
 function careClusterLabel(key: JobCareClusterKey, cantonCode: string, locale: JobLandingLocale): string {
@@ -1331,11 +1351,34 @@ function findSectorKeyBySlugExtended(slug: string): JobLandingSectorKey | null {
  return findSectorKeyBySlug(slug) || SECTOR_SLUG_ALIASES[normalizeSpace(slug)] || null;
 }
 
+// Short-form (non-TI canton) care-cluster slugs — mapping locale slug → key.
+// `clinics-it` short → `cliniche` (no canton suffix). For TI/GR/VS the slug
+// keeps the canton suffix and is resolved via `CARE_CLUSTER_DEFS[key].slug`.
+const CARE_CLUSTER_SHORT_SLUG_TO_KEY: Record<string, JobCareClusterKey> = {
+ cliniche: 'clinics',
+ clinics: 'clinics',
+ kliniken: 'clinics',
+ cliniques: 'clinics',
+ 'case-anziani': 'careHomes',
+ 'care-homes': 'careHomes',
+ altersheime: 'careHomes',
+ 'maisons-retraite': 'careHomes',
+ oss: 'oss',
+ 'healthcare-assistants': 'oss',
+ pflegeassistenz: 'oss',
+ educatori: 'educators',
+ educators: 'educators',
+ paedagogen: 'educators',
+ educateurs: 'educators',
+};
+
 function findCareClusterKeyBySlug(slug: string): JobCareClusterKey | null {
  const clean = normalizeSpace(slug);
- return (Object.keys(CARE_CLUSTER_DEFS) as JobCareClusterKey[]).find((key) =>
+ const fromLegacy = (Object.keys(CARE_CLUSTER_DEFS) as JobCareClusterKey[]).find((key) =>
  Object.values(CARE_CLUSTER_DEFS[key].slug).includes(clean),
- ) || null;
+ );
+ if (fromLegacy) return fromLegacy;
+ return CARE_CLUSTER_SHORT_SLUG_TO_KEY[clean] || null;
 }
 
 function matchesLocation(job: JobLike, location: string): boolean {
@@ -1517,10 +1560,20 @@ export function resolveEditorialJobLandingDescriptor(value: string): EditorialLa
  if (Object.values(JOB_OFFICIAL_GAZETTE_LANDING_SLUGS).includes(slug as (typeof JOB_OFFICIAL_GAZETTE_LANDING_SLUGS)[JobLandingLocale])) {
  return { kind: 'official-gazette' };
  }
- if (Object.values(JOB_NURSES_HUB_SLUGS).includes(slug as (typeof JOB_NURSES_HUB_SLUGS)[JobLandingLocale]) || slug === 'lavoro-infermieri') {
+ // Phase 8 sub-PR (d): scan ALL canton variants for the nurses-hub and
+ // part-time slugs (TI long-form + 21 short-form non-TI cantons).
+ const nursesSlugSet = new Set<string>();
+ for (const cantonSlugs of Object.values(JOB_NURSES_HUB_SLUGS_BY_CANTON)) {
+ for (const localeSlug of Object.values(cantonSlugs)) nursesSlugSet.add(localeSlug);
+ }
+ if (nursesSlugSet.has(slug) || slug === 'lavoro-infermieri') {
  return { kind: 'nurses-hub' };
  }
- if (Object.values(JOB_PART_TIME_LANDING_SLUGS).includes(slug as (typeof JOB_PART_TIME_LANDING_SLUGS)[JobLandingLocale])) {
+ const partTimeSlugSet = new Set<string>();
+ for (const cantonSlugs of Object.values(JOB_PART_TIME_LANDING_SLUGS_BY_CANTON)) {
+ for (const localeSlug of Object.values(cantonSlugs)) partTimeSlugSet.add(localeSlug);
+ }
+ if (partTimeSlugSet.has(slug)) {
  return { kind: 'part-time' };
  }
  const careClusterKey = findCareClusterKeyBySlug(slug);
@@ -2311,9 +2364,14 @@ export function buildJobPartTimeLandingModel(options: {
 
  return {
  kind: 'part-time',
- slug: cantonCode !== 'TI' && JOB_PART_TIME_LANDING_SLUGS_BY_CANTON[cantonCode]
- ? JOB_PART_TIME_LANDING_SLUGS_BY_CANTON[cantonCode][locale]
- : JOB_PART_TIME_LANDING_SLUGS[locale],
+ // Phase 8 sub-PR (d): the canton-aware table is the single source of
+ // truth. TI/GR/VS rows preserve the legacy long-form (`lavoro-part-time-
+ // ticino`) byte-identically; non-TI cantons collapse to the short form
+ // (`lavoro-part-time`) because the canton is encoded in the section
+ // segment. `JOB_PART_TIME_LANDING_SLUGS` is kept as a backward-compatible
+ // short-form export and must NOT be consulted from the model — using it
+ // for TI would silently change the indexed URL.
+ slug: (JOB_PART_TIME_LANDING_SLUGS_BY_CANTON[cantonCode] || JOB_PART_TIME_LANDING_SLUGS_BY_CANTON['TI'])[locale],
  title: copy.title,
  heading: copy.heading,
  description: copy.description(matches.length),
