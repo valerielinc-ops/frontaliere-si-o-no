@@ -1,18 +1,46 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-05-11T22:20:48.412Z",
-  "total": 10,
-  "newCount": 0,
+  "generatedAt": "2026-05-12T11:29:48.182Z",
+  "total": 11,
+  "newCount": 1,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 22575,
-  "avgDurationMs": 22575,
+  "durationMs": 36168,
+  "avgDurationMs": 36168,
   "durationHistory": [
-    22575
+    36168
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-v6twcb",
+      "slug": "jchde-verkaufer-in-con-lagerverantwortung-a-60-jysk-stans-v6twcb",
+      "company": "JYSK",
+      "title": "JCHDE_Verkäufer/in mit Lagerverantwortung (a) 60%",
+      "location": "Stans",
+      "canton": "JU",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-12",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/jchdeverkaeuferin-mit-lagerverantwortung-60",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-05-12T11:29:47.843Z",
+      "firstSeenAt": "2026-05-12T11:29:47.843Z",
+      "sourceLang": "de",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-o7thrg",
