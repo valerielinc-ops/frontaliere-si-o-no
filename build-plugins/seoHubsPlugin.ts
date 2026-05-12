@@ -35,6 +35,7 @@ import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSec
 import { resolveBrandLogoUrl, renderEntityCard, ICON_BUILDING_SVG } from './shared/seoContentTokens';
 import { ALL_CANTON_CODES, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
+import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
 
 const LOCALE_OG: Record<HubLocale, string> = {
   it: 'it_IT',
@@ -1043,6 +1044,14 @@ function buildThinCantonHubHtml(args: {
         <h2 style="font-size:18px;font-weight:700;color:var(--color-heading);margin:0 0 12px">${esc(bodyHeadingLabel)}</h2>
         <p style="font-size:15px;line-height:1.6;color:var(--color-body);margin:0">${esc(bodyCopy)}</p>
       </section>
+      ${renderCantonSeoProse({
+        locale: locale as CantonSeoLocale,
+        cantonDisplay: cantonLabel,
+        slot: (hub === 'settori' ? 'sectors-hub' : hub === 'aziende' ? 'companies-hub' : 'canton-hub') as CantonSeoSlot,
+        countHint: totalItems,
+        ctaHref: basePath,
+        ctaLabel: null,
+      })}
     </main>
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
