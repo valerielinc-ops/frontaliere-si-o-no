@@ -7463,6 +7463,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.direttrice-unispital-zurigo-whistleblower.title': 'Direttrice Unispital Zurigo ringrazia il whistleblower licenziato',
     'blog.article.direttrice-unispital-zurigo-whistleblower.excerpt': 'Monika Jänicke, direttrice dell\'USZ, esprime gratitudine verso l\'ex cardiochirurgo che ha denunciato irregolarità nella clinica.',
     'blog.article.direttrice-unispital-zurigo-whistleblower.imageAlt': 'Ospedale in Ticino, Svizzera',
+    'blog.article.temporali-grandine-varesotto-allerta-meteo.title': 'Allerta meteo per temporali e grandine nel varesotto',
+    'blog.article.temporali-grandine-varesotto-allerta-meteo.excerpt': 'Si alza l\'allerta meteo per vento forte nella provincia di Varese.',
+    'blog.article.temporali-grandine-varesotto-allerta-meteo.imageAlt': 'Una scena tempestosa sul Lago di Lugano con nuvole scure.',
 };
 
 export default blogMetaIt;

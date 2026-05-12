@@ -1,0 +1,40 @@
+{
+  "id": "temporali-grandine-varesotto-allerta-meteo",
+  "slug": "temporali-grandine-varesotto-allerta-meteo",
+  "publishedAt": "2026-05-12T07:51:54.181Z",
+  "cluster": "pratico",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 25.18715592433757,
+    "confidence": 0.8,
+    "finalScore": 20.14972473947006,
+    "topK": [
+      {
+        "slug": "allerta-gialla-temporali-varese-2026",
+        "cosine": 0.8685226180806059
+      },
+      {
+        "slug": "temporali-grandine-luganese-11-maggio-2026",
+        "cosine": 0.8440358910793532
+      },
+      {
+        "slug": "allerta-meteo-ticino-lombardia-2026",
+        "cosine": 0.8421524947911253
+      },
+      {
+        "slug": "temporali-ticino-traffico-2024",
+        "cosine": 0.8413484779886861
+      },
+      {
+        "slug": "grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026",
+        "cosine": 0.8293672746006104
+      }
+    ],
+    "score": 20.14972473947006,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

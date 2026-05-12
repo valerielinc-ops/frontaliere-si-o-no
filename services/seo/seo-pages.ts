@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2542,
+ "numberOfItems": 2543,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7182,7 +7182,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2539, "name": "Dichiarazione Andreoli San Marino RTV", "url": `${BASE_URL}/articoli-frontaliere/dichiarazione-andreoli-san-marino-rtv` },
           { "@type": "ListItem", "position": 2540, "name": "Calo potere d'acquisto e LAMal: la Regione invo...", "url": `${BASE_URL}/articoli-frontaliere/calo-potere-acquisto-lamal-contromisure-ticino` },
           { "@type": "ListItem", "position": 2541, "name": "Temporali e grandine nel Luganese: allerta live...", "url": `${BASE_URL}/articoli-frontaliere/temporali-grandine-luganese-11-maggio-2026` },
-          { "@type": "ListItem", "position": 2542, "name": "Direttrice Unispital Zurigo ringrazia il whistl...", "url": `${BASE_URL}/articoli-frontaliere/direttrice-unispital-zurigo-whistleblower` }
+          { "@type": "ListItem", "position": 2542, "name": "Direttrice Unispital Zurigo ringrazia il whistl...", "url": `${BASE_URL}/articoli-frontaliere/direttrice-unispital-zurigo-whistleblower` },
+          { "@type": "ListItem", "position": 2543, "name": "Allerta meteo per temporali e grandine nel vare...", "url": `${BASE_URL}/articoli-frontaliere/temporali-grandine-varesotto-allerta-meteo` }
  ]
  },
  {

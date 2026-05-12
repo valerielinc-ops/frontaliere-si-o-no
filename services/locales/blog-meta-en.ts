@@ -7462,6 +7462,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.direttrice-unispital-zurigo-whistleblower.title': 'USZ director thanks dismissed whistleblower',
     'blog.article.direttrice-unispital-zurigo-whistleblower.excerpt': 'Monika Jänicke, director of USZ, expresses gratitude towards the former cardiac surgeon who reported irregularities at the clinic.',
     'blog.article.direttrice-unispital-zurigo-whistleblower.imageAlt': 'Hospital in Ticino, Switzerland',
+    'blog.article.temporali-grandine-varesotto-allerta-meteo.title': 'Weather alert for storms and hail in Varese area',
+    'blog.article.temporali-grandine-varesotto-allerta-meteo.excerpt': 'Weather alert raised for strong winds in Varese province.',
+    'blog.article.temporali-grandine-varesotto-allerta-meteo.imageAlt': 'A stormy scene over Lake Lugano with dark clouds.',
 };
 
 export default blogMetaEn;

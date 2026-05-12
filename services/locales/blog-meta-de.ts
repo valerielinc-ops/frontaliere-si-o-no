@@ -7461,6 +7461,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.direttrice-unispital-zurigo-whistleblower.title': 'USZ-Chefin dankt entlassenem Whistleblower',
     'blog.article.direttrice-unispital-zurigo-whistleblower.excerpt': 'Monika Jänicke, Direktorin des USZ, zeigt Dankbarkeit gegenüber dem ehemaligen Herzchirurgen, der Unregelmäßigkeiten in der Klinik aufdeckte.',
     'blog.article.direttrice-unispital-zurigo-whistleblower.imageAlt': 'Krankenhaus in Tessin, Schweiz',
+    'blog.article.temporali-grandine-varesotto-allerta-meteo.title': 'Unwetterwarnung für Gewitter und Hagel im Varesotto',
+    'blog.article.temporali-grandine-varesotto-allerta-meteo.excerpt': 'Die Wetterwarnung für starken Wind in der Provinz Varese wird erhöht.',
+    'blog.article.temporali-grandine-varesotto-allerta-meteo.imageAlt': 'Eine stürmische Szene über dem Luganersee mit dunklen Wolken.',
 };
 
 export default blogMetaDe;

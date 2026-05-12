@@ -7463,6 +7463,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.direttrice-unispital-zurigo-whistleblower.title': 'Directrice USZ remercie le lanceur d\'alerte licencié',
     'blog.article.direttrice-unispital-zurigo-whistleblower.excerpt': 'Monika Jänicke, directrice de l\'USZ, exprime sa gratitude envers l\'ex-cardiochirurgien qui a dénoncé des irrégularités dans la clinique.',
     'blog.article.direttrice-unispital-zurigo-whistleblower.imageAlt': 'Hôpital en Tessin, Suisse',
+    'blog.article.temporali-grandine-varesotto-allerta-meteo.title': 'Alerte météo : orages et grêle dans la région de Varèse',
+    'blog.article.temporali-grandine-varesotto-allerta-meteo.excerpt': 'L\'alerte météo est relevée en raison de vents violents dans la province de Varèse.',
+    'blog.article.temporali-grandine-varesotto-allerta-meteo.imageAlt': 'Une scène orageuse sur le lac de Lugano avec des nuages sombres.',
 };
 
 export default blogMetaFr;

@@ -23762,4 +23762,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'temporali-grandine-varesotto-allerta-meteo',
+ category: 'novita',
+ date: '2026-05-12T07:51:52.929Z',
+ image: '/images/blog/temporali-grandine-varesotto-allerta-meteo.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
