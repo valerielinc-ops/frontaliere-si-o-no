@@ -475,7 +475,81 @@ function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  // Place the block before </body> so it sits as a sibling of #root and is
  // not touched by React hydration. Falls back to no-op if no </body>.
  if (!html.includes('</body>')) return html;
- return html.replace('</body>', `${block}\n</body>`);
+ const cantonNav = buildHomepageCantonNavHtml(locale);
+ return html.replace('</body>', `${block}\n${cantonNav}\n</body>`);
+}
+
+/**
+ * Homepage canton navigator — closes the +395 BFS-depth regression on
+ * `sitemap-jobs.xml` (run 25753701178). Without this block, the chain from
+ * `/` to a canton job leaf is:
+ *
+ *   /  → /cerca-lavoro-ticino/{tutti,…}  (depth 1)
+ *      → /cerca-lavoro-ticino/         (TI hub, depth 2)
+ *      → /cerca-lavoro-{canton}/       (canton hub, depth 3, via TI's
+ *                                       nonTiCantonNavEntries block)
+ *      → /cerca-lavoro-{canton}/tutti/page-N/   (depth 4, via canton
+ *                                       hub editorial flat archive nav)
+ *      → /cerca-lavoro-{canton}/{slug}/         (job leaf, depth 5 — over
+ *                                       the audit-max-bfs-depth cap of 4)
+ *
+ * This block lifts every non-TI canton hub to BFS depth 1 from `/`. Combined
+ * with the canton-hub editorial flat archive nav (cantonHubEditorial.ts), it
+ * collapses the chain to:
+ *
+ *   /  → /cerca-lavoro-{canton}/       (depth 1, this block)
+ *      → /cerca-lavoro-{canton}/tutti/page-N/   (depth 2)
+ *      → /cerca-lavoro-{canton}/{slug}/         (depth 3) ✓
+ *
+ * The `sitemap-jobs.xml` `<loc>` always uses the IT canton-aware path
+ * (jobsSeoPagesPlugin.ts:7350-7352), so for the failing gate the IT block
+ * alone suffices. EN/DE/FR home pages get their own locale-aware block via
+ * the same helper so the per-canton sitemap shards (sitemap-jobs-aargau.xml,
+ * etc.) also see shorter chains for their non-IT URLs.
+ *
+ * Layout: a collapsed `<details>` so the mobile fold stays clear (CLAUDE.md
+ * #15/#16). Inside, one row per canton with anchors:
+ *   <canton-hub>  ·  <tutti/>  ·  <today landing>
+ * The `tutti/` anchor explicitly creates a flat depth-1 → depth-2 hop for
+ * the `tutti/page-N` ladder owned by buildCantonHubEditorial.
+ */
+function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
+ const cantonDataAny = (cantonSlugFile as { cantons: Record<string, Record<string, string>>; aggregate?: Record<string, string> });
+ const cantonLocale = locale as CantonLocale;
+ const navLabel = locale === 'en' ? 'Browse jobs by Swiss canton'
+   : locale === 'de' ? 'Stellen nach Schweizer Kanton durchsuchen'
+   : locale === 'fr' ? 'Parcourir les offres par canton suisse'
+   : 'Sfoglia le offerte per cantone svizzero';
+ const allJobsLabel = locale === 'en' ? 'All' : locale === 'de' ? 'Alle' : locale === 'fr' ? 'Toutes' : 'Tutte';
+ // Cathedral canton-aware section + URL builders.
+ const codes = [...ALL_CANTON_CODES, AGGREGATE_KEY];
+ const TUTTI_SLUG: Record<HpSeoLocale, string> = { it: 'tutti', en: 'all', de: 'alle', fr: 'tous' };
+ const cantonRows: string[] = [];
+ for (const code of codes) {
+   // Display label = the URL slug humanised; matches the existing TI-hub
+   // nonTiCantonNavEntries pattern (no extra translation table needed —
+   // the per-canton hub itself emits a localized H1).
+   const slugForLabel = code === AGGREGATE_KEY
+     ? cantonDataAny.aggregate?.[locale]
+     : cantonDataAny.cantons?.[code]?.[locale] ?? cantonDataAny.cantons?.[code]?.it;
+   if (!slugForLabel) continue;
+   const cantonSection = resolveCantonSection(cantonLocale, code);
+   const cantonHubHref = `/${(locale === 'it' ? '' : `${locale}/`)}${cantonSection}/`.replace(/\/+/g, '/');
+   const tuttiHref = `${cantonHubHref}${TUTTI_SLUG[locale]}/`;
+   const displayLabel = slugForLabel
+     .split('-')
+     .map((w: string) => (w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w))
+     .join(' ');
+   const hubPillStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#eef2ff;color:#312e81;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #c7d2fe';
+   const tuttiPillStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;border:1px solid #bbf7d0';
+   cantonRows.push(
+     `<span style="display:inline-flex;align-items:center;gap:4px;margin:2px"><a href="${cantonHubHref}" style="${hubPillStyle}">${displayLabel}</a><a href="${tuttiHref}" style="${tuttiPillStyle}" aria-label="${displayLabel} — ${allJobsLabel}">${allJobsLabel}</a></span>`,
+   );
+ }
+ if (cantonRows.length === 0) return '';
+ // Collapsed <details> — BFS walker reads <a> tags regardless of `open`
+ // state, mobile fold stays clear.
+ return `<aside id="hp-canton-nav" aria-label="${navLabel}" style="max-width:1100px;margin:24px auto 56px;padding:0 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#334155;line-height:1.65"><details style="border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem;background:#f8fafc"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:#1e293b;padding:.25rem 0">${navLabel} (${cantonRows.length})</summary><nav aria-label="${navLabel}" style="margin-top:.5rem;line-height:1.9">${cantonRows.join('')}</nav></details></aside>`;
 }
 
 // ── Calculator landing SEO block ─────────────────────────────────────
