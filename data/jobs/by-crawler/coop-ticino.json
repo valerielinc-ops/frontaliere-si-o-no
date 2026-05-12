@@ -43,9 +43,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "verkaufsberater-in-tessin-steinfels-swiss-winterthur-zurich-6azqre",
-        "en": "sales-consultant-in-tessin-coop-genossenschaft-winterthur",
-        "de": "verkaufsberater-in-tessin-coop-genossenschaft-winterthur",
-        "fr": "consultant-en-ventes-a-tessin-coop-genossenschaft-winterthur"
+        "en": "verkaufsberater-in-tessin-steinfels-swiss-winterthur-zurich-6azqre",
+        "de": "verkaufsberater-in-tessin-steinfels-swiss-winterthur-zurich-6azqre",
+        "fr": "verkaufsberater-in-tessin-steinfels-swiss-winterthur-zurich-6azqre"
       },
       "addressLocality": "Winterthur",
       "salaryMin": 49500,
@@ -60,21 +60,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "en": [
-          "verkaufsberater-in-tessin-steinfels-swiss-winterthur-zurich-6azqre"
-        ],
-        "de": [
-          "verkaufsberater-in-tessin-steinfels-swiss-winterthur-zurich-6azqre"
-        ],
-        "fr": [
-          "verkaufsberater-in-tessin-steinfels-swiss-winterthur-zurich-6azqre"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufsberater-in-tessin-steinfels-swiss-winterthur-zurich-6azqre"
-      ]
+      "retranslationAttempts": 1
     },
     {
       "id": "company-lzsoh3",
@@ -105,9 +91,9 @@
       "firstSeenAt": "2026-05-12T11:04:10.406Z",
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "en": "seller-in-food-coop-genossenschaft-felsberg",
+        "en": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
         "de": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
+        "fr": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -143,18 +129,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
-      "previousSlugsByLocale": {
-        "en": [
-          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
-        ],
-        "fr": [
-          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
-      ]
+      "retranslationAttempts": 1
     },
     {
       "id": "company-3pl1h6",
@@ -348,9 +323,9 @@
       "firstSeenAt": "2026-05-11T11:30:28.503Z",
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "en": "seller-in-food-coop-genossenschaft-felsberg-6dde92",
+        "en": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
         "de": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"
+        "fr": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -392,23 +367,20 @@
         ],
         "en": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-          "seller-in-food-coop-genossenschaft-felsberg",
-          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+          "seller-in-food-coop-genossenschaft-felsberg"
         ],
         "de": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj"
         ],
         "fr": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
-          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-felsberg-graubunden-metayj",
         "venditore-in-food-coop-genossenschaft-felsberg",
         "seller-in-food-coop-genossenschaft-felsberg",
-        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
         "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
       ]
     },

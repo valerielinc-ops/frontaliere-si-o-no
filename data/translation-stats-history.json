@@ -10174,5 +10174,117 @@
         "pending": 7
       }
     ]
+  },
+  {
+    "timestamp": "2026-05-12T15:06:09.065Z",
+    "label": "before",
+    "total": 4361,
+    "needsRetranslation": 2308,
+    "incomplete": 536,
+    "complete": 3825,
+    "missingByLocale": {
+      "it": 354,
+      "en": 342,
+      "de": 191,
+      "fr": 413
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 87
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 84
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 75
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 57
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 48
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Pictet Group",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "Denner",
+        "pending": 8
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 8
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-12T17:54:59.122Z",
+    "label": "after",
+    "total": 4361,
+    "needsRetranslation": 996,
+    "incomplete": 371,
+    "complete": 3990,
+    "missingByLocale": {
+      "it": 288,
+      "en": 240,
+      "de": 120,
+      "fr": 305
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 83
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 74
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 57
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "IWC",
+        "pending": 11
+      },
+      {
+        "company": "Pictet Group",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "UBS",
+        "pending": 8
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 7
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      }
+    ]
   }
 ]
