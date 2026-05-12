@@ -56,7 +56,7 @@
         "it": "corporate-tax-tirocinante-finanza-department-geneva-efg-international-ag-geneve",
         "en": "corporate-tax-intern-finance-department-geneva-efg-geneve",
         "de": "corporate-tax-praktikant-finanzen-department-geneva-efg-international-ag-geneve",
-        "fr": "corporate-tax-intern-finance-department-geneva-efg-geneve"
+        "fr": "stagiaire-en-fiscalite-des-societes-departement-des-finances-geneve-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -84,6 +84,9 @@
         ],
         "de": [
           "corporate-tax-intern-finance-department-geneva-efg-geneve"
+        ],
+        "fr": [
+          "corporate-tax-intern-finance-department-geneva-efg-geneve"
         ]
       },
       "previousSlugs": [
@@ -92,7 +95,7 @@
     },
     {
       "id": "efg-6212",
-      "slug": "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve",
+      "slug": "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Finance Data Analytics & Power BI Internship",
       "location": "Geneve",
@@ -240,7 +243,7 @@
       },
       "crawledAt": "2026-05-11T21:58:01.950Z",
       "slugByLocale": {
-        "it": "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve",
+        "it": "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve",
         "en": "finance-data-analytics-power-bi-internship-efg-geneve",
         "de": "finanzen-data-analytics-power-bi-internship-efg-international-ag-geneve",
         "fr": "finance-data-analytics-power-bi-internship-efg-geneve"
@@ -267,19 +270,21 @@
       "firstSeenAt": "2026-05-10T21:30:00.910Z",
       "previousSlugsByLocale": {
         "it": [
-          "finance-data-analytics-power-bi-internship-efg-geneve"
+          "finance-data-analytics-power-bi-internship-efg-geneve",
+          "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve"
         ],
         "de": [
           "finance-data-analytics-power-bi-internship-efg-geneve"
         ]
       },
       "previousSlugs": [
-        "finance-data-analytics-power-bi-internship-efg-geneve"
+        "finance-data-analytics-power-bi-internship-efg-geneve",
+        "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve"
       ]
     },
     {
       "id": "efg-6209",
-      "slug": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich",
+      "slug": "rischio-operativo-e-specialista-di-sicurezza-informatica-e-informatica-efg-international-ag-zurich",
       "company": "EFG International AG",
       "title": "Operational Risk and Advisory IT and Information Security Specialist",
       "location": "Zurich",
@@ -411,7 +416,7 @@
       },
       "crawledAt": "2026-05-11T21:58:01.949Z",
       "slugByLocale": {
-        "it": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich",
+        "it": "rischio-operativo-e-specialista-di-sicurezza-informatica-e-informatica-efg-international-ag-zurich",
         "en": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich",
         "de": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich",
         "fr": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich"
@@ -435,7 +440,15 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.908Z"
+      "firstSeenAt": "2026-05-10T21:30:00.908Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich"
+      ]
     },
     {
       "id": "efg-6203",
@@ -666,7 +679,7 @@
     },
     {
       "id": "efg-6190",
-      "slug": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
+      "slug": "pb-specialist-americas-ginevra-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "PB Support Specialist Americas Geneva",
       "location": "Geneve",
@@ -792,7 +805,7 @@
       },
       "crawledAt": "2026-05-11T21:58:01.946Z",
       "slugByLocale": {
-        "it": "pb-support-specialista-americas-geneva-efg-international-ag-geneve",
+        "it": "pb-specialist-americas-ginevra-efg-international-ag-geneve",
         "en": "pb-support-specialist-americas-geneva-efg-geneve",
         "de": "pb-support-spezialist-americas-geneva-efg-international-ag-geneve",
         "fr": "pb-support-specialiste-americas-geneva-efg-international-ag-geneve"
@@ -819,7 +832,8 @@
       "firstSeenAt": "2026-05-10T21:30:00.905Z",
       "previousSlugsByLocale": {
         "it": [
-          "pb-support-specialist-americas-geneva-efg-geneve"
+          "pb-support-specialist-americas-geneva-efg-geneve",
+          "pb-support-specialista-americas-geneva-efg-international-ag-geneve"
         ],
         "de": [
           "pb-support-specialist-americas-geneva-efg-geneve"
@@ -829,7 +843,8 @@
         ]
       },
       "previousSlugs": [
-        "pb-support-specialist-americas-geneva-efg-geneve"
+        "pb-support-specialist-americas-geneva-efg-geneve",
+        "pb-support-specialista-americas-geneva-efg-international-ag-geneve"
       ]
     },
     {
@@ -921,7 +936,7 @@
     },
     {
       "id": "efg-6175",
-      "slug": "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
+      "slug": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "PB Support Specialist - Middle East CH",
       "location": "Geneve",
@@ -1045,7 +1060,7 @@
       },
       "crawledAt": "2026-05-11T21:58:01.943Z",
       "slugByLocale": {
-        "it": "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
+        "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
         "de": "pb-support-spezialist-middle-east-ch-efg-international-ag-geneve",
         "fr": "pb-support-specialiste-middle-east-ch-efg-international-ag-geneve"
@@ -1072,7 +1087,8 @@
       "firstSeenAt": "2026-05-10T21:30:00.902Z",
       "previousSlugsByLocale": {
         "it": [
-          "pb-support-specialist-middle-east-ch-efg-geneve"
+          "pb-support-specialist-middle-east-ch-efg-geneve",
+          "pb-support-specialista-middle-east-ch-efg-international-ag-geneve"
         ],
         "de": [
           "pb-support-specialist-middle-east-ch-efg-geneve"
@@ -1082,7 +1098,8 @@
         ]
       },
       "previousSlugs": [
-        "pb-support-specialist-middle-east-ch-efg-geneve"
+        "pb-support-specialist-middle-east-ch-efg-geneve",
+        "pb-support-specialista-middle-east-ch-efg-international-ag-geneve"
       ]
     },
     {
@@ -2158,8 +2175,8 @@
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
-        "de": "client-services-officer-geneva-talent-pool-efg-geneve",
-        "fr": "client-services-officer-geneva-talent-pool-efg-geneve"
+        "de": "client-services-officer-genfer-talentpool-efg-international-ag-geneve",
+        "fr": "specialiste-des-services-a-la-clientele-groupe-des-talents-de-geneve-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -2236,7 +2253,7 @@
         "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
         "de": "cybersecurity-internal-penetration-tester-efg-geneve",
-        "fr": "cybersecurity-internal-penetration-tester-efg-geneve"
+        "fr": "cybersecurite-testeur-interne-de-penetration-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -2260,6 +2277,9 @@
       "firstSeenAt": "2026-05-10T21:30:00.894Z",
       "previousSlugsByLocale": {
         "it": [
+          "cybersecurity-internal-penetration-tester-efg-geneve"
+        ],
+        "fr": [
           "cybersecurity-internal-penetration-tester-efg-geneve"
         ]
       },
@@ -2457,7 +2477,7 @@
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
         "de": "senior-private-markets-product-spezialist-efg-international-ag-zurich",
-        "fr": "senior-private-markets-product-specialiste-efg-international-ag-zurich"
+        "fr": "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       },
       "addressLocality": "Zurich",
       "addressCountry": "CH",
@@ -2487,11 +2507,13 @@
           "senior-private-markets-product-specialist-efg-zurich"
         ],
         "fr": [
-          "senior-private-markets-product-specialist-efg-zurich"
+          "senior-private-markets-product-specialist-efg-zurich",
+          "senior-private-markets-product-specialiste-efg-international-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "senior-private-markets-product-specialist-efg-zurich"
+        "senior-private-markets-product-specialist-efg-zurich",
+        "senior-private-markets-product-specialiste-efg-international-ag-zurich"
       ]
     },
     {
@@ -2584,7 +2606,7 @@
     },
     {
       "id": "efg-6040",
-      "slug": "network-proxy-support-capo-team-efg-international-ag-geneve",
+      "slug": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Network & Proxy Support Team Lead",
       "location": "Geneve",
@@ -2633,7 +2655,7 @@
       },
       "crawledAt": "2026-05-11T21:58:01.932Z",
       "slugByLocale": {
-        "it": "network-proxy-support-capo-team-efg-international-ag-geneve",
+        "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
         "de": "network-proxy-support-teamleiter-efg-international-ag-geneve",
         "fr": "network-proxy-support-chef-d-equipe-efg-international-ag-geneve"
@@ -2660,7 +2682,8 @@
       "firstSeenAt": "2026-05-10T21:30:00.890Z",
       "previousSlugsByLocale": {
         "it": [
-          "network-proxy-support-team-lead-efg-geneve"
+          "network-proxy-support-team-lead-efg-geneve",
+          "network-proxy-support-capo-team-efg-international-ag-geneve"
         ],
         "de": [
           "network-proxy-support-team-lead-efg-geneve"
@@ -2670,7 +2693,8 @@
         ]
       },
       "previousSlugs": [
-        "network-proxy-support-team-lead-efg-geneve"
+        "network-proxy-support-team-lead-efg-geneve",
+        "network-proxy-support-capo-team-efg-international-ag-geneve"
       ]
     },
     {
@@ -3399,8 +3423,8 @@
       "slugByLocale": {
         "it": "rischio-e-conformita-applicazione-tecnica-proprietario-efg-international-ag-geneve",
         "en": "risk-compliance-technical-application-owner-efg-geneve",
-        "de": "risk-compliance-technical-application-owner-efg-geneve",
-        "fr": "risk-compliance-technical-application-owner-efg-geneve"
+        "de": "risiko-und-compliance-technischer-anwendungsinhaber-efg-international-ag-geneve",
+        "fr": "proprietaire-de-la-demande-technique-de-risque-et-de-conformite-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -3424,6 +3448,12 @@
       "firstSeenAt": "2026-05-10T21:30:00.885Z",
       "previousSlugsByLocale": {
         "it": [
+          "risk-compliance-technical-application-owner-efg-geneve"
+        ],
+        "de": [
+          "risk-compliance-technical-application-owner-efg-geneve"
+        ],
+        "fr": [
           "risk-compliance-technical-application-owner-efg-geneve"
         ]
       },
@@ -3575,7 +3605,7 @@
       "slugByLocale": {
         "it": "business-analista-legal-compliance-efg-international-ag-geneve",
         "en": "business-analyst-legal-compliance-efg-geneve",
-        "de": "business-analyst-legal-compliance-efg-geneve",
+        "de": "business-analysten-recht-und-compliance-efg-international-ag-geneve",
         "fr": "business-analyste-legal-compliance-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -3603,6 +3633,9 @@
           "business-analyst-legal-compliance-efg-geneve"
         ],
         "fr": [
+          "business-analyst-legal-compliance-efg-geneve"
+        ],
+        "de": [
           "business-analyst-legal-compliance-efg-geneve"
         ]
       },
@@ -3779,7 +3812,7 @@
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
-        "de": "group-financial-controller-efg-geneve",
+        "de": "konzern-finanzverantwortlicher-efg-international-ag-geneve",
         "fr": "group-financial-controller-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -3804,6 +3837,9 @@
       "firstSeenAt": "2026-05-10T21:30:00.881Z",
       "previousSlugsByLocale": {
         "it": [
+          "group-financial-controller-efg-geneve"
+        ],
+        "de": [
           "group-financial-controller-efg-geneve"
         ]
       },
@@ -3978,8 +4014,8 @@
       "crawledAt": "2026-05-10T21:30:00.910Z",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
-        "en": "apprenticeship-commercial-employee-efg-bank-efg-international-ag-lugano",
-        "de": "commercial-apprentice-bei-efg-bank-efg-international-ag-lugano",
+        "en": "banking-apprentice-afc-commercial-clerk-efg-international-ag-lugano",
+        "de": "bankkaufmann-frau-lehrstelle-afc-kaufmann-frau-im-bankgewerbe-efg-international-ag-lugano",
         "fr": "apprenti-e-commercial-e-chez-efg-bank-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -4012,7 +4048,8 @@
           "kaufmannischer-ausbildungsplatz-bei-afc-bank-efg-international-ag-lugano",
           "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
           "bankkaufmann-frau-efq-lehrling-efg-international-ag-lugano",
-          "lehre-kaufmann-frau-efg-bank-efg-international-ag-lugano"
+          "lehre-kaufmann-frau-efg-bank-efg-international-ag-lugano",
+          "commercial-apprentice-bei-efg-bank-efg-international-ag-lugano"
         ],
         "fr": [
           "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano",
@@ -4034,7 +4071,8 @@
           "banking-commercial-apprenticeship-efz-at-efg-international-ag-efg-international-ag-lugano",
           "afc-bank-commercial-trainee-efg-international-ag-lugano",
           "commercial-apprenticeship-at-afc-bank-efg-international-ag-lugano",
-          "banking-commercial-apprentice-efq-efg-international-ag-lugano"
+          "banking-commercial-apprentice-efq-efg-international-ag-lugano",
+          "apprenticeship-commercial-employee-efg-bank-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
@@ -4048,6 +4086,7 @@
         "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
         "bankkaufmann-frau-efq-lehrling-efg-international-ag-lugano",
         "lehre-kaufmann-frau-efg-bank-efg-international-ag-lugano",
+        "commercial-apprentice-bei-efg-bank-efg-international-ag-lugano",
         "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano",
         "apprentissage-employe-e-de-commerce-cfc-efg-international-ag-efg-international-ag-lugano",
         "stagiaire-commercial-afc-banque-efg-international-ag-lugano",
@@ -4056,8 +4095,7 @@
         "apprenti-en-commerce-chez-afc-bank-efg-international-ag-lugano",
         "apprentissage-commercial-chez-afc-banque-efg-international-ag-lugano",
         "apprenti-banquier-efg-international-ag-efg-international-ag-lugano",
-        "apprenti-apprentie-en-commerce-bancaire-efq-efg-international-ag-lugano",
-        "apprenti-commercial-afc-banque-efg-international-ag-lugano"
+        "apprenti-apprentie-en-commerce-bancaire-efq-efg-international-ag-lugano"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z"
     },

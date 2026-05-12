@@ -2842,12 +2842,12 @@
     },
     {
       "id": "unispital-basel-0a1619067e01",
-      "slug": "fachleitung-pflege-apn-clinical-nurse-specialista-pflegeexpert-in-apn-nurse-practitioner-universitatsspital-basel-basel",
+      "slug": "responsabile-infermieristico-apn-specialista-infermieristico-clinico-esperto-a-di-assistenza-infermieristica-apn-nurse-p",
       "slugByLocale": {
-        "it": "fachleitung-pflege-apn-clinical-nurse-specialista-pflegeexpert-in-apn-nurse-practitioner-universitatsspital-basel-basel",
+        "it": "responsabile-infermieristico-apn-specialista-infermieristico-clinico-esperto-a-di-assistenza-infermieristica-apn-nurse-p",
         "en": "fachleitung-pflege-apn-clinical-nurse-specialist-pflegeexpert-in-apn-nurse-practitioner-un",
         "de": "fachleitung-pflege-apn-clinical-nurse-specialist-pflegeexpert-in-apn-nurse-practitioner-un",
-        "fr": "fachleitung-pflege-apn-infirmiere-specialiste-clinique-pflegeexpert-en-apn-infirmiere-praticienne-universitatsspital-bas"
+        "fr": "responsable-infirmier-infirmiere-apn-infirmier-clinicien-expert-e-en-soins-apn-nurse-practitioner-universitatsspital-bas"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2890,15 +2890,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachleitung-pflege-apn-clinical-nurse-specialist-pflegeexpert-in-apn-nurse-practitioner-un",
-        "fachleitung-pflege-apn-clinical-nurse-specialiste-pflegeexpert-in-apn-nurse-practitioner-universitatsspital-basel-basel"
+        "fachleitung-pflege-apn-clinical-nurse-specialista-pflegeexpert-in-apn-nurse-practitioner-universitatsspital-basel-basel",
+        "fachleitung-pflege-apn-clinical-nurse-specialiste-pflegeexpert-in-apn-nurse-practitioner-universitatsspital-basel-basel",
+        "fachleitung-pflege-apn-infirmiere-specialiste-clinique-pflegeexpert-en-apn-infirmiere-praticienne-universitatsspital-bas"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachleitung-pflege-apn-clinical-nurse-specialist-pflegeexpert-in-apn-nurse-practitioner-un"
+          "fachleitung-pflege-apn-clinical-nurse-specialist-pflegeexpert-in-apn-nurse-practitioner-un",
+          "fachleitung-pflege-apn-clinical-nurse-specialista-pflegeexpert-in-apn-nurse-practitioner-universitatsspital-basel-basel"
         ],
         "fr": [
           "fachleitung-pflege-apn-clinical-nurse-specialist-pflegeexpert-in-apn-nurse-practitioner-un",
-          "fachleitung-pflege-apn-clinical-nurse-specialiste-pflegeexpert-in-apn-nurse-practitioner-universitatsspital-basel-basel"
+          "fachleitung-pflege-apn-clinical-nurse-specialiste-pflegeexpert-in-apn-nurse-practitioner-universitatsspital-basel-basel",
+          "fachleitung-pflege-apn-infirmiere-specialiste-clinique-pflegeexpert-en-apn-infirmiere-praticienne-universitatsspital-bas"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.322Z",
@@ -4500,11 +4504,11 @@
     },
     {
       "id": "unispital-basel-da7675f4dd03",
-      "slug": "fachfrau-fachmann-hr-administration-unispital-basel-ch",
+      "slug": "amministrazione-aziendale-universitatsspital-basel-basel-65d8a1",
       "slugByLocale": {
         "de": "fachfrau-fachmann-hr-administration-universitatsspital-basel-basel",
-        "it": "fachfrau-fachmann-hr-administration-unispital-basel-ch",
-        "en": "fachfrau-fachmann-hr-administration-unispital-basel-ch",
+        "it": "amministrazione-aziendale-universitatsspital-basel-basel-65d8a1",
+        "en": "professional-hr-administration-universitatsspital-basel-basel-65d8a1",
         "fr": "fachfrau-fachmann-hr-administration-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
@@ -4562,21 +4566,23 @@
       },
       "firstSeenAt": "2026-05-11T23:07:46.597Z",
       "previousSlugs": [
+        "amministrazione-aziendale-universitatsspital-basel-basel",
         "fachfrau-fachmann-hr-administration-unispital-basel-ch",
+        "professional-hr-administration-universitatsspital-basel-basel",
+        "gestion-des-ressources-humaines-universitatsspital-basel-basel",
         "fachfrau-fachmann-risorse-umane-administration-universitatsspital-basel-basel",
         "fachfrau-fachmann-ressources-humaines-administration-universitatsspital-basel-basel",
         "fachfrau-fachmann-risorse-umane-administration-universitatsspital-basel-basel-wdnqfm",
-        "fachfrau-fachmann-hr-administration-unispital-basel-ch-2",
-        "amministrazione-aziendale-universitatsspital-basel-basel",
-        "professional-hr-administration-universitatsspital-basel-basel",
-        "gestion-des-ressources-humaines-universitatsspital-basel-basel"
+        "fachfrau-fachmann-hr-administration-unispital-basel-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "amministrazione-aziendale-universitatsspital-basel-basel"
+          "amministrazione-aziendale-universitatsspital-basel-basel",
+          "fachfrau-fachmann-hr-administration-unispital-basel-ch"
         ],
         "en": [
-          "professional-hr-administration-universitatsspital-basel-basel"
+          "professional-hr-administration-universitatsspital-basel-basel",
+          "fachfrau-fachmann-hr-administration-unispital-basel-ch"
         ],
         "fr": [
           "gestion-des-ressources-humaines-universitatsspital-basel-basel"
@@ -5083,9 +5089,9 @@
       "slug": "pflegefachperson-hf-nephrologisches-ambulatorium-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "pflegefachperson-hf-nephrologisches-ambulatorium-universitatsspital-basel-basel",
-        "en": "specialized-nurse-hf-nephrology-outpatient-clinic-universitatsspital-basel-basel",
+        "en": "care-specialist-hf-nephrological-outpatient-universitatsspital-basel-basel",
         "de": "pflegefachperson-hf-nephrologisches-ambulatorium-unispital-basel-ch",
-        "fr": "infirmier-specialise-hf-ambulatoire-de-nephrologie-universitatsspital-basel-basel"
+        "fr": "specialiste-des-soins-hf-patients-externes-nephrologiques-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -5128,12 +5134,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-hf-nephrologisches-ambulatorium-unispital-basel-ch",
-        "specialista-di-cura-hf-paziente-neurologico-universitatsspital-basel-basel"
+        "specialista-di-cura-hf-paziente-neurologico-universitatsspital-basel-basel",
+        "specialized-nurse-hf-nephrology-outpatient-clinic-universitatsspital-basel-basel",
+        "infirmier-specialise-hf-ambulatoire-de-nephrologie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-nephrologisches-ambulatorium-unispital-basel-ch",
           "specialista-di-cura-hf-paziente-neurologico-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "specialized-nurse-hf-nephrology-outpatient-clinic-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "infirmier-specialise-hf-ambulatoire-de-nephrologie-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.304Z",

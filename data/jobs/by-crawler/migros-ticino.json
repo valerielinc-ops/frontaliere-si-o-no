@@ -86,7 +86,7 @@
         "it": "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny-70fjie",
         "en": "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny-70fjie",
         "de": "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny-70fjie",
-        "fr": "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny-70fjie"
+        "fr": "administrateur-gestion-immobilien-genossenschaft-migros-wallis-martigny"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -185,9 +185,9 @@
       },
       "slugByLocale": {
         "it": "consulente-clienti-privato-tutti-migros-bank-bellinzona",
-        "en": "privatkundenberater-alle-migros-bank-bellinzona",
+        "en": "private-customer-advisor-all-migros-bank-chur",
         "de": "privatkundenberater-alle-migros-bank-bellinzona",
-        "fr": "privatkundenberater-alle-migros-bank-bellinzona"
+        "fr": "conseiller-client-prive-tous-migros-bank-chur"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -197,19 +197,22 @@
           "consulente-clienti-privato-tutti-migros-bank-chur"
         ],
         "en": [
-          "privatkundenberater-alle-migros-bank-chur-oi85uq"
+          "privatkundenberater-alle-migros-bank-chur-oi85uq",
+          "privatkundenberater-alle-migros-bank-bellinzona"
         ],
         "de": [
           "privatkundenberater-alle-migros-bank-chur-oi85uq"
         ],
         "fr": [
-          "privatkundenberater-alle-migros-bank-chur-oi85uq"
+          "privatkundenberater-alle-migros-bank-chur-oi85uq",
+          "privatkundenberater-alle-migros-bank-bellinzona"
         ]
       },
       "previousSlugs": [
         "privatkundenberater-alle-migros-bank-chur",
         "privatkundenberater-alle-migros-bank-chur-oi85uq",
-        "consulente-clienti-privato-tutti-migros-bank-chur"
+        "consulente-clienti-privato-tutti-migros-bank-chur",
+        "privatkundenberater-alle-migros-bank-bellinzona"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -232,7 +235,7 @@
     },
     {
       "id": "company-gep1sj",
-      "slug": "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona",
+      "slug": "quereinsteiger-nella-responsabilita-professionale-genossenschaft-migros-ostschweiz-chur",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Quereinsteiger*in Fachverantwortung",
       "location": "Chur",
@@ -300,31 +303,36 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona",
-        "en": "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona",
+        "it": "quereinsteiger-nella-responsabilita-professionale-genossenschaft-migros-ostschweiz-chur",
+        "en": "quereinsteiger-in-professional-responsibility-genossenschaft-migros-ostschweiz-chur",
         "de": "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona",
-        "fr": "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona"
+        "fr": "quereinsteiger-en-responsabilite-professionnelle-genossenschaft-migros-ostschweiz-chur"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur",
-          "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj"
+          "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
+          "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona"
         ],
         "en": [
-          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj"
+          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
+          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona"
         ],
         "de": [
           "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj"
         ],
         "fr": [
-          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj"
+          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
+          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
         "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur",
         "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
-        "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj"
+        "candidato-a-in-riqualificazione-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona",
+        "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
+        "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

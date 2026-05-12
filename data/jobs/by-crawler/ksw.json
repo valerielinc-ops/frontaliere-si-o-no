@@ -1870,11 +1870,11 @@
     },
     {
       "id": "ksw-0ee50edd0bc5",
-      "slug": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "praktikante-in-assistenza-sanitaria-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "pflegepraktikantin-pflegepraktikant-ksw-ch",
-        "it": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
-        "en": "nursing-intern-kantonsspital-winterthur-ksw-winterthur",
+        "it": "praktikante-in-assistenza-sanitaria-kantonsspital-winterthur-ksw-winterthur",
+        "en": "healthcare-practitioner-kantonsspital-winterthur-ksw-winterthur",
         "fr": "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
@@ -1921,11 +1921,17 @@
       "department": "Kantonsspital Winterthur",
       "previousSlugsByLocale": {
         "it": [
-          "pflegepraktikantin-pflegepraktikant-ksw-ch"
+          "pflegepraktikantin-pflegepraktikant-ksw-ch",
+          "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "nursing-intern-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "previousSlugs": [
-        "pflegepraktikantin-pflegepraktikant-ksw-ch"
+        "pflegepraktikantin-pflegepraktikant-ksw-ch",
+        "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur",
+        "nursing-intern-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
