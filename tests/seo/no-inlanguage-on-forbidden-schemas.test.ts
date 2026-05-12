@@ -223,18 +223,30 @@ function scanFile(file: string): readonly Offender[] {
   const src = fs.readFileSync(file, 'utf8');
   const offenders: Offender[] = [];
 
-  // Collect candidate start positions: every `[` or `{` that follows
-  // a `structuredData:` token, AND every `{` whose body contains an
-  // `@type` property at any nesting level. We dedupe by position.
-  const candidatePositions = new Set<number>();
+  // Collect candidate (start position, raw block) entries: every `[`/`{`
+  // that follows a `structuredData:` token, AND every `{` whose body
+  // contains an `@type` property at any nesting level. Dedupe by position.
+  const candidates = new Map<number, string>();
+  const coveredRanges: { start: number; end: number }[] = [];
 
-  // 1. structuredData: blocks
+  // 1. structuredData: blocks. Extract eagerly so we know the end and can
+  //    use it as a covering range in pass 2 — otherwise every `@type`
+  //    nested inside a structuredData block (the common case in
+  //    services/seo/seo-blog*.ts, ~3-4 @types per block) re-triggers a
+  //    backwards scan + extractBalanced and the test runs O(N*K) on
+  //    multi-million-char source. Adding pass-1 ranges to coveredRanges
+  //    drops the work to ~one extract per outer block.
   const sdRx = /\bstructuredData\s*:\s*/g;
   let sdMatch: RegExpExecArray | null;
   while ((sdMatch = sdRx.exec(src)) !== null) {
     const after = sdMatch.index + sdMatch[0].length;
     const ch = src[after];
-    if (ch === '{' || ch === '[') candidatePositions.add(after);
+    if (ch !== '{' && ch !== '[') continue;
+    if (candidates.has(after)) continue;
+    const block = extractBalanced(src, after);
+    if (!block) continue;
+    candidates.set(after, block);
+    coveredRanges.push({ start: after, end: after + block.length });
   }
 
   // 2. Every `{` whose balanced body contains an `@type:` key. The
@@ -243,11 +255,11 @@ function scanFile(file: string): readonly Offender[] {
   //    (e.g. `const sd = { '@type': 'Organization', inLanguage: ... }`)
   //    elsewhere — we widen coverage with a guarded backwards scan.
   //
-  //    To keep this O(N) we cache covered ranges: once a `{` block is
-  //    added as a candidate, every nested @type inside it is considered
-  //    already-handled (the recursive walkTree pass will descend into it).
+  //    To keep this O(N) we cache covered ranges (from pass 1 + this
+  //    pass): once a `{` block is added as a candidate, every nested
+  //    @type inside it is considered already-handled (the recursive
+  //    walkTree pass will descend into it).
   const typeRx = /['"]?@type['"]?\s*:/g;
-  const coveredRanges: { start: number; end: number }[] = [];
   let tm: RegExpExecArray | null;
   while ((tm = typeRx.exec(src)) !== null) {
     // Skip if already inside a covered block
@@ -261,16 +273,14 @@ function scanFile(file: string): readonly Offender[] {
       if (k > 0 && src[k - 1] === '$') continue;
       const block = extractBalanced(src, k);
       if (block && k + block.length > tm.index) {
-        candidatePositions.add(k);
+        if (!candidates.has(k)) candidates.set(k, block);
         coveredRanges.push({ start: k, end: k + block.length });
         break;
       }
     }
   }
 
-  for (const pos of candidatePositions) {
-    const raw = extractBalanced(src, pos);
-    if (!raw) continue;
+  for (const [pos, raw] of candidates) {
     let parsed: unknown;
     try {
       parsed = JSON.parse(jsToJson(raw));
