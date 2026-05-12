@@ -1192,16 +1192,17 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
       const localePrefix = locale === 'it' ? '' : `/${locale}`;
       const sectionRoot = `${localePrefix}/${section}`;
 
-      // ── tutti (all jobs) — full pagination ladder ──
-      // BFS-depth closure (2026-05-12): paginate `tutti/page-N/` so every
-      // canton job leaf is reachable at BFS depth ≤ 4 from `/`. Path is:
-      //   /  → TI canton hub (depth 1) → canton hub (depth 2)
-      //      → tutti/page-N (depth 3) → job-detail (depth 4)
-      // The canton-hub editorial (`buildCantonHubEditorial`) already links
-      // every `tutti/page-N/` from depth 2 via its archive navigator, so
-      // each page-N sits at depth 3. Without this loop the page-N HTML
-      // files don't exist → every linked anchor is a 404 and the leaves
-      // remain unreachable.
+      // ── tutti (all jobs) — page-1 only ──
+      // Reverted PR #141's full pagination ladder (2026-05-12): emitting
+      // every `tutti/page-N/` as static HTML × 26 cantons × 4 locales added
+      // ~170 MB to the dist (~2.19 GB → ~2.36 GB) which started tripping
+      // GitHub Pages' 1 GB soft cap on every deploy + regressed the
+      // text-html-ratio gate (page-N pages have ~6 % ratio vs ≥10 % needed —
+      // job cards are markup-heavy). Page-1 alone keeps the canton hub
+      // crawlable; deeper paginated views are served by the SPA via the
+      // `404.html` → `index.html` redirect (URL preserved). Sitemap only
+      // lists page-1 going forward — avoids advertising URLs whose static
+      // HTML doesn't exist (orphan-pages-in-sitemaps audit).
       //
       // Anchor URLs: prefer the per-locale URL from `all-known-job-slugs.json`
       // (cathedral-aware, points at `/{locale}/{section}/{slug}/`). Fall back
@@ -1210,46 +1211,36 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
       {
         const basePath = hubSlugFor(canton, locale, 'tutti');
         const tuttiPageSize = JOBS_PAGE_SIZE; // 100
-        const tuttiTotalPages = Math.max(1, Math.ceil(jobs.length / tuttiPageSize));
         const localeUrlMap = jobPerLocale[locale] ?? {};
         const itUrlMap = jobPerLocale.it ?? {};
-        for (let pageNum = 1; pageNum <= tuttiTotalPages; pageNum++) {
-          const startIdx = (pageNum - 1) * tuttiPageSize;
-          const pageJobs = jobs.slice(startIdx, startIdx + tuttiPageSize);
-          const items = pageJobs.map((j) => {
-            // 1) Try locale-specific path (cathedral-canton-aware).
-            // 2) Fall back to IT path (acceptable — same content, IT URL).
-            // 3) Last-resort legacy form `sectionRoot/slug/`.
-            const localePath = localeUrlMap[j.slug];
-            const itPath = itUrlMap[j.slug];
-            const href = (localePath && (localePath.endsWith('/') ? localePath : `${localePath}/`))
-              || (itPath && (itPath.endsWith('/') ? itPath : `${itPath}/`))
-              || `${sectionRoot}/${j.slug}/`;
-            return {
-              href,
-              label: j.role || humanizeSlug(j.slug),
-              sub: j.city || undefined,
-            };
-          });
-          const html = buildThinCantonHubHtml({
-            locale, hub: 'tutti', canton, cantonLabel, basePath,
-            totalItems: total, items, hasSpaBundle, entryJs, entryCss, dateStamp,
-            page: pageNum, totalPages: tuttiTotalPages,
-          });
-          const pageCanonical = pageNum === 1 ? basePath : paginatedPath(basePath, pageNum);
-          qw(np.join(distDir, pageCanonical.slice(1), 'index.html'), html);
-          onPageEmitted();
-          // Sitemap entries: keep the same shape as before — only IT locale
-          // contributes one entry per (canton, page) tuple. Page 1 keeps
-          // priority 0.6; paginated pages get 0.5 (mirrors the TI emitHub
-          // contract from line ~1311-1335).
-          if (locale === 'it') {
-            const url = `${BASE_URL}${pageCanonical}`;
-            const priority = pageNum === 1 ? '0.6' : '0.5';
-            sitemapEntries.push(
-              `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
-            );
-          }
+        const pageJobs = jobs.slice(0, tuttiPageSize);
+        const items = pageJobs.map((j) => {
+          // 1) Try locale-specific path (cathedral-canton-aware).
+          // 2) Fall back to IT path (acceptable — same content, IT URL).
+          // 3) Last-resort legacy form `sectionRoot/slug/`.
+          const localePath = localeUrlMap[j.slug];
+          const itPath = itUrlMap[j.slug];
+          const href = (localePath && (localePath.endsWith('/') ? localePath : `${localePath}/`))
+            || (itPath && (itPath.endsWith('/') ? itPath : `${itPath}/`))
+            || `${sectionRoot}/${j.slug}/`;
+          return {
+            href,
+            label: j.role || humanizeSlug(j.slug),
+            sub: j.city || undefined,
+          };
+        });
+        const html = buildThinCantonHubHtml({
+          locale, hub: 'tutti', canton, cantonLabel, basePath,
+          totalItems: total, items, hasSpaBundle, entryJs, entryCss, dateStamp,
+          page: 1, totalPages: 1,
+        });
+        qw(np.join(distDir, basePath.slice(1), 'index.html'), html);
+        onPageEmitted();
+        if (locale === 'it') {
+          const url = `${BASE_URL}${basePath}`;
+          sitemapEntries.push(
+            `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+          );
         }
       }
 

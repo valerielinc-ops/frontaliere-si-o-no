@@ -98,12 +98,16 @@ const ALLOWLIST = [
   // in emitThinCantonHubs), and once more on 2026-05-12 by the flat-ladder
   // navigator added inside renderPagination (BFS-depth closure run
   // 25753701178 — every page-N now lists every other page-N inside a
-  // collapsed <details>). The 4 literals all live on 2 paired template
-  // literals (sectors hub + companies hub), each spanning 2 lines.
-  'build-plugins/seoHubsPlugin.ts:1364',
-  'build-plugins/seoHubsPlugin.ts:1365',
-  'build-plugins/seoHubsPlugin.ts:1380',
-  'build-plugins/seoHubsPlugin.ts:1381',
+  // collapsed <details>). Then shifted back -10 on 2026-05-12 when the
+  // `tutti/page-N` pagination loop was reverted in emitThinCantonHubs
+  // (deploy artifact >1 GB Pages cap + text-html-ratio regression — only
+  // page-1 stays as static HTML for non-TI cantons). The 4 literals all
+  // live on 2 paired template literals (sectors hub + companies hub), each
+  // spanning 2 lines.
+  'build-plugins/seoHubsPlugin.ts:1354',
+  'build-plugins/seoHubsPlugin.ts:1355',
+  'build-plugins/seoHubsPlugin.ts:1370',
+  'build-plugins/seoHubsPlugin.ts:1371',
 
   // ── professionLandingsLinksPlugin: TI hub injection targets (intentional —
   //    the prose explicitly references "10 most-searched roles in Ticino"). ──
