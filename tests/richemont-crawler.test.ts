@@ -4,6 +4,7 @@ import {
   RICHEMONT_COMPANY_NAME,
   isRichemontJob,
   isTrustedDomain,
+  buildJobDescription,
 } from '../scripts/lib/richemont-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -140,6 +141,56 @@ describe('Richemont crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── buildJobDescription ──
+  describe('buildJobDescription', () => {
+    const cardFields = {
+      title: 'HRIS Learning Intern',
+      maison: 'Richemont',
+      department: 'Technology',
+      locationText: 'Meyrin, CH',
+    };
+
+    it('returns rich detail text when ≥200 chars', () => {
+      const rich = 'Reference code: JR124659. ' + 'Richemont owns leading luxury Maisons. '.repeat(20);
+      const out = buildJobDescription({ ...cardFields, detailText: rich });
+      expect(out).toContain('JR124659');
+      expect(out.length).toBeGreaterThan(200);
+    });
+
+    it('falls back to template when detail text is empty', () => {
+      const out = buildJobDescription({ ...cardFields, detailText: '' });
+      expect(out).toContain('HRIS Learning Intern');
+      expect(out).toContain('Maison: Richemont.');
+      expect(out).toContain('Department: Technology.');
+      expect(out).toContain('Location: Meyrin, CH.');
+      expect(out).toContain('Compagnie Financière Richemont');
+    });
+
+    it('falls back to template when detail text is too short', () => {
+      const out = buildJobDescription({ ...cardFields, detailText: 'too short' });
+      expect(out).toContain('Compagnie Financière Richemont');
+    });
+
+    it('normalises whitespace in rich text', () => {
+      const rich = 'Line one.\n\n\nLine two.   Excessive    spaces. ' + 'x'.repeat(200);
+      const out = buildJobDescription({ ...cardFields, detailText: rich });
+      expect(out).not.toMatch(/\s{2,}/);
+      expect(out).not.toMatch(/\n/);
+    });
+
+    it('handles missing card fields gracefully in fallback', () => {
+      const out = buildJobDescription({ detailText: '' });
+      expect(out).toContain('Compagnie Financière Richemont');
+      expect(out).not.toContain('Maison:');
+      expect(out).not.toContain('Department:');
+    });
+
+    it('never returns empty string', () => {
+      expect(buildJobDescription({}).length).toBeGreaterThan(0);
+      expect(buildJobDescription({ detailText: '' }).length).toBeGreaterThan(0);
     });
   });
 });
