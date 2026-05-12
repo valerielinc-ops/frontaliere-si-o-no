@@ -29,6 +29,11 @@
  *  - Cross-references to calculator / FX / health-insurance comparator
  */
 
+import {
+  renderCantonSeoProse,
+  type CantonSeoSlot,
+} from './cantonSeoProse';
+
 export type CommuterLocale = 'it' | 'en' | 'de' | 'fr';
 
 interface CityCommuteRow {
@@ -378,6 +383,48 @@ export interface JobBoardCommuterContextOpts {
   sectorOrType?: string | null;
   /** When true, omits the commute table (used for non-city pages like "today"). */
   omitCommute?: boolean;
+  /**
+   * Optional canton display name (e.g. 'Zurigo', 'Vallese', 'Argovia'). When
+   * provided AND the canton is NOT Ticino, the helper appends a second
+   * canton-aware prose block via `renderCantonSeoProse`, lifting the visible
+   * text by ~5 KB on the heavy non-TI editorial host pages (find-jobs-{canton}/
+   * today, /nurses, /clinics, /part-time) that otherwise tripped Semrush's
+   * 10 % text-to-HTML threshold. For TI the legacy commuter block is enough
+   * and adding the canton block would shift TI HTML — non-TI only.
+   */
+  cantonDisplay?: string | null;
+  /**
+   * Editorial slot label, used to pick the right canton-prose flavour. Only
+   * read when `cantonDisplay` is set. Defaults to `'canton-hub'` for safety.
+   */
+  cantonSlot?: CantonSeoSlot | null;
+}
+
+// Memo cache for the appended canton-prose block. Each non-TI editorial page
+// re-emits the same (canton × locale × slot) combination identically, so
+// caching avoids ~400 redundant string builds across the build. Key fields
+// are the only inputs that drive the helper output.
+const cantonProseCache = new Map<string, string>();
+
+function getCantonProseBlock(
+  locale: CommuterLocale,
+  cantonDisplay: string,
+  slot: CantonSeoSlot,
+): string {
+  const key = `${locale}::${cantonDisplay}::${slot}`;
+  const cached = cantonProseCache.get(key);
+  if (cached !== undefined) return cached;
+  const html = renderCantonSeoProse({
+    locale,
+    cantonDisplay,
+    slot,
+    entityName: null,
+    countHint: null,
+    ctaHref: null,
+    ctaLabel: null,
+  });
+  cantonProseCache.set(key, html);
+  return html;
 }
 
 /**
@@ -396,7 +443,14 @@ export interface JobBoardCommuterContextOpts {
 export function renderJobBoardCommuterContext(
   opts: JobBoardCommuterContextOpts,
 ): string {
-  const { locale, location, sectorOrType = null, omitCommute = false } = opts;
+  const {
+    locale,
+    location,
+    sectorOrType = null,
+    omitCommute = false,
+    cantonDisplay = null,
+    cantonSlot = null,
+  } = opts;
   const row = omitCommute ? null : resolveCommuteRow(location);
   const copy = COPY[locale];
 
@@ -421,6 +475,22 @@ export function renderJobBoardCommuterContext(
     )
     .join('');
 
+  // Optional canton-aware prose appended ONLY for non-TI canton editorial
+  // pages. Adds ~5 KB of canton-specific intro/methodology/permit/FAQ/links
+  // so the heavy host page (~95-145 KB) clears the 10 % Semrush text/HTML
+  // gate that the legacy block alone could not reach for non-TI cantons.
+  // TI keeps its byte-identical output (HARD INVARIANT per CLAUDE.md
+  // non-negotiables #1, #5, #6).
+  let cantonBlock = '';
+  if (cantonDisplay && cantonDisplay.trim()) {
+    const displayLower = cantonDisplay.trim().toLowerCase();
+    const isTicino = displayLower === 'ticino' || displayLower === 'tessin';
+    if (!isTicino) {
+      const slot: CantonSeoSlot = cantonSlot || 'canton-hub';
+      cantonBlock = getCantonProseBlock(locale, cantonDisplay.trim(), slot);
+    }
+  }
+
   return `<section class="job-board-commuter-context" style="max-width:860px;margin:32px auto 0;color:var(--color-body);line-height:1.65;font-size:15px">
   <h2 style="font-size:22px;font-weight:700;color:var(--color-heading);margin:24px 0 12px">${escAttr(copy.methodologyH)}</h2>
   <p style="margin:0 0 14px">${copy.methodology}</p>
@@ -433,6 +503,7 @@ export function renderJobBoardCommuterContext(
   ${faqHtml}
   <h2 style="font-size:20px;font-weight:700;color:var(--color-heading);margin:24px 0 12px">${escAttr(copy.ctaH)}</h2>
   <p style="margin:0 0 14px">${crossLinks}</p>
+${cantonBlock}
 </section>`;
 }
 

@@ -4073,7 +4073,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${esc(model.sections.partTime.label)}</h2>
  ${renderJobList(model.sections.partTime.jobs)}
  </section>
- ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true }))}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-today' }))}
  </main>
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -4396,7 +4396,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
  <div style="display:grid;gap:12px">${faqHtml}</div>
  </section>
- ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true }))}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-nursing' }))}
  </main>
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -4568,7 +4568,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
  <div style="display:grid;gap:12px">${faqHtml}</div>
  </section>
- ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true }))}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-part-time' }))}
  </main>
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
@@ -4733,7 +4733,7 @@ ${alternates}
  <h2 style="margin:0 0 14px;font-size:24px">${esc(locale === 'it' ? 'Altri percorsi sanitari' : locale === 'en' ? 'Other care paths' : locale === 'de' ? 'Weitere Pflegepfade' : 'Autres parcours sante')}</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${siblingLinks}</div>
  </section>
- ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, sectorOrType: locale === 'it' ? 'sanità' : locale === 'en' ? 'healthcare' : locale === 'de' ? 'Gesundheitswesen' : 'santé' }))}
+ ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: CANTON_DISPLAY[editorialCanton] || editorialCanton, omitCommute: true, sectorOrType: locale === 'it' ? 'sanità' : locale === 'en' ? 'healthcare' : locale === 'de' ? 'Gesundheitswesen' : 'santé', cantonDisplay: CANTON_DISPLAY[editorialCanton] || editorialCanton, cantonSlot: 'editorial-clinics' }))}
  </main>
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
