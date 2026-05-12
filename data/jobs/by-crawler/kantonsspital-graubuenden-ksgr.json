@@ -23,9 +23,11 @@
       "employmentType": "80 - 80%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-05-11T22:23:19.521Z",
-      "slug": "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-chur",
+      "slug": "cure-palliative-pflegefachfrau-pflegefachmann-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-chur"
+        "de": "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-chur",
+        "it": "cure-palliative-pflegefachfrau-pflegefachmann-kantonsspital-graubunden-chur",
+        "fr": "pflegefachfrau-pflegefachmann-soins-palliatifs-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann",
@@ -54,7 +56,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-11T22:23:19.521Z"
+      "firstSeenAt": "2026-05-11T22:23:19.521Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10026445",
@@ -1030,7 +1040,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-05-10T10:25:51.873Z",
       "previousSlugs": [
-        "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
         "diet-chef-kantonsspital-graubunden-chur"
       ]
@@ -5461,8 +5470,7 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
