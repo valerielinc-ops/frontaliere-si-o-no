@@ -1,19 +1,21 @@
 {
   "key": "medacta-international",
   "label": "Medacta",
-  "generatedAt": "2026-05-12T11:40:53.248Z",
+  "generatedAt": "2026-05-12T22:36:07.854Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 16700,
-  "avgDurationMs": 16700,
+  "unchangedCount": 3,
+  "durationMs": 15474,
+  "avgDurationMs": 15474,
   "durationHistory": [
-    16700
+    15474
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "medacta-92188",
       "slug": "tesi-r-s-ortopedia-medacta-international-sa-castel-san-pietro",
@@ -320,10 +322,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "medacta-96190",
       "slug": "tornitore-medacta-international-sa-castel-san-pietro",
