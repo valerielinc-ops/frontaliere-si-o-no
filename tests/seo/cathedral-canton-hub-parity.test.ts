@@ -39,12 +39,23 @@ describe('Phase 8(g) — canton hub editorial parity with TI', () => {
     // Intro paragraph mentions Ticino + "oltre 1.500 offerte" (legacy copy).
     expect(blocks[1]).toMatch(/lavoro in Ticino/);
     expect(blocks[1]).toMatch(/oltre 1\.500/);
-    // Archive navigator is a single <details> collapsible with one anchor
-    // per page-N (1..304).
+    // Archive navigator is a single <details> collapsible. For long archives
+    // (> 25 pages) the paginator emits head pages 1..20 + ellipsis + tail
+    // pages (N-4)..N to stay under the 200 KB audit:page-weight budget.
+    // Crawler reach is preserved by sequential prev/next/first/last links
+    // on each `/tutti/page-N/` page itself. Small archives (cathedral
+    // cantons with ≤ 25 pages) still emit every page anchor.
     expect(blocks[2].startsWith('<details ')).toBe(true);
     expect(blocks[2]).toMatch(/Sfoglia tutto l'archivio offerte per pagina \(304 pagine\)/);
     expect(blocks[2]).toMatch(/Pagina&nbsp;1/);
     expect(blocks[2]).toMatch(/Pagina&nbsp;304/);
+    // Head pages 1..20 + tail pages 300..304 must be present; middle pages
+    // (e.g. Pagina 150) must NOT be present in the truncated paginator.
+    expect(blocks[2]).toMatch(/Pagina&nbsp;20/);
+    expect(blocks[2]).toMatch(/Pagina&nbsp;300/);
+    expect(blocks[2]).not.toMatch(/Pagina&nbsp;150[^0-9]/);
+    // Ellipsis separator between head and tail (non-link span).
+    expect(blocks[2]).toMatch(/aria-hidden="true"[^>]*>…</);
     // Prose paragraph 1 mentions the canonical canton labels.
     expect(blocks[3]).toMatch(/offerte lavoro Ticino/);
     expect(blocks[3]).toMatch(/oltre 100 aziende ticinesi/);
