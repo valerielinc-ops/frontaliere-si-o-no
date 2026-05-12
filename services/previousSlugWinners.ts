@@ -73,6 +73,15 @@ export interface WinnerEntry {
   readonly lastSeenAt: string;
   readonly score: number;
   readonly candidatesCount: number;
+  /**
+   * Canton code (e.g. `'TI'`, `'ZH'`) that owns the bridge URL path for this
+   * (locale, oldSlug) pair. Phase 8b (2026-05-12): bridges now live under the
+   * job's canton-aware section (`/cerca-lavoro-zurigo/...` for ZH jobs), not
+   * the legacy hardcoded TI section. Forward-compat: older entries on disk
+   * may lack this field; readers MUST treat it as optional and default to
+   * `'TI'` for backward-compat.
+   */
+  readonly canton?: string;
 }
 
 /** A candidate for ownership of a previous-slug bridge. */
@@ -81,17 +90,31 @@ export interface CandidateInput {
   readonly canonicalSlug: string;
 }
 
-/** The full on-disk format. Keys are `${locale}::${oldSlug}` (see {@link makeKey}). */
+/** The full on-disk format. Keys are `${canton}::${locale}::${oldSlug}` (see {@link makeKey}). */
 export type WinnersFile = Record<string, WinnerEntry>;
 
 /**
- * Compose the storage key for a (locale, oldSlug) pair. Locale is included
- * because previousSlugs ARE locale-specific in `previousSlugsByLocale`, and
- * the same string can legitimately exist as a prevSlug for different jobs in
- * different locales. Using the same key for both would conflate them.
+ * Compose the storage key for a (canton, locale, oldSlug) triple.
+ *
+ * - Canton is the FIRST segment because the bridge URL path depends on the
+ *   winning job's canton — the same (locale, oldSlug) pair can legitimately
+ *   exist for different jobs under different cantons (e.g. an `infermieri-...`
+ *   bridge served at `/cerca-lavoro-ticino/` for a TI job and at
+ *   `/cerca-lavoro-zurigo/` for a ZH job that shared the historical slug).
+ *   Conflating them by dropping canton would resurrect the production bug
+ *   that Phase 8b fixes.
+ * - Locale is included because `previousSlugsByLocale` IS locale-specific.
+ *   The same string can legitimately exist as a prevSlug for different
+ *   jobs in different locales.
+ *
+ * Schema versioning (2026-05-12, Phase 8b): the old key shape was
+ * `${locale}::${oldSlug}` (no canton). The migration script at
+ * `scripts/migrate-previous-slug-winners-add-canton.mjs` rewrites
+ * `data/previous-slug-winners.json` once to the new shape, defaulting
+ * unmappable entries to canton `'TI'`.
  */
-export function makeKey(locale: string, oldSlug: string): string {
-  return `${locale}::${oldSlug}`;
+export function makeKey(canton: string, locale: string, oldSlug: string): string {
+  return `${canton}::${locale}::${oldSlug}`;
 }
 
 /**
@@ -238,6 +261,7 @@ export function saveWinners(filePath: string, winners: WinnersFile): void {
  */
 export function resolveWinner(
   winners: WinnersFile,
+  canton: string,
   locale: string,
   oldSlug: string,
   candidates: readonly CandidateInput[],
@@ -245,7 +269,7 @@ export function resolveWinner(
 ): WinnerEntry | null {
   if (candidates.length === 0) return null;
 
-  const key = makeKey(locale, oldSlug);
+  const key = makeKey(canton, locale, oldSlug);
   const existing = winners[key];
 
   // Branch 2: prior decision still valid — touch lastSeenAt and reuse.
@@ -253,8 +277,14 @@ export function resolveWinner(
     existing &&
     candidates.some((c) => c.jobIdentifier === existing.winnerJobIdentifier)
   ) {
-    if (existing.lastSeenAt !== now) {
-      winners[key] = { ...existing, lastSeenAt: now };
+    const needsTouch = existing.lastSeenAt !== now;
+    const needsCantonStamp = !existing.canton && canton;
+    if (needsTouch || needsCantonStamp) {
+      winners[key] = {
+        ...existing,
+        ...(needsTouch ? { lastSeenAt: now } : {}),
+        ...(needsCantonStamp ? { canton } : {}),
+      };
     }
     return winners[key];
   }
@@ -265,12 +295,13 @@ export function resolveWinner(
   if (existing || candidates.length > 1) {
     const fresh = chooseWinner(oldSlug, candidates, now);
     if (!fresh) return null;
-    winners[key] = fresh;
-    return fresh;
+    const stamped: WinnerEntry = canton ? { ...fresh, canton } : fresh;
+    winners[key] = stamped;
+    return stamped;
   }
 
   // Branch 5: no existing entry, single candidate — trivial, ephemeral.
-  return {
+  const trivial: WinnerEntry = {
     winnerJobIdentifier: candidates[0].jobIdentifier,
     winnerCanonical: candidates[0].canonicalSlug,
     decidedAt: now,
@@ -278,6 +309,7 @@ export function resolveWinner(
     score: jaccardSimilarity(oldSlug, candidates[0].canonicalSlug),
     candidatesCount: 1,
   };
+  return canton ? { ...trivial, canton } : trivial;
 }
 
 /**
