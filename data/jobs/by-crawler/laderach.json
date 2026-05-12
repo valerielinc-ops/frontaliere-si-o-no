@@ -1,6 +1,6 @@
 {
   "crawlerKey": "laderach",
-  "assembledAt": "2026-05-12T09:29:08.101Z",
+  "assembledAt": "2026-05-12T11:35:48.411Z",
   "jobs": [
     {
       "id": "laderach-e75ae8be71ea",
@@ -43,7 +43,7 @@
       "postedDate": "2026-05-09",
       "url": "https://laderach.career.softgarden.de/jobs/64654739/Verk%C3%A4ufer-60%25-befristet-Chocolaterie-Aarau-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:11.944Z",
+      "crawledAt": "2026-05-12T11:35:46.438Z",
       "previousSlugs": [
         "verkaufer-60-befristet-chocolaterie-aarau-w-m-d-laderach-aarau",
         "verkaufer-60-befristet-chocolaterie-aarau-m-w-d-laderach-schweiz-ag-aarau"
@@ -116,17 +116,17 @@
       "postedDate": "2026-05-11",
       "url": "https://laderach.career.softgarden.de/jobs/64633953/Confiseur-f%C3%BCr-Live-Produktion-im-House-of-L%C3%A4derach-60-100%25-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:11.741Z",
+      "crawledAt": "2026-05-12T11:35:45.570Z",
       "previousSlugs": [
-        "entertainer-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten",
-        "entertainer-per-live-produktion-im-house-of-laderach-60-100-m-w-d-laderach-schweiz-ag-bilten"
+        "entertainer-per-live-produktion-im-house-of-laderach-60-100-m-w-d-laderach-schweiz-ag-bilten",
+        "entertainer-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten"
       ],
       "previousSlugsByLocale": {
-        "fr": [
-          "entertainer-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten"
-        ],
         "it": [
           "entertainer-per-live-produktion-im-house-of-laderach-60-100-m-w-d-laderach-schweiz-ag-bilten"
+        ],
+        "fr": [
+          "entertainer-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten"
         ]
       },
       "firstSeenAt": "2026-05-11T12:02:24.820Z",
@@ -184,8 +184,9 @@
       "postedDate": "2026-05-07",
       "url": "https://laderach.career.softgarden.de/jobs/64261528/Social-Media-Manager-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:11.537Z",
+      "crawledAt": "2026-05-12T11:35:45.254Z",
       "firstSeenAt": "2026-05-07T11:19:47.666Z",
+      "needsRetranslation": true,
       "salaryMin": 98000,
       "salaryMax": 132000,
       "baseSalary": {
@@ -240,7 +241,7 @@
       "postedDate": "2026-05-07",
       "url": "https://laderach.career.softgarden.de/jobs/64605398/Teamleiter-Kommissionierung-Verpackung-100%25-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:11.335Z",
+      "crawledAt": "2026-05-12T11:35:44.735Z",
       "previousSlugs": [
         "teamleiter-kommissionierung-verpackung-100-w-m-d-laderach-glarus"
       ],
@@ -256,6 +257,7 @@
         ]
       },
       "firstSeenAt": "2026-05-07T11:19:47.525Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -310,7 +312,7 @@
       "postedDate": "2026-05-07",
       "url": "https://laderach.career.softgarden.de/jobs/64604763/Head-Global-Central-Planning/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:11.131Z",
+      "crawledAt": "2026-05-12T11:35:44.539Z",
       "previousSlugs": [
         "head-global-central-planning-laderach-bilten"
       ],
@@ -323,6 +325,7 @@
         ]
       },
       "firstSeenAt": "2026-05-07T11:19:47.386Z",
+      "needsRetranslation": true,
       "salaryMin": 98000,
       "salaryMax": 132000,
       "baseSalary": {
@@ -377,8 +380,9 @@
       "postedDate": "2026-05-07",
       "url": "https://laderach.career.softgarden.de/jobs/64517548/Junior-Retail-Marketing-Manager-80-100%25-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:10.929Z",
+      "crawledAt": "2026-05-12T11:35:43.700Z",
       "firstSeenAt": "2026-05-07T11:19:47.244Z",
+      "needsRetranslation": true,
       "salaryMin": 42640,
       "salaryMax": 54000,
       "baseSalary": {
@@ -433,8 +437,9 @@
       "postedDate": "2026-05-06",
       "url": "https://laderach.career.softgarden.de/jobs/64587668/Senior-Sales-Business-Controller-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:10.528Z",
+      "crawledAt": "2026-05-12T11:35:41.288Z",
       "firstSeenAt": "2026-05-06T11:15:07.220Z",
+      "needsRetranslation": true,
       "salaryMin": 98000,
       "salaryMax": 132000,
       "baseSalary": {
@@ -489,7 +494,7 @@
       "postedDate": "2026-05-06",
       "url": "https://laderach.career.softgarden.de/jobs/64580648/Sachbearbeiter-Aussenhandel-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:10.328Z",
+      "crawledAt": "2026-05-12T11:35:40.214Z",
       "previousSlugs": [
         "sachbearbeiter-aussenhandel-w-m-d-laderach-bilten"
       ],
@@ -559,7 +564,7 @@
       "postedDate": "2026-05-05",
       "url": "https://laderach.career.softgarden.de/jobs/62428079/Executive-Assistant-to-COO-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:10.123Z",
+      "crawledAt": "2026-05-12T11:35:38.507Z",
       "previousSlugs": [
         "executive-assistant-to-coo-w-m-d-laderach-ennenda"
       ],
@@ -569,6 +574,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T10:59:33.361Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -623,7 +629,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/63551909/Lagermitarbeiter-Store-Support-20%E2%80%9340%25-Chocolaterie-St-Moritz-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:09.519Z",
+      "crawledAt": "2026-05-12T11:35:34.423Z",
       "previousSlugs": [
         "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-schweiz-ag-sankt-moritz",
         "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-schweiz-ag-sank"
@@ -643,6 +649,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:52:13.107Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -698,7 +705,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/64235523/Teamleiter-Assembling-100%25-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:09.120Z",
+      "crawledAt": "2026-05-12T11:35:31.069Z",
       "previousSlugs": [
         "teamleiter-assembling-100-w-m-d-laderach-glarus"
       ],
@@ -711,6 +718,7 @@
         ]
       },
       "firstSeenAt": "2026-04-21T10:22:19.638Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -765,7 +773,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/63469804/Senior-Project-Manager-Corporate-Development-80-100%25-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:08.921Z",
+      "crawledAt": "2026-05-12T11:35:30.732Z",
       "previousSlugs": [
         "senior-project-manager-corporate-development-80-100-w-m-d-laderach-bilten",
         "responsabile-del-progetto-r-d-couverture-laderach-schweiz-ag-bilten",
@@ -784,6 +792,7 @@
         ]
       },
       "firstSeenAt": "2026-04-17T21:50:21.448Z",
+      "needsRetranslation": true,
       "salaryMin": 98000,
       "salaryMax": 132000,
       "baseSalary": {
@@ -838,7 +847,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/64161118/IT-Projektleiter-HR--Corporate-Service-Applikationen-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:08.716Z",
+      "crawledAt": "2026-05-12T11:35:28.941Z",
       "previousSlugs": [
         "it-projektleiter-hr-corporate-service-applikationen-w-m-d-laderach-bilten",
         "it-projektleiter-risorse-umane-corporate-service-applikationen-w-m-d-laderach-schweiz-ag-bilten"
@@ -853,6 +862,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T10:16:01.515Z",
+      "needsRetranslation": true,
       "salaryMin": 98000,
       "salaryMax": 132000,
       "baseSalary": {
@@ -907,7 +917,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/63987023/Filialleiter-Chocolaterien-Z%C3%BCrich-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:07.720Z",
+      "crawledAt": "2026-05-12T11:35:20.980Z",
       "previousSlugs": [
         "filialleiter-chocolaterien-zurich-w-m-d-laderach-zurich"
       ],
@@ -978,7 +988,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/63740974/Filialleiter-Chocolaterie-Uster-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:06.707Z",
+      "crawledAt": "2026-05-12T11:35:16.540Z",
       "previousSlugs": [
         "filialleiter-chocolaterie-uster-w-m-d-laderach-uster",
         "filialleiter-chocolaterie-uster-w-m-d-laderach-schweiz-ag-uster",
@@ -1054,7 +1064,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/63542534/Promoter-40-60%25-Chocolaterie-Bahnhofstrasse-ZH-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:06.094Z",
+      "crawledAt": "2026-05-12T11:35:15.399Z",
       "previousSlugs": [
         "promoter-40-60-chocolaterie-bahnhofstrasse-zh-w-m-d-laderach-schweiz-ag-zurich",
         "promoter-40-60-chocolates-bahnhofstrasse-zh-w-m-d-laderach-schweiz-ag-zurich",
@@ -1075,6 +1085,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:52:12.897Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1130,7 +1141,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/60541005/HR-Generalist-mit-Projektt%C3%A4tigkeiten-80-100%25-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:05.685Z",
+      "crawledAt": "2026-05-12T11:35:12.485Z",
       "previousSlugs": [
         "hr-generalist-mit-projekttatigkeiten-80-100-w-m-d-laderach-schweiz-ag-glarus",
         "ressources-humaines-generalist-mit-projekttatigkeiten-80-100-w-m-d-laderach-schweiz-ag-glarus"
@@ -1204,7 +1215,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/63281299/2-Stv-Filialleiter-Chocolaterie-Staldehofen-ZH-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:05.274Z",
+      "crawledAt": "2026-05-12T11:35:11.406Z",
       "previousSlugs": [
         "2-stv-filialleiter-chocolaterie-staldehofen-zh-w-m-d-laderach-zurich",
         "2-stv-filialleiter-chocolaterie-staldehofen-zh-w-m-d-laderach-schweiz-ag-zurich"
@@ -1276,7 +1287,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/63051819/Verkaufsaushilfe-40-60%25-Chocolaterie-Bahnhofstrasse-Z%C3%BCrich-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:04.608Z",
+      "crawledAt": "2026-05-12T11:35:10.511Z",
       "previousSlugs": [
         "verkaufsaushilfe-40-60-chocolaterie-bahnhofstrasse-zurich-laderach-schweiz-ag-zurich"
       ],
@@ -1350,7 +1361,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/63043454/Stv-Filialleiter-100%25-Chocolaterie-House-of-L%C3%A4derach-Bilten-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:04.403Z",
+      "crawledAt": "2026-05-12T11:35:10.083Z",
       "previousSlugs": [
         "stv-filialleiter-100-chocolaterie-house-of-laderach-bilten-w-m-d-laderach-bilten",
         "assistant-store-manager-100-chocolaterie-house-of-laderach-bilten-m-f-d-laderach-schweiz-a",
@@ -1431,7 +1442,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/62971824/Stv-Filialleiter-Chocolaterie-Interlaken-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:04.196Z",
+      "crawledAt": "2026-05-12T11:35:08.003Z",
       "previousSlugs": [
         "stv-filialleiter-chocolaterie-interlaken-w-m-d-laderach-interlaken",
         "stv-filialleiter-chocolaterie-interlaken-w-m-d-laderach-schweiz-ag-interlaken"
@@ -1503,7 +1514,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/62636759/Sicherheitsbeauftragter-100%25-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:03.996Z",
+      "crawledAt": "2026-05-12T11:35:07.008Z",
       "previousSlugs": [
         "sicherheitsbeauftragter-100-w-m-d-laderach-schweiz-ag-glarus"
       ],
@@ -1576,7 +1587,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/60795137/Lehrstelle-im-Detailhandel-EFZ-ab-August-2026-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:02.968Z",
+      "crawledAt": "2026-05-12T11:34:59.341Z",
       "previousSlugs": [
         "tirocinio-nel-dettaglio-efz-da-agosto-2026-h-m-d-laderach-schweiz-ag-luzern",
         "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-luzern",
@@ -1653,7 +1664,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/60299105/Stv-Filialleiter-Chocolaterie-Flughafen-Airside-Z%C3%BCrich-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:02.760Z",
+      "crawledAt": "2026-05-12T11:34:57.221Z",
       "previousSlugs": [
         "stv-filialleiter-chocolaterie-flughafen-airside-zurich-w-m-d-laderach-zurich-flughafen",
         "stv-filialleiter-chocolaterie-flughafen-airside-zurich-w-m-d-laderach-schweiz-ag-zurich-fl",
@@ -1726,7 +1737,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/60035155/Zusatzausbildung-Fachrichtung-Confiserie-f%C3%BCr-August-2026-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:02.553Z",
+      "crawledAt": "2026-05-12T11:34:55.892Z",
       "previousSlugs": [
         "zusatzausbildung-specializzazione-confiserie-per-august-2026-w-m-d-laderach-schweiz-ag-ennenda",
         "zusatzausbildung-fachrichtung-confiserie-fur-august-2026-w-m-d-laderach-schweiz-ag-ennenda"
@@ -1800,7 +1811,7 @@
       "postedDate": "2026-04-27",
       "url": "https://laderach.career.softgarden.de/jobs/59190688/Lehrstelle-im-Detailhandel-EFZ-ab-August-2026-w-m-d-/",
       "source": "Läderach Dedicated Parser",
-      "crawledAt": "2026-05-11T22:25:01.936Z",
+      "crawledAt": "2026-05-12T11:34:51.349Z",
       "previousSlugs": [
         "tirocinio-nel-dettaglio-efz-da-agosto-2026-h-m-d-laderach-schweiz-ag-zermatt",
         "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zermatt",
