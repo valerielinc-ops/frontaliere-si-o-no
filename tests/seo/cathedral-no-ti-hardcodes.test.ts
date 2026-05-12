@@ -96,16 +96,18 @@ const ALLOWLIST = [
 
   // ── staticPagesPlugin: section→category / section→label maps. These ARE
   //    keyed by the TI legacy section name; they are data, not links. ──
-  'build-plugins/staticPagesPlugin.ts:764',
-  'build-plugins/staticPagesPlugin.ts:765',
-  'build-plugins/staticPagesPlugin.ts:766',
+  //    Lines shifted +3 by the Phase 4 canton-navigator imports added at
+  //    the top of the file (cantonSection + canton-url-slugs + jobEditorialLanding).
   'build-plugins/staticPagesPlugin.ts:767',
-  'build-plugins/staticPagesPlugin.ts:786',
-  'build-plugins/staticPagesPlugin.ts:787',
-  'build-plugins/staticPagesPlugin.ts:1321',
-  'build-plugins/staticPagesPlugin.ts:1346',
-  'build-plugins/staticPagesPlugin.ts:1371',
-  'build-plugins/staticPagesPlugin.ts:1639',
+  'build-plugins/staticPagesPlugin.ts:768',
+  'build-plugins/staticPagesPlugin.ts:769',
+  'build-plugins/staticPagesPlugin.ts:770',
+  'build-plugins/staticPagesPlugin.ts:789',
+  'build-plugins/staticPagesPlugin.ts:790',
+  'build-plugins/staticPagesPlugin.ts:1324',
+  'build-plugins/staticPagesPlugin.ts:1349',
+  'build-plugins/staticPagesPlugin.ts:1374',
+  'build-plugins/staticPagesPlugin.ts:1642',
 
   // ── shared/hubChrome.ts: per-locale hub-chrome registry keyed on TI section name ──
   'build-plugins/shared/hubChrome.ts:106',
