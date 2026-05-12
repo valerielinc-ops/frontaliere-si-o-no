@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-05-11T23:01:19.526Z",
+  "generatedAt": "2026-05-12T12:10:04.223Z",
   "total": 13,
   "newCount": 13,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 41604,
-  "avgDurationMs": 41604,
+  "durationMs": 83430,
+  "avgDurationMs": 83430,
   "durationHistory": [
-    41604
+    83430
   ],
   "newJobs": [
     {
@@ -57,7 +57,7 @@
     },
     {
       "id": "company-l4u548",
-      "slug": "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-manno",
+      "slug": "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-lugano-grado-d",
       "company": "SUPSI / DTI",
       "title": "Assistente Bachelor in formazione Master of Science in Engineering (MSE) presso l’istituto ISTePS",
       "location": "Lugano. Grado d",
@@ -99,7 +99,7 @@
     },
     {
       "id": "company-l4u549",
-      "slug": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-manno",
+      "slug": "assistenti-bachelor-in-formazione-master-mse-in-computer-science-o-data-science-supsi-dti-lugano-grado-d",
       "company": "SUPSI / DTI",
       "title": "Assistenti Bachelor in formazione Master MSE in Computer Science o Data Science",
       "location": "Lugano. Grado d",
@@ -141,7 +141,7 @@
     },
     {
       "id": "company-l4u54a",
-      "slug": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-manno",
+      "slug": "assistenti-bachelor-in-formazione-master-mse-in-data-science-supsi-dti-lugano-grado-d",
       "company": "SUPSI / DTI",
       "title": "Assistenti Bachelor in formazione Master MSE in Data Science",
       "location": "Lugano. Grado d",
@@ -183,7 +183,7 @@
     },
     {
       "id": "company-l4u53l",
-      "slug": "ricercatrice-ricercatore-con-phd-in-resource-constrained-nanorobotics-supsi-dti-manno",
+      "slug": "ricercatrice-ricercatore-con-phd-in-resource-constrained-nanorobotics-supsi-dti-presso-idsia-usi-supsi",
       "company": "SUPSI / DTI",
       "title": "Ricercatrice / Ricercatore con PhD in Resource-constrained NanoRobotics",
       "location": "presso IDSIA USI-SUPSI",
@@ -267,7 +267,7 @@
     },
     {
       "id": "company-l4u53j",
-      "slug": "ricercatrice-ricercatore-nell-area-delle-architetture-software-per-sistemi-multi-agente-supsi-dti-manno",
+      "slug": "ricercatrice-ricercatore-nell-area-delle-architetture-software-per-sistemi-multi-agente-supsi-dti-lugano",
       "company": "SUPSI / DTI",
       "title": "Ricercatrice / Ricercatore nell’area delle architetture software per sistemi multi-agente",
       "location": "Lugano",
@@ -309,7 +309,7 @@
     },
     {
       "id": "company-l4u53k",
-      "slug": "assistente-con-master-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-manno",
+      "slug": "assistente-con-master-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-dti-lugano",
       "company": "SUPSI / DTI",
       "title": "Assistente con Master nell’area del controllo intelligente per sistemi e reti",
       "location": "Lugano",
@@ -393,7 +393,7 @@
     },
     {
       "id": "company-l4u53i",
-      "slug": "ricercatrice-ricercatore-con-phd-nell-area-del-privacy-preserving-data-processing-supsi-dti-manno",
+      "slug": "ricercatrice-ricercatore-con-phd-nell-area-del-privacy-preserving-data-processing-supsi-dti-lugano",
       "company": "SUPSI / DTI",
       "title": "Ricercatrice / Ricercatore con PhD nell’area del Privacy Preserving Data Processing",
       "location": "Lugano",
@@ -435,7 +435,7 @@
     },
     {
       "id": "company-l4ti32",
-      "slug": "direttrice-direttore-della-formazione-di-base-supsi-dti-manno",
+      "slug": "direttrice-direttore-della-formazione-di-base-supsi-dti-direzione-supsi",
       "company": "SUPSI / DTI",
       "title": "Direttrice / Direttore della Formazione di Base",
       "location": "Direzione SUPSI",
@@ -467,6 +467,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -477,7 +478,7 @@
     },
     {
       "id": "company-l4wp0m",
-      "slug": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno",
+      "slug": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino",
       "company": "SUPSI / DTI",
       "title": "Apprendista Operatrice Informatica / Operatore Informatico AFC",
       "location": "Ticino",
@@ -519,7 +520,7 @@
     },
     {
       "id": "company-l4ti2z",
-      "slug": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-manno",
+      "slug": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
       "company": "SUPSI / DTI",
       "title": "Concorso generale / Personale educativo Servizio prima infanzia 2026",
       "location": "Ticino",
