@@ -81,7 +81,11 @@ export function resolveJobCanton(job: { canton?: string; location?: string }): s
   if (explicit && (cantons[explicit] || memberToGroup[explicit])) {
     return resolveCantonGroup(explicit);
   }
-  const loc = normalizeCityKey(String(job.location || ''));
+  // German long form "Sankt X" → canonical "St. X" so it hits the same
+  // municipality keys ("st. gallen", "st. margrethen") indexed below.
+  // Cheap normalisation done once before splitting on commas/parens.
+  const locRaw = normalizeCityKey(String(job.location || ''));
+  const loc = locRaw.replace(/\bsankt\s+/g, 'st. ');
   // 1) Try the full city up to the first comma/paren (handles "Lugano, TI" → "lugano").
   const fullCity = loc.split(/[,(]/)[0].trim();
   if (fullCity && CITY_TO_CANTON[fullCity]) return resolveCantonGroup(CITY_TO_CANTON[fullCity]);
