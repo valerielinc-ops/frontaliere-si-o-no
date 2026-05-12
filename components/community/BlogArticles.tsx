@@ -1214,8 +1214,14 @@ function BlogArticles({
  // Skip injection if translations aren't loaded yet
  if (title.startsWith('blog.article.')) return;
  const canonicalUrl = `https://frontaliereticino.ch${buildPath({ activeTab: 'blog', blogArticle: article.id })}`;
- const wordCount = estimateReadingMinutes(article.id, t) * 200; // reverse from ~200 wpm
- const jsonLd = {
+ // Compute actual body word count from translated segments — matches the
+ // bodyWordCount used by contentGateApplies in renderArticle. Determines
+ // whether this URL is paywalled for crawlers (Flexible Sampling pattern).
+ const articleBodyText = collectBodyParts(article.id, t).join(' ');
+ const articleBodyWordCount = articleBodyText.split(/\s+/).filter(Boolean).length;
+ const wordCount = articleBodyWordCount || estimateReadingMinutes(article.id, t) * 200;
+ const articlePaywallable = articleBodyWordCount >= 300;
+ const jsonLd: Record<string, unknown> = {
  '@context': 'https://schema.org',
  '@type': 'NewsArticle',
  headline: title,
@@ -1241,7 +1247,7 @@ function BlogArticles({
  mainEntityOfPage: canonicalUrl,
  image: `https://frontaliereticino.ch${article.image}`,
  inLanguage: locale,
- isAccessibleForFree: true,
+ isAccessibleForFree: !articlePaywallable,
  articleSection: article.category,
  wordCount,
  speakable: {
@@ -1249,6 +1255,17 @@ function BlogArticles({
  cssSelector: ['h1', '.article-body p:first-of-type', '[data-speakable]'],
  },
  };
+ // Google Flexible Sampling: when the article is paywalled, mark the
+ // hidden second half via cssSelector so crawlers can index full content
+ // without triggering cloaking penalties. The selector matches the DOM
+ // markers applied in renderArticle.
+ if (articlePaywallable) {
+ jsonLd.hasPart = {
+ '@type': 'WebPageElement',
+ isAccessibleForFree: false,
+ cssSelector: '.paywall-hidden-content',
+ };
+ }
  const scriptId = 'blog-article-jsonld';
  // Remove any pre-existing BlogPosting JSON-LD from static HTML (ogPagesPlugin)
  // to prevent duplicate schemas during SPA hydration
@@ -1716,11 +1733,16 @@ function BlogArticles({
   !!localStorage.getItem('frontaliere_job_email_access')
  );
  const hasArticleAccess = isLoggedIn || hasEmailAccess || isCrawlerVisitor;
+ // Article is "paywallable" when it has enough real text to justify gating.
+ // Decoupled from contentGateApplies so the .paywall-hidden-content marker and
+ // the JSON-LD hasPart selector stay stable per URL (what crawlers see), while
+ // the actual hiding only fires for the current visitor when they lack access.
+ // Threshold (300w) covers 99.6% of the corpus and excludes thin pages (<100w).
+ const paywallable = bodyWordCount >= 300;
  // Keep gate closed while auth resolves — avoids a brief flash of "sign in"
  // for users who are already logged in when they land on an article.
- const contentGateApplies = !authLoading && !hasArticleAccess && presentSegments.length >= 5;
- const visibleSegmentCount = contentGateApplies ? Math.ceil(presentSegments.length / 2) : presentSegments.length;
- const visibleSegments = presentSegments.slice(0, visibleSegmentCount);
+ const contentGateApplies = !authLoading && !hasArticleAccess && paywallable;
+ const visibleSegmentCount = paywallable ? Math.ceil(presentSegments.length / 2) : presentSegments.length;
 
  // TOC headings extracted from article body
  const tocHeadings = extractHeadings(bodySegments);
@@ -2061,10 +2083,17 @@ function BlogArticles({
  )}
 
  <div className="space-y-4">
- {visibleSegments.map((segment, idx) => (
+ {presentSegments.map((segment, idx) => {
+  // Anti-cloaking: paywalled tail segments are always rendered in the DOM
+  // (so crawlers can index the full article) but hidden via `display:none`
+  // for visitors without access. The `.paywall-hidden-content` class is
+  // the Schema.org hasPart cssSelector marker.
+  const isInPaywall = paywallable && idx >= visibleSegmentCount;
+  const hideForVisitor = isInPaywall && contentGateApplies;
+  return (
  <Fragment key={idx}>
  {/* Interstitials after body1 (index 0) — all viewports */}
- {idx === 1 && (
+ {!hideForVisitor && idx === 1 && (
  <>
  {/* Live fuel price table — only for fuel-price articles */}
  {FUEL_PRICE_ARTICLE_IDS.has(article.id) && (
@@ -2089,7 +2118,7 @@ function BlogArticles({
  )}
 
  {/* Interstitials after body2 (index 1) */}
- {idx === 2 && (
+ {!hideForVisitor && idx === 2 && (
  <>
  {/* Inline job teaser — shows 1-2 relevant jobs mid-article */}
  {relatedJobs.length > 0 && (
@@ -2151,9 +2180,16 @@ function BlogArticles({
  </>
  )}
 
+ {isInPaywall ? (
+ <div className={hideForVisitor ? 'paywall-hidden-content hidden' : 'paywall-hidden-content'}>
  {renderFormattedContent(segment, navigators)}
+ </div>
+ ) : (
+ renderFormattedContent(segment, navigators)
+ )}
  </Fragment>
- ))}
+  );
+ })}
 
  {/* Content gate: fade overlay + sign-in prompt for unauthenticated users */}
  {contentGateApplies && (
