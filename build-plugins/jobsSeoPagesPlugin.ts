@@ -54,6 +54,9 @@ import {
  buildJobPartTimeLandingModel,
  buildJobTodayLandingModel,
  getJobTodayLandingSlug,
+ getJobNursesHubSlug,
+ getJobPartTimeLandingSlug,
+ careClusterSlug,
  EDITORIAL_CANTONS,
  partitionCareClusters,
  partitionByLocation,
@@ -8017,6 +8020,173 @@ ${alternates}
      const cantonEditorialSection =
        `<section data-canton-editorial style="max-width:860px;margin:32px 0 0;color:var(--color-body);font-size:15px">${editorialHtml}</section>`;
 
+     // ── BFS-depth closure (Group A2) — "Esplora" navigator ─────────────
+     // Phase 8a introduced ~250 sub-pages per canton (city hubs, category
+     // hubs, editorial slot pages) that the canton hub did NOT link to,
+     // pushing them to BFS depth>4 from `/`. This block surfaces:
+     //   - 5-8 top city hubs           → /{section}/{citySlug}/
+     //   - up to 6 category hubs       → /{section}/{catPrefix}-{slug}/
+     //   - 4 editorial slot pages      → today / nurses / part-time / clinics
+     // Emitted BELOW the listing grid (mobile-first per #16/#17). Gated on
+     // the same MIN_JOBS threshold used by the page itself (`meetsThreshold`)
+     // so thin pages don't sprout link farms. TI is filtered out at the
+     // cantonsToEmit loop entry (`code === 'TI' continue`), so this block
+     // never affects the byte-identical TI hub owned by staticPagesPlugin.
+     let exploreSection = '';
+     if (meetsThreshold && entry.key !== AGGREGATE_KEY) {
+       const exploreSectionBase = sectionBase; // already trailing-slashed canton-aware section
+       // Top cities by job count (max 8). Normalise via shared helper so the
+       // URL matches the citySlug emitted by the city-hub block earlier in
+       // this plugin (Phase 8a). Skip empty / "—" buckets.
+       const topCityHubs: Array<{ slug: string; label: string }> = [];
+       const seenCitySlugs = new Set<string>();
+       for (const [cityRaw, count] of [...cityCounts.entries()].sort((a, b) => b[1] - a[1])) {
+         if (topCityHubs.length >= 8) break;
+         if (!cityRaw || cityRaw === '—' || count < 1) continue;
+         const slug = normalizeCitySlug(cityRaw);
+         if (!slug || seenCitySlugs.has(slug)) continue;
+         seenCitySlugs.add(slug);
+         topCityHubs.push({ slug, label: cityRaw });
+       }
+       // Top categories by job count (max 6). Mirror the category slug
+       // tables from the category-listing block (~line 5742-5752); kept
+       // inline to avoid hoisting a nested scope across thousands of lines.
+       const categorySlugMap: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
+         health: { it: 'sanita', en: 'health', de: 'gesundheit', fr: 'sante' },
+         finance: { it: 'finanza', en: 'finance', de: 'finanzen', fr: 'finance' },
+         tech: { it: 'informatica', en: 'tech', de: 'technik', fr: 'tech' },
+         engineering: { it: 'ingegneria', en: 'engineering', de: 'ingenieurwesen', fr: 'ingenierie' },
+         admin: { it: 'amministrazione', en: 'admin', de: 'verwaltung', fr: 'administration' },
+         hospitality: { it: 'ristorazione', en: 'hospitality', de: 'gastgewerbe', fr: 'hotellerie' },
+         sales: { it: 'vendita', en: 'sales', de: 'vertrieb', fr: 'vente' },
+         other: { it: 'altro', en: 'other', de: 'andere', fr: 'autre' },
+       };
+       const categoryPrefixMap: Record<'it' | 'en' | 'de' | 'fr', string> = {
+         it: 'categoria', en: 'category', de: 'kategorie', fr: 'categorie',
+       };
+       const categoryLabelMap: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
+         health: { it: 'Sanità', en: 'Healthcare', de: 'Gesundheit', fr: 'Santé' },
+         finance: { it: 'Finanza', en: 'Finance', de: 'Finanzen', fr: 'Finance' },
+         tech: { it: 'Informatica', en: 'Technology', de: 'Technik', fr: 'Technologie' },
+         engineering: { it: 'Ingegneria', en: 'Engineering', de: 'Ingenieurwesen', fr: 'Ingénierie' },
+         admin: { it: 'Amministrazione', en: 'Administration', de: 'Verwaltung', fr: 'Administration' },
+         hospitality: { it: 'Ristorazione', en: 'Hospitality', de: 'Gastgewerbe', fr: 'Hôtellerie' },
+         sales: { it: 'Vendita', en: 'Sales', de: 'Vertrieb', fr: 'Vente' },
+         other: { it: 'Altro', en: 'Other', de: 'Andere', fr: 'Autre' },
+       };
+       // Job `sector` field uses Italian labels in many feeds; the canonical
+       // category key is derived elsewhere via the same lowercase compare.
+       // sectorCounts keys are the raw display labels; resolve to category
+       // keys with the same lowercase Italian alias table used by the
+       // category-listing block (best-effort: only emit a link when we
+       // actually have ≥3 jobs in that bucket — the same threshold used by
+       // the category-listing emit at line 5768).
+       const sectorAlias: Record<string, string> = {
+         sanita: 'health', salute: 'health',
+         finanza: 'finance', banca: 'finance',
+         informatica: 'tech', it: 'tech', tech: 'tech',
+         ingegneria: 'engineering',
+         amministrazione: 'admin', uffici: 'admin',
+         ristorazione: 'hospitality', alberghiero: 'hospitality',
+         vendita: 'sales', commerciale: 'sales',
+       };
+       const categoryCountAggregated = new Map<string, number>();
+       for (const [secRaw, count] of sectorCounts) {
+         const norm = String(secRaw).toLowerCase().trim();
+         const catKey = sectorAlias[norm] || (Object.keys(categorySlugMap).includes(norm) ? norm : 'other');
+         categoryCountAggregated.set(catKey, (categoryCountAggregated.get(catKey) ?? 0) + count);
+       }
+       const topCategoryHubs: Array<{ slug: string; label: string }> = [];
+       for (const [catKey, count] of [...categoryCountAggregated.entries()].sort((a, b) => b[1] - a[1])) {
+         if (topCategoryHubs.length >= 6) break;
+         if (count < 3) continue; // mirror the category-listing emit gate
+         const catSlug = categorySlugMap[catKey]?.[entry.locale];
+         const catLabel = categoryLabelMap[catKey]?.[entry.locale];
+         if (!catSlug || !catLabel) continue;
+         const slug = `${categoryPrefixMap[entry.locale]}-${catSlug}`;
+         topCategoryHubs.push({ slug, label: catLabel });
+       }
+       // Editorial slot pages (Phase 8d). Non-TI cantons collapse to short
+       // slugs (`oggi` / `infermieri` / `lavoro-part-time` / `cliniche`);
+       // TI is filtered out earlier so we don't worry about its long-form
+       // legacy URLs here.
+       const editorialSlotPages: Array<{ slug: string; label: string }> = [];
+       const todayLabels: Record<CantonLocale, string> = {
+         it: 'Offerte di oggi', en: 'Jobs posted today', de: 'Heute veröffentlicht', fr: "Offres d'aujourd'hui",
+       };
+       const nursesLabels: Record<CantonLocale, string> = {
+         it: 'Lavoro per infermieri', en: 'Nursing jobs', de: 'Pflegejobs', fr: 'Emplois en soins infirmiers',
+       };
+       const partTimeLabels: Record<CantonLocale, string> = {
+         it: 'Lavoro part-time', en: 'Part-time jobs', de: 'Teilzeitstellen', fr: 'Emplois à temps partiel',
+       };
+       const clinicsLabels: Record<CantonLocale, string> = {
+         it: 'Cliniche e ospedali', en: 'Clinics & hospitals', de: 'Kliniken & Spitäler', fr: 'Cliniques et hôpitaux',
+       };
+       editorialSlotPages.push({ slug: getJobTodayLandingSlug(entry.locale, entry.key), label: todayLabels[entry.locale] });
+       editorialSlotPages.push({ slug: getJobNursesHubSlug(entry.locale, entry.key), label: nursesLabels[entry.locale] });
+       editorialSlotPages.push({ slug: getJobPartTimeLandingSlug(entry.locale, entry.key), label: partTimeLabels[entry.locale] });
+       editorialSlotPages.push({ slug: careClusterSlug('clinics', entry.key, entry.locale), label: clinicsLabels[entry.locale] });
+
+       const exploreTitle = (() => {
+         switch (entry.locale) {
+           case 'en': return `Explore more jobs in ${display}`;
+           case 'de': return `Mehr Stellen in ${display}`;
+           case 'fr': return `Plus d'offres en ${display}`;
+           default: return `Esplora più offerte in ${display}`;
+         }
+       })();
+       const colByCityLabel = entry.locale === 'en' ? 'Top cities'
+         : entry.locale === 'de' ? 'Top-Städte'
+         : entry.locale === 'fr' ? 'Villes principales'
+         : 'Città principali';
+       const colByCategoryLabel = entry.locale === 'en' ? 'Top sectors'
+         : entry.locale === 'de' ? 'Top-Branchen'
+         : entry.locale === 'fr' ? 'Secteurs principaux'
+         : 'Settori principali';
+       const colEditorialLabel = entry.locale === 'en' ? 'Featured pages'
+         : entry.locale === 'de' ? 'Empfohlene Seiten'
+         : entry.locale === 'fr' ? 'Pages à la une'
+         : 'Pagine in evidenza';
+       const linkStyle = 'display:inline-block;padding:6px 12px;margin:0 6px 6px 0;border-radius:6px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-link);text-decoration:none;font-size:14px;line-height:1.3';
+       const renderLinks = (items: Array<{ slug: string; label: string }>): string =>
+         items
+           .map((it) => `<a href="${exploreSectionBase}${it.slug}/" style="${linkStyle}">${esc(it.label)}</a>`)
+           .join('');
+       const blocks: string[] = [];
+       if (topCityHubs.length > 0) {
+         blocks.push(
+           `<div data-explore-cities style="margin:0 0 12px">` +
+           `<h3 style="font-size:15px;margin:0 0 8px;color:var(--color-heading);font-weight:600">${esc(colByCityLabel)}</h3>` +
+           `<div>${renderLinks(topCityHubs)}</div>` +
+           `</div>`,
+         );
+       }
+       if (topCategoryHubs.length > 0) {
+         blocks.push(
+           `<div data-explore-categories style="margin:0 0 12px">` +
+           `<h3 style="font-size:15px;margin:0 0 8px;color:var(--color-heading);font-weight:600">${esc(colByCategoryLabel)}</h3>` +
+           `<div>${renderLinks(topCategoryHubs)}</div>` +
+           `</div>`,
+         );
+       }
+       if (editorialSlotPages.length > 0) {
+         blocks.push(
+           `<div data-explore-editorial style="margin:0 0 12px">` +
+           `<h3 style="font-size:15px;margin:0 0 8px;color:var(--color-heading);font-weight:600">${esc(colEditorialLabel)}</h3>` +
+           `<div>${renderLinks(editorialSlotPages)}</div>` +
+           `</div>`,
+         );
+       }
+       if (blocks.length > 0) {
+         exploreSection =
+           `<section data-canton-explore style="max-width:1080px;margin:24px 0 0">` +
+           `<h2 style="font-size:20px;margin:0 0 12px;color:var(--color-heading)">${esc(exploreTitle)}</h2>` +
+           blocks.join('') +
+           `</section>`;
+       }
+     }
+
      const bodyHtml = [
        `<main class="seo-static-content" style="max-width:1080px;margin:0 auto;padding:24px 16px">`,
        `<nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}/" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
@@ -8026,6 +8196,12 @@ ${alternates}
        subPageNav,
        cantonListSection,
        listingGrid,
+       // BFS-depth closure — link Phase 8a sub-pages from the canton hub
+       // (top cities, top categories, editorial slot pages). Empty string
+       // when meetsThreshold === false or canton === AGGREGATE_KEY. Sits
+       // ABOVE the prose so internal navigation stays close to the data
+       // area; the long filler stays after.
+       exploreSection,
        // Frontaliere context prose — placed BELOW the data area per CLAUDE.md
        // non-negotiable #16/#17 (mobile-first, filler below content). Ratio
        // uplift brings text/HTML from 1.7-2.2 % to ~12 % so

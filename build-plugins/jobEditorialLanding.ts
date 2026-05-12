@@ -173,6 +173,22 @@ export function getJobTodayLandingSlug(locale: JobLandingLocale, canton: string 
  return slugs[locale];
 }
 
+// Phase 8 sub-PR (d) helper accessor — TI defaults preserved; non-TI/GR/VS
+// cantons return the short slug (`infermieri` / `nurses` / `pflege-jobs` /
+// `infirmiers`). Used by the canton-hub "Esplora" navigator to link the
+// Phase 8d editorial slot pages without rebuilding the lookup table.
+export function getJobNursesHubSlug(locale: JobLandingLocale, canton: string = 'TI'): string {
+ const slugs = JOB_NURSES_HUB_SLUGS_BY_CANTON[canton] || JOB_NURSES_HUB_SLUGS;
+ return slugs[locale];
+}
+
+// Phase 8 sub-PR (d) helper accessor — TI defaults preserved; non-TI/GR/VS
+// cantons return the short slug (`lavoro-part-time` / `part-time-jobs` / …).
+export function getJobPartTimeLandingSlug(locale: JobLandingLocale, canton: string = 'TI'): string {
+ const slugs = JOB_PART_TIME_LANDING_SLUGS_BY_CANTON[canton] || JOB_PART_TIME_LANDING_SLUGS_BY_CANTON['TI'];
+ return slugs[locale];
+}
+
 export const JOB_OFFICIAL_GAZETTE_LANDING_SLUGS: Record<JobLandingLocale, string> = {
  it: 'foglio-ufficiale-offerte-di-lavoro-ticino',
  en: 'official-gazette-ticino-jobs',
@@ -879,7 +895,7 @@ const NURSES_HUB_COPY = makeNursesHubCopy('TI');
 // the section segment via `buildCantonAwareSection(locale, canton)`. The
 // trailing `-jobs` suffix in EN/DE is preserved for TI/GR/VS only.
 const _LEGACY_CARE_CLUSTER_CANTONS = new Set(['TI', 'GR', 'VS']);
-function careClusterSlug(key: JobCareClusterKey, cantonCode: string, locale: JobLandingLocale): string {
+export function careClusterSlug(key: JobCareClusterKey, cantonCode: string, locale: JobLandingLocale): string {
  const base: Record<JobCareClusterKey, Record<JobLandingLocale, string>> = {
  clinics: { it: 'cliniche', en: 'clinics', de: 'kliniken', fr: 'cliniques' },
  careHomes: { it: 'case-anziani', en: 'care-homes', de: 'altersheime', fr: 'maisons-retraite' },
