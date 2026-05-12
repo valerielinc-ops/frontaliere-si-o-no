@@ -186,6 +186,18 @@
       body { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif; }
       h1, h2, h3 { font-family: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif; }
 
+      /* CLS prevention — applied synchronously before async Tailwind CSS arrives.
+         Without these, the UA default body margin (8px) + Tailwind preflight
+         eventual margin:0 transition causes a ~20px y-axis shift of the entire
+         body (full-viewport CLS score of 1.0 on mobile). See cls-live audit. */
+      html { margin: 0; padding: 0; scrollbar-gutter: stable; }
+      body { margin: 0; padding: 0; }
+      /* Reserve mobile widget area so deferred React widgets don't cause CLS when
+         they mount. 160px matches min-h-[160px] on the .md:hidden mobile container
+         in CalcolatoreTabContent.tsx; the inline value applies before Tailwind
+         loads. */
+      .home-mobile-widget-reserve { min-height: 160px; }
+
       /* PERFORMANCE: Skip layout/render for off-screen content */
       /* ===== Loading Shell responsive styles — must match React's Tailwind breakpoints ===== */
       /* sm: 640px, md: 768px, lg: 1024px, xl: 1280px */
@@ -298,7 +310,7 @@
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="rHTcP+zOAbsCkiHdjnyNvg" async></script>
 </head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-x-hidden">
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:text-blue-600 focus:rounded focus:shadow-lg focus:underline" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Vai al contenuto principale</a>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:text-blue-600 focus:rounded focus:shadow-lg focus:underline" style="position:absolute;top:0;left:0;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Vai al contenuto principale</a>
     <!-- Loading shell: fixed overlay so it never participates in layout flow.
          React renders behind it inside #root; shell is removed after first paint.
          Because the shell is position:fixed, removing it causes ZERO layout shift. -->
