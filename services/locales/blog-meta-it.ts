@@ -7484,6 +7484,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovi-frontalieri-tasse-salate.title': 'Nuovi frontalieri: tasse salate, è shock',
     'blog.article.nuovi-frontalieri-tasse-salate.excerpt': 'I nuovi frontalieri in Ticino si trovano di fronte a un conto fiscale salato, con tasse che possono arrivare a 12mila euro o più, e anche l\'acconto per il 2026.',
     'blog.article.nuovi-frontalieri-tasse-salate.imageAlt': 'Vista panoramica di Lugano',
+    'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.title': 'Riforma disoccupazione frontalieri, pressioni dalla Francia sulla Svizzera',
+    'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.excerpt': 'Il ministro francese del lavoro, Jean-Pierre Farandou, intende fare pressione sulla Svizzera per applicare il nuovo accordo europeo sulle indennità di disoccupazione dei frontalieri.',
+    'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.imageAlt': 'La Svizzera e la Francia si riuniscono per discutere la riforma della disoccupazione dei frontalieri',
 };
 
 export default blogMetaIt;

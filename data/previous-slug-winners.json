@@ -594,12 +594,12 @@
     "canton": "BE"
   },
   "BE::en::fachfrau-mann-gesundheit-lindenhofgruppe-ch": {
-    "winnerJobIdentifier": "lindenhofgruppe-c97d1d5c372f",
-    "winnerCanonical": "professional-health-lindenhofgruppe-bern",
+    "winnerJobIdentifier": "lindenhofgruppe-d1d2041b7583",
+    "winnerCanonical": "healthcare-professional-lindenhofgruppe-bern",
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.125,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::en::formation-en-vente-au-detail-afc-creation-d-experiences-d-achat-fust-swiss-household-services-ag-tenero-contra": {
@@ -855,12 +855,12 @@
     "canton": "BE"
   },
   "BE::fr::fachfrau-mann-gesundheit-lindenhofgruppe-ch": {
-    "winnerJobIdentifier": "lindenhofgruppe-c97d1d5c372f",
-    "winnerCanonical": "sante-professionnelle-lindenhofgruppe-bern",
+    "winnerJobIdentifier": "lindenhofgruppe-d1d2041b7583",
+    "winnerCanonical": "sante-professionnelle-lindenhofgruppe-bern-ede4bc",
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
-    "score": 0.125,
-    "candidatesCount": 2,
+    "score": 0.1111,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::fr::formation-en-vente-au-detail-afc-creation-d-experiences-d-achat-fust-swiss-household-services-ag-tenero-contra": {
@@ -1251,12 +1251,12 @@
     "canton": "BE"
   },
   "BE::it::salute-professionale-lindenhofgruppe-bern": {
-    "winnerJobIdentifier": "lindenhofgruppe-c97d1d5c372f",
-    "winnerCanonical": "salute-professionale-lindenhofgruppe-bern-d2f9c0",
+    "winnerJobIdentifier": "lindenhofgruppe-d1d2041b7583",
+    "winnerCanonical": "infermiere-a-professionale-lindenhofgruppe-bern",
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::sap-abap-fiori-developer-agie-charmilles-biel-bienne": {
@@ -1710,12 +1710,12 @@
     "canton": "GR"
   },
   "GR::en::assembly-operator-befristet-80-100-w-m-d-jr-5751": {
-    "winnerJobIdentifier": "hamilton-bonaduz-ag-d568e2ba6207",
+    "winnerJobIdentifier": "hamilton-bonaduz-ag-de10ccc90ef5",
     "winnerCanonical": "assembly-operator-befristet-80-100-hamilton-bonaduz-ag-bonaduz",
-    "decidedAt": "2026-05-11T00:00:00.000Z",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.3846,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::en::autista-addetto-raccolta-dati-a-coira-svizzera-tsmg-chur": {
@@ -1962,12 +1962,12 @@
     "canton": "GR"
   },
   "GR::fr::assembly-operator-befristet-80-100-w-m-d-jr-5751": {
-    "winnerJobIdentifier": "hamilton-bonaduz-ag-d568e2ba6207",
+    "winnerJobIdentifier": "hamilton-bonaduz-ag-de10ccc90ef5",
     "winnerCanonical": "assembly-operateur-befristet-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
-    "decidedAt": "2026-05-09T00:00:00.000Z",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::fr::autista-addetto-raccolta-dati-a-coira-svizzera-tsmg-chur": {
@@ -5873,6 +5873,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
+  "VD::fr::position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne": {
+    "winnerJobIdentifier": "epfl-ad8241ec0d43",
+    "winnerCanonical": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
+    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "score": 0.2381,
     "candidatesCount": 2,
     "canton": "VD"
   },

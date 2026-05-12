@@ -3737,6 +3737,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-traffico-umani-valico-tresa-impatto-frontalieri': { name: 'Sicurezza frontalieri', path: '/articoli-frontaliere/traffico-umani-valico-tresa-impatto-frontalieri', parent: 'blog' },
     'blog-iniziative-cassa-malati-ticino-2026': { name: 'Sanità', path: '/articoli-frontaliere/iniziative-cassa-malati-ticino-2026', parent: 'blog' },
     'blog-nuovi-frontalieri-tasse-salate': { name: 'Tasse frontalieri', path: '/articoli-frontaliere/nuovi-frontalieri-tasse-salate', parent: 'blog' },
+    'blog-riforma-disoccupazione-frontalieri-francia-svizzera': { name: 'Riforma disoccupazione frontalieri', path: '/articoli-frontaliere/riforma-disoccupazione-frontalieri-francia-svizzera', parent: 'blog' },
  };
 
  const info = sectionNames[section];

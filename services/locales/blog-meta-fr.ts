@@ -7484,6 +7484,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovi-frontalieri-tasse-salate.title': 'Nouveaux frontaliers: des taxes salées, c\'est le choc',
     'blog.article.nuovi-frontalieri-tasse-salate.excerpt': 'Les nouveaux frontaliers au Tessin sont confrontés à un lourd fardeau fiscal, avec des taxes pouvant atteindre 12 000 euros ou plus, et également l\'acompte pour 2026.',
     'blog.article.nuovi-frontalieri-tasse-salate.imageAlt': 'Vue panoramique de Lugano',
+    'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.title': 'Réforme chômage frontaliers, pressions de la France sur la Suisse',
+    'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.excerpt': 'Le ministre français du travail, Jean-Pierre Farandou, entend faire pression sur la Suisse pour appliquer le nouveau accord européen sur les allocations chômage des frontaliers. 💡',
+    'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.imageAlt': 'La Suisse et la France se réunissent pour discuter la réforme de l\'assurance-chômage des travailleurs frontaliers',
 };
 
 export default blogMetaFr;

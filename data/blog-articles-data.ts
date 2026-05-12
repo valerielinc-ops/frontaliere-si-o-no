@@ -23825,4 +23825,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'riforma-disoccupazione-frontalieri-francia-svizzera',
+ category: 'fiscale',
+ date: '2026-05-12T22:49:40.331Z',
+ image: '/images/blog/riforma-disoccupazione-frontalieri-francia-svizzera.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

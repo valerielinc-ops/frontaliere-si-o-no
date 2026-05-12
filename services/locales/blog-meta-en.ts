@@ -7483,6 +7483,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovi-frontalieri-tasse-salate.title': 'New cross-border workers: shockingly high taxes',
     'blog.article.nuovi-frontalieri-tasse-salate.excerpt': 'New cross-border workers in Ticino are facing a hefty tax bill, with taxes amounting to 12,000 euros or more, including the advance payment for 2026.',
     'blog.article.nuovi-frontalieri-tasse-salate.imageAlt': 'Panoramic view of Lugano',
+    'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.title': 'France Pressures Switzerland on EU Frontalier Unemployment Reform',
+    'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.excerpt': 'French Labor Minister Jean-Pierre Farandou aims to put pressure on Switzerland to implement the new EU agreement on cross-border worker unemployment benefits.',
+    'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.imageAlt': 'The Switzerland and France meet to discuss the reform of unemployment of cross-border workers',
 };
 
 export default blogMetaEn;

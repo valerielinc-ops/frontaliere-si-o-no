@@ -7482,6 +7482,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovi-frontalieri-tasse-salate.title': 'Neue Grenzgänger: Schockierende Steuern',
     'blog.article.nuovi-frontalieri-tasse-salate.excerpt': 'Neue Grenzgänger im Tessin stehen vor einer hohen Steuerrechnung, mit Steuern, die bis zu 12.000 Euro oder mehr betragen können, und auch eine Vorauszahlung für 2026.',
     'blog.article.nuovi-frontalieri-tasse-salate.imageAlt': 'Panoramablick auf Lugano',
+    'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.title': '"Frontalieri: Francia spinge su riforma disoccupazione Svizzera"',
+    'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.excerpt': 'Der französische Arbeitsminister Jean-Pierre Farandou will Druck auf die Schweiz ausüben, um das neue europäische Abkommen über die Arbeitslosenunterstützung für Grenzgänger umzusetzen.',
+    'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.imageAlt': 'Die Schweiz und Frankreich treten zusammen, um die Reform der Arbeitslosenversicherung für Grenzgänger zu diskutieren',
 };
 
 export default blogMetaDe;
