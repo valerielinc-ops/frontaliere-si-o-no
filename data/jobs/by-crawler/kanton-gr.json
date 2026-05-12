@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-05-11T22:21:09.459Z",
+  "assembledAt": "2026-05-12T11:28:57.776Z",
   "jobs": [
     {
       "id": "kanton-gr-cb30f2200bf1",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2677/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:21:07.399Z",
+      "crawledAt": "2026-05-12T11:28:55.731Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://apply.refline.ch/514915/2620/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:21:06.767Z",
+      "crawledAt": "2026-05-12T11:28:55.098Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -178,6 +178,7 @@
         "stagiaire-comme-dessinateur-ice-efz-batiment-civil-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:49:03.502Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -222,7 +223,7 @@
       "url": "https://apply.refline.ch/514915/2595/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:21:06.135Z",
+      "crawledAt": "2026-05-12T11:28:54.465Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -298,7 +299,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:21:05.502Z",
+      "crawledAt": "2026-05-12T11:28:53.831Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -368,6 +369,7 @@
         "specialiste-en-hotellerie-gestion-hoteliere-cfc-kantonale-verwaltung-graubunden-landquart"
       ],
       "firstSeenAt": "2026-04-13T10:49:01.647Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -412,7 +414,7 @@
       "url": "https://apply.refline.ch/514915/2438/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:21:04.869Z",
+      "crawledAt": "2026-05-12T11:28:53.198Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -455,6 +457,7 @@
         "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:49:00.412Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -499,7 +502,7 @@
       "url": "https://apply.refline.ch/514915/2437/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:21:04.232Z",
+      "crawledAt": "2026-05-12T11:28:52.561Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -542,6 +545,7 @@
         "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:59.793Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -586,7 +590,7 @@
       "url": "https://apply.refline.ch/514915/2319/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:21:03.599Z",
+      "crawledAt": "2026-05-12T11:28:51.934Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -626,6 +630,7 @@
         "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:58.993Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -640,37 +645,117 @@
       }
     },
     {
+      "id": "kanton-gr-caf89d639787",
+      "slug": "collaboratore-trice-in-betreuungs-e-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis",
+        "it": "collaboratore-trice-in-betreuungs-e-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis",
+        "en": "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis",
+        "fr": "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kantonale-verwaltung-graubunden-cazis"
+      },
+      "company": "Kantonale Verwaltung Graubünden",
+      "companyKey": "kanton-gr",
+      "companyDomain": "gr.ch",
+      "title": "Mitarbeiter/-in Betreuungs- und Sicherheitsdienst",
+      "titleByLocale": {
+        "de": "Mitarbeiter/-in Betreuungs- und Sicherheitsdienst",
+        "it": "Collaboratore/trice/-in Betreuungs- e Sicherheitsdienst",
+        "en": "Mitarbeiter/-in Betreuungs- und Sicherheitsdienst",
+        "fr": "Mitarbeiter/-in Betreuungs- und Sicherheitsdienst"
+      },
+      "description": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern.\n\nDie Justizvollzugsanstalt (JVA) Realta dient dem offenen Strafvollzug von Männern gemäss schweizerischem Strafgesetzbuch.\n\nWir suchen nach Vereinbarung eine/n Mitarbeiter/-in Betreuungs- und Sicherheitsdienst\n\nAufgaben\n• Aufsicht, Betreuung und Führung von eingewiesenen Personen aus verschiedenen Kulturräumen\n\n• Direkte Ansprechperson bei Fragen und Anliegen der eingewiesenen Personen\n\n• Gewährleisten und koordinieren eines geordneten Betriebsablaufs unter Berücksichtigung der rechtlichen Grundlagen sowie vollzugs- und sicherheitsrelevanten Vorgaben und Regeln\n\n• Verfassen von Rapporten und Dokumentieren von Ereignissen\n\n• Leisten von Früh-, Tag-, Spät-, Nacht- und Wochenenddiensten\n\nAnforderungen\n• Abgeschlossene mind. dreijährige Berufslehre mit EFZ oder gleichwertige Ausbildung\n\n• Ausgeglichene, belastbare und konfliktfähige Persönlichkeit mit hoher Sozialkompetenz\n\n• Freude an Teamarbeit sowie interdiszipliänrer Zuasammenarbeit\n\n• Interesse an sozial-psychologischen Fragen und Problemstellungen im Justizvollzug sind unabdingbar\n\n• Sehr gute Deutschkenntnisse (mindestens C1) – Fremdsprachenkenntnisse sind von Vorteil\n\n• Gute EDV-Anwenderkenntnisse\n\n• Führerausweis der Kat. B\n\n• Bereitschaft, die Ausbildung als Fachperson für Justizvollzug zu absolvieren\n\n• Einen einwandfreien Leumund (keine Einträge im Strafregister und dem Betreibungsregister)",
+      "descriptionByLocale": {
+        "de": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern.\n\nDie Justizvollzugsanstalt (JVA) Realta dient dem offenen Strafvollzug von Männern gemäss schweizerischem Strafgesetzbuch.\n\nWir suchen nach Vereinbarung eine/n Mitarbeiter/-in Betreuungs- und Sicherheitsdienst\n\nAufgaben\n• Aufsicht, Betreuung und Führung von eingewiesenen Personen aus verschiedenen Kulturräumen\n\n• Direkte Ansprechperson bei Fragen und Anliegen der eingewiesenen Personen\n\n• Gewährleisten und koordinieren eines geordneten Betriebsablaufs unter Berücksichtigung der rechtlichen Grundlagen sowie vollzugs- und sicherheitsrelevanten Vorgaben und Regeln\n\n• Verfassen von Rapporten und Dokumentieren von Ereignissen\n\n• Leisten von Früh-, Tag-, Spät-, Nacht- und Wochenenddiensten\n\nAnforderungen\n• Abgeschlossene mind. dreijährige Berufslehre mit EFZ oder gleichwertige Ausbildung\n\n• Ausgeglichene, belastbare und konfliktfähige Persönlichkeit mit hoher Sozialkompetenz\n\n• Freude an Teamarbeit sowie interdiszipliänrer Zuasammenarbeit\n\n• Interesse an sozial-psychologischen Fragen und Problemstellungen im Justizvollzug sind unabdingbar\n\n• Sehr gute Deutschkenntnisse (mindestens C1) – Fremdsprachenkenntnisse sind von Vorteil\n\n• Gute EDV-Anwenderkenntnisse\n\n• Führerausweis der Kat. B\n\n• Bereitschaft, die Ausbildung als Fachperson für Justizvollzug zu absolvieren\n\n• Einen einwandfreien Leumund (keine Einträge im Strafregister und dem Betreibungsregister)",
+        "it": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern.\n\nDie Justizvollzugsanstalt (JVA) Realta dient dem offenen Strafvollzug von Männern gemäss schweizerischem Strafgesetzbuch.\n\nWir suchen nach Vereinbarung eine/n Mitarbeiter/-in Betreuungs- und Sicherheitsdienst\n\nAufgaben\n• Aufsicht, Betreuung und Führung von eingewiesenen Personen aus verschiedenen Kulturräumen\n\n• Direkte Ansprechperson bei Fragen und Anliegen der eingewiesenen Personen\n\n• Gewährleisten und koordinieren eines geordneten Betriebsablaufs unter Berücksichtigung der rechtlichen Grundlagen sowie vollzugs- und sicherheitsrelevanten Vorgaben und Regeln\n\n• Verfassen von Rapporten und Dokumentieren von Ereignissen\n\n• Leisten von Früh-, Tag-, Spät-, Nacht- und Wochenenddiensten\n\nAnforderungen\n• Abgeschlossene mind. dreijährige Berufslehre mit EFZ oder gleichwertige Ausbildung\n\n• Ausgeglichene, belastbare und konfliktfähige Persönlichkeit mit hoher Sozialkompetenz\n\n• Freude an Teamarbeit sowie interdiszipliänrer Zuasammenarbeit\n\n• Interesse an sozial-psychologischen Fragen und Problemstellungen im Justizvollzug sind unabdingbar\n\n• Sehr gute Deutschkenntnisse (mindestens C1) – Fremdsprachenkenntnisse sind von Vorteil\n\n• Gute EDV-Anwenderkenntnisse\n\n• Führerausweis der Kat. B\n\n• Bereitschaft, die Ausbildung als Fachperson für Justizvollzug zu absolvieren\n\n• Einen einwandfreien Leumund (keine Einträge im Strafregister und dem Betreibungsregister)",
+        "en": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern.\n\nDie Justizvollzugsanstalt (JVA) Realta dient dem offenen Strafvollzug von Männern gemäss schweizerischem Strafgesetzbuch.\n\nWir suchen nach Vereinbarung eine/n Mitarbeiter/-in Betreuungs- und Sicherheitsdienst\n\nAufgaben\n• Aufsicht, Betreuung und Führung von eingewiesenen Personen aus verschiedenen Kulturräumen\n\n• Direkte Ansprechperson bei Fragen und Anliegen der eingewiesenen Personen\n\n• Gewährleisten und koordinieren eines geordneten Betriebsablaufs unter Berücksichtigung der rechtlichen Grundlagen sowie vollzugs- und sicherheitsrelevanten Vorgaben und Regeln\n\n• Verfassen von Rapporten und Dokumentieren von Ereignissen\n\n• Leisten von Früh-, Tag-, Spät-, Nacht- und Wochenenddiensten\n\nAnforderungen\n• Abgeschlossene mind. dreijährige Berufslehre mit EFZ oder gleichwertige Ausbildung\n\n• Ausgeglichene, belastbare und konfliktfähige Persönlichkeit mit hoher Sozialkompetenz\n\n• Freude an Teamarbeit sowie interdiszipliänrer Zuasammenarbeit\n\n• Interesse an sozial-psychologischen Fragen und Problemstellungen im Justizvollzug sind unabdingbar\n\n• Sehr gute Deutschkenntnisse (mindestens C1) – Fremdsprachenkenntnisse sind von Vorteil\n\n• Gute EDV-Anwenderkenntnisse\n\n• Führerausweis der Kat. B\n\n• Bereitschaft, die Ausbildung als Fachperson für Justizvollzug zu absolvieren\n\n• Einen einwandfreien Leumund (keine Einträge im Strafregister und dem Betreibungsregister)",
+        "fr": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern.\n\nDie Justizvollzugsanstalt (JVA) Realta dient dem offenen Strafvollzug von Männern gemäss schweizerischem Strafgesetzbuch.\n\nWir suchen nach Vereinbarung eine/n Mitarbeiter/-in Betreuungs- und Sicherheitsdienst\n\nAufgaben\n• Aufsicht, Betreuung und Führung von eingewiesenen Personen aus verschiedenen Kulturräumen\n\n• Direkte Ansprechperson bei Fragen und Anliegen der eingewiesenen Personen\n\n• Gewährleisten und koordinieren eines geordneten Betriebsablaufs unter Berücksichtigung der rechtlichen Grundlagen sowie vollzugs- und sicherheitsrelevanten Vorgaben und Regeln\n\n• Verfassen von Rapporten und Dokumentieren von Ereignissen\n\n• Leisten von Früh-, Tag-, Spät-, Nacht- und Wochenenddiensten\n\nAnforderungen\n• Abgeschlossene mind. dreijährige Berufslehre mit EFZ oder gleichwertige Ausbildung\n\n• Ausgeglichene, belastbare und konfliktfähige Persönlichkeit mit hoher Sozialkompetenz\n\n• Freude an Teamarbeit sowie interdiszipliänrer Zuasammenarbeit\n\n• Interesse an sozial-psychologischen Fragen und Problemstellungen im Justizvollzug sind unabdingbar\n\n• Sehr gute Deutschkenntnisse (mindestens C1) – Fremdsprachenkenntnisse sind von Vorteil\n\n• Gute EDV-Anwenderkenntnisse\n\n• Führerausweis der Kat. B\n\n• Bereitschaft, die Ausbildung als Fachperson für Justizvollzug zu absolvieren\n\n• Einen einwandfreien Leumund (keine Einträge im Strafregister und dem Betreibungsregister)"
+      },
+      "location": "Cazis",
+      "canton": "GR",
+      "url": "https://apply.refline.ch/514915/2593/pub/10/index.html",
+      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-12T11:28:51.301Z",
+      "addressLocality": "Cazis",
+      "postalCode": "7408",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-12",
+      "applyUrl": "https://apply.refline.ch/514915/2593/pub/10/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Amt für Justizvollzug Graubünden",
+      "applicationDeadline": "2026-06-07",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch"
+        ],
+        "de": [
+          "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-betreuungs-und-sicherheitsdienst-kanton-gr-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-12T11:28:51.301Z"
+    },
+    {
       "id": "kanton-gr-a947f6939528",
       "slug": "amministrazione-del-segretariato-del-dipartimento-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "de": "mitarbeiter-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur",
         "it": "amministrazione-del-segretariato-del-dipartimento-kantonale-verwaltung-graubunden-chur",
-        "en": "mitarbeiter-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur",
-        "fr": "mitarbeiter-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur"
+        "en": "administration-department-secretary-kantonale-verwaltung-graubunden-chur",
+        "de": "mitarbeiter-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur",
+        "fr": "secretariat-du-departement-d-administration-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
       "companyDomain": "gr.ch",
       "title": "Mitarbeiter/-in Administration Departementssekretariat",
       "titleByLocale": {
-        "de": "Mitarbeiter/-in Administration Departementssekretariat",
         "it": "Amministrazione del Segretariato del Dipartimento",
         "en": "Administration Department Secretary",
+        "de": "Mitarbeiter/-in Administration Departementssekretariat",
         "fr": "Secrétariat du Département d'Administration"
       },
       "description": "Das Departement für Volkswirtschaft und Soziales (DVS) umfasst acht Dienststellen mit einem vielfältigen Tätigkeitsgebiet und rund 500 Mitarbeiterinnen und Mitarbeiter. Das Departementssekretariat ist die Stabsstelle im DVS. Ein Team von 13 Mitarbeitenden unterstützt den Departementsvorsteher in allen fachlichen, rechtlichen, führungsrelevanten und politischen Angelegenheiten und stellt die effektive Zusammenarbeit mit den Dienststellen sicher.\n\nAufgaben\n• Erledigung sämtlicher administrativer Aufgaben sowie allgemeiner Korrespondenz\n\n• Unterstützung bei der Bearbeitung von Regierungsbeschlüssen, Departementsverfügungen, Strafbefehlen, Botschaften, parlamentarischen Vorstössen, Vernehmlassungen, Gesetzesvorlagen und Publikationen\n\n• Bearbeitung von Beschwerde- und Strafverfahren inkl. Dossierführung, Fristenkontrolle, Rechnungsstellung und Inkasso\n\n• Posteingang und -versand inkl. Datenerfassung im Verwaltungsprogramm CMI\n\n• Telefon- und Empfangsdienst\n\n• Organisation von Terminen und Sitzungen\n\nAnforderungen\n• Abgeschlossene kaufmännische Ausbildung sowie mehrjährige Berufserfahrung\n\n• Schnelle Auffassungsgabe, strukturierte, selbständige und präzise Arbeitsweise\n\n• Zuverlässigkeit, Diskretion und Verantwortungsbewusstsein\n\n• Teamgeist, Flexibilität, Belastbarkeit und dienstleistungsorientiertes Auftreten\n\n• Stilsichere Deutschkenntnisse, Kenntnisse einer weiteren Kantonssprache von Vorteil\n\n• Sicherer Umgang mit MS-Office",
       "descriptionByLocale": {
-        "de": "Descrizione\nDas Departement für Volkswirtschaft und Soziales (DVS) umfasst acht Dienststellen mit einem vielfältigen Tätigkeitsgebiet und rund 500 Mitarbeiterinnen und Mitarbeiter. Das Departementssekretariat ist die Stabsstelle im DVS. Ein Team von 13 Mitarbeitenden unterstützt den Departementsvorsteher in allen fachlichen, rechtlichen, führungsrelevanten und politischen Angelegenheiten und stellt die effektive Zusammenarbeit mit den Dienststellen sicher.\n\nAufgaben\n- Erledigung sämtlicher administrativer Aufgaben sowie allgemeiner Korrespondenz\n- Unterstützung bei der Bearbeitung von Regierungsbeschlüssen, Departementsverfügungen, Strafbefehlen, Botschaften, parlamentarischen Vorstössen, Vernehmlassungen, Gesetzesvorlagen und Publikationen\n- Bearbeitung von Beschwerde- und Strafverfahren inkl. Dossierführung, Fristenkontrolle, Rechnungsstellung und Inkasso\n- Posteingang und -versand inkl. Datenerfassung im Verwaltungsprogramm CMI\n- Telefon- und Empfangsdienst\n- Organisation von Terminen und Sitzungen\n\nAnforderungen\n- Abgeschlossene kaufmännische Ausbildung sowie mehrjährige Berufserfahrung\n- Schnelle Auffassungsgabe, strukturierte, selbständige und präzise Arbeitsweise\n- Zuverlässigkeit, Diskretion und Verantwortungsbewusstsein\n- Teamgeist, Flexibilität, Belastbarkeit und dienstleistungsorientiertes Auftreten\n- Stilsichere Deutschkenntnisse, Kenntnisse einer weiteren Kantonssprache von Vorteil\n- Sicherer Umgang mit MS-Office",
-        "it": "Descrizione\nIl Dipartimento di Economia e Affari Sociali (DVS) comprende otto dipartimenti con una vasta gamma di attività e circa 500 dipendenti. Il segretariato del dipartimento è l'ufficio del DVS. Un team di 13 dipendenti assiste il responsabile del dipartimento in tutte le questioni tecniche, legali, di leadership e politiche e garantisce una collaborazione efficace con i dipartimenti.\n\nCompiti\n- Completi tutti i compiti amministrativi e la corrispondenza generale\n- Sostegno al trattamento delle decisioni governative, decreti dipartimentali, ordini penali, ambasciate, anticipi parlamentari, permessi, fatture e pubblicazioni\n- Trattamento delle denunce e procedimenti penali incl. Ordinazione, controllo dei termini, fatturazione e raccolta\n- Posta in arrivo e consegna incl. Raccolta dei dati nel programma di amministrazione CMI\n- Telefono e reception\n- Organizzazione di appuntamenti e incontri\n\nRequisiti\n- formazione commerciale completa e diversi anni di esperienza professionale\n- Concepimento rapido, funzionamento strutturato, indipendente e preciso\n- Affidabilità, discrezione e senso di responsabilità\n- spirito di squadra, flessibilità, resilienza e aspetto orientato al servizio\n- Conoscenza elegante del tedesco, conoscenza di un'altra lingua cantonale di vantaggio\n- Gestione sicura di MS-Office",
-        "en": "Descrizione\nThe Department of Economics and Social Affairs (DVS) comprises eight departments with a wide range of activities and around 500 employees. The department secretariat is the office in the DVS. A team of 13 employees assists the department manager in all technical, legal, leadership-relevant and political matters and ensures effective cooperation with the departments.\n\nTasks\n- Complete all administrative tasks and general correspondence\n- Support in the processing of government decisions, departmental decrees, criminal orders, embassies, parliamentary advances, permits, bills and publications\n- Treatment of complaint and criminal proceedings incl. Ordering, time-limit control, invoicing and collection\n- Inbox and delivery incl. Data collection in the CMI administration program\n- Telephone and reception services\n- Organization of appointments and meetings\n\nRequirements\n- completed commercial training as well as several years of professional experience\n- Fast conception, structured, independent and precise operation\n- Reliability, discretion and sense of responsibility\n- Team spirit, flexibility, resilience and service-oriented appearance\n- Stylish knowledge of German, knowledge of another cantonal language of advantage\n- Secure handling of MS-Office",
-        "fr": "Descrizione\nLe ministère de l'Économie et des Affaires sociales (DVS) comprend huit départements ayant une vaste gamme d'activités et environ 500 employés. Le secrétariat du département est le bureau du DVS. Une équipe de 13 employés assiste le gestionnaire du département dans toutes les questions techniques, juridiques, de leadership et politiques et assure une coopération efficace avec les départements.\n\nTâche\n- Remplir toutes les tâches administratives et la correspondance générale\n- Appui au traitement des décisions gouvernementales, décrets départementaux, ordonnances pénales, ambassades, avances parlementaires, permis, projets de loi et publications\n- Traitement des plaintes et des procédures pénales, y compris : Commande, contrôle des délais, facturation et recouvrement\n- Boîte de réception et livraison incl. Collecte de données dans le cadre du programme d'administration de l'ICM\n- Services téléphoniques et de réception\n- Organisation des nominations et des réunions\n\nExigences\n- formation commerciale complétée ainsi que plusieurs années d'expérience professionnelle\n- Conception rapide, structurée, indépendante et précise\n- Fiabilité, discrétion et sens des responsabilités\n- Esprit d'équipe, flexibilité, résilience et apparence orientée service\n- Connaissance de l'allemand, connaissance d'une autre langue cantonale d'avantage\n- Traitement sécurisé de MS-Office"
+        "it": "Descrizione Il Dipartimento di Economia e Affari Sociali (DVS) comprende otto dipartimenti con una vasta gamma di attività e circa 500 dipendenti. Il segretariato del dipartimento è l'ufficio del DVS. Un team di 13 dipendenti assiste il responsabile del dipartimento in tutte le questioni tecniche, legali, di leadership e politiche e garantisce una collaborazione efficace con i dipartimenti. Compiti - Completi tutti i compiti amministrativi e la corrispondenza generale - Sostegno al trattamento delle decisioni governative, decreti dipartimentali, ordini penali, ambasciate, anticipi parlamentari, permessi, fatture e pubblicazioni - Trattamento delle denunce e procedimenti penali incl. Ordinazione, controllo dei termini, fatturazione e raccolta - Posta in arrivo e consegna incl. Raccolta dei dati nel programma di amministrazione CMI - Telefono e reception - Organizzazione di appuntamenti e incontri \n• Requisiti - formazione commerciale completa e diversi anni di esperienza professionale - Concepimento rapido, funzionamento strutturato, indipendente e preciso - Affidabilità, discrezione e senso di responsabilità - spirito di squadra, flessibilità, resilienza e aspetto orientato al servizio - Conoscenza elegante del tedesco, conoscenza di un'altra lingua cantonale di vantaggio - Gestione sicura di MS-Office",
+        "en": "Descrizione The Department of Economics and Social Affairs (DVS) comprises eight departments with a wide range of activities and around 500 employees. The department secretariat is the office in the DVS. A team of 13 employees assists the department manager in all technical, legal, leadership-relevant and political matters and ensures effective cooperation with the departments. Tasks - Complete all administrative tasks and general correspondence - Support in the processing of government decisions, departmental decrees, criminal orders, embassies, parliamentary advances, permits, bills and publications - Treatment of complaint and criminal proceedings incl. Ordering, time-limit control, invoicing and collection - Inbox and delivery incl. Data collection in the CMI administration program - Telephone and reception services - Organization of appointments and meetings \n• Requirements - completed commercial training as well as several years of professional experience - Fast conception, structured, independent and precise operation - Reliability, discretion and sense of responsibility - Team spirit, flexibility, resilience and service-oriented appearance - Stylish knowledge of German, knowledge of another cantonal language of advantage - Secure handling of MS-Office",
+        "de": "Das Departement für Volkswirtschaft und Soziales (DVS) umfasst acht Dienststellen mit einem vielfältigen Tätigkeitsgebiet und rund 500 Mitarbeiterinnen und Mitarbeiter. Das Departementssekretariat ist die Stabsstelle im DVS. Ein Team von 13 Mitarbeitenden unterstützt den Departementsvorsteher in allen fachlichen, rechtlichen, führungsrelevanten und politischen Angelegenheiten und stellt die effektive Zusammenarbeit mit den Dienststellen sicher. Aufgaben\n• Erledigung sämtlicher administrativer Aufgaben sowie allgemeiner Korrespondenz\n• Unterstützung bei der Bearbeitung von Regierungsbeschlüssen, Departementsverfügungen, Strafbefehlen, Botschaften, parlamentarischen Vorstössen, Vernehmlassungen, Gesetzesvorlagen und Publikationen\n• Bearbeitung von Beschwerde- und Strafverfahren inkl. Dossierführung, Fristenkontrolle, Rechnungsstellung und Inkasso\n• Posteingang und -versand inkl. Datenerfassung im Verwaltungsprogramm CMI\n• Telefon- und Empfangsdienst\n• Organisation von Terminen und Sitzungen Anforderungen\n• Abgeschlossene kaufmännische Ausbildung sowie mehrjährige Berufserfahrung\n• Schnelle Auffassungsgabe, strukturierte, selbständige und präzise Arbeitsweise\n• Zuverlässigkeit, Diskretion und Verantwortungsbewusstsein\n• Teamgeist, Flexibilität, Belastbarkeit und dienstleistungsorientiertes Auftreten\n• Stilsichere Deutschkenntnisse, Kenntnisse einer weiteren Kantonssprache von Vorteil\n• Sicherer Umgang mit MS-Office",
+        "fr": "Descrizione Le ministère de l'Économie et des Affaires sociales (DVS) comprend huit départements ayant une vaste gamme d'activités et environ 500 employés. Le secrétariat du département est le bureau du DVS. Une équipe de 13 employés assiste le gestionnaire du département dans toutes les questions techniques, juridiques, de leadership et politiques et assure une coopération efficace avec les départements. Tâche - Remplir toutes les tâches administratives et la correspondance générale - Appui au traitement des décisions gouvernementales, décrets départementaux, ordonnances pénales, ambassades, avances parlementaires, permis, projets de loi et publications - Traitement des plaintes et des procédures pénales, y compris : Commande, contrôle des délais, facturation et recouvrement - Boîte de réception et livraison incl. Collecte de données dans le cadre du programme d'administration de l'ICM - Services téléphoniques et de réception - Organisation des nominations et des réunions \n• Exigences - formation commerciale complétée ainsi que plusieurs années d'expérience professionnelle - Conception rapide, structurée, indépendante et précise - Fiabilité, discrétion et sens des responsabilités - Esprit d'équipe, flexibilité, résilience et apparence orientée service - Connaissance de l'allemand, connaissance d'une autre langue cantonale d'avantage - Traitement sécurisé de MS-Office"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://apply.refline.ch/514915/2692/pub/10/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:21:02.967Z",
+      "crawledAt": "2026-05-12T11:28:50.667Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -685,27 +770,33 @@
       "postedDate": "2026-05-11",
       "applyUrl": "https://apply.refline.ch/514915/2692/pub/10/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Departementssekretariat DVS",
       "applicationDeadline": "2026-05-31",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
       "previousSlugsByLocale": {
+        "de": [
+          "mitarbeiter-in-administration-departementssekretariat-kanton-gr-ch"
+        ],
         "it": [
           "mitarbeiter-in-administration-departementssekretariat-kanton-gr-ch",
           "collaboratore-trice-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur"
         ],
-        "de": [
-          "mitarbeiter-in-administration-departementssekretariat-kanton-gr-ch"
+        "en": [
+          "mitarbeiter-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur"
+        ],
+        "fr": [
+          "mitarbeiter-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-administration-departementssekretariat-kanton-gr-ch",
+        "mitarbeiter-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur",
         "collaboratore-trice-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur"
       ],
+      "firstSeenAt": "2026-05-11T22:21:02.967Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -717,8 +808,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-11T22:21:02.967Z"
+      }
     },
     {
       "id": "kanton-gr-198a06daac5c",
@@ -751,7 +841,7 @@
       "url": "https://apply.refline.ch/514915/2683/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:21:02.334Z",
+      "crawledAt": "2026-05-12T11:28:50.034Z",
       "addressLocality": "Davos Frauenkirch",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -796,8 +886,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "kanton-gr-f23b47ad0049",
@@ -830,7 +919,7 @@
       "url": "https://apply.refline.ch/514915/2690/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:21:01.700Z",
+      "crawledAt": "2026-05-12T11:28:49.401Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -871,6 +960,7 @@
         "sekretar-in-sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-07T11:16:42.931Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -915,7 +1005,7 @@
       "url": "https://apply.refline.ch/514915/2691/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:21:01.059Z",
+      "crawledAt": "2026-05-12T11:28:48.768Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -957,6 +1047,7 @@
         "collaboratore-trice-in-administration-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-07T11:16:41.686Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1001,7 +1092,7 @@
       "url": "https://apply.refline.ch/514915/2689/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:21:00.425Z",
+      "crawledAt": "2026-05-12T11:28:48.134Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1040,6 +1131,7 @@
         "bereichsleiter-in-sicherheit-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-05-07T11:16:41.063Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1084,7 +1176,7 @@
       "url": "https://apply.refline.ch/514915/2693/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:59.788Z",
+      "crawledAt": "2026-05-12T11:28:47.501Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1123,6 +1215,7 @@
         "teamleiter-in-administration-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-05-07T11:16:40.439Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1167,7 +1260,7 @@
       "url": "https://apply.refline.ch/514915/2694/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:59.154Z",
+      "crawledAt": "2026-05-12T11:28:46.868Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1250,7 +1343,7 @@
       "url": "https://apply.refline.ch/514915/2673/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:58.520Z",
+      "crawledAt": "2026-05-12T11:28:46.234Z",
       "addressLocality": "Zuoz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1286,6 +1379,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T22:02:52.921Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1330,7 +1424,7 @@
       "url": "https://apply.refline.ch/514915/2670/pub/6/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:57.888Z",
+      "crawledAt": "2026-05-12T11:28:45.600Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -1415,7 +1509,7 @@
       "url": "https://apply.refline.ch/514915/2671/pub/6/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:57.255Z",
+      "crawledAt": "2026-05-12T11:28:44.966Z",
       "addressLocality": "Zuoz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1500,7 +1594,7 @@
       "url": "https://apply.refline.ch/514915/2669/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:56.621Z",
+      "crawledAt": "2026-05-12T11:28:44.328Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1579,7 +1673,7 @@
       "url": "https://apply.refline.ch/514915/2685/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:55.988Z",
+      "crawledAt": "2026-05-12T11:28:43.694Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1665,7 +1759,7 @@
       "url": "https://apply.refline.ch/514915/2686/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:55.354Z",
+      "crawledAt": "2026-05-12T11:28:43.061Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1748,7 +1842,7 @@
       "url": "https://apply.refline.ch/514915/2684/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:54.721Z",
+      "crawledAt": "2026-05-12T11:28:42.426Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1790,6 +1884,7 @@
         "responsabile-administration-e-sachbearbeitung-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-30T11:01:17.492Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1834,7 +1929,7 @@
       "url": "https://apply.refline.ch/514915/2682/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:54.089Z",
+      "crawledAt": "2026-05-12T11:28:41.791Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1917,7 +2012,7 @@
       "url": "https://apply.refline.ch/514915/2681/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:53.456Z",
+      "crawledAt": "2026-05-12T11:28:41.157Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1958,6 +2053,7 @@
         "projektleiter-in-bestellverfahren-offentlicher-verkehr-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-30T11:01:16.135Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2002,7 +2098,7 @@
       "url": "https://apply.refline.ch/514915/2675/pub/2/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:52.824Z",
+      "crawledAt": "2026-05-12T11:28:40.523Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -2044,6 +2140,7 @@
         "berater-in-per-den-fachbereich-betriebsentwicklung-kantonale-verwaltung-graubunden-landquart"
       ],
       "firstSeenAt": "2026-04-30T11:01:15.456Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2088,7 +2185,7 @@
       "url": "https://apply.refline.ch/514915/2664/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:52.191Z",
+      "crawledAt": "2026-05-12T11:28:39.891Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2127,6 +2224,7 @@
         "sektionsleiter-in-bau-hauptstrassen-oberbauleiter-in-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-30T11:01:14.777Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2171,7 +2269,7 @@
       "url": "https://apply.refline.ch/514915/2679/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:51.557Z",
+      "crawledAt": "2026-05-12T11:28:39.255Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2206,6 +2304,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T10:20:48.704Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2250,7 +2349,7 @@
       "url": "https://apply.refline.ch/514915/2680/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:50.924Z",
+      "crawledAt": "2026-05-12T11:28:38.621Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2283,6 +2382,7 @@
         "assistent-in-der-amtsleitung-mit-personalverantwortung-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-23T10:20:45.967Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2327,7 +2427,7 @@
       "url": "https://apply.refline.ch/514915/2663/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:50.290Z",
+      "crawledAt": "2026-05-12T11:28:37.985Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2366,6 +2466,7 @@
         "ict-system-spezialist-in-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-23T10:20:44.599Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2410,7 +2511,7 @@
       "url": "https://apply.refline.ch/514915/2678/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:49.663Z",
+      "crawledAt": "2026-05-12T11:28:37.351Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2494,7 +2595,7 @@
       "url": "https://apply.refline.ch/514915/2668/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:49.029Z",
+      "crawledAt": "2026-05-12T11:28:36.715Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2578,7 +2679,7 @@
       "url": "https://apply.refline.ch/514915/2665/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:48.396Z",
+      "crawledAt": "2026-05-12T11:28:36.081Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2619,6 +2720,7 @@
         "verwaltungsassistent-in-wertschriftenbesteuerung-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-23T10:20:42.549Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2663,7 +2765,7 @@
       "url": "https://apply.refline.ch/514915/2672/pub/4/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:47.766Z",
+      "crawledAt": "2026-05-12T11:28:35.448Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2751,7 +2853,7 @@
       "url": "https://apply.refline.ch/514915/2674/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:47.131Z",
+      "crawledAt": "2026-05-12T11:28:34.813Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2787,6 +2889,7 @@
         ]
       },
       "firstSeenAt": "2026-04-23T10:20:41.182Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2831,7 +2934,7 @@
       "url": "https://apply.refline.ch/514915/2655/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:46.497Z",
+      "crawledAt": "2026-05-12T11:28:34.179Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2872,6 +2975,7 @@
         "projektleiter-in-heimfalle-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-16T10:12:44.581Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2916,7 +3020,7 @@
       "url": "https://apply.refline.ch/514915/2640/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:45.860Z",
+      "crawledAt": "2026-05-12T11:28:33.543Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3001,7 +3105,7 @@
       "url": "https://apply.refline.ch/514915/2647/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:45.227Z",
+      "crawledAt": "2026-05-12T11:28:32.903Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3054,6 +3158,7 @@
         "it-oder-juristische-fachperson-als-stv-leiter-in-datenschutzaufsichtsstelle-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:51.673Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -3098,7 +3203,7 @@
       "url": "https://apply.refline.ch/514915/2642/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:44.597Z",
+      "crawledAt": "2026-05-12T11:28:32.268Z",
       "addressLocality": "Haldenstein",
       "postalCode": "7023",
       "addressCountry": "CH",
@@ -3162,6 +3267,7 @@
         "leiter-in-amt-fur-militar-und-zivilschutz-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:51.050Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3206,7 +3312,7 @@
       "url": "https://apply.refline.ch/514915/2639/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:43.961Z",
+      "crawledAt": "2026-05-12T11:28:31.546Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3261,6 +3367,7 @@
         "chemiker-in-fh-umweltingenieur-in-fh-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:44.857Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3305,7 +3412,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T22:20:43.317Z",
+      "crawledAt": "2026-05-12T11:28:30.901Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3369,6 +3476,7 @@
         "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
