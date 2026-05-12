@@ -79,7 +79,8 @@ import {
  jobMatchesSector,
  type SectorHubKey,
 } from './jobSectorLanding';
-import { SEO_HUB_RESERVED_SLUGS } from './seoHubsData';
+import { SEO_HUB_RESERVED_SLUGS, JOBS_PAGE_SIZE as HUB_JOBS_PAGE_SIZE, hubSlugFor } from './seoHubsData';
+import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
 // F3a — Job Page CTR Optimization: shared 50-60 char title templates and
 // 140-160 char meta-description templates that drive SERP CTR on the
 // top-20 job listing pages. See services/seo/job-board-titles.ts and
@@ -7981,6 +7982,41 @@ ${alternates}
          `</ul>` +
          `</section>`;
      }
+     // Phase 8(g) cathedral parity — bring every /cerca-lavoro-{canton}/
+     // landing up to the TI hub's editorial richness: H2 definition block
+     // for AI extraction, deep-link archive navigator (one anchor per
+     // page-N), 4 frontaliere-context prose paragraphs, sources line, and
+     // a collapsible FAQ. Placed BELOW the data area per CLAUDE.md
+     // non-negotiables #16/#17 (mobile-first, filler below content). The
+     // helper is the same one used by staticPagesPlugin for TI byte
+     // identity. The archive navigator base path is derived per-canton
+     // via `hubSlugFor(entry.key, entry.locale, 'tutti')` so cathedral
+     // cantons paginate from their own `/cerca-lavoro-{canton}/tutti/`
+     // root instead of the TI default.
+     const archiveBaseHref = entry.key === AGGREGATE_KEY
+       ? hubSlugFor(AGGREGATE_KEY, entry.locale, 'tutti')
+       : hubSlugFor(entry.key, entry.locale, 'tutti');
+     const cantonTotalPages = Math.max(1, Math.ceil(totalJobs / HUB_JOBS_PAGE_SIZE));
+     const editorialEntries = buildCantonHubEditorial({
+       canton: entry.key,
+       locale: entry.locale,
+       display,
+       jobsCount: totalJobs,
+       totalPages: cantonTotalPages,
+       archiveBaseHref,
+     });
+     // Mirror the staticPagesPlugin auto-`<p>`-wrap regex so plain-text
+     // prose paragraphs (entries 3-6 in the non-TI helper output) become
+     // proper paragraphs instead of leaking into a flat string. Block-level
+     // entries (h2/p/details/...) pass through untouched.
+     const editorialHtml = editorialEntries
+       .map((b) => /^<(h[1-6]|p|nav|div|details|section|ul|ol|table|figure|aside|blockquote)\b/.test(b)
+         ? b
+         : `<p style="margin:.5rem 0;line-height:1.65;color:var(--color-body)">${b}</p>`)
+       .join('');
+     const cantonEditorialSection =
+       `<section data-canton-editorial style="max-width:860px;margin:32px 0 0;color:var(--color-body);font-size:15px">${editorialHtml}</section>`;
+
      const bodyHtml = [
        `<main class="seo-static-content" style="max-width:1080px;margin:0 auto;padding:24px 16px">`,
        `<nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}/" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
@@ -7995,6 +8031,9 @@ ${alternates}
        // uplift brings text/HTML from 1.7-2.2 % to ~12 % so
        // audit:text-html-ratio accepts these pages.
        buildCantonContextProse(entry.locale, display),
+       // Phase 8(g) — TI-parity editorial package (H2, archive navigator,
+       // prose, sources, FAQ). Below the data area per #16/#17.
+       cantonEditorialSection,
        `</main>`,
      ].join('\n');
      const html = buildSeoPageHtml({

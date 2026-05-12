@@ -25,6 +25,7 @@ import {
 } from './jobBoardSeo';
 import { emitSeoHubs } from './seoHubsPlugin';
 import { ARTICLES_PAGE_SIZE, JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, type HubLocale as ArchiveHubLocale } from './seoHubsData';
+import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
 import { ALL_CANTON_CODES, AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { getJobTodayLandingSlug } from './jobEditorialLanding';
@@ -2657,35 +2658,29 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `La piattaforma è pensata per essere consultata anche da mobile durante i tempi di viaggio: ogni blocco ha un obiettivo preciso, con contenuti sintetici in ingresso e approfondimenti completi nelle pagine dedicate.`,
  );
  } else if (isJobsIndex) {
- // Definition block for AI extraction — self-contained answer to "offerte di lavoro ticino"
- editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Offerte di Lavoro in Ticino \u2014 Bacheca Lavoro per Frontalieri</h2>`,
- `<p style="margin:.5rem 0;font-weight:500;font-size:1rem;line-height:1.7">Cerchi <strong>lavoro in Ticino</strong>? Questa bacheca raccoglie oltre 1.500 <strong>offerte di lavoro</strong> attive da pi\u00f9 di 100 aziende del Canton Ticino, aggiornate ogni 12 ore. Le posizioni coprono tutti i principali settori \u2014 banca, pharma, IT, edilizia, sanit\u00e0, logistica \u2014 e sono disponibili in italiano, inglese, tedesco e francese. Ogni annuncio \u00e8 collegato direttamente al sito ufficiale dell\u2019azienda per la candidatura.</p>`,
- );
- // Deep-link archive navigator \u2014 same methodology as the blog fix
- // (commit f53d7fea5c). With ~30k job slugs paginated at 100/page,
- // totalPages is ~304 \u2014 too many for a flat visible list, so the anchors
- // are wrapped in a <details> collapsible. Visually a single "Sfoglia
- // tutto l'archivio per pagina" toggle; semantically every /tutti/page-K/
- // archive sits at depth 2 from `/`, putting every company/job listed
- // there at depth 3. Closes the bulk of sitemap-jobs.xml (1030 offenders)
- // and sitemap-seo-hubs.xml (302 offenders) in the May-2026 baseline.
- if (jobsTotalPages > 1) {
- const jobsArchiveBase = HUB_SLUGS[locale as ArchiveHubLocale]?.jobsAll ?? '/cerca-lavoro-ticino/tutti/';
- const jobsNavLabel = locale === 'it' ? 'Sfoglia tutto l\'archivio offerte per pagina'
-   : locale === 'en' ? 'Browse the full job archive by page'
-   : locale === 'de' ? 'Vollst\u00e4ndiges Stellenarchiv nach Seite durchsuchen'
-   : 'Parcourir toutes les offres par page';
- const jobsPageWord = locale === 'it' ? 'Pagina' : locale === 'en' ? 'Page' : locale === 'de' ? 'Seite' : 'Page';
- const jobsAnchors: string[] = [];
- for (let p = 1; p <= jobsTotalPages; p++) {
- const href = paginatedPath(jobsArchiveBase, p);
- jobsAnchors.push(`<a href="${href}" style="display:inline-block;padding:3px 8px;margin:1px;border-radius:4px;background:#f1f5f9;color:#1e293b;text-decoration:none;font-size:12px;border:1px solid #e2e8f0">${jobsPageWord}&nbsp;${p}</a>`);
- }
- editorialBlocks.push(
- `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:#1e293b;padding:.25rem 0">${esc(jobsNavLabel)} (${jobsTotalPages} pagine)</summary><nav aria-label="${esc(jobsNavLabel)}" style="margin-top:.5rem;line-height:1.8">${jobsAnchors.join('')}</nav></details>`,
- );
- }
+ // Phase 8(g) cathedral parity — H2 + intro + archive navigator are now
+ // produced by the shared `buildCantonHubEditorial` helper so every
+ // cathedral canton landing (/cerca-lavoro-zurigo/ etc.) ships the same
+ // editorial richness as the TI hub. TI byte-identity is enforced by
+ // tests/seo/cathedral-canton-hub-parity.test.ts; the helper returns
+ // [H2, intro, archive-nav?, prose1..4, sources, faq] and we splice
+ // the cathedral canton navigator between the archive navigator and
+ // the prose because that navigator is unique to the TI hub.
+ const tiHubBlocks = buildCantonHubEditorial({
+ canton: 'TI',
+ locale: locale as ArchiveHubLocale,
+ display: 'Ticino',
+ // jobsCount is only used in the helper's non-TI branch, so the exact
+ // value is irrelevant for TI byte-identity.
+ jobsCount: jobsTotalPages * JOBS_PAGE_SIZE,
+ totalPages: jobsTotalPages,
+ archiveBaseHref: HUB_SLUGS[locale as ArchiveHubLocale]?.jobsAll ?? '/cerca-lavoro-ticino/tutti/',
+ });
+ // Push leading entries up to and including the archive navigator. With
+ // jobsTotalPages > 1 that's [H2, intro, archive-nav]; with == 1 the
+ // helper omits the navigator so [H2, intro].
+ const leadingCount = jobsTotalPages > 1 ? 3 : 2;
+ for (const block of tiHubBlocks.slice(0, leadingCount)) editorialBlocks.push(block);
  // Cathedral canton navigator \u2014 closes the +909 sitemap-jobs.xml offenders
  // (audit-max-bfs-depth) by linking every cathedral canton hub + per-canton
  // "today" landing from the legacy TI hub. Without this, the canton URLs
@@ -2733,25 +2728,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  );
  }
  }
- editorialBlocks.push(
- `La sezione <strong>offerte lavoro Ticino</strong> raccoglie annunci pubblicati su fonti aziendali ufficiali, con normalizzazione dei dati principali per facilitare il confronto tra ruolo, sede, contratto e coerenza con il proprio profilo professionale. Gli annunci provengono da oltre 100 aziende ticinesi monitorate quotidianamente da crawler dedicati.`,
- `Per ogni posizione vengono mantenuti metadati utili alla valutazione: data di pubblicazione, azienda, località, requisiti richiesti e collegamento diretto alla candidatura sul sito originale del datore di lavoro. Le offerte sono filtrate per il Canton Ticino e vengono aggiornate ogni 12 ore.`,
- `I frontalieri con permesso G hanno diritto a candidarsi a posizioni in tutta la Svizzera; la guida inclusa nella sezione lavoro spiega la procedura per richiedere un permesso di lavoro, i settori con maggiore domanda e i salari mediani per categoria professionale nel mercato del lavoro ticinese.`,
- `Il motore di ricerca integrato permette di filtrare per settore, tipo di contratto (tempo indeterminato, determinato, part-time), località e data di pubblicazione. La funzione di allerta e-mail notifica automaticamente le nuove offerte che corrispondono ai criteri salvati, così non si perde nessuna opportunità.`,
- `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.seco.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">SECO - Segretariato di Stato dell'economia</a></p>`,
- );
- // AI-extractable FAQ for job board — collapsible to not disturb UX
- editorialBlocks.push(
- `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:700;font-size:1rem;color:#1e293b;padding:.25rem 0">Domande frequenti sulla ricerca lavoro in Ticino</summary><div style="margin-top:.5rem">` +
- `<p style="margin:.5rem 0"><strong>Quante offerte di lavoro sono disponibili?</strong> La sezione lavoro Ticino raccoglie oltre 1.500 offerte attive da più di 100 aziende ticinesi, aggiornate ogni 12 ore tramite crawler automatici che monitorano i siti ufficiali delle aziende.</p>` +
- `<p style="margin:.5rem 0"><strong>Come posso cercare lavoro in Ticino come frontaliere?</strong> Usa il motore di ricerca integrato per filtrare le posizioni per settore (banca, pharma, IT, edilizia, sanità), tipo di contratto (tempo indeterminato, determinato, part-time), località (Lugano, Bellinzona, Locarno, Mendrisio) e data di pubblicazione. Ogni annuncio include il collegamento diretto alla candidatura sul sito aziendale.</p>` +
- `<p style="margin:.5rem 0"><strong>Serve il permesso G per candidarsi?</strong> I frontalieri con permesso G (Grenzgängerbewilligung) possono candidarsi a qualsiasi posizione in Svizzera. Il permesso viene richiesto dal datore di lavoro dopo l'assunzione. Per i dettagli, consulta la <a href="/guida-frontaliere/permessi-di-lavoro/" style="color:#2563eb;text-decoration:none;">guida permessi di lavoro</a>.</p>` +
- `<p style="margin:.5rem 0"><strong>Quali sono i settori con più domanda in Ticino?</strong> I settori con maggiore domanda per frontalieri nel 2026 sono: servizi finanziari e bancari, farmaceutico e chimico, IT e software, edilizia e impiantistica, sanità e assistenza, ristorazione e turismo, logistica e trasporti.</p>` +
- `<p style="margin:.5rem 0"><strong>Qual è lo stipendio medio per un frontaliere in Ticino?</strong> Lo stipendio mediano lordo in Canton Ticino è di circa CHF 62.000-68.000 annui, variabile per settore: IT/Software CHF 95.000, Banca/Finanza CHF 110.000, Pharma CHF 105.000, Commercio CHF 55.000. Usa il <a href="/calcola-stipendio/" style="color:#2563eb;text-decoration:none;">simulatore fiscale</a> per calcolare il netto.</p>` +
- `<p style="margin:.5rem 0"><strong>Come attivare le notifiche per nuove offerte?</strong> Imposta i tuoi criteri di ricerca (settore, località, parole chiave) e attiva le allerte e-mail: riceverai una notifica automatica quando vengono pubblicate nuove posizioni corrispondenti.</p>` +
- `<p style="color:#64748b;font-size:0.8rem;margin-top:.5rem;">Fonte: <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">UST/BFS</a> · <a href="https://www.seco.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">SECO</a> · Dati Frontaliere Ticino</p>` +
- `</div></details>`,
- );
+ // Phase 8(g) cathedral parity — push the helper's trailing entries
+ // (frontaliere context prose paragraphs, sources line, FAQ collapsible).
+ // For TI these are byte-identical to the previous inline strings.
+ for (const block of tiHubBlocks.slice(leadingCount)) editorialBlocks.push(block);
  } else if (isCalcStipendioIndex) {
  // Curated-scenario navigator — closes the orphan-graph for every
  // hand-curated calcola-stipendio landing page in seo-landing.ts
