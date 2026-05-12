@@ -57,6 +57,17 @@ const PAGE_SIZE = 50;
 // early as soon as a page returns no new IDs or fewer than PAGE_SIZE rows.
 const MAX_PAGES = 20;
 const PER_PAGE_DELAY_MS = 4000;
+// Detail-page enrichment: visit each job URL with the same BrowserContext
+// that already cleared Cloudflare on the listing pass. The CF clearance
+// cookie carries over, so no re-challenge fires.
+const PER_DETAIL_DELAY_MS = 3000;
+const DETAIL_NAV_TIMEOUT_MS = 30_000;
+const DETAIL_WAIT_SELECTOR_MS = 15_000;
+const MIN_DETAIL_DESCRIPTION_LEN = 200;
+// `.job-detail` is Richemont's job-body container (verified 2026-05-12):
+// returns ~3k chars of clean job description. Fall back to `article`,
+// then `main` if the markup ever shifts.
+const DETAIL_SELECTORS = ['.job-detail', 'article', 'main'];
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -229,8 +240,112 @@ async function fetchListingPage(context, page) {
 }
 
 /**
+ * Open one detail page and extract the rich job-body text.
+ *
+ * Reuses the BrowserContext passed in, which already cleared Cloudflare
+ * on the listing pass — the clearance cookie travels with the context,
+ * so detail navigations don't refire the JS challenge.
+ *
+ * Returns `''` (empty string) on any failure: anti-bot, timeout, missing
+ * markup, or text shorter than `MIN_DETAIL_DESCRIPTION_LEN`. The caller
+ * falls back to the templated description.
+ */
+async function fetchRichDescription(context, url) {
+  let page;
+  try {
+    page = await fetchWithRateLimit(context, url, { minDelayMs: PER_DETAIL_DELAY_MS });
+    await page.waitForSelector(DETAIL_SELECTORS[0], {
+      timeout: DETAIL_WAIT_SELECTOR_MS,
+      state: 'attached',
+    }).catch(() => { /* fall through to selector evaluation */ });
+    const text = await page.evaluate((selectors) => {
+      for (const sel of selectors) {
+        const el = document.querySelector(sel);
+        if (el) {
+          const t = (el.innerText || '').trim();
+          if (t.length >= 200) return t;
+        }
+      }
+      return '';
+    }, DETAIL_SELECTORS);
+    return normalizeSpace(text);
+  } catch (err) {
+    if (err instanceof AntiBotBlockError) {
+      console.warn(`   ⚠️ CF block on detail ${url}: ${err.message}`);
+    } else if (err instanceof NavigationTimeout) {
+      console.warn(`   ⚠️ Detail navigation timeout: ${url}`);
+    } else {
+      console.warn(`   ⚠️ Detail fetch error on ${url}: ${err?.message || err}`);
+    }
+    return '';
+  } finally {
+    if (page) await safeClose(page);
+  }
+}
+
+/**
+ * Second-pass enrichment: walk each listing row and attach the actual
+ * job description scraped from its detail page. Fail-soft per row.
+ *
+ * Mutates rows in place: sets `row.detailText` (string, may be empty).
+ */
+async function enrichRowsWithDetail(context, rows) {
+  console.log(`\n   Enriching ${rows.length} detail pages (≈${Math.round(rows.length * PER_DETAIL_DELAY_MS / 60_000)} min)`);
+  let ok = 0;
+  let fallback = 0;
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i];
+    const detailUrl = row.href.startsWith('http')
+      ? row.href
+      : `https://careers.richemont.com${row.href.startsWith('/') ? '' : '/'}${row.href}`;
+    const text = await fetchRichDescription(context, detailUrl);
+    row.detailText = text;
+    if (text && text.length >= MIN_DETAIL_DESCRIPTION_LEN) {
+      ok++;
+    } else {
+      fallback++;
+    }
+    if ((i + 1) % 25 === 0) {
+      console.log(`     progress: ${i + 1}/${rows.length} (${ok} rich, ${fallback} fallback)`);
+    }
+  }
+  console.log(`   Detail enrichment: ${ok} rich, ${fallback} fallback to template`);
+}
+
+/**
+ * Build the job description body. Pure function — exported so unit
+ * tests can verify the rich-vs-template choice without spinning up
+ * Playwright.
+ *
+ * When detail-page scraping yielded a rich body (≥ MIN_DETAIL_DESCRIPTION_LEN
+ * chars), return that. Otherwise compose the legacy templated description
+ * from listing-card fields. Never return an empty string.
+ */
+export function buildJobDescription({
+  detailText = '',
+  title = '',
+  maison = '',
+  department = '',
+  locationText = '',
+} = {}) {
+  const rich = normalizeSpace(detailText);
+  if (rich && rich.length >= MIN_DETAIL_DESCRIPTION_LEN) return rich;
+
+  const parts = [
+    title,
+    maison ? `Maison: ${maison}.` : '',
+    department ? `Department: ${department}.` : '',
+    locationText ? `Location: ${locationText}.` : '',
+    `Open position at Compagnie Financière Richemont (Swiss luxury group: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, and more).`,
+  ].filter(Boolean);
+  return parts.join(' ');
+}
+
+/**
  * Walk paginated Richemont listings and return the full deduplicated
  * row set. Stops on empty page, duplicate-only page, or MAX_PAGES.
+ * Each row is then enriched with its detail-page description in a
+ * second pass over the same BrowserContext.
  */
 async function discoverAllRows() {
   let browser;
@@ -263,6 +378,12 @@ async function discoverAllRows() {
       if (pageRows.length < PAGE_SIZE) break;
 
       await new Promise((r) => setTimeout(r, PER_PAGE_DELAY_MS));
+    }
+
+    // Second pass: visit each detail page in the same context so the
+    // Cloudflare clearance cookie carries over. Mutates rows in place.
+    if (rows.length) {
+      await enrichRowsWithDetail(context, rows);
     }
 
     return rows;
@@ -319,14 +440,13 @@ export async function fetchAllRichemontJobs() {
     const jobSlug = slugify(`${title} richemont ${city || 'switzerland'}`);
     const urlHash = createHash('sha1').update(path).digest('hex').slice(0, 12);
 
-    const descParts = [
+    const description = buildJobDescription({
+      detailText: row.detailText || '',
       title,
-      maison ? `Maison: ${maison}.` : '',
-      department ? `Department: ${department}.` : '',
-      locationText ? `Location: ${locationText}.` : '',
-      `Open position at Compagnie Financière Richemont (Swiss luxury group: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, and more).`,
-    ].filter(Boolean);
-    const description = descParts.join(' ');
+      maison,
+      department,
+      locationText,
+    });
 
     const job = {
       id: `richemont-${urlHash}`,
