@@ -7927,6 +7927,33 @@ ${alternates}
        `<a href="${sectionBase}${subSlugs.sectors}/" style="padding:8px 14px;border-radius:8px;background:var(--color-success-subtle);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-success-border)">${esc(subLabels.sectors)}</a>` +
        `<a href="${sectionBase}${subSlugs.companies}/" style="padding:8px 14px;border-radius:8px;background:var(--color-warning-subtle);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-warning-border)">${esc(subLabels.companies)}</a>` +
        `</nav>`;
+     // P6 — aggregator landing (`/cerca-lavoro-svizzera/`) lists every
+     // canton section so the link graph fans out from one root URL.
+     // For per-canton landings this section is intentionally empty (the
+     // legacy TI hub already carries the full canton navigator added
+     // in staticPagesPlugin); rendering 26 anchors on every canton page
+     // would be visual noise without SEO benefit.
+     let cantonListSection = '';
+     if (entry.key === AGGREGATE_KEY) {
+       const cantonListLabel = entry.locale === 'it' ? 'Cerca per cantone'
+         : entry.locale === 'en' ? 'Browse by canton'
+         : entry.locale === 'de' ? 'Nach Kanton suchen'
+         : 'Rechercher par canton';
+       const links: string[] = [];
+       for (const code of ALL_CANTON_CODES) {
+         const cSection = buildCantonAwareSection(entry.locale, code);
+         const cHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${cSection}`.replace(/\/+/g, '/'))}`;
+         const cDisplay = getCantonDisplayLabel(code, entry.locale);
+         links.push(`<li><a href="${cHref}" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(cDisplay)}</a></li>`);
+       }
+       cantonListSection =
+         `<section style="margin:24px 0">` +
+         `<h2 style="font-size:22px;margin:0 0 12px">${esc(cantonListLabel)}</h2>` +
+         `<ul style="list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px 16px;margin:0">` +
+         links.join('') +
+         `</ul>` +
+         `</section>`;
+     }
      const bodyHtml = [
        `<main class="seo-static-content" style="max-width:1080px;margin:0 auto;padding:24px 16px">`,
        `<nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}/" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
@@ -7934,6 +7961,7 @@ ${alternates}
        tileGrid,
        `<p style="margin:0 0 24px"><a href="${legacyJobBoardHref}" style="display:inline-block;padding:12px 22px;background:var(--color-accent);color:var(--color-on-accent);border-radius:8px;font-weight:600;text-decoration:none">${esc(labels.ctaLabel)}</a></p>`,
        subPageNav,
+       cantonListSection,
        listingGrid,
        // Frontaliere context prose — placed BELOW the data area per CLAUDE.md
        // non-negotiable #16/#17 (mobile-first, filler below content). Ratio
