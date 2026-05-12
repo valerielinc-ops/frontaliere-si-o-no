@@ -73,23 +73,29 @@ const META_REFRESH_RE = /<meta[^>]+http-equiv=["']refresh["']/i;
 const TITLE_RE = /<title[^>]*>([\s\S]*?)<\/title>/i;
 
 async function walk(dir) {
+  // Iterative — the cathedral expansion produced dist/ trees deep enough
+  // to blow the call stack via async recursion + array spread.
   const out = [];
-  let entries;
-  try {
-    entries = await readdir(dir, { withFileTypes: true });
-  } catch (err) {
-    if (err.code === 'ENOENT') return out;
-    throw err;
-  }
-  for (const e of entries) {
-    // Skip dot-prefixed dirs (e.g. dist/.write-collisions-data/ — debug
-    // artifacts from writeRegistryLifecyclePlugin, not deployed pages).
-    if (e.isDirectory() && e.name.startsWith('.')) continue;
-    const p = join(dir, e.name);
-    if (e.isDirectory()) {
-      out.push(...(await walk(p)));
-    } else if (e.isFile() && p.endsWith('.html')) {
-      out.push(p);
+  const stack = [dir];
+  while (stack.length > 0) {
+    const cur = stack.pop();
+    let entries;
+    try {
+      entries = await readdir(cur, { withFileTypes: true });
+    } catch (err) {
+      if (err.code === 'ENOENT') continue;
+      throw err;
+    }
+    for (const e of entries) {
+      // Skip dot-prefixed dirs (e.g. dist/.write-collisions-data/ — debug
+      // artifacts from writeRegistryLifecyclePlugin, not deployed pages).
+      if (e.isDirectory() && e.name.startsWith('.')) continue;
+      const p = join(cur, e.name);
+      if (e.isDirectory()) {
+        stack.push(p);
+      } else if (e.isFile() && p.endsWith('.html')) {
+        out.push(p);
+      }
     }
   }
   return out;
