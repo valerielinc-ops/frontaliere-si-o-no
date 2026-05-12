@@ -1,6 +1,6 @@
 {
   "crawlerKey": "msc-cargo",
-  "assembledAt": "2026-05-12T11:51:50.685Z",
+  "assembledAt": "2026-05-12T22:44:00.305Z",
   "jobs": [
     {
       "id": "msc-cargo-6a5b336e6a54",
@@ -33,7 +33,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16921EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.865Z",
+      "crawledAt": "2026-05-12T22:43:58.439Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16918EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.864Z",
+      "crawledAt": "2026-05-12T22:43:58.439Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -120,16 +120,16 @@
       "jobReqId": "16918",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T22:40:46.720Z",
+      "previousSlugs": [
+        "brand-manager-brand-product-msc-geneva"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "brand-manager-brand-product-msc-geneva"
         ]
       },
-      "previousSlugs": [
-        "brand-manager-brand-product-msc-geneva"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-11T22:40:46.720Z",
       "salaryMin": 75500,
       "salaryMax": 133000,
       "baseSalary": {
@@ -142,71 +142,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "msc-cargo-82745a9429a3",
-      "slug": "destinations-experience-manager-msc-geneva",
-      "slugByLocale": {
-        "en": "destinations-experience-manager-msc-geneva",
-        "it": "destinations-experience-manager-msc-geneva",
-        "de": "destinations-experience-manager-msc-geneva",
-        "fr": "destinations-experience-manager-msc-geneva"
-      },
-      "company": "MSC Group",
-      "companyKey": "msc-cargo",
-      "companyDomain": "msc.com",
-      "title": "Destinations Experience Manager",
-      "titleByLocale": {
-        "en": "Destinations Experience Manager",
-        "it": "Destinations Experience Manager",
-        "de": "Destinations Experience Manager",
-        "fr": "Destinations Experience Manager"
-      },
-      "description": "Join our team as a Destination Experience Manager, where your passion for luxury travel meets operational excellence. Leverage your expertise in cruise shore excursions and destination management to create unforgettable experiences. If you have strong negotiation skills and a deep understanding of destination logistics, we want to hear from you!",
-      "descriptionByLocale": {
-        "en": "Join our team as a Destination Experience Manager, where your passion for luxury travel meets operational excellence. Leverage your expertise in cruise shore excursions and destination management to create unforgettable experiences. If you have strong negotiation skills and a deep understanding of destination logistics, we want to hear from you!",
-        "it": "Join our team as a Destination Experience Manager, where your passion for luxury travel meets operational excellence. Leverage your expertise in cruise shore excursions and destination management to create unforgettable experiences. If you have strong negotiation skills and a deep understanding of destination logistics, we want to hear from you!",
-        "de": "Join our team as a Destination Experience Manager, where your passion for luxury travel meets operational excellence. Leverage your expertise in cruise shore excursions and destination management to create unforgettable experiences. If you have strong negotiation skills and a deep understanding of destination logistics, we want to hear from you!",
-        "fr": "Join our team as a Destination Experience Manager, where your passion for luxury travel meets operational excellence. Leverage your expertise in cruise shore excursions and destination management to create unforgettable experiences. If you have strong negotiation skills and a deep understanding of destination logistics, we want to hear from you!"
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16487EXTERNALENGB",
-      "source": "MSC Group Dedicated Parser (Phenom careers portal)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.863Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Logistica e crocieristica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-23",
-      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16487EXTERNALENGB",
-      "jobReqId": "16487",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-12T11:51:48.863Z"
     },
     {
       "id": "msc-cargo-f1ddd87c1987",
@@ -239,7 +174,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB15739EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.863Z",
+      "crawledAt": "2026-05-12T22:43:58.438Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -279,243 +214,102 @@
       }
     },
     {
-      "id": "msc-cargo-be64fb5540f0",
-      "slug": "f-b-service-manager-msc-geneva",
+      "id": "msc-cargo-4d73f620df60",
+      "slug": "experience-development-delivery-manager-new-builds-msc-geneva",
       "slugByLocale": {
-        "en": "f-b-service-manager-msc-geneva",
-        "it": "f-b-service-manager-msc-geneva",
-        "de": "f-b-service-manager-msc-geneva",
-        "fr": "f-b-service-manager-msc-geneva"
+        "en": "experience-development-delivery-manager-new-builds-msc-geneva",
+        "it": "experience-development-delivery-manager-new-builds-msc-geneva",
+        "de": "experience-development-delivery-manager-new-builds-msc-geneva",
+        "fr": "experience-development-delivery-manager-new-builds-msc-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
       "companyDomain": "msc.com",
-      "title": "F&B Service Manager",
+      "title": "Experience Development & Delivery Manager - New Builds",
       "titleByLocale": {
-        "en": "F&B Service Manager",
-        "it": "F&B Service Manager",
-        "de": "F&B Service Manager",
-        "fr": "F&B Service Manager"
+        "en": "Experience Development & Delivery Manager - New Builds",
+        "it": "Experience Development & Delivery Manager - New Builds",
+        "de": "Experience Development & Delivery Manager - New Builds",
+        "fr": "Experience Development & Delivery Manager - New Builds"
       },
-      "description": "The F&B Service Manager is a strategic headquarters-based role responsible for providing leadership, oversight, and guidance for all Food & Beverage service operations across the fleet. Acting as the...",
+      "description": "Are you experienced in shaping ideas and driving strategic initiatives? Join us as a New Builds Development & Delivery Manager, where you will enhance decision-making and elevate guest experiences through innovative concepts. Collaborate with cross-functional teams and influence senior leadership to bring transformative ideas to life.",
       "descriptionByLocale": {
-        "en": "The F&B Service Manager is a strategic headquarters-based role responsible for providing leadership, oversight, and guidance for all Food & Beverage service operations across the fleet. Acting as the...",
-        "it": "The F&B Service Manager is a strategic headquarters-based role responsible for providing leadership, oversight, and guidance for all Food & Beverage service operations across the fleet. Acting as the...",
-        "de": "The F&B Service Manager is a strategic headquarters-based role responsible for providing leadership, oversight, and guidance for all Food & Beverage service operations across the fleet. Acting as the...",
-        "fr": "The F&B Service Manager is a strategic headquarters-based role responsible for providing leadership, oversight, and guidance for all Food & Beverage service operations across the fleet. Acting as the..."
+        "en": "Are you experienced in shaping ideas and driving strategic initiatives? Join us as a New Builds Development & Delivery Manager, where you will enhance decision-making and elevate guest experiences through innovative concepts. Collaborate with cross-functional teams and influence senior leadership to bring transformative ideas to life.",
+        "it": "Are you experienced in shaping ideas and driving strategic initiatives? Join us as a New Builds Development & Delivery Manager, where you will enhance decision-making and elevate guest experiences through innovative concepts. Collaborate with cross-functional teams and influence senior leadership to bring transformative ideas to life.",
+        "de": "Are you experienced in shaping ideas and driving strategic initiatives? Join us as a New Builds Development & Delivery Manager, where you will enhance decision-making and elevate guest experiences through innovative concepts. Collaborate with cross-functional teams and influence senior leadership to bring transformative ideas to life.",
+        "fr": "Are you experienced in shaping ideas and driving strategic initiatives? Join us as a New Builds Development & Delivery Manager, where you will enhance decision-making and elevate guest experiences through innovative concepts. Collaborate with cross-functional teams and influence senior leadership to bring transformative ideas to life."
       },
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16384EXTERNALENGB",
+      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB15563EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.862Z",
+      "crawledAt": "2026-05-12T22:43:58.437Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Altro",
+      "category": "IT",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "senior",
       "sector": "Logistica e crocieristica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-01-30",
-      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16384EXTERNALENGB",
-      "jobReqId": "16384",
+      "postedDate": "2026-05-12",
+      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB15563EXTERNALENGB",
+      "jobReqId": "15563",
       "requirements": [],
       "requirementsByLocale": {
         "en": []
       },
       "needsRetranslation": true,
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "salaryMin": 79500,
+      "salaryMax": 135000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 79500,
+          "maxValue": 135000,
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-12T11:51:48.862Z"
+      "firstSeenAt": "2026-05-12T22:43:58.437Z"
     },
     {
-      "id": "msc-cargo-9469e7860b49",
-      "slug": "gestore-multimedia-e-av-msc-group-geneva",
+      "id": "msc-cargo-82745a9429a3",
+      "slug": "destinations-experience-manager-msc-geneva",
       "slugByLocale": {
-        "it": "gestore-multimedia-e-av-msc-group-geneva",
-        "en": "multimedia-and-av-manager-msc-geneva",
-        "de": "multimedia-and-av-manager-msc-geneva",
-        "fr": "gestionnaire-multimedia-et-av-msc-group-geneva"
+        "it": "destinations-experience-manager-msc-geneva",
+        "en": "destinations-experience-manager-msc-geneva",
+        "de": "destinations-experience-manager-msc-geneva",
+        "fr": "destinations-experience-manager-msc-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
       "companyDomain": "msc.com",
-      "title": "Multimedia and AV Manager",
+      "title": "Destinations Experience Manager",
       "titleByLocale": {
-        "it": "Gestore Multimedia e AV",
-        "en": "Multimedia and AV Manager",
-        "de": "Multimedia- und AV-Manager",
-        "fr": "Gestionnaire multimédia et AV"
+        "it": "Destinations Experience Manager",
+        "en": "Destinations Experience Manager",
+        "de": "Destinations Experience Manager",
+        "fr": "Destinations Experience Manager"
       },
-      "description": "Join us as a Multimedia and AV Manager and lead the strategic planning, deployment, and operational management of cutting-edge AV systems across our fleet and corporate infrastructure. Drive innovation, collaborate globally, and deliver seamless digital experiences in a dynamic, international environment. Shape the future of entertainment with us!",
+      "description": "Join our team as a Destination Experience Manager, where your passion for luxury travel meets operational excellence. Leverage your expertise in cruise shore excursions and destination management to create unforgettable experiences. If you have strong negotiation skills and a deep understanding of destination logistics, we want to hear from you!",
       "descriptionByLocale": {
-        "it": "Descrizione - Unisciti a noi come Gestore Multimedia e AV - Guida la pianificazione strategica, la distribuzione e la gestione operativa di sistemi AV all'avanguardia in tutta la nostra flotta e infrastruttura aziendale - Promuovi l'innovazione, collabora a livello globale e fornisci esperienze digitali fluide in un ambiente dinamico e internazionale - Plasmare il futuro dell'intrattenimento con noi!",
-        "en": "Join us as a Multimedia and AV Manager and lead the strategic planning, deployment, and operational management of cutting-edge AV systems across our fleet and corporate infrastructure. Drive innovation, collaborate globally, and deliver seamless digital experiences in a dynamic, international environment. Shape the future of entertainment with us!",
-        "de": "Beschreibung - Werden Sie Teil unseres Teams als Multimedia- und AV-Manager - Leiten Sie die strategische Planung, Implementierung und den operativen Betrieb von AV-Systemen der neuesten Generation in unserer Flotte und Unternehmensinfrastruktur - Treiben Sie Innovation voran, arbeiten Sie global zusammen und bieten Sie nahtlose digitale Erlebnisse in einer dynamischen, internationalen Umgebung - Gestalten Sie die Zukunft des Entertainments mit uns!",
-        "fr": "Description - Rejoignez-nous en tant que Gestionnaire multimédia et AV - Dirigez la planification stratégique, le déploiement et la gestion opérationnelle de systèmes AV de pointe dans notre flotte et notre infrastructure d'entreprise - Favorisez l'innovation, collaborez à l'échelle mondiale et offrez des expériences numériques fluides dans un environnement dynamique et international - Façonnez l'avenir du divertissement avec nous !"
+        "it": "Join our team as a Destination Experience Manager, where your passion for luxury travel meets operational excellence. Leverage your expertise in cruise shore excursions and destination management to create unforgettable experiences. If you have strong negotiation skills and a deep understanding of destination logistics, we want to hear from you!",
+        "en": "Join our team as a Destination Experience Manager, where your passion for luxury travel meets operational excellence. Leverage your expertise in cruise shore excursions and destination management to create unforgettable experiences. If you have strong negotiation skills and a deep understanding of destination logistics, we want to hear from you!",
+        "de": "Join our team as a Destination Experience Manager, where your passion for luxury travel meets operational excellence. Leverage your expertise in cruise shore excursions and destination management to create unforgettable experiences. If you have strong negotiation skills and a deep understanding of destination logistics, we want to hear from you!",
+        "fr": "Join our team as a Destination Experience Manager, where your passion for luxury travel meets operational excellence. Leverage your expertise in cruise shore excursions and destination management to create unforgettable experiences. If you have strong negotiation skills and a deep understanding of destination logistics, we want to hear from you!"
       },
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16952EXTERNALENGB",
+      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16487EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.861Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Hospitality",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Logistica e crocieristica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-07",
-      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16952EXTERNALENGB",
-      "jobReqId": "16952",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "multimedia-and-av-manager-msc-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "multimedia-and-av-manager-msc-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-05-11T12:59:30.066Z",
-      "salaryMin": 72000,
-      "salaryMax": 90500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "msc-cargo-ae2d4551edb1",
-      "slug": "product-manager-msc-group-geneva",
-      "slugByLocale": {
-        "it": "product-manager-msc-group-geneva",
-        "en": "spa-product-manager-msc-geneva",
-        "de": "spa-product-manager-msc-geneva",
-        "fr": "spa-product-manager-msc-geneva"
-      },
-      "company": "MSC Group",
-      "companyKey": "msc-cargo",
-      "companyDomain": "msc.com",
-      "title": "SPA Product Manager",
-      "titleByLocale": {
-        "it": "Product Manager",
-        "en": "SPA Product Manager",
-        "de": "SPA Product Manager",
-        "fr": "SPA Product Manager"
-      },
-      "description": "Are you experienced in spa product management? Join our team as a SPA Product Manager, where you will lead the strategic development and optimization of spa products, ensuring alignment with brand standards and guest expectations. Drive innovation and operational excellence in a dynamic environment!",
-      "descriptionByLocale": {
-        "it": "Are you experienced in spa product management? Join our team as a SPA Product Manager, where you will lead the strategic development and optimization of spa products, ensuring alignment with brand standards and guest expectations. Drive innovation and operational excellence in a dynamic environment!",
-        "en": "Are you experienced in spa product management? Join our team as a SPA Product Manager, where you will lead the strategic development and optimization of spa products, ensuring alignment with brand standards and guest expectations. Drive innovation and operational excellence in a dynamic environment!",
-        "de": "Are you experienced in spa product management? Join our team as a SPA Product Manager, where you will lead the strategic development and optimization of spa products, ensuring alignment with brand standards and guest expectations. Drive innovation and operational excellence in a dynamic environment!",
-        "fr": "Are you experienced in spa product management? Join our team as a SPA Product Manager, where you will lead the strategic development and optimization of spa products, ensuring alignment with brand standards and guest expectations. Drive innovation and operational excellence in a dynamic environment!"
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16527EXTERNALENGB",
-      "source": "MSC Group Dedicated Parser (Phenom careers portal)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.861Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Logistica e crocieristica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-06",
-      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16527EXTERNALENGB",
-      "jobReqId": "16527",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T22:40:46.716Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "spa-product-manager-msc-geneva"
-        ]
-      },
-      "previousSlugs": [
-        "spa-product-manager-msc-geneva"
-      ],
-      "salaryMin": 75500,
-      "salaryMax": 133000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 75500,
-          "maxValue": 133000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "msc-cargo-b8db6c0698ca",
-      "slug": "director-of-operations-hospitality-infrastructure-msc-geneva",
-      "slugByLocale": {
-        "en": "director-of-operations-hospitality-infrastructure-msc-geneva",
-        "it": "director-of-operations-hospitality-infrastructure-msc-geneva",
-        "de": "director-of-operations-hospitality-infrastructure-msc-geneva",
-        "fr": "director-of-operations-hospitality-infrastructure-msc-geneva"
-      },
-      "company": "MSC Group",
-      "companyKey": "msc-cargo",
-      "companyDomain": "msc.com",
-      "title": "Director of Operations - Hospitality Infrastructure",
-      "titleByLocale": {
-        "en": "Director of Operations - Hospitality Infrastructure",
-        "it": "Direttore of Operations - Hospitality Infrastructure",
-        "de": "Direktor of Operations - Hospitality Infrastructure",
-        "fr": "Directeur of Operations - Hospitality Infrastructure"
-      },
-      "description": "The Director of Operations is accountable for the design, mobilization, opening and ongoing operation of large-scale cruise and hospitality infrastructure assets. Working in parallel with Development,...",
-      "descriptionByLocale": {
-        "en": "The Director of Operations is accountable for the design, mobilization, opening and ongoing operation of large-scale cruise and hospitality infrastructure assets. Working in parallel with Development,...",
-        "it": "The Director of Operations is accountable for the design, mobilization, opening and ongoing operation of large-scale cruise and hospitality infrastructure assets. Working in parallel with Development,...",
-        "de": "The Director of Operations is accountable for the design, mobilization, opening and ongoing operation of large-scale cruise and hospitality infrastructure assets. Working in parallel with Development,...",
-        "fr": "The Director of Operations is accountable for the design, mobilization, opening and ongoing operation of large-scale cruise and hospitality infrastructure assets. Working in parallel with Development,..."
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16422EXTERNALENGB",
-      "source": "MSC Group Dedicated Parser (Phenom careers portal)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.860Z",
+      "crawledAt": "2026-05-12T22:43:58.437Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -527,14 +321,13 @@
       "sector": "Logistica e crocieristica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-02-13",
-      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16422EXTERNALENGB",
-      "jobReqId": "16422",
+      "postedDate": "2026-02-23",
+      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16487EXTERNALENGB",
+      "jobReqId": "16487",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-12T11:51:48.863Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -546,8 +339,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-12T11:51:48.860Z"
+      }
     },
     {
       "id": "msc-cargo-57f045d85699",
@@ -580,7 +372,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16283EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.860Z",
+      "crawledAt": "2026-05-12T22:43:58.436Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -650,7 +442,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16316EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.858Z",
+      "crawledAt": "2026-05-12T22:43:58.436Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -676,6 +468,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T12:59:30.066Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -685,6 +478,224 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "msc-cargo-b8db6c0698ca",
+      "slug": "direttore-of-operations-hospitality-infrastructure-msc-group-geneva",
+      "slugByLocale": {
+        "it": "direttore-of-operations-hospitality-infrastructure-msc-group-geneva",
+        "en": "director-of-operations-hospitality-infrastructure-msc-geneva",
+        "de": "direktor-of-operations-hospitality-infrastructure-msc-group-geneva",
+        "fr": "directeur-of-operations-hospitality-infrastructure-msc-group-geneva"
+      },
+      "company": "MSC Group",
+      "companyKey": "msc-cargo",
+      "companyDomain": "msc.com",
+      "title": "Director of Operations - Hospitality Infrastructure",
+      "titleByLocale": {
+        "it": "Direttore of Operations - Hospitality Infrastructure",
+        "en": "Director of Operations - Hospitality Infrastructure",
+        "de": "Direktor of Operations - Hospitality Infrastructure",
+        "fr": "Directeur of Operations - Hospitality Infrastructure"
+      },
+      "description": "The Director of Operations is accountable for the design, mobilization, opening and ongoing operation of large-scale cruise and hospitality infrastructure assets. Working in parallel with Development,...",
+      "descriptionByLocale": {
+        "it": "The Director of Operations is accountable for the design, mobilization, opening and ongoing operation of large-scale cruise and hospitality infrastructure assets. Working in parallel with Development,...",
+        "en": "The Director of Operations is accountable for the design, mobilization, opening and ongoing operation of large-scale cruise and hospitality infrastructure assets. Working in parallel with Development,...",
+        "de": "The Director of Operations is accountable for the design, mobilization, opening and ongoing operation of large-scale cruise and hospitality infrastructure assets. Working in parallel with Development,...",
+        "fr": "The Director of Operations is accountable for the design, mobilization, opening and ongoing operation of large-scale cruise and hospitality infrastructure assets. Working in parallel with Development,..."
+      },
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16422EXTERNALENGB",
+      "source": "MSC Group Dedicated Parser (Phenom careers portal)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-12T22:43:58.435Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Logistica e crocieristica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-13",
+      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16422EXTERNALENGB",
+      "jobReqId": "16422",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-12T11:51:48.860Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "director-of-operations-hospitality-infrastructure-msc-geneva"
+        ],
+        "de": [
+          "director-of-operations-hospitality-infrastructure-msc-geneva"
+        ],
+        "fr": [
+          "director-of-operations-hospitality-infrastructure-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "director-of-operations-hospitality-infrastructure-msc-geneva"
+      ],
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "msc-cargo-9469e7860b49",
+      "slug": "gestore-multimedia-e-av-msc-group-geneva",
+      "slugByLocale": {
+        "it": "gestore-multimedia-e-av-msc-group-geneva",
+        "en": "multimedia-and-av-manager-msc-geneva",
+        "de": "multimedia-and-av-manager-msc-geneva",
+        "fr": "gestionnaire-multimedia-et-av-msc-group-geneva"
+      },
+      "company": "MSC Group",
+      "companyKey": "msc-cargo",
+      "companyDomain": "msc.com",
+      "title": "Multimedia and AV Manager",
+      "titleByLocale": {
+        "it": "Gestore Multimedia e AV",
+        "en": "Multimedia and AV Manager",
+        "de": "Multimedia- und AV-Manager",
+        "fr": "Gestionnaire multimédia et AV"
+      },
+      "description": "Join us as a Multimedia and AV Manager and lead the strategic planning, deployment, and operational management of cutting-edge AV systems across our fleet and corporate infrastructure. Drive innovation, collaborate globally, and deliver seamless digital experiences in a dynamic, international environment. Shape the future of entertainment with us!",
+      "descriptionByLocale": {
+        "it": "Descrizione - Unisciti a noi come Gestore Multimedia e AV - Guida la pianificazione strategica, la distribuzione e la gestione operativa di sistemi AV all'avanguardia in tutta la nostra flotta e infrastruttura aziendale - Promuovi l'innovazione, collabora a livello globale e fornisci esperienze digitali fluide in un ambiente dinamico e internazionale - Plasmare il futuro dell'intrattenimento con noi!",
+        "en": "Join us as a Multimedia and AV Manager and lead the strategic planning, deployment, and operational management of cutting-edge AV systems across our fleet and corporate infrastructure. Drive innovation, collaborate globally, and deliver seamless digital experiences in a dynamic, international environment. Shape the future of entertainment with us!",
+        "de": "Beschreibung - Werden Sie Teil unseres Teams als Multimedia- und AV-Manager - Leiten Sie die strategische Planung, Implementierung und den operativen Betrieb von AV-Systemen der neuesten Generation in unserer Flotte und Unternehmensinfrastruktur - Treiben Sie Innovation voran, arbeiten Sie global zusammen und bieten Sie nahtlose digitale Erlebnisse in einer dynamischen, internationalen Umgebung - Gestalten Sie die Zukunft des Entertainments mit uns!",
+        "fr": "Description - Rejoignez-nous en tant que Gestionnaire multimédia et AV - Dirigez la planification stratégique, le déploiement et la gestion opérationnelle de systèmes AV de pointe dans notre flotte et notre infrastructure d'entreprise - Favorisez l'innovation, collaborez à l'échelle mondiale et offrez des expériences numériques fluides dans un environnement dynamique et international - Façonnez l'avenir du divertissement avec nous !"
+      },
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16952EXTERNALENGB",
+      "source": "MSC Group Dedicated Parser (Phenom careers portal)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-12T22:43:58.434Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Hospitality",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Logistica e crocieristica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16952EXTERNALENGB",
+      "jobReqId": "16952",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "multimedia-and-av-manager-msc-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "multimedia-and-av-manager-msc-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-05-11T12:59:30.066Z",
+      "salaryMin": 72000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "msc-cargo-ae2d4551edb1",
+      "slug": "product-manager-msc-group-geneva",
+      "slugByLocale": {
+        "it": "product-manager-msc-group-geneva",
+        "en": "spa-product-manager-msc-geneva",
+        "de": "spa-product-manager-msc-geneva",
+        "fr": "spa-product-manager-msc-geneva"
+      },
+      "company": "MSC Group",
+      "companyKey": "msc-cargo",
+      "companyDomain": "msc.com",
+      "title": "SPA Product Manager",
+      "titleByLocale": {
+        "it": "Product Manager",
+        "en": "SPA Product Manager",
+        "de": "SPA Product Manager",
+        "fr": "SPA Product Manager"
+      },
+      "description": "Are you experienced in spa product management? Join our team as a SPA Product Manager, where you will lead the strategic development and optimization of spa products, ensuring alignment with brand standards and guest expectations. Drive innovation and operational excellence in a dynamic environment!",
+      "descriptionByLocale": {
+        "it": "Are you experienced in spa product management? Join our team as a SPA Product Manager, where you will lead the strategic development and optimization of spa products, ensuring alignment with brand standards and guest expectations. Drive innovation and operational excellence in a dynamic environment!",
+        "en": "Are you experienced in spa product management? Join our team as a SPA Product Manager, where you will lead the strategic development and optimization of spa products, ensuring alignment with brand standards and guest expectations. Drive innovation and operational excellence in a dynamic environment!",
+        "de": "Are you experienced in spa product management? Join our team as a SPA Product Manager, where you will lead the strategic development and optimization of spa products, ensuring alignment with brand standards and guest expectations. Drive innovation and operational excellence in a dynamic environment!",
+        "fr": "Are you experienced in spa product management? Join our team as a SPA Product Manager, where you will lead the strategic development and optimization of spa products, ensuring alignment with brand standards and guest expectations. Drive innovation and operational excellence in a dynamic environment!"
+      },
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16527EXTERNALENGB",
+      "source": "MSC Group Dedicated Parser (Phenom careers portal)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-12T22:43:58.434Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Logistica e crocieristica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-06",
+      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16527EXTERNALENGB",
+      "jobReqId": "16527",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "spa-product-manager-msc-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-product-manager-msc-geneva"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-11T22:40:46.716Z",
+      "salaryMin": 75500,
+      "salaryMax": 133000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 75500,
+          "maxValue": 133000,
           "unitText": "YEAR"
         }
       }
@@ -720,7 +731,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB10623EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.856Z",
+      "crawledAt": "2026-05-12T22:43:58.433Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -738,76 +749,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-11T12:59:30.063Z",
-      "salaryMin": 75500,
-      "salaryMax": 133000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 75500,
-          "maxValue": 133000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "msc-cargo-a231a60627cc",
-      "slug": "responsabile-acquisizione-digitale-msc-group-geneva",
-      "slugByLocale": {
-        "it": "responsabile-acquisizione-digitale-msc-group-geneva",
-        "en": "digital-acquisition-manager-msc-geneva",
-        "de": "digitaler-akquisitionsmanager-msc-group-geneva",
-        "fr": "responsable-de-l-acquisition-numerique-msc-group-geneva"
-      },
-      "company": "MSC Group",
-      "companyKey": "msc-cargo",
-      "companyDomain": "msc.com",
-      "title": "Digital Acquisition Manager",
-      "titleByLocale": {
-        "it": "Responsabile Acquisizione Digitale",
-        "en": "Digital Acquisition Manager",
-        "de": "Digitaler Akquisitionsmanager",
-        "fr": "Responsable de l'acquisition numérique"
-      },
-      "description": "Are you experienced in driving digital marketing strategies? Join us as a Senior Digital Acquisition Manager to lead innovative campaigns, optimize performance, and enhance customer engagement across multiple channels. Your expertise will help shape our digital landscape and drive direct sales growth. Apply now!",
-      "descriptionByLocale": {
-        "it": "Descrizione - Hai esperienza nella gestione di strategie di marketing digitale? - Unisciti a noi come Senior Digital Acquisition Manager per guidare campagne innovative, ottimizzare le performance e migliorare l'engagement dei clienti su più canali - La tua esperienza aiuterà a plasmare il nostro panorama digitale e a incrementare le vendite dirette",
-        "en": "Are you experienced in driving digital marketing strategies? Join us as a Senior Digital Acquisition Manager to lead innovative campaigns, optimize performance, and enhance customer engagement across multiple channels. Your expertise will help shape our digital landscape and drive direct sales growth. Apply now!",
-        "de": "Beschreibung - Haben Sie Erfahrung in der Gestaltung von Digitalmarketing-Strategien? - Treten Sie uns als Senior Digital Acquisition Manager bei, um innovative Kampagnen zu leiten, die Leistung zu optimieren und die Kundenbindung über mehrere Kanäle hinweg zu verbessern - Ihre Expertise wird helfen, unsere digitale Landschaft zu gestalten und den direkten Verkaufswachstum zu steigern - Bewerben Sie sich jetzt!",
-        "fr": "Description - Avez-vous de l'expérience dans la gestion de stratégies de marketing numérique? - Rejoignez-nous en tant que Senior Digital Acquisition Manager pour diriger des campagnes innovantes, optimiser les performances et améliorer l'engagement des clients sur plusieurs canaux - Votre expertise aidera à façonner notre paysage numérique et à stimuler la croissance des ventes directes - Postulez maintenant!"
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB11987EXTERNALENGB",
-      "source": "MSC Group Dedicated Parser (Phenom careers portal)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.855Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Logistica e crocieristica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-19",
-      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB11987EXTERNALENGB",
-      "jobReqId": "11987",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "digital-acquisition-manager-msc-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "digital-acquisition-manager-msc-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-05-11T12:59:30.062Z",
       "salaryMin": 75500,
       "salaryMax": 133000,
       "baseSalary": {
@@ -852,7 +793,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB12112EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.855Z",
+      "crawledAt": "2026-05-12T22:43:58.433Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -892,6 +833,76 @@
       }
     },
     {
+      "id": "msc-cargo-a231a60627cc",
+      "slug": "responsabile-acquisizione-digitale-msc-group-geneva",
+      "slugByLocale": {
+        "it": "responsabile-acquisizione-digitale-msc-group-geneva",
+        "en": "digital-acquisition-manager-msc-geneva",
+        "de": "digitaler-akquisitionsmanager-msc-group-geneva",
+        "fr": "responsable-de-l-acquisition-numerique-msc-group-geneva"
+      },
+      "company": "MSC Group",
+      "companyKey": "msc-cargo",
+      "companyDomain": "msc.com",
+      "title": "Digital Acquisition Manager",
+      "titleByLocale": {
+        "it": "Responsabile Acquisizione Digitale",
+        "en": "Digital Acquisition Manager",
+        "de": "Digitaler Akquisitionsmanager",
+        "fr": "Responsable de l'acquisition numérique"
+      },
+      "description": "Are you experienced in driving digital marketing strategies? Join us as a Senior Digital Acquisition Manager to lead innovative campaigns, optimize performance, and enhance customer engagement across multiple channels. Your expertise will help shape our digital landscape and drive direct sales growth. Apply now!",
+      "descriptionByLocale": {
+        "it": "Descrizione - Hai esperienza nella gestione di strategie di marketing digitale? - Unisciti a noi come Senior Digital Acquisition Manager per guidare campagne innovative, ottimizzare le performance e migliorare l'engagement dei clienti su più canali - La tua esperienza aiuterà a plasmare il nostro panorama digitale e a incrementare le vendite dirette",
+        "en": "Are you experienced in driving digital marketing strategies? Join us as a Senior Digital Acquisition Manager to lead innovative campaigns, optimize performance, and enhance customer engagement across multiple channels. Your expertise will help shape our digital landscape and drive direct sales growth. Apply now!",
+        "de": "Beschreibung - Haben Sie Erfahrung in der Gestaltung von Digitalmarketing-Strategien? - Treten Sie uns als Senior Digital Acquisition Manager bei, um innovative Kampagnen zu leiten, die Leistung zu optimieren und die Kundenbindung über mehrere Kanäle hinweg zu verbessern - Ihre Expertise wird helfen, unsere digitale Landschaft zu gestalten und den direkten Verkaufswachstum zu steigern - Bewerben Sie sich jetzt!",
+        "fr": "Description - Avez-vous de l'expérience dans la gestion de stratégies de marketing numérique? - Rejoignez-nous en tant que Senior Digital Acquisition Manager pour diriger des campagnes innovantes, optimiser les performances et améliorer l'engagement des clients sur plusieurs canaux - Votre expertise aidera à façonner notre paysage numérique et à stimuler la croissance des ventes directes - Postulez maintenant!"
+      },
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB11987EXTERNALENGB",
+      "source": "MSC Group Dedicated Parser (Phenom careers portal)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-12T22:43:58.432Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Logistica e crocieristica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-19",
+      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB11987EXTERNALENGB",
+      "jobReqId": "11987",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "digital-acquisition-manager-msc-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-acquisition-manager-msc-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-05-11T12:59:30.062Z",
+      "salaryMin": 75500,
+      "salaryMax": 133000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 75500,
+          "maxValue": 133000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "msc-cargo-6a7a219004b3",
       "slug": "stage-customer-journey-programma-our-best-msc-group-geneva",
       "slugByLocale": {
@@ -922,7 +933,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16960EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.854Z",
+      "crawledAt": "2026-05-12T22:43:58.431Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -992,7 +1003,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16951EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.853Z",
+      "crawledAt": "2026-05-12T22:43:58.430Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1062,7 +1073,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16851EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.853Z",
+      "crawledAt": "2026-05-12T22:43:58.429Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1102,247 +1113,6 @@
       }
     },
     {
-      "id": "msc-cargo-72e4b16fc7fa",
-      "slug": "specialista-di-prodotto-per-app-mobili-msc-group-geneva",
-      "slugByLocale": {
-        "it": "specialista-di-prodotto-per-app-mobili-msc-group-geneva",
-        "en": "mobile-app-product-specialist-msc-geneva",
-        "de": "produktspezialist-fur-mobile-apps-msc-group-geneva",
-        "fr": "specialiste-des-produits-d-applications-mobiles-msc-group-geneva"
-      },
-      "company": "MSC Group",
-      "companyKey": "msc-cargo",
-      "companyDomain": "msc.com",
-      "title": "Mobile App Product Specialist",
-      "titleByLocale": {
-        "it": "Specialista di prodotto per app mobili",
-        "en": "Mobile App Product Specialist",
-        "de": "Produktspezialist für mobile Apps",
-        "fr": "Spécialiste des produits d'applications mobiles"
-      },
-      "description": "Are you experienced in optimizing mobile user journeys? Join our team as a Mobile App Product Specialist and drive product-led initiatives to enhance digital guest experiences. Your analytical mindset and commercial acumen will be key in maximizing conversion rates and shaping the future of our mobile applications.",
-      "descriptionByLocale": {
-        "it": "Descrizione - Hai esperienza nell'ottimizzazione dei percorsi degli utenti mobili? - Unisciti al nostro team come Specialista di prodotto per app mobili - Guida iniziative guidate dal prodotto per migliorare le esperienze digitali degli ospiti - La tua mentalità analitica e il tuo acume commerciale saranno fondamentali - Massimizza i tassi di conversione - Plasmare il futuro delle nostre applicazioni mobili",
-        "en": "Are you experienced in optimizing mobile user journeys? Join our team as a Mobile App Product Specialist and drive product-led initiatives to enhance digital guest experiences. Your analytical mindset and commercial acumen will be key in maximizing conversion rates and shaping the future of our mobile applications.",
-        "de": "Beschreibung - Haben Sie Erfahrung in der Optimierung von mobilen Benutzerpfaden? - Treten Sie unserem Team als Mobile App Product Specialist bei - Leiten Sie produktgeführte Initiativen, um digitale Gasterlebnisse zu verbessern - Ihr analytischer Geist und Ihr kommerzielles Gespür werden entscheidend sein - Maximieren Sie die Konversionsraten - Gestalten Sie die Zukunft unserer mobilen Anwendungen",
-        "fr": "Description - Avez-vous de l'expérience dans l'optimisation des parcours utilisateurs mobiles? - Rejoignez notre équipe en tant que Spécialiste des produits d'applications mobiles - Dirigez des initiatives axées sur le produit pour améliorer les expériences numériques des invités - Votre esprit analytique et votre perspicacité commerciale seront essentiels - Maximisez les taux de conversion - Façonnez l'avenir de nos applications mobiles"
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16552EXTERNALENGB",
-      "source": "MSC Group Dedicated Parser (Phenom careers portal)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.852Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Logistica e crocieristica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-10",
-      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16552EXTERNALENGB",
-      "jobReqId": "16552",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Esperienza nell'ottimizzazione dei percorsi degli utenti mobili",
-          "Capacità di guidare iniziative guidate dal prodotto",
-          "Mentalità analitica e acume commerciale",
-          "Competenze nella massimizzazione dei tassi di conversione",
-          "Conoscenza delle applicazioni mobili",
-          "Capacità di lavorare in team",
-          "Ottime capacità di comunicazione",
-          "Conoscenza delle metriche di performance digitale"
-        ],
-        "de": [
-          "Erfahrung in der Optimierung von mobilen Benutzerpfaden",
-          "Fähigkeit, produktgeführte Initiativen zu leiten",
-          "Analytische Denkweise und kommerzielles Gespür",
-          "Fähigkeiten zur Maximierung der Konversionsraten",
-          "Kenntnisse über mobile Anwendungen",
-          "Teamfähigkeit",
-          "Ausgezeichnete Kommunikationsfähigkeiten",
-          "Kenntnisse über digitale Performance-Metriken"
-        ],
-        "fr": [
-          "Expérience dans l'optimisation des parcours utilisateurs mobiles",
-          "Capacité à diriger des initiatives axées sur le produit",
-          "Esprit analytique et perspicacité commerciale",
-          "Compétences pour maximiser les taux de conversion",
-          "Connaissance des applications mobiles",
-          "Capacité à travailler en équipe",
-          "Excellentes compétences en communication",
-          "Connaissance des métriques de performance numérique"
-        ]
-      },
-      "previousSlugs": [
-        "mobile-app-product-specialist-msc-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mobile-app-product-specialist-msc-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-05-11T12:59:30.058Z",
-      "salaryMin": 50500,
-      "salaryMax": 89000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 50500,
-          "maxValue": 89000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "msc-cargo-d7e4d37de431",
-      "slug": "vice-president-global-spa-e-benessere-msc-group-geneva",
-      "slugByLocale": {
-        "it": "vice-president-global-spa-e-benessere-msc-group-geneva",
-        "en": "vice-president-global-spa-and-wellness-msc-geneva",
-        "de": "vice-president-global-spa-and-wellness-msc-geneva",
-        "fr": "vice-president-global-spa-et-bien-etre-msc-group-geneva"
-      },
-      "company": "MSC Group",
-      "companyKey": "msc-cargo",
-      "companyDomain": "msc.com",
-      "title": "Vice President Global SPA and Wellness",
-      "titleByLocale": {
-        "it": "Vice President Global SPA e Benessere",
-        "en": "Vice President Global SPA and Wellness",
-        "de": "Vice President Global SPA und Wellness",
-        "fr": "Vice Président Global SPA et Bien-être"
-      },
-      "description": "Are you experienced in leading global SPA and wellness strategies? Join us as the Vice President Global SPA and Wellness, where you will drive luxury wellness standards and elevate guest satisfaction across our cruise division. Your expertise will shape the future of wellness at MSC Cruises!",
-      "descriptionByLocale": {
-        "it": "Descrizione Hai esperienza nella gestione di strategie globali per SPA e benessere? Unisciti a noi come Vice President Global SPA e Wellness, dove guiderai gli standard di benessere di lusso e eleverai la soddisfazione degli ospiti nella nostra divisione crociere. La tua esperienza plasmerà il futuro del benessere su MSC Crociere!",
-        "en": "Are you experienced in leading global SPA and wellness strategies? Join us as the Vice President Global SPA and Wellness, where you will drive luxury wellness standards and elevate guest satisfaction across our cruise division. Your expertise will shape the future of wellness at MSC Cruises!",
-        "de": "Beschreibung Haben Sie Erfahrung in der Leitung globaler SPA- und Wellness-Strategien? Treten Sie uns als Vice President Global SPA und Wellness bei, wo Sie Luxus-Wellness-Standards vorantreiben und die Zufriedenheit der Gäste in unserer Kreuzfahrtdivision erhöhen werden. Ihre Expertise wird die Zukunft des Wellness bei MSC Kreuzfahrten gestalten!",
-        "fr": "Description Avez-vous de l'expérience dans la gestion de stratégies globales de SPA et de bien-être ? Rejoignez-nous en tant que Vice Président Global SPA et Bien-être, où vous piloterez les normes de bien-être de luxe et élèverez la satisfaction des clients dans notre division croisières. Votre expertise façonnera l'avenir du bien-être chez MSC Croisières !"
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB15903EXTERNALENGB",
-      "source": "MSC Group Dedicated Parser (Phenom careers portal)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.851Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Logistica e crocieristica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-11",
-      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB15903EXTERNALENGB",
-      "jobReqId": "15903",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "vice-president-global-spa-and-wellness-msc-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "vice-president-global-spa-and-wellness-msc-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-05-11T12:59:30.058Z",
-      "salaryMin": 75500,
-      "salaryMax": 133000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 75500,
-          "maxValue": 133000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "msc-cargo-32cf9574722c",
-      "slug": "responsabile-operazioni-culinarie-msc-group-geneva",
-      "slugByLocale": {
-        "it": "responsabile-operazioni-culinarie-msc-group-geneva",
-        "en": "culinary-operations-manager-msc-geneva",
-        "de": "kulinarischer-betriebsleiter-msc-group-geneva",
-        "fr": "responsable-des-operations-culinaires-msc-group-geneva"
-      },
-      "company": "MSC Group",
-      "companyKey": "msc-cargo",
-      "companyDomain": "msc.com",
-      "title": "Culinary Operations Manager",
-      "titleByLocale": {
-        "it": "Responsabile Operazioni Culinarie",
-        "en": "Culinary Operations Manager",
-        "de": "Kulinarischer Betriebsleiter",
-        "fr": "Responsable des Opérations Culinaires"
-      },
-      "description": "The Culinary Operations Manager provides strategic leadership and oversight for all culinary operations across the fleet. The Manager of Culinary Operations is a strategic role on the overall financia...",
-      "descriptionByLocale": {
-        "it": "Descrizione - Il Responsabile Operazioni Culinarie fornisce leadership strategica e supervisione per tutte le operazioni culinarie in tutta la flotta - Il Responsabile delle Operazioni Culinarie è un ruolo strategico per il bilancio complessivo...",
-        "en": "The Culinary Operations Manager provides strategic leadership and oversight for all culinary operations across the fleet. The Manager of Culinary Operations is a strategic role on the overall financia...",
-        "de": "Beschreibung - Der Culinary Operations Manager bietet strategische Führung und Überwachung für alle kulinarischen Operationen in der gesamten Flotte - Der Manager für kulinarische Operationen ist eine strategische Rolle für das Gesamtbudget...",
-        "fr": "Description - Le Responsable des Opérations Culinaires offre un leadership stratégique et une supervision pour toutes les opérations culinaires à travers la flotte - Le Responsable des Opérations Culinaires est un rôle stratégique pour le budget global..."
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16385EXTERNALENGB",
-      "source": "MSC Group Dedicated Parser (Phenom careers portal)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.850Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Logistica e crocieristica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-30",
-      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16385EXTERNALENGB",
-      "jobReqId": "16385",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "culinary-operations-manager-msc-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "culinary-operations-manager-msc-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-05-11T12:59:30.059Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "msc-cargo-620a4e378a97",
       "slug": "responsabile-finanza-e-contabilita-nuovi-investimenti-msc-group-geneva",
       "slugByLocale": {
@@ -1373,7 +1143,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16550EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.849Z",
+      "crawledAt": "2026-05-12T22:43:58.427Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1430,6 +1200,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T12:59:30.047Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1474,7 +1245,7 @@
       "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16545EXTERNALENGB",
       "source": "MSC Group Dedicated Parser (Phenom careers portal)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-12T11:51:48.848Z",
+      "crawledAt": "2026-05-12T22:43:58.427Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1504,6 +1275,179 @@
         ]
       },
       "firstSeenAt": "2026-05-11T12:59:30.057Z",
+      "needsRetranslation": true,
+      "salaryMin": 75500,
+      "salaryMax": 133000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 75500,
+          "maxValue": 133000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "msc-cargo-72e4b16fc7fa",
+      "slug": "specialista-di-prodotto-per-app-mobili-msc-group-geneva",
+      "slugByLocale": {
+        "it": "specialista-di-prodotto-per-app-mobili-msc-group-geneva",
+        "en": "mobile-app-product-specialist-msc-geneva",
+        "de": "produktspezialist-fur-mobile-apps-msc-group-geneva",
+        "fr": "specialiste-des-produits-d-applications-mobiles-msc-group-geneva"
+      },
+      "company": "MSC Group",
+      "companyKey": "msc-cargo",
+      "companyDomain": "msc.com",
+      "title": "Mobile App Product Specialist",
+      "titleByLocale": {
+        "it": "Specialista di prodotto per app mobili",
+        "en": "Mobile App Product Specialist",
+        "de": "Produktspezialist für mobile Apps",
+        "fr": "Spécialiste des produits d'applications mobiles"
+      },
+      "description": "Are you experienced in optimizing mobile user journeys? Join our team as a Mobile App Product Specialist and drive product-led initiatives to enhance digital guest experiences. Your analytical mindset and commercial acumen will be key in maximizing conversion rates and shaping the future of our mobile applications.",
+      "descriptionByLocale": {
+        "it": "Descrizione - Hai esperienza nell'ottimizzazione dei percorsi degli utenti mobili? - Unisciti al nostro team come Specialista di prodotto per app mobili - Guida iniziative guidate dal prodotto per migliorare le esperienze digitali degli ospiti - La tua mentalità analitica e il tuo acume commerciale saranno fondamentali - Massimizza i tassi di conversione - Plasmare il futuro delle nostre applicazioni mobili",
+        "en": "Are you experienced in optimizing mobile user journeys? Join our team as a Mobile App Product Specialist and drive product-led initiatives to enhance digital guest experiences. Your analytical mindset and commercial acumen will be key in maximizing conversion rates and shaping the future of our mobile applications.",
+        "de": "Beschreibung - Haben Sie Erfahrung in der Optimierung von mobilen Benutzerpfaden? - Treten Sie unserem Team als Mobile App Product Specialist bei - Leiten Sie produktgeführte Initiativen, um digitale Gasterlebnisse zu verbessern - Ihr analytischer Geist und Ihr kommerzielles Gespür werden entscheidend sein - Maximieren Sie die Konversionsraten - Gestalten Sie die Zukunft unserer mobilen Anwendungen",
+        "fr": "Description - Avez-vous de l'expérience dans l'optimisation des parcours utilisateurs mobiles? - Rejoignez notre équipe en tant que Spécialiste des produits d'applications mobiles - Dirigez des initiatives axées sur le produit pour améliorer les expériences numériques des invités - Votre esprit analytique et votre perspicacité commerciale seront essentiels - Maximisez les taux de conversion - Façonnez l'avenir de nos applications mobiles"
+      },
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16552EXTERNALENGB",
+      "source": "MSC Group Dedicated Parser (Phenom careers portal)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-12T22:43:58.425Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Logistica e crocieristica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-10",
+      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB16552EXTERNALENGB",
+      "jobReqId": "16552",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Esperienza nell'ottimizzazione dei percorsi degli utenti mobili",
+          "Capacità di guidare iniziative guidate dal prodotto",
+          "Mentalità analitica e acume commerciale",
+          "Competenze nella massimizzazione dei tassi di conversione",
+          "Conoscenza delle applicazioni mobili",
+          "Capacità di lavorare in team",
+          "Ottime capacità di comunicazione",
+          "Conoscenza delle metriche di performance digitale"
+        ],
+        "de": [
+          "Erfahrung in der Optimierung von mobilen Benutzerpfaden",
+          "Fähigkeit, produktgeführte Initiativen zu leiten",
+          "Analytische Denkweise und kommerzielles Gespür",
+          "Fähigkeiten zur Maximierung der Konversionsraten",
+          "Kenntnisse über mobile Anwendungen",
+          "Teamfähigkeit",
+          "Ausgezeichnete Kommunikationsfähigkeiten",
+          "Kenntnisse über digitale Performance-Metriken"
+        ],
+        "fr": [
+          "Expérience dans l'optimisation des parcours utilisateurs mobiles",
+          "Capacité à diriger des initiatives axées sur le produit",
+          "Esprit analytique et perspicacité commerciale",
+          "Compétences pour maximiser les taux de conversion",
+          "Connaissance des applications mobiles",
+          "Capacité à travailler en équipe",
+          "Excellentes compétences en communication",
+          "Connaissance des métriques de performance numérique"
+        ]
+      },
+      "previousSlugs": [
+        "mobile-app-product-specialist-msc-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mobile-app-product-specialist-msc-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-05-11T12:59:30.058Z",
+      "needsRetranslation": true,
+      "salaryMin": 50500,
+      "salaryMax": 89000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 50500,
+          "maxValue": 89000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "msc-cargo-d7e4d37de431",
+      "slug": "vice-president-global-spa-e-benessere-msc-group-geneva",
+      "slugByLocale": {
+        "it": "vice-president-global-spa-e-benessere-msc-group-geneva",
+        "en": "vice-president-global-spa-and-wellness-msc-geneva",
+        "de": "vice-president-global-spa-and-wellness-msc-geneva",
+        "fr": "vice-president-global-spa-et-bien-etre-msc-group-geneva"
+      },
+      "company": "MSC Group",
+      "companyKey": "msc-cargo",
+      "companyDomain": "msc.com",
+      "title": "Vice President Global SPA and Wellness",
+      "titleByLocale": {
+        "it": "Vice President Global SPA e Benessere",
+        "en": "Vice President Global SPA and Wellness",
+        "de": "Vice President Global SPA und Wellness",
+        "fr": "Vice Président Global SPA et Bien-être"
+      },
+      "description": "Are you experienced in leading global SPA and wellness strategies? Join us as the Vice President Global SPA and Wellness, where you will drive luxury wellness standards and elevate guest satisfaction across our cruise division. Your expertise will shape the future of wellness at MSC Cruises!",
+      "descriptionByLocale": {
+        "it": "Descrizione Hai esperienza nella gestione di strategie globali per SPA e benessere? Unisciti a noi come Vice President Global SPA e Wellness, dove guiderai gli standard di benessere di lusso e eleverai la soddisfazione degli ospiti nella nostra divisione crociere. La tua esperienza plasmerà il futuro del benessere su MSC Crociere!",
+        "en": "Are you experienced in leading global SPA and wellness strategies? Join us as the Vice President Global SPA and Wellness, where you will drive luxury wellness standards and elevate guest satisfaction across our cruise division. Your expertise will shape the future of wellness at MSC Cruises!",
+        "de": "Beschreibung Haben Sie Erfahrung in der Leitung globaler SPA- und Wellness-Strategien? Treten Sie uns als Vice President Global SPA und Wellness bei, wo Sie Luxus-Wellness-Standards vorantreiben und die Zufriedenheit der Gäste in unserer Kreuzfahrtdivision erhöhen werden. Ihre Expertise wird die Zukunft des Wellness bei MSC Kreuzfahrten gestalten!",
+        "fr": "Description Avez-vous de l'expérience dans la gestion de stratégies globales de SPA et de bien-être ? Rejoignez-nous en tant que Vice Président Global SPA et Bien-être, où vous piloterez les normes de bien-être de luxe et élèverez la satisfaction des clients dans notre division croisières. Votre expertise façonnera l'avenir du bien-être chez MSC Croisières !"
+      },
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://careers.msccruises.com/gb/en/job/MCTMCUGB15903EXTERNALENGB",
+      "source": "MSC Group Dedicated Parser (Phenom careers portal)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-12T22:43:58.424Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Logistica e crocieristica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-11",
+      "applyUrl": "https://careers.msccruises.com/gb/en/job/MCTMCUGB15903EXTERNALENGB",
+      "jobReqId": "15903",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "vice-president-global-spa-and-wellness-msc-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "vice-president-global-spa-and-wellness-msc-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-05-11T12:59:30.058Z",
       "salaryMin": 75500,
       "salaryMax": 133000,
       "baseSalary": {
