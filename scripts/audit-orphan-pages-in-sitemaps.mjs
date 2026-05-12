@@ -76,6 +76,7 @@ import { readdir, readFile, stat, writeFile, access } from 'node:fs/promises';
 import { join, relative, isAbsolute, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import https from 'node:https';
+import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -716,6 +717,33 @@ async function main() {
   await writeFile(OUT_PATH, JSON.stringify(json, null, 2) + '\n', 'utf8');
   process.stderr.write(`[audit] Wrote report → ${relative(ROOT, OUT_PATH)}\n`);
 
+  // Build the structured offenders list once — used by every exit branch below.
+  const _flatOrphans = [];
+  const _byFeatureForReport = {};
+  for (const [name, row] of Object.entries(report.perSitemap)) {
+    const list = row.orphansList || row.examples || [];
+    _byFeatureForReport[name] = row.orphans;
+    for (const u of list) {
+      _flatOrphans.push({
+        path: canonicalToOriginal.get(u) || u,
+        feature: name,
+        metric: 1,
+        ratio: null,
+        sitemap: name,
+      });
+    }
+  }
+  const _writeOrphanReport = (passed, baselineDelta) => writeAuditReport({
+    audit: 'orphan-sitemap-pages',
+    passed,
+    threshold: { metric: 'count', value: 0, comparator: '<=baseline' },
+    baselineFile: relBaseline(BASELINE_PATH),
+    baselineDelta,
+    offenders: _flatOrphans,
+    byFeature: _byFeatureForReport,
+    extra: { mode, totalSitemapUrls: report.totalSitemapUrls },
+  });
+
   // Baseline read + gate-check / rebaseline handling.
   const existing = await readBaseline();
 
@@ -736,10 +764,14 @@ async function main() {
       }
       process.stderr.write(lines.join('\n') + '\n');
       printTable(report, mode);
+      const prevTotal = cmp.regressions.reduce((s, r) => s + r.prev, 0);
+      const currTotal = cmp.regressions.reduce((s, r) => s + r.current, 0);
+      await _writeOrphanReport(false, { before: prevTotal, after: currTotal, regression: currTotal - prevTotal });
       process.exit(1);
     }
     process.stderr.write('[gate] OK — no regression\n');
     printTable(report, mode);
+    await _writeOrphanReport(true, null);
     return;
   }
 
@@ -751,6 +783,7 @@ async function main() {
   }
 
   printTable(report, mode);
+  await _writeOrphanReport(report.totalOrphans === 0, null);
 }
 
 // Only run main() when invoked directly as a script (not when imported by

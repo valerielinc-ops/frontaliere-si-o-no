@@ -470,6 +470,26 @@ jobs:
           echo "Sitemaps:"
           find dist -name "sitemap*.xml" -exec du -sh {} + | sort -rh || true
 
+      # On failure, upload structured audit reports + sitemaps so a debug
+      # agent can diagnose without rebuilding dist/. Each audit script writes
+      # to dist/audit-reports/<name>.json via scripts/lib/auditReport.mjs;
+      # sitemaps are bundled because link-graph audits (bfs-depth,
+      # orphan-sitemap-pages, sitemap-canonicals) need them for offline replay.
+      # Retention deliberately short — 7 days is enough to fix the failing PR
+      # without bloating storage on the free-tier account.
+      - name: Upload audit reports + sitemaps on failure
+        if: failure()
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: audit-reports-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            dist/audit-reports/**
+            dist/sitemap.xml
+            dist/sitemap-*.xml
+          if-no-files-found: ignore
+          retention-days: 7
+
       - name: Report failure to Linear
         if: failure()
         continue-on-error: true

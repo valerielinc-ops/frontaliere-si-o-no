@@ -99,6 +99,7 @@
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeAuditReport } from './lib/auditReport.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -802,7 +803,7 @@ function runValidateContentQuality() {
 }
 
 // ── Driver ─────────────────────────────────────────────────────────────────
-function main() {
+async function main() {
   if (!existsSync(DIST)) {
     process.stderr.write(`validate-sitemap-pages: dist/ not found. Run \`npm run build\` first.\n`);
     process.exit(2);
@@ -832,12 +833,35 @@ function main() {
   }
   process.stdout.write('══════════════════════════════════════════════════════════════════════\n');
 
+  // Structured report — one offender per failing sub-check, so debug agents
+  // can see at a glance which of the 4 consolidated validators tripped.
+  const offenders = [];
+  const byFeature = {};
+  for (const key of sections) {
+    const c = checks[key];
+    byFeature[c.name] = c.pass ? 0 : 1;
+    if (!c.pass) {
+      offenders.push({
+        path: c.name,
+        feature: c.name,
+        metric: 1,
+        ratio: null,
+        summary: c.summary.slice(0, 4000), // cap to keep reports tiny
+      });
+    }
+  }
+  await writeAuditReport({
+    audit: 'validate-sitemap-pages',
+    passed: !anyFailed,
+    threshold: { metric: 'subCheckFailures', value: 0, comparator: '<=' },
+    offenders,
+    byFeature,
+  });
+
   process.exit(anyFailed ? 1 : 0);
 }
 
-try {
-  main();
-} catch (err) {
+main().catch((err) => {
   process.stderr.write(`validate-sitemap-pages crashed: ${err && err.stack ? err.stack : err}\n`);
   process.exit(2);
-}
+});

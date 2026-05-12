@@ -36,6 +36,7 @@
 import { readdirSync, readFileSync, statSync, existsSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeAuditReport } from './lib/auditReport.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -197,7 +198,7 @@ function normalizeUrl(u) {
 
 // ── Main ────────────────────────────────────────────────────────────────────
 
-function main() {
+async function main() {
   let distEntries;
   try {
     distEntries = readdirSync(DIST);
@@ -298,7 +299,28 @@ function main() {
     }
   }
 
+  const _structuredOffenders = offenders.map((o) => ({
+    path: o.loc,
+    feature: o.sitemap,
+    metric: 1,
+    ratio: null,
+    category: o.category,
+    canonical: o.canonical,
+  }));
+  const _byFeatureForReport = {};
+  for (const o of offenders) {
+    _byFeatureForReport[o.sitemap] = (_byFeatureForReport[o.sitemap] ?? 0) + 1;
+  }
+
   if (hardFailers.length === 0) {
+    await writeAuditReport({
+      audit: 'sitemap-canonicals',
+      passed: true,
+      threshold: { metric: 'count', value: 0, comparator: '<=' },
+      offenders: _structuredOffenders,
+      byFeature: _byFeatureForReport,
+      extra: { categoryCounts: counts, sitemapsScanned: sitemapFiles.length },
+    });
     process.exit(0);
   }
 
@@ -328,12 +350,18 @@ function main() {
     process.stderr.write(`… ${hardFailers.length - printed} more (raise --limit=N to see them)\n`);
   }
 
+  await writeAuditReport({
+    audit: 'sitemap-canonicals',
+    passed: false,
+    threshold: { metric: 'count', value: 0, comparator: '<=' },
+    offenders: _structuredOffenders,
+    byFeature: _byFeatureForReport,
+    extra: { categoryCounts: counts, sitemapsScanned: sitemapFiles.length },
+  });
   process.exit(1);
 }
 
-try {
-  main();
-} catch (err) {
+main().catch((err) => {
   process.stderr.write(`audit-sitemap-canonicals crashed: ${err && err.stack ? err.stack : err}\n`);
   process.exit(2);
-}
+});

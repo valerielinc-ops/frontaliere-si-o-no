@@ -12,6 +12,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { requireDataPath, ROOT } from './lib/resolve-data-path.mjs';
+import { writeAuditReport } from './lib/auditReport.mjs';
 
 /* ── German-only word patterns (not found in Italian/English job titles) ── */
 const GERMAN_SLUG_WORDS = /(?:^|-)(?:als|und|fur|oder|frau|mann|fach|stelle|lehrstelle|lehre|mitarbeiter|leiter|stellvertretend|verkauf|lernend|chauffeu|gartencenter|befristet|ablosen|disponentin|disponent|ladenleit|logistiker|projektleiter|elektroinstallateur|elektroplaner|unterhaltsfachmann|servicetechniker|immobilienberater|bauleiter|zeichner|fachrichtung|ingenieurbau|tunnelbau|tiefbau|innendienst|generalagentur|vorsorge|vermogen|wissenschaftlich|detailhandels|bekampfung|japankafer|lager)(?:-|$)/i;
@@ -72,7 +73,7 @@ function slugifySimple(str) {
     .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
-function run() {
+async function run() {
   const dataJobs = requireDataPath('jobs.json', 'validate-jobs-quality');
   console.log(`Reading jobs dataset from: ${path.relative(ROOT, dataJobs)}`);
   const jobs = JSON.parse(fs.readFileSync(dataJobs, 'utf-8'));
@@ -180,10 +181,37 @@ function run() {
     if (errors.length > 10) console.log(`  ... and ${errors.length - 10} more`);
 
     console.log(`\n❌ FAILED — ${errors.length} job(s) below quality threshold.`);
+    const _byIssue = {};
+    for (const e of errors) _byIssue[e.issue] = (_byIssue[e.issue] ?? 0) + 1;
+    await writeAuditReport({
+      audit: 'validate-jobs-quality',
+      passed: false,
+      threshold: { metric: 'errorCount', value: 0, comparator: '<=' },
+      offenders: errors.map((e) => ({
+        path: `job:${e.slug}`,
+        feature: e.issue,
+        metric: 1,
+        ratio: null,
+        company: e.company,
+        detail: e.detail,
+      })),
+      byFeature: _byIssue,
+      extra: { totalJobs: jobs.length, warnings: warnings.length },
+    });
     process.exit(1);
   }
 
   console.log('\n✅ Job quality validation passed.');
+  await writeAuditReport({
+    audit: 'validate-jobs-quality',
+    passed: true,
+    threshold: { metric: 'errorCount', value: 0, comparator: '<=' },
+    offenders: [],
+    extra: { totalJobs: jobs.length, warnings: warnings.length },
+  });
 }
 
-run();
+run().catch((err) => {
+  console.error('validate-jobs-quality crashed:', err);
+  process.exit(2);
+});

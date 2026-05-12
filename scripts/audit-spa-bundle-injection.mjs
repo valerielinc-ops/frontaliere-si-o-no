@@ -63,6 +63,8 @@ const DIST = path.resolve(process.cwd(), 'dist');
 const BASELINE_PATH = path.resolve(ROOT, 'data', 'spa-bundle-injection-baseline.json');
 const REBASELINE = process.argv.includes('--rebaseline');
 
+const { writeAuditReport: _writeAuditReport, relBaseline: _relBaseline } = await import('./lib/auditReport.mjs');
+
 if (!fs.existsSync(DIST)) {
   console.error(`[audit:spa-bundle-injection] dist/ not found at ${DIST}`);
   process.exit(1);
@@ -181,6 +183,32 @@ const groupsObject = Object.fromEntries(
   sortedGroups.map(([key, { count }]) => [key, count]),
 );
 
+// Shared writer for every exit point below. Offenders are the full violations
+// list grouped under their top-2-segment directory. We keep the existing
+// stdout/stderr output verbatim; the JSON report is purely additive.
+async function _emitReport(passed, baselineDelta) {
+  const offendersForReport = violations.map((v) => {
+    const segments = v.relDir.split('/');
+    const feature = segments.slice(0, 2).join('/') || '<root>';
+    return {
+      path: v.relDir + '/index.html',
+      feature,
+      metric: v.size,
+      ratio: null,
+    };
+  });
+  await _writeAuditReport({
+    audit: 'spa-bundle-injection',
+    passed,
+    threshold: { metric: 'count', value: 0, comparator: '<=baseline' },
+    baselineFile: _relBaseline(BASELINE_PATH),
+    baselineDelta,
+    offenders: offendersForReport,
+    byFeature: groupsObject,
+    extra: { scanned, skippedExplicit, skippedRedirect },
+  });
+}
+
 if (REBASELINE) {
   fs.mkdirSync(path.dirname(BASELINE_PATH), { recursive: true });
   fs.writeFileSync(
@@ -202,6 +230,7 @@ if (REBASELINE) {
   console.log(
     `[audit:spa-bundle-injection] baseline rebased → ${path.relative(ROOT, BASELINE_PATH)} (total=${violations.length})`,
   );
+  await _emitReport(true, null);
   process.exit(0);
 }
 
@@ -240,6 +269,7 @@ if (!baseline) {
   console.log(
     `[audit:spa-bundle-injection] no baseline found — wrote initial baseline (total=${violations.length}). Commit ${path.relative(ROOT, BASELINE_PATH)}.`,
   );
+  await _emitReport(true, null);
   process.exit(0);
 }
 
@@ -248,6 +278,7 @@ const current = violations.length;
 
 if (current === 0 && baselineTotal === 0) {
   console.log('[audit:spa-bundle-injection] ✅ every index.html contains the SPA bundle script');
+  await _emitReport(true, { before: baselineTotal, after: current, regression: 0 });
   process.exit(0);
 }
 
@@ -267,6 +298,7 @@ if (current <= baselineTotal) {
       console.log(`  ${String(count).padStart(6)} × ${key}`);
     }
   }
+  await _emitReport(true, { before: baselineTotal, after: current, regression: 0 });
   process.exit(0);
 }
 
@@ -311,4 +343,5 @@ console.error('  npm run audit:spa-bundle-injection:rebaseline');
 console.error('and commit the updated data/spa-bundle-injection-baseline.json.');
 console.error('');
 
+await _emitReport(false, { before: baselineTotal, after: current, regression: delta });
 process.exit(1);

@@ -35,6 +35,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeAuditReport } from './lib/auditReport.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -173,6 +174,14 @@ async function runPsi(url, strategy) {
     source = 'unavailable';
   }
 
+  // Extract a compact subset of the Lighthouse "layout-shift-elements" audit
+  // for CLS attribution debugging — sufficient to identify the shifting node
+  // without ballooning the report with the full ~500 KB Lighthouse JSON.
+  // The full payload (`psiRaw`) is also returned for hard regressions so the
+  // post-deploy artifact carries everything an investigator needs.
+  const lsElements = j.lighthouseResult?.audits?.['layout-shift-elements'];
+  const finalScreenshot = j.lighthouseResult?.audits?.['final-screenshot']?.details?.data || null;
+
   return {
     cruxP75,
     cruxOriginP75,
@@ -180,6 +189,12 @@ async function runPsi(url, strategy) {
     lab,
     effective,
     source,
+    attribution: {
+      layoutShiftElements: lsElements?.details?.items?.slice(0, 5) ?? null,
+      score: lsElements?.score ?? null,
+    },
+    finalScreenshot,
+    raw: j, // full Lighthouse JSON — caller decides whether to persist
   };
 }
 
@@ -280,13 +295,59 @@ async function run() {
     if (!JSON_OUT) console.log(`\n💾 wrote ${BASELINE_PATH} — ${Object.keys(newBaseline.entries).length} entries`);
   }
 
-  // Always also dump a daily report file (overwrite per day)
+  // Always also dump a daily report file (overwrite per day). Strip the
+  // raw Lighthouse JSON from every entry here — that file is the human-readable
+  // daily summary, not the artifact-grade audit-reports/ output below.
   const today = new Date().toISOString().split('T')[0];
   if (!existsSync(REPORTS_DIR)) mkdirSync(REPORTS_DIR, { recursive: true });
+  const slimResults = results.map((r) => { const { raw, ...rest } = r; return rest; });
   writeFileSync(
     resolve(REPORTS_DIR, `cls-${today}.json`),
-    JSON.stringify({ generated: new Date().toISOString(), baseUrl: BASE_URL, threshold: HARD_CLS_THRESHOLD, results, errors, hardRegressions: hardRegressions.length, softRegressions: softRegressions.length }, null, 2) + '\n',
+    JSON.stringify({ generated: new Date().toISOString(), baseUrl: BASE_URL, threshold: HARD_CLS_THRESHOLD, results: slimResults, errors, hardRegressions: hardRegressions.length, softRegressions: softRegressions.length }, null, 2) + '\n',
   );
+
+  // Structured audit-reports/ entry. Offender list = every result with a
+  // non-improved verdict, sorted by current CLS desc. For HARD regressions
+  // we preserve the full Lighthouse `psiRaw` so post-deploy debug can replay
+  // the same CrUX + lab evidence offline.
+  const offendersForReport = results
+    .slice()
+    .sort((a, b) => (b.effective ?? 0) - (a.effective ?? 0))
+    .filter((r) => r.verdict.state !== 'flat' && r.verdict.state !== 'improved')
+    .map((r) => {
+      const base = {
+        path: r.url,
+        feature: r.strategy,
+        metric: r.effective,
+        ratio: null,
+        cls: r.effective,
+        source: r.source,
+        baseline: r.baseline,
+        verdict: r.verdict,
+        attribution: r.attribution ?? null,
+      };
+      // Only hard regressions get the full Lighthouse payload — keeps the
+      // JSON under ~1 MB for the typical 1-2 hard regressions per failed run.
+      if (r.verdict.state === 'hard_regression') {
+        base.psiRaw = r.raw ?? null;
+        base.finalScreenshot = r.finalScreenshot ?? null;
+      }
+      return base;
+    });
+  await writeAuditReport({
+    audit: 'cls-live',
+    passed: hardRegressions.length === 0,
+    threshold: { metric: 'cls', value: HARD_CLS_THRESHOLD, comparator: '<=' },
+    baselineFile: 'data/cls-baseline.json',
+    offenders: offendersForReport,
+    byFeature: { mobile: results.filter((r) => r.strategy === 'mobile').length, desktop: results.filter((r) => r.strategy === 'desktop').length },
+    extra: {
+      hardRegressions: hardRegressions.length,
+      softRegressions: softRegressions.length,
+      errorsCount: errors.length,
+      baseUrl: BASE_URL,
+    },
+  });
 
   if (JSON_OUT) {
     console.log(JSON.stringify({ results, errors, hardRegressions, softRegressions }, null, 2));

@@ -40,6 +40,7 @@ import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import { join, relative, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
+import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -185,12 +186,34 @@ async function main() {
     byLocaleCount[r.locale] = (byLocaleCount[r.locale] ?? 0) + 1;
   }
 
+  // Structured offenders for the JSON report — same array, normalised
+  // to the shared schema. `metric` = title length in characters.
+  const structuredOffenders = offenders.map((r) => ({
+    path: r.file,
+    feature: r.feature,
+    metric: r.length,
+    ratio: null,
+    locale: r.locale,
+    title: r.title,
+  }));
+  const writeReport = (passed, baselineDelta) => writeAuditReport({
+    audit: 'title-length',
+    passed,
+    threshold: { metric: 'length', value: THRESHOLD, comparator: '<=' },
+    baselineFile: relBaseline(typeof BASELINE_PATH === 'string' ? BASELINE_PATH : null),
+    baselineDelta,
+    offenders: structuredOffenders,
+    byFeature: byFeatureCount,
+    extra: { byLocale: byLocaleCount },
+  });
+
   if (MODE_CSV) {
     console.log('file,feature,locale,length,title');
     for (const r of offenders) {
       const safe = (s) => `"${String(s).replace(/"/g, '""')}"`;
       console.log(`${r.file},${r.feature},${r.locale},${r.length},${safe(r.title)}`);
     }
+    await writeReport(!(FAIL && offenders.length > 0), null);
     process.exit(FAIL && offenders.length > 0 ? 1 : 0);
   }
 
@@ -205,6 +228,7 @@ async function main() {
       byLocale: byLocaleCount,
       worst: offenders.slice(0, LIMIT),
     }, null, 2));
+    await writeReport(!(FAIL && offenders.length > 0), null);
     process.exit(FAIL && offenders.length > 0 ? 1 : 0);
   }
 
@@ -286,11 +310,17 @@ async function main() {
       }
       console.error('\nThe title-length baseline ratchet only allows the count to go DOWN.');
       console.error('Shorten the offending titleBases, then regenerate with --write-baseline=<path>.');
+      const baseTotal = Number(baseline.total ?? 0);
+      await writeReport(false, { before: baseTotal, after: offenders.length, regression: Math.max(0, offenders.length - baseTotal) });
       process.exit(1);
     }
     console.log('\nBaseline ratchet: OK (no regressions vs ' + BASELINE_PATH + ')');
+    const baseTotalOk = Number(baseline.total ?? 0);
+    await writeReport(true, { before: baseTotalOk, after: offenders.length, regression: Math.max(0, offenders.length - baseTotalOk) });
+    process.exit(FAIL && offenders.length > 0 ? 1 : 0);
   }
 
+  await writeReport(!(FAIL && offenders.length > 0), null);
   process.exit(FAIL && offenders.length > 0 ? 1 : 0);
 }
 

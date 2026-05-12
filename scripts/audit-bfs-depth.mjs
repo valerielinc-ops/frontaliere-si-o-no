@@ -52,6 +52,7 @@ import { readdir, readFile, writeFile, access } from 'node:fs/promises';
 import { join, relative, isAbsolute, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import https from 'node:https';
+import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -360,6 +361,44 @@ async function main() {
 
   const perSitemap = computePerSitemap(sitemapsToUrls, depthOf, canonicalToOriginal);
 
+  // Flatten per-sitemap offenders into a single list for the shared report
+  // schema. Each offender carries its source sitemap as `feature` so the
+  // breakdown matches the human stdout table. Sort worst (deepest) first.
+  /** @type {Array<{path:string, feature:string, metric:number|string, ratio:null, sitemap:string, depth:number|string}>} */
+  const flatOffenders = [];
+  /** @type {Record<string, number>} */
+  const byFeatureForReport = {};
+  for (const [name, row] of Object.entries(perSitemap)) {
+    const list = row.offendersList || [];
+    byFeatureForReport[name] = list.length;
+    for (const o of list) {
+      flatOffenders.push({
+        path: o.url,
+        feature: name,
+        metric: o.depth,
+        ratio: null,
+        sitemap: name,
+        depth: o.depth,
+      });
+    }
+  }
+  flatOffenders.sort((a, b) => {
+    const av = a.depth === 'unreachable' ? Infinity : Number(a.depth);
+    const bv = b.depth === 'unreachable' ? Infinity : Number(b.depth);
+    return bv - av;
+  });
+
+  const writeReport = (passed, baselineDelta) => writeAuditReport({
+    audit: 'max-bfs-depth',
+    passed,
+    threshold: { metric: 'depth', value: MAX_DEPTH, comparator: '<=' },
+    baselineFile: relBaseline(typeof BASELINE_PATH === 'string' ? BASELINE_PATH : null),
+    baselineDelta,
+    offenders: flatOffenders,
+    byFeature: byFeatureForReport,
+    extra: { perSitemapSummary: Object.fromEntries(Object.entries(perSitemap).map(([n, r]) => [n, { total: r.total, reached: r.reached, atDepthGtMax: r.atDepthGtMax, deepest: r.deepest }])) },
+  });
+
   if (MODE_JSON) {
     process.stdout.write(JSON.stringify({ maxDepth: MAX_DEPTH, perSitemap }, null, 2) + '\n');
   } else {
@@ -466,10 +505,18 @@ async function main() {
       console.error('4. The baseline number must only ever DECREASE. Per CLAUDE.md');
       console.error('   non-negotiable rule #5: orphans are fixed via internal links,');
       console.error('   never noindex.');
+      const regressionTotal = regressions.reduce((sum, r) => sum + (r.current - r.prev), 0);
+      const beforeTotal = regressions.reduce((sum, r) => sum + r.prev, 0);
+      const afterTotal = regressions.reduce((sum, r) => sum + r.current, 0);
+      await writeReport(false, { before: beforeTotal, after: afterTotal, regression: regressionTotal });
       process.exit(1);
     }
     process.stderr.write('[audit-bfs-depth] ratchet OK — no regression\n');
+    await writeReport(true, null);
+    return;
   }
+  // No baseline check requested — still emit a report so artifact diffs work.
+  await writeReport(flatOffenders.length === 0, null);
 }
 
 main().catch((err) => {

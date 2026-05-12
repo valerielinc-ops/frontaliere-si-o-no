@@ -35,6 +35,7 @@
 
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import path from 'node:path';
+import { writeAuditReport } from './lib/auditReport.mjs';
 
 const DIST = path.resolve('dist');
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -121,7 +122,7 @@ function normaliseHref(href) {
   return href.replace(/\/$/, '');
 }
 
-function main() {
+async function main() {
   if (!existsSync(DIST)) {
     console.error(`audit-hreflang: dist/ does not exist at ${DIST}`);
     process.exit(1);
@@ -208,10 +209,36 @@ function main() {
     failures.xDefaultMismatch.length +
     failures.missingTarget.length;
 
+  // Flatten failures to the shared offender schema. Each failure msg starts
+  // with "<relPath>: ..." so the page is the first colon-segment.
+  const _structuredOffenders = [];
+  const _byFeature = {};
+  for (const [kind, list] of Object.entries(failures)) {
+    _byFeature[kind] = list.length;
+    for (const msg of list) {
+      const idx = msg.indexOf(':');
+      const pagePath = idx > 0 ? msg.slice(0, idx) : msg;
+      _structuredOffenders.push({
+        path: pagePath,
+        feature: kind,
+        metric: 1,
+        ratio: null,
+        message: idx > 0 ? msg.slice(idx + 1).trim() : msg,
+      });
+    }
+  }
+
   if (totalFailures === 0) {
     console.log(
       `audit-hreflang: OK — scanned ${scanned} HTML files (${withHreflang} with hreflang), no issues.`,
     );
+    await writeAuditReport({
+      audit: 'hreflang',
+      passed: true,
+      threshold: { metric: 'count', value: 0, comparator: '<=' },
+      offenders: _structuredOffenders,
+      byFeature: _byFeature,
+    });
     process.exit(0);
   }
 
@@ -229,7 +256,17 @@ function main() {
       console.error(`  ... and ${list.length - MAX} more`);
     }
   }
+  await writeAuditReport({
+    audit: 'hreflang',
+    passed: false,
+    threshold: { metric: 'count', value: 0, comparator: '<=' },
+    offenders: _structuredOffenders,
+    byFeature: _byFeature,
+  });
   process.exit(1);
 }
 
-main();
+main().catch((err) => {
+  console.error('audit-hreflang: fatal', err);
+  process.exit(2);
+});

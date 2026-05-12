@@ -28,6 +28,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeAuditReport } from './lib/auditReport.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = resolve(__filename, '..', '..');
@@ -129,5 +130,20 @@ if (JSON_OUT) {
     `\nFix: route the ImageObject through services/seo/imageObjectLd.ts (or the create-article.mjs generator for blog content).`,
   );
 }
+
+// Structured JSON report (always written, pass or fail).
+await writeAuditReport({
+  audit: 'image-object-license',
+  passed: offenders.length === 0,
+  threshold: { metric: 'count', value: 0, comparator: '<=' },
+  offenders: offenders.map((o) => ({
+    path: o.file,
+    feature: 'image-object',
+    metric: o.missing.length,
+    ratio: null,
+    missing: o.missing,
+    keys: o.keys,
+  })),
+});
 
 process.exit(offenders.length === 0 ? 0 : 1);
