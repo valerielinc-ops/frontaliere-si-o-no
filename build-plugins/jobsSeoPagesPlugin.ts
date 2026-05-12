@@ -5468,7 +5468,7 @@ ${alternates}
  if (locale === 'de') return `<p>Derzeit sind <strong>${cityJobs.length} Stellenangebote</strong> in ${esc(cityDisplay)} (Kanton ${esc(cDisplay)}) verfügbar. Die Anzeigen werden täglich von unserem automatischen Crawler aktualisiert. Für Grenzgänger mit G-Bewilligung erhebt der Kanton ${esc(cDisplay)} eine Quellensteuer auf das Bruttoeinkommen: nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>.</p>`;
  return `<p>${cityJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles à ${esc(cityDisplay)} (Canton de ${esc(cDisplay)}). Les annonces sont mises à jour quotidiennement. Pour les frontaliers avec un permis G, le Canton de ${esc(cDisplay)} applique un impôt à la source sur le revenu brut : utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a>.</p>`;
  })();
- const bodyHtml = `<h1>${esc(cityHubSeo.h1)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(backLabel)}</a></p>\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay }))}`;
+ const bodyHtml = `<h1>${esc(cityHubSeo.h1)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(backLabel)}</a></p>\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
  const html = buildSimplePage({
  locale,
  title: pageTitle,
@@ -5716,7 +5716,7 @@ ${alternates}
  jsonLdScripts: [pgCollLd, pgItemLd, pgBreadcrumbLd],
  entryJs: hasSpaBundle ? entryJs : undefined,
  entryCss: hasSpaBundle ? entryCss : undefined,
- bodyHtml: `<h1>${esc(pgHeading)}</h1>\n <p>${esc(pgDesc)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true }))}`,
+ bodyHtml: `<h1>${esc(pgHeading)}</h1>\n <p>${esc(pgDesc)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'canton-hub' }))}`,
  });
  const pgOutDir = np.join(distDir, pgCanonicalPath.slice(1));
  activeJobDirs.add(pgCanonicalPath.slice(1).replace(/\/+$/, ''));
@@ -6004,7 +6004,7 @@ ${alternates}
  title: catTitle,
  };
  const catH1 = formatSeoH1(catLocaleParts) + (catPage > 1 ? (locale === 'it' ? ` — Pagina ${catPage}` : locale === 'de' ? ` — Seite ${catPage}` : locale === 'fr' ? ` — Page ${catPage}` : ` — Page ${catPage}`) : '');
- return `<h1>${esc(catH1)}</h1>\n <p>${esc(catDescription)}</p>\n ${catIntro}\n <ul style="list-style:none;padding:0;margin:16px 0">${catListHtml}</ul>\n <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n ${catMarketSection}\n <nav style="margin:20px 0;font-size:14px">${catNavLabel}: ${catOtherLinks.join(' · ')}</nav>\n ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, sectorOrType: catLabel }))}`;
+ return `<h1>${esc(catH1)}</h1>\n <p>${esc(catDescription)}</p>\n ${catIntro}\n <ul style="list-style:none;padding:0;margin:16px 0">${catListHtml}</ul>\n <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n ${catMarketSection}\n <nav style="margin:20px 0;font-size:14px">${catNavLabel}: ${catOtherLinks.join(' · ')}</nav>\n ${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, sectorOrType: catLabel, cantonDisplay: cDisplay, cantonSlot: 'sectors-hub' }))}`;
  })(),
  });
  const catOutDir = np.join(distDir, catCanonicalPath.slice(1));
@@ -6173,7 +6173,7 @@ ${alternates}
  })();
  const openAllLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
  const listHtml = cappedJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
- const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, sectorOrType: sectorDisplay }))}`;
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, sectorOrType: sectorDisplay, cantonDisplay: cDisplay, cantonSlot: 'sectors-hub' }))}`;
  const html = buildSimplePage({
  locale,
  title: pageTitle,
@@ -6386,7 +6386,7 @@ ${alternates}
  return `<section style="margin-top:20px"><h2>Travailler chez ${esc(companyName)} à ${esc(cDisplay)}</h2><p>${esc(companyName)} fait partie des entreprises qui recrutent à ${esc(cDisplay)}. Pour les frontaliers avec un permis G, la Suisse applique un impôt à la source. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a>.</p></section>`;
  })();
  const openAllLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
- const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true }))}`;
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: companyName }))}`;
  const html = buildSimplePage({
  locale,
  title: pageTitle,
@@ -6592,7 +6592,7 @@ ${alternates}
  return `<p>${ccJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles chez ${esc(companyName)} à ${esc(cityDisplay)} (Canton de ${esc(cDisplay)}). Mises à jour quotidiennement.</p>`;
  })();
  const openAllLabel = locale === 'it' ? `Vedi tutte le offerte presso ${companyName}` : locale === 'en' ? `View all jobs at ${companyName}` : locale === 'de' ? `Alle Stellen bei ${companyName}` : `Voir toutes les offres chez ${companyName}`;
- const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${companyHubUrl}">${esc(openAllLabel)}</a></p>\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay }))}`;
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${companyHubUrl}">${esc(openAllLabel)}</a></p>\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: `${companyName} — ${cityDisplay}` }))}`;
  const html = buildSimplePage({
  locale,
  title: pageTitle,
