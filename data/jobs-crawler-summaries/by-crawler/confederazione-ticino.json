@@ -1,16 +1,16 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-05-11T21:47:24.983Z",
+  "generatedAt": "2026-05-12T10:55:06.415Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1396,
-  "avgDurationMs": 1396,
+  "durationMs": 1648,
+  "avgDurationMs": 1648,
   "durationHistory": [
-    1396
+    1648
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -80,8 +80,6 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-07T10:45:16.573Z",
-      "retranslationAttempts": 1,
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -193,8 +191,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
-      "retranslationAttempts": 2,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -302,14 +300,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "confederazione-ticino-c6de3b68451e",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-10T09:52:25.687Z",
-      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,

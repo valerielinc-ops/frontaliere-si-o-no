@@ -1,6 +1,6 @@
 {
   "crawlerKey": "confederazione-ticino",
-  "assembledAt": "2026-05-11T21:47:24.982Z",
+  "assembledAt": "2026-05-12T10:55:06.414Z",
   "jobs": [
     {
       "title": "Polizeiliche/-r Fachspezialist/-in",
@@ -140,7 +140,8 @@
       },
       "previousSlugs": [
         "assistent-in-der-centerleitung-alc-monteceneri-confederazione-monteceneri"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Greffier/greffière de langue française, pour la Cour des affaires pénales",
@@ -359,8 +360,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "title": "Raus aus der Routine? Werde Berufsoffizier/-in",
@@ -594,7 +595,8 @@
       },
       "previousSlugs": [
         "asyl-dolmetscher-in-confederazione-alle-standorte-des-sem"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
