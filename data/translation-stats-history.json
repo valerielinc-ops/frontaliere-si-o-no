@@ -1,213 +1,5 @@
 [
   {
-    "timestamp": "2026-04-27T11:54:54.482Z",
-    "label": "before",
-    "total": 2665,
-    "needsRetranslation": 1170,
-    "incomplete": 133,
-    "complete": 2532,
-    "missingByLocale": {
-      "it": 70,
-      "en": 99,
-      "de": 90,
-      "fr": 119
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 48
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Denner",
-        "pending": 8
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 4
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 4
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 3
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "Lonza",
-        "pending": 3
-      },
-      {
-        "company": "Genossenschaft Migros Ostschweiz",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-27T13:11:54.746Z",
-    "label": "after",
-    "total": 2665,
-    "needsRetranslation": 97,
-    "incomplete": 47,
-    "complete": 2618,
-    "missingByLocale": {
-      "it": 35,
-      "en": 18,
-      "de": 33,
-      "fr": 35
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 3
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 3
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Badrutt's Palace Hotel",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Coopers Group AG",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-27T14:22:22.021Z",
-    "label": "before",
-    "total": 2665,
-    "needsRetranslation": 98,
-    "incomplete": 46,
-    "complete": 2619,
-    "missingByLocale": {
-      "it": 34,
-      "en": 17,
-      "de": 33,
-      "fr": 34
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 3
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 3
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 2
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Badrutt's Palace Hotel",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Coopers Group AG",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-27T15:20:30.095Z",
-    "label": "after",
-    "total": 2665,
-    "needsRetranslation": 61,
-    "incomplete": 27,
-    "complete": 2638,
-    "missingByLocale": {
-      "it": 26,
-      "en": 5,
-      "de": 24,
-      "fr": 24
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-27T22:49:59.254Z",
     "label": "before",
     "total": 2677,
@@ -10260,6 +10052,118 @@
       {
         "company": "Pictet Group",
         "pending": 10
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-12T06:28:11.148Z",
+    "label": "before",
+    "total": 4330,
+    "needsRetranslation": 1118,
+    "incomplete": 533,
+    "complete": 3797,
+    "missingByLocale": {
+      "it": 430,
+      "en": 398,
+      "de": 123,
+      "fr": 425
+    },
+    "topPending": [
+      {
+        "company": "Elektro-Bau AG Rothrist",
+        "pending": 153
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 83
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 74
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 20
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 16
+      },
+      {
+        "company": "IWC",
+        "pending": 16
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Lonza",
+        "pending": 10
+      },
+      {
+        "company": "Pictet Group",
+        "pending": 10
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-12T09:17:13.461Z",
+    "label": "after",
+    "total": 4330,
+    "needsRetranslation": 949,
+    "incomplete": 419,
+    "complete": 3911,
+    "missingByLocale": {
+      "it": 332,
+      "en": 313,
+      "de": 89,
+      "fr": 344
+    },
+    "topPending": [
+      {
+        "company": "Elektro-Bau AG Rothrist",
+        "pending": 86
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 83
+      },
+      {
+        "company": "Geiser AG",
+        "pending": 74
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 20
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "IWC",
+        "pending": 16
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Lonza",
+        "pending": 10
+      },
+      {
+        "company": "Pictet Group",
+        "pending": 10
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 7
       }
     ]
   }
