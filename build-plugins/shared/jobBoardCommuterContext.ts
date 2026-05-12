@@ -535,25 +535,47 @@ function stableHash(s: string): number {
 
 /**
  * Generate FAQPage JSON-LD for the same FAQ block emitted by
- * `renderJobBoardCommuterContext`. Returns an empty string if the host
- * page already emits FAQ structured data (avoid duplicate).
+ * `renderJobBoardCommuterContext`.
  *
  * Surfaces 4 Q&A pairs to Google's FAQ rich result.
+ *
+ * Callers that also emit AI-enriched FAQs on the same page MUST instead use
+ * `buildJobBoardCommuterFaqItems` and merge the entries into a single
+ * `FAQPage`; multiple `FAQPage` blocks on one page are flagged by GSC as
+ * "Campo duplicato 'FAQPage'".
  */
 export function buildJobBoardCommuterFaqLd(opts: JobBoardCommuterContextOpts): string {
-  const { locale, location, sectorOrType = null } = opts;
-  const faq = buildFaq(locale, location, sectorOrType);
+  const { locale } = opts;
+  const items = buildJobBoardCommuterFaqItems(opts);
   return JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     inLanguage: locale,
-    mainEntity: faq.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: f.a.replace(/<[^>]+>/g, ''),
-      },
-    })),
+    mainEntity: items,
   });
+}
+
+/**
+ * Return the `mainEntity` array (Question + Answer Schema.org objects) for
+ * the commuter-context FAQ block. Use this when the host page emits another
+ * source of FAQs (e.g. AI enrichment) and needs to merge them into a single
+ * `FAQPage` JSON-LD script to avoid GSC duplicate-FAQPage warnings.
+ */
+export function buildJobBoardCommuterFaqItems(opts: JobBoardCommuterContextOpts): Array<{
+  '@type': 'Question';
+  name: string;
+  acceptedAnswer: { '@type': 'Answer'; text: string };
+}> {
+  const { locale, location, sectorOrType = null } = opts;
+  const faq = buildFaq(locale, location, sectorOrType);
+  return faq
+    .filter((f) => f.q && f.q.trim() && f.a && f.a.trim())
+    .map((f) => ({
+      '@type': 'Question' as const,
+      name: f.q.trim(),
+      acceptedAnswer: {
+        '@type': 'Answer' as const,
+        text: f.a.replace(/<[^>]+>/g, '').trim(),
+      },
+    }));
 }

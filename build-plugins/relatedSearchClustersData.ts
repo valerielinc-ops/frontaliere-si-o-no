@@ -51,8 +51,10 @@ export interface CandidatesFile {
 }
 
 export interface EnrichedFaq {
-  question: string;
-  answer: string;
+  // Wire format produced by `scripts/enrich-related-search-clusters.mjs`
+  // (and historical entries in `data/related-search-enriched.json`).
+  q: string;
+  a: string;
 }
 
 export interface EnrichedEntry {

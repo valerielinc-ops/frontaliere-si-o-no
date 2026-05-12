@@ -26,6 +26,7 @@ run_post_build_task() {
     audit:content-duplicates)     npm run audit:content-duplicates ;;
     audit:orphan-sitemap-pages)   npm run audit:orphan-sitemap-pages -- --gate=baseline ;;
     audit:sitemap-canonicals)     npm run audit:sitemap-canonicals ;;
+    audit:faqpage-validity)       npm run audit:faqpage-validity ;;
     validate:jobposting-schema)   npm run validate:jobposting-schema ;;
     validate:jobs-quality)        npm run validate:jobs-quality ;;
     validate:sitemap-links)       npm run validate:sitemap-links ;;
@@ -62,6 +63,7 @@ ALL_POST_BUILD_TASKS=(
   audit:sitemap-canonicals
   validate:canonical
   gate:seo-source
+  audit:faqpage-validity
 )
 
 # LPT-balanced 4-shard assignment based on prior wall_s measurements
@@ -74,6 +76,7 @@ POST_BUILD_SHARD_1=(
   audit:title-uniqueness
   validate:soft-404
   audit:sitemap-canonicals
+  audit:faqpage-validity
 )
 POST_BUILD_SHARD_2=(
   validate:spa-render

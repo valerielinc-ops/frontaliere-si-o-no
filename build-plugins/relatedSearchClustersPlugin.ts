@@ -58,7 +58,7 @@ import { buildTitleWithBrand, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import {
   renderJobBoardCommuterContext,
   renderSearchQueryIntro,
-  buildJobBoardCommuterFaqLd,
+  buildJobBoardCommuterFaqItems,
   type JobBoardCommuterContextOpts,
 } from './shared/jobBoardCommuterContext';
 import {
@@ -812,29 +812,32 @@ function buildJsonLd(opts: {
 
   const out = [breadcrumb];
 
-  // FAQPage from AI-enriched data (when present).
-  if (enriched?.faqs && enriched.faqs.length >= 1) {
-    out.push(JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: enriched.faqs.map((q) => ({
-        '@type': 'Question',
-        name: q.question,
-        acceptedAnswer: { '@type': 'Answer', text: q.answer },
-      })),
+  // Single combined FAQPage: GSC reports "Campo duplicato 'FAQPage'" when
+  // two separate FAQPage JSON-LD blocks appear on the same page. Merge the
+  // AI-enriched Q&A (when present) with the commuter-context Q&A into one
+  // FAQPage `mainEntity` array so all entries surface to Google's FAQ
+  // rich result without tripping the duplicate gate.
+  const aiFaqItems = (enriched?.faqs ?? [])
+    .filter((f) => f.q && f.q.trim() && f.a && f.a.trim())
+    .map((f) => ({
+      '@type': 'Question' as const,
+      name: f.q.trim(),
+      acceptedAnswer: { '@type': 'Answer' as const, text: f.a.trim() },
     }));
-  }
-
-  // Commuter-context FAQPage: a separate JSON-LD object containing the
-  // 4 frontaliere-relevant Q&A from `renderJobBoardCommuterContext`.
-  // Google merges multiple FAQPage entries on the same page, so emitting
-  // both alongside the AI block is safe and surfaces more rich-result
-  // candidates.
-  out.push(buildJobBoardCommuterFaqLd({
+  const commuterFaqItems = buildJobBoardCommuterFaqItems({
     locale: locale as 'it' | 'en' | 'de' | 'fr',
     location: commuterLocation,
     sectorOrType: sectorLabel,
-  }));
+  });
+  const faqMainEntity = [...aiFaqItems, ...commuterFaqItems];
+  if (faqMainEntity.length > 0) {
+    out.push(JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      inLanguage: locale,
+      mainEntity: faqMainEntity,
+    }));
+  }
 
   return out;
 }
@@ -950,12 +953,17 @@ function renderClusterPage(inputs: PageInputs): PageOutput {
       );
 
   // AI-enriched FAQ block (when available). Rendered as <dl> for clarity;
-  // FAQPage JSON-LD for these is emitted separately via `buildJsonLd`.
-  const aiFaqHtml = enriched?.faqs && enriched.faqs.length > 0
+  // FAQPage JSON-LD for these is emitted as part of the merged FAQPage in
+  // `buildJsonLd` (combined with the commuter-context FAQ entries to avoid
+  // the GSC duplicate-FAQPage warning).
+  const renderableAiFaqs = (enriched?.faqs ?? []).filter(
+    (q) => q.q && q.q.trim() && q.a && q.a.trim(),
+  );
+  const aiFaqHtml = renderableAiFaqs.length > 0
     ? `<section style="margin:24px 0 0">
         <h3 style="font-size:18px;font-weight:700;color:var(--color-heading);margin:0 0 10px">${esc(copy.faqSummary)}</h3>
-        ${enriched.faqs.map((q) =>
-          `<details style="background:var(--color-surface);border:1px solid var(--color-edge);border-radius:12px;padding:12px 14px;margin-bottom:6px"><summary style="font-weight:600;cursor:pointer;color:var(--color-heading)">${esc(q.question)}</summary><p style="margin:8px 0 0;color:var(--color-body);line-height:1.6">${esc(q.answer)}</p></details>`,
+        ${renderableAiFaqs.map((q) =>
+          `<details style="background:var(--color-surface);border:1px solid var(--color-edge);border-radius:12px;padding:12px 14px;margin-bottom:6px"><summary style="font-weight:600;cursor:pointer;color:var(--color-heading)">${esc(q.q)}</summary><p style="margin:8px 0 0;color:var(--color-body);line-height:1.6">${esc(q.a)}</p></details>`,
         ).join('')}
       </section>`
     : '';
