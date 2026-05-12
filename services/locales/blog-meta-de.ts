@@ -7479,6 +7479,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.iniziative-cassa-malati-ticino-2026.title': 'Ticino: Umsetzungstermine der Krankenkassen-Initiativen im Juni',
     'blog.article.iniziative-cassa-malati-ticino-2026.excerpt': 'Der Grossrat diskutiert im Juni den Zeitplan für die Umsetzung der Gesundheitsinitiativen. Doch die Finanzierung bleibt unsicher.',
     'blog.article.iniziative-cassa-malati-ticino-2026.imageAlt': 'Regierungsgebäude Bellinzona, Sitz des Tessiner Grossrats',
+    'blog.article.nuovi-frontalieri-tasse-salate.title': 'Neue Grenzgänger: Schockierende Steuern',
+    'blog.article.nuovi-frontalieri-tasse-salate.excerpt': 'Neue Grenzgänger im Tessin stehen vor einer hohen Steuerrechnung, mit Steuern, die bis zu 12.000 Euro oder mehr betragen können, und auch eine Vorauszahlung für 2026.',
+    'blog.article.nuovi-frontalieri-tasse-salate.imageAlt': 'Panoramablick auf Lugano',
 };
 
 export default blogMetaDe;

@@ -23816,4 +23816,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'nuovi-frontalieri-tasse-salate',
+ category: 'fiscale',
+ date: '2026-05-12T22:18:30.047Z',
+ image: '/images/blog/nuovi-frontalieri-tasse-salate.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

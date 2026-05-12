@@ -7480,6 +7480,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.iniziative-cassa-malati-ticino-2026.title': 'Ticino: Health Insurance Initiatives\' Implementation Dates Set for June',
     'blog.article.iniziative-cassa-malati-ticino-2026.excerpt': 'The Grand Council will discuss the timelines for implementing healthcare initiatives in June. However, funding remains uncertain.',
     'blog.article.iniziative-cassa-malati-ticino-2026.imageAlt': 'Government Palace in Bellinzona, seat of the Ticino Cantonal Council',
+    'blog.article.nuovi-frontalieri-tasse-salate.title': 'New cross-border workers: shockingly high taxes',
+    'blog.article.nuovi-frontalieri-tasse-salate.excerpt': 'New cross-border workers in Ticino are facing a hefty tax bill, with taxes amounting to 12,000 euros or more, including the advance payment for 2026.',
+    'blog.article.nuovi-frontalieri-tasse-salate.imageAlt': 'Panoramic view of Lugano',
 };
 
 export default blogMetaEn;

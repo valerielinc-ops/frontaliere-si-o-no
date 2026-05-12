@@ -7481,6 +7481,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iniziative-cassa-malati-ticino-2026.title': 'Ticino, iniziative cassa malati: date di attuazione in arrivo a giugno',
     'blog.article.iniziative-cassa-malati-ticino-2026.excerpt': 'Il Gran Consiglio discuterà a giugno le tempistiche per l\'implementazione delle iniziative sulla sanità. Ma il finanziamento rimane incerto.',
     'blog.article.iniziative-cassa-malati-ticino-2026.imageAlt': 'Palazzo del Governo di Bellinzona, sede del Gran Consiglio ticinese',
+    'blog.article.nuovi-frontalieri-tasse-salate.title': 'Nuovi frontalieri: tasse salate, è shock',
+    'blog.article.nuovi-frontalieri-tasse-salate.excerpt': 'I nuovi frontalieri in Ticino si trovano di fronte a un conto fiscale salato, con tasse che possono arrivare a 12mila euro o più, e anche l\'acconto per il 2026.',
+    'blog.article.nuovi-frontalieri-tasse-salate.imageAlt': 'Vista panoramica di Lugano',
 };
 
 export default blogMetaIt;

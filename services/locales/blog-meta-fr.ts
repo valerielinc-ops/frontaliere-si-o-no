@@ -7481,6 +7481,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.iniziative-cassa-malati-ticino-2026.title': 'Ticino : initiatives assurance-maladie, dates de mise en œuvre en juin',
     'blog.article.iniziative-cassa-malati-ticino-2026.excerpt': 'Le Grand Conseil discutera en juin des délais pour la mise en œuvre des initiatives sur la santé. Mais le financement reste incertain.',
     'blog.article.iniziative-cassa-malati-ticino-2026.imageAlt': 'Palais du Gouvernement de Bellinzone, siège du Grand Conseil tessinois',
+    'blog.article.nuovi-frontalieri-tasse-salate.title': 'Nouveaux frontaliers: des taxes salées, c\'est le choc',
+    'blog.article.nuovi-frontalieri-tasse-salate.excerpt': 'Les nouveaux frontaliers au Tessin sont confrontés à un lourd fardeau fiscal, avec des taxes pouvant atteindre 12 000 euros ou plus, et également l\'acompte pour 2026.',
+    'blog.article.nuovi-frontalieri-tasse-salate.imageAlt': 'Vue panoramique de Lugano',
 };
 
 export default blogMetaFr;
