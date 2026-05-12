@@ -10,7 +10,7 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Briefcase, Building2, Calendar, CheckCircle2, Clock, Euro, Eye, Loader2, Mail, MapPin, Search, Shield, Users } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Briefcase, Building2, Calendar, CheckCircle2, ChevronDown, Clock, Euro, Eye, Loader2, Mail, MapPin, Search, Shield, Users } from 'lucide-react';
 import { useLocale, t } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
@@ -324,7 +324,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  )}
  <div className="flex-1 min-w-0">
  <h1 className="text-xl font-bold font-display text-heading leading-tight">{localizedTitle}</h1>
- <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 text-sm text-subtle">
+ <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1.5 text-sm leading-tight text-subtle">
  {job.company && companyHref && (
  <a
  href={companyHref}
@@ -675,13 +675,14 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  <div className="space-y-4">
 
  {/* Job header card */}
- <div className="rounded-stripe border border-edge bg-surface p-5">
+ <div className="rounded-stripe border border-edge bg-surface p-4 sm:p-5">
  {jobHeader}
 
  {/* Readable description teaser — shows first ~200 chars to create information
- scent and an "open loop" that motivates signup. Fades out at the bottom. */}
+ scent and an "open loop" that motivates signup. Fades out at the bottom.
+ Hidden on landscape phones (≤540dvh) so the gate CTAs land above the fold. */}
  {descriptionPreview && (
- <div className="relative mt-3 w-full overflow-hidden rounded-stripe" style={{ maxHeight: 'clamp(0px, calc(100dvh - 540px), 80px)' }}>
+ <div className="relative mt-3 w-full overflow-hidden rounded-stripe [@media(max-height:540px)]:hidden" style={{ maxHeight: 'clamp(0px, calc(100dvh - 540px), 80px)' }}>
  <p className="px-3 py-2 text-sm text-body leading-relaxed sm:py-3">
  {descriptionPreview}...
  </p>
@@ -689,34 +690,33 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
  )}
 
- {/* Auth gate — same as active job pages */}
- <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-5 sm:p-6">
- <div className="flex items-center gap-3 mb-3">
- <div className="flex-shrink-0 p-2 bg-accent-subtle rounded-stripe">
- <Eye className="w-5 h-5 text-accent" />
- </div>
- <div>
- <h2 className="text-lg font-bold font-display text-heading">{t('jobBoard.gate.title')}</h2>
- <p className="text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
- </div>
- </div>
+ {/* Auth gate — expired-context headline (job not applicable → promise is "similar listings") */}
+ <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
+ <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
+ <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
+ <span>{locale === 'it' ? 'Sblocca annunci simili' : locale === 'de' ? 'Ähnliche Stellen freischalten' : locale === 'fr' ? 'Débloquer les offres similaires' : 'Unlock similar listings'}</span>
+ </h2>
 
- {/* Trust signals */}
- <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
- <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit1')}</span>
- <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit2')}</span>
- <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit3')}</span>
- <span className="inline-flex items-center gap-1"><Shield size={12} className="text-success" />{t('jobBoard.gate.privacyNote')}</span>
- </div>
+ {/* Trust signals — 2 lines at text-sm (matches active job gate) */}
+ <ul className="mt-3 space-y-1.5 text-sm text-subtle">
+ <li className="flex items-center gap-2">
+ <CheckCircle2 size={14} className="text-success flex-shrink-0" aria-hidden="true" />
+ <span>{locale === 'it' ? 'Gratis · Per sempre' : locale === 'de' ? 'Kostenlos · Für immer' : locale === 'fr' ? 'Gratuit · Pour toujours' : 'Free · Forever'}</span>
+ </li>
+ <li className="flex items-center gap-2">
+ <Shield size={14} className="text-success flex-shrink-0" aria-hidden="true" />
+ <span>{t('jobBoard.gate.privacyNote')}</span>
+ </li>
+ </ul>
 
  {/* Social proof */}
  {totalActiveJobs != null && totalActiveJobs > 0 && (
- <p className="mb-3 text-xs font-medium text-accent">
+ <p className="mt-3 text-xs font-medium text-accent">
  {totalActiveJobs.toLocaleString()}+ {locale === 'it' ? 'annunci disponibili' : locale === 'de' ? 'verfügbare Stellenangebote' : locale === 'fr' ? 'offres disponibles' : 'listings available'}
  </p>
  )}
 
- <div className="space-y-3">
+ <div className="mt-4 space-y-3">
  <div className="space-y-2">
  <div ref={googleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!googleButtonReady && (
@@ -749,12 +749,18 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
  </button>
  )}
- <div className="flex items-center gap-3">
+ {/* Email — wrapped in <details open>: default expanded so the
+ email channel stays visible, but user can collapse it. */}
+ <details open className="group">
+ <summary className="flex items-center gap-3 cursor-pointer list-none py-1 -my-1 [&::-webkit-details-marker]:hidden">
  <div className="flex-1 h-px bg-surface-raised/50" />
- <span className="text-sm text-muted">{t('jobBoard.authGateOrEmail')}</span>
+ <span className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-subtle transition-colors">
+ {t('jobBoard.authGateOrEmail')}
+ <ChevronDown size={14} className="transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
+ </span>
  <div className="flex-1 h-px bg-surface-raised/50" />
- </div>
- <form onSubmit={handleEmailSubmit} className="space-y-2">
+ </summary>
+ <form onSubmit={handleEmailSubmit} className="mt-3 space-y-2">
  <EmailInput
  value={emailInput}
  onChange={setEmailInput}
@@ -770,6 +776,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  {t('jobBoard.gate.emailCta')}
  </button>
  </form>
+ </details>
  </div>
 
  {emailError && <p className="text-sm text-danger mt-2">{emailError}</p>}

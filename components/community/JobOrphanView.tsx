@@ -11,7 +11,7 @@
  */
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, Briefcase, Building2, CheckCircle2, Eye, Loader2, Mail, MapPin, Search, Shield } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Briefcase, Building2, CheckCircle2, ChevronDown, Eye, Loader2, Mail, MapPin, Search, Shield } from 'lucide-react';
 import { useLocale, t } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
@@ -333,12 +333,12 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  </span>
  </div>
  {/* Title + metadata */}
- <div className="px-5 py-4">
+ <div className="px-4 py-3 sm:px-5 sm:py-4">
  <h1 className="text-xl font-bold font-display text-heading leading-snug">
  {slugParts.title}
  </h1>
  {(slugParts.company || slugParts.location) && (
- <div className="flex flex-wrap gap-3 mt-2.5 text-sm text-subtle">
+ <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-2 text-sm leading-tight text-subtle">
  {slugParts.company && companyHref && (
  <a
  href={companyHref}
@@ -508,34 +508,30 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  {/* Active jobs */}
  {activeJobsSection}
 
- {/* Sign-in / alert block */}
- <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-5 sm:p-6">
- <div className="flex items-center gap-3 mb-3">
- <div className="flex-shrink-0 p-2 bg-accent-subtle rounded-stripe">
- <Eye className="w-5 h-5 text-accent" />
- </div>
- <div>
- <h2 className="text-lg font-bold font-display text-heading">{t('jobBoard.gate.title')}</h2>
- <p className="text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
- </div>
- </div>
+ {/* Sign-in / alert block — orphan-context headline (slug has no job data → promise is "all active listings") */}
+ <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
+ <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
+ <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
+ <span>{
+ totalActiveJobs != null && totalActiveJobs > 0
+ ? (locale === 'it' ? `Sblocca ${totalActiveJobs.toLocaleString()}+ annunci attivi` : locale === 'de' ? `${totalActiveJobs.toLocaleString()}+ aktive Stellen freischalten` : locale === 'fr' ? `Débloquer ${totalActiveJobs.toLocaleString()}+ offres actives` : `Unlock ${totalActiveJobs.toLocaleString()}+ active listings`)
+ : (locale === 'it' ? 'Sblocca tutti gli annunci attivi' : locale === 'de' ? 'Alle aktiven Stellen freischalten' : locale === 'fr' ? 'Débloquer toutes les offres actives' : 'Unlock all active listings')
+ }</span>
+ </h2>
 
- {/* Trust signals */}
- <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
- <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit1')}</span>
- <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit2')}</span>
- <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit3')}</span>
- <span className="inline-flex items-center gap-1"><Shield size={12} className="text-success" />{t('jobBoard.gate.privacyNote')}</span>
- </div>
+ {/* Trust signals — 2 lines at text-sm (matches active job gate) */}
+ <ul className="mt-3 space-y-1.5 text-sm text-subtle">
+ <li className="flex items-center gap-2">
+ <CheckCircle2 size={14} className="text-success flex-shrink-0" aria-hidden="true" />
+ <span>{locale === 'it' ? 'Gratis · Per sempre' : locale === 'de' ? 'Kostenlos · Für immer' : locale === 'fr' ? 'Gratuit · Pour toujours' : 'Free · Forever'}</span>
+ </li>
+ <li className="flex items-center gap-2">
+ <Shield size={14} className="text-success flex-shrink-0" aria-hidden="true" />
+ <span>{t('jobBoard.gate.privacyNote')}</span>
+ </li>
+ </ul>
 
- {/* Social proof */}
- {totalActiveJobs != null && totalActiveJobs > 0 && (
- <p className="mb-3 text-xs font-medium text-accent">
- {totalActiveJobs.toLocaleString()}+ {locale === 'it' ? 'annunci disponibili' : locale === 'de' ? 'verfügbare Stellenangebote' : locale === 'fr' ? 'offres disponibles' : 'listings available'}
- </p>
- )}
-
- <div className="space-y-3">
+ <div className="mt-4 space-y-3">
  <div className="space-y-2">
  <div ref={googleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!googleButtonReady && (
@@ -568,12 +564,18 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
  </button>
  )}
- <div className="flex items-center gap-3">
+ {/* Email — wrapped in <details open>: default expanded so the
+ email channel stays visible, but user can collapse it. */}
+ <details open className="group">
+ <summary className="flex items-center gap-3 cursor-pointer list-none py-1 -my-1 [&::-webkit-details-marker]:hidden">
  <div className="flex-1 h-px bg-surface-raised/50" />
- <span className="text-sm text-muted">{t('jobBoard.authGateOrEmail')}</span>
+ <span className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-subtle transition-colors">
+ {t('jobBoard.authGateOrEmail')}
+ <ChevronDown size={14} className="transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
+ </span>
  <div className="flex-1 h-px bg-surface-raised/50" />
- </div>
- <form onSubmit={handleEmailSubmit} className="space-y-2">
+ </summary>
+ <form onSubmit={handleEmailSubmit} className="mt-3 space-y-2">
  <EmailInput
  value={emailInput}
  onChange={setEmailInput}
@@ -589,6 +591,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  {t('jobBoard.gate.emailCta')}
  </button>
  </form>
+ </details>
  </div>
 
  {emailError && <p className="text-sm text-danger mt-2">{emailError}</p>}

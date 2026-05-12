@@ -5919,6 +5919,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobSlug: gateCompanySlug }, locale);
  const gateLocationSlug = jobLocation ? buildLocationSearchSlug(selectedJob.addressLocality || jobLocation, locale) : '';
  const gateLocationHref = gateLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: gateLocationSlug }, locale) : '';
+ // Personalized gate H2: surface the job-specific value (salary + company) so the
+ // CTA promise is concrete, not generic. Falls back to "Unlock contacts" when no salary.
+ const gateHeadline = (() => {
+ const company = companyName;
+ if (gateSalary) {
+ if (locale === 'it') return `Sblocca ${gateSalary} — ${company}`;
+ if (locale === 'de') return `${gateSalary} freischalten — ${company}`;
+ if (locale === 'fr') return `Débloquer ${gateSalary} — ${company}`;
+ return `Unlock ${gateSalary} — ${company}`;
+ }
+ if (locale === 'it') return `Sblocca contatti — ${company}`;
+ if (locale === 'de') return `Kontakte freischalten — ${company}`;
+ if (locale === 'fr') return `Débloquer les contacts — ${company}`;
+ return `Unlock contacts — ${company}`;
+ })();
 
  return (
  <div className="space-y-5">
@@ -5936,7 +5951,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="space-y-4">
 
  {/* Job header — always visible */}
- <div className="rounded-stripe border border-edge bg-surface p-5">
+ <div className="rounded-stripe border border-edge bg-surface p-4 sm:p-5">
  <div className="flex items-start gap-4">
  {logoUrl && (
  <img
@@ -5951,7 +5966,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  <div className="flex-1 min-w-0">
  <h1 className="text-xl font-bold font-display text-heading leading-tight">{localizedTitle}</h1>
- <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 text-sm text-subtle">
+ <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 mt-1.5 text-sm leading-tight text-subtle">
  <a
  href={gateCompanyHref}
  onClick={(e) => {
@@ -5989,9 +6004,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </div>
  {/* Readable description teaser — shows first ~200 chars to create information
- scent and an "open loop" that motivates signup. Fades out at the bottom. */}
+ scent and an "open loop" that motivates signup. Fades out at the bottom.
+ On very short viewports (landscape phones) we hide it entirely so the gate CTAs
+ land above the fold; on normal phones the clamp still bounds it to ≤80px. */}
  {descriptionPreview && (
- <div className="relative mt-3 w-full overflow-hidden rounded-stripe" style={{ maxHeight: 'clamp(0px, calc(100dvh - 540px), 80px)' }}>
+ <div className="relative mt-3 w-full overflow-hidden rounded-stripe [@media(max-height:540px)]:hidden" style={{ maxHeight: 'clamp(0px, calc(100dvh - 540px), 80px)' }}>
  <p className="px-3 py-2 text-sm text-body leading-relaxed sm:py-3">
  {descriptionPreview}...
  </p>
@@ -6000,33 +6017,36 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  {/* Auth gate — embedded inline for all viewports (no extra click needed) */}
- <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-5 sm:p-6">
- <div className="flex items-center gap-3 mb-3">
- <div className="flex-shrink-0 p-2 bg-accent-subtle rounded-stripe">
- <Eye className="w-5 h-5 text-accent" />
- </div>
- <div>
- <h2 className="text-lg font-bold font-display text-heading">{t('jobBoard.gate.title')}</h2>
- <p className="text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
- </div>
- </div>
+ <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
+ {/* Compact header: H2 with inline Eye icon. Personalized with the job's salary
+ + company so the click promise is concrete, not generic. Subtitle removed:
+ the trust bullets below already carry that information. */}
+ <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
+ <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
+ <span>{gateHeadline}</span>
+ </h2>
 
- {/* Trust signals — above CTAs for mobile visibility */}
- <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
- <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit1')}</span>
- <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit2')}</span>
- <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit3')}</span>
- <span className="inline-flex items-center gap-1"><Shield size={12} className="text-success" />{t('jobBoard.gate.privacyNote')}</span>
- </div>
+ {/* Trust signals — 2 lines at text-sm. text-xs is reserved for metadata
+ per the project's design context (.impeccable.md). */}
+ <ul className="mt-3 space-y-1.5 text-sm text-subtle">
+ <li className="flex items-center gap-2">
+ <CheckCircle2 size={14} className="text-success flex-shrink-0" aria-hidden="true" />
+ <span>{locale === 'it' ? 'Gratis · Per sempre' : locale === 'de' ? 'Kostenlos · Für immer' : locale === 'fr' ? 'Gratuit · Pour toujours' : 'Free · Forever'}</span>
+ </li>
+ <li className="flex items-center gap-2">
+ <Shield size={14} className="text-success flex-shrink-0" aria-hidden="true" />
+ <span>{t('jobBoard.gate.privacyNote')}</span>
+ </li>
+ </ul>
 
- {/* Social proof */}
+ {/* Social proof — keep one short line */}
  {jobs.length > 0 && (
- <p className="mb-3 text-xs font-medium text-accent">
+ <p className="mt-3 text-xs font-medium text-accent">
  {jobs.length.toLocaleString()}+ {locale === 'it' ? 'annunci disponibili' : locale === 'de' ? 'verfügbare Stellenangebote' : locale === 'fr' ? 'offres disponibles' : 'listings available'}
  </p>
  )}
 
- <div className="space-y-3">
+ <div className="mt-4 space-y-3">
  <div className="space-y-2">
  <div ref={inlineGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
  {!inlineGoogleButtonReady && (
@@ -6081,11 +6101,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
  </button>
  )}
- <div className="flex items-center gap-3">
+ {/* Email — wrapped in <details open>: default expanded so we don't lose
+ the email-preferring segment, but social-first users can collapse it
+ to remove the form's vertical footprint from their decision flow. */}
+ <details open className="group">
+ <summary className="flex items-center gap-3 cursor-pointer list-none py-1 -my-1 [&::-webkit-details-marker]:hidden">
  <div className="flex-1 h-px bg-surface-raised/50" />
- <span className="text-sm text-muted">{t('jobBoard.authGateOrEmail')}</span>
+ <span className="inline-flex items-center gap-1.5 text-sm text-muted hover:text-subtle transition-colors">
+ {t('jobBoard.authGateOrEmail')}
+ <ChevronDown size={14} className="transition-transform duration-200 group-open:rotate-180" aria-hidden="true" />
+ </span>
  <div className="flex-1 h-px bg-surface-raised/50" />
- </div>
+ </summary>
  <form
  onSubmit={(e) => {
  e.preventDefault();
@@ -6093,7 +6120,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  Analytics.trackJobAuthFunnel('auth_method_click', { method: 'email', ...ctx });
  void handleInlineEmailAccess(selectedJob);
  }}
- className="space-y-2"
+ className="mt-3 space-y-2"
  >
  <EmailInput
  value={emailInput}
@@ -6110,6 +6137,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {t('jobBoard.gate.emailCta')}
  </button>
  </form>
+ </details>
  </div>
 
  {authError && <p className="text-sm text-danger mt-2">{authError}</p>}
