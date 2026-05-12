@@ -74,6 +74,10 @@ import {
   MAJOR_BLOCK_WEIGHT_THRESHOLD,
 } from './lib/fact-check-consensus.mjs';
 import {
+  stripCompetitorPromotion,
+  sanitizeNavLinkSemantics,
+} from './lib/article-sanitizers.mjs';
+import {
   PERFORMANCE_PATH as ARTICLE_PERF_PATH,
   CONSUMED_PATH as CONSUMED_TRACKER_PATH,
   TODAY_PICKS_BY_CLUSTER_PATH,
@@ -2655,8 +2659,24 @@ MINIMO 3 link interni totali distribuiti nei body, sintassi \`[testo](nav:azione
 Se l'articolo supera 1200 parole, aumenta a MINIMO 4 link.
 
 LINK INTERNI — sintassi ESCLUSIVA: [testo](nav:azione)
-Azioni: calculator, exchange, health, cost-of-living, pension, pillar3, payslip, tax-return, residency, ristorni, unemployment, jobs, companies, banks, first-day, permits, border, calendar, whatif, shopping, transport, salary-compare, traffic-history, border-map, municipalities, car-transfer, car-cost, permit-compare, renovation, mobile, ral, parental-leave, nursery, living-ch, living-it, livability.
+Azioni e SEMANTICA STRETTA (il testo del link DEVE matchare l'azione, altrimenti il link viene strippato):
+- calculator → calcolatore FISCALE: stipendio, netto, busta paga, imposte, tasse. NON usare per tragitti, meteo, percorsi.
+- exchange → comparatore CHF/EUR (cambio valuta). NON usare per meteo, traffico, percorsi.
+- health → LAMal/CMI assicurazione malattia. - cost-of-living → costo della vita Ticino vs Italia. - pension → AVS/LPP/rendita.
+- pillar3 → terzo pilastro 3a. - payslip → simulatore busta paga. - tax-return → dichiarazione redditi.
+- residency → Permesso B residenza. - ristorni → ristorni Ticino-Italia. - unemployment → disoccupazione frontalieri.
+- jobs → annunci lavoro. - companies → aziende che assumono. - banks → conti bancari frontaliere.
+- first-day → checklist primo giorno. - permits → Permesso G/B. - border → tempi attesa valichi (Brogeda, Chiasso…).
+- transport → mezzi pubblici Ticino. - car-cost → costo auto pendolare (vignette, parcheggio).
+- traffic-history → storico traffico/code ai valichi. - border-map → mappa valichi.
+- car-transfer → trasferimento targa CH. - permit-compare → comparatore Permesso G vs B.
+- nursery → asilo nido. - parental-leave → congedo parentale.
+- (NON esistono tool per: meteo, allerta maltempo, condizioni meteorologiche, navigatore stradale, calcolatore tragitti, route planner. NON inventare link nav: per questi temi.)
 MAI usare <a href> o URL diretti.
+
+CTA / PROMOZIONI — divieti assoluti:
+- MAI promuovere newsletter, app o servizi di Tio, CDT, La Regione, RSI, TVS, Ticinonews, Varesenews, Comozero, Corriere, Swissinfo, ilgiornaledelticino o altre testate citate come fonte. La newsletter promossa è SEMPRE quella di Frontaliere Ticino (link nav:calculator o nav:jobs come gancio).
+- "Iscriviti alla newsletter giornaliera di [fonte]" / "scarica l'app di [fonte]" sono frasi BANDITE — anche se la fonte le ha originali, vanno omesse.
 
 GRASSETTO: max 2-3 parole in grassetto per INTERO campo body. MAI grassetto su importi (350 CHF), etichette (Caso 1:), frasi >5 parole, nomi strumenti. Preferire ZERO grassetto.
 FORMATTAZIONE: ## sottotitoli, ### sotto-sottotitoli, - elenchi, > citazioni (MAX 1 per articolo — solo se c'è una vera citazione dalla fonte), 📊 dati, 💡 consigli, ⚠️ avvertenze. Blocchi separati con \\n\\n. NON usare > per paragrafi normali — solo per citazioni dirette brevi (1-2 frasi).
@@ -3574,7 +3594,32 @@ function validate(data) {
       let text = data.content[locale][field] || '';
       // Remove raw <a href="..."> tags the AI might have inserted — they cause redirect issues
       text = text.replace(/<a\s+href="[^"]*"[^>]*>(.*?)<\/a>/gi, '$1');
-      // Validate [text](nav:action) links — remove invalid ones
+
+      // IT-only editorial sanitizers (2026-05-12):
+      // 1) Strip sentences that promote competitor newsletters/services
+      //    (article 25714951592 shipped with "iscriversi alla newsletter
+      //    giornaliera di Tio").
+      // 2) Semantic validation of nav: links — strip when the link TEXT
+      //    is off-topic for the action (e.g. "calcolatore di tragitti"
+      //    pointing to nav:calculator which is the fiscal calculator).
+      // Translations inherit the cleaned IT text via their own
+      // generation step and are not re-checked semantically (Italian
+      // keywords don't transfer 1:1 across locales).
+      if (locale === 'it') {
+        const comp = stripCompetitorPromotion(text);
+        if (comp.removed > 0) {
+          console.error(`  🧹  Rimossa promozione competitor in ${locale}.${field}: ${comp.removed} frase(i) — es: "${(comp.examples[0] || '').slice(0, 80)}..."`);
+        }
+        const nav = sanitizeNavLinkSemantics(comp.text);
+        if (nav.stripped > 0) {
+          console.error(`  🧹  Strippati ${nav.stripped} link nav: off-topic in ${locale}.${field} — es: ${nav.examples[0] || ''}`);
+        }
+        text = nav.text;
+      }
+
+      // Validate [text](nav:action) links — remove invalid actions
+      // (unknown tokens). Runs on all locales so translations also
+      // benefit from the existing valid-action check.
       text = text.replace(/\[([^\]]+)\]\(nav:([a-z-]+)\)/g, (_m, linkText, action) => {
         if (VALID_NAV_ACTIONS.has(action)) return _m; // keep valid
         console.error(`  ⚠️  Link invalido [${linkText}](nav:${action}) in ${locale}.${field} — rimosso`);
