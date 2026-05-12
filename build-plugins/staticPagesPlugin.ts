@@ -28,7 +28,7 @@ import { ARTICLES_PAGE_SIZE, JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, type HubL
 import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
 import { ALL_CANTON_CODES, AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import cantonSlugFile from '../data/canton-url-slugs.json';
-import { getJobTodayLandingSlug } from './jobEditorialLanding';
+import { getJobTodayLandingSlug, getJobNursesHubSlug, getJobPartTimeLandingSlug, careClusterSlug } from './jobEditorialLanding';
 
 // ── SPA shell <title> handling ────────────────────────────────────────
 // Universal rule: headline VERBATIM, brand suffix appended only when total
@@ -695,6 +695,135 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  } catch (e) {
  console.warn('[static-pages] Could not compute jobsTotalPages from all-known-job-slugs.json:', e);
  }
+
+ /* ── BFS-depth closure (May 2026) — TI hub deep navigators ──
+  *
+  * The TI hub (`/cerca-lavoro-ticino/`, `/en/find-jobs-ticino/`, ...) is the
+  * canonical entry to ~150 internal TI-section pages (search clusters, native
+  * pagination, editorial slot pages, company hubs). Without per-locale link
+  * blocks emitted here, those leaves sit at BFS depth ≥ 5 from `/`, which the
+  * `audit:max-bfs-depth` ratchet counts as orphan even though they live in
+  * sitemap-jobs.xml. Compute the link sets once per build and reuse for every
+  * locale variant inside `buildPage`.
+  *
+  * Mobile-first (CLAUDE.md #15/#16): these navigators are pushed BELOW the
+  * data area inside `editorialBlocks`, never above the listing grid. Each
+  * navigator wraps in a <details> collapsible so the mobile fold stays clear.
+  */
+ type TiNavLocale = 'it' | 'en' | 'de' | 'fr';
+ // 1. Native TI pagination ladder slugs (`pagina-N` / `page-N` / `seite-N`).
+ //    Distinct from `tutti/page-N` — the canton-emit plugin emits these too.
+ const TI_PAGINATION_SLUG: Record<TiNavLocale, string> = {
+   it: 'pagina', en: 'page', de: 'seite', fr: 'page',
+ };
+ // Mirror jobsSeoPagesPlugin pagination gate (~line 8186-8198): only emit
+ // when canton has ≥ 2 × JOBS_PER_LISTING_PAGE jobs (20) and cap at 25 pages.
+ const TI_JOBS_PER_LISTING = 20;
+ const TI_MAX_LISTING_PAGES = 25;
+ let tiPaginationPages = 0;
+ try {
+   const jobsRaw = JSON.parse(fs.readFileSync(np.resolve(rootDir, 'data/jobs.json'), 'utf-8')) as Array<Record<string, unknown>>;
+   if (Array.isArray(jobsRaw)) {
+     // Count TI canton jobs the same way jobsSeoPagesPlugin counts them
+     // (canton field OR location heuristic). For the navigator we don't need
+     // the exact-match resolver — TI explicit + a `ticino`/`lugano`/...
+     // location fingerprint covers the vast majority and a few near-misses
+     // here cost nothing (we cap at 25 pages anyway).
+     const tiCities = /^(lugano|bellinzona|locarno|mendrisio|chiasso|biasca|airolo|stabio|massagno|paradiso|caslano|breganzona|viganello|cadenazzo|tesserete|gordola|losone|minusio|bedano|agno|manno)\b/i;
+     let tiCount = 0;
+     for (const j of jobsRaw) {
+       const canton = String((j as { canton?: string }).canton || '').toUpperCase().trim();
+       if (canton === 'TI') { tiCount++; continue; }
+       if (!canton) {
+         const loc = String((j as { location?: string }).location || '').trim();
+         if (tiCities.test(loc)) tiCount++;
+       }
+     }
+     if (tiCount >= 2 * TI_JOBS_PER_LISTING) {
+       tiPaginationPages = Math.min(TI_MAX_LISTING_PAGES, Math.ceil(tiCount / TI_JOBS_PER_LISTING));
+     }
+   }
+ } catch (e) {
+   console.warn('[static-pages] Could not compute tiPaginationPages from jobs.json:', e);
+ }
+
+ // 2. Top TI company-hub slugs (`azienda-{slug}` / `company-{slug}` / etc.).
+ //    Same ranking as jobsSeoPagesPlugin Esplora navigator: top 20 by job
+ //    count, gated MIN_JOBS_PER_CANTON_COMPANY=3, ties broken by slug.
+ const TI_COMPANY_PREFIX: Record<TiNavLocale, string> = {
+   it: 'azienda', en: 'company', de: 'unternehmen', fr: 'entreprise',
+ };
+ const tiTopCompanies: Array<{ slug: string; label: string }> = [];
+ try {
+   const jobsRaw = JSON.parse(fs.readFileSync(np.resolve(rootDir, 'data/jobs.json'), 'utf-8')) as Array<Record<string, unknown>>;
+   if (Array.isArray(jobsRaw)) {
+     const tiCities = /^(lugano|bellinzona|locarno|mendrisio|chiasso|biasca|airolo|stabio|massagno|paradiso|caslano|breganzona|viganello|cadenazzo|tesserete|gordola|losone|minusio|bedano|agno|manno)\b/i;
+     const companyCounts = new Map<string, { name: string; count: number }>();
+     for (const j of jobsRaw) {
+       const canton = String((j as { canton?: string }).canton || '').toUpperCase().trim();
+       const loc = String((j as { location?: string }).location || '').trim();
+       if (canton !== 'TI' && !(canton === '' && tiCities.test(loc))) continue;
+       const co = String((j as { company?: string }).company || '').trim();
+       const coKey = String((j as { companyKey?: string }).companyKey || '').trim();
+       // Reproduce canonicalCompanySlugBuild's behaviour with a local-only
+       // fallback so we never link a hub slug that doesn't exist. Prefer
+       // companyKey (frozen slug); fall back to lower-kebab of company name.
+       const slug = coKey
+         || co.toLowerCase()
+              .replace(/[^a-z0-9]+/g, '-')
+              .replace(/^-+|-+$/g, '');
+       if (!slug || slug.length < 2) continue;
+       const cur = companyCounts.get(slug);
+       if (cur) cur.count++;
+       else companyCounts.set(slug, { name: co || slug, count: 1 });
+     }
+     const sorted = [...companyCounts.entries()]
+       .filter(([, v]) => v.count >= 3)
+       .sort((a, b) => b[1].count - a[1].count || a[0].localeCompare(b[0]))
+       .slice(0, 20);
+     for (const [slug, v] of sorted) tiTopCompanies.push({ slug, label: v.name });
+   }
+ } catch (e) {
+   console.warn('[static-pages] Could not compute tiTopCompanies from jobs.json:', e);
+ }
+
+ // 3. Top TI search-cluster bridge slugs. Sourced from
+ //    data/related-search-enriched.json (the same file
+ //    relatedSearchClustersPlugin uses to emit the pages). We pick the entries
+ //    that have a `city` field set — those are the canton-specific bridges
+ //    most likely to be deep-orphan from the TI hub. Cap at 30 per locale
+ //    to stay within the page-weight budget.
+ const tiSearchClusters: Record<TiNavLocale, Array<{ slug: string; label: string }>> = {
+   it: [], en: [], de: [], fr: [],
+ };
+ try {
+   const enrichedRaw = JSON.parse(fs.readFileSync(np.resolve(rootDir, 'data/related-search-enriched.json'), 'utf-8'));
+   const entries = enrichedRaw && typeof enrichedRaw === 'object' && enrichedRaw.entries
+     ? Object.values(enrichedRaw.entries as Record<string, unknown>)
+     : [];
+   const prefixByLocale: Record<TiNavLocale, string> = {
+     it: 'ricerca-', en: 'search-', de: 'suche-', fr: 'recherche-',
+   };
+   const MAX_PER_LOCALE = 30;
+   // Deterministic sort: city-bearing first, then alpha by slug. Provides
+   // stable per-build navigator content (no jitter across runs).
+   for (const loc of ['it', 'en', 'de', 'fr'] as const) {
+     const pfx = prefixByLocale[loc];
+     const filt = (entries as Array<{ slug?: string; locale?: string; keyword?: string; city?: string | null }>)
+       .filter((e) => e && e.locale === loc && typeof e.slug === 'string' && e.slug.startsWith(pfx));
+     const withCity = filt.filter((e) => e.city);
+     withCity.sort((a, b) => String(a.slug).localeCompare(String(b.slug)));
+     for (const e of withCity.slice(0, MAX_PER_LOCALE)) {
+       const slug = String(e.slug);
+       const label = e.keyword ? `${e.keyword} — ${e.city}` : slug.slice(pfx.length).replace(/-/g, ' ');
+       tiSearchClusters[loc].push({ slug, label });
+     }
+   }
+ } catch (e) {
+   console.warn('[static-pages] Could not compute tiSearchClusters from related-search-enriched.json:', e);
+ }
+
+ console.log(`\x1b[36m[static-pages]\x1b[0m TI hub navigators: pagination=${tiPaginationPages} pages, companies=${tiTopCompanies.length}, search-clusters it=${tiSearchClusters.it.length}/en=${tiSearchClusters.en.length}/de=${tiSearchClusters.de.length}/fr=${tiSearchClusters.fr.length}`);
 
  /* ── 0. Find entry JS/CSS bundle + Italian locale chunk ────── */
  // IMPORTANT: Extract from Vite-generated index.html to get the correct entry
@@ -2727,6 +2856,98 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem" open><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:#1e293b;padding:.25rem 0">${esc(cantonNavLabel)} (${codesForNav.length})</summary><nav aria-label="${esc(cantonNavLabel)}" style="margin-top:.5rem;line-height:1.9">${cantonAnchors.join('')}</nav></details>`,
  );
  }
+ }
+ // ── BFS-depth closure (May 2026) — TI hub deep navigators ─────────
+ // Push four additional collapsibles linking the long-tail TI internal
+ // pages so each one moves to BFS depth 2 from `/`:
+ //   (a) 7 editorial slot pages (today/nurses/clinics/care-homes/oss/
+ //       educators/part-time) per locale
+ //   (b) Native pagination ladder `/cerca-lavoro-ticino/pagina-N/`
+ //       (NOT the `tutti/page-N` chain — those are linked from
+ //       buildCantonHubEditorial above).
+ //   (c) Top TI search-cluster bridges (~30 per locale, deterministic).
+ //   (d) Top TI company hubs (`azienda-{slug}` etc., capped 20).
+ // Each block is wrapped in <details> (mobile-fold) and emits inline
+ // semantic-token styling (no Tailwind utility classes).
+ {
+   const navLocale = locale as TiNavLocale;
+   const tiSection = resolveCantonSection(navLocale, 'TI');
+   const localePref = navLocale === 'it' ? '' : `${navLocale}/`;
+   const tiBase = `/${localePref}${tiSection}/`.replace(/\/+/g, '/');
+   const linkStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#eef2ff;color:#312e81;text-decoration:none;font-size:13px;border:1px solid #c7d2fe';
+   const secondaryLinkStyle = 'display:inline-block;padding:3px 8px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;border:1px solid #bbf7d0';
+
+   // (a) Editorial slot pages — 7 per locale.
+   const editorialSlotLabels: Record<TiNavLocale, { today: string; nurses: string; partTime: string; clinics: string; careHomes: string; oss: string; educators: string; nav: string }> = {
+     it: { today: 'Offerte di oggi', nurses: 'Lavoro per infermieri', partTime: 'Lavoro part-time', clinics: 'Cliniche e ospedali', careHomes: 'Case anziani', oss: 'OSS e assistenza', educators: 'Educatori', nav: 'Pagine in evidenza' },
+     en: { today: 'Jobs posted today', nurses: 'Nursing jobs', partTime: 'Part-time jobs', clinics: 'Clinics & hospitals', careHomes: 'Care homes', oss: 'Healthcare assistants', educators: 'Educators', nav: 'Featured pages' },
+     de: { today: 'Heute veröffentlicht', nurses: 'Pflegejobs', partTime: 'Teilzeitstellen', clinics: 'Kliniken & Spitäler', careHomes: 'Altersheime', oss: 'Pflegeassistenz', educators: 'Erzieher', nav: 'Empfohlene Seiten' },
+     fr: { today: "Offres d'aujourd'hui", nurses: 'Emplois en soins infirmiers', partTime: 'Emplois à temps partiel', clinics: 'Cliniques et hôpitaux', careHomes: 'Maisons de retraite', oss: 'OSS et assistance', educators: 'Educateurs', nav: 'Pages à la une' },
+   };
+   const slLabels = editorialSlotLabels[navLocale];
+   const editorialSlotItems: Array<{ slug: string; label: string }> = [
+     { slug: getJobTodayLandingSlug(navLocale, 'TI'), label: slLabels.today },
+     { slug: getJobNursesHubSlug(navLocale, 'TI'), label: slLabels.nurses },
+     { slug: getJobPartTimeLandingSlug(navLocale, 'TI'), label: slLabels.partTime },
+     { slug: careClusterSlug('clinics', 'TI', navLocale), label: slLabels.clinics },
+     { slug: careClusterSlug('careHomes', 'TI', navLocale), label: slLabels.careHomes },
+     { slug: careClusterSlug('oss', 'TI', navLocale), label: slLabels.oss },
+     { slug: careClusterSlug('educators', 'TI', navLocale), label: slLabels.educators },
+   ];
+   const editorialSlotAnchors = editorialSlotItems
+     .map((it) => `<a href="${tiBase}${it.slug}/" style="${linkStyle}">${esc(it.label)}</a>`)
+     .join('');
+   editorialBlocks.push(
+     `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem" open><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:#1e293b;padding:.25rem 0">${esc(slLabels.nav)} (${editorialSlotItems.length})</summary><nav aria-label="${esc(slLabels.nav)}" style="margin-top:.5rem;line-height:1.9">${editorialSlotAnchors}</nav></details>`,
+   );
+
+   // (b) Native pagination ladder — only when there are ≥ 2 listing pages.
+   if (tiPaginationPages > 1) {
+     const paginationNavLabel = navLocale === 'en' ? 'Browse listings page-by-page'
+       : navLocale === 'de' ? 'Listings nach Seite durchsuchen'
+       : navLocale === 'fr' ? 'Parcourir les annonces page par page'
+       : 'Sfoglia gli annunci pagina per pagina';
+     const pageWord = navLocale === 'en' || navLocale === 'fr' ? 'p.' : navLocale === 'de' ? 'S.' : 'p.';
+     const paginationAnchors: string[] = [];
+     for (let p = 2; p <= tiPaginationPages; p++) {
+       const href = `${tiBase}${TI_PAGINATION_SLUG[navLocale]}-${p}/`;
+       paginationAnchors.push(`<a href="${href}" style="${linkStyle}">${pageWord}&nbsp;${p}</a>`);
+     }
+     editorialBlocks.push(
+       `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:#1e293b;padding:.25rem 0">${esc(paginationNavLabel)} (${tiPaginationPages - 1})</summary><nav aria-label="${esc(paginationNavLabel)}" style="margin-top:.5rem;line-height:1.9">${paginationAnchors.join('')}</nav></details>`,
+     );
+   }
+
+   // (c) Search-cluster bridges — pre-computed per locale at closeBundle scope.
+   const localeClusters = tiSearchClusters[navLocale];
+   if (localeClusters.length > 0) {
+     const clustersNavLabel = navLocale === 'en' ? 'Top job searches in Ticino'
+       : navLocale === 'de' ? 'Top-Stellensuchen im Tessin'
+       : navLocale === 'fr' ? 'Recherches d\'emploi populaires au Tessin'
+       : 'Ricerche di lavoro più popolari in Ticino';
+     const clusterAnchors = localeClusters
+       .map((c) => `<a href="${tiBase}${c.slug}/" style="${secondaryLinkStyle}">${esc(c.label)}</a>`)
+       .join('');
+     editorialBlocks.push(
+       `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:#1e293b;padding:.25rem 0">${esc(clustersNavLabel)} (${localeClusters.length})</summary><nav aria-label="${esc(clustersNavLabel)}" style="margin-top:.5rem;line-height:1.9">${clusterAnchors}</nav></details>`,
+     );
+   }
+
+   // (d) Top company hubs — language-prefix differs per locale, but slugs are
+   // a single canonical company id (e.g. `migros`) shared across locales.
+   if (tiTopCompanies.length > 0) {
+     const companyPrefix = TI_COMPANY_PREFIX[navLocale];
+     const companyNavLabel = navLocale === 'en' ? 'Top employers hiring in Ticino'
+       : navLocale === 'de' ? 'Top-Arbeitgeber im Tessin'
+       : navLocale === 'fr' ? 'Principaux employeurs au Tessin'
+       : 'Aziende che assumono in Ticino';
+     const companyAnchors = tiTopCompanies
+       .map((c) => `<a href="${tiBase}${companyPrefix}-${c.slug}/" style="${linkStyle}">${esc(c.label)}</a>`)
+       .join('');
+     editorialBlocks.push(
+       `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:#1e293b;padding:.25rem 0">${esc(companyNavLabel)} (${tiTopCompanies.length})</summary><nav aria-label="${esc(companyNavLabel)}" style="margin-top:.5rem;line-height:1.9">${companyAnchors}</nav></details>`,
+     );
+   }
  }
  // Phase 8(g) cathedral parity — push the helper's trailing entries
  // (frontaliere context prose paragraphs, sources line, FAQ collapsible).
