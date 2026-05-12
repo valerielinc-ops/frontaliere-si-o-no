@@ -30,6 +30,7 @@ import { describe, expect, it } from 'vitest';
 import {
   stripCompetitorPromotion,
   sanitizeNavLinkSemantics,
+  stripFabricatedExamples,
   sanitizeBodyIt,
 } from '../scripts/lib/article-sanitizers.mjs';
 
@@ -219,5 +220,152 @@ describe('sanitizeBodyIt — orchestration', () => {
     const r = sanitizeBodyIt("Usa il [calcolatore fiscale](nav:calculator) per il netto.");
     expect(r.navStripped).toBe(0);
     expect(r.competitorRemoved).toBe(0);
+  });
+});
+
+describe('stripFabricatedExamples — forced frontaliere case-injection', () => {
+  it('strips the shipped Unispital body1 "Esempi concreti" (Lugano/Chiasso)', () => {
+    // Real text from `direttrice-unispital-zurigo-whistleblower` body1
+    const body = `### Impatto sui frontalieri
+Per i frontalieri che lavorano nel settore sanitario...
+
+#### Checklist per i frontalieri
+1. Conoscere i diritti.
+2. Documentazione.
+
+#### Esempi concreti
+- Lugano: Un'infermiera frontaliera ha segnalato carenze igieniche in un ospedale, portando a un'indagine.
+- Chiasso: Un medico ha denunciato pratiche non etiche, ottenendo protezione legale e un risarcimento.
+`;
+    const r = stripFabricatedExamples(body);
+    expect(r.removedSections).toBe(1);
+    expect(r.examples[0]).toMatch(/Lugano/);
+    expect(r.text).toMatch(/Checklist per i frontalieri/);
+    expect(r.text).not.toMatch(/Lugano:.+infermiera/);
+    expect(r.text).not.toMatch(/Chiasso:.+medico/);
+    // The "#### Esempi concreti" heading must be gone
+    expect(r.text).not.toMatch(/Esempi concreti/);
+  });
+
+  it('strips the shipped Unispital body3 "Esempi concreti" (ORL/Ospedale Civico)', () => {
+    const body = `### 5. Seguire le indicazioni delle autorità
+In caso di emergenza, comunicare con le autorità.
+
+### Esempi concreti
+- 💡 Un infermiere dell'ORL ha segnalato irregolarità nella gestione dei farmaci, portando a un'indagine interna e al recupero di CHF 50.000.
+- ⚠️ Un medico dell'Ospedale Civico di Lugano ha denunciato pratiche di bilancio fraudolente, risultando in un'indagine della FINMA.
+
+Per ulteriori informazioni, usa il calcolatore.`;
+    const r = stripFabricatedExamples(body);
+    expect(r.removedSections).toBe(1);
+    expect(r.text).toMatch(/Seguire le indicazioni delle autorità/);
+    expect(r.text).toMatch(/Per ulteriori informazioni, usa il calcolatore/);
+    expect(r.text).not.toMatch(/ORL/);
+    expect(r.text).not.toMatch(/Ospedale Civico di Lugano/);
+    expect(r.text).not.toMatch(/CHF 50\.000/);
+  });
+
+  it('strips "Casi pratici" heading variant', () => {
+    const body = `## Casi pratici
+- Lugano: Un'infermiera ha denunciato un caso di frode e ottenuto un risarcimento.
+`;
+    expect(stripFabricatedExamples(body).removedSections).toBe(1);
+  });
+
+  it('strips "Per esempio" heading variant', () => {
+    const body = `### Per esempio:
+- Mendrisio: Un medico ha segnalato irregolarità, ottenendo protezione legale.
+`;
+    expect(stripFabricatedExamples(body).removedSections).toBe(1);
+  });
+
+  it('PRESERVES legitimate "Esempi concreti" with numeric/legal data (no role+place pattern)', () => {
+    // A real "Esempi concreti" section with verifiable tax data should
+    // NOT match because no bullet has role + locality + outcome pattern.
+    const body = `### Esempi concreti
+- Aliquota fiscale per redditi sotto 50k CHF: 5%.
+- Aliquota fiscale per redditi 50-100k CHF: 12%.
+- La tredicesima è inclusa nel calcolo annuale.
+`;
+    const r = stripFabricatedExamples(body);
+    expect(r.removedSections).toBe(0);
+    expect(r.text).toBe(body);
+  });
+
+  it('PRESERVES generic checklist sections that are not "Esempi concreti"', () => {
+    const body = `### Checklist operativa
+- Verificare il regolamento.
+- Raccogliere documenti.
+- Contattare il superiore.
+`;
+    expect(stripFabricatedExamples(body).removedSections).toBe(0);
+  });
+
+  it('PRESERVES a section with role but no locality/outcome (too weak signal)', () => {
+    const body = `### Profili tipici
+- Infermiere: turni variabili, busta paga oraria.
+- Medico: stipendio annuale, turni di reperibilità.
+`;
+    expect(stripFabricatedExamples(body).removedSections).toBe(0);
+  });
+
+  it('strips a section with mixed bullets when at least one is fabricated', () => {
+    const body = `### Esempi concreti
+- Generic info that\'s fine.
+- Lugano: Un medico ha denunciato pratiche illegali, recuperando CHF 100.000.
+- More generic info.
+`;
+    const r = stripFabricatedExamples(body);
+    expect(r.removedSections).toBe(1);
+    // The whole section dies — conservatism trades a few legitimate
+    // bullets for safety from fabrications.
+    expect(r.text).not.toMatch(/Generic info/);
+  });
+
+  it('handles multiple fabricated sections in one body', () => {
+    const body = `## Sezione 1
+Testo normale.
+
+### Esempi concreti
+- Lugano: Un infermiere ha segnalato CHF 50.000.
+
+## Sezione 2
+Altro testo.
+
+### Casi pratici
+- Chiasso: Una medico ha denunciato e ottenuto un risarcimento.
+`;
+    const r = stripFabricatedExamples(body);
+    expect(r.removedSections).toBe(2);
+    expect(r.text).toMatch(/Testo normale/);
+    expect(r.text).toMatch(/Altro testo/);
+    expect(r.text).not.toMatch(/Lugano:/);
+    expect(r.text).not.toMatch(/Chiasso:/);
+  });
+
+  it('handles empty / null / non-string input safely', () => {
+    expect(stripFabricatedExamples('').text).toBe('');
+    expect(stripFabricatedExamples(null as unknown as string).removedSections).toBe(0);
+    expect(stripFabricatedExamples(undefined as unknown as string).removedSections).toBe(0);
+  });
+});
+
+describe('sanitizeBodyIt — full pipeline including fabricated-examples strip', () => {
+  it('strips fabricated examples + competitor promo + bad nav: in one pass', () => {
+    const body = `### 6. Strumenti utili
+Usa il [calcolatore di tragitti](nav:calculator) per pianificare.
+
+### Esempi concreti
+- Lugano: Un'infermiera ha segnalato CHF 50.000 di irregolarità.
+
+Iscriviti alla newsletter giornaliera di Tio. Le notizie sono importanti.`;
+    const r = sanitizeBodyIt(body);
+    expect(r.fabricatedSectionsRemoved).toBe(1);
+    expect(r.navStripped).toBe(1);
+    expect(r.competitorRemoved).toBe(1);
+    expect(r.text).toMatch(/Le notizie sono importanti/);
+    expect(r.text).not.toMatch(/Lugano:.+infermiera/);
+    expect(r.text).not.toMatch(/nav:calculator/);
+    expect(r.text).not.toMatch(/newsletter giornaliera di Tio/i);
   });
 });
