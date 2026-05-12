@@ -25,6 +25,7 @@ import {
   cleanCanonicalItems,
   sanitizeJobTitle,
   buildRelatedSearches,
+  pickBestRelatedSearchForPrompt,
   DEFAULT_CANTON_DISPLAY,
 } from '@/services/relatedSearchClusters';
 
@@ -310,6 +311,132 @@ describe('buildRelatedSearches — synthetic JobListing', () => {
     expect(out).toContain('Software Engineer');
     // body-token-derived items use DEFAULT_CANTON_DISPLAY in lowercase
     expect(DEFAULT_CANTON_DISPLAY.toLowerCase()).toBe('ticino');
+  });
+});
+
+// ── pickBestRelatedSearchForPrompt — post-login alert fallback ──────────
+
+describe('pickBestRelatedSearchForPrompt — keyword resolution for post-login prompt on detail view', () => {
+  function makeJob(overrides: Partial<JobListing> = {}): JobListing {
+    return {
+      id: 'job-1',
+      slug: 'software-engineer-techco-bellinzona',
+      company: 'TechCo',
+      title: 'Software Engineer',
+      location: 'Bellinzona',
+      canton: 'Ticino',
+      category: 'tech' as unknown as JobListing['category'],
+      contract: 'full-time' as unknown as JobListing['contract'],
+      currency: 'CHF',
+      description: '',
+      requirements: [],
+      featured: false,
+      postedDate: '2026-05-01',
+      ...overrides,
+    } as JobListing;
+  }
+
+  // Simple matcher that mirrors indexedQueryMatch's semantics: every space-
+  // separated query token must appear as a substring of the job's haystack.
+  function makeMatcher(haystackOf: (job: JobListing) => string) {
+    return (job: JobListing, term: string): boolean => {
+      const haystack = haystackOf(job).toLowerCase();
+      return term
+        .toLowerCase()
+        .split(' ')
+        .filter(Boolean)
+        .every((token) => haystack.includes(token));
+    };
+  }
+
+  it('returns the candidate with the most matching jobs', () => {
+    const selected = makeJob();
+    // Corpus: 5 jobs match "software engineer", 2 match "software engineer bellinzona".
+    // The broader term should win.
+    const jobs = [
+      makeJob({ id: 'j1', title: 'Software Engineer', location: 'Lugano' }),
+      makeJob({ id: 'j2', title: 'Software Engineer', location: 'Bellinzona' }),
+      makeJob({ id: 'j3', title: 'Software Engineer', location: 'Mendrisio' }),
+      makeJob({ id: 'j4', title: 'Software Engineer', location: 'Bellinzona' }),
+      makeJob({ id: 'j5', title: 'Software Engineer', location: 'Locarno' }),
+      makeJob({ id: 'j6', title: 'Project Manager', location: 'Lugano' }),
+    ];
+    const matches = makeMatcher((j) => `${j.title} ${j.location} ${j.company}`);
+    const result = pickBestRelatedSearchForPrompt({
+      job: selected,
+      locale: 'it',
+      jobs,
+      matches,
+    });
+    expect(result).toBe('Software Engineer');
+  });
+
+  it('returns null when no candidate matches any job in the corpus', () => {
+    const selected = makeJob({ title: 'Quantum Cryomagnetic Operator', location: 'Atlantis' });
+    const jobs = [
+      makeJob({ id: 'j1', title: 'Bartender', location: 'Lugano', company: 'Bar Roma' }),
+    ];
+    const matches = makeMatcher((j) => `${j.title} ${j.location} ${j.company}`);
+    const result = pickBestRelatedSearchForPrompt({
+      job: selected,
+      locale: 'it',
+      jobs,
+      matches,
+    });
+    expect(result).toBeNull();
+  });
+
+  it('returns null when the corpus is empty', () => {
+    const result = pickBestRelatedSearchForPrompt({
+      job: makeJob(),
+      locale: 'it',
+      jobs: [],
+      matches: () => true,
+    });
+    expect(result).toBeNull();
+  });
+
+  it('honours the locale-specific template candidates', () => {
+    // For IT, "offerte lavoro <title>" is a candidate. Build a corpus where
+    // only that exact phrase matches a job — confirms the function picks
+    // it instead of the bare title.
+    const selected = makeJob({ title: 'Infermiere' });
+    const jobs = [
+      makeJob({ id: 'j1', title: 'Offerte Lavoro Infermiere Bellinzona', location: 'Bellinzona' }),
+      makeJob({ id: 'j2', title: 'Offerte Lavoro Infermiere Lugano', location: 'Lugano' }),
+      makeJob({ id: 'j3', title: 'Bartender', location: 'Locarno' }),
+    ];
+    const matches = makeMatcher((j) => `${j.title} ${j.location}`);
+    const result = pickBestRelatedSearchForPrompt({
+      job: selected,
+      locale: 'it',
+      jobs,
+      matches,
+    });
+    // Either "Infermiere" (3 jobs include the substring) wins, or
+    // "offerte lavoro Infermiere" (2 jobs) — the broader term should win.
+    expect(result?.toLowerCase()).toContain('infermiere');
+  });
+
+  it('skips candidates with zero matches even if higher-priority in the candidate order', () => {
+    // Force a case where shortTitle is unmatched but a longer template hits.
+    const selected = makeJob({ title: 'Zzz Unique Title', company: 'TechCo', location: 'Bellinzona' });
+    const jobs = [
+      // None of these contain the title verbatim, but they DO contain "TechCo"
+      // and "Bellinzona" — so the "<title> <company>" or generated candidates
+      // that include those tokens would fail because they still need the title.
+      makeJob({ id: 'j1', title: 'Bartender', location: 'Bellinzona', company: 'TechCo' }),
+      makeJob({ id: 'j2', title: 'Bartender', location: 'Lugano', company: 'TechCo' }),
+    ];
+    const matches = makeMatcher((j) => `${j.title} ${j.location} ${j.company}`);
+    const result = pickBestRelatedSearchForPrompt({
+      job: selected,
+      locale: 'it',
+      jobs,
+      matches,
+    });
+    // All candidates require "Zzz" in the haystack — none match → null.
+    expect(result).toBeNull();
   });
 });
 

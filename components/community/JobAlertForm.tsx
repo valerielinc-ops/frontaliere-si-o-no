@@ -99,9 +99,14 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  }, [initialKeyword, expanded]);
 
  // Listen for external requests to open the form (sticky banner, end-of-list
- // card, post-auth prompt). Scrolls into view and expands.
+ // card, post-auth prompt). Scrolls into view and expands. The optional
+ // `detail.keyword` lets the caller seed the keyword field — used by the
+ // post-auth prompt on a job-detail view, where the prompt's resolved
+ // keyword differs from the (empty) site-wide searchQuery prop.
  useEffect(() => {
- const handler = () => {
+ const handler = (event: Event) => {
+ const detail = (event as CustomEvent<{ keyword?: string }>).detail;
+ if (detail?.keyword) setKeyword(detail.keyword);
  setExpanded(true);
  window.setTimeout(() => {
  document.getElementById('job-alert-form')?.scrollIntoView({ behavior: 'smooth', block: 'center' });

@@ -1768,7 +1768,7 @@ export const Analytics = {
   * across surfaces and prune the ones that underperform.
   */
  trackJobAlertCtaClick: (
- surface: 'sticky_banner' | 'end_card' | 'post_auth_prompt' | 'inline_card' | 'job_detail_prompt',
+ surface: 'sticky_banner' | 'end_card' | 'post_auth_prompt' | 'post_auth_prompt_search' | 'post_auth_prompt_detail' | 'inline_card' | 'job_detail_prompt',
  action: 'open' | 'dismiss' | 'auto_expand' | 'shown' | 'accept' | 'success' | 'error',
  keyword?: string,
  ) => {

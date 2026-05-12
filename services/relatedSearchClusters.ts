@@ -209,3 +209,39 @@ export function buildRelatedSearches(params: {
 
  return candidates.filter(isValidRelatedSearchTerm).slice(0, 10);
 }
+
+// Resolves the best related-search keyword to surface in the post-login
+// alert prompt when the user has no active text query but is viewing a
+// detail page. Uses only the template-derived candidates from title +
+// location + company (passes empty summary/requirements/aiKeywords) so it
+// works synchronously without waiting for the async canonical-content fetch.
+// Returns the candidate with the highest count of matching jobs in `jobs`,
+// or null if no candidate matches any job.
+export function pickBestRelatedSearchForPrompt(params: {
+ job: JobListing;
+ locale: Locale;
+ jobs: readonly JobListing[];
+ matches: (job: JobListing, term: string) => boolean;
+}): string | null {
+ const { job, locale, jobs, matches } = params;
+ const candidates = buildRelatedSearches({
+ job,
+ locale,
+ summary: [],
+ requirements: [],
+ aiKeywords: [],
+ });
+ let bestTerm: string | null = null;
+ let bestCount = 0;
+ for (const term of candidates) {
+ let count = 0;
+ for (const j of jobs) {
+ if (matches(j, term)) count++;
+ }
+ if (count > bestCount) {
+ bestCount = count;
+ bestTerm = term;
+ }
+ }
+ return bestTerm;
+}
