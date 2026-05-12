@@ -1,10 +1,10 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-05-11T22:35:12.284Z",
+  "assembledAt": "2026-05-12T11:45:56.909Z",
   "jobs": [
     {
       "id": "company-70fjie",
-      "slug": "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny-70fjie",
+      "slug": "amministratore-e-immobilienmanagement-genossenschaft-migros-wallis-martigny",
       "company": "Genossenschaft Migros Wallis",
       "title": "Verantwortliche*r Administration & Immobilienmanagement",
       "location": "Martigny",
@@ -83,19 +83,21 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny-70fjie",
-        "en": "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny-70fjie",
+        "it": "amministratore-e-immobilienmanagement-genossenschaft-migros-wallis-martigny",
+        "en": "administrator-immobilienmanagement-genossenschaft-migros-wallis-martigny-70fjie",
         "de": "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny-70fjie",
         "fr": "administrateur-gestion-immobilien-genossenschaft-migros-wallis-martigny"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny"
+          "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny",
+          "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny-70fjie"
         ]
       },
       "previousSlugs": [
-        "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny"
+        "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny",
+        "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny-70fjie"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -114,11 +116,12 @@
       "addressLocality": "Martigny",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-oi85uq",
-      "slug": "consulente-clienti-privato-tutti-migros-bank-bellinzona",
+      "slug": "consulente-clienti-privato-tutti-migros-bank-chur",
       "company": "Migros Bank",
       "title": "Privatkundenberater (alle)",
       "location": "Chur",
@@ -184,9 +187,9 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "consulente-clienti-privato-tutti-migros-bank-bellinzona",
+        "it": "consulente-clienti-privato-tutti-migros-bank-chur",
         "en": "private-customer-advisor-all-migros-bank-chur",
-        "de": "privatkundenberater-alle-migros-bank-bellinzona",
+        "de": "privatkundenberater-alle-migros-bank-chur",
         "fr": "conseiller-client-prive-tous-migros-bank-chur"
       },
       "sourceLang": "de",
@@ -194,14 +197,15 @@
         "it": [
           "privatkundenberater-alle-migros-bank-chur",
           "privatkundenberater-alle-migros-bank-chur-oi85uq",
-          "consulente-clienti-privato-tutti-migros-bank-chur"
+          "consulente-clienti-privato-tutti-migros-bank-bellinzona"
         ],
         "en": [
           "privatkundenberater-alle-migros-bank-chur-oi85uq",
           "privatkundenberater-alle-migros-bank-bellinzona"
         ],
         "de": [
-          "privatkundenberater-alle-migros-bank-chur-oi85uq"
+          "privatkundenberater-alle-migros-bank-chur-oi85uq",
+          "privatkundenberater-alle-migros-bank-bellinzona"
         ],
         "fr": [
           "privatkundenberater-alle-migros-bank-chur-oi85uq",
@@ -211,7 +215,7 @@
       "previousSlugs": [
         "privatkundenberater-alle-migros-bank-chur",
         "privatkundenberater-alle-migros-bank-chur-oi85uq",
-        "consulente-clienti-privato-tutti-migros-bank-chur",
+        "consulente-clienti-privato-tutti-migros-bank-bellinzona",
         "privatkundenberater-alle-migros-bank-bellinzona"
       ],
       "salaryMin": 85500,
@@ -231,7 +235,8 @@
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-gep1sj",
@@ -278,7 +283,7 @@
       "firstSeenAt": "2026-05-10T22:06:33.892Z",
       "titleByLocale": {
         "de": "Quereinsteiger*in Fachverantwortung",
-        "it": "Quereinsteiger* nella responsabilità professionale",
+        "it": "Candidato/a in riqualificazione*in Fachverantwortung",
         "en": "Quereinsteiger*in Professional Responsibility",
         "fr": "Quereinsteiger*en Responsabilité professionnelle"
       },
@@ -305,7 +310,7 @@
       "slugByLocale": {
         "it": "quereinsteiger-nella-responsabilita-professionale-genossenschaft-migros-ostschweiz-chur",
         "en": "quereinsteiger-in-professional-responsibility-genossenschaft-migros-ostschweiz-chur",
-        "de": "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur",
         "fr": "quereinsteiger-en-responsabilite-professionnelle-genossenschaft-migros-ostschweiz-chur"
       },
       "sourceLang": "de",
@@ -320,7 +325,8 @@
           "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona"
         ],
         "de": [
-          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj"
+          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
+          "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-bellinzona"
         ],
         "fr": [
           "quereinsteiger-in-fachverantwortung-genossenschaft-migros-ostschweiz-chur-gep1sj",
@@ -351,7 +357,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-di1gox",
@@ -422,7 +429,7 @@
       "slugByLocale": {
         "it": "junior-talento-per-la-carriera-nelle-vendite-genossenschaft-migros-ostschweiz-samedan",
         "en": "junior-talent-for-career-in-sales-genossenschaft-migros-ostschweiz-samedan",
-        "de": "nachwuchstalent-fur-karriere-im-verkauf-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "nachwuchstalent-fur-karriere-im-verkauf-genossenschaft-migros-ostschweiz-samedan",
         "fr": "jeunes-talents-pour-la-carriere-en-vente-genossenschaft-migros-ostschweiz-samedan"
       },
       "sourceLang": "de",
@@ -438,7 +445,8 @@
           "nachwuchstalent-fur-karriere-im-vente-genossenschaft-migros-ostschweiz-samedan-di1gox"
         ],
         "de": [
-          "nachwuchstalent-fur-karriere-im-verkauf-genossenschaft-migros-ostschweiz-samedan-di1gox"
+          "nachwuchstalent-fur-karriere-im-verkauf-genossenschaft-migros-ostschweiz-samedan-di1gox",
+          "nachwuchstalent-fur-karriere-im-verkauf-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
@@ -447,6 +455,7 @@
         "nachwuchstalent-fur-karriere-im-sales-genossenschaft-migros-ostschweiz-samedan-di1gox",
         "nachwuchstalent-fur-karriere-im-vente-genossenschaft-migros-ostschweiz-samedan-di1gox",
         "nachwuchstalent-fur-karriere-im-verkauf-genossenschaft-migros-ostschweiz-samedan-di1gox",
+        "nachwuchstalent-fur-karriere-im-verkauf-genossenschaft-migros-ostschweiz-bellinzona",
         "junior-talento-per-la-carriera-nelle-vendite-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
@@ -466,7 +475,8 @@
       "addressLocality": "Samedan",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-qw8bsd",
@@ -534,7 +544,7 @@
       "slugByLocale": {
         "it": "capo-divisione-in-metzgerei-genossenschaft-migros-ostschweiz-bellinzona",
         "en": "head-of-division-in-metzgerei-genossenschaft-migros-ostschweiz-davos-platz-qw8bsd",
-        "de": "bereichsleiter-in-metzgerei-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "bereichsleiter-in-metzgerei-genossenschaft-migros-ostschweiz-davos-platz",
         "fr": "chef-de-division-a-metzgerei-genossenschaft-migros-ostschweiz-davos-platz-qw8bsd"
       },
       "sourceLang": "de",
@@ -544,12 +554,14 @@
           "bereichsleiter-in-metzgerei-genossenschaft-migros-ostschweiz-davos-platz-qw8bsd"
         ],
         "de": [
-          "bereichsleiter-in-metzgerei-genossenschaft-migros-ostschweiz-davos-platz-qw8bsd"
+          "bereichsleiter-in-metzgerei-genossenschaft-migros-ostschweiz-davos-platz-qw8bsd",
+          "bereichsleiter-in-metzgerei-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
         "bereichsleiter-in-metzgerei-genossenschaft-migros-ostschweiz-davos-platz",
-        "bereichsleiter-in-metzgerei-genossenschaft-migros-ostschweiz-davos-platz-qw8bsd"
+        "bereichsleiter-in-metzgerei-genossenschaft-migros-ostschweiz-davos-platz-qw8bsd",
+        "bereichsleiter-in-metzgerei-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -568,7 +580,8 @@
       "addressLocality": "Davos-Platz",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-cesv8v",
@@ -637,7 +650,7 @@
       "slugByLocale": {
         "it": "capo-reparto-in-carne-pesce-genossenschaft-migros-ostschweiz-landquart",
         "en": "head-of-department-in-meat-fish-genossenschaft-migros-ostschweiz-landquart",
-        "de": "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart",
         "fr": "chef-de-departement-en-viande-poisson-genossenschaft-migros-ostschweiz-landquart"
       },
       "sourceLang": "de",
@@ -653,12 +666,14 @@
           "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart-cesv8v"
         ],
         "de": [
-          "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart-cesv8v"
+          "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart-cesv8v",
+          "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
         "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart",
         "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart-cesv8v",
+        "abteilungsleiter-in-fleisch-fisch-genossenschaft-migros-ostschweiz-bellinzona",
         "capo-reparto-in-carne-pesce-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
@@ -678,7 +693,8 @@
       "addressLocality": "Landquart",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-djv9rd",
@@ -761,7 +777,7 @@
       "slugByLocale": {
         "it": "autista-della-rivista-in-electromobile-in-genossenschaft-migros-wallis-zermatt",
         "en": "magazine-driver-in-electromobile-driver-in-genossenschaft-migros-wallis-zermatt",
-        "de": "magaziner-in-elektromobil-fahrer-in-genossenschaft-migros-wallis-bellinzona",
+        "de": "magaziner-in-elektromobil-fahrer-in-genossenschaft-migros-wallis-zermatt",
         "fr": "conducteur-de-chargeur-dans-chauffeur-d-electromobile-dans-genossenschaft-migros-wallis-zermatt"
       },
       "sourceLang": "de",
@@ -777,12 +793,14 @@
           "magaziner-in-elektromobil-fahrer-in-genossenschaft-migros-wallis-zermatt-djv9rd"
         ],
         "de": [
-          "magaziner-in-elektromobil-fahrer-in-genossenschaft-migros-wallis-zermatt-djv9rd"
+          "magaziner-in-elektromobil-fahrer-in-genossenschaft-migros-wallis-zermatt-djv9rd",
+          "magaziner-in-elektromobil-fahrer-in-genossenschaft-migros-wallis-bellinzona"
         ]
       },
       "previousSlugs": [
         "magaziner-in-elektromobil-fahrer-in-genossenschaft-migros-wallis-zermatt",
-        "magaziner-in-elektromobil-fahrer-in-genossenschaft-migros-wallis-zermatt-djv9rd"
+        "magaziner-in-elektromobil-fahrer-in-genossenschaft-migros-wallis-zermatt-djv9rd",
+        "magaziner-in-elektromobil-fahrer-in-genossenschaft-migros-wallis-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -801,7 +819,8 @@
       "addressLocality": "Zermatt",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-ktq15t",
@@ -869,7 +888,7 @@
       "slugByLocale": {
         "it": "cambio-carriera-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan",
         "en": "retailer-in-meat-fish-genossenschaft-migros-ostschweiz-samedan",
-        "de": "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan",
         "fr": "detaillant-en-viande-poissons-genossenschaft-migros-ostschweiz-samedan"
       },
       "sourceLang": "de",
@@ -886,14 +905,16 @@
           "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan-ktq15t"
         ],
         "de": [
-          "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan-ktq15t"
+          "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan-ktq15t",
+          "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
         "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan",
         "cambio-carriera-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan-ktq15t",
         "rivenditore-in-carne-fish-genossenschaft-migros-ostschweiz-samedan",
-        "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan-ktq15t"
+        "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-samedan-ktq15t",
+        "quereinstieg-fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -912,7 +933,8 @@
       "addressLocality": "Samedan",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-ymqwfr",
@@ -978,7 +1000,7 @@
       "slugByLocale": {
         "it": "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-chur",
         "en": "teaching-groupfitness-in-hourly-wage-genossenschaft-migros-ostschweiz-chur",
-        "de": "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-chur",
         "fr": "enseignement-de-l-adequation-du-groupe-au-salaire-horaire-genossenschaft-migros-ostschweiz-chur"
       },
       "sourceLang": "de",
@@ -994,12 +1016,14 @@
           "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-ymqwfr"
         ],
         "de": [
-          "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-ymqwfr"
+          "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-ymqwfr",
+          "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
         "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-chur",
         "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-ymqwfr",
+        "lehrperson-groupfitness-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona",
         "insegnare-la-capacita-di-gruppo-nel-salario-orario-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
@@ -1019,7 +1043,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-kfqohq",
@@ -1087,7 +1112,7 @@
         "it": "barbecue-genossenschaft-migros-ostschweiz-bellinzona",
         "en": "barbecue-genossenschaft-migros-ostschweiz-chur-kfqohq",
         "de": "rostloser-in-genossenschaft-migros-ostschweiz-chur-kfqohq",
-        "fr": "grilleur-in-genossenschaft-migros-ostschweiz-bellinzona"
+        "fr": "grilleur-in-genossenschaft-migros-ostschweiz-chur"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -1096,12 +1121,14 @@
           "grilleur-in-genossenschaft-migros-ostschweiz-chur-kfqohq"
         ],
         "fr": [
-          "grilleur-in-genossenschaft-migros-ostschweiz-chur-kfqohq"
+          "grilleur-in-genossenschaft-migros-ostschweiz-chur-kfqohq",
+          "grilleur-in-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
         "grilleur-in-genossenschaft-migros-ostschweiz-chur",
-        "grilleur-in-genossenschaft-migros-ostschweiz-chur-kfqohq"
+        "grilleur-in-genossenschaft-migros-ostschweiz-chur-kfqohq",
+        "grilleur-in-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1120,7 +1147,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-nlvbom",
@@ -1198,7 +1226,7 @@
         "it": "studente-f-h-d-societe-cooperative-migros-valais-bellinzona",
         "en": "student-m-w-d-societe-cooperative-migros-valais-verbier-nlvbom",
         "de": "schuler-m-w-d-societe-cooperative-migros-valais-verbier-nlvbom",
-        "fr": "etudiant-f-h-d-societe-cooperative-migros-valais-bellinzona"
+        "fr": "etudiant-f-h-d-societe-cooperative-migros-valais-verbier"
       },
       "sourceLang": "fr",
       "previousSlugsByLocale": {
@@ -1207,12 +1235,14 @@
           "etudiant-m-w-d-societe-cooperative-migros-valais-verbier-nlvbom"
         ],
         "fr": [
-          "etudiant-m-w-d-societe-cooperative-migros-valais-verbier-nlvbom"
+          "etudiant-m-w-d-societe-cooperative-migros-valais-verbier-nlvbom",
+          "etudiant-f-h-d-societe-cooperative-migros-valais-bellinzona"
         ]
       },
       "previousSlugs": [
         "etudiant-m-w-d-societe-cooperative-migros-valais-verbier",
         "etudiant-m-w-d-societe-cooperative-migros-valais-verbier-nlvbom",
+        "etudiant-f-h-d-societe-cooperative-migros-valais-bellinzona",
         "dipendente-concierge-e-h-d-societe-cooperative-migros-valais-bellinzona",
         "concierge-employee-e-h-d-societe-cooperative-migros-valais-sierre-q0g1ap",
         "mitarbeiter-e-h-d-societe-cooperative-migros-valais-sierre-q0g1ap",
@@ -1237,7 +1267,8 @@
       "addressLocality": "Verbier",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-j8cfo6",
@@ -1306,7 +1337,7 @@
       "slugByLocale": {
         "it": "personale-in-contanti-genossenschaft-migros-ostschweiz-samedan",
         "en": "staff-in-cash-genossenschaft-migros-ostschweiz-samedan",
-        "de": "mitarbeiter-in-kasse-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "mitarbeiter-in-kasse-genossenschaft-migros-ostschweiz-samedan",
         "fr": "personnel-en-especes-genossenschaft-migros-ostschweiz-samedan"
       },
       "sourceLang": "de",
@@ -1322,13 +1353,15 @@
           "mitarbeiter-in-kasse-genossenschaft-migros-ostschweiz-samedan-j8cfo6"
         ],
         "de": [
-          "mitarbeiter-in-kasse-genossenschaft-migros-ostschweiz-samedan-j8cfo6"
+          "mitarbeiter-in-kasse-genossenschaft-migros-ostschweiz-samedan-j8cfo6",
+          "mitarbeiter-in-kasse-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-kasse-genossenschaft-migros-ostschweiz-samedan",
         "collaboratore-trice-in-kasse-genossenschaft-migros-ostschweiz-samedan-j8cfo6",
         "mitarbeiter-in-kasse-genossenschaft-migros-ostschweiz-samedan-j8cfo6",
+        "mitarbeiter-in-kasse-genossenschaft-migros-ostschweiz-bellinzona",
         "personale-in-contanti-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
@@ -1348,7 +1381,8 @@
       "addressLocality": "Samedan",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-773mr0",
@@ -1421,7 +1455,7 @@
       "slugByLocale": {
         "it": "cucina-kochin-migros-restaurant-bellinzona",
         "en": "cook-kochin-migros-restaurant-davos-platz-773mr0",
-        "de": "koch-kochin-migros-restaurant-bellinzona",
+        "de": "koch-kochin-migros-restaurant-davos-platz",
         "fr": "cuisiniere-kochin-migros-restaurant-davos-platz-773mr0"
       },
       "sourceLang": "de",
@@ -1431,12 +1465,14 @@
           "koch-kochin-migros-restaurant-davos-platz-773mr0"
         ],
         "de": [
-          "koch-kochin-migros-restaurant-davos-platz-773mr0"
+          "koch-kochin-migros-restaurant-davos-platz-773mr0",
+          "koch-kochin-migros-restaurant-bellinzona"
         ]
       },
       "previousSlugs": [
         "koch-kochin-migros-restaurant-davos-platz",
-        "koch-kochin-migros-restaurant-davos-platz-773mr0"
+        "koch-kochin-migros-restaurant-davos-platz-773mr0",
+        "koch-kochin-migros-restaurant-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1455,11 +1491,12 @@
       "addressLocality": "Davos-Platz",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-gqels1",
-      "slug": "candidato-a-in-riqualificazione-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-bellinzona",
+      "slug": "candidato-a-in-riqualificazione-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Quereinsteiger*in Abteilungsleitung Fleisch/Fisch",
       "location": "Landquart",
@@ -1522,9 +1559,9 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "candidato-a-in-riqualificazione-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-bellinzona",
+        "it": "candidato-a-in-riqualificazione-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart",
         "en": "head-of-department-meat-fish-genossenschaft-migros-ostschweiz-landquart",
-        "de": "quereinsteiger-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "quereinsteiger-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart",
         "fr": "chef-de-departement-viande-poisson-genossenschaft-migros-ostschweiz-landquart"
       },
       "sourceLang": "de",
@@ -1533,7 +1570,7 @@
           "quereinsteiger-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart",
           "candidato-a-in-riqualificazione-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart-gqels1",
           "capo-reparto-carne-pesce-genossenschaft-migros-ostschweiz-landquart",
-          "candidato-a-in-riqualificazione-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart"
+          "candidato-a-in-riqualificazione-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-bellinzona"
         ],
         "en": [
           "quereinsteiger-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart-gqels1"
@@ -1542,15 +1579,17 @@
           "quereinsteiger-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart-gqels1"
         ],
         "de": [
-          "quereinsteiger-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart-gqels1"
+          "quereinsteiger-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart-gqels1",
+          "quereinsteiger-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
         "quereinsteiger-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart",
         "candidato-a-in-riqualificazione-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart-gqels1",
         "capo-reparto-carne-pesce-genossenschaft-migros-ostschweiz-landquart",
-        "candidato-a-in-riqualificazione-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart",
-        "quereinsteiger-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart-gqels1"
+        "candidato-a-in-riqualificazione-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-bellinzona",
+        "quereinsteiger-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-landquart-gqels1",
+        "quereinsteiger-in-abteilungsleitung-fleisch-fisch-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1569,7 +1608,8 @@
       "addressLocality": "Landquart",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-x38a0r",
@@ -1639,17 +1679,21 @@
       "slugByLocale": {
         "it": "chef-de-service-genossenschaft-migros-ostschweiz-chur-x38a0r",
         "en": "head-of-department-genossenschaft-migros-ostschweiz-chur",
-        "de": "chef-de-service-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "chef-de-service-genossenschaft-migros-ostschweiz-chur",
         "fr": "le-chef-de-service-genossenschaft-migros-ostschweiz-bellinzona"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "chef-de-service-genossenschaft-migros-ostschweiz-chur"
+        ],
+        "de": [
+          "chef-de-service-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
-        "chef-de-service-genossenschaft-migros-ostschweiz-chur"
+        "chef-de-service-genossenschaft-migros-ostschweiz-chur",
+        "chef-de-service-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1668,11 +1712,12 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-fkakbw",
-      "slug": "candidato-a-in-riqualificazione-in-bediente-fleisch-e-kasetheke-genossenschaft-migros-ostschweiz-bellinzona",
+      "slug": "candidato-a-in-riqualificazione-in-bediente-fleisch-e-kasetheke-genossenschaft-migros-ostschweiz-davos-platz",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Quereinsteiger*in bediente Fleisch- und Käsetheke",
       "location": "Davos-Platz",
@@ -1736,9 +1781,9 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "candidato-a-in-riqualificazione-in-bediente-fleisch-e-kasetheke-genossenschaft-migros-ostschweiz-bellinzona",
+        "it": "candidato-a-in-riqualificazione-in-bediente-fleisch-e-kasetheke-genossenschaft-migros-ostschweiz-davos-platz",
         "en": "cross-starters-in-served-meat-and-cheese-counter-genossenschaft-migros-ostschweiz-davos-platz",
-        "de": "quereinsteiger-in-bediente-fleisch-und-kasetheke-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "quereinsteiger-in-bediente-fleisch-und-kasetheke-genossenschaft-migros-ostschweiz-davos-platz",
         "fr": "entrees-croisees-dans-un-comptoir-de-viande-et-de-fromage-genossenschaft-migros-ostschweiz-davos-platz"
       },
       "sourceLang": "de",
@@ -1747,7 +1792,7 @@
           "quereinsteiger-in-bediente-fleisch-und-kasetheke-genossenschaft-migros-ostschweiz-davos-platz",
           "candidato-a-in-riqualificazione-in-bediente-fleisch-e-kasetheke-genossenschaft-migros-ostschweiz-davos-platz-fkakbw",
           "antipasti-a-base-di-carne-e-formaggio-genossenschaft-migros-ostschweiz-davos-platz",
-          "candidato-a-in-riqualificazione-in-bediente-fleisch-e-kasetheke-genossenschaft-migros-ostschweiz-davos-platz"
+          "candidato-a-in-riqualificazione-in-bediente-fleisch-e-kasetheke-genossenschaft-migros-ostschweiz-bellinzona"
         ],
         "en": [
           "quereinsteiger-in-bediente-fleisch-und-kasetheke-genossenschaft-migros-ostschweiz-davos-platz-fkakbw"
@@ -1756,15 +1801,17 @@
           "quereinsteiger-in-bediente-fleisch-und-kasetheke-genossenschaft-migros-ostschweiz-davos-platz-fkakbw"
         ],
         "de": [
-          "quereinsteiger-in-bediente-fleisch-und-kasetheke-genossenschaft-migros-ostschweiz-davos-platz-fkakbw"
+          "quereinsteiger-in-bediente-fleisch-und-kasetheke-genossenschaft-migros-ostschweiz-davos-platz-fkakbw",
+          "quereinsteiger-in-bediente-fleisch-und-kasetheke-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
         "quereinsteiger-in-bediente-fleisch-und-kasetheke-genossenschaft-migros-ostschweiz-davos-platz",
         "candidato-a-in-riqualificazione-in-bediente-fleisch-e-kasetheke-genossenschaft-migros-ostschweiz-davos-platz-fkakbw",
         "antipasti-a-base-di-carne-e-formaggio-genossenschaft-migros-ostschweiz-davos-platz",
-        "candidato-a-in-riqualificazione-in-bediente-fleisch-e-kasetheke-genossenschaft-migros-ostschweiz-davos-platz",
-        "quereinsteiger-in-bediente-fleisch-und-kasetheke-genossenschaft-migros-ostschweiz-davos-platz-fkakbw"
+        "candidato-a-in-riqualificazione-in-bediente-fleisch-e-kasetheke-genossenschaft-migros-ostschweiz-bellinzona",
+        "quereinsteiger-in-bediente-fleisch-und-kasetheke-genossenschaft-migros-ostschweiz-davos-platz-fkakbw",
+        "quereinsteiger-in-bediente-fleisch-und-kasetheke-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1783,7 +1830,8 @@
       "addressLocality": "Davos-Platz",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-fbibo4",
@@ -1903,7 +1951,8 @@
       "addressLocality": "Martigny",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-jlrzns",
@@ -1972,7 +2021,7 @@
       "slugByLocale": {
         "it": "venditore-in-molkerei-genossenschaft-migros-ostschweiz-bellinzona",
         "en": "seller-in-molkerei-genossenschaft-migros-ostschweiz-chur-jlrzns",
-        "de": "verkaufer-in-molkerei-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "verkaufer-in-molkerei-genossenschaft-migros-ostschweiz-chur",
         "fr": "vendeur-a-molkerei-genossenschaft-migros-ostschweiz-chur-jlrzns"
       },
       "sourceLang": "de",
@@ -1982,12 +2031,14 @@
           "verkaufer-in-molkerei-genossenschaft-migros-ostschweiz-chur-jlrzns"
         ],
         "de": [
-          "verkaufer-in-molkerei-genossenschaft-migros-ostschweiz-chur-jlrzns"
+          "verkaufer-in-molkerei-genossenschaft-migros-ostschweiz-chur-jlrzns",
+          "verkaufer-in-molkerei-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-molkerei-genossenschaft-migros-ostschweiz-chur",
         "verkaufer-in-molkerei-genossenschaft-migros-ostschweiz-chur-jlrzns",
+        "verkaufer-in-molkerei-genossenschaft-migros-ostschweiz-bellinzona",
         "vendita-in-frutta-verdura-genossenschaft-migros-ostschweiz-landquart",
         "seller-in-fruits-vegetables-genossenschaft-migros-ostschweiz-landquart",
         "verkaufer-in-fruchte-gemuse-genossenschaft-migros-ostschweiz-bellinzona",
@@ -2013,11 +2064,12 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-sj7qf5",
-      "slug": "cambio-carriera-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-bellinzona",
+      "slug": "cambio-carriera-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-chur",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Quereinstieg Abteilungsleiter*in Brot/Backwaren",
       "location": "Chur",
@@ -2080,9 +2132,9 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "cambio-carriera-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-bellinzona",
+        "it": "cambio-carriera-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-chur",
         "en": "head-of-department-in-bread-baked-goods-genossenschaft-migros-ostschweiz-chur",
-        "de": "quereinstieg-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "quereinstieg-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-chur",
         "fr": "chef-de-departement-en-pain-cuisine-genossenschaft-migros-ostschweiz-chur"
       },
       "sourceLang": "de",
@@ -2092,7 +2144,7 @@
           "cambio-carriera-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-chur-sj7qf5",
           "capodipartimento-in-pane-pane-genossenschaft-migros-ostschweiz-chur",
           "capodipartimento-in-pane-pane-genossenschaft-migros-ostschweiz-bellinzona",
-          "cambio-carriera-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-chur"
+          "cambio-carriera-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-bellinzona"
         ],
         "en": [
           "quereinstieg-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-chur-sj7qf5"
@@ -2101,7 +2153,8 @@
           "quereinstieg-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-chur-sj7qf5"
         ],
         "de": [
-          "quereinstieg-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-chur-sj7qf5"
+          "quereinstieg-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-chur-sj7qf5",
+          "quereinstieg-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
@@ -2109,8 +2162,9 @@
         "cambio-carriera-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-chur-sj7qf5",
         "capodipartimento-in-pane-pane-genossenschaft-migros-ostschweiz-chur",
         "capodipartimento-in-pane-pane-genossenschaft-migros-ostschweiz-bellinzona",
-        "cambio-carriera-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-chur",
-        "quereinstieg-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-chur-sj7qf5"
+        "cambio-carriera-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-bellinzona",
+        "quereinstieg-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-chur-sj7qf5",
+        "quereinstieg-abteilungsleiter-in-brot-backwaren-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2129,7 +2183,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-cy61c",
@@ -2202,7 +2257,7 @@
       "slugByLocale": {
         "it": "insegnamento-e-disegno-acrylmals-squarelling-nel-salario-orario-genossenschaft-migros-ostschweiz-chur",
         "en": "teaching-and-drawing-acrylmals-squarelling-in-hourly-wage-genossenschaft-migros-ostschweiz-chur",
-        "de": "lehrperson-malen-und-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "lehrperson-malen-und-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-chur",
         "fr": "enseignement-et-dessin-acrylmals-carre-horaire-genossenschaft-migros-ostschweiz-chur"
       },
       "sourceLang": "de",
@@ -2218,13 +2273,15 @@
           "lehrperson-malen-und-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-0cy61c"
         ],
         "de": [
-          "lehrperson-malen-und-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-0cy61c"
+          "lehrperson-malen-und-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-0cy61c",
+          "lehrperson-malen-und-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
         "lehrperson-malen-und-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-chur",
         "lehrperson-malen-e-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-0cy61c",
         "lehrperson-malen-und-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-chur-0cy61c",
+        "lehrperson-malen-und-zeichnen-acrylmalen-aquarellieren-im-stundenlohn-genossenschaft-migros-ostschweiz-bellinzona",
         "insegnamento-e-disegno-acrylmals-squarelling-nel-salario-orario-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
@@ -2244,7 +2301,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-xmuu57",
@@ -2312,7 +2370,7 @@
       "slugByLocale": {
         "it": "cibo-genossenschaft-migros-ostschweiz-bellinzona",
         "en": "food-genossenschaft-migros-ostschweiz-bellinzona",
-        "de": "abendaushilfe-food-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "abendaushilfe-food-genossenschaft-migros-ostschweiz-samedan",
         "fr": "produits-alimentaires-genossenschaft-migros-ostschweiz-samedan"
       },
       "sourceLang": "de",
@@ -2325,12 +2383,14 @@
           "abendaushilfe-food-genossenschaft-migros-ostschweiz-samedan-xmuu57"
         ],
         "de": [
-          "abendaushilfe-food-genossenschaft-migros-ostschweiz-samedan-xmuu57"
+          "abendaushilfe-food-genossenschaft-migros-ostschweiz-samedan-xmuu57",
+          "abendaushilfe-food-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
         "abendaushilfe-food-genossenschaft-migros-ostschweiz-samedan",
-        "abendaushilfe-food-genossenschaft-migros-ostschweiz-samedan-xmuu57"
+        "abendaushilfe-food-genossenschaft-migros-ostschweiz-samedan-xmuu57",
+        "abendaushilfe-food-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2349,7 +2409,8 @@
       "addressLocality": "Samedan",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-r4ocfw",
@@ -2422,7 +2483,7 @@
       "slugByLocale": {
         "it": "quereinsteiger-in-carne-pesce-e-contatore-di-formaggio-genossenschaft-migros-ostschweiz-chur",
         "en": "quereinsteiger-in-served-meat-fish-and-cheese-counter-genossenschaft-migros-ostschweiz-chur",
-        "de": "quereinsteiger-in-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "quereinsteiger-in-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-chur",
         "fr": "quereinsteiger-in-viande-servie-comptoir-poisson-et-fromage-genossenschaft-migros-ostschweiz-chur"
       },
       "sourceLang": "de",
@@ -2438,13 +2499,15 @@
           "quereinsteiger-in-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-chur-r4ocfw"
         ],
         "de": [
-          "quereinsteiger-in-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-chur-r4ocfw"
+          "quereinsteiger-in-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-chur-r4ocfw",
+          "quereinsteiger-in-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
         "quereinsteiger-in-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-chur",
         "candidato-a-in-riqualificazione-in-bediente-fleisch-fisch-e-kasetheke-genossenschaft-migros-ostschweiz-chur-r4ocfw",
         "quereinsteiger-in-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-chur-r4ocfw",
+        "quereinsteiger-in-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-bellinzona",
         "quereinsteiger-in-carne-pesce-e-contatore-di-formaggio-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
@@ -2464,7 +2527,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-u2uuy",
@@ -2535,7 +2599,7 @@
       "slugByLocale": {
         "it": "contatori-di-carne-pesce-e-formaggio-serviti-nella-gestione-della-zona-genossenschaft-migros-ostschweiz-chur",
         "en": "cross-administration-meat-fish-and-cheese-counters-served-in-area-management-genossenschaft-migros-ostschweiz-chur",
-        "de": "quereinsteiger-in-bereichsleitung-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-bellinzona",
+        "de": "quereinsteiger-in-bereichsleitung-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-chur",
         "fr": "administration-croisee-comptoirs-de-viande-poisson-et-fromage-servis-dans-la-gestion-de-la-zone-genossenschaft-migros-os"
       },
       "sourceLang": "de",
@@ -2551,13 +2615,15 @@
           "quereinsteiger-in-bereichsleitung-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-chur-0u2uuy"
         ],
         "de": [
-          "quereinsteiger-in-bereichsleitung-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-chur-0u2uuy"
+          "quereinsteiger-in-bereichsleitung-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-chur-0u2uuy",
+          "quereinsteiger-in-bereichsleitung-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-bellinzona"
         ]
       },
       "previousSlugs": [
         "quereinsteiger-in-bereichsleitung-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-chur",
         "candidato-a-in-riqualificazione-in-bereichsleitung-bediente-fleisch-fisch-e-kasetheke-genossenschaft-migros-ostschweiz-chur-0u2uuy",
         "quereinsteiger-in-bereichsleitung-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-chur-0u2uuy",
+        "quereinsteiger-in-bereichsleitung-bediente-fleisch-fisch-und-kasetheke-genossenschaft-migros-ostschweiz-bellinzona",
         "contatori-di-carne-pesce-e-formaggio-serviti-nella-gestione-della-zona-genossenschaft-migros-ostschweiz-bellinzona"
       ],
       "salaryMin": 49500,
@@ -2577,7 +2643,8 @@
       "addressLocality": "Chur",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-7s6gs1",
@@ -2695,7 +2762,8 @@
       "addressLocality": "Martigny",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-nlbz63",
@@ -2801,11 +2869,12 @@
           "pilates-reformer-und-cadillac-lehrer-f-m-d-scuola-club-bellinzona-scuola-club-migros-belli"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-cewp3w",
-      "slug": "consulente-clienti-privati-tutti-generi-banca-migros-bellinzona",
+      "slug": "consulente-clienti-privati-tutti-generi-banca-migros-lugano",
       "company": "Banca Migros",
       "title": "Consulente Clienti privati (tutti generi)",
       "location": "Lugano",
@@ -2849,7 +2918,7 @@
       "companyDomain": "migros.ch",
       "crawledAt": "2026-03-31T21:31:33.102Z",
       "slugByLocale": {
-        "it": "consulente-clienti-privati-tutti-generi-banca-migros-bellinzona",
+        "it": "consulente-clienti-privati-tutti-generi-banca-migros-lugano",
         "en": "private-client-consultant-banca-migros-lugano",
         "de": "kundendienstberater-banca-migros-lugano",
         "fr": "conseiller-client-banca-migros-lugano"
@@ -2901,11 +2970,13 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w"
+        "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w",
+        "consulente-clienti-privati-tutti-generi-banca-migros-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w"
+          "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w",
+          "consulente-clienti-privati-tutti-generi-banca-migros-bellinzona"
         ],
         "en": [
           "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w"
@@ -2917,7 +2988,8 @@
           "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-2ai39p",
@@ -3021,7 +3093,6 @@
         "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano",
         "tai-chi-lehrer-m-w-d-scuola-club-lugano-scuola-club-migros-lugano",
         "instructeur-tai-chi-h-f-d-ecole-club-lugano-scuola-club-migros-lugano",
-        "tai-chi-teacher-m-f-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p",
         "tai-chi-teacher-m-f-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p"
       ],
       "previousSlugsByLocale": {
@@ -3054,7 +3125,8 @@
           "enseignant-cardio-h-f-d-scuola-club-lugano-scuola-club-migros-lugano"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:31:33.102Z"
+      "firstSeenAt": "2026-03-31T21:31:33.102Z",
+      "needsRetranslation": true
     }
   ]
 }
