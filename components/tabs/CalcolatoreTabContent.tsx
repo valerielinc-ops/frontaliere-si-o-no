@@ -169,8 +169,10 @@ export default function CalcolatoreTabContent() {
  </div>
  </div>
 
- {/* Mobile: widgets below results — stable outer div prevents CLS during skeleton→real swap */}
- <div className="md:hidden space-y-2 mt-6 min-h-[160px]">
+ {/* Mobile: widgets below results — stable outer div prevents CLS during skeleton→real swap.
+     Inline style mirrors min-h-[160px] so the reservation applies even if Tailwind utility
+     hasn't loaded yet (async CSS). Without it, deferred widgets cause +0.16 CLS on mobile. */}
+ <div className="md:hidden space-y-2 mt-6 min-h-[160px]" style={{ minHeight: 160 }}>
  {showDeferredHomeWidgets ? (
  // Same as desktop: contain render errors in mobile home widgets so a
  // failure does not blank the homepage on small screens. The whole
