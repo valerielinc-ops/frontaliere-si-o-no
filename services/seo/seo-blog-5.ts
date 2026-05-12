@@ -35915,6 +35915,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-orchestra-le-nove-lugano-bellinzona': {
+    title: 'Orchestra Le Nove: concerti a Lugano e Bellinzona a maggio',
+    description: 'L\'Orchestra Le Nove porta Tchaikovsky a Lugano e Bellinzona il 16 e 18 maggio 2026. Dettagli su date, sedi e programma per gli appassionati di musica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, orchestra, nove, concerti, lugano',
+    ogTitle: 'Orchestra Le Nove: concerti a Lugano e Bellinzona a maggio',
+    ogDescription: 'L\'Orchestra Le Nove porta Tchaikovsky a Lugano e Bellinzona il 16 e 18 maggio 2026. Dettagli su date, sedi e programma.',
+    canonicalPath: '/articoli-frontaliere/orchestra-le-nove-lugano-bellinzona',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Orchestra Le Nove: concerti a Lugano e Bellinzona a maggio",
+      "description": "L'Orchestra Le Nove porta Tchaikovsky a Lugano e Bellinzona il 16 e 18 maggio 2026. Dettagli su date, sedi e programma per gli appassionati di musica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/orchestra-le-nove-lugano-bellinzona.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Interno della Chiesa Evangelica di Lugano durante un evento culturale"
+      },
+      "datePublished": "2026-05-12T08:37:29+00:00",
+      "dateModified": "2026-05-12T08:37:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/orchestra-le-nove-lugano-bellinzona`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

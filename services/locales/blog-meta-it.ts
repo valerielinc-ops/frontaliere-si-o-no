@@ -7466,6 +7466,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.temporali-grandine-varesotto-allerta-meteo.title': 'Allerta meteo per temporali e grandine nel varesotto',
     'blog.article.temporali-grandine-varesotto-allerta-meteo.excerpt': 'Si alza l\'allerta meteo per vento forte nella provincia di Varese.',
     'blog.article.temporali-grandine-varesotto-allerta-meteo.imageAlt': 'Una scena tempestosa sul Lago di Lugano con nuvole scure.',
+    'blog.article.orchestra-le-nove-lugano-bellinzona.title': 'Orchestra Le Nove: concerti a Lugano e Bellinzona a maggio',
+    'blog.article.orchestra-le-nove-lugano-bellinzona.excerpt': 'L\'Orchestra Le Nove porta Tchaikovsky a Lugano e Bellinzona il 16 e 18 maggio 2026. Ecco i dettagli sui programmi e le sedi dei concerti.',
+    'blog.article.orchestra-le-nove-lugano-bellinzona.imageAlt': 'Interno della Chiesa Evangelica di Lugano durante un evento culturale',
 };
 
 export default blogMetaIt;

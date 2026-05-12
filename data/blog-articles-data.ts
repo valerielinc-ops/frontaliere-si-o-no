@@ -23771,4 +23771,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'orchestra-le-nove-lugano-bellinzona',
+ category: 'pratico',
+ date: '2026-05-12T08:37:29.028Z',
+ image: '/images/blog/orchestra-le-nove-lugano-bellinzona.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

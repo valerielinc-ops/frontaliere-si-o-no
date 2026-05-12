@@ -7465,6 +7465,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.temporali-grandine-varesotto-allerta-meteo.title': 'Weather alert for storms and hail in Varese area',
     'blog.article.temporali-grandine-varesotto-allerta-meteo.excerpt': 'Weather alert raised for strong winds in Varese province.',
     'blog.article.temporali-grandine-varesotto-allerta-meteo.imageAlt': 'A stormy scene over Lake Lugano with dark clouds.',
+    'blog.article.orchestra-le-nove-lugano-bellinzona.title': 'Orchestra Le Nove: May concerts in Lugano and Bellinzona',
+    'blog.article.orchestra-le-nove-lugano-bellinzona.excerpt': 'Orchestra Le Nove performs Tchaikovsky in Lugano and Bellinzona on May 16 and 18, 2026. Here are the details on the programs and concert venues.',
+    'blog.article.orchestra-le-nove-lugano-bellinzona.imageAlt': 'Interior of the Evangelical Church in Lugano during a cultural event',
 };
 
 export default blogMetaEn;

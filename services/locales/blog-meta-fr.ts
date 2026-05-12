@@ -7466,6 +7466,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.temporali-grandine-varesotto-allerta-meteo.title': 'Alerte météo : orages et grêle dans la région de Varèse',
     'blog.article.temporali-grandine-varesotto-allerta-meteo.excerpt': 'L\'alerte météo est relevée en raison de vents violents dans la province de Varèse.',
     'blog.article.temporali-grandine-varesotto-allerta-meteo.imageAlt': 'Une scène orageuse sur le lac de Lugano avec des nuages sombres.',
+    'blog.article.orchestra-le-nove-lugano-bellinzona.title': 'Orchestre Le Nove : concerts à Lugano et Bellinzona en mai',
+    'blog.article.orchestra-le-nove-lugano-bellinzona.excerpt': 'L\'Orchestre Le Nove présente Tchaïkovski à Lugano et Bellinzona les 16 et 18 mai 2026. Voici les détails des programmes et des lieux des concerts.',
+    'blog.article.orchestra-le-nove-lugano-bellinzona.imageAlt': 'Intérieur de l\'église évangélique de Lugano lors d\'un événement culturel',
 };
 
 export default blogMetaFr;

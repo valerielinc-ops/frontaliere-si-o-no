@@ -3731,6 +3731,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-temporali-grandine-luganese-11-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/temporali-grandine-luganese-11-maggio-2026', parent: 'blog' },
     'blog-direttrice-unispital-zurigo-whistleblower': { name: 'Novità', path: '/articoli-frontaliere/direttrice-unispital-zurigo-whistleblower', parent: 'blog' },
     'blog-temporali-grandine-varesotto-allerta-meteo': { name: 'Allerta meteo', path: '/articoli-frontaliere/temporali-grandine-varesotto-allerta-meteo', parent: 'blog' },
+    'blog-orchestra-le-nove-lugano-bellinzona': { name: 'Orchestra Le Nove concerti', path: '/articoli-frontaliere/orchestra-le-nove-lugano-bellinzona', parent: 'blog' },
  };
 
  const info = sectionNames[section];
