@@ -1,0 +1,40 @@
+{
+  "id": "luino-pd-frontalieri-2026",
+  "slug": "luino-pd-frontalieri-2026",
+  "publishedAt": "2026-05-12T11:19:33.526Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "wp-search:malpensa24.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 15.208970695092997,
+    "confidence": 0.8,
+    "finalScore": 12.167176556074399,
+    "topK": [
+      {
+        "slug": "sicurezza-frontalieri-ticino-2024",
+        "cosine": 0.8449428163940554
+      },
+      {
+        "slug": "sindacati-ticino-1-maggio-2026",
+        "cosine": 0.8413711039635
+      },
+      {
+        "slug": "frontalieri-salari-dibattito-ticino",
+        "cosine": 0.8398652525191237
+      },
+      {
+        "slug": "confine-tesissimo-assegni-familiari",
+        "cosine": 0.8398375235645201
+      },
+      {
+        "slug": "accuse-svizzera-italia-2026",
+        "cosine": 0.8396439387829783
+      }
+    ],
+    "score": 12.167176556074399,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

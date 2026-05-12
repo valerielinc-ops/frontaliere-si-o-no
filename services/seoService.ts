@@ -3732,6 +3732,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-direttrice-unispital-zurigo-whistleblower': { name: 'Novità', path: '/articoli-frontaliere/direttrice-unispital-zurigo-whistleblower', parent: 'blog' },
     'blog-temporali-grandine-varesotto-allerta-meteo': { name: 'Allerta meteo', path: '/articoli-frontaliere/temporali-grandine-varesotto-allerta-meteo', parent: 'blog' },
     'blog-orchestra-le-nove-lugano-bellinzona': { name: 'Orchestra Le Nove concerti', path: '/articoli-frontaliere/orchestra-le-nove-lugano-bellinzona', parent: 'blog' },
+    'blog-luino-pd-frontalieri-2026': { name: 'Luino, il Pd: «La destra si accanisce sui', path: '/articoli-frontaliere/luino-pd-frontalieri-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

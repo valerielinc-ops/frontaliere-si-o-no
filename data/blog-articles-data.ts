@@ -23780,4 +23780,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'luino-pd-frontalieri-2026',
+ category: 'fiscale',
+ date: '2026-05-12T11:19:31.916Z',
+ image: '/images/blog/luino-pd-frontalieri-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

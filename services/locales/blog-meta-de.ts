@@ -7467,6 +7467,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.orchestra-le-nove-lugano-bellinzona.title': 'Orchestra Le Nove: Konzerte in Lugano und Bellinzona',
     'blog.article.orchestra-le-nove-lugano-bellinzona.excerpt': 'Das Orchestra Le Nove bringt am 16. und 18. Mai 2026 Tschaikowski nach Lugano und Bellinzona. Hier finden Sie alle Details zu den Programmen und Veranstaltungsorten.',
     'blog.article.orchestra-le-nove-lugano-bellinzona.imageAlt': 'Innenansicht der Evangelischen Kirche in Lugano bei einer Kulturveranstaltung',
+    'blog.article.luino-pd-frontalieri-2026.title': 'Luino: Pd kritisiert rechte Frontalieri-Politik',
+    'blog.article.luino-pd-frontalieri-2026.excerpt': 'Die Pd kritisiert die fiskal- und gesundheitspolitischen Entscheidungen der rechten für die Frontalieri.',
+    'blog.article.luino-pd-frontalieri-2026.imageAlt': 'Lugano aus dem See',
 };
 
 export default blogMetaDe;

@@ -7468,6 +7468,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.orchestra-le-nove-lugano-bellinzona.title': 'Orchestra Le Nove: May concerts in Lugano and Bellinzona',
     'blog.article.orchestra-le-nove-lugano-bellinzona.excerpt': 'Orchestra Le Nove performs Tchaikovsky in Lugano and Bellinzona on May 16 and 18, 2026. Here are the details on the programs and concert venues.',
     'blog.article.orchestra-le-nove-lugano-bellinzona.imageAlt': 'Interior of the Evangelical Church in Lugano during a cultural event',
+    'blog.article.luino-pd-frontalieri-2026.title': 'Luino: Pd Criticizes Centrodestra Policies for Cross-Border Workers',
+    'blog.article.luino-pd-frontalieri-2026.excerpt': 'The Pd criticizes the centrodestra\'s fiscal and healthcare policies for cross-border workers.',
+    'blog.article.luino-pd-frontalieri-2026.imageAlt': 'Lugano view from the lake',
 };
 
 export default blogMetaEn;

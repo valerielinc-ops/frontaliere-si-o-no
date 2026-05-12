@@ -7469,6 +7469,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.orchestra-le-nove-lugano-bellinzona.title': 'Orchestra Le Nove: concerti a Lugano e Bellinzona a maggio',
     'blog.article.orchestra-le-nove-lugano-bellinzona.excerpt': 'L\'Orchestra Le Nove porta Tchaikovsky a Lugano e Bellinzona il 16 e 18 maggio 2026. Ecco i dettagli sui programmi e le sedi dei concerti.',
     'blog.article.orchestra-le-nove-lugano-bellinzona.imageAlt': 'Interno della Chiesa Evangelica di Lugano durante un evento culturale',
+    'blog.article.luino-pd-frontalieri-2026.title': 'Luino, il Pd: \'Destra accanisce sui frontalieri\'.',
+    'blog.article.luino-pd-frontalieri-2026.excerpt': 'Il Pd critica le politiche fiscali e sanitarie del centrodestra per i frontalieri.',
+    'blog.article.luino-pd-frontalieri-2026.imageAlt': 'Lugano vista dal lago',
 };
 
 export default blogMetaIt;
