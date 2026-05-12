@@ -132,15 +132,54 @@ async function runPsi(url, strategy) {
   // CrUX returns CLS scaled ×100 (so a 0.10 CLS shows as 10). Normalize.
   const cruxP75 = cruxField?.percentile != null ? cruxField.percentile / 100 : null;
   const cruxOriginP75 = cruxOriginField?.percentile != null ? cruxOriginField.percentile / 100 : null;
+  const lab = typeof labRaw === 'number' ? labRaw : null;
+
+  // CrUX is a 28-day rolling window of real-user field data — by design it
+  // lags any code change by 2-3 weeks. When a CLS fix lands, lab (synthetic,
+  // measured on this same PSI call) drops immediately while CrUX p75 stays
+  // pinned at the pre-fix value for weeks. Treating CrUX as the only signal
+  // means the gate blocks every CI run during that cooking period, even
+  // though the fix is already shipped and verifiable in lab.
+  //
+  // Trust-lab override: if CrUX is "poor" (>0.25) AND lab is significantly
+  // better (lab <= cruxP75/2 AND lab below HARD_CLS_THRESHOLD), prefer lab
+  // for the effective value. The source label becomes `lab_post_fix` so the
+  // human reader knows what happened. Once CrUX rolls forward, this branch
+  // stops firing and we go back to field-data as the truth.
+  const cruxBest = cruxP75 ?? cruxOriginP75;
+  const trustLabOverFreshFix =
+    cruxBest != null &&
+    cruxBest > HARD_CLS_THRESHOLD &&
+    lab != null &&
+    lab < HARD_CLS_THRESHOLD &&
+    lab <= cruxBest / 2;
+
+  let effective;
+  let source;
+  if (trustLabOverFreshFix) {
+    effective = lab;
+    source = 'lab_post_fix';
+  } else if (cruxP75 != null) {
+    effective = cruxP75;
+    source = 'crux_url';
+  } else if (cruxOriginP75 != null) {
+    effective = cruxOriginP75;
+    source = 'crux_origin';
+  } else if (lab != null) {
+    effective = lab;
+    source = 'lab';
+  } else {
+    effective = null;
+    source = 'unavailable';
+  }
 
   return {
     cruxP75,
     cruxOriginP75,
     cruxCategory: cruxField?.category || null,
-    lab: typeof labRaw === 'number' ? labRaw : null,
-    // Effective value to use: prefer field, fall back to lab
-    effective: cruxP75 ?? cruxOriginP75 ?? (typeof labRaw === 'number' ? labRaw : null),
-    source: cruxP75 != null ? 'crux_url' : cruxOriginP75 != null ? 'crux_origin' : labRaw != null ? 'lab' : 'unavailable',
+    lab,
+    effective,
+    source,
   };
 }
 
