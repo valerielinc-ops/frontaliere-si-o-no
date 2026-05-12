@@ -248,18 +248,18 @@ function renderEntry(entry: FaqHubEntry, locale: FaqHubLocale): string {
   const related = entry.relatedLinks ?? [];
   const relatedHtml =
     related.length > 0
-      ? `<ul style="margin:10px 0 0;padding:0 0 0 18px;color:var(--text-base,#0f172a);font-size:13px;line-height:1.55">${related
+      ? `<ul class="fh-rel">${related
           .map(
             (l) =>
-              `<li><a href="${esc(l.href)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(
+              `<li><a href="${esc(l.href)}" class="fh-lnk">${esc(
                 l.label[locale],
               )}</a></li>`,
           )
           .join('')}</ul>`
       : '';
-  return `<article id="${esc(entry.id)}" style="margin:0 0 14px;padding:16px 18px;border:1px solid var(--surface-border,#e2e8f0);border-radius:12px;background:var(--surface,#ffffff);scroll-margin-top:96px">
-  <h3 style="margin:0 0 10px;font-size:17px;line-height:1.4;color:var(--text-base,#0f172a)">${esc(q)}</h3>
-  <p style="margin:0;color:var(--text-base,#0f172a);line-height:1.65">${mdLinks(a)}</p>
+  return `<article id="${esc(entry.id)}" class="fh-q">
+  <h3 class="fh-qt">${esc(q)}</h3>
+  <p class="fh-qa">${mdLinks(a)}</p>
   ${relatedHtml}
 </article>`;
 }
@@ -271,8 +271,8 @@ function renderCategorySection(
   const entries = getFaqHubByCategory(category);
   const label = FAQ_HUB_CATEGORY_LABELS[category][locale];
   const body = entries.map((e) => renderEntry(e, locale)).join('');
-  const html = `<section id="cat-${esc(category)}" style="margin:0 0 36px;scroll-margin-top:96px">
-  <h2 data-speakable style="margin:0 0 14px;font-size:22px;color:var(--text-base,#0f172a);border-bottom:2px solid var(--surface-border,#e2e8f0);padding-bottom:8px">${esc(label)}</h2>
+  const html = `<section id="cat-${esc(category)}" class="fh-cat">
+  <h2 data-speakable class="fh-cath">${esc(label)}</h2>
   ${body}
 </section>`;
   return { html, entries };
@@ -281,11 +281,11 @@ function renderCategorySection(
 function renderToc(locale: FaqHubLocale, copy: FaqHubCopy): string {
   const items = FAQ_HUB_CATEGORIES.map((cat) => {
     const label = FAQ_HUB_CATEGORY_LABELS[cat][locale];
-    return `<li style="margin:0 0 6px"><a href="#cat-${esc(cat)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(label)}</a> <span style="color:var(--text-muted,#475569);font-size:13px">(10)</span></li>`;
+    return `<li class="fh-toci"><a href="#cat-${esc(cat)}" class="fh-lnk">${esc(label)}</a> <span class="fh-tocc">(10)</span></li>`;
   }).join('');
-  return `<nav aria-label="${esc(copy.tocTitle)}" style="margin:0 0 28px;padding:16px 20px;border:1px solid var(--surface-border,#e2e8f0);border-radius:12px;background:var(--surface-alt,#f8fafc)">
-  <h2 style="margin:0 0 12px;font-size:18px;color:var(--text-base,#0f172a)">${esc(copy.tocTitle)}</h2>
-  <ul style="margin:0;padding:0 0 0 18px;color:var(--text-base,#0f172a);line-height:1.65">${items}</ul>
+  return `<nav aria-label="${esc(copy.tocTitle)}" class="fh-toc">
+  <h2 class="fh-toch">${esc(copy.tocTitle)}</h2>
+  <ul class="fh-tocl">${items}</ul>
 </nav>`;
 }
 
@@ -293,10 +293,10 @@ function renderRelatedLinks(copy: FaqHubCopy): string {
   const items = copy.relatedLinks
     .map(
       (l) =>
-        `<li style="margin:0 0 8px"><a href="${esc(l.href)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(l.label)}</a></li>`,
+        `<li class="fh-rli"><a href="${esc(l.href)}" class="fh-lnk">${esc(l.label)}</a></li>`,
     )
     .join('');
-  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:22px;color:var(--text-base,#0f172a)">${esc(copy.relatedTitle)}</h2><ul style="margin:0;padding:0 0 0 20px;color:var(--text-base,#0f172a);line-height:1.6;max-width:860px">${items}</ul></section>`;
+  return `<section class="fh-rls"><h2 class="fh-rlh">${esc(copy.relatedTitle)}</h2><ul class="fh-rll">${items}</ul></section>`;
 }
 
 // ── Page rendering ───────────────────────────────────────────────
@@ -335,37 +335,37 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
 
   const tldrHtml = copy.tldrParagraphs
     .map(
-      (p) => `<p style="margin:0 0 14px;color:var(--text-base,#0f172a);line-height:1.7;max-width:860px">${esc(p)}</p>`,
+      (p) => `<p class="fh-tldp">${esc(p)}</p>`,
     )
     .join('');
 
   const body = `
-    <nav style="margin:0 0 14px;font-size:13px;color:var(--text-muted,#475569)" aria-label="Breadcrumb">
-      <a href="${esc(homeUrl)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(copy.breadcrumbHome)}</a>
+    <nav class="fh-bc" aria-label="Breadcrumb">
+      <a href="${esc(homeUrl)}" class="fh-lnk">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>
-      <a href="${esc(hubParentUrl)}" style="color:var(--link,#1d4ed8);text-decoration:none">${esc(copy.breadcrumbHub)}</a>
+      <a href="${esc(hubParentUrl)}" class="fh-lnk">${esc(copy.breadcrumbHub)}</a>
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
-    <header style="margin-bottom:24px">
-      <p style="margin:0 0 8px;color:var(--accent,#4f46e5);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
+    <header class="fh-hd">
+      <p class="fh-eyebrow">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
       <!-- Demoted from <h1> to <h2> in Phase 4C: hubChrome's hero already emits
            the page's primary <h1>, and Semrush W6 / Issue 104 flagged the
            FAQ + comparisons hubs for shipping two H1 tags. The body heading
            remains the most descriptive copy for the page topic. -->
-      <h2 style="margin:0 0 16px;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.15;font-weight:800">${esc(copy.h1)}</h2>
+      <h2 class="fh-h1">${esc(copy.h1)}</h2>
     </header>
-    <section style="margin:0 0 24px" data-speakable aria-label="TL;DR">
-      <h2 style="margin:0 0 12px;font-size:22px;color:var(--text-base,#0f172a)">${esc(copy.tldrTitle)}</h2>
+    <section class="fh-tldr" data-speakable aria-label="TL;DR">
+      <h2 class="fh-tldh">${esc(copy.tldrTitle)}</h2>
       ${tldrHtml}
     </section>
     ${renderToc(locale, copy)}
     ${sections.join('\n')}
-    <p style="margin:0 0 20px;color:var(--text-muted,#475569);font-size:13px;line-height:1.55;max-width:860px">${esc(copy.disclaimer)}</p>
+    <p class="fh-disc">${esc(copy.disclaimer)}</p>
     ${renderRelatedLinks(copy)}
   `;
 
-  const bodyHtml = `<main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--text-base,#0f172a);background:var(--bg,#f8fafc)">${body}</main>`;
+  const bodyHtml = `<main class="seo-static-content fh-main">${body}</main>`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = JSON.stringify({
@@ -428,7 +428,15 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
     },
   });
 
-  const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
+  // Inline CSS for the FAQ hub static body. Extracted from per-element
+  // `style="…"` attrs to keep the rendered HTML under the 200 KB page-weight
+  // gate (100 Q&A × ~60 bytes of repeated wrapper styles = ~6 KB; the full
+  // set of repeated styles saves ~38 KB per page). Visual output is
+  // byte-identical to the previous inline-style version.
+  const faqHubStyle = `    <style>.fh-main{max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--text-base,#0f172a);background:var(--bg,#f8fafc)}.fh-bc{margin:0 0 14px;font-size:13px;color:var(--text-muted,#475569)}.fh-lnk{color:var(--link,#1d4ed8);text-decoration:none}.fh-hd{margin-bottom:24px}.fh-eyebrow{margin:0 0 8px;color:var(--accent,#4f46e5);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}.fh-h1{margin:0 0 16px;font-size:clamp(1.9rem,4vw,2.6rem);line-height:1.15;font-weight:800}.fh-tldr{margin:0 0 24px}.fh-tldh{margin:0 0 12px;font-size:22px;color:var(--text-base,#0f172a)}.fh-tldp{margin:0 0 14px;color:var(--text-base,#0f172a);line-height:1.7;max-width:860px}.fh-toc{margin:0 0 28px;padding:16px 20px;border:1px solid var(--surface-border,#e2e8f0);border-radius:12px;background:var(--surface-alt,#f8fafc)}.fh-toch{margin:0 0 12px;font-size:18px;color:var(--text-base,#0f172a)}.fh-tocl{margin:0;padding:0 0 0 18px;color:var(--text-base,#0f172a);line-height:1.65}.fh-toci{margin:0 0 6px}.fh-tocc{color:var(--text-muted,#475569);font-size:13px}.fh-cat{margin:0 0 36px;scroll-margin-top:96px}.fh-cath{margin:0 0 14px;font-size:22px;color:var(--text-base,#0f172a);border-bottom:2px solid var(--surface-border,#e2e8f0);padding-bottom:8px}.fh-q{margin:0 0 14px;padding:16px 18px;border:1px solid var(--surface-border,#e2e8f0);border-radius:12px;background:var(--surface,#ffffff);scroll-margin-top:96px}.fh-qt{margin:0 0 10px;font-size:17px;line-height:1.4;color:var(--text-base,#0f172a)}.fh-qa{margin:0;color:var(--text-base,#0f172a);line-height:1.65}.fh-rel{margin:10px 0 0;padding:0 0 0 18px;color:var(--text-base,#0f172a);font-size:13px;line-height:1.55}.fh-disc{margin:0 0 20px;color:var(--text-muted,#475569);font-size:13px;line-height:1.55;max-width:860px}.fh-rls{margin:0 0 28px}.fh-rlh{margin:0 0 12px;font-size:22px;color:var(--text-base,#0f172a)}.fh-rll{margin:0;padding:0 0 0 20px;color:var(--text-base,#0f172a);line-height:1.6;max-width:860px}.fh-rli{margin:0 0 8px}</style>`;
+
+  const extraHead = `${faqHubStyle}
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
