@@ -1,6 +1,6 @@
 {
   "crawlerKey": "amministrazione-cantonale-ti",
-  "assembledAt": "2026-05-12T09:21:02.262Z",
+  "assembledAt": "2026-05-12T12:12:01.652Z",
   "jobs": [
     {
       "id": "company-213ibk",
@@ -314,7 +314,8 @@
       "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213ibo",
@@ -632,7 +633,8 @@
       "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213icl",
@@ -712,7 +714,8 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213ick",
@@ -1264,7 +1267,8 @@
           "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-men-213j0m"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:48:48.088Z"
+      "firstSeenAt": "2026-03-31T21:48:48.088Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0g",
@@ -1287,9 +1291,9 @@
       "crawledAt": "2026-03-31T21:48:48.088Z",
       "slugByLocale": {
         "it": "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazio",
-        "en": "general-physician-assistant-competition-2026-amministrazione-cantonale-ticino-bellinzona",
+        "en": "general-physician-assistant-competition-2026-amministrazione-cantonale-ticino-mendrisio",
         "de": "wettbewerb-fur-die-stelle-eines-allgemeinen-assistenzarztes-2026-amministrazione-cantonale-ticino-mendrisio",
-        "fr": "concours-pour-le-poste-d-assistant-medical-general-2026-amministrazione-cantonale-ticino-bellinzona"
+        "fr": "concours-pour-le-poste-d-assistant-medical-general-2026-amministrazione-cantonale-ticino-mendrisio"
       },
       "titleByLocale": {
         "it": "Concorso generale 2026 Medici assistenti presso l’Organizzazione sociopsichiatrica cantonale (OSC), Mendrisio",
@@ -1309,7 +1313,8 @@
         "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino--213j0g",
         "general-physician-assistant-competition-2026-amministrazione-cantonale-ticino-mendrisio",
         "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-sociopsichiatrica-cantonale-osc-m-213j0g",
-        "concours-pour-le-poste-d-assistant-medical-general-2026-amministrazione-cantonale-ticino-mendrisio",
+        "general-physician-assistant-competition-2026-amministrazione-cantonale-ticino-bellinzona",
+        "concours-pour-le-poste-d-assistant-medical-general-2026-amministrazione-cantonale-ticino-bellinzona",
         "wettbewerb-fur-die-stelle-eines-allgemeinen-assistenzarztes-2026-amministrazione-cantonale",
         "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-sociopsichiatrica-cantonale-osc-m",
         "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino-mendrisio",
@@ -1342,8 +1347,8 @@
         ],
         "en": [
           "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino--213j0g",
-          "general-physician-assistant-competition-2026-amministrazione-cantonale-ticino-mendrisio",
-          "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-sociopsichiatrica-cantonale-osc-m-213j0g"
+          "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-sociopsichiatrica-cantonale-osc-m-213j0g",
+          "general-physician-assistant-competition-2026-amministrazione-cantonale-ticino-bellinzona"
         ],
         "de": [
           "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino--213j0g",
@@ -1353,8 +1358,8 @@
         "fr": [
           "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino--213j0g",
           "general-physician-assistant-competition-2026-amministrazione-cantonale-ticino-mendrisio",
-          "concours-pour-le-poste-d-assistant-medical-general-2026-amministrazione-cantonale-ticino-mendrisio",
-          "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-sociopsichiatrica-cantonale-osc-m-213j0g"
+          "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-sociopsichiatrica-cantonale-osc-m-213j0g",
+          "concours-pour-le-poste-d-assistant-medical-general-2026-amministrazione-cantonale-ticino-bellinzona"
         ]
       },
       "firstSeenAt": "2026-03-31T21:48:48.088Z"
@@ -1438,7 +1443,8 @@
           "concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-iii-consulenti-telef-213zbv"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:48:48.088Z"
+      "firstSeenAt": "2026-03-31T21:48:48.088Z",
+      "needsRetranslation": true
     }
   ]
 }
