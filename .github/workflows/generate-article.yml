@@ -148,6 +148,17 @@ jobs:
         if: steps.changes.outputs.has_changes == 'true'
         run: node scripts/generate-image-thumbnails.mjs
 
+      # 2026-05-11 23:19 CEST commit c7c6ac6292 (cathedral redirect canton-inference)
+      # added non-optional `import jobsFile from '../data/jobs.json'` to
+      # build-plugins/legacyRedirectsPlugin.ts and build-plugins/shared/slugCantonIndex.ts.
+      # data/jobs.json is gitignored — it must be assembled at runtime before
+      # any `vite build` runs. Three articles (23:33, 00:05, 04:01 UTC on 2026-05-12)
+      # were generated successfully but LOST because build:prod could not resolve
+      # the import. Mirror the prepush hook's assemble step.
+      - name: Assemble jobs dataset (build prerequisite)
+        if: steps.changes.outputs.has_changes == 'true'
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
       - name: Build for production
         if: steps.changes.outputs.has_changes == 'true'
         env:
