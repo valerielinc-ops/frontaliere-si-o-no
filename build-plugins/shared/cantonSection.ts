@@ -81,8 +81,20 @@ export function resolveJobCanton(job: { canton?: string; location?: string }): s
   if (explicit && (cantons[explicit] || memberToGroup[explicit])) {
     return resolveCantonGroup(explicit);
   }
-  const city = normalizeCityKey(String(job.location || '')).split(/[,(]/)[0].trim();
-  if (city && CITY_TO_CANTON[city]) return resolveCantonGroup(CITY_TO_CANTON[city]);
+  const loc = normalizeCityKey(String(job.location || ''));
+  // 1) Try the full city up to the first comma/paren (handles "Lugano, TI" → "lugano").
+  const fullCity = loc.split(/[,(]/)[0].trim();
+  if (fullCity && CITY_TO_CANTON[fullCity]) return resolveCantonGroup(CITY_TO_CANTON[fullCity]);
+  // 2) Tokenize the remainder for compound locations like "Davos Klosters",
+  //    "Aesch ZH", "Biel Bienne", etc. Walk tokens and first match wins.
+  const tokens = loc.replace(/[(),]/g, ' ').split(/\s+/).filter(Boolean);
+  for (const token of tokens) {
+    if (CITY_TO_CANTON[token]) return resolveCantonGroup(CITY_TO_CANTON[token]);
+    // Bare two-letter canton code embedded in the location string
+    // (e.g. "Aesch ZH"). Cheap last-mile fallback before TI.
+    const up = token.toUpperCase();
+    if (cantons[up] || memberToGroup[up]) return resolveCantonGroup(up);
+  }
   return 'TI';
 }
 

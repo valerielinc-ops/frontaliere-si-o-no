@@ -911,6 +911,39 @@ function cantonHubIntro(locale: HubLocale, hub: CantonHubKind, cantonLabel: stri
   }[locale];
 }
 
+/**
+ * Long-form body copy for thin canton hubs. Lives below the items list to
+ * push the page over the 50-word floor enforced by validate-sitemap-pages
+ * for small cantons (Glarona / Uri / Svitto / Zugo / Neuchatel had only the
+ * employer-link grid + 1-sentence intro and tripped the gate). Stays short
+ * enough that the meta description (single sentence from cantonHubIntro)
+ * remains under the 160-char SERP truncation.
+ */
+function cantonHubBody(locale: HubLocale, hub: CantonHubKind, cantonLabel: string): string {
+  if (hub === 'tutti') {
+    return {
+      it: `Le offerte aggregate in questa pagina coprono tutti i settori e tutti i livelli di esperienza. Per i frontalieri il filtro "tutti i settori" è il punto di partenza più rapido per misurare la dimensione del mercato locale: il numero totale di offerte attive in ${cantonLabel} è un proxy della domanda di lavoro complessiva, mentre la composizione per azienda e per ruolo aiuta a capire dove conviene concentrare la candidatura. Aggiorniamo l'indice quotidianamente dalle fonti pubbliche dei datori e da feed ATS aperti, deduplicando le rinominazioni e gli annunci multi-sede.`,
+      en: `Aggregated openings on this page cover every sector and experience level. For Swiss-Italian cross-border workers the "all sectors" view is the fastest way to gauge market size: total active openings in ${cantonLabel} act as a proxy for overall demand, while the breakdown by employer and role highlights where applications are most likely to land. The index is refreshed daily from public employer pages and open ATS feeds, with renamed listings and multi-location ads deduplicated.`,
+      de: `Die hier aggregierten Stellen decken alle Branchen und Erfahrungsstufen ab. Für Grenzgänger ist die Gesamtansicht der schnellste Weg, die Marktgrösse zu messen: die Zahl der aktiven Stellen in ${cantonLabel} dient als Indikator für die Gesamtnachfrage, während die Aufteilung nach Arbeitgeber und Rolle zeigt, wo eine Bewerbung am ehesten landet. Der Index wird täglich aus öffentlichen Arbeitgeberseiten und offenen ATS-Feeds aktualisiert, mit Deduplizierung von Umbenennungen und Multi-Standort-Anzeigen.`,
+      fr: `Les offres agrégées sur cette page couvrent tous les secteurs et niveaux d'expérience. Pour les frontaliers, la vue "tous secteurs" est le moyen le plus rapide d'évaluer la taille du marché: le nombre total d'offres actives en ${cantonLabel} sert d'indicateur de la demande globale, tandis que la répartition par employeur et par rôle révèle où une candidature a le plus de chances d'aboutir. L'index est rafraîchi quotidiennement depuis les pages publiques des employeurs et les flux ATS ouverts, avec déduplication des renommages et annonces multi-sites.`,
+    }[locale];
+  }
+  if (hub === 'settori') {
+    return {
+      it: `L'indice settoriale è il filtro più utile per pianificare la ricerca: la stessa mansione viene pubblicata con sinonimi diversi (es. infermiere, OSS, personale sanitario) e il classifier raccoglie tutte le varianti sotto una stessa categoria. Aprire la pagina settoriale di ${cantonLabel} dà una panoramica della concorrenza fra datori, una mediana salariale di riferimento del settore e l'elenco degli arruolatori più attivi — tre informazioni che la sola lista alfabetica delle offerte non offre.`,
+      en: `The sector index is the most useful filter for planning a job hunt: the same role is published under different keywords (e.g. nurse, healthcare assistant, medical staff) and our classifier collects every variant under one category. Opening the sector page for ${cantonLabel} gives a snapshot of employer competition, a median salary reference for the sector, and the list of most-active recruiters — three signals that an alphabetical job list alone cannot provide.`,
+      de: `Der Branchenindex ist der nützlichste Filter für die Jobsuche: dieselbe Rolle wird mit unterschiedlichen Stichwörtern ausgeschrieben (z.B. Pflegefachperson, FaGe, medizinisches Personal) und unser Klassifikator fasst alle Varianten unter einer Kategorie zusammen. Die Branchenseite für ${cantonLabel} liefert eine Übersicht des Arbeitgeberwettbewerbs, einen Median-Lohnreferenzwert für die Branche und die Liste der aktivsten Rekrutierer — drei Signale, die eine alphabetische Jobliste nicht bietet.`,
+      fr: `L'index sectoriel est le filtre le plus utile pour planifier la recherche: le même rôle est publié sous des mots-clés différents (ex. infirmier, aide-soignant, personnel médical) et notre classifieur regroupe toutes les variantes sous une seule catégorie. La page sectorielle de ${cantonLabel} donne un aperçu de la concurrence entre employeurs, une médiane salariale de référence pour le secteur et la liste des recruteurs les plus actifs — trois signaux qu'une simple liste alphabétique d'offres ne fournit pas.`,
+    }[locale];
+  }
+  return {
+    it: `L'elenco raccoglie i datori con almeno una posizione attiva oggi nel cantone ${cantonLabel}, ordinati per numero di offerte aperte. Per i frontalieri la candidatura spontanea verso aziende in fase di crescita è uno dei canali più efficaci ma sottostimati: aziende con delta settimanale positivo ricevono CV anche fuori da posizioni specifiche e spesso aprono un colloquio esplorativo. Per ogni nome trovi la pagina hub con le offerte del momento, il settore principale, la città di sede e — quando l'ATS sorgente lo espone — la politica di telelavoro. Verifica sempre Permesso G, canton di ritenuta e contributi sociali sulla pagina ufficiale prima di candidarti.`,
+    en: `The list shows employers with at least one active position today in ${cantonLabel}, ranked by number of open postings. For Swiss-Italian cross-border workers, speculative applications targeting fast-growing employers are one of the most effective but underrated channels: companies with a positive weekly delta routinely review CVs sent outside specific openings and often open an exploratory interview. Each company links to a dedicated hub page with current openings, primary sector, headquarters and — when the source ATS exposes it — the remote-work policy. Always verify Permit G eligibility, withholding canton, and social-security contributions on the official page before applying.`,
+    de: `Die Liste zeigt Arbeitgeber mit mindestens einer aktiven Stelle heute im Kanton ${cantonLabel}, sortiert nach Anzahl offener Stellen. Für Grenzgänger sind Initiativbewerbungen bei wachsenden Unternehmen einer der effektivsten aber unterschätzten Kanäle: Unternehmen mit positivem Wochendelta prüfen Lebensläufe auch ausserhalb spezifischer Ausschreibungen und öffnen oft ein exploratives Gespräch. Jeder Eintrag verlinkt eine Hub-Seite mit aktuellen Stellen, Hauptbranche, Hauptsitz und — sofern die Quell-ATS dies anzeigt — der Homeoffice-Regelung. Prüfen Sie immer Grenzgängerbewilligung, Quellensteuer-Kanton und Sozialversicherungsbeiträge auf der offiziellen Seite vor der Bewerbung.`,
+    fr: `La liste regroupe les employeurs avec au moins un poste actif aujourd'hui dans le canton ${cantonLabel}, classés par nombre d'offres ouvertes. Pour les frontaliers, les candidatures spontanées auprès d'entreprises en croissance sont l'un des canaux les plus efficaces mais sous-estimés: les entreprises avec un delta hebdomadaire positif examinent les CV même en dehors d'ouvertures spécifiques et ouvrent souvent un entretien exploratoire. Chaque nom renvoie à une page hub avec les offres actuelles, le secteur principal, le siège et — lorsque l'ATS source l'expose — la politique de télétravail. Vérifiez toujours le Permis G, le canton de retenue et les cotisations sociales sur la page officielle avant de postuler.`,
+  }[locale];
+}
+
 interface ThinCantonHubArgs {
   fs: typeof fsT;
   np: typeof npT;
@@ -943,6 +976,13 @@ function buildThinCantonHubHtml(args: {
   const { locale, hub, cantonLabel, basePath, totalItems, items, hasSpaBundle, entryJs, entryCss, dateStamp } = args;
   const h1 = cantonHubH1(locale, hub, cantonLabel, totalItems);
   const intro = cantonHubIntro(locale, hub, cantonLabel, totalItems);
+  const bodyCopy = cantonHubBody(locale, hub, cantonLabel);
+  const bodyHeadingLabel = {
+    it: 'Come usare questa pagina',
+    en: 'How to use this page',
+    de: 'So nutzen Sie diese Seite',
+    fr: 'Comment utiliser cette page',
+  }[locale];
   const pageTitle = `${CANTON_HUB_LABELS[locale][hub]} ${cantonLabel} | Frontaliere`;
   const canonicalUrl = `${BASE_URL}${basePath}`;
 
@@ -998,6 +1038,10 @@ function buildThinCantonHubHtml(args: {
       </header>
       <section>
         ${itemsHtml}
+      </section>
+      <section style="margin-top:32px;padding-top:24px;border-top:1px solid var(--color-edge);max-width:780px">
+        <h2 style="font-size:18px;font-weight:700;color:var(--color-heading);margin:0 0 12px">${esc(bodyHeadingLabel)}</h2>
+        <p style="font-size:15px;line-height:1.6;color:var(--color-body);margin:0">${esc(bodyCopy)}</p>
       </section>
     </main>
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}

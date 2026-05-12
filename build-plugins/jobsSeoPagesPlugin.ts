@@ -2197,10 +2197,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const p = `${localePrefix[l]}/${buildCantonAwareSection(l, jobCanton)}/${perLocaleSlug[l]}`.replace(/\/+/g, '/');
  return { lang: l, href: `${BASE_URL}${withSlash(p)}` };
  });
- const xDefaultHref = (alternates.find((h) => h.lang === 'it') || alternates[0])?.href || '';
+ // audit-hreflang requires 5 entries (4 locales + x-default) on every
+ // page that emits any hreflang. Force x-default with canonicalUrl as
+ // last-resort fallback so the entry is never silently dropped.
+ const xDefaultHref = (alternates.find((h) => h.lang === 'it') || alternates[0])?.href || canonicalUrl;
  const hreflangHtml = [
  ...alternates.map((h) => ` <link rel="alternate" hreflang="${h.lang}" href="${h.href}">`),
- ...(xDefaultHref ? [` <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`] : []),
+ ` <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`,
  ].join('\n');
 
  // Build an HTML-formatted description for JobPosting structured data.
@@ -3067,10 +3070,11 @@ ${hreflangHtml}
  const p = `${localePrefix[l]}/${sectionByLocale[l]}/${lSlug}`.replace(/\/+/g, '/');
  return { lang: l, href: `${BASE_URL}${withSlash(p)}` };
  });
- const xDefaultHrefC = (alternates.find((h) => h.lang === 'it') || alternates[0])?.href || '';
+ // audit-hreflang requires 5 entries (4 locales + x-default).
+ const xDefaultHrefC = (alternates.find((h) => h.lang === 'it') || alternates[0])?.href || canonicalUrl;
  const hreflangHtml = [
  ...alternates.map((h) => ` <link rel="alternate" hreflang="${h.lang}" href="${h.href}">`),
- ...(xDefaultHrefC ? [` <link rel="alternate" hreflang="x-default" href="${xDefaultHrefC}">`] : []),
+ ` <link rel="alternate" hreflang="x-default" href="${xDefaultHrefC}">`,
  ].join('\n');
 
  const jobListHtml = companyJobs.slice(0, 20).map((job) => renderJobCardLi(job, locale)).join('');
@@ -3950,10 +3954,11 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altSlug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
- const xDefaultToday = todayHreflangPairs.find((p) => p.lang === 'it')?.href ?? todayHreflangPairs[0]?.href ?? '';
+ // audit-hreflang requires 5 entries — force x-default with canonicalUrl fallback.
+ const xDefaultToday = todayHreflangPairs.find((p) => p.lang === 'it')?.href ?? todayHreflangPairs[0]?.href ?? canonicalUrl;
  const alternates = [
  ...todayHreflangPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
- ...(xDefaultToday ? [` <link rel="alternate" hreflang="x-default" href="${xDefaultToday}">`] : []),
+ ` <link rel="alternate" hreflang="x-default" href="${xDefaultToday}">`,
  ].join('\n');
  const openAllHref = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const cityCards = model.sections.cities.length > 0
@@ -4099,10 +4104,10 @@ ${alternates}
  const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
- const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? "";
+ const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
  const alternates = [
   ..._altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
-  ...(_xDefaultAltHref ? [` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`] : []),
+  ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
  ].join('\n');
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
@@ -4259,10 +4264,10 @@ ${alternates}
  const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
- const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? "";
+ const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
  const alternates = [
   ..._altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
-  ...(_xDefaultAltHref ? [` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`] : []),
+  ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
  ].join('\n');
  const variantLinks = model.variants.length > 0
  ? model.variants.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-link)">${link.count}</span></a>`).join('')
@@ -4432,10 +4437,10 @@ ${alternates}
  const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
- const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? "";
+ const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
  const alternates = [
   ..._altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
-  ...(_xDefaultAltHref ? [` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`] : []),
+  ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
  ].join('\n');
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
  const cityCards = model.cityLinks.length > 0
@@ -4612,10 +4617,10 @@ ${alternates}
  const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
- const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? "";
+ const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
  const alternates = [
   ..._altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
-  ...(_xDefaultAltHref ? [` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`] : []),
+  ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
  ].join('\n');
  const siblingLinks = model.siblingLinks.length > 0
  ? model.siblingLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-link)">${link.count}</span></a>`).join('')
@@ -4791,10 +4796,10 @@ ${alternates}
  });
  const xDefaultCityHref = localeHreflangLinks.find((h) => h.lang === 'it')?.href
   ?? localeHreflangLinks[0]?.href
-  ?? '';
+  ?? canonicalUrl;
  const alternates = [
  ...localeHreflangLinks.map((h) => ` <link rel="alternate" hreflang="${h.lang}" href="${h.href}">`),
- ...(xDefaultCityHref ? [` <link rel="alternate" hreflang="x-default" href="${xDefaultCityHref}">`] : []),
+ ` <link rel="alternate" hreflang="x-default" href="${xDefaultCityHref}">`,
  ].join('\n');
  const typeLinks = model.relatedTypeLinks.length > 0
  ? model.relatedTypeLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-link)">${link.count}</span></a>`).join('')
@@ -5023,10 +5028,10 @@ ${alternates}
  const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
- const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? "";
+ const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
  const alternates = [
   ..._altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
-  ...(_xDefaultAltHref ? [` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`] : []),
+  ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
  ].join('\n');
  const siblingLinks = model.siblingTypeLinks.length > 0
  ? model.siblingTypeLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-accent-border);border-radius:16px;background:var(--color-accent-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-link)">${link.count}</span></a>`).join('')
@@ -5186,10 +5191,10 @@ ${alternates}
  const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
- const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? "";
+ const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
  const alternates = [
   ..._altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
-  ...(_xDefaultAltHref ? [` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`] : []),
+  ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
  ].join('\n');
  const siblingLinks = model.siblingSectorLinks.length > 0
  ? model.siblingSectorLinks.map((link) => `<a href="${link.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--color-success-border);border-radius:16px;background:var(--color-success-subtle);color:var(--color-heading);text-decoration:none;font-weight:600"><span>${esc(link.label)}</span><span style="color:var(--color-success)">${link.count}</span></a>`).join('')
@@ -5385,10 +5390,10 @@ ${alternates}
  const alPath = `${localePrefix[al]}/${alSection}/${citySlug}`.replace(/\/+/g, '/');
  return { lang: al, href: `${BASE_URL}${withSlash(alPath)}` };
  });
- const xDefaultHref = altPairs.find((p) => p.lang === 'it')?.href ?? altPairs[0]?.href ?? '';
+ const xDefaultHref = altPairs.find((p) => p.lang === 'it')?.href ?? altPairs[0]?.href ?? canonicalUrl;
  const alternates = [
  ...altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
- ...(xDefaultHref ? [` <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`] : []),
+ ` <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`,
  ].join('\n');
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
  const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
@@ -5768,11 +5773,11 @@ ${alternates}
  const alPath = `${localePrefix[al]}/${sectionByLocale[al]}/${alSlug}`.replace(/\/+/g, '/');
  return { lang: al, href: `${BASE_URL}${withSlash(alPath)}` };
  });
- const catXDefaultHref = catAlternatesPairs.find((p) => p.lang === 'it')?.href ?? catAlternatesPairs[0]?.href ?? '';
+ const catXDefaultHref = catAlternatesPairs.find((p) => p.lang === 'it')?.href ?? catAlternatesPairs[0]?.href ?? catCanonicalUrl;
  // audit-hreflang requires x-default on every multi-locale page.
  const catAlternates = [
  ...catAlternatesPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
- ...(catXDefaultHref ? [` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`] : []),
+ ` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`,
  ].join('\n');
  const catListHtml = catPageJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
  const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kSlug}`.replace(/\/+/g, '/'))}" style="text-decoration:none;color:var(--color-link);display:inline-flex;align-items:center;min-height:44px;padding:8px 4px">${catLabels[k][locale]}</a>`; });
@@ -5916,10 +5921,10 @@ ${alternates}
  const alPath = `${localePrefix[al]}/${alSection}/${alSlug}`.replace(/\/+/g, '/');
  return { lang: al, href: `${BASE_URL}${withSlash(alPath)}` };
  });
- const catXDefaultHref = catAlternatesPairs.find((p) => p.lang === 'it')?.href ?? catAlternatesPairs[0]?.href ?? '';
+ const catXDefaultHref = catAlternatesPairs.find((p) => p.lang === 'it')?.href ?? catAlternatesPairs[0]?.href ?? catCanonicalUrl;
  const catAlternates = [
  ...catAlternatesPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
- ...(catXDefaultHref ? [` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`] : []),
+ ` <link rel="alternate" hreflang="x-default" href="${catXDefaultHref}">`,
  ].join('\n');
  const catListHtml = catPageJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
  const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${kSlug}`.replace(/\/+/g, '/'))}" style="text-decoration:none;color:var(--color-link);display:inline-flex;align-items:center;min-height:44px;padding:8px 4px">${catLabels[k][locale]}</a>`; });
@@ -6081,10 +6086,10 @@ ${alternates}
  const alPath = `${localePrefix[al]}/${alSection}/${alSlug}`.replace(/\/+/g, '/');
  return { lang: al, href: `${BASE_URL}${withSlash(alPath)}` };
  });
- const xDefaultHref = altPairs.find((p) => p.lang === 'it')?.href ?? altPairs[0]?.href ?? '';
+ const xDefaultHref = altPairs.find((p) => p.lang === 'it')?.href ?? altPairs[0]?.href ?? canonicalUrl;
  const alternates = [
  ...altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
- ...(xDefaultHref ? [` <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`] : []),
+ ` <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`,
  ].join('\n');
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
  const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
@@ -6277,10 +6282,10 @@ ${alternates}
  const alPath = `${localePrefix[al]}/${alSection}/${alSlug}`.replace(/\/+/g, '/');
  return { lang: al, href: `${BASE_URL}${withSlash(alPath)}` };
  });
- const xDefaultHref = altPairs.find((p) => p.lang === 'it')?.href ?? altPairs[0]?.href ?? '';
+ const xDefaultHref = altPairs.find((p) => p.lang === 'it')?.href ?? altPairs[0]?.href ?? canonicalUrl;
  const alternates = [
  ...altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
- ...(xDefaultHref ? [` <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`] : []),
+ ` <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`,
  ].join('\n');
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
  const sectionLabel = locale === 'it' ? `Cerca lavoro in ${cDisplay}` : locale === 'en' ? `Find jobs in ${cDisplay}` : locale === 'de' ? `Stellen ${cDisplay}` : `Trouver un emploi à ${cDisplay}`;
@@ -6488,10 +6493,10 @@ ${alternates}
  const alPath = `${localePrefix[al]}/${alSection}/${alSlug}`.replace(/\/+/g, '/');
  return { lang: al, href: `${BASE_URL}${withSlash(alPath)}` };
  });
- const xDefaultHref = altPairs.find((p) => p.lang === 'it')?.href ?? altPairs[0]?.href ?? '';
+ const xDefaultHref = altPairs.find((p) => p.lang === 'it')?.href ?? altPairs[0]?.href ?? canonicalUrl;
  const alternates = [
  ...altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
- ...(xDefaultHref ? [` <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`] : []),
+ ` <link rel="alternate" hreflang="x-default" href="${xDefaultHref}">`,
  ].join('\n');
  const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
  // Pointer back to the per-canton company hub (Phase 3.3) for navigation
@@ -6665,11 +6670,11 @@ ${alternates}
  const alPath = `${localePrefix[al]}/${sectionByLocale[al]}/${alSlug}`.replace(/\/+/g, '/');
  return { lang: al, href: `${BASE_URL}${withSlash(alPath)}` };
  });
- const kwXDefaultHref = kwAlternatesPairs.find((p) => p.lang === 'it')?.href ?? kwAlternatesPairs[0]?.href ?? '';
+ const kwXDefaultHref = kwAlternatesPairs.find((p) => p.lang === 'it')?.href ?? kwAlternatesPairs[0]?.href ?? kwCanonicalUrl;
  // audit-hreflang requires x-default on every multi-locale page.
  const kwAlternates = [
  ...kwAlternatesPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
- ...(kwXDefaultHref ? [` <link rel="alternate" hreflang="x-default" href="${kwXDefaultHref}">`] : []),
+ ` <link rel="alternate" hreflang="x-default" href="${kwXDefaultHref}">`,
  ].join('\n');
  const kwListHtml = kwJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
  const kwCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: kwTitle, url: kwCanonicalUrl, description: kwDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
@@ -6809,10 +6814,10 @@ ${alternates}
  const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altSlug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
- const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? "";
+ const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
  const alternates = [
   ..._altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
-  ...(_xDefaultAltHref ? [` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`] : []),
+  ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
  ].join('\n');
  const listHtml = matchingJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
 
@@ -6962,10 +6967,10 @@ ${alternates}
  const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altSlug}`.replace(/\/+/g, '/');
  return { lang: altLocale, href: `${BASE_URL}${withSlash(altPath)}` };
  });
- const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? "";
+ const _xDefaultAltHref = _altPairs.find((p) => p.lang === "it")?.href ?? _altPairs[0]?.href ?? canonicalUrl;
  const alternates = [
   ..._altPairs.map((p) => ` <link rel="alternate" hreflang="${p.lang}" href="${p.href}">`),
-  ...(_xDefaultAltHref ? [` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`] : []),
+  ` <link rel="alternate" hreflang="x-default" href="${_xDefaultAltHref}">`,
  ].join('\n');
  const listHtml = matchingJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
 
@@ -7304,7 +7309,14 @@ ${alternates}
  de: localizedSlug(job, 'de'),
  fr: localizedSlug(job, 'fr'),
  };
- const itPath = withSlash(`/${sectionByLocale.it}/${perLocaleSlugMap.it}`.replace(/\/+/g, '/'));
+ // Cathedral: sitemap entry must match the actual emitted HTML path,
+ // which is canton-aware (e.g. /cerca-lavoro-luzern/<slug>/ for LU jobs).
+ // The previous code used the legacy TI section for all jobs, producing
+ // sitemap URLs whose <link rel="canonical"> pointed elsewhere → blocked
+ // by validate:sitemap-pages with "Canonical mismatch".
+ const jobCantonForSitemap = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ const itSectionForJob = buildCantonAwareSection('it', jobCantonForSitemap);
+ const itPath = withSlash(`/${itSectionForJob}/${perLocaleSlugMap.it}`.replace(/\/+/g, '/'));
  const itUrl = `${BASE_URL}${itPath}`;
  // SEO: skip — page self-canonicalizes elsewhere (Semrush gate).
  // Jobs listed in data/job-canonical-overrides.json have <link rel="canonical">
@@ -7315,7 +7327,8 @@ ${alternates}
  const overrideUrl = resolveCanonicalUrl(perLocaleSlugMap.it, itUrl);
  if (overrideUrl !== itUrl) return '';
  const alternateLinks = localeList.map((l) => {
- const p = `${localePrefix[l]}/${sectionByLocale[l]}/${perLocaleSlugMap[l]}`.replace(/\/+/g, '/');
+ const sectionForLocale = buildCantonAwareSection(l, jobCantonForSitemap);
+ const p = `${localePrefix[l]}/${sectionForLocale}/${perLocaleSlugMap[l]}`.replace(/\/+/g, '/');
  return ` <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
  }).join('\n');
  const xDefault = ` <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />`;
@@ -8884,10 +8897,18 @@ ${hreflangLinks}
  .map((l) => (paths[l] ? { lang: l as 'it' | 'en' | 'de' | 'fr', href: `${BASE_URL}${withSlash(paths[l])}` } : null))
  .filter((x): x is { lang: 'it' | 'en' | 'de' | 'fr'; href: string } => x !== null);
  const expiredHasFullCluster = expiredLocaleHreflangs.length === localeList.length;
- const hreflangLinks = expiredHasFullCluster
+ // When emitting the cluster, force x-default to be present alongside the
+ // 4 locale entries — fall back to the IT alternate href when paths.it
+ // happens to be empty (defensive; full-cluster guarantees paths.it is set).
+ const expiredXDefaultHref = paths.it
+   ? `${BASE_URL}${withSlash(paths.it)}`
+   : (expiredLocaleHreflangs.find((e) => e.lang === 'it')?.href
+     ?? expiredLocaleHreflangs[0]?.href
+     ?? '');
+ const hreflangLinks = expiredHasFullCluster && expiredXDefaultHref
  ? [
   ...expiredLocaleHreflangs.map((e) => ` <link rel="alternate" hreflang="${e.lang}" href="${e.href}">`),
-  ...(paths.it ? [` <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withSlash(paths.it)}">`] : []),
+  ` <link rel="alternate" hreflang="x-default" href="${expiredXDefaultHref}">`,
   ].join('\n')
  : '';
 
