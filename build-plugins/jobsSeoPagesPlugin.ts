@@ -7900,12 +7900,40 @@ ${alternates}
      // 1-line tagline) → stat tile grid → primary CTA → data area
      // (listing grid) → long prose. Mobile-first: stat tiles + CTA fit
      // above the fold on a ≤414 px viewport; filler prose stays below.
+     // P4-bfs: link the seoHubs sub-pages (`/{section}/tutti/`,
+     // `/{section}/settori/`, `/{section}/aziende/`) explicitly so BFS
+     // reaches them at depth 3 (closes the +57 sitemap-seo-hubs.xml
+     // regression). seoHubsPlugin emits these as locale-specific slugs;
+     // we mirror its key→slug table inline so the link graph stays in
+     // sync with the emitter without a new shared module.
+     const subPageSlugs: Record<CantonLocale, { all: string; sectors: string; companies: string }> = {
+       it: { all: 'tutti', sectors: 'settori', companies: 'aziende' },
+       en: { all: 'all', sectors: 'sectors', companies: 'companies' },
+       de: { all: 'alle', sectors: 'branchen', companies: 'unternehmen' },
+       fr: { all: 'tous', sectors: 'secteurs', companies: 'entreprises' },
+     };
+     const subPageLabels: Record<CantonLocale, { all: string; sectors: string; companies: string }> = {
+       it: { all: 'Tutte le offerte', sectors: 'Esplora per settore', companies: 'Aziende che assumono' },
+       en: { all: 'All openings', sectors: 'Browse by sector', companies: 'Hiring companies' },
+       de: { all: 'Alle Stellen', sectors: 'Nach Branche', companies: 'Einstellende Unternehmen' },
+       fr: { all: 'Toutes les offres', sectors: 'Par secteur', companies: 'Entreprises qui recrutent' },
+     };
+     const subSlugs = subPageSlugs[entry.locale];
+     const subLabels = subPageLabels[entry.locale];
+     const sectionBase = withSlash(`${localePrefix[entry.locale]}/${entry.section}`.replace(/\/+/g, '/'));
+     const subPageNav =
+       `<nav style="display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px" aria-label="${esc(display)} hubs">` +
+       `<a href="${sectionBase}${subSlugs.all}/" style="padding:8px 14px;border-radius:8px;background:var(--color-accent-subtle);color:var(--color-accent);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-accent-border)">${esc(subLabels.all)}</a>` +
+       `<a href="${sectionBase}${subSlugs.sectors}/" style="padding:8px 14px;border-radius:8px;background:var(--color-success-subtle);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-success-border)">${esc(subLabels.sectors)}</a>` +
+       `<a href="${sectionBase}${subSlugs.companies}/" style="padding:8px 14px;border-radius:8px;background:var(--color-warning-subtle);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-warning-border)">${esc(subLabels.companies)}</a>` +
+       `</nav>`;
      const bodyHtml = [
        `<main class="seo-static-content" style="max-width:1080px;margin:0 auto;padding:24px 16px">`,
        `<nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}/" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(homeLabel[entry.locale])}</a> &rarr; <span aria-current="page">${esc(display)}</span></nav>`,
        `<header style="max-width:860px;margin:0 0 16px"><h1 style="font-size:32px;line-height:1.15;margin:0 0 8px">${esc(display)}</h1><p style="margin:0;color:var(--color-body);font-size:16px">${esc(labels.lede)}</p></header>`,
        tileGrid,
        `<p style="margin:0 0 24px"><a href="${legacyJobBoardHref}" style="display:inline-block;padding:12px 22px;background:var(--color-accent);color:var(--color-on-accent);border-radius:8px;font-weight:600;text-decoration:none">${esc(labels.ctaLabel)}</a></p>`,
+       subPageNav,
        listingGrid,
        // Frontaliere context prose — placed BELOW the data area per CLAUDE.md
        // non-negotiable #16/#17 (mobile-first, filler below content). Ratio
