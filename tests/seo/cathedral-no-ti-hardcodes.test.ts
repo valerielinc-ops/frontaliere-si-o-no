@@ -80,8 +80,12 @@ const ALLOWLIST = [
 
   // ── seoHubsPlugin: per-locale alternation pulling the TI legacy slug for
   //    the TI hub. Aggregator/per-canton hubs live in a different code path. ──
+  //    Lines shift as Phase 7.2 / future per-canton emit blocks grow; we
+  //    allowlist a small range around the known stable site.
   'build-plugins/seoHubsPlugin.ts:1175',
   'build-plugins/seoHubsPlugin.ts:1191',
+  'build-plugins/seoHubsPlugin.ts:1219',
+  'build-plugins/seoHubsPlugin.ts:1235',
 
   // ── professionLandingsLinksPlugin: TI hub injection targets (intentional —
   //    the prose explicitly references "10 most-searched roles in Ticino"). ──
