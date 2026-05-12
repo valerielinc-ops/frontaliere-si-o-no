@@ -24,11 +24,17 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
       path.join(REPO_ROOT, 'build-plugins', 'jobsSeoPagesPlugin.ts'),
       'utf8',
     );
+    // The bridge emit region floats as the plugin grows. Locate it by the
+    // unique `bridgeSection =` anchor and slice a window of surrounding lines.
+    // This survives Phase 8g (cathedral hub editorial helper) and future
+    // refactors that shift line numbers without changing the bridge logic.
     const lines = src.split('\n');
-    // Look at the previousSlugs bridge emit region (~9650-9720). The
-    // bridge section variable must derive from buildCantonAwareSection,
-    // and the `oldPath = ...` builder must NOT reference sectionByLocale[locale].
-    const bridgeRegion = lines.slice(9560, 9720).join('\n');
+    const bridgeAnchorIdx = lines.findIndex((l) => /\bbridgeSection\s*=\s*buildCantonAwareSection\(/.test(l));
+    expect(
+      bridgeAnchorIdx,
+      'expected to find `bridgeSection = buildCantonAwareSection(...)` anchor in jobsSeoPagesPlugin.ts',
+    ).toBeGreaterThan(-1);
+    const bridgeRegion = lines.slice(Math.max(0, bridgeAnchorIdx - 20), bridgeAnchorIdx + 80).join('\n');
     expect(bridgeRegion).toMatch(/bridgeSection\s*=\s*buildCantonAwareSection\(locale,\s*jobCantonForBridge\)/);
     const bridgeOldPathLines = bridgeRegion
       .split('\n')
@@ -46,10 +52,16 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
       path.join(REPO_ROOT, 'build-plugins', 'jobsSeoPagesPlugin.ts'),
       'utf8',
     );
+    // The sitemap addEntry region floats as the plugin grows. Locate it by
+    // the unique `psRelPath` builder anchor and verify the canton-aware
+    // section helper is used inline. Robust to Phase 8g+ line drift.
     const lines = src.split('\n');
-    // Look at the sitemap previousSlugs addEntry region (~7385). The psRelPath
-    // builder must use buildCantonAwareSection, not sectionByLocale[locale].
-    const sitemapRegion = lines.slice(7355, 7410).join('\n');
+    const psRelPathIdx = lines.findIndex((l) => /\bpsRelPath\s*=/.test(l));
+    expect(
+      psRelPathIdx,
+      'expected to find `psRelPath =` anchor in jobsSeoPagesPlugin.ts',
+    ).toBeGreaterThan(-1);
+    const sitemapRegion = lines.slice(Math.max(0, psRelPathIdx - 5), psRelPathIdx + 5).join('\n');
     expect(sitemapRegion).toMatch(/psRelPath\s*=\s*`\$\{localePrefix\[locale\]\}\/\$\{buildCantonAwareSection\(/);
   });
 
