@@ -7459,6 +7459,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.temporali-grandine-luganese-11-maggio-2026.title': 'Thunderstorms and hail in Lugano: level 3 alert',
     'blog.article.temporali-grandine-luganese-11-maggio-2026.excerpt': 'MeteoSwiss has issued a level 3 bad weather alert for Lugano and Bellinzona. Hail in Capriasca, risk of landslides and flooding',
     'blog.article.temporali-grandine-luganese-11-maggio-2026.imageAlt': 'Aerial view of Lake Lugano during a storm with hail',
+    'blog.article.direttrice-unispital-zurigo-whistleblower.title': 'USZ director thanks dismissed whistleblower',
+    'blog.article.direttrice-unispital-zurigo-whistleblower.excerpt': 'Monika Jänicke, director of USZ, expresses gratitude towards the former cardiac surgeon who reported irregularities at the clinic.',
+    'blog.article.direttrice-unispital-zurigo-whistleblower.imageAlt': 'Hospital in Ticino, Switzerland',
 };
 
 export default blogMetaEn;

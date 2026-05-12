@@ -3729,6 +3729,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-dichiarazione-andreoli-san-marino-rtv': { name: 'Dichiarazione Andreoli', path: '/articoli-frontaliere/dichiarazione-andreoli-san-marino-rtv', parent: 'blog' },
     'blog-calo-potere-acquisto-lamal-contromisure-ticino': { name: 'Calo potere d\'acquisto', path: '/articoli-frontaliere/calo-potere-acquisto-lamal-contromisure-ticino', parent: 'blog' },
     'blog-temporali-grandine-luganese-11-maggio-2026': { name: 'Novità', path: '/articoli-frontaliere/temporali-grandine-luganese-11-maggio-2026', parent: 'blog' },
+    'blog-direttrice-unispital-zurigo-whistleblower': { name: 'Novità', path: '/articoli-frontaliere/direttrice-unispital-zurigo-whistleblower', parent: 'blog' },
  };
 
  const info = sectionNames[section];

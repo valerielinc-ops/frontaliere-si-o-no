@@ -23753,4 +23753,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'direttrice-unispital-zurigo-whistleblower',
+ category: 'novita',
+ date: '2026-05-12T05:50:56.402Z',
+ image: '/images/blog/direttrice-unispital-zurigo-whistleblower.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

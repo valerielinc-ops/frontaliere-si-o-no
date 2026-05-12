@@ -7458,6 +7458,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.temporali-grandine-luganese-11-maggio-2026.title': 'Gewitter und Hagel im Luganer Raum: Warnstufe 3',
     'blog.article.temporali-grandine-luganese-11-maggio-2026.excerpt': 'MeteoSchweiz hat eine Unwetterwarnung der Stufe 3 für den Luganer Raum und das Bellinzona-Gebiet herausgegeben. Hagel in Capriasca, Erdrutsch- und Überschwemmungsgefahr',
     'blog.article.temporali-grandine-luganese-11-maggio-2026.imageAlt': 'Luftaufnahme des Luganersees während eines Sturms mit Hagel',
+    'blog.article.direttrice-unispital-zurigo-whistleblower.title': 'USZ-Chefin dankt entlassenem Whistleblower',
+    'blog.article.direttrice-unispital-zurigo-whistleblower.excerpt': 'Monika Jänicke, Direktorin des USZ, zeigt Dankbarkeit gegenüber dem ehemaligen Herzchirurgen, der Unregelmäßigkeiten in der Klinik aufdeckte.',
+    'blog.article.direttrice-unispital-zurigo-whistleblower.imageAlt': 'Krankenhaus in Tessin, Schweiz',
 };
 
 export default blogMetaDe;

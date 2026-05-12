@@ -7460,6 +7460,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.temporali-grandine-luganese-11-maggio-2026.title': 'Temporali e grandine nel Luganese: allerta livello 3',
     'blog.article.temporali-grandine-luganese-11-maggio-2026.excerpt': 'MeteoSvizzera ha diramato un\'allerta maltempo livello 3 per il Luganese e il Bellinzonese. Grandine a Capriasca, rischio frane e allagamenti',
     'blog.article.temporali-grandine-luganese-11-maggio-2026.imageAlt': 'Vista aerea del Lago di Lugano durante un temporale con grandine',
+    'blog.article.direttrice-unispital-zurigo-whistleblower.title': 'Direttrice Unispital Zurigo ringrazia il whistleblower licenziato',
+    'blog.article.direttrice-unispital-zurigo-whistleblower.excerpt': 'Monika Jänicke, direttrice dell\'USZ, esprime gratitudine verso l\'ex cardiochirurgo che ha denunciato irregolarità nella clinica.',
+    'blog.article.direttrice-unispital-zurigo-whistleblower.imageAlt': 'Ospedale in Ticino, Svizzera',
 };
 
 export default blogMetaIt;

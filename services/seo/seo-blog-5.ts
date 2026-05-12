@@ -35837,6 +35837,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-direttrice-unispital-zurigo-whistleblower': {
+    title: 'Direttrice Unispital Zurigo ringrazia il whistleblower licenziato',
+    description: 'Monika Jänicke, direttrice dell\'USZ, esprime gratitudine verso l\'ex cardiochirurgo che ha denunciato irregolarità nella clinica di cardiochirurgia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, direttrice, unispital, zurigo, ringrazia',
+    ogTitle: 'Direttrice Unispital Zurigo ringrazia il whistleblower licenziato',
+    ogDescription: 'Monika Jänicke, direttrice dell\'USZ, esprime gratitudine verso l\'ex cardiochirurgo che ha denunciato irregolarità nella clinica di cardiochirurgia.',
+    canonicalPath: '/articoli-frontaliere/direttrice-unispital-zurigo-whistleblower',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Direttrice Unispital Zurigo ringrazia il whistleblower licenziato",
+      "description": "Monika Jänicke, direttrice dell'USZ, esprime gratitudine verso l'ex cardiochirurgo che ha denunciato irregolarità nella clinica di cardiochirurgia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/direttrice-unispital-zurigo-whistleblower.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale in Ticino, Svizzera"
+      },
+      "datePublished": "2026-05-12T05:50:56+00:00",
+      "dateModified": "2026-05-12T05:50:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/direttrice-unispital-zurigo-whistleblower`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

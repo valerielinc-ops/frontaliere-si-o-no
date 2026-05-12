@@ -7460,6 +7460,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.temporali-grandine-luganese-11-maggio-2026.title': 'Orages et grêle dans le Luganais : alerte niveau 3',
     'blog.article.temporali-grandine-luganese-11-maggio-2026.excerpt': 'MétéoSuisse a émis une alerte météo de niveau 3 pour le Luganais et le Bellinzonais. Grêle à Capriasca, risque de glissements de terrain et d\'inondations',
     'blog.article.temporali-grandine-luganese-11-maggio-2026.imageAlt': 'Vue aérienne du lac de Lugano pendant un orage avec de la grêle',
+    'blog.article.direttrice-unispital-zurigo-whistleblower.title': 'Directrice USZ remercie le lanceur d\'alerte licencié',
+    'blog.article.direttrice-unispital-zurigo-whistleblower.excerpt': 'Monika Jänicke, directrice de l\'USZ, exprime sa gratitude envers l\'ex-cardiochirurgien qui a dénoncé des irrégularités dans la clinique.',
+    'blog.article.direttrice-unispital-zurigo-whistleblower.imageAlt': 'Hôpital en Tessin, Suisse',
 };
 
 export default blogMetaFr;
