@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cseb",
-  "assembledAt": "2026-05-11T21:53:36.019Z",
+  "assembledAt": "2026-05-12T11:01:19.535Z",
   "jobs": [
     {
       "id": "cseb-45960c880289",
@@ -33,7 +33,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/439cb41c-0371-94c9-6c59-909203c12844",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.122Z",
+      "crawledAt": "2026-05-12T11:01:17.596Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -74,6 +74,92 @@
         "assistent-in-gesundheit-e-soziales-pflegehelfer-in-sozialbetreuer-in-cpo-50-100-center-da-sanadad-engiadina-bassa-scuol"
       ],
       "firstSeenAt": "2026-05-08T09:44:45.457Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "cseb-5fa447124a26",
+      "slug": "analista-biomedico-in-hf-med-techn-assistente-di-laboratorio-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
+      "slugByLocale": {
+        "it": "analista-biomedico-in-hf-med-techn-assistente-di-laboratorio-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
+        "en": "biomedical-analyst-in-hf-med-techn-laboratory-assistant-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
+        "de": "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
+        "fr": "analyste-biomedical-in-hf-med-techn-assistant-de-laboratoire-en-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
+      },
+      "company": "Center da Sanadad Engiadina Bassa",
+      "companyKey": "cseb",
+      "companyDomain": "cseb.ch",
+      "title": "Biomedizinische Analytiker/-in HF / Med.-techn. Laborassistent/-in MTLA (80-100%)",
+      "titleByLocale": {
+        "it": "Analista biomedico/-in HF / Med.-techn. Assistente di laboratorio in MTLA (80-100%)",
+        "en": "Biomedical analyst/-in HF / Med.-techn. Laboratory assistant in MTLA (80-100%)",
+        "de": "Biomedizinische Analytiker/-in HF / Med.-techn. Laborassistent/-in MTLA (80-100%)",
+        "fr": "Analyste biomédical/-in HF / Med.-techn. Assistant de laboratoire en MTLA (80-100%)"
+      },
+      "description": "Für das Ospidal suchen wir im Bereich Labor per sofort oder nach Vereinbarung eine/-n\n\nAufgaben:\nHauptaufgaben\n\n• Mitarbeit im Routinelabor (klinische Chemie, Hämatologie, Gerinnung, Exkrementenlabor, Immunhämatologie), bei medizintechnischen Untersuchungen und bei Blutentnahmen\n\n• Teilnahme am Pikettdienst\n\n• Durchführung von funktionstechnischen Untersuchungen, z.B. Lungenfunktion\n\nAnforderungen:\nAnforderungsprofil\n\n• Diplomierte Biomedizinische/r Analytiker/in HF mit Abschluss höhere Fachprüfung Experte/Expertin in biomed. Analytik\n\n• Gerne auch für engagierte Berufsanfänger\n\n• Verantwortungsbewusstsein, Teamgeist, Belastbarkeit\n\n• Freude an Teamarbeit\n\n• Fundierte Kenntnisse labormedizinischer Techniken und in der EDV-Anwendung\n\n• Interesse an Funktionstechnik\n\nWir bieten:\nUnser Angebot\n\n• Interessante und vielseitige Tätigkeit\n\n• Moderne apparative und EDV- Infrastruktur\n\n• Angenehmes Betriebsklima\n\n• Zeitgemässe Anstellungsbedingungen\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Enge interdisziplinäre Zusammenarbeit\n\nUnter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Sie eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten.\n\nDas Ospidal ist als Regionalspital für die medizinische Grund- und Notfallversorgung im Unterengadin zuständig. Es bietet modernste Schul- aber auch Komplementärmedizin an und nimmt in der Schweiz eine Vorreiterrolle im Bereich der Patientensicherheit ein. Es werden die Bereiche Chirurgie, Traumatologie, Orthopädie, Gynäkologie und Geburtshilfe, Innere Medizin und Palliative Care, Integrative Medizin, Anästhesiologie und Schmerztherapie inkl. einer IMC-Station angeboten. Das Spital verfügt über modernste Infrastruktur mit KIS, RIS, PACS inkl. zahlreicher fortschrittlicher telemedizinischer Lösungen sowie über einen modernen Operationstrakt.\n\nFür weitere Auskünfte stehen Ihnen Frau Sabina Rössler, Bereichsleitung Labor, Telefonnummer +41 81 861 12 40 und Herr Aldo Sala, Leitung Medizinische Dienste, Telefon +41 81 610 10 41, gerne zur Verfügung.\n\nWir freuen uns auf Ihre Online-Bewerbung.",
+      "descriptionByLocale": {
+        "it": "Descrizione Per l'Ospidal, stiamo cercando un /-n # compito nel campo del laboratorio secondo accordo - la cooperazione nel laboratorio di routine (chimica clinica, ematologia, coagulazione, laboratorio di escremento, immunohaematologia) - la partecipazione al servizio pikett - l'attuazione di studi funzionali, ad esempio la funzione polmonare ##\n• Requisiti - Diplomato biomedicale/analyst/in HF con il completamento di uno specialista bioesmed. Analizzando - Gerne anche per principianti professionisti dedicati - senso di responsabilità, spirito di squadra, resilienza - gioia nel lavoro di squadra - Conoscenze finanziate di tecniche mediche di laboratorio e nell'applicazione del computer - Interessi nell'ingegneria funzionale ##\n• Offriamo - Attività interessanti e versatili - Moderne infrastrutture apparative e EDV - Piacevole clima operativo - Condizioni di impiego - Opportunità di formazione interna ed esterna - Enga cooperazione interdisciplinare Nella regione del parco nazionale si trova un ambiente meraviglioso con strutture ricreative e sportive versatili. L'Ospidal è responsabile come ospedale regionale per l'assistenza medica di base e di emergenza nella Bassa Engadina. Offre una scuola all'avanguardia e una medicina complementare e svolge un ruolo di primo piano nel campo della sicurezza dei pazienti in Svizzera. Le aree di chirurgia, traumatologia, ortopedia, ginecologia e aiuto alla nascita, medicina interna e assistenza palliativa, medicina integrativa, anestesiologia e terapia del dolore tra cui una stazione IMC sono offerti. L'ospedale ha infrastrutture all'avanguardia con KIS, RIS, PACS, tra cui numerose soluzioni telemediche avanzate e un moderno tratto chirurgico. ## Contatto Per ulteriori informazioni, si prega di contattare la signora Sabina Rössler, responsabile del laboratorio, telefono +41 81 861 12 40 e Aldo Sala, responsabile dei servizi medici, telefono +41 81 610 10 41. Attendiamo con ansia la vostra applicazione online.",
+        "en": "Descrizione For the Ospidal, we are looking for a/-n ## task in the field of laboratory according to agreement - cooperation in the routine laboratory (clinical chemistry, haematology, coagulation, excrement laboratory, immunohaematology) - participation in the pikett service - implementation of functional studies, e.g. lung function ##\n• Requirements - Diplomated biomedical/analyst/in HF with completion of higher specialist examination expert/expert in biomed. Analyzing - Gerne also for dedicated professional starters - sense of responsibility, team spirit, resilience - joy in team work - Funded knowledge of laboratory medical techniques and in the computer application - Interest in functional engineering ##\n• We offer - Interesting and versatile activity - Modern apparative and EDV infrastructure - Pleasant operating climate - Conditions of employment - Internal and external training opportunities - Enga interdisciplinary cooperation In the national park region you will find a wonderful environment with versatile recreation and sports facilities. The Ospidal is responsible as a regional hospital for basic and emergency medical care in the Lower Engadine. It offers state-of-the-art school and complementary medicine and plays a leading role in the field of patient safety in Switzerland. The areas of surgery, traumatology, orthopaedics, gynecology and birth aid, internal medicine and palliative care, integrative medicine, anaesthesiology and pain therapy including an IMC station are offered. The hospital has state-of-the-art infrastructure with KIS, RIS, PACS including numerous advanced telemedical solutions as well as a modern surgical tract. ## Contatto For further information, please contact Mrs Sabina Rössler, Head of Department Laboratory, Phone +41 81 861 12 40 and Mr Aldo Sala, Head of Medical Services, Phone +41 81 610 10 41. We look forward to your online application.",
+        "de": "Für das Ospidal suchen wir im Bereich Labor per sofort oder nach Vereinbarung eine/-n Aufgaben: Hauptaufgaben\n• Mitarbeit im Routinelabor (klinische Chemie, Hämatologie, Gerinnung, Exkrementenlabor, Immunhämatologie), bei medizintechnischen Untersuchungen und bei Blutentnahmen\n• Teilnahme am Pikettdienst\n• Durchführung von funktionstechnischen Untersuchungen, z.B. Lungenfunktion Anforderungen: Anforderungsprofil\n• Diplomierte Biomedizinische/r Analytiker/in HF mit Abschluss höhere Fachprüfung Experte/Expertin in biomed. Analytik\n• Gerne auch für engagierte Berufsanfänger\n• Verantwortungsbewusstsein, Teamgeist, Belastbarkeit\n• Freude an Teamarbeit\n• Fundierte Kenntnisse labormedizinischer Techniken und in der EDV-Anwendung\n• Interesse an Funktionstechnik Wir bieten: Unser Angebot\n• Interessante und vielseitige Tätigkeit\n• Moderne apparative und EDV- Infrastruktur\n• Angenehmes Betriebsklima\n• Zeitgemässe Anstellungsbedingungen\n• Interne und externe Weiterbildungsmöglichkeiten\n• Enge interdisziplinäre Zusammenarbeit Unter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Sie eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten. Das Ospidal ist als Regionalspital für die medizinische Grund- und Notfallversorgung im Unterengadin zuständig. Es bietet modernste Schul- aber auch Komplementärmedizin an und nimmt in der Schweiz eine Vorreiterrolle im Bereich der Patientensicherheit ein. Es werden die Bereiche Chirurgie, Traumatologie, Orthopädie, Gynäkologie und Geburtshilfe, Innere Medizin und Palliative Care, Integrative Medizin, Anästhesiologie und Schmerztherapie inkl. einer IMC-Station angeboten. Das Spital verfügt über modernste Infrastruktur mit KIS, RIS, PACS inkl. zahlreicher fortschrittlicher telemedizinischer Lösungen sowie über einen modernen Operationstrakt. Für weitere Auskünfte stehen Ihnen Frau Sabina Rössler, Bereichsleitung Labor, Telefonnummer +41 81 861 12 40 und Herr Aldo Sala, Leitung Medizinische Dienste, Telefon +41 81 610 10 41, gerne zur Verfügung. Wir freuen uns auf Ihre Online-Bewerbung.",
+        "fr": "Descrizione Pour l'Ospidal, nous recherchons une tâche ## dans le domaine du laboratoire selon l'accord - coopération dans le laboratoire de routine (chimie clinique, hématologie, coagulation, laboratoire d'excréments, immunohématologie) - participation au service pikett - mise en oeuvre d'études fonctionnelles, p.ex. fonction pulmonaire ##\n• Exigences - Biomédical/analyste/en HF avec l'obtention d'un examen spécialisé/expert en biomédecine. Analyse - Gerne aussi pour les débutants professionnels dédiés - sens des responsabilités, esprit d'équipe, résilience - joie dans le travail d'équipe - Connaissance financée des techniques médicales de laboratoire et dans l'application informatique - Intérêt pour l'ingénierie fonctionnelle ##\n• Nous offrons - Intérêt et activité polyvalente - Apparative moderne et infrastructure de VAE - Climat opérationnel agréable - Conditions d'emploi - Possibilités de formation interne et externe - Coopération interdisciplinaire Enga Dans la région du parc national, vous trouverez un environnement merveilleux avec des installations récréatives et sportives polyvalentes. L'Ospidal est responsable en tant qu'hôpital régional des soins médicaux de base et d'urgence dans la Basse Engadine. Il offre une école de pointe et une médecine complémentaire et joue un rôle de premier plan dans le domaine de la sécurité des patients en Suisse. Les domaines de la chirurgie, de la traumatologie, de l'orthopédie, de la gynécologie et de l'aide à la naissance, de la médecine interne et des soins palliatifs, de la médecine intégrative, de l'anesthésiologie et de la douleur, y compris un poste IMC, sont offerts. L'hôpital dispose d'une infrastructure de pointe avec KIS, RIS, PACS comprenant de nombreuses solutions télémédicales avancées ainsi qu'un appareil chirurgical moderne. Contatto Pour de plus amples informations, veuillez contacter Mme Sabina Rössler, chef du laboratoire de département, tél. +41 81 861 12 40 et M. Aldo Sala, chef des services médicaux, tél. +41 81 610 10 41. Nous nous réjouissons de votre candidature en ligne."
+      },
+      "location": "Scuol",
+      "canton": "GR",
+      "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/08090cea-a5af-e391-1b01-d1e40cf402a3",
+      "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-12T11:01:17.595Z",
+      "addressLocality": "Scuol",
+      "postalCode": "7550",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Laboratorio",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-30",
+      "applyUrl": "https://jobs.cseb.ch/application-process/d9c5a048-f665-4e64-a2c7-cdd8231bac77/08090cea-a5af-e391-1b01-d1e40cf402a3",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "streetAddress": "Via da l'Ospidal 280",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "contactPerson": "Corsina Feuerstein Betschart",
+      "previousSlugsByLocale": {
+        "de": [
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch"
+        ],
+        "it": [
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch",
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
+        ],
+        "en": [
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
+        ],
+        "fr": [
+          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
+        ]
+      },
+      "previousSlugs": [
+        "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch",
+        "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
+      ],
+      "firstSeenAt": "2026-04-30T21:37:39.334Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -118,7 +204,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/630c63cd-074c-d1c6-63da-719353bfd0bb",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.121Z",
+      "crawledAt": "2026-05-12T11:01:17.593Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -175,91 +261,6 @@
       }
     },
     {
-      "id": "cseb-5fa447124a26",
-      "slug": "analista-biomedico-in-hf-med-techn-assistente-di-laboratorio-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
-      "slugByLocale": {
-        "it": "analista-biomedico-in-hf-med-techn-assistente-di-laboratorio-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
-        "en": "biomedical-analyst-in-hf-med-techn-laboratory-assistant-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
-        "de": "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol",
-        "fr": "analyste-biomedical-in-hf-med-techn-assistant-de-laboratoire-en-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
-      },
-      "company": "Center da Sanadad Engiadina Bassa",
-      "companyKey": "cseb",
-      "companyDomain": "cseb.ch",
-      "title": "Biomedizinische Analytiker/-in HF / Med.-techn. Laborassistent/-in MTLA (80-100%)",
-      "titleByLocale": {
-        "it": "Analista biomedico/-in HF / Med.-techn. Assistente di laboratorio in MTLA (80-100%)",
-        "en": "Biomedical analyst/-in HF / Med.-techn. Laboratory assistant in MTLA (80-100%)",
-        "de": "Biomedizinische Analytiker/-in HF / Med.-techn. Laborassistent/-in MTLA (80-100%)",
-        "fr": "Analyste biomédical/-in HF / Med.-techn. Assistant de laboratoire en MTLA (80-100%)"
-      },
-      "description": "Für das Ospidal suchen wir im Bereich Labor per sofort oder nach Vereinbarung eine/-n\n\nAufgaben:\nHauptaufgaben\n\n• Mitarbeit im Routinelabor (klinische Chemie, Hämatologie, Gerinnung, Exkrementenlabor, Immunhämatologie), bei medizintechnischen Untersuchungen und bei Blutentnahmen\n\n• Teilnahme am Pikettdienst\n\n• Durchführung von funktionstechnischen Untersuchungen, z.B. Lungenfunktion\n\nAnforderungen:\nAnforderungsprofil\n\n• Diplomierte Biomedizinische/r Analytiker/in HF mit Abschluss höhere Fachprüfung Experte/Expertin in biomed. Analytik\n\n• Gerne auch für engagierte Berufsanfänger\n\n• Verantwortungsbewusstsein, Teamgeist, Belastbarkeit\n\n• Freude an Teamarbeit\n\n• Fundierte Kenntnisse labormedizinischer Techniken und in der EDV-Anwendung\n\n• Interesse an Funktionstechnik\n\nWir bieten:\nUnser Angebot\n\n• Interessante und vielseitige Tätigkeit\n\n• Moderne apparative und EDV- Infrastruktur\n\n• Angenehmes Betriebsklima\n\n• Zeitgemässe Anstellungsbedingungen\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Enge interdisziplinäre Zusammenarbeit\n\nUnter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Sie eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten.\n\nDas Ospidal ist als Regionalspital für die medizinische Grund- und Notfallversorgung im Unterengadin zuständig. Es bietet modernste Schul- aber auch Komplementärmedizin an und nimmt in der Schweiz eine Vorreiterrolle im Bereich der Patientensicherheit ein. Es werden die Bereiche Chirurgie, Traumatologie, Orthopädie, Gynäkologie und Geburtshilfe, Innere Medizin und Palliative Care, Integrative Medizin, Anästhesiologie und Schmerztherapie inkl. einer IMC-Station angeboten. Das Spital verfügt über modernste Infrastruktur mit KIS, RIS, PACS inkl. zahlreicher fortschrittlicher telemedizinischer Lösungen sowie über einen modernen Operationstrakt.\n\nFür weitere Auskünfte stehen Ihnen Frau Sabina Rössler, Bereichsleitung Labor, Telefonnummer +41 81 861 12 40 und Herr Aldo Sala, Leitung Medizinische Dienste, Telefon +41 81 610 10 41, gerne zur Verfügung.\n\nWir freuen uns auf Ihre Online-Bewerbung.",
-      "descriptionByLocale": {
-        "it": "Descrizione Per l'Ospidal, stiamo cercando un /-n # compito nel campo del laboratorio secondo accordo - la cooperazione nel laboratorio di routine (chimica clinica, ematologia, coagulazione, laboratorio di escremento, immunohaematologia) - la partecipazione al servizio pikett - l'attuazione di studi funzionali, ad esempio la funzione polmonare ##\n• Requisiti - Diplomato biomedicale/analyst/in HF con il completamento di uno specialista bioesmed. Analizzando - Gerne anche per principianti professionisti dedicati - senso di responsabilità, spirito di squadra, resilienza - gioia nel lavoro di squadra - Conoscenze finanziate di tecniche mediche di laboratorio e nell'applicazione del computer - Interessi nell'ingegneria funzionale ##\n• Offriamo - Attività interessanti e versatili - Moderne infrastrutture apparative e EDV - Piacevole clima operativo - Condizioni di impiego - Opportunità di formazione interna ed esterna - Enga cooperazione interdisciplinare Nella regione del parco nazionale si trova un ambiente meraviglioso con strutture ricreative e sportive versatili. L'Ospidal è responsabile come ospedale regionale per l'assistenza medica di base e di emergenza nella Bassa Engadina. Offre una scuola all'avanguardia e una medicina complementare e svolge un ruolo di primo piano nel campo della sicurezza dei pazienti in Svizzera. Le aree di chirurgia, traumatologia, ortopedia, ginecologia e aiuto alla nascita, medicina interna e assistenza palliativa, medicina integrativa, anestesiologia e terapia del dolore tra cui una stazione IMC sono offerti. L'ospedale ha infrastrutture all'avanguardia con KIS, RIS, PACS, tra cui numerose soluzioni telemediche avanzate e un moderno tratto chirurgico. ## Contatto Per ulteriori informazioni, si prega di contattare la signora Sabina Rössler, responsabile del laboratorio, telefono +41 81 861 12 40 e Aldo Sala, responsabile dei servizi medici, telefono +41 81 610 10 41. Attendiamo con ansia la vostra applicazione online.",
-        "en": "Descrizione For the Ospidal, we are looking for a/-n ## task in the field of laboratory according to agreement - cooperation in the routine laboratory (clinical chemistry, haematology, coagulation, excrement laboratory, immunohaematology) - participation in the pikett service - implementation of functional studies, e.g. lung function ##\n• Requirements - Diplomated biomedical/analyst/in HF with completion of higher specialist examination expert/expert in biomed. Analyzing - Gerne also for dedicated professional starters - sense of responsibility, team spirit, resilience - joy in team work - Funded knowledge of laboratory medical techniques and in the computer application - Interest in functional engineering ##\n• We offer - Interesting and versatile activity - Modern apparative and EDV infrastructure - Pleasant operating climate - Conditions of employment - Internal and external training opportunities - Enga interdisciplinary cooperation In the national park region you will find a wonderful environment with versatile recreation and sports facilities. The Ospidal is responsible as a regional hospital for basic and emergency medical care in the Lower Engadine. It offers state-of-the-art school and complementary medicine and plays a leading role in the field of patient safety in Switzerland. The areas of surgery, traumatology, orthopaedics, gynecology and birth aid, internal medicine and palliative care, integrative medicine, anaesthesiology and pain therapy including an IMC station are offered. The hospital has state-of-the-art infrastructure with KIS, RIS, PACS including numerous advanced telemedical solutions as well as a modern surgical tract. ## Contatto For further information, please contact Mrs Sabina Rössler, Head of Department Laboratory, Phone +41 81 861 12 40 and Mr Aldo Sala, Head of Medical Services, Phone +41 81 610 10 41. We look forward to your online application.",
-        "de": "Für das Ospidal suchen wir im Bereich Labor per sofort oder nach Vereinbarung eine/-n Aufgaben: Hauptaufgaben\n• Mitarbeit im Routinelabor (klinische Chemie, Hämatologie, Gerinnung, Exkrementenlabor, Immunhämatologie), bei medizintechnischen Untersuchungen und bei Blutentnahmen\n• Teilnahme am Pikettdienst\n• Durchführung von funktionstechnischen Untersuchungen, z.B. Lungenfunktion Anforderungen: Anforderungsprofil\n• Diplomierte Biomedizinische/r Analytiker/in HF mit Abschluss höhere Fachprüfung Experte/Expertin in biomed. Analytik\n• Gerne auch für engagierte Berufsanfänger\n• Verantwortungsbewusstsein, Teamgeist, Belastbarkeit\n• Freude an Teamarbeit\n• Fundierte Kenntnisse labormedizinischer Techniken und in der EDV-Anwendung\n• Interesse an Funktionstechnik Wir bieten: Unser Angebot\n• Interessante und vielseitige Tätigkeit\n• Moderne apparative und EDV- Infrastruktur\n• Angenehmes Betriebsklima\n• Zeitgemässe Anstellungsbedingungen\n• Interne und externe Weiterbildungsmöglichkeiten\n• Enge interdisziplinäre Zusammenarbeit Unter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Sie eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten. Das Ospidal ist als Regionalspital für die medizinische Grund- und Notfallversorgung im Unterengadin zuständig. Es bietet modernste Schul- aber auch Komplementärmedizin an und nimmt in der Schweiz eine Vorreiterrolle im Bereich der Patientensicherheit ein. Es werden die Bereiche Chirurgie, Traumatologie, Orthopädie, Gynäkologie und Geburtshilfe, Innere Medizin und Palliative Care, Integrative Medizin, Anästhesiologie und Schmerztherapie inkl. einer IMC-Station angeboten. Das Spital verfügt über modernste Infrastruktur mit KIS, RIS, PACS inkl. zahlreicher fortschrittlicher telemedizinischer Lösungen sowie über einen modernen Operationstrakt. Für weitere Auskünfte stehen Ihnen Frau Sabina Rössler, Bereichsleitung Labor, Telefonnummer +41 81 861 12 40 und Herr Aldo Sala, Leitung Medizinische Dienste, Telefon +41 81 610 10 41, gerne zur Verfügung. Wir freuen uns auf Ihre Online-Bewerbung.",
-        "fr": "Descrizione Pour l'Ospidal, nous recherchons une tâche ## dans le domaine du laboratoire selon l'accord - coopération dans le laboratoire de routine (chimie clinique, hématologie, coagulation, laboratoire d'excréments, immunohématologie) - participation au service pikett - mise en oeuvre d'études fonctionnelles, p.ex. fonction pulmonaire ##\n• Exigences - Biomédical/analyste/en HF avec l'obtention d'un examen spécialisé/expert en biomédecine. Analyse - Gerne aussi pour les débutants professionnels dédiés - sens des responsabilités, esprit d'équipe, résilience - joie dans le travail d'équipe - Connaissance financée des techniques médicales de laboratoire et dans l'application informatique - Intérêt pour l'ingénierie fonctionnelle ##\n• Nous offrons - Intérêt et activité polyvalente - Apparative moderne et infrastructure de VAE - Climat opérationnel agréable - Conditions d'emploi - Possibilités de formation interne et externe - Coopération interdisciplinaire Enga Dans la région du parc national, vous trouverez un environnement merveilleux avec des installations récréatives et sportives polyvalentes. L'Ospidal est responsable en tant qu'hôpital régional des soins médicaux de base et d'urgence dans la Basse Engadine. Il offre une école de pointe et une médecine complémentaire et joue un rôle de premier plan dans le domaine de la sécurité des patients en Suisse. Les domaines de la chirurgie, de la traumatologie, de l'orthopédie, de la gynécologie et de l'aide à la naissance, de la médecine interne et des soins palliatifs, de la médecine intégrative, de l'anesthésiologie et de la douleur, y compris un poste IMC, sont offerts. L'hôpital dispose d'une infrastructure de pointe avec KIS, RIS, PACS comprenant de nombreuses solutions télémédicales avancées ainsi qu'un appareil chirurgical moderne. Contatto Pour de plus amples informations, veuillez contacter Mme Sabina Rössler, chef du laboratoire de département, tél. +41 81 861 12 40 et M. Aldo Sala, chef des services médicaux, tél. +41 81 610 10 41. Nous nous réjouissons de votre candidature en ligne."
-      },
-      "location": "Scuol",
-      "canton": "GR",
-      "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/08090cea-a5af-e391-1b01-d1e40cf402a3",
-      "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.121Z",
-      "addressLocality": "Scuol",
-      "postalCode": "7550",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Laboratorio",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-30",
-      "applyUrl": "https://jobs.cseb.ch/application-process/d9c5a048-f665-4e64-a2c7-cdd8231bac77/08090cea-a5af-e391-1b01-d1e40cf402a3",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "streetAddress": "Via da l'Ospidal 280",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "contactPerson": "Corsina Feuerstein Betschart",
-      "previousSlugsByLocale": {
-        "de": [
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch"
-        ],
-        "it": [
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch",
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
-        ],
-        "en": [
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
-        ],
-        "fr": [
-          "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
-        ]
-      },
-      "previousSlugs": [
-        "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-cseb-ch",
-        "biomedizinische-analytiker-in-hf-med-techn-laborassistent-in-mtla-80-100-center-da-sanadad-engiadina-bassa-scuol"
-      ],
-      "firstSeenAt": "2026-04-30T21:37:39.334Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "cseb-7213f4a71705",
       "slug": "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol",
       "slugByLocale": {
@@ -290,7 +291,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/0aae7b8e-6401-ca9e-3f64-552a05cd547d",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.120Z",
+      "crawledAt": "2026-05-12T11:01:17.592Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -320,6 +321,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T10:43:10.636Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -364,7 +366,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/bf759db0-2db8-5938-ee9f-f182be500ecd",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.119Z",
+      "crawledAt": "2026-05-12T11:01:17.590Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -448,7 +450,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/1e70844e-12af-e07a-ee28-a4c8cb3a2af6",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.118Z",
+      "crawledAt": "2026-05-12T11:01:17.589Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -500,6 +502,7 @@
         "mitarbeiter-in-romisch-irisches-bad-40-60-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.998Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -544,7 +547,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/896bdfd5-dd52-ab4e-e9fb-b16d160fcca7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.118Z",
+      "crawledAt": "2026-05-12T11:01:17.588Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -608,6 +611,7 @@
         "dipl-pflegefachfrau-mann-hf-mit-fahigkeitsausweis-in-operationspflege-80-100-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.997Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -652,7 +656,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/de22c979-5108-b752-c983-e0d5bc4bf2bf",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.117Z",
+      "crawledAt": "2026-05-12T11:01:17.586Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -700,6 +704,7 @@
         "leitende-arztin-leitender-arzt-gynakologie-und-geburtshilfe-25-50-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.997Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -744,7 +749,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/18e63da7-2e49-eb9c-601d-b22238e3ef49",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.117Z",
+      "crawledAt": "2026-05-12T11:01:17.585Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -790,6 +795,7 @@
         "unterassistenten-innen-pj-jahr-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.996Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -834,7 +840,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/14b338b2-6622-bade-427a-7760f0bba7f7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.115Z",
+      "crawledAt": "2026-05-12T11:01:17.584Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -887,6 +893,7 @@
         "assistent-in-gesundheit-und-soziales-pflegehelfer-in-srk-oder-sozialbetreuer-in-50-90-cseb"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.996Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -896,111 +903,6 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "cseb-9ed058f71022",
-      "slug": "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol",
-      "slugByLocale": {
-        "it": "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol",
-        "en": "apprenticeship-as-commercial-employee-efz-center-da-sanadad-engiadina-bassa-scuol",
-        "de": "lehrstelle-als-kauffrau-kaufmann-efz-center-da-sanadad-engiadina-bassa-scuol",
-        "fr": "apprentissage-en-commerce-cfc-center-da-sanadad-engiadina-bassa-scuol"
-      },
-      "company": "Center da Sanadad Engiadina Bassa",
-      "companyKey": "cseb",
-      "companyDomain": "cseb.ch",
-      "title": "Lehrstelle als Kauffrau / Kaufmann EFZ",
-      "titleByLocale": {
-        "it": "Apprendistato come impiegata / impiegato di commercio CFP",
-        "en": "Apprenticeship as Commercial Employee EFZ",
-        "de": "Lehrstelle als Kauffrau / Kaufmann EFZ",
-        "fr": "Apprentissage en commerce CFC"
-      },
-      "description": "Wir bieten im Bereich kaufmännische Abteilung per 1. August 2027 eine\n\nAufgaben:\nAusbildung und Dauer\n\nWährend der Zeit der Ausbildung arbeitest Du in verschiedene Abteilungen des „Center da sandà Engiadina Bassa“, wie z. B. Administration Chasa Puntota, Empfang Ospidal, Personaldienst, Finanzen.\n\nDie Ausbildung dauert drei Jahre. Nach bestandener Lehrabschlussprüfung wird das eidgenössische Fähigkeitszeugnis „Kauffrau/Kaufmann EFZ“ erteilt.\n\nAnforderungen:\nDein Profil\n\n• Du verfügst über einen Sekundar- oder Realschulabschluss\n\n• Du bist einsatz- und kontaktfreudig\n\n• Du arbeitest gerne im Team\n\n• Du schätzt flexible Arbeitszeiten\n\nWir bieten:\nUnser Angebot\n\n• Interessantes und abwechslungsreiches Aufgabengebiet\n\n• Ein attraktives, motiviertes Arbeitsumfeld\n\n• Moderne Infrastruktur\n\n• Gutes Arbeitsklima\n\nUnter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Dich eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten.\n\n​​​​​​​\n\nFür weitere Auskünfte steht Dir Herr Gerhard Hauser, Ausbildungsverantwortlicher KV, Telefon 081 861 10 09, gerne zur Verfügung.\n\nHaben wir Dein Interesse geweckt? Wir freuen uns auf Deine Online- oder schriftliche Bewerbung an:",
-      "descriptionByLocale": {
-        "it": "Descrizione\n• Offriamo nel settore dell'amministrazione a partire dal 1° agosto 2027 una ## Compiti - Formazione e durata - Durante il periodo di formazione lavorerai in diversi reparti del \"Center da sandà Engiadina Bassa\", ad esempio amministrazione Chasa Puntota, reception Ospidal, servizio del personale, finanze - La formazione ha una durata di tre anni - Dopo il superamento dell'esame finale di tirocinio viene rilasciato il certificato federale di capacità \"impiegata/impiegato di commercio CFP\" ##\n• Requisiti - Il tuo profilo - Possiedi un diploma della scuola secondaria inferiore o della scuola real - Sei disponibile e socievole - Ti piace lavorare in team - Apprezzi orari di lavoro flessibili ## Offerta - La nostra offerta - Un campo d'attività interessante e vario - Un ambiente di lavoro motivante e attraente - Infrastrutture moderne - Un buon clima lavorativo ## Chi siamo Sotto l'egida di «Center da sandà Engiadina Bassa» (CSEB) / «Centro salute Unterengadina» importanti fornitori regionali nei settori dell'assistenza sanitaria e del benessere percorrono insieme un cammino comune. Nella regione del Parco Nazionale ti aspetta un ambiente meraviglioso con numerose possibilità di svago e sport. ## Contatto Per ulteriori informazioni si mette a tua disposizione volentieri il signor Gerhard Hauser, responsabile della formazione KV, telefono 081 861 10 09. Ti abbiamo suscitato interesse? Saremo lieti di ricevere la tua candidatura online o per iscritto a:",
-        "en": "Description\n• We offer in the administrative department starting 1 August 2027 a ## Tasks - Training and duration - During your apprenticeship, you will work in various departments of the \"Center da sandà Engiadina Bassa\", such as Administration Chasa Puntota, Ospidal Reception, Human Resources, Finance - The apprenticeship lasts three years - Upon successful completion of the final examination, the Federal Certificate of Proficiency \"Commercial Employee EFZ\" is awarded ##\n• Requirements -\n• Your profile - You have a lower secondary or upper secondary school diploma - You are motivated and enjoy contact with people - You enjoy working in a team - You appreciate flexible working hours ##\n• We offer - Our offer - An interesting and varied range of responsibilities - An attractive and motivated working environment - Modern infrastructure - A positive working atmosphere ## About us Under the umbrella of «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin», key regional providers in healthcare and wellness are joining forces. In the National Park region, you will find a wonderful environment with diverse recreational and sports opportunities. ## Contact For further information, please do not hesitate to contact Mr Gerhard Hauser, Head of Commercial Apprenticeships, by phone at 081 861 10 09. Have we sparked your interest? We look forward to receiving your online or written application at:",
-        "de": "Wir bieten im Bereich kaufmännische Abteilung per 1. August 2027 eine Aufgaben: Ausbildung und Dauer Während der Zeit der Ausbildung arbeitest Du in verschiedene Abteilungen des „Center da sandà Engiadina Bassa“, wie z. B. Administration Chasa Puntota, Empfang Ospidal, Personaldienst, Finanzen. Die Ausbildung dauert drei Jahre. Nach bestandener Lehrabschlussprüfung wird das eidgenössische Fähigkeitszeugnis „Kauffrau/Kaufmann EFZ“ erteilt. Anforderungen: Dein Profil\n• Du verfügst über einen Sekundar- oder Realschulabschluss\n• Du bist einsatz- und kontaktfreudig\n• Du arbeitest gerne im Team\n• Du schätzt flexible Arbeitszeiten Wir bieten: Unser Angebot\n• Interessantes und abwechslungsreiches Aufgabengebiet\n• Ein attraktives, motiviertes Arbeitsumfeld\n• Moderne Infrastruktur\n• Gutes Arbeitsklima Unter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Dich eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten. ​​​​​​​ Für weitere Auskünfte steht Dir Herr Gerhard Hauser, Ausbildungsverantwortlicher KV, Telefon 081 861 10 09, gerne zur Verfügung. Haben wir Dein Interesse geweckt? Wir freuen uns auf Deine Online- oder schriftliche Bewerbung an:",
-        "fr": "Description\n• Nous proposons dans le domaine administratif à partir du 1er août 2027 un ## Tâches - Formation et durée - Pendant la période de formation, vous travaillerez dans différents départements du «Center da sandà Engiadina Bassa», par exemple l'administration de la Chasa Puntota, l'accueil de l'Ospidal, le service du personnel, les finances - La formation dure trois ans - Après la réussite de l'examen de fin d'apprentissage, le certificat fédéral de capacité «employé/e de commerce CFC» est délivré ##\n• Exigences -\n• Votre profil - Vous possédez un diplôme d'école secondaire I ou d'école de maturité - Vous êtes motivé/e et aimez le contact humain - Vous aimez travailler en équipe - Vous appréciez des horaires de travail flexibles ##\n• Nous offrons - Notre offre - Un domaine d'activité intéressant et varié - Un environnement de travail attractif et motivant - Une infrastructure moderne - Un bon climat de travail ## À propos de nous Sous l'égide du «Center da sandà Engiadina Bassa» (CSEB) / «Zentrum für Gesundheit Unterengadin», d'importants prestataires régionaux dans les domaines de la santé et du bien-être s'engagent ensemble. Dans la région du Parc national, vous trouverez un cadre magnifique offrant de nombreuses possibilités de loisirs et de sport. ## Contact Pour de plus amples informations, veuillez contacter M. Gerhard Hauser, responsable de la formation en commerce, au 081 861 10 09. Notre offre vous intéresse ? Nous nous réjouissons de recevoir votre candidature en ligne ou par écrit à l'adresse suivante :"
-      },
-      "location": "Scuol",
-      "canton": "GR",
-      "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9789088f-9f3e-b7a4-bf69-6d9c765dbea3",
-      "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.114Z",
-      "addressLocality": "Scuol",
-      "postalCode": "7550",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-11-12",
-      "applyUrl": "https://jobs.cseb.ch/application-process/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9789088f-9f3e-b7a4-bf69-6d9c765dbea3",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Possiedi un diploma della scuola secondaria inferiore o della scuola real",
-          "Sei disponibile e socievole",
-          "Ti piace lavorare in team",
-          "Apprezzi orari di lavoro flessibili",
-          "Formazione in diversi reparti del Center da sandà Engiadina Bassa",
-          "Durata della formazione: tre anni",
-          "Rilascio del certificato federale di capacità dopo l'esame finale",
-          "Ambiente di lavoro moderno e motivante"
-        ],
-        "en": [
-          "You have a lower secondary or upper secondary school diploma",
-          "You are motivated and enjoy contact with people",
-          "You enjoy working in a team",
-          "You appreciate flexible working hours",
-          "Training in various departments of Center da sandà Engiadina Bassa",
-          "Apprenticeship duration: three years",
-          "Federal Certificate of Proficiency awarded after final exam",
-          "Modern and motivated working environment"
-        ],
-        "fr": [
-          "Vous possédez un diplôme d'école secondaire I ou d'école de maturité",
-          "Vous êtes motivé/e et aimez le contact humain",
-          "Vous aimez travailler en équipe",
-          "Vous appréciez des horaires de travail flexibles",
-          "Formation dans différents départements du Center da sandà Engiadina Bassa",
-          "Durée de la formation : trois ans",
-          "Délivrance du certificat fédéral de capacité après l'examen final",
-          "Environnement de travail moderne et motivant"
-        ]
-      },
-      "streetAddress": "Via da l'Ospidal 280",
-      "contactPerson": "Corsina Feuerstein Betschart",
-      "previousSlugsByLocale": {
-        "de": [
-          "lehrstelle-als-kauffrau-kaufmann-efz-cseb-ch"
-        ],
-        "it": [
-          "lehrstelle-als-kauffrau-kaufmann-efz-cseb-ch"
-        ]
-      },
-      "previousSlugs": [
-        "lehrstelle-als-kauffrau-kaufmann-efz-cseb-ch"
-      ],
-      "firstSeenAt": "2026-04-13T10:23:37.995Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
           "unitText": "YEAR"
         }
       }
@@ -1036,7 +938,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/a356d4be-f8e0-8a97-0c2c-121cd5f89c14",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.114Z",
+      "crawledAt": "2026-05-12T11:01:17.582Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1104,6 +1006,7 @@
         "dipl-rettungssanitater-in-hf-40-100-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.996Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1113,6 +1016,112 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "cseb-9ed058f71022",
+      "slug": "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol",
+      "slugByLocale": {
+        "it": "apprendistato-come-impiegata-impiegato-di-commercio-cfp-center-da-sanadad-engiadina-bassa-scuol",
+        "en": "apprenticeship-as-commercial-employee-efz-center-da-sanadad-engiadina-bassa-scuol",
+        "de": "lehrstelle-als-kauffrau-kaufmann-efz-center-da-sanadad-engiadina-bassa-scuol",
+        "fr": "apprentissage-en-commerce-cfc-center-da-sanadad-engiadina-bassa-scuol"
+      },
+      "company": "Center da Sanadad Engiadina Bassa",
+      "companyKey": "cseb",
+      "companyDomain": "cseb.ch",
+      "title": "Lehrstelle als Kauffrau / Kaufmann EFZ",
+      "titleByLocale": {
+        "it": "Apprendistato come impiegata / impiegato di commercio CFP",
+        "en": "Apprenticeship as Commercial Employee EFZ",
+        "de": "Lehrstelle als Kauffrau / Kaufmann EFZ",
+        "fr": "Apprentissage en commerce CFC"
+      },
+      "description": "Wir bieten im Bereich kaufmännische Abteilung per 1. August 2027 eine\n\nAufgaben:\nAusbildung und Dauer\n\nWährend der Zeit der Ausbildung arbeitest Du in verschiedene Abteilungen des „Center da sandà Engiadina Bassa“, wie z. B. Administration Chasa Puntota, Empfang Ospidal, Personaldienst, Finanzen.\n\nDie Ausbildung dauert drei Jahre. Nach bestandener Lehrabschlussprüfung wird das eidgenössische Fähigkeitszeugnis „Kauffrau/Kaufmann EFZ“ erteilt.\n\nAnforderungen:\nDein Profil\n\n• Du verfügst über einen Sekundar- oder Realschulabschluss\n\n• Du bist einsatz- und kontaktfreudig\n\n• Du arbeitest gerne im Team\n\n• Du schätzt flexible Arbeitszeiten\n\nWir bieten:\nUnser Angebot\n\n• Interessantes und abwechslungsreiches Aufgabengebiet\n\n• Ein attraktives, motiviertes Arbeitsumfeld\n\n• Moderne Infrastruktur\n\n• Gutes Arbeitsklima\n\nUnter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Dich eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten.\n\n​​​​​​​\n\nFür weitere Auskünfte steht Dir Herr Gerhard Hauser, Ausbildungsverantwortlicher KV, Telefon 081 861 10 09, gerne zur Verfügung.\n\nHaben wir Dein Interesse geweckt? Wir freuen uns auf Deine Online- oder schriftliche Bewerbung an:",
+      "descriptionByLocale": {
+        "it": "Descrizione\n• Offriamo nel settore dell'amministrazione a partire dal 1° agosto 2027 una ## Compiti - Formazione e durata - Durante il periodo di formazione lavorerai in diversi reparti del \"Center da sandà Engiadina Bassa\", ad esempio amministrazione Chasa Puntota, reception Ospidal, servizio del personale, finanze - La formazione ha una durata di tre anni - Dopo il superamento dell'esame finale di tirocinio viene rilasciato il certificato federale di capacità \"impiegata/impiegato di commercio CFP\" ##\n• Requisiti - Il tuo profilo - Possiedi un diploma della scuola secondaria inferiore o della scuola real - Sei disponibile e socievole - Ti piace lavorare in team - Apprezzi orari di lavoro flessibili ## Offerta - La nostra offerta - Un campo d'attività interessante e vario - Un ambiente di lavoro motivante e attraente - Infrastrutture moderne - Un buon clima lavorativo ## Chi siamo Sotto l'egida di «Center da sandà Engiadina Bassa» (CSEB) / «Centro salute Unterengadina» importanti fornitori regionali nei settori dell'assistenza sanitaria e del benessere percorrono insieme un cammino comune. Nella regione del Parco Nazionale ti aspetta un ambiente meraviglioso con numerose possibilità di svago e sport. ## Contatto Per ulteriori informazioni si mette a tua disposizione volentieri il signor Gerhard Hauser, responsabile della formazione KV, telefono 081 861 10 09. Ti abbiamo suscitato interesse? Saremo lieti di ricevere la tua candidatura online o per iscritto a:",
+        "en": "Description\n• We offer in the administrative department starting 1 August 2027 a ## Tasks - Training and duration - During your apprenticeship, you will work in various departments of the \"Center da sandà Engiadina Bassa\", such as Administration Chasa Puntota, Ospidal Reception, Human Resources, Finance - The apprenticeship lasts three years - Upon successful completion of the final examination, the Federal Certificate of Proficiency \"Commercial Employee EFZ\" is awarded ##\n• Requirements -\n• Your profile - You have a lower secondary or upper secondary school diploma - You are motivated and enjoy contact with people - You enjoy working in a team - You appreciate flexible working hours ##\n• We offer - Our offer - An interesting and varied range of responsibilities - An attractive and motivated working environment - Modern infrastructure - A positive working atmosphere ## About us Under the umbrella of «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin», key regional providers in healthcare and wellness are joining forces. In the National Park region, you will find a wonderful environment with diverse recreational and sports opportunities. ## Contact For further information, please do not hesitate to contact Mr Gerhard Hauser, Head of Commercial Apprenticeships, by phone at 081 861 10 09. Have we sparked your interest? We look forward to receiving your online or written application at:",
+        "de": "Wir bieten im Bereich kaufmännische Abteilung per 1. August 2027 eine Aufgaben: Ausbildung und Dauer Während der Zeit der Ausbildung arbeitest Du in verschiedene Abteilungen des „Center da sandà Engiadina Bassa“, wie z. B. Administration Chasa Puntota, Empfang Ospidal, Personaldienst, Finanzen. Die Ausbildung dauert drei Jahre. Nach bestandener Lehrabschlussprüfung wird das eidgenössische Fähigkeitszeugnis „Kauffrau/Kaufmann EFZ“ erteilt. Anforderungen: Dein Profil\n• Du verfügst über einen Sekundar- oder Realschulabschluss\n• Du bist einsatz- und kontaktfreudig\n• Du arbeitest gerne im Team\n• Du schätzt flexible Arbeitszeiten Wir bieten: Unser Angebot\n• Interessantes und abwechslungsreiches Aufgabengebiet\n• Ein attraktives, motiviertes Arbeitsumfeld\n• Moderne Infrastruktur\n• Gutes Arbeitsklima Unter dem Dach «Center da sandà Engiadina Bassa» (CSEB) / «Gesundheitszentrum Unterengadin» gehen wichtige regionale Anbieter in den Bereichen Gesundheitsversorgung und Wellness einen gemeinsamen Weg. In der Nationalparkregion erwartet Dich eine wunderbare Umgebung mit vielseitigen Erholungs- und Sportmöglichkeiten. ​​​​​​​ Für weitere Auskünfte steht Dir Herr Gerhard Hauser, Ausbildungsverantwortlicher KV, Telefon 081 861 10 09, gerne zur Verfügung. Haben wir Dein Interesse geweckt? Wir freuen uns auf Deine Online- oder schriftliche Bewerbung an:",
+        "fr": "Description\n• Nous proposons dans le domaine administratif à partir du 1er août 2027 un ## Tâches - Formation et durée - Pendant la période de formation, vous travaillerez dans différents départements du «Center da sandà Engiadina Bassa», par exemple l'administration de la Chasa Puntota, l'accueil de l'Ospidal, le service du personnel, les finances - La formation dure trois ans - Après la réussite de l'examen de fin d'apprentissage, le certificat fédéral de capacité «employé/e de commerce CFC» est délivré ##\n• Exigences -\n• Votre profil - Vous possédez un diplôme d'école secondaire I ou d'école de maturité - Vous êtes motivé/e et aimez le contact humain - Vous aimez travailler en équipe - Vous appréciez des horaires de travail flexibles ##\n• Nous offrons - Notre offre - Un domaine d'activité intéressant et varié - Un environnement de travail attractif et motivant - Une infrastructure moderne - Un bon climat de travail ## À propos de nous Sous l'égide du «Center da sandà Engiadina Bassa» (CSEB) / «Zentrum für Gesundheit Unterengadin», d'importants prestataires régionaux dans les domaines de la santé et du bien-être s'engagent ensemble. Dans la région du Parc national, vous trouverez un cadre magnifique offrant de nombreuses possibilités de loisirs et de sport. ## Contact Pour de plus amples informations, veuillez contacter M. Gerhard Hauser, responsable de la formation en commerce, au 081 861 10 09. Notre offre vous intéresse ? Nous nous réjouissons de recevoir votre candidature en ligne ou par écrit à l'adresse suivante :"
+      },
+      "location": "Scuol",
+      "canton": "GR",
+      "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9789088f-9f3e-b7a4-bf69-6d9c765dbea3",
+      "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-12T11:01:17.580Z",
+      "addressLocality": "Scuol",
+      "postalCode": "7550",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-11-12",
+      "applyUrl": "https://jobs.cseb.ch/application-process/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9789088f-9f3e-b7a4-bf69-6d9c765dbea3",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Possiedi un diploma della scuola secondaria inferiore o della scuola real",
+          "Sei disponibile e socievole",
+          "Ti piace lavorare in team",
+          "Apprezzi orari di lavoro flessibili",
+          "Formazione in diversi reparti del Center da sandà Engiadina Bassa",
+          "Durata della formazione: tre anni",
+          "Rilascio del certificato federale di capacità dopo l'esame finale",
+          "Ambiente di lavoro moderno e motivante"
+        ],
+        "en": [
+          "You have a lower secondary or upper secondary school diploma",
+          "You are motivated and enjoy contact with people",
+          "You enjoy working in a team",
+          "You appreciate flexible working hours",
+          "Training in various departments of Center da sandà Engiadina Bassa",
+          "Apprenticeship duration: three years",
+          "Federal Certificate of Proficiency awarded after final exam",
+          "Modern and motivated working environment"
+        ],
+        "fr": [
+          "Vous possédez un diplôme d'école secondaire I ou d'école de maturité",
+          "Vous êtes motivé/e et aimez le contact humain",
+          "Vous aimez travailler en équipe",
+          "Vous appréciez des horaires de travail flexibles",
+          "Formation dans différents départements du Center da sandà Engiadina Bassa",
+          "Durée de la formation : trois ans",
+          "Délivrance du certificat fédéral de capacité après l'examen final",
+          "Environnement de travail moderne et motivant"
+        ]
+      },
+      "streetAddress": "Via da l'Ospidal 280",
+      "contactPerson": "Corsina Feuerstein Betschart",
+      "previousSlugsByLocale": {
+        "de": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-cseb-ch"
+        ],
+        "it": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-cseb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-als-kauffrau-kaufmann-efz-cseb-ch"
+      ],
+      "firstSeenAt": "2026-04-13T10:23:37.995Z",
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
           "unitText": "YEAR"
         }
       }
@@ -1148,7 +1157,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/4fd73428-f73e-6f49-2855-8204b00cbdc0",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.113Z",
+      "crawledAt": "2026-05-12T11:01:17.579Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1197,6 +1206,7 @@
         "lehrstelle-als-assistentin-assistent-gesundheit-und-soziales-eba-ags-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.995Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1241,7 +1251,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/1ef3689c-79c6-eae7-139e-1ad10eb84ac7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.112Z",
+      "crawledAt": "2026-05-12T11:01:17.578Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1296,6 +1306,7 @@
         "lehrstelle-als-kochin-koch-efz-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.994Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1340,7 +1351,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e9f51ab1-b60e-a609-9b43-ea1cde468af8",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.111Z",
+      "crawledAt": "2026-05-12T11:01:17.577Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1389,6 +1400,7 @@
         "assistenzarztinnen-assistenzarzte-70-100-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.994Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1433,7 +1445,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9b888521-c84d-59c9-4222-e9cc2d551af6",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.110Z",
+      "crawledAt": "2026-05-12T11:01:17.575Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1479,6 +1491,7 @@
         "famulatur-stelle-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.993Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1523,7 +1536,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/b572e71d-482e-bc3a-6aef-b24595f38cb4",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.108Z",
+      "crawledAt": "2026-05-12T11:01:17.574Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1572,6 +1585,7 @@
         "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-fage-cseb-ch"
       ],
       "firstSeenAt": "2026-04-13T10:23:37.993Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1616,7 +1630,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/d42b368b-500b-999e-0f77-ed4017b03b98",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-11T21:53:34.100Z",
+      "crawledAt": "2026-05-12T11:01:17.563Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
