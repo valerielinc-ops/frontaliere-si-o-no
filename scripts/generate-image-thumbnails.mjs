@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { createHash } from 'node:crypto';
-import { mkdir, readdir, readFile, stat, writeFile } from 'node:fs/promises';
+import { mkdir, readdir, readFile, stat, unlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 
@@ -72,12 +72,41 @@ async function outputsExist(outputs) {
   return true;
 }
 
+async function pruneLegacyFormats(thumbDir) {
+  // Single-format pipeline (2026-05): only `.webp` thumbnails are emitted.
+  // The CI cache restore-keys cascade (thumbnails-v2-*) can still rehydrate
+  // the previous `.jpg` and `.avif` thumbnails alongside the new `.webp`,
+  // which would bloat dist/ with files no consumer reads. Prune them every
+  // run — cheap, idempotent.
+  let pruned = 0;
+  let entries;
+  try {
+    entries = await readdir(thumbDir);
+  } catch {
+    return 0;
+  }
+  for (const entry of entries) {
+    if (entry === MANIFEST_NAME) continue;
+    const ext = path.extname(entry).toLowerCase();
+    if (ext === '.jpg' || ext === '.jpeg' || ext === '.avif') {
+      try {
+        await unlink(path.join(thumbDir, entry));
+        pruned += 1;
+      } catch {
+        /* best-effort */
+      }
+    }
+  }
+  return pruned;
+}
+
 async function processSourceDir(sourceDir) {
   const files = await walk(sourceDir).catch(() => []);
-  if (files.length === 0) return { scanned: 0, generated: 0, skipped: 0 };
+  if (files.length === 0) return { scanned: 0, generated: 0, skipped: 0, pruned: 0 };
 
   const thumbDir = path.join(sourceDir, 'thumbnails');
   await mkdir(thumbDir, { recursive: true });
+  const pruned = await pruneLegacyFormats(thumbDir);
   const manifest = await loadManifest(thumbDir);
   const nextManifest = {};
 
@@ -111,25 +140,28 @@ async function processSourceDir(sourceDir) {
   }
 
   await saveManifest(thumbDir, nextManifest);
-  return { scanned: files.length, generated, skipped };
+  return { scanned: files.length, generated, skipped, pruned };
 }
 
 async function main() {
   let scanned = 0;
   let generated = 0;
   let skipped = 0;
+  let pruned = 0;
 
   for (const dir of SOURCE_DIRS) {
     const result = await processSourceDir(dir);
     scanned += result.scanned;
     generated += result.generated;
     skipped += result.skipped;
+    pruned += result.pruned;
   }
 
   console.error(`🖼️  Thumbnail generation complete`);
   console.error(`   Source images scanned: ${scanned}`);
   console.error(`   Generated/updated: ${generated}`);
   console.error(`   Up-to-date skipped: ${skipped}`);
+  console.error(`   Legacy .jpg/.avif pruned: ${pruned}`);
 }
 
 main().catch((err) => {
