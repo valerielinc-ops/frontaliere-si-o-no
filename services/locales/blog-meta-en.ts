@@ -7486,6 +7486,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.title': 'France Pressures Switzerland on EU Frontalier Unemployment Reform',
     'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.excerpt': 'French Labor Minister Jean-Pierre Farandou aims to put pressure on Switzerland to implement the new EU agreement on cross-border worker unemployment benefits.',
     'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.imageAlt': 'The Switzerland and France meet to discuss the reform of unemployment of cross-border workers',
+    'blog.article.abolire-tassa-salute-frontalieri.title': 'Luino: Artoni seeks abolition of health tax for cross-border workers',
+    'blog.article.abolire-tassa-salute-frontalieri.excerpt': 'Mayoral candidate Furio Artoni denounces double taxation on cross-border workers and calls for the abolition of the health tax.',
+    'blog.article.abolire-tassa-salute-frontalieri.imageAlt': 'Lake Lugano with surrounding mountains and buildings',
 };
 
 export default blogMetaEn;

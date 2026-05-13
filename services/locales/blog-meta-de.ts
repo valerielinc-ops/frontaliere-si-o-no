@@ -7485,6 +7485,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.title': '"Frontalieri: Francia spinge su riforma disoccupazione Svizzera"',
     'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.excerpt': 'Der französische Arbeitsminister Jean-Pierre Farandou will Druck auf die Schweiz ausüben, um das neue europäische Abkommen über die Arbeitslosenunterstützung für Grenzgänger umzusetzen.',
     'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.imageAlt': 'Die Schweiz und Frankreich treten zusammen, um die Reform der Arbeitslosenversicherung für Grenzgänger zu diskutieren',
+    'blog.article.abolire-tassa-salute-frontalieri.title': 'Luino: Artoni fordert Abschaffung der Gesundheitssteuer für Grenzgänger',
+    'blog.article.abolire-tassa-salute-frontalieri.excerpt': 'Der Bürgermeisterkandidat Furio Artoni kritisiert die Doppelbesteuerung von Grenzgängern und fordert die Abschaffung der Gesundheitssteuer.',
+    'blog.article.abolire-tassa-salute-frontalieri.imageAlt': 'Luganersee mit umliegenden Bergen und Gebäuden',
 };
 
 export default blogMetaDe;

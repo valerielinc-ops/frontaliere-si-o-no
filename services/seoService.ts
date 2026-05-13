@@ -3738,6 +3738,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-iniziative-cassa-malati-ticino-2026': { name: 'Sanità', path: '/articoli-frontaliere/iniziative-cassa-malati-ticino-2026', parent: 'blog' },
     'blog-nuovi-frontalieri-tasse-salate': { name: 'Tasse frontalieri', path: '/articoli-frontaliere/nuovi-frontalieri-tasse-salate', parent: 'blog' },
     'blog-riforma-disoccupazione-frontalieri-francia-svizzera': { name: 'Riforma disoccupazione frontalieri', path: '/articoli-frontaliere/riforma-disoccupazione-frontalieri-francia-svizzera', parent: 'blog' },
+    'blog-abolire-tassa-salute-frontalieri': { name: 'Fiscale', path: '/articoli-frontaliere/abolire-tassa-salute-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

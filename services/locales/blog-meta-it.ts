@@ -7487,6 +7487,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.title': 'Riforma disoccupazione frontalieri, pressioni dalla Francia sulla Svizzera',
     'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.excerpt': 'Il ministro francese del lavoro, Jean-Pierre Farandou, intende fare pressione sulla Svizzera per applicare il nuovo accordo europeo sulle indennità di disoccupazione dei frontalieri.',
     'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.imageAlt': 'La Svizzera e la Francia si riuniscono per discutere la riforma della disoccupazione dei frontalieri',
+    'blog.article.abolire-tassa-salute-frontalieri.title': 'Luino: Artoni chiede l\'abolizione della tassa sulla salute per i frontalieri',
+    'blog.article.abolire-tassa-salute-frontalieri.excerpt': 'Il candidato sindaco Furio Artoni denuncia la doppia imposizione sui lavoratori frontalieri e chiede l\'abolizione della tassa sulla salute.',
+    'blog.article.abolire-tassa-salute-frontalieri.imageAlt': 'Lago di Lugano con montagne e edifici circostanti',
 };
 
 export default blogMetaIt;

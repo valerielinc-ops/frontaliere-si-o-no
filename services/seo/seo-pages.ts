@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2550,
+ "numberOfItems": 2551,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7190,7 +7190,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2547, "name": "Traffico di esseri umani al valico di Tresa: co...", "url": `${BASE_URL}/articoli-frontaliere/traffico-umani-valico-tresa-impatto-frontalieri` },
           { "@type": "ListItem", "position": 2548, "name": "Ticino, iniziative cassa malati: date di attuaz...", "url": `${BASE_URL}/articoli-frontaliere/iniziative-cassa-malati-ticino-2026` },
           { "@type": "ListItem", "position": 2549, "name": "Nuovi frontalieri: tasse salate, è shock", "url": `${BASE_URL}/articoli-frontaliere/nuovi-frontalieri-tasse-salate` },
-          { "@type": "ListItem", "position": 2550, "name": "Riforma disoccupazione frontalieri, pressioni d...", "url": `${BASE_URL}/articoli-frontaliere/riforma-disoccupazione-frontalieri-francia-svizzera` }
+          { "@type": "ListItem", "position": 2550, "name": "Riforma disoccupazione frontalieri, pressioni d...", "url": `${BASE_URL}/articoli-frontaliere/riforma-disoccupazione-frontalieri-francia-svizzera` },
+          { "@type": "ListItem", "position": 2551, "name": "Luino: Artoni chiede l'abolizione della tassa s...", "url": `${BASE_URL}/articoli-frontaliere/abolire-tassa-salute-frontalieri` }
  ]
  },
  {

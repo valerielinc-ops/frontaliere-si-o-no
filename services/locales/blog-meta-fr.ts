@@ -7487,6 +7487,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.title': 'Réforme chômage frontaliers, pressions de la France sur la Suisse',
     'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.excerpt': 'Le ministre français du travail, Jean-Pierre Farandou, entend faire pression sur la Suisse pour appliquer le nouveau accord européen sur les allocations chômage des frontaliers. 💡',
     'blog.article.riforma-disoccupazione-frontalieri-francia-svizzera.imageAlt': 'La Suisse et la France se réunissent pour discuter la réforme de l\'assurance-chômage des travailleurs frontaliers',
+    'blog.article.abolire-tassa-salute-frontalieri.title': 'Luino: Artoni demande l\'abolition de la taxe santé pour les frontaliers',
+    'blog.article.abolire-tassa-salute-frontalieri.excerpt': 'Le candidat au poste de maire Furio Artoni dénonce la double imposition des travailleurs frontaliers et demande l\'abolition de la taxe santé.',
+    'blog.article.abolire-tassa-salute-frontalieri.imageAlt': 'Lac de Lugano avec les montagnes et les bâtiments environnants',
 };
 
 export default blogMetaFr;

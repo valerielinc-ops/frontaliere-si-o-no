@@ -23834,4 +23834,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'abolire-tassa-salute-frontalieri',
+ category: 'fiscale',
+ date: '2026-05-13T00:07:22.296Z',
+ image: '/images/blog/abolire-tassa-salute-frontalieri.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
