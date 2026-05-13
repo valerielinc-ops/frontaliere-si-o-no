@@ -7516,6 +7516,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pensione-lpp-tassazione-senza-intermediario.title': 'LPP Pension: Separate Taxation Without an Intermediary',
     'blog.article.pensione-lpp-tassazione-senza-intermediario.excerpt': 'Learn how separate taxation of LPP pension without an intermediary affects Ticino cross-border workers. Practical guide 2026.',
     'blog.article.pensione-lpp-tassazione-senza-intermediario.imageAlt': 'View of Lake Lugano with the cityscape of Lugano in the background',
+    'blog.article.premi-cassa-malati-ticino-2026.title': 'Health insurance premiums: political agreement to implement initiatives',
+    'blog.article.premi-cassa-malati-ticino-2026.excerpt': 'The parliamentary commission decides to apply the initiatives on health insurance premiums without waiting for the definition of financial coverage',
+    'blog.article.premi-cassa-malati-ticino-2026.imageAlt': 'View of Lake Lugano with the cityscape in the background',
 };
 
 export default blogMetaEn;

@@ -23924,4 +23924,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'premi-cassa-malati-ticino-2026',
+ category: 'fiscale',
+ date: '2026-05-13T05:48:54.182Z',
+ image: '/images/blog/premi-cassa-malati-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

@@ -7517,6 +7517,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pensione-lpp-tassazione-senza-intermediario.title': 'Rente LPP: imposition séparée sans intermédiaire',
     'blog.article.pensione-lpp-tassazione-senza-intermediario.excerpt': 'Découvrez comment l\'imposition séparée de la rente LPP sans intermédiaire affecte les frontaliers du Tessin. Guide pratique 2026.',
     'blog.article.pensione-lpp-tassazione-senza-intermediario.imageAlt': 'Vue du lac de Lugano avec le panorama de la ville de Lugano en arrière-plan',
+    'blog.article.premi-cassa-malati-ticino-2026.title': 'Accord politique sur les primes d\'assurance-maladie',
+    'blog.article.premi-cassa-malati-ticino-2026.excerpt': 'La commission parlementaire décide d\'appliquer les initiatives sur les primes d\'assurance-maladie sans attendre la définition des couvertures financières',
+    'blog.article.premi-cassa-malati-ticino-2026.imageAlt': 'Vue du lac de Lugano avec le paysage urbain en arrière-plan',
 };
 
 export default blogMetaFr;

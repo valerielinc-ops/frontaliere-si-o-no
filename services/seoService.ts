@@ -3748,6 +3748,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-documenti-frontalieri-svizzera-2026': { name: 'Documenti Frontalieri', path: '/articoli-frontaliere/documenti-frontalieri-svizzera-2026', parent: 'blog' },
     'blog-app-depressione-cassa-malati-2026': { name: 'Novità', path: '/articoli-frontaliere/app-depressione-cassa-malati-2026', parent: 'blog' },
     'blog-pensione-lpp-tassazione-senza-intermediario': { name: 'Pensione LPP', path: '/articoli-frontaliere/pensione-lpp-tassazione-senza-intermediario', parent: 'blog' },
+    'blog-premi-cassa-malati-ticino-2026': { name: 'Premi cassa malati', path: '/articoli-frontaliere/premi-cassa-malati-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

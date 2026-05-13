@@ -7517,6 +7517,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pensione-lpp-tassazione-senza-intermediario.title': 'Pensione LPP: senza intermediario è soggetta a tassazione separata',
     'blog.article.pensione-lpp-tassazione-senza-intermediario.excerpt': 'Scopri come la tassazione separata della pensione LPP senza intermediario impatta i frontalieri Ticino. Guida pratica 2026.',
     'blog.article.pensione-lpp-tassazione-senza-intermediario.imageAlt': 'Vista del Lago di Lugano con il panorama della città di Lugano sullo sfondo',
+    'blog.article.premi-cassa-malati-ticino-2026.title': 'Premi di cassa malati: intesa politica per applicare le iniziative',
+    'blog.article.premi-cassa-malati-ticino-2026.excerpt': 'La commissione parlamentare decide di applicare le iniziative sui premi di cassa malati senza attendere la definizione delle coperture finanziarie',
+    'blog.article.premi-cassa-malati-ticino-2026.imageAlt': 'Vista del Lago di Lugano con il panorama cittadino sullo sfondo',
 };
 
 export default blogMetaIt;

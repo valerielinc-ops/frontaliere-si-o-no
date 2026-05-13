@@ -7515,6 +7515,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pensione-lpp-tassazione-senza-intermediario.title': 'LPP-Rente: Ohne Vermittler getrennt besteuert',
     'blog.article.pensione-lpp-tassazione-senza-intermediario.excerpt': 'Erfahren Sie, wie die getrennte Besteuerung der LPP-Rente ohne Vermittler Grenzgänger im Tessin betrifft. Praktischer Leitfaden 2026.',
     'blog.article.pensione-lpp-tassazione-senza-intermediario.imageAlt': 'Ausblick auf den Luganersee mit der Skyline von Lugano im Hintergrund',
+    'blog.article.premi-cassa-malati-ticino-2026.title': 'Krankenkassenprämien: Politische Einigung zur Umsetzung der Initiativen',
+    'blog.article.premi-cassa-malati-ticino-2026.excerpt': 'Die parlamentarische Kommission entscheidet, die Initiativen zu den Krankenkassenprämien ohne Abwarten der finanziellen Deckung umzusetzen',
+    'blog.article.premi-cassa-malati-ticino-2026.imageAlt': 'Blick auf den Luganersee mit der Stadtlandschaft im Hintergrund',
 };
 
 export default blogMetaDe;
