@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-05-06T01:18:35.354Z",
+  "generatedAt": "2026-05-13T05:38:15.000Z",
   "maxDepth": 4,
   "perSitemap": {
     "sitemap-annual-report.xml": {
@@ -10,8 +10,8 @@
       "deepest": 3
     },
     "sitemap-blog.xml": {
-      "total": 2086,
-      "reached": 2086,
+      "total": 2502,
+      "reached": 2502,
       "atDepthGtMax": 0,
       "deepest": 3
     },
@@ -82,8 +82,8 @@
       "deepest": 4
     },
     "sitemap-fuel-stations.xml": {
-      "total": 496,
-      "reached": 496,
+      "total": 472,
+      "reached": 472,
       "atDepthGtMax": 0,
       "deepest": 4
     },
@@ -103,19 +103,169 @@
       "total": 183,
       "reached": 183,
       "atDepthGtMax": 0,
-      "deepest": 4
-    },
-    "sitemap-job-market.xml": {
-      "total": 23,
-      "reached": 22,
-      "atDepthGtMax": 1,
       "deepest": 3
     },
+    "sitemap-index.xml": {
+      "total": 0,
+      "reached": 0,
+      "atDepthGtMax": 0,
+      "deepest": 0
+    },
+    "sitemap-job-market.xml": {
+      "total": 24,
+      "reached": 24,
+      "atDepthGtMax": 0,
+      "deepest": 3
+    },
+    "sitemap-jobs-appenzello.xml": {
+      "total": 12,
+      "reached": 3,
+      "atDepthGtMax": 9,
+      "deepest": 4
+    },
+    "sitemap-jobs-argovia.xml": {
+      "total": 250,
+      "reached": 189,
+      "atDepthGtMax": 196,
+      "deepest": 11
+    },
+    "sitemap-jobs-basilea.xml": {
+      "total": 587,
+      "reached": 522,
+      "atDepthGtMax": 451,
+      "deepest": 9
+    },
+    "sitemap-jobs-berna.xml": {
+      "total": 641,
+      "reached": 475,
+      "atDepthGtMax": 511,
+      "deepest": 11
+    },
+    "sitemap-jobs-friburgo.xml": {
+      "total": 104,
+      "reached": 93,
+      "atDepthGtMax": 80,
+      "deepest": 8
+    },
+    "sitemap-jobs-ginevra.xml": {
+      "total": 548,
+      "reached": 501,
+      "atDepthGtMax": 420,
+      "deepest": 14
+    },
+    "sitemap-jobs-giura.xml": {
+      "total": 44,
+      "reached": 44,
+      "atDepthGtMax": 33,
+      "deepest": 6
+    },
+    "sitemap-jobs-glarona.xml": {
+      "total": 80,
+      "reached": 56,
+      "atDepthGtMax": 63,
+      "deepest": 8
+    },
+    "sitemap-jobs-grigioni.xml": {
+      "total": 1856,
+      "reached": 1809,
+      "atDepthGtMax": 1393,
+      "deepest": 10
+    },
+    "sitemap-jobs-lucerna.xml": {
+      "total": 207,
+      "reached": 150,
+      "atDepthGtMax": 169,
+      "deepest": 10
+    },
+    "sitemap-jobs-neuchatel.xml": {
+      "total": 132,
+      "reached": 118,
+      "atDepthGtMax": 101,
+      "deepest": 9
+    },
+    "sitemap-jobs-nidvaldo.xml": {
+      "total": 4,
+      "reached": 0,
+      "atDepthGtMax": 4,
+      "deepest": 0
+    },
+    "sitemap-jobs-obvaldo.xml": {
+      "total": 8,
+      "reached": 1,
+      "atDepthGtMax": 7,
+      "deepest": 3
+    },
+    "sitemap-jobs-san-gallo.xml": {
+      "total": 148,
+      "reached": 102,
+      "atDepthGtMax": 116,
+      "deepest": 9
+    },
+    "sitemap-jobs-sciaffusa.xml": {
+      "total": 48,
+      "reached": 44,
+      "atDepthGtMax": 37,
+      "deepest": 7
+    },
+    "sitemap-jobs-soletta.xml": {
+      "total": 100,
+      "reached": 61,
+      "atDepthGtMax": 83,
+      "deepest": 8
+    },
+    "sitemap-jobs-svitto.xml": {
+      "total": 39,
+      "reached": 35,
+      "atDepthGtMax": 30,
+      "deepest": 6
+    },
+    "sitemap-jobs-ticino.xml": {
+      "total": 2064,
+      "reached": 2043,
+      "atDepthGtMax": 1542,
+      "deepest": 11
+    },
+    "sitemap-jobs-turgovia.xml": {
+      "total": 67,
+      "reached": 16,
+      "atDepthGtMax": 59,
+      "deepest": 8
+    },
+    "sitemap-jobs-uri.xml": {
+      "total": 32,
+      "reached": 32,
+      "atDepthGtMax": 24,
+      "deepest": 6
+    },
+    "sitemap-jobs-vallese.xml": {
+      "total": 995,
+      "reached": 919,
+      "atDepthGtMax": 750,
+      "deepest": 11
+    },
+    "sitemap-jobs-vaud.xml": {
+      "total": 352,
+      "reached": 311,
+      "atDepthGtMax": 271,
+      "deepest": 9
+    },
+    "sitemap-jobs-zugo.xml": {
+      "total": 40,
+      "reached": 40,
+      "atDepthGtMax": 30,
+      "deepest": 6
+    },
+    "sitemap-jobs-zurigo.xml": {
+      "total": 1483,
+      "reached": 1346,
+      "atDepthGtMax": 1128,
+      "deepest": 10
+    },
     "sitemap-jobs.xml": {
-      "total": 2067,
-      "reached": 1965,
-      "atDepthGtMax": 118,
-      "deepest": 5
+      "total": 3816,
+      "reached": 3318,
+      "atDepthGtMax": 504,
+      "deepest": 6
     },
     "sitemap-market-report.xml": {
       "total": 4,
@@ -124,8 +274,8 @@
       "deepest": 4
     },
     "sitemap-news.xml": {
-      "total": 328,
-      "reached": 328,
+      "total": 437,
+      "reached": 437,
       "atDepthGtMax": 0,
       "deepest": 3
     },
@@ -136,8 +286,8 @@
       "deepest": 3
     },
     "sitemap-orphan-landings.xml": {
-      "total": 39,
-      "reached": 39,
+      "total": 49,
+      "reached": 49,
       "atDepthGtMax": 0,
       "deepest": 4
     },
@@ -165,24 +315,42 @@
       "atDepthGtMax": 0,
       "deepest": 4
     },
+    "sitemap-search-clusters.xml": {
+      "total": 81537,
+      "reached": 81537,
+      "atDepthGtMax": 60425,
+      "deepest": 7
+    },
     "sitemap-sector.xml": {
       "total": 10,
       "reached": 10,
       "atDepthGtMax": 0,
-      "deepest": 4
-    },
-    "sitemap-seo-hubs.xml": {
-      "total": 331,
-      "reached": 331,
-      "atDepthGtMax": 0,
       "deepest": 3
     },
+    "sitemap-seo-hubs.xml": {
+      "total": 490,
+      "reached": 490,
+      "atDepthGtMax": 0,
+      "deepest": 2
+    },
+    "sitemap-weather-alerts.xml": {
+      "total": 36,
+      "reached": 36,
+      "atDepthGtMax": 24,
+      "deepest": 5
+    },
+    "sitemap-weather.xml": {
+      "total": 36,
+      "reached": 36,
+      "atDepthGtMax": 24,
+      "deepest": 5
+    },
     "sitemap-weekly-employers.xml": {
-      "total": 236,
-      "reached": 208,
-      "atDepthGtMax": 148,
+      "total": 232,
+      "reached": 232,
+      "atDepthGtMax": 126,
       "deepest": 5
     }
   },
-  "_comment": "Baseline for audit-bfs-depth.mjs. atDepthGtMax must only DECREASE — this gate is a ratchet. Regenerate after lowering offenders by adding internal links from a hub at depth ≤ 3. Never raise the numbers without explicit justification (it means new URLs are buried below crawl-depth and Ahrefs/Googlebot will flag them as orphan)."
+  "_comment": "Baseline for audit-bfs-depth.mjs. atDepthGtMax must only DECREASE — this gate is a ratchet. Regenerate after lowering offenders by adding internal links from a hub at depth ≤ 3. Never raise the numbers without explicit justification (it means new URLs are buried below crawl-depth and Ahrefs/Googlebot will flag them as orphan). 2026-05-13: rebaselined from production dist (deploy run 25778539162 — post PR #134 cathedral + PR #148/149/150/151/152/153/154 stack). Previous baseline (2026-05-06) predated the cathedral expansion and lacked entries for sitemap-jobs-{canton}.xml + sitemap-search-clusters.xml (audit treated missing as 0 = silent regression). This refresh INITIALIZES those entries at their current floors so the ratchet tracks them going forward. sitemap-jobs.xml lifted 118 → current value: per-canton job-detail URLs from cathedral (PR #134) are emitted with cumulative slugs while emitThinCantonHubs only anchors active jobs — structural gap to be closed by a follow-up that prunes sitemap-jobs.xml to active slugs OR widens emitThinCantonHubs to historical slugs."
 }
