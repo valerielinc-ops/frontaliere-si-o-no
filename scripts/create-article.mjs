@@ -1164,7 +1164,10 @@ async function optimizeImageToWebp(inputPath, outputPath) {
       return sharp(inputPath)
         .rotate()
         .resize({ width: 1200, height: 675, fit: 'cover', position: 'attention' })
-        .webp({ quality, effort: 4 })
+        // effort 4 → 6 squeezes another ~2-3 % bytes at ~2x encoding cost.
+        // Article creation is one-shot per article (not hot path), so the
+        // slower encoder is acceptable.
+        .webp({ quality, effort: 6 })
         .toBuffer();
     };
 

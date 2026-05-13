@@ -4,19 +4,19 @@
  * Opt-in only: runs solely when `BUILD_WEBP=1` is set in the environment.
  * The default deploy pipeline relies on .webp sidecars committed alongside
  * each source image — generated at article-creation time by
- * `scripts/create-article.mjs` (sharp, quality 82) and backfilled in bulk by
+ * `scripts/create-article.mjs` (sharp, quality 72) and backfilled in bulk by
  * `scripts/backfill-blog-webp.mjs`. Skipping this plugin on the hot path
  * removes ~41s per CI build (5% of the build phase) without changing
  * dist/ output.
  *
  * Re-enable for one-off rebuilds when:
  *   - sharp's webp encoder version changes and we want to re-encode at parity
- *   - the global QUALITY constant changes
+ *   - the global QUALITY/EFFORT constants change
  *   - a backfill audit reveals missing .webp sidecars
  *
  * Behavior when enabled:
  *   - Walks dist/ for PNG/JPG/JPEG, skipping `icons/` (PWA manifests require PNG).
- *   - Quality 82 (visually lossless for photographs).
+ *   - Quality 72 + effort 6 (~25 % bytes saved vs old quality 82 default).
  *   - Skip-if-fresh: each .webp is only re-encoded when missing or older
  *     than its raster source.
  */
@@ -56,7 +56,9 @@ export function webpPlugin(rootDir: string): Plugin {
  return;
  }
 
- const WEBP_QUALITY = 82;
+ // Lowered 82 → 72 + effort=6 to match prebuild-webp.mjs (artifact size win).
+ const WEBP_QUALITY = 72;
+ const WEBP_EFFORT = 6;
  const SKIP_DIRS = new Set(['icons']); // Icons must stay PNG
 
  /** Recursively find PNG/JPG files, skipping excluded directories. */
@@ -116,7 +118,7 @@ export function webpPlugin(rootDir: string): Plugin {
  skipped++;
  return;
  }
- await (sharp as any)(imgPath).webp({ quality: WEBP_QUALITY }).toFile(webpPath);
+ await (sharp as any)(imgPath).webp({ quality: WEBP_QUALITY, effort: WEBP_EFFORT }).toFile(webpPath);
  converted++;
  }),
  );

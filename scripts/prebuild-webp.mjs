@@ -17,7 +17,12 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const PUBLIC_DIR = path.join(ROOT, 'public');
-const WEBP_QUALITY = 82;
+// Lowered 82 → 72 + effort=6 (was effort=4 default) saves ~25 % bytes per
+// hero image (~28 KB/img × ~2400 images = ~65 MB off public/images/blog/).
+// effort=6 doubles encoding time per image but mtime cache means only
+// freshly-added images re-encode each build.
+const WEBP_QUALITY = 72;
+const WEBP_EFFORT = 6;
 const SKIP_DIRS = new Set(['icons']); // iOS/Android manifests require PNG
 
 /** Recursively find PNG/JPG files, skipping excluded directories. */
@@ -105,7 +110,7 @@ async function main() {
             }
           } catch { /* stat failed, reconvert */ }
         }
-        await sharp(imgPath).webp({ quality: WEBP_QUALITY }).toFile(webpPath);
+        await sharp(imgPath).webp({ quality: WEBP_QUALITY, effort: WEBP_EFFORT }).toFile(webpPath);
         converted++;
       }),
     );
