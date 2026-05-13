@@ -1,16 +1,16 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-05-12T21:46:30.203Z",
+  "generatedAt": "2026-05-13T10:42:07.004Z",
   "total": 1,
   "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3549,
-  "avgDurationMs": 3549,
+  "durationMs": 3364,
+  "avgDurationMs": 3364,
   "durationHistory": [
-    3549
+    3364
   ],
   "newJobs": [
     {
@@ -32,13 +32,13 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-12",
+      "postedDate": "2026-05-13",
       "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=50f71f9d-1618-4fe3-9e5d-374acacefe93,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "pdfUrl": null,
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=50f71f9d-1618-4fe3-9e5d-374acacefe93,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-12T21:46:28.326Z",
+      "crawledAt": "2026-05-13T10:42:04.761Z",
       "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -74,7 +74,7 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-12T21:46:28.323Z",
+      "crawledAt": "2026-05-13T10:42:04.758Z",
       "firstSeenAt": "2026-03-30T20:10:23.185Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
