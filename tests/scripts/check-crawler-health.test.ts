@@ -4,10 +4,19 @@
  * `scripts/check-crawler-health.mjs`.
  *
  * The monitor distinguishes four statuses:
- *   - healthy     — slice fresh AND (jobs > 0 OR has prior history)
- *   - stale       — slice `assembledAt` older than 7 days
+ *   - healthy     — freshness OK AND (jobs > 0 OR has prior history)
+ *   - stale       — `freshnessAt` older than 7 days
  *   - broken      — 3+ consecutive empty observations
  *   - warming_up  — first observation, fresh-empty, no prior state
+ *
+ * Freshness is derived from a TWO-TIER signal:
+ *   1. PRIMARY  → summary slice `generatedAt`
+ *      (`data/jobs-crawler-summaries/by-crawler/{slug}.json`), written on
+ *      every workflow run including "Keeping existing" zero-job runs.
+ *   2. FALLBACK → by-crawler slice `assembledAt`
+ *      (`data/jobs/by-crawler/{slug}.json`), used when the summary is
+ *      missing. This timestamp freezes for weeks on "Keeping existing"
+ *      runs, so it is only trusted in absence of a summary.
  *
  * These cases cover the false-positive bugs the daily monitor was
  * generating before the fix:
@@ -15,7 +24,9 @@
  *      ageMs). Now → warming_up.
  *   2. legitimately-empty source (BancaStato) re-observed daily stays
  *      healthy until the 3-empty-runs gate.
- *   3. truly stale slice (assembledAt > 7d) is correctly flagged stale.
+ *   3. truly stale slice (no run in > 7d) is correctly flagged stale.
+ *   4. "Keeping existing" crawler with fresh summary + stale by-crawler
+ *      slice stays healthy (the summary-vs-by-crawler timestamp split).
  */
 
 import { describe, it, expect } from 'vitest';
@@ -28,8 +39,31 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 const NOW_MS = Date.parse('2026-05-13T06:30:00.000Z');
 const NOW_ISO = new Date(NOW_MS).toISOString();
 
-function obs(assembledAt: string, jobCount: number) {
-  return { slug: 'test', assembledAt, jobCount };
+interface Observation {
+  slug: string;
+  jobCount: number;
+  freshnessAt: string | null;
+  freshnessSource: 'summary' | 'by-crawler' | 'mtime' | 'none';
+  generatedAt: string | null;
+  assembledAt: string | null;
+}
+
+/** Convenience builder mirroring `inspectCrawler` output. */
+function obs(
+  freshnessAt: string | null,
+  jobCount: number,
+  opts: Partial<Omit<Observation, 'slug' | 'jobCount' | 'freshnessAt'>> = {},
+): Observation {
+  const source = opts.freshnessSource ?? 'summary';
+  return {
+    slug: 'test',
+    jobCount,
+    freshnessAt,
+    freshnessSource: source,
+    generatedAt: opts.generatedAt ?? (source === 'summary' ? freshnessAt : null),
+    assembledAt:
+      opts.assembledAt ?? (source === 'by-crawler' ? freshnessAt : null),
+  };
 }
 
 describe('nextCrawlerState', () => {
@@ -110,7 +144,7 @@ describe('nextCrawlerState', () => {
       NOW_MS,
     );
     expect(status).toBe('stale');
-    expect(reason).toMatch(/slice not updated in \d+ days/);
+    expect(reason).toMatch(/crawler not run in \d+ days/);
     expect(state.consecutiveEmptyRuns).toBe(1);
   });
 
@@ -168,13 +202,88 @@ describe('nextCrawlerState', () => {
     expect(status).toBe('healthy');
   });
 
-  it('treats missing assembledAt as stale (slice age = Infinity)', () => {
+  it('treats missing freshnessAt as stale (slice age = Infinity)', () => {
     const { status } = nextCrawlerState(
       undefined,
-      { slug: 'test', assembledAt: null, jobCount: 0 },
+      {
+        slug: 'test',
+        jobCount: 0,
+        freshnessAt: null,
+        freshnessSource: 'none',
+        generatedAt: null,
+        assembledAt: null,
+      },
       NOW_ISO,
       NOW_MS,
     );
     expect(status).toBe('stale');
+  });
+
+  // --- Summary vs by-crawler timestamp logic (the fix this test file was
+  // added to cover) ---
+
+  it('uses summary generatedAt over a stale by-crawler assembledAt ("Keeping existing" run)', () => {
+    // Real-world case: ail-lugano writes a fresh summary every day but the
+    // by-crawler slice is frozen at the last non-zero run (>7d ago). Under
+    // the old logic this was flagged stale; under the new logic the summary
+    // proves the workflow ran today, so the crawler stays healthy.
+    const { status, state } = nextCrawlerState(
+      undefined,
+      {
+        slug: 'test',
+        jobCount: 0,
+        freshnessAt: new Date(NOW_MS - 3 * 60 * 60 * 1000).toISOString(),
+        freshnessSource: 'summary',
+        generatedAt: new Date(NOW_MS - 3 * 60 * 60 * 1000).toISOString(),
+        assembledAt: new Date(NOW_MS - 11 * DAY_MS).toISOString(),
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('warming_up');
+    expect(state.lastFailureReason).toBeNull();
+    expect(state._lastObservedFreshnessSource).toBe('summary');
+  });
+
+  it('flags stale when the summary itself has not been written in > 7d', () => {
+    // The summary slice is the workflow heartbeat. If even that is stale
+    // for more than 7 days, the workflow stopped running and the crawler
+    // should be flagged.
+    const { status, reason } = nextCrawlerState(
+      undefined,
+      {
+        slug: 'test',
+        jobCount: 0,
+        freshnessAt: new Date(NOW_MS - 9 * DAY_MS).toISOString(),
+        freshnessSource: 'summary',
+        generatedAt: new Date(NOW_MS - 9 * DAY_MS).toISOString(),
+        assembledAt: new Date(NOW_MS - 30 * DAY_MS).toISOString(),
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('stale');
+    expect(reason).toMatch(/source=summary/);
+  });
+
+  it('falls back to by-crawler assembledAt when no summary exists yet', () => {
+    // Brand-new crawler: summary slice not yet written, by-crawler slice
+    // is fresh. Should be treated as a normal observation.
+    const { status, state } = nextCrawlerState(
+      undefined,
+      {
+        slug: 'test',
+        jobCount: 7,
+        freshnessAt: new Date(NOW_MS - 4 * 60 * 60 * 1000).toISOString(),
+        freshnessSource: 'by-crawler',
+        generatedAt: null,
+        assembledAt: new Date(NOW_MS - 4 * 60 * 60 * 1000).toISOString(),
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(status).toBe('healthy');
+    expect(state._lastObservedFreshnessSource).toBe('by-crawler');
+    expect(state.lastNonZeroJobs).toBe(7);
   });
 });

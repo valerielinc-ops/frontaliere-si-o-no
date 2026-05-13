@@ -2,7 +2,9 @@
 /**
  * Crawler health checker.
  *
- * Reads `data/jobs/by-crawler/{slug}.json`, derives per-crawler health, updates
+ * Reads `data/jobs/by-crawler/{slug}.json` for jobCount + fallback freshness,
+ * and `data/jobs-crawler-summaries/by-crawler/{slug}.json` for the PRIMARY
+ * freshness signal. Derives per-crawler health, updates
  * `data/crawler-health.json` (running state), and writes
  * `data/crawler-health-issues.json` if any crawler is stale/broken.
  *
@@ -13,22 +15,31 @@
  * Safe to run multiple times per day. Does NOT throw on individual crawler
  * read errors — logs and continues.
  *
- * Reads only `data/jobs/by-crawler/` (not the deprecated `data/jobs.json`).
+ * Freshness signal — TWO-TIER:
  *
- * Freshness signal: each by-crawler slice carries `assembledAt` (set by the
- * crawler when it writes the slice). We trust this over file mtime because
- * mtime is unreliable on CI checkouts (always equals checkout time, not the
- * upstream commit time of the file). The slice's `assembledAt` is what the
- * crawler wrote on its last successful run.
+ *   1. PRIMARY: `generatedAt` from the summary slice
+ *      (`data/jobs-crawler-summaries/by-crawler/{slug}.json`). The summary is
+ *      written on EVERY crawler run, including runs that found zero listings
+ *      and took the "Keeping existing" branch (~42 crawlers do this). The
+ *      summary is therefore the only reliable "the workflow ran today" proof.
+ *
+ *   2. FALLBACK: `assembledAt` from the by-crawler slice
+ *      (`data/jobs/by-crawler/{slug}.json`) — only updated when the slice
+ *      itself is rewritten, so it freezes for weeks on "Keeping existing"
+ *      runs. Used only when no summary slice exists yet.
+ *
+ * Both timestamps are slice-self-reported (not fs.stat mtime), because mtime
+ * is unreliable on CI checkouts (always equals checkout time).
  *
  * Status transitions:
- *   - healthy           → slice fresh (<= 7d) AND (jobs > 0 OR low empty streak)
+ *   - healthy           → summary fresh (<= 7d) AND (jobs > 0 OR low empty streak)
  *   - broken            → 3+ consecutive empty observations (legitimately
  *                         empty source like BancaStato won't cross this gate
  *                         because the daily monitor records the same fresh
- *                         slice repeatedly — see consecutiveEmptyRuns logic)
- *   - stale             → slice `assembledAt` older than 7d
- *   - warming_up        → never observed before, slice is fresh and empty
+ *                         summary repeatedly — see consecutiveEmptyRuns logic)
+ *   - stale             → summary `generatedAt` older than 7d (or fallback
+ *                         `assembledAt` older than 7d when no summary exists)
+ *   - warming_up        → never observed before, freshness OK, and empty
  *                         (do NOT flag — wait until we have history)
  *
  * Follow-up (not in this script): adding `lastFetchOutcome` to each summary
@@ -47,6 +58,12 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 
 const BY_CRAWLER_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
+const SUMMARIES_DIR = path.join(
+  ROOT,
+  'data',
+  'jobs-crawler-summaries',
+  'by-crawler',
+);
 const HEALTH_STATE_PATH = path.join(ROOT, 'data', 'crawler-health.json');
 const HEALTH_ISSUES_PATH = path.join(ROOT, 'data', 'crawler-health-issues.json');
 
@@ -79,17 +96,25 @@ async function listCrawlerSlugs() {
 }
 
 /**
- * Inspect one crawler's by-crawler slice and return derived facts.
+ * Inspect one crawler and return derived facts.
  *
- * Returns null if the file cannot be read or parsed (caller logs + skips).
- * Returns `{ slug, assembledAt, jobCount }` otherwise.
+ * Reads:
+ *   - `data/jobs/by-crawler/{slug}.json`            → jobCount + fallback timestamp
+ *   - `data/jobs-crawler-summaries/by-crawler/{slug}.json` → primary timestamp
  *
- * `assembledAt` is the slice's self-reported write time — far more reliable
- * than `fs.stat().mtime` on CI checkouts.
+ * Returns null if the by-crawler slice cannot be read/parsed (caller logs +
+ * skips). The summary slice is optional — when missing we fall back to
+ * `assembledAt`.
+ *
+ * Returns `{ slug, freshnessAt, freshnessSource, assembledAt, generatedAt,
+ * jobCount }`:
+ *   - `freshnessAt` is the timestamp the stale gate compares against
+ *     (summary `generatedAt` when present, otherwise by-crawler `assembledAt`).
+ *   - `freshnessSource` is `'summary' | 'by-crawler' | 'mtime' | 'none'`.
  */
 async function inspectCrawler(slug) {
-  const filePath = path.join(BY_CRAWLER_DIR, `${slug}.json`);
-  const data = await readJsonSafe(filePath);
+  const sliceFilePath = path.join(BY_CRAWLER_DIR, `${slug}.json`);
+  const data = await readJsonSafe(sliceFilePath);
   if (data === null) {
     console.warn(`[health] ${slug}: cannot read/parse slice; skipping`);
     return null;
@@ -110,9 +135,9 @@ async function inspectCrawler(slug) {
     }
   }
 
-  // Slice shape is `{ crawlerKey, assembledAt, jobs }`. Fall back to file mtime
-  // only as a last resort (slice format predates `assembledAt` for a handful of
-  // very old shapes).
+  // Slice shape is `{ crawlerKey, assembledAt, jobs }`. The by-crawler
+  // `assembledAt` is only updated when the slice itself is rewritten — it
+  // freezes for weeks on "Keeping existing" runs.
   let assembledAt =
     data && typeof data === 'object' && typeof data.assembledAt === 'string'
       ? data.assembledAt
@@ -120,24 +145,61 @@ async function inspectCrawler(slug) {
 
   if (!assembledAt) {
     try {
-      const stat = await fs.stat(filePath);
+      const stat = await fs.stat(sliceFilePath);
       assembledAt = stat.mtime.toISOString();
     } catch {
       assembledAt = null;
     }
   }
 
-  return { slug, assembledAt, jobCount };
+  // PRIMARY freshness signal: summary slice's `generatedAt`. Written on every
+  // crawler run, including "found 0, keeping existing" runs.
+  const summaryFilePath = path.join(SUMMARIES_DIR, `${slug}.json`);
+  const summary = await readJsonSafe(summaryFilePath);
+  const generatedAt =
+    summary && typeof summary === 'object' && typeof summary.generatedAt === 'string'
+      ? summary.generatedAt
+      : null;
+
+  let freshnessAt;
+  let freshnessSource;
+  if (generatedAt) {
+    freshnessAt = generatedAt;
+    freshnessSource = 'summary';
+  } else if (assembledAt) {
+    freshnessAt = assembledAt;
+    // If we used fs.stat above the field name is approximate but the source
+    // is still the by-crawler slice (or its mtime); flag distinctly for logs.
+    freshnessSource =
+      data && typeof data === 'object' && typeof data.assembledAt === 'string'
+        ? 'by-crawler'
+        : 'mtime';
+  } else {
+    freshnessAt = null;
+    freshnessSource = 'none';
+  }
+
+  return {
+    slug,
+    freshnessAt,
+    freshnessSource,
+    assembledAt,
+    generatedAt,
+    jobCount,
+  };
 }
 
 /**
  * Compose new state for a crawler, given previous state + new observation.
  *
  * Status priority (first match wins):
- *   1. slice `assembledAt` older than 7d → "stale" (regardless of streak)
+ *   1. `freshnessAt` older than 7d → "stale" (regardless of streak)
  *   2. 3+ consecutive empty observations → "broken"
  *   3. fresh + empty + no prior non-zero ever → "warming_up" (do NOT flag)
  *   4. otherwise → "healthy"
+ *
+ * `freshnessAt` is the summary slice's `generatedAt` when present, otherwise
+ * the by-crawler slice's `assembledAt`. See `inspectCrawler` for details.
  */
 function nextCrawlerState(prev, observation, nowIso, nowMs) {
   const previous = prev && typeof prev === 'object' ? prev : {};
@@ -150,29 +212,39 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   const lastNonZeroJobs =
     lastObservedJobs > 0 ? lastObservedJobs : (previous.lastNonZeroJobs ?? 0);
 
-  // "Successful" = slice carries non-zero jobs. We use `assembledAt` rather
-  // than file mtime so the timestamp survives CI checkouts cleanly.
+  // Back-compat: legacy callers (older tests) pass `{ assembledAt, jobCount }`
+  // directly. Resolve a freshness timestamp from whichever field is present.
+  const freshnessAt =
+    observation.freshnessAt !== undefined
+      ? observation.freshnessAt
+      : (observation.assembledAt ?? null);
+  const freshnessSource = observation.freshnessSource ?? 'by-crawler';
+
+  // "Successful" = slice carries non-zero jobs. We use the freshness timestamp
+  // (summary preferred, by-crawler fallback) so the value survives CI
+  // checkouts cleanly.
   const lastSuccessfulRunAt =
     lastObservedJobs > 0
-      ? observation.assembledAt
+      ? freshnessAt
       : (previous.lastSuccessfulRunAt ?? null);
 
-  // Freshness derives from the slice's own `assembledAt`, NOT from
-  // `lastSuccessfulRunAt`. A source like BancaStato may legitimately be empty
-  // for weeks — the slice is still being refreshed daily, so the crawler is
-  // working. Only flag stale when the slice itself stops being written.
-  const sliceAgeMs =
-    observation.assembledAt !== null
-      ? nowMs - new Date(observation.assembledAt).getTime()
+  // Freshness derives from the summary slice (or the by-crawler fallback when
+  // no summary exists yet), NOT from `lastSuccessfulRunAt`. A source like
+  // BancaStato may legitimately be empty for weeks — the summary slice is
+  // still being refreshed daily, so the crawler is working. Only flag stale
+  // when the workflow itself stops running.
+  const freshnessAgeMs =
+    freshnessAt !== null && freshnessAt !== undefined
+      ? nowMs - new Date(freshnessAt).getTime()
       : Infinity;
-  const sliceAgeDays = sliceAgeMs / MS_PER_DAY;
+  const freshnessAgeDays = freshnessAgeMs / MS_PER_DAY;
 
   let status = 'healthy';
   let reason = null;
 
-  if (sliceAgeDays > STALE_AFTER_DAYS) {
+  if (freshnessAgeDays > STALE_AFTER_DAYS) {
     status = 'stale';
-    reason = `slice not updated in ${Math.round(sliceAgeDays)} days (assembledAt=${observation.assembledAt ?? 'unknown'})`;
+    reason = `crawler not run in ${Math.round(freshnessAgeDays)} days (freshnessAt=${freshnessAt ?? 'unknown'}, source=${freshnessSource})`;
   } else if (consecutiveEmptyRuns >= BROKEN_AFTER_EMPTY_RUNS) {
     status = 'broken';
     reason = `${consecutiveEmptyRuns} consecutive runs returned 0 jobs`;
@@ -194,7 +266,10 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       status,
       _lastObservedAt: nowIso,
       _lastObservedJobs: lastObservedJobs,
-      _lastObservedAssembledAt: observation.assembledAt,
+      _lastObservedFreshnessAt: freshnessAt,
+      _lastObservedFreshnessSource: freshnessSource,
+      _lastObservedAssembledAt: observation.assembledAt ?? null,
+      _lastObservedGeneratedAt: observation.generatedAt ?? null,
     },
     reason,
     status,
