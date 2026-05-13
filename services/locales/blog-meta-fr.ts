@@ -7529,6 +7529,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-confronto-2026.title': 'Taxe santé des frontaliers: débat entre FI et PD',
     'blog.article.tassa-salute-frontalieri-confronto-2026.excerpt': 'Le conseiller régional du PD Samuele Astuti est prêt à discuter avec Forza Italia de la taxe santé des frontaliers',
     'blog.article.tassa-salute-frontalieri-confronto-2026.imageAlt': 'Un travailleur frontalier traversant la frontière entre l\'Italie et la Suisse au lac de Lugano, avec vue sur la ville et les montagnes',
+    'blog.article.ascensione-traffico-ticino-2026.title': 'Ascension : trafic paralysé du Gothard à Chiasso',
+    'blog.article.ascensione-traffico-ticino-2026.excerpt': 'Embouteillages de 8 km au San Gottardo et plus d\'une heure d\'attente sur l\'A2 en direction de Chiasso. Les autorités conseillent des alternatives pour désengorger le trafic.',
+    'blog.article.ascensione-traffico-ticino-2026.imageAlt': 'Embouteillage sur l\'autoroute A2 au Tessin pendant l\'Ascension',
 };
 
 export default blogMetaFr;

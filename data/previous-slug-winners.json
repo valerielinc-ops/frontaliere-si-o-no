@@ -107,6 +107,15 @@
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
+  "BASILEA::en::dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch": {
+    "winnerJobIdentifier": "unispital-basel-afa5593080c7",
+    "winnerCanonical": "dipl-care-specialist-hf-fh-imc-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::en::dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch": {
     "winnerJobIdentifier": "unispital-basel-e94993893b1b",
     "winnerCanonical": "dipl-care-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
@@ -207,12 +216,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::fr::physiotherapeutin-physiotherapeut-universitatsspital-basel-basel": {
-    "winnerJobIdentifier": "unispital-basel-cffce1280a6c",
+    "winnerJobIdentifier": "unispital-basel-f16341854433",
     "winnerCanonical": "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.4,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::fr::servicetechniker-m-w-d-otis-nenzlingerweg-2": {
@@ -249,6 +258,15 @@
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.4615,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch": {
+    "winnerJobIdentifier": "unispital-basel-afa5593080c7",
+    "winnerCanonical": "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.7,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::it::dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch": {
@@ -315,12 +333,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::physiotherapeutin-physiotherapeut-universitatsspital-basel-basel": {
-    "winnerJobIdentifier": "unispital-basel-cffce1280a6c",
+    "winnerJobIdentifier": "unispital-basel-f16341854433",
     "winnerCanonical": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.4,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::it::servicetechniker-m-w-d-otis-sa-nenzlingerweg-2": {
@@ -1835,6 +1853,15 @@
     "candidatesCount": 3,
     "canton": "GR"
   },
+  "GR::de::praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch": {
+    "winnerJobIdentifier": "pdgr-02463e6ed865",
+    "winnerCanonical": "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-psychiatrische-dienste-graubunden-chur",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.5385,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::de::spitex-assistant-de-sante-50-100-spital-davos-davos": {
     "winnerJobIdentifier": "spital-davos-016659b12606",
     "winnerCanonical": "pflegehilfe-srk-spitex-50-100-spital-davos-ch",
@@ -2915,6 +2942,15 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::it::praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch": {
+    "winnerJobIdentifier": "pdgr-02463e6ed865",
+    "winnerCanonical": "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::it::project-manager-in-kunstbauten-80-100-chur-afry-chur": {
     "winnerJobIdentifier": "afry-cfe9fcda330d",
     "winnerCanonical": "ingegnere-a-di-progetto-opere-d-arte-bruckenbau-80-100-chur-afry-chur",
@@ -3011,6 +3047,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2222,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur": {
+    "winnerJobIdentifier": "pdgr-02463e6ed865",
+    "winnerCanonical": "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.4375,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -3887,6 +3932,15 @@
     "candidatesCount": 1,
     "canton": "TG"
   },
+  "TI::de::addetti-e-alle-cure-sociosanitarie-e-o-assistenti-di-cura-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uikz1l",
+    "winnerCanonical": "pflegehelfer-oder-sozial-und-gesundheitsarbeiter-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2381,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::de::admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso": {
     "winnerJobIdentifier": "convit-1f9f769932df",
     "winnerCanonical": "zulassung-3a-3b-finanzberatung-flexible-stunden-convit-holding-gmbh-giubiasco-monte-carasso",
@@ -3938,6 +3992,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::assistant-e-socio-sanitaire-et-ou-assistant-e-de-soins-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uikz1l",
+    "winnerCanonical": "pflegehelfer-oder-sozial-und-gesundheitsarbeiter-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -4091,6 +4154,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-06T00:00:00.000Z",
     "score": 0.4706,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::fachfrau-fachmann-gesundheits-und-sozialpflege-bzw-pflegeassistentin-pflegeassistent-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uikz1l",
+    "winnerCanonical": "pflegehelfer-oder-sozial-und-gesundheitsarbeiter-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3158,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -4445,6 +4517,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::de::socio-health-care-workers-and-or-care-assistants-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uikz1l",
+    "winnerCanonical": "pflegehelfer-oder-sozial-und-gesundheitsarbeiter-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2632,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::de::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
     "winnerJobIdentifier": "company-uikzn5",
     "winnerCanonical": "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
@@ -4535,6 +4616,15 @@
     "candidatesCount": 8,
     "canton": "TI"
   },
+  "TI::en::addetti-e-alle-cure-sociosanitarie-e-o-assistenti-di-cura-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uil1tg",
+    "winnerCanonical": "career-or-health-care-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2381,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::en::admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso": {
     "winnerJobIdentifier": "convit-cb94b1dded29",
     "winnerCanonical": "entrance-financial-counseling-3a-3b-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso",
@@ -4580,6 +4670,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::en::assistant-e-socio-sanitaire-et-ou-assistant-e-de-soins-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uil1tg",
+    "winnerCanonical": "career-or-health-care-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3158,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::en::assistente-di-cura-eoc-ente-ospedaliero-cantonale-bellinzona": {
     "winnerJobIdentifier": "company-uikzkn",
     "winnerCanonical": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-mendrisio-uikzkn",
@@ -4622,6 +4721,15 @@
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3077,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "medical-practice-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3846,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -4721,6 +4829,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-06T00:00:00.000Z",
     "score": 0.8571,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::fachfrau-fachmann-gesundheits-und-sozialpflege-bzw-pflegeassistentin-pflegeassistent-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uil1tg",
+    "winnerCanonical": "career-or-health-care-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -5147,6 +5264,15 @@
     "candidatesCount": 4,
     "canton": "TI"
   },
+  "TI::en::socio-health-care-workers-and-or-care-assistants-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uil1tg",
+    "winnerCanonical": "career-or-health-care-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::en::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
     "winnerJobIdentifier": "company-uikzn5",
     "winnerCanonical": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-locarno",
@@ -5201,6 +5327,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::fr::addetti-e-alle-cure-sociosanitarie-e-o-assistenti-di-cura-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uikz1l",
+    "winnerCanonical": "assistant-de-soins-ou-travailleur-socio-sanitaire-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2174,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::fr::admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso": {
     "winnerJobIdentifier": "convit-1f9f769932df",
     "winnerCanonical": "ingresso-consulenza-finanziaria-3a-3b-orari-flessibili-convit-holding-gmbh-giubiasco-monte-carasso",
@@ -5252,6 +5387,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.6923,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::fr::assistant-e-socio-sanitaire-et-ou-assistant-e-de-soins-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uikz1l",
+    "winnerCanonical": "assistant-de-soins-ou-travailleur-socio-sanitaire-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.6875,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -5378,6 +5522,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-06T00:00:00.000Z",
     "score": 0.3684,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::fr::fachfrau-fachmann-gesundheits-und-sozialpflege-bzw-pflegeassistentin-pflegeassistent-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uikz1l",
+    "winnerCanonical": "assistant-de-soins-ou-travailleur-socio-sanitaire-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2273,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -5750,6 +5903,15 @@
     "candidatesCount": 1,
     "canton": "TI"
   },
+  "TI::fr::socio-health-care-workers-and-or-care-assistants-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uikz1l",
+    "winnerCanonical": "assistant-de-soins-ou-travailleur-socio-sanitaire-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::fr::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
     "winnerJobIdentifier": "company-x29n5y",
     "winnerCanonical": "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -5820,6 +5982,15 @@
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 1,
+    "canton": "TI"
+  },
+  "TI::it::addetti-e-alle-cure-sociosanitarie-e-o-assistenti-di-cura-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uikz1l",
+    "winnerCanonical": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.5789,
+    "candidatesCount": 2,
     "canton": "TI"
   },
   "TI::it::admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso": {
@@ -5900,6 +6071,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3529,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::assistant-e-socio-sanitaire-et-ou-assistant-e-de-soins-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uikz1l",
+    "winnerCanonical": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2083,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -6116,6 +6296,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-06T00:00:00.000Z",
     "score": 0.2632,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::fachfrau-fachmann-gesundheits-und-sozialpflege-bzw-pflegeassistentin-pflegeassistent-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uikz1l",
+    "winnerCanonical": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2083,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -6524,6 +6713,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::it::socio-health-care-workers-and-or-care-assistants-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
+    "winnerJobIdentifier": "company-uikz1l",
+    "winnerCanonical": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2174,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::it::stadio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-bellinzona": {
     "winnerJobIdentifier": "company-uil1sr",
     "winnerCanonical": "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -6750,11 +6948,11 @@
     "canton": "VD"
   },
   "VD::fr::position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne": {
-    "winnerJobIdentifier": "epfl-ad8241ec0d43",
-    "winnerCanonical": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
+    "winnerJobIdentifier": "epfl-b0cd92a73585",
+    "winnerCanonical": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne-d02b8a",
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.2381,
+    "score": 0.9333,
     "candidatesCount": 1,
     "canton": "VD"
   },
@@ -6884,6 +7082,15 @@
     "candidatesCount": 2,
     "canton": "VD"
   },
+  "VS::de::collaborateur-trice-administratif-ve-a-70-pour-le-service-des-admissions-de-l-hopital-de-s": {
+    "winnerJobIdentifier": "hopital-du-valais-7f3ea010146a",
+    "winnerCanonical": "70-administrativer-mitarbeiter-fur-die-zulassungsabteilung-des-krankenhauses-von-sierre-hopital-du-valais-sierre",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.12,
+    "candidatesCount": 2,
+    "canton": "VS"
+  },
   "VS::de::data-center-technician-ch-urswil-on-site-reboot-monkey-urswil-2": {
     "winnerJobIdentifier": "reboot-monkey-7ceb3d2fe232",
     "winnerCanonical": "data-center-technician-ch-urswil-vor-ort-reboot-monkey-urswil",
@@ -6902,6 +7109,15 @@
     "candidatesCount": 2,
     "canton": "VS"
   },
+  "VS::de::medecin-chef-fe-de-clinique-a-100-pour-le-service-de-radio-oncologie-hopital-du-valais-sio": {
+    "winnerJobIdentifier": "hopital-du-valais-e724cdb382df",
+    "winnerCanonical": "100-klinischer-kopfarzt-fur-radioonkologie-hopital-du-valais-sion",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.1905,
+    "candidatesCount": 2,
+    "canton": "VS"
+  },
   "VS::de::operator-in-2-schicht-arxada-ch": {
     "winnerJobIdentifier": "arxada-c22d607e0938",
     "winnerCanonical": "operator-in-2-schicht-arxada-visp",
@@ -6911,12 +7127,30 @@
     "candidatesCount": 1,
     "canton": "VS"
   },
+  "VS::en::collaborateur-trice-administratif-ve-a-70-pour-le-service-des-admissions-de-l-hopital-de-s": {
+    "winnerJobIdentifier": "hopital-du-valais-7f3ea010146a",
+    "winnerCanonical": "70-administrative-co-worker-for-the-admissions-department-of-the-hospital-of-sierre-hopital-du-valais-sierre",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.1154,
+    "candidatesCount": 2,
+    "canton": "VS"
+  },
   "VS::en::job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen": {
     "winnerJobIdentifier": "volg-fenaco-e6906731b758",
     "winnerCanonical": "job-as-retail-salesperson-or-retail-sales-assistant-volg-grachen",
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.7273,
+    "candidatesCount": 2,
+    "canton": "VS"
+  },
+  "VS::en::medecin-chef-fe-de-clinique-a-100-pour-le-service-de-radio-oncologie-hopital-du-valais-sio": {
+    "winnerJobIdentifier": "hopital-du-valais-e724cdb382df",
+    "winnerCanonical": "100-clinical-head-doctor-for-radio-oncology-hopital-du-valais-sion",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2273,
     "candidatesCount": 2,
     "canton": "VS"
   },
@@ -6938,6 +7172,24 @@
     "candidatesCount": 2,
     "canton": "VS"
   },
+  "VS::fr::medecin-chef-fe-de-clinique-a-100-pour-le-service-de-radio-oncologie-hopital-du-valais-sio": {
+    "winnerJobIdentifier": "hopital-du-valais-e724cdb382df",
+    "winnerCanonical": "medecin-chef-fe-de-clinique-a-100-pour-le-service-de-radio-oncologie-hopital-du-valais-sion",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.8824,
+    "candidatesCount": 2,
+    "canton": "VS"
+  },
+  "VS::it::collaborateur-trice-administratif-ve-a-70-pour-le-service-des-admissions-de-l-hopital-de-s": {
+    "winnerJobIdentifier": "hopital-du-valais-7f3ea010146a",
+    "winnerCanonical": "70-collaboratore-amministrativo-per-il-dipartimento-di-ammissione-dell-ospedale-di-sierre-hopital-du-valais-sierre",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.0741,
+    "candidatesCount": 2,
+    "canton": "VS"
+  },
   "VS::it::data-center-technician-ch-urswil-on-site-reboot-monkey-urswil-2": {
     "winnerJobIdentifier": "reboot-monkey-7ceb3d2fe232",
     "winnerCanonical": "data-center-technician-ch-urswil-in-loco-reboot-monkey-urswil",
@@ -6956,6 +7208,15 @@
     "candidatesCount": 2,
     "canton": "VS"
   },
+  "VS::it::medecin-chef-fe-de-clinique-a-100-pour-le-service-de-radio-oncologie-hopital-du-valais-sio": {
+    "winnerJobIdentifier": "hopital-du-valais-e724cdb382df",
+    "winnerCanonical": "100-medico-testa-clinica-per-radio-oncologia-hopital-du-valais-sion",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2273,
+    "candidatesCount": 2,
+    "canton": "VS"
+  },
   "VS::it::pasticceria-6-mesi-w-verbier-marriott-international-verbier": {
     "winnerJobIdentifier": "marriott-b88e0551e81a",
     "winnerCanonical": "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier",
@@ -6963,6 +7224,15 @@
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3077,
     "candidatesCount": 1,
+    "canton": "VS"
+  },
+  "VS::it::store-manager-tally-weijl-sion": {
+    "winnerJobIdentifier": "tally-weijl-28bbb3f83354",
+    "winnerCanonical": "assistente-di-vendita-tally-weijl-sion",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 2,
     "canton": "VS"
   },
   "ZG::fr::senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug": {
@@ -7136,6 +7406,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::en::augenoptiker-w-m-d-fielmann-ch-8": {
+    "winnerJobIdentifier": "fielmann-0f27052f1a48",
+    "winnerCanonical": "optician-m-f-d-fielmann-group-wadenswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::en::data-center-technician-leuk-on-site-reboot-monkey-ch": {
     "winnerJobIdentifier": "reboot-monkey-94e90f7fae5b",
     "winnerCanonical": "data-center-technician-ch-zuerich-on-site-reboot-monkey-zuerich",
@@ -7215,6 +7494,15 @@
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.0909,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::fr::augenoptiker-w-m-d-fielmann-ch-8": {
+    "winnerJobIdentifier": "fielmann-0f27052f1a48",
+    "winnerCanonical": "opticien-h-f-d-fielmann-group-wadenswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::fr::career-start-in-digital-assurance-it-audit-and-process-analytics-financial-services-pwc-zurich": {
@@ -7332,6 +7620,15 @@
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.0909,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::augenoptiker-w-m-d-fielmann-ch-8": {
+    "winnerJobIdentifier": "fielmann-0f27052f1a48",
+    "winnerCanonical": "ottico-optometrista-w-m-d-fielmann-group-wadenswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::career-start-in-digital-assurance-it-audit-and-process-analytics-financial-services-pwc-zurich": {

@@ -23960,4 +23960,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ascensione-traffico-ticino-2026',
+ category: 'pratico',
+ date: '2026-05-13T15:41:00.463Z',
+ image: '/images/blog/ascensione-traffico-ticino-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

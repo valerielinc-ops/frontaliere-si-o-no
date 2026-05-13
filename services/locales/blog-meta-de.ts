@@ -7527,6 +7527,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-confronto-2026.title': 'Gesundheitssteuer für Grenzgänger: Vergleich zwischen Forza Italia und PD',
     'blog.article.tassa-salute-frontalieri-confronto-2026.excerpt': 'Der regionale Rat des PD Samuele Astuti ist bereit, mit Forza Italia über die Gesundheitssteuer für Grenzgänger zu diskutieren',
     'blog.article.tassa-salute-frontalieri-confronto-2026.imageAlt': 'Ein Grenzgänger, der die Grenze zwischen Italien und der Schweiz am Luganersee überquert, mit Blick auf die Stadt und die Berge',
+    'blog.article.ascensione-traffico-ticino-2026.title': 'Auffahrt: Stau von Gotthard bis Chiasso',
+    'blog.article.ascensione-traffico-ticino-2026.excerpt': '8 km Stau am Gotthard und über eine Stunde Wartezeit auf der A2 Richtung Chiasso. Die Behörden empfehlen Alternativen, um den Verkehr zu entlasten.',
+    'blog.article.ascensione-traffico-ticino-2026.imageAlt': 'Stau auf der Autobahn A2 im Tessin am Christi Himmelfahrtstag',
 };
 
 export default blogMetaDe;

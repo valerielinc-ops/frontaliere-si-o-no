@@ -36734,6 +36734,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ascensione-traffico-ticino-2026': {
+    title: 'Ascensione: traffico paralizzato dal Gottardo a Chiasso',
+    description: 'Code di 8 km al San Gottardo e oltre un\'ora di attesa sull\'A2 verso Chiasso. Le autorità consigliano alternative per alleggerire il traffico. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, ascensione, traffico, paralizzato, gottardo',
+    ogTitle: 'Ascensione: traffico paralizzato dal Gottardo a Chiasso',
+    ogDescription: 'Code di 8 km al San Gottardo e oltre un\'ora di attesa sull\'A2 verso Chiasso. Le autorità consigliano alternative per alleggerire il traffico.',
+    canonicalPath: '/articoli-frontaliere/ascensione-traffico-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ascensione: traffico paralizzato dal Gottardo a Chiasso",
+      "description": "Code di 8 km al San Gottardo e oltre un'ora di attesa sull'A2 verso Chiasso. Le autorità consigliano alternative per alleggerire il traffico. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ascensione-traffico-ticino-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Coda di auto sull'autostrada A2 in Ticino durante l'Ascensione"
+      },
+      "datePublished": "2026-05-13T15:41:00+00:00",
+      "dateModified": "2026-05-13T15:41:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ascensione-traffico-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

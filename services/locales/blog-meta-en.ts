@@ -7528,6 +7528,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-confronto-2026.title': 'Health tax for cross-border workers: PD and Forza Italia in talks',
     'blog.article.tassa-salute-frontalieri-confronto-2026.excerpt': 'PD regional councilor Samuele Astuti is willing to discuss the cross-border workers\' health tax with Forza Italia',
     'blog.article.tassa-salute-frontalieri-confronto-2026.imageAlt': 'A frontalier worker crossing the border between Italy and Switzerland at Lake Lugano, with a view of the city and mountains',
+    'blog.article.ascensione-traffico-ticino-2026.title': 'Ascension Day: traffic jam from Gotthard to Chiasso',
+    'blog.article.ascensione-traffico-ticino-2026.excerpt': '8 km queues at the Gotthard and over an hour of waiting on the A2 towards Chiasso. Authorities advise alternatives to ease traffic.',
+    'blog.article.ascensione-traffico-ticino-2026.imageAlt': 'Traffic jam on the A2 highway in Ticino during Ascension Day',
 };
 
 export default blogMetaEn;

@@ -1,0 +1,40 @@
+{
+  "id": "ascensione-traffico-ticino-2026",
+  "slug": "ascensione-traffico-ticino-2026",
+  "publishedAt": "2026-05-13T15:41:01.915Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.63598917774062,
+    "confidence": 0.8,
+    "finalScore": 2.908791342192496,
+    "topK": [
+      {
+        "slug": "bollino-rosso-a2-chiasso-lugano-2026",
+        "cosine": 0.908997294435155
+      },
+      {
+        "slug": "ritardi-a2-tra-chiasso-lugano",
+        "cosine": 0.9029951465887773
+      },
+      {
+        "slug": "traffico-san-gottardo-2026",
+        "cosine": 0.8995019201954553
+      },
+      {
+        "slug": "bollini-rossi-traffico-san-gottardo-2026",
+        "cosine": 0.8984447896436463
+      },
+      {
+        "slug": "restringimento-a2-ritardi-2026",
+        "cosine": 0.8951529113276877
+      }
+    ],
+    "score": 0.2908791342192496,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}
