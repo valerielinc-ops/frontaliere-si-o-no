@@ -7835,15 +7835,27 @@ ${alternates}
      const legacyJobBoardHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${entry.section}`.replace(/\/+/g, '/'))}`;
      // BreadcrumbList JSON-LD: required by tests/seo/breadcrumb-coverage.test.ts
      // (D.2 — every non-exempt dist/ HTML page must include a BreadcrumbList).
-     // Three-level chain: Home → Job Board (locale legacy section) → canton.
+     // Per-canton: Home → "Cerca lavoro in Svizzera" (aggregator) → canton.
+     // Aggregator page itself: Home → "Svizzera" (skip dupe parent).
+     // Prior bug (GSC "Unparsable structured data", 2026-05-13): position 2
+     // used `sectionByLocale[locale]` — a URL slug like "cerca-lavoro-ticino" —
+     // as the human `name`, and `legacyJobBoardHref` resolved to the same URL
+     // as the canton page itself (e.g. /cerca-lavoro-argovia/ on the AG page),
+     // producing a malformed breadcrumb that Google rejected as invalid.
+     const homeItem = { '@type': 'ListItem', position: 1, name: homeLabel[entry.locale], item: `${BASE_URL}${entry.locale === 'it' ? '/' : `/${entry.locale}/`}` };
+     const currentItem = { '@type': 'ListItem', position: entry.key === AGGREGATE_KEY ? 2 : 3, name: display, item: canonicalUrl };
+     const aggregatorBreadcrumbItem = (() => {
+       const aggregatorDisplay = getCantonDisplayLabel(AGGREGATE_KEY, entry.locale);
+       const aggregatorSection = buildCantonAwareSection(entry.locale, AGGREGATE_KEY);
+       const aggregatorHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${aggregatorSection}`.replace(/\/+/g, '/'))}`;
+       return { '@type': 'ListItem', position: 2, name: cantonSectionName(entry.locale, aggregatorDisplay), item: aggregatorHref };
+     })();
      const cantonBreadcrumbLd = `<script type="application/ld+json">${JSON.stringify({
        '@context': 'https://schema.org',
        '@type': 'BreadcrumbList',
-       itemListElement: [
-         { '@type': 'ListItem', position: 1, name: homeLabel[entry.locale], item: `${BASE_URL}${entry.locale === 'it' ? '/' : `/${entry.locale}/`}` },
-         { '@type': 'ListItem', position: 2, name: sectionByLocale[entry.locale], item: legacyJobBoardHref },
-         { '@type': 'ListItem', position: 3, name: display, item: canonicalUrl },
-       ],
+       itemListElement: entry.key === AGGREGATE_KEY
+         ? [homeItem, currentItem]
+         : [homeItem, aggregatorBreadcrumbItem, currentItem],
      })}</script>`;
 
      // ── P4: rich canton-landing body ────────────────────────────────────
