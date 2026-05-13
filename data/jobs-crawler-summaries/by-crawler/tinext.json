@@ -1,16 +1,16 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-05-13T12:03:33.815Z",
+  "generatedAt": "2026-05-13T23:11:52.773Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 816,
-  "avgDurationMs": 816,
+  "durationMs": 793,
+  "avgDurationMs": 793,
   "durationHistory": [
-    816
+    793
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -52,44 +52,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Freelance Java Developer | Full-remote",
-      "slug": "freelance-java-sviluppatore-full-remote-tinext-sa-morbio",
-      "url": "https://tinext.kenjo.io/javadev",
-      "applyUrl": "https://tinext.kenjo.io/javadev",
-      "company": "Tinext SA",
-      "companyKey": "tinext",
-      "companyDomain": "tinext.com",
-      "location": "Morbio",
-      "addressLocality": "Morbio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "IT / Software Development",
-      "sector": "IT & Digital Transformation",
-      "source": "tinext-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-12",
-      "validThrough": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928",
-      "id": "tinext-dfd44ec52573",
-      "firstSeenAt": "2026-04-13T22:33:11.051Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
