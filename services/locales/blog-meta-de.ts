@@ -7509,6 +7509,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.documenti-frontalieri-svizzera-2026.title': 'Dokumente für Grenzgänger: Die Checkliste',
     'blog.article.documenti-frontalieri-svizzera-2026.excerpt': 'Erfahren Sie alles über die notwendigen Dokumente, um in der Schweiz als Grenzgänger zu arbeiten: G-Bewilligung, Vertrag, Versicherung und vieles mehr.',
     'blog.article.documenti-frontalieri-svizzera-2026.imageAlt': 'Eine detaillierte Ansicht des Luganer Sees mit der Stadt im Hintergrund, aufgenommen mit einer DSLR-Kamera.',
+    'blog.article.app-depressione-cassa-malati-2026.title': 'App gegen Depressionen wird von der Krankenkasse erstattet: So funktioniert’s',
+    'blog.article.app-depressione-cassa-malati-2026.excerpt': 'Ab dem 1. Juli 2026 wird die App Deprexis von den Schweizer Krankenkassen erstattet. Das ändert sich für die Grenzgänger des Tessin',
+    'blog.article.app-depressione-cassa-malati-2026.imageAlt': 'Person, die eine psychische Gesundheits-App mit dem Luganersee im Hintergrund verwendet',
 };
 
 export default blogMetaDe;

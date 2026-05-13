@@ -23906,4 +23906,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'app-depressione-cassa-malati-2026',
+ category: 'novita',
+ date: '2026-05-13T04:35:05.872Z',
+ image: '/images/blog/app-depressione-cassa-malati-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

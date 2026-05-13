@@ -7511,6 +7511,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.documenti-frontalieri-svizzera-2026.title': 'Documents nécessaires pour travailler en Suisse: la liste complète',
     'blog.article.documenti-frontalieri-svizzera-2026.excerpt': 'Découvrez tous les documents nécessaires pour commencer à travailler en Suisse en tant que frontalier: permis G, contrat, assurance et bien plus encore.',
     'blog.article.documenti-frontalieri-svizzera-2026.imageAlt': 'Vue détaillée du lac de Lugano avec le paysage urbain en arrière-plan, capturée avec un appareil photo DSLR.',
+    'blog.article.app-depressione-cassa-malati-2026.title': 'Application contre la dépression remboursée par l\'assurance maladie',
+    'blog.article.app-depressione-cassa-malati-2026.excerpt': 'À partir du 1er juillet 2026, l\'application Deprexis sera remboursée par les assurances maladie suisses. Voici ce qui change pour les frontaliers du Tessin',
+    'blog.article.app-depressione-cassa-malati-2026.imageAlt': 'Personne utilisant une application de santé mentale avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

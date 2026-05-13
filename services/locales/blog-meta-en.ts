@@ -7510,6 +7510,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.documenti-frontalieri-svizzera-2026.title': 'Documents needed to start working in Switzerland: full checklist',
     'blog.article.documenti-frontalieri-svizzera-2026.excerpt': 'Discover all the documents you need to start working in Switzerland as a cross-border worker: G permit, contract, insurance and much more.',
     'blog.article.documenti-frontalieri-svizzera-2026.imageAlt': 'A detailed view of Lake Lugano with the cityscape in the background, captured with a DSLR camera.',
+    'blog.article.app-depressione-cassa-malati-2026.title': 'App against depression reimbursed by health insurance: how it works',
+    'blog.article.app-depressione-cassa-malati-2026.excerpt': 'From July 1st, 2026, the Deprexis app will be reimbursed by Swiss health insurers. Here\'s what changes for Ticino cross-border workers',
+    'blog.article.app-depressione-cassa-malati-2026.imageAlt': 'Person using a mental health app with Lake Lugano in the background',
 };
 
 export default blogMetaEn;

@@ -3746,6 +3746,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-blocco-ristorni-ticino-politica-2026': { name: 'Fiscale', path: '/articoli-frontaliere/blocco-ristorni-ticino-politica-2026', parent: 'blog' },
     'blog-tassa-salute-frontalieri-ticino-2026': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-ticino-2026', parent: 'blog' },
     'blog-documenti-frontalieri-svizzera-2026': { name: 'Documenti Frontalieri', path: '/articoli-frontaliere/documenti-frontalieri-svizzera-2026', parent: 'blog' },
+    'blog-app-depressione-cassa-malati-2026': { name: 'Novità', path: '/articoli-frontaliere/app-depressione-cassa-malati-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
