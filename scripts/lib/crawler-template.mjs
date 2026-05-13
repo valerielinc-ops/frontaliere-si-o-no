@@ -156,15 +156,18 @@ import {
 /**
  * Standard slugify function. Parsers should use this to build slugs
  * consistently (lowercase, diacritics stripped, alphanumeric+dash only).
+ * Trims at word boundary when the cap would split a token.
  */
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+
 export function slugify(text = '', maxLength = 90) {
-  return String(text || '')
+  const base = String(text || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, maxLength);
+    .replace(/^-+|-+$/g, '');
+  return truncateSlugAtWordBoundary(base, maxLength);
 }
 
 /**

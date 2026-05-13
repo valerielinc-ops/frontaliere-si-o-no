@@ -44,6 +44,7 @@ import {
   buildPwcLocalizedContent,
 } from './lib/pwc-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -178,9 +179,16 @@ function buildPwcJob(row) {
 }
 
 function jobMatchKey(job = {}) {
-  const url = String(job.url || '').trim().toLowerCase();
+  // Key on the stable identifier embedded in the source URL (UUID, numeric ID,
+  // content hash) rather than the full URL. PwC and similar vendors rewrite
+  // the slug-portion of the URL when titles change while keeping the same
+  // underlying job — keying on the stable token preserves the merge so
+  // previousSlugs and locale translations carry across the rename.
+  // City is still part of the key so multi-location explosions (same job
+  // listed under several cities) stay distinct.
+  const stableId = extractStableJobId(job.url);
   const city = String(job.addressLocality || job.location || '').trim().toLowerCase();
-  if (url) return `${url}#${city}`;
+  if (stableId) return `${stableId}#${city}`;
   return String(job.slug || '').trim().toLowerCase();
 }
 
@@ -228,12 +236,31 @@ function mergeJobs(discoveredJobs) {
       return job;
     }
     updated += 1;
+    const mergedSlugByLocale = mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3);
+    // When the PwC source URL rewrites its slug-portion (e.g. title
+    // localisation flipped from "stage-de-..." to "fy27-asr-..."), the new
+    // crawl yields a different `slug` / `slugByLocale` but the underlying
+    // job ID (UUID embedded in the URL) is the same. We catch this via the
+    // stable-id matchKey above, then record every previously-emitted slug
+    // value so the build pipeline emits a bridge page (301 via canonical)
+    // instead of a thin "expired" soft-landing at the old URL.
+    const previousSlugs = Array.from(new Set([
+      ...(Array.isArray(prev.previousSlugs) ? prev.previousSlugs : []),
+      ...(Array.isArray(job.previousSlugs) ? job.previousSlugs : []),
+      ...(prev.slug && prev.slug !== job.slug ? [prev.slug] : []),
+      ...LOCALES.flatMap((l) => {
+        const oldL = prev.slugByLocale?.[l];
+        const newL = mergedSlugByLocale?.[l];
+        return oldL && oldL !== newL ? [oldL] : [];
+      }),
+    ])).filter(Boolean).slice(0, 20);
     return {
       ...prev,
       ...job,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30),
-      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
+      slugByLocale: mergedSlugByLocale,
+      ...(previousSlugs.length > 0 ? { previousSlugs } : {}),
     };
   });
 

@@ -580,7 +580,8 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugs": [
-        "laundry-employee-m-w-d-kulm-hotel-st-moritz"
+        "laundry-employee-m-w-d-kulm-hotel-st-moritz",
+        "servizio-lavanderia-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -668,7 +669,10 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugs": [
+        "assistente-alimentare-e-bevande-m-w-d-kulm-hotel-st-moritz-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-a5136be2ffb3",
@@ -1318,7 +1322,10 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugs": [
+        "assistente-front-office-m-w-d-kulm-hotel-st-moritz-st-moritz"
+      ]
     }
   ]
 }

@@ -22,6 +22,8 @@
  *   40 = time type, 50 = specialism
  */
 
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
@@ -54,14 +56,14 @@ export function stripHtml(html = '') {
 }
 
 function slugify(value = '') {
-  return String(value || '')
+  const base = String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-+|-+$/g, '')
-    .replace(/-{2,}/g, '-')
-    .slice(0, 180);
+    .replace(/-{2,}/g, '-');
+  return truncateSlugAtWordBoundary(base, 180);
 }
 
 /**

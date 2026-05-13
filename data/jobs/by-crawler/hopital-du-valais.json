@@ -1475,7 +1475,10 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugs": [
+        "assistente-per-la-salute-e-la-cura-della-comunita-chs-al-70-80-hopital-du-valais-st-maurice"
+      ]
     },
     {
       "id": "hopital-du-valais-e724cdb382df",
@@ -1542,7 +1545,8 @@
         ]
       },
       "previousSlugs": [
-        "medecin-chef-fe-de-clinique-a-100-pour-le-service-de-radio-oncologie-hopital-du-valais-sio"
+        "medecin-chef-fe-de-clinique-a-100-pour-le-service-de-radio-oncologie-hopital-du-valais-sio",
+        "gestore-ospite-50-70-hopital-du-valais-visp"
       ],
       "firstSeenAt": "2026-04-27T21:58:47.700Z",
       "salaryMin": 68000,
@@ -2160,7 +2164,10 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "medico-specialista-in-psichiatria-infantile-e-adolescenziale-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-e67163bf722c",
@@ -2846,7 +2853,8 @@
         "site": "SIERRE"
       },
       "previousSlugs": [
-        "collaborateur-trice-administratif-ve-a-70-pour-le-service-des-admissions-de-l-hopital-de-s"
+        "collaborateur-trice-administratif-ve-a-70-pour-le-service-des-admissions-de-l-hopital-de-s",
+        "infermiera-responsabile-psichiatria-e-psicoterapia-pki-90-hopital-du-valais-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3086,7 +3094,8 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig"
+        "psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig",
+        "medici-medici-o-medici-ospedalieri-tra-il-20-e-il-100-per-la-clinica-medica-dell-ospedale-di-sierre-hopital-du-valais-si"
       ],
       "previousSlugsByLocale": {
         "it": [
