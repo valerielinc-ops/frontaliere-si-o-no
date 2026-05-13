@@ -1,6 +1,6 @@
 /**
- * Generates per-job Open Graph images (1200×630 PNG) for every job in
- * `data/jobs.json`. Output is written to `dist/og/jobs/<slug>.png` and
+ * Generates per-job Open Graph images (1200×630 WebP) for every job in
+ * `data/jobs.json`. Output is written to `dist/og/jobs/<slug>.webp` and
  * referenced by `og:image` on the corresponding job page (see
  * jobsSeoPagesPlugin → jobOgImageUrl).
  *
@@ -10,12 +10,16 @@
  * preview, lifting CTR from organic FB/LinkedIn shares and from the
  * scheduled posting pipeline (scripts/schedule-fb-jobs-daily.mjs).
  *
- * Performance: satori (HTML/JSX → SVG) + @resvg/resvg-js (SVG → PNG) renders
- * each card in ~30-60ms. 2100 jobs ≈ 1-2 min in CI. Skipped under
- * FAST_BUILD=1 (gating happens in vite.config.ts).
+ * Performance: satori (HTML/JSX → SVG) + @resvg/resvg-js (SVG → PNG) +
+ * sharp (PNG → WebP q80) renders each card in ~30-60ms. 2100 jobs ≈ 1-2 min
+ * in CI. Skipped under FAST_BUILD=1 (gating happens in vite.config.ts).
  *
- * Caching: idempotent. If the output PNG already exists for a slug, we skip
- * regeneration. To force regeneration of one job, delete its PNG.
+ * Why WebP: at quality 80 each card is ~30 KB vs ~160 KB for PNG (−80%).
+ * FB/X/LinkedIn have supported WebP og:image since 2021. Saves ~390 MB
+ * across 3000+ cards in dist/.
+ *
+ * Caching: idempotent. If the output WebP already exists for a slug, we skip
+ * regeneration. To force regeneration of one job, delete its WebP.
  */
 
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, unlinkSync, writeFileSync } from 'fs';
@@ -38,12 +42,12 @@ const CACHE_SUBDIR = '.cache/og-jobs';
  * an older cache layer. Same pattern used by pdfWhitepapersPlugin
  * (PDF_RENDER_VERSION).
  *
- * Cache filename is `<jobId>.<OG_RENDER_VERSION>.png`. When this version
+ * Cache filename is `<jobId>.<OG_RENDER_VERSION>.webp`. When this version
  * bumps, the new build looks for new filenames, doesn't find them, and
- * re-renders. Old cached PNGs become orphaned and age out automatically
+ * re-renders. Old cached files become orphaned and age out automatically
  * when the GitHub Actions cache evicts them (~7-day TTL).
  */
-const OG_RENDER_VERSION = 'v2-2026-05-05';
+const OG_RENDER_VERSION = 'v3-2026-05-13-webp';
 const PNG_WIDTH = 1200;
 const PNG_HEIGHT = 630;
 
@@ -411,7 +415,7 @@ function buildCardJsx(model: CardModel): unknown {
 }
 
 function ogPathForSlug(slug: string): string {
-  return path.join(OUT_SUBDIR, `${slug}.png`);
+  return path.join(OUT_SUBDIR, `${slug}.webp`);
 }
 
 /**
@@ -436,7 +440,7 @@ function ogPathForSlug(slug: string): string {
  * jobs (mostly translation refinements) — accepted in exchange for
  * simpler code and no separate visual-hash maintenance.
  *
- * Cache filename: `<slug>.<OG_RENDER_VERSION>.png`
+ * Cache filename: `<slug>.<OG_RENDER_VERSION>.webp`
  *
  * slug + design stable    → same filename → cache hit
  * title/company/city edit → new slug      → re-render
@@ -448,7 +452,7 @@ function ogPathForSlug(slug: string): string {
 
 export function jobOgImageUrl(baseUrl: string, slug: string | null): string | null {
   if (!slug) return null;
-  return `${baseUrl}/${OUT_SUBDIR}/${slug}.png`;
+  return `${baseUrl}/${OUT_SUBDIR}/${slug}.webp`;
 }
 
 interface Stats {
@@ -519,7 +523,7 @@ export default function jobOgImagesPlugin(): Plugin {
         // we cache by slug + version (not job.id + visualHash).
         const cachePath = path.join(
           cacheRoot,
-          `${slug}.${OG_RENDER_VERSION}.png`,
+          `${slug}.${OG_RENDER_VERSION}.webp`,
         );
 
         if (existsSync(cachePath)) {
@@ -583,12 +587,12 @@ export default function jobOgImagesPlugin(): Plugin {
         const here = path.dirname(fileURLToPath(import.meta.url));
         const workerPath = path.join(here, 'og-render-worker.mjs');
 
-        const writeResult = (job: RenderJob, png: Buffer) => {
+        const writeResult = (job: RenderJob, webp: Buffer) => {
           try {
             mkdirSync(path.dirname(job.cachePath), { recursive: true });
             mkdirSync(path.dirname(job.outPath), { recursive: true });
-            writeFileSync(job.cachePath, png);
-            writeFileSync(job.outPath, png);
+            writeFileSync(job.cachePath, webp);
+            writeFileSync(job.outPath, webp);
             stats.rendered += 1;
           } catch (err) {
             stats.errors += 1;
@@ -635,13 +639,13 @@ export default function jobOgImagesPlugin(): Plugin {
               'message',
               (
                 msg:
-                  | { jobId: string; ok: true; png: Buffer }
+                  | { jobId: string; ok: true; webp: Buffer }
                   | { jobId: string; ok: false; error: string },
               ) => {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const job: RenderJob = (worker as any).__inflight;
                 if (msg.ok === true) {
-                  writeResult(job, msg.png);
+                  writeResult(job, msg.webp);
                 } else {
                   stats.errors += 1;
                   if (stats.errors <= 5) {
@@ -672,29 +676,28 @@ export default function jobOgImagesPlugin(): Plugin {
         });
       }
 
-      // ── Cache cleanup: remove stale-version PNGs from .cache/og-jobs/ ──
-      // After a design bump (OG_RENDER_VERSION change), the actions/cache
-      // restore-keys cascade rehydrates the previous version's cached PNGs
-      // alongside the freshly-rendered ones. Without cleanup the cache size
-      // grows by ~180 MB per version bump (1916 PNGs × ~95 KB each), which
-      // both wastes the GitHub Actions cache budget and slows future
-      // restores. Filenames are `<slug>.<OG_RENDER_VERSION>.png` so we drop
-      // any *.png whose suffix doesn't match the current version.
-      const versionSuffix = `.${OG_RENDER_VERSION}.png`;
+      // ── Cache cleanup: remove stale-version files from .cache/og-jobs/ ──
+      // After a design bump (OG_RENDER_VERSION change) or format migration
+      // (PNG → WebP), the actions/cache restore-keys cascade rehydrates the
+      // previous version's cached files alongside the freshly-rendered ones.
+      // Without cleanup the cache size grows by ~180 MB per version bump,
+      // which both wastes the GitHub Actions cache budget and slows future
+      // restores. Filenames are `<slug>.<OG_RENDER_VERSION>.<ext>` so we drop
+      // any entry whose suffix doesn't match the current version+extension.
+      const versionSuffix = `.${OG_RENDER_VERSION}.webp`;
       let pruned = 0;
       let prunedBytes = 0;
       try {
         for (const entry of readdirSync(cacheRoot)) {
-          if (!entry.endsWith('.png')) continue;
           if (entry.endsWith(versionSuffix)) continue;
+          if (!entry.endsWith('.png') && !entry.endsWith('.webp')) continue;
           const orphaned = path.join(cacheRoot, entry);
           try {
-            // Cheap stat-less size estimate from a single read isn't worth
-            // it; just count files. If the user wants byte-level reporting
-            // they can `du -sh .cache/og-jobs/`.
             unlinkSync(orphaned);
             pruned += 1;
-            prunedBytes += 95_000; // approximate avg PNG size, for the log
+            // Rough avg: stale PNGs ~95 KB, stale WebPs ~30 KB. Used only
+            // for the human-readable log line below.
+            prunedBytes += entry.endsWith('.png') ? 95_000 : 30_000;
           } catch {
             /* ignore — best-effort cleanup */
           }

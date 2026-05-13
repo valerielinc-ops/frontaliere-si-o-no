@@ -2332,14 +2332,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta property="og:title" content="${esc(ogTitle)}">
  <meta property="og:description" content="${esc(description)}">
  <meta property="og:url" content="${effectiveCanonicalUrl}">
- <meta property="og:image" content="${perLocaleSlug.it ? `${BASE_URL}/og/jobs/${perLocaleSlug.it}.png` : `${BASE_URL}/og-image.png`}">
+ <meta property="og:image" content="${perLocaleSlug.it ? `${BASE_URL}/og/jobs/${perLocaleSlug.it}.webp` : `${BASE_URL}/og-image.png`}">
  <meta property="og:image:width" content="1200">
  <meta property="og:image:height" content="630">
- <meta property="og:image:type" content="image/png">
+ <meta property="og:image:type" content="${perLocaleSlug.it ? 'image/webp' : 'image/png'}">
  <meta name="twitter:card" content="summary_large_image">
  <meta name="twitter:title" content="${esc(ogTitle)}">
  <meta name="twitter:description" content="${esc(description)}">
- <meta name="twitter:image" content="${perLocaleSlug.it ? `${BASE_URL}/og/jobs/${perLocaleSlug.it}.png` : `${BASE_URL}/og-image.png`}">
+ <meta name="twitter:image" content="${perLocaleSlug.it ? `${BASE_URL}/og/jobs/${perLocaleSlug.it}.webp` : `${BASE_URL}/og-image.png`}">
  <meta name="twitter:site" content="@frontaliereticino">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
  <link rel="preconnect" href="https://fonts.googleapis.com">
