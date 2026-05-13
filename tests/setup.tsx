@@ -255,6 +255,18 @@ beforeEach(() => {
 afterEach(() => {
   // Restore real timers after any test that called vi.useFakeTimers().
   vi.useRealTimers();
+  // `isolate: false` in vitest.config.ts means thread workers share a single
+  // VM context — `vi.fn()` spies, `vi.spyOn(...)` patches, and
+  // `vi.stubGlobal(...)` shims registered by file A all leak into file B and
+  // poison its expectations. The three cleanups below cover all the leak
+  // surfaces without touching `vi.mock(module)` registrations (which must
+  // persist for the worker's lifetime).
+  //   - clearAllMocks    → reset call history on every vi.fn()
+  //   - restoreAllMocks  → undo vi.spyOn(obj, method) patches
+  //   - unstubAllGlobals → undo vi.stubGlobal(name, value) shims
+  vi.clearAllMocks();
+  vi.restoreAllMocks();
+  vi.unstubAllGlobals();
 });
 
 // Recharts can emit noisy width/height warnings in JSDOM (no layout engine).

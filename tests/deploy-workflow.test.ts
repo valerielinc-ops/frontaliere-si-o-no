@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 
 /**
  * Guards for the parallel SEO audit-gate block in
- * .github/workflows/post-deploy-validation.yml (gates were moved here from
+ * .github/workflows/post-deploy-validate-dist.yml (gates were moved here from
  * deploy.yml in commit a2a7283f3c to avoid extending the critical deploy path)
  * and the tuned default flush concurrency in build-plugins/batchWrite.ts.
  *
@@ -17,13 +17,16 @@ import { resolve } from 'node:path';
  */
 
 const ROOT = resolve(import.meta.dirname, '..');
-const VALIDATION_YML = readFileSync(resolve(ROOT, '.github/workflows/post-deploy-validation.yml'), 'utf-8');
+const VALIDATION_YML = readFileSync(resolve(ROOT, '.github/workflows/post-deploy-validate-dist.yml'), 'utf-8');
 const PACKAGE_JSON = JSON.parse(readFileSync(resolve(ROOT, 'package.json'), 'utf-8'));
 const BATCH_WRITE = readFileSync(resolve(ROOT, 'build-plugins/batchWrite.ts'), 'utf-8');
 
+// `audit:title-uniqueness` was moved to a separate weekly workflow because it
+// OOM-killed the parallel block (see commit history in
+// post-deploy-validate-dist.yml). All remaining gates must stay in the parallel
+// block.
 const AUDIT_SCRIPTS_IN_PARALLEL_BLOCK = [
   'audit:hreflang',
-  'audit:title-uniqueness',
   'audit:content-duplicates',
   'audit:page-weight',
   'audit:text-html-ratio',
@@ -31,21 +34,21 @@ const AUDIT_SCRIPTS_IN_PARALLEL_BLOCK = [
   'audit:title-length',
 ] as const;
 
-describe('post-deploy-validation.yml — parallel SEO audit gates', () => {
+describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
   it('every gate in the parallel block is defined in package.json', () => {
     const scripts = PACKAGE_JSON.scripts || {};
     for (const name of AUDIT_SCRIPTS_IN_PARALLEL_BLOCK) {
-      expect(scripts[name], `missing npm script "${name}" referenced by post-deploy-validation.yml`).toBeDefined();
+      expect(scripts[name], `missing npm script "${name}" referenced by post-deploy-validate-dist.yml`).toBeDefined();
     }
   });
 
-  it('every gate is invoked in post-deploy-validation.yml', () => {
+  it('every gate is invoked in post-deploy-validate-dist.yml', () => {
     for (const name of AUDIT_SCRIPTS_IN_PARALLEL_BLOCK) {
       const re = new RegExp(`npm run ${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'g');
       const matches = VALIDATION_YML.match(re) || [];
       expect(
         matches.length,
-        `"${name}" should appear in post-deploy-validation.yml; found ${matches.length}`,
+        `"${name}" should appear in post-deploy-validate-dist.yml; found ${matches.length}`,
       ).toBeGreaterThanOrEqual(1);
     }
   });
@@ -53,20 +56,33 @@ describe('post-deploy-validation.yml — parallel SEO audit gates', () => {
   it('parallel block uses spawn_capped for background execution', () => {
     expect(
       VALIDATION_YML,
-      'spawn_capped helper missing from post-deploy-validation.yml — parallel execution regressed',
+      'spawn_capped helper missing from post-deploy-validate-dist.yml — parallel execution regressed',
     ).toContain('spawn_capped()');
   });
 
-  it('any new audit:* script added to package.json must be wired into post-deploy-validation.yml', () => {
+  it('any new audit:* script added to package.json must be wired into post-deploy-validate-dist.yml', () => {
+    // Gates intentionally NOT in the dist-validate parallel block:
+    // - `:rebaseline` variants mutate the checked-in baseline; never CI.
+    // - `audit:title-uniqueness` runs on a separate weekly workflow because it
+    //   OOM-killed the parallel block.
+    // - `audit:dist-multi*` are aggregators that call other audits — adding
+    //   them would double-run every gate they wrap.
+    // - `audit:faqpage-validity` runs from scripts/lib/post-build-tasks.sh on
+    //   the build job itself (not post-deploy).
+    // - `audit:parser-quality` is a developer self-test, not gated in CI.
+    const GATES_NOT_IN_DIST_PARALLEL = new Set([
+      'audit:title-uniqueness',
+      'audit:dist-multi',
+      'audit:faqpage-validity',
+      'audit:parser-quality',
+    ]);
     const allAuditScripts = Object.keys(PACKAGE_JSON.scripts || {}).filter((k) => {
-      // The :rebaseline variants are intentionally not run in CI — they MUTATE
-      // the checked-in baseline. Only the pure audit gates are CI-relevant.
-      return /^audit:/.test(k) && !/:rebaseline$/.test(k);
+      return /^audit:/.test(k) && !/:rebaseline$/.test(k) && !GATES_NOT_IN_DIST_PARALLEL.has(k);
     });
     for (const name of allAuditScripts) {
       expect(
         VALIDATION_YML.includes(`npm run ${name}`),
-        `package.json defines "${name}" but post-deploy-validation.yml never invokes it — gate would never run`,
+        `package.json defines "${name}" but post-deploy-validate-dist.yml never invokes it — gate would never run`,
       ).toBe(true);
     }
   });
