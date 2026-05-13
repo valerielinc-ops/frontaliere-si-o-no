@@ -789,6 +789,8 @@ jobs:
         id: deployment_first
         uses: actions/deploy-pages@v5
         continue-on-error: true
+        with:
+          timeout: 1800000
 
       - name: Wait for previous Pages deployment to finish
         if: steps.deployment_first.outcome == 'failure'
@@ -800,6 +802,8 @@ jobs:
         id: deployment
         if: steps.deployment_first.outcome == 'failure'
         uses: actions/deploy-pages@v5
+        with:
+          timeout: 1800000
 
       - name: Fail if both deploy attempts failed
         if: steps.deployment_first.outcome == 'failure' && steps.deployment.outcome != 'success'
@@ -1097,6 +1101,8 @@ jobs:
         if: steps.still-live.outputs.still_live == 'true' && steps.last-good.outputs.run-id != '' && steps.last-good-artifact.outputs.id != ''
         id: rollback_deploy
         uses: actions/deploy-pages@v5
+        with:
+          timeout: 1800000
 
       - name: Report rollback to Linear
         if: always()
