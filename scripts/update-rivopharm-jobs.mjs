@@ -7,7 +7,16 @@
  * antidepressant, anti-inflammatory, epilepsy, diabetes medications).
  * ~200 employees, operating in over 50 countries.
  *
- * Career page: https://rivopharm.com/careers
+ * Career page: https://www.rivopharm.ch/ (no public careers page as of 2026-05-13;
+ * site migrated from rivopharm.com to rivopharm.ch and dropped the careers section).
+ *
+ * Note (2026-05-13): both the old `.com` site (now 404) and the new `.ch` site
+ * lack a public careers landing. The new WordPress install silently rewrites
+ * unknown paths (e.g. `/careers`) to the homepage with HTTP 200, so we must
+ * verify the response actually contains job content before parsing — otherwise
+ * the parser would happily extract homepage marketing headings as fake "jobs".
+ * Until Rivopharm publishes openings again (likely on LinkedIn or a third-party
+ * ATS), this crawler writes an empty slice.
  *
  * Discovery flow:
  *   1. Fetch the careers page HTML
@@ -42,18 +51,28 @@ const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 const COMPANY_KEY = 'rivopharm';
 const HQ = getCompanyDefaults('rivopharm');
 const COMPANY_NAME = 'Rivopharm SA';
-const COMPANY_HOST = 'rivopharm.com';
+const COMPANY_HOST = 'rivopharm.ch';
 /**
  * Rivopharm's career page URLs to try, in order of preference.
- * The /careers path returned 404 as of early 2026 — the company may be
- * restructuring their website. We try multiple paths to maximize resilience.
+ *
+ * As of 2026-05-13 the site (`rivopharm.ch`, migrated from the now-404
+ * `rivopharm.com`) has no public careers section — the sitemap lists only
+ * Chi Siamo / Pazienti / Prodotti / Download Center / Contatti. WordPress
+ * rewrites unknown paths to the homepage with HTTP 200, so the response
+ * needs job-content sniffing (see `looksLikeCareersPage()`).
+ *
+ * We keep an ordered fallback list so the crawler self-recovers as soon as
+ * Rivopharm publishes a real careers page on any of these slugs.
  */
 const CAREERS_URLS = [
-  'https://rivopharm.com/careers',
-  'https://www.rivopharm.com/careers',
-  'https://rivopharm.com/jobs',
-  'https://rivopharm.com/lavora-con-noi',
-  'https://rivopharm.ch/careers',
+  'https://www.rivopharm.ch/lavora-con-noi/',
+  'https://www.rivopharm.ch/carriere/',
+  'https://www.rivopharm.ch/careers/',
+  'https://www.rivopharm.ch/jobs/',
+  'https://www.rivopharm.ch/posizioni-aperte/',
+  'https://www.rivopharm.ch/it/lavora-con-noi/',
+  'https://www.rivopharm.ch/de/karriere/',
+  'https://www.rivopharm.ch/fr/carrieres/',
 ];
 const CAREERS_URL = CAREERS_URLS[0]; // primary for display/config
 const LOCALES = ['it', 'en', 'de', 'fr'];
@@ -79,6 +98,7 @@ function isRivopharmJob(job) {
     key === COMPANY_KEY ||
     key.startsWith('rivopharm') ||
     company.includes('rivopharm') ||
+    url.includes('rivopharm.ch') ||
     url.includes('rivopharm.com')
   );
 }
@@ -86,7 +106,14 @@ function isRivopharmJob(job) {
 function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === COMPANY_HOST || host.endsWith('.rivopharm.com');
+    // Accept current .ch domain (post-migration) and legacy .com (in case
+    // redirects come back online or historical jobs still reference it).
+    return (
+      host === 'rivopharm.ch' ||
+      host.endsWith('.rivopharm.ch') ||
+      host === 'rivopharm.com' ||
+      host.endsWith('.rivopharm.com')
+    );
   } catch {
     return false;
   }
@@ -119,6 +146,37 @@ function detectExperienceLevel(title = '') {
 // Fetch careers page
 // ─────────────────────────────────────────────────────────────
 
+/**
+ * Heuristic: does the response body actually look like a careers / jobs page?
+ *
+ * The new rivopharm.ch WordPress install rewrites unknown URLs (e.g. `/careers`,
+ * `/jobs`) to the homepage with HTTP 200, returning the corporate brochure. We
+ * must reject those responses to avoid parsing homepage marketing copy as fake
+ * "job listings". A page qualifies as a careers page if it contains at least one
+ * careers-indicating keyword AND a structural job listing token (offer card,
+ * application CTA, position list, etc.).
+ */
+function looksLikeCareersPage(html = '', sourceUrl = '') {
+  if (!html || typeof html !== 'string') return false;
+  // The homepage `<title>` is "Swiss Pharma Solutions | Rivopharm" — a careers
+  // page would replace it with something like "Carriere | Rivopharm" or
+  // "Lavora con noi | Rivopharm".
+  const titleMatch = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  const title = titleMatch ? titleMatch[1].toLowerCase() : '';
+  const titleHasCareerTerm = /(career|carrier|carrière|lavora|posizion|position|vacanc|jobs?|offerte|stell|karrier|recruit|hiring|opportun|join\s+(?:us|our\s+team))/i.test(title);
+
+  const body = html.toLowerCase();
+  const hasKeyword = /(posizioni\s+aperte|open\s+positions|lavora\s+con\s+noi|join\s+our\s+team|join\s+us|apply\s+now|candidat|invia\s+il\s+tuo\s+cv|send\s+your\s+cv|career\s+opportunit|offerte\s+di\s+lavoro|vacanc|stellenangebot|karriere)/i.test(body);
+  const hasStructuralCue = /(class="[^"]*job[^"]*"|class="[^"]*position[^"]*"|class="[^"]*vacancy[^"]*"|class="[^"]*career[^"]*"|<form[^>]*[^>]*(?:job|candidat|career))/i.test(html);
+
+  // Be liberal: accept either a clearly careers-themed <title>, OR a keyword
+  // + structural cue combo. Either signal alone (e.g. "Apply now" in a privacy
+  // boilerplate) is too weak.
+  if (titleHasCareerTerm) return true;
+  if (hasKeyword && hasStructuralCue) return true;
+  return false;
+}
+
 async function fetchCareersPage() {
   const timeoutMs = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '15000', 10);
   const headers = {
@@ -128,25 +186,33 @@ async function fetchCareersPage() {
     'Accept-Language': 'en,it-CH;q=0.9',
   };
 
-  // Try each candidate URL until one succeeds
+  // Try each candidate URL until one succeeds AND looks like a careers page
   for (const url of CAREERS_URLS) {
     try {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), timeoutMs);
       const res = await fetch(url, { signal: controller.signal, headers });
       clearTimeout(timer);
-      if (res.ok) {
-        console.log(`  ✅ Found working career page: ${url}`);
-        return await res.text();
+      if (!res.ok) {
+        console.warn(`  ⚠️ HTTP ${res.status} for ${url}`);
+        continue;
       }
-      console.warn(`  ⚠️ HTTP ${res.status} for ${url}`);
+      const html = await res.text();
+      if (!looksLikeCareersPage(html, url)) {
+        // WordPress soft-404: fetched OK but content is homepage / unrelated.
+        console.warn(`  ⚠️ HTTP 200 for ${url} but body does not look like a careers page (likely WP soft-404 → homepage).`);
+        continue;
+      }
+      console.log(`  ✅ Found working career page: ${url}`);
+      return html;
     } catch (err) {
       console.warn(`  ⚠️ Fetch failed for ${url}: ${err.message}`);
     }
   }
 
-  console.warn('⚠️ All Rivopharm career page URLs returned errors.');
-  console.warn('   The company may not have an active careers page.');
+  console.warn('⚠️ All Rivopharm career page URLs returned errors or non-careers responses.');
+  console.warn('   The company does not appear to have an active public careers page.');
+  console.warn('   (As of 2026-05-13: rivopharm.ch sitemap exposes only 5 corporate pages, no /careers.)');
   return null;
 }
 
@@ -177,7 +243,7 @@ function buildJobFromParsed(parsed) {
   const descEn = parsed.descriptionText || `${title} position at Rivopharm SA in Manno, Canton Ticino, Switzerland.`;
   const descIt = `Posizione aperta presso Rivopharm SA a Manno, Cantone Ticino.\nRuolo: ${title}.\n\nRivopharm SA è un'azienda farmaceutica svizzera con sede a Manno, specializzata in farmaci generici.`;
   const url = parsed.url
-    ? (parsed.url.startsWith('http') ? parsed.url : `https://rivopharm.com${parsed.url}`)
+    ? (parsed.url.startsWith('http') ? parsed.url : `https://www.rivopharm.ch${parsed.url.startsWith('/') ? '' : '/'}${parsed.url}`)
     : CAREERS_URL;
 
   return {
@@ -292,7 +358,7 @@ function updateAdapterConfig() {
   adapter.priority = Math.max(adapter.priority || 0, 10);
   adapter.crawlerModes = ['html'];
   adapter.seedUrls = [CAREERS_URL];
-  adapter.notes = 'Custom HTML parser on rivopharm.com/careers — Manno TI.';
+  adapter.notes = 'Custom HTML parser on rivopharm.ch — Manno TI. Site migrated from .com → .ch (May 2026) and currently has no public careers page; crawler writes an empty slice until openings reappear.';
   adapter.updatedAt = new Date().toISOString();
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
   fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');

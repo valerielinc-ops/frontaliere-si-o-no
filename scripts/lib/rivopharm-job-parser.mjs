@@ -5,8 +5,9 @@
  * They specialize in generic pharmaceuticals with a focus on psychiatric,
  * antidepressant, anti-inflammatory, epilepsy, and diabetes medications.
  *
- * Career page: https://rivopharm.com/careers
- * The page is rendered server-side; we parse HTML directly.
+ * Career page: https://www.rivopharm.ch/ (no public careers section as of 2026-05-13;
+ * site migrated from rivopharm.com → rivopharm.ch and dropped /careers).
+ * The page is rendered server-side (WordPress + Elementor); we parse HTML directly.
  */
 
 export const MIN_DESC_LENGTH = 80;
