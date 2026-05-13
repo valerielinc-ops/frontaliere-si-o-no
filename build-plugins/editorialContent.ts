@@ -11,6 +11,500 @@
 
 export type SectionEditorialMap = Record<string, Record<string, string[]>>;
 
+// ── Helper: ponti-2026 hero block (stat tiles + advice + CTA + holiday table) ──
+// CLAUDE.md rule #17 layout for the SEO landing at /vita-in-ticino/ponti-2026-ticino/.
+// All colours bind to `var(--color-*)` semantic OKLCH tokens defined in
+// index.css so the page renders correctly in both light and dark mode without
+// inline hex values.
+type PontiLocale = 'it' | 'en' | 'de' | 'fr';
+type DowKey = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
+type HolidayKey =
+ | 'newYear' | 'berchtold' | 'epiphany' | 'goodFriday' | 'easter' | 'easterMonday'
+ | 'liberation' | 'labour' | 'ascension' | 'pentecost' | 'whitMonday' | 'republic'
+ | 'corpusChristi' | 'swissNational' | 'assumption' | 'allSaints' | 'immaculate'
+ | 'christmas' | 'stStephen';
+
+const PONTI_DOW: Record<PontiLocale, Record<DowKey, string>> = {
+ it: { mon: 'Lunedì', tue: 'Martedì', wed: 'Mercoledì', thu: 'Giovedì', fri: 'Venerdì', sat: 'Sabato', sun: 'Domenica' },
+ en: { mon: 'Monday', tue: 'Tuesday', wed: 'Wednesday', thu: 'Thursday', fri: 'Friday', sat: 'Saturday', sun: 'Sunday' },
+ de: { mon: 'Montag', tue: 'Dienstag', wed: 'Mittwoch', thu: 'Donnerstag', fri: 'Freitag', sat: 'Samstag', sun: 'Sonntag' },
+ fr: { mon: 'Lundi', tue: 'Mardi', wed: 'Mercredi', thu: 'Jeudi', fri: 'Vendredi', sat: 'Samedi', sun: 'Dimanche' },
+};
+
+const PONTI_NAMES: Record<PontiLocale, Record<HolidayKey, string>> = {
+ it: {
+ newYear: 'Capodanno', berchtold: 'San Berchtoldo', epiphany: 'Epifania', goodFriday: 'Venerdì Santo',
+ easter: 'Pasqua', easterMonday: 'Pasquetta', liberation: 'Festa della Liberazione (IT)',
+ labour: 'Festa del Lavoro', ascension: 'Ascensione', pentecost: 'Pentecoste', whitMonday: 'Lunedì di Pentecoste',
+ republic: 'Festa della Repubblica (IT)', corpusChristi: 'Corpus Domini', swissNational: 'Festa nazionale svizzera',
+ assumption: 'Assunzione / Ferragosto', allSaints: 'Ognissanti', immaculate: 'Immacolata',
+ christmas: 'Natale', stStephen: 'Santo Stefano',
+ },
+ en: {
+ newYear: "New Year's Day", berchtold: "St Berchtold's Day", epiphany: 'Epiphany', goodFriday: 'Good Friday',
+ easter: 'Easter Sunday', easterMonday: 'Easter Monday', liberation: 'Italian Liberation Day',
+ labour: 'Labour Day', ascension: 'Ascension', pentecost: 'Pentecost', whitMonday: 'Whit Monday',
+ republic: 'Italian Republic Day', corpusChristi: 'Corpus Christi', swissNational: 'Swiss National Day',
+ assumption: 'Assumption', allSaints: "All Saints' Day", immaculate: 'Immaculate Conception',
+ christmas: 'Christmas Day', stStephen: 'Boxing Day',
+ },
+ de: {
+ newYear: 'Neujahr', berchtold: 'Berchtoldstag', epiphany: 'Dreikönigstag', goodFriday: 'Karfreitag',
+ easter: 'Ostersonntag', easterMonday: 'Ostermontag', liberation: 'Italienischer Befreiungstag',
+ labour: 'Tag der Arbeit', ascension: 'Auffahrt', pentecost: 'Pfingstsonntag', whitMonday: 'Pfingstmontag',
+ republic: 'Italienischer Tag der Republik', corpusChristi: 'Fronleichnam', swissNational: 'Schweizer Bundesfeier',
+ assumption: 'Mariä Himmelfahrt', allSaints: 'Allerheiligen', immaculate: 'Mariä Empfängnis',
+ christmas: 'Weihnachten', stStephen: 'Stephanstag',
+ },
+ fr: {
+ newYear: "Jour de l'An", berchtold: 'Saint-Berchtold', epiphany: 'Épiphanie', goodFriday: 'Vendredi saint',
+ easter: 'Pâques', easterMonday: 'Lundi de Pâques', liberation: 'Fête de la Libération (IT)',
+ labour: 'Fête du Travail', ascension: 'Ascension', pentecost: 'Pentecôte', whitMonday: 'Lundi de Pentecôte',
+ republic: 'Fête de la République (IT)', corpusChristi: 'Fête-Dieu', swissNational: 'Fête nationale suisse',
+ assumption: 'Assomption', allSaints: 'Toussaint', immaculate: 'Immaculée Conception',
+ christmas: 'Noël', stStephen: 'Saint-Étienne',
+ },
+};
+
+// Verified vs ti.ch + gov.it. Easter 2026 = 5 Apr → Good Friday 3 Apr,
+// Easter Monday 6 Apr, Ascension 14 May (Thu), Pentecost 24 May (Sun),
+// Whit Monday 25 May, Corpus Christi 4 Jun.
+const PONTI_2026_ROWS: ReadonlyArray<readonly [string, DowKey, HolidayKey, boolean, boolean]> = [
+ ['1/1', 'thu', 'newYear', true, true],
+ ['2/1', 'fri', 'berchtold', true, false],
+ ['6/1', 'tue', 'epiphany', true, true],
+ ['3/4', 'fri', 'goodFriday', true, false],
+ ['5/4', 'sun', 'easter', true, true],
+ ['6/4', 'mon', 'easterMonday', true, true],
+ ['25/4', 'sat', 'liberation', false, true],
+ ['1/5', 'fri', 'labour', true, true],
+ ['14/5', 'thu', 'ascension', true, false],
+ ['24/5', 'sun', 'pentecost', true, false],
+ ['25/5', 'mon', 'whitMonday', true, false],
+ ['2/6', 'tue', 'republic', false, true],
+ ['4/6', 'thu', 'corpusChristi', true, false],
+ ['1/8', 'sat', 'swissNational', true, false],
+ ['15/8', 'sat', 'assumption', true, true],
+ ['1/11', 'sun', 'allSaints', true, true],
+ ['8/12', 'tue', 'immaculate', true, true],
+ ['25/12', 'fri', 'christmas', true, true],
+ ['26/12', 'sat', 'stStephen', true, true],
+];
+
+// ── Top bridges (gold standard for the year) ──
+// Listed Italian-side; per-locale labels generated below from this template.
+type BridgeKey = 'newYearBerchtold' | 'epiphany' | 'easter' | 'mayDay' | 'ascension' | 'pentecost' | 'corpus' | 'immaculate' | 'christmas';
+interface BridgeMeta {
+ readonly key: BridgeKey;
+ /** Localised date span (e.g. "3 → 6 aprile"). */
+ readonly span: string;
+ /** Total days off enjoyed (3 or 4). */
+ readonly days: number;
+ /** Vacation days needed (0 or 1) — when 0 the bridge is "automatic". */
+ readonly leave: number;
+ /** Single emoji giving the bridge a visual hook — keep tasteful (no clown). */
+ readonly emoji: string;
+}
+
+const PONTI_BRIDGES: ReadonlyArray<BridgeMeta> = [
+ { key: 'newYearBerchtold', span: '1 → 4', days: 4, leave: 0, emoji: '🎊' },
+ { key: 'epiphany', span: '5 → 6', days: 4, leave: 1, emoji: '🧦' },
+ { key: 'easter', span: '3 → 6', days: 4, leave: 0, emoji: '🐣' },
+ { key: 'mayDay', span: '1 → 3', days: 3, leave: 0, emoji: '🌷' },
+ { key: 'ascension', span: '14 → 17', days: 4, leave: 1, emoji: '☁️' },
+ { key: 'pentecost', span: '23 → 25', days: 3, leave: 0, emoji: '🕊️' },
+ { key: 'corpus', span: '4 → 7', days: 4, leave: 1, emoji: '🌿' },
+ { key: 'immaculate', span: '7 → 8', days: 4, leave: 1, emoji: '🕯️' },
+ { key: 'christmas', span: '25 → 27', days: 3, leave: 0, emoji: '🎄' },
+];
+
+interface QuarterCopy {
+ readonly emoji: string;
+ readonly label: string;
+ /** Short witty caption shown after the season label. */
+ readonly quip: string;
+}
+
+interface PontiCopy {
+ /** Section eyebrow above the headline panel (decorative emoji prefix included). */
+ readonly eyebrow: string;
+ /** Bold one-sentence statement inside the headline panel. */
+ readonly leadStatement: string;
+ /** Inline CTA text (becomes a quiet underline link, not a button-card). */
+ readonly ctaLabel: string;
+ readonly ctaHref: string;
+ /** Heading for the ranked ponti list. */
+ readonly bridgesHeading: string;
+ /** Heading above the data table. */
+ readonly tableHeading: string;
+ /** Locale-specific span suffix used in PONTI_BRIDGES (e.g. "aprile"). */
+ readonly bridgeMonths: Record<BridgeKey, string>;
+ /** Locale-specific name for each bridge. */
+ readonly bridgeNames: Record<BridgeKey, string>;
+ /** Short ferie copy: "0 ferie" / "1 ferie" — locale dependant. */
+ readonly leaveCopy: (n: number) => string;
+ /** Days copy: "4 giorni" / "4 days". */
+ readonly daysCopy: (n: number) => string;
+ /** Column labels for the full table. */
+ readonly cols: { date: string; day: string; holiday: string; ch: string; it: string };
+ /** Seasonal quarter dividers (emoji + label + playful one-liner). */
+ readonly quarters: [QuarterCopy, QuarterCopy, QuarterCopy, QuarterCopy];
+ /** Legend explaining the ●/○ table glyphs. */
+ readonly legend: string;
+ /** Tiny playful closing line under the table. */
+ readonly closingLine: string;
+ /** Rule-#17 stat-tile grid (3–5 tiles) — slot 3 of the SEO-landing layout. */
+ readonly tiles: ReadonlyArray<{ value: string; label: string; tone: 'accent' | 'success' | 'warning' | 'base' }>;
+ /** Single-sentence "consiglio" banner — slot 4. */
+ readonly advice: string;
+ /** Twelve single-letter month abbreviations for the calendar strip. */
+ readonly monthLetters: readonly [string, string, string, string, string, string, string, string, string, string, string, string];
+ /** Caption rendered under the calendar strip. */
+ readonly stripCaption: string;
+ /** Aria-label for the calendar strip (a11y). */
+ readonly stripA11y: string;
+}
+
+const PONTI_COPY_V2: Record<PontiLocale, PontiCopy> = {
+ it: {
+ eyebrow: '🇮🇹🇨🇭 Almanacco frontaliere · 2026',
+ leadStatement: '<strong>17 festività</strong> in Canton Ticino. Spendi <strong>4 giorni di ferie</strong> nei momenti giusti e ne guadagni <strong>12 di pausa extra</strong> — quasi tre settimane di stacco. Mica male.',
+ ctaLabel: 'Calcola il netto frontaliere con i festivi inclusi',
+ ctaHref: '/calcola-stipendio/',
+ bridgesHeading: '🌉 I ponti lunghi del 2026',
+ tableHeading: '📅 Tutte le date sul calendario',
+ bridgeMonths: {
+ newYearBerchtold: 'gennaio', epiphany: 'gennaio', easter: 'aprile', mayDay: 'maggio',
+ ascension: 'maggio', pentecost: 'maggio', corpus: 'giugno', immaculate: 'dicembre', christmas: 'dicembre',
+ },
+ bridgeNames: {
+ newYearBerchtold: 'Capodanno + San Berchtoldo', epiphany: 'Epifania', easter: 'Pasqua', mayDay: '1° maggio',
+ ascension: 'Ascensione', pentecost: 'Pentecoste', corpus: 'Corpus Domini', immaculate: 'Immacolata', christmas: 'Natale',
+ },
+ leaveCopy: (n) => (n === 0 ? '<span style="color:var(--color-success);font-weight:600">🎁 0 ferie</span>' : `${n} ferie ben spese`),
+ daysCopy: (n) => `${n} giorni di pausa`,
+ cols: { date: 'Data', day: 'Giorno', holiday: 'Festività', ch: 'TI', it: 'IT' },
+ quarters: [
+ { emoji: '❄️', label: 'Inverno', quip: 'Tre ponti nei primi 6 giorni dell\'anno. Si parte forte.' },
+ { emoji: '🌷', label: 'Primavera', quip: 'Tre ponti in 9 settimane — il picco anti-produttività del frontaliere.' },
+ { emoji: '☀️', label: 'Estate', quip: 'Tutti i festivi cadono nel weekend. Cosmico complotto svizzero.' },
+ { emoji: '🍂', label: 'Autunno', quip: 'Calma piatta fino all\'Immacolata, poi giù le saracinesche.' },
+ ],
+ legend: '<strong>●</strong> festa pagata · <strong>○</strong> giorno normale, ti tocca andare a lavorare',
+ closingLine: 'Stampala, attaccala in cucina, conta i giorni alla rovescia. È un tuo diritto contrattuale.',
+ tiles: [
+ { value: '17', label: 'Festività ufficiali in Ticino', tone: 'accent' },
+ { value: '9', label: 'Long weekend da 3-4 giorni', tone: 'success' },
+ { value: '4', label: 'Ferie ti bastano per il pieno', tone: 'success' },
+ { value: '+12', label: 'Giorni di pausa guadagnati', tone: 'accent' },
+ { value: '5', label: 'Festivi sprecati nel weekend', tone: 'warning' },
+ ],
+ advice: 'Anno generoso: <strong>gennaio</strong>, <strong>aprile</strong> e <strong>dicembre</strong> concentrano due terzi dei ponti. L\'estate è piatta — la natura compensa con il sole.',
+ monthLetters: ['G', 'F', 'M', 'A', 'M', 'G', 'L', 'A', 'S', 'O', 'N', 'D'],
+ stripCaption: 'Densità festività mese per mese',
+ stripA11y: 'Calendario annuale 2026: numero di festività per ogni mese',
+ },
+ en: {
+ eyebrow: '🇮🇹🇨🇭 Cross-border almanac · 2026',
+ leadStatement: '<strong>17 public holidays</strong> in Canton Ticino. Spend <strong>4 days of leave</strong> in the right places and you gain <strong>12 extra days off</strong> — almost three weeks unplugged. Not bad at all.',
+ ctaLabel: 'Calculate cross-border net salary (holidays included)',
+ ctaHref: '/en/calculate-salary/',
+ bridgesHeading: '🌉 2026 long bridges, at a glance',
+ tableHeading: '📅 Every date on the calendar',
+ bridgeMonths: {
+ newYearBerchtold: 'January', epiphany: 'January', easter: 'April', mayDay: 'May',
+ ascension: 'May', pentecost: 'May', corpus: 'June', immaculate: 'December', christmas: 'December',
+ },
+ bridgeNames: {
+ newYearBerchtold: 'New Year + St Berchtold', epiphany: 'Epiphany', easter: 'Easter', mayDay: 'Labour Day',
+ ascension: 'Ascension', pentecost: 'Pentecost', corpus: 'Corpus Christi', immaculate: 'Immaculate Conception', christmas: 'Christmas',
+ },
+ leaveCopy: (n) => (n === 0 ? '<span style="color:var(--color-success);font-weight:600">🎁 0 leave</span>' : `${n} day well spent`),
+ daysCopy: (n) => `${n} days off`,
+ cols: { date: 'Date', day: 'Day', holiday: 'Holiday', ch: 'TI', it: 'IT' },
+ quarters: [
+ { emoji: '❄️', label: 'Winter', quip: 'Three bridges in the first six days of the year. Quite the start.' },
+ { emoji: '🌷', label: 'Spring', quip: 'Three bridges in nine weeks — peak anti-productivity for the commuter.' },
+ { emoji: '☀️', label: 'Summer', quip: 'Every holiday falls on a weekend. The universe is unjust.' },
+ { emoji: '🍂', label: 'Autumn', quip: 'Quiet until Immaculate Conception, then the curtain comes down.' },
+ ],
+ legend: '<strong>●</strong> paid holiday · <strong>○</strong> normal working day',
+ closingLine: 'Print it, pin it to the fridge, count down the days. Your contractual right.',
+ tiles: [
+ { value: '17', label: 'Official Ticino holidays', tone: 'accent' },
+ { value: '9', label: 'Long weekends, 3-4 days each', tone: 'success' },
+ { value: '4', label: 'Leave days to make the most of it', tone: 'success' },
+ { value: '+12', label: 'Extra days off you gain', tone: 'accent' },
+ { value: '5', label: 'Holidays wasted on weekends', tone: 'warning' },
+ ],
+ advice: 'A generous year: <strong>January</strong>, <strong>April</strong> and <strong>December</strong> hold two thirds of the bridges. Summer is flat — nature compensates with sun.',
+ monthLetters: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+ stripCaption: 'Holiday density, month by month',
+ stripA11y: 'Year-2026 calendar: number of public holidays per month',
+ },
+ de: {
+ eyebrow: '🇮🇹🇨🇭 Grenzgänger-Almanach · 2026',
+ leadStatement: '<strong>17 Feiertage</strong> im Tessin. Setzen Sie <strong>4 Urlaubstage</strong> gezielt ein und gewinnen Sie <strong>12 zusätzliche freie Tage</strong> — fast drei Wochen Auszeit. Nicht übel.',
+ ctaLabel: 'Grenzgänger-Nettolohn berechnen (Feiertage inklusive)',
+ ctaHref: '/de/gehalt-berechnen/',
+ bridgesHeading: '🌉 Die langen Brücken 2026',
+ tableHeading: '📅 Alle Daten im Kalender',
+ bridgeMonths: {
+ newYearBerchtold: 'Januar', epiphany: 'Januar', easter: 'April', mayDay: 'Mai',
+ ascension: 'Mai', pentecost: 'Mai', corpus: 'Juni', immaculate: 'Dezember', christmas: 'Dezember',
+ },
+ bridgeNames: {
+ newYearBerchtold: 'Neujahr + Berchtoldstag', epiphany: 'Dreikönigstag', easter: 'Ostern', mayDay: '1. Mai',
+ ascension: 'Auffahrt', pentecost: 'Pfingsten', corpus: 'Fronleichnam', immaculate: 'Mariä Empfängnis', christmas: 'Weihnachten',
+ },
+ leaveCopy: (n) => (n === 0 ? '<span style="color:var(--color-success);font-weight:600">🎁 0 Urlaub</span>' : `${n} Urlaubstag gut investiert`),
+ daysCopy: (n) => `${n} Tage frei`,
+ cols: { date: 'Datum', day: 'Tag', holiday: 'Feiertag', ch: 'TI', it: 'IT' },
+ quarters: [
+ { emoji: '❄️', label: 'Winter', quip: 'Drei Brücken in den ersten sechs Tagen. Starker Auftakt.' },
+ { emoji: '🌷', label: 'Frühling', quip: 'Drei Brücken in neun Wochen — Anti-Produktivitätsspitze des Grenzgängers.' },
+ { emoji: '☀️', label: 'Sommer', quip: 'Jeder Feiertag fällt aufs Wochenende. Kosmische Ungerechtigkeit.' },
+ { emoji: '🍂', label: 'Herbst', quip: 'Funkstille bis Mariä Empfängnis, dann fallen die Rollläden.' },
+ ],
+ legend: '<strong>●</strong> bezahlter Feiertag · <strong>○</strong> normaler Arbeitstag',
+ closingLine: 'Ausdrucken, an den Kühlschrank pinnen, Tage zählen. Ihr vertragliches Recht.',
+ tiles: [
+ { value: '17', label: 'Offizielle Tessiner Feiertage', tone: 'accent' },
+ { value: '9', label: 'Lange Wochenenden, je 3-4 Tage', tone: 'success' },
+ { value: '4', label: 'Urlaubstage reichen aus', tone: 'success' },
+ { value: '+12', label: 'Zusätzliche freie Tage gewonnen', tone: 'accent' },
+ { value: '5', label: 'Feiertage am Wochenende verloren', tone: 'warning' },
+ ],
+ advice: 'Großzügiges Jahr: <strong>Januar</strong>, <strong>April</strong> und <strong>Dezember</strong> bündeln zwei Drittel der Brücken. Sommer ist flach — die Natur gleicht mit Sonne aus.',
+ monthLetters: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+ stripCaption: 'Feiertagsdichte Monat für Monat',
+ stripA11y: 'Kalender 2026: Anzahl der Feiertage pro Monat',
+ },
+ fr: {
+ eyebrow: '🇮🇹🇨🇭 Almanach frontalier · 2026',
+ leadStatement: "<strong>17 jours fériés</strong> au Tessin. Dépensez <strong>4 jours de congés</strong> aux bons endroits et gagnez <strong>12 jours de pause supplémentaires</strong> — presque trois semaines de coupure. Pas mal.",
+ ctaLabel: 'Calculer le salaire net frontalier (fériés inclus)',
+ ctaHref: '/fr/calculer-salaire/',
+ bridgesHeading: '🌉 Les longs ponts 2026',
+ tableHeading: '📅 Toutes les dates du calendrier',
+ bridgeMonths: {
+ newYearBerchtold: 'janvier', epiphany: 'janvier', easter: 'avril', mayDay: 'mai',
+ ascension: 'mai', pentecost: 'mai', corpus: 'juin', immaculate: 'décembre', christmas: 'décembre',
+ },
+ bridgeNames: {
+ newYearBerchtold: 'Nouvel An + Saint-Berchtold', epiphany: 'Épiphanie', easter: 'Pâques', mayDay: 'Fête du Travail',
+ ascension: 'Ascension', pentecost: 'Pentecôte', corpus: 'Fête-Dieu', immaculate: 'Immaculée', christmas: 'Noël',
+ },
+ leaveCopy: (n) => (n === 0 ? '<span style="color:var(--color-success);font-weight:600">🎁 0 congé</span>' : `${n} jour de congé bien placé`),
+ daysCopy: (n) => `${n} jours de pause`,
+ cols: { date: 'Date', day: 'Jour', holiday: 'Fête', ch: 'TI', it: 'IT' },
+ quarters: [
+ { emoji: '❄️', label: 'Hiver', quip: 'Trois ponts dans les six premiers jours. Démarrage en fanfare.' },
+ { emoji: '🌷', label: 'Printemps', quip: 'Trois ponts en neuf semaines — pic anti-productivité du frontalier.' },
+ { emoji: '☀️', label: 'Été', quip: 'Tous les fériés tombent un week-end. Injustice cosmique.' },
+ { emoji: '🍂', label: 'Automne', quip: 'Calme plat jusqu\'à l\'Immaculée, puis on baisse le rideau.' },
+ ],
+ legend: '<strong>●</strong> férié payé · <strong>○</strong> jour ouvré normal',
+ closingLine: 'Imprimez-le, collez-le au frigo, comptez à rebours. C\'est votre droit contractuel.',
+ tiles: [
+ { value: '17', label: 'Jours fériés officiels au Tessin', tone: 'accent' },
+ { value: '9', label: 'Longs week-ends de 3-4 jours', tone: 'success' },
+ { value: '4', label: 'Jours de congé bien placés', tone: 'success' },
+ { value: '+12', label: 'Jours de pause supplémentaires', tone: 'accent' },
+ { value: '5', label: 'Fériés perdus en week-end', tone: 'warning' },
+ ],
+ advice: 'Année généreuse : <strong>janvier</strong>, <strong>avril</strong> et <strong>décembre</strong> concentrent deux tiers des ponts. L\'été est plat — la nature compense avec le soleil.',
+ monthLetters: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+ stripCaption: 'Densité de jours fériés mois par mois',
+ stripA11y: 'Calendrier 2026 : nombre de jours fériés par mois',
+ },
+};
+
+/**
+ * Editorial-almanac hero block — Italian "pocket almanac" with Swiss precision.
+ * Layout follows CLAUDE.md rule #17 (eyebrow → calendar strip → stat tiles →
+ * advice → primary CTA → distinctive data area → quiet footer).
+ *
+ * Colors bind to OKLCH semantic tokens only (no inline hex). Tile chrome
+ * matches STAT_TILE_* from build-plugins/shared/seoContentTokens.ts so the
+ * page stays consistent with every other SEO landing. The calendar strip,
+ * display-size ponti numerals and quarter-grouped table are the distinctive
+ * "particolare" elements requested by the brand brief.
+ */
+function buildPontiHero(locale: PontiLocale): string {
+ const copy = PONTI_COPY_V2[locale];
+ const dow = PONTI_DOW[locale];
+ const names = PONTI_NAMES[locale];
+
+ // ── (1) Headline panel — warm Mediterranean amber, generous lede ──
+ // Uses warning-subtle/border to bind to the existing amber palette and
+ // mirror the section-vita identity color without inventing new values.
+ const panelStyle = 'padding:clamp(1.5rem,4vw,2.25rem);border-radius:20px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);margin:0 0 1.5rem';
+ const eyebrowStyle = 'margin:0 0 .9rem;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--color-section-vita)';
+ const leadStyle = 'margin:0;font-size:clamp(1.125rem,2.6vw,1.625rem);line-height:1.4;color:var(--color-heading);font-weight:500;max-width:46ch;letter-spacing:-.005em';
+
+ const headlinePanel = [
+ `<div style="${panelStyle}">`,
+ `<p style="${eyebrowStyle}">${copy.eyebrow}</p>`,
+ `<p style="${leadStyle}">${copy.leadStatement}</p>`,
+ `</div>`,
+ ].join('');
+
+ // ── (2) Calendar strip — 12 month letters with holiday-density dots ──
+ // The signature visual: one row of monospaced letters and a row of dots
+ // below counting CH-side holidays per month. Pure typography, no SVG.
+ const monthOf = (date: string): number => parseInt(date.split('/')[1] ?? '0', 10);
+ const densityByMonth: number[] = Array.from({ length: 12 }, (_, m) =>
+ PONTI_2026_ROWS.filter(([d, , , ch]) => ch && monthOf(d) === m + 1).length,
+ );
+ const maxDensity = Math.max(...densityByMonth);
+ const stripWrapStyle = 'margin:0 0 1.75rem;padding:1rem 1rem 1.1rem;border-radius:14px;background:var(--color-surface);border:1px solid var(--color-edge)';
+ const stripRowStyle = 'display:grid;grid-template-columns:repeat(12,1fr);gap:2px;align-items:end';
+ const stripLetterStyle = 'text-align:center;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:clamp(.75rem,1.8vw,.95rem);font-weight:600;letter-spacing:.05em;color:var(--color-subtle);font-variant-numeric:tabular-nums;line-height:1.4';
+ const stripDotsStyle = 'display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:6px;min-height:22px';
+ const stripDotOn = 'width:5px;height:5px;border-radius:50%;background:var(--color-section-vita)';
+ const stripDotOff = 'width:5px;height:5px;border-radius:50%;background:var(--color-edge)';
+ const stripCaptionStyle = 'margin:.7rem 0 0;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-subtle);text-align:center';
+ const stripCells = copy.monthLetters.map((letter, idx) => {
+ const count = densityByMonth[idx] ?? 0;
+ // Each cell shows up to maxDensity dot slots so columns line up.
+ const dots = Array.from({ length: Math.max(maxDensity, 1) }, (_, k) =>
+ `<span aria-hidden="true" style="${k < count ? stripDotOn : stripDotOff}"></span>`,
+ ).join('');
+ return [
+ `<div>`,
+ `<div style="${stripLetterStyle}">${letter}</div>`,
+ `<div style="${stripDotsStyle}" aria-label="${count}">${dots}</div>`,
+ `</div>`,
+ ].join('');
+ }).join('');
+ const calendarStrip = [
+ `<figure role="img" aria-label="${copy.stripA11y}" style="${stripWrapStyle}">`,
+ `<div style="${stripRowStyle}">${stripCells}</div>`,
+ `<figcaption style="${stripCaptionStyle}">${copy.stripCaption}</figcaption>`,
+ `</figure>`,
+ ].join('');
+
+ // ── (3) Stat tile grid — CLAUDE.md rule #17 slot 3 ──
+ const tileTone: Record<'accent' | 'success' | 'warning' | 'base', string> = {
+ accent: 'background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)',
+ success: 'background:var(--color-success-subtle);border:1px solid var(--color-success-border)',
+ warning: 'background:var(--color-warning-subtle);border:1px solid var(--color-warning-border)',
+ base: 'background:var(--color-surface);border:1px solid var(--color-edge)',
+ };
+ const tileGridStyle = 'display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:0 0 1.25rem';
+ const tileBaseStyle = 'padding:16px 18px;border-radius:14px;color:var(--color-heading)';
+ const tileValueStyle = 'font-size:clamp(1.5rem,4vw,1.875rem);font-weight:700;line-height:1.1;color:var(--color-heading);font-variant-numeric:tabular-nums;letter-spacing:-.01em';
+ const tileLabelStyle = 'margin-top:6px;font-size:12px;font-weight:600;color:var(--color-body);line-height:1.35';
+ const tileGrid = [
+ `<div style="${tileGridStyle}">`,
+ copy.tiles
+ .map(
+ (t) =>
+ `<div style="${tileBaseStyle};${tileTone[t.tone]}"><div style="${tileValueStyle}">${t.value}</div><div style="${tileLabelStyle}">${t.label}</div></div>`,
+ )
+ .join(''),
+ `</div>`,
+ ].join('');
+
+ // ── (4) Advice banner — CLAUDE.md rule #17 slot 4 ──
+ const adviceStyle = 'margin:0 0 1.25rem;padding:14px 16px;border-radius:14px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border);color:var(--color-heading);line-height:1.55;font-size:.9375rem';
+ const adviceBlock = `<aside data-pt-advice style="${adviceStyle}">${copy.advice}</aside>`;
+
+ // ── (5) Primary CTA — pill, above the fold on mobile.
+ // Uses --color-accent/--color-on-accent (same as CTA_PRIMARY_STYLE) so
+ // contrast stays AA in both themes; the warm-amber identity is carried
+ // by the headline panel and section-vita accents elsewhere on the page.
+ const ctaStyle = 'display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;background:var(--color-accent);color:var(--color-on-accent);text-decoration:none;font-weight:600;font-size:.9375rem;letter-spacing:.01em';
+ const ctaWrapStyle = 'margin:0 0 2.25rem';
+ const ctaBlock = `<p style="${ctaWrapStyle}"><a href="${copy.ctaHref}" style="${ctaStyle}">${copy.ctaLabel} <span aria-hidden="true">→</span></a></p>`;
+
+ // ── (6a) Numbered "ponti" list — display-size numerals, tabular ──
+ const bridgesSectionHeading = 'margin:0 0 1.1rem;font-size:clamp(1.05rem,2.4vw,1.25rem);font-weight:700;color:var(--color-heading);letter-spacing:-.01em';
+ const bridgeListStyle = 'list-style:none;padding:0;margin:0 0 2.5rem;border-top:1px solid var(--color-edge)';
+ const bridgeItemStyle = 'display:grid;grid-template-columns:auto auto 1fr;align-items:center;column-gap:1rem;padding:1rem 0;border-bottom:1px solid var(--color-edge)';
+ const bridgeNumStyle = 'font-size:clamp(2rem,5vw,2.75rem);font-weight:700;color:var(--color-section-vita);font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.04em;font-feature-settings:"tnum"';
+ const bridgeEmojiStyle = 'font-size:1.625rem;line-height:1;text-align:center;width:2.25rem';
+ const bridgeBodyStyle = 'min-width:0';
+ const bridgeNameStyle = 'font-weight:700;color:var(--color-heading);font-size:1rem;line-height:1.3';
+ const bridgeMetaStyle = 'margin-top:4px;font-size:.8125rem;color:var(--color-subtle);line-height:1.5;font-variant-numeric:tabular-nums';
+ const bridgeItems = PONTI_BRIDGES.map((b, i) => {
+ const num = String(i + 1).padStart(2, '0');
+ const month = copy.bridgeMonths[b.key];
+ const name = copy.bridgeNames[b.key];
+ const meta = `${b.span} ${month} · ${copy.daysCopy(b.days)} · ${copy.leaveCopy(b.leave)}`;
+ return [
+ `<li style="${bridgeItemStyle}">`,
+ `<span aria-hidden="true" style="${bridgeNumStyle}">${num}</span>`,
+ `<span aria-hidden="true" style="${bridgeEmojiStyle}">${b.emoji}</span>`,
+ `<div style="${bridgeBodyStyle}">`,
+ `<div style="${bridgeNameStyle}">${name}</div>`,
+ `<div style="${bridgeMetaStyle}">${meta}</div>`,
+ `</div>`,
+ `</li>`,
+ ].join('');
+ }).join('');
+
+ // ── (6b) Seasonal table — quarter dividers in warm amber ──
+ const tableWrapStyle = 'overflow-x:auto;margin:0 0 1.5rem;border-top:1px solid var(--color-edge)';
+ const tblStyle = 'width:100%;border-collapse:collapse;font-size:.875rem;min-width:480px';
+ const quarterCellStyle = 'padding:1.75rem 0 .5rem;border-bottom:1px solid var(--color-warning-border)';
+ const quarterLabelStyle = 'font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--color-section-vita);display:inline-flex;align-items:center;gap:.45rem';
+ const quarterQuipStyle = 'margin-top:6px;font-size:.875rem;font-style:italic;color:var(--color-body);font-weight:400;text-transform:none;letter-spacing:normal;line-height:1.45;max-width:52ch';
+ const thStyle = 'background:transparent;text-align:left;padding:.7rem .75rem .7rem 0;border-bottom:1px solid var(--color-edge);font-weight:700;color:var(--color-subtle);font-size:11px;text-transform:uppercase;letter-spacing:.06em';
+ const tdStyle = 'padding:.75rem .75rem .75rem 0;border-bottom:1px solid var(--color-edge);color:var(--color-body);font-size:.875rem;vertical-align:baseline';
+ const yes = '<span aria-label="sì" style="color:var(--color-success);font-weight:700;font-size:1.05rem;line-height:1">●</span>';
+ const no = '<span aria-label="no" style="color:var(--color-edge);font-size:1rem;line-height:1">○</span>';
+ const groups: Array<{ q: QuarterCopy; rows: typeof PONTI_2026_ROWS }> = [
+ { q: copy.quarters[0], rows: PONTI_2026_ROWS.filter(([d]) => monthOf(d) <= 3) },
+ { q: copy.quarters[1], rows: PONTI_2026_ROWS.filter(([d]) => { const m = monthOf(d); return m >= 4 && m <= 6; }) },
+ { q: copy.quarters[2], rows: PONTI_2026_ROWS.filter(([d]) => { const m = monthOf(d); return m >= 7 && m <= 9; }) },
+ { q: copy.quarters[3], rows: PONTI_2026_ROWS.filter(([d]) => monthOf(d) >= 10) },
+ ];
+ const tableBody = groups
+ .map((g) => {
+ if (g.rows.length === 0) return '';
+ const dataRows = g.rows
+ .map(
+ ([date, dowKey, hKey, ch, it]) =>
+ `<tr><td style="${tdStyle};font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700;color:var(--color-heading)">${date}</td><td style="${tdStyle}">${dow[dowKey]}</td><td style="${tdStyle};color:var(--color-heading)">${names[hKey]}</td><td style="${tdStyle};text-align:center">${ch ? yes : no}</td><td style="${tdStyle};text-align:center">${it ? yes : no}</td></tr>`,
+ )
+ .join('');
+ const quarterDivider = `<tr><td colspan="5" style="${quarterCellStyle}"><div style="${quarterLabelStyle}"><span aria-hidden="true">${g.q.emoji}</span><span>${g.q.label}</span></div><div style="${quarterQuipStyle}">${g.q.quip}</div></td></tr>`;
+ return `${quarterDivider}${dataRows}`;
+ })
+ .join('');
+ const tableHeadingStyle = bridgesSectionHeading;
+ const legendStyle = 'margin:.85rem 0 0;font-size:.8125rem;color:var(--color-subtle);line-height:1.55';
+ const tableBlock = [
+ `<h3 style="${tableHeadingStyle}">${copy.tableHeading}</h3>`,
+ `<div style="${tableWrapStyle}">`,
+ `<table style="${tblStyle}">`,
+ `<thead><tr><th scope="col" style="${thStyle}">${copy.cols.date}</th><th scope="col" style="${thStyle}">${copy.cols.day}</th><th scope="col" style="${thStyle}">${copy.cols.holiday}</th><th scope="col" style="${thStyle};text-align:center">${copy.cols.ch}</th><th scope="col" style="${thStyle};text-align:center">${copy.cols.it}</th></tr></thead>`,
+ `<tbody>${tableBody}</tbody>`,
+ `</table></div>`,
+ `<p style="${legendStyle}">${copy.legend}</p>`,
+ ].join('');
+
+ // ── (7) Closing line — quiet italic footer, no dashed border ──
+ const closingStyle = 'margin:1.75rem 0 0;padding:1rem 1.25rem;border-radius:14px;background:var(--color-surface-alt);font-size:.9375rem;color:var(--color-body);line-height:1.55;font-style:italic;max-width:60ch';
+ const closingBlock = `<p style="${closingStyle}">${copy.closingLine}</p>`;
+
+ return [
+ `<section aria-label="${copy.eyebrow}" style="margin:0 0 2.5rem">`,
+ headlinePanel,
+ calendarStrip,
+ tileGrid,
+ adviceBlock,
+ ctaBlock,
+ `<h3 style="${bridgesSectionHeading}">${copy.bridgesHeading}</h3>`,
+ `<ol style="${bridgeListStyle}">${bridgeItems}</ol>`,
+ tableBlock,
+ closingBlock,
+ `</section>`,
+ ].join('');
+}
+
 export const SECTION_EDITORIAL: SectionEditorialMap = {
  // ───── Calculator ─────────────────────────────────────────────
  '/calcola-stipendio/simula-busta-paga': {
@@ -2338,38 +2832,44 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
 
  '/vita-in-ticino/ponti-2026-ticino': {
  it: [
- '<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Calendario ponti 2026 in Ticino</h2>',
- '<p>Il calendario dei <strong>ponti 2026 in Canton Ticino</strong> è particolarmente favorevole per i frontalieri grazie alla coincidenza di diverse festività infrasettimanali che permettono long weekend di 3-4 giorni senza consumare troppe ferie. Le festività ufficiali riconosciute dal Canton Ticino (Legge sulle giornate festive cantonali) sono 12 giorni: Capodanno (1/1), San Berchtoldo (2/1), Epifania (6/1), Venerdì Santo (3 aprile 2026), Pasqua (5 aprile) e Pasquetta (6 aprile), Festa del Lavoro (1/5), Ascensione (14 maggio), Pentecoste (24 maggio) e Lunedì di Pentecoste (25 maggio), Corpus Domini (4 giugno), Festa nazionale svizzera (1/8), Assunzione (15/8), Ognissanti (1/11), Immacolata (8/12), Natale (25/12) e Santo Stefano (26/12).</p>',
+ buildPontiHero('it'),
+ '<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Calendario ponti 2026 in Ticino — 17 festività ufficiali</h2>',
+ '<p>Il calendario dei <strong>ponti 2026 in Canton Ticino</strong> è particolarmente favorevole per i frontalieri: diverse festività infrasettimanali permettono long weekend di 3–4 giorni senza consumare troppe ferie. Le <strong>17 festività ufficiali</strong> riconosciute dal Canton Ticino (Legge sulle giornate festive cantonali) sono: Capodanno (giovedì 1/1), San Berchtoldo (venerdì 2/1), Epifania (martedì 6/1), Venerdì Santo (3 aprile), Pasqua (domenica 5 aprile), Pasquetta (lunedì 6 aprile), Festa del Lavoro (venerdì 1/5), Ascensione (giovedì 14 maggio), Pentecoste (domenica 24 maggio), Lunedì di Pentecoste (25 maggio), Corpus Domini (giovedì 4 giugno), Festa nazionale svizzera (sabato 1/8), Assunzione (sabato 15/8), Ognissanti (domenica 1/11), Immacolata (martedì 8/12), Natale (venerdì 25/12) e Santo Stefano (sabato 26/12).</p>',
  '<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">I migliori long weekend del 2026</h2>',
- '<p>Per i frontalieri i ponti più convenienti sono: <strong>Pasqua 2026</strong> (3-6 aprile, ponte di 4 giorni senza ferie); <strong>1° maggio</strong> (venerdì, long weekend automatico); <strong>Ascensione</strong> (giovedì 14 maggio, ponte di 4 giorni con 1 giorno di ferie il 15); <strong>Pentecoste</strong> (24-25 maggio, long weekend automatico); <strong>Corpus Domini</strong> (giovedì 4 giugno, ponte di 4 giorni con 1 giorno di ferie il 5); <strong>Festa nazionale svizzera</strong> (sabato 1° agosto 2026, solo giorno festivo senza ponte); <strong>Ognissanti</strong> (domenica 1° novembre 2026, festività che cade in domenica); <strong>Natale 2026</strong> (venerdì 25 + sabato 26 dicembre = long weekend di 4 giorni con domenica 27).</p>',
+ '<p>Per i frontalieri i ponti più convenienti del 2026 sono: <strong>Capodanno + San Berchtoldo</strong> (giovedì 1/1 + venerdì 2/1, ponte automatico di 4 giorni con il weekend); <strong>Epifania</strong> (martedì 6/1, ponte di 4 giorni con 1 giorno di ferie lunedì 5/1); <strong>Pasqua</strong> (3–6 aprile, ponte di 4 giorni senza ferie); <strong>1° maggio</strong> (venerdì, long weekend automatico); <strong>Ascensione</strong> (giovedì 14 maggio, ponte di 4 giorni con 1 giorno di ferie venerdì 15); <strong>Pentecoste</strong> (sabato 23 → lunedì 25 maggio, long weekend automatico di 3 giorni); <strong>Corpus Domini</strong> (giovedì 4 giugno, ponte di 4 giorni con 1 giorno di ferie venerdì 5); <strong>Immacolata</strong> (martedì 8/12, ponte di 4 giorni con 1 giorno di ferie lunedì 7/12); <strong>Natale</strong> (venerdì 25 + sabato 26 + domenica 27 dicembre, long weekend automatico di 3 giorni). Nel 2026 Festa nazionale svizzera (1/8), Assunzione (15/8) e Ognissanti (1/11) cadono nel weekend e non generano un ponte.</p>',
  '<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Differenze tra calendario svizzero e italiano</h2>',
- '<p>Attenzione: <strong>il calendario festivo svizzero differisce da quello italiano</strong> su diversi giorni. In Italia non sono festività: San Berchtoldo (2/1), Venerdì Santo, Ascensione, Lunedì di Pentecoste, Corpus Domini, Festa nazionale svizzera (1/8 è l\'italiana Festa dell\'Indennità ma non festivo). In Svizzera non sono festività: 25 aprile (Liberazione italiana), 2 giugno (Festa della Repubblica italiana), 8 dicembre NON è festivo federale ma lo è in Ticino. Il frontaliere segue il calendario del paese di lavoro (Svizzera) per ferie e indennità, ma per le spese familiari (scuole, visite mediche, banche italiane) deve tenere conto del calendario italiano. In caso di malattia o infortunio in giorni rossi italiani ma lavorativi svizzeri, si segue la prassi del datore di lavoro.</p>',
+ '<p>Il calendario festivo svizzero differisce da quello italiano su <strong>otto giorni</strong>. Sono festività <strong>solo in Ticino</strong> (non in Italia): San Berchtoldo (2/1), Venerdì Santo (3/4), Ascensione (14/5), Lunedì di Pentecoste (25/5), Corpus Domini (4/6) e Festa nazionale svizzera (1/8). Sono festività <strong>solo in Italia</strong> (non in Svizzera): 25 aprile (Festa della Liberazione) e 2 giugno (Festa della Repubblica). L\'Immacolata (8/12) non è festivo federale svizzero ma è festivo cantonale in Ticino. Il frontaliere segue il calendario del paese di lavoro (Svizzera) per ferie, indennità e festivi pagati; per le spese familiari in Italia (scuole, visite mediche, banche, pubblica amministrazione) deve invece tenere conto del calendario italiano. In caso di malattia o infortunio durante un giorno rosso italiano ma lavorativo svizzero, si applicano le regole del datore di lavoro svizzero e del CCL di settore.</p>',
  '<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Chiusure dogana e traffico previsto</h2>',
  '<p>Le <strong>dogane tra Italia e Svizzera</strong> restano sempre aperte (autostradali 24/7, secondarie con orari differenziati) ma subiscono forti picchi di traffico nei weekend lunghi. Giornate di massimo traffico previste nel 2026: venerdì 3 aprile (ritorno vacanze pasquali), lunedì 6 aprile (ritorno in Italia), venerdì 1 maggio, giovedì 14 maggio (partenza Ascensione), lunedì 18 maggio (rientro), venerdì 31 luglio (partenza vacanze estive), venerdì 7 agosto (massimo esodo), mercoledì 23 dicembre (partenza Natale). Chi deve attraversare il confine in queste date è consigliato di partire fuori dalle fasce 7:00-10:00 e 16:00-20:00, controllando i tempi d\'attesa sulla nostra pagina <em>Tempi attesa dogana</em> aggiornata ogni 15 minuti tramite API TomTom.</p>',
  '<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Stipendio frontaliere e festività</h2>',
- '<p>Lo <strong>stipendio del frontaliere</strong> non subisce decurtazioni per le festività svizzere: il calcolo del salario mensile svizzero include già, nel lordo annuo, le giornate festive pagate (circa 10-12 giorni all\'anno). In busta paga (Lohnabrechnung) i giorni festivi appaiono come giornate lavorate normali. Gli eventuali straordinari prestati in giornate festive vengono pagati con maggiorazione del 50-100% a seconda del contratto collettivo (CCL) o del contratto individuale: verificare sempre l\'articolo specifico sul proprio CCL settoriale. Il 13° e 14° (eventualmente) non sono sempre obbligatori in Svizzera ma sono diffusi nei settori banche, assicurazioni, pubblica amministrazione.</p>',
+ '<p>Lo <strong>stipendio del frontaliere</strong> non subisce decurtazioni per le festività svizzere: il salario mensile è calcolato sul lordo annuo che include già le giornate festive pagate (~13 giornate festive cantonali e federali in Ticino). In busta paga (Lohnabrechnung) i giorni festivi non appaiono come voce separata. Eventuali straordinari prestati in giornate festive sono pagati con maggiorazione del <strong>50–100 %</strong> a seconda del contratto collettivo di lavoro (CCL) o del contratto individuale: verificare sempre l\'articolo specifico del proprio CCL settoriale. La 13ª mensilità è prassi consolidata in molti settori (banche, assicurazioni, pubblica amministrazione, gran parte dell\'industria); la 14ª è rara in Svizzera.</p>',
  ],
  en: [
- '<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">2026 public holidays calendar in Ticino</h2>',
- '<p>The <strong>2026 public holiday calendar in Canton Ticino</strong> is particularly favourable for cross-border workers, with several midweek holidays creating 3-4 day long weekends without burning too much annual leave. Ticino recognises 12 cantonal holidays: New Year (1/1), St Berchtold (2/1), Epiphany (6/1), Good Friday (3 April 2026), Easter (5 April) and Easter Monday (6 April), Labour Day (1/5), Ascension (14 May), Pentecost (24 May) and Whit Monday (25 May), Corpus Christi (4 June), Swiss National Day (1/8), Assumption (15/8), All Saints (1/11), Immaculate Conception (8/12), Christmas (25/12) and Boxing Day (26/12).</p>',
- '<p>The best 2026 long weekends for cross-border workers are Easter (3-6 April, 4 days with no leave), 1 May (auto long weekend), Ascension (14 May Thursday with 1 day of leave on 15 May = 4 days), Pentecost (24-25 May auto), Corpus Christi (4 June Thursday + 1 day leave), Christmas (25-27 December 4-day break).</p>',
+ buildPontiHero('en'),
+ '<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">2026 public holidays calendar in Ticino — 17 official days</h2>',
+ '<p>The <strong>2026 public holiday calendar in Canton Ticino</strong> is particularly favourable for cross-border workers: several midweek holidays create 3–4 day long weekends without burning much annual leave. Ticino officially recognises <strong>17 cantonal holidays</strong>: New Year (Thu 1/1), St Berchtold (Fri 2/1), Epiphany (Tue 6/1), Good Friday (Fri 3 April), Easter Sunday (5 April), Easter Monday (6 April), Labour Day (Fri 1/5), Ascension (Thu 14 May), Pentecost (Sun 24 May), Whit Monday (25 May), Corpus Christi (Thu 4 June), Swiss National Day (Sat 1/8), Assumption (Sat 15/8), All Saints (Sun 1/11), Immaculate Conception (Tue 8/12), Christmas (Fri 25/12) and Boxing Day (Sat 26/12).</p>',
+ '<p>The most rewarding 2026 bridges for cross-border workers: New Year + St Berchtold (Thu 1/1 + Fri 2/1, automatic 4-day bridge); Epiphany (Tue 6/1, 4-day bridge with 1 day leave on Mon 5/1); Easter (3–6 April, 4 days with no leave); 1 May (Fri, automatic long weekend); Ascension (Thu 14 May + 1 day leave Fri 15); Pentecost (Sat 23 → Mon 25 May, automatic 3 days); Corpus Christi (Thu 4 June + 1 day leave Fri 5); Immaculate Conception (Tue 8/12 + 1 day leave Mon 7/12); Christmas (Fri 25 + Sat 26 + Sun 27 Dec, automatic 3 days). Swiss National Day, Assumption and All Saints fall on a weekend in 2026 and do not produce a bridge.</p>',
  '<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Differences with the Italian calendar</h2>',
- '<p>Note: <strong>the Swiss holiday calendar differs from the Italian one</strong> on several days. Italy does not celebrate St Berchtold, Good Friday, Ascension, Whit Monday, Corpus Christi or Swiss National Day. Switzerland does not observe 25 April (Italian Liberation Day) or 2 June (Republic Day).</p>',
- '<p>Border crossings remain always open but experience heavy traffic on long-weekend Fridays and Mondays. Swiss salaries are not reduced on public holidays — they are already factored into the gross annual pay.</p>',
+ '<p>The Swiss holiday calendar differs from the Italian one on <strong>eight days</strong>. Observed only in Ticino (not in Italy): St Berchtold (2/1), Good Friday (3/4), Ascension (14/5), Whit Monday (25/5), Corpus Christi (4/6) and Swiss National Day (1/8). Observed only in Italy (not in Switzerland): 25 April (Liberation Day) and 2 June (Republic Day). Immaculate Conception (8/12) is not a federal Swiss holiday but is recognised in Ticino.</p>',
+ '<p>The Italy–Switzerland border crossings stay open 24/7 on motorways and operate reduced hours on secondary roads. Peak traffic days 2026: Fri 3 April, Mon 6 April, Fri 1 May, Thu 14 May, Mon 18 May, Fri 31 July, Fri 7 August, Wed 23 December — avoid the 7–10 am and 4–8 pm windows. Swiss salaries are <strong>not reduced</strong> on public holidays — the monthly salary already includes the gross annual figure with ~13 paid holidays.</p>',
  ],
  de: [
- '<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Feiertage 2026 im Tessin</h2>',
- '<p>Der <strong>Feiertagskalender 2026 im Tessin</strong> ist für Grenzgänger besonders günstig: mehrere Feiertage fallen unter der Woche und ermöglichen 3-4-tägige verlängerte Wochenenden ohne grosse Beanspruchung der Ferienkontingente. Das Tessin erkennt 12 kantonale Feiertage an, darunter Neujahr (1.1.), Berchtoldstag (2.1.), Epiphanie (6.1.), Karfreitag (3. April 2026), Ostersonntag und Ostermontag, Tag der Arbeit (1.5.), Auffahrt (14. Mai), Pfingstsonntag und Pfingstmontag (24./25. Mai), Fronleichnam (4. Juni), Nationalfeiertag (1.8.), Mariä Himmelfahrt (15.8.), Allerheiligen (1.11.), Mariä Empfängnis (8.12.), Weihnachten und Stephanstag.</p>',
+ buildPontiHero('de'),
+ '<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Feiertage 2026 im Tessin — 17 offizielle Tage</h2>',
+ '<p>Der <strong>Feiertagskalender 2026 im Tessin</strong> ist für Grenzgänger besonders günstig: mehrere Feiertage fallen unter der Woche und ermöglichen 3–4-tägige verlängerte Wochenenden ohne grossen Urlaubsabzug. Das Tessin erkennt <strong>17 kantonale Feiertage</strong> an: Neujahr (Do 1.1.), Berchtoldstag (Fr 2.1.), Dreikönigstag (Di 6.1.), Karfreitag (Fr 3.4.), Ostersonntag (5.4.), Ostermontag (6.4.), Tag der Arbeit (Fr 1.5.), Auffahrt (Do 14.5.), Pfingstsonntag (So 24.5.), Pfingstmontag (25.5.), Fronleichnam (Do 4.6.), Schweizer Bundesfeier (Sa 1.8.), Mariä Himmelfahrt (Sa 15.8.), Allerheiligen (So 1.11.), Mariä Empfängnis (Di 8.12.), Weihnachten (Fr 25.12.) und Stephanstag (Sa 26.12.).</p>',
+ '<p>Beste Brückentage 2026 für Grenzgänger: Neujahr + Berchtoldstag (Do 1.1. + Fr 2.1., automatische 4-Tage-Brücke); Dreikönigstag (Di 6.1. + 1 Urlaubstag Mo 5.1.); Ostern (3.–6.4., 4 Tage ohne Urlaub); 1. Mai (Fr, automatisch); Auffahrt (Do 14.5. + 1 Urlaubstag Fr 15.5.); Pfingsten (Sa 23. → Mo 25.5.); Fronleichnam (Do 4.6. + 1 Urlaubstag Fr 5.6.); Mariä Empfängnis (Di 8.12. + Mo 7.12. Urlaub); Weihnachten (Fr 25. + Sa 26. + So 27.12.). Bundesfeier (1.8.), Mariä Himmelfahrt (15.8.) und Allerheiligen (1.11.) fallen 2026 aufs Wochenende.</p>',
  '<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Unterschiede zum italienischen Kalender</h2>',
- '<p>Der Schweizer Feiertagskalender unterscheidet sich vom italienischen: In Italien werden Berchtoldstag, Karfreitag, Auffahrt, Pfingstmontag, Fronleichnam und der Schweizer Nationalfeiertag nicht gefeiert. In der Schweiz gelten dagegen der 25. April (italienischer Befreiungstag) und der 2. Juni (Tag der Republik) nicht als Feiertage.</p>',
- '<p>Grenzübergänge bleiben immer geöffnet, erleben jedoch an verlängerten Wochenenden starken Verkehr. Schweizer Löhne werden an Feiertagen nicht gekürzt — sie sind bereits im Jahresbruttolohn enthalten.</p>',
+ '<p>Der Schweizer Feiertagskalender unterscheidet sich vom italienischen an <strong>acht Tagen</strong>. Nur im Tessin (nicht in Italien): Berchtoldstag (2.1.), Karfreitag (3.4.), Auffahrt (14.5.), Pfingstmontag (25.5.), Fronleichnam (4.6.) und Schweizer Bundesfeier (1.8.). Nur in Italien (nicht in der Schweiz): 25. April (Befreiungstag) und 2. Juni (Tag der Republik). Mariä Empfängnis (8.12.) ist kein eidgenössischer Feiertag, im Tessin aber anerkannt.</p>',
+ '<p>Grenzübergänge bleiben immer geöffnet, erleben aber an verlängerten Wochenenden starken Verkehr. Schweizer Löhne werden an Feiertagen <strong>nicht gekürzt</strong> — sie sind bereits im Jahresbruttolohn (~13 bezahlte Feiertage) enthalten. Überstunden an Feiertagen werden je nach Gesamtarbeitsvertrag (GAV) mit 50–100 % Zuschlag vergütet.</p>',
  ],
  fr: [
- '<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Jours fériés 2026 au Tessin</h2>',
- '<p>Le <strong>calendrier des jours fériés 2026 au Tessin</strong> est particulièrement favorable aux frontaliers : plusieurs fêtes tombent en milieu de semaine et permettent des longs week-ends de 3-4 jours sans trop entamer les congés annuels. Le Tessin reconnaît 12 jours fériés cantonaux, notamment Nouvel An (1.1), Saint-Berchtold (2.1), Épiphanie (6.1), Vendredi saint (3 avril 2026), Pâques et lundi de Pâques, Fête du travail (1.5), Ascension (14 mai), Pentecôte et lundi de Pentecôte (24-25 mai), Fête-Dieu (4 juin), Fête nationale suisse (1.8), Assomption (15.8), Toussaint (1.11), Immaculée Conception (8.12), Noël et Saint-Étienne.</p>',
+ buildPontiHero('fr'),
+ '<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Jours fériés 2026 au Tessin — 17 jours officiels</h2>',
+ '<p>Le <strong>calendrier des jours fériés 2026 au Tessin</strong> est particulièrement favorable aux frontaliers : plusieurs fêtes tombent en milieu de semaine et permettent des longs week-ends de 3–4 jours sans trop entamer les congés annuels. Le Tessin reconnaît <strong>17 jours fériés cantonaux</strong> : Jour de l\'An (jeu 1/1), Saint-Berchtold (ven 2/1), Épiphanie (mar 6/1), Vendredi saint (ven 3/4), Pâques (dim 5/4), Lundi de Pâques (6/4), Fête du Travail (ven 1/5), Ascension (jeu 14/5), Pentecôte (dim 24/5), Lundi de Pentecôte (25/5), Fête-Dieu (jeu 4/6), Fête nationale suisse (sam 1/8), Assomption (sam 15/8), Toussaint (dim 1/11), Immaculée Conception (mar 8/12), Noël (ven 25/12) et Saint-Étienne (sam 26/12).</p>',
+ '<p>Les ponts les plus rentables 2026 : Nouvel An + Saint-Berchtold (jeu 1/1 + ven 2/1, pont automatique de 4 jours) ; Épiphanie (mar 6/1 + 1 jour de congé lun 5/1) ; Pâques (3–6 avril, 4 jours sans congé) ; 1er mai (ven, automatique) ; Ascension (jeu 14/5 + 1 congé ven 15) ; Pentecôte (sam 23 → lun 25 mai) ; Fête-Dieu (jeu 4/6 + 1 congé ven 5) ; Immaculée (mar 8/12 + 1 congé lun 7/12) ; Noël (ven 25 + sam 26 + dim 27 décembre). Fête nationale suisse, Assomption et Toussaint tombent en week-end en 2026.</p>',
  '<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Différences avec le calendrier italien</h2>',
- '<p>Le calendrier des fêtes suisse diffère de l\'italien : l\'Italie ne célèbre pas Saint-Berchtold, le Vendredi saint, l\'Ascension, le lundi de Pentecôte, la Fête-Dieu ou la Fête nationale suisse. La Suisse n\'observe pas le 25 avril (Libération italienne) ni le 2 juin (Fête de la République).</p>',
- '<p>Les passages de frontière restent toujours ouverts mais connaissent un trafic intense les vendredis et lundis de long week-end. Les salaires suisses ne sont pas réduits les jours fériés — ils sont déjà intégrés dans le brut annuel.</p>',
+ '<p>Le calendrier suisse diffère de l\'italien sur <strong>huit jours</strong>. Fériés uniquement au Tessin (pas en Italie) : Saint-Berchtold (2/1), Vendredi saint (3/4), Ascension (14/5), Lundi de Pentecôte (25/5), Fête-Dieu (4/6) et Fête nationale suisse (1/8). Fériés uniquement en Italie (pas en Suisse) : 25 avril (Libération) et 2 juin (République). L\'Immaculée Conception (8/12) n\'est pas un férié fédéral suisse, mais l\'est au Tessin.</p>',
+ '<p>Les passages de frontière restent ouverts 24h/24 sur autoroute mais connaissent un trafic dense les vendredis et lundis de longs week-ends. Les salaires suisses <strong>ne sont pas réduits</strong> les jours fériés — ils intègrent déjà ~13 fériés payés dans le brut annuel. Les heures supplémentaires un jour férié sont majorées de 50–100 % selon la CCT.</p>',
  ],
  },
 
