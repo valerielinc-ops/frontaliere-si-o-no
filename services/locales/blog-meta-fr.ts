@@ -7514,6 +7514,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.app-depressione-cassa-malati-2026.title': 'Application contre la dépression remboursée par l\'assurance maladie',
     'blog.article.app-depressione-cassa-malati-2026.excerpt': 'À partir du 1er juillet 2026, l\'application Deprexis sera remboursée par les assurances maladie suisses. Voici ce qui change pour les frontaliers du Tessin',
     'blog.article.app-depressione-cassa-malati-2026.imageAlt': 'Personne utilisant une application de santé mentale avec le lac de Lugano en arrière-plan',
+    'blog.article.pensione-lpp-tassazione-senza-intermediario.title': 'Rente LPP: imposition séparée sans intermédiaire',
+    'blog.article.pensione-lpp-tassazione-senza-intermediario.excerpt': 'Découvrez comment l\'imposition séparée de la rente LPP sans intermédiaire affecte les frontaliers du Tessin. Guide pratique 2026.',
+    'blog.article.pensione-lpp-tassazione-senza-intermediario.imageAlt': 'Vue du lac de Lugano avec le panorama de la ville de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

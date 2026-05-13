@@ -7513,6 +7513,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.app-depressione-cassa-malati-2026.title': 'App against depression reimbursed by health insurance: how it works',
     'blog.article.app-depressione-cassa-malati-2026.excerpt': 'From July 1st, 2026, the Deprexis app will be reimbursed by Swiss health insurers. Here\'s what changes for Ticino cross-border workers',
     'blog.article.app-depressione-cassa-malati-2026.imageAlt': 'Person using a mental health app with Lake Lugano in the background',
+    'blog.article.pensione-lpp-tassazione-senza-intermediario.title': 'LPP Pension: Separate Taxation Without an Intermediary',
+    'blog.article.pensione-lpp-tassazione-senza-intermediario.excerpt': 'Learn how separate taxation of LPP pension without an intermediary affects Ticino cross-border workers. Practical guide 2026.',
+    'blog.article.pensione-lpp-tassazione-senza-intermediario.imageAlt': 'View of Lake Lugano with the cityscape of Lugano in the background',
 };
 
 export default blogMetaEn;

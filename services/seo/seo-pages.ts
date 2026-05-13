@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2559,
+ "numberOfItems": 2560,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7199,7 +7199,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2556, "name": "Blocco ristorni: la politica ticinese è possibi...", "url": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-ticino-politica-2026` },
           { "@type": "ListItem", "position": 2557, "name": "Tassa salute frontalieri: blocco ristorni, cosa...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-ticino-2026` },
           { "@type": "ListItem", "position": 2558, "name": "Documenti necessari per iniziare a lavorare in ...", "url": `${BASE_URL}/articoli-frontaliere/documenti-frontalieri-svizzera-2026` },
-          { "@type": "ListItem", "position": 2559, "name": "App contro la depressione rimborsata dalla cass...", "url": `${BASE_URL}/articoli-frontaliere/app-depressione-cassa-malati-2026` }
+          { "@type": "ListItem", "position": 2559, "name": "App contro la depressione rimborsata dalla cass...", "url": `${BASE_URL}/articoli-frontaliere/app-depressione-cassa-malati-2026` },
+          { "@type": "ListItem", "position": 2560, "name": "Pensione LPP: senza intermediario è soggetta a ...", "url": `${BASE_URL}/articoli-frontaliere/pensione-lpp-tassazione-senza-intermediario` }
  ]
  },
  {

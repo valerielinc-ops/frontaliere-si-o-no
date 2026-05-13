@@ -23915,4 +23915,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pensione-lpp-tassazione-senza-intermediario',
+ category: 'pensione',
+ date: '2026-05-13T05:05:33.623Z',
+ image: '/images/blog/pensione-lpp-tassazione-senza-intermediario.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

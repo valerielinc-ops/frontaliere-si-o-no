@@ -7512,6 +7512,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.app-depressione-cassa-malati-2026.title': 'App gegen Depressionen wird von der Krankenkasse erstattet: So funktioniert’s',
     'blog.article.app-depressione-cassa-malati-2026.excerpt': 'Ab dem 1. Juli 2026 wird die App Deprexis von den Schweizer Krankenkassen erstattet. Das ändert sich für die Grenzgänger des Tessin',
     'blog.article.app-depressione-cassa-malati-2026.imageAlt': 'Person, die eine psychische Gesundheits-App mit dem Luganersee im Hintergrund verwendet',
+    'blog.article.pensione-lpp-tassazione-senza-intermediario.title': 'LPP-Rente: Ohne Vermittler getrennt besteuert',
+    'blog.article.pensione-lpp-tassazione-senza-intermediario.excerpt': 'Erfahren Sie, wie die getrennte Besteuerung der LPP-Rente ohne Vermittler Grenzgänger im Tessin betrifft. Praktischer Leitfaden 2026.',
+    'blog.article.pensione-lpp-tassazione-senza-intermediario.imageAlt': 'Ausblick auf den Luganersee mit der Skyline von Lugano im Hintergrund',
 };
 
 export default blogMetaDe;

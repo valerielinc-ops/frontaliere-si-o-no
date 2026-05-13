@@ -36539,6 +36539,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pensione-lpp-tassazione-senza-intermediario': {
+    title: 'Pensione LPP: senza intermediario è soggetta a tassazione separata',
+    description: 'Scopri come la tassazione separata della pensione LPP senza intermediario impatta i frontalieri Ticino. Guida pratica 2026. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, senza, intermediario, soggetta',
+    ogTitle: 'Pensione LPP: senza intermediario è soggetta a tassazione separata',
+    ogDescription: 'Scopri come la tassazione separata della pensione LPP senza intermediario impatta i frontalieri Ticino. Guida pratica 2026.',
+    canonicalPath: '/articoli-frontaliere/pensione-lpp-tassazione-senza-intermediario',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensione LPP: senza intermediario è soggetta a tassazione separata",
+      "description": "Scopri come la tassazione separata della pensione LPP senza intermediario impatta i frontalieri Ticino. Guida pratica 2026. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensione-lpp-tassazione-senza-intermediario.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Lugano con il panorama della città di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-05-13T05:05:33+00:00",
+      "dateModified": "2026-05-13T05:05:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pensione-lpp-tassazione-senza-intermediario`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

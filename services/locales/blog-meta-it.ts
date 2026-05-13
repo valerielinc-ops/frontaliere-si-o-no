@@ -7514,6 +7514,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.app-depressione-cassa-malati-2026.title': 'App contro la depressione rimborsata dalla cassa malati: ecco come funziona',
     'blog.article.app-depressione-cassa-malati-2026.excerpt': 'Dal primo luglio 2026, l\'app Deprexis sarà rimborsata dalle casse malati svizzere. Ecco cosa cambia per i frontalieri del Ticino',
     'blog.article.app-depressione-cassa-malati-2026.imageAlt': 'Persona che usa un\'app di salute mentale sullo sfondo del Lago di Lugano',
+    'blog.article.pensione-lpp-tassazione-senza-intermediario.title': 'Pensione LPP: senza intermediario è soggetta a tassazione separata',
+    'blog.article.pensione-lpp-tassazione-senza-intermediario.excerpt': 'Scopri come la tassazione separata della pensione LPP senza intermediario impatta i frontalieri Ticino. Guida pratica 2026.',
+    'blog.article.pensione-lpp-tassazione-senza-intermediario.imageAlt': 'Vista del Lago di Lugano con il panorama della città di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;
