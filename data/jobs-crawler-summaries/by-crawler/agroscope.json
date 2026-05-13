@@ -1,49 +1,18 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-05-13T10:19:11.760Z",
+  "generatedAt": "2026-05-13T21:28:29.254Z",
   "total": 23,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 21,
-  "durationMs": 984,
-  "avgDurationMs": 984,
+  "unchangedCount": 22,
+  "durationMs": 948,
+  "avgDurationMs": 948,
   "durationHistory": [
-    984
+    948
   ],
-  "newJobs": [
-    {
-      "title": "Dottorando/a - Fisiologia adattiva dei bovini da ingrasso",
-      "slug": "dottorando-a-fisiologia-adattiva-dei-bovini-da-ingrasso-agroscope-posieux",
-      "url": "https://jobs.admin.ch/posti-vacanti/dottorando-a-fisiologia-adattiva-dei-bovini-da-ingrasso/11970399-9847-4521-b51f-86b8b4f9377f",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19036",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "1725 Posieux",
-      "addressLocality": "Posieux",
-      "addressRegion": "JU",
-      "addressCountry": "CH",
-      "canton": "JU",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-13",
-      "validThrough": "2026-06-12",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Postdottorando/a in virologia entomologica: baculovirus e protezione delle colture",
@@ -85,6 +54,44 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "Dottorando/a - Fisiologia adattiva dei bovini da ingrasso",
+      "slug": "dottorando-a-fisiologia-adattiva-dei-bovini-da-ingrasso-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/dottorando-a-fisiologia-adattiva-dei-bovini-da-ingrasso/11970399-9847-4521-b51f-86b8b4f9377f",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19036",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "1725 Posieux",
+      "addressLocality": "Posieux",
+      "addressRegion": "JU",
+      "addressCountry": "CH",
+      "canton": "JU",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-13",
+      "validThrough": "2026-06-12",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-67077160703b",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Ramon Bentina 16",
+      "postalCode": "6593",
+      "firstSeenAt": "2026-05-13T10:19:11.759Z",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 25
+      }
+    },
     {
       "title": "Dottorando/a - Pascolo ai margini boschivi e biodiversità",
       "slug": "dottorando-a-pascolo-ai-margini-boschivi-e-biodiversita-agroscope-zurich",
@@ -188,6 +195,7 @@
       "streetAddress": "Via Ramon Bentina 16",
       "postalCode": "6593",
       "firstSeenAt": "2026-05-11T21:20:39.998Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -225,8 +233,8 @@
       "streetAddress": "Via Ramon Bentina 16",
       "postalCode": "6593",
       "firstSeenAt": "2026-05-12T10:28:30.074Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -486,6 +494,7 @@
       "streetAddress": "Via Ramon Bentina 16",
       "postalCode": "6593",
       "firstSeenAt": "2026-05-11T21:20:39.998Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -523,8 +532,8 @@
       "streetAddress": "Via Ramon Bentina 16",
       "postalCode": "6593",
       "firstSeenAt": "2026-05-10T20:52:32.514Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -562,6 +571,7 @@
       "streetAddress": "Via Ramon Bentina 16",
       "postalCode": "6593",
       "firstSeenAt": "2026-05-11T21:20:39.998Z",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -599,8 +609,8 @@
       "streetAddress": "Via Ramon Bentina 16",
       "postalCode": "6593",
       "firstSeenAt": "2026-05-10T20:52:32.514Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -787,6 +797,7 @@
       "streetAddress": "Via Ramon Bentina 16",
       "postalCode": "6593",
       "firstSeenAt": "2026-05-11T21:20:39.998Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
