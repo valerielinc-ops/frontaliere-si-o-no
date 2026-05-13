@@ -7520,6 +7520,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-ticino-2026.title': 'Accord politique sur les primes d\'assurance-maladie',
     'blog.article.premi-cassa-malati-ticino-2026.excerpt': 'La commission parlementaire décide d\'appliquer les initiatives sur les primes d\'assurance-maladie sans attendre la définition des couvertures financières',
     'blog.article.premi-cassa-malati-ticino-2026.imageAlt': 'Vue du lac de Lugano avec le paysage urbain en arrière-plan',
+    'blog.article.ascensione-svizzera-viabilit-2026.title': 'Fête de l\'Ascension : douane de Brogeda fermée',
+    'blog.article.ascensione-svizzera-viabilit-2026.excerpt': 'Modifications de la circulation sur l\'A9 et fermeture de la douane de Brogeda pour la Fête de l\'Ascension en Suisse. Voici ce qui change pour les frontaliers',
+    'blog.article.ascensione-svizzera-viabilit-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et la frontière suisse-italienne en arrière-plan',
 };
 
 export default blogMetaFr;

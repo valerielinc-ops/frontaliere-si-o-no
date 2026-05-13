@@ -23933,4 +23933,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ascensione-svizzera-viabilit-2026',
+ category: 'pratico',
+ date: '2026-05-13T13:01:03.132Z',
+ image: '/images/blog/ascensione-svizzera-viabilit-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

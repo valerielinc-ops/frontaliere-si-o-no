@@ -7520,6 +7520,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-ticino-2026.title': 'Premi di cassa malati: intesa politica per applicare le iniziative',
     'blog.article.premi-cassa-malati-ticino-2026.excerpt': 'La commissione parlamentare decide di applicare le iniziative sui premi di cassa malati senza attendere la definizione delle coperture finanziarie',
     'blog.article.premi-cassa-malati-ticino-2026.imageAlt': 'Vista del Lago di Lugano con il panorama cittadino sullo sfondo',
+    'blog.article.ascensione-svizzera-viabilit-2026.title': 'Festa dell\'Ascensione: chiusa dogana Brogeda',
+    'blog.article.ascensione-svizzera-viabilit-2026.excerpt': 'Modifiche alla viabilità sulla A9 e chiusura della dogana di Brogeda per la Festa dell\'Ascensione in Svizzera. Ecco cosa cambia per i frontalieri',
+    'blog.article.ascensione-svizzera-viabilit-2026.imageAlt': 'Vista aerea del Lago di Lugano con montagne e confine svizzero-italiano sullo sfondo',
 };
 
 export default blogMetaIt;

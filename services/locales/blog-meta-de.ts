@@ -7518,6 +7518,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-ticino-2026.title': 'Krankenkassenprämien: Politische Einigung zur Umsetzung der Initiativen',
     'blog.article.premi-cassa-malati-ticino-2026.excerpt': 'Die parlamentarische Kommission entscheidet, die Initiativen zu den Krankenkassenprämien ohne Abwarten der finanziellen Deckung umzusetzen',
     'blog.article.premi-cassa-malati-ticino-2026.imageAlt': 'Blick auf den Luganersee mit der Stadtlandschaft im Hintergrund',
+    'blog.article.ascensione-svizzera-viabilit-2026.title': 'Christi Himmelfahrt: Zoll Brogeda geschlossen',
+    'blog.article.ascensione-svizzera-viabilit-2026.excerpt': 'Verkehrsänderungen auf der A9 und Schließung des Zolls Brogeda für Christi Himmelfahrt in der Schweiz. Was sich für Grenzgänger ändert',
+    'blog.article.ascensione-svizzera-viabilit-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit Bergen und der Schweizer-Italienischen Grenze im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -7519,6 +7519,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-ticino-2026.title': 'Health insurance premiums: political agreement to implement initiatives',
     'blog.article.premi-cassa-malati-ticino-2026.excerpt': 'The parliamentary commission decides to apply the initiatives on health insurance premiums without waiting for the definition of financial coverage',
     'blog.article.premi-cassa-malati-ticino-2026.imageAlt': 'View of Lake Lugano with the cityscape in the background',
+    'blog.article.ascensione-svizzera-viabilit-2026.title': 'Ascension Day: Brogeda border closed',
+    'blog.article.ascensione-svizzera-viabilit-2026.excerpt': 'Changes to traffic on the A9 and closure of the Brogeda border crossing for Ascension Day in Switzerland. Here\'s what changes for cross-border workers',
+    'blog.article.ascensione-svizzera-viabilit-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and Swiss-Italian border in the background',
 };
 
 export default blogMetaEn;
