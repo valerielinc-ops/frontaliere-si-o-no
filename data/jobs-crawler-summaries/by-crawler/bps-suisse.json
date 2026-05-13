@@ -1,19 +1,61 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-05-12T21:41:27.905Z",
-  "total": 2,
+  "generatedAt": "2026-05-13T10:37:21.425Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5347,
-  "avgDurationMs": 5347,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3181,
+  "avgDurationMs": 3181,
   "durationHistory": [
-    5347
+    3181
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "bps-suisse-ec1de76eae01",
+      "title": "Collaboratore Trice Gestione Crediti",
+      "company": "BPS (Banca Popolare di Sondrio) SUISSE",
+      "companyKey": "bps-suisse",
+      "companyDomain": "bps-suisse.ch",
+      "url": "https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
+      "applyUrl": "https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Giacomo Bentina 5",
+      "employmentType": "FULL_TIME",
+      "slug": "collaboratore-trice-gestione-crediti-bps-suisse-lugano",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "postedDate": "2026-05-13",
+      "source": "bps-suisse-careers-crawler",
+      "crawledAt": "2026-05-13T10:37:19.630Z",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "sourceLang": "it",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "firstSeenAt": "2026-04-13T10:08:40.551Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [
     {
       "id": "bps-suisse-54648af8fe2f",
       "title": "Consulente Clientela Individuale",
@@ -31,7 +73,7 @@
       "postalCode": "6900",
       "streetAddress": "Via Giacomo Bentina 5",
       "employmentType": "FULL_TIME",
-      "slug": "consulente-clientela-individuale-bps-suisse-lugano",
+      "slug": "consulente-clientela-individuale-bps-banca-popolare-di-sondrio-suisse-lugano",
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
@@ -55,47 +97,5 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "bps-suisse-ec1de76eae01",
-      "title": "Collaboratore Trice Gestione Crediti",
-      "company": "BPS (Banca Popolare di Sondrio) SUISSE",
-      "companyKey": "bps-suisse",
-      "companyDomain": "bps-suisse.ch",
-      "url": "https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
-      "applyUrl": "https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giacomo Bentina 5",
-      "employmentType": "FULL_TIME",
-      "slug": "collaboratore-trice-gestione-crediti-bps-suisse-lugano",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "postedDate": "2026-05-12",
-      "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-05-12T21:41:25.883Z",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "sourceLang": "it",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "firstSeenAt": "2026-04-13T10:08:40.551Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
