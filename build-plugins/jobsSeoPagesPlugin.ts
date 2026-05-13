@@ -2821,6 +2821,38 @@ ${hreflangHtml}
  }
  recordEmit('active-job-legacy-bridge', __tLegacyBridge);
  }
+
+ // Cross-canton legacy TI bridge: when the job's resolved canton is NOT
+ // TI, the pre-cathedral URL was under the legacy TI section
+ // (/cerca-lavoro-ticino/, /de/jobs-im-tessin/, /en/find-jobs-ticino/,
+ // /fr/trouver-emploi-tessin/). The active emit and the same-section
+ // legacy bridge above both write only to the new canton-aware section,
+ // leaving the indexed legacy TI URL uncovered and the self-healing
+ // safety net (jobsSeoPagesPlugin.ts:10184+) to render a noindex
+ // tombstone there. Emit the same full-content bridge at the legacy TI
+ // path so visitors and Google see the real job page; the canonical
+ // inside `html` already points to the canton-aware URL, so Google
+ // consolidates link equity to the new section.
+ //
+ // Slug is `job.slug` (master/IT slug) because pre-cathedral
+ // `all-known-job-slugs.json` keyed every locale path to the master
+ // slug under the TI section.
+ if (jobCanton !== 'TI') {
+ const __tCrossCantonLegacy = startTimer();
+ const legacyTIRel = `${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
+ if (!activeJobDirs.has(legacyTIRel.replace(/\/+$/, ''))) {
+ const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(perLocaleSlug[locale])};</script>`;
+ const legacyTIIndexHtml = html.replace('</head>', ` ${bridgeScript}\n </head>`);
+ const legacyTIFlatHtml = legacyTIIndexHtml.replace(SPA_ACTION_REDIRECT_SCRIPT, '');
+ const legacyTIDir = np.join(distDir, legacyTIRel);
+ _md(legacyTIDir);
+ _qw(np.join(legacyTIDir, 'index.html'), legacyTIIndexHtml);
+ const legacyTIFlat = np.join(distDir, legacyTIRel + '.html');
+ _md(np.dirname(legacyTIFlat));
+ _qw(legacyTIFlat, legacyTIFlatHtml);
+ }
+ recordEmit('active-job-cross-canton-legacy', __tCrossCantonLegacy);
+ }
  }
  }
 
