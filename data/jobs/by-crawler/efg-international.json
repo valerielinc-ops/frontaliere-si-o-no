@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-05-13T10:56:54.449Z",
+  "assembledAt": "2026-05-13T22:05:53.369Z",
   "jobs": [
     {
       "id": "efg-6242",
@@ -51,7 +51,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.328Z",
+      "crawledAt": "2026-05-13T22:05:51.027Z",
       "slugByLocale": {
         "it": "corporate-tax-intern-dipartimento-finanze-geneva-efg-international-ag-geneve",
         "en": "corporate-tax-intern-finance-department-geneva-efg-geneve",
@@ -93,7 +93,8 @@
       "previousSlugs": [
         "corporate-tax-intern-finance-department-geneva-efg-geneve",
         "corporate-tax-tirocinante-finanza-department-geneva-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6212",
@@ -243,7 +244,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.327Z",
+      "crawledAt": "2026-05-13T22:05:51.026Z",
       "slugByLocale": {
         "it": "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve",
         "en": "finance-data-analytics-power-bi-internship-efg-geneve",
@@ -282,7 +283,8 @@
       "previousSlugs": [
         "finance-data-analytics-power-bi-internship-efg-geneve",
         "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6209",
@@ -416,7 +418,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.326Z",
+      "crawledAt": "2026-05-13T22:05:51.025Z",
       "slugByLocale": {
         "it": "rischio-operativo-e-specialista-di-sicurezza-informatica-e-informatica-efg-international-ag-zurich",
         "en": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich",
@@ -450,81 +452,118 @@
       },
       "previousSlugs": [
         "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
-      "id": "efg-6203",
-      "slug": "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano",
+      "id": "efg-6197",
+      "slug": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
       "company": "EFG International AG",
-      "title": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-      "location": "Lugano",
-      "canton": "TI",
+      "title": "Technology & Cyber Information Security Risk Analyst (Temporary)",
+      "location": "Zurich",
+      "canton": "ZH",
       "category": "finance",
-      "contract": "permanent",
+      "contract": "temporary",
       "currency": "CHF",
-      "description": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
+      "description": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
       "requirements": [],
       "featured": false,
-      "postedDate": "2026-03-27",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6203",
+      "postedDate": "2026-04-09",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6197",
       "source": "Oracle HCM API",
+      "sourceLang": "en",
       "companyKey": "efg-international",
       "companyDomain": "efginternational.com",
       "titleByLocale": {
-        "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
-        "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
+        "en": "Technology & Cyber Information Security Risk Analyst (Temporary)",
+        "it": "Technology & Cyber Information Security Risk Analista (Temporary)",
+        "de": "Technologie & Cyber Information Security Risk Analyst (Temporary)",
+        "fr": "Technology & Cyber Information Security Risk Analyste (Temporary)"
       },
       "descriptionByLocale": {
-        "en": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
-        "it": "Siamo alla ricerca di un giovane talento per unirsi al nostro Programma di Laurea EFG – Funzioni Corporate percorso in Lugano, con un focus sulle Risorse Umane. In questo ruolo, acquisirai esperienza pratica e una comprensione valutabile delle aree chiave che supportano e guidano il successo di EFG. Avrai l'opportunità di lavorare in stretta collaborazione con il nostro team HR, partecipare all'acquisizione di talenti, allo sviluppo degli impiegati e alla gestione delle prestazioni, e contribuire a progetti che definiscono la strategia delle persone di EFG. Questa esperienza ti fornirà una comprensione completa di come le Risorse Umane consentono a EFG di offrire un servizio eccellente e mantenere la leadership nel private banking. Come funziona il Programma di Laurea EFG? Iniziando a settembre 2026 e per un periodo di 18 mesi, il Programma di Laurea EFG offre un'opportunità stimolante e affascinante per i recenti laureati. Personalizzato sulle abilità, gli interessi e le competenze individuali, il programma offre un'opportunità ideale per ottenere un'esperienza vasta e variegata in un gruppo di private banking internazionale e in rapida crescita:\n- Inizierai con un'iscrizione di 2 settimane in Svizzera per scoprire la Missione, la Visione e la Cultura di EFG e iniziare a costruire la tua rete professionale.\n- Durante l'iscrizione avrai la possibilità di partecipare a specifici corsi di formazione mirati a migliorare le competenze chiave e le abilità di comunicazione.\n- Opportunità di apprendimento continuo per assicurarti di sviluppare sia personalmente che professionalmente per raggiungere il tuo pieno potenziale.\n- Buddy e Mentore per accompagnarti durante il programma.\n- Veramente globale, abbiamo posizioni basate a Miami, Londra, Lussemburgo, Ginevra, Zurigo, Lugano, Singapore e Hong Kong. Potresti essere uno dei nostri futuri laureati? Valutiamo la diversità e non richiediamo specifici corsi di laurea o esperienze nel settore, ma cerchiamo una diversa miscela di background, esperienze e competenze. I nostri laureati sono talenti brillanti e entusiasti, quindi ci aspettiamo:\n- Laurea o Master (completato nel 2025 o in corso di completamento) con risultati accademici eccezionali in un campo affine al percorso professionale selezionato.\n- Inglese eccellente (qualsiasi altra lingua sarà un vantaggio)\n- Mindset internazionale\n- Abilità analitiche, di risoluzione dei problemi e organizzative forti\n- Pensiero proattivo e in grado di suggerire nuove modalità di lavoro per migliorare l'efficienza e la competitività\n- Auto-disciplinato, impegnato e con un forte senso del dovere\n- Adattabile e in grado di lavorare in un ambiente di lavoro collaborativo con persone di diversi background\n- Orientato al cliente\n- Autonomo e proattivo con curiosità intellettuale. Che cosa otterrai?\n- Esperienza lavorativa dinamica facendo rotazione attraverso diverse squadre e unità di business\n- Esperienza di rete internazionale arricchente\n- Opportunità di costruire competenze nel tuo campo scelto e contribuire alla Cultura di EFG\n- Opportunità di sviluppo e apprendimento continuo sia sulle competenze tecniche che sulle competenze soft. Il processo di selezione per questa posizione inizierà a aprile 2026 e includerà diverse interviste.",
-        "de": "Wir suchen einen jungen Talent für unser EFG-Graduiertenprogramm – Unternehmensfunktionen-Weg in Lugano, mit Schwerpunkt auf Personalwesen. In dieser Rolle wirst du praktische Erfahrung und wertvolle Einblicke in die Schlüsselfunktionen gewinnen, die den Erfolg von EFG unterstützen und antreiben. Du wirst die Möglichkeit haben, eng mit unserem Personalteam zusammenzuarbeiten, an der Talentakquisition, der Mitarbeiterentwicklung und der Leistungsbeurteilung teilzunehmen und an Projekten mitzuarbeiten, die die Strategie der Menschen von EFG definieren. Diese Erfahrung wird dir einen umfassenden Einblick in die Rolle des Personalwesens bei der Bereitstellung eines herausragenden Dienstleistungsangebots und der Führung in der Privatbankwirtschaft geben. Wie funktioniert das EFG-Graduiertenprogramm? Ab September 2026 und über einen Zeitraum von 18 Monaten bietet das EFG-Graduiertenprogramm eine herausfordernde und spannende Gelegenheit für jüngere Absolventen. An individuellen Fähigkeiten, Interessen und Kompetenzen angepasst, bietet das Programm eine ideale Gelegenheit, um eine breite Palette an Erfahrungen in einem internationalen und wachsenden Privatbankengruppen zu sammeln:\n- Du beginnst mit einer 2-wöchigen Einarbeitung in der Schweiz, um die Mission, Vision und Kultur von EFG kennenzulernen und deine berufliche Netzwerke aufzubauen.\n- Während der Einarbeitung hast du die Möglichkeit, spezifische Schulungen zu besuchen, um Schlüsselkompetenzen und Kommunikationsfähigkeiten zu verbessern.\n- Kontinuierliche Lernmöglichkeiten, um sicherzustellen, dass du sowohl persönlich als auch beruflich voll entwickelt bist, um dein volles Potenzial zu erreichen.\n- Buddy und Mentor, die dich während des Programms begleiten.\n- Tatsächlich global, haben wir Positionen in Miami, London, Luxemburg, Genf, Zürich, Lugano, Singapur und Hongkong. Könntest du einer unserer zukünftigen Absolventen sein? Wir schätzen Vielfalt und fordern keine spezifischen akademischen Abschlüsse oder Branchenerfahrungen, sondern suchen eine Vielfalt an Hintergründen, Erfahrungen und Fähigkeiten. Unsere Absolventen sind brillante und begeisterte Talente, also erwarten wir:\n- Bachelor- oder Master-Abschluss (abgeschlossen 2025 oder in der Pipeline) mit hervorragenden akademischen Leistungen in einem Bereich, der mit dem ausgewählten Berufsweg zusammenhängt.\n- Ausgezeichnete Englischkenntnisse (jede andere Sprache ist ein Vorteil)\n- Internationale Denkweise\n- Starke analytische, Problemlösungs- und Organisationsfähigkeiten\n- Proaktives Denken und in der Lage, neue Arten der Arbeit zu vorschlagen, um Effizienz und Wettbewerbsfähigkeit zu verbessern\n- Selbstdiszipliniert, engagiert und mit starkem Sorgfaltspflichtgefühl\n- Anpassungsfähigkeit und in der Lage, in einem Teamumfeld mit Menschen aus verschiedenen Hintergründen zusammenzuarbeiten\n- Kundeorientiert\n- Proaktiver Selbststarter mit intellektueller Neugier. Was wirst du erhalten?\n- Dynamische Arbeitserfahrung durch Rotation durch verschiedene Teams und Geschäftseinheiten\n- Erfahrung eines erweiterten internationalen Netzwerks\n- Gelegenheit, Expertise in deinem ausgewählten Bereich zu entwickeln und zum EFG-Kulturbezug beizutragen\n- Kontinuierliche Entwicklung und Lernmöglichkeiten auf technischen und weichen Fähigkeiten. Der Auswahlprozess für diese Position beginnt im April 2026 und umfasst mehrere Interviews.",
-        "fr": "Nous recherchons un jeune talent pour rejoindre notre Programme de recrutement EFG – Fonctions d'entreprise en voie de Lugano, avec un focus sur les Ressources humaines. Dans ce rôle, vous acquérez une expérience pratique et une compréhension précieuse des domaines clés qui soutiennent et impulsent le succès d'EFG. Vous aurez l'opportunité de travailler en étroite collaboration avec notre équipe RH, de participer à l'acquisition de talents, au développement des employés et à la gestion des performances, et de contribuer à des projets qui définissent la stratégie des personnes d'EFG. Cette expérience vous fournira une compréhension complète de la manière dont les Ressources humaines permettent à EFG de fournir un service exceptionnel et de maintenir sa leadership dans la banque privée. Comment fonctionne le Programme de recrutement EFG ? À partir de septembre 2026 et sur une période de 18 mois, le Programme de recrutement EFG offre une opportunité stimulante et passionnante pour les jeunes diplômés. Adapté aux compétences, aux intérêts et aux compétences individuels, le programme offre une opportunité idéale pour acquérir une expérience large et variée dans un groupe de banque privée internationale et en croissance rapide :\n- Vous commencez par une formation de 2 semaines en Suisse pour découvrir la mission, la vision et la culture d'EFG et pour commencer à construire votre réseau professionnel.\n- Pendant la formation, vous avez la possibilité de suivre des formations spécifiques pour améliorer vos compétences clés et vos compétences de communication.\n- Opportunités de formation continue pour vous assurer de développer à la fois personnellement et professionnellement pour atteindre votre plein potentiel.\n- Buddy et Mentor pour vous accompagner tout au long du programme.\n- Vraiment global, nous avons des postes à Miami, Londres, Luxembourg, Genève, Zurich, Lugano, Singapour et Hong Kong. Pourriez-vous être l'un de nos futurs diplômés ? Nous valorisons la diversité et ne demandons pas de spécialisations académiques ou d'expérience professionnelle spécifiques, mais nous recherchons une diversité de profils, d'expériences et de compétences. Nos diplômés sont des talents brillants et enthousiastes, donc nous attendons :\n- Diplôme de licence ou de master (obtenu en 2025 ou en cours de validation) avec des résultats académiques exceptionnels dans un domaine lié au chemin professionnel sélectionné.\n- Excellentes compétences en anglais (toute autre langue est un atout)\n- Mentalité internationale\n- Compétences analytiques, de résolution de problèmes et organisationnelles solides\n- Pensée proactive et capable de suggérer de nouvelles façons de travailler pour améliorer l'efficacité et la compétitivité\n- Auto-discipliné, engagé et avec un fort sens du devoir\n- Adaptable et capable de travailler dans un environnement de travail collaboratif avec des personnes de divers horizons\n- Orienté client\n- Proactif et autonome avec une curiosité intellectuelle. Qu'est-ce que vous obtiendrez ?\n- Expérience de travail dynamique en faisant la rotation dans différentes équipes et unités de business\n- Expérience d'un réseau international enrichissant\n- Opportunité de développer des compétences dans votre domaine choisi et de contribuer à la culture d'EFG\n- Opportunités de développement et d'apprentissage continu sur les compétences techniques et les compétences douces. Le processus de recrutement pour cette position commencera en avril 2026 et comportera plusieurs entretiens."
+        "en": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "Descrizione del lavoro\n\nThe Technology & Cyber Information Security Risk Analyst sarà parte del team di Risk Operazionale. Siamo alla ricerca di un rischio IT appassionato, sicurezza informatica e informazioni per coprire un ruolo globale situato in Svizzera.\n\nUbicazione: Ginevra, Zurigo, Lugano.\n\nPrincipali responsabilità\n\n- supervisionare l'attuazione e la manutenzione efficaci e coerenti del quadro di gestione del rischio e del controllo a livello globale.\n- Contribuire alle valutazioni di rischio e controllo tematici su problemi di sicurezza informatica, rischio informatico e analisi delle minacce attraverso la collaborazione con altri stakeholder interni.\n- Esegui passaggi a livello di processo e test di controllo per consentire l'identificazione e la valutazione dei rischi e dei controlli.\n- Fornire competenze, formulare raccomandazioni per migliorare l'aderenza dei regolamenti interni, requisiti normativi e best practice del settore e monitorare la loro implementazione.\n- Gestisce i rapporti con i principali stakeholder all'interno della prima linea di difesa.\n- Resta al passo e consiglia la Banca sulle tendenze innovative di business e tecnologia nei rischi e controlli.\n\nCompetenze ed esperienza\n- Master in Informatica, sicurezza informatica, tecnologia dell'informazione, o equivalente.\n- Certificazione professionale, ad esempio Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk e\n- Controllo sistemi informativi (CRISC) o equivalente.\n- Almeno 3-5 anni di esperienza nelle piattaforme IT bancarie, nei processi operativi e nei controlli IT, o in consulenza/audit con una società di servizi professionali leader; una combinazione di entrambi è considerata un vantaggio.\n- Eccellente capacità di comunicazione in inglese, sia verbale che scritta. La conoscenza di tedesco, francese o italiano è un plus.\n\n- comprensione approfondita dei concetti chiave di tecnologia e sicurezza dell'informazione rilevanti per il settore bancario. In particolare, una forte conoscenza dell'organizzazione IT, dei processi aziendali e dei sistemi (ad esempio, sicurezza IT, gestione dei dati, architettura e pianificazione, gestione del ciclo di vita e questioni regolamentari).\n- Prove capacità di scrivere report e comunicare efficacemente con un pubblico senior.\n- Automotivato, diligente, altamente organizzato, in grado di privilegiare e multi-task, e prosperare in un ambiente frenetico.\n- Eccellente capacità analitiche e problem solving, in grado di lavorare autonomamente e come parte di un team globale.\n\nI nostri valori\n- Responsabilità: Assumere la proprietà per i compiti e le sfide e cercare un miglioramento continuo.\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità.\n- Passione: Impegnarsi e lottare per l'eccellenza.\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole.\n- Partenariato: promozione della collaborazione e del lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
+        "de": "Job Description\n\nDer Technology & Cyber Information Security Risk Analyst wird Teil des operativen Risikoteams sein. Wir suchen ein leidenschaftliches IT-Risiko, Cyber- und Informationssicherheit, um eine globale Rolle in der Schweiz zu decken.\n\nLage: Genf, Zürich, Lugano.\n\nHauptaufgaben\n- Überprüfe die effektive und konsequente Umsetzung und Wartung des Risiko- und Kontrollmanagement-Rahmens weltweit.\n- Beitrag zu thematischen Risiko- und Kontrollbeurteilungen zu IT-Sicherheitsfragen, Cyber-Risiko und Bedrohungsanalysen durch Zusammenarbeit mit anderen internen Akteuren.\n- Durchführung von Prozess-Level-Durchgängen und Kontrolltests, um die Identifizierung und Bewertung von Risiken und Kontrollen zu ermöglichen.\n- Bereitstellung von Fachwissen, Empfehlungen zur Verbesserung der Einhaltung interner Vorschriften, regulatorischer Anforderungen und branchenüblicher Praktiken und zur Überwachung ihrer Umsetzung.\n- Verwaltet Beziehungen zu den wichtigsten Interessenvertretern innerhalb der ersten Verteidigungslinie.\n- Bleibt stehen und berät die Bank über innovative Geschäfts- und Technologietrends bei Risiken und Kontrollen.\n\nFähigkeiten und Erfahrung\n- Masterstudium Informatik, Cyber Security, Informationstechnologie oder gleichwertig.\n- Professionelle Zertifizierung, z.B. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risiko und\n- Information Systems Control (CRISC) oder gleichwertig.\n- Mindestens 3-5 Jahre Erfahrung im Bankwesen von IT-Plattformen, operativen Prozessen und IT-Kontrollen oder in Beratung/Audit mit einem führenden professionellen Dienstleistungsunternehmen; eine Kombination von beiden gilt als Vorteil.\n- Ausgezeichnete Kommunikationsfähigkeiten auf Englisch, sowohl verbale als auch geschrieben. Das Wissen um Deutsch, Französisch oder Italienisch ist ein Plus.\n- Vertieftes Verständnis von Schlüsseltechnologien und Informationssicherheitskonzepten für das Bankwesen. Insbesondere starke Kenntnisse der IT-Organisation, der Geschäftsprozesse und der Systeme (z.B. IT-Sicherheit, Datenmanagement, Architektur und Planung, Lebenszyklusmanagement und regulatorische Angelegenheiten).\n- Bewiesene Fähigkeit, Berichte zu schreiben und effektiv mit einem Senior Publikum zu kommunizieren.\n- Selbstmotiviert, fleißig, hoch organisiert, in der Lage, priorisieren und multi-Task, und in einer schnelllebigen Umgebung leben.\n- Ausgezeichnete analytische und Problemlösungsfähigkeiten, autonom und als Teil eines globalen Teams arbeiten können.\n\nUnsere Werte\n- Rechenschaftspflicht: Das Eigentum an Aufgaben und Herausforderungen sowie das Streben nach kontinuierlicher Verbesserung.\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern.\n- Leidenschaftlich : Engagement und Streben nach Exzellenz.\n- Lösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und behandeln Sie Kunden ziemlich mit einem risikobewussten Mindset.\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.",
+        "fr": "Description de l'emploi\n\nL'analyste des risques liés à la technologie et à la cybersécurité de l'information fera partie de l'équipe des risques opérationnels. Nous recherchons un risque informatique passionné, la cybersécurité et la sécurité de l'information pour couvrir un rôle mondial situé en Suisse.\n\nLieu: Genève, Zurich, Lugano.\n\nPrincipales responsabilités\n- Superviser la mise en œuvre et la maintenance efficaces et cohérentes du cadre de gestion des risques et des contrôles au niveau mondial.\n- Contribuer aux évaluations thématiques des risques et des contrôles sur les questions de sécurité des TI, de cyberrisque et d'analyse des menaces par la collaboration avec d'autres intervenants internes.\n- Procéder à des examens et à des essais de contrôle au niveau des processus pour permettre l'identification et l'évaluation des risques et des contrôles.\n- Fournir de l'expertise, formuler des recommandations pour améliorer le respect des règlements internes, des exigences réglementaires et des pratiques exemplaires de l'industrie, et surveiller leur mise en oeuvre.\n- Gérer les relations avec les principaux intervenants au sein de la première ligne de défense.\n- Se tient au courant et conseille la Banque sur les tendances technologiques et commerciales novatrices en matière de risques et de contrôles.\n\nCompétences et expérience\n- Maîtrise en informatique, cybersécurité, technologie de l'information ou équivalent.\n- Attestation professionnelle, p. ex.\n- Contrôle des systèmes d'information (CRISC) ou équivalent.\n- Au moins 3-5 ans d'expérience dans les plateformes informatiques bancaires, les processus opérationnels et les contrôles informatiques, ou en consultation/audit avec une entreprise de services professionnels de premier plan; une combinaison de ces deux types est considérée comme un avantage.\n- Excellente capacité de communication en anglais, à la fois verbale et écrite. La connaissance de l'allemand, du français ou de l'italien est un plus.\n- Compréhension approfondie des concepts clés en matière de technologie et de sécurité de l'information dans le domaine bancaire. En particulier, une bonne connaissance de l'organisation informatique, des processus et des systèmes opérationnels (par exemple, sécurité informatique, gestion des données, architecture et planification, gestion du cycle de vie et questions réglementaires).\n- Capacité éprouvée d'écrire des rapports et de communiquer efficacement avec un auditoire supérieur.\n- Automotivé, diligent, hautement organisé, capable de prioriser et de multitâche, et de prospérer dans un environnement rapide.\n- Excellentes compétences analytiques et de résolution de problèmes, capables de travailler de manière autonome et dans le cadre d'une équipe mondiale.\n\nNos valeurs\n- Responsabilité : Prise en charge des tâches et des défis et recherche d'une amélioration continue.\n- Hands-on : être proactif pour obtenir rapidement des résultats de haute qualité.\n- Passionnée : être engagée et chercher l'excellence.\n- Déterminé par la solution : Se concentrer sur les résultats des clients et traiter ceux-ci de manière équitable avec un état d'esprit conscient des risques.\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
       },
       "requirementsByLocale": {},
       "canonicalContent": {
         "byLocale": {
           "en": {
             "summary": [
-              "<p><span>We are looking for a young talent to join our <strong>EFG Graduate Programme – Corporate Functions path in Lugano</strong>, with a focus on <strong>Human Resources</strong>. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>In this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>You will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.</span></p><p style=\"line-height:normal;margin-bottom:0cm;\"> </p><p><span><strong><u>How the EFG Graduate Programme works?</u></strong></span></p><p><span>Starting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Buddy and Mentor to accompany you throughout the programme.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.</span></li></ul><p style=\"margin-left:36.0pt;\"> </p><p><span><strong><u>Could you be one of our future graduates?</u></strong></span></p><p><span>We value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.</span></p><p><span>Our graduates are brilliant and enthusiastic talents, so we expect:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Excellent English (any other language will be an advantage)</span></li><li style=\"tab-stops:list 36.0pt;\"><span>International mindset</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong analytical, problem solving and organisational skills </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Self-disciplined, committed and with strong work ethics</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Adaptable and able to work collaboratively in a team environment with people from different backgrounds</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Client-oriented</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactive self-starter with intellectual curiosity</span></li></ul><p><span><strong><u>What will you get?</u></strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Dynamic work experience by rotating through different teams and business units</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience an enriching international network</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Opportunity to build expertise in your chosen field and contribute to the EFG Culture </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous development and learning opportunities on both technical and soft skills </span></li></ul><p> </p><p><span>The recruitment process for this position will begin in April 2026 and will include several interviews.</span></p><p> </p>"
+              "The Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.<br>",
+              "Location: Geneva, Zurich, Lugano.<br>"
             ],
-            "responsibilities": [],
+            "responsibilities": [
+              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
+              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
+              "Information Systems Control (CRISC) or equivalent.",
+              "At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.",
+              "Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.",
+              "In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).",
+              "Proven ability to write reports and communicate effectively with a senior audience.",
+              "Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.",
+              "Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team."
+            ],
             "requirements": [],
-            "benefits": [],
+            "benefits": [
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
+              "<strong>Passionate</strong>: Being committed and striving for excellence.",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
             "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
+            "highlights": [
+              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
+              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
+              "Information Systems Control (CRISC) or equivalent.",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
+            ],
+            "keywords": [
+              "Master’s degree in Computer Science",
+              "Professional certification",
+              "Information Systems Control (CRISC) or equivalent.",
+              "At least 3-5 years of experience in banking IT platforms"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<br><strong>Our Purpose and Mission</strong>",
+                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
+                ],
+                "bullets": []
+              }
+            ],
             "readingMinutes": 3
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.325Z",
+      "crawledAt": "2026-05-13T22:05:51.024Z",
       "slugByLocale": {
-        "it": "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano",
-        "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
-        "de": "efg-graduate-programme-2026-corporate-functions-personalwesen-lugano-efg-international-ag-lugano-n932dq",
-        "fr": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano"
+        "it": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+        "en": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+        "de": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+        "fr": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich"
       },
-      "addressLocality": "Lugano",
+      "addressLocality": "Zurich",
       "addressCountry": "CH",
-      "sourceLang": "en",
-      "previousSlugs": [
-        "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-        "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-        "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
-        "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-      ],
-      "salaryMin": 82500,
-      "salaryMax": 111500,
+      "datePosted": "2026-04-09",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 82500,
-          "maxValue": 111500,
+          "minValue": 85500,
+          "maxValue": 150000,
           "unitText": "YEAR"
         }
       },
@@ -532,34 +571,7 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "datePosted": "2026-03-27",
-      "previousSlugsByLocale": {
-        "it": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-        ],
-        "en": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-        ],
-        "de": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-        ],
-        "fr": [
-          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
-          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
-          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-05-10T21:30:00.907Z"
     },
     {
       "id": "efg-6190",
@@ -687,7 +699,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.324Z",
+      "crawledAt": "2026-05-13T22:05:51.023Z",
       "slugByLocale": {
         "it": "pb-specialist-americas-ginevra-efg-international-ag-geneve",
         "en": "pb-support-specialist-americas-geneva-efg-geneve",
@@ -729,125 +741,8 @@
       "previousSlugs": [
         "pb-support-specialist-americas-geneva-efg-geneve",
         "pb-support-specialista-americas-geneva-efg-international-ag-geneve"
-      ]
-    },
-    {
-      "id": "efg-6197",
-      "slug": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
-      "company": "EFG International AG",
-      "title": "Technology & Cyber Information Security Risk Analyst (Temporary)",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6197",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Technology & Cyber Information Security Risk Analyst (Temporary)",
-        "it": "Technology & Cyber Information Security Risk Analista (Temporary)",
-        "de": "Technologie & Cyber Information Security Risk Analyst (Temporary)",
-        "fr": "Technology & Cyber Information Security Risk Analyste (Temporary)"
-      },
-      "descriptionByLocale": {
-        "en": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "Descrizione del lavoro\n\nThe Technology & Cyber Information Security Risk Analyst sarà parte del team di Risk Operazionale. Siamo alla ricerca di un rischio IT appassionato, sicurezza informatica e informazioni per coprire un ruolo globale situato in Svizzera.\n\nUbicazione: Ginevra, Zurigo, Lugano.\n\nPrincipali responsabilità\n\n- supervisionare l'attuazione e la manutenzione efficaci e coerenti del quadro di gestione del rischio e del controllo a livello globale.\n- Contribuire alle valutazioni di rischio e controllo tematici su problemi di sicurezza informatica, rischio informatico e analisi delle minacce attraverso la collaborazione con altri stakeholder interni.\n- Esegui passaggi a livello di processo e test di controllo per consentire l'identificazione e la valutazione dei rischi e dei controlli.\n- Fornire competenze, formulare raccomandazioni per migliorare l'aderenza dei regolamenti interni, requisiti normativi e best practice del settore e monitorare la loro implementazione.\n- Gestisce i rapporti con i principali stakeholder all'interno della prima linea di difesa.\n- Resta al passo e consiglia la Banca sulle tendenze innovative di business e tecnologia nei rischi e controlli.\n\nCompetenze ed esperienza\n- Master in Informatica, sicurezza informatica, tecnologia dell'informazione, o equivalente.\n- Certificazione professionale, ad esempio Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk e\n- Controllo sistemi informativi (CRISC) o equivalente.\n- Almeno 3-5 anni di esperienza nelle piattaforme IT bancarie, nei processi operativi e nei controlli IT, o in consulenza/audit con una società di servizi professionali leader; una combinazione di entrambi è considerata un vantaggio.\n- Eccellente capacità di comunicazione in inglese, sia verbale che scritta. La conoscenza di tedesco, francese o italiano è un plus.\n\n- comprensione approfondita dei concetti chiave di tecnologia e sicurezza dell'informazione rilevanti per il settore bancario. In particolare, una forte conoscenza dell'organizzazione IT, dei processi aziendali e dei sistemi (ad esempio, sicurezza IT, gestione dei dati, architettura e pianificazione, gestione del ciclo di vita e questioni regolamentari).\n- Prove capacità di scrivere report e comunicare efficacemente con un pubblico senior.\n- Automotivato, diligente, altamente organizzato, in grado di privilegiare e multi-task, e prosperare in un ambiente frenetico.\n- Eccellente capacità analitiche e problem solving, in grado di lavorare autonomamente e come parte di un team globale.\n\nI nostri valori\n- Responsabilità: Assumere la proprietà per i compiti e le sfide e cercare un miglioramento continuo.\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità.\n- Passione: Impegnarsi e lottare per l'eccellenza.\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole.\n- Partenariato: promozione della collaborazione e del lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "Job Description\n\nDer Technology & Cyber Information Security Risk Analyst wird Teil des operativen Risikoteams sein. Wir suchen ein leidenschaftliches IT-Risiko, Cyber- und Informationssicherheit, um eine globale Rolle in der Schweiz zu decken.\n\nLage: Genf, Zürich, Lugano.\n\nHauptaufgaben\n- Überprüfe die effektive und konsequente Umsetzung und Wartung des Risiko- und Kontrollmanagement-Rahmens weltweit.\n- Beitrag zu thematischen Risiko- und Kontrollbeurteilungen zu IT-Sicherheitsfragen, Cyber-Risiko und Bedrohungsanalysen durch Zusammenarbeit mit anderen internen Akteuren.\n- Durchführung von Prozess-Level-Durchgängen und Kontrolltests, um die Identifizierung und Bewertung von Risiken und Kontrollen zu ermöglichen.\n- Bereitstellung von Fachwissen, Empfehlungen zur Verbesserung der Einhaltung interner Vorschriften, regulatorischer Anforderungen und branchenüblicher Praktiken und zur Überwachung ihrer Umsetzung.\n- Verwaltet Beziehungen zu den wichtigsten Interessenvertretern innerhalb der ersten Verteidigungslinie.\n- Bleibt stehen und berät die Bank über innovative Geschäfts- und Technologietrends bei Risiken und Kontrollen.\n\nFähigkeiten und Erfahrung\n- Masterstudium Informatik, Cyber Security, Informationstechnologie oder gleichwertig.\n- Professionelle Zertifizierung, z.B. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risiko und\n- Information Systems Control (CRISC) oder gleichwertig.\n- Mindestens 3-5 Jahre Erfahrung im Bankwesen von IT-Plattformen, operativen Prozessen und IT-Kontrollen oder in Beratung/Audit mit einem führenden professionellen Dienstleistungsunternehmen; eine Kombination von beiden gilt als Vorteil.\n- Ausgezeichnete Kommunikationsfähigkeiten auf Englisch, sowohl verbale als auch geschrieben. Das Wissen um Deutsch, Französisch oder Italienisch ist ein Plus.\n- Vertieftes Verständnis von Schlüsseltechnologien und Informationssicherheitskonzepten für das Bankwesen. Insbesondere starke Kenntnisse der IT-Organisation, der Geschäftsprozesse und der Systeme (z.B. IT-Sicherheit, Datenmanagement, Architektur und Planung, Lebenszyklusmanagement und regulatorische Angelegenheiten).\n- Bewiesene Fähigkeit, Berichte zu schreiben und effektiv mit einem Senior Publikum zu kommunizieren.\n- Selbstmotiviert, fleißig, hoch organisiert, in der Lage, priorisieren und multi-Task, und in einer schnelllebigen Umgebung leben.\n- Ausgezeichnete analytische und Problemlösungsfähigkeiten, autonom und als Teil eines globalen Teams arbeiten können.\n\nUnsere Werte\n- Rechenschaftspflicht: Das Eigentum an Aufgaben und Herausforderungen sowie das Streben nach kontinuierlicher Verbesserung.\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern.\n- Leidenschaftlich : Engagement und Streben nach Exzellenz.\n- Lösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und behandeln Sie Kunden ziemlich mit einem risikobewussten Mindset.\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.",
-        "fr": "Description de l'emploi\n\nL'analyste des risques liés à la technologie et à la cybersécurité de l'information fera partie de l'équipe des risques opérationnels. Nous recherchons un risque informatique passionné, la cybersécurité et la sécurité de l'information pour couvrir un rôle mondial situé en Suisse.\n\nLieu: Genève, Zurich, Lugano.\n\nPrincipales responsabilités\n- Superviser la mise en œuvre et la maintenance efficaces et cohérentes du cadre de gestion des risques et des contrôles au niveau mondial.\n- Contribuer aux évaluations thématiques des risques et des contrôles sur les questions de sécurité des TI, de cyberrisque et d'analyse des menaces par la collaboration avec d'autres intervenants internes.\n- Procéder à des examens et à des essais de contrôle au niveau des processus pour permettre l'identification et l'évaluation des risques et des contrôles.\n- Fournir de l'expertise, formuler des recommandations pour améliorer le respect des règlements internes, des exigences réglementaires et des pratiques exemplaires de l'industrie, et surveiller leur mise en oeuvre.\n- Gérer les relations avec les principaux intervenants au sein de la première ligne de défense.\n- Se tient au courant et conseille la Banque sur les tendances technologiques et commerciales novatrices en matière de risques et de contrôles.\n\nCompétences et expérience\n- Maîtrise en informatique, cybersécurité, technologie de l'information ou équivalent.\n- Attestation professionnelle, p. ex.\n- Contrôle des systèmes d'information (CRISC) ou équivalent.\n- Au moins 3-5 ans d'expérience dans les plateformes informatiques bancaires, les processus opérationnels et les contrôles informatiques, ou en consultation/audit avec une entreprise de services professionnels de premier plan; une combinaison de ces deux types est considérée comme un avantage.\n- Excellente capacité de communication en anglais, à la fois verbale et écrite. La connaissance de l'allemand, du français ou de l'italien est un plus.\n- Compréhension approfondie des concepts clés en matière de technologie et de sécurité de l'information dans le domaine bancaire. En particulier, une bonne connaissance de l'organisation informatique, des processus et des systèmes opérationnels (par exemple, sécurité informatique, gestion des données, architecture et planification, gestion du cycle de vie et questions réglementaires).\n- Capacité éprouvée d'écrire des rapports et de communiquer efficacement avec un auditoire supérieur.\n- Automotivé, diligent, hautement organisé, capable de prioriser et de multitâche, et de prospérer dans un environnement rapide.\n- Excellentes compétences analytiques et de résolution de problèmes, capables de travailler de manière autonome et dans le cadre d'une équipe mondiale.\n\nNos valeurs\n- Responsabilité : Prise en charge des tâches et des défis et recherche d'une amélioration continue.\n- Hands-on : être proactif pour obtenir rapidement des résultats de haute qualité.\n- Passionnée : être engagée et chercher l'excellence.\n- Déterminé par la solution : Se concentrer sur les résultats des clients et traiter ceux-ci de manière équitable avec un état d'esprit conscient des risques.\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "The Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.<br>",
-              "Location: Geneva, Zurich, Lugano.<br>"
-            ],
-            "responsibilities": [
-              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
-              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
-              "Information Systems Control (CRISC) or equivalent.",
-              "At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.",
-              "Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.",
-              "In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).",
-              "Proven ability to write reports and communicate effectively with a senior audience.",
-              "Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.",
-              "Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team."
-            ],
-            "requirements": [],
-            "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
-              "<strong>Passionate</strong>: Being committed and striving for excellence.",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
-              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
-              "Information Systems Control (CRISC) or equivalent.",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
-            ],
-            "keywords": [
-              "Master’s degree in Computer Science",
-              "Professional certification",
-              "Information Systems Control (CRISC) or equivalent.",
-              "At least 3-5 years of experience in banking IT platforms"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
-                  "<br><strong>Our Purpose and Mission</strong>",
-                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-13T10:56:52.324Z",
-      "slugByLocale": {
-        "it": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
-        "en": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
-        "de": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
-        "fr": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich"
-      },
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-09",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.907Z"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -898,7 +793,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.323Z",
+      "crawledAt": "2026-05-13T22:05:51.022Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-clienti-efg-international-ag-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
@@ -1060,7 +955,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.320Z",
+      "crawledAt": "2026-05-13T22:05:51.020Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -1102,7 +997,8 @@
       "previousSlugs": [
         "pb-support-specialist-middle-east-ch-efg-geneve",
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6168",
@@ -1263,7 +1159,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.319Z",
+      "crawledAt": "2026-05-13T22:05:51.019Z",
       "slugByLocale": {
         "it": "stage-in-talent-acquisition-efg-international-ag-lugano",
         "en": "talent-acquisition-internship-efg-international-ag-geneve",
@@ -1306,7 +1202,8 @@
       "previousSlugs": [
         "talent-acquisition-internship-efg-lugano"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1459,7 +1356,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.317Z",
+      "crawledAt": "2026-05-13T22:05:51.018Z",
       "slugByLocale": {
         "it": "specialista-sviluppo-e-formazione-efg-international-ag-lugano",
         "en": "learning-development-specialist-efg-international-ag-lugano",
@@ -1624,7 +1521,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.316Z",
+      "crawledAt": "2026-05-13T22:05:51.016Z",
       "slugByLocale": {
         "it": "bi-solution-specialista-efg-international-ag-geneve",
         "en": "bi-solution-specialist-efg-international-ag-geneve",
@@ -1664,7 +1561,8 @@
       },
       "previousSlugs": [
         "bi-solution-specialist-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6137",
@@ -1818,7 +1716,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.316Z",
+      "crawledAt": "2026-05-13T22:05:51.015Z",
       "slugByLocale": {
         "it": "specialista-internazionale-della-retribuzione-efg-international-ag-lugano",
         "en": "international-payroll-specialist-efg-international-ag-lugano",
@@ -1995,7 +1893,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.314Z",
+      "crawledAt": "2026-05-13T22:05:51.014Z",
       "slugByLocale": {
         "it": "senior-cloud-ingegnere-efg-international-ag-geneve",
         "en": "senior-cloud-engineer-efg-international-ag-geneve",
@@ -2176,7 +2074,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.313Z",
+      "crawledAt": "2026-05-13T22:05:51.013Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -2202,7 +2100,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.895Z"
+      "firstSeenAt": "2026-05-10T21:30:00.895Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6064",
@@ -2253,7 +2152,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.312Z",
+      "crawledAt": "2026-05-13T22:05:51.012Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -2293,7 +2192,8 @@
       },
       "previousSlugs": [
         "cybersecurity-internal-penetration-tester-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6056",
@@ -2368,7 +2268,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.311Z",
+      "crawledAt": "2026-05-13T22:05:51.011Z",
       "slugByLocale": {
         "it": "analista-del-rischio-efg-international-ag-lugano",
         "en": "operational-risk-analyst-efg-international-ag-lugano",
@@ -2480,7 +2380,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.310Z",
+      "crawledAt": "2026-05-13T22:05:51.010Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -2522,7 +2422,8 @@
       "previousSlugs": [
         "senior-private-markets-product-specialist-efg-zurich",
         "senior-private-markets-product-specialiste-efg-international-ag-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -2573,7 +2474,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.309Z",
+      "crawledAt": "2026-05-13T22:05:51.009Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -2661,7 +2562,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.308Z",
+      "crawledAt": "2026-05-13T22:05:51.008Z",
       "slugByLocale": {
         "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -2703,7 +2604,8 @@
       "previousSlugs": [
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -2866,7 +2768,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.307Z",
+      "crawledAt": "2026-05-13T22:05:51.007Z",
       "slugByLocale": {
         "it": "specialista-in-soluzioni-it-di-trading-e-tesoreria-efg-international-ag-lugano",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2933,7 +2835,8 @@
           "it-trading-treasury-solutions-specialiste-efg-international-ag-lugano-n93k12"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -3080,7 +2983,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.306Z",
+      "crawledAt": "2026-05-13T22:05:51.006Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-lugano",
         "en": "pension-fund-manager-efg-international-ag-zurich",
@@ -3136,7 +3039,8 @@
           "foundation-manager-efg-international-ag-lugano-n93k14"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5877",
@@ -3187,7 +3091,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.305Z",
+      "crawledAt": "2026-05-13T22:05:51.005Z",
       "slugByLocale": {
         "it": "back-office-cash-reconciliation-specialista-efg-international-ag-geneve",
         "en": "back-office-cash-reconciliation-specialist-efg-geneve",
@@ -3278,7 +3182,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.304Z",
+      "crawledAt": "2026-05-13T22:05:51.004Z",
       "slugByLocale": {
         "it": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
         "en": "strategic-planning-officer-efg-lugano",
@@ -3429,7 +3333,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.303Z",
+      "crawledAt": "2026-05-13T22:05:51.002Z",
       "slugByLocale": {
         "it": "rischio-e-conformita-applicazione-tecnica-proprietario-efg-international-ag-geneve",
         "en": "risk-compliance-technical-application-owner-efg-geneve",
@@ -3611,7 +3515,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.302Z",
+      "crawledAt": "2026-05-13T22:05:51.001Z",
       "slugByLocale": {
         "it": "business-analista-legal-compliance-efg-international-ag-geneve",
         "en": "business-analyst-legal-compliance-efg-geneve",
@@ -3651,7 +3555,8 @@
       },
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-4543",
@@ -3818,7 +3723,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.301Z",
+      "crawledAt": "2026-05-13T22:05:50.999Z",
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -3855,7 +3760,8 @@
       },
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6235",
@@ -3944,7 +3850,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-13T10:56:52.298Z",
+      "crawledAt": "2026-05-13T22:05:50.997Z",
       "slugByLocale": {
         "it": "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve",
         "en": "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
@@ -3979,6 +3885,116 @@
       "previousSlugs": [
         "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve"
       ]
+    },
+    {
+      "id": "efg-6203",
+      "slug": "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-03-27",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6203",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
+        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
+        "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
+        "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
+      },
+      "descriptionByLocale": {
+        "en": "We are looking for a young talent to join our EFG Graduate Programme – Corporate Functions path in Lugano , with a focus on Human Resources .\n\nIn this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG.\n\nYou will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills\n\nThe recruitment process for this position will begin in April 2026 and will include several interviews.",
+        "it": "Siamo alla ricerca di un giovane talento per unirsi al nostro Programma di Laurea EFG – Funzioni Corporate percorso in Lugano, con un focus sulle Risorse Umane. In questo ruolo, acquisirai esperienza pratica e una comprensione valutabile delle aree chiave che supportano e guidano il successo di EFG. Avrai l'opportunità di lavorare in stretta collaborazione con il nostro team HR, partecipare all'acquisizione di talenti, allo sviluppo degli impiegati e alla gestione delle prestazioni, e contribuire a progetti che definiscono la strategia delle persone di EFG. Questa esperienza ti fornirà una comprensione completa di come le Risorse Umane consentono a EFG di offrire un servizio eccellente e mantenere la leadership nel private banking. Come funziona il Programma di Laurea EFG? Iniziando a settembre 2026 e per un periodo di 18 mesi, il Programma di Laurea EFG offre un'opportunità stimolante e affascinante per i recenti laureati. Personalizzato sulle abilità, gli interessi e le competenze individuali, il programma offre un'opportunità ideale per ottenere un'esperienza vasta e variegata in un gruppo di private banking internazionale e in rapida crescita:\n- Inizierai con un'iscrizione di 2 settimane in Svizzera per scoprire la Missione, la Visione e la Cultura di EFG e iniziare a costruire la tua rete professionale.\n- Durante l'iscrizione avrai la possibilità di partecipare a specifici corsi di formazione mirati a migliorare le competenze chiave e le abilità di comunicazione.\n- Opportunità di apprendimento continuo per assicurarti di sviluppare sia personalmente che professionalmente per raggiungere il tuo pieno potenziale.\n- Buddy e Mentore per accompagnarti durante il programma.\n- Veramente globale, abbiamo posizioni basate a Miami, Londra, Lussemburgo, Ginevra, Zurigo, Lugano, Singapore e Hong Kong. Potresti essere uno dei nostri futuri laureati? Valutiamo la diversità e non richiediamo specifici corsi di laurea o esperienze nel settore, ma cerchiamo una diversa miscela di background, esperienze e competenze. I nostri laureati sono talenti brillanti e entusiasti, quindi ci aspettiamo:\n- Laurea o Master (completato nel 2025 o in corso di completamento) con risultati accademici eccezionali in un campo affine al percorso professionale selezionato.\n- Inglese eccellente (qualsiasi altra lingua sarà un vantaggio)\n- Mindset internazionale\n- Abilità analitiche, di risoluzione dei problemi e organizzative forti\n- Pensiero proattivo e in grado di suggerire nuove modalità di lavoro per migliorare l'efficienza e la competitività\n- Auto-disciplinato, impegnato e con un forte senso del dovere\n- Adattabile e in grado di lavorare in un ambiente di lavoro collaborativo con persone di diversi background\n- Orientato al cliente\n- Autonomo e proattivo con curiosità intellettuale. Che cosa otterrai?\n- Esperienza lavorativa dinamica facendo rotazione attraverso diverse squadre e unità di business\n- Esperienza di rete internazionale arricchente\n- Opportunità di costruire competenze nel tuo campo scelto e contribuire alla Cultura di EFG\n- Opportunità di sviluppo e apprendimento continuo sia sulle competenze tecniche che sulle competenze soft. Il processo di selezione per questa posizione inizierà a aprile 2026 e includerà diverse interviste.",
+        "de": "Wir suchen einen jungen Talent für unser EFG-Graduiertenprogramm – Unternehmensfunktionen-Weg in Lugano, mit Schwerpunkt auf Personalwesen. In dieser Rolle wirst du praktische Erfahrung und wertvolle Einblicke in die Schlüsselfunktionen gewinnen, die den Erfolg von EFG unterstützen und antreiben. Du wirst die Möglichkeit haben, eng mit unserem Personalteam zusammenzuarbeiten, an der Talentakquisition, der Mitarbeiterentwicklung und der Leistungsbeurteilung teilzunehmen und an Projekten mitzuarbeiten, die die Strategie der Menschen von EFG definieren. Diese Erfahrung wird dir einen umfassenden Einblick in die Rolle des Personalwesens bei der Bereitstellung eines herausragenden Dienstleistungsangebots und der Führung in der Privatbankwirtschaft geben. Wie funktioniert das EFG-Graduiertenprogramm? Ab September 2026 und über einen Zeitraum von 18 Monaten bietet das EFG-Graduiertenprogramm eine herausfordernde und spannende Gelegenheit für jüngere Absolventen. An individuellen Fähigkeiten, Interessen und Kompetenzen angepasst, bietet das Programm eine ideale Gelegenheit, um eine breite Palette an Erfahrungen in einem internationalen und wachsenden Privatbankengruppen zu sammeln:\n- Du beginnst mit einer 2-wöchigen Einarbeitung in der Schweiz, um die Mission, Vision und Kultur von EFG kennenzulernen und deine berufliche Netzwerke aufzubauen.\n- Während der Einarbeitung hast du die Möglichkeit, spezifische Schulungen zu besuchen, um Schlüsselkompetenzen und Kommunikationsfähigkeiten zu verbessern.\n- Kontinuierliche Lernmöglichkeiten, um sicherzustellen, dass du sowohl persönlich als auch beruflich voll entwickelt bist, um dein volles Potenzial zu erreichen.\n- Buddy und Mentor, die dich während des Programms begleiten.\n- Tatsächlich global, haben wir Positionen in Miami, London, Luxemburg, Genf, Zürich, Lugano, Singapur und Hongkong. Könntest du einer unserer zukünftigen Absolventen sein? Wir schätzen Vielfalt und fordern keine spezifischen akademischen Abschlüsse oder Branchenerfahrungen, sondern suchen eine Vielfalt an Hintergründen, Erfahrungen und Fähigkeiten. Unsere Absolventen sind brillante und begeisterte Talente, also erwarten wir:\n- Bachelor- oder Master-Abschluss (abgeschlossen 2025 oder in der Pipeline) mit hervorragenden akademischen Leistungen in einem Bereich, der mit dem ausgewählten Berufsweg zusammenhängt.\n- Ausgezeichnete Englischkenntnisse (jede andere Sprache ist ein Vorteil)\n- Internationale Denkweise\n- Starke analytische, Problemlösungs- und Organisationsfähigkeiten\n- Proaktives Denken und in der Lage, neue Arten der Arbeit zu vorschlagen, um Effizienz und Wettbewerbsfähigkeit zu verbessern\n- Selbstdiszipliniert, engagiert und mit starkem Sorgfaltspflichtgefühl\n- Anpassungsfähigkeit und in der Lage, in einem Teamumfeld mit Menschen aus verschiedenen Hintergründen zusammenzuarbeiten\n- Kundeorientiert\n- Proaktiver Selbststarter mit intellektueller Neugier. Was wirst du erhalten?\n- Dynamische Arbeitserfahrung durch Rotation durch verschiedene Teams und Geschäftseinheiten\n- Erfahrung eines erweiterten internationalen Netzwerks\n- Gelegenheit, Expertise in deinem ausgewählten Bereich zu entwickeln und zum EFG-Kulturbezug beizutragen\n- Kontinuierliche Entwicklung und Lernmöglichkeiten auf technischen und weichen Fähigkeiten. Der Auswahlprozess für diese Position beginnt im April 2026 und umfasst mehrere Interviews.",
+        "fr": "Nous recherchons un jeune talent pour rejoindre notre Programme de recrutement EFG – Fonctions d'entreprise en voie de Lugano, avec un focus sur les Ressources humaines. Dans ce rôle, vous acquérez une expérience pratique et une compréhension précieuse des domaines clés qui soutiennent et impulsent le succès d'EFG. Vous aurez l'opportunité de travailler en étroite collaboration avec notre équipe RH, de participer à l'acquisition de talents, au développement des employés et à la gestion des performances, et de contribuer à des projets qui définissent la stratégie des personnes d'EFG. Cette expérience vous fournira une compréhension complète de la manière dont les Ressources humaines permettent à EFG de fournir un service exceptionnel et de maintenir sa leadership dans la banque privée. Comment fonctionne le Programme de recrutement EFG ? À partir de septembre 2026 et sur une période de 18 mois, le Programme de recrutement EFG offre une opportunité stimulante et passionnante pour les jeunes diplômés. Adapté aux compétences, aux intérêts et aux compétences individuels, le programme offre une opportunité idéale pour acquérir une expérience large et variée dans un groupe de banque privée internationale et en croissance rapide :\n- Vous commencez par une formation de 2 semaines en Suisse pour découvrir la mission, la vision et la culture d'EFG et pour commencer à construire votre réseau professionnel.\n- Pendant la formation, vous avez la possibilité de suivre des formations spécifiques pour améliorer vos compétences clés et vos compétences de communication.\n- Opportunités de formation continue pour vous assurer de développer à la fois personnellement et professionnellement pour atteindre votre plein potentiel.\n- Buddy et Mentor pour vous accompagner tout au long du programme.\n- Vraiment global, nous avons des postes à Miami, Londres, Luxembourg, Genève, Zurich, Lugano, Singapour et Hong Kong. Pourriez-vous être l'un de nos futurs diplômés ? Nous valorisons la diversité et ne demandons pas de spécialisations académiques ou d'expérience professionnelle spécifiques, mais nous recherchons une diversité de profils, d'expériences et de compétences. Nos diplômés sont des talents brillants et enthousiastes, donc nous attendons :\n- Diplôme de licence ou de master (obtenu en 2025 ou en cours de validation) avec des résultats académiques exceptionnels dans un domaine lié au chemin professionnel sélectionné.\n- Excellentes compétences en anglais (toute autre langue est un atout)\n- Mentalité internationale\n- Compétences analytiques, de résolution de problèmes et organisationnelles solides\n- Pensée proactive et capable de suggérer de nouvelles façons de travailler pour améliorer l'efficacité et la compétitivité\n- Auto-discipliné, engagé et avec un fort sens du devoir\n- Adaptable et capable de travailler dans un environnement de travail collaboratif avec des personnes de divers horizons\n- Orienté client\n- Proactif et autonome avec une curiosité intellectuelle. Qu'est-ce que vous obtiendrez ?\n- Expérience de travail dynamique en faisant la rotation dans différentes équipes et unités de business\n- Expérience d'un réseau international enrichissant\n- Opportunité de développer des compétences dans votre domaine choisi et de contribuer à la culture d'EFG\n- Opportunités de développement et d'apprentissage continu sur les compétences techniques et les compétences douces. Le processus de recrutement pour cette position commencera en avril 2026 et comportera plusieurs entretiens."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span>We are looking for a young talent to join our <strong>EFG Graduate Programme – Corporate Functions path in Lugano</strong>, with a focus on <strong>Human Resources</strong>. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>In this role, you will gain hands-on experience and valuable insight into the key areas that support and drive the success of EFG. </span></p><p style=\"line-height:normal;margin-bottom:0cm;\"><span>You will have the opportunity to work closely with our HR team, participate in talent acquisition, employee development, and performance management initiatives, and contribute to projects that shape EFG’s people strategy. This experience will provide you with a comprehensive understanding of how Human Resources enables EFG to deliver outstanding service and maintain its leadership in private banking.</span></p><p style=\"line-height:normal;margin-bottom:0cm;\"> </p><p><span><strong><u>How the EFG Graduate Programme works?</u></strong></span></p><p><span>Starting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Buddy and Mentor to accompany you throughout the programme.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.</span></li></ul><p style=\"margin-left:36.0pt;\"> </p><p><span><strong><u>Could you be one of our future graduates?</u></strong></span></p><p><span>We value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.</span></p><p><span>Our graduates are brilliant and enthusiastic talents, so we expect:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Excellent English (any other language will be an advantage)</span></li><li style=\"tab-stops:list 36.0pt;\"><span>International mindset</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong analytical, problem solving and organisational skills </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Self-disciplined, committed and with strong work ethics</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Adaptable and able to work collaboratively in a team environment with people from different backgrounds</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Client-oriented</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactive self-starter with intellectual curiosity</span></li></ul><p><span><strong><u>What will you get?</u></strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Dynamic work experience by rotating through different teams and business units</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience an enriching international network</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Opportunity to build expertise in your chosen field and contribute to the EFG Culture </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous development and learning opportunities on both technical and soft skills </span></li></ul><p> </p><p><span>The recruitment process for this position will begin in April 2026 and will include several interviews.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-13T10:56:52.325Z",
+      "slugByLocale": {
+        "it": "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano",
+        "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
+        "de": "efg-graduate-programme-2026-corporate-functions-personalwesen-lugano-efg-international-ag-lugano-n932dq",
+        "fr": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano"
+      },
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "sourceLang": "en",
+      "previousSlugs": [
+        "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+        "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+        "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
+        "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+      ],
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 82500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-03-27",
+      "previousSlugsByLocale": {
+        "it": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+        ],
+        "en": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+        ],
+        "de": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+        ],
+        "fr": [
+          "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-lugano",
+          "efg-graduate-programme-2026-corporate-functions-ressources-humaines-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano-n932dq",
+          "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6237",
