@@ -590,6 +590,14 @@ const _exhaustedModels = new Set();
 const _consecutive429 = new Map();
 const MAX_CONSECUTIVE_429 = 2;
 
+// Track consecutive content-quality failures (HTTP 200 but malformed/incomplete
+// JSON from the model). callLLM itself only sees HTTP success, so without this
+// counter a weak model can keep winning the fallback chain while every output
+// gets rejected downstream by JSON.parse / schema validation.
+/** @type {Map<string, number>} model → consecutive content-quality failure count */
+const _consecutiveContentFailures = new Map();
+const MAX_CONSECUTIVE_CONTENT_FAILURES = 2;
+
 // Provider-level cooldown: when a provider returns 429, all its models
 // get a temporary cooldown to avoid wasting retries on sibling models.
 // Maps provider name → cooldown-until timestamp (ms).
@@ -1019,7 +1027,28 @@ export function recordModelSuccess(modelId) {
   d.successes++;
   _modelDetails.set(modelId, d);
   _dirtyModels.add(modelId);
+  _consecutiveContentFailures.delete(modelId);
   _schedulePersist();
+}
+
+/**
+ * Penalize a model whose API call succeeded (HTTP 200) but whose payload was
+ * rejected by downstream validation (JSON parse error, schema mismatch, missing
+ * required fields). Applies the standard retryable-failure score penalty and,
+ * after `MAX_CONSECUTIVE_CONTENT_FAILURES` consecutive content failures for the
+ * same model, marks it exhausted for the rest of this process so subsequent
+ * callLLM invocations skip it and try the next-best model in the chain.
+ */
+export function recordModelContentFailure(modelId) {
+  if (!modelId) return;
+  recordModelFailure(modelId);
+  const count = (_consecutiveContentFailures.get(modelId) || 0) + 1;
+  _consecutiveContentFailures.set(modelId, count);
+  if (count >= MAX_CONSECUTIVE_CONTENT_FAILURES) {
+    markModelExhausted(modelId);
+    _stats.exhausted++;
+    console.warn(`🚫 [${modelId}] Exhausted after ${count} consecutive content-quality failures`);
+  }
 }
 
 /** Record a model failure — lowers its rank and persists to Firestore */
@@ -1902,6 +1931,12 @@ export async function callLLM(messages, opts = {}) {
 
       if (i > 0) {
         console.warn(`✅ Fallback to ${model} succeeded (score → ${_modelScores.get(model) || 0})`);
+      }
+      // Surface the model used to the caller (out-param) so downstream
+      // validation can penalize this specific model if the payload turns
+      // out to be malformed despite the HTTP 200 response.
+      if (o.modelUsedRef && typeof o.modelUsedRef === 'object') {
+        o.modelUsedRef.model = model;
       }
       return result;
     } catch (e) {

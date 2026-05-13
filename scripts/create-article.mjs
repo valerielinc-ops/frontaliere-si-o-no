@@ -64,7 +64,7 @@ import { readFileSync, writeFileSync, mkdirSync, statSync, readdirSync, copyFile
 import { execSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 import path from 'node:path';
-import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores } from './lib/ai-models.mjs';
+import { callLLM as _aiCallLLM, AI_MODELS, getStats as getAiStats, initScoreStore, flushScores, recordModelContentFailure } from './lib/ai-models.mjs';
 import { AI_SEARCH_PROMPT_BLOCK_IT } from './lib/ai-search-template.mjs';
 import { tokenizeIt, jaccardSim, containmentSim, normalizeItWord } from './lib/it-text-similarity.mjs';
 import { DOMAIN_DUP_STOPLIST, filterDistinctive } from './lib/dup-stoplist.mjs';
@@ -1787,7 +1787,8 @@ async function callLLM(messages, opts = {}) {
   const maxBody2Retries = 5;
   const isBody2Check = opts.jsonMode && messages.some(m => m.content?.includes('body2'));
   for (let attempt = 1; attempt <= maxBody2Retries; attempt++) {
-    const result = await _aiCallLLM(messages, { temperature: 0.7, maxTokens: 4000, timeout: 120_000, ...opts });
+    const modelUsedRef = { model: null };
+    const result = await _aiCallLLM(messages, { temperature: 0.7, maxTokens: 4000, timeout: 120_000, ...opts, modelUsedRef });
     if (isBody2Check) {
       let itContent = null;
       try {
@@ -1811,6 +1812,10 @@ async function callLLM(messages, opts = {}) {
 
       if (missing.length > 0) {
         console.error(`  ⚠️  output JSON incompleto: ${missing.join(', ')} (tentativo ${attempt}/${maxBody2Retries}) — rigenero...`);
+        // Penalize the model that produced the unusable payload so the next
+        // attempt picks a different one (and the chain self-heals after
+        // MAX_CONSECUTIVE_CONTENT_FAILURES → model exhausted for this run).
+        recordModelContentFailure(modelUsedRef.model);
         if (attempt < maxBody2Retries) continue;
       }
     }
