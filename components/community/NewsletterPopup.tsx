@@ -1,5 +1,5 @@
 /**
- * NewsletterPopup — Modal with smart timing (30s on site + 50% scroll)
+ * NewsletterPopup — Modal with smart timing (20s on site + 30% scroll)
  * 
  * Shows a compact newsletter signup modal. Dismissed state is
  * remembered for 7 days. Does not show if already subscribed.
@@ -29,7 +29,7 @@ const POPUP_DISMISSED_KEY = 'newsletter_popup_dismissed';
 const SUBSCRIBED_KEY = 'newsletter_subscribed';
 const DISMISS_DAYS = 7;
 const MIN_TIME_MS = 20_000; // 20 seconds minimum on site
-const SCROLL_THRESHOLD = 0.5; // 50% scroll depth
+const SCROLL_THRESHOLD = 0.3; // 30% scroll depth — long blog articles were firing the popup near the end at 0.5
 const PAGE_VIEW_THRESHOLD = 3; // show after 3+ page views in session
 const PAGE_VIEW_KEY = 'newsletter_pageviews';
 const NEWSLETTER_ONETAP_KEY = 'onetap_prompted_newsletter_popup';
