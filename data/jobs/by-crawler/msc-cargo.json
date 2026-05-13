@@ -280,9 +280,9 @@
     },
     {
       "id": "msc-cargo-82745a9429a3",
-      "slug": "destinations-experience-manager-msc-geneva",
+      "slug": "responsabile-dell-esperienza-delle-destinazioni-msc-group-geneva",
       "slugByLocale": {
-        "it": "destinations-experience-manager-msc-geneva",
+        "it": "responsabile-dell-esperienza-delle-destinazioni-msc-group-geneva",
         "en": "destinations-experience-manager-msc-geneva",
         "de": "destinations-experience-manager-msc-geneva",
         "fr": "destinations-experience-manager-msc-geneva"
@@ -341,8 +341,14 @@
         }
       },
       "previousSlugs": [
+        "destinations-experience-manager-msc-geneva",
         "destination-experience-manager-msc-group-geneva"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "destinations-experience-manager-msc-geneva"
+        ]
+      }
     },
     {
       "id": "msc-cargo-57f045d85699",

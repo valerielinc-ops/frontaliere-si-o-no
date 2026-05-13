@@ -1062,8 +1062,8 @@
       "slugByLocale": {
         "it": "sxs-career-coordinatore-usi-lugano",
         "en": "sxs-career-coordinator-usi-universita-della-svizzera-italiana-lugano",
-        "de": "sxs-career-koordinator-usi-lugano",
-        "fr": "coordonnateur-de-carriere-gxs-usi-lugano"
+        "de": "sxs-karrierekoordinator-in-usi-universita-della-svizzera-italiana-lugano",
+        "fr": "coordinateur-trice-carriere-sxs-usi-universita-della-svizzera-italiana-lugano"
       },
       "department": "Servizio carriere e alumni",
       "category": "staff",
@@ -1081,10 +1081,18 @@
       "previousSlugsByLocale": {
         "en": [
           "s-car-usi-lugano"
+        ],
+        "de": [
+          "sxs-career-koordinator-usi-lugano"
+        ],
+        "fr": [
+          "coordonnateur-de-carriere-gxs-usi-lugano"
         ]
       },
       "previousSlugs": [
-        "s-car-usi-lugano"
+        "s-car-usi-lugano",
+        "sxs-career-koordinator-usi-lugano",
+        "coordonnateur-de-carriere-gxs-usi-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

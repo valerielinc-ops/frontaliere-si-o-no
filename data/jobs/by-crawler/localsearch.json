@@ -2960,10 +2960,10 @@
     },
     {
       "id": "localsearch-a886e469c0e6",
-      "slug": "vertriebsprofi-aussendienst-localsearch-ch-2",
+      "slug": "servizio-esterno-professionale-di-vendita-localsearch-aargau-schweiz",
       "slugByLocale": {
         "de": "vertriebsprofi-aussendienst-localsearch-aargau-schweiz",
-        "it": "vertriebsprofi-aussendienst-localsearch-ch-2",
+        "it": "servizio-esterno-professionale-di-vendita-localsearch-aargau-schweiz",
         "en": "vertriebsprofi-aussendienst-localsearch-ch-2",
         "fr": "vertriebsprofi-aussendienst-localsearch-ch-2"
       },
@@ -3010,10 +3010,14 @@
       "previousSlugsByLocale": {
         "de": [
           "vertriebsprofi-aussendienst-localsearch-ch"
+        ],
+        "it": [
+          "vertriebsprofi-aussendienst-localsearch-ch-2"
         ]
       },
       "previousSlugs": [
-        "vertriebsprofi-aussendienst-localsearch-ch"
+        "vertriebsprofi-aussendienst-localsearch-ch",
+        "vertriebsprofi-aussendienst-localsearch-ch-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3032,10 +3036,10 @@
     },
     {
       "id": "localsearch-264852de8162",
-      "slug": "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz",
+      "slug": "consulente-di-vendita-in-servizio-esterno-localsearch-aargau-schweiz",
       "slugByLocale": {
         "de": "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz",
-        "it": "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz",
+        "it": "consulente-di-vendita-in-servizio-esterno-localsearch-aargau-schweiz",
         "en": "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz",
         "fr": "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz"
       },
@@ -3081,14 +3085,16 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-aussendienst-localsearch-ch"
+          "verkaufsberater-in-aussendienst-localsearch-ch",
+          "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz"
         ],
         "de": [
           "verkaufsberater-in-aussendienst-localsearch-ch"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-aussendienst-localsearch-ch"
+        "verkaufsberater-in-aussendienst-localsearch-ch",
+        "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

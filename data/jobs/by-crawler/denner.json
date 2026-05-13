@@ -389,9 +389,9 @@
     },
     {
       "id": "denner-bff7c6128d41",
-      "slug": "stv-filialleiter-in-denner-neuhausen",
+      "slug": "vice-direttoredifiliale-denner-neuhausen",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner-neuhausen",
+        "it": "vice-direttoredifiliale-denner-neuhausen",
         "en": "stv-filialleiter-in-denner-neuhausen",
         "de": "stv-filialleiter-in-denner-neuhausen",
         "fr": "stv-filialleiter-in-denner-neuhausen"
@@ -452,11 +452,13 @@
       "crawledAt": "2026-05-12T21:58:23.408Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-neuhausen",
         "stv-filialleiter-in-denner-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-neuhausen"
         ],
         "en": [
           "stv-filialleiter-in-denner"
@@ -486,9 +488,9 @@
     },
     {
       "id": "denner-ccd3c638a31a",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-direzione-della-filiale-denner-langwiesen",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
+        "it": "assistente-nella-direzione-della-filiale-denner-langwiesen",
         "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
         "de": "assistent-in-filialleitung-denner-langwiesen",
         "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
@@ -549,11 +551,15 @@
       "sourceLang": "de",
       "crawledAt": "2026-05-12T21:58:23.024Z",
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner"
       ],
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
+        ],
+        "it": [
+          "assistent-in-filialleitung-denner"
         ]
       },
       "needsRetranslation": true,

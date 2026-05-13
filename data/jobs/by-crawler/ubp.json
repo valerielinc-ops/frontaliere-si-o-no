@@ -3786,10 +3786,10 @@
     },
     {
       "id": "ubp-57ed9c252002",
-      "slug": "senior-compliance-officer-special-investigations-unit-ubp-ch",
+      "slug": "senior-compliance-officer-unita-indagini-speciali-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "senior-compliance-officer-special-investigations-unit-ubp-ch",
-        "it": "senior-compliance-officer-special-investigations-unit-ubp-ch",
+        "it": "senior-compliance-officer-unita-indagini-speciali-union-bancaire-privee-geneva-switzerland",
         "de": "senior-compliance-officer-special-investigations-unit-ubp-ch",
         "fr": "senior-compliance-officer-special-investigations-unit-union-bancaire-privee-geneva-switzerland"
       },
@@ -3847,7 +3847,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-12T23:10:10.702Z"
+      "firstSeenAt": "2026-05-12T23:10:10.702Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-compliance-officer-special-investigations-unit-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-compliance-officer-special-investigations-unit-ubp-ch"
+      ]
     }
   ]
 }

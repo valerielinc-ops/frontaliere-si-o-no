@@ -1974,9 +1974,9 @@
     },
     {
       "id": "spital-thurgau-284923941835",
-      "slug": "dipl-pflegefachmann-frau-hf-fh-medizin-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "slug": "infermiere-a-dipl-sss-sup-medicina-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "dipl-pflegefachmann-frau-hf-fh-medizin-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "it": "infermiere-a-dipl-sss-sup-medicina-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "en": "dipl-pflegefachmann-frau-hf-fh-medizin-stgag-ch",
         "de": "dipl-pflegefachmann-frau-hf-fh-medizin-stgag-ch",
         "fr": "dipl-pflegefachmann-frau-hf-fh-medizin-stgag-ch"
@@ -2024,12 +2024,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachmann-frau-hf-fh-medizin-stgag-ch",
-        "infermiere-a-dipl-sss-sup-medicina-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "dipl-pflegefachmann-frau-hf-fh-medizin-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-hf-fh-medizin-stgag-ch",
-          "infermiere-a-dipl-sss-sup-medicina-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "dipl-pflegefachmann-frau-hf-fh-medizin-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ]
       },
       "needsRetranslation": true,
@@ -7059,9 +7059,9 @@
     },
     {
       "id": "spital-thurgau-c89ee870610f",
-      "slug": "dipl-pflegefachmann-frau-medizin-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "slug": "infermiere-a-laureato-a-in-medicina-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
-        "it": "dipl-pflegefachmann-frau-medizin-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "it": "infermiere-a-laureato-a-in-medicina-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "en": "dipl-pflegefachmann-frau-medizin-stgag-ch",
         "de": "dipl-pflegefachmann-frau-medizin-stgag-ch",
         "fr": "dipl-pflegefachmann-frau-medizin-stgag-ch"
@@ -7109,12 +7109,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachmann-frau-medizin-stgag-ch",
-        "infermiere-a-laureato-a-in-medicina-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "dipl-pflegefachmann-frau-medizin-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-medizin-stgag-ch",
-          "infermiere-a-laureato-a-in-medicina-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "dipl-pflegefachmann-frau-medizin-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ]
       },
       "needsRetranslation": true,
@@ -11618,9 +11618,9 @@
     },
     {
       "id": "spital-thurgau-e7b2155748ea",
-      "slug": "arztsekretar-in-medizinische-diagnostik-80-stgag-ch",
+      "slug": "segretario-a-medico-a-diagnostica-medica-80-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "arztsekretar-in-medizinische-diagnostik-80-stgag-ch",
+        "it": "segretario-a-medico-a-diagnostica-medica-80-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "en": "arztsekretar-in-medizinische-diagnostik-80-stgag-ch",
         "de": "arztsekretar-in-medizinische-diagnostik-80-stgag-ch",
         "fr": "arztsekretar-in-medizinische-diagnostik-80-stgag-ch"
@@ -11680,7 +11680,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-medizinische-diagnostik-80-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-medizinische-diagnostik-80-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-51b96b980c48",

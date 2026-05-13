@@ -850,9 +850,9 @@
     },
     {
       "id": "ubs-3b53e19dc7fe",
-      "slug": "branch-office-administrator-ubs",
+      "slug": "amministratore-di-filiale-ubs",
       "slugByLocale": {
-        "it": "branch-office-administrator-ubs",
+        "it": "amministratore-di-filiale-ubs",
         "en": "branch-office-administrator-ubs",
         "de": "branch-office-administrator-ubs",
         "fr": "branch-office-administrator-ubs"
@@ -905,12 +905,12 @@
       },
       "previousSlugs": [
         "amministratore-di-ufficio-di-filiale-ubs",
-        "amministratore-di-filiale-ubs"
+        "branch-office-administrator-ubs"
       ],
       "previousSlugsByLocale": {
         "it": [
           "amministratore-di-ufficio-di-filiale-ubs",
-          "amministratore-di-filiale-ubs"
+          "branch-office-administrator-ubs"
         ]
       },
       "needsRetranslation": true,
@@ -1530,9 +1530,9 @@
     },
     {
       "id": "ubs-5ff1005d6ad4",
-      "slug": "fixed-income-structurer-ubs",
+      "slug": "strutturatore-di-reddito-fisso-ubs",
       "slugByLocale": {
-        "it": "fixed-income-structurer-ubs",
+        "it": "strutturatore-di-reddito-fisso-ubs",
         "en": "fixed-income-structurer-ubs",
         "de": "fixed-income-structurer-ubs",
         "fr": "fixed-income-structurer-ubs"
@@ -1585,12 +1585,12 @@
       },
       "previousSlugs": [
         "struttura-a-reddito-fisso-ubs",
-        "strutturatore-di-reddito-fisso-ubs"
+        "fixed-income-structurer-ubs"
       ],
       "previousSlugsByLocale": {
         "it": [
           "struttura-a-reddito-fisso-ubs",
-          "strutturatore-di-reddito-fisso-ubs"
+          "fixed-income-structurer-ubs"
         ]
       },
       "needsRetranslation": true,
@@ -3598,10 +3598,10 @@
     },
     {
       "id": "ubs-4427a497eb14",
-      "slug": "market-executive-ubs",
+      "slug": "esecutivo-del-mercato-ubs",
       "slugByLocale": {
         "en": "market-executive-ubs",
-        "it": "market-executive-ubs",
+        "it": "esecutivo-del-mercato-ubs",
         "de": "market-executive-ubs",
         "fr": "market-executive-ubs"
       },
@@ -3666,7 +3666,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-12T23:10:46.001Z"
+      "firstSeenAt": "2026-05-12T23:10:46.001Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "market-executive-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "market-executive-ubs"
+      ]
     },
     {
       "id": "ubs-56f5bf8440e2",
@@ -3740,10 +3748,10 @@
     },
     {
       "id": "ubs-1fe07b01cf03",
-      "slug": "emerging-technology-lawyer-ubs",
+      "slug": "avvocato-di-tecnologia-emergente-ubs",
       "slugByLocale": {
         "en": "emerging-technology-lawyer-ubs",
-        "it": "emerging-technology-lawyer-ubs",
+        "it": "avvocato-di-tecnologia-emergente-ubs",
         "de": "emerging-technology-lawyer-ubs",
         "fr": "emerging-technology-lawyer-ubs"
       },
@@ -3808,7 +3816,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-12T23:10:45.999Z"
+      "firstSeenAt": "2026-05-12T23:10:45.999Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "emerging-technology-lawyer-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "emerging-technology-lawyer-ubs"
+      ]
     }
   ]
 }

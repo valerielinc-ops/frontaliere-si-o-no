@@ -702,9 +702,9 @@
     },
     {
       "id": "gkb-44afd6ccdcc4",
-      "slug": "assistent-in-kmu-st-moritz-80-100-gkb-ch",
+      "slug": "assistente-in-pmi-st-moritz-80-100-graubundner-kantonalbank-st-moritz",
       "slugByLocale": {
-        "it": "assistent-in-kmu-st-moritz-80-100-gkb-ch",
+        "it": "assistente-in-pmi-st-moritz-80-100-graubundner-kantonalbank-st-moritz",
         "en": "assistent-in-kmu-st-moritz-80-100-gkb-ch",
         "de": "assistent-in-kmu-st-moritz-80-100-graubundner-kantonalbank-st-moritz",
         "fr": "assistent-in-kmu-st-moritz-80-100-gkb-ch"
@@ -764,7 +764,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-kmu-st-moritz-80-100-gkb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-kmu-st-moritz-80-100-gkb-ch"
+      ]
     }
   ]
 }
