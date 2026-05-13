@@ -1287,6 +1287,138 @@ function capBlogDescription(rawDesc, maxLen = BLOG_DESCRIPTION_MAX) {
 
 const REQUIRED_IT_BODY_FIELDS = ['title', 'excerpt', 'body1', 'body2', 'body3'];
 
+/**
+ * JSON-Schema for the primary-locale article generation call.
+ *
+ * Forwarded to the LLM via `opts.jsonSchema` so providers with strict schema
+ * mode (OpenAI/GitHub Models, Groq, Mistral, Gemini) refuse to emit a payload
+ * missing `body2`/`body3`. Without this we were burning 5 retries + multiple
+ * fallback models per article whenever a weak model omitted body2/body3.
+ *
+ * The schema only enforces presence + minLength on the high-value fields the
+ * downstream validator (`validateItalianPayload` + `REQUIRED_IT_BODY_FIELDS`)
+ * already rejects on. We do NOT noindex / soften the validator — this just
+ * fixes the input so the validator passes on attempt 1.
+ *
+ * `additionalProperties: false` is required by OpenAI strict mode at every
+ * object level. Gemini drops the keyword via `sanitizeSchemaForGemini` so the
+ * same shape works on both providers.
+ */
+function buildArticleJsonSchema(primaryLocale = 'it') {
+  // OpenAI strict-mode contract:
+  //   - Root must be `type: object`
+  //   - Every object MUST set `additionalProperties: false`
+  //   - Every key in `properties` MUST appear in `required`
+  //   - Optional fields are modelled as required-but-nullable union types
+  //
+  // We need to support TWO valid model outputs:
+  //   1. Full article payload (id, category, image, content, seo, …)
+  //   2. Abort-gate payload `{ abort_topical_relevance: true, reason: "…" }`
+  //      (REGOLA #0 short-circuit when the source has no frontaliere angle)
+  //
+  // Solution: make every property required but nullable. The model either
+  //   - sets abort_topical_relevance=true and leaves the content fields null, OR
+  //   - fills the content fields and leaves abort_topical_relevance=null.
+  // The runtime abort gate (line ~3046) short-circuits before
+  // validateItalianPayload runs, so the null-content branch is consumed there.
+  // For the full-content branch, every body field (body1/body2/body3) MUST be a
+  // non-null string — which is exactly what stops the body2/body3 omission bug.
+  //
+  // Gemini's responseSchema doesn't accept additionalProperties or nullable
+  // unions; sanitizeSchemaForGemini drops those and Gemini gets a permissive
+  // shape. The schema is additive — the existing retry loop in callLLM still
+  // covers providers without strict-schema support.
+  const nullableString = { type: ['string', 'null'] };
+  const nullableBoolean = { type: ['boolean', 'null'] };
+
+  const contentBlock = {
+    type: ['object', 'null'],
+    additionalProperties: false,
+    required: ['title', 'excerpt', 'body1', 'body2', 'body3', 'faq'],
+    properties: {
+      // No minLength — downstream `validateItalianPayload` enforces real-size
+      // checks. The schema's job is only to guarantee presence (so the model
+      // can't omit body2/body3 entirely, which is the failure mode this fix
+      // targets).
+      title: { type: 'string' },
+      excerpt: { type: 'string' },
+      body1: { type: 'string' },
+      body2: { type: 'string' },
+      body3: { type: 'string' },
+      faq: {
+        type: 'array',
+        items: {
+          type: 'object',
+          additionalProperties: false,
+          required: ['q', 'a'],
+          properties: {
+            q: { type: 'string' },
+            a: { type: 'string' },
+          },
+        },
+      },
+    },
+  };
+
+  const localeStringRecord = {
+    type: ['object', 'null'],
+    additionalProperties: false,
+    required: ['it', 'en', 'de', 'fr'],
+    properties: {
+      it: { type: 'string' },
+      en: { type: 'string' },
+      de: { type: 'string' },
+      fr: { type: 'string' },
+    },
+  };
+
+  return {
+    name: 'article_primary_locale',
+    schema: {
+      type: 'object',
+      additionalProperties: false,
+      required: [
+        'id', 'category', 'image', 'hasCalculator', 'imagePrompt',
+        'imageAlt', 'slugs', 'content', 'seo',
+        'abort_topical_relevance', 'reason',
+      ],
+      properties: {
+        id: nullableString,
+        category: nullableString,
+        image: nullableString,
+        hasCalculator: nullableBoolean,
+        imagePrompt: nullableString,
+        imageAlt: localeStringRecord,
+        slugs: localeStringRecord,
+        content: {
+          type: ['object', 'null'],
+          additionalProperties: false,
+          required: [primaryLocale],
+          properties: {
+            [primaryLocale]: contentBlock,
+          },
+        },
+        seo: {
+          type: ['object', 'null'],
+          additionalProperties: false,
+          required: ['title', 'description', 'keywords', 'ogTitle', 'ogDescription', 'headline', 'breadcrumbName'],
+          properties: {
+            title: { type: 'string' },
+            description: { type: 'string' },
+            keywords: { type: 'string' },
+            ogTitle: { type: 'string' },
+            ogDescription: { type: 'string' },
+            headline: { type: 'string' },
+            breadcrumbName: { type: 'string' },
+          },
+        },
+        abort_topical_relevance: nullableBoolean,
+        reason: nullableString,
+      },
+    },
+  };
+}
+
 function normalizeItalianContentFromPayload(payload, locale = 'it') {
   const content = payload?.content;
   const candidates = [];
@@ -2897,12 +3029,16 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     { role: 'user', content: prompt + minWordsInstruction + headlineRefinementInstruction + `\n\n⚠️ ISTRUZIONE SPECIALE PER QUESTA CHIAMATA:\nGenera SOLO il JSON con questi campi: id, category, image, hasCalculator, imagePrompt, imageAlt (4 lingue), slugs (4 lingue), content.${primaryLocale} (title, excerpt, body1, body2, body3, faq), seo.\n${otherLocalesNote}` }
   ];
 
+  // Pass a strict JSON schema so providers that support it (OpenAI/GitHub
+  // Models, Groq, Mistral, Gemini) server-enforce body1/body2/body3 presence
+  // and we don't burn 5 retries when a weak model silently drops body2/body3.
+  const articleSchema = buildArticleJsonSchema(primaryLocale);
   let itRaw;
   if (useGeminiDirect) {
-    itRaw = await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, temperature, maxTokens: 8000, jsonMode: true });
+    itRaw = await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, temperature, maxTokens: 8000, jsonMode: true, jsonSchema: articleSchema });
     console.error(`  ↪ Completato con Gemini ${AI_MODELS.GEMINI_FLASH}`);
   } else {
-    itRaw = await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, temperature, maxTokens: 8000, jsonMode: true });
+    itRaw = await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, temperature, maxTokens: 8000, jsonMode: true, jsonSchema: articleSchema });
   }
   let itData;
   try {

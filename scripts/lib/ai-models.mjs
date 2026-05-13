@@ -575,12 +575,58 @@ const DEFAULT_OPTS = {
   temperature: 0.2,
   maxTokens: 4096,
   jsonMode: false,
+  /**
+   * Optional JSON-Schema to enforce on the model output. When provided AND the
+   * underlying provider supports schema-mode, the schema is forwarded to the
+   * API (OpenAI: `response_format.json_schema` strict; Gemini:
+   * `generationConfig.responseSchema`) so required fields can no longer be
+   * silently omitted. Providers without schema-mode support gracefully fall
+   * back to plain `jsonMode` (json_object) — the per-call retry loop in
+   * create-article.mjs continues to act as a safety net for those.
+   *
+   * Shape: `{ name: string, schema: object }` where `schema` is a standard
+   * JSON-Schema fragment (subset compatible with OpenAI strict mode: object
+   * `type`/`properties`/`required`/`additionalProperties:false`).
+   */
+  jsonSchema: undefined,
   timeout: 30_000,
   maxRetriesPerModel: 2,   // FRO-325: reduced from 5 — failing models drain quota fast
   backoffMs: 2500,
   /** Override the default fallback chain */
   chain: undefined,
 };
+
+/**
+ * Providers known to honor OpenAI's `response_format: { type: 'json_schema' }`
+ * strict-mode contract. For the rest we fall back to `json_object`, which still
+ * forces JSON-only output but cannot enforce field presence — the caller's
+ * retry loop covers those.
+ *
+ * GitHub Models proxies OpenAI's gpt-4o / gpt-4.1 / gpt-5 / o-series, all of
+ * which support strict json_schema. Groq added schema support late 2024.
+ * Mistral La Plateforme supports it via the same OpenAI-compatible shape.
+ */
+const PROVIDERS_WITH_STRICT_JSON_SCHEMA = new Set(['GitHub', 'Groq', 'Mistral']);
+
+/**
+ * Strip JSON-Schema keywords that Gemini's `responseSchema` rejects.
+ * Gemini accepts an OpenAPI-3.0 subset only ($schema/$ref/oneOf/anyOf/allOf,
+ * additionalProperties, patternProperties, const, etc. are NOT supported and
+ * will fail with HTTP 400 INVALID_ARGUMENT).
+ */
+function sanitizeSchemaForGemini(schema) {
+  if (!schema || typeof schema !== 'object') return schema;
+  if (Array.isArray(schema)) return schema.map(sanitizeSchemaForGemini);
+  const out = {};
+  for (const [k, v] of Object.entries(schema)) {
+    if (k === '$schema' || k === '$ref' || k === '$defs' || k === 'definitions') continue;
+    if (k === 'additionalProperties') continue;
+    if (k === 'oneOf' || k === 'anyOf' || k === 'allOf' || k === 'not') continue;
+    if (k === 'const' || k === 'patternProperties') continue;
+    out[k] = (v && typeof v === 'object') ? sanitizeSchemaForGemini(v) : v;
+  }
+  return out;
+}
 
 // ── Run-level state (reset only between process invocations) ─
 const _exhaustedModels = new Set();
@@ -1375,12 +1421,31 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
   // o-series and gpt-5 reasoning models don't support temperature
   const supportsTemperature = !useCompletionTokens;
 
+  // Prefer strict JSON-Schema mode when the caller provided a schema AND this
+  // provider supports it — this is what stops the model from silently dropping
+  // required fields like `body2`/`body3`. Falls back to `json_object` mode for
+  // providers that don't support strict schema (the per-call retry loop in
+  // create-article.mjs continues to cover that case).
+  let responseFormat;
+  if (opts.jsonSchema && PROVIDERS_WITH_STRICT_JSON_SCHEMA.has(providerName)) {
+    responseFormat = {
+      type: 'json_schema',
+      json_schema: {
+        name: opts.jsonSchema.name || 'response',
+        strict: true,
+        schema: opts.jsonSchema.schema,
+      },
+    };
+  } else if (opts.jsonMode || opts.jsonSchema) {
+    responseFormat = { type: 'json_object' };
+  }
+
   const body = {
     model: apiModel,
     messages,
     ...(supportsTemperature ? { temperature: opts.temperature } : {}),
     ...tokenParam,
-    ...(opts.jsonMode ? { response_format: { type: 'json_object' } } : {}),
+    ...(responseFormat ? { response_format: responseFormat } : {}),
   };
 
   for (let attempt = 1; attempt <= opts.maxRetriesPerModel; attempt++) {
@@ -1684,13 +1749,20 @@ async function _callGeminiRaw(model, messages, opts) {
       parts: [{ text: m.content }],
     }));
 
+  // Gemini's schema-mode is server-enforced: when responseSchema is supplied
+  // the model cannot omit required fields. We sanitize the schema first to
+  // drop JSON-Schema keywords Gemini rejects (additionalProperties, oneOf, etc).
+  const useGeminiSchema = !!opts.jsonSchema;
+  const geminiSchema = useGeminiSchema ? sanitizeSchemaForGemini(opts.jsonSchema.schema) : null;
+
   const body = {
     ...(systemParts.length > 0 ? { systemInstruction: { parts: systemParts } } : {}),
     contents,
     generationConfig: {
       temperature: opts.temperature,
       maxOutputTokens: opts.maxTokens,
-      ...(opts.jsonMode ? { responseMimeType: 'application/json' } : {}),
+      ...((opts.jsonMode || useGeminiSchema) ? { responseMimeType: 'application/json' } : {}),
+      ...(useGeminiSchema ? { responseSchema: geminiSchema } : {}),
     },
   };
 
