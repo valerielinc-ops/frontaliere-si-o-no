@@ -103,10 +103,14 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
     expect(sitemapRegion).not.toMatch(/sectionByLocale\[locale\]/);
   });
 
-  // ── Behavioural: when dist/ is present, every bridge file's directory
-  //    should match its canonical's canton. Non-TI canton bridges must NOT
-  //    live under cerca-lavoro-ticino/. We sample a handful for speed. ──
-  it('non-TI canton bridges live under the canton path, not /cerca-lavoro-ticino/', () => {
+  // ── Behavioural: when dist/ is present, non-TI canton bridges must have
+  //    a canonical pointing to the canton-aware URL (NOT to /cerca-lavoro-
+  //    ticino/). Post-cathedral the bridge intentionally emits TWO files —
+  //    one at /<locale>/<canton-aware-section>/<oldSlug>/ and one at the
+  //    legacy /<locale>/<legacy-TI-section>/<oldSlug>/ — so pre-cathedral
+  //    indexed URLs still serve real content. Both must have the same
+  //    canton-aware canonical so Google consolidates link equity. ──
+  it('non-TI canton bridges (incl. legacy TI emit) canonicalize to the canton-aware URL', () => {
     if (!fs.existsSync(DIST)) return; // offline-skip
     const jobsPath = path.join(REPO_ROOT, 'data', 'jobs.json');
     if (!fs.existsSync(jobsPath)) return;
@@ -139,19 +143,70 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
       ];
       for (const oldSlug of prev) {
         const tiBridge = path.join(DIST, 'cerca-lavoro-ticino', oldSlug, 'index.html');
-        if (fs.existsSync(tiBridge)) {
-          // Verify it's actually the bridge for THIS non-TI job. The bridge file
-          // has the job's canonical slug in __BRIDGE_TARGET_SLUG__.
-          const html = fs.readFileSync(tiBridge, 'utf8');
-          const canonicalSlug = job.slugByLocale?.it || job.slug;
-          if (canonicalSlug && html.includes(canonicalSlug)) {
-            mismatches.push(
-              `non-TI job ${canonicalSlug} (canton=${job.canton}) bridge at TI path: cerca-lavoro-ticino/${oldSlug}/`,
-            );
-          }
+        if (!fs.existsSync(tiBridge)) continue;
+        const html = fs.readFileSync(tiBridge, 'utf8');
+        const canonicalSlug = job.slugByLocale?.it || job.slug;
+        if (!canonicalSlug || !html.includes(canonicalSlug)) continue;
+        // Bridge IS for this job. Its <link rel="canonical"> must point to the
+        // canton-aware URL — not to /cerca-lavoro-ticino/ — so Google folds
+        // equity into the new canton section.
+        const canonicalMatch = html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/);
+        if (!canonicalMatch) {
+          mismatches.push(
+            `non-TI job ${canonicalSlug} (canton=${job.canton}) legacy TI bridge has no canonical: cerca-lavoro-ticino/${oldSlug}/`,
+          );
+          continue;
+        }
+        if (/\/cerca-lavoro-ticino\//.test(canonicalMatch[1])) {
+          mismatches.push(
+            `non-TI job ${canonicalSlug} (canton=${job.canton}) legacy TI bridge canonicalises to TI: ${canonicalMatch[1]}`,
+          );
         }
       }
     }
     expect(mismatches, mismatches.join('\n')).toEqual([]);
+  });
+
+  // ── Behavioural: the legacy TI bridge emit (this PR) must materialise the
+  //    HTML file at /<locale>/<legacy-TI-section>/<oldSlug>/ for non-TI jobs
+  //    that have a per-locale previous slug. This prevents the gap where the
+  //    pre-cathedral indexed URL falls through to the noindex tombstone. ──
+  it('non-TI jobs with previousSlugsByLocale emit a bridge at the legacy TI section', () => {
+    if (!fs.existsSync(DIST)) return; // offline-skip
+    const jobsPath = path.join(REPO_ROOT, 'data', 'jobs.json');
+    if (!fs.existsSync(jobsPath)) return;
+    const jobs = JSON.parse(fs.readFileSync(jobsPath, 'utf8')) as Array<{
+      canton?: string;
+      location?: string;
+      slug?: string;
+      slugByLocale?: Record<string, string>;
+      previousSlugsByLocale?: Record<string, string[]>;
+    }>;
+    const LEGACY_TI_SECTION: Record<string, string> = {
+      it: 'cerca-lavoro-ticino',
+      en: 'en/find-jobs-ticino',
+      de: 'de/jobs-im-tessin',
+      fr: 'fr/trouver-emploi-tessin',
+    };
+    const samples = jobs
+      .filter((j) => j.canton && j.canton !== 'TI' && j.previousSlugsByLocale)
+      .slice(0, 5);
+    if (samples.length === 0) return;
+
+    const missing: string[] = [];
+    for (const job of samples) {
+      for (const [locale, slugs] of Object.entries(job.previousSlugsByLocale || {})) {
+        const section = LEGACY_TI_SECTION[locale];
+        if (!section || !Array.isArray(slugs)) continue;
+        for (const oldSlug of slugs) {
+          const bridge = path.join(DIST, section, oldSlug, 'index.html');
+          if (!fs.existsSync(bridge)) {
+            missing.push(`${section}/${oldSlug}/index.html (job canton=${job.canton})`);
+          }
+        }
+      }
+    }
+    // Empty list = every expected legacy TI bridge was emitted.
+    expect(missing.slice(0, 5), missing.slice(0, 5).join('\n')).toEqual([]);
   });
 });

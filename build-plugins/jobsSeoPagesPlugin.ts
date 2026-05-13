@@ -10096,6 +10096,38 @@ ${hreflangLinks}
  _qwFlat(flatFile, indexHtml);
  bridgeCount++;
  recordEmit('previous-slug-bridge', __tPrevSlugBridge);
+
+ // Pre-cathedral, every job — regardless of resolved canton — was
+ // indexed under the legacy TI section (`/cerca-lavoro-ticino/`,
+ // `/de/jobs-im-tessin/`, `/en/find-jobs-ticino/`,
+ // `/fr/trouver-emploi-tessin/`). The bridge above emits the old slug
+ // only at the canton-aware section, which leaves the previously-
+ // indexed legacy TI URL uncovered for non-TI jobs: Google still has
+ // `/fr/trouver-emploi-tessin/<oldFrSlug>` in its index but the SPA
+ // self-healing safety net renders a noindex tombstone there, and
+ // visitors who arrive from a bookmark or external link land on the
+ // generic "Offerta aggiornata" stub instead of the real job page.
+ //
+ // Emit the same full-content bridge at the legacy TI section too —
+ // canonical inside `indexHtml` already points to the canton-aware
+ // URL so Google consolidates link equity, and the visitor sees the
+ // real content. Parallel to the active job's cross-canton legacy TI
+ // bridge at ~line 2840 (PR #159), extended here to cover every
+ // per-locale previousSlug too.
+ if (jobCantonForBridge !== 'TI') {
+ const legacyTIRelPath = `${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${oldSlug}`.replace(/\/+/g, '/').replace(/^\//, '');
+ if (!activeJobDirs.has(legacyTIRelPath.replace(/\/+$/, ''))) {
+ const __tPrevSlugLegacyTIBridge = startTimer();
+ const legacyTIOutDir = np.join(distDir, legacyTIRelPath);
+ _md(legacyTIOutDir);
+ _qw(np.join(legacyTIOutDir, 'index.html'), indexHtml);
+ const legacyTIFlatFile = np.join(distDir, legacyTIRelPath + '.html');
+ _md(np.dirname(legacyTIFlatFile));
+ _qwFlat(legacyTIFlatFile, indexHtml);
+ bridgeCount++;
+ recordEmit('previous-slug-bridge-legacy-ti', __tPrevSlugLegacyTIBridge);
+ }
+ }
  }
  }
  }
