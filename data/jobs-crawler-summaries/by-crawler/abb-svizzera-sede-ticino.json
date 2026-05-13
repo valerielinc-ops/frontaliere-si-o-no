@@ -1,16 +1,16 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-05-12T21:23:01.376Z",
-  "total": 14,
+  "generatedAt": "2026-05-13T10:18:50.997Z",
+  "total": 13,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 39541,
-  "avgDurationMs": 39541,
+  "unchangedCount": 3,
+  "durationMs": 42339,
+  "avgDurationMs": 42339,
   "durationHistory": [
-    39541
+    42339
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -443,47 +443,6 @@
       "featured": false,
       "postedDate": "2026-04-14",
       "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00028479EXTERNALENGLOBAL/XMLNAME--80--100---R-D-HW-Engineer",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Quartino, Ticino, Switzerland",
-        "canton": "TI"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-04-22T20:58:24.585Z",
-      "firstSeenAt": "2026-04-22T20:58:24.585Z",
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Luserte Sud 9",
-      "postalCode": "6572",
-      "addressLocality": "Quartino, Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-qt8s1o",
-      "slug": "80-100-r-d-ingegnere-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino-qt8s1o",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "(80 - 100%) R&D Engineer (Energy Storage Systems)",
-      "location": "Quartino, Ticino",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-12",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00029457EXTERNALENGLOBAL/XMLNAME--80---100---R-D-Engineer--Energy-Storage-Systems",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
