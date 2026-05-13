@@ -956,12 +956,12 @@
     },
     {
       "id": "denner-add5d94b9d66",
-      "slug": "verkaufer-in-spatschicht-denner-flims-dorf",
+      "slug": "venditore-in-ritardo-denner-flims-dorf",
       "slugByLocale": {
-        "it": "verkaufer-in-spatschicht-denner-flims-dorf",
-        "en": "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko",
+        "it": "venditore-in-ritardo-denner-flims-dorf",
+        "en": "seller-in-late-shift-denner-flims-dorf",
         "de": "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko",
-        "fr": "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko"
+        "fr": "vendeur-en-fin-de-quart-denner-flims-dorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1021,12 +1021,21 @@
       "previousSlugsByLocale": {
         "it": [
           "commesso-a-turno-serale-denner-flims-dorf",
-          "verkaufer-in-spatschicht-denner"
+          "verkaufer-in-spatschicht-denner",
+          "verkaufer-in-spatschicht-denner-flims-dorf"
+        ],
+        "en": [
+          "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko"
+        ],
+        "fr": [
+          "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko"
         ]
       },
       "previousSlugs": [
         "commesso-a-turno-serale-denner-flims-dorf",
-        "verkaufer-in-spatschicht-denner"
+        "verkaufer-in-spatschicht-denner",
+        "verkaufer-in-spatschicht-denner-flims-dorf",
+        "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
