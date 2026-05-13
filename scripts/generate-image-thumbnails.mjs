@@ -10,12 +10,16 @@ const SOURCE_DIRS = [
   path.join(ROOT, 'public', 'images', 'places'),
 ];
 const WIDTH = 480;
-const JPG_QUALITY = 72;
 const WEBP_QUALITY = 68;
 const AVIF_QUALITY = 50;
 const VALID_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp', '.avif']);
 const MANIFEST_NAME = '.thumbcache.json';
-const MANIFEST_VERSION = 2;
+// v3: dropped JPG thumbnail emission. The <picture> in BlogArticles.tsx
+// already serves AVIF → WebP via <source>, and the <img> fallback now uses
+// the hero (WebP) directly. Browsers that don't grok WebP (<1% in 2026)
+// see no image; that's acceptable. Bumping the manifest version forces a
+// one-time regen so cached JPG thumbnails get cleaned up on next build.
+const MANIFEST_VERSION = 3;
 
 async function walk(dir) {
   const out = [];
@@ -85,10 +89,9 @@ async function processSourceDir(sourceDir) {
     const ext = path.extname(inputPath);
     const stem = path.basename(inputPath, ext);
     const relKey = path.relative(sourceDir, inputPath);
-    const outJpg = path.join(thumbDir, `${stem}-${WIDTH}w.jpg`);
     const outWebp = path.join(thumbDir, `${stem}-${WIDTH}w.webp`);
     const outAvif = path.join(thumbDir, `${stem}-${WIDTH}w.avif`);
-    const outputs = [outJpg, outWebp, outAvif];
+    const outputs = [outWebp, outAvif];
 
     const sha = await sha1File(inputPath);
     const cached = manifest[relKey];
@@ -101,7 +104,6 @@ async function processSourceDir(sourceDir) {
 
     const base = sharp(inputPath).rotate().resize({ width: WIDTH, withoutEnlargement: true });
     await Promise.all([
-      base.clone().jpeg({ quality: JPG_QUALITY, mozjpeg: true }).toFile(outJpg),
       base.clone().webp({ quality: WEBP_QUALITY }).toFile(outWebp),
       base.clone().avif({ quality: AVIF_QUALITY }).toFile(outAvif),
     ]);

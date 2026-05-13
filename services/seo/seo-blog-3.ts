@@ -1684,7 +1684,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  "headline": "Chiasso in Missione emergenza: enti di primo intervento a contatto con la popolazione",
  "description": "Chiasso accoglie enti di primo intervento per la Missione emergenza il 26 aprile 2026. Scopri di più su questa iniziativa. Dati aggiornati 2026 per frontalieri",
  "image": {
- "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/chiasso-missione-emergenza-luci-blu.jpg`,
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/chiasso-missione-emergenza-luci-blu.webp`,
  "width": 1344,
  "height": 756,
  "caption": "Chiasso, 26 aprile 2026: la cittadina accoglie dieci enti di primo intervento per la Missione emergenza, mettendo a contatto agenti e operatori con la popolazione."
@@ -1713,7 +1713,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  "headline": "Aggregazione Basso Mendrisiotto: Rizza critica Chiasso",
  "description": "Il sindaco di Vacallo Marco Rizza invita Chiasso a fare più autocritica sul piano finanziario. Aggiornamenti sul progetto di aggregazione. Dati aggiornati 2026",
  "image": {
- "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.jpg`,
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.webp`,
  "width": 1344,
  "height": 756,
  "caption": "Panorama del Basso Mendrisiotto con i comuni di Chiasso, Mendrisio e Vacallo."
@@ -1742,7 +1742,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  "headline": "Carburanti, prezzo di benzina e diesel in rialzo: gasolio oltre i 2 euro",
  "description": "Scopri come l'aumento dei prezzi dei carburanti in Ticino influisce sui frontalieri. Dettagli e consigli utili. Dati aggiornati 2026 per frontalieri in Ticino.",
  "image": {
- "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/carburanti-prezzo-rialzo-ticino.jpg`,
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/carburanti-prezzo-rialzo-ticino.webp`,
  "width": 1344,
  "height": 756,
  "caption": "Vista del Lago di Lugano con montagne circostanti."
@@ -1771,7 +1771,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  "headline": "Guida Michelin Ticino 2026: i 7 luoghi più belli da visitare",
  "description": "Scopri i 7 luoghi più belli da visitare nel Ticino secondo la Guida Michelin 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
  "image": {
- "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/guida-michelin-ticino.jpg`,
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/guida-michelin-ticino.webp`,
  "width": 1344,
  "height": 756,
  "caption": "Borgo medievale con castello in Svizzera"
@@ -1800,7 +1800,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  "headline": "Colpo di stiletto / \"Eurospin\" di Luino, occhio al cambio",
  "description": "Tassi di cambio instabili e mercato finanziario in agitazione. Il \"Eurospin\" di Luino, un nuovo strumento per gestire i rischi del cambio. Dati aggiornati 2026",
  "image": {
- "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/eurospin-luino-occhio-al-cambio.jpg`,
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/eurospin-luino-occhio-al-cambio.webp`,
  "width": 1344,
  "height": 756,
  "caption": "Vista panoramica di Lugano, Svizzera, con un focus sul distretto finanziario e il lago vicino."
@@ -1829,7 +1829,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
  "headline": "Il territorio poroso tra Varese e la Svizzera: un confine che ora unisce più che dividere",
  "description": "Il sindaco di Lavena Ponte Tresa, Massimo Mastromarino, descrive il territorio poroso come un luogo dove il confine non è mai stato davvero un muro, ma",
  "image": {
- "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/lavena-ponte-tresa-territorio-poroso.jpg`,
+ "@type": "ImageObject", "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.", "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini", "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" }, "creditText": "Frontaliere Ticino", "url": `${BASE_URL}/images/blog/lavena-ponte-tresa-territorio-poroso.webp`,
  "width": 1344,
  "height": 756,
  "caption": "Un'immagine di un valico tra Lavena Ponte Tresa e il Canton Ticino"

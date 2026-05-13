@@ -1,7 +1,7 @@
 /**
  * backfill-small-images.mjs — FRO-259, updated FRO-269
  *
- * Scans public/images/blog/ for .jpg images under 1200px wide and regenerates
+ * Scans public/images/blog/ for hero images under 1200px wide and regenerates
  * them via the AI provider chain (Gemini → Pollinations → Together.ai →
  * Fal.ai → HuggingFace → Wikimedia → Pixabay → Pexels → Picsum),
  * then saves at 1200×675 with Sharp.
@@ -207,7 +207,7 @@ function buildPrompt(title) {
 }
 
 // ── Sharp-based image optimizer (matches create-article.mjs) ─────────────
-async function optimizeImageToJpeg(inputPath, outputPath) {
+async function optimizeImageToWebp(inputPath, outputPath) {
   const sharpModule = await import('sharp');
   const sharp = sharpModule.default || sharpModule;
 
@@ -215,12 +215,12 @@ async function optimizeImageToJpeg(inputPath, outputPath) {
     sharp(inputPath)
       .rotate()
       .resize({ width: 1200, height: 675, fit: 'cover', position: 'attention' })
-      .jpeg({ quality, progressive: true, mozjpeg: true, chromaSubsampling: '4:2:0' })
+      .webp({ quality, effort: 4 })
       .toBuffer();
 
   const before = statSync(inputPath).size;
-  let outBuffer = await encodeWithQuality(72);
-  for (const q of [68, 62, 56, 50]) {
+  let outBuffer = await encodeWithQuality(75);
+  for (const q of [70, 65, 60, 55]) {
     if (outBuffer.length <= BLOG_IMAGE_TARGET_MAX_BYTES) break;
     outBuffer = await encodeWithQuality(q);
   }
@@ -241,7 +241,7 @@ async function saveAndOptimize(rawBuffer, providerLabel, contentType, articleId,
   const rawKB = (rawBuffer.length / 1024).toFixed(0);
   let result;
   try {
-    result = await optimizeImageToJpeg(tempPath, imgPath);
+    result = await optimizeImageToWebp(tempPath, imgPath);
   } finally {
     if (existsSync(tempPath)) unlinkSync(tempPath);
   }
@@ -586,21 +586,24 @@ async function main() {
   const sharpModule = await import('sharp');
   const sharp = sharpModule.default || sharpModule;
 
-  // Scan all .jpg files
-  const allJpgs = readdirSync(imgDir).filter(f => f.endsWith('.jpg') && !f.includes('.source.'));
-  console.error(`\n📂 Trovati ${allJpgs.length} file .jpg in public/images/blog/`);
+  // Scan all hero files (WebP-only after migration; accept .jpg too for legacy
+  // images still on disk during transition).
+  const allHeroes = readdirSync(imgDir).filter(
+    (f) => /\.(webp|jpg)$/i.test(f) && !f.includes('.source.'),
+  );
+  console.error(`\n📂 Trovati ${allHeroes.length} file hero in public/images/blog/`);
 
   // Find undersized images (or force a single file via --file)
   const toProcess = [];
-  for (const filename of allJpgs) {
-    if (ONLY_FILE && filename !== ONLY_FILE && basename(filename, '.jpg') !== ONLY_FILE) continue;
+  for (const filename of allHeroes) {
+    const stem = filename.replace(/\.(webp|jpg)$/i, '');
+    if (ONLY_FILE && filename !== ONLY_FILE && stem !== ONLY_FILE) continue;
     const filepath = resolve(imgDir, filename);
     try {
       const meta = await sharp(filepath).metadata();
       const w = meta.width || 0;
       if (ONLY_FILE || w < MIN_WIDTH) {
-        const articleId = basename(filename, '.jpg');
-        toProcess.push({ filename, filepath, articleId, width: w });
+        toProcess.push({ filename, filepath, articleId: stem, width: w });
       }
     } catch (e) {
       console.error(`  ⚠️  Impossibile leggere ${filename}: ${e.message}`);
