@@ -101,13 +101,16 @@ const ALLOWLIST = [
   // collapsed <details>). Then shifted back -10 on 2026-05-12 when the
   // `tutti/page-N` pagination loop was reverted in emitThinCantonHubs
   // (deploy artifact >1 GB Pages cap + text-html-ratio regression — only
-  // page-1 stays as static HTML for non-TI cantons). The 4 literals all
-  // live on 2 paired template literals (sectors hub + companies hub), each
-  // spanning 2 lines.
-  'build-plugins/seoHubsPlugin.ts:1354',
-  'build-plugins/seoHubsPlugin.ts:1355',
-  'build-plugins/seoHubsPlugin.ts:1370',
-  'build-plugins/seoHubsPlugin.ts:1371',
+  // page-1 stays as static HTML for non-TI cantons). 2026-05-13: shifted
+  // +234 by the `buildHubFaqHtml` helper added to lift text-html-ratio
+  // above 10 % on the master-hub `cerca-lavoro-ticino/tutti/page-N`
+  // family (5 Q/A pairs × 4 locales × 4 hub kinds). The 4 literals all
+  // live on 2 paired template literals (sectors hub + companies hub),
+  // each spanning 2 lines.
+  'build-plugins/seoHubsPlugin.ts:1588',
+  'build-plugins/seoHubsPlugin.ts:1589',
+  'build-plugins/seoHubsPlugin.ts:1604',
+  'build-plugins/seoHubsPlugin.ts:1605',
 
   // ── professionLandingsLinksPlugin: TI hub injection targets (intentional —
   //    the prose explicitly references "10 most-searched roles in Ticino"). ──
