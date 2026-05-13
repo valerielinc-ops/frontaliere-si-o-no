@@ -1,18 +1,49 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-13T10:36:48.502Z",
+  "generatedAt": "2026-05-13T21:46:13.802Z",
   "total": 8,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 13740,
-  "avgDurationMs": 13740,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 17151,
+  "avgDurationMs": 17151,
   "durationHistory": [
-    13740
+    17151
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Praktikum in der Prozessoptimierung (w/m/div.) REF286038O",
+      "slug": "praktikum-in-der-prozessoptimierung-w-m-div-ref286038o-bosch-frauenfeld",
+      "url": "https://jobs.bosch.com/en/job/REF286038O-praktikum-in-der-prozessoptimierung-w-m-div-ref286038o",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000126259890-praktikum-in-der-prozessoptimierung-w-m-div-ref286038o?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "engineering",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-13",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Entwicklungsingenieur - Bereich Oszillierende Multifunktionswerkzeuge & Säbelsägeblätter 100% (w/m/div.) REF281021P",
@@ -276,11 +307,10 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Werkstudent HR 50% (w/m/div.) REF284793T",
-      "slug": "werkstudent-hr-50-w-m-div-ref284793t-bosch-pratteln",
+      "slug": "werkstudent-hr-50-w-m-div-ref284793-bosch-thermotechnik-ag-pratteln",
       "url": "https://jobs.bosch.com/en/job/REF284793T-werkstudent-hr-50-w-m-div-ref284793t",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000123388209-werkstudent-hr-50-w-m-div-ref284793t?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
       "company": "Bosch Thermotechnik AG",
@@ -313,5 +343,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
