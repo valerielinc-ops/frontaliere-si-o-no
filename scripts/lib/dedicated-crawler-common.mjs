@@ -4136,6 +4136,17 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
   const host = normalizeHost(u.hostname);
   const full = `${host}${u.pathname}${u.search}`.toLowerCase();
 
+  // Prefer explicit query-string identifiers BEFORE generic path heuristics —
+  // the path regexes below catch URL shapes like `/job/<company>/<country>/<slug>`
+  // (heineken-ch new careers site, 2026-05) where the 2nd segment ("switzerland")
+  // is not the actual job identity. When a crawler appends an explicit
+  // `jobid=<stable-id>` query param, treat that as authoritative.
+  const queryKeys = ['jobid', 'job_id', 'gh_jid', 'jid', 'wdjobid', 'vacancyid'];
+  for (const key of queryKeys) {
+    const val = normalizeSpace(u.searchParams.get(key));
+    if (val) return `${registrableDomain(host)}|${val.toLowerCase()}`;
+  }
+
   const coopPathMatch = full.match(/\/(?:offene-stellen|posti-vacanti)\/[^/?#]+\/([^/?#]+)/i);
   if (coopPathMatch?.[1]) {
     const coopIdCandidate = normalizeSpace(coopPathMatch[1]);
@@ -4158,11 +4169,6 @@ export function extractJobIdentityFromUrl(rawUrl = '') {
   for (const re of inPath) {
     const m = full.match(re);
     if (m?.[1]) return `${registrableDomain(host)}|${m[1]}`;
-  }
-  const queryKeys = ['jobid', 'job_id', 'gh_jid', 'jid', 'wdjobid', 'vacancyid'];
-  for (const key of queryKeys) {
-    const val = normalizeSpace(u.searchParams.get(key));
-    if (val) return `${registrableDomain(host)}|${val.toLowerCase()}`;
   }
   const hashRaw = normalizeSpace(u.hash.replace(/^#/, ''));
   if (hashRaw) {

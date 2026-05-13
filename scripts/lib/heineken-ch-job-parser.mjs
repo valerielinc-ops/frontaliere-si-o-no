@@ -1,38 +1,73 @@
 /**
- * Heineken Switzerland (Calanda Brewery) job parser — HTML scraping.
+ * Heineken Switzerland (Calanda Brewery) job parser — Playwright DOM scraper.
  *
- * Heineken Switzerland uses SAP SuccessFactors / Jobs2Web (j2w) for their
- * global careers portal at careers.theheinekencompany.com. Swiss jobs are
- * under the /Switzerland/ path prefix.
+ * The legacy SuccessFactors / Jobs2Web search portal at
+ * `https://careers.theheinekencompany.com/Switzerland/search` was retired in
+ * early 2026 and now 301-redirects to the new Drupal-backed careers site at
+ * `/Deutsch/HEINEKEN-Schweiz`. The new site:
+ *   - Blocks plain HTTP with a 403 (Cloudflare-ish + bot-UA detection) when
+ *     fetched with our `FrontaliereTicinoBot/1.0` UA. A real Chromium with
+ *     a browser-grade UA gets through without challenge.
+ *   - Renders jobs as `<a href="/job/heineken-switzerland/switzerland/{slug}">`
+ *     links inside `/Deutsch/job-listing?operatings_company[]=519` (519 is the
+ *     internal Drupal taxonomy id for "HEINEKEN Switzerland").
+ *   - Detail pages expose `Location: City, Country` and `Function: Department`
+ *     in the body, and link out to SuccessFactors apply URLs that carry the
+ *     stable `career_job_req_id=<NNNNN>` (used as the stable job match id).
  *
- * Listing page: https://careers.theheinekencompany.com/Switzerland/search?keywords=&location=&locale=de_DE
- *   - HTML table with rows: Title (link) | Department | Location | Date
- *   - Pagination: ?paginationStartRow=N (25 per page)
+ * Source: https://careers.theheinekencompany.com/Deutsch/job-listing?operatings_company[]=519
  *
- * Detail pages: /Switzerland/job/{Location}-{Title}-{PostalCode}/{jobId}/
- *   - Title in <h2>
- *   - Description in <div id="content"> section
- *   - Apply link: /talentcommunity/apply/{jobId}/?locale=de_DE
+ * Backed by the shared `playwright-runtime.mjs` helper. The runtime's default
+ * UA is a bot string ("FrontaliereTicino-Bot/1.0") which the new site blocks;
+ * we override it via `createPoliteContext`.
  *
- * HQ: Chur, Canton GR, 7000 (Calanda brewery)
- *
- * Source: https://careers.theheinekencompany.com/Switzerland/search
+ * Exports kept stable for the crawler runner and tests:
+ *   - fetchAllHeinekenChJobs()           — main entry point (Playwright)
+ *   - isHeinekenChJob() / isTrustedDomain()
+ *   - parseSearchResults() / parseDetailPage() / parseDate() / parseLocation()
+ *   - detectCategory() / detectEmploymentType() / extractTotalResults()
+ *   - buildFallbackDescription()
+ *   - HEINEKEN_CH_KEY / HEINEKEN_CH_COMPANY_NAME / HEINEKEN_CH_COMPANY_DOMAIN
  */
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
+import {
+  createBrowser,
+  createPoliteContext,
+  fetchWithRateLimit,
+  closeAll,
+  AntiBotBlockError,
+  NavigationTimeout,
+} from './ats-clients/playwright-runtime.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
 const HQ = getCompanyDefaults('heineken-ch');
 
-const SEARCH_URL = 'https://careers.theheinekencompany.com/Switzerland/search';
 const BASE_URL = 'https://careers.theheinekencompany.com';
+// `operatings_company[]=519` is the Drupal taxonomy term id for
+// "HEINEKEN Switzerland" on the new careers site (verified 2026-05-13).
+const LISTING_URL = `${BASE_URL}/Deutsch/job-listing?operatings_company%5B0%5D=519`;
 
 export const HEINEKEN_CH_KEY = 'heineken-ch';
 export const HEINEKEN_CH_COMPANY_NAME = 'Heineken Switzerland';
 export const HEINEKEN_CH_COMPANY_DOMAIN = 'theheinekencompany.com';
+
+// New site blocks our default bot UA — use a realistic Safari UA.
+const BROWSER_UA =
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/605.1.15 ' +
+  '(KHTML, like Gecko) Version/17.0 Safari/605.1.15';
+
+// Cloudflare on Heineken's CDN throttles aggressively: 1.5s between detail
+// pages reliably triggers a 429 + "Just a moment…" challenge after the 2nd
+// request. 8s gives clean back-to-back fetches; falls back gracefully to
+// templated descriptions when CF still throttles (typical from a sticky IP).
+const PER_DETAIL_DELAY_MS = 8000;
+const LISTING_WAIT_SELECTOR_MS = 20_000;
+const DETAIL_WAIT_SELECTOR_MS = 15_000;
+const MIN_DETAIL_DESCRIPTION_LEN = 200;
 
 /* ── Date helper ──────────────────────────────────────────── */
 
@@ -92,27 +127,34 @@ function detectExperienceLevel(title = '') {
 /* ── Location extraction ──────────────────────────────────── */
 
 /**
- * Extract city and postal code from SuccessFactors location string.
- * Format: "City, CC, NNNNN" or "City, CC" (e.g., "Chur, CH, 7000")
+ * Extract city and postal code from a Heineken location string.
+ * Old format: "Chur, CH, 7000". New format: "Chur, Switzerland". Both supported.
  */
 export function parseLocation(raw = '') {
   const text = normalizeSpace(raw);
   if (!text) return { city: HQ.city, postalCode: HQ.postalCode };
 
-  const m = text.match(/^([^,]+)(?:,\s*CH)?(?:,\s*(\d{4}))?/i);
-  if (!m) return { city: text, postalCode: '' };
+  // Try old SuccessFactors format with postal code first
+  const oldFmt = text.match(/^([^,]+),\s*CH(?:,\s*(\d{4}))?/i);
+  if (oldFmt) {
+    return {
+      city: normalizeSpace(oldFmt[1]) || HQ.city,
+      postalCode: oldFmt[2] || '',
+    };
+  }
 
-  const city = normalizeSpace(m[1]);
-  const postalCode = m[2] || '';
-  return { city: city || HQ.city, postalCode };
+  // New Drupal format: "City, Switzerland" or just "City"
+  const newFmt = text.match(/^([^,]+)(?:,\s*Switzerland|,\s*Schweiz|,\s*Suisse|,\s*Svizzera)?/i);
+  const city = newFmt ? normalizeSpace(newFmt[1]) : text;
+  return { city: city || HQ.city, postalCode: '' };
 }
 
-/* ── Listing page parser ──────────────────────────────────── */
+/* ── Legacy parsers (kept for tests + backwards compat) ──── */
 
 /**
- * Parse the SuccessFactors / j2w search results HTML table.
- * Each row has: Title (link) | Department | Location | Date
- * Returns array of { title, url, department, location, postedDate, jobId }.
+ * Parse legacy SuccessFactors search results HTML. Kept for tests; the
+ * new fetchAllHeinekenChJobs() pipeline scrapes the Drupal listing via
+ * Playwright instead.
  */
 export function parseSearchResults(html) {
   if (!html || typeof html !== 'string') return [];
@@ -120,14 +162,12 @@ export function parseSearchResults(html) {
   const jobs = [];
   const seen = new Set();
 
-  // Match table rows — the search results table contains job rows with links to /Switzerland/job/...
   const rowRe = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
   let rowMatch;
 
   while ((rowMatch = rowRe.exec(html)) !== null) {
     const rowHtml = rowMatch[1];
 
-    // Must contain a link to a job detail page
     const linkMatch = rowHtml.match(/<a[^>]+href="(\/Switzerland\/job\/[^"]+\/(\d+)\/?)"/i);
     if (!linkMatch) continue;
 
@@ -138,7 +178,6 @@ export function parseSearchResults(html) {
     if (seen.has(jobId)) continue;
     seen.add(jobId);
 
-    // Extract cells
     const cells = [];
     const cellRe = /<td[^>]*>([\s\S]*?)<\/td>/gi;
     let cellMatch;
@@ -146,20 +185,16 @@ export function parseSearchResults(html) {
       cells.push(normalizeSpace(stripHtml(cellMatch[1])));
     }
 
-    // We need at least the title cell
     if (cells.length < 1) continue;
 
-    // Extract title from the first cell (may be inside the <a> tag)
     const titleFromLink = rowHtml.match(/<a[^>]+href="\/Switzerland\/job\/[^"]*"[^>]*>([\s\S]*?)<\/a>/i);
     const rawTitle = titleFromLink
       ? normalizeSpace(stripHtml(titleFromLink[1]))
       : cells[0];
-    // SuccessFactors occasionally prefixes with a language label ("Title:", "Titre:", "Bezeichnung:")
     const title = rawTitle.replace(/^(?:Title|Titre|Bezeichnung|Titolo|Titulo)\s*:\s*/i, '').trim();
 
     if (!title || title.length < 3) continue;
 
-    // The SuccessFactors table: Title | Department | Location | Date
     const department = cells.length > 1 ? cells[1] : '';
     const location = cells.length > 2 ? cells[2] : '';
     const rawDate = cells.length > 3 ? cells[3] : '';
@@ -179,8 +214,7 @@ export function parseSearchResults(html) {
 }
 
 /**
- * Extract total results count from the search page.
- * Looks for "Ergebnisse 1 – N von N" or "Results 1 – N of N".
+ * Extract total results count from a legacy search page (kept for tests).
  */
 export function extractTotalResults(html) {
   if (!html) return 0;
@@ -188,40 +222,31 @@ export function extractTotalResults(html) {
   return m ? parseInt(m[1]) : 0;
 }
 
-/* ── Detail page parser ──────────────────────────────────── */
-
 /**
- * Parse a Heineken job detail page.
- * Returns { title, description, location, applyUrl }.
+ * Parse a Heineken legacy SuccessFactors detail page (kept for tests).
+ * The new Drupal detail pages are scraped via Playwright in
+ * fetchDetailPage() below.
  */
 export function parseDetailPage(html) {
   if (!html || typeof html !== 'string') return null;
 
-  // Extract title — SuccessFactors uses h2 on detail pages
   const titleMatch = html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i)
     || html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
 
-  // Extract description from the main content area
-  // SuccessFactors detail pages use div#content with the job text
   let descriptionHtml = '';
 
-  // Strategy 1: Look for the job description content after the title
-  // The content section typically contains the job details
   const contentMatch = html.match(/<div[^>]*id="content"[^>]*>([\s\S]*?)<\/div>\s*(?:<div[^>]*id="(?:footer|sidebar)|<footer)/i);
   if (contentMatch) {
     descriptionHtml = contentMatch[1];
   }
 
-  // Strategy 2: Look for paragraphs/lists in the main area
   if (!descriptionHtml) {
-    // Collect all meaningful paragraph and list content
     const parts = [];
     const blockRe = /<(?:p|ul|ol|li|div)[^>]*>([\s\S]*?)<\/(?:p|ul|ol|li|div)>/gi;
     let blockMatch;
     while ((blockMatch = blockRe.exec(html)) !== null) {
       const text = normalizeSpace(stripHtml(blockMatch[1]));
-      // Filter out navigation, buttons, short fragments
       if (text.length > 40 && !/cookie|datenschutz|privacy|navigation|login/i.test(text)) {
         parts.push(text);
       }
@@ -233,8 +258,6 @@ export function parseDetailPage(html) {
 
   let description = normalizeSpace(stripHtml(descriptionHtml));
 
-  // Reject search widget / alert form garbage that SuccessFactors injects
-  // when the detail page renders client-side or in a different locale
   const GARBAGE_PATTERNS = [
     /Suche nach Stichwort/i,
     /Benachrichtigung erstellen/i,
@@ -247,20 +270,14 @@ export function parseDetailPage(html) {
     description = '';
   }
 
-  // Extract apply URL
   const applyMatch = html.match(/href="([^"]*talentcommunity\/apply\/\d+[^"]*)"/i);
   const applyUrl = applyMatch
     ? (applyMatch[1].startsWith('http') ? applyMatch[1] : `${BASE_URL}${applyMatch[1]}`)
     : '';
 
-  // Extract location from HTML — replace tags with newlines to preserve line
-  // structure (so "Ort: Chur</div>" becomes "Ort: Chur\n"), then collapse
-  // non-newline whitespace. This keeps \n as a natural line terminator in the
-  // regex below and prevents attribute strings from bleeding into the capture group.
   const strippedHtml = html.replace(/<[^>]*>/g, '\n').replace(/[^\S\n]+/g, ' ');
   const locMatch = strippedHtml.match(/(?:Ort|Standort|Location)\s*:?\s*([A-ZÀ-Ü][A-Za-zÀ-ÿ\s\-/]{2,40}?)(?:\s*(?:,|\n|$))/i);
   let location = locMatch ? normalizeSpace(locMatch[1]).replace(/^"|"$/g, '').trim() : '';
-  // Reject HTML/attribute garbage that survived stripping
   if (location && /[<="']|viewport|content|width/i.test(location)) {
     location = '';
   }
@@ -288,7 +305,7 @@ export function buildFallbackDescription(title, location, department = '') {
 export function isHeinekenChJob(job = {}) {
   const key = String(job?.companyKey || '')
     .trim().toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   const company = String(job?.company || '').toLowerCase();
   const url = String(job?.url || '').toLowerCase();
@@ -316,120 +333,266 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
-/* ── HTTP fetch with timeout ──────────────────────────────── */
+/* ── Playwright DOM extraction ─────────────────────────────── */
 
-async function fetchPage(url, timeoutMs, userAgent) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+async function safeClose(page) {
+  try { await page.close(); } catch { /* no-op */ }
+}
+
+/**
+ * Render the Swiss-only job listing page and return discovered job links.
+ *
+ * Each row in the new Drupal listing is just an `<a href="/job/...">` link
+ * plus an "Ansicht" CTA pointing to the same URL — there is no card-level
+ * department / location metadata, so we have to follow each detail page.
+ *
+ * @param {import('playwright').BrowserContext} context
+ * @returns {Promise<Array<{ title: string, href: string }>>}
+ */
+async function fetchListingRows(context) {
+  let renderedPage;
   try {
-    const res = await fetch(url, {
-      headers: {
-        'User-Agent': userAgent,
-        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'de-DE,de;q=0.9,en;q=0.5',
-      },
-      signal: controller.signal,
-      redirect: 'follow',
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return await res.text();
+    renderedPage = await fetchWithRateLimit(context, LISTING_URL, { minDelayMs: 0 });
   } catch (err) {
-    clearTimeout(timer);
+    if (err instanceof AntiBotBlockError) {
+      console.warn(`⚠️ Heineken listing anti-bot block: ${err.message}`);
+      return [];
+    }
+    if (err instanceof NavigationTimeout) {
+      console.warn(`⚠️ Heineken listing navigation timeout: ${err.message}`);
+      return [];
+    }
     throw err;
+  }
+
+  try {
+    await renderedPage.waitForSelector('a[href*="/job/heineken-switzerland/"]', {
+      timeout: LISTING_WAIT_SELECTOR_MS,
+      state: 'attached',
+    });
+  } catch {
+    console.warn('   Listing: no Heineken Switzerland job links rendered within timeout');
+    await safeClose(renderedPage);
+    return [];
+  }
+
+  const rows = await renderedPage.evaluate(() => {
+    const links = [...document.querySelectorAll('a[href*="/job/heineken-switzerland/"]')];
+    const seen = new Set();
+    const out = [];
+    for (const a of links) {
+      const href = a.getAttribute('href') || '';
+      if (!href || seen.has(href)) continue;
+      seen.add(href);
+      const title = (a.textContent || '').trim();
+      // Skip "Ansicht" / "View" CTAs — they share the same href as the
+      // titled link and the deduplication above already collapses them.
+      if (!title || /^(ansicht|view|voir|leggi|details?)$/i.test(title)) continue;
+      out.push({ href, title });
+    }
+    return out;
+  });
+
+  await safeClose(renderedPage);
+  return rows;
+}
+
+/**
+ * Open one detail page and extract title, location, function, description,
+ * and apply URL.
+ *
+ * Reuses the BrowserContext passed in — the Cloudflare clearance cookie
+ * carries over from the listing pass, so detail navigations don't refire
+ * the bot challenge.
+ *
+ * Returns `null` on any failure (anti-bot, timeout, missing markup, or
+ * description shorter than `MIN_DETAIL_DESCRIPTION_LEN`).
+ */
+async function fetchDetailPage(context, url) {
+  let page;
+  try {
+    page = await fetchWithRateLimit(context, url, { minDelayMs: PER_DETAIL_DELAY_MS });
+    await page.waitForSelector('article', {
+      timeout: DETAIL_WAIT_SELECTOR_MS,
+      state: 'attached',
+    }).catch(() => { /* fall through */ });
+
+    const data = await page.evaluate(() => {
+      const article = document.querySelector('article');
+      const articleText = (article?.innerText || '').trim();
+
+      // Apply URL — the page exposes a "Bewerben" / "Apply Now" link
+      // pointing to SuccessFactors. The href contains the stable
+      // `career_job_req_id=<NNNNN>` we use for merge/dedup stability.
+      const applyLink = [...document.querySelectorAll('a[href]')]
+        .find((a) => /apply\s*now|jetzt\s*bewerben|bewerben|postuler|candidat/i.test(a.textContent || ''));
+
+      return {
+        articleText,
+        applyHref: applyLink?.getAttribute('href') || '',
+        h1: document.querySelector('h1')?.innerText || '',
+        docTitle: document.title || '',
+      };
+    });
+
+    await safeClose(page);
+    page = null;
+
+    if (!data.articleText) return null;
+
+    const { articleText } = data;
+    const locMatch = articleText.match(/Location\s*:?\s*([^\n]+)/i)
+      || articleText.match(/Standort\s*:?\s*([^\n]+)/i)
+      || articleText.match(/Ort\s*:?\s*([^\n]+)/i);
+    const funcMatch = articleText.match(/Function\s*:?\s*([^\n]+)/i)
+      || articleText.match(/Funktion\s*:?\s*([^\n]+)/i)
+      || articleText.match(/Bereich\s*:?\s*([^\n]+)/i);
+
+    // Title: the article starts with "<companyName>\nBack to Job Search\nApply Now\n<jobTitle>\nLocation: ...".
+    // Use the page's <title> as the primary source; fall back to the first
+    // non-boilerplate line of the article.
+    let title = normalizeSpace(data.docTitle.replace(/\s*[|–]\s*HEINEKEN.*$/i, '').trim());
+    if (!title || title.length < 3) {
+      const lines = articleText.split('\n').map((s) => s.trim()).filter(Boolean);
+      const skip = /^(heineken|back to|apply now|jetzt bewerben|postuler|home)/i;
+      title = lines.find((l) => !skip.test(l) && l.length > 3) || '';
+    }
+
+    // Description: everything after the "Function: ..." line, stripped of
+    // the trailing "Apply Now" CTAs.
+    let description = articleText;
+    const funcAnchor = articleText.search(/Function\s*:?\s*[^\n]+/i);
+    if (funcAnchor >= 0) {
+      description = articleText
+        .slice(funcAnchor)
+        .replace(/^Function\s*:?\s*[^\n]+\n*/i, '');
+    }
+    description = description
+      .replace(/(?:apply\s*now|jetzt\s*bewerben|postuler|candidat)[\s\S]*$/i, '')
+      .trim();
+    description = normalizeSpace(description);
+
+    // Extract the SuccessFactors stable id from the apply URL (used as the
+    // jobMatchKey by the dedup pipeline — see notes on `job.url` below).
+    const jobReqId =
+      (data.applyHref || '').match(/career_job_req_id=(\d+)/i)?.[1] || '';
+
+    if (description.length < MIN_DETAIL_DESCRIPTION_LEN) {
+      return {
+        title,
+        location: normalizeSpace(locMatch?.[1] || ''),
+        department: normalizeSpace(funcMatch?.[1] || ''),
+        description: '',
+        applyUrl: data.applyHref || '',
+        jobReqId,
+      };
+    }
+
+    return {
+      title,
+      location: normalizeSpace(locMatch?.[1] || ''),
+      department: normalizeSpace(funcMatch?.[1] || ''),
+      description,
+      applyUrl: data.applyHref || '',
+      jobReqId,
+    };
+  } catch (err) {
+    if (err instanceof AntiBotBlockError) {
+      console.warn(`   ⚠️ Anti-bot block on detail ${url}: ${err.message}`);
+    } else if (err instanceof NavigationTimeout) {
+      console.warn(`   ⚠️ Detail navigation timeout: ${url}`);
+    } else {
+      console.warn(`   ⚠️ Detail fetch error on ${url}: ${err?.message || err}`);
+    }
+    return null;
+  } finally {
+    if (page) await safeClose(page);
   }
 }
 
 /* ── Main fetch function ──────────────────────────────────── */
 
 /**
- * Fetch all Heineken Switzerland jobs.
- * 1. Fetch search listing pages (paginated), parse table rows
- * 2. For each job, fetch detail page for full description
- * Returns ParsedJob[] with source-locale fields only.
+ * Fetch all Heineken Switzerland jobs from the public careers portal.
+ *
+ * Returns an array of ParsedJob objects with source-locale (de) fields only.
+ * Other locales are filled by the AI localization step.
  */
 export async function fetchAllHeinekenChJobs() {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const userAgent = process.env.JOBS_CRAWLER_USER_AGENT ||
-    'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+  console.log('🍺 Fetching Heineken Switzerland jobs via Playwright');
+  console.log(`   Source: ${LISTING_URL}\n`);
 
-  console.log(`🍺 Fetching Heineken Switzerland jobs`);
-  console.log(`   Search: ${SEARCH_URL}\n`);
+  let browser;
+  try {
+    browser = await createBrowser({ userAgent: BROWSER_UA });
+    const context = await createPoliteContext(browser, { userAgent: BROWSER_UA });
 
-  // Step 1: Fetch listing pages (paginated)
-  const allListings = [];
-  let startRow = 0;
-  const PAGE_SIZE = 25; // SuccessFactors/j2w default
+    const rows = await fetchListingRows(context);
+    console.log(`  📋 Discovered ${rows.length} job links`);
 
-  while (true) {
-    const searchUrl = `${SEARCH_URL}?keywords=&location=&locale=de_DE&paginationStartRow=${startRow}`;
-    console.log(`  📄 Fetching search page at offset ${startRow}...`);
-
-    let html;
-    try {
-      html = await fetchPage(searchUrl, timeoutMs, userAgent);
-    } catch (err) {
-      if (startRow === 0) {
-        throw new Error(`Failed to fetch search page: ${err?.message || err}`);
-      }
-      console.warn(`  ⚠️ Pagination fetch failed at offset ${startRow}, stopping.`);
-      break;
+    if (rows.length === 0) {
+      console.warn('⚠️ No Heineken Switzerland job links found on listing page.');
+      return [];
     }
 
-    const listings = parseSearchResults(html);
-    if (listings.length === 0) break;
+    const jobs = [];
+    let ok = 0;
+    let fallback = 0;
 
-    allListings.push(...listings);
+    for (let i = 0; i < rows.length; i++) {
+      const row = rows[i];
+      const detailUrl = row.href.startsWith('http')
+        ? row.href
+        : `${BASE_URL}${row.href.startsWith('/') ? '' : '/'}${row.href}`;
 
-    // Check if we have all results
-    const total = extractTotalResults(html);
-    if (total > 0 && allListings.length >= total) break;
-    if (listings.length < PAGE_SIZE) break;
+      const detail = await fetchDetailPage(context, detailUrl);
 
-    startRow += PAGE_SIZE;
-    await new Promise((r) => setTimeout(r, 500));
-  }
-
-  console.log(`  📋 Found ${allListings.length} job listings\n`);
-
-  if (allListings.length === 0) {
-    console.warn('⚠️ No job listings found on the career page.');
-    return [];
-  }
-
-  // Step 2: Fetch detail pages for descriptions
-  const jobs = [];
-  for (const listing of allListings) {
-    try {
-      let detail = null;
-      try {
-        const detailHtml = await fetchPage(listing.url, timeoutMs, userAgent);
-        detail = parseDetailPage(detailHtml);
-      } catch (err) {
-        console.warn(`  ⚠️ Detail fetch failed for ${listing.title}: ${err?.message || err}`);
+      const title = normalizeSpace(detail?.title || row.title);
+      if (!title || title.length < 3) {
+        console.warn(`   ⚠️ Skipping ${detailUrl} — missing title`);
+        continue;
       }
 
-      const title = detail?.title || listing.title;
-      const { city, postalCode: parsedPostal } = parseLocation(listing.location);
-      const location = detail?.location || city;
-      const canton = inferAnyCanton(location) || HQ.canton;
+      const rawLocation = detail?.location || '';
+      const { city, postalCode: parsedPostal } = parseLocation(rawLocation);
+      const location = city;
+      const canton = inferSwissTargetCanton(location) || inferAnyCanton(location) || HQ.canton;
       const postalCode = parsedPostal || HQ.postalCode;
+      const department = detail?.department || '';
 
-      // Build description
-      let description = '';
-      if (detail?.description && detail.description.split(/\s+/).length >= 50) {
-        description = detail.description;
+      let description = detail?.description || '';
+      if (!description || description.split(/\s+/).length < 50) {
+        description = buildFallbackDescription(title, location, department);
+        fallback++;
       } else {
-        description = buildFallbackDescription(title, location, listing.department);
+        ok++;
       }
 
-      const postedDate = listing.postedDate || new Date().toISOString().slice(0, 10);
-      const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
+      // The new Drupal listing URL is `/job/heineken-switzerland/switzerland/<slug>` —
+      // the `extractJobIdentityFromUrl()` heuristic in dedicated-crawler-common.mjs
+      // matches `/job/<x>/<y>` and would dedupe every Swiss job down to a single
+      // entry (captured = "switzerland"). Append a stable per-job identifier as
+      // a `jobid` query param so the heuristic instead picks up that unique
+      // value (see queryKeys at line 4162 of dedicated-crawler-common.mjs).
+      // Prefer the SuccessFactors req-id when the apply-link was scraped;
+      // fall back to the listing URL's terminal slug (always unique per job).
+      const jobReqId = detail?.jobReqId || '';
+      const urlSlugFallback =
+        (row.href.match(/\/job\/heineken-switzerland\/switzerland\/([^/?#]+)/i)?.[1] || '')
+          .toLowerCase();
+      const stableId = jobReqId || urlSlugFallback;
+      const canonicalUrl = stableId
+        ? `${detailUrl}?jobid=${stableId}`
+        : detailUrl;
+
+      const urlHash = createHash('sha1').update(canonicalUrl).digest('hex').slice(0, 12);
       const jobSlug = slugify(`${title} heineken-ch ${location}`);
       const employmentType = detectEmploymentType(title);
+      const postedDate = new Date().toISOString().slice(0, 10);
 
-      const job = {
+      jobs.push({
         id: `${HEINEKEN_CH_KEY}-${urlHash}`,
+        jobReqId: jobReqId || null,
         slug: jobSlug,
         slugByLocale: { de: jobSlug },
         company: HEINEKEN_CH_COMPANY_NAME,
@@ -447,40 +610,41 @@ export async function fetchAllHeinekenChJobs() {
         country: 'CH',
         postalCode,
         streetAddress: `${location}, ${canton === 'GR' ? 'Graubünden' : canton}`,
-        category: detectCategory(title, listing.department),
+        category: detectCategory(title, department),
         sector: 'Industria / Alimentare',
         contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
         employmentType,
         experienceLevel: detectExperienceLevel(title),
         featured: false,
         postedDate,
-        url: listing.url,
-        applyUrl: detail?.applyUrl || listing.url,
-        source: 'Heineken Switzerland Dedicated Parser (SuccessFactors)',
+        url: canonicalUrl,
+        applyUrl: detail?.applyUrl || detailUrl,
+        source: 'Heineken Switzerland Dedicated Parser (Playwright)',
         sourceLang: 'de',
         crawledAt: new Date().toISOString(),
-      };
+      });
 
-      jobs.push(job);
-      console.log(`  ✅ ${title.substring(0, 60)}`);
-    } catch (err) {
-      console.warn(`  ⚠️ Skipping ${listing.title} — ${err?.message || err}`);
+      console.log(`  ✅ ${title.substring(0, 60)} — ${location}`);
     }
 
-    // Polite delay between requests
-    await new Promise((r) => setTimeout(r, 300));
-  }
+    console.log(`\n  Detail enrichment: ${ok} rich, ${fallback} fallback`);
 
-  // Deduplicate by URL
-  const seen = new Set();
-  const deduped = [];
-  for (const job of jobs) {
-    const key = job.url.toLowerCase();
-    if (seen.has(key)) continue;
-    seen.add(key);
-    deduped.push(job);
-  }
+    // Deduplicate by canonical URL (which embeds the stable jobReqId).
+    const seen = new Set();
+    const deduped = [];
+    for (const job of jobs) {
+      const key = job.url.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      deduped.push(job);
+    }
 
-  console.log(`\n📋 Total unique Heineken Switzerland jobs discovered: ${deduped.length}`);
-  return deduped;
+    console.log(`\n📋 Total unique Heineken Switzerland jobs discovered: ${deduped.length}`);
+    return deduped;
+  } catch (err) {
+    console.error(`❌ Heineken Switzerland Playwright discovery failed: ${err?.message || err}`);
+    return [];
+  } finally {
+    await closeAll(browser);
+  }
 }

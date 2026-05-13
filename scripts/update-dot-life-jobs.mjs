@@ -190,38 +190,31 @@ function inferCategory(detail = {}) {
 
 /* ── Discovery ─────────────────────────────────────────────── */
 
-async function fetchListingsFromGuestApi() {
-  console.log('🔍 Fetching DOT Life jobs from LinkedIn guest API...');
-  const html = await fetchText(GUEST_LISTING_URL);
-  const cards = parseDotLifeLinkedInCards(html);
-  if (cards.length > 0) return cards;
-
-  // If the guest API returned empty, fall back to the search page HTML
-  console.log('⚠️  Guest API returned no cards — trying search page fallback...');
-  const searchHtml = await fetchText(SEARCH_PAGE_URL);
-  return parseDotLifeLinkedInCards(searchHtml);
-}
+// TODO(2026-05-13): DOT Life careers source retired.
+// LinkedIn walled the guest job-search endpoints in 2026-Q1 — both the
+// `/jobs-guest/jobs/api/seeMoreJobPostings/search` JSON endpoint and the
+// public `/jobs/search/?f_C=...` HTML page return zero cards or session-wall
+// redirects, even from a real Chromium (Playwright + Safari UA, verified
+// 2026-05-13). The /company/dot-life-sa/jobs/ surface also redirects to the
+// non-jobs company landing without a logged-in session. DOT Life has no
+// first-party careers page (https://www.dotlifestyle.ch/it/ "Careers" link
+// points to https://it.linkedin.com/company/dot-life-sa).
+//
+// Per task guidance ("approccio richemont che è riuscito a skipparlo"), this
+// crawler is now a no-op that writes an empty slice every run. The job-board
+// keeps any historically captured jobs in the per-crawler slice until they
+// expire on the normal cadence.
+//
+// Revisit when:
+//   - DOT Life launches a first-party careers page (check dotlifestyle.ch
+//     and dotcosmetics.ch every few months), or
+//   - LinkedIn re-opens guest job-search endpoints for company filters, or
+//   - We add authenticated LinkedIn scraping (requires a session cookie
+//     secret in CI — not in scope for the zero-cost approach).
 
 async function fetchListings() {
-  let cards;
-  try {
-    cards = await fetchListingsFromGuestApi();
-  } catch (err) {
-    // Treat LinkedIn session wall / connectivity errors as transient
-    const isTransient = /session wall|blocked|net::ERR_|timeout|HTTP 4[0-9]{2}|HTTP 5[0-9]{2}/i.test(err.message);
-    if (isTransient) {
-      console.warn(`⚠️  LinkedIn guest listing unavailable: ${err.message}`);
-      console.log('ℹ️  Keeping existing data — no updates this run.');
-      return null;
-    }
-    throw err;
-  }
-
-  console.log(`📋 Total LinkedIn cards discovered: ${cards.length}`);
-  for (const card of cards) {
-    console.log(`  📄 ${card.title}${card.location ? ` (${card.location})` : ''}`);
-  }
-  return cards;
+  console.log('ℹ️  DOT Life source unavailable; crawler retired pending alternative source');
+  return [];
 }
 
 /* ── Detail fetch with Playwright fallback ─────────────────── */
