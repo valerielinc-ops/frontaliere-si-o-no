@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-05-13T11:50:45.889Z",
+  "assembledAt": "2026-05-13T22:59:16.021Z",
   "jobs": [
     {
       "id": "siegfried-32003d941376",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebselektriker-in_R25_632",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-13T11:50:43.633Z",
+      "crawledAt": "2026-05-13T22:59:13.333Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,6 +94,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:43.288Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -139,7 +140,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-13T11:50:42.846Z",
+      "crawledAt": "2026-05-13T22:59:12.705Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -214,7 +215,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Process-Safety-Engineer_R26_215",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-13T11:50:42.118Z",
+      "crawledAt": "2026-05-13T22:59:12.083Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -246,6 +247,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:40.286Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -259,81 +261,6 @@
         }
       },
       "postalCode": "1950"
-    },
-    {
-      "id": "siegfried-7daa4de19afc",
-      "slug": "gestione-dei-processi-siegfried-zofingen",
-      "slugByLocale": {
-        "it": "gestione-dei-processi-siegfried-zofingen",
-        "en": "process-manager-production-siegfried-ch",
-        "de": "process-manager-production-siegfried-ch",
-        "fr": "responsable-de-processus-production-siegfried-zofingen"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Process Manager Production",
-      "titleByLocale": {
-        "it": "Gestione dei processi",
-        "en": "Process Manager Production",
-        "de": "Process Manager Production",
-        "fr": "Responsable de processus Production"
-      },
-      "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nAls unser neuer Process Manager Production (Produktchemiker) haben Sie die aufregende Gelegenheit, bei einem führenden Unternehmen in der wachsenden CDMO-Branche einzusteigen. \n \nIn dieser spannenden und abwechslungsreichen Funktion verantworten und optimieren Sie die chemischen und physikalischen Prozesse des Ihnen zugeordneten Gesamtproduktportfolios von mehrstufigen Synthesen. \n\nAls Mitglied des Product Leadership Teams (PLT) sind Sie zuständig für die nahtlose Produkteinführung von Entwicklungsprojekten oder Kundenprozessen in die kommerziellen Produktionsbetriebe. \n\nBei unseren kommerzialisierten Produkten übernehmen Sie die Leitung des PLT's und treiben die kontinuierliche Verbesserung der Prozesse aktiv voran. Dabei stellen sie die Kommunikationsschnittstelle zu unseren Kunden bei allen betrieblichen Belangen dar. \n \nIm Weiteren verantworten Sie folgende Hauptaufgaben:\n \n- Realisierung, Betreuung und Optimierung bestehender und neuer Produktionsprozesse bezüglich Taktzeit, Ausbeute und Kosten unter Einhaltung der cGMP Richtlinien \n- Beurteilung neuer Verfahren sowie Technologien auf Machbarkeit und Eignung in den Anlagen der chemischen Fabrikation \n- Betreuung, Überwachung und Auswertung der Produkt-Kampagnen samt Definition der Verbesserungs- und Prozessoptimierungsmassnahmen \n- Verantwortung für die Verfahrens- und Prozessdokumentation, der Mengengerüste und SAP-Herstellrezepte \n- Verfahrensgeber in Investitionsprojekten \n- Mitverantwortung für die Planung, Umsetzung und Einhaltung regulatorischer Vorschriften betreffend cGMP, SHE, Behörden etc. in Bezug auf Ihre Produkte \n Your Profile: \n - Abgeschlossenes Hochschulstudium (FH, ETH oder Universitätsstudium) in Chemie mit Schwerpunkt Chemieingenieurswissenschaft, industrieller Chemie oder organischer Chemie \n- Berufserfahrung in der chemischen oder pharmazeutischen Produktion oder im Pilotbetrieb, von Vorteil in einem cGMP-Umfeld \n- 3+ Jahre Erfahrung in einer ähnlichen Funktion \n- Verhandlungssicher in Deutsch und Englisch (schriftlich und mündlich) \n \n Wir suchen Sie! \nWir wünschen uns passionierte Produktchemiker, welche Team Player sind mit hoher Eigenständigkeit, Lösungsorientierung, Zuverlässigkeit, Qualitäts- und Verantwortungsbewusstsein. Sie zeichnen sich durch Ihre ausgeprägten Analysefähigkeiten, Ihrem technischen Interesse und unternehmerischen Denken und Handeln aus. \n \n Your Benefits: \n An unserem Standort in Zofingen erwartet Sie ein motiviertes, aufgestelltes Team und herausfordernde Aufgaben in einem wachsenden Umfeld. Sie erwarten von einem Arbeitgeber, dass Sie Ihr Fachwissen optimal einsetzen und sich gleichzeitig persönlich weiterentwickeln können? Die Funktion bietet je nach Fähigkeiten und Interesse auch vielseitige Career Development Möglichkeiten, wie z.B. in eine Project Manager, Plant Manager oder Program Manager Position aufzusteigen. \n \n Siegfried ist ein Unternehmen, in dem Innovation Tradition hat und Sie im Sinne unseres Slogans «expect more» mehr erwarten können. \n \n \n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat \n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "it": "\" Aspettatevi di crescere\" , personalmente e professionale: Siegfried sta aspettando sfide emozionanti e numerose opportunità per dimostrare i vostri talenti. In qualità di partner affidabile e rispettato dell'industria farmaceutica, manteniamo i più elevati standard nei settori della sicurezza, della qualità e della sostenibilità – e allo stesso tempo promuoviamo una cultura che ti consente di avere successo. Diventa parte di un'azienda globale in rapida crescita dove prospettive e esperienze diverse si fondono in un ambiente cooperativo. Qui troverete un lavoro che valuta sia il successo collettivo che i vostri contributi individuali – e vi offre opportunità a lungo termine per sviluppare e fare qualcosa. Il tuo ruolo: Come il nostro nuovo Process Manager Production (product chemist) hai l'opportunità emozionante di unire una società leader nel settore CDMO in crescita. In questa funzione emozionante e variegata, siete responsabili e ottimizzando i processi chimici e fisici dell'intero portafoglio prodotti di sintesi multistadio assegnate a voi. Come membro del Product Leadership Team (PLT), sei responsabile del lancio senza soluzione di continuità dei progetti di sviluppo o dei processi dei clienti in impianti di produzione commerciale. Con i nostri prodotti commercializzati, si prende il controllo della gestione del PLT e spingere avanti il continuo miglioramento dei processi attivamente. Rappresentano l'interfaccia di comunicazione ai nostri clienti in tutte le questioni operative. Inoltre, sei responsabile dei seguenti compiti principali: - Attuazione, supervisione e ottimizzazione dei processi di produzione esistenti e nuovi per quanto riguarda il tempo di ciclo, la resa e i costi nel rispetto delle linee guida cGMP - valutazione di nuovi processi e tecnologie per la fattibilità e l'idoneità negli impianti di produzione chimica - supervisione, monitoraggio e valutazione delle campagne di prodotto, compresa la definizione di misure di miglioramento e ottimizzazione dei processi - responsabilità per la documentazione di processo e di processo Ti stiamo cercando! Desideriamo appassionati chimici di prodotto, che i giocatori di squadra sono con alta autonomia, orientamento della soluzione, affidabilità, qualità e consapevolezza della responsabilità. Essi sono caratterizzati dalle loro distinte capacità analitiche, dal loro interesse tecnico e dal pensiero imprenditoriale e dal loro agire. I tuoi vantaggi: Nel nostro sito Zofingen, troverete un team motivato e consolidato e compiti impegnativi in un ambiente in crescita. Ti aspetti che un datore di lavoro usi la tua esperienza in modo ottimale e ti sviluppi personalmente allo stesso tempo? A seconda delle competenze e degli interessi, la funzione offre anche una vasta gamma di opportunità di sviluppo della carriera, come ad esempio un project manager, un direttore di impianti o una posizione di direttore di programma. Siegfried è un'azienda in cui l'innovazione ha tradizione e ci si può aspettare di più nel senso del nostro slogan «aspetta di più». Ore lavorative flessibili permettono la riconciliazione di famiglia, tempo libero e lavoro Sia in auto o senza – Vantaggi: O parcheggiati o CHF 60.– Indennità di mobilità al mese Assicurazione sanitaria: Sconti fino al 10% sull'assicurazione integrativa presso i nostri partner Il piano di acquisto azionario è generoso e individuale: Siegfried AG aumenta l'indennità per bambini del 10% rispetto all'approccio giuridico cantonale. Come CDMO completamente integrato, Siegfried è una delle poche aziende che oggi può combinare lo sviluppo e la produzione di principi attivi (API) e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile dell'industria farmaceutica Siegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "en": "\"Expect to grow\" , personally and professional: Siegfried is waiting for exciting challenges and numerous opportunities to demonstrate your talents. As a trusted and respected partner of the pharmaceutical industry, we maintain the highest standards in the fields of safety, quality and sustainability – and at the same time promote a culture that empowers you to succeed. Become part of a rapidly growing global company where diverse perspectives and experiences come together in a cooperative environment. Here you will find a job that evaluates both collective success and your individual contributions – and offers you long-term opportunities to develop and do something. Your Role: As our new Process Manager Production (product chemist) you have the exciting opportunity to join a leading company in the growing CDMO industry. In this exciting and varied function, you are responsible for and optimising the chemical and physical processes of the entire product portfolio of multi-stage syntheses assigned to you. As a member of the Product Leadership Team (PLT), you are responsible for seamless product launch of development projects or customer processes into commercial production plants. With our commercialized products, you take over the management of the PLT's and drive forward the continuous improvement of the processes actively. They represent the communication interface to our customers in all operational matters. In addition, you are responsible for the following main tasks: - Implementation, supervision and optimization of existing and new production processes with regard to cycle time, yield and costs in compliance with the cGMP guidelines - assessment of new processes and technologies for feasibility and suitability in the plants of chemical manufacturing - supervision, monitoring and evaluation of product campaigns including definition of improvement and process optimization measures - responsibility for process and process documentation Years of experience in a similar function - Safe for negotiation in German and English (written and oral) We're looking for you! We wish passionate product chemists, which team players are with high autonomy, solution orientation, reliability, quality and responsibility awareness. They are characterized by their distinct analytical skills, their technical interest and entrepreneurial thinking and acting. Your Benefits: At our Zofingen site, you will find a motivated, established team and challenging tasks in a growing environment. You expect an employer to use your expertise optimally and to develop yourself personally at the same time? Depending on the skills and interest, the function also offers a wide range of career development opportunities, such as a project manager, plant manager or program manager position. Siegfried is a company in which innovation has tradition and you can expect more in the sense of our slogan «expect more». Flexible working hours allow the reconciliation of family, leisure and work Whether by car or without – Benefits: Either parked or CHF 60.– Mobility allowance per month Health insurance: Discounts up to 10% on supplementary insurance at our partners Stock purchase plan is generous and individual child allowance: Siegfried AG increases the children's allowance by 10% compared to the cantonal legal approach Individual further training options by arrangement Paid Znünipause With a team of over 3,800 highly qualified professionals, we bring the innovations of our pharmaceutical customers into industrial production and produce safe medicines for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few companies that today can combine the development and production of active ingredients (APIs) and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trustworthy partner of the pharmaceutical industry Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken. Your Role: Als unser neuer Process Manager Production (Produktchemiker) haben Sie die aufregende Gelegenheit, bei einem führenden Unternehmen in der wachsenden CDMO-Branche einzusteigen. In dieser spannenden und abwechslungsreichen Funktion verantworten und optimieren Sie die chemischen und physikalischen Prozesse des Ihnen zugeordneten Gesamtproduktportfolios von mehrstufigen Synthesen. Als Mitglied des Product Leadership Teams (PLT) sind Sie zuständig für die nahtlose Produkteinführung von Entwicklungsprojekten oder Kundenprozessen in die kommerziellen Produktionsbetriebe. Bei unseren kommerzialisierten Produkten übernehmen Sie die Leitung des PLT's und treiben die kontinuierliche Verbesserung der Prozesse aktiv voran. Dabei stellen sie die Kommunikationsschnittstelle zu unseren Kunden bei allen betrieblichen Belangen dar. Im Weiteren verantworten Sie folgende Hauptaufgaben: - Realisierung, Betreuung und Optimierung bestehender und neuer Produktionsprozesse bezüglich Taktzeit, Ausbeute und Kosten unter Einhaltung der cGMP Richtlinien - Beurteilung neuer Verfahren sowie Technologien auf Machbarkeit und Eignung in den Anlagen der chemischen Fabrikation - Betreuung, Überwachung und Auswertung der Produkt-Kampagnen samt Definition der Verbesserungs- und Prozessoptimierungsmassnahmen - Verantwortung für die Verfahrens- und Prozessdokumentation, der Mengengerüste und SAP-Herstellrezepte - Verfahrensgeber in Investitionsprojekten - Mitverantwortung für die Planung, Umsetzung und Einhaltung regulatorischer Vorschriften betreffend cGMP, SHE, Behörden etc. in Bezug auf Ihre Produkte Your Profile: - Abgeschlossenes Hochschulstudium (FH, ETH oder Universitätsstudium) in Chemie mit Schwerpunkt Chemieingenieurswissenschaft, industrieller Chemie oder organischer Chemie - Berufserfahrung in der chemischen oder pharmazeutischen Produktion oder im Pilotbetrieb, von Vorteil in einem cGMP-Umfeld - 3+ Jahre Erfahrung in einer ähnlichen Funktion - Verhandlungssicher in Deutsch und Englisch (schriftlich und mündlich) Wir suchen Sie! Wir wünschen uns passionierte Produktchemiker, welche Team Player sind mit hoher Eigenständigkeit, Lösungsorientierung, Zuverlässigkeit, Qualitäts- und Verantwortungsbewusstsein. Sie zeichnen sich durch Ihre ausgeprägten Analysefähigkeiten, Ihrem technischen Interesse und unternehmerischen Denken und Handeln aus. Your Benefits: An unserem Standort in Zofingen erwartet Sie ein motiviertes, aufgestelltes Team und herausfordernde Aufgaben in einem wachsenden Umfeld. Sie erwarten von einem Arbeitgeber, dass Sie Ihr Fachwissen optimal einsetzen und sich gleichzeitig persönlich weiterentwickeln können? Die Funktion bietet je nach Fähigkeiten und Interesse auch vielseitige Career Development Möglichkeiten, wie z.B. in eine Project Manager, Plant Manager oder Program Manager Position aufzusteigen. Siegfried ist ein Unternehmen, in dem Innovation Tradition hat und Sie im Sinne unseres Slogans «expect more» mehr erwarten können.\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "fr": "\" Attendez-vous à grandir \" , personnellement et professionnel: Siegfried attend des défis passionnants et de nombreuses occasions de démontrer vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous maintenons les normes les plus élevées dans les domaines de la sécurité, de la qualité et de la durabilité, tout en promouvant une culture qui vous donne les moyens de réussir. Devenez membre d'une entreprise mondiale en croissance rapide où des perspectives et des expériences variées se réunissent dans un environnement coopératif. Ici, vous trouverez un emploi qui évalue à la fois la réussite collective et vos contributions individuelles – et vous offre des opportunités à long terme pour développer et faire quelque chose. Votre rôle : En tant que notre nouveau Process Manager Production (product chimist), vous avez l'occasion de rejoindre une entreprise leader dans l'industrie en croissance du CDMO. Dans cette fonction passionnante et variée, vous êtes responsable et optimisant les processus chimiques et physiques de l'ensemble du portefeuille de produits de synthèses multi-étapes qui vous sont assignés. En tant que membre de la Product Leadership Team (PLT), vous êtes responsable du lancement de produits sans faille de projets de développement ou de processus clients dans des usines de production commerciale. Avec nos produits commercialisés, vous prenez en charge la gestion des PLT et faites avancer activement l'amélioration continue des processus. Ils représentent l'interface de communication avec nos clients pour toutes les questions opérationnelles. En outre, vous êtes responsable des principales tâches suivantes: - Mise en oeuvre, supervision et optimisation des processus de production existants et nouveaux en ce qui concerne le temps de cycle, le rendement et les coûts conformément aux lignes directrices du CGPC - évaluation des nouveaux processus et technologies pour la faisabilité et l'adéquation dans les usines de fabrication de produits chimiques - supervision, suivi et évaluation des campagnes de produits, y compris la définition des mesures d'amélioration et d'optimisation des processus - responsabilité de la documentation des processus et des processus - Années d'expérience dans une fonction similaire - Sûre pour la négociation en allemand et en anglais (écrit et oral) On vous cherche ! Nous souhaitons des chimistes de produits passionnés, quels sont les joueurs de l'équipe avec une grande autonomie, orientation de la solution, fiabilité, qualité et conscience des responsabilités. Ils se caractérisent par leurs compétences analytiques distinctes, leur intérêt technique, leur esprit d'entreprise et leur comportement. Vos avantages : Sur notre site Zofingen, vous trouverez une équipe motivée, établie et des tâches difficiles dans un environnement en pleine croissance. Vous vous attendez à ce qu'un employeur utilise votre expertise de façon optimale et se développe personnellement en même temps? Selon les compétences et l'intérêt, la fonction offre également un large éventail de possibilités de perfectionnement professionnel, comme un gestionnaire de projet, un gestionnaire d'usine ou un poste de gestionnaire de programme. Siegfried est une entreprise dans laquelle l'innovation a la tradition et vous pouvez vous attendre plus au sens de notre slogan « s'attendre plus ». Des horaires flexibles permettent de concilier la famille, les loisirs et le travail en voiture ou sans – Avantages : soit garé, soit CHF 60.– Allocation de mobilité par mois Assurance maladie: Réductions jusqu'à 10% sur l'assurance complémentaire chez nos partenaires Le plan d'achat d'actions est généreux et individuel: Siegfried AG augmente l'allocation pour enfants de 10% par rapport à l'approche légale cantonale Options de formation continue individuelle par arrangement Payé Znünipeuse Avec une équipe de plus de 3800 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques dans la production industrielle et produisons des médicaments sûrs pour les patients dans le monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares entreprises qui peuvent aujourd'hui combiner le développement et la production d'ingrédients actifs (API) et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus digne de confiance de l'industrie pharmaceutique Siegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. La société exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
-      },
-      "location": "Zofingen",
-      "canton": "AG",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Process-Manager-Production_R26_247",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-13T11:50:40.546Z",
-      "addressLocality": "Zofingen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Management",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-27",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Process-Manager-Production_R26_247",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R26_247",
-      "hiringOrganization": "Siegfried AG",
-      "previousSlugs": [
-        "process-manager-production-siegfried-ch",
-        "prozessmanager-produktion-siegfried-zofingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "process-manager-production-siegfried-ch"
-        ],
-        "de": [
-          "prozessmanager-produktion-siegfried-zofingen"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T11:14:37.862Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "5000"
     },
     {
       "id": "siegfried-81d8424ec680",
@@ -366,7 +293,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Schlieren/Procurement-Manager_R25_605",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-13T11:50:39.856Z",
+      "crawledAt": "2026-05-13T22:59:10.813Z",
       "addressLocality": "Schlieren",
       "addressCountry": "CH",
       "country": "CH",
@@ -440,7 +367,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Officer-Process-Assistant-50-_R26_312",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-13T11:50:39.202Z",
+      "crawledAt": "2026-05-13T22:59:10.188Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -502,6 +429,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:36.725Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -547,7 +475,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-13T11:50:38.503Z",
+      "crawledAt": "2026-05-13T22:59:09.560Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -603,6 +531,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -648,7 +577,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Teamleiter-Werkschutz_R26_305",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-13T11:50:37.851Z",
+      "crawledAt": "2026-05-13T22:59:08.904Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -699,6 +628,7 @@
         "teamleiter-werkschutz-siegfried-ch"
       ],
       "firstSeenAt": "2026-04-13T11:14:34.800Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -744,7 +674,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Data-Reviewer_R26_289",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-13T11:50:37.151Z",
+      "crawledAt": "2026-05-13T22:59:08.241Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -770,6 +700,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:34.210Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -815,7 +746,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Mechaniker--m-w-d-_R26_349",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-13T11:50:36.423Z",
+      "crawledAt": "2026-05-13T22:59:07.605Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -852,6 +783,7 @@
         "ingegnere-m-w-d-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -897,7 +829,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Kalibriertechniker--in_R26_347",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-13T11:50:35.750Z",
+      "crawledAt": "2026-05-13T22:59:06.828Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -934,6 +866,7 @@
         "kalibriertechniker-m-w-d-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -979,7 +912,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Site-HR-Head_R26_379",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-13T11:50:35.029Z",
+      "crawledAt": "2026-05-13T22:59:06.183Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1063,7 +996,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Administrative-Assistent-in-Analytik--60----m-w-d-_R26_406",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-13T11:50:33.961Z",
+      "crawledAt": "2026-05-13T22:59:05.548Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1081,6 +1014,7 @@
       "jobReqId": "R26_406",
       "hiringOrganization": "Siegfried AG",
       "firstSeenAt": "2026-05-01T22:19:23.354Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1126,7 +1060,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Operations-support-specialist_R26_313",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-13T11:50:33.309Z",
+      "crawledAt": "2026-05-13T22:59:04.911Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1159,6 +1093,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:36.115Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1204,7 +1139,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Head-DP-Development---Technology_R26_123",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-13T11:50:32.581Z",
+      "crawledAt": "2026-05-13T22:59:04.266Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1281,7 +1216,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Emergency-and-Fire-Services-Coordinator_R26_416",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-13T11:50:31.907Z",
+      "crawledAt": "2026-05-13T22:59:03.630Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1310,6 +1245,7 @@
         ]
       },
       "firstSeenAt": "2026-05-06T22:37:48.270Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1355,7 +1291,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebsingenieur-in_R26_362",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-13T11:50:31.202Z",
+      "crawledAt": "2026-05-13T22:59:03.003Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1386,6 +1322,7 @@
         ]
       },
       "firstSeenAt": "2026-05-08T10:35:32.137Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1431,7 +1368,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-Metrologie_R26_401",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-13T11:50:30.454Z",
+      "crawledAt": "2026-05-13T22:59:02.291Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1463,6 +1400,7 @@
         ]
       },
       "firstSeenAt": "2026-05-01T22:19:22.405Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1508,7 +1446,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-13T11:50:29.722Z",
+      "crawledAt": "2026-05-13T22:59:01.658Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1537,6 +1475,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T12:28:48.174Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1582,7 +1521,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-13T11:50:29.049Z",
+      "crawledAt": "2026-05-13T22:59:01.004Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1633,6 +1572,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:38.458Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1678,7 +1618,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_413",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-13T11:50:28.322Z",
+      "crawledAt": "2026-05-13T22:59:00.373Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1704,6 +1644,7 @@
         ]
       },
       "firstSeenAt": "2026-05-12T11:59:11.839Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1722,34 +1663,34 @@
       "id": "siegfried-05bd32181a69",
       "slug": "logistic-professionnal-temporary-siegfried-ch",
       "slugByLocale": {
-        "fr": "logistic-professionnal-temporary-siegfried-ch",
         "it": "logistic-professionnal-temporary-siegfried-ch",
         "en": "logistics-professional-temporary-siegfried-evionnaz",
-        "de": "logistik-professional-zeitalter-siegfried-evionnaz"
+        "de": "logistik-professional-zeitalter-siegfried-evionnaz",
+        "fr": "logistic-professionnal-temporary-siegfried-ch"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
       "companyDomain": "siegfried.ch",
       "title": "Logistic Professionnal (temporary)",
       "titleByLocale": {
-        "fr": "Logistique Professionnel (temporaire)",
         "it": "Logistic Professionnal (temporary)",
         "en": "Logistics Professional (temporary)",
-        "de": "Logistik Professional (Zeitalter)"
+        "de": "Logistik Professional (Zeitalter)",
+        "fr": "Logistic Professionnal (temporary)"
       },
       "description": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n \n \n \n \n Your Role: \n•\tRéceptionner les matières premières : Charger et décharger le camion interne. Charger et décharger les camions de matières premières en vérifiant la conformité des arrivages.\n•\tParticiper à l’approvisionnement des usines : Livrer les charges solides aux différentes usines. Livrer les matières premières liquides aux différentes usines.\n•\tPréparer les détails pour la production : Préparer les matières premières solides selon les feuilles de charges.\n•\tContribuer aux inventaires.\n•\tAssurer l’ordre et la propreté des magasins.\n•\tRespecter et faire respecter les exigences HSE, qualité, coûts et délais. \n Your Profile: \n \n• CFC de Gestionnaire en logistique ou formation équivalente.\n\n• Minimum 2 ans d’expérience dans un environnement industriel.\n\n• Permis de cariste indispensable.\n \n Your Benefits: \n N/A\n \n \n Fondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
-        "fr": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\n Your Role:\n•\tRéceptionner les matières premières : Charger et décharger le camion interne. Charger et décharger les camions de matières premières en vérifiant la conformité des arrivages.\n•\tParticiper à l’approvisionnement des usines : Livrer les charges solides aux différentes usines. Livrer les matières premières liquides aux différentes usines.\n•\tPréparer les détails pour la production : Préparer les matières premières solides selon les feuilles de charges.\n•\tContribuer aux inventaires.\n•\tAssurer l’ordre et la propreté des magasins.\n•\tRespecter et faire respecter les exigences HSE, qualité, coûts et délais.\n Your Profile:\n\n• CFC de Gestionnaire en logistique ou formation équivalente.\n\n• Minimum 2 ans d’expérience dans un environnement industriel.\n\n• Permis de cariste indispensable.\n\n Your Benefits:\n N/A\n\n Fondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e molte opportunità per mostrare i vostri talenti. Come partner affidabile e rispettato nel settore farmaceutico, incontriamo i più elevati standard di sicurezza, qualità e sostenibilità, coltivando una cultura che ti permette di prosperare. Unisciti a una crescente azienda globale in cui diverse prospettive ed esperienze si uniscono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizza il successo collettivo tanto quanto i vostri contributi individuali, offrendo opportunità a lungo termine per evolversi e avere un impatto.\n\nIl tuo ruolo:\n• Ricezione di materie prime: carico e scarico del camion interno. Caricare e scaricare camion di materie prime controllando la conformità degli arrivi.\n• Partecipare all'alimentazione degli impianti: consegnare carichi solidi a diverse piante. Fornire materie prime liquide a diverse piante.\n• Preparare i dettagli per la produzione: preparare materie prime solide in base a fogli di carico.\n• Contribuire agli inventari.\n• Assicurare l'ordine e la pulizia dei negozi.\n• Rispetto e applicazione dei requisiti HSE, qualità, costi e scadenze.\nIl tuo profilo:\n\n• Manager SWC in logistica o formazione equivalente.\n\n• Minimo 2 anni di esperienza in un ambiente industriale.\n\n• Permesso di carist essenziale.\n\nI tuoi vantaggi:\nN/A\n\nFondata nel 1873 a Zofingue, in Svizzera, Siegfried è diventata una rete globale di 13 siti sparsi su tre continenti. Con un team di oltre 3.800 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici sulla scala industriale e produciamo farmaci sicuri per i pazienti di tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni in grado oggi di garantire lo sviluppo e la produzione di principi attivi (API) e forme galeniche finite sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. Gli operatori dell'azienda si trovano a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and many opportunities to showcase your talents. As a trusted and respected partner in the pharmaceutical industry, we meet the highest standards of safety, quality and sustainability, while cultivating a culture that allows you to thrive. Join a growing global company where diverse perspectives and experiences come together in a collaborative environment. Here you will find a workplace that values collective success as much as your individual contributions—offering long-term opportunities to evolve and have an impact.\n\nYour Role:\n• Receiving raw materials: Load and unload the internal truck. Load and unload trucks of raw materials by checking the conformity of arrivals.\n• Participate in plant supply: Deliver solid loads to different plants. Deliver liquid raw materials to different plants.\n• Prepare details for production: Prepare solid raw materials according to load sheets.\n• Contribute to inventories.\n• Ensure order and cleanliness of shops.\n• Respect and enforce HSE requirements, quality, costs and deadlines.\nYour Profile:\n\n• Manager SWC in logistics or equivalent training.\n\n• Minimum 2 years of experience in an industrial environment.\n\n• Essential carist permit.\n\nYour Benefits:\nN/A\n\nFounded in 1873 in Zofingue, Switzerland, Siegfried has become a global network of 13 sites spread over three continents. With a team of more than 3,800 highly qualified professionals, we bring the innovations of our pharmaceutical customers to the industrial scale and manufacture safe medicines for patients around the world. As a fully integrated CDMO, Siegfried is one of the few organizations able today to ensure the development and production of active ingredients (APIs) and finished galenic forms under one roof. This unique combination of know-how and experience makes us the most reliable partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operators manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Expect to grow\", persönlich und professionell: Bei Siegfried bieten wir spannende Herausforderungen und viele Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und respektierter Partner in der pharmazeutischen Industrie erfüllen wir höchste Standards in Sicherheit, Qualität und Nachhaltigkeit, während wir eine Kultur kultivieren, die es Ihnen ermöglicht, zu blühen. Begleiten Sie ein wachsendes globales Unternehmen, in dem unterschiedliche Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der kollektiven Erfolg so gut wie Ihre einzelnen Beiträge wertet – mit langfristigen Möglichkeiten zur Entwicklung und Wirkung.\n\nIhre Rolle:\n• Rohstoffaufnahme: Laden und Entladen des internen LKW. Last- und Lastkraftwagen von Rohstoffen durch Überprüfung der Konformität der Ankunft.\n• Beteiligen Sie sich an der Pflanzenversorgung: liefern Sie feste Belastungen an verschiedene Pflanzen. Liefern Sie flüssige Rohstoffe in verschiedene Pflanzen.\n• Bereiten Sie Details für die Produktion vor: Bereiten Sie feste Rohstoffe nach Lastblättern vor.\n• Beitrag zu Inventaren.\n• Ordnung und Sauberkeit der Geschäfte gewährleisten.\n• Einhaltung und Durchsetzung von HSE-Anforderungen, Qualität, Kosten und Fristen.\nIhr Profil:\n\n• Manager SWC in der Logistik oder gleichwertigen Ausbildung.\n\n• Mindestens 2 Jahre Erfahrung in einem industriellen Umfeld.\n\n• Essential Carist Genehmigung.\n\nIhre Vorteile:\nN/A\n\nSiegfried wurde 1873 in Zofingue, Schweiz gegründet und ist zu einem weltweiten Netzwerk von 13 Standorten auf drei Kontinenten. Mit einem Team von mehr als 3.800 hochqualifizierten Fachleuten bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und produzieren sichere Medikamente für Patienten auf der ganzen Welt. Als voll integriertes CDMO ist Siegfried eine der wenigen Organisationen, die heute die Entwicklung und Produktion von Wirkstoffen (APIs) und fertigen galenischen Formen unter einem Dach sicherstellen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum zuverlässigsten Partner in der Pharmaindustrie.\n\nSiegfried ist ein führendes CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Die Betreiber produzieren Standorte in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zurich)."
+        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e molte opportunità per mostrare i vostri talenti. Come partner affidabile e rispettato nel settore farmaceutico, incontriamo i più elevati standard di sicurezza, qualità e sostenibilità, coltivando una cultura che ti permette di prosperare. Unisciti a una crescente azienda globale in cui diverse prospettive ed esperienze si uniscono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizza il successo collettivo tanto quanto i vostri contributi individuali, offrendo opportunità a lungo termine per evolversi e avere un impatto. Il tuo ruolo:\n• Ricezione di materie prime: carico e scarico del camion interno. Caricare e scaricare camion di materie prime controllando la conformità degli arrivi.\n• Partecipare all'alimentazione degli impianti: consegnare carichi solidi a diverse piante. Fornire materie prime liquide a diverse piante.\n• Preparare i dettagli per la produzione: preparare materie prime solide in base a fogli di carico.\n• Contribuire agli inventari.\n• Assicurare l'ordine e la pulizia dei negozi.\n• Rispetto e applicazione dei requisiti HSE, qualità, costi e scadenze. Il tuo profilo:\n• Manager SWC in logistica o formazione equivalente.\n• Minimo 2 anni di esperienza in un ambiente industriale.\n• Permesso di carist essenziale. I tuoi vantaggi: N/A Fondata nel 1873 a Zofingue, in Svizzera, Siegfried è diventata una rete globale di 13 siti sparsi su tre continenti. Con un team di oltre 3.800 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici sulla scala industriale e produciamo farmaci sicuri per i pazienti di tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni in grado oggi di garantire lo sviluppo e la produzione di principi attivi (API) e forme galeniche finite sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico. Siegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. Gli operatori dell'azienda si trovano a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
+        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and many opportunities to showcase your talents. As a trusted and respected partner in the pharmaceutical industry, we meet the highest standards of safety, quality and sustainability, while cultivating a culture that allows you to thrive. Join a growing global company where diverse perspectives and experiences come together in a collaborative environment. Here you will find a workplace that values collective success as much as your individual contributions—offering long-term opportunities to evolve and have an impact. Your Role:\n• Receiving raw materials: Load and unload the internal truck. Load and unload trucks of raw materials by checking the conformity of arrivals.\n• Participate in plant supply: Deliver solid loads to different plants. Deliver liquid raw materials to different plants.\n• Prepare details for production: Prepare solid raw materials according to load sheets.\n• Contribute to inventories.\n• Ensure order and cleanliness of shops.\n• Respect and enforce HSE requirements, quality, costs and deadlines. Your Profile:\n• Manager SWC in logistics or equivalent training.\n• Minimum 2 years of experience in an industrial environment.\n• Essential carist permit. Your Benefits: N/A Founded in 1873 in Zofingue, Switzerland, Siegfried has become a global network of 13 sites spread over three continents. With a team of more than 3,800 highly qualified professionals, we bring the innovations of our pharmaceutical customers to the industrial scale and manufacture safe medicines for patients around the world. As a fully integrated CDMO, Siegfried is one of the few organizations able today to ensure the development and production of active ingredients (APIs) and finished galenic forms under one roof. This unique combination of know-how and experience makes us the most reliable partner in the pharmaceutical industry. Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operators manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Expect to grow\", persönlich und professionell: Bei Siegfried bieten wir spannende Herausforderungen und viele Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und respektierter Partner in der pharmazeutischen Industrie erfüllen wir höchste Standards in Sicherheit, Qualität und Nachhaltigkeit, während wir eine Kultur kultivieren, die es Ihnen ermöglicht, zu blühen. Begleiten Sie ein wachsendes globales Unternehmen, in dem unterschiedliche Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der kollektiven Erfolg so gut wie Ihre einzelnen Beiträge wertet – mit langfristigen Möglichkeiten zur Entwicklung und Wirkung. Ihre Rolle:\n• Rohstoffaufnahme: Laden und Entladen des internen LKW. Last- und Lastkraftwagen von Rohstoffen durch Überprüfung der Konformität der Ankunft.\n• Beteiligen Sie sich an der Pflanzenversorgung: liefern Sie feste Belastungen an verschiedene Pflanzen. Liefern Sie flüssige Rohstoffe in verschiedene Pflanzen.\n• Bereiten Sie Details für die Produktion vor: Bereiten Sie feste Rohstoffe nach Lastblättern vor.\n• Beitrag zu Inventaren.\n• Ordnung und Sauberkeit der Geschäfte gewährleisten.\n• Einhaltung und Durchsetzung von HSE-Anforderungen, Qualität, Kosten und Fristen. Ihr Profil:\n• Manager SWC in der Logistik oder gleichwertigen Ausbildung.\n• Mindestens 2 Jahre Erfahrung in einem industriellen Umfeld.\n• Essential Carist Genehmigung. Ihre Vorteile: N/A Siegfried wurde 1873 in Zofingue, Schweiz gegründet und ist zu einem weltweiten Netzwerk von 13 Standorten auf drei Kontinenten. Mit einem Team von mehr als 3.800 hochqualifizierten Fachleuten bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und produzieren sichere Medikamente für Patienten auf der ganzen Welt. Als voll integriertes CDMO ist Siegfried eine der wenigen Organisationen, die heute die Entwicklung und Produktion von Wirkstoffen (APIs) und fertigen galenischen Formen unter einem Dach sicherstellen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum zuverlässigsten Partner in der Pharmaindustrie. Siegfried ist ein führendes CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Die Betreiber produzieren Standorte in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zurich).",
+        "fr": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact. Your Role:\n• Réceptionner les matières premières : Charger et décharger le camion interne. Charger et décharger les camions de matières premières en vérifiant la conformité des arrivages.\n• Participer à l’approvisionnement des usines : Livrer les charges solides aux différentes usines. Livrer les matières premières liquides aux différentes usines.\n• Préparer les détails pour la production : Préparer les matières premières solides selon les feuilles de charges.\n• Contribuer aux inventaires.\n• Assurer l’ordre et la propreté des magasins.\n• Respecter et faire respecter les exigences HSE, qualité, coûts et délais. Your Profile:\n• CFC de Gestionnaire en logistique ou formation équivalente.\n• Minimum 2 ans d’expérience dans un environnement industriel.\n• Permis de cariste indispensable. Your Benefits: N/A Fondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique. Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
       },
       "location": "Evionnaz",
       "canton": "VS",
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Logistic-Professionnal--temporary-_R26_434",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-13T11:50:27.648Z",
+      "crawledAt": "2026-05-13T22:58:59.757Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1763,11 +1704,11 @@
       "postedDate": "2026-05-13",
       "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Logistic-Professionnal--temporary-_R26_434",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "R26_434",
       "hiringOrganization": "Siegfried Evionnaz SA",
+      "firstSeenAt": "2026-05-13T11:50:27.648Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1780,8 +1721,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-05-13T11:50:27.648Z"
+      "postalCode": "1950"
     }
   ]
 }
