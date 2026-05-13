@@ -791,6 +791,7 @@ jobs:
         continue-on-error: true
         with:
           timeout: 1800000
+          error_count: 100
 
       - name: Wait for previous Pages deployment to finish
         if: steps.deployment_first.outcome == 'failure'
@@ -804,6 +805,7 @@ jobs:
         uses: actions/deploy-pages@v5
         with:
           timeout: 1800000
+          error_count: 100
 
       - name: Fail if both deploy attempts failed
         if: steps.deployment_first.outcome == 'failure' && steps.deployment.outcome != 'success'
@@ -1103,6 +1105,7 @@ jobs:
         uses: actions/deploy-pages@v5
         with:
           timeout: 1800000
+          error_count: 100
 
       - name: Report rollback to Linear
         if: always()
