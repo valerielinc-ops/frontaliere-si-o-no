@@ -45,6 +45,7 @@ import {
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -93,7 +94,7 @@ function isTargetJob(job = {}) {
 }
 
 function jobMatchKey(job) {
-  return String(job.url || '').trim().toLowerCase() || String(job.slug || '').trim().toLowerCase();
+  return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
 
 function slugify(text = '') {

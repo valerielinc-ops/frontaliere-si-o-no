@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -184,7 +185,7 @@ async function buildAvaloqJobs() {
 }
 
 function jobMatchKey(job = {}) {
-  return String(job.url || '').trim().toLowerCase() || String(job.slug || '').trim().toLowerCase();
+  return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
 
 function mergeJobs(discoveredJobs) {

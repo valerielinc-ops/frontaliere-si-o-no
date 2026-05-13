@@ -49,6 +49,13 @@ These directives have the highest priority. No exceptions, workarounds, or "temp
 
     **Reference commits** for the canonical implementation: `2f845817eb` (border-wait), `74866f13b4` (health-premiums leaf), `cfde4aca6c` (weekly-employers city), `26421ccb6c` (fuel-daily root). Read those diffs before adding a new SEO landing.
 
+18. **Every dedicated crawler MUST key its merge on stable-id, not the source URL.** Vendor APIs (PwC / Workday / Prospective.ch / Greenhouse) rewrite the slug-portion of a job's URL when titles change while keeping the underlying UUID stable. A URL-keyed `jobMatchKey` treats the rename as delete+add: the old slug falls out of the per-crawler slice without a `previousSlugs` trail, and the soft-landing emitter takes over the canton-aware URL on the next deploy — turning a live position into "Offerta non più disponibile".
+
+    - Use `extractStableJobId(job.url)` from `scripts/lib/job-match-key.mjs` (matches UUID → long numeric ID → 10+ char hex → URL fallback).
+    - When the merge updates an existing job whose slug/slugByLocale differs from the previous run, push every prior slug into `previousSlugs` (and per-locale `previousSlugsByLocale`) so the build emits a bridge page (canonical → new URL) instead of an expired soft-landing.
+    - Truncate slug-output through `truncateSlugAtWordBoundary` from `scripts/lib/slug-truncate.mjs`, never `.slice(0, MAX)` raw — chopping mid-token produces unrouted slugs (e.g. `...switzerland-genev` from `...switzerland-geneve`).
+    - Reference fix: PR #161 (2026-05-13) + follow-up — `scripts/lib/job-match-key.mjs`, `scripts/lib/slug-truncate.mjs`, `scripts/backfill-renamed-slugs-from-history.mjs`. Backfill repaired 358 historical rename-drift cases across 56 crawler slices. Incident: 2.591 slugs dropped in 7 days, 1.987 still live on source side. Full context: `project_seo_rename_drift_may13.md` memory.
+
 ---
 
 # Project Overview

@@ -44,6 +44,7 @@ import {
   titleOverlap,
 } from './lib/lombardi-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -187,7 +188,7 @@ function buildLombardiJob(raw, detail) {
 }
 
 function jobMatchKey(job = {}) {
-  return String(job.url || '').trim().toLowerCase() || String(job.slug || '').trim().toLowerCase();
+  return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
 
 function mergeJobs(discoveredJobs) {

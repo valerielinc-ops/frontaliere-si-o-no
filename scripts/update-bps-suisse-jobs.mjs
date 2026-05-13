@@ -19,6 +19,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -263,7 +264,7 @@ function writeJson(filePath, value) {
 }
 
 function jobMatchKey(job = {}) {
-  return String(job.url || '').trim().toLowerCase().replace(/\/+$/, '') || String(job.slug || '').trim().toLowerCase();
+  return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
 
 function mergeJobs(discoveredJobs) {
