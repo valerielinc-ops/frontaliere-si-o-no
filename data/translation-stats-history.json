@@ -10222,5 +10222,117 @@
         "pending": 7
       }
     ]
+  },
+  {
+    "timestamp": "2026-05-13T04:34:46.430Z",
+    "label": "before",
+    "total": 4400,
+    "needsRetranslation": 1028,
+    "incomplete": 401,
+    "complete": 3999,
+    "missingByLocale": {
+      "it": 282,
+      "en": 240,
+      "de": 112,
+      "fr": 290
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 85
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 38
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 19
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "IWC",
+        "pending": 11
+      },
+      {
+        "company": "Pictet Group",
+        "pending": 10
+      },
+      {
+        "company": "UBS",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "Reboot Monkey",
+        "pending": 8
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-13T05:46:31.748Z",
+    "label": "after",
+    "total": 4400,
+    "needsRetranslation": 867,
+    "incomplete": 322,
+    "complete": 4078,
+    "missingByLocale": {
+      "it": 240,
+      "en": 211,
+      "de": 94,
+      "fr": 247
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 85
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "IWC",
+        "pending": 11
+      },
+      {
+        "company": "Pictet Group",
+        "pending": 10
+      },
+      {
+        "company": "UBS",
+        "pending": 10
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 8
+      },
+      {
+        "company": "Reboot Monkey",
+        "pending": 8
+      },
+      {
+        "company": "Lonza",
+        "pending": 7
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      }
+    ]
   }
 ]
