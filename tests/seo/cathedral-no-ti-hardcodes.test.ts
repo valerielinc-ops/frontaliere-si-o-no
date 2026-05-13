@@ -31,6 +31,9 @@ const ALLOWLIST = [
   'build-plugins/jobsSeoPagesPlugin.ts:786',
   'build-plugins/jobsSeoPagesPlugin.ts:787',
   'build-plugins/jobsSeoPagesPlugin.ts:792',          // jsdoc reference to the legacy slugs
+  // Cathedral breadcrumb-bugfix comment (2026-05-13) — references the
+  // TI slug as illustrative example in the prior-bug explanation.
+  'build-plugins/jobsSeoPagesPlugin.ts:7841',
 
   // ── jobBoardSeo: TI legacy job-board landing paths (kept for legacy entry) ──
   'build-plugins/jobBoardSeo.ts:38',
