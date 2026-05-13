@@ -20,7 +20,6 @@ import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locatio
 
 const WORKDAY_API_BASE = 'https://fielmann.wd3.myworkdayjobs.com/wday/cxs/fielmann/External';
 const WORKDAY_PUBLIC_BASE = 'https://fielmann.wd3.myworkdayjobs.com/en/External';
-const FIELMANN_PORTAL = 'https://jobs.fielmann.com';
 const SWISS_COUNTRY_ID = '187134fccb084a0ea9b4b95f23890dbe';
 const PAGE_SIZE = 20;
 
@@ -278,7 +277,11 @@ export async function fetchAllFielmannJobs() {
     // Description
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
-    const publicUrl = `${FIELMANN_PORTAL}/de/stellenangebote/detail/${(info.jobReqId || '').replace('R-', '')}-${slugify(title)}`;
+    // Canonical public URL: the Workday tenant detail page (live + HEAD-friendly).
+    // The previously-used `jobs.fielmann.com/de/stellenangebote/detail/{reqId}-{slug}`
+    // pattern was fabricated and returns 404, which made cleanup-jobs.mjs delete
+    // every Fielmann job on every housekeeping run.
+    const publicUrl = `${WORKDAY_PUBLIC_BASE}${externalPath}`;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} fielmann ch`);
