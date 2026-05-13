@@ -796,7 +796,7 @@ function makeNursesHubCopy(cantonCode: string): Record<JobLandingLocale, {
  const cd = CANTON_DISPLAY_LOCALE[cantonCode] || CANTON_DISPLAY_LOCALE['TI'];
  return {
  it: {
- title: `Infermieri ${cd.it} | Cliniche, case anziani e OSS`,
+ title: `Infermieri in ${cd.it} | Cliniche, case anziani e OSS`,
  heading: `Infermieri e sanita in ${cd.it}`,
  description: (count) => `Scopri ${count} offerte per infermieri, OSS, educatori e ruoli nelle cliniche o case anziani in ${cd.it}, con pagine dedicate ai cluster che convertono meglio.`,
  intro: `Questo hub raccoglie i lavori sanita e care che intercettano piu domanda: infermieri, OSS, educatori, cliniche private e case anziani. Serve per trovare piu velocemente le opportunita davvero vicine al tuo profilo.`,
