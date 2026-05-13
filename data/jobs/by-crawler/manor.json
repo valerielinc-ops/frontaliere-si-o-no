@@ -1,6 +1,6 @@
 {
   "crawlerKey": "manor",
-  "assembledAt": "2026-05-13T11:30:26.369Z",
+  "assembledAt": "2026-05-13T22:39:10.742Z",
   "jobs": [
     {
       "title": "Apprendista Polydesigner 3D AFC 100%",
@@ -36,6 +36,7 @@
       },
       "sourceLang": "it",
       "crawledAt": "",
+      "needsRetranslation": true,
       "id": "manor-1a20dc2ea93d",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -114,63 +115,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T22:05:21.455Z"
-    },
-    {
-      "title": "Collaboratore/trice cassa (Supermercato) 40%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Ascona-Collaboratoretrice-cassa-%28Supermercato%29-40/1350842255/",
-      "location": "Ascona",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "description": "Collaboratore/trice cassa (Supermercato) 40% presso Manor, con sede a Ascona, Canton Ticino, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Collaboratore/trice cassa (Supermercato) 40% presso Manor, con sede a Ascona, Canton Ticino, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Collaboratore/trice cassa (Supermercato) 40% presso Manor, con sede a Ascona, Canton Ticino, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaboratore/trice cassa (Supermercato) 40% at Manor, located in Ascona, Canton Ticino, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaboratore/trice cassa (Supermercato) 40% bei Manor, gelegen in Ascona, Kanton Tessin, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaboratore/trice cassa (Supermercato) 40% chez Manor, situé à Ascona, Canton du Tessin, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-04-30",
-      "source": "company-website",
-      "slug": "manor-collaboratore-trice-cassa-supermercato-40-ascona",
-      "slugByLocale": {
-        "it": "manor-collaboratore-trice-cassa-supermercato-40-ascona",
-        "en": "manor-collaboratore-trice-cassa-supermercato-40-ascona",
-        "de": "manor-collaboratore-trice-cassa-supermercato-40-ascona",
-        "fr": "manor-collaboratore-trice-cassa-supermercato-40-ascona"
-      },
-      "titleByLocale": {
-        "it": "Collaboratore/trice cassa (Supermercato) 40%",
-        "en": "Collaboratore/trice cassa (Supermercato) 40%",
-        "de": "Collaboratore/trice cassa (Supermercato) 40%",
-        "fr": "Collaboratore/trice cassa (Supermercato) 40%"
-      },
-      "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "id": "manor-b66d7e7e3be1",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Piazza Dante",
-      "postalCode": "6900",
-      "addressLocality": "Ascona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-30T11:09:16.744Z"
     }
   ]
 }

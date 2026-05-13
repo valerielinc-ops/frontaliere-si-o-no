@@ -1,16 +1,16 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-05-13T11:30:26.369Z",
-  "total": 3,
+  "generatedAt": "2026-05-13T22:39:10.742Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
+  "updatedCount": 2,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 6800,
-  "avgDurationMs": 6800,
+  "durationMs": 5115,
+  "avgDurationMs": 5115,
   "durationHistory": [
-    6800
+    5115
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -61,14 +61,16 @@
         "translation": 16,
         "completeness": 11
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Collaboratore/trice cassa (Supermercato) 40%",
       "company": "Manor AG",
       "companyKey": "manor",
       "url": "https://positions.manor.ch/job/Ascona-Collaboratoretrice-cassa-%28Supermercato%29-40/1350842255/",
       "location": "Ascona",
-      "canton": "BS",
+      "canton": "TI",
       "country": "CH",
       "category": "sales",
       "descriptionIt": "Collaboratore/trice cassa (Supermercato) 40% presso Manor, con sede a Ascona, Canton Ticino, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
@@ -78,15 +80,25 @@
       "sourceLang": "it",
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 64,
+      "id": "manor-b66d7e7e3be1",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "streetAddress": "Piazza Dante",
+      "postalCode": "6900",
+      "addressLocality": "Ascona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-30T11:09:16.744Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 14,
-        "completeness": 11
+        "translation": 20,
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
