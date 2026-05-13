@@ -547,9 +547,53 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
    );
  }
  if (cantonRows.length === 0) return '';
+ // Cross-section hubs — link directly from `/` so per-company azienda-*
+ // URLs in sitemap-jobs.xml fall to BFS depth 4 (currently depth=5 from
+ // / → /compara-servizi/ → /aziende-che-assumono/tutte/ → page-N →
+ // azienda-foo). Adding the companies hub anchor at depth 1 shortens
+ // every sitemap-jobs.xml leaf by one hop. Also wire the sectors,
+ // articles + jobs all-hubs in their per-locale form. The pills are
+ // visible (not collapsed) so the audit walker picks them up
+ // unconditionally — `<a>` inside `<details>` is followed regardless,
+ // but cross-section hubs are not a long list so we render inline.
+ const xsHubsLabel = locale === 'en' ? 'Cross-section hubs'
+   : locale === 'de' ? 'Übergreifende Hubs'
+   : locale === 'fr' ? 'Hubs transversaux'
+   : 'Hub trasversali';
+ const xsHubs: Array<{ href: string; label: string }> = locale === 'it' ? [
+   { href: '/aziende-che-assumono/tutte/', label: 'Aziende che assumono' },
+   { href: '/cerca-lavoro-ticino/aziende/', label: 'Aziende Ticino' },
+   { href: '/cerca-lavoro-ticino/settori/', label: 'Settori Ticino' },
+   { href: '/articoli-frontaliere/tutti/', label: 'Articoli frontaliere' },
+   { href: '/premi-cassa-malati/', label: 'Premi LAMal' },
+   { href: '/compara-servizi/', label: 'Comparatori' },
+ ] : locale === 'en' ? [
+   { href: '/en/companies-hiring/all/', label: 'Companies hiring' },
+   { href: '/en/find-jobs-ticino/companies/', label: 'Ticino companies' },
+   { href: '/en/find-jobs-ticino/sectors/', label: 'Ticino sectors' },
+   { href: '/en/cross-border-articles/all/', label: 'Cross-border articles' },
+   { href: '/en/health-insurance-premiums/', label: 'LAMal premiums' },
+ ] : locale === 'de' ? [
+   { href: '/de/firmen-die-einstellen/alle/', label: 'Einstellende Firmen' },
+   { href: '/de/jobs-im-tessin/firmen/', label: 'Tessin Firmen' },
+   { href: '/de/jobs-im-tessin/branchen/', label: 'Tessin Branchen' },
+   { href: '/de/grenzgaenger-artikel/alle/', label: 'Grenzgänger-Artikel' },
+   { href: '/de/krankenkassenpraemien/', label: 'KVG-Prämien' },
+ ] : [
+   { href: '/fr/entreprises-qui-recrutent/toutes/', label: 'Entreprises qui recrutent' },
+   { href: '/fr/trouver-emploi-tessin/entreprises/', label: 'Entreprises Tessin' },
+   { href: '/fr/trouver-emploi-tessin/secteurs/', label: 'Secteurs Tessin' },
+   { href: '/fr/articles-frontalier/tous/', label: 'Articles frontaliers' },
+   { href: '/fr/primes-assurance-maladie/', label: 'Primes LAMal' },
+ ];
+ const xsPillStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#fff7ed;color:#9a3412;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #fed7aa';
+ const xsHubsHtml = xsHubs
+   .map(({ href, label }) => `<a href="${href}" style="${xsPillStyle}">${label}</a>`)
+   .join('');
+ const xsHubsBlock = `<nav aria-label="${xsHubsLabel}" style="margin:0 0 12px;line-height:1.9">${xsHubsHtml}</nav>`;
  // Collapsed <details> — BFS walker reads <a> tags regardless of `open`
  // state, mobile fold stays clear.
- return `<aside id="hp-canton-nav" aria-label="${navLabel}" style="max-width:1100px;margin:24px auto 56px;padding:0 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#334155;line-height:1.65"><details style="border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem;background:#f8fafc"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:#1e293b;padding:.25rem 0">${navLabel} (${cantonRows.length})</summary><nav aria-label="${navLabel}" style="margin-top:.5rem;line-height:1.9">${cantonRows.join('')}</nav></details></aside>`;
+ return `<aside id="hp-canton-nav" aria-label="${navLabel}" style="max-width:1100px;margin:24px auto 56px;padding:0 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#334155;line-height:1.65">${xsHubsBlock}<details style="border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem;background:#f8fafc"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:#1e293b;padding:.25rem 0">${navLabel} (${cantonRows.length})</summary><nav aria-label="${navLabel}" style="margin-top:.5rem;line-height:1.9">${cantonRows.join('')}</nav></details></aside>`;
 }
 
 // ── Calculator landing SEO block ─────────────────────────────────────
