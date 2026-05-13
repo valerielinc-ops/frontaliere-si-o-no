@@ -127,6 +127,19 @@ function panelStableId(rawId = '') {
 // HTML fetching
 // ─────────────────────────────────────────────────────────────
 
+// dxt.com is served behind an edge cache that returns a 179-byte stub
+// (a JS redirect shell) to the default FrontaliereTicinoBot User-Agent on
+// GitHub-hosted runners. A modern desktop browser UA returns the real ~370 KB
+// HTML with the WPSM accordion content. Keep `JOBS_CRAWLER_USER_AGENT`
+// overridable in case the origin rotates again.
+const DXT_DEFAULT_USER_AGENT =
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/605.1.15 ' +
+  '(KHTML, like Gecko) Version/17.0 Safari/605.1.15';
+
+// Below this size the response is almost certainly a stub/challenge, not
+// the real careers page (which is ~370 KB). Used to log a clearer error.
+const DXT_MIN_PAGE_SIZE = 10000;
+
 async function fetchPage(url, timeoutMs = 20000) {
   try {
     const controller = new AbortController();
@@ -134,10 +147,9 @@ async function fetchPage(url, timeoutMs = 20000) {
     const res = await fetch(url, {
       signal: controller.signal,
       headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'Accept-Language': 'en,it-CH;q=0.9',
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9,it;q=0.8',
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || DXT_DEFAULT_USER_AGENT,
       },
     });
     clearTimeout(timer);
@@ -145,7 +157,15 @@ async function fetchPage(url, timeoutMs = 20000) {
       console.warn(`⚠️ HTTP ${res.status} for ${url}`);
       return null;
     }
-    return await res.text();
+    const body = await res.text();
+    if (body.length < DXT_MIN_PAGE_SIZE) {
+      console.warn(
+        `⚠️ Suspiciously small response from ${url} (${body.length} bytes < ${DXT_MIN_PAGE_SIZE}). ` +
+        `The origin may have served a bot-block/challenge stub. ` +
+        `First 200 chars: ${body.slice(0, 200).replace(/\s+/g, ' ')}`
+      );
+    }
+    return body;
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
     return null;
