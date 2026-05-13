@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-05-12T22:45:12.193Z",
+  "assembledAt": "2026-05-13T11:41:23.678Z",
   "jobs": [
     {
       "id": "pdgr-f5bd59e961b0",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:45:10.177Z",
+      "crawledAt": "2026-05-13T11:41:21.374Z",
       "addressLocality": "Cazis / Chur / Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -78,8 +78,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-a093480a1d37",
@@ -112,7 +111,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:45:09.151Z",
+      "crawledAt": "2026-05-13T11:41:20.237Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -154,8 +153,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-4f88a64e2238",
@@ -188,7 +186,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:45:08.094Z",
+      "crawledAt": "2026-05-13T11:41:19.122Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -249,6 +247,7 @@
         "fachpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -293,7 +292,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:45:06.829Z",
+      "crawledAt": "2026-05-13T11:41:17.990Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -342,6 +341,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -386,7 +386,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:45:05.811Z",
+      "crawledAt": "2026-05-13T11:41:16.792Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -428,8 +428,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-3e30d3c7f59d",
@@ -462,7 +461,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:45:04.771Z",
+      "crawledAt": "2026-05-13T11:41:15.696Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -504,8 +503,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-6bea78edbd79",
@@ -538,7 +536,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:45:03.660Z",
+      "crawledAt": "2026-05-13T11:41:14.553Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -599,6 +597,7 @@
         "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -643,7 +642,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:45:02.087Z",
+      "crawledAt": "2026-05-13T11:41:13.367Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -707,6 +706,7 @@
         "oberpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -751,7 +751,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:45:00.975Z",
+      "crawledAt": "2026-05-13T11:41:12.259Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -804,6 +804,7 @@
         "oberarztin-oberarzt-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -848,7 +849,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:59.937Z",
+      "crawledAt": "2026-05-13T11:41:11.109Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -902,6 +903,7 @@
         "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -946,7 +948,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:58.897Z",
+      "crawledAt": "2026-05-13T11:41:09.989Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1001,6 +1003,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1045,7 +1048,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:57.847Z",
+      "crawledAt": "2026-05-13T11:41:08.857Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1096,6 +1099,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1140,7 +1144,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-2-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:54.725Z",
+      "crawledAt": "2026-05-13T11:41:05.471Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -1182,8 +1186,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-80501bd9710d",
@@ -1216,7 +1219,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:53.674Z",
+      "crawledAt": "2026-05-13T11:41:04.297Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1270,6 +1273,7 @@
         "fachperson-gesundheit-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1314,7 +1318,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-4-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:52.620Z",
+      "crawledAt": "2026-05-13T11:41:03.145Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1379,6 +1383,7 @@
         "assistenzarztin-assistenzarzt-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1423,7 +1428,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:51.562Z",
+      "crawledAt": "2026-05-13T11:41:01.801Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1481,6 +1486,7 @@
         "nachtarztin-nachtarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1525,7 +1531,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:50.510Z",
+      "crawledAt": "2026-05-13T11:41:00.627Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1581,6 +1587,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1625,7 +1632,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:48.450Z",
+      "crawledAt": "2026-05-13T11:40:58.370Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1677,6 +1684,7 @@
         "assistenz-oder-fachpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1721,7 +1729,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:47.436Z",
+      "crawledAt": "2026-05-13T11:40:57.195Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1774,6 +1782,7 @@
         "fachperson-gesundheit-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1818,7 +1827,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikant-in-praxismodul-i-ii-oder-vorpraktikum-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:46.422Z",
+      "crawledAt": "2026-05-13T11:40:56.028Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1870,6 +1879,7 @@
         "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1914,7 +1924,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-fuer-die-nachtwache-4-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:44.334Z",
+      "crawledAt": "2026-05-13T11:40:53.749Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1970,6 +1980,7 @@
         "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2014,7 +2025,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzaerztin-assistenzarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:42.280Z",
+      "crawledAt": "2026-05-13T11:40:51.426Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2060,8 +2071,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-d7f7612b1400",
@@ -2094,7 +2104,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:41.250Z",
+      "crawledAt": "2026-05-13T11:40:50.295Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2172,7 +2182,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-6-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:40.245Z",
+      "crawledAt": "2026-05-13T11:40:49.030Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -2224,6 +2234,7 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2268,7 +2279,7 @@
       "url": "https://www.pdgr.ch/jobs/leiter-in-controlling/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:39.215Z",
+      "crawledAt": "2026-05-13T11:40:47.813Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2331,6 +2342,7 @@
         "leiter-in-controlling-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2375,7 +2387,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-21/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:38.193Z",
+      "crawledAt": "2026-05-13T11:40:46.624Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2441,6 +2453,7 @@
         "personale-hotel-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2485,7 +2498,7 @@
       "url": "https://www.pdgr.ch/jobs/stationsleiter-in-2-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:37.165Z",
+      "crawledAt": "2026-05-13T11:40:45.438Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2546,6 +2559,7 @@
         "stationsleiter-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2590,7 +2604,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-2-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:36.141Z",
+      "crawledAt": "2026-05-13T11:40:44.233Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2668,7 +2682,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:35.111Z",
+      "crawledAt": "2026-05-13T11:40:43.028Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2730,6 +2744,7 @@
         "assistenz-oder-fachpsychologe-in-pdgr-ch-3"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2774,7 +2789,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-den-tag-und-nachtdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:31.942Z",
+      "crawledAt": "2026-05-13T11:40:39.508Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2816,6 +2831,7 @@
         "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2860,7 +2876,7 @@
       "url": "https://www.pdgr.ch/jobs/betreuer-in-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:30.918Z",
+      "crawledAt": "2026-05-13T11:40:38.310Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -2952,7 +2968,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenzpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:29.887Z",
+      "crawledAt": "2026-05-13T11:40:37.157Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2993,6 +3009,7 @@
         "assistenzpsychologe-in-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-21T22:10:58.899Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3037,7 +3054,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-hotellerie-7-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:28.862Z",
+      "crawledAt": "2026-05-13T11:40:35.925Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3115,7 +3132,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:26.784Z",
+      "crawledAt": "2026-05-13T11:40:33.591Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3160,8 +3177,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "pdgr-832c5dda1296",
@@ -3194,7 +3210,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-2-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:25.717Z",
+      "crawledAt": "2026-05-13T11:40:32.367Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3232,6 +3248,7 @@
         "kochin-koch-pdgr-ch"
       ],
       "firstSeenAt": "2026-05-06T22:28:54.378Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3276,7 +3293,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-3-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:24.702Z",
+      "crawledAt": "2026-05-13T11:40:31.195Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3311,6 +3328,7 @@
         ]
       },
       "firstSeenAt": "2026-05-07T11:33:07.021Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3355,7 +3373,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-2-11/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:22.630Z",
+      "crawledAt": "2026-05-13T11:40:28.820Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3414,9 +3432,9 @@
       "id": "pdgr-e66c255d8449",
       "slug": "supervisore-psychiatrische-dienste-graubunden-rothenbrunnen",
       "slugByLocale": {
-        "de": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
         "it": "supervisore-psychiatrische-dienste-graubunden-rothenbrunnen",
         "en": "supervisor-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "de": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
         "fr": "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen"
       },
       "company": "Psychiatrische Dienste Graubünden",
@@ -3424,24 +3442,24 @@
       "companyDomain": "pdgr.ch",
       "title": "Betreuer/in",
       "titleByLocale": {
-        "de": "Betreuer/in",
         "it": "Supervisore",
         "en": "Supervisor",
+        "de": "Betreuer/in",
         "fr": "Superviseur"
       },
       "description": "Ihre Umgebung:\nVerteilt auf die vier Wohngruppen in Rothenbrunnen sowie die Aussenwohngruppen in Chur und in Roveredo bietet das Heimzentrum Rothenbrunnen insgesamt 76 Wohnplätze an. Ihr künftiger Arbeitsplatz ist eine Wohngemeinschaft für erwachsene Personen mit psychischer Behinderung. Ihr Tätigkeitsfeld fokussiert die Teilhabe an allen Lebensbereichen\n\nIhre Aufgaben:\n- Sie betreuen erwachsene Menschen mit einer psychischen Beeinträchtigung nach dem Konzept der «funktionalen Gesundheit», der systemisch-konstruktivistischen Haltung und den sozialpsychiatrischen Grundsätzen\n\n- Sie begleiten Klienten im alltagspraktischen und sozialen Leben\n\n- Sie vernetzen sich und arbeiten mit internen und externen Stellen zusammen\n\nUnser Anforderungsprofil:\n- Sie haben die Ausbildung als Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH oder Fachfrau / Fachmann Gesundheit\n\n- Sie bringen Berufserfahrung im psychiatrischen Bereich mit\n\n- Sie sind eine herzliche und integre Persönlichkeit\n\n- Sie pflegen einen wertschätzenden und würdevollen Umgang mit Ihrem Gegenüber\n\n- Sie verfügen über eine hohe Sozial- und Selbstkompetenz und mögen selbständiges Arbeiten\n\n- Sie sind flexibel und haben ein hohes Verantwortungsgefühl\n\nWir bieten Ihnen:\n- Arbeitsplan ca. 6 Wochen im Voraus\n\n- Sie erwartet eine vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Sie arbeiten in einem dynamischen und aufgestellten Team\n\n- Sie bilden sich in Ihrem Kompetenzbereich weiter\n\n- Ihre fachlichen und persönlichen Stärken sind gefragt\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
       "descriptionByLocale": {
-        "de": "Ihre Umgebung:\nVerteilt auf die vier Wohngruppen in Rothenbrunnen sowie die Aussenwohngruppen in Chur und in Roveredo bietet das Heimzentrum Rothenbrunnen insgesamt 76 Wohnplätze an. Ihr künftiger Arbeitsplatz ist eine Wohngemeinschaft für erwachsene Personen mit psychischer Behinderung. Ihr Tätigkeitsfeld fokussiert die Teilhabe an allen Lebensbereichen\n\nIhre Aufgaben:\n- Sie betreuen erwachsene Menschen mit einer psychischen Beeinträchtigung nach dem Konzept der «funktionalen Gesundheit», der systemisch-konstruktivistischen Haltung und den sozialpsychiatrischen Grundsätzen\n\n- Sie begleiten Klienten im alltagspraktischen und sozialen Leben\n\n- Sie vernetzen sich und arbeiten mit internen und externen Stellen zusammen\n\nUnser Anforderungsprofil:\n- Sie haben die Ausbildung als Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH oder Fachfrau / Fachmann Gesundheit\n\n- Sie bringen Berufserfahrung im psychiatrischen Bereich mit\n\n- Sie sind eine herzliche und integre Persönlichkeit\n\n- Sie pflegen einen wertschätzenden und würdevollen Umgang mit Ihrem Gegenüber\n\n- Sie verfügen über eine hohe Sozial- und Selbstkompetenz und mögen selbständiges Arbeiten\n\n- Sie sind flexibel und haben ein hohes Verantwortungsgefühl\n\nWir bieten Ihnen:\n- Arbeitsplan ca. 6 Wochen im Voraus\n\n- Sie erwartet eine vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Sie arbeiten in einem dynamischen und aufgestellten Team\n\n- Sie bilden sich in Ihrem Kompetenzbereich weiter\n\n- Ihre fachlichen und persönlichen Stärken sind gefragt\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
-        "it": "I dintorni:\nIl centro abitato Rothenbrunnen offre un totale di 76 aree residenziali, distribuite tra i quattro gruppi residenziali a Rothenbrunnen e i gruppi esterni a Chur e Roveredo. Il loro futuro posto di lavoro è una comunità per gli adulti con disabilità mentale. Il vostro campo di attività si concentra sulla partecipazione a tutti i settori della vita\n\nI vostri compiti:\n- Si occupano di persone adulte con un deficit mentale secondo il concetto di \"salute funzionale\", atteggiamento sistemico-costruttivo e principi psico-psichiatrici\n\n- accompagnano i clienti nella vita quotidiana e sociale\n\n- Collegano e lavorano con organismi interni ed esterni\n\nIl nostro profilo di requisito:\n- Hai l'addestramento come Dipl. Carriera / Dipl. Specialista di cura HF/FH o salute specialistica\n\n- Portano esperienza professionale nella zona psichiatrica\n\n- Sei una personalità calda e intima\n\n- Mantenete un approccio valutato e dignitoso alla vostra controparte\n\n- Hanno un'alta competenza sociale e personale e come un lavoro indipendente\n\n- Sono flessibili e hanno un elevato senso di responsabilità\n\nVi offriamo:\n- Piano di lavoro di circa 6 settimane in anticipo\n\n- Si aspetta un'attività versatile e responsabile in un'azienda innovativa\n\n- Lavori in un team dinamico e consolidato\n\n- Siete ulteriormente istruiti nella vostra area di competenza\n\n- I vostri punti di forza professionali e personali sono richiesti\n\n- Utilizzare la nostra offerta di formazione continua e continua interna - supportiamo anche le vostre esigenze di formazione esterna",
-        "en": "Your surroundings:\nThe Rothenbrunnen home centre offers a total of 76 residential areas, distributed among the four residential groups in Rothenbrunnen as well as the outdoor groups in Chur and Roveredo. Their future workplace is a community for adults with mental disabilities. Your field of activity focuses on participation in all areas of life\n\nYour tasks:\n- They care for adult people with a mental impairment according to the concept of \"functional health\", systemic-constructive attitude and social-psychiatric principles\n\n- They accompany clients in everyday and social life\n\n- They network and work with internal and external bodies\n\nOur requirement profile:\n- You have the training as a Dipl. Career / Dipl. Care specialist HF/FH or specialist health\n\n- They bring professional experience in the psychiatric area\n\n- You are a warm and intimate personality\n\n- You maintain an appraisal and dignified approach to your counterpart\n\n- They have a high social and self-competence and like independent work\n\n- They are flexible and have a high sense of responsibility\n\nWe offer you:\n- Work plan about 6 weeks in advance\n\n- It expects a versatile and responsible activity in an innovative company\n\n- You work in a dynamic and established team\n\n- You are further educated in your area of competence\n\n- Your professional and personal strengths are in demand\n\n- Use our internal continuing and continuing training offer – we also support your external training needs",
-        "fr": "Votre environnement:\nLe centre d'habitation Rothenbrunnen offre un total de 76 zones résidentielles, réparties entre les quatre groupes résidentiels de Rothenbrunnen ainsi que les groupes extérieurs de Chur et Roveredo. Leur futur milieu de travail est une communauté pour les adultes handicapés mentaux. Votre domaine d'activité se concentre sur la participation dans tous les domaines de la vie\n\nVos tâches:\n- Ils s'occupent des adultes ayant une déficience mentale selon le concept de \"santé fonctionnelle\", d'attitude systémique-constructive et de principes sociopsychiatriques\n\n- Ils accompagnent les clients dans la vie quotidienne et sociale\n\n- Ils travaillent en réseau avec des organismes internes et externes\n\nNotre profil d'exigence:\n- Vous avez l'entraînement en tant que Dipl. Carrière / Dipl. Spécialiste des soins HF/FH ou spécialiste de la santé\n\n- Ils apportent une expérience professionnelle dans le domaine psychiatrique\n\n- Vous êtes une personnalité chaleureuse et intime\n\n- Vous maintenez une évaluation et une approche digne de votre homologue\n\n- Ils ont une haute compétence sociale et personnelle et comme travail indépendant\n\n- Ils sont flexibles et ont un haut sens des responsabilités\n\nNous vous offrons:\n- Plan de travail environ 6 semaines à l'avance\n\n- Il s'attend à une activité polyvalente et responsable dans une entreprise innovante\n\n- Vous travaillez dans une équipe dynamique et établie\n\n- Vous êtes plus instruit dans votre domaine de compétence\n\n- Vos forces professionnelles et personnelles sont en demande\n\n- Utilisez notre offre interne de formation continue – nous soutenons également vos besoins de formation externes"
+        "it": "I dintorni: Il centro abitato Rothenbrunnen offre un totale di 76 aree residenziali, distribuite tra i quattro gruppi residenziali a Rothenbrunnen e i gruppi esterni a Chur e Roveredo. Il loro futuro posto di lavoro è una comunità per gli adulti con disabilità mentale. Il vostro campo di attività si concentra sulla partecipazione a tutti i settori della vita I vostri compiti: - Si occupano di persone adulte con un deficit mentale secondo il concetto di \"salute funzionale\", atteggiamento sistemico-costruttivo e principi psico-psichiatrici - accompagnano i clienti nella vita quotidiana e sociale - Collegano e lavorano con organismi interni ed esterni Il nostro profilo di requisito: - Hai l'addestramento come Dipl. Carriera / Dipl. Specialista di cura HF/FH o salute specialistica - Portano esperienza professionale nella zona psichiatrica - Sei una personalità calda e intima - Mantenete un approccio valutato e dignitoso alla vostra controparte - Hanno un'alta competenza sociale e personale e come un lavoro indipendente - Sono flessibili e hanno un elevato senso di responsabilità Vi offriamo: - Piano di lavoro di circa 6 settimane in anticipo - Si aspetta un'attività versatile e responsabile in un'azienda innovativa - Lavori in un team dinamico e consolidato - Siete ulteriormente istruiti nella vostra area di competenza - I vostri punti di forza professionali e personali sono richiesti - Utilizzare la nostra offerta di formazione continua e continua interna - supportiamo anche le vostre esigenze di formazione esterna",
+        "en": "Your surroundings: The Rothenbrunnen home centre offers a total of 76 residential areas, distributed among the four residential groups in Rothenbrunnen as well as the outdoor groups in Chur and Roveredo. Their future workplace is a community for adults with mental disabilities. Your field of activity focuses on participation in all areas of life \n• Your tasks: - They care for adult people with a mental impairment according to the concept of \"functional health\", systemic-constructive attitude and social-psychiatric principles - They accompany clients in everyday and social life - They network and work with internal and external bodies Our requirement profile: - You have the training as a Dipl. Career / Dipl. Care specialist HF/FH or specialist health - They bring professional experience in the psychiatric area - You are a warm and intimate personality - You maintain an appraisal and dignified approach to your counterpart - They have a high social and self-competence and like independent work - They are flexible and have a high sense of responsibility \n• We offer you: - Work plan about 6 weeks in advance - It expects a versatile and responsible activity in an innovative company - You work in a dynamic and established team - You are further educated in your area of competence - Your professional and personal strengths are in demand - Use our internal continuing and continuing training offer – we also support your external training needs",
+        "de": "Ihre Umgebung: Verteilt auf die vier Wohngruppen in Rothenbrunnen sowie die Aussenwohngruppen in Chur und in Roveredo bietet das Heimzentrum Rothenbrunnen insgesamt 76 Wohnplätze an. Ihr künftiger Arbeitsplatz ist eine Wohngemeinschaft für erwachsene Personen mit psychischer Behinderung. Ihr Tätigkeitsfeld fokussiert die Teilhabe an allen Lebensbereichen \n• Ihre Aufgaben: - Sie betreuen erwachsene Menschen mit einer psychischen Beeinträchtigung nach dem Konzept der «funktionalen Gesundheit», der systemisch-konstruktivistischen Haltung und den sozialpsychiatrischen Grundsätzen - Sie begleiten Klienten im alltagspraktischen und sozialen Leben - Sie vernetzen sich und arbeiten mit internen und externen Stellen zusammen Unser Anforderungsprofil: - Sie haben die Ausbildung als Dipl. Pflegefachfrau / Dipl. Pflegefachmann HF/FH oder Fachfrau / Fachmann Gesundheit - Sie bringen Berufserfahrung im psychiatrischen Bereich mit - Sie sind eine herzliche und integre Persönlichkeit - Sie pflegen einen wertschätzenden und würdevollen Umgang mit Ihrem Gegenüber - Sie verfügen über eine hohe Sozial- und Selbstkompetenz und mögen selbständiges Arbeiten - Sie sind flexibel und haben ein hohes Verantwortungsgefühl \n• Wir bieten Ihnen: - Arbeitsplan ca. 6 Wochen im Voraus - Sie erwartet eine vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen - Sie arbeiten in einem dynamischen und aufgestellten Team - Sie bilden sich in Ihrem Kompetenzbereich weiter - Ihre fachlichen und persönlichen Stärken sind gefragt - Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen",
+        "fr": "Votre environnement: Le centre d'habitation Rothenbrunnen offre un total de 76 zones résidentielles, réparties entre les quatre groupes résidentiels de Rothenbrunnen ainsi que les groupes extérieurs de Chur et Roveredo. Leur futur milieu de travail est une communauté pour les adultes handicapés mentaux. Votre domaine d'activité se concentre sur la participation dans tous les domaines de la vie \n• Vos tâches: - Ils s'occupent des adultes ayant une déficience mentale selon le concept de \"santé fonctionnelle\", d'attitude systémique-constructive et de principes sociopsychiatriques - Ils accompagnent les clients dans la vie quotidienne et sociale - Ils travaillent en réseau avec des organismes internes et externes Notre profil d'exigence: - Vous avez l'entraînement en tant que Dipl. Carrière / Dipl. Spécialiste des soins HF/FH ou spécialiste de la santé - Ils apportent une expérience professionnelle dans le domaine psychiatrique - Vous êtes une personnalité chaleureuse et intime - Vous maintenez une évaluation et une approche digne de votre homologue - Ils ont une haute compétence sociale et personnelle et comme travail indépendant - Ils sont flexibles et ont un haut sens des responsabilités Nous vous offrons: - Plan de travail environ 6 semaines à l'avance - Il s'attend à une activité polyvalente et responsable dans une entreprise innovante - Vous travaillez dans une équipe dynamique et établie - Vous êtes plus instruit dans votre domaine de compétence - Vos forces professionnelles et personnelles sont en demande - Utilisez notre offre interne de formation continue – nous soutenons également vos besoins de formation externes"
       },
       "location": "Rothenbrunnen",
       "canton": "GR",
       "url": "https://www.pdgr.ch/jobs/betreuer-in-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:44:21.587Z",
+      "crawledAt": "2026-05-13T11:40:27.632Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3456,30 +3474,16 @@
       "postedDate": "2026-05-12",
       "applyUrl": "https://www.pdgr.ch/jobs/betreuer-in-2-8/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "department": "Heimzentren / Geschützte Werkstätte",
       "facility": "Heimzentrum Rothenbrunnen",
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-12T22:44:21.587Z",
       "previousSlugsByLocale": {
         "de": [
-          "betreuer-in-psychiatrische-dienste-graubunden-landquart"
+          "betreuer-in-psychiatrische-dienste-graubunden-landquart",
+          "betreuer-in-pdgr-ch"
         ],
         "it": [
           "supervisore-psychiatrische-dienste-graubunden-landquart",
@@ -3496,15 +3500,108 @@
       },
       "previousSlugs": [
         "betreuer-in-psychiatrische-dienste-graubunden-landquart",
-        "supervisore-psychiatrische-dienste-graubunden-landquart",
         "betreuer-in-pdgr-ch",
+        "supervisore-psychiatrische-dienste-graubunden-landquart",
         "supervisor-psychiatrische-dienste-graubunden-landquart",
         "superviseur-psychiatrische-dienste-graubunden-landquart",
         "assistente-sociale-psychiatrische-dienste-graubunden-rothenbrunnen",
         "betreuer-in-pdgr-ch-2",
         "caregiver-psychiatrische-dienste-graubunden-rothenbrunnen",
         "assistant-e-social-e-psychiatrische-dienste-graubunden-rothenbrunnen"
-      ]
+      ],
+      "firstSeenAt": "2026-05-12T22:44:21.587Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "pdgr-aa7ae6872b43",
+      "slug": "responsabile-textil-psychiatrische-dienste-graubunden-chur",
+      "slugByLocale": {
+        "de": "leiter-in-textil-psychiatrische-dienste-graubunden-chur",
+        "it": "responsabile-textil-psychiatrische-dienste-graubunden-chur",
+        "en": "leiter-in-textil-pdgr-ch",
+        "fr": "leiter-in-textil-pdgr-ch"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Leiter/in Textil",
+      "titleByLocale": {
+        "de": "Leiter/in Textil",
+        "it": "Responsabile Textil",
+        "en": "Leiter/in Textil",
+        "fr": "Leiter/in Textil"
+      },
+      "description": "Ihre Umgebung:\nDie ARBES Textil Chur ist am Standort der Klinik Waldhaus angesiedelt. Sie arbeiten in einem engagierten Fachteam mit vier Fachbetreuerinnen zusammen, während in der Produktion zusätzlich 35 bis 40 betreute Mitarbeitende tätig sind. Die Textilabteilung verfügt über eine moderne und zeitgemässe Infrastruktur.\n\nIhre Aufgaben:\n- Sie führen die Textilabteilung Chur selbstständig\n\n- Sie unterstützen und begleiten die betreuten Mitarbeitenden im Arbeitsprozess\n\n- Sie sind verantwortlich für die Produktionsplanung, die Auftragsakquise, die Mustererstellung sowie die Entwicklung neuer Produkte – von der Produktion bis zur Verrechnung\n\n- Sie planen und erfassen die Anwesenheiten der Mitarbeitenden und der betreuten Angestellten\n\n- Sie wirken aktiv im Tagesgeschäft sowie in der Weiterentwicklung des Betriebs mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über Führungserfahrung\n\n- Sie bringen eine Ausbildung oder sehr gute Kenntnisse im Bereich Arbeitsagogik mit; eine Ausbildung im Textilbereich ist von Vorteil\n\n- Sie sind eine ausgeglichene und belastbare Persönlichkeit und besitzen sehr gute Sozialkompetenzen\n\n- Sie sind initiativ, flexibel und offen und schätzen den Kontakt zu anderen Menschen\n\nWir bieten Ihnen:\n- Vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Eine Stelle mit sozialen und betriebswirtschaftlichen Aspekten\n\n- Möglichkeiten Ihren Arbeitsbereich weiterzuentwickeln\n\n- Einbringung Ihrer fachlichen und persönlichen Stärken\n\n- Attraktive Anstellungsbedingungen\n\n- Vielseitiges internes Fort- und Weiterbildungsangebot",
+      "descriptionByLocale": {
+        "de": "Ihre Umgebung:\nDie ARBES Textil Chur ist am Standort der Klinik Waldhaus angesiedelt. Sie arbeiten in einem engagierten Fachteam mit vier Fachbetreuerinnen zusammen, während in der Produktion zusätzlich 35 bis 40 betreute Mitarbeitende tätig sind. Die Textilabteilung verfügt über eine moderne und zeitgemässe Infrastruktur.\n\nIhre Aufgaben:\n- Sie führen die Textilabteilung Chur selbstständig\n\n- Sie unterstützen und begleiten die betreuten Mitarbeitenden im Arbeitsprozess\n\n- Sie sind verantwortlich für die Produktionsplanung, die Auftragsakquise, die Mustererstellung sowie die Entwicklung neuer Produkte – von der Produktion bis zur Verrechnung\n\n- Sie planen und erfassen die Anwesenheiten der Mitarbeitenden und der betreuten Angestellten\n\n- Sie wirken aktiv im Tagesgeschäft sowie in der Weiterentwicklung des Betriebs mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über Führungserfahrung\n\n- Sie bringen eine Ausbildung oder sehr gute Kenntnisse im Bereich Arbeitsagogik mit; eine Ausbildung im Textilbereich ist von Vorteil\n\n- Sie sind eine ausgeglichene und belastbare Persönlichkeit und besitzen sehr gute Sozialkompetenzen\n\n- Sie sind initiativ, flexibel und offen und schätzen den Kontakt zu anderen Menschen\n\nWir bieten Ihnen:\n- Vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Eine Stelle mit sozialen und betriebswirtschaftlichen Aspekten\n\n- Möglichkeiten Ihren Arbeitsbereich weiterzuentwickeln\n\n- Einbringung Ihrer fachlichen und persönlichen Stärken\n\n- Attraktive Anstellungsbedingungen\n\n- Vielseitiges internes Fort- und Weiterbildungsangebot",
+        "it": "Ihre Umgebung:\nDie ARBES Textil Chur ist am Standort der Klinik Waldhaus angesiedelt. Sie arbeiten in einem engagierten Fachteam mit vier Fachbetreuerinnen zusammen, während in der Produktion zusätzlich 35 bis 40 betreute Mitarbeitende tätig sind. Die Textilabteilung verfügt über eine moderne und zeitgemässe Infrastruktur.\n\nIhre Aufgaben:\n- Sie führen die Textilabteilung Chur selbstständig\n\n- Sie unterstützen und begleiten die betreuten Mitarbeitenden im Arbeitsprozess\n\n- Sie sind verantwortlich für die Produktionsplanung, die Auftragsakquise, die Mustererstellung sowie die Entwicklung neuer Produkte – von der Produktion bis zur Verrechnung\n\n- Sie planen und erfassen die Anwesenheiten der Mitarbeitenden und der betreuten Angestellten\n\n- Sie wirken aktiv im Tagesgeschäft sowie in der Weiterentwicklung des Betriebs mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über Führungserfahrung\n\n- Sie bringen eine Ausbildung oder sehr gute Kenntnisse im Bereich Arbeitsagogik mit; eine Ausbildung im Textilbereich ist von Vorteil\n\n- Sie sind eine ausgeglichene und belastbare Persönlichkeit und besitzen sehr gute Sozialkompetenzen\n\n- Sie sind initiativ, flexibel und offen und schätzen den Kontakt zu anderen Menschen\n\nWir bieten Ihnen:\n- Vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Eine Stelle mit sozialen und betriebswirtschaftlichen Aspekten\n\n- Möglichkeiten Ihren Arbeitsbereich weiterzuentwickeln\n\n- Einbringung Ihrer fachlichen und persönlichen Stärken\n\n- Attraktive Anstellungsbedingungen\n\n- Vielseitiges internes Fort- und Weiterbildungsangebot",
+        "en": "Ihre Umgebung:\nDie ARBES Textil Chur ist am Standort der Klinik Waldhaus angesiedelt. Sie arbeiten in einem engagierten Fachteam mit vier Fachbetreuerinnen zusammen, während in der Produktion zusätzlich 35 bis 40 betreute Mitarbeitende tätig sind. Die Textilabteilung verfügt über eine moderne und zeitgemässe Infrastruktur.\n\nIhre Aufgaben:\n- Sie führen die Textilabteilung Chur selbstständig\n\n- Sie unterstützen und begleiten die betreuten Mitarbeitenden im Arbeitsprozess\n\n- Sie sind verantwortlich für die Produktionsplanung, die Auftragsakquise, die Mustererstellung sowie die Entwicklung neuer Produkte – von der Produktion bis zur Verrechnung\n\n- Sie planen und erfassen die Anwesenheiten der Mitarbeitenden und der betreuten Angestellten\n\n- Sie wirken aktiv im Tagesgeschäft sowie in der Weiterentwicklung des Betriebs mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über Führungserfahrung\n\n- Sie bringen eine Ausbildung oder sehr gute Kenntnisse im Bereich Arbeitsagogik mit; eine Ausbildung im Textilbereich ist von Vorteil\n\n- Sie sind eine ausgeglichene und belastbare Persönlichkeit und besitzen sehr gute Sozialkompetenzen\n\n- Sie sind initiativ, flexibel und offen und schätzen den Kontakt zu anderen Menschen\n\nWir bieten Ihnen:\n- Vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Eine Stelle mit sozialen und betriebswirtschaftlichen Aspekten\n\n- Möglichkeiten Ihren Arbeitsbereich weiterzuentwickeln\n\n- Einbringung Ihrer fachlichen und persönlichen Stärken\n\n- Attraktive Anstellungsbedingungen\n\n- Vielseitiges internes Fort- und Weiterbildungsangebot",
+        "fr": "Ihre Umgebung:\nDie ARBES Textil Chur ist am Standort der Klinik Waldhaus angesiedelt. Sie arbeiten in einem engagierten Fachteam mit vier Fachbetreuerinnen zusammen, während in der Produktion zusätzlich 35 bis 40 betreute Mitarbeitende tätig sind. Die Textilabteilung verfügt über eine moderne und zeitgemässe Infrastruktur.\n\nIhre Aufgaben:\n- Sie führen die Textilabteilung Chur selbstständig\n\n- Sie unterstützen und begleiten die betreuten Mitarbeitenden im Arbeitsprozess\n\n- Sie sind verantwortlich für die Produktionsplanung, die Auftragsakquise, die Mustererstellung sowie die Entwicklung neuer Produkte – von der Produktion bis zur Verrechnung\n\n- Sie planen und erfassen die Anwesenheiten der Mitarbeitenden und der betreuten Angestellten\n\n- Sie wirken aktiv im Tagesgeschäft sowie in der Weiterentwicklung des Betriebs mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über Führungserfahrung\n\n- Sie bringen eine Ausbildung oder sehr gute Kenntnisse im Bereich Arbeitsagogik mit; eine Ausbildung im Textilbereich ist von Vorteil\n\n- Sie sind eine ausgeglichene und belastbare Persönlichkeit und besitzen sehr gute Sozialkompetenzen\n\n- Sie sind initiativ, flexibel und offen und schätzen den Kontakt zu anderen Menschen\n\nWir bieten Ihnen:\n- Vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Eine Stelle mit sozialen und betriebswirtschaftlichen Aspekten\n\n- Möglichkeiten Ihren Arbeitsbereich weiterzuentwickeln\n\n- Einbringung Ihrer fachlichen und persönlichen Stärken\n\n- Attraktive Anstellungsbedingungen\n\n- Vielseitiges internes Fort- und Weiterbildungsangebot"
+      },
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/leiter-in-textil-2/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-13T11:40:26.413Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-13",
+      "applyUrl": "https://www.pdgr.ch/jobs/leiter-in-textil-2/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Heimzentren / Geschützte Werkstätte",
+      "facility": "Textilwerkstätte",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-textil-pdgr-ch"
+        ],
+        "de": [
+          "leiter-in-textil-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-textil-pdgr-ch"
+      ],
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-13T11:40:26.413Z"
     }
   ]
 }
