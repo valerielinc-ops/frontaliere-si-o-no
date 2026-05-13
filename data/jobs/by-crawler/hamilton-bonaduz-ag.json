@@ -123,14 +123,20 @@
       },
       "slugByLocale": {
         "it": "system-operator-befristet-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
-        "en": "system-operator-befristet-80-100-w-m-d-jr-5820",
+        "en": "system-operator-terminated-80-100-w-m-d-hamilton-bonaduz-ag-domat-ems",
         "de": "system-operator-befristet-80-100-w-m-d-jr-5820",
-        "fr": "system-operator-befristet-80-100-w-m-d-jr-5820"
+        "fr": "termine-par-le-gestionnaire-de-reseau-80-100-p-m-d-hamilton-bonaduz-ag-domat-ems"
       },
       "crawledAt": "2026-05-12T22:13:59.654Z",
       "id": "hamilton-bonaduz-ag-45315d6f061f",
       "previousSlugsByLocale": {
         "it": [
+          "system-operator-befristet-80-100-w-m-d-jr-5820"
+        ],
+        "en": [
+          "system-operator-befristet-80-100-w-m-d-jr-5820"
+        ],
+        "fr": [
           "system-operator-befristet-80-100-w-m-d-jr-5820"
         ]
       },
@@ -193,14 +199,20 @@
       },
       "slugByLocale": {
         "it": "assembly-operator-befristet-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
-        "en": "assembly-operator-befristet-80-100-w-m-d-jr-5757",
+        "en": "assembly-operator-terminated-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "de": "assembly-operator-befristet-80-100-w-m-d-jr-5757",
-        "fr": "assembly-operator-befristet-80-100-w-m-d-jr-5757"
+        "fr": "assemblage-operateur-termine-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
       "crawledAt": "2026-05-12T22:14:00.476Z",
       "id": "hamilton-bonaduz-ag-85513e985244",
       "previousSlugsByLocale": {
         "it": [
+          "assembly-operator-befristet-80-100-w-m-d-jr-5757"
+        ],
+        "en": [
+          "assembly-operator-befristet-80-100-w-m-d-jr-5757"
+        ],
+        "fr": [
           "assembly-operator-befristet-80-100-w-m-d-jr-5757"
         ]
       },
@@ -418,9 +430,9 @@
       },
       "slugByLocale": {
         "it": "assembly-operator-befristet-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
-        "en": "assembly-operator-befristet-80-100-w-m-d-jr-5757",
+        "en": "assembly-operator-terminated-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz-67c78b",
         "de": "assembly-operator-befristet-80-100-w-m-d-jr-5757",
-        "fr": "assembly-operator-befristet-80-100-w-m-d-jr-5757"
+        "fr": "assemblage-operateur-termine-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz-67c78b"
       },
       "crawledAt": "2026-05-12T22:14:03.430Z",
       "id": "hamilton-bonaduz-ag-d568e2ba6207",
@@ -430,11 +442,13 @@
         ],
         "en": [
           "assembly-operator-befristet-80-100-w-m-d-jr-5751",
-          "assembly-operator-befristet-80-100-hamilton-bonaduz-ag-bonaduz"
+          "assembly-operator-befristet-80-100-hamilton-bonaduz-ag-bonaduz",
+          "assembly-operator-befristet-80-100-w-m-d-jr-5757"
         ],
         "fr": [
           "assembly-operator-befristet-80-100-w-m-d-jr-5751",
-          "assembly-operateur-befristet-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
+          "assembly-operateur-befristet-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
+          "assembly-operator-befristet-80-100-w-m-d-jr-5757"
         ],
         "de": [
           "assembly-operator-befristet-80-100-w-m-d-jr-5751"
@@ -442,8 +456,8 @@
       },
       "previousSlugs": [
         "assembly-operator-befristet-80-100-w-m-d-jr-5751",
-        "assembly-operator-befristet-80-100-w-m-d-jr-5757",
         "assembly-operator-befristet-80-100-hamilton-bonaduz-ag-bonaduz",
+        "assembly-operator-befristet-80-100-w-m-d-jr-5757",
         "assembly-operateur-befristet-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       ],
       "salaryMin": 49500,

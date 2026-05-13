@@ -52,9 +52,9 @@
       },
       "slugByLocale": {
         "it": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu",
-        "en": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu",
+        "en": "rayon-ladder-in-nonfood-coop-genossenschaft-klosters-serneus",
         "de": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu",
-        "fr": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu"
+        "fr": "echelle-de-rayon-dans-les-produits-non-alimentaires-coop-genossenschaft-klosters-serneus"
       },
       "addressLocality": "Klosters-Serneus",
       "salaryMin": 85500,
@@ -69,7 +69,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "en": [
+          "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu"
+        ],
+        "fr": [
+          "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu"
+      ]
     },
     {
       "id": "company-6azqre",
@@ -8457,7 +8468,7 @@
     },
     {
       "id": "company-z320lg",
-      "slug": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden",
+      "slug": "scala-di-rayon-in-non-food-coop-genossenschaft-klosters-serneus",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Nonfood",
       "location": "Klosters-Serneus",
@@ -8502,10 +8513,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu",
-        "en": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu",
+        "it": "scala-di-rayon-in-non-food-coop-genossenschaft-klosters-serneus",
+        "en": "rayon-ladder-in-nonfood-coop-genossenschaft-klosters-serneus-b6525f",
         "de": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu",
-        "fr": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu"
+        "fr": "echelle-de-rayon-dans-les-produits-non-alimentaires-coop-genossenschaft-klosters-serneus-b6525f"
       },
       "addressLocality": "Klosters-Serneus",
       "sourceLang": "de",
@@ -8524,15 +8535,18 @@
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-z320lg",
-          "scala-di-rayon-in-non-food-coop-genossenschaft-klosters-serneus"
+          "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu",
+          "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden"
         ],
         "en": [
           "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-z320lg",
-          "rayon-ladder-in-nonfood-coop-genossenschaft-klosters-serneus"
+          "rayon-ladder-in-nonfood-coop-genossenschaft-klosters-serneus",
+          "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu"
         ],
         "fr": [
           "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-z320lg",
-          "echelle-de-rayon-dans-les-produits-non-alimentaires-coop-genossenschaft-klosters-serneus"
+          "echelle-de-rayon-dans-les-produits-non-alimentaires-coop-genossenschaft-klosters-serneus",
+          "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu"
         ],
         "de": [
           "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-z320lg",
@@ -8541,14 +8555,15 @@
       },
       "previousSlugs": [
         "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-z320lg",
+        "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu",
+        "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden",
+        "rayon-ladder-in-nonfood-coop-genossenschaft-klosters-serneus",
+        "echelle-de-rayon-dans-les-produits-non-alimentaires-coop-genossenschaft-klosters-serneus",
+        "rayonleiter-in-nonfood-coop-genossenschaft-klosters-serneus",
         "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-m6rkts",
         "direttore-di-distretto-nonfood-coop-genossenschaft-klosters-serneus",
         "nonfood-department-manager-coop-genossenschaft-klosters-serneus",
-        "responsable-du-rayon-nonfood-coop-genossenschaft-klosters-serneus",
-        "scala-di-rayon-in-non-food-coop-genossenschaft-klosters-serneus",
-        "rayon-ladder-in-nonfood-coop-genossenschaft-klosters-serneus",
-        "echelle-de-rayon-dans-les-produits-non-alimentaires-coop-genossenschaft-klosters-serneus",
-        "rayonleiter-in-nonfood-coop-genossenschaft-klosters-serneus"
+        "responsable-du-rayon-nonfood-coop-genossenschaft-klosters-serneus"
       ],
       "firstSeenAt": "2026-04-13T21:31:42.381Z"
     },

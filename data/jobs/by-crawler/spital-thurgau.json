@@ -1724,9 +1724,7 @@
       "previousSlugs": [
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
         "dipl-pflegefachmann-frau-forensik-stgag-ch",
-        "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
-        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
-        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
+        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -6586,7 +6584,6 @@
         "dipl-pflegefachmann-frau-forensik-stgag-ch",
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
-        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
         "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa"
       ],
       "previousSlugsByLocale": {
@@ -10773,8 +10770,8 @@
       "slugByLocale": {
         "de": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-stgag-ch",
         "it": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-        "en": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-stgag-ch-3",
-        "fr": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-stgag-ch-3"
+        "en": "diploma-in-nursing-3-years-regular-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
+        "fr": "diplome-d-infirmiere-infirmier-3-ans-reguliers-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -10822,6 +10819,12 @@
       "previousSlugsByLocale": {
         "it": [
           "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-stgag-ch-3"
+        ],
+        "en": [
+          "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-stgag-ch-3"
+        ],
+        "fr": [
+          "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2027-bfgs-stgag-ch-3"
         ]
       },
       "previousSlugs": [
@@ -10843,12 +10846,12 @@
     },
     {
       "id": "spital-thurgau-757e7b31e3f6",
-      "slug": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
+      "slug": "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch",
-        "it": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
-        "en": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch-3",
-        "fr": "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch-3"
+        "it": "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
+        "en": "education-care-specialist-hf-2-years-shortened-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
+        "fr": "specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -10895,11 +10898,19 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
+          "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch-3",
+          "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
+          "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch-3"
+        ],
+        "fr": [
           "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch-3"
         ]
       },
       "previousSlugs": [
-        "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch-3"
+        "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch-3",
+        "ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -175,12 +175,12 @@
     },
     {
       "id": "kulm-hotel-45ba6df28906",
-      "slug": "porter-tournant-m-w-d-kulm-hotel-st-moritz",
+      "slug": "supporto-rotante-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
         "fr": "porter-tournant-m-w-d-kulm-hotel-st-moritz",
-        "it": "porter-tournant-m-w-d-kulm-hotel-st-moritz",
+        "it": "supporto-rotante-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "porter-tournant-m-w-d-kulm-hotel-st-moritz",
-        "de": "porter-tournant-m-w-d-kulm-hotel-st-moritz"
+        "de": "drehtrager-m-w-d-kulm-hotel-st-moritz-pontresina"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -238,7 +238,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-12T22:28:03.720Z"
+      "firstSeenAt": "2026-05-12T22:28:03.720Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "porter-tournant-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "de": [
+          "porter-tournant-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "porter-tournant-m-w-d-kulm-hotel-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-b94b20f04f54",
@@ -1153,7 +1164,7 @@
         "it": "responsabile-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "assistent-reservations-manager-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "fr": "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz"
+        "fr": "gestionnaire-adjoint-des-reservations-m-w-d-kulm-hotel-st-moritz-pontresina"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -1217,7 +1228,7 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "fr": [
-          "gestionnaire-adjoint-des-reservations-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz"
         ],
         "it": [
           "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz",
@@ -1226,7 +1237,6 @@
       },
       "previousSlugs": [
         "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz",
-        "gestionnaire-adjoint-des-reservations-m-w-d-kulm-hotel-st-moritz-pontresina",
         "assistente-alla-gestione-delle-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "firstSeenAt": "2026-04-13T22:00:28.646Z",

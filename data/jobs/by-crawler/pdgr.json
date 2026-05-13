@@ -3410,12 +3410,12 @@
     },
     {
       "id": "pdgr-e66c255d8449",
-      "slug": "betreuer-in-pdgr-ch",
+      "slug": "supervisore-psychiatrische-dienste-graubunden-rothenbrunnen",
       "slugByLocale": {
         "de": "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
-        "it": "betreuer-in-pdgr-ch",
-        "en": "betreuer-in-pdgr-ch",
-        "fr": "betreuer-in-pdgr-ch"
+        "it": "supervisore-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "en": "supervisor-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "fr": "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3477,30 +3477,31 @@
       "firstSeenAt": "2026-05-12T22:44:21.587Z",
       "previousSlugsByLocale": {
         "de": [
-          "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
           "betreuer-in-psychiatrische-dienste-graubunden-landquart"
         ],
         "it": [
-          "supervisore-psychiatrische-dienste-graubunden-landquart"
+          "supervisore-psychiatrische-dienste-graubunden-landquart",
+          "betreuer-in-pdgr-ch"
         ],
         "en": [
-          "supervisor-psychiatrische-dienste-graubunden-landquart"
+          "supervisor-psychiatrische-dienste-graubunden-landquart",
+          "betreuer-in-pdgr-ch"
         ],
         "fr": [
-          "superviseur-psychiatrische-dienste-graubunden-landquart"
+          "superviseur-psychiatrische-dienste-graubunden-landquart",
+          "betreuer-in-pdgr-ch"
         ]
       },
       "previousSlugs": [
-        "betreuer-in-psychiatrische-dienste-graubunden-rothenbrunnen",
+        "betreuer-in-psychiatrische-dienste-graubunden-landquart",
+        "supervisore-psychiatrische-dienste-graubunden-landquart",
         "betreuer-in-pdgr-ch",
+        "supervisor-psychiatrische-dienste-graubunden-landquart",
+        "superviseur-psychiatrische-dienste-graubunden-landquart",
         "assistente-sociale-psychiatrische-dienste-graubunden-rothenbrunnen",
         "betreuer-in-pdgr-ch-2",
         "caregiver-psychiatrische-dienste-graubunden-rothenbrunnen",
-        "assistant-e-social-e-psychiatrische-dienste-graubunden-rothenbrunnen",
-        "betreuer-in-psychiatrische-dienste-graubunden-landquart",
-        "supervisore-psychiatrische-dienste-graubunden-landquart",
-        "supervisor-psychiatrische-dienste-graubunden-landquart",
-        "superviseur-psychiatrische-dienste-graubunden-landquart"
+        "assistant-e-social-e-psychiatrische-dienste-graubunden-rothenbrunnen"
       ]
     }
   ]

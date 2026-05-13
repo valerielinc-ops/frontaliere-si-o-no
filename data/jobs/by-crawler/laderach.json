@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "laderach-0c321242bff1",
-      "slug": "quality-regulatory-compliance-spezialist-w-m-d-laderach-ennenda",
+      "slug": "qualita-e-conformita-regolamentare-specialista-w-m-d-laderach-schweiz-ag-ennenda",
       "slugByLocale": {
         "de": "quality-regulatory-compliance-specialst-w-m-d-laderach-ennenda",
-        "it": "quality-regulatory-compliance-spezialist-w-m-d-laderach-ennenda",
+        "it": "qualita-e-conformita-regolamentare-specialista-w-m-d-laderach-schweiz-ag-ennenda",
         "en": "quality-regulatory-compliance-specialst-w-m-d-laderach-schweiz-ag-ennenda",
-        "fr": "quality-regulatory-compliance-spezialist-w-m-d-laderach-ennenda"
+        "fr": "qualite-et-conformite-reglementaire-specialement-p-m-d-laderach-schweiz-ag-ennenda"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -58,7 +58,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-12T22:28:17.202Z"
+      "firstSeenAt": "2026-05-12T22:28:17.202Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-regulatory-compliance-spezialist-w-m-d-laderach-ennenda"
+        ],
+        "fr": [
+          "quality-regulatory-compliance-spezialist-w-m-d-laderach-ennenda"
+        ]
+      },
+      "previousSlugs": [
+        "quality-regulatory-compliance-spezialist-w-m-d-laderach-ennenda"
+      ]
     },
     {
       "id": "laderach-e75ae8be71ea",

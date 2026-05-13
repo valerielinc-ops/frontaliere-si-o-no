@@ -7547,7 +7547,7 @@
       "id": "unispital-basel-e94993893b1b",
       "slug": "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel",
+        "it": "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
         "en": "dipl-care-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-universitatsspital-basel-basel",
         "fr": "dipl-specialiste-des-soins-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel"
@@ -7597,7 +7597,8 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
         ],
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel"
         ],
         "en": [
           "dipl-care-specialist-hf-fh-medical-6-2-universitatsspital-basel-basel",
@@ -7611,13 +7612,10 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-unispital-basel-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel",
         "dipl-care-specialist-hf-fh-medical-6-2-universitatsspital-basel-basel",
         "dipl-specialiste-des-soins-hf-fh-medical-6-2-universitatsspital-basel-basel",
-        "dipl-specialista-di-cura-hf-fh-medico-6-2-universitatsspital-basel-basel",
-        "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
-        "dipl-care-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-universitatsspital-basel-basel",
-        "dipl-specialiste-des-soins-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel"
+        "dipl-specialista-di-cura-hf-fh-medico-6-2-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-12T12:15:55.438Z",
       "salaryMin": 49500,
@@ -7795,12 +7793,12 @@
     },
     {
       "id": "unispital-basel-83c72108ec76",
-      "slug": "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel",
+      "slug": "assistente-medico-assistente-poliklinico-medico-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel",
-        "it": "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel",
-        "en": "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel",
-        "fr": "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel"
+        "it": "assistente-medico-assistente-poliklinico-medico-universitatsspital-basel-basel",
+        "en": "medical-practice-assistant-medical-polyclinic-universitatsspital-basel-basel",
+        "fr": "assistant-e-de-pratique-medicale-polyclinique-medicale-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -7845,14 +7843,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-medizinische-poliklinik-unispital-basel-ch"
+          "medizinische-r-praxisassistent-in-medizinische-poliklinik-unispital-basel-ch",
+          "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel"
         ],
         "de": [
           "medizinische-r-praxisassistent-in-medizinische-poliklinik-unispital-basel-ch"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-medizinische-poliklinik-unispital-basel-ch"
+        "medizinische-r-praxisassistent-in-medizinische-poliklinik-unispital-basel-ch",
+        "medizinische-r-praxisassistent-in-medizinische-poliklinik-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

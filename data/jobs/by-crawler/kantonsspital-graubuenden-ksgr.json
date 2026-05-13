@@ -23,9 +23,11 @@
       "employmentType": "30 - 90%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-05-12T22:26:31.790Z",
-      "slug": "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-walenstadt",
+      "slug": "pflegefachfrau-pflegefachmann-cure-palliative-kantonsspital-graubunden-walenstadt",
       "slugByLocale": {
-        "de": "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-walenstadt"
+        "de": "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-walenstadt",
+        "it": "pflegefachfrau-pflegefachmann-cure-palliative-kantonsspital-graubunden-walenstadt",
+        "fr": "pflegefachfrau-pflegefachmann-soins-palliatifs-kantonsspital-graubunden-walenstadt"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann",
@@ -54,7 +56,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-12T22:26:31.790Z"
+      "firstSeenAt": "2026-05-12T22:26:31.790Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-walenstadt"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-walenstadt"
+      ]
     },
     {
       "id": "10032750",
@@ -1156,8 +1166,7 @@
       "featured": false,
       "previousSlugs": [
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
-        "diet-chef-kantonsspital-graubunden-chur",
-        "berufslehre-kochin-koch-kantonsspital-graubunden-chur"
+        "diet-chef-kantonsspital-graubunden-chur"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
@@ -5460,8 +5469,7 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",

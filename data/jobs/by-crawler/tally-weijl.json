@@ -2232,10 +2232,10 @@
     },
     {
       "id": "tally-weijl-81c46b765f63",
-      "slug": "conseillere-de-vente-80-tally-weijl-lausanne",
+      "slug": "sale-advisor-80-tally-weijl-lausanne",
       "slugByLocale": {
         "fr": "conseillere-de-vente-80-tally-weijl-lausanne",
-        "it": "conseillere-de-vente-80-tally-weijl-lausanne",
+        "it": "sale-advisor-80-tally-weijl-lausanne",
         "en": "conseillere-de-vente-80-tally-weijl-lausanne",
         "de": "conseillere-de-vente-80-tally-weijl-lausanne"
       },
@@ -2291,7 +2291,15 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-12T23:05:59.662Z"
+      "firstSeenAt": "2026-05-12T23:05:59.662Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-de-vente-80-tally-weijl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-de-vente-80-tally-weijl-lausanne"
+      ]
     },
     {
       "id": "tally-weijl-28bbb3f83354",
