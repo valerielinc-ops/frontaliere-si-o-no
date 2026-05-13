@@ -1,16 +1,16 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-05-13T12:08:42.426Z",
-  "total": 3,
+  "generatedAt": "2026-05-13T23:16:37.377Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
+  "updatedCount": 2,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2512,
-  "avgDurationMs": 2512,
+  "durationMs": 2215,
+  "avgDurationMs": 2215,
   "durationHistory": [
-    2512
+    2215
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5193056008?gh_jid=5193056008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-13T12:08:40.318Z",
+      "crawledAt": "2026-05-13T23:16:35.591Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -56,8 +56,51 @@
       }
     },
     {
+      "id": "vaxcyte-7041ea0fbe48",
+      "slug": "director-business-operations-global-quality-control-vaxcyte-ch",
+      "company": "Vaxcyte",
+      "companyKey": "vaxcyte",
+      "companyDomain": "vaxcyte.com",
+      "title": "Director, Business Operations (Global Quality Control)",
+      "location": "Visp",
+      "canton": "VS",
+      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5026185008?gh_jid=5026185008",
+      "source": "Vaxcyte Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-13T23:16:35.489Z",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "1950",
+      "country": "CH",
+      "category": "Produzione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-02",
+      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5026185008?gh_jid=5026185008",
+      "department": "Analytical",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Visp"
+      },
+      "firstSeenAt": "2026-04-13T11:29:03.138Z",
+      "_qualityScore": 74,
+      "_qualityBreakdown": {
+        "cleanliness": 12,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
+  "removedJobs": [
+    {
       "id": "vaxcyte-c453629da206",
-      "slug": "manager-supply-chain-management-vaxcyte-ch",
+      "slug": "responsabile-gestione-della-catena-di-fornitura-vaxcyte-visp",
       "company": "Vaxcyte",
       "companyKey": "vaxcyte",
       "companyDomain": "vaxcyte.com",
@@ -88,56 +131,16 @@
         "location": "Visp"
       },
       "firstSeenAt": "2026-04-13T11:29:03.145Z",
-      "_qualityScore": 74,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
-        "cleanliness": 12,
+        "cleanliness": 17,
         "richness": 20,
         "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "vaxcyte-7041ea0fbe48",
-      "slug": "director-business-operations-global-quality-control-vaxcyte-ch",
-      "company": "Vaxcyte",
-      "companyKey": "vaxcyte",
-      "companyDomain": "vaxcyte.com",
-      "title": "Director, Business Operations (Global Quality Control)",
-      "location": "Visp",
-      "canton": "VS",
-      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5026185008?gh_jid=5026185008",
-      "source": "Vaxcyte Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-13T12:08:40.214Z",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "postalCode": "1950",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-02",
-      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5026185008?gh_jid=5026185008",
-      "department": "Analytical",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Visp"
-      },
-      "firstSeenAt": "2026-04-13T11:29:03.138Z",
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 12,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
