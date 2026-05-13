@@ -7505,6 +7505,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-politica-2026.title': 'Blocus des retenues : la politique tessinoise est ouverte',
     'blog.article.blocco-ristorni-ticino-politica-2026.excerpt': 'Le Conseil d\'Etat a jusqu\'à fin juin pour décider s\'il doit retenir les 120 millions d\'impôt à la source des frontaliers',
     'blog.article.blocco-ristorni-ticino-politica-2026.imageAlt': 'Lac de Lugano avec les montagnes environnantes',
+    'blog.article.tassa-salute-frontalieri-ticino-2026.title': 'Impôt santé frontalier : blocage des remboursements, que change-t-il ?',
+    'blog.article.tassa-salute-frontalieri-ticino-2026.excerpt': 'Le gouvernement tessinois envisage de bloquer les remboursements à l\'Italie. Voici ce que nous savons.',
+    'blog.article.tassa-salute-frontalieri-ticino-2026.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

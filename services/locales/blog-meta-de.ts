@@ -7503,6 +7503,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-politica-2026.title': 'Rückbehaltungsblockade: Ticino bleibt offen',
     'blog.article.blocco-ristorni-ticino-politica-2026.excerpt': 'Der Staatsrat hat bis Ende Juni Zeit, um zu entscheiden, ob er die 120 Millionen Franken Quellensteuer der Grenzgänger einbehalten soll.',
     'blog.article.blocco-ristorni-ticino-politica-2026.imageAlt': 'Luganersee mit umliegenden Bergen',
+    'blog.article.tassa-salute-frontalieri-ticino-2026.title': 'Gesundheitssteuer für Grenzgänger: Rückerstattungen blockiert, was sich ändert',
+    'blog.article.tassa-salute-frontalieri-ticino-2026.excerpt': 'Die Tessiner Regierung prüft die Blockierung der Rückerstattungen an Italien. Hier ist, was wir wissen.',
+    'blog.article.tassa-salute-frontalieri-ticino-2026.imageAlt': 'Luganersee mit Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

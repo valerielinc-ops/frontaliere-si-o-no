@@ -7505,6 +7505,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-politica-2026.title': 'Blocco ristorni: la politica ticinese è possibilista',
     'blog.article.blocco-ristorni-ticino-politica-2026.excerpt': 'Il Consiglio di Stato ha tempo fino a fine giugno per decidere se trattenere i 120 milioni di imposta alla fonte dei frontalieri',
     'blog.article.blocco-ristorni-ticino-politica-2026.imageAlt': 'Lago di Lugano con le montagne circostanti',
+    'blog.article.tassa-salute-frontalieri-ticino-2026.title': 'Tassa salute frontalieri: blocco ristorni, cosa cambia',
+    'blog.article.tassa-salute-frontalieri-ticino-2026.excerpt': 'Il governo ticinese valuta il blocco dei ristorni all\'Italia. Ecco cosa sappiamo.',
+    'blog.article.tassa-salute-frontalieri-ticino-2026.imageAlt': 'Lago di Lugano con montagne sullo sfondo',
 };
 
 export default blogMetaIt;

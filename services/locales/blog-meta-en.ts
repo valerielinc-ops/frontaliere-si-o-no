@@ -7504,6 +7504,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-politica-2026.title': 'Ticino considers withholding cross-border workers\' tax',
     'blog.article.blocco-ristorni-ticino-politica-2026.excerpt': 'The State Council has until the end of June to decide whether to retain the 120 million francs in withholding tax from cross-border workers',
     'blog.article.blocco-ristorni-ticino-politica-2026.imageAlt': 'Lake Lugano with surrounding mountains',
+    'blog.article.tassa-salute-frontalieri-ticino-2026.title': 'Health tax for cross-border workers: refunds blocked, what changes',
+    'blog.article.tassa-salute-frontalieri-ticino-2026.excerpt': 'The Ticino government is considering blocking refunds to Italy. Here\'s what we know.',
+    'blog.article.tassa-salute-frontalieri-ticino-2026.imageAlt': 'Lake Lugano with mountains in the background',
 };
 
 export default blogMetaEn;
