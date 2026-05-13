@@ -1,18 +1,49 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-05-13T11:14:50.795Z",
-  "total": 6,
-  "newCount": 0,
-  "updatedCount": 6,
+  "generatedAt": "2026-05-13T22:23:31.123Z",
+  "total": 7,
+  "newCount": 1,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 11655,
-  "avgDurationMs": 11655,
+  "unchangedCount": 2,
+  "durationMs": 11606,
+  "avgDurationMs": 11606,
   "durationHistory": [
-    11655
+    11606
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Employé(e) Frontoffice service après-vente (m/f/d) 100%",
+      "slug": "employe-e-frontoffice-service-apres-vente-m-f-d-100-hoval-crissier",
+      "url": "https://www.hoval.it/it_IT/job/3945",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3945/Application/New/3?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Crissier",
+      "addressLocality": "Crissier",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "canton": "VD",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-05-13",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Frontoffice Mitarbeiter/in (m/w/d)",
@@ -165,7 +196,10 @@
         "translation": 19,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -240,7 +274,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
