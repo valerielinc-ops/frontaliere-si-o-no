@@ -1,16 +1,16 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-05-12T22:07:39.435Z",
-  "total": 4,
+  "generatedAt": "2026-05-13T11:03:37.684Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 5476,
-  "avgDurationMs": 5476,
+  "durationMs": 5437,
+  "avgDurationMs": 5437,
   "durationHistory": [
-    5476
+    5437
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/355a479a-747a-4fa2-8358-6cc0324a2e2f/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-12T22:07:36.386Z",
+      "crawledAt": "2026-05-13T11:03:34.783Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/4b67888f-8a12-48ef-ad75-eb0b672156bf/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-12T22:07:36.732Z",
+      "crawledAt": "2026-05-13T11:03:35.115Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/c004ad4c-1652-47fe-8bc3-ab3ab777d4f8/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-12T22:07:37.059Z",
+      "crawledAt": "2026-05-13T11:03:35.893Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -118,10 +118,12 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "fondation-domus-38966bcf3169",
-      "slug": "travailleur-social-60-fondation-domus-ch",
+      "slug": "lavoratore-sociale-60-fondation-domus-la-tzoumaz",
       "company": "Fondation Domus",
       "companyKey": "fondation-domus",
       "companyDomain": "fondation-domus.ch",
@@ -147,15 +149,16 @@
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/51367527-eb1c-4896-ad0f-ae9645325e8e/?source=[platform]",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:09:01.331Z",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
