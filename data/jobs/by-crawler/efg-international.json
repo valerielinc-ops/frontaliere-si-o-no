@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-05-12T22:01:04.029Z",
+  "assembledAt": "2026-05-13T10:56:54.449Z",
   "jobs": [
     {
       "id": "efg-6242",
@@ -51,7 +51,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.864Z",
+      "crawledAt": "2026-05-13T10:56:52.328Z",
       "slugByLocale": {
         "it": "corporate-tax-intern-dipartimento-finanze-geneva-efg-international-ag-geneve",
         "en": "corporate-tax-intern-finance-department-geneva-efg-geneve",
@@ -93,7 +93,8 @@
       "previousSlugs": [
         "corporate-tax-intern-finance-department-geneva-efg-geneve",
         "corporate-tax-tirocinante-finanza-department-geneva-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6212",
@@ -243,7 +244,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.863Z",
+      "crawledAt": "2026-05-13T10:56:52.327Z",
       "slugByLocale": {
         "it": "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve",
         "en": "finance-data-analytics-power-bi-internship-efg-geneve",
@@ -282,7 +283,8 @@
       "previousSlugs": [
         "finance-data-analytics-power-bi-internship-efg-geneve",
         "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6209",
@@ -416,7 +418,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.863Z",
+      "crawledAt": "2026-05-13T10:56:52.326Z",
       "slugByLocale": {
         "it": "rischio-operativo-e-specialista-di-sicurezza-informatica-e-informatica-efg-international-ag-zurich",
         "en": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich",
@@ -450,125 +452,8 @@
       },
       "previousSlugs": [
         "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich"
-      ]
-    },
-    {
-      "id": "efg-6197",
-      "slug": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
-      "company": "EFG International AG",
-      "title": "Technology & Cyber Information Security Risk Analyst (Temporary)",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6197",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Technology & Cyber Information Security Risk Analyst (Temporary)",
-        "it": "Technology & Cyber Information Security Risk Analista (Temporary)",
-        "de": "Technologie & Cyber Information Security Risk Analyst (Temporary)",
-        "fr": "Technology & Cyber Information Security Risk Analyste (Temporary)"
-      },
-      "descriptionByLocale": {
-        "en": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "Descrizione del lavoro\n\nThe Technology & Cyber Information Security Risk Analyst sarà parte del team di Risk Operazionale. Siamo alla ricerca di un rischio IT appassionato, sicurezza informatica e informazioni per coprire un ruolo globale situato in Svizzera.\n\nUbicazione: Ginevra, Zurigo, Lugano.\n\nPrincipali responsabilità\n\n- supervisionare l'attuazione e la manutenzione efficaci e coerenti del quadro di gestione del rischio e del controllo a livello globale.\n- Contribuire alle valutazioni di rischio e controllo tematici su problemi di sicurezza informatica, rischio informatico e analisi delle minacce attraverso la collaborazione con altri stakeholder interni.\n- Esegui passaggi a livello di processo e test di controllo per consentire l'identificazione e la valutazione dei rischi e dei controlli.\n- Fornire competenze, formulare raccomandazioni per migliorare l'aderenza dei regolamenti interni, requisiti normativi e best practice del settore e monitorare la loro implementazione.\n- Gestisce i rapporti con i principali stakeholder all'interno della prima linea di difesa.\n- Resta al passo e consiglia la Banca sulle tendenze innovative di business e tecnologia nei rischi e controlli.\n\nCompetenze ed esperienza\n- Master in Informatica, sicurezza informatica, tecnologia dell'informazione, o equivalente.\n- Certificazione professionale, ad esempio Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk e\n- Controllo sistemi informativi (CRISC) o equivalente.\n- Almeno 3-5 anni di esperienza nelle piattaforme IT bancarie, nei processi operativi e nei controlli IT, o in consulenza/audit con una società di servizi professionali leader; una combinazione di entrambi è considerata un vantaggio.\n- Eccellente capacità di comunicazione in inglese, sia verbale che scritta. La conoscenza di tedesco, francese o italiano è un plus.\n\n- comprensione approfondita dei concetti chiave di tecnologia e sicurezza dell'informazione rilevanti per il settore bancario. In particolare, una forte conoscenza dell'organizzazione IT, dei processi aziendali e dei sistemi (ad esempio, sicurezza IT, gestione dei dati, architettura e pianificazione, gestione del ciclo di vita e questioni regolamentari).\n- Prove capacità di scrivere report e comunicare efficacemente con un pubblico senior.\n- Automotivato, diligente, altamente organizzato, in grado di privilegiare e multi-task, e prosperare in un ambiente frenetico.\n- Eccellente capacità analitiche e problem solving, in grado di lavorare autonomamente e come parte di un team globale.\n\nI nostri valori\n- Responsabilità: Assumere la proprietà per i compiti e le sfide e cercare un miglioramento continuo.\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità.\n- Passione: Impegnarsi e lottare per l'eccellenza.\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole.\n- Partenariato: promozione della collaborazione e del lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "Job Description\n\nDer Technology & Cyber Information Security Risk Analyst wird Teil des operativen Risikoteams sein. Wir suchen ein leidenschaftliches IT-Risiko, Cyber- und Informationssicherheit, um eine globale Rolle in der Schweiz zu decken.\n\nLage: Genf, Zürich, Lugano.\n\nHauptaufgaben\n- Überprüfe die effektive und konsequente Umsetzung und Wartung des Risiko- und Kontrollmanagement-Rahmens weltweit.\n- Beitrag zu thematischen Risiko- und Kontrollbeurteilungen zu IT-Sicherheitsfragen, Cyber-Risiko und Bedrohungsanalysen durch Zusammenarbeit mit anderen internen Akteuren.\n- Durchführung von Prozess-Level-Durchgängen und Kontrolltests, um die Identifizierung und Bewertung von Risiken und Kontrollen zu ermöglichen.\n- Bereitstellung von Fachwissen, Empfehlungen zur Verbesserung der Einhaltung interner Vorschriften, regulatorischer Anforderungen und branchenüblicher Praktiken und zur Überwachung ihrer Umsetzung.\n- Verwaltet Beziehungen zu den wichtigsten Interessenvertretern innerhalb der ersten Verteidigungslinie.\n- Bleibt stehen und berät die Bank über innovative Geschäfts- und Technologietrends bei Risiken und Kontrollen.\n\nFähigkeiten und Erfahrung\n- Masterstudium Informatik, Cyber Security, Informationstechnologie oder gleichwertig.\n- Professionelle Zertifizierung, z.B. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risiko und\n- Information Systems Control (CRISC) oder gleichwertig.\n- Mindestens 3-5 Jahre Erfahrung im Bankwesen von IT-Plattformen, operativen Prozessen und IT-Kontrollen oder in Beratung/Audit mit einem führenden professionellen Dienstleistungsunternehmen; eine Kombination von beiden gilt als Vorteil.\n- Ausgezeichnete Kommunikationsfähigkeiten auf Englisch, sowohl verbale als auch geschrieben. Das Wissen um Deutsch, Französisch oder Italienisch ist ein Plus.\n- Vertieftes Verständnis von Schlüsseltechnologien und Informationssicherheitskonzepten für das Bankwesen. Insbesondere starke Kenntnisse der IT-Organisation, der Geschäftsprozesse und der Systeme (z.B. IT-Sicherheit, Datenmanagement, Architektur und Planung, Lebenszyklusmanagement und regulatorische Angelegenheiten).\n- Bewiesene Fähigkeit, Berichte zu schreiben und effektiv mit einem Senior Publikum zu kommunizieren.\n- Selbstmotiviert, fleißig, hoch organisiert, in der Lage, priorisieren und multi-Task, und in einer schnelllebigen Umgebung leben.\n- Ausgezeichnete analytische und Problemlösungsfähigkeiten, autonom und als Teil eines globalen Teams arbeiten können.\n\nUnsere Werte\n- Rechenschaftspflicht: Das Eigentum an Aufgaben und Herausforderungen sowie das Streben nach kontinuierlicher Verbesserung.\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern.\n- Leidenschaftlich : Engagement und Streben nach Exzellenz.\n- Lösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und behandeln Sie Kunden ziemlich mit einem risikobewussten Mindset.\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.",
-        "fr": "Description de l'emploi\n\nL'analyste des risques liés à la technologie et à la cybersécurité de l'information fera partie de l'équipe des risques opérationnels. Nous recherchons un risque informatique passionné, la cybersécurité et la sécurité de l'information pour couvrir un rôle mondial situé en Suisse.\n\nLieu: Genève, Zurich, Lugano.\n\nPrincipales responsabilités\n- Superviser la mise en œuvre et la maintenance efficaces et cohérentes du cadre de gestion des risques et des contrôles au niveau mondial.\n- Contribuer aux évaluations thématiques des risques et des contrôles sur les questions de sécurité des TI, de cyberrisque et d'analyse des menaces par la collaboration avec d'autres intervenants internes.\n- Procéder à des examens et à des essais de contrôle au niveau des processus pour permettre l'identification et l'évaluation des risques et des contrôles.\n- Fournir de l'expertise, formuler des recommandations pour améliorer le respect des règlements internes, des exigences réglementaires et des pratiques exemplaires de l'industrie, et surveiller leur mise en oeuvre.\n- Gérer les relations avec les principaux intervenants au sein de la première ligne de défense.\n- Se tient au courant et conseille la Banque sur les tendances technologiques et commerciales novatrices en matière de risques et de contrôles.\n\nCompétences et expérience\n- Maîtrise en informatique, cybersécurité, technologie de l'information ou équivalent.\n- Attestation professionnelle, p. ex.\n- Contrôle des systèmes d'information (CRISC) ou équivalent.\n- Au moins 3-5 ans d'expérience dans les plateformes informatiques bancaires, les processus opérationnels et les contrôles informatiques, ou en consultation/audit avec une entreprise de services professionnels de premier plan; une combinaison de ces deux types est considérée comme un avantage.\n- Excellente capacité de communication en anglais, à la fois verbale et écrite. La connaissance de l'allemand, du français ou de l'italien est un plus.\n- Compréhension approfondie des concepts clés en matière de technologie et de sécurité de l'information dans le domaine bancaire. En particulier, une bonne connaissance de l'organisation informatique, des processus et des systèmes opérationnels (par exemple, sécurité informatique, gestion des données, architecture et planification, gestion du cycle de vie et questions réglementaires).\n- Capacité éprouvée d'écrire des rapports et de communiquer efficacement avec un auditoire supérieur.\n- Automotivé, diligent, hautement organisé, capable de prioriser et de multitâche, et de prospérer dans un environnement rapide.\n- Excellentes compétences analytiques et de résolution de problèmes, capables de travailler de manière autonome et dans le cadre d'une équipe mondiale.\n\nNos valeurs\n- Responsabilité : Prise en charge des tâches et des défis et recherche d'une amélioration continue.\n- Hands-on : être proactif pour obtenir rapidement des résultats de haute qualité.\n- Passionnée : être engagée et chercher l'excellence.\n- Déterminé par la solution : Se concentrer sur les résultats des clients et traiter ceux-ci de manière équitable avec un état d'esprit conscient des risques.\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "The Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.<br>",
-              "Location: Geneva, Zurich, Lugano.<br>"
-            ],
-            "responsibilities": [
-              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
-              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
-              "Information Systems Control (CRISC) or equivalent.",
-              "At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.",
-              "Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.",
-              "In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).",
-              "Proven ability to write reports and communicate effectively with a senior audience.",
-              "Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.",
-              "Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team."
-            ],
-            "requirements": [],
-            "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
-              "<strong>Passionate</strong>: Being committed and striving for excellence.",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
-              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
-              "Information Systems Control (CRISC) or equivalent.",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
-            ],
-            "keywords": [
-              "Master’s degree in Computer Science",
-              "Professional certification",
-              "Information Systems Control (CRISC) or equivalent.",
-              "At least 3-5 years of experience in banking IT platforms"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
-                  "<br><strong>Our Purpose and Mission</strong>",
-                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-12T22:01:01.862Z",
-      "slugByLocale": {
-        "it": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
-        "en": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
-        "de": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
-        "fr": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich"
-      },
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-09",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.907Z"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -618,7 +503,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.862Z",
+      "crawledAt": "2026-05-13T10:56:52.325Z",
       "slugByLocale": {
         "it": "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano",
         "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
@@ -677,7 +562,8 @@
           "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6190",
@@ -805,7 +691,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.861Z",
+      "crawledAt": "2026-05-13T10:56:52.324Z",
       "slugByLocale": {
         "it": "pb-specialist-americas-ginevra-efg-international-ag-geneve",
         "en": "pb-support-specialist-americas-geneva-efg-geneve",
@@ -847,7 +733,126 @@
       "previousSlugs": [
         "pb-support-specialist-americas-geneva-efg-geneve",
         "pb-support-specialista-americas-geneva-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-6197",
+      "slug": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+      "company": "EFG International AG",
+      "title": "Technology & Cyber Information Security Risk Analyst (Temporary)",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "description": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6197",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Technology & Cyber Information Security Risk Analyst (Temporary)",
+        "it": "Technology & Cyber Information Security Risk Analista (Temporary)",
+        "de": "Technologie & Cyber Information Security Risk Analyst (Temporary)",
+        "fr": "Technology & Cyber Information Security Risk Analyste (Temporary)"
+      },
+      "descriptionByLocale": {
+        "en": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "Descrizione del lavoro\n\nThe Technology & Cyber Information Security Risk Analyst sarà parte del team di Risk Operazionale. Siamo alla ricerca di un rischio IT appassionato, sicurezza informatica e informazioni per coprire un ruolo globale situato in Svizzera.\n\nUbicazione: Ginevra, Zurigo, Lugano.\n\nPrincipali responsabilità\n\n- supervisionare l'attuazione e la manutenzione efficaci e coerenti del quadro di gestione del rischio e del controllo a livello globale.\n- Contribuire alle valutazioni di rischio e controllo tematici su problemi di sicurezza informatica, rischio informatico e analisi delle minacce attraverso la collaborazione con altri stakeholder interni.\n- Esegui passaggi a livello di processo e test di controllo per consentire l'identificazione e la valutazione dei rischi e dei controlli.\n- Fornire competenze, formulare raccomandazioni per migliorare l'aderenza dei regolamenti interni, requisiti normativi e best practice del settore e monitorare la loro implementazione.\n- Gestisce i rapporti con i principali stakeholder all'interno della prima linea di difesa.\n- Resta al passo e consiglia la Banca sulle tendenze innovative di business e tecnologia nei rischi e controlli.\n\nCompetenze ed esperienza\n- Master in Informatica, sicurezza informatica, tecnologia dell'informazione, o equivalente.\n- Certificazione professionale, ad esempio Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk e\n- Controllo sistemi informativi (CRISC) o equivalente.\n- Almeno 3-5 anni di esperienza nelle piattaforme IT bancarie, nei processi operativi e nei controlli IT, o in consulenza/audit con una società di servizi professionali leader; una combinazione di entrambi è considerata un vantaggio.\n- Eccellente capacità di comunicazione in inglese, sia verbale che scritta. La conoscenza di tedesco, francese o italiano è un plus.\n\n- comprensione approfondita dei concetti chiave di tecnologia e sicurezza dell'informazione rilevanti per il settore bancario. In particolare, una forte conoscenza dell'organizzazione IT, dei processi aziendali e dei sistemi (ad esempio, sicurezza IT, gestione dei dati, architettura e pianificazione, gestione del ciclo di vita e questioni regolamentari).\n- Prove capacità di scrivere report e comunicare efficacemente con un pubblico senior.\n- Automotivato, diligente, altamente organizzato, in grado di privilegiare e multi-task, e prosperare in un ambiente frenetico.\n- Eccellente capacità analitiche e problem solving, in grado di lavorare autonomamente e come parte di un team globale.\n\nI nostri valori\n- Responsabilità: Assumere la proprietà per i compiti e le sfide e cercare un miglioramento continuo.\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità.\n- Passione: Impegnarsi e lottare per l'eccellenza.\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole.\n- Partenariato: promozione della collaborazione e del lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
+        "de": "Job Description\n\nDer Technology & Cyber Information Security Risk Analyst wird Teil des operativen Risikoteams sein. Wir suchen ein leidenschaftliches IT-Risiko, Cyber- und Informationssicherheit, um eine globale Rolle in der Schweiz zu decken.\n\nLage: Genf, Zürich, Lugano.\n\nHauptaufgaben\n- Überprüfe die effektive und konsequente Umsetzung und Wartung des Risiko- und Kontrollmanagement-Rahmens weltweit.\n- Beitrag zu thematischen Risiko- und Kontrollbeurteilungen zu IT-Sicherheitsfragen, Cyber-Risiko und Bedrohungsanalysen durch Zusammenarbeit mit anderen internen Akteuren.\n- Durchführung von Prozess-Level-Durchgängen und Kontrolltests, um die Identifizierung und Bewertung von Risiken und Kontrollen zu ermöglichen.\n- Bereitstellung von Fachwissen, Empfehlungen zur Verbesserung der Einhaltung interner Vorschriften, regulatorischer Anforderungen und branchenüblicher Praktiken und zur Überwachung ihrer Umsetzung.\n- Verwaltet Beziehungen zu den wichtigsten Interessenvertretern innerhalb der ersten Verteidigungslinie.\n- Bleibt stehen und berät die Bank über innovative Geschäfts- und Technologietrends bei Risiken und Kontrollen.\n\nFähigkeiten und Erfahrung\n- Masterstudium Informatik, Cyber Security, Informationstechnologie oder gleichwertig.\n- Professionelle Zertifizierung, z.B. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risiko und\n- Information Systems Control (CRISC) oder gleichwertig.\n- Mindestens 3-5 Jahre Erfahrung im Bankwesen von IT-Plattformen, operativen Prozessen und IT-Kontrollen oder in Beratung/Audit mit einem führenden professionellen Dienstleistungsunternehmen; eine Kombination von beiden gilt als Vorteil.\n- Ausgezeichnete Kommunikationsfähigkeiten auf Englisch, sowohl verbale als auch geschrieben. Das Wissen um Deutsch, Französisch oder Italienisch ist ein Plus.\n- Vertieftes Verständnis von Schlüsseltechnologien und Informationssicherheitskonzepten für das Bankwesen. Insbesondere starke Kenntnisse der IT-Organisation, der Geschäftsprozesse und der Systeme (z.B. IT-Sicherheit, Datenmanagement, Architektur und Planung, Lebenszyklusmanagement und regulatorische Angelegenheiten).\n- Bewiesene Fähigkeit, Berichte zu schreiben und effektiv mit einem Senior Publikum zu kommunizieren.\n- Selbstmotiviert, fleißig, hoch organisiert, in der Lage, priorisieren und multi-Task, und in einer schnelllebigen Umgebung leben.\n- Ausgezeichnete analytische und Problemlösungsfähigkeiten, autonom und als Teil eines globalen Teams arbeiten können.\n\nUnsere Werte\n- Rechenschaftspflicht: Das Eigentum an Aufgaben und Herausforderungen sowie das Streben nach kontinuierlicher Verbesserung.\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern.\n- Leidenschaftlich : Engagement und Streben nach Exzellenz.\n- Lösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und behandeln Sie Kunden ziemlich mit einem risikobewussten Mindset.\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.",
+        "fr": "Description de l'emploi\n\nL'analyste des risques liés à la technologie et à la cybersécurité de l'information fera partie de l'équipe des risques opérationnels. Nous recherchons un risque informatique passionné, la cybersécurité et la sécurité de l'information pour couvrir un rôle mondial situé en Suisse.\n\nLieu: Genève, Zurich, Lugano.\n\nPrincipales responsabilités\n- Superviser la mise en œuvre et la maintenance efficaces et cohérentes du cadre de gestion des risques et des contrôles au niveau mondial.\n- Contribuer aux évaluations thématiques des risques et des contrôles sur les questions de sécurité des TI, de cyberrisque et d'analyse des menaces par la collaboration avec d'autres intervenants internes.\n- Procéder à des examens et à des essais de contrôle au niveau des processus pour permettre l'identification et l'évaluation des risques et des contrôles.\n- Fournir de l'expertise, formuler des recommandations pour améliorer le respect des règlements internes, des exigences réglementaires et des pratiques exemplaires de l'industrie, et surveiller leur mise en oeuvre.\n- Gérer les relations avec les principaux intervenants au sein de la première ligne de défense.\n- Se tient au courant et conseille la Banque sur les tendances technologiques et commerciales novatrices en matière de risques et de contrôles.\n\nCompétences et expérience\n- Maîtrise en informatique, cybersécurité, technologie de l'information ou équivalent.\n- Attestation professionnelle, p. ex.\n- Contrôle des systèmes d'information (CRISC) ou équivalent.\n- Au moins 3-5 ans d'expérience dans les plateformes informatiques bancaires, les processus opérationnels et les contrôles informatiques, ou en consultation/audit avec une entreprise de services professionnels de premier plan; une combinaison de ces deux types est considérée comme un avantage.\n- Excellente capacité de communication en anglais, à la fois verbale et écrite. La connaissance de l'allemand, du français ou de l'italien est un plus.\n- Compréhension approfondie des concepts clés en matière de technologie et de sécurité de l'information dans le domaine bancaire. En particulier, une bonne connaissance de l'organisation informatique, des processus et des systèmes opérationnels (par exemple, sécurité informatique, gestion des données, architecture et planification, gestion du cycle de vie et questions réglementaires).\n- Capacité éprouvée d'écrire des rapports et de communiquer efficacement avec un auditoire supérieur.\n- Automotivé, diligent, hautement organisé, capable de prioriser et de multitâche, et de prospérer dans un environnement rapide.\n- Excellentes compétences analytiques et de résolution de problèmes, capables de travailler de manière autonome et dans le cadre d'une équipe mondiale.\n\nNos valeurs\n- Responsabilité : Prise en charge des tâches et des défis et recherche d'une amélioration continue.\n- Hands-on : être proactif pour obtenir rapidement des résultats de haute qualité.\n- Passionnée : être engagée et chercher l'excellence.\n- Déterminé par la solution : Se concentrer sur les résultats des clients et traiter ceux-ci de manière équitable avec un état d'esprit conscient des risques.\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "The Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.<br>",
+              "Location: Geneva, Zurich, Lugano.<br>"
+            ],
+            "responsibilities": [
+              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
+              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
+              "Information Systems Control (CRISC) or equivalent.",
+              "At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.",
+              "Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.",
+              "In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).",
+              "Proven ability to write reports and communicate effectively with a senior audience.",
+              "Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.",
+              "Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team."
+            ],
+            "requirements": [],
+            "benefits": [
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
+              "<strong>Passionate</strong>: Being committed and striving for excellence.",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
+              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
+              "Information Systems Control (CRISC) or equivalent.",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
+            ],
+            "keywords": [
+              "Master’s degree in Computer Science",
+              "Professional certification",
+              "Information Systems Control (CRISC) or equivalent.",
+              "At least 3-5 years of experience in banking IT platforms"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<br><strong>Our Purpose and Mission</strong>",
+                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-13T10:56:52.324Z",
+      "slugByLocale": {
+        "it": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+        "en": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+        "de": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+        "fr": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich"
+      },
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-09",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.907Z"
     },
     {
       "id": "efg-6177",
@@ -898,7 +903,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.860Z",
+      "crawledAt": "2026-05-13T10:56:52.323Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-clienti-efg-international-ag-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
@@ -933,7 +938,8 @@
       "previousSlugs": [
         "client-support-officer-efg-st-moritz",
         "addetto-all-assistenza-clienti-efg-international-ag-st-moritz"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -1059,7 +1065,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.858Z",
+      "crawledAt": "2026-05-13T10:56:52.320Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -1101,7 +1107,8 @@
       "previousSlugs": [
         "pb-support-specialist-middle-east-ch-efg-geneve",
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6168",
@@ -1262,7 +1269,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.857Z",
+      "crawledAt": "2026-05-13T10:56:52.319Z",
       "slugByLocale": {
         "it": "stage-in-talent-acquisition-efg-international-ag-lugano",
         "en": "talent-acquisition-internship-efg-international-ag-geneve",
@@ -1305,7 +1312,8 @@
       "previousSlugs": [
         "talent-acquisition-internship-efg-lugano"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1458,7 +1466,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.856Z",
+      "crawledAt": "2026-05-13T10:56:52.317Z",
       "slugByLocale": {
         "it": "specialista-sviluppo-e-formazione-efg-international-ag-lugano",
         "en": "learning-development-specialist-efg-international-ag-lugano",
@@ -1623,7 +1631,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.855Z",
+      "crawledAt": "2026-05-13T10:56:52.316Z",
       "slugByLocale": {
         "it": "bi-solution-specialista-efg-international-ag-geneve",
         "en": "bi-solution-specialist-efg-international-ag-geneve",
@@ -1663,7 +1671,8 @@
       },
       "previousSlugs": [
         "bi-solution-specialist-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6137",
@@ -1817,7 +1826,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.855Z",
+      "crawledAt": "2026-05-13T10:56:52.316Z",
       "slugByLocale": {
         "it": "specialista-internazionale-della-retribuzione-efg-international-ag-lugano",
         "en": "international-payroll-specialist-efg-international-ag-lugano",
@@ -1994,7 +2003,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.854Z",
+      "crawledAt": "2026-05-13T10:56:52.314Z",
       "slugByLocale": {
         "it": "senior-cloud-ingegnere-efg-international-ag-geneve",
         "en": "senior-cloud-engineer-efg-international-ag-geneve",
@@ -2034,97 +2043,6 @@
       },
       "previousSlugs": [
         "senior-cloud-engineer-efg-geneve"
-      ]
-    },
-    {
-      "id": "efg-6064",
-      "slug": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Cybersecurity Internal Penetration Tester",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "General Info\n\n-\nDepartment : Information Security & BCM\n\n-\nWork time Percentage : 100%\n\n-\nLocation : Geneva (preferred), Zurich or Lugano\n\n## Job Description\n\nContext - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.\n\nTo support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.\n\nThe successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.\n\nThis role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems.\n\n## Key responsibilities include\n\n-\nPlan, scope and execute internal penetration tests on core banking platforms and business applications, with a strong focus on services supporting critical and important functions\n\n-\nDesign test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments\n\n-\nExecute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems\n\n-\nDocument findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences\n\n-\nWork closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.\n\n-\nDevelop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments\n\n-\nCollaborate with SOC on purple-team style exercises to test and improve detection and response capabilities\n\n-\nStay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing\n\n## Skills and experience\n\n-\nBackground in cybersecurity, computer science, or related fields\n\n-\n3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus\n\n-\nStrong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus\n\n-\nProficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools\n\n-\nSolid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets\n\n-\nProfessional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing\n\n-\nStrong communication skills and ability to explain complex technical findings to technical and non-technical audience\n\n## Our Values\n\n-\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-\nHands-on : Being proactive to rapidly deliver high-quality results\n\n-\nPassionate : Being committed and striving for excellence\n\n-\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Application\n\nPlease ensure to attach a cover letter to your CV when filling the application.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-04-07",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6064",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Cybersecurity Internal Penetration Tester",
-        "it": "Tester di penetrazione interna della sicurezza informatica",
-        "de": "Cybersecurity intern Penetration Tester",
-        "fr": "Cybersécurité Testeur interne de pénétration"
-      },
-      "descriptionByLocale": {
-        "en": "General Info\n\n-\nDepartment : Information Security & BCM\n\n-\nWork time Percentage : 100%\n\n-\nLocation : Geneva (preferred), Zurich or Lugano\n\n## Job Description\n\nContext - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.\n\nTo support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.\n\nThe successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.\n\nThis role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems.\n\n## Key responsibilities include\n\n-\nPlan, scope and execute internal penetration tests on core banking platforms and business applications, with a strong focus on services supporting critical and important functions\n\n-\nDesign test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments\n\n-\nExecute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems\n\n-\nDocument findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences\n\n-\nWork closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.\n\n-\nDevelop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments\n\n-\nCollaborate with SOC on purple-team style exercises to test and improve detection and response capabilities\n\n-\nStay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing\n\n## Skills and experience\n\n-\nBackground in cybersecurity, computer science, or related fields\n\n-\n3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus\n\n-\nStrong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus\n\n-\nProficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools\n\n-\nSolid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets\n\n-\nProfessional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing\n\n-\nStrong communication skills and ability to explain complex technical findings to technical and non-technical audience\n\n## Our Values\n\n-\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-\nHands-on : Being proactive to rapidly deliver high-quality results\n\n-\nPassionate : Being committed and striving for excellence\n\n-\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Application\n\nPlease ensure to attach a cover letter to your CV when filling the application.",
-        "it": "Informazioni generali\n- No.\nDipartimento: Sicurezza dell'informazione e BCM\n- No.\nTempo di lavoro Percentuale: 100%\n- No.\nUbicazione: Ginevra (preferito), Zurigo o Lugano\n\nDescrizione del lavoro\n\nContext\n- The Information Security & BCM, sotto la guida del Group Chief Information Security Officer (CISO) e parte dell'organizzazione Chief Operating Officer (COO), definisce, guida e coordina gli sforzi di sicurezza delle informazioni in EFG International e le sue entità a livello globale. Esso delinea la strategia di sicurezza delle informazioni, identifica e gestisce iniziative di sicurezza e definisce gli standard.\n\nPer supportare il Quadro di Gestione dei Rischi ICT, nel rispetto dei requisiti normativi (FINMA, DORA e relativi regolamenti finanziari), stiamo cercando un Tester di Penetrazione Intermal Cybersecurity.\n\nIl candidato di successo sarà responsabile per l’esecuzione di valutazioni di sicurezza offensive in-house delle infrastrutture, applicazioni e controlli della Banca.\n\nQuesto ruolo combina l'esperienza tecnica pratica conducendo test di penetrazione e simulando gli esercizi di attacchi del mondo reale sugli ambienti aziendali, con una stretta collaborazione con i team di sicurezza, IT, sviluppo e rischio per identificare, sfruttare e consigliare proattivamente la bonifica delle vulnerabilità nei sistemi bancari critici.\n\nLe responsabilità chiave includono\n- No.\nPianifica, portata ed esegue test di penetrazione interni su piattaforme core banking e applicazioni aziendali, con una forte attenzione ai servizi che supportano funzioni critiche e importanti\n- No.\nScenari di prova di progettazione allineati con realistici modelli di minaccia di cottura (fraud, esfiltrazione dei dati, escalation privilegio, movimenti laterali a sistemi critici,...) e valutazioni di rischio interne\n- No.\nEseguire test pratici contro reti interne, server, endpoint, applicazioni web, API, carichi di lavoro cloud, AD e altri sistemi di infrastruttura core\n- No.\nRisultati dei documenti in rapporti chiari e basati sui rischi con le prove e le indicazioni di bonifica per il pubblico tecnico e non tecnico\n- No.\nLavorare a stretto contatto con le infrastrutture, lo sviluppo, DevOps e i team di rischio per sostenere i piani di bonifica e ri-testing, assicurando che i risultati critici siano rintracciati alla chiusura all'interno dei processi di rischio e di governance ICT.\n- No.\nSviluppare e mantenere metodologie di test interni, cartelle di gioco e strumenti per sostenere valutazioni ripetibili ed efficienti\n- No.\nCollabora con SOC su esercizi di stile viola-team per testare e migliorare le capacità di rilevamento e risposta\n- No.\nRimanere attuali sulle minacce emergenti, vulnerabilità, TTP, ecc, e incorporare in test interni\n\nCompetenze ed esperienza\n- No.\nSfondo in sicurezza informatica, informatica o campi correlati\n- No.\n3-5 anni di test di penetrazione pratico o esperienza red-team, con lavoro dimostrabile su rete interna, applicazioni web e API; esperienza di servizi bancari o finanziari è un forte plus\n- No.\nForte comprensione dei protocolli di rete, sistemi operativi (Windows, Linux), tecnologie web e cloud; la familiarità con le architetture core banking è un plus\n- No.\nProficienza con strumenti e tecniche offensive comuni (ad esempio Burp Suite, Metasploit, Cobalt Strike-like framework, Kali-based tooling) e capacità di eseguire test manuali oltre gli strumenti\n- No.\nConoscenza solida dei concetti di codifica sicura e delle vulnerabilità delle applicazioni comuni (ad esempio OWASP Top 10) per valutare gli obiettivi web e API\n- No.\nCertificazioni professionali come OCSP, GXPN, o simili credenziali di sicurezza offensive in buona posizione\n- No.\nForte capacità di comunicazione e capacità di spiegare complessi risultati tecnici al pubblico tecnico e non tecnico\n\nI nostri valori\n- No.\nResponsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- No.\nHands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- No.\nPassionato: Impegnarsi e lottare per l'eccellenza\n- No.\nSoluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- No.\nPartenariato: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n\nApplicazione\n\nSi prega di assicurarsi di allegare una lettera di copertura al CV durante la compilazione dell'applicazione.",
-        "de": "Allgemeine Info\n- Ja.\nAbteilung : Informationssicherheit & BCM\n- Ja.\nArbeitszeit Prozentsatz: 100%\n- Ja.\nStandort : Genf (vorgezogen), Zürich oder Lugano\n\nJob Description\n\nKontext\n- Die Informationssicherheit & BCM, unter der Leitung des Group Chief Information Security Officer (CISO) und eines Teils der Chief Operating Officer (COO) Organisation, definiert, führt und koordiniert Informationssicherheitsbemühungen über EFG International und seine Einrichtungen weltweit. Sie beschreibt die Strategie zur Informationssicherheit, identifiziert und betreibt Sicherheitsinitiativen und setzt Maßstäbe.\n\nZur Unterstützung des ICT-Risikomanagement-Rahmens unter Einhaltung regulatorischer Anforderungen (FINMA, DORA und relevante Finanzsektorverordnungen) suchen wir einen Cybersecurity Intermal Penetration Tester.\n\nDer erfolgreiche Kandidat wird dafür verantwortlich sein, laufende, hausinterne Offensive-Sicherheitsbewertungen der Infrastruktur, Anwendungen und Kontrollen der Bank durchzuführen.\n\nDiese Rolle verbindet praktische technische Erfahrung mit Penetrationstests und Simulation von Echtzeit-Angriffsübungen auf Unternehmensumgebungen, mit enger Zusammenarbeit mit Sicherheits-, IT-, Entwicklungs- und Risikoteams, um die Schwachstellen in kritischen Bankensystemen proaktiv zu identifizieren, auszunutzen und zu beraten.\n\nZu den wichtigsten Aufgaben gehören\n- Ja.\nPlanen, Umfang und Durchführung interner Penetrationstests auf Kernbank-Plattformen und Business-Anwendungen, mit einem starken Fokus auf Dienstleistungen, die kritische und wichtige Funktionen unterstützen\n- Ja.\nDesign-Testszenarien, die mit realistischen Back-Drohungsmodellen (Betrug, Data Exfiltration, Privileg Escalation, laterale Bewegungen zu kritischen Systemen,...) und internen Risikobewertungen ausgerichtet sind\n- Ja.\nFühren Sie die manuellen Tests gegen interne Netzwerke, Server, Endpunkte, Web-Anwendungen, APIs, Cloud-Workloads, AD und andere Kerninfrastruktursysteme aus\n- Ja.\nDokumentenermittlungen in klaren, risikobasierten Berichten mit Beweis- und handlungsfähigen Beratungsleistungen für technische und nichttechnische Publikum\n- Ja.\nArbeiten Sie eng mit Infrastruktur-, Entwicklungs-, DevOps- und Risikoteams zusammen, um Sanierungspläne und Retests zu unterstützen und kritische Befunde zu gewährleisten, werden in den IKT-Risiko- und Governance-Prozessen erfasst.\n- Ja.\nEntwicklung und Aufrechterhaltung interner Testmethoden, Playbooks und Tools zur Unterstützung wiederholbarer und effizienter Bewertungen\n- Ja.\nZusammenarbeit mit SOC auf lila-team-Stil Übungen zu testen und zu verbessern Erkennung und Reaktionsfähigkeit\n- Ja.\nBleiben Sie aktuell bei aufstrebenden Bedrohungen, Schwachstellen, TTPs, etc. und integrieren in interne Tests\n\nFähigkeiten und Erfahrung\n- Ja.\nHintergrund in Cybersicherheit, Informatik oder verwandten Bereichen\n- Ja.\n3-5 Jahre praktische Penetrationstests oder Rot-Dampf-Erfahrung, mit demonstrable Arbeit an internen Netzwerken, Web-Anwendungen und API; Bank- oder Finanzdienstleistungen Erfahrung ist ein starkes Plus\n- Ja.\nStarkes Verständnis von Netzwerkprotokollen, Betriebssystemen (Windows, Linux), Web- und Cloud-Technologien; Vertrautheit mit Kernbankenarchitekturen ist ein Plus\n- Ja.\nProficiency with common offensive tools and technologys (z.B. Burp Suite, Metasploit, Cobalt Strike-ähnliche Frameworks, Kali-basiertes Tooling) und Fähigkeit, manuelle Tests über Werkzeuge durchzuführen\n- Ja.\nSolides Wissen über sichere Codierungskonzepte und gemeinsame Anwendungslücken (z.B. OWASP Top 10) zur Bewertung von Web- und API-Zielen\n- Ja.\nProfessionelle Zertifizierungen wie OCSP, GXPN oder ähnliche offensive Sicherheits-Anmeldeinformationen im guten Stand\n- Ja.\nStarke Kommunikationsfähigkeiten und die Fähigkeit, komplexe technische Erkenntnisse dem technischen und nichttechnischen Publikum zu erklären\n\nUnsere Werte\n- Ja.\nRechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Ja.\nHands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse liefern\n- Ja.\nLeidenschaftlich: Engagement und Streben nach Exzellenz\n- Ja.\nLösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Clients ziemlich mit einem risikobewussten Mindset\n- Ja.\nPartnerschaftsorientiert : Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.\n\nAnwendung\n\nBitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.",
-        "fr": "Informations générales\n- Oui.\nDépartement : Sécurité de l'information et BCM\n- Oui.\nTemps de travail Pourcentage : 100%\n- Oui.\nLieu : Genève (préféré), Zurich ou Lugano\n\nDescription de l'emploi\n\nContexte\n- La Sécurité de l'information et la BCM, sous la direction du chef de la sécurité de l'information du groupe (CISO) et d'une partie de l'organisation du chef de l'exploitation (COO), définit, dirige et coordonne les efforts de sécurité de l'information dans l'ensemble de EFG International et de ses entités à l'échelle mondiale. Il décrit la stratégie de sécurité de l'information, identifie et dirige des initiatives de sécurité et établit des normes.\n\nPour soutenir le Cadre de gestion des risques TIC, conformément aux exigences réglementaires (FINMA, DORA et règlements pertinents du secteur financier), nous recherchons un testeur de pénétration intermale de cybersécurité.\n\nLe candidat retenu sera chargé d'effectuer des évaluations de sécurité offensives continues et internes de l'infrastructure, des applications et des contrôles de la Banque.\n\nCe rôle combine une expérience technique pratique en matière d'essais de pénétration et de simulation d'exercices d'attaques dans le monde réel sur des environnements d'entreprise, avec une collaboration étroite avec des équipes de sécurité, de TI, de développement et de risque pour identifier, exploiter et conseiller proactifs sur l'assainissement des vulnérabilités dans les systèmes bancaires critiques.\n\nLes principales responsabilités comprennent :\n- Oui.\nPlanifier, étendre et exécuter des tests de pénétration interne sur les plateformes bancaires centrales et les applications commerciales, en mettant fortement l'accent sur les services qui soutiennent des fonctions essentielles et importantes\n- Oui.\nScénarios d'essai de conception alignés sur des modèles réalistes de menaces de cuisson (fraude, exfiltration de données, escalade des privilèges, mouvements latéraux vers des systèmes critiques,...) et évaluations internes des risques\n- Oui.\nExécuter des tests pratiques sur les réseaux internes, les serveurs, les terminaux, les applications web, les API, les charges de travail en nuage, les systèmes AD et autres systèmes d'infrastructure de base\n- Oui.\nDocumenter les constatations dans des rapports clairs et fondés sur les risques, avec des preuves et des lignes directrices sur la remise en état à l'intention des publics techniques et non techniques\n- Oui.\nTravailler en étroite collaboration avec les équipes d'infrastructure, de développement, de développement et de gestion des risques afin d'appuyer les plans d'assainissement et de re-test, en veillant à ce que les constatations critiques soient suivies jusqu'à la clôture des processus de gestion des risques et de gouvernance des TIC.\n- Oui.\nÉlaborer et tenir à jour des méthodes d'essai internes, des livres de lecture et des outils pour appuyer les évaluations répétables et efficaces\n- Oui.\nCollaborer avec SOC sur des exercices de style pourpre-équipe pour tester et améliorer les capacités de détection et de réponse\n- Oui.\nRestez à jour sur les menaces émergentes, les vulnérabilités, les TTP, etc., et intégrer dans les tests internes\n\nCompétences et expérience\n- Oui.\nContexte en matière de cybersécurité, d'informatique ou de domaines connexes\n- Oui.\n3-5 ans de tests de pénétration pratique ou d'expérience en équipe rouge, avec un travail démontrable sur le réseau interne, les applications Web et l'API; l'expérience des services bancaires ou financiers est un plus fort\n- Oui.\nUne bonne compréhension des protocoles réseau, des systèmes d'exploitation (Windows, Linux), des technologies web et cloud; la connaissance des architectures bancaires de base est un plus\n- Oui.\nCompétence avec des outils et des techniques offensifs communs (p. ex. Burp Suite, Metasploit, frameworks Cobalt Strike-like, outillage basé sur Kali) et capacité à effectuer des tests manuels au-delà des outils\n- Oui.\nConnaissance approfondie des concepts de codage sécurisé et vulnérabilités communes (p. ex., OWASP Top 10) pour évaluer les cibles Web et API\n- Oui.\nCertifications professionnelles telles que OCSP, GXPN ou titres de créance de sécurité offensifs similaires en règle\n- Oui.\nFortes compétences en communication et capacité d'expliquer les découvertes techniques complexes à l'auditoire technique et non technique\n\nNos valeurs\n- Oui.\nResponsabilité : Prise en charge des tâches et des défis, et recherche d'amélioration continue\n- Oui.\nHands-on : Être proactif pour obtenir rapidement des résultats de haute qualité\n- Oui.\nPassionné : Être engagé et chercher l'excellence\n- Oui.\nSolution : Se concentrer sur les résultats des clients et traiter les clients équitablement avec un état d'esprit conscient des risques\n- Oui.\nPartenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n\nDemande\n\nVeuillez joindre une lettre d'accompagnement à votre CV au moment de remplir la demande."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\" lang=\"DE\">General Info</span></span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Department</span></span><span lang=\"EN-GB\">: </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Information Security & BCM</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Work</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">time</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Percentage</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: 100%</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Location</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Geneva (preferred), Zurich or Lugano</span></span></p></li></ul><h1><span lang=\"EN-GB\">Our Company</span></h1><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\">Our Purpose and Mission</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></span></p><h1><span lang=\"EN-GB\">Job Description</span></h1><p><span lang=\"EN-GB\">Context - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.</span></p><p><span>To support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.</span></p><p><span>The successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.</span></p><p><span>This role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems. </span></p><p><span>Key responsibilities include:</span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Plan, scope and execute internal penetration tests on core banking platforms and business applications, </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">with a strong focus on services supporting critical and important functions</span></span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Design test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Execute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Document findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Work closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Develop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Collaborate with SOC on purple-team style exercises to test and improve detection and response capabilities</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Stay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing</span></p></li></ul><h1><span lang=\"EN-GB\">Skills and experience</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Background in cybersecurity, computer science, or related fields</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus </span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Proficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Solid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Professional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong communication skills and ability to explain complex technical findings to technical and non-technical audience</span></span></p></li></ul><h1><span lang=\"IT-CH\">Our Values</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Accountability</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Hands-on</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being proactive to rapidly deliver high-quality results</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Passionate</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being committed and striving for excellence</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Solution-driven</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Partnership-oriented</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span></p></li></ul><h1><span lang=\"EN-GB\">Application</span></h1><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></span></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-05-12T22:01:01.852Z",
-      "slugByLocale": {
-        "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
-        "en": "cybersecurity-internal-penetration-tester-efg-geneve",
-        "de": "cybersecurity-intern-penetration-tester-efg-international-ag-geneve",
-        "fr": "cybersecurite-testeur-interne-de-penetration-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-07",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.894Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "cybersecurity-internal-penetration-tester-efg-geneve"
-        ],
-        "fr": [
-          "cybersecurity-internal-penetration-tester-efg-geneve"
-        ],
-        "de": [
-          "cybersecurity-internal-penetration-tester-efg-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "cybersecurity-internal-penetration-tester-efg-geneve"
       ]
     },
     {
@@ -2266,7 +2184,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.852Z",
+      "crawledAt": "2026-05-13T10:56:52.313Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -2292,7 +2210,100 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.895Z"
+      "firstSeenAt": "2026-05-10T21:30:00.895Z",
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-6064",
+      "slug": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Cybersecurity Internal Penetration Tester",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "General Info\n\n-\nDepartment : Information Security & BCM\n\n-\nWork time Percentage : 100%\n\n-\nLocation : Geneva (preferred), Zurich or Lugano\n\n## Job Description\n\nContext - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.\n\nTo support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.\n\nThe successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.\n\nThis role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems.\n\n## Key responsibilities include\n\n-\nPlan, scope and execute internal penetration tests on core banking platforms and business applications, with a strong focus on services supporting critical and important functions\n\n-\nDesign test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments\n\n-\nExecute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems\n\n-\nDocument findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences\n\n-\nWork closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.\n\n-\nDevelop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments\n\n-\nCollaborate with SOC on purple-team style exercises to test and improve detection and response capabilities\n\n-\nStay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing\n\n## Skills and experience\n\n-\nBackground in cybersecurity, computer science, or related fields\n\n-\n3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus\n\n-\nStrong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus\n\n-\nProficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools\n\n-\nSolid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets\n\n-\nProfessional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing\n\n-\nStrong communication skills and ability to explain complex technical findings to technical and non-technical audience\n\n## Our Values\n\n-\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-\nHands-on : Being proactive to rapidly deliver high-quality results\n\n-\nPassionate : Being committed and striving for excellence\n\n-\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Application\n\nPlease ensure to attach a cover letter to your CV when filling the application.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-04-07",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6064",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Cybersecurity Internal Penetration Tester",
+        "it": "Tester di penetrazione interna della sicurezza informatica",
+        "de": "Cybersecurity intern Penetration Tester",
+        "fr": "Cybersécurité Testeur interne de pénétration"
+      },
+      "descriptionByLocale": {
+        "en": "General Info\n\n-\nDepartment : Information Security & BCM\n\n-\nWork time Percentage : 100%\n\n-\nLocation : Geneva (preferred), Zurich or Lugano\n\n## Job Description\n\nContext - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.\n\nTo support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.\n\nThe successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.\n\nThis role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems.\n\n## Key responsibilities include\n\n-\nPlan, scope and execute internal penetration tests on core banking platforms and business applications, with a strong focus on services supporting critical and important functions\n\n-\nDesign test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments\n\n-\nExecute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems\n\n-\nDocument findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences\n\n-\nWork closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.\n\n-\nDevelop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments\n\n-\nCollaborate with SOC on purple-team style exercises to test and improve detection and response capabilities\n\n-\nStay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing\n\n## Skills and experience\n\n-\nBackground in cybersecurity, computer science, or related fields\n\n-\n3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus\n\n-\nStrong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus\n\n-\nProficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools\n\n-\nSolid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets\n\n-\nProfessional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing\n\n-\nStrong communication skills and ability to explain complex technical findings to technical and non-technical audience\n\n## Our Values\n\n-\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-\nHands-on : Being proactive to rapidly deliver high-quality results\n\n-\nPassionate : Being committed and striving for excellence\n\n-\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Application\n\nPlease ensure to attach a cover letter to your CV when filling the application.",
+        "it": "Informazioni generali\n- No.\nDipartimento: Sicurezza dell'informazione e BCM\n- No.\nTempo di lavoro Percentuale: 100%\n- No.\nUbicazione: Ginevra (preferito), Zurigo o Lugano\n\nDescrizione del lavoro\n\nContext\n- The Information Security & BCM, sotto la guida del Group Chief Information Security Officer (CISO) e parte dell'organizzazione Chief Operating Officer (COO), definisce, guida e coordina gli sforzi di sicurezza delle informazioni in EFG International e le sue entità a livello globale. Esso delinea la strategia di sicurezza delle informazioni, identifica e gestisce iniziative di sicurezza e definisce gli standard.\n\nPer supportare il Quadro di Gestione dei Rischi ICT, nel rispetto dei requisiti normativi (FINMA, DORA e relativi regolamenti finanziari), stiamo cercando un Tester di Penetrazione Intermal Cybersecurity.\n\nIl candidato di successo sarà responsabile per l’esecuzione di valutazioni di sicurezza offensive in-house delle infrastrutture, applicazioni e controlli della Banca.\n\nQuesto ruolo combina l'esperienza tecnica pratica conducendo test di penetrazione e simulando gli esercizi di attacchi del mondo reale sugli ambienti aziendali, con una stretta collaborazione con i team di sicurezza, IT, sviluppo e rischio per identificare, sfruttare e consigliare proattivamente la bonifica delle vulnerabilità nei sistemi bancari critici.\n\nLe responsabilità chiave includono\n- No.\nPianifica, portata ed esegue test di penetrazione interni su piattaforme core banking e applicazioni aziendali, con una forte attenzione ai servizi che supportano funzioni critiche e importanti\n- No.\nScenari di prova di progettazione allineati con realistici modelli di minaccia di cottura (fraud, esfiltrazione dei dati, escalation privilegio, movimenti laterali a sistemi critici,...) e valutazioni di rischio interne\n- No.\nEseguire test pratici contro reti interne, server, endpoint, applicazioni web, API, carichi di lavoro cloud, AD e altri sistemi di infrastruttura core\n- No.\nRisultati dei documenti in rapporti chiari e basati sui rischi con le prove e le indicazioni di bonifica per il pubblico tecnico e non tecnico\n- No.\nLavorare a stretto contatto con le infrastrutture, lo sviluppo, DevOps e i team di rischio per sostenere i piani di bonifica e ri-testing, assicurando che i risultati critici siano rintracciati alla chiusura all'interno dei processi di rischio e di governance ICT.\n- No.\nSviluppare e mantenere metodologie di test interni, cartelle di gioco e strumenti per sostenere valutazioni ripetibili ed efficienti\n- No.\nCollabora con SOC su esercizi di stile viola-team per testare e migliorare le capacità di rilevamento e risposta\n- No.\nRimanere attuali sulle minacce emergenti, vulnerabilità, TTP, ecc, e incorporare in test interni\n\nCompetenze ed esperienza\n- No.\nSfondo in sicurezza informatica, informatica o campi correlati\n- No.\n3-5 anni di test di penetrazione pratico o esperienza red-team, con lavoro dimostrabile su rete interna, applicazioni web e API; esperienza di servizi bancari o finanziari è un forte plus\n- No.\nForte comprensione dei protocolli di rete, sistemi operativi (Windows, Linux), tecnologie web e cloud; la familiarità con le architetture core banking è un plus\n- No.\nProficienza con strumenti e tecniche offensive comuni (ad esempio Burp Suite, Metasploit, Cobalt Strike-like framework, Kali-based tooling) e capacità di eseguire test manuali oltre gli strumenti\n- No.\nConoscenza solida dei concetti di codifica sicura e delle vulnerabilità delle applicazioni comuni (ad esempio OWASP Top 10) per valutare gli obiettivi web e API\n- No.\nCertificazioni professionali come OCSP, GXPN, o simili credenziali di sicurezza offensive in buona posizione\n- No.\nForte capacità di comunicazione e capacità di spiegare complessi risultati tecnici al pubblico tecnico e non tecnico\n\nI nostri valori\n- No.\nResponsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- No.\nHands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- No.\nPassionato: Impegnarsi e lottare per l'eccellenza\n- No.\nSoluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- No.\nPartenariato: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n\nApplicazione\n\nSi prega di assicurarsi di allegare una lettera di copertura al CV durante la compilazione dell'applicazione.",
+        "de": "Allgemeine Info\n- Ja.\nAbteilung : Informationssicherheit & BCM\n- Ja.\nArbeitszeit Prozentsatz: 100%\n- Ja.\nStandort : Genf (vorgezogen), Zürich oder Lugano\n\nJob Description\n\nKontext\n- Die Informationssicherheit & BCM, unter der Leitung des Group Chief Information Security Officer (CISO) und eines Teils der Chief Operating Officer (COO) Organisation, definiert, führt und koordiniert Informationssicherheitsbemühungen über EFG International und seine Einrichtungen weltweit. Sie beschreibt die Strategie zur Informationssicherheit, identifiziert und betreibt Sicherheitsinitiativen und setzt Maßstäbe.\n\nZur Unterstützung des ICT-Risikomanagement-Rahmens unter Einhaltung regulatorischer Anforderungen (FINMA, DORA und relevante Finanzsektorverordnungen) suchen wir einen Cybersecurity Intermal Penetration Tester.\n\nDer erfolgreiche Kandidat wird dafür verantwortlich sein, laufende, hausinterne Offensive-Sicherheitsbewertungen der Infrastruktur, Anwendungen und Kontrollen der Bank durchzuführen.\n\nDiese Rolle verbindet praktische technische Erfahrung mit Penetrationstests und Simulation von Echtzeit-Angriffsübungen auf Unternehmensumgebungen, mit enger Zusammenarbeit mit Sicherheits-, IT-, Entwicklungs- und Risikoteams, um die Schwachstellen in kritischen Bankensystemen proaktiv zu identifizieren, auszunutzen und zu beraten.\n\nZu den wichtigsten Aufgaben gehören\n- Ja.\nPlanen, Umfang und Durchführung interner Penetrationstests auf Kernbank-Plattformen und Business-Anwendungen, mit einem starken Fokus auf Dienstleistungen, die kritische und wichtige Funktionen unterstützen\n- Ja.\nDesign-Testszenarien, die mit realistischen Back-Drohungsmodellen (Betrug, Data Exfiltration, Privileg Escalation, laterale Bewegungen zu kritischen Systemen,...) und internen Risikobewertungen ausgerichtet sind\n- Ja.\nFühren Sie die manuellen Tests gegen interne Netzwerke, Server, Endpunkte, Web-Anwendungen, APIs, Cloud-Workloads, AD und andere Kerninfrastruktursysteme aus\n- Ja.\nDokumentenermittlungen in klaren, risikobasierten Berichten mit Beweis- und handlungsfähigen Beratungsleistungen für technische und nichttechnische Publikum\n- Ja.\nArbeiten Sie eng mit Infrastruktur-, Entwicklungs-, DevOps- und Risikoteams zusammen, um Sanierungspläne und Retests zu unterstützen und kritische Befunde zu gewährleisten, werden in den IKT-Risiko- und Governance-Prozessen erfasst.\n- Ja.\nEntwicklung und Aufrechterhaltung interner Testmethoden, Playbooks und Tools zur Unterstützung wiederholbarer und effizienter Bewertungen\n- Ja.\nZusammenarbeit mit SOC auf lila-team-Stil Übungen zu testen und zu verbessern Erkennung und Reaktionsfähigkeit\n- Ja.\nBleiben Sie aktuell bei aufstrebenden Bedrohungen, Schwachstellen, TTPs, etc. und integrieren in interne Tests\n\nFähigkeiten und Erfahrung\n- Ja.\nHintergrund in Cybersicherheit, Informatik oder verwandten Bereichen\n- Ja.\n3-5 Jahre praktische Penetrationstests oder Rot-Dampf-Erfahrung, mit demonstrable Arbeit an internen Netzwerken, Web-Anwendungen und API; Bank- oder Finanzdienstleistungen Erfahrung ist ein starkes Plus\n- Ja.\nStarkes Verständnis von Netzwerkprotokollen, Betriebssystemen (Windows, Linux), Web- und Cloud-Technologien; Vertrautheit mit Kernbankenarchitekturen ist ein Plus\n- Ja.\nProficiency with common offensive tools and technologys (z.B. Burp Suite, Metasploit, Cobalt Strike-ähnliche Frameworks, Kali-basiertes Tooling) und Fähigkeit, manuelle Tests über Werkzeuge durchzuführen\n- Ja.\nSolides Wissen über sichere Codierungskonzepte und gemeinsame Anwendungslücken (z.B. OWASP Top 10) zur Bewertung von Web- und API-Zielen\n- Ja.\nProfessionelle Zertifizierungen wie OCSP, GXPN oder ähnliche offensive Sicherheits-Anmeldeinformationen im guten Stand\n- Ja.\nStarke Kommunikationsfähigkeiten und die Fähigkeit, komplexe technische Erkenntnisse dem technischen und nichttechnischen Publikum zu erklären\n\nUnsere Werte\n- Ja.\nRechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Ja.\nHands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse liefern\n- Ja.\nLeidenschaftlich: Engagement und Streben nach Exzellenz\n- Ja.\nLösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Clients ziemlich mit einem risikobewussten Mindset\n- Ja.\nPartnerschaftsorientiert : Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.\n\nAnwendung\n\nBitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.",
+        "fr": "Informations générales\n- Oui.\nDépartement : Sécurité de l'information et BCM\n- Oui.\nTemps de travail Pourcentage : 100%\n- Oui.\nLieu : Genève (préféré), Zurich ou Lugano\n\nDescription de l'emploi\n\nContexte\n- La Sécurité de l'information et la BCM, sous la direction du chef de la sécurité de l'information du groupe (CISO) et d'une partie de l'organisation du chef de l'exploitation (COO), définit, dirige et coordonne les efforts de sécurité de l'information dans l'ensemble de EFG International et de ses entités à l'échelle mondiale. Il décrit la stratégie de sécurité de l'information, identifie et dirige des initiatives de sécurité et établit des normes.\n\nPour soutenir le Cadre de gestion des risques TIC, conformément aux exigences réglementaires (FINMA, DORA et règlements pertinents du secteur financier), nous recherchons un testeur de pénétration intermale de cybersécurité.\n\nLe candidat retenu sera chargé d'effectuer des évaluations de sécurité offensives continues et internes de l'infrastructure, des applications et des contrôles de la Banque.\n\nCe rôle combine une expérience technique pratique en matière d'essais de pénétration et de simulation d'exercices d'attaques dans le monde réel sur des environnements d'entreprise, avec une collaboration étroite avec des équipes de sécurité, de TI, de développement et de risque pour identifier, exploiter et conseiller proactifs sur l'assainissement des vulnérabilités dans les systèmes bancaires critiques.\n\nLes principales responsabilités comprennent :\n- Oui.\nPlanifier, étendre et exécuter des tests de pénétration interne sur les plateformes bancaires centrales et les applications commerciales, en mettant fortement l'accent sur les services qui soutiennent des fonctions essentielles et importantes\n- Oui.\nScénarios d'essai de conception alignés sur des modèles réalistes de menaces de cuisson (fraude, exfiltration de données, escalade des privilèges, mouvements latéraux vers des systèmes critiques,...) et évaluations internes des risques\n- Oui.\nExécuter des tests pratiques sur les réseaux internes, les serveurs, les terminaux, les applications web, les API, les charges de travail en nuage, les systèmes AD et autres systèmes d'infrastructure de base\n- Oui.\nDocumenter les constatations dans des rapports clairs et fondés sur les risques, avec des preuves et des lignes directrices sur la remise en état à l'intention des publics techniques et non techniques\n- Oui.\nTravailler en étroite collaboration avec les équipes d'infrastructure, de développement, de développement et de gestion des risques afin d'appuyer les plans d'assainissement et de re-test, en veillant à ce que les constatations critiques soient suivies jusqu'à la clôture des processus de gestion des risques et de gouvernance des TIC.\n- Oui.\nÉlaborer et tenir à jour des méthodes d'essai internes, des livres de lecture et des outils pour appuyer les évaluations répétables et efficaces\n- Oui.\nCollaborer avec SOC sur des exercices de style pourpre-équipe pour tester et améliorer les capacités de détection et de réponse\n- Oui.\nRestez à jour sur les menaces émergentes, les vulnérabilités, les TTP, etc., et intégrer dans les tests internes\n\nCompétences et expérience\n- Oui.\nContexte en matière de cybersécurité, d'informatique ou de domaines connexes\n- Oui.\n3-5 ans de tests de pénétration pratique ou d'expérience en équipe rouge, avec un travail démontrable sur le réseau interne, les applications Web et l'API; l'expérience des services bancaires ou financiers est un plus fort\n- Oui.\nUne bonne compréhension des protocoles réseau, des systèmes d'exploitation (Windows, Linux), des technologies web et cloud; la connaissance des architectures bancaires de base est un plus\n- Oui.\nCompétence avec des outils et des techniques offensifs communs (p. ex. Burp Suite, Metasploit, frameworks Cobalt Strike-like, outillage basé sur Kali) et capacité à effectuer des tests manuels au-delà des outils\n- Oui.\nConnaissance approfondie des concepts de codage sécurisé et vulnérabilités communes (p. ex., OWASP Top 10) pour évaluer les cibles Web et API\n- Oui.\nCertifications professionnelles telles que OCSP, GXPN ou titres de créance de sécurité offensifs similaires en règle\n- Oui.\nFortes compétences en communication et capacité d'expliquer les découvertes techniques complexes à l'auditoire technique et non technique\n\nNos valeurs\n- Oui.\nResponsabilité : Prise en charge des tâches et des défis, et recherche d'amélioration continue\n- Oui.\nHands-on : Être proactif pour obtenir rapidement des résultats de haute qualité\n- Oui.\nPassionné : Être engagé et chercher l'excellence\n- Oui.\nSolution : Se concentrer sur les résultats des clients et traiter les clients équitablement avec un état d'esprit conscient des risques\n- Oui.\nPartenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n\nDemande\n\nVeuillez joindre une lettre d'accompagnement à votre CV au moment de remplir la demande."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\" lang=\"DE\">General Info</span></span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Department</span></span><span lang=\"EN-GB\">: </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Information Security & BCM</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Work</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">time</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Percentage</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: 100%</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Location</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Geneva (preferred), Zurich or Lugano</span></span></p></li></ul><h1><span lang=\"EN-GB\">Our Company</span></h1><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\">Our Purpose and Mission</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></span></p><h1><span lang=\"EN-GB\">Job Description</span></h1><p><span lang=\"EN-GB\">Context - The Information Security & BCM, under the lead of the Group Chief Information Security Officer (CISO) and part of the Chief Operating Officer (COO) organization, defines, leads, and coordinates information security efforts across EFG International and its entities globally. It outlines the information security strategy, identifies, and runs security initiatives and sets standards.</span></p><p><span>To support the ICT Risk Management Framework, in compliance with regulatory requirements (FINMA, DORA and relevant financial-sector regulations), we are looking for a Cybersecurity Intermal Penetration Tester.</span></p><p><span>The successful candidate will be responsible for performing ongoing, in-house offensive security assessments of the Bank’s infrastructure, applications and controls.</span></p><p><span>This role combines hands-on technical experience conducting penetration testing and simulating real-world attacks exercises on corporate environments, with close collaboration with Security, IT, development and risk teams to proactively identify, exploit and advise on the remediation of vulnerabilities in critical banking systems. </span></p><p><span>Key responsibilities include:</span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Plan, scope and execute internal penetration tests on core banking platforms and business applications, </span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">with a strong focus on services supporting critical and important functions</span></span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Design test scenarios aligned with realistic baking threat models (fraud, data exfiltration, privilege escalation, lateral movements to critical systems,…) and internal risk assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Execute hands-on tests against internal networks, servers, endpoints, web applications, APIs, cloud workloads, AD and other core infrastructure systems</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Document findings in clear, risk-based reports with evidence and actionable remediation guidance for technical and non-technical audiences</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Work closely with infrastructure, development, DevOps and risk teams to support remediation plans and re-testing, ensuring critical findings are tracked to closure within the ICT risk and governance processes.</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Develop and maintain internal testing methodologies, playbooks and tools to support repeatable and efficient assessments</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Collaborate with SOC on purple-team style exercises to test and improve detection and response capabilities</span></p></li><li><p class=\"Bulletlist\"><span lang=\"EN-GB\">Stay current on emerging threats, vulnerabilities, TTPs, etc, and incorporate into internal testing</span></p></li></ul><h1><span lang=\"EN-GB\">Skills and experience</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Background in cybersecurity, computer science, or related fields</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">3-5 years of hands-on penetration testing or red-team experience, with demonstrable work on internal network, web applications and API; banking or financial services experience is a strong plus </span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong understanding of network protocols, operating systems (Windows, Linux), web and cloud technologies; familiarity with core banking architectures is a plus</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Proficiency with common offensive tools and techniques (e.g. Burp Suite, Metasploit, Cobalt Strike-like frameworks, Kali-based tooling) and ability to perform manual testing beyond tools</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Solid knowledge of secure coding concepts and common application vulnerabilities (e.g. OWASP Top 10) to assess web and API targets</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Professional certifications such as OCSP, GXPN, or similar offensive security credentials in good standing</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong communication skills and ability to explain complex technical findings to technical and non-technical audience</span></span></p></li></ul><h1><span lang=\"IT-CH\">Our Values</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Accountability</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Hands-on</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being proactive to rapidly deliver high-quality results</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Passionate</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being committed and striving for excellence</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Solution-driven</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Partnership-oriented</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span></p></li></ul><h1><span lang=\"EN-GB\">Application</span></h1><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></span></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-05-13T10:56:52.312Z",
+      "slugByLocale": {
+        "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
+        "en": "cybersecurity-internal-penetration-tester-efg-geneve",
+        "de": "cybersecurity-intern-penetration-tester-efg-international-ag-geneve",
+        "fr": "cybersecurite-testeur-interne-de-penetration-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-07",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.894Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cybersecurity-internal-penetration-tester-efg-geneve"
+        ],
+        "fr": [
+          "cybersecurity-internal-penetration-tester-efg-geneve"
+        ],
+        "de": [
+          "cybersecurity-internal-penetration-tester-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "cybersecurity-internal-penetration-tester-efg-geneve"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6056",
@@ -2367,7 +2378,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.851Z",
+      "crawledAt": "2026-05-13T10:56:52.311Z",
       "slugByLocale": {
         "it": "analista-del-rischio-efg-international-ag-lugano",
         "en": "operational-risk-analyst-efg-international-ag-lugano",
@@ -2479,7 +2490,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.850Z",
+      "crawledAt": "2026-05-13T10:56:52.310Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -2521,7 +2532,8 @@
       "previousSlugs": [
         "senior-private-markets-product-specialist-efg-zurich",
         "senior-private-markets-product-specialiste-efg-international-ag-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -2572,7 +2584,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.849Z",
+      "crawledAt": "2026-05-13T10:56:52.309Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -2660,7 +2672,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.849Z",
+      "crawledAt": "2026-05-13T10:56:52.308Z",
       "slugByLocale": {
         "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -2702,7 +2714,8 @@
       "previousSlugs": [
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -2865,7 +2878,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.848Z",
+      "crawledAt": "2026-05-13T10:56:52.307Z",
       "slugByLocale": {
         "it": "specialista-in-soluzioni-it-di-trading-e-tesoreria-efg-international-ag-lugano",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2932,7 +2945,8 @@
           "it-trading-treasury-solutions-specialiste-efg-international-ag-lugano-n93k12"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -3079,7 +3093,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.847Z",
+      "crawledAt": "2026-05-13T10:56:52.306Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-lugano",
         "en": "pension-fund-manager-efg-international-ag-zurich",
@@ -3135,7 +3149,8 @@
           "foundation-manager-efg-international-ag-lugano-n93k14"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5877",
@@ -3186,7 +3201,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.846Z",
+      "crawledAt": "2026-05-13T10:56:52.305Z",
       "slugByLocale": {
         "it": "back-office-cash-reconciliation-specialista-efg-international-ag-geneve",
         "en": "back-office-cash-reconciliation-specialist-efg-geneve",
@@ -3277,7 +3292,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.845Z",
+      "crawledAt": "2026-05-13T10:56:52.304Z",
       "slugByLocale": {
         "it": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
         "en": "strategic-planning-officer-efg-lugano",
@@ -3318,6 +3333,157 @@
         "strategic-planning-officer-efg-lugano"
       ],
       "firstSeenAt": "2026-04-13T10:28:21.931Z"
+    },
+    {
+      "id": "efg-5819",
+      "slug": "rischio-e-conformita-applicazione-tecnica-proprietario-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Risk & Compliance Technical Application Owner",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "## Job Description\n\nWithin Risk & Compliance IT, you are responsible for key applications (primarily from sas.com) and play a  hands-on  role on the technical solutions: support of the application, data models, reports, data flows and functional enhancements.\n\nThe role is evenly split between hands‑on technical activities (around 50%) and business analysis / project responsibilities (around 50%).\n\nYou combine a solid understanding of Risk & Compliance topics with strong technical skills (SQL / SAS / data modelling), while working closely with business stakeholders and external providers.\n\n## Main Responsibilities\n\n- Act as IT Application Owner for Risk & Compliance solutions.\n\n- Analyse business needs and translate them into concrete technical solutions.\n\n- Design, adapt and optimise data models, extractions and reports (SQL, SAS).\n\n- Manage application changes end-to-end: impact analysis, specifications, coordination with provider teams, UAT and go‑live.\n\n- Provide advanced day‑to‑day support to users; investigate and resolve issues, escalating to provider or internal teams when necessary.\n\n- Ensure the quality, integrity and security of data used for risk and compliance reporting.\n\n## Profile\n\n- University degree in IT, Computer Science or a related field.\n\n- Proven experience in a banking or financial services environment, ideally within Risk or Compliance.\n\n- Strong hands‑on skills in SQL and relational databases (writing and optimising queries, designing data models).\n\n- Practical experience with SAS for reporting and/or data processing; knowledge of SAS Asset & Liability Risk Management is a strong plus.\n\n- Comfortable working with Windows Server and Linux environments.\n\n- Experience with IT service management and full software lifecycle.\n\n- Able to work independently, manage requests end‑to‑end and collaborate with distributed teams.\n\n- Excellent communication skills in English; French and or Italian is an asset.\n\n## Our values\n\n-  Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results.\n\n-  Passionate : Being committed and striving for excellence.\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2025-12-02",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5819",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Risk & Compliance Technical Application Owner",
+        "it": "Rischio e conformità Applicazione tecnica Proprietario",
+        "de": "Risiko und Compliance Technischer Anwendungsinhaber",
+        "fr": "Propriétaire de la demande technique de risque et de conformité"
+      },
+      "descriptionByLocale": {
+        "en": "## Job Description\n\nWithin Risk & Compliance IT, you are responsible for key applications (primarily from sas.com) and play a  hands-on  role on the technical solutions: support of the application, data models, reports, data flows and functional enhancements.\n\nThe role is evenly split between hands‑on technical activities (around 50%) and business analysis / project responsibilities (around 50%).\n\nYou combine a solid understanding of Risk & Compliance topics with strong technical skills (SQL / SAS / data modelling), while working closely with business stakeholders and external providers.\n\n## Main Responsibilities\n\n- Act as IT Application Owner for Risk & Compliance solutions.\n\n- Analyse business needs and translate them into concrete technical solutions.\n\n- Design, adapt and optimise data models, extractions and reports (SQL, SAS).\n\n- Manage application changes end-to-end: impact analysis, specifications, coordination with provider teams, UAT and go‑live.\n\n- Provide advanced day‑to‑day support to users; investigate and resolve issues, escalating to provider or internal teams when necessary.\n\n- Ensure the quality, integrity and security of data used for risk and compliance reporting.\n\n## Profile\n\n- University degree in IT, Computer Science or a related field.\n\n- Proven experience in a banking or financial services environment, ideally within Risk or Compliance.\n\n- Strong hands‑on skills in SQL and relational databases (writing and optimising queries, designing data models).\n\n- Practical experience with SAS for reporting and/or data processing; knowledge of SAS Asset & Liability Risk Management is a strong plus.\n\n- Comfortable working with Windows Server and Linux environments.\n\n- Experience with IT service management and full software lifecycle.\n\n- Able to work independently, manage requests end‑to‑end and collaborate with distributed teams.\n\n- Excellent communication skills in English; French and or Italian is an asset.\n\n## Our values\n\n-  Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results.\n\n-  Passionate : Being committed and striving for excellence.\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "Descrizione del lavoro\n\nAll'interno di Risk & Compliance IT, sei responsabile per le applicazioni chiave (principalmente da sas.com) e gioca un ruolo pratico sulle soluzioni tecniche: supporto dell'applicazione, modelli di dati, report, flussi di dati e miglioramenti funzionali.\n\nIl ruolo è uniformemente diviso tra le attività tecniche manuali (circa il 50%) e l'analisi aziendale / responsabilità del progetto (circa il 50%).\n\nUnisci una solida comprensione degli argomenti Risk & Compliance con forti competenze tecniche (SQL / SAS / modellazione dati), mentre lavori a stretto contatto con gli stakeholder aziendali e i fornitori esterni.\n\nPrincipali responsabilità\n- Agire come proprietario di applicazioni IT per soluzioni di rischio e conformità.\n- Analizzare le esigenze aziendali e tradurli in soluzioni tecniche concrete.\n- Progettazione, adattamento e ottimizzazione dei modelli di dati, estrazione e report (SQL, SAS).\n- Gestire le modifiche dell'applicazione end-to-end: analisi dell'impatto, specifiche, coordinamento con i team del fornitore, UAT e go-live.\n- Fornire supporto giornaliero avanzato agli utenti; indagare e risolvere i problemi, escalation a provider o team interni quando necessario.\n- Assicurare la qualità, l'integrità e la sicurezza dei dati utilizzati per la segnalazione del rischio e della conformità.\n\nProfilo\n- Laurea in Informatica, Informatica o un campo correlato.\n- Esperienza dimostrata in un ambiente di servizi bancari o finanziari, idealmente all'interno di Risk o Compliance.\n- Forte abilità pratiche in database SQL e relazionali (scrittura e ottimizzazione di query, progettazione di modelli di dati).\n- Esperienza pratica con SAS per la segnalazione e/o il trattamento dei dati; la conoscenza di SAS Asset & Liability Risk Management è un vantaggio forte.\n- Confortevole lavoro con Windows Server e ambienti Linux.\n- Esperienza con la gestione dei servizi IT e il ciclo di vita completo del software.\n- In grado di lavorare in modo indipendente, gestire le richieste end-to-end e collaborare con i team distribuiti.\n- Eccellente capacità di comunicazione in inglese; francese e italiano è un bene.\n\nI nostri valori\n- Responsabilità: Assumere la proprietà per i compiti e le sfide e cercare un miglioramento continuo.\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità.\n- Passione: Impegnarsi e lottare per l'eccellenza.\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole.\n- Partenariato: promozione della collaborazione e del lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
+        "de": "Job Description\n\nInnerhalb der Risk & Compliance IT sind Sie für Schlüsselanwendungen (vor allem von sas.com) verantwortlich und spielen eine Hand-on-Rolle auf den technischen Lösungen: Unterstützung der Anwendung, Datenmodelle, Berichte, Datenflüsse und funktionale Verbesserungen.\n\nDie Rolle wird gleichmäßig zwischen handwerklichen technischen Aktivitäten (ca. 50%) und Unternehmensanalyse / Projektverantwortlichkeiten (ca. 50%) aufgeteilt.\n\nSie kombinieren ein solides Verständnis von Risk & Compliance-Themen mit starken technischen Fähigkeiten (SQL / SAS / Datenmodellierung), während Sie eng mit den Interessenvertretern und externen Anbietern zusammenarbeiten.\n\nHauptverantwortlichkeiten\n- Akt als IT-Anwendungsinhaber für Risiko- und Compliance-Lösungen.\n- Analyse der Geschäftsanforderungen und übersetzen sie in konkrete technische Lösungen.\n- Entwurf, Anpassung und Optimierung von Datenmodellen, Extraktionen und Berichten (SQL, SAS).\n- Applikationsänderungen end-to-end: Folgenanalyse, Spezifikationen, Koordination mit Provider-Teams, UAT und go‐live.\n- Bereiten Sie den Nutzern eine fortschrittliche tägliche Unterstützung vor; untersuchen und lösen Sie Probleme, eskalieren an Anbieter oder interne Teams, wenn erforderlich.\n- Gewährleistung der Qualität, Integrität und Sicherheit der für die Risiko- und Compliance-Berichterstattung verwendeten Daten.\n\nProfil\n- Hochschulabschluss in IT, Informatik oder einem verwandten Bereich.\n- Erprobte Erfahrungen in einem Bank- oder Finanzdienstumfeld, ideal innerhalb von Risiko oder Compliance.\n- Starke praktische Fähigkeiten in SQL- und relationalen Datenbanken (Schreiben und Optimieren von Abfragen, Entwurf von Datenmodellen).\n- Praktische Erfahrungen mit SAS zur Berichterstattung und/oder Datenverarbeitung; Kenntnisse des SAS Asset & Liability Risk Managements sind ein starkes Plus.\n- Bequeme Zusammenarbeit mit Windows Server und Linux Umgebungen.\n- Erfahrung mit IT-Service-Management und volle Software-Lebenszyklus.\n- Befähigt, unabhängig zu arbeiten, Anfragen zu verwalten und mit verteilten Teams zusammenzuarbeiten.\n- Ausgezeichnete Kommunikationsfähigkeiten auf Englisch; Französisch und Italienisch ist ein Vorteil.\n\nUnsere Werte\n- Rechenschaftspflicht: Das Eigentum an Aufgaben und Herausforderungen sowie das Streben nach kontinuierlicher Verbesserung.\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern.\n- Leidenschaftlich : Engagement und Streben nach Exzellenz.\n- Lösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und behandeln Sie Kunden ziemlich mit einem risikobewussten Mindset.\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.",
+        "fr": "Description de l'emploi\n\nDans Risk & Compliance IT, vous êtes responsable des applications clés (principalement de sas.com) et jouez un rôle pratique sur les solutions techniques : support de l'application, modèles de données, rapports, flux de données et améliorations fonctionnelles.\n\nLe rôle est également réparti entre les activités techniques pratiques (environ 50 %) et les responsabilités en matière d'analyse et de projet (environ 50 %).\n\nVous combinez une bonne compréhension des sujets de risque et de conformité avec de solides compétences techniques (SQL / SAS / modélisation de données), tout en travaillant en étroite collaboration avec les intervenants commerciaux et les fournisseurs externes.\n\nPrincipales responsabilités\n- Agir en tant que propriétaire de la demande de TI pour les solutions de risque et de conformité.\n- Analyser les besoins des entreprises et les traduire en solutions techniques concrètes.\n- Conception, adaptation et optimisation des modèles de données, extractions et rapports (SQL, SAS).\n- Gérer les changements d'application de bout en bout : analyse d'impact, spécifications, coordination avec les équipes fournisseurs, UAT et go-live.\n- Fournir un soutien avancé au quotidien aux utilisateurs; enquêter sur les problèmes et les résoudre, et s'adresser au fournisseur ou aux équipes internes au besoin.\n- Assurer la qualité, l'intégrité et la sécurité des données utilisées pour les rapports sur les risques et la conformité.\n\nProfil\n- Diplôme universitaire en informatique, informatique ou un domaine connexe.\n- Expérience éprouvée dans un environnement bancaire ou financier, idéalement dans le cadre de risque ou de conformité.\n- Des compétences pratiques solides dans les bases de données SQL et relationnelles (écriture et optimisation des requêtes, conception de modèles de données).\n- Expérience pratique avec SAS pour la déclaration et/ou le traitement des données; la connaissance de SAS Asset & Liability Risk Management est un atout important.\n- Travail confortable avec Windows Server et Linux.\n- Expérience de la gestion des services informatiques et du cycle de vie complet des logiciels.\n- Capacité de travailler de façon indépendante, de gérer les demandes de bout en bout et de collaborer avec les équipes distribuées.\n- Excellentes compétences en communication en anglais; français et ou italien est un atout.\n\nNos valeurs\n- Responsabilité : Prise en charge des tâches et des défis et recherche d'une amélioration continue.\n- Hands-on : être proactif pour obtenir rapidement des résultats de haute qualité.\n- Passionnée : être engagée et chercher l'excellence.\n- Déterminé par la solution : Se concentrer sur les résultats des clients et traiter ceux-ci de manière équitable avec un état d'esprit conscient des risques.\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "Within Risk & Compliance IT, you are responsible for key applications (primarily from sas.com) and play a <strong>hands-on</strong> role on the technical solutions: support of the application, data models, reports, data flows and functional enhancements.",
+              "The role is evenly split between hands‑on technical activities (around 50%) and business analysis / project responsibilities (around 50%).",
+              "You combine a solid understanding of Risk & Compliance topics with strong technical skills (SQL / SAS / data modelling), while working closely with business stakeholders and external providers."
+            ],
+            "responsibilities": [
+              "Act as IT Application Owner for Risk & Compliance solutions.",
+              "Analyse business needs and translate them into concrete technical solutions.",
+              "Design, adapt and optimise data models, extractions and reports (SQL, SAS).",
+              "Manage application changes end-to-end: impact analysis, specifications, coordination with provider teams, UAT and go‑live.",
+              "Provide advanced day‑to‑day support to users; investigate and resolve issues, escalating to provider or internal teams when necessary.",
+              "Ensure the quality, integrity and security of data used for risk and compliance reporting."
+            ],
+            "requirements": [],
+            "benefits": [
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
+              "<strong>Passionate</strong>: Being committed and striving for excellence.",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Act as IT Application Owner for Risk & Compliance solutions.",
+              "Analyse business needs and translate them into concrete technical solutions.",
+              "Design, adapt and optimise data models, extractions and reports (SQL, SAS).",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
+            ],
+            "keywords": [
+              "Act as IT Application Owner for Risk & Compliance solutions.",
+              "Analyse business needs and translate them into concrete technical solutions.",
+              "Design",
+              "Manage application changes end-to-end"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognized. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalized solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Profile",
+                "paragraphs": [],
+                "bullets": [
+                  "University degree in IT, Computer Science or a related field.",
+                  "Proven experience in a banking or financial services environment, ideally within Risk or Compliance.",
+                  "Strong hands‑on skills in SQL and relational databases (writing and optimising queries, designing data models).",
+                  "Practical experience with SAS for reporting and/or data processing; knowledge of SAS Asset & Liability Risk Management is a strong plus.",
+                  "Comfortable working with Windows Server and Linux environments.",
+                  "Experience with IT service management and full software lifecycle.",
+                  "Able to work independently, manage requests end‑to‑end and collaborate with distributed teams.",
+                  "Excellent communication skills in English; French and or Italian is an asset."
+                ]
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-13T10:56:52.303Z",
+      "slugByLocale": {
+        "it": "rischio-e-conformita-applicazione-tecnica-proprietario-efg-international-ag-geneve",
+        "en": "risk-compliance-technical-application-owner-efg-geneve",
+        "de": "risiko-und-compliance-technischer-anwendungsinhaber-efg-international-ag-geneve",
+        "fr": "proprietaire-de-la-demande-technique-de-risque-et-de-conformite-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2025-12-02",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.885Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "risk-compliance-technical-application-owner-efg-geneve"
+        ],
+        "de": [
+          "risk-compliance-technical-application-owner-efg-geneve"
+        ],
+        "fr": [
+          "risk-compliance-technical-application-owner-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "risk-compliance-technical-application-owner-efg-geneve"
+      ]
     },
     {
       "id": "efg-5799",
@@ -3459,7 +3625,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.844Z",
+      "crawledAt": "2026-05-13T10:56:52.302Z",
       "slugByLocale": {
         "it": "business-analista-legal-compliance-efg-international-ag-geneve",
         "en": "business-analyst-legal-compliance-efg-geneve",
@@ -3499,158 +3665,8 @@
       },
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
-      ]
-    },
-    {
-      "id": "efg-5819",
-      "slug": "rischio-e-conformita-applicazione-tecnica-proprietario-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Risk & Compliance Technical Application Owner",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "## Job Description\n\nWithin Risk & Compliance IT, you are responsible for key applications (primarily from sas.com) and play a  hands-on  role on the technical solutions: support of the application, data models, reports, data flows and functional enhancements.\n\nThe role is evenly split between hands‑on technical activities (around 50%) and business analysis / project responsibilities (around 50%).\n\nYou combine a solid understanding of Risk & Compliance topics with strong technical skills (SQL / SAS / data modelling), while working closely with business stakeholders and external providers.\n\n## Main Responsibilities\n\n- Act as IT Application Owner for Risk & Compliance solutions.\n\n- Analyse business needs and translate them into concrete technical solutions.\n\n- Design, adapt and optimise data models, extractions and reports (SQL, SAS).\n\n- Manage application changes end-to-end: impact analysis, specifications, coordination with provider teams, UAT and go‑live.\n\n- Provide advanced day‑to‑day support to users; investigate and resolve issues, escalating to provider or internal teams when necessary.\n\n- Ensure the quality, integrity and security of data used for risk and compliance reporting.\n\n## Profile\n\n- University degree in IT, Computer Science or a related field.\n\n- Proven experience in a banking or financial services environment, ideally within Risk or Compliance.\n\n- Strong hands‑on skills in SQL and relational databases (writing and optimising queries, designing data models).\n\n- Practical experience with SAS for reporting and/or data processing; knowledge of SAS Asset & Liability Risk Management is a strong plus.\n\n- Comfortable working with Windows Server and Linux environments.\n\n- Experience with IT service management and full software lifecycle.\n\n- Able to work independently, manage requests end‑to‑end and collaborate with distributed teams.\n\n- Excellent communication skills in English; French and or Italian is an asset.\n\n## Our values\n\n-  Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results.\n\n-  Passionate : Being committed and striving for excellence.\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2025-12-02",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5819",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Risk & Compliance Technical Application Owner",
-        "it": "Rischio e conformità Applicazione tecnica Proprietario",
-        "de": "Risiko und Compliance Technischer Anwendungsinhaber",
-        "fr": "Propriétaire de la demande technique de risque et de conformité"
-      },
-      "descriptionByLocale": {
-        "en": "## Job Description\n\nWithin Risk & Compliance IT, you are responsible for key applications (primarily from sas.com) and play a  hands-on  role on the technical solutions: support of the application, data models, reports, data flows and functional enhancements.\n\nThe role is evenly split between hands‑on technical activities (around 50%) and business analysis / project responsibilities (around 50%).\n\nYou combine a solid understanding of Risk & Compliance topics with strong technical skills (SQL / SAS / data modelling), while working closely with business stakeholders and external providers.\n\n## Main Responsibilities\n\n- Act as IT Application Owner for Risk & Compliance solutions.\n\n- Analyse business needs and translate them into concrete technical solutions.\n\n- Design, adapt and optimise data models, extractions and reports (SQL, SAS).\n\n- Manage application changes end-to-end: impact analysis, specifications, coordination with provider teams, UAT and go‑live.\n\n- Provide advanced day‑to‑day support to users; investigate and resolve issues, escalating to provider or internal teams when necessary.\n\n- Ensure the quality, integrity and security of data used for risk and compliance reporting.\n\n## Profile\n\n- University degree in IT, Computer Science or a related field.\n\n- Proven experience in a banking or financial services environment, ideally within Risk or Compliance.\n\n- Strong hands‑on skills in SQL and relational databases (writing and optimising queries, designing data models).\n\n- Practical experience with SAS for reporting and/or data processing; knowledge of SAS Asset & Liability Risk Management is a strong plus.\n\n- Comfortable working with Windows Server and Linux environments.\n\n- Experience with IT service management and full software lifecycle.\n\n- Able to work independently, manage requests end‑to‑end and collaborate with distributed teams.\n\n- Excellent communication skills in English; French and or Italian is an asset.\n\n## Our values\n\n-  Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results.\n\n-  Passionate : Being committed and striving for excellence.\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "Descrizione del lavoro\n\nAll'interno di Risk & Compliance IT, sei responsabile per le applicazioni chiave (principalmente da sas.com) e gioca un ruolo pratico sulle soluzioni tecniche: supporto dell'applicazione, modelli di dati, report, flussi di dati e miglioramenti funzionali.\n\nIl ruolo è uniformemente diviso tra le attività tecniche manuali (circa il 50%) e l'analisi aziendale / responsabilità del progetto (circa il 50%).\n\nUnisci una solida comprensione degli argomenti Risk & Compliance con forti competenze tecniche (SQL / SAS / modellazione dati), mentre lavori a stretto contatto con gli stakeholder aziendali e i fornitori esterni.\n\nPrincipali responsabilità\n- Agire come proprietario di applicazioni IT per soluzioni di rischio e conformità.\n- Analizzare le esigenze aziendali e tradurli in soluzioni tecniche concrete.\n- Progettazione, adattamento e ottimizzazione dei modelli di dati, estrazione e report (SQL, SAS).\n- Gestire le modifiche dell'applicazione end-to-end: analisi dell'impatto, specifiche, coordinamento con i team del fornitore, UAT e go-live.\n- Fornire supporto giornaliero avanzato agli utenti; indagare e risolvere i problemi, escalation a provider o team interni quando necessario.\n- Assicurare la qualità, l'integrità e la sicurezza dei dati utilizzati per la segnalazione del rischio e della conformità.\n\nProfilo\n- Laurea in Informatica, Informatica o un campo correlato.\n- Esperienza dimostrata in un ambiente di servizi bancari o finanziari, idealmente all'interno di Risk o Compliance.\n- Forte abilità pratiche in database SQL e relazionali (scrittura e ottimizzazione di query, progettazione di modelli di dati).\n- Esperienza pratica con SAS per la segnalazione e/o il trattamento dei dati; la conoscenza di SAS Asset & Liability Risk Management è un vantaggio forte.\n- Confortevole lavoro con Windows Server e ambienti Linux.\n- Esperienza con la gestione dei servizi IT e il ciclo di vita completo del software.\n- In grado di lavorare in modo indipendente, gestire le richieste end-to-end e collaborare con i team distribuiti.\n- Eccellente capacità di comunicazione in inglese; francese e italiano è un bene.\n\nI nostri valori\n- Responsabilità: Assumere la proprietà per i compiti e le sfide e cercare un miglioramento continuo.\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità.\n- Passione: Impegnarsi e lottare per l'eccellenza.\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole.\n- Partenariato: promozione della collaborazione e del lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "Job Description\n\nInnerhalb der Risk & Compliance IT sind Sie für Schlüsselanwendungen (vor allem von sas.com) verantwortlich und spielen eine Hand-on-Rolle auf den technischen Lösungen: Unterstützung der Anwendung, Datenmodelle, Berichte, Datenflüsse und funktionale Verbesserungen.\n\nDie Rolle wird gleichmäßig zwischen handwerklichen technischen Aktivitäten (ca. 50%) und Unternehmensanalyse / Projektverantwortlichkeiten (ca. 50%) aufgeteilt.\n\nSie kombinieren ein solides Verständnis von Risk & Compliance-Themen mit starken technischen Fähigkeiten (SQL / SAS / Datenmodellierung), während Sie eng mit den Interessenvertretern und externen Anbietern zusammenarbeiten.\n\nHauptverantwortlichkeiten\n- Akt als IT-Anwendungsinhaber für Risiko- und Compliance-Lösungen.\n- Analyse der Geschäftsanforderungen und übersetzen sie in konkrete technische Lösungen.\n- Entwurf, Anpassung und Optimierung von Datenmodellen, Extraktionen und Berichten (SQL, SAS).\n- Applikationsänderungen end-to-end: Folgenanalyse, Spezifikationen, Koordination mit Provider-Teams, UAT und go‐live.\n- Bereiten Sie den Nutzern eine fortschrittliche tägliche Unterstützung vor; untersuchen und lösen Sie Probleme, eskalieren an Anbieter oder interne Teams, wenn erforderlich.\n- Gewährleistung der Qualität, Integrität und Sicherheit der für die Risiko- und Compliance-Berichterstattung verwendeten Daten.\n\nProfil\n- Hochschulabschluss in IT, Informatik oder einem verwandten Bereich.\n- Erprobte Erfahrungen in einem Bank- oder Finanzdienstumfeld, ideal innerhalb von Risiko oder Compliance.\n- Starke praktische Fähigkeiten in SQL- und relationalen Datenbanken (Schreiben und Optimieren von Abfragen, Entwurf von Datenmodellen).\n- Praktische Erfahrungen mit SAS zur Berichterstattung und/oder Datenverarbeitung; Kenntnisse des SAS Asset & Liability Risk Managements sind ein starkes Plus.\n- Bequeme Zusammenarbeit mit Windows Server und Linux Umgebungen.\n- Erfahrung mit IT-Service-Management und volle Software-Lebenszyklus.\n- Befähigt, unabhängig zu arbeiten, Anfragen zu verwalten und mit verteilten Teams zusammenzuarbeiten.\n- Ausgezeichnete Kommunikationsfähigkeiten auf Englisch; Französisch und Italienisch ist ein Vorteil.\n\nUnsere Werte\n- Rechenschaftspflicht: Das Eigentum an Aufgaben und Herausforderungen sowie das Streben nach kontinuierlicher Verbesserung.\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern.\n- Leidenschaftlich : Engagement und Streben nach Exzellenz.\n- Lösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und behandeln Sie Kunden ziemlich mit einem risikobewussten Mindset.\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.",
-        "fr": "Description de l'emploi\n\nDans Risk & Compliance IT, vous êtes responsable des applications clés (principalement de sas.com) et jouez un rôle pratique sur les solutions techniques : support de l'application, modèles de données, rapports, flux de données et améliorations fonctionnelles.\n\nLe rôle est également réparti entre les activités techniques pratiques (environ 50 %) et les responsabilités en matière d'analyse et de projet (environ 50 %).\n\nVous combinez une bonne compréhension des sujets de risque et de conformité avec de solides compétences techniques (SQL / SAS / modélisation de données), tout en travaillant en étroite collaboration avec les intervenants commerciaux et les fournisseurs externes.\n\nPrincipales responsabilités\n- Agir en tant que propriétaire de la demande de TI pour les solutions de risque et de conformité.\n- Analyser les besoins des entreprises et les traduire en solutions techniques concrètes.\n- Conception, adaptation et optimisation des modèles de données, extractions et rapports (SQL, SAS).\n- Gérer les changements d'application de bout en bout : analyse d'impact, spécifications, coordination avec les équipes fournisseurs, UAT et go-live.\n- Fournir un soutien avancé au quotidien aux utilisateurs; enquêter sur les problèmes et les résoudre, et s'adresser au fournisseur ou aux équipes internes au besoin.\n- Assurer la qualité, l'intégrité et la sécurité des données utilisées pour les rapports sur les risques et la conformité.\n\nProfil\n- Diplôme universitaire en informatique, informatique ou un domaine connexe.\n- Expérience éprouvée dans un environnement bancaire ou financier, idéalement dans le cadre de risque ou de conformité.\n- Des compétences pratiques solides dans les bases de données SQL et relationnelles (écriture et optimisation des requêtes, conception de modèles de données).\n- Expérience pratique avec SAS pour la déclaration et/ou le traitement des données; la connaissance de SAS Asset & Liability Risk Management est un atout important.\n- Travail confortable avec Windows Server et Linux.\n- Expérience de la gestion des services informatiques et du cycle de vie complet des logiciels.\n- Capacité de travailler de façon indépendante, de gérer les demandes de bout en bout et de collaborer avec les équipes distribuées.\n- Excellentes compétences en communication en anglais; français et ou italien est un atout.\n\nNos valeurs\n- Responsabilité : Prise en charge des tâches et des défis et recherche d'une amélioration continue.\n- Hands-on : être proactif pour obtenir rapidement des résultats de haute qualité.\n- Passionnée : être engagée et chercher l'excellence.\n- Déterminé par la solution : Se concentrer sur les résultats des clients et traiter ceux-ci de manière équitable avec un état d'esprit conscient des risques.\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "Within Risk & Compliance IT, you are responsible for key applications (primarily from sas.com) and play a <strong>hands-on</strong> role on the technical solutions: support of the application, data models, reports, data flows and functional enhancements.",
-              "The role is evenly split between hands‑on technical activities (around 50%) and business analysis / project responsibilities (around 50%).",
-              "You combine a solid understanding of Risk & Compliance topics with strong technical skills (SQL / SAS / data modelling), while working closely with business stakeholders and external providers."
-            ],
-            "responsibilities": [
-              "Act as IT Application Owner for Risk & Compliance solutions.",
-              "Analyse business needs and translate them into concrete technical solutions.",
-              "Design, adapt and optimise data models, extractions and reports (SQL, SAS).",
-              "Manage application changes end-to-end: impact analysis, specifications, coordination with provider teams, UAT and go‑live.",
-              "Provide advanced day‑to‑day support to users; investigate and resolve issues, escalating to provider or internal teams when necessary.",
-              "Ensure the quality, integrity and security of data used for risk and compliance reporting."
-            ],
-            "requirements": [],
-            "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
-              "<strong>Passionate</strong>: Being committed and striving for excellence.",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Act as IT Application Owner for Risk & Compliance solutions.",
-              "Analyse business needs and translate them into concrete technical solutions.",
-              "Design, adapt and optimise data models, extractions and reports (SQL, SAS).",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
-            ],
-            "keywords": [
-              "Act as IT Application Owner for Risk & Compliance solutions.",
-              "Analyse business needs and translate them into concrete technical solutions.",
-              "Design",
-              "Manage application changes end-to-end"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognized. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalized solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Profile",
-                "paragraphs": [],
-                "bullets": [
-                  "University degree in IT, Computer Science or a related field.",
-                  "Proven experience in a banking or financial services environment, ideally within Risk or Compliance.",
-                  "Strong hands‑on skills in SQL and relational databases (writing and optimising queries, designing data models).",
-                  "Practical experience with SAS for reporting and/or data processing; knowledge of SAS Asset & Liability Risk Management is a strong plus.",
-                  "Comfortable working with Windows Server and Linux environments.",
-                  "Experience with IT service management and full software lifecycle.",
-                  "Able to work independently, manage requests end‑to‑end and collaborate with distributed teams.",
-                  "Excellent communication skills in English; French and or Italian is an asset."
-                ]
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-12T22:01:01.844Z",
-      "slugByLocale": {
-        "it": "rischio-e-conformita-applicazione-tecnica-proprietario-efg-international-ag-geneve",
-        "en": "risk-compliance-technical-application-owner-efg-geneve",
-        "de": "risiko-und-compliance-technischer-anwendungsinhaber-efg-international-ag-geneve",
-        "fr": "proprietaire-de-la-demande-technique-de-risque-et-de-conformite-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2025-12-02",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.885Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "risk-compliance-technical-application-owner-efg-geneve"
-        ],
-        "de": [
-          "risk-compliance-technical-application-owner-efg-geneve"
-        ],
-        "fr": [
-          "risk-compliance-technical-application-owner-efg-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "risk-compliance-technical-application-owner-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-4543",
@@ -3817,7 +3833,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.842Z",
+      "crawledAt": "2026-05-13T10:56:52.301Z",
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -3854,7 +3870,8 @@
       },
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6235",
@@ -3943,7 +3960,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-12T22:01:01.840Z",
+      "crawledAt": "2026-05-13T10:56:52.298Z",
       "slugByLocale": {
         "it": "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve",
         "en": "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
@@ -3999,16 +4016,16 @@
       "companyKey": "efg-international",
       "companyDomain": "efginternational.com",
       "titleByLocale": {
-        "en": "Banking Commercial Apprentice EFQ",
+        "en": "Apprendistato Employee di commercio AFC Banca",
         "it": "Apprendistato Impiegato/a di commercio AFC Banca",
-        "de": "Bankkaufmann/-frau EFQ Lehrling",
+        "de": "Apprendistato Angestellte/r di commercio AFC Banca",
         "fr": "Apprenti/e Commercial/e Bancaire EFQ"
       },
       "descriptionByLocale": {
-        "en": "Are you finishing middle school and interested in becoming a professional in the bank?\n\nIf this is your wish the AFC Trade Apprentice Bank of EFG Bank is what it does for you.\n\nYou will be working at the main Swiss offices of EFG Bank in central Lugano from August 2026 until August 2029 when you get the Federal Certificate of Capacity.\n\nDuring the three years you will experience different working teams working at national and international level, for example Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nIn addition to training in the company, in which you will be followed by a tutor dedicated to you in each team, you will attend the commercial professional school (CPC) of your interest and the courses at the banking competence center (CYP) along with all the business apprentices branch bank of the Canton.\n\nEFG Bank supports and encourages the development of integrated vocational training to ensure training as complete as possible at the end of the apprenticeship.\n\nDuring the course you can develop different professional skills, including:\n\n- analysis of the financial and credit market\n\n- knowledge of banking products\n\n- processing and verification of documents\n\n- deadline planning and priority management\n\n- use of financial IT systems\n\nRequirements\n\n- Passion for the economy and banking world\n\n- High school license with excellent results\n\n- Explain relational capabilities and ease to adapt to different working scenarios\n\n- Good computer knowledge\n\n- Knowledge of English\n\nIf you are motivated, thanks to attach to the online application: a letter of motivation, CV, the three most recent school reports and the middle school license.",
-        "it": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\nRequisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
-        "de": "Sind Sie mit der Mittelschule fertig und daran interessiert, Profi in der Bank zu werden?\n\nWenn dies Ihr Wunsch ist, ist die AFC Trade Apprentice Bank of EFG Bank das, was sie für Sie tut.\n\nSie werden von August 2026 bis August 2029 an den Hauptbüros der EFG Bank im Zentrum von Lugano arbeiten, wenn Sie das Bundeszertifikat für Kapazität erhalten.\n\nWährend der drei Jahre werden Sie verschiedene Arbeitsgruppen auf nationaler und internationaler Ebene erleben, zum Beispiel Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nNeben der Ausbildung in der Firma, in der Sie von einem Tutor für Sie in jedem Team, Sie werden die kommerzielle professionelle Schule (CPC) Ihres Interesses und die Kurse im Bank-Kompetenzzentrum (CYP) zusammen mit allen Business-Auszubildenden Zweigbank des Kantons folgen.\n\nDie EFG Bank unterstützt und fördert die Entwicklung einer integrierten Berufsbildung, um eine möglichst vollständige Ausbildung am Ende der Lehrlingsausbildung zu gewährleisten.\n\nWährend des Kurses können Sie verschiedene berufliche Fähigkeiten entwickeln, darunter:\n\n- Analyse des Finanz- und Kreditmarktes\n\n- Kenntnis der Bankprodukte\n\n- Verarbeitung und Überprüfung von Dokumenten\n\n- Terminplanung und Prioritätsmanagement\n\n- Einsatz von IT-Systemen\n\nAnforderungen\n\n- Leidenschaft für die Wirtschaft und Bankwelt\n\n- Highschool-Lizenz mit hervorragenden Ergebnissen\n\n- Erklären Sie relationale Fähigkeiten und einfache Anpassung an verschiedene Arbeitsszenarien\n\n- Gute Computerkenntnisse\n\n- Englischkenntnisse\n\nWenn Sie motiviert sind, dank der Anbindung an die Online-Anwendung: ein Schreiben der Motivation, CV, die drei neuesten Schulberichte und die Mittelschule Lizenz.",
-        "fr": "Est-ce que vous terminez le collège et que vous voulez devenir un professionnel à la banque?\n\nSi c'est votre souhait, l'AFC Trade Apprentice Bank of EFG Bank est ce qu'elle fait pour vous.\n\nVous travaillerez dans les principaux bureaux suisses de la Banque EFG au centre de Lugano à partir d'août 2026 jusqu'à août 2029 lorsque vous obtiendrez le certificat fédéral de capacité.\n\nAu cours des trois années, vous vivrez différentes équipes de travail travaillant aux niveaux national et international, par exemple banque privée, conformité, cartes de crédit, dépôt central, crédit, gestion des risques d'entreprise, gestion d'actifs, etc.\n\nEn plus de la formation dans l'entreprise, dans laquelle vous serez suivi par un tuteur qui vous sera dédié dans chaque équipe, vous assisterez à l'école professionnelle commerciale (CPC) de votre intérêt et les cours au centre de compétence bancaire (CYP) avec tous les apprentis d'affaires de la succursale du canton.\n\nEFG Bank soutient et encourage le développement d'une formation professionnelle intégrée pour assurer une formation aussi complète que possible à la fin de l'apprentissage.\n\nPendant le cours, vous pouvez développer différentes compétences professionnelles, notamment:\n\n- analyse du marché financier et du crédit\n\n- connaissance des produits bancaires\n\n- traitement et vérification des documents\n\n- planification des échéances et gestion des priorités\n\n- utilisation des systèmes informatiques financiers\n\nExigences\n\n- Passion pour l'économie et le monde bancaire\n\n- Licence d'études secondaires avec d'excellents résultats\n\n- Expliquer les capacités relationnelles et la facilité d'adaptation aux différents scénarios de travail\n\n- Bonne connaissance informatique\n\n- Connaissance de l'anglais\n\nSi vous êtes motivé, merci de joindre à l'application en ligne: une lettre de motivation, CV, les trois derniers rapports scolaires et la licence du collège."
+        "en": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
+        "it": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\nRequisiti\n- Passione per l’economia e il mondo bancario\n- Licenza di scuola media con ottimi risultati\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n- Buone conoscenze informatiche\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
+        "de": "Sind Sie mit der Mittelschule fertig und daran interessiert, Profi in der Bank zu werden?\n\nWenn dies Ihr Wunsch ist, ist die AFC Trade Apprentice Bank of EFG Bank das, was sie für Sie tut.\n\nSie werden von August 2026 bis August 2029 an den Hauptbüros der EFG Bank im Zentrum von Lugano arbeiten, wenn Sie das Bundeszertifikat für Kapazität erhalten.\n\nWährend der drei Jahre werden Sie verschiedene Arbeitsgruppen auf nationaler und internationaler Ebene erleben, zum Beispiel Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nNeben der Ausbildung in der Firma, in der Sie von einem Tutor für Sie in jedem Team, Sie werden die kommerzielle professionelle Schule (CPC) Ihres Interesses und die Kurse im Bank-Kompetenzzentrum (CYP) zusammen mit allen Business-Auszubildenden Zweigbank des Kantons folgen.\n\nDie EFG Bank unterstützt und fördert die Entwicklung einer integrierten Berufsbildung, um eine möglichst vollständige Ausbildung am Ende der Lehrlingsausbildung zu gewährleisten.\n\nWährend des Kurses können Sie verschiedene berufliche Fähigkeiten entwickeln, darunter:\n- Analyse des Finanz- und Kreditmarktes\n- Kenntnis der Bankprodukte\n- Verarbeitung und Überprüfung von Dokumenten\n- Terminplanung und Prioritätsmanagement\n- Einsatz von IT-Systemen\n\nAnforderungen\n- Leidenschaft für die Wirtschaft und Bankwelt\n- Highschool-Lizenz mit hervorragenden Ergebnissen\n- Erklären Sie relationale Fähigkeiten und einfache Anpassung an verschiedene Arbeitsszenarien\n- Gute Computerkenntnisse\n- Englischkenntnisse\n\nWenn Sie motiviert sind, dank der Anbindung an die Online-Anwendung: ein Schreiben der Motivation, CV, die drei neuesten Schulberichte und die Mittelschule Lizenz.",
+        "fr": "Est-ce que vous terminez le collège et que vous voulez devenir un professionnel à la banque?\n\nSi c'est votre souhait, l'AFC Trade Apprentice Bank of EFG Bank est ce qu'elle fait pour vous.\n\nVous travaillerez dans les principaux bureaux suisses de la Banque EFG au centre de Lugano à partir d'août 2026 jusqu'à août 2029 lorsque vous obtiendrez le certificat fédéral de capacité.\n\nAu cours des trois années, vous vivrez différentes équipes de travail travaillant aux niveaux national et international, par exemple banque privée, conformité, cartes de crédit, dépôt central, crédit, gestion des risques d'entreprise, gestion d'actifs, etc.\n\nEn plus de la formation dans l'entreprise, dans laquelle vous serez suivi par un tuteur qui vous sera dédié dans chaque équipe, vous assisterez à l'école professionnelle commerciale (CPC) de votre intérêt et les cours au centre de compétence bancaire (CYP) avec tous les apprentis d'affaires de la succursale du canton.\n\nEFG Bank soutient et encourage le développement d'une formation professionnelle intégrée pour assurer une formation aussi complète que possible à la fin de l'apprentissage.\n\nPendant le cours, vous pouvez développer différentes compétences professionnelles, notamment:\n\n- analyse du marché financier et du crédit\n\n- connaissance des produits bancaires\n\n- traitement et vérification des documents\n\n- planification des échéances et gestion des priorités\n\n- utilisation des systèmes informatiques financiers\n\nExigences\n- Passion pour l'économie et le monde bancaire\n- Licence d'études secondaires avec d'excellents résultats\n- Expliquer les capacités relationnelles et la facilité d'adaptation aux différents scénarios de travail\n- Bonne connaissance informatique\n- Connaissance de l'anglais\n\nSi vous êtes motivé, merci de joindre à l'application en ligne: une lettre de motivation, CV, les trois derniers rapports scolaires et la licence du collège."
       },
       "requirementsByLocale": {},
       "canonicalContent": {
@@ -4113,7 +4130,8 @@
         "apprentissage-commercial-chez-afc-banque-efg-international-ag-lugano",
         "apprenti-banquier-efg-international-ag-efg-international-ag-lugano"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6103",
