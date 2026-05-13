@@ -2771,6 +2771,15 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::it::diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur": {
+    "winnerJobIdentifier": "kanton-gr-5cc4b885f1fe",
+    "winnerCanonical": "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-thusis",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.8333,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::it::driver-data-collector-in-chur-switzerland-tsmg-chur-dfa1adf1": {
     "winnerJobIdentifier": "tsmg-2d2283cb9788",
     "winnerCanonical": "autista-addetto-raccolta-dati-in-chur-switzerland-tsmg-chur-dfa1adf1",
@@ -3024,11 +3033,11 @@
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
-    "winnerJobIdentifier": "company-e66ikm",
-    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur-ddc182",
+    "winnerJobIdentifier": "company-lzsoh3",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-felsberg",
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.2727,
+    "score": 0.4444,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -3816,29 +3825,29 @@
     "canton": "TG"
   },
   "TG::fr::dipl-pflegefachmann-frau-forensik-stgag-ch-2": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.1333,
+    "score": 0.8571,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.3636,
+    "score": 0.381,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.3846,
+    "score": 0.4167,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -3852,11 +3861,11 @@
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-forensik-stgag-ch-2": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.1333,
+    "score": 0.1429,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -6516,12 +6525,12 @@
     "canton": "TI"
   },
   "TI::it::stadio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil1ss",
-    "winnerCanonical": "stadio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil1sr",
+    "winnerCanonical": "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.6364,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
@@ -6741,11 +6750,11 @@
     "canton": "VD"
   },
   "VD::fr::position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne": {
-    "winnerJobIdentifier": "epfl-b0cd92a73585",
-    "winnerCanonical": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne-d02b8a",
+    "winnerJobIdentifier": "epfl-ad8241ec0d43",
+    "winnerCanonical": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9333,
+    "score": 0.2381,
     "candidatesCount": 1,
     "canton": "VD"
   },
