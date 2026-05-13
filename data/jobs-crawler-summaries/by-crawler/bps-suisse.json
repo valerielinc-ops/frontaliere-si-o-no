@@ -1,19 +1,21 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-05-13T10:37:21.425Z",
+  "generatedAt": "2026-05-13T21:46:36.515Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 3181,
-  "avgDurationMs": 3181,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 3765,
+  "avgDurationMs": 3765,
   "durationHistory": [
-    3181
+    3765
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "bps-suisse-ec1de76eae01",
       "title": "Collaboratore Trice Gestione Crediti",
@@ -37,7 +39,7 @@
       "currency": "CHF",
       "postedDate": "2026-05-13",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-05-13T10:37:19.630Z",
+      "crawledAt": "2026-05-13T21:46:34.373Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -54,48 +56,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [
-    {
-      "id": "bps-suisse-54648af8fe2f",
-      "title": "Consulente Clientela Individuale",
-      "company": "BPS (Banca Popolare di Sondrio) SUISSE",
-      "companyKey": "bps-suisse",
-      "companyDomain": "bps-suisse.ch",
-      "url": "https://www.bps-suisse.ch/carriera-consulente_clientela_individuale__100_.php",
-      "applyUrl": "https://www.bps-suisse.ch/carriera-consulente_clientela_individuale__100_.php",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giacomo Bentina 5",
-      "employmentType": "FULL_TIME",
-      "slug": "consulente-clientela-individuale-bps-banca-popolare-di-sondrio-suisse-lugano",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "postedDate": "2026-05-12",
-      "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-05-12T21:41:24.172Z",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "sourceLang": "it",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "firstSeenAt": "2026-04-13T10:08:39.496Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "unchangedJobs": []
+  ]
 }
