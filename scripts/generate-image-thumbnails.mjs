@@ -11,15 +11,14 @@ const SOURCE_DIRS = [
 ];
 const WIDTH = 480;
 const WEBP_QUALITY = 68;
-const AVIF_QUALITY = 50;
 const VALID_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp', '.avif']);
 const MANIFEST_NAME = '.thumbcache.json';
-// v3: dropped JPG thumbnail emission. The <picture> in BlogArticles.tsx
-// already serves AVIF → WebP via <source>, and the <img> fallback now uses
-// the hero (WebP) directly. Browsers that don't grok WebP (<1% in 2026)
-// see no image; that's acceptable. Bumping the manifest version forces a
-// one-time regen so cached JPG thumbnails get cleaned up on next build.
-const MANIFEST_VERSION = 3;
+// v4: single-format pipeline. Dropped both JPG and AVIF thumbnails. Hero
+// + thumbnail are both WebP; BlogArticles.tsx emits a plain <img srcSet>
+// with `${thumbWebp} 480w, ${hero} 1200w`. Bumping the manifest version
+// forces a one-time regen so cached JPG/AVIF thumbnails are pruned by
+// the next build (manifest mismatch triggers re-encode for every source).
+const MANIFEST_VERSION = 4;
 
 async function walk(dir) {
   const out = [];
@@ -90,8 +89,7 @@ async function processSourceDir(sourceDir) {
     const stem = path.basename(inputPath, ext);
     const relKey = path.relative(sourceDir, inputPath);
     const outWebp = path.join(thumbDir, `${stem}-${WIDTH}w.webp`);
-    const outAvif = path.join(thumbDir, `${stem}-${WIDTH}w.avif`);
-    const outputs = [outWebp, outAvif];
+    const outputs = [outWebp];
 
     const sha = await sha1File(inputPath);
     const cached = manifest[relKey];
@@ -102,11 +100,11 @@ async function processSourceDir(sourceDir) {
       continue;
     }
 
-    const base = sharp(inputPath).rotate().resize({ width: WIDTH, withoutEnlargement: true });
-    await Promise.all([
-      base.clone().webp({ quality: WEBP_QUALITY }).toFile(outWebp),
-      base.clone().avif({ quality: AVIF_QUALITY }).toFile(outAvif),
-    ]);
+    await sharp(inputPath)
+      .rotate()
+      .resize({ width: WIDTH, withoutEnlargement: true })
+      .webp({ quality: WEBP_QUALITY })
+      .toFile(outWebp);
 
     nextManifest[relKey] = sha;
     generated += 1;

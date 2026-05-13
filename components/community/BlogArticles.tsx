@@ -586,8 +586,7 @@ function extractHeadings(bodySegments: string[]): TocHeading[] {
 const ARTICLES_PER_PAGE = 7; // 1 hero + 6 grid cards
 
 type ResponsiveImageSet = {
- avif: string;
- webp: string;
+ thumbWebp: string;
 };
 
 function getResponsiveImageSet(imagePath: string): ResponsiveImageSet | null {
@@ -596,14 +595,12 @@ function getResponsiveImageSet(imagePath: string): ResponsiveImageSet | null {
 
  const rootDir = match[1];
  const fileName = match[2];
- const thumbBase = `${rootDir}/thumbnails/${fileName}-480w`;
-
- // WebP-only fallback chain: AVIF → WebP source via <source>, hero WebP via
- // <img src>. JPG sidecar dropped in the 2026-05 hero-WebP migration —
- // browsers without WebP (~<1% in 2026) get the hero directly via <img src>.
+ // Single-format pipeline (2026-05): WebP everywhere. Hero is 1200w WebP,
+ // thumbnail is 480w WebP. Browser picks via <img srcSet> width descriptors
+ // — no <picture> wrapper, no AVIF source, no JPG fallback. Browsers without
+ // WebP (~<1% in 2026) load the hero via <img src>.
  return {
- avif: `${thumbBase}.avif`,
- webp: `${thumbBase}.webp`,
+ thumbWebp: `${rootDir}/thumbnails/${fileName}-480w.webp`,
  };
 }
 
@@ -1828,12 +1825,9 @@ function BlogArticles({
  {(() => {
  const responsive = imageFallbackMap[article.image] ? null : getResponsiveImageSet(article.image);
  return (
- <picture>
- {responsive && <source type="image/avif" srcSet={responsive.avif} />}
- {responsive && <source type="image/webp" srcSet={responsive.webp} />}
  <img
  src={article.image}
- srcSet={responsive?.webp}
+ srcSet={responsive ? `${responsive.thumbWebp} 480w, ${article.image} 1200w` : undefined}
  sizes="(max-width: 768px) 100vw, 800px"
  alt={getImageAlt(article.id)}
  width={800}
@@ -1843,7 +1837,6 @@ function BlogArticles({
  fetchPriority="high"
  onError={() => handleResponsiveImageError(article.image)}
  />
- </picture>
  );
  })()}
  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
@@ -2427,7 +2420,7 @@ function BlogArticles({
  >
  <div className="min-w-0 flex-1">
  <p className="text-sm text-muted mb-1">{t('blog.nextArticle')}</p>
- <p className="text-sm font-semibold font-display text-body line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p> </div> <ChevronRight size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> </a> ) : <div />} </div> ); })()} {/* Related articles — FRO-301: moved above ads/trending for engagement */} <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold font-display text-heading mb-4">{t('blog.relatedArticles')}</h3> <div className="grid grid-cols-1 sm:grid-cols-3 gap-3"> {getRelatedArticles(article.id, articles, 3).map(related => ( <a key={related.id} href={buildPath({ activeTab: 'blog', blogArticle: related.id as BlogArticleId })} onClick={(e) => { e.preventDefault(); handleArticleClick(related.id as BlogArticleId); }} className="flex items-center gap-3 p-3 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors text-left" > {(() => { const responsive = imageFallbackMap[related.image] ? null : getResponsiveImageSet(related.image); return ( <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={related.image} srcSet={responsive?.webp} sizes="64px" alt={getImageAlt(related.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg shrink-0" loading="lazy" onError={() => handleResponsiveImageError(related.image)} /> </picture> ); })()} <div className="min-w-0"> <p className="text-sm font-semibold font-display text-body line-clamp-2"> {t(`blog.article.${related.id}.title`)} </p> <p className="text-sm text-muted mt-1">{estimateReadingMinutes(related.id, t)} min</p> </div> </a> ))} </div> </div> {/* AdSense — end-of-article multiplex */} <div className="mt-8"> <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}> <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} enabled={adEligible} className="my-4" /> </Suspense> </div> {/* Explore tools — category-aware grid of evergreen page links */} {/* Trending articles this week */} {(() => { const trendingFiltered = trendingArticles .filter(e => e.id !== article.id) .slice(0, 4); if (trendingFiltered.length === 0) return null; const trendingLookup = new Map(trendingFiltered.map(e => [e.id, e.views])); const trendingCards = trendingFiltered .map(e => articleById.get(e.id)) .filter(Boolean) as Article[]; if (trendingCards.length === 0) return null; return ( <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold font-display text-heading mb-4 flex items-center gap-2"> <TrendingUp size={20} className="text-warning" /> {t('blog.trendingThisWeek')} </h3> <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"> {trendingCards.map((tr, idx) => { const views = trendingLookup.get(tr.id) ?? 0; const responsive = imageFallbackMap[tr.image] ? null : getResponsiveImageSet(tr.image); return ( <a key={tr.id} href={buildPath({ activeTab: 'blog', blogArticle: tr.id as BlogArticleId })} onClick={(e) => { e.preventDefault(); handleArticleClick(tr.id as BlogArticleId); }} className="flex items-center gap-3 p-3 bg-gradient-to-r from-warning-subtle to-warning-subtle border border-warning-border rounded-xl hover:from-warning-subtle hover:to-warning-subtle transition-colors text-left group" > <div className="relative shrink-0"> <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={tr.image} srcSet={responsive?.webp} sizes="64px" alt={getImageAlt(tr.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg" loading="lazy" onError={() => handleResponsiveImageError(tr.image)} /> </picture> {idx === 0 && ( <span className="absolute -top-1.5 -left-1.5 bg-warning-strong text-on-accent text-xs font-bold font-display px-1.5 py-0.5 rounded-full leading-none"> 🔥 </span> )} </div> <div className="min-w-0 flex-1"> <p className="text-sm font-semibold font-display text-body line-clamp-2 group-hover:text-warning transition-colors"> {t(`blog.article.${tr.id}.title`)}
+ <p className="text-sm font-semibold font-display text-body line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p> </div> <ChevronRight size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> </a> ) : <div />} </div> ); })()} {/* Related articles — FRO-301: moved above ads/trending for engagement */} <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold font-display text-heading mb-4">{t('blog.relatedArticles')}</h3> <div className="grid grid-cols-1 sm:grid-cols-3 gap-3"> {getRelatedArticles(article.id, articles, 3).map(related => ( <a key={related.id} href={buildPath({ activeTab: 'blog', blogArticle: related.id as BlogArticleId })} onClick={(e) => { e.preventDefault(); handleArticleClick(related.id as BlogArticleId); }} className="flex items-center gap-3 p-3 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors text-left" > {(() => { const responsive = imageFallbackMap[related.image] ? null : getResponsiveImageSet(related.image); return ( <img src={related.image} srcSet={responsive ? `${responsive.thumbWebp} 480w, ${related.image} 1200w` : undefined} sizes="64px" alt={getImageAlt(related.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg shrink-0" loading="lazy" onError={() => handleResponsiveImageError(related.image)} /> ); })()} <div className="min-w-0"> <p className="text-sm font-semibold font-display text-body line-clamp-2"> {t(`blog.article.${related.id}.title`)} </p> <p className="text-sm text-muted mt-1">{estimateReadingMinutes(related.id, t)} min</p> </div> </a> ))} </div> </div> {/* AdSense — end-of-article multiplex */} <div className="mt-8"> <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}> <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} enabled={adEligible} className="my-4" /> </Suspense> </div> {/* Explore tools — category-aware grid of evergreen page links */} {/* Trending articles this week */} {(() => { const trendingFiltered = trendingArticles .filter(e => e.id !== article.id) .slice(0, 4); if (trendingFiltered.length === 0) return null; const trendingLookup = new Map(trendingFiltered.map(e => [e.id, e.views])); const trendingCards = trendingFiltered .map(e => articleById.get(e.id)) .filter(Boolean) as Article[]; if (trendingCards.length === 0) return null; return ( <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold font-display text-heading mb-4 flex items-center gap-2"> <TrendingUp size={20} className="text-warning" /> {t('blog.trendingThisWeek')} </h3> <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"> {trendingCards.map((tr, idx) => { const views = trendingLookup.get(tr.id) ?? 0; const responsive = imageFallbackMap[tr.image] ? null : getResponsiveImageSet(tr.image); return ( <a key={tr.id} href={buildPath({ activeTab: 'blog', blogArticle: tr.id as BlogArticleId })} onClick={(e) => { e.preventDefault(); handleArticleClick(tr.id as BlogArticleId); }} className="flex items-center gap-3 p-3 bg-gradient-to-r from-warning-subtle to-warning-subtle border border-warning-border rounded-xl hover:from-warning-subtle hover:to-warning-subtle transition-colors text-left group" > <div className="relative shrink-0"> <img src={tr.image} srcSet={responsive ? `${responsive.thumbWebp} 480w, ${tr.image} 1200w` : undefined} sizes="64px" alt={getImageAlt(tr.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg" loading="lazy" onError={() => handleResponsiveImageError(tr.image)} /> {idx === 0 && ( <span className="absolute -top-1.5 -left-1.5 bg-warning-strong text-on-accent text-xs font-bold font-display px-1.5 py-0.5 rounded-full leading-none"> 🔥 </span> )} </div> <div className="min-w-0 flex-1"> <p className="text-sm font-semibold font-display text-body line-clamp-2 group-hover:text-warning transition-colors"> {t(`blog.article.${tr.id}.title`)}
  </p>
  <div className="flex items-center gap-2 mt-1">
  <span className="text-xs text-warning font-medium">
@@ -2675,12 +2668,9 @@ function BlogArticles({
  {(() => {
  const responsive = imageFallbackMap[pageArticles[0].image] ? null : getResponsiveImageSet(pageArticles[0].image);
  return (
- <picture>
- {responsive && <source type="image/avif" srcSet={responsive.avif} sizes="(max-width: 640px) 100vw, 800px" />}
- {responsive && <source type="image/webp" srcSet={responsive.webp} sizes="(max-width: 640px) 100vw, 800px" />}
  <img
  src={pageArticles[0].image}
- srcSet={responsive?.webp}
+ srcSet={responsive ? `${responsive.thumbWebp} 480w, ${pageArticles[0].image} 1200w` : undefined}
  alt={getImageAlt(pageArticles[0].id)}
  width={1200}
  height={600}
@@ -2691,7 +2681,6 @@ function BlogArticles({
  decoding="async"
  onError={() => handleResponsiveImageError(pageArticles[0].image)}
  />
- </picture>
  );
  })()}
  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
@@ -2754,12 +2743,9 @@ function BlogArticles({
  {(() => {
  const responsive = imageFallbackMap[article.image] ? null : getResponsiveImageSet(article.image);
  return (
- <picture>
- {responsive && <source type="image/avif" srcSet={responsive.avif} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />}
- {responsive && <source type="image/webp" srcSet={responsive.webp} sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />}
  <img
  src={article.image}
- srcSet={responsive?.webp}
+ srcSet={responsive ? `${responsive.thumbWebp} 480w, ${article.image} 1200w` : undefined}
  alt={getImageAlt(article.id)}
  width={400}
  height={200}
@@ -2770,7 +2756,6 @@ function BlogArticles({
  decoding="async"
  onError={() => handleResponsiveImageError(article.image)}
  />
- </picture>
  );
  })()}
  <div className="absolute top-2 left-2 flex items-center gap-1">
