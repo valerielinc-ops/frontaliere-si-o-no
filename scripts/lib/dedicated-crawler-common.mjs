@@ -18,6 +18,8 @@ import {
   detectJobTitleLocaleDetails,
   detectTextLocale,
 } from './job-locale-utils.mjs';
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { extractStableJobId } from './job-match-key.mjs';
 
 const DEFAULT_LOCALES = DEFAULT_JOB_LOCALES;
 
@@ -1440,13 +1442,13 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
             || (hasForeignWord && localizedTitle);
         if (isStaleSlug) {
           const parts = [localizedTitle, staleCompany, staleLocation].filter(Boolean).join('-');
-          const derivedBase = parts
+          const slugified = parts
             .toLowerCase()
             .normalize('NFD')
             .replace(/[\u0300-\u036f]/g, '')
             .replace(/[^a-z0-9]+/g, '-')
-            .replace(/^-+|-+$/g, '')
-            .slice(0, 120);
+            .replace(/^-+|-+$/g, '');
+          const derivedBase = truncateSlugAtWordBoundary(slugified, 120);
           // Re-append disambiguator so the rebuilt slug keeps the same suffix
           const derived = disambiguator
             ? appendSlugDisambiguator(derivedBase, disambiguator)
@@ -4700,9 +4702,12 @@ export function mergeLocaleRequirementsMap(a = {}, b = {}) {
  * @returns {object[]} Merged jobs array (fresh data wins for source fields, existing wins for translations)
  */
 export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
-  const matchKey = opts.matchKey || ((job) =>
-    String(job?.url || '').trim().replace(/&amp;/g, '&').replace(/\/+$/, '').toLowerCase()
-  );
+  // Default to the stable-id matchKey so vendor URL renames (slug-portion
+  // rewrites with the underlying job ID intact, e.g. PwC's Workday-style
+  // UUID URLs) preserve the merge and trigger the previousSlugs capture
+  // logic below. Crawlers whose URLs lack any stable token fall back to
+  // the normalized full URL (legacy behaviour) — no regression.
+  const matchKey = opts.matchKey || ((job) => extractStableJobId(job?.url));
 
   const existingByKey = new Map();
   for (const job of existingJobs) {

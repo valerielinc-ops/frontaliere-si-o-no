@@ -30,6 +30,7 @@ const MAX_SLUG_LENGTH = 120;
 
 // Import locale-aware previousSlugs helpers
 import { addPreviousSlugForLocale, cleanPreviousSlugsPerLocale } from './lib/dedicated-crawler-common.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -41,15 +42,16 @@ function writeJson(filePath, value) {
 
 /**
  * Slugify a string: lowercase, replace non-alphanumeric with dashes, trim.
+ * Trims at word boundary when the cap would split a token.
  */
 function slugify(text) {
-  return String(text || '')
+  const base = String(text || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '') // strip diacritics
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, MAX_SLUG_LENGTH);
+    .replace(/^-+|-+$/g, '');
+  return truncateSlugAtWordBoundary(base, MAX_SLUG_LENGTH);
 }
 
 /**
@@ -74,7 +76,7 @@ function appendDisambiguatorTail(slug, tail) {
   const t = String(tail || '').trim();
   if (!t) return slug;
   const maxBase = Math.max(0, MAX_SLUG_LENGTH - t.length - 1);
-  const trimmed = String(slug || '').slice(0, maxBase).replace(/-+$/, '');
+  const trimmed = truncateSlugAtWordBoundary(String(slug || ''), maxBase).replace(/-+$/, '');
   return trimmed ? `${trimmed}-${t}` : t;
 }
 
@@ -88,7 +90,7 @@ function buildSlug(title, company, location, disambiguator = '') {
   const d = String(disambiguator || '').trim();
   if (!d || !base) return base;
   const maxBase = Math.max(0, MAX_SLUG_LENGTH - d.length - 1);
-  const trimmed = base.slice(0, maxBase).replace(/-+$/, '');
+  const trimmed = truncateSlugAtWordBoundary(base, maxBase).replace(/-+$/, '');
   return trimmed ? `${trimmed}-${d}` : d;
 }
 
