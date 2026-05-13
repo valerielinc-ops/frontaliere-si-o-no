@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-05-13T11:05:47.878Z",
+  "assembledAt": "2026-05-13T22:14:34.892Z",
   "jobs": [
     {
       "id": "giardino-e7f4937bce90",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-13T11:05:46.136Z",
+      "crawledAt": "2026-05-13T22:14:33.125Z",
       "addressLocality": "Champfèr",
       "postalCode": "7512",
       "addressRegion": "GR",
@@ -104,7 +104,7 @@
       "url": "https://giardinohotels.ch/en/jobs/demichef-de-partie-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-13T11:05:46.135Z",
+      "crawledAt": "2026-05-13T22:14:33.124Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -136,6 +136,7 @@
         ]
       },
       "firstSeenAt": "2026-04-21T21:41:57.797Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
