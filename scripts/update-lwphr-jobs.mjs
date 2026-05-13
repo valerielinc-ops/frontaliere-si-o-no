@@ -24,6 +24,7 @@ import { translateMissingJobLocales, validateDedicatedLocaleCoverage, detectLang
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { parseLwphrOpenJobs, inferLwphrLocation, inferLwphrCategory, buildLwphrLocalizedPayload, extractTitleFromPdfText, reconcilePdfTitle } from './lib/lwphr-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -100,7 +101,7 @@ function isTrustedDomain(rawUrl = '') {
 }
 
 function jobMatchKey(job = {}) {
-  return String(job.url || job.slug || '').toLowerCase();
+  return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
 
 function buildJob({ title, pdfUrl, pdfText }) {

@@ -28,6 +28,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { selectGraceDescription } from './lib/grace-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -81,7 +82,7 @@ function stripHtml(html = '') {
 }
 
 function jobMatchKey(job) {
-  return job.url || job.slug || '';
+  return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
 
 function isTargetJob(job) {

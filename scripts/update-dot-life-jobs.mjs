@@ -20,6 +20,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -312,7 +313,7 @@ async function buildDotLifeJob(card, playwrightPage) {
 function jobMatchKey(job = {}) {
   // Deduplicate by LinkedIn job ID when present, else by URL
   if (job.linkedInJobId) return `linkedin:${job.linkedInJobId}`;
-  return String(job.url || '').trim().toLowerCase() || String(job.slug || '').trim().toLowerCase();
+  return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
 
 function mergeJobs(discoveredJobs) {

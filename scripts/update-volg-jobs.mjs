@@ -24,6 +24,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -101,7 +102,7 @@ function isTargetJob(job = {}) {
 }
 
 function jobMatchKey(job) {
-  return String(job.url || '').trim().toLowerCase() || String(job.slug || '').trim().toLowerCase();
+  return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
 
 function slugify(text = '') {

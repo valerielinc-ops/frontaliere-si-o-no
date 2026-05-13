@@ -26,6 +26,7 @@ import {
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { JSDOM } from 'jsdom';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   parseBoardListings,
   isBoardTargetLocation,
@@ -208,7 +209,7 @@ async function buildBoardJob(listing) {
 }
 
 function jobMatchKey(job = {}) {
-  return String(job.url || '').trim().toLowerCase() || String(job.slug || '').trim().toLowerCase();
+  return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
 
 function mergeJobs(discoveredJobs) {

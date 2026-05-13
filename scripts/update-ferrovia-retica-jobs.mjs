@@ -45,6 +45,7 @@ import {
 mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, parseDetailPage, buildJob, buildFallbackDescription, stripHtml } from './lib/ferrovia-retica-job-parser.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -153,7 +154,7 @@ function writeJson(filePath, value) {
 }
 
 function jobMatchKey(job = {}) {
-  return String(job.url || '').trim().toLowerCase().replace(/\/+$/, '') || String(job.slug || '').trim().toLowerCase();
+  return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
 
 function mergeJobs(discoveredJobs) {

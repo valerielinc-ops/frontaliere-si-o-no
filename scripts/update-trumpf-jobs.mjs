@@ -40,6 +40,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { isTargetSwissLocation, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, getCompanyDefaults, getCantonDisplayName } from './lib/crawler-location-config.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -119,7 +120,7 @@ function isTargetJob(job) {
 }
 
 function jobMatchKey(job) {
-  return job.url || job.slug || '';
+  return extractStableJobId(job.url) || String(job.slug || '').trim().toLowerCase();
 }
 
 function isSwissLocation(locationText = '') {
