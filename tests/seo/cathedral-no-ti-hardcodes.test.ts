@@ -129,16 +129,34 @@ const ALLOWLIST = [
   //    (`buildHomepageCantonNavHtml`) added between `injectHomepageSeoContent`
   //    and `injectCalculatorSeoContent` — BFS-depth closure run 25753701178.
   //    Every entry shifts by the same +74 lines (helper block size).
-  'build-plugins/staticPagesPlugin.ts:1168',
-  'build-plugins/staticPagesPlugin.ts:1169',
-  'build-plugins/staticPagesPlugin.ts:1170',
-  'build-plugins/staticPagesPlugin.ts:1171',
-  'build-plugins/staticPagesPlugin.ts:1190',
-  'build-plugins/staticPagesPlugin.ts:1191',
-  'build-plugins/staticPagesPlugin.ts:1725',
-  'build-plugins/staticPagesPlugin.ts:1750',
-  'build-plugins/staticPagesPlugin.ts:1775',
-  'build-plugins/staticPagesPlugin.ts:2043',
+  //    Then shifted again +44 on 2026-05-13 by the cross-section hubs block
+  //    appended INSIDE `buildHomepageCantonNavHtml` (azienda-* depth fix
+  //    for sitemap-jobs.xml — pulls per-company azienda-* leaves from BFS
+  //    depth 5 to depth 4 by anchoring /aziende-che-assumono/tutte/ + the
+  //    locale variants directly off `/`).
+  'build-plugins/staticPagesPlugin.ts:1212',
+  'build-plugins/staticPagesPlugin.ts:1213',
+  'build-plugins/staticPagesPlugin.ts:1214',
+  'build-plugins/staticPagesPlugin.ts:1215',
+  'build-plugins/staticPagesPlugin.ts:1234',
+  'build-plugins/staticPagesPlugin.ts:1235',
+  'build-plugins/staticPagesPlugin.ts:1769',
+  'build-plugins/staticPagesPlugin.ts:1794',
+  'build-plugins/staticPagesPlugin.ts:1819',
+  'build-plugins/staticPagesPlugin.ts:2087',
+  // ── Cross-section hub anchors emitted inside buildHomepageCantonNavHtml
+  //    (2026-05-13 BFS-depth fix for sitemap-jobs.xml azienda-* leaves).
+  //    Per-locale URL constants reference the TI section slug; the audit
+  //    treats them as legitimate URL building blocks rather than rogue
+  //    hardcodes. Pattern mirrors the hubChrome.ts allowlist above.
+  'build-plugins/staticPagesPlugin.ts:565',
+  'build-plugins/staticPagesPlugin.ts:566',
+  'build-plugins/staticPagesPlugin.ts:572',
+  'build-plugins/staticPagesPlugin.ts:573',
+  'build-plugins/staticPagesPlugin.ts:578',
+  'build-plugins/staticPagesPlugin.ts:579',
+  'build-plugins/staticPagesPlugin.ts:584',
+  'build-plugins/staticPagesPlugin.ts:585',
 
   // ── shared/hubChrome.ts: per-locale hub-chrome registry keyed on TI section name ──
   'build-plugins/shared/hubChrome.ts:106',
