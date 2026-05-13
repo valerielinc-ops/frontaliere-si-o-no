@@ -1,11 +1,11 @@
 {
   "AG::it::elektro-servicemonteur-in-100-elektro-bau-ag-filiale-lenzburg-lenzburg": {
-    "winnerJobIdentifier": "burkhalter-group-71e65ffae073",
-    "winnerCanonical": "mostro-di-servizio-elettrico-100-elektro-bau-ag-rothrist-rothrist",
+    "winnerJobIdentifier": "burkhalter-group-8d5de775aa7d",
+    "winnerCanonical": "mostro-di-servizio-elettrico-100-elektro-bau-ag-filiale-lenzburg-lenzburg",
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.3077,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::it::elektro-servicemonteur-in-100-elektro-bau-ag-rothrist-rothrist": {
@@ -54,29 +54,38 @@
     "canton": "BASILEA"
   },
   "BASILEA::de::fachfrau-fachmann-hr-administration-unispital-basel-ch": {
-    "winnerJobIdentifier": "unispital-basel-da7675f4dd03",
+    "winnerJobIdentifier": "unispital-basel-f0da4ea5a630",
     "winnerCanonical": "fachfrau-fachmann-hr-administration-universitatsspital-basel-basel",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.625,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::de::fachfrau-fachmann-hr-administration-unispital-basel-ch-2": {
-    "winnerJobIdentifier": "unispital-basel-da7675f4dd03",
+    "winnerJobIdentifier": "unispital-basel-f0da4ea5a630",
     "winnerCanonical": "fachfrau-fachmann-hr-administration-universitatsspital-basel-basel",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5556,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::de::fachfrau-fachmann-risorse-umane-administration-universitatsspital-basel-basel-wdnqfm": {
-    "winnerJobIdentifier": "unispital-basel-da7675f4dd03",
+    "winnerJobIdentifier": "unispital-basel-f0da4ea5a630",
     "winnerCanonical": "fachfrau-fachmann-hr-administration-universitatsspital-basel-basel",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5556,
+    "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::de::fisioterapista-fisioterapista-universitatsspital-basel-basel-f01c67": {
+    "winnerJobIdentifier": "unispital-basel-04d5bcc35810",
+    "winnerCanonical": "administrative-r-mitarbeiter-in-patienten-services-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -125,6 +134,15 @@
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
+  "BASILEA::en::fisioterapista-fisioterapista-universitatsspital-basel-basel-f01c67": {
+    "winnerJobIdentifier": "unispital-basel-cffce1280a6c",
+    "winnerCanonical": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::fr::dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch": {
     "winnerJobIdentifier": "unispital-basel-e94993893b1b",
     "winnerCanonical": "dipl-specialiste-des-soins-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel",
@@ -135,21 +153,21 @@
     "canton": "BASILEA"
   },
   "BASILEA::fr::fachfrau-fachmann-hr-administration-unispital-basel-ch": {
-    "winnerJobIdentifier": "unispital-basel-da7675f4dd03",
-    "winnerCanonical": "fachfrau-fachmann-ressources-humaines-administration-universitatsspital-basel-basel",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "unispital-basel-f0da4ea5a630",
+    "winnerCanonical": "gestion-des-ressources-humaines-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.4,
-    "candidatesCount": 2,
+    "score": 0.0833,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::fr::fachfrau-fachmann-hr-administration-unispital-basel-ch-2": {
-    "winnerJobIdentifier": "unispital-basel-da7675f4dd03",
-    "winnerCanonical": "fachfrau-fachmann-hr-administration-unispital-basel-ch",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "unispital-basel-f0da4ea5a630",
+    "winnerCanonical": "gestion-des-ressources-humaines-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.875,
-    "candidatesCount": 2,
+    "score": 0.0769,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::fr::fachfrau-fachmann-ressources-humaines-administration-universitatsspital-basel-basel": {
@@ -162,11 +180,20 @@
     "canton": "BASILEA"
   },
   "BASILEA::fr::fachfrau-fachmann-risorse-umane-administration-universitatsspital-basel-basel-wdnqfm": {
-    "winnerJobIdentifier": "unispital-basel-da7675f4dd03",
-    "winnerCanonical": "fachfrau-fachmann-hr-administration-unispital-basel-ch",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "unispital-basel-f0da4ea5a630",
+    "winnerCanonical": "gestion-des-ressources-humaines-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.3636,
+    "score": 0.1667,
+    "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::fr::fisioterapista-fisioterapista-universitatsspital-basel-basel-f01c67": {
+    "winnerJobIdentifier": "unispital-basel-cffce1280a6c",
+    "winnerCanonical": "physiotherapeute-physiotherapeute-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.4,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -186,6 +213,15 @@
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::assistentin-gesundheit-e-soziales-ags-pflegeassistentin-pa-universitatsspital-basel": {
+    "winnerJobIdentifier": "unispital-basel-568bbce3be01",
+    "winnerCanonical": "assistente-alla-salute-e-agli-affari-sociali-ags-assistente-alla-cura-pa-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3125,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::it::data-center-technician-switzerland-muttenz-on-site-reboot-monkey-muttenz-2": {
@@ -257,6 +293,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::fisioterapista-fisioterapista-universitatsspital-basel-basel-f01c67": {
+    "winnerJobIdentifier": "unispital-basel-cffce1280a6c",
+    "winnerCanonical": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.75,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -1485,12 +1530,12 @@
     "canton": "GE"
   },
   "GL::it::data-center-technician-switzerland-linthal-on-site-reboot-monkey-linthal-2": {
-    "winnerJobIdentifier": "reboot-monkey-c0acc69f63f0",
-    "winnerCanonical": "data-center-technician-switzerland-linthal-on-site-reboot-monkey-linthal",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-31d24e5d7ae3",
+    "winnerCanonical": "data-center-technician-svizzera-linthal-on-site-reboot-monkey-linthal",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.7273,
+    "candidatesCount": 1,
     "canton": "GL"
   },
   "GR::de::apprendistato-2027-automatiker-in-cfc-trumpf-schweiz-ag-grusch-pfrech": {
@@ -1511,6 +1556,24 @@
     "candidatesCount": 1,
     "canton": "GR"
   },
+  "GR::de::apprendistato-impiegato-a-di-commercio-afc-da-estate-2027-flury-stiftung-schiers": {
+    "winnerJobIdentifier": "flury-stiftung-b9f5574ab055",
+    "winnerCanonical": "lehrstellen-fachperson-gesundheit-efz-ab-sommer-2027-flury-stiftung-ch",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.1579,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::de::arztliche-co-leitung-oder-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-cseb-ch": {
+    "winnerJobIdentifier": "cseb-15695c7ebd73",
+    "winnerCanonical": "arztliche-co-leitung-oder-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-center-da-sanadad-engiadina-bassa-scuo",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.6,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::de::assistenz-oder-fachpsychologe-in-pdgr-ch": {
     "winnerJobIdentifier": "pdgr-12451701d2ea",
     "winnerCanonical": "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-chur",
@@ -1527,6 +1590,15 @@
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.25,
     "candidatesCount": 3,
+    "canton": "GR"
+  },
+  "GR::de::assistenzarztinnen-assistenzarzte-70-100-cseb-ch": {
+    "winnerJobIdentifier": "cseb-c635a7b3f834",
+    "winnerCanonical": "assistenzarztinnen-assistenzarzte-70-100-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::de::autista-addetto-raccolta-dati-a-coira-svizzera-tsmg-chur": {
@@ -1584,29 +1656,38 @@
     "canton": "GR"
   },
   "GR::de::chauffeur-collecteur-de-donnees-in-chur-switzerland-tsmg-chur": {
-    "winnerJobIdentifier": "tsmg-d99433996e9d",
-    "winnerCanonical": "fahrer-datenerfasser-in-chur-switzerland-tsmg-chur-e483453a",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "tsmg-2d2283cb9788",
+    "winnerCanonical": "autista-mitarbeiter-raccolta-dati-in-chur-switzerland-tsmg-chur-tpdis1",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.3636,
-    "candidatesCount": 2,
+    "score": 0.3077,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::de::cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
+    "winnerJobIdentifier": "9552644",
     "winnerCanonical": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.375,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::de::diet-chef-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
+    "winnerJobIdentifier": "9552644",
     "winnerCanonical": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.375,
+    "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::de::dipl-pflegefachfrau-mann-hf-mit-fahigkeitsausweis-in-operationspflege-80-100-cseb-ch": {
+    "winnerJobIdentifier": "cseb-bbd48ad6538e",
+    "winnerCanonical": "dipl-pflegefachfrau-mann-hf-mit-fahigkeitsausweis-in-operationspflege-80-100-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.5556,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -1629,21 +1710,21 @@
     "canton": "GR"
   },
   "GR::de::driver-data-collector-in-chur-switzerland-tsmg-chur-dfa1adf1": {
-    "winnerJobIdentifier": "tsmg-d99433996e9d",
-    "winnerCanonical": "fahrer-datenerfasser-in-chur-switzerland-tsmg-chur-e483453a",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "tsmg-2d2283cb9788",
+    "winnerCanonical": "autista-mitarbeiter-raccolta-dati-in-chur-switzerland-tsmg-chur-tpdis1",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.3636,
-    "candidatesCount": 2,
+    "score": 0.3077,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::de::fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2": {
-    "winnerJobIdentifier": "9770821",
+    "winnerJobIdentifier": "9843542",
     "winnerCanonical": "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.8571,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::de::fachperson-gesundheit-pdgr-ch": {
@@ -1665,11 +1746,20 @@
     "canton": "GR"
   },
   "GR::de::fahrer-datenerfasser-in-chur-switzerland-tsmg-chur-dfa1adf1": {
-    "winnerJobIdentifier": "tsmg-d99433996e9d",
-    "winnerCanonical": "fahrer-datenerfasser-in-chur-switzerland-tsmg-chur-e483453a",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "tsmg-2d2283cb9788",
+    "winnerCanonical": "autista-mitarbeiter-raccolta-dati-in-chur-switzerland-tsmg-chur-tpdis1",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.75,
+    "score": 0.3333,
+    "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::de::famulatur-stelle-cseb-ch": {
+    "winnerJobIdentifier": "cseb-5e79743ccb78",
+    "winnerCanonical": "famulatur-stelle-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -1679,6 +1769,24 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::de::lehrstellen-als-fachfrau-fachmann-gesundheit-efz-fage-cseb-ch": {
+    "winnerJobIdentifier": "cseb-8ed0554c42af",
+    "winnerCanonical": "lehrstellen-als-fachfrau-fachmann-gesundheit-efz-fage-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.4667,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::de::mitarbeiter-in-gastronomie-chasa-puntota-50-cseb-ch": {
+    "winnerJobIdentifier": "cseb-ce029975ce0d",
+    "winnerCanonical": "mitarbeiter-in-gastronomie-chasa-puntota-50-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.4286,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -1718,6 +1826,24 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::de::spontanbewerbung-pflegeberufe-langzeitpflege-cseb-ch": {
+    "winnerJobIdentifier": "cseb-edfd069cce8c",
+    "winnerCanonical": "spontanbewerbung-pflegeberufe-langzeitpflege-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::de::unterassistenten-innen-pj-jahr-cseb-ch": {
+    "winnerJobIdentifier": "cseb-3cc1227c2997",
+    "winnerCanonical": "unterassistenten-innen-pj-jahr-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::en::apprendistato-2027-automatiker-in-cfc-trumpf-schweiz-ag-grusch-pfrech": {
     "winnerJobIdentifier": "trumpf-schweiz-efff327d1a4b",
     "winnerCanonical": "course-2027-automatic-in-efz-trumpf-schweiz-ag-grusch",
@@ -1734,6 +1860,15 @@
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3846,
     "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::en::apprendistato-impiegato-a-di-commercio-afc-da-estate-2027-flury-stiftung-schiers": {
+    "winnerJobIdentifier": "flury-stiftung-b9f5574ab055",
+    "winnerCanonical": "apprenticeship-for-health-specialist-efz-starting-summer-2027-flury-stiftung-schiers",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2105,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::en::assembly-operator-befristet-80-100-w-m-d-jr-5751": {
@@ -1836,21 +1971,21 @@
     "canton": "GR"
   },
   "GR::en::cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
+    "winnerJobIdentifier": "9552644",
     "winnerCanonical": "apprenticeship-as-a-chef-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3333,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::en::diet-chef-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
+    "winnerJobIdentifier": "9552644",
     "winnerCanonical": "apprenticeship-as-a-chef-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::en::dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos": {
@@ -1872,12 +2007,12 @@
     "canton": "GR"
   },
   "GR::en::fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2": {
-    "winnerJobIdentifier": "9770821",
+    "winnerJobIdentifier": "9843542",
     "winnerCanonical": "operating-room-technician-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::en::fahrer-datenerfasser-in-chur-switzerland-tsmg-chur-dfa1adf1": {
@@ -1998,11 +2133,11 @@
     "canton": "GR"
   },
   "GR::en::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
-    "winnerJobIdentifier": "company-e66ikm",
-    "winnerCanonical": "seller-in-food-coop-genossenschaft-chur-ddc182",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "company-lzsoh3",
+    "winnerCanonical": "seller-in-food-coop-genossenschaft-felsberg",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.2727,
+    "score": 0.4444,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -2022,6 +2157,15 @@
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::fr::apprendistato-impiegato-a-di-commercio-afc-da-estate-2027-flury-stiftung-schiers": {
+    "winnerJobIdentifier": "flury-stiftung-b9f5574ab055",
+    "winnerCanonical": "places-d-apprentissage-de-specialiste-en-sante-cfc-a-partir-de-l-ete-2027-flury-stiftung-schiers",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2174,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::fr::assembly-operator-befristet-80-100-w-m-d-jr-5751": {
@@ -2124,21 +2268,21 @@
     "canton": "GR"
   },
   "GR::fr::cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
+    "winnerJobIdentifier": "9552644",
     "winnerCanonical": "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3333,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::fr::diet-chef-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
+    "winnerJobIdentifier": "9552644",
     "winnerCanonical": "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3333,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::fr::dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos": {
@@ -2169,12 +2313,12 @@
     "canton": "GR"
   },
   "GR::fr::fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2": {
-    "winnerJobIdentifier": "9770821",
+    "winnerJobIdentifier": "9843542",
     "winnerCanonical": "technicien-technicienne-de-salle-d-operation-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2308,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::fr::fahrer-datenerfasser-in-chur-switzerland-tsmg-chur-dfa1adf1": {
@@ -2295,11 +2439,11 @@
     "canton": "GR"
   },
   "GR::fr::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
-    "winnerJobIdentifier": "company-e66ikm",
-    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-chur-ddc182",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "company-lzsoh3",
+    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.0714,
+    "score": 0.1667,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -2348,6 +2492,33 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::it::apprendistato-impiegato-a-di-commercio-afc-da-estate-2027-flury-stiftung-schiers": {
+    "winnerJobIdentifier": "flury-stiftung-b9f5574ab055",
+    "winnerCanonical": "lehrstellen-fachperson-gesundheit-cfc-ab-sommer-2027-flury-stiftung-schiers",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::arztliche-co-leitung-oder-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-cseb-ch": {
+    "winnerJobIdentifier": "cseb-15695c7ebd73",
+    "winnerCanonical": "arztliche-co-leitung-o-leitende-r-arztin-arzt-stationare-schmerztherapie-60-80-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.5238,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::assembly-operator-befristet-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz": {
+    "winnerJobIdentifier": "hamilton-bonaduz-ag-d568e2ba6207",
+    "winnerCanonical": "assembly-operator-befristet-80-100-m-w-d-hamilton-bonaduz-ag-bonaduz",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 1,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::it::assistente-all-assistenza-srk-spitex-50-100-spital-davos-davos": {
     "winnerJobIdentifier": "spital-davos-016659b12606",
     "winnerCanonical": "assistenza-sanitaria-srk-spitex-50-100-spital-davos-davos",
@@ -2372,6 +2543,15 @@
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5714,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::assistenzarztinnen-assistenzarzte-70-100-cseb-ch": {
+    "winnerJobIdentifier": "cseb-c635a7b3f834",
+    "winnerCanonical": "assistenti-medici-70-100-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.1429,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -2430,12 +2610,12 @@
     "canton": "GR"
   },
   "GR::it::berufslehre-kochin-koch-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
+    "winnerJobIdentifier": "9552644",
     "winnerCanonical": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::betreuer-in-pdgr-ch-2": {
@@ -2465,6 +2645,15 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::it::collaboratore-trice-in-administration-departementssekretariat-kantonale-verwaltung-graubunden-chur": {
+    "winnerJobIdentifier": "kanton-gr-a947f6939528",
+    "winnerCanonical": "amministrazione-del-segretariato-del-dipartimento-kantonale-verwaltung-graubunden-chur",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3077,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::it::consulente-per-l-agenzia-generale-chur-100": {
     "winnerJobIdentifier": "spital-davos-5795d1727096",
     "winnerCanonical": "diplomierte-pflegefachperson-hf-pensum-60-100-becomes-diplomierte-pflegefachperson-hf-remains-the-same-as-pflegefachpers",
@@ -2484,21 +2673,21 @@
     "canton": "GR"
   },
   "GR::it::cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
+    "winnerJobIdentifier": "9552644",
     "winnerCanonical": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::diet-chef-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "10020247",
+    "winnerJobIdentifier": "9552644",
     "winnerCanonical": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3333,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::dipl-infermiere-hf-stazione-di-monitoraggio-40-60-spital-davos-davos": {
@@ -2507,6 +2696,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::dipl-pflegefachfrau-mann-hf-mit-fahigkeitsausweis-in-operationspflege-80-100-cseb-ch": {
+    "winnerJobIdentifier": "cseb-bbd48ad6538e",
+    "winnerCanonical": "infermiere-diplomato-a-in-assistenza-chirurgica-80-100-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.1304,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -2538,21 +2736,21 @@
     "canton": "GR"
   },
   "GR::it::fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur": {
-    "winnerJobIdentifier": "9770821",
+    "winnerJobIdentifier": "9843542",
     "winnerCanonical": "operatrice-operatore-di-sala-operatoria-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2727,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2": {
-    "winnerJobIdentifier": "9770821",
+    "winnerJobIdentifier": "9843542",
     "winnerCanonical": "operatrice-operatore-di-sala-operatoria-kantonsspital-graubunden-chur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.25,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::fachspezialist-qualitassicherung-m-w-d-trumpf-r00039734": {
@@ -2570,6 +2768,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::famulatur-stelle-cseb-ch": {
+    "winnerJobIdentifier": "cseb-45960c880289",
+    "winnerCanonical": "assistente-in-salute-e-affari-sociali-assistente-sociale-50-100-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -2618,6 +2825,15 @@
     "candidatesCount": 1,
     "canton": "GR"
   },
+  "GR::it::lehrstellen-als-fachfrau-fachmann-gesundheit-efz-fage-cseb-ch": {
+    "winnerJobIdentifier": "cseb-8ed0554c42af",
+    "winnerCanonical": "apprendista-in-salute-efz-fage-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.1111,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::it::luogo-di-insegnamento-2027-designer-trumpf-schweiz-ag-grusch": {
     "winnerJobIdentifier": "trumpf-schweiz-e74ae0770b07",
     "winnerCanonical": "apprendistato-2027-konstrukteur-in-cfc-trumpf-schweiz-ag-grusch-f91f7f",
@@ -2625,6 +2841,15 @@
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::it::mitarbeiter-in-gastronomie-chasa-puntota-50-cseb-ch": {
+    "winnerJobIdentifier": "cseb-ce029975ce0d",
+    "winnerCanonical": "staff-in-gastronomia-chasa-puntota-50-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::it::oberarztin-oberarzt-pdgr-ch": {
@@ -2652,6 +2877,15 @@
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2667,
     "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::it::psychologiepraktikant-in-clinica-curativa-60-100-cseb-ch": {
+    "winnerJobIdentifier": "cseb-7213f4a71705",
+    "winnerCanonical": "psychologiepraktikant-in-clinica-curativa-60-100-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::it::rayonleiter-in-nonfood-coop-klosters-serneus-graubunden": {
@@ -2708,12 +2942,30 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::it::spontanbewerbung-pflegeberufe-langzeitpflege-cseb-ch": {
+    "winnerJobIdentifier": "cseb-45960c880289",
+    "winnerCanonical": "assistente-in-salute-e-affari-sociali-assistente-sociale-50-100-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::it::strassenwart-in-kanton-gr-ch": {
     "winnerJobIdentifier": "kanton-gr-0ffee9d541da",
     "winnerCanonical": "strassenwart-in-kantonale-verwaltung-graubunden-chur",
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2222,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::unterassistenten-innen-pj-jahr-cseb-ch": {
+    "winnerJobIdentifier": "cseb-3cc1227c2997",
+    "winnerCanonical": "assistente-sanitario-pj-anno-center-da-sanadad-engiadina-bassa-scuol",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.0667,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -2727,48 +2979,48 @@
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
-    "winnerJobIdentifier": "company-e66ikm",
-    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur-ddc182",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "company-lzsoh3",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-felsberg",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.2727,
+    "score": 0.4444,
     "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::verkauferin-verkaufer-m-w-d-volg-vals": {
-    "winnerJobIdentifier": "volg-fenaco-699f9076ff23",
-    "winnerCanonical": "responsabile-vendite-m-w-d-volg-vals",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "volg-fenaco-6778621893b4",
+    "winnerCanonical": "responsabile-vendite-m-w-d-volg-vals-5c52d7",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.5556,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "LU::de::data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil-2": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
-    "winnerCanonical": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
+    "winnerCanonical": "data-center-techniker-schweiz-ruswil-vor-ort-reboot-monkey-ruswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.3571,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::de::data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon-2": {
-    "winnerJobIdentifier": "reboot-monkey-637b9a84b430",
-    "winnerCanonical": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
+    "winnerCanonical": "data-center-techniker-schweiz-schenkon-vor-ort-reboot-monkey-schenkon",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.3571,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::de::data-center-technicien-switzerland-schenkon-on-site-reboot-monkey-schenkon": {
-    "winnerJobIdentifier": "reboot-monkey-637b9a84b430",
-    "winnerCanonical": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
+    "winnerCanonical": "data-center-techniker-schweiz-schenkon-vor-ort-reboot-monkey-schenkon",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.3846,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::de::datenzentrumstechniker-schweiz-ruswil-vor-ort-reboot-monkey-ruswil": {
@@ -2781,84 +3033,84 @@
     "canton": "LU"
   },
   "LU::de::technicien-de-centre-de-donnees-suisse-ruswil-sur-place-reboot-monkey-ruswil": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
-    "winnerCanonical": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
+    "winnerCanonical": "data-center-techniker-schweiz-ruswil-vor-ort-reboot-monkey-ruswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.1875,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::de::technicien-de-centre-de-donnees-suisse-ruswil-sur-site-reboot-monkey-ruswil": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
-    "winnerCanonical": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
+    "winnerCanonical": "data-center-techniker-schweiz-ruswil-vor-ort-reboot-monkey-ruswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.2667,
-    "candidatesCount": 2,
+    "score": 0.1875,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::de::technicien-de-centre-de-donnees-suisse-schenkon-sur-place-reboot-monkey-schenkon": {
-    "winnerJobIdentifier": "reboot-monkey-637b9a84b430",
-    "winnerCanonical": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
+    "winnerCanonical": "data-center-techniker-schweiz-schenkon-vor-ort-reboot-monkey-schenkon",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.1875,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::de::technicien-de-centre-de-donnees-suisse-schenkon-sur-site-reboot-monkey-schenkon": {
-    "winnerJobIdentifier": "reboot-monkey-637b9a84b430",
-    "winnerCanonical": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
+    "winnerCanonical": "data-center-techniker-schweiz-schenkon-vor-ort-reboot-monkey-schenkon",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.2667,
-    "candidatesCount": 2,
+    "score": 0.1875,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::de::tecnico-del-centro-dati-svizzera-ruswil-sito-reboot-monkey-ruswil": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
-    "winnerCanonical": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
+    "winnerCanonical": "data-center-techniker-schweiz-ruswil-vor-ort-reboot-monkey-ruswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::de::tecnico-del-data-center-svizzera-ruswil-sito-reboot-monkey-ruswil": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
-    "winnerCanonical": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
+    "winnerCanonical": "data-center-techniker-schweiz-ruswil-vor-ort-reboot-monkey-ruswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3846,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::de::tecnico-del-data-center-svizzera-schenkon-sito-reboot-monkey-schenkon": {
-    "winnerJobIdentifier": "reboot-monkey-637b9a84b430",
-    "winnerCanonical": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
+    "winnerCanonical": "data-center-techniker-schweiz-schenkon-vor-ort-reboot-monkey-schenkon",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3846,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::en::data-center-technicien-switzerland-schenkon-on-site-reboot-monkey-schenkon": {
-    "winnerJobIdentifier": "reboot-monkey-637b9a84b430",
+    "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
     "winnerCanonical": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.8,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::en::datenzentrumstechniker-schweiz-ruswil-vor-ort-reboot-monkey-ruswil": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
     "winnerCanonical": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2308,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::en::leiter-in-dezentrale-flexibilitat-w-m-d-899faac0-c9e8-4073-9a39-de103bda52f9": {
@@ -2871,66 +3123,66 @@
     "canton": "LU"
   },
   "LU::en::technicien-de-centre-de-donnees-suisse-ruswil-sur-place-reboot-monkey-ruswil": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
     "winnerCanonical": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.1875,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::en::technicien-de-centre-de-donnees-suisse-ruswil-sur-site-reboot-monkey-ruswil": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
     "winnerCanonical": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2667,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::en::technicien-de-centre-de-donnees-suisse-schenkon-sur-place-reboot-monkey-schenkon": {
-    "winnerJobIdentifier": "reboot-monkey-637b9a84b430",
+    "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
     "winnerCanonical": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.1875,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::en::technicien-de-centre-de-donnees-suisse-schenkon-sur-site-reboot-monkey-schenkon": {
-    "winnerJobIdentifier": "reboot-monkey-637b9a84b430",
+    "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
     "winnerCanonical": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2667,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::en::tecnico-del-centro-dati-svizzera-ruswil-sito-reboot-monkey-ruswil": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
     "winnerCanonical": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::en::tecnico-del-data-center-svizzera-ruswil-sito-reboot-monkey-ruswil": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
     "winnerCanonical": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3846,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::en::tecnico-del-data-center-svizzera-schenkon-sito-reboot-monkey-schenkon": {
-    "winnerJobIdentifier": "reboot-monkey-637b9a84b430",
+    "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
     "winnerCanonical": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3846,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::fr::data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil-2": {
@@ -2961,12 +3213,12 @@
     "canton": "LU"
   },
   "LU::fr::datenzentrumstechniker-schweiz-ruswil-vor-ort-reboot-monkey-ruswil": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
-    "winnerCanonical": "technicien-en-informatique-suisse-ruswil-sur-place-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
+    "winnerCanonical": "technicien-data-center-suisse-ruswil-sur-site-reboot-monkey-ruswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2308,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::fr::leiter-in-dezentrale-flexibilitat-w-m-d-899faac0-c9e8-4073-9a39-de103bda52f9": {
@@ -2979,12 +3231,12 @@
     "canton": "LU"
   },
   "LU::fr::technicien-de-centre-de-donnees-suisse-ruswil-sur-place-reboot-monkey-ruswil": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
-    "winnerCanonical": "technicien-en-informatique-suisse-ruswil-sur-place-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
+    "winnerCanonical": "technicien-data-center-suisse-ruswil-sur-site-reboot-monkey-ruswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.5833,
-    "candidatesCount": 2,
+    "score": 0.4615,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::fr::technicien-de-centre-de-donnees-suisse-ruswil-sur-site-reboot-monkey-ruswil": {
@@ -2997,30 +3249,30 @@
     "canton": "LU"
   },
   "LU::fr::technicien-de-centre-de-donnees-suisse-schenkon-sur-place-reboot-monkey-schenkon": {
-    "winnerJobIdentifier": "reboot-monkey-637b9a84b430",
-    "winnerCanonical": "technicien-en-centre-de-donnees-suisse-schenkon-sur-place-reboot-monkey-schenkon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
+    "winnerCanonical": "technicien-de-data-center-suisse-schenkon-sur-site-reboot-monkey-schenkon",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9091,
-    "candidatesCount": 2,
+    "score": 0.5385,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::fr::technicien-de-centre-de-donnees-suisse-schenkon-sur-site-reboot-monkey-schenkon": {
-    "winnerJobIdentifier": "reboot-monkey-637b9a84b430",
-    "winnerCanonical": "technicien-en-centre-de-donnees-suisse-schenkon-sur-place-reboot-monkey-schenkon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
+    "winnerCanonical": "technicien-de-data-center-suisse-schenkon-sur-site-reboot-monkey-schenkon",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.75,
-    "candidatesCount": 2,
+    "score": 0.6667,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::fr::tecnico-del-centro-dati-svizzera-ruswil-sito-reboot-monkey-ruswil": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
-    "winnerCanonical": "technicien-en-informatique-suisse-ruswil-sur-place-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
+    "winnerCanonical": "technicien-data-center-suisse-ruswil-sur-site-reboot-monkey-ruswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::fr::tecnico-del-data-center-svizzera-ruswil-sito-reboot-monkey-ruswil": {
@@ -3042,48 +3294,48 @@
     "canton": "LU"
   },
   "LU::it::data-center-technician-switzerland-luzern-on-site-reboot-monkey-luzern-2": {
-    "winnerJobIdentifier": "reboot-monkey-2559fe71dfbf",
-    "winnerCanonical": "data-center-technician-switzerland-luzern-on-site-reboot-monkey-luzern",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-121ce751343d",
+    "winnerCanonical": "data-center-technician-svizzera-luzern-on-site-reboot-monkey-luzern",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.7273,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil-2": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
-    "winnerCanonical": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
+    "winnerCanonical": "tecnico-data-center-svizzera-ruswil-in-sede-reboot-monkey-ruswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.3571,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon-2": {
-    "winnerJobIdentifier": "reboot-monkey-637b9a84b430",
-    "winnerCanonical": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
+    "winnerCanonical": "tecnico-di-data-center-svizzera-schenkon-presenza-fisica-reboot-monkey-schenkon",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::data-center-technicien-switzerland-schenkon-on-site-reboot-monkey-schenkon": {
-    "winnerJobIdentifier": "reboot-monkey-637b9a84b430",
-    "winnerCanonical": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
+    "winnerCanonical": "tecnico-di-data-center-svizzera-schenkon-presenza-fisica-reboot-monkey-schenkon",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.3571,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::datenzentrumstechniker-schweiz-ruswil-vor-ort-reboot-monkey-ruswil": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
-    "winnerCanonical": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
+    "winnerCanonical": "tecnico-data-center-svizzera-ruswil-in-sede-reboot-monkey-ruswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2308,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::leiter-in-dezentrale-flexibilitat-w-m-d-899faac0-c9e8-4073-9a39-de103bda52f9": {
@@ -3114,39 +3366,39 @@
     "canton": "LU"
   },
   "LU::it::technicien-de-centre-de-donnees-suisse-ruswil-sur-place-reboot-monkey-ruswil": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
-    "winnerCanonical": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
+    "winnerCanonical": "tecnico-data-center-svizzera-ruswil-in-sede-reboot-monkey-ruswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.1875,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::technicien-de-centre-de-donnees-suisse-ruswil-sur-site-reboot-monkey-ruswil": {
-    "winnerJobIdentifier": "reboot-monkey-68052ab68e67",
-    "winnerCanonical": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-fff4e5b7ee38",
+    "winnerCanonical": "tecnico-data-center-svizzera-ruswil-in-sede-reboot-monkey-ruswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.2667,
-    "candidatesCount": 2,
+    "score": 0.1875,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::technicien-de-centre-de-donnees-suisse-schenkon-sur-place-reboot-monkey-schenkon": {
-    "winnerJobIdentifier": "reboot-monkey-637b9a84b430",
-    "winnerCanonical": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
+    "winnerCanonical": "tecnico-di-data-center-svizzera-schenkon-presenza-fisica-reboot-monkey-schenkon",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.1875,
-    "candidatesCount": 2,
+    "score": 0.1765,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::technicien-de-centre-de-donnees-suisse-schenkon-sur-site-reboot-monkey-schenkon": {
-    "winnerJobIdentifier": "reboot-monkey-637b9a84b430",
-    "winnerCanonical": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-f2e579c9bc2d",
+    "winnerCanonical": "tecnico-di-data-center-svizzera-schenkon-presenza-fisica-reboot-monkey-schenkon",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.2667,
-    "candidatesCount": 2,
+    "score": 0.1765,
+    "candidatesCount": 1,
     "canton": "LU"
   },
   "LU::it::tecnico-del-centro-dati-svizzera-ruswil-sito-reboot-monkey-ruswil": {
@@ -3177,84 +3429,84 @@
     "canton": "LU"
   },
   "NE::de::data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon-2": {
-    "winnerJobIdentifier": "reboot-monkey-070d21652e0f",
-    "winnerCanonical": "data-center-techniker-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fonds",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-b1af17f5414a",
+    "winnerCanonical": "data-center-techniker-schweiz-la-chaux-de-fonds-vor-ort-reboot-monkey-la-chaux-de-fonds",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.7333,
-    "candidatesCount": 2,
+    "score": 0.4444,
+    "candidatesCount": 1,
     "canton": "NE"
   },
   "NE::de::technicien-data-center-suisse-la-chaux-de-fonds-presentiel-reboot-monkey-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "reboot-monkey-070d21652e0f",
-    "winnerCanonical": "data-center-techniker-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fonds",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-b1af17f5414a",
+    "winnerCanonical": "data-center-techniker-schweiz-la-chaux-de-fonds-vor-ort-reboot-monkey-la-chaux-de-fonds",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5333,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "NE"
   },
   "NE::de::technicien-de-centre-de-donnees-suisse-la-chaux-de-fonds-sur-place-reboot-monkey-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "reboot-monkey-070d21652e0f",
-    "winnerCanonical": "data-center-techniker-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fonds",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-b1af17f5414a",
+    "winnerCanonical": "data-center-techniker-schweiz-la-chaux-de-fonds-vor-ort-reboot-monkey-la-chaux-de-fonds",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3333,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "NE"
   },
   "NE::de::tecnico-data-center-svizzera-la-chaux-de-fonds-presenza-in-sede-reboot-monkey-la-ch-q791z8": {
-    "winnerJobIdentifier": "reboot-monkey-070d21652e0f",
-    "winnerCanonical": "data-center-techniker-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fonds",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-b1af17f5414a",
+    "winnerCanonical": "data-center-techniker-schweiz-la-chaux-de-fonds-vor-ort-reboot-monkey-la-chaux-de-fonds",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.4211,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "NE"
   },
   "NE::de::tecnico-del-data-center-svizzera-la-chaux-de-fonds-sito-reboot-monkey-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "reboot-monkey-070d21652e0f",
-    "winnerCanonical": "data-center-techniker-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fonds",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-b1af17f5414a",
+    "winnerCanonical": "data-center-techniker-schweiz-la-chaux-de-fonds-vor-ort-reboot-monkey-la-chaux-de-fonds",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "NE"
   },
   "NE::en::technicien-data-center-suisse-la-chaux-de-fonds-presentiel-reboot-monkey-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "reboot-monkey-070d21652e0f",
+    "winnerJobIdentifier": "reboot-monkey-b1af17f5414a",
     "winnerCanonical": "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "NE"
   },
   "NE::en::technicien-de-centre-de-donnees-suisse-la-chaux-de-fonds-sur-place-reboot-monkey-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "reboot-monkey-070d21652e0f",
+    "winnerJobIdentifier": "reboot-monkey-b1af17f5414a",
     "winnerCanonical": "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3158,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "NE"
   },
   "NE::en::tecnico-data-center-svizzera-la-chaux-de-fonds-presenza-in-sede-reboot-monkey-la-ch-q791z8": {
-    "winnerJobIdentifier": "reboot-monkey-070d21652e0f",
+    "winnerJobIdentifier": "reboot-monkey-b1af17f5414a",
     "winnerCanonical": "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.4,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "NE"
   },
   "NE::en::tecnico-del-data-center-svizzera-la-chaux-de-fonds-sito-reboot-monkey-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "reboot-monkey-070d21652e0f",
+    "winnerJobIdentifier": "reboot-monkey-b1af17f5414a",
     "winnerCanonical": "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.4706,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "NE"
   },
   "NE::fr::data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon-2": {
@@ -3276,12 +3528,12 @@
     "canton": "NE"
   },
   "NE::fr::technicien-de-centre-de-donnees-suisse-la-chaux-de-fonds-sur-place-reboot-monkey-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "reboot-monkey-070d21652e0f",
-    "winnerCanonical": "technicien-en-centre-de-donnees-suisse-la-chaux-de-fonds-sur-place-reboot-monkey-la-chaux-de-fonds",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-b1af17f5414a",
+    "winnerCanonical": "technicien-data-center-suisse-la-chaux-de-fonds-sur-site-reboot-monkey-la-chaux-de-fonds",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9231,
-    "candidatesCount": 2,
+    "score": 0.6,
+    "candidatesCount": 1,
     "canton": "NE"
   },
   "NE::fr::tecnico-data-center-svizzera-la-chaux-de-fonds-presenza-in-sede-reboot-monkey-la-ch-q791z8": {
@@ -3303,30 +3555,30 @@
     "canton": "NE"
   },
   "NE::it::data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon-2": {
-    "winnerJobIdentifier": "reboot-monkey-070d21652e0f",
-    "winnerCanonical": "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-b1af17f5414a",
+    "winnerCanonical": "tecnico-data-center-svizzera-la-chaux-de-fonds-presenza-in-sede-reboot-monkey-la-chaux-de-fonds",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9286,
-    "candidatesCount": 2,
+    "score": 0.4211,
+    "candidatesCount": 1,
     "canton": "NE"
   },
   "NE::it::technicien-data-center-suisse-la-chaux-de-fonds-presentiel-reboot-monkey-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "reboot-monkey-070d21652e0f",
-    "winnerCanonical": "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-b1af17f5414a",
+    "winnerCanonical": "tecnico-data-center-svizzera-la-chaux-de-fonds-presenza-in-sede-reboot-monkey-la-chaux-de-fonds",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "NE"
   },
   "NE::it::technicien-de-centre-de-donnees-suisse-la-chaux-de-fonds-sur-place-reboot-monkey-la-chaux-de-fonds": {
-    "winnerJobIdentifier": "reboot-monkey-070d21652e0f",
-    "winnerCanonical": "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-b1af17f5414a",
+    "winnerCanonical": "tecnico-data-center-svizzera-la-chaux-de-fonds-presenza-in-sede-reboot-monkey-la-chaux-de-fonds",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3158,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "NE"
   },
   "NE::it::tecnico-data-center-svizzera-la-chaux-de-fonds-presenza-in-sede-reboot-monkey-la-ch-q791z8": {
@@ -3348,12 +3600,12 @@
     "canton": "NE"
   },
   "SG::de::data-center-technician-ch-widnau-on-site-reboot-monkey-widnau-2": {
-    "winnerJobIdentifier": "reboot-monkey-fd61dc9fd39d",
-    "winnerCanonical": "data-center-technician-ch-widnau-on-site-reboot-monkey-widnau",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-e84c92153147",
+    "winnerCanonical": "data-center-technician-ch-widnau-vor-ort-reboot-monkey-widnau",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.5833,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SG::fr::versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel": {
@@ -3366,12 +3618,12 @@
     "canton": "SG"
   },
   "SG::it::data-center-technician-ch-widnau-on-site-reboot-monkey-widnau-2": {
-    "winnerJobIdentifier": "reboot-monkey-fd61dc9fd39d",
-    "winnerCanonical": "data-center-technician-ch-widnau-on-site-reboot-monkey-widnau",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-e84c92153147",
+    "winnerCanonical": "data-center-technician-ch-widnau-in-loco-reboot-monkey-widnau",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.5833,
+    "candidatesCount": 1,
     "canton": "SG"
   },
   "SO::de::lagerungspflegerin-lagerungspfleger-w-m-d-soh-ch": {
@@ -3465,12 +3717,12 @@
     "canton": "SZ"
   },
   "SZ::it::gebaudetechnikplaner-in-specializzazione-heizung-80-100-shz-gebaudetechnik-ag-lachen": {
-    "winnerJobIdentifier": "burkhalter-group-d865049bbf83",
+    "winnerJobIdentifier": "burkhalter-group-fbc1b9588337",
     "winnerCanonical": "building-technology-planner-80-100-shz-gebaudetechnik-ag-lachen-6dbd41",
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.4286,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "SZ"
   },
   "TG::en::dipl-pflegefachmann-frau-forensik-stgag-ch": {
@@ -3492,30 +3744,30 @@
     "canton": "TG"
   },
   "TG::fr::dipl-pflegefachmann-frau-forensik-stgag-ch-2": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerCanonical": "dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.1333,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.381,
-    "candidatesCount": 2,
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.4167,
-    "candidatesCount": 2,
+    "score": 0.3846,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-forensik-stgag-ch": {
@@ -3528,12 +3780,12 @@
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-forensik-stgag-ch-2": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.1429,
-    "candidatesCount": 2,
+    "score": 0.1333,
+    "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen": {
@@ -3542,6 +3794,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.9,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::salute-professionale-moglie-efz-nella-springerpool-spital-thurgau-stgag-diessenhofen": {
+    "winnerJobIdentifier": "spital-thurgau-07a5645fdbb5",
+    "winnerCanonical": "fachmann-frau-gesundheit-cfc-im-springerpool-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -3599,12 +3860,39 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::de::assistente-di-cura-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikzkn",
+    "winnerCanonical": "pflegeassistent-eoc-ente-ospedaliero-cantonale-mendrisio",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikzn3",
+    "winnerCanonical": "pflegehelfer-oder-sozialarbeiter-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::de::assistente-di-studio-medico-60-70-eoc-ente-ospedaliero-cantonale-locarno-uilqdx": {
     "winnerJobIdentifier": "company-uilqdx",
     "winnerCanonical": "medizinischer-studienassistent-60-70-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3636,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -3672,12 +3960,12 @@
     "canton": "TI"
   },
   "TI::de::data-center-technician-ch-stabio-on-site-reboot-monkey-stabio-2": {
-    "winnerJobIdentifier": "reboot-monkey-5e1ff7910bde",
-    "winnerCanonical": "data-center-technician-ch-stabio-on-site-reboot-monkey-stabio",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-239a59e4942a",
+    "winnerCanonical": "data-center-technician-ch-stabio-vor-ort-reboot-monkey-stabio",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.5833,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::de::data-center-technician-switzerland-manno-on-site-reboot-monkey-manno-2": {
@@ -3759,6 +4047,24 @@
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikz1n",
+    "winnerCanonical": "krankenschwester-in-der-allgemeinen-pflege-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 4,
     "canton": "TI"
   },
   "TI::de::ingegnere-di-progetto-project-manager-lombardi-group-giubiasco": {
@@ -4058,6 +4364,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::de::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 3,
+    "canton": "TI"
+  },
   "TI::de::technicien-en-metrologie-100-agie-charmilles-sa-biel-bienne": {
     "winnerJobIdentifier": "agie-charmilles-49a88eb1478c",
     "winnerCanonical": "sap-developer-100-agie-charmilles-biel-bienne",
@@ -4073,6 +4388,15 @@
     "decidedAt": "2026-05-07T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::tecnico-di-sala-operatoria-tso-e-o-infermiere-a-strumentista-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikzn6",
+    "winnerCanonical": "operationstechniker-tso-und-oder-instrumentenschwester-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -4175,6 +4499,24 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::en::assistente-di-cura-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikzkn",
+    "winnerCanonical": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-mendrisio-uikzkn",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.7,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikzn3",
+    "winnerCanonical": "career-or-health-care-assistant-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::en::assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano-uikz1l": {
     "winnerJobIdentifier": "company-uil1tg",
     "winnerCanonical": "career-or-health-care-assistant-eoc-ente-ospedaliero-cantonale-lugano",
@@ -4190,6 +4532,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.4667,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "medical-practice-assistant-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3077,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -4310,6 +4661,24 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::en::impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikz1n",
+    "winnerCanonical": "nurse-in-general-care-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 4,
+    "canton": "TI"
+  },
   "TI::en::ingegnere-di-progetto-project-manager-lombardi-group-giubiasco": {
     "winnerJobIdentifier": "lombardi-group-5faf0dec3324",
     "winnerCanonical": "project-engineer-project-manager-lombardi-giubiasco",
@@ -4425,6 +4794,15 @@
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.2222,
     "candidatesCount": 1,
+    "canton": "TI"
+  },
+  "TI::en::levatrice-ostetrica-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-x29miu",
+    "winnerCanonical": "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.5556,
+    "candidatesCount": 3,
     "canton": "TI"
   },
   "TI::en::medecin-adjoint-eoc-ente-ospedaliero-cantonale-lugano": {
@@ -4590,11 +4968,11 @@
     "canton": "TI"
   },
   "TI::en::qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-x29n62",
-    "winnerCanonical": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.5556,
+    "score": 0.75,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -4679,6 +5057,15 @@
     "candidatesCount": 4,
     "canton": "TI"
   },
+  "TI::en::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 3,
+    "canton": "TI"
+  },
   "TI::en::stagista-nelle-vendite-digitali-programma-di-tirocinio-emea-vf-international-the-north-face-timberland-emea-che-stabio-v": {
     "winnerJobIdentifier": "company-jvj5fl",
     "winnerCanonical": "pr-marketing-intern-emea-internship-program-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-jvj5fl",
@@ -4703,6 +5090,15 @@
     "decidedAt": "2026-05-07T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::tecnico-di-sala-operatoria-tso-e-o-infermiere-a-strumentista-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikzn6",
+    "winnerCanonical": "operating-room-technician-tso-and-or-instrumental-nurse-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2174,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -4769,12 +5165,39 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::fr::assistente-di-cura-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-x29n58",
+    "winnerCanonical": "carriere-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::fr::assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikzn3",
+    "winnerCanonical": "assistant-de-carriere-ou-de-sante-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::fr::assistente-di-studio-medico-60-70-eoc-ente-ospedaliero-cantonale-locarno-uilqdx": {
     "winnerJobIdentifier": "company-uilqdx",
     "winnerCanonical": "medical-office-assistant-60-70-eoc-ente-ospedaliero-cantonale-locarno",
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.4667,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::fr::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2857,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -4895,6 +5318,24 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::fr::impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3077,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::fr::infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uil17z",
+    "winnerCanonical": "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 4,
+    "canton": "TI"
+  },
   "TI::fr::infirmiere-specialisee-en-anesthesie-eoc-ente-ospedaliero-cantonale-mendrisio": {
     "winnerJobIdentifier": "company-uil19q",
     "winnerCanonical": "infirmieres-et-infirmiers-specialises-eoc-ente-ospedaliero-cantonale-mendrisio",
@@ -4995,9 +5436,9 @@
     "canton": "TI"
   },
   "TI::fr::kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-x29n62",
+    "winnerJobIdentifier": "company-uil2ol",
     "winnerCanonical": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-bellinzona",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 2,
@@ -5028,6 +5469,15 @@
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.2222,
     "candidatesCount": 1,
+    "canton": "TI"
+  },
+  "TI::fr::levatrice-ostetrica-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-x29miu",
+    "winnerCanonical": "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.5556,
+    "candidatesCount": 3,
     "canton": "TI"
   },
   "TI::fr::medecin-adjoint-eoc-ente-ospedaliero-cantonale-lugano": {
@@ -5201,6 +5651,15 @@
     "candidatesCount": 1,
     "canton": "TI"
   },
+  "TI::fr::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-x29n5y",
+    "winnerCanonical": "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 3,
+    "canton": "TI"
+  },
   "TI::fr::stagiaire-en-gestion-de-projet-richemont-meyrin": {
     "winnerJobIdentifier": "richemont-76f727c86d86",
     "winnerCanonical": "it-project-management-intern-richemont-meyrin",
@@ -5228,6 +5687,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::fr::tecnico-di-sala-operatoria-tso-e-o-infermiere-a-strumentista-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikzn6",
+    "winnerCanonical": "technicien-de-bloc-operatoire-tso-et-ou-infirmiere-instrumentale-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.2083,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::fr::title-truck-driver-heineken-ch-content-width-device-width": {
     "winnerJobIdentifier": "heineken-ch-1cdd4bfa05de",
     "winnerCanonical": "chauffeur-c-e-heineken-switzerland-content-width-device-width",
@@ -5247,12 +5715,12 @@
     "canton": "TI"
   },
   "TI::it::account-manager-m-w-banca-cler-bellinzona": {
-    "winnerJobIdentifier": "company-ts9gho",
-    "winnerCanonical": "account-manager-m-w-banca-cler-bellinzona-213e54",
-    "decidedAt": "2026-04-30T15:42:20.795Z",
-    "lastSeenAt": "2026-05-12T00:00:00.000Z",
-    "score": 0.875,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-a7q9i9",
+    "winnerCanonical": "kundenberaterin-individual-e-stellvertretende-filialleiterin-solothurn-w-m-80-100-bank-cler-bellinzona",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso": {
@@ -5336,6 +5804,24 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::it::assistente-di-cura-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikzkn",
+    "winnerCanonical": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-mendrisio",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.7778,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikz1l",
+    "winnerCanonical": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.8667,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::it::assistente-di-studio-medico-60-70-eoc-ente-ospedaliero-cantonale-locarno": {
     "winnerJobIdentifier": "company-uilqdx",
     "winnerCanonical": "assistente-di-studio-medico-60-70-eoc-ente-ospedaliero-cantonale-bellinzona",
@@ -5351,6 +5837,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.7692,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikyun",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.8,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -5445,12 +5940,12 @@
     "canton": "TI"
   },
   "TI::it::data-center-technician-ch-stabio-on-site-reboot-monkey-stabio-2": {
-    "winnerJobIdentifier": "reboot-monkey-5e1ff7910bde",
-    "winnerCanonical": "data-center-technician-ch-stabio-on-site-reboot-monkey-stabio",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-239a59e4942a",
+    "winnerCanonical": "data-center-technician-ch-stabio-in-loco-reboot-monkey-stabio",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.5833,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::data-center-technician-switzerland-manno-on-site-reboot-monkey-manno-2": {
@@ -5463,12 +5958,12 @@
     "canton": "TI"
   },
   "TI::it::data-center-technician-switzerland-melano-on-site-reboot-monkey-melano-2": {
-    "winnerJobIdentifier": "reboot-monkey-a484b6cc2df0",
-    "winnerCanonical": "data-center-technician-switzerland-melano-on-site-reboot-monkey-melano",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-d56b9e2bb09b",
+    "winnerCanonical": "data-center-technician-svizzera-melano-on-site-reboot-monkey-melano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.7273,
+    "candidatesCount": 1,
     "canton": "TI"
   },
   "TI::it::dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen": {
@@ -5540,6 +6035,42 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5556,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uil2qc",
+    "winnerCanonical": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.7778,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::infermiere-a-in-cure-generali-attualmente-in-formazione-diploma-ancora-da-ottenere-eoc-ente-ospedaliero-cantonale-bellin": {
+    "winnerJobIdentifier": "company-uikz1p",
+    "winnerCanonical": "infermiere-a-in-cure-generali-attualmente-in-formazione-diploma-ancora-da-ottenere-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.8824,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikz1n",
+    "winnerCanonical": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.8182,
+    "candidatesCount": 4,
+    "canton": "TI"
+  },
+  "TI::it::infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikz1r",
+    "winnerCanonical": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.7778,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -5696,6 +6227,33 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::it::medico-assistente-in-formazione-medicina-interna-generale-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uilpqk",
+    "winnerCanonical": "medico-assistente-in-formazione-medicina-interna-generale-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.8462,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::medico-assistente-medicina-interna-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uil1yo",
+    "winnerCanonical": "medico-assistente-medicina-interna-eoc-ente-ospedaliero-cantonale-mendrisio",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.8,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::medico-capoclinica-medicina-interna-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uil1yp",
+    "winnerCanonical": "medico-capoclinica-medicina-interna-eoc-ente-ospedaliero-cantonale-mendrisio",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.8,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::it::medizinische-praxisassistentin-medizinischer-praxisassistent-60-70-eoc-ente-ospedaliero-cantonale-locarno": {
     "winnerJobIdentifier": "company-uilqdx",
     "winnerCanonical": "assistente-di-studio-medico-60-70-eoc-ente-ospedaliero-cantonale-bellinzona",
@@ -5849,6 +6407,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::it::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikzn5",
+    "winnerCanonical": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.7778,
+    "candidatesCount": 3,
+    "canton": "TI"
+  },
   "TI::it::technicien-en-metrologie-100-agie-charmilles-sa-biel-bienne": {
     "winnerJobIdentifier": "agie-charmilles-49a88eb1478c",
     "winnerCanonical": "sap-developer-100-agie-charmilles-biel-bienne",
@@ -5864,6 +6431,15 @@
     "decidedAt": "2026-05-07T00:00:00.000Z",
     "lastSeenAt": "2026-05-12T00:00:00.000Z",
     "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::tecnico-di-sala-operatoria-tso-e-o-infermiere-a-strumentista-eoc-ente-ospedaliero-cantonale-bellinzona": {
+    "winnerJobIdentifier": "company-uikzn6",
+    "winnerCanonical": "tecnico-di-sala-operatoria-tso-e-o-infermiere-a-strumentista-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.875,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -5895,30 +6471,30 @@
     "canton": "TI"
   },
   "VD::de::data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-2": {
-    "winnerJobIdentifier": "reboot-monkey-927aecb710d5",
-    "winnerCanonical": "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-b23f2b6b25c3",
+    "winnerCanonical": "data-center-techniker-ch-villars-ste-croix-vor-ort-reboot-monkey-villars-ste-croix",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9167,
-    "candidatesCount": 2,
+    "score": 0.5333,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::de::data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-2": {
-    "winnerJobIdentifier": "reboot-monkey-cb99cdccf9be",
-    "winnerCanonical": "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-f17a12be8f60",
+    "winnerCanonical": "data-center-techniker-ch-yverdon-les-bains-vor-ort-reboot-monkey-yverdon-les-bains",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9167,
-    "candidatesCount": 2,
+    "score": 0.5333,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::de::data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne-2": {
-    "winnerJobIdentifier": "reboot-monkey-0b64e75f2486",
-    "winnerCanonical": "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-6734554eeac4",
+    "winnerCanonical": "data-center-techniker-schweiz-lausanne-vor-ort-reboot-monkey-lausanne",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.3571,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::de::datenzentrumstechniker-schweiz-lausanne-vor-ort-reboot-monkey-lausanne": {
@@ -5931,84 +6507,84 @@
     "canton": "VD"
   },
   "VD::de::technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix": {
-    "winnerJobIdentifier": "reboot-monkey-927aecb710d5",
-    "winnerCanonical": "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-b23f2b6b25c3",
+    "winnerCanonical": "data-center-techniker-ch-villars-ste-croix-vor-ort-reboot-monkey-villars-ste-croix",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.6154,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::de::tecnico-data-center-svizzera-losanna-presenza-in-sede-reboot-monkey-lausanne-8b5dmv": {
-    "winnerJobIdentifier": "reboot-monkey-0b64e75f2486",
-    "winnerCanonical": "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-6734554eeac4",
+    "winnerCanonical": "data-center-techniker-schweiz-lausanne-vor-ort-reboot-monkey-lausanne",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3125,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::de::tecnico-del-centro-dati-svizzera-losanna-sito-reboot-monkey-lausanne": {
-    "winnerJobIdentifier": "reboot-monkey-0b64e75f2486",
-    "winnerCanonical": "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-6734554eeac4",
+    "winnerCanonical": "data-center-techniker-schweiz-lausanne-vor-ort-reboot-monkey-lausanne",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.1875,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::de::tecnico-di-data-center-svizzera-losanna-sito-reboot-monkey-lausanne": {
-    "winnerJobIdentifier": "reboot-monkey-0b64e75f2486",
-    "winnerCanonical": "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-6734554eeac4",
+    "winnerCanonical": "data-center-techniker-schweiz-lausanne-vor-ort-reboot-monkey-lausanne",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3571,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::en::datenzentrumstechniker-schweiz-lausanne-vor-ort-reboot-monkey-lausanne": {
-    "winnerJobIdentifier": "reboot-monkey-0b64e75f2486",
+    "winnerJobIdentifier": "reboot-monkey-6734554eeac4",
     "winnerCanonical": "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2308,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::en::technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix": {
-    "winnerJobIdentifier": "reboot-monkey-927aecb710d5",
+    "winnerJobIdentifier": "reboot-monkey-b23f2b6b25c3",
     "winnerCanonical": "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.6154,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::en::tecnico-data-center-svizzera-losanna-presenza-in-sede-reboot-monkey-lausanne-8b5dmv": {
-    "winnerJobIdentifier": "reboot-monkey-0b64e75f2486",
+    "winnerJobIdentifier": "reboot-monkey-6734554eeac4",
     "winnerCanonical": "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3125,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::en::tecnico-del-centro-dati-svizzera-losanna-sito-reboot-monkey-lausanne": {
-    "winnerJobIdentifier": "reboot-monkey-0b64e75f2486",
+    "winnerJobIdentifier": "reboot-monkey-6734554eeac4",
     "winnerCanonical": "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.1875,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::en::tecnico-di-data-center-svizzera-losanna-sito-reboot-monkey-lausanne": {
-    "winnerJobIdentifier": "reboot-monkey-0b64e75f2486",
+    "winnerJobIdentifier": "reboot-monkey-6734554eeac4",
     "winnerCanonical": "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3571,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::fr::data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-2": {
@@ -6111,48 +6687,48 @@
     "canton": "VD"
   },
   "VD::it::data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-2": {
-    "winnerJobIdentifier": "reboot-monkey-927aecb710d5",
-    "winnerCanonical": "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-b23f2b6b25c3",
+    "winnerCanonical": "tecnico-data-center-ch-villars-ste-croix-presenza-in-sede-reboot-monkey-villars-ste-croix",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9167,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-2": {
-    "winnerJobIdentifier": "reboot-monkey-cb99cdccf9be",
-    "winnerCanonical": "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-f17a12be8f60",
+    "winnerCanonical": "tecnico-data-center-ch-yverdon-les-bains-presenza-in-sede-reboot-monkey-yverdon-les-bains",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9167,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne-2": {
-    "winnerJobIdentifier": "reboot-monkey-0b64e75f2486",
-    "winnerCanonical": "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-6734554eeac4",
+    "winnerCanonical": "tecnico-data-center-svizzera-losanna-presenza-in-sede-reboot-monkey-lausanne",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.3125,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::datenzentrumstechniker-schweiz-lausanne-vor-ort-reboot-monkey-lausanne": {
-    "winnerJobIdentifier": "reboot-monkey-0b64e75f2486",
-    "winnerCanonical": "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-6734554eeac4",
+    "winnerCanonical": "tecnico-data-center-svizzera-losanna-presenza-in-sede-reboot-monkey-lausanne",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.2308,
-    "candidatesCount": 2,
+    "score": 0.2,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix": {
-    "winnerJobIdentifier": "reboot-monkey-927aecb710d5",
-    "winnerCanonical": "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-b23f2b6b25c3",
+    "winnerCanonical": "tecnico-data-center-ch-villars-ste-croix-presenza-in-sede-reboot-monkey-villars-ste-croix",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.6154,
-    "candidatesCount": 2,
+    "score": 0.5714,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::tecnico-data-center-svizzera-losanna-presenza-in-sede-reboot-monkey-lausanne-8b5dmv": {
@@ -6183,12 +6759,12 @@
     "canton": "VD"
   },
   "VS::de::data-center-technician-ch-urswil-on-site-reboot-monkey-urswil-2": {
-    "winnerJobIdentifier": "reboot-monkey-01a996cacfd4",
-    "winnerCanonical": "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-7ceb3d2fe232",
+    "winnerCanonical": "data-center-technician-ch-urswil-vor-ort-reboot-monkey-urswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.5833,
+    "candidatesCount": 1,
     "canton": "VS"
   },
   "VS::de::job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen": {
@@ -6201,12 +6777,12 @@
     "canton": "VS"
   },
   "VS::de::operator-in-2-schicht-arxada-ch": {
-    "winnerJobIdentifier": "arxada-89e7dd4a9ec5",
+    "winnerJobIdentifier": "arxada-c22d607e0938",
     "winnerCanonical": "operator-in-2-schicht-arxada-visp",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.7143,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "VS"
   },
   "VS::en::job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen": {
@@ -6237,12 +6813,12 @@
     "canton": "VS"
   },
   "VS::it::data-center-technician-ch-urswil-on-site-reboot-monkey-urswil-2": {
-    "winnerJobIdentifier": "reboot-monkey-01a996cacfd4",
-    "winnerCanonical": "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-7ceb3d2fe232",
+    "winnerCanonical": "data-center-technician-ch-urswil-in-loco-reboot-monkey-urswil",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.5833,
+    "candidatesCount": 1,
     "canton": "VS"
   },
   "VS::it::job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen": {
@@ -6251,6 +6827,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.1333,
+    "candidatesCount": 2,
+    "canton": "VS"
+  },
+  "VS::it::pasticceria-6-mesi-w-verbier-marriott-international-verbier": {
+    "winnerJobIdentifier": "marriott-2790c1625139",
+    "winnerCanonical": "pastry-tirocinante-6-months-w-verbier-marriott-international-verbier",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "VS"
   },
@@ -6264,21 +6849,21 @@
     "canton": "ZG"
   },
   "ZG::it::data-center-technician-ch-steinhausen-on-site-reboot-monkey-steinhausen-2": {
-    "winnerJobIdentifier": "reboot-monkey-9aad251b937c",
-    "winnerCanonical": "data-center-technician-ch-steinhausen-on-site-reboot-monkey-steinhausen",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-8b4acb37e8cf",
+    "winnerCanonical": "tecnico-data-center-ch-steinhausen-presenza-in-sede-reboot-monkey-steinhausen",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.4286,
+    "candidatesCount": 1,
     "canton": "ZG"
   },
   "ZG::it::data-center-technician-switzerland-hunenberg-on-site-reboot-monkey-hunenberg-2": {
-    "winnerJobIdentifier": "reboot-monkey-5fec26d9601f",
-    "winnerCanonical": "data-center-technician-switzerland-hunenberg-on-site-reboot-monkey-hunenberg",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-1f42e5181b8e",
+    "winnerCanonical": "tecnico-data-center-svizzera-hunenberg-on-site-reboot-monkey-hunenberg",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.5833,
+    "candidatesCount": 1,
     "canton": "ZG"
   },
   "ZG::it::senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug": {
@@ -6291,12 +6876,12 @@
     "canton": "ZG"
   },
   "ZH::de::arztsekretarin-arztsekretar-ksw-ch": {
-    "winnerJobIdentifier": "ksw-491c8feebb0b",
+    "winnerJobIdentifier": "ksw-ca5241ac2ac5",
     "winnerCanonical": "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.5,
-    "candidatesCount": 3,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::career-start-in-digital-assurance-it-audit-and-process-analytics-financial-services-pwc-zurich": {
@@ -6309,39 +6894,39 @@
     "canton": "ZH"
   },
   "ZH::de::data-center-technician-leuk-on-site-reboot-monkey-ch": {
-    "winnerJobIdentifier": "reboot-monkey-64046a96ce53",
-    "winnerCanonical": "data-center-technician-ch-zuerich-on-site-reboot-monkey-zuerich",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-94e90f7fae5b",
+    "winnerCanonical": "data-center-techniker-ch-zurich-vor-ort-reboot-monkey-zuerich",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.3571,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::data-center-technician-sion-on-site-reboot-monkey-ch": {
-    "winnerJobIdentifier": "reboot-monkey-64046a96ce53",
-    "winnerCanonical": "data-center-technician-ch-zuerich-on-site-reboot-monkey-zuerich",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-94e90f7fae5b",
+    "winnerCanonical": "data-center-techniker-ch-zurich-vor-ort-reboot-monkey-zuerich",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.3571,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::data-center-technician-switzerland-rafz-on-site-reboot-monkey-rafz-2": {
-    "winnerJobIdentifier": "reboot-monkey-753128b0f484",
-    "winnerCanonical": "data-center-technician-switzerland-rafz-on-site-reboot-monkey-rafz",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-fd5914207512",
+    "winnerCanonical": "data-center-techniker-schweiz-rafz-vor-ort-reboot-monkey-rafz",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.3571,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::field-service-engineer-f-m-d-hitachi-energy-zurich-switzerland": {
-    "winnerJobIdentifier": "hitachi-energy-45a5046c4b7a",
+    "winnerJobIdentifier": "hitachi-energy-52872821a354",
     "winnerCanonical": "field-service-ingenieur-f-m-d-hitachi-energy-zurich",
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.7273,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::senior-associate-legal-regulatory-project-manager-pwc-zurich": {
@@ -6372,12 +6957,12 @@
     "canton": "ZH"
   },
   "ZH::de::tecnico-del-data-center-svizzera-rafz-sito-reboot-monkey-rafz": {
-    "winnerJobIdentifier": "reboot-monkey-753128b0f484",
-    "winnerCanonical": "data-center-technician-switzerland-rafz-on-site-reboot-monkey-rafz",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-fd5914207512",
+    "winnerCanonical": "data-center-techniker-schweiz-rafz-vor-ort-reboot-monkey-rafz",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3846,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::verkaufsberater-aussendienst-localsearch-ch": {
@@ -6390,30 +6975,30 @@
     "canton": "ZH"
   },
   "ZH::en::arztsekretarin-arztsekretar-ksw-ch-3": {
-    "winnerJobIdentifier": "ksw-da54f11b0c98",
-    "winnerCanonical": "doctor-s-secretary-kantonsspital-winterthur-ksw-winterthur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "ksw-ca5241ac2ac5",
+    "winnerCanonical": "doctor-s-secretary-kantonsspital-winterthur-ksw-winterthur-43e221",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.1,
-    "candidatesCount": 2,
+    "score": 0.0909,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::data-center-technician-leuk-on-site-reboot-monkey-ch": {
-    "winnerJobIdentifier": "reboot-monkey-64046a96ce53",
+    "winnerJobIdentifier": "reboot-monkey-94e90f7fae5b",
     "winnerCanonical": "data-center-technician-ch-zuerich-on-site-reboot-monkey-zuerich",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.8,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::data-center-technician-sion-on-site-reboot-monkey-ch": {
-    "winnerJobIdentifier": "reboot-monkey-64046a96ce53",
+    "winnerJobIdentifier": "reboot-monkey-94e90f7fae5b",
     "winnerCanonical": "data-center-technician-ch-zuerich-on-site-reboot-monkey-zuerich",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.8,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-2": {
@@ -6444,12 +7029,12 @@
     "canton": "ZH"
   },
   "ZH::en::tecnico-del-data-center-svizzera-rafz-sito-reboot-monkey-rafz": {
-    "winnerJobIdentifier": "reboot-monkey-753128b0f484",
+    "winnerJobIdentifier": "reboot-monkey-fd5914207512",
     "winnerCanonical": "data-center-technician-switzerland-rafz-on-site-reboot-monkey-rafz",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.3846,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel": {
@@ -6462,12 +7047,12 @@
     "canton": "ZH"
   },
   "ZH::fr::arztsekretarin-arztsekretar-ksw-ch-3": {
-    "winnerJobIdentifier": "ksw-da54f11b0c98",
-    "winnerCanonical": "secretaire-du-docteur-kantonsspital-winterthur-ksw-winterthur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "ksw-ca5241ac2ac5",
+    "winnerCanonical": "secretaire-du-docteur-kantonsspital-winterthur-ksw-winterthur-43e221",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.1,
-    "candidatesCount": 2,
+    "score": 0.0909,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::fr::career-start-in-digital-assurance-it-audit-and-process-analytics-financial-services-pwc-zurich": {
@@ -6552,12 +7137,12 @@
     "canton": "ZH"
   },
   "ZH::it::arztsekretarin-arztsekretar-ksw-ch-3": {
-    "winnerJobIdentifier": "ksw-da54f11b0c98",
-    "winnerCanonical": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "ksw-ca5241ac2ac5",
+    "winnerCanonical": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur-43e221",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.1,
-    "candidatesCount": 2,
+    "score": 0.0909,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::career-start-in-digital-assurance-it-audit-and-process-analytics-financial-services-pwc-zurich": {
@@ -6570,48 +7155,48 @@
     "canton": "ZH"
   },
   "ZH::it::data-center-technician-ch-zuerich-on-site-reboot-monkey-zuerich-2": {
-    "winnerJobIdentifier": "reboot-monkey-64046a96ce53",
-    "winnerCanonical": "data-center-technician-ch-zuerich-on-site-reboot-monkey-zuerich",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-94e90f7fae5b",
+    "winnerCanonical": "tecnico-data-center-ch-zurigo-presenza-in-sede-reboot-monkey-zuerich",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.4,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::data-center-technician-leuk-on-site-reboot-monkey-ch": {
-    "winnerJobIdentifier": "reboot-monkey-64046a96ce53",
-    "winnerCanonical": "data-center-technician-ch-zuerich-on-site-reboot-monkey-zuerich",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-94e90f7fae5b",
+    "winnerCanonical": "tecnico-data-center-ch-zurigo-presenza-in-sede-reboot-monkey-zuerich",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::data-center-technician-sion-on-site-reboot-monkey-ch": {
-    "winnerJobIdentifier": "reboot-monkey-64046a96ce53",
-    "winnerCanonical": "data-center-technician-ch-zuerich-on-site-reboot-monkey-zuerich",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-94e90f7fae5b",
+    "winnerCanonical": "tecnico-data-center-ch-zurigo-presenza-in-sede-reboot-monkey-zuerich",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.8,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::data-center-technician-switzerland-rafz-on-site-reboot-monkey-rafz-2": {
-    "winnerJobIdentifier": "reboot-monkey-753128b0f484",
-    "winnerCanonical": "data-center-technician-switzerland-rafz-on-site-reboot-monkey-rafz",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-fd5914207512",
+    "winnerCanonical": "tecnico-data-center-svizzera-rafz-in-presenza-reboot-monkey-rafz",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.3571,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::data-center-technician-switzerland-schlieren-on-site-reboot-monkey-schlieren-2": {
-    "winnerJobIdentifier": "reboot-monkey-92f7103e7455",
-    "winnerCanonical": "data-center-technician-switzerland-schlieren-on-site-reboot-monkey-schlieren",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-f5101d3c3080",
+    "winnerCanonical": "data-center-technician-svizzera-schlieren-on-site-reboot-monkey-schlieren",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.9,
-    "candidatesCount": 2,
+    "score": 0.7273,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::field-service-engineer-f-m-d-hitachi-energy-zurich-switzerland": {
