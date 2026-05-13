@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-05-12T22:46:33.744Z",
+  "generatedAt": "2026-05-13T11:42:43.663Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 12467,
-  "avgDurationMs": 12467,
+  "unchangedCount": 0,
+  "durationMs": 13033,
+  "avgDurationMs": 13033,
   "durationHistory": [
-    12467
+    13033
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,6 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -46,57 +45,14 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-10T10:42:11.590Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
-    {
-      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
-      "title": "Mitarbeiter:in Chargebacks",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "collaboratore-trice-chargebacks-postfinance-bern",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-10",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "",
-      "id": "postfinance-c5dd413c8462",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-05-10T10:42:11.590Z",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 17
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
@@ -117,7 +73,6 @@
       "experienceLevel": "",
       "sector": "Consulenza",
       "workload": "",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "AR",
         "location": "Herisau"
@@ -128,11 +83,11 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-10T10:42:11.590Z",
-      "_qualityScore": 73,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -156,7 +111,6 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "VD",
         "location": "Lausanne"
@@ -168,25 +122,25 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-11T12:20:56.971Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "url": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
-      "title": "Collaborateur:trice Compliance Office Clientèle Commerciale",
+      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
+      "title": "Mitarbeiter:in Chargebacks",
       "company": "PostFinance",
       "companyKey": "postfinance",
-      "location": "Bulle",
-      "canton": "FR",
+      "location": "Bern",
+      "canton": "BE",
       "country": "CH",
-      "slug": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
-      "sourceLang": "fr",
+      "slug": "collaboratore-trice-chargebacks-postfinance-bern",
+      "sourceLang": "de",
       "department": "",
       "category": "servizi-finanziari",
       "datePosted": "2026-05-10",
@@ -194,25 +148,24 @@
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
-      "sector": "Finanza",
+      "sector": "Servizi Finanziari",
       "workload": "",
-      "needsRetranslation": true,
       "_targetScope": {
-        "canton": "FR",
-        "location": "Bulle"
+        "canton": "BE",
+        "location": "Bern"
       },
       "crawledAt": "",
-      "id": "postfinance-97dc609ae987",
+      "id": "postfinance-c5dd413c8462",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "postalCode": "1630",
+      "postalCode": "3001",
       "firstSeenAt": "2026-05-10T10:42:11.590Z",
-      "_qualityScore": 78,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 16,
+        "richness": 18,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -236,7 +189,6 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "GE",
         "location": "Carouge"
@@ -248,13 +200,54 @@
       "currency": "CHF",
       "postalCode": "1227",
       "firstSeenAt": "2026-05-10T10:42:11.590Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
+      "title": "Collaborateur:trice Compliance Office Clientèle Commerciale",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bulle",
+      "canton": "FR",
+      "country": "CH",
+      "slug": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
+      "sourceLang": "fr",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-10",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "",
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Bulle"
+      },
+      "crawledAt": "",
+      "id": "postfinance-97dc609ae987",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "1630",
+      "firstSeenAt": "2026-05-10T10:42:11.590Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
