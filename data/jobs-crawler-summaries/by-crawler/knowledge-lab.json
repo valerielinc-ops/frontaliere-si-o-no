@@ -1,16 +1,16 @@
 {
   "key": "knowledge-lab",
   "label": "Knowledge Lab",
-  "generatedAt": "2026-05-12T22:24:59.029Z",
+  "generatedAt": "2026-05-13T11:20:53.391Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 373,
-  "avgDurationMs": 373,
+  "durationMs": 711,
+  "avgDurationMs": 711,
   "durationHistory": [
-    373
+    711
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -80,12 +80,11 @@
       "streetAddress": "Via Giuseppe Buffi 13",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-10T10:24:48.366Z",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     }
@@ -158,11 +157,11 @@
       "streetAddress": "Via Giuseppe Buffi 13",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-10T10:24:48.366Z",
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
