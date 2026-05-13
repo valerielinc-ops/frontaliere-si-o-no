@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-05-13T11:43:10.867Z",
-  "total": 149,
+  "generatedAt": "2026-05-13T22:51:32.860Z",
+  "total": 140,
   "newCount": 1,
   "updatedCount": 104,
-  "removedCount": 0,
-  "unchangedCount": 11,
-  "durationMs": 2426,
-  "avgDurationMs": 2426,
+  "removedCount": 1,
+  "unchangedCount": 10,
+  "durationMs": 2866,
+  "avgDurationMs": 2866,
   "durationHistory": [
-    2426
+    2866
   ],
   "newJobs": [
     {
@@ -67,18 +67,12 @@
       "validThrough": "2036-05-07",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-cbd87979f741",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "4001",
-      "firstSeenAt": "2026-05-11T12:21:25.187Z",
-      "_qualityScore": 90,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 22
+        "translation": 16,
+        "completeness": 14
       }
     },
     {
@@ -139,17 +133,12 @@
       "validThrough": "2036-05-04",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-3aa7523d85ec",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-08T10:28:56.294Z",
-      "_qualityScore": 87,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "translation": 16,
+        "completeness": 14
       }
     },
     {
@@ -693,36 +682,6 @@
       }
     },
     {
-      "title": "Senior Associate / Assistant Manager - Audit Trade, Industries & Services",
-      "slug": "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug",
-      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-assistant-manager-audit-trade-industries-services/03bf24ec-d923-4681-8189-b04c36ab619b",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Audit-Senior-Associate---Assistant-Manager---Trade--Industries---Services---Herbst-2026_668637WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zug",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-24",
-      "validThrough": "2026-05-23",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    },
-    {
       "title": "Associate - Corporate Tax (Steuerberatung & Dissertation im Steuerrecht) 60%",
       "slug": "associate-corporate-tax-steuerberatung-dissertation-im-steuerrecht-60-pwc-zurich",
       "url": "https://jobs.pwc.ch/job-vacancies/associate-corporate-tax-steuerberatung-dissertation-im-steuerrecht/a449aa8b-b75b-4253-acf8-713f54ac8786",
@@ -1105,9 +1064,82 @@
         "translation": 25,
         "completeness": 22
       }
+    },
+    {
+      "title": "Manager - Transfer Pricing (Financial Services) 80 – 100%",
+      "slug": "manager-transfer-pricing-financial-services-80-100-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/manager-transfer-pricing-financial-services-80/882e3002-f318-429b-8c54-defb9bedbf3b",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Transfer-Pricing-Manager-Financial-services-80---100-_688846WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-04-01",
+      "validThrough": "2036-03-29",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-a489d971d037",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-04-26T21:57:56.602Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Associate - Sachbearbeiter:in Treuhand 80 - 100%",
+      "slug": "associato-specialista-in-treuhand-80-100-pwc-switzerland-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/associate-sachbearbeiter-in-treuhand/293fc22e-d05f-402b-b33a-413ae7b9e76b",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/FY26---TLW---TLW-ICR-East-ZH---Zrich---Associate-2---Start-01032026_702579WD-1/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-02-03",
+      "validThrough": "2036-01-31",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-f41a2c6cc619",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "firstSeenAt": "2026-04-26T21:57:56.602Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Senior Associate - Junior Proposal Manager (Advisory Major Pursuits)",
@@ -1177,6 +1209,41 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "title": "Senior Associate / Assistant Manager - Audit Trade, Industries & Services",
+      "slug": "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug",
+      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-assistant-manager-audit-trade-industries-services/03bf24ec-d923-4681-8189-b04c36ab619b",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Audit-Senior-Associate---Assistant-Manager---Trade--Industries---Services---Herbst-2026_668637WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zug",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "canton": "ZG",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-24",
+      "validThrough": "2026-05-23",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-0054671bedc4",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-04-24T10:44:24.903Z",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 19,
         "completeness": 19
       }
     },
@@ -1253,42 +1320,6 @@
       }
     },
     {
-      "title": "Career Start in Audit – Vorsorgespezialist:in – September 2026",
-      "slug": "career-start-in-audit-vorsorgespezialist-in-september-2026-pwc-luzern",
-      "url": "https://jobs.pwc.ch/job-vacancies/career-start-in-audit-vorsorgespezialist-in-september-2026/c4547598-afc3-4b4d-b048-208f602f568e",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Bern/Career-Start-in-Audit---Vorsorgespezialist-in---September-2026_680335WD-2/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Luzern",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "canton": "LU",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-03-13",
-      "validThrough": "2036-03-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-fdcc133e3c78",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "6003",
-      "firstSeenAt": "2026-04-13T22:16:12.621Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Audit Senior Associate / Assistant Manager - Trade, Industries & Services / US GAAP",
       "slug": "audit-senior-associate-assistant-manager-trade-industries-services-us-gaap-pwc-geneva",
       "url": "https://jobs.pwc.ch/job-vacancies/audit-senior-associate-assistant-manager-trade-industries-services-us-gaap/9ca0dcd9-a59a-460c-ab4b-c503f987799a",
@@ -1315,6 +1346,7 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-10T10:42:36.606Z",
+      "needsRetranslation": true,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1463,42 +1495,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Manager / Senior Manager - Cyber Technology and Transformation",
-      "slug": "manager-senior-manager-cyber-technology-and-transformation-pwc-geneve",
-      "url": "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-cyber-technology-and-transformation/c594027a-c567-4a9b-8477-1ab26a5e7e82",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager---Senior-Manager-Cyber-Technology-and-Transformation_616683WD-1/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Genève",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "canton": "GE",
-      "country": "CH",
-      "category": "consulting",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2025-08-03",
-      "validThrough": "2035-08-01",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-82014fee6d7e",
-      "salaryMin": 75500,
-      "salaryMax": 120500,
-      "currency": "CHF",
-      "postalCode": "1201",
-      "firstSeenAt": "2026-04-13T22:16:12.621Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 25,
         "completeness": 22
       }
