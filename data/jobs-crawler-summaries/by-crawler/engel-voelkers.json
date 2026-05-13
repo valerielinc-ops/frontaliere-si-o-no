@@ -1,49 +1,18 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-05-13T10:58:16.060Z",
+  "generatedAt": "2026-05-13T22:07:15.850Z",
   "total": 9,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 19882,
-  "avgDurationMs": 19882,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 18797,
+  "avgDurationMs": 18797,
   "durationHistory": [
-    19882
+    18797
   ],
-  "newJobs": [
-    {
-      "title": "Marketing & Communication Manager | Team support (Ascona/Lugano)",
-      "slug": "marketing-communication-manager-team-support-ascona-lugano-engel-voelkers-ascona",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c5f5affd-af75-438e-b8d0-a9e73bd10426",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c5f5affd-af75-438e-b8d0-a9e73bd10426",
-      "company": "Ticino Premium Properties SA",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Ascona",
-      "addressLocality": "Ascona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "marketing",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-13",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Posizione aperta: consulente immobiliare (m/w/d) – 100% | Lugano",
@@ -344,17 +313,18 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Assistente Team 100% (m/f) | Lugano",
-      "slug": "assistente-team-100-m-f-lugano-ticino-premium-properties-sa-lugano",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/811857cd-17ba-45da-ba12-d066407d01c5",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/811857cd-17ba-45da-ba12-d066407d01c5",
+      "title": "Marketing & Communication Manager | Team support (Ascona/Lugano)",
+      "slug": "marketing-communication-manager-team-support-ascona-lugano-engel-voelkers-ascona",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c5f5affd-af75-438e-b8d0-a9e73bd10426",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c5f5affd-af75-438e-b8d0-a9e73bd10426",
       "company": "Ticino Premium Properties SA",
       "companyKey": "engel-voelkers",
       "companyDomain": "engelvoelkers.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
+      "location": "Ascona",
+      "addressLocality": "Ascona",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "canton": "TI",
@@ -363,17 +333,17 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-12",
+      "postedDate": "2026-05-13",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "id": "engel-voelkers-5ac15a670c5e",
-      "salaryMin": 50500,
-      "salaryMax": 89000,
+      "id": "engel-voelkers-572866ec7ed4",
+      "salaryMin": 75500,
+      "salaryMax": 133000,
       "currency": "CHF",
       "streetAddress": "Via Nassa 17",
       "postalCode": "6900",
-      "firstSeenAt": "2026-04-13T21:38:03.110Z",
+      "firstSeenAt": "2026-05-13T10:58:16.060Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -382,6 +352,5 @@
         "completeness": 25
       }
     }
-  ],
-  "unchangedJobs": []
+  ]
 }
