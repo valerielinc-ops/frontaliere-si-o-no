@@ -1,16 +1,16 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-05-13T10:42:07.004Z",
+  "generatedAt": "2026-05-13T21:51:12.653Z",
   "total": 1,
   "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3364,
-  "avgDurationMs": 3364,
+  "durationMs": 2962,
+  "avgDurationMs": 2962,
   "durationHistory": [
-    3364
+    2962
   ],
   "newJobs": [
     {
@@ -38,7 +38,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=50f71f9d-1618-4fe3-9e5d-374acacefe93,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-13T10:42:04.761Z",
+      "crawledAt": "2026-05-13T21:51:10.848Z",
       "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -74,7 +74,7 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-13T10:42:04.758Z",
+      "crawledAt": "2026-05-13T21:51:10.845Z",
       "firstSeenAt": "2026-03-30T20:10:23.185Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
