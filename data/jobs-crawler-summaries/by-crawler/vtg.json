@@ -1,16 +1,16 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-05-13T12:11:22.301Z",
+  "generatedAt": "2026-05-13T23:19:31.390Z",
   "total": 34,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 27,
-  "durationMs": 36261,
-  "avgDurationMs": 36261,
+  "unchangedCount": 28,
+  "durationMs": 41825,
+  "avgDurationMs": 41825,
   "durationHistory": [
-    36261
+    41825
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,46 +48,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-xcnafm",
-      "slug": "specialista-dell-esperienza-utente-swiss-armed-forces-vtg-bern",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "User Experience-Spezialist/-in",
-      "location": "Bern",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-12",
-      "url": "https://jobs.admin.ch/offene-stellen/user-experience-spezialist-in/1362b162-68c7-405e-9333-3195640205e8",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Frauenfeld, optional Bern",
-        "canton": ""
-      },
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-05-12T23:14:56.800Z",
-      "firstSeenAt": "2026-05-12T23:14:56.800Z",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "streetAddress": "Via Stazione 31",
-      "postalCode": "6500",
-      "addressLocality": "Bern",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -275,6 +235,46 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "company-xcnafm",
+      "slug": "specialista-dell-esperienza-utente-swiss-armed-forces-vtg-bern",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "User Experience-Spezialist/-in",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-12",
+      "url": "https://jobs.admin.ch/offene-stellen/user-experience-spezialist-in/1362b162-68c7-405e-9333-3195640205e8",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Frauenfeld, optional Bern",
+        "canton": ""
+      },
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-05-12T23:14:56.800Z",
+      "firstSeenAt": "2026-05-12T23:14:56.800Z",
+      "sourceLang": "de",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bern",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
     {
       "id": "company-v4y5uq",
       "slug": "specialista-del-data-center-in-ict-swiss-armed-forces-vtg-bern",
