@@ -75,8 +75,8 @@ jobs:
 
       - name: Housekeeping — remove expired job listings (scoped)
         env:
-          JOBS_HOUSEKEEPING_SCOPE: 'zurich-insurance'
-          JOBS_SLICE_FILE: 'data/jobs/by-crawler/zurich-insurance.json'
+          JOBS_HOUSEKEEPING_SCOPE: 'zurich-insurance-sede-ticino'
+          JOBS_SLICE_FILE: 'data/jobs/by-crawler/zurich-insurance-sede-ticino.json'
         run: node scripts/cleanup-jobs.mjs
         continue-on-error: true
 

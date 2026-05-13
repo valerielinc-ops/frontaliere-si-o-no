@@ -4,19 +4,26 @@ import {
   ZURICH_INSURANCE_COMPANY_NAME,
   isZurichInsuranceJob,
   isTrustedDomain,
+  parseSearchPage,
+  parseDetailPage,
 } from '../scripts/lib/zurich-insurance-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('Zurich Insurance Group crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
-    expect(ZURICH_INSURANCE_KEY).toBe('zurich-insurance');
-    expect(ZURICH_INSURANCE_COMPANY_NAME).toBe('Zurich Insurance Group');
+    // Slice file on disk is `zurich-insurance-sede-ticino.json` — keep aligned.
+    expect(ZURICH_INSURANCE_KEY).toBe('zurich-insurance-sede-ticino');
+    expect(ZURICH_INSURANCE_COMPANY_NAME).toContain('Zurich Insurance');
   });
 
   // ── isCompanyJob ──
   describe('isZurichInsuranceJob', () => {
-    it('matches by companyKey', () => {
+    it('matches by canonical companyKey', () => {
+      expect(isZurichInsuranceJob({ companyKey: 'zurich-insurance-sede-ticino' })).toBe(true);
+    });
+
+    it('matches by legacy short companyKey', () => {
       expect(isZurichInsuranceJob({ companyKey: 'zurich-insurance' })).toBe(true);
     });
 
@@ -24,8 +31,8 @@ describe('Zurich Insurance Group crawler parser', () => {
       expect(isZurichInsuranceJob({ company: 'Zurich Insurance Group' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isZurichInsuranceJob({ url: 'https://zurichinsurance.ch/jobs/123' })).toBe(true);
+    it('matches by URL domain (careers.zurich.com SuccessFactors)', () => {
+      expect(isZurichInsuranceJob({ url: 'https://careers.zurich.com/job/Lugano-Account-Manager/123/' })).toBe(true);
     });
 
     it('rejects unrelated jobs', () => {
@@ -41,12 +48,16 @@ describe('Zurich Insurance Group crawler parser', () => {
 
   // ── isTrustedDomain ──
   describe('isTrustedDomain', () => {
-    it('trusts primary domain', () => {
-      expect(isTrustedDomain('https://zurichinsurance.ch/careers/job-123')).toBe(true);
+    it('trusts careers.zurich.com (SuccessFactors host)', () => {
+      expect(isTrustedDomain('https://careers.zurich.com/job/Lugano-X/123/')).toBe(true);
     });
 
-    it('trusts subdomains', () => {
-      expect(isTrustedDomain('https://careers.zurichinsurance.ch/job/456')).toBe(true);
+    it('trusts primary corporate domain', () => {
+      expect(isTrustedDomain('https://zurich.com/careers/123')).toBe(true);
+    });
+
+    it('trusts SuccessFactors backend hosts', () => {
+      expect(isTrustedDomain('https://career2.successfactors.eu/career?company=zurich')).toBe(true);
     });
 
     it('rejects other domains', () => {
@@ -80,23 +91,103 @@ describe('Zurich Insurance Group crawler parser', () => {
     });
   });
 
+  // ── HTML parsers (search page + detail page) ──
+  describe('parseSearchPage', () => {
+    it('returns empty array for empty/invalid HTML', () => {
+      expect(parseSearchPage('')).toEqual([]);
+      expect(parseSearchPage('<html></html>')).toEqual([]);
+    });
+
+    it('extracts job rows from SF jobs2web search HTML', () => {
+      const html = `
+        <table id="searchresults">
+          <tr>
+            <td class="colTitle">
+              <span class="jobTitle hidden-phone">
+                <a class="jobTitle-link" href="/job/Z%C3%BCrich-Audit-Manager-Investment-Management-80-100/1359692057/">Audit Manager - Investment Management 80-100%</a>
+              </span>
+            </td>
+            <td class="colLocation hidden-phone">
+              <span class="jobLocation">Zürich, CH</span>
+            </td>
+            <td class="colDate hidden-phone">
+              <span class="jobDate">Apr 27, 2026</span>
+            </td>
+          </tr>
+        </table>
+      `;
+      const rows = parseSearchPage(html);
+      expect(rows).toHaveLength(1);
+      expect(rows[0].title).toBe('Audit Manager - Investment Management 80-100%');
+      expect(rows[0].jobId).toBe('1359692057');
+      expect(rows[0].url).toBe('https://careers.zurich.com/job/Z%C3%BCrich-Audit-Manager-Investment-Management-80-100/1359692057/');
+      expect(rows[0].location).toBe('Zürich, CH');
+      expect(rows[0].postedAt).toBe('2026-04-27');
+    });
+
+    it('deduplicates rows that repeat the same jobId (hidden-phone + visible-phone duplicates)', () => {
+      const html = `
+        <tr>
+          <a class="jobTitle-link" href="/job/Lugano-Test/123/">Test One</a>
+          <span class="jobLocation">Lugano, CH</span>
+        </tr>
+        <tr>
+          <a class="jobTitle-link" href="/job/Lugano-Test/123/">Test One</a>
+          <span class="jobLocation">Lugano, CH</span>
+        </tr>
+      `;
+      const rows = parseSearchPage(html);
+      expect(rows).toHaveLength(1);
+    });
+  });
+
+  describe('parseDetailPage', () => {
+    it('extracts datePosted from Schema.org microdata', () => {
+      const html = `<meta itemprop="datePosted" content="Mon May 04 00:00:00 UTC 2026">`;
+      const detail = parseDetailPage(html);
+      expect(detail.datePosted).toBe('2026-05-04');
+    });
+
+    it('extracts street address (location) from microdata', () => {
+      const html = `<meta itemprop="streetAddress" content="Zürich, CH">`;
+      const detail = parseDetailPage(html);
+      expect(detail.location).toBe('Zürich, CH');
+    });
+
+    it('returns null/empty defaults for missing fields', () => {
+      const detail = parseDetailPage('<html></html>');
+      expect(detail.datePosted).toBeNull();
+      expect(detail.location).toBe('');
+      expect(detail.descriptionHtml).toBe('');
+    });
+
+    it('captures jobdescription body up to apply boundary', () => {
+      const html = `
+        <span class="jobdescription"><p>Body text</p></span>
+        <div class="applylink">apply</div>
+      `;
+      const detail = parseDetailPage(html);
+      expect(detail.descriptionHtml).toContain('Body text');
+      expect(detail.descriptionHtml).not.toContain('applylink');
+    });
+  });
+
   // ── Job Shape Validation ──
   describe('job shape', () => {
-    // A minimal valid job for reference
     const validJob = {
       id: 'zurich-insurance-abc123',
       slug: 'test-position-zurich-insurance-ch',
       slugByLocale: { it: 'test-position-zurich-insurance-ch' },
       company: 'Zurich Insurance Group',
-      companyKey: 'zurich-insurance',
+      companyKey: 'zurich-insurance-sede-ticino',
       title: 'Test Position',
       titleByLocale: { it: 'Test Position' },
       description: 'A test job description for validation.',
       descriptionByLocale: { it: 'A test job description for validation.' },
       location: 'Lugano',
       canton: 'TI',
-      url: 'https://zurichinsurance.ch/jobs/test',
-      source: 'Zurich Insurance Group Dedicated Parser',
+      url: 'https://careers.zurich.com/job/Lugano-Test/123/',
+      source: 'Zurich Insurance careers.zurich.com SuccessFactors parser',
       sourceLang: 'it',
       crawledAt: new Date().toISOString(),
     };
@@ -118,7 +209,7 @@ describe('Zurich Insurance Group crawler parser', () => {
       expect(locales[0]).toBe(validJob.sourceLang);
     });
 
-    it('id starts with company key', () => {
+    it('id starts with company key prefix', () => {
       expect(validJob.id).toMatch(/^zurich-insurance-/);
     });
 
