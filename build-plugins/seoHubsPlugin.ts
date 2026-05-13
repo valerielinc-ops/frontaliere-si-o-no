@@ -998,7 +998,7 @@ function buildHtml(args: BuildHtmlArgs): string {
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: totalItems,
-      itemListElement: pageItems.slice(0, 50).map((it, idx) => ({
+      itemListElement: pageItems.slice(0, 25).map((it, idx) => ({
         '@type': 'ListItem',
         position: (page - 1) * 100 + idx + 1,
         name: it.label,
