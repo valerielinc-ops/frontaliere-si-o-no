@@ -1,18 +1,53 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-12T22:29:34.204Z",
-  "total": 9,
-  "newCount": 0,
+  "generatedAt": "2026-05-13T11:25:25.100Z",
+  "total": 10,
+  "newCount": 1,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13470,
-  "avgDurationMs": 13470,
+  "durationMs": 16279,
+  "avgDurationMs": 16279,
   "durationHistory": [
-    13470
+    16279
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-y26v7p",
+      "slug": "ch-collaboratore-collaboratrice-pulizie-m-w-d-20-40-lidl-svizzera-biasca",
+      "company": "Lidl Svizzera",
+      "title": "CH_ Collaboratore / Collaboratrice pulizie (m/f/d) 20-40%",
+      "location": "Biasca",
+      "canton": "ti",
+      "category": "other",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-05",
+      "url": "https://team.lidl.ch/it/jobs/ch-collaboratore-collaboratrice-pulizie-m-f-d-20-40-biasca-685180",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Biasca",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-05-13T11:25:24.820Z",
+      "firstSeenAt": "2026-05-13T11:25:24.820Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "_qualityScore": 65,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-ixk693",
@@ -37,7 +72,6 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-05-12T11:40:44.505Z",
       "firstSeenAt": "2026-05-12T11:40:44.505Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "de",
       "streetAddress": "Via Industria 7",
@@ -46,11 +80,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 78,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 6,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -86,12 +120,12 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1,
-      "_qualityScore": 87,
+      "retranslationAttempts": 2,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 9,
         "completeness": 25
       }
     },
