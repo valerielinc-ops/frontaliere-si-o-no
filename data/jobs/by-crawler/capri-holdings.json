@@ -1,7 +1,71 @@
 {
   "crawlerKey": "capri-holdings",
-  "assembledAt": "2026-05-13T10:39:13.858Z",
+  "assembledAt": "2026-05-13T21:48:16.941Z",
   "jobs": [
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h--Fixed-Term---Landquart_R_784293",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h--Fixed-Term---Landquart_R_784293",
+      "title": "Sales Associate Part Time 20h Fixed Term - Landquart",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Graubünden",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate",
+      "description": "Michael Kors is always interested in hearing from talented, globally-minded individuals with a passion for fashion.\n\nIf you enjoy working in a creative, fast-paced environment, then we would love to hear from you!\n\n—\nSales Associate fixed term 20h - Landquart\n\n—\n\nThe Company is an equal employment opportunity employer. The Company’s policy is not to unlawfully discriminate against any applicant or employee on the basis of race, color, sex, sexual orientation, gender identity, religion, national origin, age, military status, disability, genetic information or any other consideration made unlawful by applicable federal, state, or local laws. The Company also prohibits harassment of applicants and employees based on any of these protected categories.  \n\n—\nAt Capri Holdings Limited, we are committed to providing a fair and accessible recruitment process. If you require a reasonable accommodation for the interview or application process, please contact our Talent Acquisition team at CapriTalentAcquisition@CapriHoldings.com.",
+      "descriptionByLocale": {
+        "en": "Michael Kors is always interested in hearing from talented, globally-minded individuals with a passion for fashion.\n\nIf you enjoy working in a creative, fast-paced environment, then we would love to hear from you!\n\n—\nSales Associate fixed term 20h - Landquart\n\n—\n\nThe Company is an equal employment opportunity employer. The Company’s policy is not to unlawfully discriminate against any applicant or employee on the basis of race, color, sex, sexual orientation, gender identity, religion, national origin, age, military status, disability, genetic information or any other consideration made unlawful by applicable federal, state, or local laws. The Company also prohibits harassment of applicants and employees based on any of these protected categories.  \n\n—\nAt Capri Holdings Limited, we are committed to providing a fair and accessible recruitment process. If you require a reasonable accommodation for the interview or application process, please contact our Talent Acquisition team at CapriTalentAcquisition@CapriHoldings.com.",
+        "it": "Posizione aperta presso Michael Kors (Capri Holdings) a Graubünden.\nRuolo: Sales Associate Part Time 20h Fixed Term - Landquart.\n\nCapri Holdings è un gruppo globale della moda di lusso con i marchi Michael Kors, Versace e Jimmy Choo. L'azienda ha un importante hub logistico a Mendrisio, Canton Ticino.",
+        "de": "Michael Kors is always interested in hearing from talented, globally-minded individuals with a passion for fashion.\n\nIf you enjoy working in a creative, fast-paced environment, then we would love to hear from you!\n\n—\nSales Associate fixed term 20h - Landquart\n\n—\n\nThe Company is an equal employment opportunity employer. The Company’s policy is not to unlawfully discriminate against any applicant or employee on the basis of race, color, sex, sexual orientation, gender identity, religion, national origin, age, military status, disability, genetic information or any other consideration made unlawful by applicable federal, state, or local laws. The Company also prohibits harassment of applicants and employees based on any of these protected categories.  \n\n—\nAt Capri Holdings Limited, we are committed to providing a fair and accessible recruitment process. If you require a reasonable accommodation for the interview or application process, please contact our Talent Acquisition team at CapriTalentAcquisition@CapriHoldings.com.",
+        "fr": "Michael Kors is always interested in hearing from talented, globally-minded individuals with a passion for fashion.\n\nIf you enjoy working in a creative, fast-paced environment, then we would love to hear from you!\n\n—\nSales Associate fixed term 20h - Landquart\n\n—\n\nThe Company is an equal employment opportunity employer. The Company’s policy is not to unlawfully discriminate against any applicant or employee on the basis of race, color, sex, sexual orientation, gender identity, religion, national origin, age, military status, disability, genetic information or any other consideration made unlawful by applicable federal, state, or local laws. The Company also prohibits harassment of applicants and employees based on any of these protected categories.  \n\n—\nAt Capri Holdings Limited, we are committed to providing a fair and accessible recruitment process. If you require a reasonable accommodation for the interview or application process, please contact our Talent Acquisition team at CapriTalentAcquisition@CapriHoldings.com."
+      },
+      "titleByLocale": {
+        "en": "Sales Associate Part Time 20h Fixed Term - Landquart",
+        "it": "Sales Associate Part-time 20h Fixed Term - Landquart",
+        "de": "Sales Associate Teilzeit 20h Fixed Term - Landquart",
+        "fr": "Sales Associate Temps partiel 20h Fixed Term - Landquart"
+      },
+      "slug": "sales-associate-part-time-20h-fixed-term-landquart-capri-holdings",
+      "slugByLocale": {
+        "en": "sales-associate-part-time-20h-fixed-term-landquart-capri-holdings",
+        "it": "sales-associate-part-time-20h-fixed-term-landquart-capri-holdings",
+        "de": "sales-associate-part-time-20h-fixed-term-landquart-capri-holdings",
+        "fr": "sales-associate-part-time-20h-fixed-term-landquart-capri-holdings"
+      },
+      "category": "retail",
+      "datePosted": "2026-05-13",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Graubünden"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "capri-holdings-5f82fc2f63b3",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-13T21:48:16.941Z"
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-8H--Landquart_R_784292",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-8H--Landquart_R_784292",
@@ -18,21 +82,21 @@
       "streetAddress": "Via Penate",
       "description": "Michael Kors is always interested in hearing from talented, globally-minded individuals with a passion for fashion.\n\nIf you enjoy working in a creative, fast-paced environment, then we would love to hear from you!\n\n—\nSales Associate fixed term 8H\n\n—\n\nThe Company is an equal employment opportunity employer. The Company’s policy is not to unlawfully discriminate against any applicant or employee on the basis of race, color, sex, sexual orientation, gender identity, religion, national origin, age, military status, disability, genetic information or any other consideration made unlawful by applicable federal, state, or local laws. The Company also prohibits harassment of applicants and employees based on any of these protected categories.  \n\n—\nAt Capri Holdings Limited, we are committed to providing a fair and accessible recruitment process. If you require a reasonable accommodation for the interview or application process, please contact our Talent Acquisition team at CapriTalentAcquisition@CapriHoldings.com.",
       "descriptionByLocale": {
-        "en": "Michael Kors is always interested in hearing from talented, globally-minded individuals with a passion for fashion.\n\nIf you enjoy working in a creative, fast-paced environment, then we would love to hear from you!\n\n—\nSales Associate fixed term 8H\n\n—\n\nThe Company is an equal employment opportunity employer. The Company’s policy is not to unlawfully discriminate against any applicant or employee on the basis of race, color, sex, sexual orientation, gender identity, religion, national origin, age, military status, disability, genetic information or any other consideration made unlawful by applicable federal, state, or local laws. The Company also prohibits harassment of applicants and employees based on any of these protected categories.  \n\n—\nAt Capri Holdings Limited, we are committed to providing a fair and accessible recruitment process. If you require a reasonable accommodation for the interview or application process, please contact our Talent Acquisition team at CapriTalentAcquisition@CapriHoldings.com.",
-        "it": "Posizione aperta presso Michael Kors (Capri Holdings) a Graubünden.\nRuolo: Sales Associate Part Time 8H -Landquart.\n\nCapri Holdings è un gruppo globale della moda di lusso con i marchi Michael Kors, Versace e Jimmy Choo. L'azienda ha un importante hub logistico a Mendrisio, Canton Ticino.",
-        "de": "Michael Kors is always interested in hearing from talented, globally-minded individuals with a passion for fashion.\n\nIf you enjoy working in a creative, fast-paced environment, then we would love to hear from you!\n\n—\nSales Associate fixed term 8H\n\n—\n\nThe Company is an equal employment opportunity employer. The Company’s policy is not to unlawfully discriminate against any applicant or employee on the basis of race, color, sex, sexual orientation, gender identity, religion, national origin, age, military status, disability, genetic information or any other consideration made unlawful by applicable federal, state, or local laws. The Company also prohibits harassment of applicants and employees based on any of these protected categories.  \n\n—\nAt Capri Holdings Limited, we are committed to providing a fair and accessible recruitment process. If you require a reasonable accommodation for the interview or application process, please contact our Talent Acquisition team at CapriTalentAcquisition@CapriHoldings.com.",
-        "fr": "Michael Kors is always interested in hearing from talented, globally-minded individuals with a passion for fashion.\n\nIf you enjoy working in a creative, fast-paced environment, then we would love to hear from you!\n\n—\nSales Associate fixed term 8H\n\n—\n\nThe Company is an equal employment opportunity employer. The Company’s policy is not to unlawfully discriminate against any applicant or employee on the basis of race, color, sex, sexual orientation, gender identity, religion, national origin, age, military status, disability, genetic information or any other consideration made unlawful by applicable federal, state, or local laws. The Company also prohibits harassment of applicants and employees based on any of these protected categories.  \n\n—\nAt Capri Holdings Limited, we are committed to providing a fair and accessible recruitment process. If you require a reasonable accommodation for the interview or application process, please contact our Talent Acquisition team at CapriTalentAcquisition@CapriHoldings.com."
+        "it": "Posizione aperta presso Michael Kors (Capri Holdings) a Graubünden. Ruolo: Sales Associate Part Time 8H -Landquart. Capri Holdings è un gruppo globale della moda di lusso con i marchi Michael Kors, Versace e Jimmy Choo. L'azienda ha un importante hub logistico a Mendrisio, Canton Ticino.",
+        "en": "Michael Kors is always interested in hearing from talented, globally-minded individuals with a passion for fashion. If you enjoy working in a creative, fast-paced environment, then we would love to hear from you! — Sales Associate fixed term 8H — The Company is an equal employment opportunity employer. The Company’s policy is not to unlawfully discriminate against any applicant or employee on the basis of race, color, sex, sexual orientation, gender identity, religion, national origin, age, military status, disability, genetic information or any other consideration made unlawful by applicable federal, state, or local laws. The Company also prohibits harassment of applicants and employees based on any of these protected categories. — At Capri Holdings Limited, we are committed to providing a fair and accessible recruitment process. If you require a reasonable accommodation for the interview or application process, please contact our Talent Acquisition team at CapriTalentAcquisition@CapriHoldings.com.",
+        "de": "Michael Kors is always interested in hearing from talented, globally-minded individuals with a passion for fashion. If you enjoy working in a creative, fast-paced environment, then we would love to hear from you! — Sales Associate fixed term 8H — The Company is an equal employment opportunity employer. The Company’s policy is not to unlawfully discriminate against any applicant or employee on the basis of race, color, sex, sexual orientation, gender identity, religion, national origin, age, military status, disability, genetic information or any other consideration made unlawful by applicable federal, state, or local laws. The Company also prohibits harassment of applicants and employees based on any of these protected categories. — At Capri Holdings Limited, we are committed to providing a fair and accessible recruitment process. If you require a reasonable accommodation for the interview or application process, please contact our Talent Acquisition team at CapriTalentAcquisition@CapriHoldings.com.",
+        "fr": "Michael Kors is always interested in hearing from talented, globally-minded individuals with a passion for fashion. If you enjoy working in a creative, fast-paced environment, then we would love to hear from you! — Sales Associate fixed term 8H — The Company is an equal employment opportunity employer. The Company’s policy is not to unlawfully discriminate against any applicant or employee on the basis of race, color, sex, sexual orientation, gender identity, religion, national origin, age, military status, disability, genetic information or any other consideration made unlawful by applicable federal, state, or local laws. The Company also prohibits harassment of applicants and employees based on any of these protected categories. — At Capri Holdings Limited, we are committed to providing a fair and accessible recruitment process. If you require a reasonable accommodation for the interview or application process, please contact our Talent Acquisition team at CapriTalentAcquisition@CapriHoldings.com."
       },
       "titleByLocale": {
-        "en": "Sales Associate Part Time 8H -Landquart",
         "it": "Sales Associate Part-time 8H -Landquart",
+        "en": "Sales Associate Part Time 8H -Landquart",
         "de": "Sales Associate Teilzeit 8H -Landquart",
         "fr": "Sales Associate Temps partiel 8H -Landquart"
       },
       "slug": "sales-associate-part-time-8h-landquart-capri-holdings",
       "slugByLocale": {
-        "en": "sales-associate-part-time-8h-landquart-capri-holdings",
         "it": "sales-associate-part-time-8h-landquart-capri-holdings",
+        "en": "sales-associate-part-time-8h-landquart-capri-holdings",
         "de": "sales-associate-teilzeit-8h-landquart-capri-holdings-michael-kors-versace-graubunden",
         "fr": "sales-associate-temps-partiel-8h-landquart-capri-holdings-michael-kors-versace-graubunden"
       },
