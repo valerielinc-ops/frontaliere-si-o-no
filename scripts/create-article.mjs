@@ -798,7 +798,8 @@ const NEWS_SOURCES = [
   'https://www.cdt.ch/news/ticino',
   // rsi.ch (RSS)
   'https://www.rsi.ch/info/ticino-grigioni-e-insubria/',
-  'https://www.rsi.ch/info/ticino-e-grigioni-e-insubria/?f=rss',
+  // 2026-05-13: fix typo `ticino-e-grigioni-e-insubria` → `ticino-grigioni-e-insubria` (old URL 404)
+  'https://www.rsi.ch/info/ticino-grigioni-e-insubria/?f=rss',
   // laregione (RSS)
   'https://media.laregione.ch/files/domains/laregione.ch/rss/rss_ticino.xml',
   'https://media.laregione.ch/files/domains/laregione.ch/rss/rss_aperture.xml',
@@ -826,12 +827,15 @@ const NEWS_SOURCES = [
   // ── 2026-05-07: frontaliere-specific feeds (Wave 1) — added after
   // diagnosis showed the news pool was 1.6% frontaliere-relevant (9/564).
   // These tag/category pages produce mostly cross-border-work content.
-  'https://www.tvsvizzera.it/tvs/svizzera-italia-frontalieri/',
+  // 2026-05-13: svizzera-italia-frontalieri/ → qui-frontiera/ (old 404, new is canonical frontalieri section on TVS)
+  'https://www.tvsvizzera.it/tvs/qui-frontiera/',
   'https://www.tvsvizzera.it/tvs/economia/',
-  'https://www.cdt.ch/dossier/frontalieri-tutto-sapere-permesso-G-tasse-cassa-malati',
+  // 2026-05-13: cdt.ch/dossier/frontalieri-... 404 (CDT has no such dossier); replaced with cdt.ch/news/mondo for IT-CH bilateral coverage
+  'https://www.cdt.ch/news/mondo',
   'https://www.tio.ch/svizzera/economia',
   'https://www.tio.ch/ticino/lavoro',
-  'https://www.cdt.ch/news/lavoro',
+  // 2026-05-13: cdt.ch/news/lavoro 404 (CDT has no lavoro news category); replaced with cdt.ch/lifestyle/portafoglio (finance/fiscal coverage)
+  'https://www.cdt.ch/lifestyle/portafoglio',
   'https://www.laregione.ch/economia',
   'https://www.varesenews.it/tag/frontalieri/',          // HTML fallback
   'https://www.varesenoi.it/sommario/argomenti/economia-7.html',
@@ -840,25 +844,34 @@ const NEWS_SOURCES = [
   // every headline from these sources is high-probability frontaliere-
   // relevant by virtue of the source's audience.
   // Cross-border official + sindacati ──
-  'https://www.swissinfo.ch/ita/feed/?contentType=news',
-  'https://www.cgil.lombardia.it/categoria/frontalieri/feed/',
-  'https://www.ocst.ch/feed/',                            // Sindacato OCST Ticino
-  'https://www.unia.ch/it/news/feed',                     // Sindacato Unia (CH)
+  // 2026-05-13: swissinfo.ch RSS feed returns 410 Gone (intentional kill by SWI); HTML home page works and lists articles
+  'https://www.swissinfo.ch/ita/',
+  // 2026-05-13: cgil.lombardia.it/categoria/frontalieri/feed/ → tag/frontalieri/feed/ (correct WP taxonomy path; RSS confirmed working with frontalieri-specific items)
+  'https://www.cgil.lombardia.it/tag/frontalieri/feed/',
+  // 2026-05-13: ocst.ch/feed/ 404 (no site-wide WP feed); replaced with the dedicated frontalieri section HTML (same OCST Ticino role)
+  'https://www.ocst.ch/frontalieri',                      // Sindacato OCST Ticino (HTML — RSS not exposed)
+  // 2026-05-13: unia.ch/it/news/feed 404 (no RSS exposed); replaced with HTML comunicati-stampa page (same Unia CH role)
+  'https://unia.ch/it/media/comunicati-stampa',           // Sindacato Unia (CH) — HTML, RSS not exposed
   'https://www.uil.it/feed',                              // UIL nazionale (frontalieri)
   // Health/insurance cross-border ──
-  'https://www.comparis.ch/krankenkassen/news/feed',      // LAMal news comparis
-  'https://www.bag.admin.ch/bag/it/home.rss/news.rss',    // Bundesamt Gesundheit IT
+  // 2026-05-13: comparis.ch returns 403 (active bot block on the RSS); replaced with santésuisse news (same LAMal/health-insurance role, accessible)
+  'https://www.santesuisse.ch/it/temi-e-analisi/news-attuali/',  // santésuisse LAMal news (HTML, replaces 403-blocked comparis RSS)
+  // 2026-05-13: bag.admin.ch RSS path moved/removed (.rss/news.rss now 404); replaced with HTML news listing (same federal health-authority role)
+  'https://www.bag.admin.ch/it/overview/news',            // Bundesamt Gesundheit IT (HTML — RSS retired)
   // Fiscalità tecnica + dossier frontalieri ──
-  'https://www.fiscoetasse.com/rss/articoli.xml',
+  // 2026-05-13: fiscoetasse.com/rss/articoli.xml 404; /feed is the working RSS endpoint
+  'https://www.fiscoetasse.com/feed',
   'https://www.commercialistatelematico.com/feed',
-  'https://www.ipsoa.it/rss/feed.xml',                    // Ipsoa fiscalità
+  // 2026-05-13: ipsoa.it (entire domain now Wolters Kluwer login-walled); replaced with lavoroediritti.com (open RSS, IT labor/fiscal coverage)
+  'https://www.lavoroediritti.com/feed/',                 // IT labor & fiscal news (replaces login-walled Ipsoa)
   // Geo-specific cross-border ──
   'https://www.corriere.it/dynamic-feed/rss/section/cronache.xml',  // borderline but covers IT-CH cronaca
   'https://www.varesenews.it/tag/dogana-svizzera/feed/',   // dogana feed
-  'https://www.cdt.ch/news/eu-frontaliere',                // CDT eu/frontaliere category if exists
+  // 2026-05-13: cdt.ch/news/eu-frontaliere removed — no such category exists on CDT; coverage already provided by /news/svizzera, /news/economia, /news/mondo
   'https://comozero.it/categoria/frontalieri/',            // comozero frontalieri tag
-  'https://www.varesenoi.it/sommario/argomenti/economia-7/economia-frontalieri-1.html',
-  // swissinfo.ch RSS removed — 410 Gone (FRO-415)
+  // 2026-05-13: varesenoi.it/sommario/argomenti/economia-7/economia-frontalieri-1.html removed (404, sub-category no longer exists); /sommario/argomenti/economia-7.html above already covers economia
+  'https://www.varesenoi.it/?s=frontalieri',               // varesenoi WP search for frontalieri (HTML, dead sub-category replacement)
+  // swissinfo.ch RSS removed — 410 Gone (FRO-415, re-confirmed 2026-05-13 — HTML home page added above as replacement)
   // admin.ch RSS removed — WAF challenge blocks scraping (FRO-415)
 ];
 
@@ -866,7 +879,7 @@ const NEWS_SOURCES = [
 const RSS_FALLBACK_MAP = {
   'https://media.tio.ch/files/domains/tio.ch/rss/rss_ticino.xml': 'https://www.tio.ch/ticino',
   'https://media.tio.ch/files/domains/tio.ch/rss/rss_home.xml': 'https://www.tio.ch/',
-  'https://www.rsi.ch/info/ticino-e-grigioni-e-insubria/?f=rss': 'https://www.rsi.ch/info/ticino-grigioni-e-insubria/',
+  'https://www.rsi.ch/info/ticino-grigioni-e-insubria/?f=rss': 'https://www.rsi.ch/info/ticino-grigioni-e-insubria/',
   'https://media.laregione.ch/files/domains/laregione.ch/rss/rss_ticino.xml': 'https://www.laregione.ch/ticino',
   'https://media.laregione.ch/files/domains/laregione.ch/rss/rss_aperture.xml': 'https://www.laregione.ch/',
   'https://media.laregione.ch/files/domains/laregione.ch/rss/feed_rss.xml': 'https://www.laregione.ch/',
