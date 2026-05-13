@@ -7488,6 +7488,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.abolire-tassa-salute-frontalieri.title': 'Luino: Artoni fordert Abschaffung der Gesundheitssteuer für Grenzgänger',
     'blog.article.abolire-tassa-salute-frontalieri.excerpt': 'Der Bürgermeisterkandidat Furio Artoni kritisiert die Doppelbesteuerung von Grenzgängern und fordert die Abschaffung der Gesundheitssteuer.',
     'blog.article.abolire-tassa-salute-frontalieri.imageAlt': 'Luganersee mit umliegenden Bergen und Gebäuden',
+    'blog.article.tassa-salute-frontalieri-luino-verbania.title': 'Gesundheitssteuer: Chaos bei Grenzgängern in Luino und Verbania',
+    'blog.article.tassa-salute-frontalieri-luino-verbania.excerpt': 'Die PD wirft Diskriminierung zwischen Grenzgängern aus Luino und Verbania vor, mit möglichen Gewerkschaftsklagen und verfassungsrechtlichen Zweifeln.',
+    'blog.article.tassa-salute-frontalieri-luino-verbania.imageAlt': 'Blick auf den Luganersee mit umliegenden Bergen und Städten',
 };
 
 export default blogMetaDe;

@@ -7490,6 +7490,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.abolire-tassa-salute-frontalieri.title': 'Luino: Artoni demande l\'abolition de la taxe santé pour les frontaliers',
     'blog.article.abolire-tassa-salute-frontalieri.excerpt': 'Le candidat au poste de maire Furio Artoni dénonce la double imposition des travailleurs frontaliers et demande l\'abolition de la taxe santé.',
     'blog.article.abolire-tassa-salute-frontalieri.imageAlt': 'Lac de Lugano avec les montagnes et les bâtiments environnants',
+    'blog.article.tassa-salute-frontalieri-luino-verbania.title': 'Taxe santé frontalier: chaos entre Luino et Verbania',
+    'blog.article.tassa-salute-frontalieri-luino-verbania.excerpt': 'Le Pd dénonce des disparités entre les travailleurs frontaliers de Luino et Verbania, avec des recours syndicaux possibles et des doutes de constitutionnalité.',
+    'blog.article.tassa-salute-frontalieri-luino-verbania.imageAlt': 'Vue du lac de Lugano avec les montagnes et les villes environnantes',
 };
 
 export default blogMetaFr;

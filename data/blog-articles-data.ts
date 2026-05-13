@@ -23843,4 +23843,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'tassa-salute-frontalieri-luino-verbania',
+ category: 'fiscale',
+ date: '2026-05-13T00:32:42.927Z',
+ image: '/images/blog/tassa-salute-frontalieri-luino-verbania.jpg',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];

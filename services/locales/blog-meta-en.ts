@@ -7489,6 +7489,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.abolire-tassa-salute-frontalieri.title': 'Luino: Artoni seeks abolition of health tax for cross-border workers',
     'blog.article.abolire-tassa-salute-frontalieri.excerpt': 'Mayoral candidate Furio Artoni denounces double taxation on cross-border workers and calls for the abolition of the health tax.',
     'blog.article.abolire-tassa-salute-frontalieri.imageAlt': 'Lake Lugano with surrounding mountains and buildings',
+    'blog.article.tassa-salute-frontalieri-luino-verbania.title': 'Health tax chaos for cross-border workers in Luino and Verbania',
+    'blog.article.tassa-salute-frontalieri-luino-verbania.excerpt': 'The Pd denounces disparities between cross-border workers in Luino and Verbania, with potential union appeals and constitutional doubts.',
+    'blog.article.tassa-salute-frontalieri-luino-verbania.imageAlt': 'View of Lake Lugano with surrounding mountains and towns',
 };
 
 export default blogMetaEn;

@@ -3739,6 +3739,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuovi-frontalieri-tasse-salate': { name: 'Tasse frontalieri', path: '/articoli-frontaliere/nuovi-frontalieri-tasse-salate', parent: 'blog' },
     'blog-riforma-disoccupazione-frontalieri-francia-svizzera': { name: 'Riforma disoccupazione frontalieri', path: '/articoli-frontaliere/riforma-disoccupazione-frontalieri-francia-svizzera', parent: 'blog' },
     'blog-abolire-tassa-salute-frontalieri': { name: 'Fiscale', path: '/articoli-frontaliere/abolire-tassa-salute-frontalieri', parent: 'blog' },
+    'blog-tassa-salute-frontalieri-luino-verbania': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-luino-verbania', parent: 'blog' },
  };
 
  const info = sectionNames[section];
