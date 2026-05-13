@@ -2488,12 +2488,12 @@
     },
     {
       "id": "lindenhofgruppe-1666f9551778",
-      "slug": "dipl-pflegefachfrau-mann-per-unseren-pflegepool-lindenhofgruppe-bern",
+      "slug": "dipl-specialista-di-cura-per-la-nostra-piscina-di-cura-lindenhofgruppe-bern",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-fur-unseren-pflegepool-lindenhofgruppe-ch",
-        "it": "dipl-pflegefachfrau-mann-per-unseren-pflegepool-lindenhofgruppe-bern",
-        "en": "dipl-pflegefachfrau-mann-fur-unseren-pflegepool-lindenhofgruppe-ch",
-        "fr": "dipl-pflegefachfrau-mann-fur-unseren-pflegepool-lindenhofgruppe-ch"
+        "it": "dipl-specialista-di-cura-per-la-nostra-piscina-di-cura-lindenhofgruppe-bern",
+        "en": "dipl-care-specialist-for-our-nursing-pool-lindenhofgruppe-bern",
+        "fr": "dipl-specialiste-des-soins-pour-notre-piscine-d-infirmieres-lindenhofgruppe-bern"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -2538,11 +2538,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-fur-unseren-pflegepool-lindenhofgruppe-ch",
+          "dipl-pflegefachfrau-mann-per-unseren-pflegepool-lindenhofgruppe-bern"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-fur-unseren-pflegepool-lindenhofgruppe-ch"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-fur-unseren-pflegepool-lindenhofgruppe-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-fur-unseren-pflegepool-lindenhofgruppe-ch"
+        "dipl-pflegefachfrau-mann-fur-unseren-pflegepool-lindenhofgruppe-ch",
+        "dipl-pflegefachfrau-mann-per-unseren-pflegepool-lindenhofgruppe-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -556,12 +556,12 @@
     },
     {
       "id": "pictet-4043c948a82c",
-      "slug": "client-relationship-officer-pictet-zurich",
+      "slug": "responsabile-relazioni-cliente-pictet-group-zurich",
       "slugByLocale": {
         "en": "client-relationship-officer-pictet-zurich",
-        "it": "client-relationship-officer-pictet-zurich",
-        "de": "client-relationship-officer-pictet-zurich",
-        "fr": "client-relationship-officer-pictet-zurich"
+        "it": "responsabile-relazioni-cliente-pictet-group-zurich",
+        "de": "kundenbeziehungsbeauftragter-pictet-group-zurich",
+        "fr": "agent-de-relations-avec-la-clientele-pictet-group-zurich"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -617,7 +617,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-13T11:41:28.889Z"
+      "firstSeenAt": "2026-05-13T11:41:28.889Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-officer-pictet-zurich"
+        ],
+        "de": [
+          "client-relationship-officer-pictet-zurich"
+        ],
+        "fr": [
+          "client-relationship-officer-pictet-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "client-relationship-officer-pictet-zurich"
+      ]
     },
     {
       "id": "pictet-6a4d3fe10bfb",

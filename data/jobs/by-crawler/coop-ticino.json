@@ -43,9 +43,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden-8axa4k",
-        "en": "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden-8axa4k",
+        "en": "teammember-restaurant-w-m-d-coop-genossenschaft-maienfeld",
         "de": "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden-8axa4k",
-        "fr": "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden-8axa4k"
+        "fr": "membre-de-l-equipe-restaurant-m-j-coop-genossenschaft-maienfeld"
       },
       "addressLocality": "Maienfeld",
       "salaryMin": 49500,
@@ -60,7 +60,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "en": [
+          "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden-8axa4k"
+        ],
+        "fr": [
+          "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden-8axa4k"
+        ]
+      },
+      "previousSlugs": [
+        "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden-8axa4k"
+      ]
     },
     {
       "id": "company-w2vgxm",
@@ -112,9 +123,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
-        "en": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
-        "de": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
-        "fr": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
+        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur",
+        "de": "verkaufsberater-in-christ-uhren-schmuck-ag-chur",
+        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
       },
       "addressLocality": "Chur",
       "salaryMin": 49500,
@@ -129,7 +140,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "en": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
+        ],
+        "de": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
+        ],
+        "fr": [
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
+      ]
     },
     {
       "id": "company-cprmen",
@@ -181,9 +206,9 @@
       },
       "slugByLocale": {
         "it": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
-        "en": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
-        "de": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
-        "fr": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
+        "en": "managing-director-in-christ-uhren-schmuck-ag-chur",
+        "de": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
+        "fr": "directeur-general-christ-uhren-schmuck-ag-chur"
       },
       "addressLocality": "Chur",
       "salaryMin": 49500,
@@ -198,7 +223,21 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "en": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
+        ],
+        "de": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
+        ],
+        "fr": [
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
+      ]
     },
     {
       "id": "company-j9odwp",
@@ -250,9 +289,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp",
-        "en": "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp",
+        "en": "seller-in-nonfood-coop-genossenschaft-chur",
         "de": "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp",
-        "fr": "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp"
+        "fr": "vendeur-dans-non-alimentaire-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "salaryMin": 49500,
@@ -267,7 +306,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "en": [
+          "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp"
+        ],
+        "fr": [
+          "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp"
+      ]
     },
     {
       "id": "company-metayj",
@@ -351,8 +401,7 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+        "verkaufer-in-food-coop-felsberg-graubunden-metayj"
       ],
       "retranslationAttempts": 1
     },
@@ -939,9 +988,9 @@
       "firstSeenAt": "2026-05-10T09:58:53.007Z",
       "slugByLocale": {
         "it": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
-        "en": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
-        "de": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
-        "fr": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
+        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur-19d582",
+        "de": "verkaufsberater-in-christ-uhren-schmuck-ag-chur-19d582",
+        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur-19d582"
       },
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -979,7 +1028,8 @@
       "previousSlugsByLocale": {
         "de": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-          "verkaufsberater-in-christ-uhren-schmuck-ag-chur"
+          "verkaufsberater-in-christ-uhren-schmuck-ag-chur",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
         ],
         "it": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
@@ -987,16 +1037,19 @@
         ],
         "en": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-          "sales-consultant-in-christ-uhren-schmuck-ag-chur"
+          "sales-consultant-in-christ-uhren-schmuck-ag-chur",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
         ],
         "fr": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-          "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
+          "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
         "verkaufsberater-in-christ-uhren-schmuck-ag-chur",
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
         "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
         "sales-consultant-in-christ-uhren-schmuck-ag-chur",
         "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
@@ -1031,9 +1084,9 @@
       "firstSeenAt": "2026-05-10T09:58:53.007Z",
       "slugByLocale": {
         "it": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
-        "en": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
-        "de": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
-        "fr": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
+        "en": "managing-director-in-christ-uhren-schmuck-ag-chur-42c04e",
+        "de": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-42c04e",
+        "fr": "directeur-general-christ-uhren-schmuck-ag-chur-42c04e"
       },
       "titleByLocale": {
         "de": "Geschäftsführer:in",
@@ -1071,7 +1124,8 @@
       "previousSlugsByLocale": {
         "de": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur"
+          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
         ],
         "it": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
@@ -1079,16 +1133,19 @@
         ],
         "en": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-          "managing-director-in-christ-uhren-schmuck-ag-chur"
+          "managing-director-in-christ-uhren-schmuck-ag-chur",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
         ],
         "fr": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-          "directeur-general-christ-uhren-schmuck-ag-chur"
+          "directeur-general-christ-uhren-schmuck-ag-chur",
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
         ]
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
         "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
         "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
         "managing-director-in-christ-uhren-schmuck-ag-chur",
         "directeur-general-christ-uhren-schmuck-ag-chur"
@@ -7584,8 +7641,7 @@
         "collaborateur-trice-inventuren-coop-grigioni-4whh8x",
         "personnel-en-inventaire-coop-genossenschaft-basel",
         "mitarbeiter-in-inventuren-coop-grigioni-4whh8x",
-        "associate-inventuren-coop-genossenschaft-basel-arot84",
-        "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden"
+        "associate-inventuren-coop-genossenschaft-basel-arot84"
       ]
     },
     {

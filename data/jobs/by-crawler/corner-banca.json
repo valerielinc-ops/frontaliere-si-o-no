@@ -381,12 +381,12 @@
     },
     {
       "id": "corner-banca-55e210fc5d83",
-      "slug": "market-risk-manager-corner-banca-lugano",
+      "slug": "gestione-del-rischio-di-mercato-corner-banca-lugano",
       "slugByLocale": {
-        "it": "market-risk-manager-corner-banca-lugano",
+        "it": "gestione-del-rischio-di-mercato-corner-banca-lugano",
         "en": "market-risk-manager-corner-banca-lugano",
-        "de": "market-risk-manager-corner-banca-lugano",
-        "fr": "market-risk-manager-corner-banca-lugano"
+        "de": "marktrisikomanager-corner-banca-lugano",
+        "fr": "gestionnaire-des-risques-de-marche-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -465,7 +465,21 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-13T10:51:00.114Z"
+      "firstSeenAt": "2026-05-13T10:51:00.114Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "market-risk-manager-corner-banca-lugano"
+        ],
+        "de": [
+          "market-risk-manager-corner-banca-lugano"
+        ],
+        "fr": [
+          "market-risk-manager-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "market-risk-manager-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-b9d1611cce63",

@@ -1634,11 +1634,11 @@
     },
     {
       "id": "tally-weijl-b85ceed8d4a2",
-      "slug": "store-manager-tally-weijl-sion",
+      "slug": "responsabile-del-negozio-tally-weijl-sion",
       "slugByLocale": {
         "fr": "store-manager-tally-weijl-sion",
         "en": "store-manager-tally-weijl-sion",
-        "it": "store-manager-tally-weijl-sion",
+        "it": "responsabile-del-negozio-tally-weijl-sion",
         "de": "store-manager-tally-weijl-sion"
       },
       "company": "TALLY WEiJL",
@@ -1693,7 +1693,15 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-05-13T12:02:13.616Z"
+      "firstSeenAt": "2026-05-13T12:02:13.616Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "store-manager-tally-weijl-sion"
+        ]
+      },
+      "previousSlugs": [
+        "store-manager-tally-weijl-sion"
+      ]
     },
     {
       "id": "tally-weijl-61bd4a2ae156",

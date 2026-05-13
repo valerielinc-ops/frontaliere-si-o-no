@@ -2795,12 +2795,12 @@
     },
     {
       "id": "localsearch-90cc2bda49a8",
-      "slug": "verkaufsberater-in-aussendienst-localsearch-zurich",
+      "slug": "consulente-di-vendita-in-servizio-straniero-localsearch-zurich",
       "slugByLocale": {
         "de": "verkaufsberater-in-aussendienst-localsearch-zurich",
-        "it": "verkaufsberater-in-aussendienst-localsearch-zurich",
-        "en": "verkaufsberater-in-aussendienst-localsearch-zurich",
-        "fr": "verkaufsberater-in-aussendienst-localsearch-zurich"
+        "it": "consulente-di-vendita-in-servizio-straniero-localsearch-zurich",
+        "en": "sales-consultant-in-foreign-service-localsearch-zurich",
+        "fr": "consultant-en-ventes-en-service-exterieur-localsearch-zurich"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -2843,14 +2843,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-aussendienst-localsearch-ch-3"
+          "verkaufsberater-in-aussendienst-localsearch-ch-3",
+          "verkaufsberater-in-aussendienst-localsearch-zurich"
         ],
         "de": [
           "verkaufsberater-in-aussendienst-localsearch-ch"
+        ],
+        "en": [
+          "verkaufsberater-in-aussendienst-localsearch-zurich"
+        ],
+        "fr": [
+          "verkaufsberater-in-aussendienst-localsearch-zurich"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-aussendienst-localsearch-ch-3",
+        "verkaufsberater-in-aussendienst-localsearch-zurich",
         "verkaufsberater-in-aussendienst-localsearch-ch"
       ],
       "salaryMin": 49500,

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "laderach-7e0a2691cb01",
-      "slug": "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern",
+      "slug": "venditore-60-chocolaterie-lucerna-m-f-d-laderach-schweiz-ag-luzern",
       "slugByLocale": {
         "de": "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern",
-        "it": "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern",
-        "en": "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern",
-        "fr": "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern"
+        "it": "venditore-60-chocolaterie-lucerna-m-f-d-laderach-schweiz-ag-luzern",
+        "en": "salesperson-60-chocolaterie-lucerne-m-f-d-laderach-schweiz-ag-luzern",
+        "fr": "vendeur-60-chocolaterie-lucerne-h-f-d-laderach-schweiz-ag-luzern"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -59,7 +59,21 @@
         }
       },
       "postalCode": "6003",
-      "firstSeenAt": "2026-05-13T11:24:23.158Z"
+      "firstSeenAt": "2026-05-13T11:24:23.158Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern"
+        ],
+        "en": [
+          "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern"
+        ],
+        "fr": [
+          "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-60-chocolaterie-luzern-w-m-d-laderach-luzern"
+      ]
     },
     {
       "id": "laderach-0c321242bff1",
