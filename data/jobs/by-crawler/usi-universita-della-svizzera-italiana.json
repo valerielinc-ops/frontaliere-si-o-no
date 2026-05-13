@@ -1278,7 +1278,7 @@
       "slug": "collaboratrice-tore-carriere-eventi-e-comunicazione-usi",
       "slugByLocale": {
         "it": "collaboratrice-tore-carriere-eventi-e-comunicazione-usi",
-        "en": "collaborator-careers-events-and-communication-usi-lugano",
+        "en": "contributor-cooperator-careers-events-and-communication-usi-universita-della-svizzera-italiana-lugano",
         "de": "mitarbeiter-in-karrieren-veranstaltungen-und-kommunikation-usi-lugano",
         "fr": "collaborateur-trices-carrieres-evenements-et-communication-usi-lugano"
       },
@@ -1315,7 +1315,15 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-12T23:12:27.051Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "en": [
+          "collaborator-careers-events-and-communication-usi-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "collaborator-careers-events-and-communication-usi-lugano"
+      ]
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-carriere-alumni-collaboratrice-tore-2026.pdf",
@@ -1342,9 +1350,9 @@
       "slug": "collaboratrice-tore-usi-lugano",
       "slugByLocale": {
         "it": "collaboratrice-tore-usi-lugano",
-        "en": "collaborator-tore-usi-lugano",
-        "de": "mitarbeiter-in-usi-lugano",
-        "fr": "collaboratrice-torre-usi-lugano"
+        "en": "career-services-coordinator-usi-universita-della-svizzera-italiana-lugano",
+        "de": "karriere-und-alumni-manager-in-usi-universita-della-svizzera-italiana-lugano",
+        "fr": "charge-e-de-carriere-et-alumni-usi-universita-della-svizzera-italiana-lugano"
       },
       "department": "Servizio carriere e alumni",
       "category": "staff",
@@ -1377,7 +1385,23 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-11T12:46:05.641Z"
+      "firstSeenAt": "2026-05-11T12:46:05.641Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "collaborator-tore-usi-lugano"
+        ],
+        "de": [
+          "mitarbeiter-in-usi-lugano"
+        ],
+        "fr": [
+          "collaboratrice-torre-usi-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "collaborator-tore-usi-lugano",
+        "mitarbeiter-in-usi-lugano",
+        "collaboratrice-torre-usi-lugano"
+      ]
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-eco-assistente-amm.pdf",

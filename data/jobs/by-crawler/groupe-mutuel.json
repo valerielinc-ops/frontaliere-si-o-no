@@ -27,8 +27,8 @@
       "slug": "ausiliario-medico-ambulatorio-e-ricovero-m-f-80-100-groupe-mutuel-sion",
       "slugByLocale": {
         "it": "ausiliario-medico-ambulatorio-e-ricovero-m-f-80-100-groupe-mutuel-sion",
-        "en": "auxiliaire-medicale-ambulatoire-et-hospitalisation-h-f-80-100-groupe-mutuel",
-        "de": "auxiliaire-medicale-ambulatoire-et-hospitalisation-h-f-80-100-groupe-mutuel",
+        "en": "medical-assistant-ambulatory-and-hospitalization-h-f-80-100-groupe-mutuel-sion",
+        "de": "medizinischer-assistent-krankenstation-h-f-80-100-groupe-mutuel-sion",
         "fr": "auxiliaire-medicale-ambulatoire-et-hospitalisation-h-f-80-100-groupe-mutuel"
       },
       "category": "healthcare",
@@ -49,6 +49,12 @@
         "it": [
           "auxiliaire-medicale-ambulatoire-et-hospitalisation-h-f-80-100-groupe-mutuel",
           "auxiliaire-medicale-ambulatoire-et-hospitalisation-m-w-d-80-100-groupe-mutuel-sion"
+        ],
+        "en": [
+          "auxiliaire-medicale-ambulatoire-et-hospitalisation-h-f-80-100-groupe-mutuel"
+        ],
+        "de": [
+          "auxiliaire-medicale-ambulatoire-et-hospitalisation-h-f-80-100-groupe-mutuel"
         ]
       },
       "previousSlugs": [
@@ -93,9 +99,9 @@
         "de": "Auxiliaire médical Assistent en pharmacie (h/f) 80-100%",
         "fr": "Auxiliaire médical - Pharmacie (h/f) 80-100%"
       },
-      "slug": "auxiliaire-medical-assistant-en-pharmacie-m-w-d-80-100-groupe-mutuel-lausanne",
+      "slug": "assistente-medico-farmacia-h-f-80-100-groupe-mutuel-lausanne",
       "slugByLocale": {
-        "it": "auxiliaire-medical-assistant-en-pharmacie-m-w-d-80-100-groupe-mutuel-lausanne",
+        "it": "assistente-medico-farmacia-h-f-80-100-groupe-mutuel-lausanne",
         "en": "auxiliaire-medical-assistant-en-pharmacie-h-f-80-100-groupe-mutuel",
         "de": "auxiliaire-medical-assistant-en-pharmacie-h-f-80-100-groupe-mutuel",
         "fr": "auxiliaire-medical-pharmacie-h-f-80-100-groupe-mutuel-lausanne"
@@ -116,14 +122,16 @@
       "id": "groupe-mutuel-45899f409b18",
       "previousSlugsByLocale": {
         "it": [
-          "auxiliaire-medical-assistant-en-pharmacie-h-f-80-100-groupe-mutuel"
+          "auxiliaire-medical-assistant-en-pharmacie-h-f-80-100-groupe-mutuel",
+          "auxiliaire-medical-assistant-en-pharmacie-m-w-d-80-100-groupe-mutuel-lausanne"
         ],
         "fr": [
           "auxiliaire-medical-assistant-en-pharmacie-h-f-80-100-groupe-mutuel"
         ]
       },
       "previousSlugs": [
-        "auxiliaire-medical-assistant-en-pharmacie-h-f-80-100-groupe-mutuel"
+        "auxiliaire-medical-assistant-en-pharmacie-h-f-80-100-groupe-mutuel",
+        "auxiliaire-medical-assistant-en-pharmacie-m-w-d-80-100-groupe-mutuel-lausanne"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
