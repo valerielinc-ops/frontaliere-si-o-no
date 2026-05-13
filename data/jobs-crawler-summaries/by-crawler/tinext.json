@@ -1,22 +1,61 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-05-12T23:07:33.157Z",
-  "total": 2,
+  "generatedAt": "2026-05-13T12:03:33.815Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 911,
-  "avgDurationMs": 911,
+  "durationMs": 816,
+  "avgDurationMs": 816,
   "durationHistory": [
-    911
+    816
   ],
   "newJobs": [],
   "updatedJobs": [
     {
+      "title": "Security & Network Engineer",
+      "slug": "security-network-engineer-tinext-lugano-secnetsys",
+      "url": "https://tinext.kenjo.io/secnetsys",
+      "applyUrl": "https://tinext.kenjo.io/secnetsys",
+      "company": "Tinext SA",
+      "companyKey": "tinext",
+      "companyDomain": "tinext.com",
+      "location": "Morbio",
+      "addressLocality": "Morbio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "IT & Digital Transformation",
+      "sector": "IT & Digital Transformation",
+      "source": "tinext-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-05-13",
+      "validThrough": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "tinext-8a05a5f06e0c",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale 18",
+      "postalCode": "6928",
+      "firstSeenAt": "2026-04-28T11:44:39.710Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [
+    {
       "title": "Freelance Java Developer | Full-remote",
-      "slug": "freelance-java-developer-full-remote-tinext-lugano-javadev",
+      "slug": "freelance-java-sviluppatore-full-remote-tinext-sa-morbio",
       "url": "https://tinext.kenjo.io/javadev",
       "applyUrl": "https://tinext.kenjo.io/javadev",
       "company": "Tinext SA",
@@ -50,45 +89,7 @@
         "translation": 25,
         "completeness": 25
       }
-    },
-    {
-      "title": "Security & Network Engineer",
-      "slug": "security-network-engineer-tinext-lugano-secnetsys",
-      "url": "https://tinext.kenjo.io/secnetsys",
-      "applyUrl": "https://tinext.kenjo.io/secnetsys",
-      "company": "Tinext SA",
-      "companyKey": "tinext",
-      "companyDomain": "tinext.com",
-      "location": "Morbio",
-      "addressLocality": "Morbio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "IT & Digital Transformation",
-      "sector": "IT & Digital Transformation",
-      "source": "tinext-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-12",
-      "validThrough": "",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "tinext-8a05a5f06e0c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928",
-      "firstSeenAt": "2026-04-28T11:44:39.710Z",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
