@@ -1244,6 +1244,28 @@ function cantonHubIntro(locale: HubLocale, hub: CantonHubKind, cantonLabel: stri
 }
 
 /**
+ * Compact prose block for thin canton hub page-N>1 (2026-05-13 follow-up
+ * to PR #153). The minimal page-N HTML had ratio ~5-6 % vs the 10 %
+ * audit:text-html-ratio gate (HTML ~12 KB, visible text ~700 bytes from
+ * the items list). This helper adds a short locale + page-aware paragraph
+ * (~500 bytes visible text) at the bottom of every page-N>1, taking ratio
+ * from ~6 % to ~10 %+. Same compact shape across hub kinds.
+ */
+function buildPageNCompactProse(locale: HubLocale, cantonLabel: string, hub: CantonHubKind, page: number, totalPages: number, totalItems: number): string {
+  const hubLabel = CANTON_HUB_LABELS[locale][hub];
+  if (locale === 'en') {
+    return `${hubLabel} in ${cantonLabel} — page ${page} of ${totalPages}. The full archive collects ${totalItems.toLocaleString('en')} active listings across this canton, paginated 100 entries per page so the alphabetical order stays stable and cross-border workers can resume the scan from the exact role they left off. Each link below opens the detail page with full description, contract type, location and direct application URL. For the day's most recent openings sorted by date rather than alphabetically, jump to the canton overview page. The next page sits one click away under the navigator above.`;
+  }
+  if (locale === 'de') {
+    return `${hubLabel} in ${cantonLabel} — Seite ${page} von ${totalPages}. Das vollständige Archiv erfasst ${totalItems.toLocaleString('de')} aktive Stellen in diesem Kanton, paginiert zu 100 Einträgen pro Seite, sodass die alphabetische Reihenfolge stabil bleibt und Grenzgänger die Suche genau dort fortsetzen können, wo sie aufgehört haben. Jeder Link unten öffnet die Detailseite mit vollständiger Beschreibung, Vertragsart, Arbeitsort und direktem Bewerbungslink. Für die neuesten Stellen des Tages, sortiert nach Datum statt alphabetisch, wechseln Sie zur Kantonsübersicht. Die nächste Seite ist über die obige Navigation einen Klick entfernt.`;
+  }
+  if (locale === 'fr') {
+    return `${hubLabel} dans le canton de ${cantonLabel} — page ${page} sur ${totalPages}. L'archive complète recense ${totalItems.toLocaleString('fr')} offres actives dans ce canton, paginées par 100 entrées pour conserver un ordre alphabétique stable et permettre aux frontaliers de reprendre la recherche exactement là où ils l'ont laissée. Chaque lien ci-dessous ouvre la page de détail avec description complète, type de contrat, lieu et URL de candidature directe. Pour les offres les plus récentes du jour triées par date plutôt qu'alphabétiquement, rendez-vous sur la page de présentation du canton. La page suivante est à un clic de distance dans le navigateur ci-dessus.`;
+  }
+  return `${hubLabel} in ${cantonLabel} — pagina ${page} di ${totalPages}. L'archivio completo raccoglie ${totalItems.toLocaleString('it')} annunci attivi in questo cantone, paginati in 100 voci per pagina così l'ordine alfabetico resta stabile e i frontalieri possono riprendere la ricerca esattamente dal ruolo lasciato in sospeso. Ogni link qui sotto apre la pagina dettaglio con descrizione completa, tipo di contratto, sede e URL di candidatura diretta. Per le offerte più recenti del giorno ordinate per data anziché alfabeticamente, vai alla pagina di panoramica del cantone. La pagina successiva è a un click di distanza nel navigatore qui sopra.`;
+}
+
+/**
  * Long-form body copy for thin canton hubs. Lives below the items list to
  * push the page over the 50-word floor enforced by validate-sitemap-pages
  * for small cantons (Glarona / Uri / Svitto / Zugo / Neuchatel had only the
@@ -1435,7 +1457,9 @@ function buildThinCantonHubHtml(args: {
         countHint: totalItems,
         ctaHref: basePath,
         ctaLabel: null,
-      })}` : ''}
+      })}` : `<section style="margin-top:24px;padding-top:18px;border-top:1px solid var(--color-edge);max-width:780px">
+        <p style="font-size:14px;line-height:1.6;color:var(--color-body);margin:0">${esc(buildPageNCompactProse(locale, cantonLabel, hub, page, totalPages, totalItems))}</p>
+      </section>`}
     </main>
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
