@@ -107,10 +107,10 @@ const ALLOWLIST = [
   // family (5 Q/A pairs × 4 locales × 4 hub kinds). The 4 literals all
   // live on 2 paired template literals (sectors hub + companies hub),
   // each spanning 2 lines.
-  'build-plugins/seoHubsPlugin.ts:1588',
-  'build-plugins/seoHubsPlugin.ts:1589',
-  'build-plugins/seoHubsPlugin.ts:1604',
-  'build-plugins/seoHubsPlugin.ts:1605',
+  'build-plugins/seoHubsPlugin.ts:1641',
+  'build-plugins/seoHubsPlugin.ts:1642',
+  'build-plugins/seoHubsPlugin.ts:1657',
+  'build-plugins/seoHubsPlugin.ts:1658',
 
   // ── professionLandingsLinksPlugin: TI hub injection targets (intentional —
   //    the prose explicitly references "10 most-searched roles in Ticino"). ──
