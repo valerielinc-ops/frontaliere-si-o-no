@@ -3750,6 +3750,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-pensione-lpp-tassazione-senza-intermediario': { name: 'Pensione LPP', path: '/articoli-frontaliere/pensione-lpp-tassazione-senza-intermediario', parent: 'blog' },
     'blog-premi-cassa-malati-ticino-2026': { name: 'Premi cassa malati', path: '/articoli-frontaliere/premi-cassa-malati-ticino-2026', parent: 'blog' },
     'blog-ascensione-svizzera-viabilit-2026': { name: 'Viabilità e frontalieri', path: '/articoli-frontaliere/ascensione-svizzera-viabilit-2026', parent: 'blog' },
+    'blog-frontalieri-astuti-confronto-territori': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-astuti-confronto-territori', parent: 'blog' },
  };
 
  const info = sectionNames[section];

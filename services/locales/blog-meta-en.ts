@@ -7522,6 +7522,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ascensione-svizzera-viabilit-2026.title': 'Ascension Day: Brogeda border closed',
     'blog.article.ascensione-svizzera-viabilit-2026.excerpt': 'Changes to traffic on the A9 and closure of the Brogeda border crossing for Ascension Day in Switzerland. Here\'s what changes for cross-border workers',
     'blog.article.ascensione-svizzera-viabilit-2026.imageAlt': 'Aerial view of Lake Lugano with mountains and Swiss-Italian border in the background',
+    'blog.article.frontalieri-astuti-confronto-territori.title': 'Astuti: \'No real territorial comparison\'',
+    'blog.article.frontalieri-astuti-confronto-territori.excerpt': 'PD regional councillor Samuele Astuti criticises the management of the healthcare tax for cross-border workers and the uncertainty in relations with Switzerland.',
+    'blog.article.frontalieri-astuti-confronto-territori.imageAlt': 'Lake Lugano with a view of the mountains and a boat on the water',
 };
 
 export default blogMetaEn;

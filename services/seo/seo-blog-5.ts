@@ -36656,6 +36656,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-astuti-confronto-territori': {
+    title: 'Frontalieri, Astuti: “Nessun vero confronto sui territori”',
+    description: 'Il consigliere regionale del PD Samuele Astuti critica la gestione della tassa sanitaria per i frontalieri e l\'incertezza nei rapporti con la Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, astuti, nessun, vero, confronto',
+    ogTitle: 'Frontalieri, Astuti: “Nessun vero confronto sui territori”',
+    ogDescription: 'Il consigliere regionale del PD Samuele Astuti critica la gestione della tassa sanitaria per i frontalieri e l\'incertezza nei rapporti con la Svizzera.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-astuti-confronto-territori',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri, Astuti: “Nessun vero confronto sui territori”",
+      "description": "Il consigliere regionale del PD Samuele Astuti critica la gestione della tassa sanitaria per i frontalieri e l'incertezza nei rapporti con la Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-astuti-confronto-territori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con vista sulle montagne e una barca sull'acqua"
+      },
+      "datePublished": "2026-05-13T13:35:30+00:00",
+      "dateModified": "2026-05-13T13:35:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-astuti-confronto-territori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

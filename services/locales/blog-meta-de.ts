@@ -7521,6 +7521,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ascensione-svizzera-viabilit-2026.title': 'Christi Himmelfahrt: Zoll Brogeda geschlossen',
     'blog.article.ascensione-svizzera-viabilit-2026.excerpt': 'Verkehrsänderungen auf der A9 und Schließung des Zolls Brogeda für Christi Himmelfahrt in der Schweiz. Was sich für Grenzgänger ändert',
     'blog.article.ascensione-svizzera-viabilit-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit Bergen und der Schweizer-Italienischen Grenze im Hintergrund',
+    'blog.article.frontalieri-astuti-confronto-territori.title': 'Astuti: Kein echter Dialog über die Gebiete',
+    'blog.article.frontalieri-astuti-confronto-territori.excerpt': 'Der PD-Regionalrat Samuele Astuti kritisiert die Handhabung der Gesundheitssteuer für Grenzgänger und die Unsicherheit in den Beziehungen zur Schweiz.',
+    'blog.article.frontalieri-astuti-confronto-territori.imageAlt': 'Luganersee mit Blick auf die Berge und ein Boot auf dem Wasser',
 };
 
 export default blogMetaDe;

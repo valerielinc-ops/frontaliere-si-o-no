@@ -7523,6 +7523,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ascensione-svizzera-viabilit-2026.title': 'Fête de l\'Ascension : douane de Brogeda fermée',
     'blog.article.ascensione-svizzera-viabilit-2026.excerpt': 'Modifications de la circulation sur l\'A9 et fermeture de la douane de Brogeda pour la Fête de l\'Ascension en Suisse. Voici ce qui change pour les frontaliers',
     'blog.article.ascensione-svizzera-viabilit-2026.imageAlt': 'Vue aérienne du lac de Lugano avec des montagnes et la frontière suisse-italienne en arrière-plan',
+    'blog.article.frontalieri-astuti-confronto-territori.title': 'Frontaliers, Astuti: «Aucune vraie concertation sur les territoires»',
+    'blog.article.frontalieri-astuti-confronto-territori.excerpt': 'Le conseiller régional du PD Samuele Astuti critique la gestion de la taxe sanitaire pour les frontaliers et l\'incertitude dans les relations avec la Suisse.',
+    'blog.article.frontalieri-astuti-confronto-territori.imageAlt': 'Lac de Lugano avec vue sur les montagnes et un bateau sur l\'eau',
 };
 
 export default blogMetaFr;

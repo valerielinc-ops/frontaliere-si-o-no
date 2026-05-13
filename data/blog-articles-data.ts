@@ -23942,4 +23942,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-astuti-confronto-territori',
+ category: 'novita',
+ date: '2026-05-13T13:35:30.431Z',
+ image: '/images/blog/frontalieri-astuti-confronto-territori.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
