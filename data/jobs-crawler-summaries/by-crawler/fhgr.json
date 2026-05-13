@@ -1,16 +1,16 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-05-12T22:05:55.178Z",
+  "generatedAt": "2026-05-13T11:02:00.158Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8116,
-  "avgDurationMs": 8116,
+  "durationMs": 8042,
+  "avgDurationMs": 8042,
   "durationHistory": [
-    8116
+    8042
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/785/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:05:49.780Z",
+      "crawledAt": "2026-05-13T11:01:54.615Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -63,7 +63,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/784/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:05:50.813Z",
+      "crawledAt": "2026-05-13T11:01:55.728Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:05:51.811Z",
+      "crawledAt": "2026-05-13T11:01:56.823Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -137,7 +137,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/739/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-12T22:05:52.815Z",
+      "crawledAt": "2026-05-13T11:01:57.936Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -163,46 +163,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "fhgr-646b9fef9eaf",
-      "slug": "apprendistato-come-kauffrau-kaufmann-cfc-fachhochschule-graubunden-chur",
-      "company": "Fachhochschule Graubünden",
-      "companyKey": "fhgr",
-      "companyDomain": "fhgr.ch",
-      "title": "Lehrstelle als Kauffrau / Kaufmann EFZ",
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://jobs.fhgr.ch/Vacancies/783/Description/1",
-      "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-12T11:10:48.928Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Formazione / Ricerca",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Formazione / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://jobs.fhgr.ch/Vacancies/783/Application/CheckLogin/1",
-      "department": "Zentrale Dienste",
-      "contractDuration": "temporary",
-      "firstSeenAt": "2026-04-23T10:04:05.014Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
