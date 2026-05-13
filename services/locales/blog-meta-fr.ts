@@ -7502,6 +7502,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-frontalieri-2026.title': 'Blocage des retenues: Fonds santé pour frontaliers',
     'blog.article.blocco-ristorni-ticino-frontalieri-2026.excerpt': 'La Lega dei Ticinesi propose de bloquer les retenues pour financer un fonds d\'urgence santé pour les résidents du Canton du Ticino.',
     'blog.article.blocco-ristorni-ticino-frontalieri-2026.imageAlt': 'Lac de Lugano avec vue sur la ville de Lugano',
+    'blog.article.blocco-ristorni-ticino-politica-2026.title': 'Blocus des retenues : la politique tessinoise est ouverte',
+    'blog.article.blocco-ristorni-ticino-politica-2026.excerpt': 'Le Conseil d\'Etat a jusqu\'à fin juin pour décider s\'il doit retenir les 120 millions d\'impôt à la source des frontaliers',
+    'blog.article.blocco-ristorni-ticino-politica-2026.imageAlt': 'Lac de Lugano avec les montagnes environnantes',
 };
 
 export default blogMetaFr;

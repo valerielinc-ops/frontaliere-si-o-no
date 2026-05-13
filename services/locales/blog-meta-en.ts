@@ -7501,6 +7501,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-frontalieri-2026.title': 'Lega Ticinesi proposes health fund for cross-border workers',
     'blog.article.blocco-ristorni-ticino-frontalieri-2026.excerpt': 'The Lega dei Ticinesi proposes to block the returns to finance an emergency health fund for residents of the Canton Ticino.',
     'blog.article.blocco-ristorni-ticino-frontalieri-2026.imageAlt': 'Lake Lugano with a view of the city of Lugano',
+    'blog.article.blocco-ristorni-ticino-politica-2026.title': 'Ticino considers withholding cross-border workers\' tax',
+    'blog.article.blocco-ristorni-ticino-politica-2026.excerpt': 'The State Council has until the end of June to decide whether to retain the 120 million francs in withholding tax from cross-border workers',
+    'blog.article.blocco-ristorni-ticino-politica-2026.imageAlt': 'Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;

@@ -3743,6 +3743,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-blocco-ristorni-ticino-italia-2026': { name: 'Fiscale', path: '/articoli-frontaliere/blocco-ristorni-ticino-italia-2026', parent: 'blog' },
     'blog-assegni-familiari-frontalieri-ticino-2026': { name: 'Assegni familiari', path: '/articoli-frontaliere/assegni-familiari-frontalieri-ticino-2026', parent: 'blog' },
     'blog-blocco-ristorni-ticino-frontalieri-2026': { name: 'Fiscale', path: '/articoli-frontaliere/blocco-ristorni-ticino-frontalieri-2026', parent: 'blog' },
+    'blog-blocco-ristorni-ticino-politica-2026': { name: 'Fiscale', path: '/articoli-frontaliere/blocco-ristorni-ticino-politica-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -7502,6 +7502,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-frontalieri-2026.title': 'Blocco ristorni: Lega Ticinesi propone fondo sanità per frontalieri',
     'blog.article.blocco-ristorni-ticino-frontalieri-2026.excerpt': 'La Lega dei Ticinesi propone di bloccare i ristorni per finanziare un fondo di emergenza sanità per i residenti del Canton Ticino.',
     'blog.article.blocco-ristorni-ticino-frontalieri-2026.imageAlt': 'Lago di Lugano con vista sulla città di Lugano',
+    'blog.article.blocco-ristorni-ticino-politica-2026.title': 'Blocco ristorni: la politica ticinese è possibilista',
+    'blog.article.blocco-ristorni-ticino-politica-2026.excerpt': 'Il Consiglio di Stato ha tempo fino a fine giugno per decidere se trattenere i 120 milioni di imposta alla fonte dei frontalieri',
+    'blog.article.blocco-ristorni-ticino-politica-2026.imageAlt': 'Lago di Lugano con le montagne circostanti',
 };
 
 export default blogMetaIt;

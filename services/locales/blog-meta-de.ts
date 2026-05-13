@@ -7500,6 +7500,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-frontalieri-2026.title': 'Lega Ticinesi schlägt Gesundheitsfonds für Grenzgänger vor',
     'blog.article.blocco-ristorni-ticino-frontalieri-2026.excerpt': 'Die Lega dei Ticinesi schlägt vor, die Rückerstattungen zu blockieren, um einen Notfall-Gesundheitsfonds für die Einwohner des Kantons Tessin zu finanzieren.',
     'blog.article.blocco-ristorni-ticino-frontalieri-2026.imageAlt': 'Luganersee mit Blick auf die Stadt Lugano',
+    'blog.article.blocco-ristorni-ticino-politica-2026.title': 'Rückbehaltungsblockade: Ticino bleibt offen',
+    'blog.article.blocco-ristorni-ticino-politica-2026.excerpt': 'Der Staatsrat hat bis Ende Juni Zeit, um zu entscheiden, ob er die 120 Millionen Franken Quellensteuer der Grenzgänger einbehalten soll.',
+    'blog.article.blocco-ristorni-ticino-politica-2026.imageAlt': 'Luganersee mit umliegenden Bergen',
 };
 
 export default blogMetaDe;

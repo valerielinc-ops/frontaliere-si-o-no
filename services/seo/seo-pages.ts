@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2555,
+ "numberOfItems": 2556,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7195,7 +7195,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2552, "name": "Tassa salute frontalieri: caos tra Luino e Verb...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-luino-verbania` },
           { "@type": "ListItem", "position": 2553, "name": "Blocco ristorni Ticino-Italia: cosa cambia per ...", "url": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-ticino-italia-2026` },
           { "@type": "ListItem", "position": 2554, "name": "Frontalieri, rischio pagamenti doppi", "url": `${BASE_URL}/articoli-frontaliere/assegni-familiari-frontalieri-ticino-2026` },
-          { "@type": "ListItem", "position": 2555, "name": "Blocco ristorni: Lega Ticinesi propone fondo sa...", "url": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-ticino-frontalieri-2026` }
+          { "@type": "ListItem", "position": 2555, "name": "Blocco ristorni: Lega Ticinesi propone fondo sa...", "url": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-ticino-frontalieri-2026` },
+          { "@type": "ListItem", "position": 2556, "name": "Blocco ristorni: la politica ticinese è possibi...", "url": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-ticino-politica-2026` }
  ]
  },
  {
