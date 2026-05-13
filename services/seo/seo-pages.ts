@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2553,
+ "numberOfItems": 2554,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7193,7 +7193,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2550, "name": "Riforma disoccupazione frontalieri, pressioni d...", "url": `${BASE_URL}/articoli-frontaliere/riforma-disoccupazione-frontalieri-francia-svizzera` },
           { "@type": "ListItem", "position": 2551, "name": "Luino: Artoni chiede l'abolizione della tassa s...", "url": `${BASE_URL}/articoli-frontaliere/abolire-tassa-salute-frontalieri` },
           { "@type": "ListItem", "position": 2552, "name": "Tassa salute frontalieri: caos tra Luino e Verb...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-luino-verbania` },
-          { "@type": "ListItem", "position": 2553, "name": "Blocco ristorni Ticino-Italia: cosa cambia per ...", "url": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-ticino-italia-2026` }
+          { "@type": "ListItem", "position": 2553, "name": "Blocco ristorni Ticino-Italia: cosa cambia per ...", "url": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-ticino-italia-2026` },
+          { "@type": "ListItem", "position": 2554, "name": "Frontalieri, rischio pagamenti doppi", "url": `${BASE_URL}/articoli-frontaliere/assegni-familiari-frontalieri-ticino-2026` }
  ]
  },
  {

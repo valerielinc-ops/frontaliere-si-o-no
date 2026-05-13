@@ -7494,6 +7494,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-italia-2026.title': 'Rückerstattungsstopp für Grenzgänger: Was sich ändert',
     'blog.article.blocco-ristorni-ticino-italia-2026.excerpt': 'Der Kanton Tessin droht, die Rückerstattungen an italienische Gemeinden wegen der neuen Gesundheitssteuer für Grenzgänger zu blockieren.',
     'blog.article.blocco-ristorni-ticino-italia-2026.imageAlt': 'Blick auf den Luganersee mit der Stadt Lugano und Schweizer Bergen',
+    'blog.article.assegni-familiari-frontalieri-ticino-2026.title': 'Grenzgänger: Risiko doppelter Zahlungen',
+    'blog.article.assegni-familiari-frontalieri-ticino-2026.excerpt': 'Neuer Streit zwischen der Schweiz und Italien über die Familienzulagen der Grenzgänger. Der Bundesrat schließt eine Aussetzung der Zahlungen aus.',
+    'blog.article.assegni-familiari-frontalieri-ticino-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit den Bergen des Tessin im Hintergrund',
 };
 
 export default blogMetaDe;

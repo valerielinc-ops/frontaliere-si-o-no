@@ -7496,6 +7496,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-italia-2026.title': 'Blocco ristorni Ticino-Italia: cosa cambia per i frontalieri',
     'blog.article.blocco-ristorni-ticino-italia-2026.excerpt': 'Il Canton Ticino minaccia di bloccare i ristorni ai comuni italiani a causa della nuova tassa sulla salute per i frontalieri.',
     'blog.article.blocco-ristorni-ticino-italia-2026.imageAlt': 'Vista del Lago di Lugano con città di Lugano e montagne svizzere',
+    'blog.article.assegni-familiari-frontalieri-ticino-2026.title': 'Frontalieri, rischio pagamenti doppi',
+    'blog.article.assegni-familiari-frontalieri-ticino-2026.excerpt': 'Nuova diatriba tra Svizzera e Italia sugli assegni familiari dei frontalieri. Il Consiglio federale esclude la sospensione dei versamenti.',
+    'blog.article.assegni-familiari-frontalieri-ticino-2026.imageAlt': 'Vista aerea del Lago di Lugano con le montagne del Ticino sullo sfondo',
 };
 
 export default blogMetaIt;

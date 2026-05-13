@@ -23861,4 +23861,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'assegni-familiari-frontalieri-ticino-2026',
+ category: 'fiscale',
+ date: '2026-05-13T01:29:27.449Z',
+ image: '/images/blog/assegni-familiari-frontalieri-ticino-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

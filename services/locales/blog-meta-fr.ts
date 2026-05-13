@@ -7496,6 +7496,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-italia-2026.title': 'Blocage des restitutions Ticino-Italie: ce qui change pour les frontaliers',
     'blog.article.blocco-ristorni-ticino-italia-2026.excerpt': 'Le canton du Ticino menace de bloquer les restitutions aux communes italiennes en raison de la nouvelle taxe sur la santé pour les frontaliers.',
     'blog.article.blocco-ristorni-ticino-italia-2026.imageAlt': 'Vue du lac de Lugano avec la ville de Lugano et les montagnes suisses',
+    'blog.article.assegni-familiari-frontalieri-ticino-2026.title': 'Frontaliers, risque de doubles paiements',
+    'blog.article.assegni-familiari-frontalieri-ticino-2026.excerpt': 'Nouvelle diatribe entre la Suisse et l\'Italie sur les allocations familiales des frontaliers. Le Conseil fédéral exclut la suspension des versements.',
+    'blog.article.assegni-familiari-frontalieri-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
 };
 
 export default blogMetaFr;

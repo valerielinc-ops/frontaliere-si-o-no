@@ -7495,6 +7495,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-italia-2026.title': 'Ticino-Italy tax block: what changes for cross-border workers',
     'blog.article.blocco-ristorni-ticino-italia-2026.excerpt': 'The Canton of Ticino threatens to block tax returns to Italian municipalities due to the new health tax for cross-border workers.',
     'blog.article.blocco-ristorni-ticino-italia-2026.imageAlt': 'View of Lake Lugano with the city of Lugano and Swiss mountains',
+    'blog.article.assegni-familiari-frontalieri-ticino-2026.title': 'Cross-border workers face double payment risk',
+    'blog.article.assegni-familiari-frontalieri-ticino-2026.excerpt': 'New dispute between Switzerland and Italy over cross-border workers\' family allowances. The Federal Council rules out suspending payments.',
+    'blog.article.assegni-familiari-frontalieri-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
 };
 
 export default blogMetaEn;

@@ -3741,6 +3741,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-abolire-tassa-salute-frontalieri': { name: 'Fiscale', path: '/articoli-frontaliere/abolire-tassa-salute-frontalieri', parent: 'blog' },
     'blog-tassa-salute-frontalieri-luino-verbania': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-luino-verbania', parent: 'blog' },
     'blog-blocco-ristorni-ticino-italia-2026': { name: 'Fiscale', path: '/articoli-frontaliere/blocco-ristorni-ticino-italia-2026', parent: 'blog' },
+    'blog-assegni-familiari-frontalieri-ticino-2026': { name: 'Assegni familiari', path: '/articoli-frontaliere/assegni-familiari-frontalieri-ticino-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
