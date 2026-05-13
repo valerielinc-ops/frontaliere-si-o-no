@@ -7526,6 +7526,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-astuti-confronto-territori.title': 'Frontaliers, Astuti: «Aucune vraie concertation sur les territoires»',
     'blog.article.frontalieri-astuti-confronto-territori.excerpt': 'Le conseiller régional du PD Samuele Astuti critique la gestion de la taxe sanitaire pour les frontaliers et l\'incertitude dans les relations avec la Suisse.',
     'blog.article.frontalieri-astuti-confronto-territori.imageAlt': 'Lac de Lugano avec vue sur les montagnes et un bateau sur l\'eau',
+    'blog.article.tassa-salute-frontalieri-confronto-2026.title': 'Taxe santé des frontaliers: débat entre FI et PD',
+    'blog.article.tassa-salute-frontalieri-confronto-2026.excerpt': 'Le conseiller régional du PD Samuele Astuti est prêt à discuter avec Forza Italia de la taxe santé des frontaliers',
+    'blog.article.tassa-salute-frontalieri-confronto-2026.imageAlt': 'Un travailleur frontalier traversant la frontière entre l\'Italie et la Suisse au lac de Lugano, avec vue sur la ville et les montagnes',
 };
 
 export default blogMetaFr;

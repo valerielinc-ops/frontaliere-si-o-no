@@ -7524,6 +7524,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-astuti-confronto-territori.title': 'Astuti: Kein echter Dialog über die Gebiete',
     'blog.article.frontalieri-astuti-confronto-territori.excerpt': 'Der PD-Regionalrat Samuele Astuti kritisiert die Handhabung der Gesundheitssteuer für Grenzgänger und die Unsicherheit in den Beziehungen zur Schweiz.',
     'blog.article.frontalieri-astuti-confronto-territori.imageAlt': 'Luganersee mit Blick auf die Berge und ein Boot auf dem Wasser',
+    'blog.article.tassa-salute-frontalieri-confronto-2026.title': 'Gesundheitssteuer für Grenzgänger: Vergleich zwischen Forza Italia und PD',
+    'blog.article.tassa-salute-frontalieri-confronto-2026.excerpt': 'Der regionale Rat des PD Samuele Astuti ist bereit, mit Forza Italia über die Gesundheitssteuer für Grenzgänger zu diskutieren',
+    'blog.article.tassa-salute-frontalieri-confronto-2026.imageAlt': 'Ein Grenzgänger, der die Grenze zwischen Italien und der Schweiz am Luganersee überquert, mit Blick auf die Stadt und die Berge',
 };
 
 export default blogMetaDe;

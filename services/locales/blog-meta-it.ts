@@ -7526,6 +7526,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-astuti-confronto-territori.title': 'Frontalieri, Astuti: “Nessun vero confronto sui territori”',
     'blog.article.frontalieri-astuti-confronto-territori.excerpt': 'Il consigliere regionale del PD Samuele Astuti critica la gestione della tassa sanitaria per i frontalieri e l\'incertezza nei rapporti con la Svizzera.',
     'blog.article.frontalieri-astuti-confronto-territori.imageAlt': 'Lago di Lugano con vista sulle montagne e una barca sull\'acqua',
+    'blog.article.tassa-salute-frontalieri-confronto-2026.title': 'Tassa salute frontalieri: confronto in corso tra Forza Italia e PD',
+    'blog.article.tassa-salute-frontalieri-confronto-2026.excerpt': 'Il consigliere regionale del PD Samuele Astuti è disponibile a discutere con Forza Italia sulla tassa salute dei frontalieri',
+    'blog.article.tassa-salute-frontalieri-confronto-2026.imageAlt': 'Un frontaliere che attraversa il confine tra Italia e Svizzera sul Lago di Lugano, con vista sulla città e le montagne',
 };
 
 export default blogMetaIt;

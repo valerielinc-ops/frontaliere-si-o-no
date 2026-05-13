@@ -7525,6 +7525,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-astuti-confronto-territori.title': 'Astuti: \'No real territorial comparison\'',
     'blog.article.frontalieri-astuti-confronto-territori.excerpt': 'PD regional councillor Samuele Astuti criticises the management of the healthcare tax for cross-border workers and the uncertainty in relations with Switzerland.',
     'blog.article.frontalieri-astuti-confronto-territori.imageAlt': 'Lake Lugano with a view of the mountains and a boat on the water',
+    'blog.article.tassa-salute-frontalieri-confronto-2026.title': 'Health tax for cross-border workers: PD and Forza Italia in talks',
+    'blog.article.tassa-salute-frontalieri-confronto-2026.excerpt': 'PD regional councilor Samuele Astuti is willing to discuss the cross-border workers\' health tax with Forza Italia',
+    'blog.article.tassa-salute-frontalieri-confronto-2026.imageAlt': 'A frontalier worker crossing the border between Italy and Switzerland at Lake Lugano, with a view of the city and mountains',
 };
 
 export default blogMetaEn;

@@ -23951,4 +23951,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tassa-salute-frontalieri-confronto-2026',
+ category: 'fiscale',
+ date: '2026-05-13T15:06:29.270Z',
+ image: '/images/blog/tassa-salute-frontalieri-confronto-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
