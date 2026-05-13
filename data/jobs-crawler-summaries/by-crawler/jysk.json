@@ -1,21 +1,22 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-05-12T22:24:04.334Z",
+  "generatedAt": "2026-05-13T11:19:39.225Z",
   "total": 12,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 33993,
-  "avgDurationMs": 33993,
+  "durationMs": 33017,
+  "avgDurationMs": 33017,
   "durationHistory": [
-    33993
+    33017
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-wmr65o",
-      "slug": "store-manager-apprendista-a-80-100-per-la-filiale-seewen-jysk-schwyz-wmr65o",
+      "slug": "store-manager-trainee-a-80-100-per-il-ramo-seewen-jysk-schwyz",
       "company": "JYSK",
       "title": "Store Manager Trainee (a) 80-100% für die Filiale Seewen",
       "location": "Schwyz",
@@ -32,16 +33,17 @@
       "crawledAt": "2026-05-12T22:24:04.081Z",
       "firstSeenAt": "2026-05-12T22:24:04.081Z",
       "sourceLang": "de",
-      "_qualityScore": 84,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-v6twcb",
       "slug": "jchde-procuratore-con-responsabilita-del-magazzino-a-60-jysk-stans",
