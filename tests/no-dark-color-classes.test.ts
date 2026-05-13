@@ -18,7 +18,7 @@ import * as path from 'path';
 
 const SKIP_DIRS = new Set([
   'node_modules', 'dist', 'dist-old-25912', '.git', 'test-results', '.next',
-  '.clarity-asset-cache', 'coverage', 'scripts',
+  'coverage', 'scripts',
   // Generated / environment dirs that contain no app source
   'public', 'data', 'reports', 'log', 'test-results',
   '.cache', '.build-cache', '.tmp', '.venv', '.playwright-mcp',

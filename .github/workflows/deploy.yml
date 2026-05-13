@@ -268,19 +268,12 @@ jobs:
       - name: Generate responsive image thumbnails
         run: node scripts/generate-image-thumbnails.mjs
 
-      - name: Restore Clarity asset cache from previous deploys
-        uses: actions/cache@v5
-        with:
-          path: .clarity-asset-cache
-          key: clarity-assets-${{ github.run_number }}
-          restore-keys: clarity-assets-
-
       - name: Cleanup stale news sitemap entries
         run: node scripts/cleanup-news-sitemap.mjs
 
       - name: Cleanup stale job HTML (orphans from prior incremental builds)
-        # vite.config.ts uses emptyOutDir:false to preserve clarity assets
-        # and admin data, but that leaves orphan job HTML from prior builds
+        # vite.config.ts uses emptyOutDir:false to preserve admin data,
+        # but that leaves orphan job HTML from prior builds
         # on disk when a slug is renamed/removed. The title-uniqueness audit
         # then flags those orphans as duplicates of the freshly-emitted
         # canonical pages. Wipe the per-locale job-detail trees before build
@@ -587,27 +580,6 @@ jobs:
           path: /tmp/sitemaps-bundle/
           retention-days: 1
           if-no-files-found: ignore
-
-      - name: Merge previous CSS/JS assets for Clarity recordings
-        # Runs as the LAST mutation of dist/ before upload, on purpose.
-        # Earlier in the pipeline this step ran right after the build, but
-        # that meant every downstream audit/walker (Audit SPA bundle,
-        # write-collisions analysis, the parallel post-build pool) ran on
-        # a dist/ that contained both fresh hashed bundles AND old hashed
-        # bundles merged from the previous deploy's Clarity cache. Audits
-        # were forced to whitelist the older filename patterns, and any
-        # future audit that touches dist/assets/ has to repeat that
-        # whitelisting. Moving the merge here keeps `dist/` byte-identical
-        # to this build's output through every gate, then injects the
-        # Clarity preservation overlay only into the artifact bytes that
-        # actually ship to GitHub Pages.
-        # The --snapshot pass updates .clarity-asset-cache/ with whatever
-        # is in dist/assets/ at this point (= fresh build + merged old
-        # generations), so the next run starts from a complete picture.
-        continue-on-error: true
-        run: |
-          node scripts/preserve-clarity-assets.mjs --merge
-          node scripts/preserve-clarity-assets.mjs --snapshot
 
       # ┌─ Pages artifact pipeline (two steps, one logical operation) ─┐
       # │                                                                │
