@@ -1,197 +1,5 @@
 [
   {
-    "timestamp": "2026-04-28T04:11:41.438Z",
-    "label": "before",
-    "total": 2677,
-    "needsRetranslation": 56,
-    "incomplete": 29,
-    "complete": 2648,
-    "missingByLocale": {
-      "it": 27,
-      "en": 5,
-      "de": 25,
-      "fr": 25
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Bitfinex",
-        "pending": 1
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-28T04:35:29.033Z",
-    "label": "after",
-    "total": 2677,
-    "needsRetranslation": 24,
-    "incomplete": 29,
-    "complete": 2648,
-    "missingByLocale": {
-      "it": 27,
-      "en": 5,
-      "de": 25,
-      "fr": 25
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Bitfinex",
-        "pending": 1
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-28T06:17:06.771Z",
-    "label": "before",
-    "total": 2677,
-    "needsRetranslation": 24,
-    "incomplete": 29,
-    "complete": 2648,
-    "missingByLocale": {
-      "it": 27,
-      "en": 5,
-      "de": 25,
-      "fr": 25
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Bitfinex",
-        "pending": 1
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-28T06:35:44.710Z",
-    "label": "after",
-    "total": 2677,
-    "needsRetranslation": 50,
-    "incomplete": 29,
-    "complete": 2648,
-    "missingByLocale": {
-      "it": 27,
-      "en": 5,
-      "de": 25,
-      "fr": 25
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Bitfinex",
-        "pending": 1
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-28T08:52:31.627Z",
     "label": "before",
     "total": 2626,
@@ -10284,6 +10092,118 @@
       {
         "company": "Tschuggen Collection",
         "pending": 7
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-12T23:19:40.692Z",
+    "label": "before",
+    "total": 4400,
+    "needsRetranslation": 2324,
+    "incomplete": 520,
+    "complete": 3880,
+    "missingByLocale": {
+      "it": 349,
+      "en": 291,
+      "de": 149,
+      "fr": 346
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 92
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 85
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 38
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 19
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Pictet Group",
+        "pending": 10
+      },
+      {
+        "company": "UBS",
+        "pending": 10
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 9
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-13T01:45:49.651Z",
+    "label": "after",
+    "total": 4400,
+    "needsRetranslation": 1028,
+    "incomplete": 401,
+    "complete": 3999,
+    "missingByLocale": {
+      "it": 283,
+      "en": 240,
+      "de": 112,
+      "fr": 290
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 85
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "Hitachi Energy",
+        "pending": 38
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 19
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "IWC",
+        "pending": 11
+      },
+      {
+        "company": "Pictet Group",
+        "pending": 10
+      },
+      {
+        "company": "UBS",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "Reboot Monkey",
+        "pending": 8
       }
     ]
   }
