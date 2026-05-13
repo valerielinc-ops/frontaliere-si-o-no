@@ -1,21 +1,22 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-05-12T23:14:58.373Z",
+  "generatedAt": "2026-05-13T12:11:22.301Z",
   "total": 34,
-  "newCount": 2,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 27,
-  "durationMs": 38834,
-  "avgDurationMs": 38834,
+  "durationMs": 36261,
+  "avgDurationMs": 36261,
   "durationHistory": [
-    38834
+    36261
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-3mzk6n",
-      "slug": "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-bern-3mzk6n",
+      "slug": "specialista-in-hr-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Fachspezialist/-in HR",
       "location": "Bern",
@@ -37,17 +38,23 @@
       "crawledAt": "2026-05-12T23:14:56.800Z",
       "firstSeenAt": "2026-05-12T23:14:56.800Z",
       "sourceLang": "de",
-      "_qualityScore": 84,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bern",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-xcnafm",
-      "slug": "user-experience-spezialist-in-swiss-armed-forces-vtg-bern-xcnafm",
+      "slug": "specialista-dell-esperienza-utente-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "User Experience-Spezialist/-in",
       "location": "Bern",
@@ -68,18 +75,23 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-05-12T23:14:56.800Z",
       "firstSeenAt": "2026-05-12T23:14:56.800Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 81,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bern",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 18,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-hjhzm7",
       "slug": "sattler-in-textilcenter-sursee-swiss-armed-forces-vtg-bern",
