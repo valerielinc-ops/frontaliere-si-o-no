@@ -264,7 +264,7 @@ This repo is regularly worked on by **multiple parallel agents** sharing the sam
 1. You're about to make changes that will require `git commit && git push` (i.e. anything beyond pure reading/analysis), AND
 2. Either (a) the working tree already has unstaged changes that aren't yours, OR (b) you may be running alongside other agents, OR (c) the local cron is active.
 
-In practice this means: at the start of any code-modification task, call `EnterWorktree` to spawn a fresh worktree on a new branch. Do all edits, commits, and pushes there. When done, open a PR (or merge via orchestrator mode) and `ExitWorktree`.
+In practice this means: at the start of any code-modification task, call `EnterWorktree` to spawn a fresh worktree on a new branch. Do all edits, commits, and pushes there. When done, follow the **PR-as-merge-vehicle constraint** in the Auto-merge Rule below (open + immediately squash-merge into `main`, no review ceremony), then `ExitWorktree`.
 
 **Never use `git stash -u` blanket** to unblock a rebase on the shared tree — it captures foreign WIP. If you must rebase on the shared tree, enable `git config rebase.autoStash true` (atomic stash+rebase+pop, surfaces conflicts explicitly) and stage only your own files before rebasing.
 
@@ -281,6 +281,20 @@ When operating in orchestrator mode (parallel agents dispatching tasks via workt
 - Merge stale-but-useful branches and clean up the rest, leaving only `main` in a working state
 
 This authorization is durable across sessions and overrides the default "confirm before destructive shared-state actions" guardrail for these specific operations only. All other destructive actions (force push, history rewrite, dropping tables, deleting prod data) still require explicit confirmation.
+
+### PR-as-merge-vehicle constraint (no review ceremony)
+
+The PR is **a merge vehicle, not a review unit**. There is no human review step waiting on the other side. When work is done in a worktree and ready to land on `main`, the agent MUST:
+
+1. Push the feature branch.
+2. Open the PR with `gh pr create --fill` (or `--fill-first`) — reuse the commit message as title/body. Do **NOT** write multi-section bodies, problem statements, test plans, or test-plan checkboxes — those are merge-ceremony noise.
+3. Squash-merge **immediately** in the same agent turn: `gh pr merge <number> --squash`.
+4. Delete the remote branch (`git push origin --delete <branch>`) — `--delete-branch` on `gh pr merge` fails silently when the main worktree blocks the local cleanup, so always do the remote delete explicitly. See `memory/feedback_cleanup_remote_branch_after_squash_merge.md`.
+5. `ExitWorktree` with `action: remove, discard_changes: true` (the commit is already in `main`).
+
+The PR exists for seconds; it is never left open for review. If a change needs review, ask the user explicitly before merging — but the default in orchestrator mode is direct-to-`main`.
+
+Hard merges via the API without ever creating a PR (e.g. `gh api /repos/.../merges`) are **not** required — the open-then-immediately-merge pattern above is the canonical path because GitHub's merge surface needs a PR, and squash-merge via PR gives a clean commit on `main`.
 
 ---
 
