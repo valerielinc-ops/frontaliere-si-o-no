@@ -542,9 +542,29 @@ async function main() {
   if (mapEntries.length === 0) {
     console.log("\n⚠️ No McDonald's TI/GR jobs discovered.");
     console.log('   The portal may have no openings in target regions.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Writing empty slice to clear stale data (mirrors bancastato pattern).');
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
+    const _durationMs = getCrawlerElapsedMs();
+    writeJobsCrawlerSlice(MCDO_KEY, []);
+    writeSummaryCrawlerSlice({
+      key: MCDO_KEY,
+      label: 'mcdonalds',
+      generatedAt: new Date().toISOString(),
+      total: 0,
+      newCount: crawlDiff.newJobs.length,
+      updatedCount: crawlDiff.updatedJobs.length,
+      removedCount: crawlDiff.removedJobs.length,
+      unchangedCount: crawlDiff.unchangedCount,
+      durationMs: _durationMs,
+      avgDurationMs: _durationMs,
+      durationHistory: [_durationMs],
+      newJobs: crawlDiff.newJobs.slice(0, 30),
+      updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
+      removedJobs: crawlDiff.removedJobs.slice(0, 30),
+      unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
+    });
+    await assembleJobsDataset();
     return;
   }
 

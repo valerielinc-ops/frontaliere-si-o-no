@@ -76,7 +76,7 @@ jobs:
       - name: Housekeeping — remove expired job listings (scoped)
         env:
           JOBS_HOUSEKEEPING_SCOPE: 'mcdonalds'
-          JOBS_SLICE_FILE: 'data/jobs/by-crawler/mcdonalds.json'
+          JOBS_SLICE_FILE: 'data/jobs/by-crawler/mcdonald-s-switzerland.json'
         run: node scripts/cleanup-jobs.mjs
         continue-on-error: true
 
