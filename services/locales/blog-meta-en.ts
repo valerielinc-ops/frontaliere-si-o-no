@@ -7498,6 +7498,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.assegni-familiari-frontalieri-ticino-2026.title': 'Cross-border workers face double payment risk',
     'blog.article.assegni-familiari-frontalieri-ticino-2026.excerpt': 'New dispute between Switzerland and Italy over cross-border workers\' family allowances. The Federal Council rules out suspending payments.',
     'blog.article.assegni-familiari-frontalieri-ticino-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino mountains in the background',
+    'blog.article.blocco-ristorni-ticino-frontalieri-2026.title': 'Lega Ticinesi proposes health fund for cross-border workers',
+    'blog.article.blocco-ristorni-ticino-frontalieri-2026.excerpt': 'The Lega dei Ticinesi proposes to block the returns to finance an emergency health fund for residents of the Canton Ticino.',
+    'blog.article.blocco-ristorni-ticino-frontalieri-2026.imageAlt': 'Lake Lugano with a view of the city of Lugano',
 };
 
 export default blogMetaEn;

@@ -1434,7 +1434,7 @@
     "winnerJobIdentifier": "richemont-d129ac6e6d1d",
     "winnerCanonical": "conseiller-de-vente-vhernier-geneva",
     "decidedAt": "2026-05-12T00:00:00.000Z",
-    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.125,
     "candidatesCount": 2,
     "canton": "GE"
@@ -1443,7 +1443,7 @@
     "winnerJobIdentifier": "richemont-c24765c6ec23",
     "winnerCanonical": "associe-de-vente-senior-cartier-geneva",
     "decidedAt": "2026-05-12T00:00:00.000Z",
-    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2222,
     "candidatesCount": 2,
     "canton": "GE"
@@ -1772,12 +1772,30 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::en::betreuer-in-pdgr-ch-2": {
+    "winnerJobIdentifier": "pdgr-3368deccf057",
+    "winnerCanonical": "supervisor-psychiatrische-dienste-graubunden-landquart",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::en::buroangestellte-steward-m-w-d-grand-hotel-kronenhof-pontresina": {
     "winnerJobIdentifier": "grand-hotel-kronenhof-517f2506113d",
     "winnerCanonical": "office-employee-steward-start-immediately-m-f-d-grand-hotel-kronenhof-pontresina",
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-04-30T10:50:56.200Z",
     "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::en::caregiver-psychiatrische-dienste-graubunden-rothenbrunnen": {
+    "winnerJobIdentifier": "pdgr-e66c255d8449",
+    "winnerCanonical": "supervisor-psychiatrische-dienste-graubunden-rothenbrunnen",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -1907,6 +1925,15 @@
     "candidatesCount": 1,
     "canton": "GR"
   },
+  "GR::en::rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu": {
+    "winnerJobIdentifier": "company-o367qu",
+    "winnerCanonical": "rayon-ladder-in-nonfood-coop-genossenschaft-klosters-serneus",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::en::safety-officer-80-100-f-m-d-hamilton-bonaduz-ag-bonaduz": {
     "winnerJobIdentifier": "hamilton-bonaduz-ag-0a0be4f3eaf0",
     "winnerCanonical": "ict-engineer-ot-security-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
@@ -1979,6 +2006,15 @@
     "candidatesCount": 1,
     "canton": "GR"
   },
+  "GR::fr::assistant-e-social-e-psychiatrische-dienste-graubunden-rothenbrunnen": {
+    "winnerJobIdentifier": "pdgr-e66c255d8449",
+    "winnerCanonical": "superviseur-psychiatrische-dienste-graubunden-rothenbrunnen",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::fr::autista-addetto-raccolta-dati-a-coira-svizzera-tsmg-chur": {
     "winnerJobIdentifier": "tsmg-2d2283cb9788",
     "winnerCanonical": "chauffeur-collecteur-de-donnees-in-chur-switzerland-tsmg-chur-dfa1adf1",
@@ -2021,6 +2057,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::fr::betreuer-in-pdgr-ch-2": {
+    "winnerJobIdentifier": "pdgr-3368deccf057",
+    "winnerCanonical": "superviseur-psychiatrische-dienste-graubunden-landquart",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -2177,6 +2222,15 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::fr::rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu": {
+    "winnerJobIdentifier": "company-o367qu",
+    "winnerCanonical": "echelle-de-rayon-dans-les-produits-non-alimentaires-coop-genossenschaft-klosters-serneus",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.1765,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::fr::spitex-assistant-de-sante-50-100-spital-davos-davos": {
     "winnerJobIdentifier": "spital-davos-016659b12606",
     "winnerCanonical": "assistant-de-soins-srk-spitex-50-100-spital-davos-davos",
@@ -2276,6 +2330,15 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::it::assistente-sociale-psychiatrische-dienste-graubunden-rothenbrunnen": {
+    "winnerJobIdentifier": "pdgr-e66c255d8449",
+    "winnerCanonical": "supervisore-psychiatrische-dienste-graubunden-rothenbrunnen",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.5714,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::it::autista-addetto-raccolta-dati-a-coira-svizzera-tsmg-chur": {
     "winnerJobIdentifier": "tsmg-2d2283cb9788",
     "winnerCanonical": "autista-addetto-raccolta-dati-in-chur-switzerland-tsmg-chur-dfa1adf1",
@@ -2339,12 +2402,21 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
-  "GR::it::buroangestellte-steward-m-w-d-grand-hotel-kronenhof-pontresina": {
-    "winnerJobIdentifier": "grand-hotel-kronenhof-b32669874fc2",
-    "winnerCanonical": "terapista-termale-m-p-g-grand-hotel-kronenhof-pontresina",
-    "decidedAt": "2026-05-04T10:17:25.898Z",
+  "GR::it::betreuer-in-pdgr-ch-2": {
+    "winnerJobIdentifier": "pdgr-3368deccf057",
+    "winnerCanonical": "supervisore-psychiatrische-dienste-graubunden-landquart",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.3846,
+    "score": 0,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::buroangestellte-steward-m-w-d-grand-hotel-kronenhof-pontresina": {
+    "winnerJobIdentifier": "grand-hotel-kronenhof-66bf470e01c0",
+    "winnerCanonical": "supporto-rotante-m-w-d-grand-hotel-kronenhof-pontresina",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.6364,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -2544,6 +2616,15 @@
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2667,
     "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::it::rayonleiter-in-nonfood-coop-klosters-serneus-graubunden": {
+    "winnerJobIdentifier": "company-o367qu",
+    "winnerCanonical": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-o367qu",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
+    "score": 0.875,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::it::responsabile-di-progetto-opere-d-arte-80-100-chur-afry-chur": {
@@ -5886,12 +5967,12 @@
     "canton": "VD"
   },
   "VD::fr::position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne": {
-    "winnerJobIdentifier": "epfl-ad8241ec0d43",
-    "winnerCanonical": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "epfl-b0cd92a73585",
+    "winnerCanonical": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne-d02b8a",
+    "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.2381,
-    "candidatesCount": 2,
+    "score": 0.9333,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::fr::position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne-aab331": {
@@ -5907,7 +5988,7 @@
     "winnerJobIdentifier": "epfl-ad8241ec0d43",
     "winnerCanonical": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne",
     "decidedAt": "2026-05-12T00:00:00.000Z",
-    "lastSeenAt": "2026-05-12T00:00:00.000Z",
+    "lastSeenAt": "2026-05-13T00:00:00.000Z",
     "score": 0.2381,
     "candidatesCount": 2,
     "canton": "VD"

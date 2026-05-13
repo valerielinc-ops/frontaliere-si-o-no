@@ -7499,6 +7499,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.assegni-familiari-frontalieri-ticino-2026.title': 'Frontaliers, risque de doubles paiements',
     'blog.article.assegni-familiari-frontalieri-ticino-2026.excerpt': 'Nouvelle diatribe entre la Suisse et l\'Italie sur les allocations familiales des frontaliers. Le Conseil fédéral exclut la suspension des versements.',
     'blog.article.assegni-familiari-frontalieri-ticino-2026.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes du Tessin en arrière-plan',
+    'blog.article.blocco-ristorni-ticino-frontalieri-2026.title': 'Blocage des retenues: Fonds santé pour frontaliers',
+    'blog.article.blocco-ristorni-ticino-frontalieri-2026.excerpt': 'La Lega dei Ticinesi propose de bloquer les retenues pour financer un fonds d\'urgence santé pour les résidents du Canton du Ticino.',
+    'blog.article.blocco-ristorni-ticino-frontalieri-2026.imageAlt': 'Lac de Lugano avec vue sur la ville de Lugano',
 };
 
 export default blogMetaFr;

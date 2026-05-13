@@ -7497,6 +7497,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.assegni-familiari-frontalieri-ticino-2026.title': 'Grenzgänger: Risiko doppelter Zahlungen',
     'blog.article.assegni-familiari-frontalieri-ticino-2026.excerpt': 'Neuer Streit zwischen der Schweiz und Italien über die Familienzulagen der Grenzgänger. Der Bundesrat schließt eine Aussetzung der Zahlungen aus.',
     'blog.article.assegni-familiari-frontalieri-ticino-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit den Bergen des Tessin im Hintergrund',
+    'blog.article.blocco-ristorni-ticino-frontalieri-2026.title': 'Lega Ticinesi schlägt Gesundheitsfonds für Grenzgänger vor',
+    'blog.article.blocco-ristorni-ticino-frontalieri-2026.excerpt': 'Die Lega dei Ticinesi schlägt vor, die Rückerstattungen zu blockieren, um einen Notfall-Gesundheitsfonds für die Einwohner des Kantons Tessin zu finanzieren.',
+    'blog.article.blocco-ristorni-ticino-frontalieri-2026.imageAlt': 'Luganersee mit Blick auf die Stadt Lugano',
 };
 
 export default blogMetaDe;

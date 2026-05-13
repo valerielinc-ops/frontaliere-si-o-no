@@ -23870,4 +23870,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'blocco-ristorni-ticino-frontalieri-2026',
+ category: 'fiscale',
+ date: '2026-05-13T02:16:44.187Z',
+ image: '/images/blog/blocco-ristorni-ticino-frontalieri-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
