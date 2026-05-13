@@ -489,7 +489,7 @@
         "it": "student-in-come-ferienaushilfe-denner-frauenfeld",
         "en": "student-in-als-ferienaushilfe-denner-frauenfeld",
         "de": "student-in-als-ferienaushilfe-denner",
-        "fr": "student-in-als-ferienaushilfe-denner"
+        "fr": "etudiant-en-vacances-denner-frauenfeld"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -551,6 +551,9 @@
         ],
         "en": [
           "student-in-als-ferienaushilfe-denner-horw"
+        ],
+        "fr": [
+          "student-in-als-ferienaushilfe-denner"
         ]
       },
       "previousSlugs": [
@@ -672,12 +675,12 @@
     },
     {
       "id": "denner-e42cc9f08296",
-      "slug": "verkaufer-in-im-stundenlohn-denner-therwil",
+      "slug": "venditore-in-salario-orario-denner-therwil",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-therwil",
-        "en": "verkaufer-in-im-stundenlohn-denner-therwil",
+        "it": "venditore-in-salario-orario-denner-therwil",
+        "en": "seller-in-in-hourly-wage-denner-therwil",
         "de": "verkaufer-in-im-stundenlohn-denner-therwil",
-        "fr": "verkaufer-in-im-stundenlohn-denner-therwil"
+        "fr": "vendeur-en-salaire-horaire-denner-therwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -736,20 +739,24 @@
       "crawledAt": "2026-05-13T10:54:10.695Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-therwil"
         ],
         "en": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-therwil"
         ],
         "de": [
           "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "fr": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-therwil"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-therwil",
         "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
@@ -768,12 +775,12 @@
     },
     {
       "id": "denner-ba984cbf49fe",
-      "slug": "verkaufer-in-spatschicht-denner-therwil",
+      "slug": "venditore-in-ritardo-denner-therwil",
       "slugByLocale": {
-        "it": "verkaufer-in-spatschicht-denner-therwil",
-        "en": "verkaufer-in-spatschicht-denner-therwil",
+        "it": "venditore-in-ritardo-denner-therwil",
+        "en": "seller-in-late-shift-denner-therwil",
         "de": "verkaufer-in-spatschicht-denner-therwil",
-        "fr": "verkaufer-in-spatschicht-denner-therwil"
+        "fr": "vendeur-en-fin-de-quart-denner-therwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -833,21 +840,25 @@
       "previousSlugsByLocale": {
         "it": [
           "commesso-a-turno-serale-denner-flims-dorf",
-          "verkaufer-in-spatschicht-denner"
+          "verkaufer-in-spatschicht-denner",
+          "verkaufer-in-spatschicht-denner-therwil"
         ],
         "en": [
-          "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko"
+          "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko",
+          "verkaufer-in-spatschicht-denner-therwil"
         ],
         "de": [
           "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko"
         ],
         "fr": [
-          "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko"
+          "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko",
+          "verkaufer-in-spatschicht-denner-therwil"
         ]
       },
       "previousSlugs": [
         "commesso-a-turno-serale-denner-flims-dorf",
         "verkaufer-in-spatschicht-denner",
+        "verkaufer-in-spatschicht-denner-therwil",
         "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko"
       ],
       "salaryMin": 59000,
@@ -866,12 +877,12 @@
     },
     {
       "id": "denner-053fa2cb5702",
-      "slug": "sachbearbeiter-in-rechnungskontrolle-denner-zurich",
+      "slug": "processore-nel-controllo-account-denner-zurich",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-rechnungskontrolle-denner-zurich",
-        "en": "sachbearbeiter-in-rechnungskontrolle-denner-zurich",
+        "it": "processore-nel-controllo-account-denner-zurich",
+        "en": "processor-in-account-control-denner-zurich",
         "de": "sachbearbeiter-in-rechnungskontrolle-denner-zurich",
-        "fr": "sachbearbeiter-in-rechnungskontrolle-denner-zurich"
+        "fr": "processeur-dans-le-controle-de-compte-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -934,11 +945,19 @@
       "crawledAt": "2026-05-13T10:54:10.273Z",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-rechnungskontrolle-denner"
+          "sachbearbeiter-in-rechnungskontrolle-denner",
+          "sachbearbeiter-in-rechnungskontrolle-denner-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-rechnungskontrolle-denner-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-rechnungskontrolle-denner-zurich"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-rechnungskontrolle-denner"
+        "sachbearbeiter-in-rechnungskontrolle-denner",
+        "sachbearbeiter-in-rechnungskontrolle-denner-zurich"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

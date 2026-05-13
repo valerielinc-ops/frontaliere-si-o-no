@@ -906,7 +906,6 @@
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
-        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
@@ -6749,12 +6748,12 @@
     },
     {
       "id": "unispital-basel-f16341854433",
-      "slug": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
+      "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
-        "it": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
+        "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
         "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
-        "fr": "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
+        "fr": "physiotherapeute-physiotherapeute-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -6809,7 +6808,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T12:07:01.913Z"
+      "firstSeenAt": "2026-05-13T12:07:01.913Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
+      ]
     },
     {
       "id": "unispital-basel-3a335f18265e",
@@ -7297,7 +7307,7 @@
       "id": "unispital-basel-e94993893b1b",
       "slug": "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel",
+        "it": "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
         "en": "dipl-care-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-universitatsspital-basel-basel",
         "fr": "dipl-specialiste-des-soins-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel"
@@ -7347,7 +7357,8 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
         ],
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel"
         ],
         "en": [
           "dipl-care-specialist-hf-fh-medical-6-2-universitatsspital-basel-basel",
@@ -7361,13 +7372,10 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-unispital-basel-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel",
         "dipl-care-specialist-hf-fh-medical-6-2-universitatsspital-basel-basel",
         "dipl-specialiste-des-soins-hf-fh-medical-6-2-universitatsspital-basel-basel",
-        "dipl-specialista-di-cura-hf-fh-medico-6-2-universitatsspital-basel-basel",
-        "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
-        "dipl-care-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-universitatsspital-basel-basel",
-        "dipl-specialiste-des-soins-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel"
+        "dipl-specialista-di-cura-hf-fh-medico-6-2-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-12T12:15:55.438Z",
       "salaryMin": 49500,
@@ -7628,12 +7636,12 @@
     },
     {
       "id": "unispital-basel-ce239faf39dc",
-      "slug": "sachbearbeiter-in-stat-patientenaufnahme-universitatsspital-basel-basel",
+      "slug": "specialista-in-stat-assunzione-paziente-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "sachbearbeiter-in-stat-patientenaufnahme-universitatsspital-basel-basel",
-        "it": "sachbearbeiter-in-stat-patientenaufnahme-universitatsspital-basel-basel",
-        "en": "sachbearbeiter-in-stat-patientenaufnahme-universitatsspital-basel-basel",
-        "fr": "sachbearbeiter-in-stat-patientenaufnahme-universitatsspital-basel-basel"
+        "it": "specialista-in-stat-assunzione-paziente-universitatsspital-basel-basel",
+        "en": "specialist-in-stat-patient-intake-universitatsspital-basel-basel",
+        "fr": "specialiste-a-stat-consommation-de-patients-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -7678,14 +7686,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-stat-patientenaufnahme-unispital-basel-ch"
+          "sachbearbeiter-in-stat-patientenaufnahme-unispital-basel-ch",
+          "sachbearbeiter-in-stat-patientenaufnahme-universitatsspital-basel-basel"
         ],
         "de": [
           "sachbearbeiter-in-stat-patientenaufnahme-unispital-basel-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-stat-patientenaufnahme-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "sachbearbeiter-in-stat-patientenaufnahme-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-stat-patientenaufnahme-unispital-basel-ch"
+        "sachbearbeiter-in-stat-patientenaufnahme-unispital-basel-ch",
+        "sachbearbeiter-in-stat-patientenaufnahme-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -7865,8 +7881,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel",
         "it": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopadie-traumatologie-unispital-basel-ch",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopadie-traumatologie-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopadie-traumatologie-unispital-basel-ch"
+        "en": "dipl-career-dipl-care-specialist-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel",
+        "fr": "dipl-carriere-dipl-specialiste-des-soins-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -7925,12 +7941,12 @@
     },
     {
       "id": "unispital-basel-8c5cb88a7d77",
-      "slug": "sachbearbeiter-in-debitoren-kreditorenbuchhaltung-universitatsspital-basel-basel",
+      "slug": "specialista-in-creditor-accounting-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "sachbearbeiter-in-debitoren-kreditorenbuchhaltung-universitatsspital-basel-basel",
-        "it": "sachbearbeiter-in-debitoren-kreditorenbuchhaltung-universitatsspital-basel-basel",
-        "en": "sachbearbeiter-in-debitoren-kreditorenbuchhaltung-universitatsspital-basel-basel",
-        "fr": "sachbearbeiter-in-debitoren-kreditorenbuchhaltung-universitatsspital-basel-basel"
+        "it": "specialista-in-creditor-accounting-universitatsspital-basel-basel",
+        "en": "specialist-in-debitor-creditor-accounting-universitatsspital-basel-basel",
+        "fr": "specialiste-en-debiteur-crediteur-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -7975,14 +7991,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-debitoren-kreditorenbuchhaltung-unispital-basel-ch"
+          "sachbearbeiter-in-debitoren-kreditorenbuchhaltung-unispital-basel-ch",
+          "sachbearbeiter-in-debitoren-kreditorenbuchhaltung-universitatsspital-basel-basel"
         ],
         "de": [
           "sachbearbeiter-in-debitoren-kreditorenbuchhaltung-unispital-basel-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-debitoren-kreditorenbuchhaltung-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "sachbearbeiter-in-debitoren-kreditorenbuchhaltung-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-debitoren-kreditorenbuchhaltung-unispital-basel-ch"
+        "sachbearbeiter-in-debitoren-kreditorenbuchhaltung-unispital-basel-ch",
+        "sachbearbeiter-in-debitoren-kreditorenbuchhaltung-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -23,9 +23,12 @@
       "employmentType": "70 - 90%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-05-13T11:22:18.704Z",
-      "slug": "medizinische-r-praxisassistent-in-ambulante-kardiologie-kantonsspital-graubunden-chur",
+      "slug": "medico-assistente-pratico-in-cardiologia-ambulatoriale-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "medizinische-r-praxisassistent-in-ambulante-kardiologie-kantonsspital-graubunden-chur"
+        "de": "medizinische-r-praxisassistent-in-ambulante-kardiologie-kantonsspital-graubunden-chur",
+        "it": "medico-assistente-pratico-in-cardiologia-ambulatoriale-kantonsspital-graubunden-chur",
+        "en": "medical-practical-assistant-in-outpatient-cardiology-kantonsspital-graubunden-chur",
+        "fr": "medical-assistant-pratique-en-cardiologie-externe-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Medizinische:r Praxisassistent:in ambulante Kardiologie",
@@ -54,7 +57,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-13T11:22:18.704Z"
+      "firstSeenAt": "2026-05-13T11:22:18.704Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-ambulante-kardiologie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-ambulante-kardiologie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10035400",
@@ -77,9 +88,12 @@
       "employmentType": "40 - 40%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-05-13T11:22:18.704Z",
-      "slug": "medizinische-r-praxisassistent-in-frauenklinik-kantonsspital-graubunden-chur",
+      "slug": "medico-assistente-pratico-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "medizinische-r-praxisassistent-in-frauenklinik-kantonsspital-graubunden-chur"
+        "de": "medizinische-r-praxisassistent-in-frauenklinik-kantonsspital-graubunden-chur",
+        "it": "medico-assistente-pratico-kantonsspital-graubunden-chur",
+        "en": "medical-practical-assistant-in-female-clinic-kantonsspital-graubunden-chur",
+        "fr": "medecin-assistant-pratique-kantonsspital-graubunden-chur-a699db"
       },
       "titleByLocale": {
         "de": "Medizinische:r Praxisassistent:in Frauenklinik",
@@ -108,7 +122,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-13T11:22:18.704Z"
+      "firstSeenAt": "2026-05-13T11:22:18.704Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-frauenklinik-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-frauenklinik-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10035420",
@@ -131,9 +153,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-05-13T11:22:18.704Z",
-      "slug": "fachfrau-fachmann-gesundheit-chirurgie-kantonsspital-graubunden-chur",
+      "slug": "chirurgia-sanitaria-professionale-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "fachfrau-fachmann-gesundheit-chirurgie-kantonsspital-graubunden-chur"
+        "de": "fachfrau-fachmann-gesundheit-chirurgie-kantonsspital-graubunden-chur",
+        "it": "chirurgia-sanitaria-professionale-kantonsspital-graubunden-chur",
+        "en": "professional-health-surgery-kantonsspital-graubunden-chur",
+        "fr": "chirurgie-de-sante-professionnelle-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Fachfrau / Fachmann Gesundheit Chirurgie",
@@ -162,7 +187,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-05-13T11:22:18.704Z"
+      "firstSeenAt": "2026-05-13T11:22:18.704Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-chirurgie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-chirurgie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10033839",
@@ -1329,8 +1362,7 @@
       "featured": false,
       "previousSlugs": [
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
-        "diet-chef-kantonsspital-graubunden-chur",
-        "berufslehre-kochin-koch-kantonsspital-graubunden-chur"
+        "diet-chef-kantonsspital-graubunden-chur"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
@@ -5567,8 +5599,7 @@
       },
       "featured": false,
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2",
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
       ],
       "needsRetranslation": false,
       "_targetScope": "grigioni",
