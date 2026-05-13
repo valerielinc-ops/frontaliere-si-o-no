@@ -1,16 +1,16 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-12T21:41:04.707Z",
+  "generatedAt": "2026-05-13T10:36:48.502Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 14777,
-  "avgDurationMs": 14777,
+  "durationMs": 13740,
+  "avgDurationMs": 13740,
   "durationHistory": [
-    14777
+    13740
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -79,7 +79,7 @@
       "currency": "CHF",
       "postalCode": "4500",
       "firstSeenAt": "2026-05-10T21:10:13.024Z",
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -117,7 +117,7 @@
       "currency": "CHF",
       "postalCode": "1950",
       "firstSeenAt": "2026-05-10T09:43:15.857Z",
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -191,7 +191,7 @@
       "currency": "CHF",
       "postalCode": "1950",
       "firstSeenAt": "2026-05-10T09:43:15.857Z",
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -229,7 +229,7 @@
       "currency": "CHF",
       "postalCode": "4500",
       "firstSeenAt": "2026-05-10T21:10:13.024Z",
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -304,13 +304,12 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-12T10:49:56.463Z",
-      "_qualityScore": 87,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     }
