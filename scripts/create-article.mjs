@@ -294,7 +294,7 @@ const PLACES_IMAGES = [
 // Exclude the 10 most recent blog images so the homepage doesn't show duplicates
 const BLOG_IMAGES = (() => {
   try {
-    const all = readdirSync(resolve('public/images/blog')).filter(f => f.endsWith('.jpg')).sort();
+    const all = readdirSync(resolve('public/images/blog')).filter(f => f.endsWith('.webp')).sort();
     const light = all.filter((f) => {
       try {
         return statSync(resolve(`public/images/blog/${f}`)).size <= BLOG_IMAGE_HARD_MAX_BYTES;
@@ -386,7 +386,7 @@ const IMAGE_KEYWORD_MAP = [
  * 
  * Strategy (in order):
  * 1. Search existing blog image filenames for keyword overlap with article text.
- *    Blog images are named after their article (e.g. "salario-minimo-ticino-...jpg"),
+ *    Blog images are named after their article (e.g. "salario-minimo-ticino-...webp"),
  *    so matching a blog filename to article keywords gives a topically relevant image.
  * 2. Fall back to curated IMAGE_KEYWORD_MAP (places + thematic).
  * 3. Return null → caller uses hash-based random.
@@ -417,7 +417,7 @@ function findBestFallbackImage(data) {
   for (const imgPath of FALLBACK_IMAGES) {
     if (recentImages.has(imgPath)) continue;
     if (!imgPath.startsWith('/images/blog/')) continue;
-    const filename = imgPath.replace('/images/blog/', '').replace('.jpg', '').toLowerCase();
+    const filename = imgPath.replace('/images/blog/', '').replace(/\.(jpg|webp)$/i, '').toLowerCase();
     let score = 0;
     for (const word of articleWords) {
       if (filename.includes(word)) score++;
@@ -1149,8 +1149,13 @@ function runShell(cmd) {
   }
 }
 
-async function optimizeImageToJpeg(inputPath, outputPath) {
-  // Prefer a built-in optimizer for CI reliability (no system binaries required).
+async function optimizeImageToWebp(inputPath, outputPath) {
+  // Single-format hero: WebP only. Drops the legacy JPG + WebP-sidecar pipeline
+  // (which doubled disk usage in dist/ for zero SEO benefit — see PR migrating
+  // 2400+ articles to WebP-only heroes). WebP is universally supported (~99%
+  // browsers), accepted by FB/X/LinkedIn og:image, and indexed by Google Image
+  // Search. q75 produces ~85-100 KB at 1200×675 — comparable to the prior
+  // mozjpeg q72 size, smaller than the prior q82 WebP sidecar.
   try {
     const sharpModule = await import('sharp');
     const sharp = sharpModule.default || sharpModule;
@@ -1159,39 +1164,19 @@ async function optimizeImageToJpeg(inputPath, outputPath) {
       return sharp(inputPath)
         .rotate()
         .resize({ width: 1200, height: 675, fit: 'cover', position: 'attention' })
-        .jpeg({
-          quality,
-          progressive: true,
-          mozjpeg: true,
-          chromaSubsampling: '4:2:0',
-        })
+        .webp({ quality, effort: 4 })
         .toBuffer();
     };
 
     const before = statSync(inputPath).size;
-    let outBuffer = await encodeWithQuality(72);
-    const qualityPasses = [68, 62, 56, 50];
+    let outBuffer = await encodeWithQuality(75);
+    const qualityPasses = [70, 65, 60, 55];
     for (const q of qualityPasses) {
       if (outBuffer.length <= BLOG_IMAGE_TARGET_MAX_BYTES) break;
       outBuffer = await encodeWithQuality(q);
     }
 
     writeFileSync(outputPath, outBuffer);
-
-    // Generate the WebP sidecar from the final jpg buffer using sharp at
-    // quality 82 — matching what webpPlugin would have emitted at build
-    // time. Committing the .webp alongside the .jpg lets every subsequent
-    // deploy skip the build-time webp-conversion pass entirely.
-    try {
-      const webpPath = outputPath.replace(/\.jpg$/i, '.webp');
-      const webpBuffer = await sharp(outBuffer).webp({ quality: 82 }).toBuffer();
-      writeFileSync(webpPath, webpBuffer);
-    } catch (webpErr) {
-      // Don't fail article creation if webp encoding hiccups — webpPlugin
-      // (opt-in via BUILD_WEBP=1) can still backfill it later.
-      console.warn(`  ⚠️ webp sidecar skipped: ${webpErr?.message || webpErr}`);
-    }
-
     const after = outBuffer.length;
     return { ok: true, before, after };
   } catch {
@@ -1201,16 +1186,15 @@ async function optimizeImageToJpeg(inputPath, outputPath) {
   const tools = {
     magick: commandExists('magick'),
     convert: commandExists('convert'),
-    ffmpeg: commandExists('ffmpeg'),
-    sips: commandExists('sips'),
     cwebp: commandExists('cwebp'),
+    ffmpeg: commandExists('ffmpeg'),
   };
 
   const encodeCommands = [
-    tools.magick && `magick "${inputPath}" -auto-orient -strip -interlace Plane -sampling-factor 4:2:0 -resize "1200x675^" -gravity center -extent 1200x675 -quality 72 "${outputPath}"`,
-    tools.convert && `convert "${inputPath}" -auto-orient -strip -interlace Plane -sampling-factor 4:2:0 -resize "1200x675^" -gravity center -extent 1200x675 -quality 72 "${outputPath}"`,
-    tools.ffmpeg && `ffmpeg -y -i "${inputPath}" -vf "scale=1200:675:force_original_aspect_ratio=increase,crop=1200:675" -q:v 4 -frames:v 1 "${outputPath}"`,
-    tools.sips && `sips -s format jpeg --resampleWidth 1200 -s formatOptions 72 "${inputPath}" --out "${outputPath}"`,
+    tools.magick && `magick "${inputPath}" -auto-orient -strip -resize "1200x675^" -gravity center -extent 1200x675 -quality 75 -define webp:method=4 "${outputPath}"`,
+    tools.convert && `convert "${inputPath}" -auto-orient -strip -resize "1200x675^" -gravity center -extent 1200x675 -quality 75 -define webp:method=4 "${outputPath}"`,
+    tools.cwebp && `cwebp -quiet -q 75 -m 4 -resize 1200 0 "${inputPath}" -o "${outputPath}"`,
+    tools.ffmpeg && `ffmpeg -y -i "${inputPath}" -vf "scale=1200:675:force_original_aspect_ratio=increase,crop=1200:675" -frames:v 1 -c:v libwebp -quality 75 "${outputPath}"`,
   ].filter(Boolean);
 
   let encoded = false;
@@ -1228,17 +1212,16 @@ async function optimizeImageToJpeg(inputPath, outputPath) {
   if (!existsSync(outputPath)) return { ok: false, before: 0, after: 0 };
   const before = existsSync(inputPath) ? statSync(inputPath).size : statSync(outputPath).size;
 
-  // Additional JPEG quality tuning to keep files lightweight without visible degradation.
-  const qualityPasses = [68, 62, 56, 50];
+  // Iterative quality reduction if the target byte cap is exceeded.
+  const qualityPasses = [70, 65, 60, 55];
   for (const q of qualityPasses) {
     const currentSize = statSync(outputPath).size;
     if (currentSize <= BLOG_IMAGE_TARGET_MAX_BYTES) break;
 
     const recompressCommands = [
-      tools.magick && `magick "${outputPath}" -strip -interlace Plane -sampling-factor 4:2:0 -quality ${q} "${outputPath}"`,
-      tools.convert && `convert "${outputPath}" -strip -interlace Plane -sampling-factor 4:2:0 -quality ${q} "${outputPath}"`,
-      tools.sips && `sips -s format jpeg -s formatOptions ${q} "${outputPath}" --out "${outputPath}"`,
-      tools.ffmpeg && `ffmpeg -y -i "${outputPath}" -q:v 6 -frames:v 1 "${outputPath}"`,
+      tools.magick && `magick "${outputPath}" -strip -quality ${q} -define webp:method=4 "${outputPath}"`,
+      tools.convert && `convert "${outputPath}" -strip -quality ${q} -define webp:method=4 "${outputPath}"`,
+      tools.cwebp && `cwebp -quiet -q ${q} -m 4 "${outputPath}" -o "${outputPath}"`,
     ].filter(Boolean);
 
     let passDone = false;
@@ -1249,12 +1232,6 @@ async function optimizeImageToJpeg(inputPath, outputPath) {
       }
     }
     if (!passDone) break;
-  }
-
-  // Generate WebP sidecar when available (future-proof for <picture> usage).
-  if (tools.cwebp) {
-    const webpPath = outputPath.replace(/\.jpg$/i, '.webp');
-    runShell(`cwebp -quiet -q 72 "${outputPath}" -o "${webpPath}"`);
   }
 
   const after = statSync(outputPath).size;
@@ -4576,7 +4553,7 @@ async function generateArticleImage(data) {
 
   const imgDir = resolve('public/images/blog');
   mkdirSync(imgDir, { recursive: true });
-  const imgPath = resolve(`public/images/blog/${data.id}.jpg`);
+  const imgPath = resolve(`public/images/blog/${data.id}.webp`);
 
   // ── Helper: save raw image buffer, optimize, return path or null ──
   async function _saveAndOptimize(rawBuffer, providerLabel, contentType = 'image/jpeg') {
@@ -4588,21 +4565,21 @@ async function generateArticleImage(data) {
     const tempPath = resolve(`public/images/blog/${data.id}.source.${sourceExt}`);
     writeFileSync(tempPath, rawBuffer);
     const rawKB = (rawBuffer.length / 1024).toFixed(0);
-    const result = await optimizeImageToJpeg(tempPath, imgPath);
+    const result = await optimizeImageToWebp(tempPath, imgPath);
     if (existsSync(tempPath)) unlinkSync(tempPath);
 
     if (result.ok) {
       const finalKb = (result.after / 1024).toFixed(0);
       const beforeKb = (result.before / 1024).toFixed(0);
       const overTarget = result.after > BLOG_IMAGE_HARD_MAX_BYTES ? ' ⚠️ sopra hard cap' : '';
-      console.error(`  ✅ Immagine generata e ottimizzata: public/images/blog/${data.id}.jpg (${beforeKb} KB → ${finalKb} KB, ${providerLabel})${overTarget}`);
+      console.error(`  ✅ Immagine generata e ottimizzata: public/images/blog/${data.id}.webp (${beforeKb} KB → ${finalKb} KB, ${providerLabel})${overTarget}`);
     } else {
       if (rawBuffer.length > BLOG_IMAGE_HARD_MAX_BYTES) {
         console.error(`  ⚠️ Immagine raw troppo pesante (${rawKB} KB) e optimizer non disponibile. Provo provider successivo...`);
         return null;
       }
       writeFileSync(imgPath, rawBuffer);
-      console.error(`  ✅ Immagine generata (raw fallback): public/images/blog/${data.id}.jpg (${rawKB} KB, ${providerLabel})`);
+      console.error(`  ✅ Immagine generata (raw fallback): public/images/blog/${data.id}.webp (${rawKB} KB, ${providerLabel})`);
     }
 
     // ── Post-save width enforcement ──
@@ -4617,7 +4594,7 @@ async function generateArticleImage(data) {
       if (meta.width && (meta.width < 1200 || meta.height < 675)) {
         const buf = await shp(imgPath)
           .resize({ width: 1200, height: 675, fit: 'cover', position: 'attention' })
-          .jpeg({ quality: 82, progressive: true, mozjpeg: true, chromaSubsampling: '4:2:0' })
+          .webp({ quality: 75, effort: 4 })
           .toBuffer();
         writeFileSync(imgPath, buf);
         console.error(`  📐 Resized ${meta.width}×${meta.height} → 1200×675 (Google Discover minimum)`);
@@ -4626,7 +4603,7 @@ async function generateArticleImage(data) {
       // sharp not available — image stays as-is (acceptable in rare CI edge cases)
     }
 
-    return `/images/blog/${data.id}.jpg`;
+    return `/images/blog/${data.id}.webp`;
   }
 
   // ── Strategy 1: Gemini native image generation (free tier) ──
@@ -5757,16 +5734,13 @@ function gitAddAll(data) {
   if (existsSync(resolve(CONSUMED_TRACKER_PATH))) {
     files.push(CONSUMED_TRACKER_PATH);
   }
-  // Include generated blog image if it exists (web path → filesystem path under public/)
-  // Also stage the .webp sidecar emitted by optimizeImageToJpeg so the build
-  // can skip the closeBundle webp-conversion step on subsequent deploys.
+  // Include generated blog hero image (web path → filesystem path under public/).
+  // WebP-only: optimizeImageToWebp emits a single file; no JPG sidecar.
   if (data?._generatedImagePath) {
     const webPath = data._generatedImagePath.replace(/^\//, '');
-    const jpgFsPath = `public/${webPath}`;
-    files.push(jpgFsPath);
-    const webpFsPath = jpgFsPath.replace(/\.jpg$/i, '.webp');
-    if (existsSync(resolve(webpFsPath))) {
-      files.push(webpFsPath);
+    const fsPath = `public/${webPath}`;
+    if (existsSync(resolve(fsPath))) {
+      files.push(fsPath);
     }
   }
   execSync(`git add ${files.join(' ')}`, { cwd: PROJECT_ROOT, stdio: 'inherit' });

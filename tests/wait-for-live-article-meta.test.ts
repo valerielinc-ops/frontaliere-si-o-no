@@ -29,7 +29,7 @@ function createArticleHtml({
   baseUrl,
   title = 'Articolo di test | Frontaliere Ticino',
   ogTitle = 'Articolo di test | Frontaliere Ticino',
-  ogImage = `${baseUrl}/images/blog/test.jpg`,
+  ogImage = `${baseUrl}/images/blog/test.webp`,
   ogUrl = `${baseUrl}/articoli-frontaliere/test-article/`,
   canonicalUrl = '',
 }: {
@@ -188,7 +188,7 @@ describe('wait-for-live-article-meta', () => {
           createArticleHtml({
             baseUrl,
             ogTitle: 'Lavoro &amp; frontalieri | Frontaliere Ticino',
-            ogImage: 'https://frontaliereticino.ch/images/blog/test.jpg',
+            ogImage: 'https://frontaliereticino.ch/images/blog/test.webp',
           }),
         );
         return;
@@ -207,7 +207,7 @@ describe('wait-for-live-article-meta', () => {
     const result = await runWaitScript(
       articleUrl,
       'Lavoro & frontalieri | Frontaliere Ticino',
-      'https://frontaliereticino.ch/images/blog/test.jpg',
+      'https://frontaliereticino.ch/images/blog/test.webp',
     );
 
     expect(result.code, result.stdout || result.stderr).toBe(0);
