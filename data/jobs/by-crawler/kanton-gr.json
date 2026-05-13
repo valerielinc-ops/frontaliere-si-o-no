@@ -1,12 +1,12 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-05-13T11:20:10.216Z",
+  "assembledAt": "2026-05-13T22:29:06.931Z",
   "jobs": [
     {
       "id": "kanton-gr-5cc4b885f1fe",
-      "slug": "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur",
+      "slug": "strassenwart-in-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur",
+        "it": "strassenwart-in-kantonale-verwaltung-graubunden-chur",
         "en": "become-a-police-officer-at-kapo-gr-kantonale-verwaltung-graubunden-chur",
         "de": "schnupperlehre-als-informatiker-in-efz-plattformentwicklung-kantonale-verwaltung-graubunden-thusis",
         "fr": "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-chur"
@@ -16,7 +16,7 @@
       "companyDomain": "gr.ch",
       "title": "Schnupperlehre als Informatiker/-in EFZ (Plattformentwicklung)",
       "titleByLocale": {
-        "it": "Diventa Poliziotto/Poliziotta presso la Kapo GR",
+        "it": "Strassenwart/-in",
         "en": "Become a Police Officer at Kapo GR",
         "de": "Schnupperlehre als Informatiker/-in EFZ (Plattformentwicklung)",
         "fr": "Devenez Policier/Policière chez Kapo GR"
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2677/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-13T11:19:59.874Z",
+      "crawledAt": "2026-05-13T22:28:56.245Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -86,132 +86,25 @@
         "de": [
           "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
           "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur",
+          "strassenwart-in-kanton-gr-ch",
           "schnupperlehre-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch"
         ],
         "it": [
           "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
+          "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur",
           "schnupperlehre-come-informatiker-in-cfc-plattformentwicklung-kantonale-verwaltung-graubunden-thusis"
         ]
       },
       "previousSlugs": [
         "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
         "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur",
+        "strassenwart-in-kanton-gr-ch",
         "schnupperlehre-als-informatiker-in-efz-plattformentwicklung-kanton-gr-ch",
+        "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur",
         "schnupperlehre-come-informatiker-in-cfc-plattformentwicklung-kantonale-verwaltung-graubunden-thusis"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kanton-gr-5cc4b885f1fe",
-      "slug": "strassenwart-in-kantonale-verwaltung-graubunden-chur",
-      "slugByLocale": {
-        "it": "strassenwart-in-kantonale-verwaltung-graubunden-chur",
-        "en": "become-a-police-officer-at-kapo-gr-kantonale-verwaltung-graubunden-chur",
-        "de": "strassenwart-in-kanton-gr-ch",
-        "fr": "devenez-policier-policiere-chez-kapo-gr-kantonale-verwaltung-graubunden-chur"
-      },
-      "company": "Kantonale Verwaltung Graubünden",
-      "companyKey": "kanton-gr",
-      "companyDomain": "gr.ch",
-      "title": "Strassenwart/-in",
-      "titleByLocale": {
-        "it": "Strassenwart/-in",
-        "en": "Become a Police Officer at Kapo GR",
-        "de": "Strassenwart/-in",
-        "fr": "Devenez Policier/Policière chez Kapo GR"
-      },
-      "description": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 1 Chur per 1. Juli 2026 oder nach Vereinbarung eine/-n Strassenwart/-in .\n\nAufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n\n• Sommer- und Winterdienst\n\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n\n• Leisten von Pikettdienst (Sommer und Winter)\n\n• Bereitschaft zum Leisten von Nachtarbeit\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Handwerkliches Geschick\n\n• Physische Belastbarkeit\n\n• Freude an Teamarbeit\n\n• Führerausweis Kategorie C oder Bereitschaft, diesen zu erwerben",
-      "descriptionByLocale": {
-        "it": "La Kantonale Verwaltung – un datore di lavoro moderno per dipendenti motivati come te. Non ogni giorno è uguale, ma ogni giorno contribuisci alla sicurezza in Grigioni. Candidati per la prossima formazione da poliziotto di 2 anni e diventa poliziotto/poliziotta con certificato federale presso la polizia cantonale Grigioni. | Compiti: Assicurati la sicurezza nel Canton Grigioni più variegato, per residenti, turisti, partecipanti a convegni e viaggiatori. Manteniamo l'ordine e la tranquillità per tutti. Con noi, l'uomo è sempre al centro, che si tratti di servizi di base o servizi speciali – la porta e il cancello sono aperti per te – www.kapo.gr.ch |\n• Requisiti: Cittadinanza svizzera o permesso di soggiorno (il permesso C deve essere presentato con la domanda) Età a partire da 20 anni Formazione professionale completata con certificato di capacità federale, maturità ginnasiale, maturità professionale o qualifiche equivalenti Reputazione immacolata Alta competenza sociale e di sé, atteggiamento amichevole verso i cittadini Possesso di patente di guida categoria B Conoscenze di base di informatica (Microsoft Office) Buona salute, resistenza psicologica e fisica Eignungstest superato con successo (www.werdepolizist.ch) Dati Eignungstest: 14 marzo 2026, 20 giugno 2026 e 10 ottobre 2026",
-        "en": "The Kantonale Verwaltung – a modern employer for motivated employees like you. Not every day is the same, but every day you contribute to safety in Graubünden. Apply for the next 2-year police training and become a police officer with a federal certificate at the Kantonspolizei Graubünden. | Tasks: You ensure safety in the most diverse canton, for residents, tourists, conference participants and travelers. We maintain order and tranquility for everyone. With us, the human being is always at the center, whether basic services or special services – the door and gate are open to you – www.kapo.gr.ch |\n• Requirements: Swiss citizenship or residence permit (C permit must be submitted with the application) Age from 20 years Completed professional training with federal capability certificate, gymnasium matriculation, vocational matriculation or equivalent qualifications Clean reputation High self- and social competence, citizen-friendly attitude Driver's license category B Basic computer skills (Microsoft Office) Good health, psychological and physical endurance Successfully completed aptitude test (www.werdepolizist.ch) Aptitude test dates: 14 March 2026, 20 June 2026 and 10 October 2026",
-        "de": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM). Wir suchen für die Abteilung Strassenerhaltung im Bezirk 1 Chur per 1. Juli 2026 oder nach Vereinbarung eine/-n Strassenwart/-in . Aufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n• Sommer- und Winterdienst\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n• Leisten von Pikettdienst (Sommer und Winter)\n• Bereitschaft zum Leisten von Nachtarbeit Anforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n• Handwerkliches Geschick\n• Physische Belastbarkeit\n• Freude an Teamarbeit\n• Führerausweis Kategorie C oder Bereitschaft, diesen zu erwerben",
-        "fr": "La Kantonale Verwaltung – un employeur moderne pour des employés motivés comme vous. Pas tous les jours sont les mêmes, mais chaque jour vous contribuez à la sécurité dans le canton de Grisons. Postulez pour la prochaine formation de 2 ans pour devenir policier/policière avec un certificat fédéral auprès de la police cantonale Grisons. | Tâches: Vous assurez la sécurité dans le canton le plus diversifié, pour les résidents, les touristes, les participants aux conférences et les voyageurs. Nous maintenons l'ordre et la tranquillité pour tous. Chez nous, l'être humain est toujours au centre, que ce soit des services de base ou des services spéciaux – la porte et la porte sont ouvertes pour vous – www.kapo.gr.ch |\n• Exigences: Citoyenneté suisse ou permis de séjour (le permis C doit être soumis avec la demande) Âge à partir de 20 ans Formation professionnelle terminée avec certificat de capacité fédéral, maturité gymnasiale, maturité professionnelle ou qualifications équivalentes Réputation irréprochable Haute compétence sociale et personnelle, attitude amicale envers les citoyens Permis de conduire catégorie B Connaissances de base en informatique (Microsoft Office) Bonne santé, résistance psychologique et physique Test d'aptitude réussi avec succès (www.werdepolizist.ch) Dates du test d'aptitude: 14 mars 2026, 20 juin 2026 et 10 octobre 2026"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://apply.refline.ch/514915/2674/pub/1/index.html",
-      "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-13T11:19:32.598Z",
-      "addressLocality": "Chur",
-      "postalCode": "7000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://apply.refline.ch/514915/2674/pub/1/index.html",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Cittadinanza svizzera o permesso di soggiorno",
-          "Età a partire da 20 anni",
-          "Formazione professionale completata con certificato di capacità federale",
-          "Reputazione immacolata",
-          "Alta competenza sociale e di sé",
-          "Possesso di patente di guida categoria B",
-          "Conoscenze di base di informatica (Microsoft Office)",
-          "Buona salute, resistenza psicologica e fisica"
-        ],
-        "en": [
-          "Swiss citizenship or residence permit",
-          "Age from 20 years",
-          "Completed professional training with federal capability certificate",
-          "Clean reputation",
-          "High self- and social competence",
-          "Driver's license category B",
-          "Basic computer skills (Microsoft Office)",
-          "Good health, psychological and physical endurance"
-        ],
-        "fr": [
-          "Citoyenneté suisse ou permis de séjour",
-          "Âge à partir de 20 ans",
-          "Formation professionnelle terminée avec certificat de capacité fédéral",
-          "Réputation irréprochable",
-          "Haute compétence sociale et personnelle",
-          "Permis de conduire catégorie B",
-          "Connaissances de base en informatique (Microsoft Office)",
-          "Bonne santé, résistance psychologique et physique"
-        ]
-      },
-      "department": "Tiefbauamt Graubünden, Bezirk 1 Chur",
-      "applicationDeadline": "2026-05-17",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80-100%",
-      "previousSlugsByLocale": {
-        "de": [
-          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
-          "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur"
-        ],
-        "it": [
-          "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
-          "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur"
-        ]
-      },
-      "previousSlugs": [
-        "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch",
-        "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur",
-        "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur"
-      ],
-      "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
