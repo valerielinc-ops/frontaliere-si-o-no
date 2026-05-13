@@ -1,18 +1,19 @@
 {
   "key": "corner-banca",
   "label": "Corner",
-  "generatedAt": "2026-05-13T10:51:02.007Z",
+  "generatedAt": "2026-05-13T22:00:09.497Z",
   "total": 9,
-  "newCount": 1,
-  "updatedCount": 8,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2196,
-  "avgDurationMs": 2196,
+  "durationMs": 2210,
+  "avgDurationMs": 2210,
   "durationHistory": [
-    2196
+    2210
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "corner-banca-55e210fc5d83",
       "slug": "market-risk-manager-corner-banca-lugano",
@@ -32,17 +33,16 @@
       "url": "https://jobs.corner.ch/o/market-risk-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-13T10:51:00.114Z",
-      "_qualityScore": 76,
+      "crawledAt": "2026-05-13T22:00:07.590Z",
+      "firstSeenAt": "2026-05-13T10:51:00.114Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "corner-banca-0a05fbf90698",
       "slug": "aml-monitoring-corner-banca-lugano",
@@ -62,7 +62,7 @@
       "url": "https://jobs.corner.ch/o/aml-monitoring",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-13T10:51:00.111Z",
+      "crawledAt": "2026-05-13T22:00:07.585Z",
       "firstSeenAt": "2026-04-28T10:42:06.718Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -91,7 +91,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-13T10:51:00.112Z",
+      "crawledAt": "2026-05-13T22:00:07.586Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -120,7 +120,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-13T10:51:00.112Z",
+      "crawledAt": "2026-05-13T22:00:07.587Z",
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -149,7 +149,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-13T10:51:00.113Z",
+      "crawledAt": "2026-05-13T22:00:07.588Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -178,7 +178,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-13T10:51:00.115Z",
+      "crawledAt": "2026-05-13T22:00:07.591Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -207,7 +207,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-13T10:51:00.116Z",
+      "crawledAt": "2026-05-13T22:00:07.592Z",
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -236,7 +236,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-13T10:51:00.117Z",
+      "crawledAt": "2026-05-13T22:00:07.592Z",
       "firstSeenAt": "2026-05-05T21:39:18.874Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -265,7 +265,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-13T10:51:00.117Z",
+      "crawledAt": "2026-05-13T22:00:07.593Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T09:57:27.167Z",
       "_qualityScore": 81,
