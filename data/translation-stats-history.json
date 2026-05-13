@@ -1,97 +1,5 @@
 [
   {
-    "timestamp": "2026-04-29T02:56:41.648Z",
-    "label": "before",
-    "total": 2678,
-    "needsRetranslation": 96,
-    "incomplete": 35,
-    "complete": 2643,
-    "missingByLocale": {
-      "it": 26,
-      "en": 11,
-      "de": 28,
-      "fr": 28
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 3
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca Raiffeisen Vedeggio Cassarate",
-        "pending": 1
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Manor AG",
-        "pending": 1
-      },
-      {
-        "company": "PEMSA",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-29T03:57:54.807Z",
-    "label": "after",
-    "total": 2678,
-    "needsRetranslation": 73,
-    "incomplete": 26,
-    "complete": 2652,
-    "missingByLocale": {
-      "it": 25,
-      "en": 5,
-      "de": 23,
-      "fr": 23
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-29T04:07:36.332Z",
     "label": "before",
     "total": 2678,
@@ -10240,6 +10148,118 @@
       {
         "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
         "pending": 6
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-13T12:16:10.605Z",
+    "label": "before",
+    "total": 4335,
+    "needsRetranslation": 2279,
+    "incomplete": 537,
+    "complete": 3798,
+    "missingByLocale": {
+      "it": 365,
+      "en": 367,
+      "de": 135,
+      "fr": 394
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 96
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "Fielmann Group",
+        "pending": 39
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 27
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "UBS",
+        "pending": 11
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 10
+      },
+      {
+        "company": "Lonza",
+        "pending": 9
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 9
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-13T15:20:46.331Z",
+    "label": "after",
+    "total": 4335,
+    "needsRetranslation": 957,
+    "incomplete": 339,
+    "complete": 3996,
+    "missingByLocale": {
+      "it": 256,
+      "en": 239,
+      "de": 82,
+      "fr": 267
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "IWC",
+        "pending": 11
+      },
+      {
+        "company": "UBS",
+        "pending": 11
+      },
+      {
+        "company": "Lonza",
+        "pending": 9
+      },
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 9
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 7
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 7
       }
     ]
   }

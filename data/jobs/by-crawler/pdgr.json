@@ -78,7 +78,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-a093480a1d37",
@@ -153,7 +154,8 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-4f88a64e2238",
@@ -247,7 +249,6 @@
         "fachpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -341,7 +342,6 @@
         "assistenzarztin-assistenzarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -428,7 +428,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-3e30d3c7f59d",
@@ -503,7 +504,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-6bea78edbd79",
@@ -597,7 +599,6 @@
         "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -706,7 +707,6 @@
         "oberpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -804,7 +804,6 @@
         "oberarztin-oberarzt-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -903,7 +902,6 @@
         "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1003,7 +1001,6 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1099,7 +1096,6 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1186,7 +1182,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-80501bd9710d",
@@ -1273,7 +1270,6 @@
         "fachperson-gesundheit-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1383,7 +1379,6 @@
         "assistenzarztin-assistenzarzt-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1486,7 +1481,6 @@
         "nachtarztin-nachtarzt-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1587,7 +1581,6 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1684,7 +1677,6 @@
         "assistenz-oder-fachpsychologe-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1782,7 +1774,6 @@
         "fachperson-gesundheit-pdgr-ch-2"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1879,7 +1870,6 @@
         "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1971,16 +1961,20 @@
           "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch"
         ],
         "it": [
-          "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch-2"
+          "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch-2",
+          "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch",
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch-2",
-        "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur"
+        "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
+        "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
+        "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur",
+        "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
+        "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2071,7 +2065,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-d7f7612b1400",
@@ -2234,7 +2229,6 @@
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2342,7 +2336,6 @@
         "leiter-in-controlling-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2453,7 +2446,6 @@
         "personale-hotel-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2559,7 +2551,6 @@
         "stationsleiter-in-pdgr-ch"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2744,7 +2735,6 @@
         "assistenz-oder-fachpsychologe-in-pdgr-ch-3"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2831,7 +2821,6 @@
         "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3009,7 +2998,6 @@
         "assistenzpsychologe-in-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-21T22:10:58.899Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3177,7 +3165,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "pdgr-832c5dda1296",
@@ -3248,7 +3237,6 @@
         "kochin-koch-pdgr-ch"
       ],
       "firstSeenAt": "2026-05-06T22:28:54.378Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3328,7 +3316,6 @@
         ]
       },
       "firstSeenAt": "2026-05-07T11:33:07.021Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3538,16 +3525,16 @@
       "title": "Leiter/in Textil",
       "titleByLocale": {
         "de": "Leiter/in Textil",
-        "it": "Responsabile Textil",
-        "en": "Leiter/in Textil",
-        "fr": "Leiter/in Textil"
+        "it": "Capo di tessuto",
+        "en": "Head of textile",
+        "fr": "Tête de textile"
       },
       "description": "Ihre Umgebung:\nDie ARBES Textil Chur ist am Standort der Klinik Waldhaus angesiedelt. Sie arbeiten in einem engagierten Fachteam mit vier Fachbetreuerinnen zusammen, während in der Produktion zusätzlich 35 bis 40 betreute Mitarbeitende tätig sind. Die Textilabteilung verfügt über eine moderne und zeitgemässe Infrastruktur.\n\nIhre Aufgaben:\n- Sie führen die Textilabteilung Chur selbstständig\n\n- Sie unterstützen und begleiten die betreuten Mitarbeitenden im Arbeitsprozess\n\n- Sie sind verantwortlich für die Produktionsplanung, die Auftragsakquise, die Mustererstellung sowie die Entwicklung neuer Produkte – von der Produktion bis zur Verrechnung\n\n- Sie planen und erfassen die Anwesenheiten der Mitarbeitenden und der betreuten Angestellten\n\n- Sie wirken aktiv im Tagesgeschäft sowie in der Weiterentwicklung des Betriebs mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über Führungserfahrung\n\n- Sie bringen eine Ausbildung oder sehr gute Kenntnisse im Bereich Arbeitsagogik mit; eine Ausbildung im Textilbereich ist von Vorteil\n\n- Sie sind eine ausgeglichene und belastbare Persönlichkeit und besitzen sehr gute Sozialkompetenzen\n\n- Sie sind initiativ, flexibel und offen und schätzen den Kontakt zu anderen Menschen\n\nWir bieten Ihnen:\n- Vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Eine Stelle mit sozialen und betriebswirtschaftlichen Aspekten\n\n- Möglichkeiten Ihren Arbeitsbereich weiterzuentwickeln\n\n- Einbringung Ihrer fachlichen und persönlichen Stärken\n\n- Attraktive Anstellungsbedingungen\n\n- Vielseitiges internes Fort- und Weiterbildungsangebot",
       "descriptionByLocale": {
         "de": "Ihre Umgebung:\nDie ARBES Textil Chur ist am Standort der Klinik Waldhaus angesiedelt. Sie arbeiten in einem engagierten Fachteam mit vier Fachbetreuerinnen zusammen, während in der Produktion zusätzlich 35 bis 40 betreute Mitarbeitende tätig sind. Die Textilabteilung verfügt über eine moderne und zeitgemässe Infrastruktur.\n\nIhre Aufgaben:\n- Sie führen die Textilabteilung Chur selbstständig\n\n- Sie unterstützen und begleiten die betreuten Mitarbeitenden im Arbeitsprozess\n\n- Sie sind verantwortlich für die Produktionsplanung, die Auftragsakquise, die Mustererstellung sowie die Entwicklung neuer Produkte – von der Produktion bis zur Verrechnung\n\n- Sie planen und erfassen die Anwesenheiten der Mitarbeitenden und der betreuten Angestellten\n\n- Sie wirken aktiv im Tagesgeschäft sowie in der Weiterentwicklung des Betriebs mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über Führungserfahrung\n\n- Sie bringen eine Ausbildung oder sehr gute Kenntnisse im Bereich Arbeitsagogik mit; eine Ausbildung im Textilbereich ist von Vorteil\n\n- Sie sind eine ausgeglichene und belastbare Persönlichkeit und besitzen sehr gute Sozialkompetenzen\n\n- Sie sind initiativ, flexibel und offen und schätzen den Kontakt zu anderen Menschen\n\nWir bieten Ihnen:\n- Vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Eine Stelle mit sozialen und betriebswirtschaftlichen Aspekten\n\n- Möglichkeiten Ihren Arbeitsbereich weiterzuentwickeln\n\n- Einbringung Ihrer fachlichen und persönlichen Stärken\n\n- Attraktive Anstellungsbedingungen\n\n- Vielseitiges internes Fort- und Weiterbildungsangebot",
-        "it": "Ihre Umgebung:\nDie ARBES Textil Chur ist am Standort der Klinik Waldhaus angesiedelt. Sie arbeiten in einem engagierten Fachteam mit vier Fachbetreuerinnen zusammen, während in der Produktion zusätzlich 35 bis 40 betreute Mitarbeitende tätig sind. Die Textilabteilung verfügt über eine moderne und zeitgemässe Infrastruktur.\n\nIhre Aufgaben:\n- Sie führen die Textilabteilung Chur selbstständig\n\n- Sie unterstützen und begleiten die betreuten Mitarbeitenden im Arbeitsprozess\n\n- Sie sind verantwortlich für die Produktionsplanung, die Auftragsakquise, die Mustererstellung sowie die Entwicklung neuer Produkte – von der Produktion bis zur Verrechnung\n\n- Sie planen und erfassen die Anwesenheiten der Mitarbeitenden und der betreuten Angestellten\n\n- Sie wirken aktiv im Tagesgeschäft sowie in der Weiterentwicklung des Betriebs mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über Führungserfahrung\n\n- Sie bringen eine Ausbildung oder sehr gute Kenntnisse im Bereich Arbeitsagogik mit; eine Ausbildung im Textilbereich ist von Vorteil\n\n- Sie sind eine ausgeglichene und belastbare Persönlichkeit und besitzen sehr gute Sozialkompetenzen\n\n- Sie sind initiativ, flexibel und offen und schätzen den Kontakt zu anderen Menschen\n\nWir bieten Ihnen:\n- Vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Eine Stelle mit sozialen und betriebswirtschaftlichen Aspekten\n\n- Möglichkeiten Ihren Arbeitsbereich weiterzuentwickeln\n\n- Einbringung Ihrer fachlichen und persönlichen Stärken\n\n- Attraktive Anstellungsbedingungen\n\n- Vielseitiges internes Fort- und Weiterbildungsangebot",
-        "en": "Ihre Umgebung:\nDie ARBES Textil Chur ist am Standort der Klinik Waldhaus angesiedelt. Sie arbeiten in einem engagierten Fachteam mit vier Fachbetreuerinnen zusammen, während in der Produktion zusätzlich 35 bis 40 betreute Mitarbeitende tätig sind. Die Textilabteilung verfügt über eine moderne und zeitgemässe Infrastruktur.\n\nIhre Aufgaben:\n- Sie führen die Textilabteilung Chur selbstständig\n\n- Sie unterstützen und begleiten die betreuten Mitarbeitenden im Arbeitsprozess\n\n- Sie sind verantwortlich für die Produktionsplanung, die Auftragsakquise, die Mustererstellung sowie die Entwicklung neuer Produkte – von der Produktion bis zur Verrechnung\n\n- Sie planen und erfassen die Anwesenheiten der Mitarbeitenden und der betreuten Angestellten\n\n- Sie wirken aktiv im Tagesgeschäft sowie in der Weiterentwicklung des Betriebs mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über Führungserfahrung\n\n- Sie bringen eine Ausbildung oder sehr gute Kenntnisse im Bereich Arbeitsagogik mit; eine Ausbildung im Textilbereich ist von Vorteil\n\n- Sie sind eine ausgeglichene und belastbare Persönlichkeit und besitzen sehr gute Sozialkompetenzen\n\n- Sie sind initiativ, flexibel und offen und schätzen den Kontakt zu anderen Menschen\n\nWir bieten Ihnen:\n- Vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Eine Stelle mit sozialen und betriebswirtschaftlichen Aspekten\n\n- Möglichkeiten Ihren Arbeitsbereich weiterzuentwickeln\n\n- Einbringung Ihrer fachlichen und persönlichen Stärken\n\n- Attraktive Anstellungsbedingungen\n\n- Vielseitiges internes Fort- und Weiterbildungsangebot",
-        "fr": "Ihre Umgebung:\nDie ARBES Textil Chur ist am Standort der Klinik Waldhaus angesiedelt. Sie arbeiten in einem engagierten Fachteam mit vier Fachbetreuerinnen zusammen, während in der Produktion zusätzlich 35 bis 40 betreute Mitarbeitende tätig sind. Die Textilabteilung verfügt über eine moderne und zeitgemässe Infrastruktur.\n\nIhre Aufgaben:\n- Sie führen die Textilabteilung Chur selbstständig\n\n- Sie unterstützen und begleiten die betreuten Mitarbeitenden im Arbeitsprozess\n\n- Sie sind verantwortlich für die Produktionsplanung, die Auftragsakquise, die Mustererstellung sowie die Entwicklung neuer Produkte – von der Produktion bis zur Verrechnung\n\n- Sie planen und erfassen die Anwesenheiten der Mitarbeitenden und der betreuten Angestellten\n\n- Sie wirken aktiv im Tagesgeschäft sowie in der Weiterentwicklung des Betriebs mit\n\nUnser Anforderungsprofil:\n- Sie verfügen über Führungserfahrung\n\n- Sie bringen eine Ausbildung oder sehr gute Kenntnisse im Bereich Arbeitsagogik mit; eine Ausbildung im Textilbereich ist von Vorteil\n\n- Sie sind eine ausgeglichene und belastbare Persönlichkeit und besitzen sehr gute Sozialkompetenzen\n\n- Sie sind initiativ, flexibel und offen und schätzen den Kontakt zu anderen Menschen\n\nWir bieten Ihnen:\n- Vielseitige und verantwortungsvolle Tätigkeit in einem innovativen Unternehmen\n\n- Eine Stelle mit sozialen und betriebswirtschaftlichen Aspekten\n\n- Möglichkeiten Ihren Arbeitsbereich weiterzuentwickeln\n\n- Einbringung Ihrer fachlichen und persönlichen Stärken\n\n- Attraktive Anstellungsbedingungen\n\n- Vielseitiges internes Fort- und Weiterbildungsangebot"
+        "it": "I dintorni:\nL'ARCBES Textil Chur si trova nel sito del Klinik Waldhaus. Lavorano in un team dedicato di esperti con quattro specialisti, mentre 35 a 40 dipendenti sono attivi anche in produzione. Il reparto tessile ha un'infrastruttura moderna e contemporanea.\n\nI vostri compiti:\n- Eseguono il reparto tessile Chur indipendentemente\n\n- Supportano e accompagnano i dipendenti supervisionati nel processo di lavoro\n\n- Sono responsabili della pianificazione della produzione, delle acquisizioni degli ordini, della creazione di modelli e dello sviluppo di nuovi prodotti – dalla produzione alla fatturazione\n\n- Pianifica e cattura la presenza di dipendenti e dipendenti\n\n- Sono attivamente coinvolti nel business quotidiano e nell'ulteriore sviluppo dell'azienda\n\nIl nostro profilo di requisito:\n- Hai esperienza di leadership\n\n- Essi forniscono formazione o conoscenze molto buone nel campo dell'istruzione del lavoro; un'incarnazione nella regione tessile è vantaggiosa\n\n- Sono una personalità equilibrata e resiliente e possiedono competenze sociali molto buone\n\n- Sono contatti di iniziativa, flessibili e aperti e di valore con altre persone\n\nVi offriamo:\n- Attività versatili e responsabili in un'azienda innovativa\n\n- Un luogo con aspetti sociali ed economici\n\n- Modi per sviluppare la tua area di lavoro\n\n- Introdurre i tuoi punti di forza professionali e personali\n\n- Condizioni di lavoro interessanti\n\n- Formazione interna versatile",
+        "en": "Your surroundings:\nThe ARBES Textil Chur is located at the site of the Klinik Waldhaus. They work in a dedicated team of experts with four specialists, while 35 to 40 employees are also active in production. The textile department has a modern and contemporary infrastructure.\n\nYour tasks:\n- They run the textile department Chur independently\n\n- They support and accompany the supervised employees in the work process\n\n- They are responsible for production planning, order acquisitions, pattern creation and the development of new products – from production to billing\n\n- You plan and capture the presence of employees and the employees\n\n- They are actively involved in day-to-day business and in the further development of the company\n\nOur requirement profile:\n- You have leadership experience\n\n- They provide training or very good knowledge in the field of work education; an embodiment in the textile region is advantageous\n\n- They are a balanced and resilient personality and possess very good social skills\n\n- They are initiative, flexible and open and value contact with other people\n\nWe offer you:\n- Versatile and responsible activities in an innovative company\n\n- A place with social and economic aspects\n\n- Ways to develop your work area\n\n- Introducing your professional and personal strengths\n\n- Attractive employment conditions\n\n- Versatile internal training",
+        "fr": "Votre environnement:\nL'ARBES Textil Chur est situé sur le site du Klinik Waldhaus. Ils travaillent dans une équipe dédiée d'experts avec quatre spécialistes, tandis que 35 à 40 employés sont également actifs dans la production. Le département textile dispose d'une infrastructure moderne et contemporaine.\n\nVos tâches:\n- Ils dirigent le département textile Chur indépendamment\n\n- Ils soutiennent et accompagnent les employés supervisés dans le processus de travail\n\n- Ils sont responsables de la planification de la production, des acquisitions de commandes, de la création de modèles et du développement de nouveaux produits – de la production à la facturation\n\n- Vous planifiez et capturez la présence des employés et des employés\n\n- Ils participent activement aux activités quotidiennes et au développement de l'entreprise\n\nNotre profil d'exigence:\n- Vous avez une expérience de leadership\n\n- Ils fournissent une formation ou une très bonne connaissance dans le domaine de l'éducation au travail; une incarnation dans la région textile est avantageuse\n\n- Ils sont une personnalité équilibrée et résistante et possèdent de très bonnes compétences sociales\n\n- Ce sont des contacts d'initiative, flexibles, ouverts et de valeur avec d'autres personnes\n\nNous vous offrons:\n- Activités polyvalentes et responsables dans une entreprise innovante\n\n- Un lieu aux aspects sociaux et économiques\n\n- Moyens de développer votre domaine de travail\n\n- Présentez vos forces professionnelles et personnelles\n\n- Conditions d'emploi attrayantes\n\n- Formation interne polyvalente"
       },
       "location": "Chur",
       "canton": "GR",
@@ -3577,7 +3564,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-textil-pdgr-ch"
