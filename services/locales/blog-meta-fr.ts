@@ -7493,6 +7493,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-luino-verbania.title': 'Taxe santé frontalier: chaos entre Luino et Verbania',
     'blog.article.tassa-salute-frontalieri-luino-verbania.excerpt': 'Le Pd dénonce des disparités entre les travailleurs frontaliers de Luino et Verbania, avec des recours syndicaux possibles et des doutes de constitutionnalité.',
     'blog.article.tassa-salute-frontalieri-luino-verbania.imageAlt': 'Vue du lac de Lugano avec les montagnes et les villes environnantes',
+    'blog.article.blocco-ristorni-ticino-italia-2026.title': 'Blocage des restitutions Ticino-Italie: ce qui change pour les frontaliers',
+    'blog.article.blocco-ristorni-ticino-italia-2026.excerpt': 'Le canton du Ticino menace de bloquer les restitutions aux communes italiennes en raison de la nouvelle taxe sur la santé pour les frontaliers.',
+    'blog.article.blocco-ristorni-ticino-italia-2026.imageAlt': 'Vue du lac de Lugano avec la ville de Lugano et les montagnes suisses',
 };
 
 export default blogMetaFr;

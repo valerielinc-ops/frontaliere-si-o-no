@@ -7492,6 +7492,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-luino-verbania.title': 'Health tax chaos for cross-border workers in Luino and Verbania',
     'blog.article.tassa-salute-frontalieri-luino-verbania.excerpt': 'The Pd denounces disparities between cross-border workers in Luino and Verbania, with potential union appeals and constitutional doubts.',
     'blog.article.tassa-salute-frontalieri-luino-verbania.imageAlt': 'View of Lake Lugano with surrounding mountains and towns',
+    'blog.article.blocco-ristorni-ticino-italia-2026.title': 'Ticino-Italy tax block: what changes for cross-border workers',
+    'blog.article.blocco-ristorni-ticino-italia-2026.excerpt': 'The Canton of Ticino threatens to block tax returns to Italian municipalities due to the new health tax for cross-border workers.',
+    'blog.article.blocco-ristorni-ticino-italia-2026.imageAlt': 'View of Lake Lugano with the city of Lugano and Swiss mountains',
 };
 
 export default blogMetaEn;

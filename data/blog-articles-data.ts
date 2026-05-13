@@ -23852,4 +23852,13 @@ export const ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'blocco-ristorni-ticino-italia-2026',
+ category: 'fiscale',
+ date: '2026-05-13T00:59:29.001Z',
+ image: '/images/blog/blocco-ristorni-ticino-italia-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

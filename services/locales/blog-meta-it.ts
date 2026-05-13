@@ -7493,6 +7493,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-luino-verbania.title': 'Tassa salute frontalieri: caos tra Luino e Verbania',
     'blog.article.tassa-salute-frontalieri-luino-verbania.excerpt': 'Il Pd denuncia disparità tra lavoratori frontalieri di Luino e Verbania, con possibili ricorsi sindacali e dubbi di costituzionalità.',
     'blog.article.tassa-salute-frontalieri-luino-verbania.imageAlt': 'Vista del Lago di Lugano con montagne e città circostanti',
+    'blog.article.blocco-ristorni-ticino-italia-2026.title': 'Blocco ristorni Ticino-Italia: cosa cambia per i frontalieri',
+    'blog.article.blocco-ristorni-ticino-italia-2026.excerpt': 'Il Canton Ticino minaccia di bloccare i ristorni ai comuni italiani a causa della nuova tassa sulla salute per i frontalieri.',
+    'blog.article.blocco-ristorni-ticino-italia-2026.imageAlt': 'Vista del Lago di Lugano con città di Lugano e montagne svizzere',
 };
 
 export default blogMetaIt;

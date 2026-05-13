@@ -7491,6 +7491,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-luino-verbania.title': 'Gesundheitssteuer: Chaos bei Grenzgängern in Luino und Verbania',
     'blog.article.tassa-salute-frontalieri-luino-verbania.excerpt': 'Die PD wirft Diskriminierung zwischen Grenzgängern aus Luino und Verbania vor, mit möglichen Gewerkschaftsklagen und verfassungsrechtlichen Zweifeln.',
     'blog.article.tassa-salute-frontalieri-luino-verbania.imageAlt': 'Blick auf den Luganersee mit umliegenden Bergen und Städten',
+    'blog.article.blocco-ristorni-ticino-italia-2026.title': 'Rückerstattungsstopp für Grenzgänger: Was sich ändert',
+    'blog.article.blocco-ristorni-ticino-italia-2026.excerpt': 'Der Kanton Tessin droht, die Rückerstattungen an italienische Gemeinden wegen der neuen Gesundheitssteuer für Grenzgänger zu blockieren.',
+    'blog.article.blocco-ristorni-ticino-italia-2026.imageAlt': 'Blick auf den Luganersee mit der Stadt Lugano und Schweizer Bergen',
 };
 
 export default blogMetaDe;
