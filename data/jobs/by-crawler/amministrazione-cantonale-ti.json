@@ -1,6 +1,6 @@
 {
   "crawlerKey": "amministrazione-cantonale-ti",
-  "assembledAt": "2026-05-12T23:07:24.653Z",
+  "assembledAt": "2026-05-13T12:03:21.788Z",
   "jobs": [
     {
       "id": "company-213ibk",
@@ -314,7 +314,8 @@
       "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213ibo",
@@ -632,7 +633,8 @@
       "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213icl",
@@ -712,7 +714,8 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213ick",
@@ -1213,7 +1216,7 @@
         "it": "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatri",
         "en": "open-competition-2026-nurses-with-specialties-mental-health-and-nurses-at-the-cantonal-sociopsychiatric-organization-osc",
         "de": "offener-wettbewerb-2026-pflegekrafte-mit-fachrichtungen-psychische-gesundheit-und-pflegekrafte-bei-der-kantonalen-soziop",
-        "fr": "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatri"
+        "fr": "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-men-213j0m"
       },
       "titleByLocale": {
         "it": "Concorso generale 2026 Infermieri/e con specialità (salute mentale) e infermieri/e presso l’Organizzazione sociopsichiatrica cantonale (OSC), Mendrisio",
@@ -1259,12 +1262,10 @@
         ],
         "de": [
           "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-men-213j0m"
-        ],
-        "fr": [
-          "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-men-213j0m"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:48:48.088Z"
+      "firstSeenAt": "2026-03-31T21:48:48.088Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0g",
@@ -1439,7 +1440,8 @@
           "concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-iii-consulenti-telef-213zbv"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:48:48.088Z"
+      "firstSeenAt": "2026-03-31T21:48:48.088Z",
+      "needsRetranslation": true
     }
   ]
 }
