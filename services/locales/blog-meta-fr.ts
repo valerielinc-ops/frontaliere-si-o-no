@@ -7508,6 +7508,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ticino-2026.title': 'Impôt santé frontalier : blocage des remboursements, que change-t-il ?',
     'blog.article.tassa-salute-frontalieri-ticino-2026.excerpt': 'Le gouvernement tessinois envisage de bloquer les remboursements à l\'Italie. Voici ce que nous savons.',
     'blog.article.tassa-salute-frontalieri-ticino-2026.imageAlt': 'Lac de Lugano avec des montagnes en arrière-plan',
+    'blog.article.documenti-frontalieri-svizzera-2026.title': 'Documents nécessaires pour travailler en Suisse: la liste complète',
+    'blog.article.documenti-frontalieri-svizzera-2026.excerpt': 'Découvrez tous les documents nécessaires pour commencer à travailler en Suisse en tant que frontalier: permis G, contrat, assurance et bien plus encore.',
+    'blog.article.documenti-frontalieri-svizzera-2026.imageAlt': 'Vue détaillée du lac de Lugano avec le paysage urbain en arrière-plan, capturée avec un appareil photo DSLR.',
 };
 
 export default blogMetaFr;

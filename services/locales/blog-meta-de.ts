@@ -7506,6 +7506,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ticino-2026.title': 'Gesundheitssteuer für Grenzgänger: Rückerstattungen blockiert, was sich ändert',
     'blog.article.tassa-salute-frontalieri-ticino-2026.excerpt': 'Die Tessiner Regierung prüft die Blockierung der Rückerstattungen an Italien. Hier ist, was wir wissen.',
     'blog.article.tassa-salute-frontalieri-ticino-2026.imageAlt': 'Luganersee mit Bergen im Hintergrund',
+    'blog.article.documenti-frontalieri-svizzera-2026.title': 'Dokumente für Grenzgänger: Die Checkliste',
+    'blog.article.documenti-frontalieri-svizzera-2026.excerpt': 'Erfahren Sie alles über die notwendigen Dokumente, um in der Schweiz als Grenzgänger zu arbeiten: G-Bewilligung, Vertrag, Versicherung und vieles mehr.',
+    'blog.article.documenti-frontalieri-svizzera-2026.imageAlt': 'Eine detaillierte Ansicht des Luganer Sees mit der Stadt im Hintergrund, aufgenommen mit einer DSLR-Kamera.',
 };
 
 export default blogMetaDe;

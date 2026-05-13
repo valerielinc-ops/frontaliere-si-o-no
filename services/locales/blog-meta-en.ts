@@ -7507,6 +7507,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ticino-2026.title': 'Health tax for cross-border workers: refunds blocked, what changes',
     'blog.article.tassa-salute-frontalieri-ticino-2026.excerpt': 'The Ticino government is considering blocking refunds to Italy. Here\'s what we know.',
     'blog.article.tassa-salute-frontalieri-ticino-2026.imageAlt': 'Lake Lugano with mountains in the background',
+    'blog.article.documenti-frontalieri-svizzera-2026.title': 'Documents needed to start working in Switzerland: full checklist',
+    'blog.article.documenti-frontalieri-svizzera-2026.excerpt': 'Discover all the documents you need to start working in Switzerland as a cross-border worker: G permit, contract, insurance and much more.',
+    'blog.article.documenti-frontalieri-svizzera-2026.imageAlt': 'A detailed view of Lake Lugano with the cityscape in the background, captured with a DSLR camera.',
 };
 
 export default blogMetaEn;

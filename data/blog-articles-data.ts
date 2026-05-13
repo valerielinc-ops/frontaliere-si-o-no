@@ -23897,4 +23897,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'documenti-frontalieri-svizzera-2026',
+ category: 'pratico',
+ date: '2026-05-13T03:53:38.694Z',
+ image: '/images/blog/documenti-frontalieri-svizzera-2026.jpg',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
