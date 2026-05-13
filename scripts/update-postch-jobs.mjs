@@ -34,7 +34,7 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import { parsePostJobDetail } from './lib/postch-job-parser.mjs';
+import { parsePostJobDetail, extractPostJobIdFromUrl } from './lib/postch-job-parser.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -46,13 +46,29 @@ const POST_KEY = 'posta-svizzera-centro-regionale';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 /**
- * Two listing URLs to crawl:
- *   1. Apprenticeships (all cantons — we filter after fetching detail)
- *   2. Professionals (all cantons — we filter after fetching detail)
+ * Listing source — SuccessFactors NES JSON API on job.post.ch.
+ *
+ * The legacy `www.post.ch/en/jobs/jobs?jobsCategory=…` pages are now an
+ * SPA shell that loads jobs via XHR; scraping the HTML returns zero `<a>`
+ * elements. The widget calls `POST /services/recruiting/v1/jobs`, which
+ * returns the full job list with pipe-separated location strings. We
+ * paginate the German locale (the largest superset — Italian/French/English
+ * only return jobs explicitly translated to that locale, missing most TI/GR
+ * positions) and filter for the target cantons here.
  */
+const JOBS_API_URL = 'https://job.post.ch/services/recruiting/v1/jobs';
+// We paginate every locale because the API only returns jobs that have a
+// translation in the requested locale. de_DE is the largest superset (≈100
+// jobs) but Italian-only postings (e.g. AutoPostale Bellinzona) are missing
+// from it — we'd silently drop them without scanning it_IT separately.
+const JOBS_API_LISTING_LOCALES = ['de_DE', 'it_IT', 'fr_FR', 'en_US'];
+const JOBS_API_MAX_PAGES = 60;     // hard ceiling — protects against runaway pagination
+const JOBS_DETAIL_LOCALES = ['it_IT', 'de_DE', 'fr_FR', 'en_US']; // priority for description language
+
+// Kept for adapter seedUrls / external references only.
 const LISTING_URLS = [
-  'https://www.post.ch/en/jobs/jobs?jobsCategory=apprenticeships',
-  'https://www.post.ch/en/jobs/jobs?jobsCategory=professionals&workload-maximum=1&workload-minimum=0',
+  'https://job.post.ch/search/?locale=it_IT',
+  'https://job.post.ch/search/?locale=de_DE',
 ];
 
 const POST_COMPANY_NAME = 'La Posta Svizzera';
@@ -142,32 +158,103 @@ async function fetchPage(url, timeoutMs = 15000) {
 }
 
 // ──────────────────────────────────────────────────────────────
-// Parsing — extract job listings from the listing pages
+// Parsing — extract job listings from the SuccessFactors JSON API
 // ──────────────────────────────────────────────────────────────
 
 /**
- * Parse job links from a Post.ch listing page HTML.
- * Links are absolute URLs to job.post.ch:
- *   https://job.post.ch/v2/job-vacancies/{slug}/{uuid}
+ * POST one page against the SuccessFactors NES jobs search endpoint.
+ *
+ * @returns {Promise<{totalJobs:number, jobs:object[]}>}  always returns an
+ *   object so callers can break the pagination loop on `jobs.length === 0`.
  */
-function parseJobLinks(html = '') {
-  const jobs = [];
-  const linkRe = /href="(https:\/\/job\.post\.ch\/v2\/job-vacancies\/[^"]+)"/gi;
-  let match;
-  while ((match = linkRe.exec(html)) !== null) {
-    const url = match[1].replace(/&amp;/g, '&');
-    // Extract UUID from URL (last path segment)
-    const uuid = url.split('/').pop() || '';
-    jobs.push({ url, uuid });
+async function fetchJobsApiPage(locale, pageNumber, timeoutMs = 20000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(JOBS_API_URL, {
+      method: 'POST',
+      signal: controller.signal,
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        'Accept-Language': 'en-US,en;q=0.9,it;q=0.8,de;q=0.7',
+        Origin: 'https://job.post.ch',
+        Referer: 'https://job.post.ch/search/',
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+      body: JSON.stringify({ locale, pageNumber, sortBy: 'date' }),
+    });
+    clearTimeout(timer);
+    if (!res.ok) {
+      console.warn(`⚠️ HTTP ${res.status} for jobs API (${locale} page ${pageNumber})`);
+      return { totalJobs: 0, jobs: [] };
+    }
+    const data = await res.json();
+    const jobs = Array.isArray(data?.jobSearchResult)
+      ? data.jobSearchResult.map(r => r?.response).filter(Boolean)
+      : [];
+    return { totalJobs: Number(data?.totalJobs ?? 0), jobs };
+  } catch (err) {
+    clearTimeout(timer);
+    console.warn(`⚠️ Jobs API fetch failed (${locale} page ${pageNumber}): ${err.message}`);
+    return { totalJobs: 0, jobs: [] };
   }
+}
 
-  // Deduplicate by UUID
-  const seen = new Set();
-  return jobs.filter(j => {
-    if (!j.uuid || seen.has(j.uuid)) return false;
-    seen.add(j.uuid);
-    return true;
-  });
+/**
+ * Decode an HTML-encoded URL segment (the API returns `&apos;` etc.).
+ */
+function decodeUrlSegment(value = '') {
+  return String(value || '')
+    .replace(/&amp;/g, '&')
+    .replace(/&apos;/g, "'")
+    .replace(/&#39;/g, "'")
+    .replace(/&quot;/g, '"');
+}
+
+/**
+ * Build the canonical SuccessFactors detail URL from a single API record.
+ */
+function buildDetailUrl(record, locale = 'it_IT') {
+  const brand = String(record?.brandUrl || 'default').trim() || 'default';
+  const slug = decodeUrlSegment(record?.unifiedUrlTitle || record?.urlTitle || '');
+  const id = String(record?.id || '').trim();
+  if (!slug || !id) return '';
+  return `https://job.post.ch/${brand}/job/${slug}/${id}-${locale}`;
+}
+
+/**
+ * Test whether any `jobLocationShort` entry on a record lies in our target
+ * cantons (TI / GR). Pipe-separated form: "City|Canton|CC|Country|CCC ".
+ */
+function recordIsInTargetCanton(record) {
+  const locs = Array.isArray(record?.jobLocationShort) ? record.jobLocationShort : [];
+  for (const loc of locs) {
+    const parts = String(loc || '').split('|').map(p => p.trim());
+    // Index 2 is the 2-letter canton code in the standard CH form.
+    if (parts.length >= 5 && (parts[2] === 'TI' || parts[2] === 'GR')) return true;
+    // Italian/French locales render the canton name in their language; the
+    // canton code (parts[2]) is canonical, but as a safety net we also scan
+    // textually for known target localities + canton names.
+    const lc = String(loc || '').toLowerCase();
+    if (lc.includes('|ti|') || lc.includes('|gr|')) return true;
+    if (/(ticino|tessin|grigioni|grisons|graub[üu]nden)/i.test(loc || '')) return true;
+  }
+  return false;
+}
+
+/**
+ * Locality of the first target-canton entry on a record (used as a tiebreaker
+ * when the detail-page location parsing is unavailable).
+ */
+function recordTargetCity(record) {
+  const locs = Array.isArray(record?.jobLocationShort) ? record.jobLocationShort : [];
+  for (const loc of locs) {
+    const parts = String(loc || '').split('|').map(p => p.trim());
+    if (parts.length >= 5 && (parts[2] === 'TI' || parts[2] === 'GR')) return parts[0];
+  }
+  return '';
 }
 
 /**
@@ -225,69 +312,131 @@ function detectSector(detail) {
 
 async function fetchPostJobs() {
   console.log('📮 Fetching Swiss Post (La Posta Svizzera) job listings...');
+  console.log(`  🌐 Listing API: ${JOBS_API_URL} (locales=${JOBS_API_LISTING_LOCALES.join(',')})`);
 
-  const allLinks = [];
+  const delay = (ms) => new Promise(r => setTimeout(r, ms));
 
-  for (const listingUrl of LISTING_URLS) {
-    console.log(`  📄 Listing URL: ${listingUrl}`);
-    const listingHtml = await fetchPage(listingUrl, 20000);
-    if (!listingHtml) {
-      console.warn(`  ⚠️ Failed to fetch listing page: ${listingUrl}`);
-      continue;
+  // 1. Paginate the API once per locale, then deduplicate by job id —
+  //    locales return disjoint sets of jobs (a job is only visible in
+  //    locales it has been translated to).
+  const byId = new Map();
+  for (const apiLocale of JOBS_API_LISTING_LOCALES) {
+    let pageNumber = 0;
+    let totalJobs = Infinity;
+    let seen = 0;
+    while (seen < totalJobs && pageNumber < JOBS_API_MAX_PAGES) {
+      const { totalJobs: total, jobs } = await fetchJobsApiPage(apiLocale, pageNumber);
+      if (jobs.length === 0) break;
+      for (const j of jobs) {
+        const id = String(j?.id || '').trim();
+        if (!id) continue;
+        if (!byId.has(id)) byId.set(id, j);
+      }
+      seen += jobs.length;
+      totalJobs = total;
+      pageNumber += 1;
+      await delay(250);
     }
-    const links = parseJobLinks(listingHtml);
-    console.log(`     Found ${links.length} job links`);
-    allLinks.push(...links);
+    console.log(`     ${apiLocale}: ${seen} record(s) (claimed total: ${Number.isFinite(totalJobs) ? totalJobs : 'unknown'})`);
   }
+  const apiRecords = [...byId.values()];
+  console.log(`  📋 Merged unique records across locales: ${apiRecords.length}`);
 
-  // Deduplicate across all listing pages
-  const seen = new Set();
-  const uniqueLinks = allLinks.filter(j => {
-    if (seen.has(j.uuid)) return false;
-    seen.add(j.uuid);
-    return true;
-  });
-  console.log(`  ✅ Total unique job links: ${uniqueLinks.length}`);
-
-  if (uniqueLinks.length === 0) {
-    console.warn('⚠️ No job links found — page structure may have changed.');
+  if (apiRecords.length === 0) {
+    console.warn('⚠️ Jobs API returned no records — endpoint may have changed.');
     return [];
   }
 
+  // 2. Filter to TI/GR via the pipe-separated jobLocationShort field.
+  const targetRecords = apiRecords.filter(recordIsInTargetCanton);
+  console.log(`  🎯 ${targetRecords.length} record(s) in target cantons (TI/GR)`);
+
+  if (targetRecords.length === 0) {
+    return [];
+  }
+
+  // 3. Fetch each detail page. Prefer Italian; fall back to French / German /
+  //    English only if the job is actually translated to those locales
+  //    (jobs that aren't translated render a German "Stellendetails"
+  //    placeholder with no tokens — `parsePostJobDetail` returns no title,
+  //    which we use as the signal to try the next locale).
   const jobs = [];
-  const delay = (ms) => new Promise(r => setTimeout(r, ms));
+  for (const record of targetRecords) {
+    // `supportedLocales` tells us which detail pages will actually render —
+    // request order = our preference order intersected with what the record
+    // supports, then any remaining preferred locales as a last resort.
+    const supported = new Set(
+      (Array.isArray(record.supportedLocales) ? record.supportedLocales : [])
+        .map(l => String(l || '').trim())
+    );
+    const orderedLocales = [
+      ...JOBS_DETAIL_LOCALES.filter(l => supported.has(l)),
+      ...JOBS_DETAIL_LOCALES.filter(l => !supported.has(l)),
+    ];
 
-  for (const link of uniqueLinks) {
-    console.log(`  📄 Fetching detail: ${link.url}`);
-    const detailHtml = await fetchPage(link.url, 15000);
+    let detail = null;
+    let sourceUrl = '';
+    for (const locale of orderedLocales) {
+      const url = buildDetailUrl(record, locale);
+      if (!url) continue;
+      console.log(`  📄 Fetching detail (${locale}): ${url}`);
+      const html = await fetchPage(url, 20000);
+      await delay(400);
+      if (!html) continue;
+      const parsed = parsePostJobDetail(html, url);
+      // Require a meaningful title (locale-untranslated jobs render the
+      // generic "Stellendetails" placeholder — discard it) AND a non-trivial
+      // description.
+      const looksLikePlaceholder = /^stellendetails$/i.test(String(parsed?.title || '').trim());
+      const hasBody = (parsed?.description || '').length > 80;
+      if (parsed?.title && !looksLikePlaceholder && hasBody) {
+        detail = parsed;
+        sourceUrl = url;
+        break;
+      }
+    }
 
-    if (!detailHtml) {
-      console.warn(`  ⚠️ Failed to fetch detail for ${link.uuid}`);
+    if (!detail || !detail.title) {
+      console.warn(`  ⚠️ Could not parse detail for job ${record.id}`);
       continue;
     }
 
-    const detail = parsePostJobDetail(detailHtml, link.url);
-
-    // Filter: only keep Ticino jobs
+    // Sanity check: detail page location must still resolve to TI/GR.
+    // (Listing API can lag; if the underlying job moved we re-filter.)
     if (!isTicinoJob(detail)) {
-      console.log(`     ↳ Skipping (not Ticino): ${detail.title} — ${detail.region || detail.city || 'unknown region'}`);
-      continue;
+      const apiFallbackCity = recordTargetCity(record);
+      if (!apiFallbackCity) {
+        console.log(`     ↳ Skipping (detail no longer TI/GR): ${detail.title}`);
+        continue;
+      }
+      detail.city = detail.city || apiFallbackCity;
+      detail.location = detail.location || apiFallbackCity;
     }
 
     const title = detail.title || '';
-    const city = detectCity(detail);
-    const canton = detectCanton(city);
+    // Multi-location job: prefer the place that lies in our target cantons
+    // over the detail page's "first" city (which depends on SF's display
+    // order and may be a SG/ZH co-location for a TI/GR opening).
+    const targetPlace = (detail.places || []).find(p => p.region === 'TI' || p.region === 'GR');
+    const city = (targetPlace && targetPlace.city)
+      || detectCity(detail)
+      || recordTargetCity(record)
+      || 'Bellinzona';
+    const canton = (targetPlace && targetPlace.region) || detectCanton(city);
     const slug = slugify(title, 'post');
+    const brandCompany = Array.isArray(record.cust_brandCompanyJobSearch)
+      ? record.cust_brandCompanyJobSearch[0]
+      : '';
 
-    const descriptionIt = detail.description
+    const descriptionIt = detail.description && detail.description.length > 30
       ? detail.description
-      : `Posizione aperta presso ${POST_COMPANY_NAME}. Ruolo: ${title}. Sede: ${city}, Svizzera.`;
+      : `Posizione aperta presso ${brandCompany || POST_COMPANY_NAME}. Ruolo: ${title}. Sede: ${city}, Svizzera.`;
 
     const job = {
-      url: link.url,
-      applyUrl: link.url,
+      url: sourceUrl,
+      applyUrl: sourceUrl,
       title,
-      company: detail.hiringOrg || POST_COMPANY_NAME,
+      company: brandCompany || detail.hiringOrg || POST_COMPANY_NAME,
       companyKey: POST_KEY,
       location: city,
       canton,
@@ -297,7 +446,7 @@ async function fetchPostJobs() {
       titleByLocale: { it: title },
       slug,
       slugByLocale: { it: slug },
-      sourceLang: detectLang(descriptionIt || title, 'en'),
+      sourceLang: detectLang(descriptionIt || title, 'it'),
       department: detail.industry || '',
       category: detail.industry || 'servizi-postali',
       datePosted: detail.datePosted || new Date().toISOString().split('T')[0],
@@ -312,12 +461,9 @@ async function fetchPostJobs() {
 
     jobs.push(job);
     console.log(`     ✅ ${title} — ${city} (${canton})`);
-
-    // Be polite — small delay between requests
-    await delay(400);
   }
 
-  console.log(`\n📋 Total Post.ch Ticino jobs discovered: ${jobs.length}`);
+  console.log(`\n📋 Total Post.ch Ticino/Grigioni jobs discovered: ${jobs.length}`);
   return jobs;
 }
 
@@ -326,16 +472,13 @@ async function fetchPostJobs() {
 // ──────────────────────────────────────────────────────────────
 
 /**
- * Extract UUID from a Post.ch job URL for stable deduplication.
+ * Stable Post.ch job identifier — accepts both the legacy `/v2/job-vacancies/{slug}/{uuid}`
+ * URL family (UUID) and the current SuccessFactors NES format
+ * (`/{brand}/job/{slug}/{id}-{locale}`, numeric ID). Routes through the
+ * parser-side helper so additions to the URL family stay in one place.
  */
 function extractUuid(url = '') {
-  const parts = String(url).split('/');
-  const last = parts[parts.length - 1] || '';
-  // UUID format: 8-4-4-4-12 hex
-  if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(last)) {
-    return last.toLowerCase();
-  }
-  return '';
+  return extractPostJobIdFromUrl(url);
 }
 
 function filterEmpty(obj = {}) {
@@ -439,7 +582,7 @@ function updateAdapterConfig(seedUrls = []) {
   adapter.priority = Math.max(adapter.priority || 0, 10);
   adapter.crawlerModes = ['html', 'jsonld'];
   adapter.seedUrls = [...LISTING_URLS, ...seedUrls];
-  adapter.notes = 'Swiss Post careers portal — Ticino job listings extracted from post.ch and job.post.ch.';
+  adapter.notes = 'Swiss Post careers portal — Ticino/Grigioni jobs discovered via the SuccessFactors NES jobs search API (POST job.post.ch/services/recruiting/v1/jobs) and detail HTML scraped from job.post.ch.';
   adapter.updatedAt = new Date().toISOString();
 
   fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
