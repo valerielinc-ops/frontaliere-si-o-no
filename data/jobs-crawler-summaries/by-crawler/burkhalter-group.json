@@ -1,53 +1,18 @@
 {
   "key": "burkhalter-group",
   "label": "burkhalter",
-  "generatedAt": "2026-05-12T21:42:32.285Z",
+  "generatedAt": "2026-05-13T10:38:30.499Z",
   "total": 245,
-  "newCount": 1,
-  "updatedCount": 244,
-  "removedCount": 2,
+  "newCount": 0,
+  "updatedCount": 245,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 25160,
-  "avgDurationMs": 25160,
+  "durationMs": 32515,
+  "avgDurationMs": 32515,
   "durationHistory": [
-    25160
+    32515
   ],
-  "newJobs": [
-    {
-      "title": "Elektro-Servicemonteur/in (100%)",
-      "slug": "elektro-servicemonteur-in-100-elektro-bau-ag-rothrist-rothrist",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-fuer-unterhalts-und-kleinauftraege-339-1",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-fuer-unterhalts-und-kleinauftraege-339-1",
-      "company": "Elektro-Bau AG Rothrist",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Rothrist",
-      "addressLocality": "Rothrist",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-08",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.041Z",
-      "coordinates": [
-        47.3096077,
-        7.8926763
-      ],
-      "_qualityScore": 52,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 0,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Elektro-Servicemonteur/in (100%)",
@@ -70,7 +35,7 @@
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.041Z",
+      "crawledAt": "2026-05-13T10:38:29.231Z",
       "coordinates": [
         47.3935972,
         8.1643977
@@ -82,6 +47,47 @@
       "streetAddress": "Via Cantonale",
       "postalCode": "6928",
       "firstSeenAt": "2026-05-11T21:39:47.273Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Elektro-Servicemonteur/in (100%)",
+      "slug": "elektro-servicemonteur-in-100-elektro-bau-ag-rothrist-rothrist",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-fuer-unterhalts-und-kleinauftraege-339-1",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-fuer-unterhalts-und-kleinauftraege-339-1",
+      "company": "Elektro-Bau AG Rothrist",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Rothrist",
+      "addressLocality": "Rothrist",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "canton": "AG",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-08",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-05-13T10:38:29.231Z",
+      "coordinates": [
+        47.3096077,
+        7.8926763
+      ],
+      "id": "burkhalter-group-71e65ffae073",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale",
+      "postalCode": "6928",
+      "firstSeenAt": "2026-05-12T21:42:31.041Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -111,7 +117,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.054Z",
+      "crawledAt": "2026-05-13T10:38:29.245Z",
       "coordinates": [
         46.7838193,
         6.6264028
@@ -152,7 +158,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.064Z",
+      "crawledAt": "2026-05-13T10:38:29.256Z",
       "coordinates": [
         46.7838193,
         6.6264028
@@ -193,7 +199,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.065Z",
+      "crawledAt": "2026-05-13T10:38:29.257Z",
       "coordinates": [
         47.2541809,
         7.002328
@@ -234,7 +240,7 @@
       "postedDate": "2026-04-28",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.070Z",
+      "crawledAt": "2026-05-13T10:38:29.263Z",
       "coordinates": [
         47.5646191,
         9.150227
@@ -246,8 +252,6 @@
       "streetAddress": "Via Cantonale",
       "postalCode": "6928",
       "firstSeenAt": "2026-05-11T21:39:47.304Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -277,7 +281,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.071Z",
+      "crawledAt": "2026-05-13T10:38:29.264Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -318,7 +322,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.072Z",
+      "crawledAt": "2026-05-13T10:38:29.265Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -359,7 +363,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.073Z",
+      "crawledAt": "2026-05-13T10:38:29.266Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -400,7 +404,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.074Z",
+      "crawledAt": "2026-05-13T10:38:29.267Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -441,7 +445,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.074Z",
+      "crawledAt": "2026-05-13T10:38:29.268Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -482,7 +486,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.075Z",
+      "crawledAt": "2026-05-13T10:38:29.269Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -523,7 +527,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.076Z",
+      "crawledAt": "2026-05-13T10:38:29.269Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -564,7 +568,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.076Z",
+      "crawledAt": "2026-05-13T10:38:29.270Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -605,7 +609,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.077Z",
+      "crawledAt": "2026-05-13T10:38:29.271Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -646,7 +650,7 @@
       "postedDate": "2026-04-20",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.090Z",
+      "crawledAt": "2026-05-13T10:38:29.284Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -687,7 +691,7 @@
       "postedDate": "2026-04-17",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.090Z",
+      "crawledAt": "2026-05-13T10:38:29.285Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -728,7 +732,7 @@
       "postedDate": "2026-04-17",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.091Z",
+      "crawledAt": "2026-05-13T10:38:29.286Z",
       "coordinates": [
         46.7255703,
         7.6144883
@@ -740,8 +744,6 @@
       "streetAddress": "Via Cantonale",
       "postalCode": "6928",
       "firstSeenAt": "2026-05-11T21:39:47.327Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -771,7 +773,7 @@
       "postedDate": "2026-04-13",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "crawledAt": "2026-05-12T21:42:31.098Z",
+      "crawledAt": "2026-05-13T10:38:29.294Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -812,7 +814,7 @@
       "postedDate": "2026-03-31",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.099Z",
+      "crawledAt": "2026-05-13T10:38:29.295Z",
       "coordinates": [
         47.4169105,
         8.5625234
@@ -824,8 +826,6 @@
       "streetAddress": "Via Cantonale",
       "postalCode": "6928",
       "firstSeenAt": "2026-05-11T21:39:47.338Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -855,7 +855,7 @@
       "postedDate": "2026-03-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.101Z",
+      "crawledAt": "2026-05-13T10:38:29.297Z",
       "coordinates": [
         47.3939007,
         8.6488896
@@ -896,7 +896,7 @@
       "postedDate": "2026-03-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.102Z",
+      "crawledAt": "2026-05-13T10:38:29.298Z",
       "coordinates": [
         47.3939007,
         8.6488896
@@ -937,7 +937,7 @@
       "postedDate": "2026-03-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.103Z",
+      "crawledAt": "2026-05-13T10:38:29.300Z",
       "coordinates": [
         47.3885109,
         8.4960733
@@ -978,7 +978,7 @@
       "postedDate": "2026-03-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.106Z",
+      "crawledAt": "2026-05-13T10:38:29.301Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -1019,7 +1019,7 @@
       "postedDate": "2026-03-27",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.107Z",
+      "crawledAt": "2026-05-13T10:38:29.302Z",
       "coordinates": [
         46.856205,
         8.6389353
@@ -1060,7 +1060,7 @@
       "postedDate": "2026-03-26",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.111Z",
+      "crawledAt": "2026-05-13T10:38:29.307Z",
       "coordinates": [
         47.4194317,
         9.3701496
@@ -1072,8 +1072,6 @@
       "streetAddress": "Via Cantonale",
       "postalCode": "6928",
       "firstSeenAt": "2026-05-11T21:39:47.350Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1103,7 +1101,7 @@
       "postedDate": "2026-03-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.115Z",
+      "crawledAt": "2026-05-13T10:38:29.311Z",
       "coordinates": [
         47.4194317,
         9.3701496
@@ -1144,7 +1142,7 @@
       "postedDate": "2026-03-11",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.116Z",
+      "crawledAt": "2026-05-13T10:38:29.313Z",
       "coordinates": [
         47.3885109,
         8.4960733
@@ -1156,7 +1154,6 @@
       "streetAddress": "Via Cantonale",
       "postalCode": "6928",
       "firstSeenAt": "2026-05-11T21:39:47.356Z",
-      "retranslationAttempts": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1186,7 +1183,7 @@
       "postedDate": "2026-03-06",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.117Z",
+      "crawledAt": "2026-05-13T10:38:29.314Z",
       "coordinates": [
         46.1823163,
         6.1355117
@@ -1227,7 +1224,7 @@
       "postedDate": "2026-03-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.117Z",
+      "crawledAt": "2026-05-13T10:38:29.315Z",
       "coordinates": [
         46.7795846,
         7.5920483
@@ -1246,134 +1243,8 @@
         "translation": 25,
         "completeness": 25
       }
-    },
-    {
-      "title": "Sanitär- und/oder Heizungsinstallateur/in (100%)",
-      "slug": "sanitar-und-oder-heizungsinstallateur-in-100-caotec-sa-brusio",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaer-und-oder-heizungsinstallateur-in-1559",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sanitaer-und-oder-heizungsinstallateur-in-1559",
-      "company": "Caotec SA",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Brusio",
-      "addressLocality": "Brusio",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-02-26",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-05-12T21:42:31.118Z",
-      "coordinates": [
-        46.2496614,
-        10.1292791
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale",
-      "postalCode": "6928",
-      "id": "burkhalter-group-5ed03a0109d4",
-      "firstSeenAt": "2026-04-13T10:09:28.516Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Elektro-Servicemonteur/in für Unterhalts- und Kleinaufträge (100%)",
-      "slug": "fornitore-di-servizi-elettrici-per-manutenzione-e-piccoli-ordini-100-elektro-bau-ag-filiale-lenzburg-lenzburg",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-fuer-unterhalts-und-kleinauftraege-445",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-fuer-unterhalts-und-kleinauftraege-445",
-      "company": "Elektro-Bau AG, Filiale Lenzburg",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Lenzburg",
-      "addressLocality": "Lenzburg",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2022-04-01",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-05-12T10:47:15.441Z",
-      "coordinates": [
-        47.3935972,
-        8.1643977
-      ],
-      "id": "burkhalter-group-126e146b30c6",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale",
-      "postalCode": "6928",
-      "firstSeenAt": "2026-05-11T21:39:47.496Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Elektro-Servicemonteur/in (80 - 100%)",
-      "slug": "mostro-di-servizio-elettrico-80-100-derungs-ag-ilanz",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-366",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/elektro-servicemonteur-366",
-      "company": "Derungs AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Ilanz",
-      "addressLocality": "Ilanz",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2021-06-18",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-05-12T10:47:15.466Z",
-      "coordinates": [
-        46.7761626,
-        9.2043205
-      ],
-      "id": "burkhalter-group-c2bd13d35f4c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale",
-      "postalCode": "6928",
-      "firstSeenAt": "2026-05-10T09:44:25.133Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true,
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 19,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
