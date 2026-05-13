@@ -8683,6 +8683,17 @@ ${alternates}
  // Was unconditional `set` previously, which let the LAST entry (oldest
  // after sort, but arbitrary order before sort) overwrite the winner.
  if (ej.slug && !expiredBySlug.has(ej.slug)) expiredBySlug.set(ej.slug, ej);
+ // Index current-locale slug variants so DE/EN/FR soft-landing URLs
+ // (e.g. /de/jobs-im-tessin/{de-slug}/) resolve to the same ejData as
+ // the IT primary. Without this, expiredBySlug.get(de-slug) returns
+ // undefined → emitter ships descriptionByLocale:{} on those variants,
+ // forcing the SPA to fetch /data/expired-jobs.json (4.5 MB) just to
+ // render the description post-hydration.
+ if (ej.slugByLocale && typeof ej.slugByLocale === 'object') {
+ for (const ls of Object.values(ej.slugByLocale)) {
+ if (ls && typeof ls === 'string' && !expiredBySlug.has(ls)) expiredBySlug.set(ls, ej);
+ }
+ }
  // Also index previousSlugs so renamed-then-deleted jobs get enriched soft-landing pages
  if (Array.isArray(ej.previousSlugs)) {
  for (const ps of ej.previousSlugs) {
@@ -9460,14 +9471,25 @@ ${hreflangLinks}
  // Seed expired job data as window global so the SPA can render
  // rich content (title, company, description) without depending on
  // the runtime expired-jobs.json fetch (which only has recently expired jobs).
+ //
+ // Multi-locale stripping: the SPA reads only `[locale]` entries from
+ // titleByLocale / descriptionByLocale (JobExpiredView.tsx:174-175). The
+ // other 3 locales' entries are dead bytes on the wire — ~6 KB per
+ // IT-primary expired page (de+en+fr descriptions). slugByLocale stays
+ // full because seededJobMatchesSlug + hooks/useExpiredJob match the
+ // URL slug against any locale entry.
+ const pickLocaleEntry = <T,>(src: Record<string, T> | undefined, l: string): Record<string, T> => {
+  if (!src || src[l] == null) return {};
+  return { [l]: src[l] };
+ };
  const expiredWindowData = JSON.stringify({
  slug,
  title: ejData?.title || gscInfo?.title || slugInfo?.title || '',
- titleByLocale: ejData?.titleByLocale || gscInfo?.titleByLocale || {},
+ titleByLocale: pickLocaleEntry(ejData?.titleByLocale || gscInfo?.titleByLocale, locale),
  company: ejData?.company || gscInfo?.company || slugInfo?.company || '',
  companyKey: ejData?.companyKey || gscInfo?.companyKey || slugInfo?.companyKey || '',
  location: ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '',
- descriptionByLocale: ejData?.descriptionByLocale || gscInfo?.descriptionByLocale || {},
+ descriptionByLocale: pickLocaleEntry(ejData?.descriptionByLocale || gscInfo?.descriptionByLocale, locale),
  slugByLocale: ejData?.slugByLocale || gscInfo?.slugByLocale || {},
  sector: ejData?.sector || gscInfo?.sector || '',
  expiredAt: ejData?.expiredAt || '',
