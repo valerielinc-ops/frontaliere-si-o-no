@@ -1,18 +1,19 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-05-13T21:48:16.941Z",
+  "generatedAt": "2026-05-14T10:32:02.979Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 14185,
-  "avgDurationMs": 14185,
+  "durationMs": 24598,
+  "avgDurationMs": 24598,
   "durationHistory": [
-    14185
+    24598
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h--Fixed-Term---Landquart_R_784293",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h--Fixed-Term---Landquart_R_784293",
@@ -41,17 +42,19 @@
         "location": "Graubünden"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 66,
+      "id": "capri-holdings-5f82fc2f63b3",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-13T21:48:16.941Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
-        "completeness": 15
+        "translation": 25,
+        "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Versace/job/Geneva/Sales-Associate_R_784069",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Versace/job/Geneva/Sales-Associate_R_784069",
@@ -124,17 +127,16 @@
         "location": "Graubünden"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "capri-holdings-0e4ff3a9d6ab",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-05-13T10:39:13.858Z",
-      "_qualityScore": 86,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 20
       }
     }
