@@ -147,7 +147,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-c5ec283c0abf",
@@ -222,7 +223,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-f277c6bfb474",
@@ -297,7 +299,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b1f2f8f3c360",
@@ -372,7 +375,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-07c408c8f40c",
@@ -449,7 +453,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-39f64cefd83d",
@@ -686,16 +691,17 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-422f0cc4c8e3",
       "slug": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-        "it": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
-        "en": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-        "fr": "dipl-pflegefachmann-frau-forensik-stgag-ch"
+        "it": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa",
+        "en": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+        "fr": "dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -704,15 +710,15 @@
       "titleByLocale": {
         "de": "Dipl. Pflegefachmann/-frau Forensik",
         "en": "Dipl. Pflegefachmann/-frau Forensik",
-        "it": "Dipl. Pflegefachmann/-frau Forensik",
-        "fr": "Dipl. Pflegefachmann/-frau Forensik"
+        "it": "Dipl. Specialista di cura forense",
+        "fr": "Dipl. Spécialiste de la médecine légale"
       },
       "description": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026",
       "descriptionByLocale": {
-        "de": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026",
-        "it": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026",
-        "en": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026",
-        "fr": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026"
+        "de": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026",
+        "it": "Dipl. Specialista infermieristico Forensik — Spital Thurgau (STGAG).\n• Posizione: Clinica Psichiatrica, Münsterlingen\n• Dipartimento: Cura (incl. levatrice)\n• Area: Servizi psichiatrici Thurgau\n• Pensum: tempo pieno, tempo parziale possibile\n• rapporto di lavoro: permanente\n• Data di entrata: 01.06.2026",
+        "en": "Dipl. Nursing specialist Forensik — Spital Thurgau (STGAG).\n• Location: Psychiatric Clinic, Münsterlingen\n• Department: Care (incl. midwife)\n• Area: Psychiatric services Thurgau\n• Pensum: full time, part time possible\n• employment relationship: permanent\n• Date of entry: 01.06.2026",
+        "fr": "Dipl. Spécialiste des soins infirmiers Forensik — Spital Thurgau (STGAG).\n• Lieu: Clinique psychiatrique, Münsterlingen\n• Département: Soins (y compris sage-femme)\n• Région: Services psychiatriques Thurgau\n• Pensum: temps plein, temps partiel possible\n• relation de travail permanente\n• Date d'entrée: 01.06.2026"
       },
       "location": "Münsterlingen",
       "canton": "TG",
@@ -740,14 +746,23 @@
       },
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2"
+        ],
+        "en": [
+          "dipl-pflegefachmann-frau-forensik-stgag-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachmann-frau-forensik-stgag-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2"
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
+        "dipl-pflegefachmann-frau-forensik-stgag-ch",
+        "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -916,7 +931,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-c4d323746f78",
@@ -991,7 +1007,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-284923941835",
@@ -1066,7 +1083,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-6e110a8e1bbe",
@@ -1141,7 +1159,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b98b145e5440",
@@ -1218,7 +1237,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-a0b287084e65",
@@ -1667,7 +1687,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-8b4b50246dbe",
@@ -1816,7 +1837,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-46997e17bd69",
@@ -2207,7 +2229,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-174dd971ec1f",
@@ -2282,7 +2305,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-087d6ba0e3da",
@@ -2357,7 +2381,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-45c09f3cbba3",
@@ -2434,7 +2459,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-e956e2ca6a85",
@@ -2509,7 +2535,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-d0115a6d230b",
@@ -2662,7 +2689,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-9a92b0e0a0d6",
@@ -2735,7 +2763,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-6909168de45c",
@@ -2810,7 +2839,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-7910f90c7fa4",
@@ -2885,7 +2915,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-f1d90ab03a51",
@@ -3269,7 +3300,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-4edbcb3d61ad",
@@ -3342,7 +3374,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-7b146e89eda2",
@@ -3415,7 +3448,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-691f1532b03c",
@@ -3645,7 +3679,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-dc710d762096",
@@ -3718,7 +3753,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-92ba82c15b1e",
@@ -3863,7 +3899,8 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-d1ab799b5f96",
@@ -4601,8 +4638,9 @@
       "previousSlugs": [
         "dipl-pflegefachmann-frau-forensik-stgag-ch",
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
-        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa",
-        "dipl-pflegefachmann-frau-forensik-stgag-ch-2"
+        "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5436,7 +5474,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-766f48b89005",
@@ -5588,7 +5627,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-e1c09221afa0",
@@ -5738,7 +5778,8 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-5b36038498fb",
@@ -5960,7 +6001,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-28213b816210",
@@ -6045,7 +6087,7 @@
       "id": "spital-thurgau-07a5645fdbb5",
       "slug": "salute-professionale-moglie-efz-nella-springerpool-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
-        "it": "salute-professionale-moglie-efz-nella-springerpool-spital-thurgau-stgag-diessenhofen",
+        "it": "psicologo-nel-campo-della-forense-ambulance-kalchrain-spital-thurgau-stgag-munsterlingen",
         "en": "professional-wife-health-efz-in-the-springerpool-spital-thurgau-stgag-diessenhofen",
         "de": "fachmann-frau-gesundheit-efz-im-springerpool-stgag-ch",
         "fr": "professionnel-femme-sante-efz-dans-le-springerpool-spital-thurgau-stgag-diessenhofen"
@@ -6094,7 +6136,9 @@
       "previousSlugs": [
         "fachmann-frau-gesundheit-efz-im-springerpool-stgag-ch",
         "fachmann-frau-gesundheit-cfc-im-springerpool-spital-thurgau-stgag-diessenhofen",
-        "dipl-pflegefachmann-frau-im-pool-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "dipl-pflegefachmann-frau-im-pool-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "psychologen-in-im-bereich-forensik-ambulanz-kalchrain-stgag-ch",
+        "salute-professionale-moglie-efz-nella-springerpool-spital-thurgau-stgag-diessenhofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6590,7 +6634,7 @@
       "id": "spital-thurgau-d3ee284efef5",
       "slug": "dipl-professional-wife-operations-technology-hf-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "dipl-professional-wife-operations-technology-hf-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "it": "medico-senior-linea-terapeutica-spital-thurgau-stgag-weinfelden",
         "en": "dipl-fachmann-frau-operationstechnik-hf-stgag-ch-2",
         "de": "dipl-fachmann-frau-operationstechnik-hf-stgag-ch",
         "fr": "dipl-fachmann-frau-operationstechnik-hf-stgag-ch-2"
@@ -6640,7 +6684,9 @@
         "dipl-fachmann-frau-operationstechnik-hf-stgag-ch-2",
         "dipl-fachmann-frau-operationstechnik-hf-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "dipl-fachmann-frau-operationstechnik-hf-stgag-ch",
-        "specialista-di-cura-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen"
+        "specialista-di-cura-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen",
+        "oberarzt-arztin-therapeutische-leitung-stgag-ch",
+        "dipl-professional-wife-operations-technology-hf-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6745,7 +6791,7 @@
       "id": "spital-thurgau-839de41f2877",
       "slug": "consulente-senior-mbf-medicina-interna-generale-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "consulente-senior-mbf-medicina-interna-generale-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "it": "specialista-di-cura-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen",
         "en": "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch",
         "de": "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch",
         "fr": "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch"
@@ -6793,7 +6839,10 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch",
-        "dipl-specialista-di-cura-servizio-psichiatrico-esterno-weinfelden-spital-thurgau-stgag-weinfelden"
+        "dipl-specialista-di-cura-servizio-psichiatrico-esterno-weinfelden-spital-thurgau-stgag-weinfelden",
+        "pflegefachmann-frau-akutpsychiatrie-3-stgag-ch",
+        "pflegefachmann-frau-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen",
+        "consulente-senior-mbf-medicina-interna-generale-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7418,7 +7467,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-fbdc4ffaa50e",
@@ -7570,7 +7620,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-49ac34bb8919",
@@ -7647,7 +7698,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-42e166a35401",
@@ -7722,7 +7774,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-282e5e0f2f26",
@@ -7797,7 +7850,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b1e262a9b3c2",
@@ -8091,7 +8145,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-9a428b9fc92f",
@@ -8164,7 +8219,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-a64b11589827",
@@ -8241,7 +8297,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-0be06df4246d",
@@ -8321,7 +8378,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-0545fb9c58f1",
@@ -8386,7 +8444,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-880692d13db1",
@@ -8459,7 +8518,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-e7b2155748ea",
@@ -8532,7 +8592,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-7343ec7f2767",
@@ -9152,7 +9213,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b142ec84d3ee",
@@ -10055,7 +10117,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-8da5a5b57ab9",
@@ -10656,27 +10719,27 @@
       "id": "spital-thurgau-98d20c00d378",
       "slug": "dipl-pflegefachmann-frau-im-pool-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "dipl-pflegefachmann-frau-im-pool-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "dipl-pflegefachmann-frau-im-pool-stgag-ch",
-        "de": "dipl-pflegefachmann-frau-im-pool-stgag-ch",
-        "fr": "dipl-pflegefachmann-frau-im-pool-stgag-ch"
+        "it": "salute-professionale-moglie-efz-nella-springerpool-spital-thurgau-stgag-diessenhofen",
+        "en": "professional-wife-health-efz-in-the-springerpool-spital-thurgau-stgag-diessenhofen",
+        "de": "fachmann-frau-gesundheit-efz-im-springerpool-stgag-ch",
+        "fr": "professionnel-femme-sante-efz-dans-le-springerpool-spital-thurgau-stgag-diessenhofen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau im Pool",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau im Pool",
-        "en": "Dipl. Pflegefachmann/-frau im Pool",
+        "it": "Fachmann/-frau Gesundheit CFC im Springerpool",
+        "en": "Professional/wife Health EFZ in the Springerpool",
         "de": "Dipl. Pflegefachmann/-frau im Pool",
-        "fr": "Dipl. Pflegefachmann/-frau im Pool"
+        "fr": "Professionnel/femme Santé EFZ dans le Springerpool"
       },
       "description": "Dipl. Pflegefachmann/-frau im Pool — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Kantonsspital Münsterlingen\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet",
       "descriptionByLocale": {
-        "it": "Dipl. Pflegefachmann/-frau im Pool — Spital Thurgau (STGAG). Standort: Kantonsspital Münsterlingen Abteilung: Pflege (inkl. Hebamme) Bereich: Kantonsspital Münsterlingen Pensum: Vollzeit, Teilzeit möglich Anstellungsverhältnis: Unbefristet",
-        "en": "Dipl. Pflegefachmann/-frau im Pool — Spital Thurgau (STGAG). Standort: Kantonsspital Münsterlingen Abteilung: Pflege (inkl. Hebamme) Bereich: Kantonsspital Münsterlingen Pensum: Vollzeit, Teilzeit möglich Anstellungsverhältnis: Unbefristet",
-        "de": "Dipl. Pflegefachmann/-frau im Pool — Spital Thurgau (STGAG).\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Kantonsspital Münsterlingen\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet",
-        "fr": "Dipl. Pflegefachmann/-frau im Pool — Spital Thurgau (STGAG). Standort: Kantonsspital Münsterlingen Abteilung: Pflege (inkl. Hebamme) Bereich: Kantonsspital Münsterlingen Pensum: Vollzeit, Teilzeit möglich Anstellungsverhältnis: Unbefristet"
+        "it": "Salute professionale EFZ nella Springerpool — Spital Thurgau (STGAG).\n• Posizione: Klinik St. Katharinental, Diessenhofen\n• Dipartimento: Cura (incl. levatrice)\n• Area: Klinik St. Katharinental\n• Pensum: parttime\n• rapporto di lavoro: permanente\n• Data di entrata: 01.06.2026",
+        "en": "Professional health EFZ in the Springerpool — Spital Thurgau (STGAG).\n• Location: Klinik St. Katharinental, Diessenhofen\n• Department: Care (incl. midwife)\n• Area: Klinik St. Katharinental\n• Pensum: parttime\n• employment relationship: permanent\n• Date of entry: 01.06.2026",
+        "de": "Fachmann/-frau Gesundheit EFZ im Springerpool — Spital Thurgau (STGAG).\n• Standort: Klinik St. Katharinental, Diessenhofen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Klinik St. Katharinental\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026",
+        "fr": "Santé professionnelle EFZ dans le Springerpool — Spital Thurgau (STGAG).\n• Lieu: Klinik St. Katharinental, Diessenhofen\n• Département: Soins (y compris sage-femme)\n• Région: Klinik St. Katharinental\n• Pensum: à temps partiel\n• relation de travail permanente\n• Date d'entrée: 01.06.2026"
       },
       "location": "Kantonsspital Münsterlingen",
       "canton": "TG",
@@ -10703,14 +10766,25 @@
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-im-pool-stgag-ch"
+        "dipl-pflegefachmann-frau-im-pool-stgag-ch",
+        "fachmann-frau-gesundheit-efz-im-springerpool-stgag-ch",
+        "fachmann-frau-gesundheit-cfc-im-springerpool-spital-thurgau-stgag-diessenhofen",
+        "dipl-pflegefachmann-frau-im-pool-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-im-pool-stgag-ch"
+        ],
+        "en": [
+          "dipl-pflegefachmann-frau-im-pool-stgag-ch"
+        ],
+        "de": [
+          "dipl-pflegefachmann-frau-im-pool-stgag-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachmann-frau-im-pool-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T22:26:54.979Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -10796,7 +10870,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b2c53daa8601",
@@ -11013,7 +11088,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-ff670b2ffe4f",

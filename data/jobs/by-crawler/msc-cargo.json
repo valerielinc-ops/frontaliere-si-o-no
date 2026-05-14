@@ -211,7 +211,8 @@
           "maxValue": 133000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "msc-cargo-82745a9429a3",
@@ -283,7 +284,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "msc-cargo-9469e7860b49",
@@ -348,7 +350,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T22:48:16.140Z"
+      "firstSeenAt": "2026-05-13T22:48:16.140Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "msc-cargo-ae2d4551edb1",
@@ -419,7 +422,8 @@
           "maxValue": 133000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "msc-cargo-b8db6c0698ca",
@@ -484,7 +488,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T22:48:16.139Z"
+      "firstSeenAt": "2026-05-13T22:48:16.139Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "msc-cargo-57f045d85699",
@@ -625,7 +630,8 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "msc-cargo-a231a60627cc",
@@ -760,7 +766,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T22:48:16.136Z"
+      "firstSeenAt": "2026-05-13T22:48:16.136Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "msc-cargo-1850ab808b78",
@@ -777,16 +784,16 @@
       "title": "Junior Architect Port Development Intern",
       "titleByLocale": {
         "en": "Junior Architect Port Development Intern",
-        "it": "Junior Architetto Port Development Tirocinante",
+        "it": "Junior Architetto Port Development Intern",
         "de": "Junior Architect Port Development Praktikant",
         "fr": "Junior Architecte Port Development Stagiaire"
       },
       "description": "Kickstart your architecture career as a Junior Architect Port Development Intern! Support innovative port and infrastructure projects, create technical drawings, and develop 3D models using AutoCAD, SketchUp, and real-time rendering tools. Collaborate on spatial studies and presentations while gaining hands-on experience in a dynamic, international environment. Join us and shape the future of port development!",
       "descriptionByLocale": {
-        "en": "Kickstart your architecture career as a Junior Architect Port Development Intern! Support innovative port and infrastructure projects, create technical drawings, and develop 3D models using AutoCAD, SketchUp, and real-time rendering tools. Collaborate on spatial studies and presentations while gaining hands-on experience in a dynamic, international environment. Join us and shape the future of port development!",
-        "it": "Kickstart your architecture career as a Junior Architect Port Development Intern! Support innovative port and infrastructure projects, create technical drawings, and develop 3D models using AutoCAD, SketchUp, and real-time rendering tools. Collaborate on spatial studies and presentations while gaining hands-on experience in a dynamic, international environment. Join us and shape the future of port development!",
-        "de": "Kickstart your architecture career as a Junior Architect Port Development Intern! Support innovative port and infrastructure projects, create technical drawings, and develop 3D models using AutoCAD, SketchUp, and real-time rendering tools. Collaborate on spatial studies and presentations while gaining hands-on experience in a dynamic, international environment. Join us and shape the future of port development!",
-        "fr": "Kickstart your architecture career as a Junior Architect Port Development Intern! Support innovative port and infrastructure projects, create technical drawings, and develop 3D models using AutoCAD, SketchUp, and real-time rendering tools. Collaborate on spatial studies and presentations while gaining hands-on experience in a dynamic, international environment. Join us and shape the future of port development!"
+        "en": "## Descrizione\n- Kickstart your architecture career as a Junior Architect Port Development Intern!\n- Support innovative port and infrastructure projects\n- Create technical drawings\n- Develop 3D models using AutoCAD, SketchUp, and real-time rendering tools\n- Collaborate on spatial studies and presentations\n- Gain hands-on experience in a dynamic, international environment\n- Join us and shape the future of port development!",
+        "it": "Descrizione\n- Inizia la tua carriera di architetto junior Port Development Intern!\n- Sostenere progetti innovativi di porto e infrastrutture\n- Creare disegni tecnici\n- Sviluppare modelli 3D utilizzando strumenti di rendering AutoCAD, SketchUp e in tempo reale\n- Collaborare su studi e presentazioni spaziali\n- Ottieni esperienza pratica in un ambiente dinamico e internazionale\n- Unisciti a noi e modella il futuro dello sviluppo portuale!",
+        "de": "Beschreibung\n- Starten Sie Ihre Architekturkarriere als Junior Architect Port Development Intern!\n- Unterstützung innovativer Hafen- und Infrastrukturprojekte\n- technische Zeichnungen erstellen\n- Entwickeln Sie 3D-Modelle mit AutoCAD, SketchUp und Echtzeit-Rendering-Tools\n- Zusammenarbeit bei Raumstudien und Präsentationen\n- Erfahrung in einem dynamischen, internationalen Umfeld sammeln\n- Mitmachen und die Zukunft der Hafenentwicklung gestalten!",
+        "fr": "Descrizione\n- Commencez votre carrière d'architecte junior en tant que stagiaire en développement portuaire !\n- Soutenir des projets portuaires et d'infrastructure innovants\n- Créer des dessins techniques\n- Développer des modèles 3D en utilisant AutoCAD, SketchUp et des outils de rendu en temps réel\n- Collaborer à des études et des présentations spatiales\n- Acquérir une expérience pratique dans un environnement international dynamique\n- Rejoignez-nous et façonnez l'avenir du développement portuaire !"
       },
       "location": "Geneva",
       "canton": "GE",
@@ -812,7 +819,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "baseSalary": {
@@ -890,7 +896,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T22:48:16.134Z"
+      "firstSeenAt": "2026-05-13T22:48:16.134Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "msc-cargo-d7e4d37de431",
@@ -1093,7 +1100,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "msc-cargo-620a4e378a97",
@@ -1158,7 +1166,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T22:48:16.131Z"
+      "firstSeenAt": "2026-05-13T22:48:16.131Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "msc-cargo-027165218aff",
@@ -1223,7 +1232,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T22:48:16.130Z"
+      "firstSeenAt": "2026-05-13T22:48:16.130Z",
+      "retranslationAttempts": 1
     }
   ]
 }
