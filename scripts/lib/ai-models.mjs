@@ -374,7 +374,10 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.CF_GPT_OSS_20B,     // 58. GPT-OSS 20B            (Cloudflare Workers AI)
   AI_MODELS.O3_MINI,            // 59. OpenAI o3-mini reason  (GitHub Models)
   AI_MODELS.O1_MINI,            // 59b. OpenAI o1-mini reason (GitHub Models)
-  AI_MODELS.CDSTRL_LATEST,      // 59c. Codestral latest      (Codestral endpoint — 2000/day)
+  // CDSTRL_LATEST removed — codestral.mistral.ai endpoint returns HTTP 401
+  // Unauthorized (stale Codestral key, distinct from MISTRAL_API_KEY). Tracked
+  // in run 25874585556 (2026-05-14). MISTRAL_CODESTRAL on Mistral La Plateforme
+  // (same key, different endpoint) still works and remains in the chain.
   AI_MODELS.MISTRAL_NEMO,       // 59d. Mistral Nemo          (Mistral AI direct)
   AI_MODELS.PHI_4_MINI_REASON,  // 63. Phi-4 mini reasoning   (GitHub Models)
   AI_MODELS.OR_TRINITY,         // 64. Arcee Trinity Large    (OpenRouter free)
@@ -598,15 +601,61 @@ const DEFAULT_OPTS = {
 
 /**
  * Providers known to honor OpenAI's `response_format: { type: 'json_schema' }`
- * strict-mode contract. For the rest we fall back to `json_object`, which still
- * forces JSON-only output but cannot enforce field presence — the caller's
- * retry loop covers those.
+ * strict-mode contract. For the rest we fall back to either `json_object`
+ * (forces JSON output but cannot enforce field presence) or plain text — the
+ * caller's per-call retry loop covers those.
  *
- * GitHub Models proxies OpenAI's gpt-4o / gpt-4.1 / gpt-5 / o-series, all of
- * which support strict json_schema. Groq added schema support late 2024.
- * Mistral La Plateforme supports it via the same OpenAI-compatible shape.
+ * Verified per-provider (2026-05-14, run 25874585556 fallout):
+ * - GitHub: proxies OpenAI gpt-4o/4.1/5/o-series → strict json_schema ✅
+ * - OpenRouter: OpenAI-compat layer; routes to OpenAI/Anthropic/Mistral.
+ *   Most free models tolerate `response_format: { type: 'json_schema' }`,
+ *   the rare ones that don't fall back via the retry loop anyway ✅
+ * - Mistral: La Plateforme accepts the OpenAI-compatible shape ✅
+ * - Groq REMOVED: HTTP 400 "This model does not support response format
+ *   `json_schema`" on llama-3.3-70b-versatile, qwen3-32b, llama-3.1-8b-instant,
+ *   compound-beta. Even when Groq accepts the shape it ignores `strict`.
+ * - Cohere, Anthropic, Gemini, Together, Fireworks, NVIDIA, HuggingFace,
+ *   SambaNova, Cloudflare, Cerebras NOT included — either different syntax
+ *   (Cohere uses `{ type: 'json_object', schema }`, Gemini uses Proto), or
+ *   they 400 on `response_format` entirely. Gemini's native schema path is
+ *   wired separately in _callGeminiRaw via `generationConfig.responseSchema`.
  */
-const PROVIDERS_WITH_STRICT_JSON_SCHEMA = new Set(['GitHub', 'Groq', 'Mistral']);
+const PROVIDERS_WITH_STRICT_JSON_SCHEMA = new Set(['GitHub', 'OpenRouter', 'Mistral']);
+
+/**
+ * Global schema-mode toggle for ops control. Driven by AI_MODELS_SCHEMA_MODE env
+ * (workflow-level safeguard). Lets ops flip the whole feature off without a code
+ * change if a new provider/model regression breaks generation again.
+ *
+ *   - 'auto' (default): honor PROVIDERS_WITH_STRICT_JSON_SCHEMA per provider
+ *   - 'force':          forward jsonSchema to EVERY provider (research/probe only)
+ *   - 'off':            never forward jsonSchema; fall back to json_object/text
+ */
+function getSchemaMode() {
+  const v = (process.env.AI_MODELS_SCHEMA_MODE || 'auto').toLowerCase().trim();
+  if (v === 'force' || v === 'off') return v;
+  return 'auto';
+}
+
+/**
+ * Decide whether to forward `opts.jsonSchema` to a given provider.
+ *
+ *  - mode=off    → never
+ *  - mode=force  → always (probe-only; most providers will 400)
+ *  - mode=auto   → OpenAI-compat providers in PROVIDERS_WITH_STRICT_JSON_SCHEMA,
+ *                  plus Gemini (which uses its own native responseSchema path,
+ *                  not the OpenAI response_format shape — handled in _callGeminiRaw)
+ *
+ * Exported for tests / smoke probes.
+ */
+export function shouldUseSchemaMode(providerName, hasSchema = true) {
+  if (!hasSchema) return false;
+  const mode = getSchemaMode();
+  if (mode === 'off') return false;
+  if (mode === 'force') return true;
+  if (providerName === 'Gemini') return true;
+  return PROVIDERS_WITH_STRICT_JSON_SCHEMA.has(providerName);
+}
 
 /**
  * Strip JSON-Schema keywords that Gemini's `responseSchema` rejects.
@@ -1275,6 +1324,22 @@ function classifyNonRetryableError(status, bodyText = '') {
     return { nonRetryable: true, markExhausted: false };
   }
 
+  // HTTP 401 — stale / invalid credentials for this provider. Retrying the same
+  // key against the same endpoint will always 401. Mark the model exhausted for
+  // this run so the chain falls through cleanly (e.g. codestral.mistral.ai with
+  // a stale Codestral key, HuggingFace with a deprovisioned key, etc.).
+  if (status === 401) {
+    return { nonRetryable: true, markExhausted: true };
+  }
+
+  // HTTP 402 — depleted monthly credits / payment required. The model will not
+  // recover until the billing window resets, so mark exhausted for this run.
+  // Examples: HuggingFace hf/google/gemma-3-27b-it monthly credit depletion;
+  // SambaNova PAYMENT_METHOD_REQUIRED.
+  if (status === 402) {
+    return { nonRetryable: true, markExhausted: true };
+  }
+
   // HTTP 404 — model not found (Cerebras, Groq, OpenRouter return 404 for invalid model IDs)
   if (status === 404) {
     if (b.includes('model_not_found') || b.includes('not_found_error') || b.includes('does not exist')) {
@@ -1318,8 +1383,19 @@ function classifyNonRetryableError(status, bodyText = '') {
   ) {
     return { nonRetryable: true, markExhausted: false };
   }
-  // Unsupported parameter (e.g. max_tokens on newer OpenAI models)
-  if (b.includes('unsupported parameter')) {
+  // Unsupported parameter (e.g. max_tokens on newer OpenAI models, or Groq
+  // models that don't support response_format=json_schema, or Gemini models
+  // rejecting an unknown response_schema field). The model is reachable but
+  // refuses *this* request shape — skip without exhausting so it can still be
+  // used by other callers without jsonSchema. The schema-mode allowlist in
+  // shouldUseSchemaMode() prevents most of these at send-time.
+  if (
+    b.includes('unsupported parameter') ||
+    b.includes('does not support response format') ||
+    b.includes('response_format') && b.includes('not support') ||
+    b.includes("unknown name 'type' at 'generation_config.response_schema") ||
+    b.includes('response_schema.properties')
+  ) {
     return { nonRetryable: true, markExhausted: false };
   }
   return { nonRetryable: false, markExhausted: false };
@@ -1371,6 +1447,75 @@ const MAX_COMPLETION_TOKENS_MODELS = new Set([
   'Phi-4-mini-reasoning',
   'Phi-4-reasoning',
 ]);
+
+/**
+ * Per-model REQUEST (input + output) token caps for HTTP 413 / "request body
+ * too large" pre-check. When the estimated prompt size approaches one of these
+ * limits, callLLM skips the model BEFORE making the HTTP call — otherwise the
+ * call would 413 and the fallback chain would burn retries on the same payload.
+ *
+ * Verified 2026-05-14 from run 25874585556 failures:
+ *   - GitHub Models o-series + gpt-5-* family enforce 4000-token request bodies
+ *   - DeepSeek R1/V3 and gpt-4o-mini also cap at 4000 on GitHub Models
+ *   - Phi-4 / Cohere-command-a / Cohere-command-r-plus-08-2024 /
+ *     Llama-3.2-90B-Vision-Instruct / cerebras/llama3.1-8b cap at 8000
+ *
+ * Heuristic: estimated_tokens = chars / 4 + safety_margin (500).
+ * If the estimate exceeds MODEL_MAX_REQUEST_TOKENS[apiModelId], skip the model.
+ *
+ * Conservative caps: a few of these limits are higher in practice but the
+ * tightest observed 413 boundary wins. False-positive cost is one skipped
+ * model; false-negative cost is a 413 + a wasted retry slot.
+ */
+const MODEL_MAX_REQUEST_TOKENS = {
+  // GitHub Models — o-series + gpt-5-* family + 4o-mini (4000)
+  'o1':                4000,
+  'o1-mini':           4000,
+  'o3-mini':           4000,
+  'o4-mini':           4000,
+  'gpt-5-nano':        4000,
+  'gpt-5-mini':        4000,
+  'gpt-5-chat':        4000,
+  'gpt-4o-mini':       4000,
+  'DeepSeek-R1':       4000,
+  'DeepSeek-R1-0528':  4000,
+  'DeepSeek-V3-0324':  4000,
+  // 8000-token bracket
+  'Phi-4':                              8000,
+  'Cohere-command-a':                   8000,
+  'Cohere-command-r-plus-08-2024':      8000,
+  'Llama-3.2-90B-Vision-Instruct':      8000,
+  // cerebras/* models — apiModelId is stripped of the provider prefix
+  'llama3.1-8b':                        8000,
+};
+
+/**
+ * Estimate token count for a list of OpenAI-format messages. Uses the standard
+ * chars/4 ≈ tokens heuristic — accurate enough for "is this prompt going to
+ * blow past 4000?" decisions. Adds a 500-token safety margin to account for
+ * the response prefix, role markers, and tokenizer variance.
+ *
+ * Exported for tests / smoke probes.
+ */
+export function estimateRequestTokens(messages, opts = {}) {
+  const SAFETY_MARGIN = 500;
+  let chars = 0;
+  for (const m of messages || []) {
+    const c = m?.content;
+    if (typeof c === 'string') chars += c.length;
+    else if (Array.isArray(c)) {
+      for (const part of c) {
+        if (typeof part === 'string') chars += part.length;
+        else if (part?.text) chars += String(part.text).length;
+      }
+    }
+  }
+  // jsonSchema is serialized and sent in response_format → counts toward body
+  if (opts.jsonSchema?.schema) {
+    try { chars += JSON.stringify(opts.jsonSchema.schema).length; } catch { /* noop */ }
+  }
+  return Math.ceil(chars / 4) + SAFETY_MARGIN;
+}
 
 /** Models with lower max output token limits.
  *  Cohere API enforces "max tokens must be less than or equal to 8000"
@@ -1426,8 +1571,12 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
   // required fields like `body2`/`body3`. Falls back to `json_object` mode for
   // providers that don't support strict schema (the per-call retry loop in
   // create-article.mjs continues to cover that case).
+  //
+  // AI_MODELS_SCHEMA_MODE=off disables schema-mode entirely (ops kill-switch);
+  // AI_MODELS_SCHEMA_MODE=force opts in every OpenAI-compat provider (probe
+  // mode only — most providers 400 on unsupported response_format types).
   let responseFormat;
-  if (opts.jsonSchema && PROVIDERS_WITH_STRICT_JSON_SCHEMA.has(providerName)) {
+  if (shouldUseSchemaMode(providerName, !!opts.jsonSchema)) {
     responseFormat = {
       type: 'json_schema',
       json_schema: {
@@ -1752,7 +1901,10 @@ async function _callGeminiRaw(model, messages, opts) {
   // Gemini's schema-mode is server-enforced: when responseSchema is supplied
   // the model cannot omit required fields. We sanitize the schema first to
   // drop JSON-Schema keywords Gemini rejects (additionalProperties, oneOf, etc).
-  const useGeminiSchema = !!opts.jsonSchema;
+  // Gemini has its own response_schema syntax (Proto-style), so it uses a
+  // dedicated allowlist entry below — but it still honors the AI_MODELS_SCHEMA_MODE
+  // ops kill-switch via the same `shouldUseSchemaMode('Gemini', …)` check.
+  const useGeminiSchema = !!opts.jsonSchema && shouldUseSchemaMode('Gemini', true);
   const geminiSchema = useGeminiSchema ? sanitizeSchemaForGemini(opts.jsonSchema.schema) : null;
 
   const body = {
@@ -1987,6 +2139,20 @@ export async function callLLM(messages, opts = {}) {
     const modelLimit = MODEL_MAX_OUTPUT_TOKENS[apiModelId];
     if (modelLimit && o.maxTokens > modelLimit) {
       continue;
+    }
+
+    // Skip models whose REQUEST (input) token cap is below the estimated prompt
+    // size. Without this, models like o1 / gpt-5-mini / Phi-4 get tried with a
+    // payload they cannot fit and return HTTP 413, burning a retry slot for
+    // every fallback. See MODEL_MAX_REQUEST_TOKENS for the per-model caps.
+    const reqLimit = MODEL_MAX_REQUEST_TOKENS[apiModelId];
+    if (reqLimit) {
+      const estTokens = estimateRequestTokens(messages, o);
+      if (estTokens > reqLimit) {
+        // One-line log per skip so ops can see the cascade in the workflow output
+        console.warn(`⏭️  [${model}] Skipped — request would exceed ${reqLimit}-token limit (estimated ${estTokens})`);
+        continue;
+      }
     }
 
     try {
