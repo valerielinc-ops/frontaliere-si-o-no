@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-29T22:53:46.769Z",
-    "label": "before",
-    "total": 2667,
-    "needsRetranslation": 1146,
-    "incomplete": 79,
-    "complete": 2588,
-    "missingByLocale": {
-      "it": 57,
-      "en": 36,
-      "de": 53,
-      "fr": 66
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Lonza",
-        "pending": 4
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 3
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 3
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 3
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 2
-      },
-      {
-        "company": "Avaloq",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-30T00:14:32.786Z",
-    "label": "after",
-    "total": 2667,
-    "needsRetranslation": 97,
-    "incomplete": 42,
-    "complete": 2625,
-    "missingByLocale": {
-      "it": 30,
-      "en": 15,
-      "de": 35,
-      "fr": 36
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "International School of Ticino",
-        "pending": 2
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca Raiffeisen Vedeggio Cassarate",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-30T02:58:08.701Z",
     "label": "before",
     "total": 2668,
@@ -10360,6 +10248,118 @@
       {
         "company": "Coop Genossenschaft",
         "pending": 89
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 23
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Lonza",
+        "pending": 12
+      },
+      {
+        "company": "MSC Group",
+        "pending": 11
+      },
+      {
+        "company": "IWC",
+        "pending": 11
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 8
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 6
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-14T09:08:09.415Z",
+    "label": "before",
+    "total": 4290,
+    "needsRetranslation": 811,
+    "incomplete": 316,
+    "complete": 3974,
+    "missingByLocale": {
+      "it": 234,
+      "en": 197,
+      "de": 87,
+      "fr": 245
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 86
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 23
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Lonza",
+        "pending": 12
+      },
+      {
+        "company": "MSC Group",
+        "pending": 11
+      },
+      {
+        "company": "IWC",
+        "pending": 11
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 8
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 6
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-14T09:19:50.944Z",
+    "label": "after",
+    "total": 4290,
+    "needsRetranslation": 788,
+    "incomplete": 316,
+    "complete": 3974,
+    "missingByLocale": {
+      "it": 234,
+      "en": 197,
+      "de": 86,
+      "fr": 245
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 86
       },
       {
         "company": "Hügli Nahrungsmittel GmbH",
