@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2565,
+ "numberOfItems": 2566,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7205,7 +7205,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2562, "name": "Festa dell'Ascensione: chiusa dogana Brogeda", "url": `${BASE_URL}/articoli-frontaliere/ascensione-svizzera-viabilit-2026` },
           { "@type": "ListItem", "position": 2563, "name": "Frontalieri, Astuti: “Nessun vero confronto sui...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-astuti-confronto-territori` },
           { "@type": "ListItem", "position": 2564, "name": "Tassa salute frontalieri: confronto in corso tr...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-confronto-2026` },
-          { "@type": "ListItem", "position": 2565, "name": "Ascensione: traffico paralizzato dal Gottardo a...", "url": `${BASE_URL}/articoli-frontaliere/ascensione-traffico-ticino-2026` }
+          { "@type": "ListItem", "position": 2565, "name": "Ascensione: traffico paralizzato dal Gottardo a...", "url": `${BASE_URL}/articoli-frontaliere/ascensione-traffico-ticino-2026` },
+          { "@type": "ListItem", "position": 2566, "name": "Frontalieri: spese in Svizzera e casa in Italia...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-spese-svizzera-2026` }
  ]
  },
  {

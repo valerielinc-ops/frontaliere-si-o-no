@@ -3753,6 +3753,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-astuti-confronto-territori': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-astuti-confronto-territori', parent: 'blog' },
     'blog-tassa-salute-frontalieri-confronto-2026': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-confronto-2026', parent: 'blog' },
     'blog-ascensione-traffico-ticino-2026': { name: 'Viabilità', path: '/articoli-frontaliere/ascensione-traffico-ticino-2026', parent: 'blog' },
+    'blog-frontalieri-ticino-spese-svizzera-2026': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontalieri-ticino-spese-svizzera-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

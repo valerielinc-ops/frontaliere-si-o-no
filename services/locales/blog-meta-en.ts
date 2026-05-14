@@ -7531,6 +7531,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ascensione-traffico-ticino-2026.title': 'Ascension Day: traffic jam from Gotthard to Chiasso',
     'blog.article.ascensione-traffico-ticino-2026.excerpt': '8 km queues at the Gotthard and over an hour of waiting on the A2 towards Chiasso. Authorities advise alternatives to ease traffic.',
     'blog.article.ascensione-traffico-ticino-2026.imageAlt': 'Traffic jam on the A2 highway in Ticino during Ascension Day',
+    'blog.article.frontalieri-ticino-spese-svizzera-2026.title': 'Cross-border workers: balancing Swiss spending and Italian homes',
+    'blog.article.frontalieri-ticino-spese-svizzera-2026.excerpt': 'Earning in francs and living in euros: how to best manage expenses between the two countries after the new tax agreement',
+    'blog.article.frontalieri-ticino-spese-svizzera-2026.imageAlt': 'Frontalier at Chiasso border crossing with shopping bags from Switzerland and Italy, with Lugano in the background',
 };
 
 export default blogMetaEn;

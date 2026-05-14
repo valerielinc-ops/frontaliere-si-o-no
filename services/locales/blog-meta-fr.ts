@@ -7532,6 +7532,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ascensione-traffico-ticino-2026.title': 'Ascension : trafic paralysé du Gothard à Chiasso',
     'blog.article.ascensione-traffico-ticino-2026.excerpt': 'Embouteillages de 8 km au San Gottardo et plus d\'une heure d\'attente sur l\'A2 en direction de Chiasso. Les autorités conseillent des alternatives pour désengorger le trafic.',
     'blog.article.ascensione-traffico-ticino-2026.imageAlt': 'Embouteillage sur l\'autoroute A2 au Tessin pendant l\'Ascension',
+    'blog.article.frontalieri-ticino-spese-svizzera-2026.title': 'Frontaliers : dépenses en Suisse et logement en Italie, comment équilibrer',
+    'blog.article.frontalieri-ticino-spese-svizzera-2026.excerpt': 'Gagner en francs et vivre en euros : comment gérer au mieux les dépenses entre les deux pays après le nouvel accord fiscal',
+    'blog.article.frontalieri-ticino-spese-svizzera-2026.imageAlt': 'Frontalier au passage frontalier de Chiasso avec des sacs de courses de Suisse et d\'Italie, avec Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

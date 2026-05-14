@@ -7530,6 +7530,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ascensione-traffico-ticino-2026.title': 'Auffahrt: Stau von Gotthard bis Chiasso',
     'blog.article.ascensione-traffico-ticino-2026.excerpt': '8 km Stau am Gotthard und über eine Stunde Wartezeit auf der A2 Richtung Chiasso. Die Behörden empfehlen Alternativen, um den Verkehr zu entlasten.',
     'blog.article.ascensione-traffico-ticino-2026.imageAlt': 'Stau auf der Autobahn A2 im Tessin am Christi Himmelfahrtstag',
+    'blog.article.frontalieri-ticino-spese-svizzera-2026.title': 'Grenzgänger: Ausgaben in der Schweiz und Wohnsitz in Italien',
+    'blog.article.frontalieri-ticino-spese-svizzera-2026.excerpt': 'In Franken verdienen und in Euro leben: Wie man die Ausgaben zwischen den beiden Ländern nach dem neuen Steuerabkommen am besten verwaltet',
+    'blog.article.frontalieri-ticino-spese-svizzera-2026.imageAlt': 'Frontalier an der Grenze Chiasso mit Einkaufstaschen aus der Schweiz und Italien, mit Lugano im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -23969,4 +23969,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-ticino-spese-svizzera-2026',
+ category: 'fiscale',
+ date: '2026-05-14T06:21:41.553Z',
+ image: '/images/blog/frontalieri-ticino-spese-svizzera-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
