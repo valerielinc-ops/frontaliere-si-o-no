@@ -1434,7 +1434,7 @@
         "it": "assistente-amministrativa-o-usi-lugano",
         "en": "administrative-assistant-usi-lugano",
         "de": "verwaltungsassistentin-verwaltungsassistentin-usi-lugano",
-        "fr": "assistante-administrative-usi-lugano"
+        "fr": "assistant-administratif-usi-universita-della-svizzera-italiana-lugano"
       },
       "department": "Facoltà di scienze economiche",
       "category": "staff",
@@ -1467,7 +1467,15 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-11T12:46:05.641Z"
+      "firstSeenAt": "2026-05-11T12:46:05.641Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "assistante-administrative-usi-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "assistante-administrative-usi-lugano"
+      ]
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/bul/bul-bando-e-resources-2026.pdf",
