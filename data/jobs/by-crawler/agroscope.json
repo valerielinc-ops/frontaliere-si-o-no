@@ -1,6 +1,6 @@
 {
   "crawlerKey": "agroscope",
-  "assembledAt": "2026-05-14T08:48:17.410Z",
+  "assembledAt": "2026-05-14T10:11:46.045Z",
   "jobs": [
     {
       "title": "Dottorando/a - Fisiologia adattiva dei bovini da ingrasso",
@@ -44,7 +44,6 @@
         "fr": "dottorando-a-fisiologia-adattiva-dei-bovini-da-ingrasso-agroscope-posieux"
       },
       "id": "agroscope-67077160703b",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -60,7 +59,8 @@
       },
       "streetAddress": "Via Ramon Bentina 16",
       "postalCode": "6593",
-      "firstSeenAt": "2026-05-13T10:19:11.759Z"
+      "firstSeenAt": "2026-05-13T10:19:11.759Z",
+      "needsRetranslation": true
     },
     {
       "title": "Dottorando/a - Pascolo ai margini boschivi e biodiversità",
