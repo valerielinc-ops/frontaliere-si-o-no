@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-05-13T22:29:06.931Z",
+  "assembledAt": "2026-05-14T11:12:34.023Z",
   "jobs": [
     {
       "id": "kanton-gr-5cc4b885f1fe",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2677/pub/3/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-13T22:28:56.245Z",
+      "crawledAt": "2026-05-14T11:12:23.771Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -104,6 +104,7 @@
         "schnupperlehre-come-informatiker-in-cfc-plattformentwicklung-kantonale-verwaltung-graubunden-thusis"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
