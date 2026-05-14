@@ -81,20 +81,20 @@
     "canton": "BASILEA"
   },
   "BASILEA::de::data-center-technician-switzerland-muttenz-on-site-reboot-monkey-muttenz-2": {
-    "winnerJobIdentifier": "reboot-monkey-f3371bed88fe",
-    "winnerCanonical": "data-center-technician-schweiz-muttenz-vor-ort-reboot-monkey-muttenz",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-432ea60433cc",
+    "winnerCanonical": "data-center-technician-switzerland-muttenz-on-site-reboot-monkey-muttenz",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
-    "score": 0.4615,
+    "score": 0.9,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::de::data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2": {
-    "winnerJobIdentifier": "reboot-monkey-82b75718ba1a",
-    "winnerCanonical": "data-center-technician-schweiz-pratteln-vor-ort-reboot-monkey-pratteln",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-39fa58da10d7",
+    "winnerCanonical": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
-    "score": 0.4615,
+    "score": 0.9,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -297,18 +297,18 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::data-center-technician-switzerland-muttenz-on-site-reboot-monkey-muttenz-2": {
-    "winnerJobIdentifier": "reboot-monkey-f3371bed88fe",
+    "winnerJobIdentifier": "reboot-monkey-432ea60433cc",
     "winnerCanonical": "data-center-technician-svizzera-muttenz-in-loco-reboot-monkey-muttenz",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
     "score": 0.4615,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::it::data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2": {
-    "winnerJobIdentifier": "reboot-monkey-82b75718ba1a",
+    "winnerJobIdentifier": "reboot-monkey-39fa58da10d7",
     "winnerCanonical": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
     "score": 0.4615,
     "candidatesCount": 1,
@@ -492,6 +492,15 @@
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 1,
+    "canton": "BE"
+  },
+  "BE::de::field-service-expert-agie-charmilles-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-3fdadae9c7fe",
+    "winnerCanonical": "sachbearbeiter-d-w-m-agie-charmilles-sa-biel-bienne",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::de::formation-en-vente-au-detail-afc-creation-d-experiences-d-achat-fust-swiss-household-services-ag-tenero-contra": {
@@ -1313,6 +1322,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::it::field-service-expert-agie-charmilles-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-d39d9600877f",
+    "winnerCanonical": "esperto-di-servizio-agie-charmilles-sa-biel-bienne",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::formation-en-vente-au-detail-afc-creation-d-experiences-d-achat-fust-swiss-household-services-ag-tenero-contra": {
     "winnerJobIdentifier": "company-oal0zl",
     "winnerCanonical": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl",
@@ -1607,6 +1625,15 @@
     "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
     "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "GE"
+  },
+  "GE::fr::boutique-director-richemont-geneva": {
+    "winnerJobIdentifier": "richemont-dee3ae117661",
+    "winnerCanonical": "boutique-director-piaget-geneva",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.6,
     "candidatesCount": 2,
     "canton": "GE"
   },
@@ -3987,11 +4014,11 @@
     "canton": "TG"
   },
   "TG::fr::dipl-pflegefachmann-frau-forensik-stgag-ch-2": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
     "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
-    "score": 0.1333,
+    "score": 0.8571,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -4005,20 +4032,20 @@
     "canton": "TG"
   },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
-    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-5f2dd49d3c72",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
-    "score": 0.381,
+    "score": 0.3636,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
-    "score": 0.3846,
+    "score": 0.4167,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -4032,11 +4059,11 @@
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-forensik-stgag-ch-2": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
-    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
-    "score": 0.1333,
+    "score": 0.1429,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -4895,6 +4922,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::en::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno-uikzou": {
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.3846,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::en::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1": {
     "winnerJobIdentifier": "company-uil16d",
     "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-bellinzona",
@@ -5585,6 +5621,15 @@
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
     "score": 0.6875,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::fr::assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-locarno": {
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.3846,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -7046,6 +7091,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::it::web-developer-lwp-ledermann-wieting-partners-lugano": {
+    "winnerJobIdentifier": "lwphr-6421a8aa2f7c",
+    "winnerCanonical": "specialista-contabile-lwp-ledermann-wieting-partners-lugano",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.5556,
+    "candidatesCount": 9,
+    "canton": "TI"
+  },
   "VD::de::data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-2": {
     "winnerJobIdentifier": "reboot-monkey-b23f2b6b25c3",
     "winnerCanonical": "data-center-techniker-ch-villars-ste-croix-vor-ort-reboot-monkey-villars-ste-croix",
@@ -7497,12 +7551,12 @@
     "canton": "VS"
   },
   "ZG::fr::senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug": {
-    "winnerJobIdentifier": "pwc-1902c8b10636",
-    "winnerCanonical": "associe-principal-assistant-manager-audit-commerce-industries-et-services-pwc-switzerland-zug",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
-    "lastSeenAt": "2026-05-13T00:00:00.000Z",
-    "score": 0.4667,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "pwc-0054671bedc4",
+    "winnerCanonical": "senior-associate-assistant-manager-verification-commerce-industries-et-services-pwc-switzerland-zug",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.5714,
+    "candidatesCount": 1,
     "canton": "ZG"
   },
   "ZG::it::data-center-technician-ch-steinhausen-on-site-reboot-monkey-steinhausen-2": {
