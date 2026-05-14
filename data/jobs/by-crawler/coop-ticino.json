@@ -60,7 +60,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "en": [
           "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden-8axa4k"
@@ -140,7 +140,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "en": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
@@ -223,7 +223,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "en": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
@@ -306,7 +306,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "en": [
           "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp"
@@ -401,9 +401,10 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-felsberg-graubunden-metayj"
+        "verkaufer-in-food-coop-felsberg-graubunden-metayj",
+        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
       ],
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-o367qu",
@@ -494,9 +495,7 @@
         "direttore-di-distretto-nonfood-coop-genossenschaft-klosters-serneus",
         "nonfood-department-manager-coop-genossenschaft-klosters-serneus",
         "responsable-du-rayon-nonfood-coop-genossenschaft-klosters-serneus"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      ]
     },
     {
       "id": "company-6azqre",
@@ -568,7 +567,9 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-tessin-steinfels-swiss-winterthur-zurich-6azqre"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-lzsoh3",
@@ -647,7 +648,8 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-3pl1h6",
@@ -729,7 +731,7 @@
         "kochin-koch-w-m-d-coop-genossenschaft-davos"
       ],
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-pa5qt0",
@@ -810,7 +812,7 @@
         "collaborateur-trice-gastronomie-coop-ristorante-davos-platz-pa5qt0"
       ],
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-4c7u4w",
@@ -959,7 +961,8 @@
       "previousSlugs": [
         "verkaufer-in-food-coop-chur-graubunden-7jjh6d"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-hy7w7d",
@@ -990,9 +993,9 @@
       "firstSeenAt": "2026-05-10T09:58:53.007Z",
       "slugByLocale": {
         "it": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
-        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur-19d582",
-        "de": "verkaufsberater-in-christ-uhren-schmuck-ag-chur-19d582",
-        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur-19d582"
+        "en": "sales-consultant-in-christ-uhren-schmuck-ag-chur",
+        "de": "verkaufsberater-in-christ-uhren-schmuck-ag-chur",
+        "fr": "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
       },
       "titleByLocale": {
         "de": "Verkaufsberater:in",
@@ -1030,8 +1033,8 @@
       "previousSlugsByLocale": {
         "de": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-          "verkaufsberater-in-christ-uhren-schmuck-ag-chur",
-          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
+          "verkaufsberater-in-christ-uhren-schmuck-ag-chur-19d582"
         ],
         "it": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
@@ -1039,24 +1042,25 @@
         ],
         "en": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-          "sales-consultant-in-christ-uhren-schmuck-ag-chur",
-          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
+          "sales-consultant-in-christ-uhren-schmuck-ag-chur-19d582"
         ],
         "fr": [
           "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-          "consultant-en-ventes-christ-uhren-schmuck-ag-chur",
-          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
+          "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
+          "consultant-en-ventes-christ-uhren-schmuck-ag-chur-19d582"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-hy7w7d",
-        "verkaufsberater-in-christ-uhren-schmuck-ag-chur",
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
+        "verkaufsberater-in-christ-uhren-schmuck-ag-chur-19d582",
         "consulente-commerciale-in-christ-uhren-schmuck-ag-chur",
-        "sales-consultant-in-christ-uhren-schmuck-ag-chur",
-        "consultant-en-ventes-christ-uhren-schmuck-ag-chur"
+        "sales-consultant-in-christ-uhren-schmuck-ag-chur-19d582",
+        "consultant-en-ventes-christ-uhren-schmuck-ag-chur-19d582"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-tyijpe",
@@ -1087,9 +1091,9 @@
       "firstSeenAt": "2026-05-10T09:58:53.007Z",
       "slugByLocale": {
         "it": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
-        "en": "managing-director-in-christ-uhren-schmuck-ag-chur-42c04e",
-        "de": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-42c04e",
-        "fr": "directeur-general-christ-uhren-schmuck-ag-chur-42c04e"
+        "en": "managing-director-in-christ-uhren-schmuck-ag-chur",
+        "de": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
+        "fr": "directeur-general-christ-uhren-schmuck-ag-chur"
       },
       "titleByLocale": {
         "de": "Geschäftsführer:in",
@@ -1127,8 +1131,8 @@
       "previousSlugsByLocale": {
         "de": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
-          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
+          "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-42c04e"
         ],
         "it": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
@@ -1136,24 +1140,25 @@
         ],
         "en": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-          "managing-director-in-christ-uhren-schmuck-ag-chur",
-          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
+          "managing-director-in-christ-uhren-schmuck-ag-chur-42c04e"
         ],
         "fr": [
           "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-          "directeur-general-christ-uhren-schmuck-ag-chur",
-          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
+          "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
+          "directeur-general-christ-uhren-schmuck-ag-chur-42c04e"
         ]
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-tyijpe",
-        "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
+        "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-42c04e",
         "amministratore-delegato-in-christ-uhren-schmuck-ag-chur",
-        "managing-director-in-christ-uhren-schmuck-ag-chur",
-        "directeur-general-christ-uhren-schmuck-ag-chur"
+        "managing-director-in-christ-uhren-schmuck-ag-chur-42c04e",
+        "directeur-general-christ-uhren-schmuck-ag-chur-42c04e"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-dmiw8r",
@@ -1220,7 +1225,7 @@
         "cambio-carriera-cuoco-cuoca-in-ristorazione-sistemica-f-m-d-coop-genossenschaft-graubunden"
       ],
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-rf7c8w",
@@ -1277,7 +1282,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-i63w01",
@@ -1406,8 +1411,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "company-8xgtc3",
@@ -1991,7 +1995,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ruhpr3",
@@ -2046,7 +2050,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-xobfzx",
@@ -2101,7 +2105,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-jwg1tt",
@@ -2156,7 +2160,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-o2pr97",
@@ -2211,7 +2215,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-1phnki",
@@ -2266,7 +2270,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ckylxf",
@@ -2321,7 +2325,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-fh3ugp",
@@ -2376,7 +2380,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-91gltk",
@@ -2491,7 +2495,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-n4f99v",
@@ -2548,7 +2552,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-paz7ck",
@@ -2605,7 +2609,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-u93w1d",
@@ -2662,7 +2666,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-nj9ppx",
@@ -2777,7 +2781,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-um8w6y",
@@ -2831,7 +2835,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ex2oj9",
@@ -2889,7 +2893,7 @@
         "cuciniera-gastronomica-efz-coop-ristorante-gossau"
       ],
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-tychyk",
@@ -2944,7 +2948,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ih2nto",
@@ -2999,7 +3003,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-r8azr7",
@@ -3053,7 +3057,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-xza3wt",
@@ -3110,7 +3114,7 @@
         "pasticcere-pasticceri-confettieri-coop-gossau"
       ],
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-czukhm",
@@ -3165,7 +3169,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-mstu0r",
@@ -3220,7 +3224,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-9cq18h",
@@ -3275,7 +3279,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-eit0d2",
@@ -3330,7 +3334,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-s5py3x",
@@ -3385,7 +3389,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-7ikmrq",
@@ -3439,7 +3443,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-togst4",
@@ -3494,7 +3498,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-p9e0n7",
@@ -3549,7 +3553,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-cm7fl1",
@@ -3604,7 +3608,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-94l03c",
@@ -3659,7 +3663,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-iuys8n",
@@ -3714,7 +3718,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-6yppen",
@@ -3769,7 +3773,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-c20p08",
@@ -3824,7 +3828,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-uapqtq",
@@ -3879,7 +3883,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-h8m33",
@@ -3934,7 +3938,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-d5xyy2",
@@ -4058,7 +4062,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-pd7xlx",
@@ -4113,7 +4117,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-r5vpxa",
@@ -4168,7 +4172,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-38decq",
@@ -4223,7 +4227,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-yq34a4",
@@ -4278,7 +4282,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-uglo11",
@@ -4333,7 +4337,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-h9i811",
@@ -4457,7 +4461,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-6y8rn9",
@@ -4512,7 +4516,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-2zdn0o",
@@ -4567,7 +4571,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-y26sob",
@@ -4622,7 +4626,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-nsscih",
@@ -4677,7 +4681,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ataxgb",
@@ -4731,7 +4735,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-sz1j6n",
@@ -4786,7 +4790,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ymbv0r",
@@ -4841,7 +4845,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-jeizv7",
@@ -4896,7 +4900,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-iu0e2b",
@@ -4951,7 +4955,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-h288f8",
@@ -5006,7 +5010,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-cxtwa6",
@@ -5061,7 +5065,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-2kwafk",
@@ -5254,7 +5258,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-bho34r",
@@ -5308,7 +5312,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-4iugqw",
@@ -5362,7 +5366,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-96xkec",
@@ -5558,7 +5562,7 @@
         "dettagliato-assistente-commerciale-coop-gossau"
       ],
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-hwivop",
@@ -5612,7 +5616,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-6v37ek",
@@ -5666,7 +5670,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-lc95ys",
@@ -5790,7 +5794,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-aiq29c",
@@ -5844,7 +5848,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-oy7a55",
@@ -5898,7 +5902,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-21fe1k",
@@ -5952,7 +5956,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-4i2cnx",
@@ -6006,7 +6010,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-97qtb8",
@@ -6060,7 +6064,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ccing2",
@@ -6114,7 +6118,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ncbhm0",
@@ -6194,7 +6198,8 @@
         "quereinstieg-associate-fleisch-und-fisch-coop-grigioni-ncbhm0",
         "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-ncbhm0"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-e66ikm",
@@ -6289,8 +6294,7 @@
         "seller-in-food-coop-genossenschaft-felsberg-6dde92",
         "verkaufer-in-food-coop-genossenschaft-felsberg-metayj",
         "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-hsy2pf",
@@ -6377,8 +6381,7 @@
       },
       "previousSlugs": [
         "stv-rayonleiter-in-wein-getranke-coop-chur-graubunden-hsy2pf"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-46qgy7",
@@ -6463,8 +6466,7 @@
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden-46qgy7"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-y5hli0",
@@ -6626,8 +6628,7 @@
         "additional-apprenticeship-als-detailhandelsfachfrau-mann-efz-livique-grigioni-xnczpj",
         "formation-complementaire-als-detailhandelsfachfrau-mann-efz-livique-grigioni-xnczpj",
         "zusatzlehre-als-detailhandelsfachfrau-mann-efz-livique-grigioni-xnczpj"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-5vdsun",
@@ -6708,8 +6709,7 @@
         "additional-apprenticeship-als-detailhandelsfachfrau-mann-efz-coop-city-grigioni-5vdsun",
         "formation-complementaire-als-detailhandelsfachfrau-mann-efz-coop-city-grigioni-5vdsun",
         "zusatzlehre-als-detailhandelsfachfrau-mann-efz-coop-city-grigioni-5vdsun"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-yd9o00",
@@ -6875,8 +6875,7 @@
         "sales-consultant-in-coop-genossenschaft-chur",
         "verkaufsberater-in-import-parfumerie-chur-graubunden-rjepid",
         "consultant-en-ventes-coop-genossenschaft-chur"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-zg79zk",
@@ -6961,8 +6960,7 @@
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-jumbo-chur-graubunden-zg79zk"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-bqi6wr",
@@ -7047,8 +7045,7 @@
       },
       "previousSlugs": [
         "rayonleiter-in-frischprodukte-coop-davos-platz-bqi6wr"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-uwtky9",
@@ -7124,8 +7121,7 @@
       },
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-9hhhzy",
@@ -7212,8 +7208,7 @@
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-zernez-graubunden-9hhhzy"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-gzq9bg",
@@ -7298,8 +7293,7 @@
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-kublis-coop-kublis-graubunden-gzq9bg"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-29z0lf",
@@ -7469,8 +7463,7 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-disentis-muster-graubunden-pxuu97"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-4whh8x",
@@ -7567,8 +7560,7 @@
         "associate-inventuren-coop-genossenschaft-basel-arot84",
         "associate-inventuren-coop-genossenschaft-basel-arot84",
         "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-ghhl6m",
@@ -7660,9 +7652,9 @@
         "collaborateur-trice-inventuren-coop-grigioni-4whh8x",
         "personnel-en-inventaire-coop-genossenschaft-basel",
         "mitarbeiter-in-inventuren-coop-grigioni-4whh8x",
-        "associate-inventuren-coop-genossenschaft-basel-arot84"
-      ],
-      "needsRetranslation": true
+        "associate-inventuren-coop-genossenschaft-basel-arot84",
+        "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden"
+      ]
     },
     {
       "id": "company-cjrnr",
@@ -7901,8 +7893,7 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-flims-graubunden-at2z5i"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-a9zoqf",
@@ -7987,8 +7978,7 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-a9zoqf"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-632dx5",
@@ -8074,8 +8064,7 @@
         "associate-gastronomie-coop-landquart-graubunden-632dx5",
         "staff-in-gastronomy-coop-genossenschaft-landquart",
         "mitarbeiter-in-gastronomie-coop-landquart-graubunden-632dx5"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-zb8ot5",
@@ -8151,8 +8140,7 @@
       },
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-ke4f2c",
@@ -8326,8 +8314,7 @@
         "mitarbeiterin-sales-associate-getranke-transgourmet-prodega-chur-graubunden-ricett",
         "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-prodega-chur-graubunden-ricett",
         "mitarbeiterin-vendeur-se-getranke-transgourmet-prodega-chur-graubunden-ricett"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-wr6zkb",
@@ -8574,8 +8561,7 @@
         "mechanics-in-coop-genossenschaft-chur",
         "verkaufsberater-in-coop-genossenschaft-chur",
         "verkaufsberater-in-kosmetik-coop-genossenschaft-chur"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "company-qvpnyt",
@@ -8661,8 +8647,7 @@
           "koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-ristorante-chur-graubunden-qvpnyt"
         ]
       },
-      "firstSeenAt": "2026-04-03T07:12:02.917Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-04-03T07:12:02.917Z"
     },
     {
       "id": "company-nn7tsc",
@@ -8760,8 +8745,7 @@
           "stv-geschaftsfuhrer-in-coop-genossenschaft-arosa-nn7tsc"
         ]
       },
-      "firstSeenAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-03-31T07:18:28.826Z"
     },
     {
       "id": "company-9yar0z",
@@ -8849,8 +8833,7 @@
           "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-9yar0z"
         ]
       },
-      "firstSeenAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-03-31T07:18:28.826Z"
     },
     {
       "id": "company-oal0zl",
@@ -9333,8 +9316,7 @@
         ]
       },
       "firstSeenAt": "2026-03-31T07:18:28.826Z",
-      "sourceLang": "it",
-      "needsRetranslation": true
+      "sourceLang": "it"
     },
     {
       "id": "company-2p2jlr",
@@ -10562,8 +10544,7 @@
           "specialiste-en-gastronomie-stagiaire-coop-ristorante-grigioni"
         ]
       },
-      "firstSeenAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-03-31T07:18:28.826Z"
     },
     {
       "id": "company-k0r51z",

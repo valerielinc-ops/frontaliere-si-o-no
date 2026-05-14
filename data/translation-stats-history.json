@@ -1,149 +1,5 @@
 [
   {
-    "timestamp": "2026-04-29T04:07:36.332Z",
-    "label": "before",
-    "total": 2678,
-    "needsRetranslation": 73,
-    "incomplete": 26,
-    "complete": 2652,
-    "missingByLocale": {
-      "it": 25,
-      "en": 5,
-      "de": 23,
-      "fr": 23
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-29T04:32:52.792Z",
-    "label": "after",
-    "total": 2678,
-    "needsRetranslation": 30,
-    "incomplete": 26,
-    "complete": 2652,
-    "missingByLocale": {
-      "it": 25,
-      "en": 5,
-      "de": 23,
-      "fr": 23
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-29T06:11:11.501Z",
-    "label": "before",
-    "total": 2678,
-    "needsRetranslation": 30,
-    "incomplete": 26,
-    "complete": 2652,
-    "missingByLocale": {
-      "it": 25,
-      "en": 5,
-      "de": 23,
-      "fr": 23
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-29T06:33:09.702Z",
-    "label": "after",
-    "total": 2678,
-    "needsRetranslation": 62,
-    "incomplete": 26,
-    "complete": 2652,
-    "missingByLocale": {
-      "it": 25,
-      "en": 5,
-      "de": 23,
-      "fr": 23
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-29T08:45:11.774Z",
     "label": "before",
     "total": 2614,
@@ -10372,6 +10228,118 @@
       {
         "company": "Spital Thurgau (STGAG)",
         "pending": 7
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-13T23:23:51.524Z",
+    "label": "before",
+    "total": 4348,
+    "needsRetranslation": 2225,
+    "incomplete": 512,
+    "complete": 3836,
+    "missingByLocale": {
+      "it": 341,
+      "en": 288,
+      "de": 140,
+      "fr": 356
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 94
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 23
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Lonza",
+        "pending": 12
+      },
+      {
+        "company": "MSC Group",
+        "pending": 12
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 11
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-14T02:20:37.899Z",
+    "label": "after",
+    "total": 4348,
+    "needsRetranslation": 999,
+    "incomplete": 392,
+    "complete": 3956,
+    "missingByLocale": {
+      "it": 279,
+      "en": 236,
+      "de": 117,
+      "fr": 297
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 23
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Lonza",
+        "pending": 12
+      },
+      {
+        "company": "MSC Group",
+        "pending": 12
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 11
+      },
+      {
+        "company": "IWC",
+        "pending": 11
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
       }
     ]
   }
