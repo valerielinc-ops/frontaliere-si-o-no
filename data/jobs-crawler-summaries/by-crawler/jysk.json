@@ -1,21 +1,22 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-05-13T22:28:28.652Z",
+  "generatedAt": "2026-05-14T11:12:05.114Z",
   "total": 14,
-  "newCount": 2,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 32202,
-  "avgDurationMs": 32202,
+  "durationMs": 31893,
+  "avgDurationMs": 31893,
   "durationHistory": [
-    32202
+    31893
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-dyd3i9",
-      "slug": "store-manager-apprendista-a-80-100-per-la-region-baden-jysk-baden-dyd3i9",
+      "slug": "store-manager-trainee-a-80-100-per-la-regione-del-baden-jysk-baden",
       "company": "JYSK",
       "title": "Store Manager Trainee (a) 80-100% für die Region Baden",
       "location": "Baden",
@@ -32,17 +33,21 @@
       "crawledAt": "2026-05-13T22:28:27.580Z",
       "firstSeenAt": "2026-05-13T22:28:27.580Z",
       "sourceLang": "de",
-      "_qualityScore": 84,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "employmentType": "FULL_TIME",
+      "postalCode": "5400",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
       "id": "company-9yhx5d",
-      "slug": "verkaufer-in-con-lagerverantwortung-a-60-jysk-stans-9yhx5d",
+      "slug": "venditore-con-responsabilita-del-magazzino-a-60-jysk-stans",
       "company": "JYSK",
       "title": "Verkäufer/in mit Lagerverantwortung (a) 60%",
       "location": "Stans",
@@ -59,16 +64,15 @@
       "crawledAt": "2026-05-13T22:28:27.580Z",
       "firstSeenAt": "2026-05-13T22:28:27.580Z",
       "sourceLang": "de",
-      "_qualityScore": 80,
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-o7thrg",
       "slug": "venditore-con-responsabilita-del-magazzino-a-50-60-nel-ramo-hinwil-jysk-hinwil",
