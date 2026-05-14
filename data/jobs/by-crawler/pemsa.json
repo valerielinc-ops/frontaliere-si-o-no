@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-05-14T11:35:36.855Z",
+  "assembledAt": "2026-05-14T22:36:38.307Z",
   "jobs": [
     {
       "title": "Idraulico Servizio Riparazioni",
@@ -178,6 +178,66 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "firstSeenAt": "2026-05-13T11:42:49.996Z"
+    },
+    {
+      "title": "PITTORE",
+      "slug": "pittore-pemsa-locarno",
+      "url": "https://www.pemsa.ch/it/job/pittore-2674677/",
+      "applyUrl": "https://www.pemsa.ch/it/job/pittore-2674677/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Locarno",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-13",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-05-28",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di pittore\n\n## Missione :\n• missione nel Sopraceneri\n\n## Profilo :\n• pluriennale esperienza nel settore della pittura\n• conoscenza e utilizzo di tutti i materiali\n• richiesta velocità di esecuzione e autonomia nel lavoro svolto\n• disponibilità immediata\n• automunito",
+      "titleByLocale": {
+        "it": "PITTORE",
+        "en": "PITTORE",
+        "de": "PITTORE",
+        "fr": "PITTORE"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di pittore\n\n## Missione :\n• missione nel Sopraceneri\n\n## Profilo :\n• pluriennale esperienza nel settore della pittura\n• conoscenza e utilizzo di tutti i materiali\n• richiesta velocità di esecuzione e autonomia nel lavoro svolto\n• disponibilità immediata\n• automunito",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a PITTORE in Locarno. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als PITTORE in Locarno. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil PITTORE à Locarno. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "pittore-pemsa-locarno",
+        "en": "pittore-pemsa-locarno",
+        "de": "pittore-pemsa-locarno",
+        "fr": "pittore-pemsa-locarno"
+      },
+      "id": "pemsa-2b9ece9d5c37",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-05-14T22:36:38.307Z"
     },
     {
       "title": "IDRAULICO",
@@ -483,7 +543,8 @@
       },
       "previousSlugs": [
         "giardiniere-aiuto-giardiniere-pemsa-rivera"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Installatore Idraulico AFC Riscaldamenti",
@@ -1497,65 +1558,6 @@
       "firstSeenAt": "2026-05-06T11:30:47.511Z"
     },
     {
-      "title": "PITTORE",
-      "slug": "pittore-pemsa-locarno",
-      "url": "https://www.pemsa.ch/it/job/pittore-2673299/",
-      "applyUrl": "https://www.pemsa.ch/it/job/pittore-2673299/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-06",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-21",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di pittore\n\n## Missione :\n• missione nel Sopraceneri\n\n## Profilo :\n• pluriennale esperienza nel settore della pittura\n• conoscenza e utilizzo di tutti i materiali\n• richiesta velocità di esecuzione e autonomia nel lavoro svolto\n• disponibilità immediata\n• automunito",
-      "titleByLocale": {
-        "it": "PITTORE",
-        "en": "PAINTER",
-        "de": "Maler",
-        "fr": "Peintre"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di pittore\n\n## Missione :\n• missione nel Sopraceneri\n\n## Profilo :\n• pluriennale esperienza nel settore della pittura\n• conoscenza e utilizzo di tutti i materiali\n• richiesta velocità di esecuzione e autonomia nel lavoro svolto\n• disponibilità immediata\n• automunito",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents. We won't lie to you, but we're demanding. So, if you are a motivated and enthusiastic person, join the clan for the location of painter\n\nMission:\n• mission in the Sopraceneri\n\nProfile :\n• multiannual experience in the painting industry\n• knowledge and use of all materials\n• request speed of execution and autonomy in the work carried out\n• immediate availability\n• self-immune",
-        "de": "Wollen Sie die Freiheit der vorübergehenden Arbeit und die Sicherheit eines dauerhaften? Seit 30 Jahren haben wir Hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz erlebt und bieten ihnen die besten Talente. Wir lügen dich nicht an, aber wir fordern. Also, wenn Sie ein motivierter und begeisterter Mensch sind, treten Sie dem Clan für die Lage des Malers bei\n\nMission:\n• Mission in der Sopraceneri\n\nProfil :\n• mehrjährige Erfahrung in der Lackindustrie\n• Wissen und Verwendung aller Materialien\n• Geschwindigkeit der Ausführung und Autonomie bei der geleisteten Arbeit anfordern\n• sofortige Verfügbarkeit\n• Selbstimmun",
-        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Donc, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour l'emplacement du peintre\n\nMission :\n• mission dans le Sopraceneri\n\nProfil :\n• expérience pluriannuelle dans l'industrie de la peinture\n• connaissance et utilisation de tous les matériaux\n• demander la rapidité d'exécution et l'autonomie dans le travail effectué\n• disponibilité immédiate\n• auto-immune"
-      },
-      "slugByLocale": {
-        "it": "pittore-pemsa-locarno",
-        "en": "pittore-pemsa-locarno",
-        "de": "pittore-pemsa-locarno",
-        "fr": "pittore-pemsa-locarno"
-      },
-      "id": "pemsa-27222876237e",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-14T11:35:36.855Z"
-    },
-    {
       "title": "MONTATORE DI PANNELLI SOLARI",
       "slug": "montatore-di-pannelli-solari-pemsa-locarno",
       "url": "https://www.pemsa.ch/it/job/montatore-di-pannelli-solari-2673294/",
@@ -2451,65 +2453,6 @@
       "firstSeenAt": "2026-04-30T22:21:27.655Z"
     },
     {
-      "title": "Carpentieri Metallici",
-      "slug": "carpentieri-metallici-pemsa-bellinzona",
-      "url": "https://www.pemsa.ch/it/job/carpentieri-metallici-2672359/",
-      "applyUrl": "https://www.pemsa.ch/it/job/carpentieri-metallici-2672359/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Bellinzona",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-29",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-14",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Carpentieri Metallici\n\n## Missione :\n• Incarico tramite agenzia a scopo assunzione fissa\n• Esperienza comprovata nel settore della carpenteria metallica\n• Automunito\n• Disponibilità immediata\n\n## Profilo :\n• Specializzato nel costruire, assemblare e riparare strutture metalliche\n• Lavora sia in officina che nella posa in cantiere\n• Padronanza di saldatura MIG, MAG\n• Lettura disegno e uso di macchinari industriali",
-      "titleByLocale": {
-        "it": "Carpentieri Metallici",
-        "en": "Metal carpenters",
-        "de": "Metall Tischler",
-        "fr": "Charpentiers métalliques"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Carpentieri Metallici ## Missione :\n• Incarico tramite agenzia a scopo assunzione fissa\n• Esperienza comprovata nel settore della carpenteria metallica\n• Automunito\n• Disponibilità immediata ## Profilo :\n• Specializzato nel costruire, assemblare e riparare strutture metalliche\n• Lavora sia in officina che nella posa in cantiere\n• Padronanza di saldatura MIG, MAG\n• Lettura disegno e uso di macchinari industriali",
-        "en": "Do you want the freedom of temporary work and the safety of a permanent? For 30 years, we have witnessed hundreds of companies in the technical fields of construction, construction and industry throughout Switzerland, offering them the best talents. We won't lie to you, but we're demanding. Therefore, if you are a motivated and enthusiastic person, join the clan for the position of Carpentieri Metallici ## Mission :\n• Incarious by agency for fixed recruitment\n• Experience proven in the field of metal carpentry\n• Automunito\n• Immediate availability ## Profile :\n• Specialized in building, assembling and repairing metal structures\n• Work both in the workshop and on site\n• Welding Pad",
-        "de": "Wollen Sie die Freiheit der vorübergehenden Arbeit und die Sicherheit eines dauerhaften? Seit 30 Jahren haben wir Hunderte von Unternehmen in den technischen Bereichen Bau, Bau und Industrie in der ganzen Schweiz erlebt und bieten ihnen die besten Talente. Wir lügen dich nicht an, aber wir fordern. Daher, wenn Sie ein motivierter und begeisterter Mensch sind, schließen Sie sich an den Clan für die Position von Carpentieri Metallici:\n• Inhaftiert von Agentur für feste Rekrutierung\n• Erprobt im Bereich der Metall Schreinerei\n• Automunito\n• Sofortige Verfügbarkeit\n• Profil:\n• Spezialisiert auf Gebäude, Montage und Reparatur von Metallstrukturen\n• Arbeiten sowohl in der Werkstatt als auch vor Ort\n• Schweißpad",
-        "fr": "Voulez-vous la liberté du travail temporaire et la sécurité d'un permanent? Depuis 30 ans, nous avons vu des centaines d'entreprises dans les domaines techniques de la construction, de la construction et de l'industrie en Suisse, en leur offrant les meilleurs talents. Nous ne vous mentirons pas, mais nous exigeons. Par conséquent, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de Carpentieri Metallici ## Mission :\n• Divers par agence pour le recrutement fixe\n• Expérience prouvée dans le domaine de la menuiserie en métal\n• Automunito\n• Disponibilité immédiate ## Profil :\n• Spécialisé dans la construction, l'assemblage et la réparation de structures métalliques\n• Travail à la fois dans l'atelier et sur le site\n• Soudure"
-      },
-      "slugByLocale": {
-        "it": "carpentieri-metallici-pemsa-bellinzona",
-        "en": "metal-carpenters-pemsa-bellinzona",
-        "de": "metall-tischler-pemsa-bellinzona",
-        "fr": "charpentiers-metalliques-pemsa-bellinzona"
-      },
-      "id": "pemsa-3c5ca92450e2",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-04-29T22:26:07.074Z"
-    },
-    {
       "title": "Autista Veicoli Pesanti",
       "slug": "autista-veicoli-pesanti-pemsa-bellinzona",
       "url": "https://www.pemsa.ch/it/job/autista-veicoli-pesanti-2672145/",
@@ -3095,8 +3038,7 @@
       "firstSeenAt": "2026-05-10T10:42:15.850Z",
       "previousSlugs": [
         "macchinista-pemsa-mendrisio",
-        "boucles-d-oreille-pemsa-bellinzona",
-        "macchinista-pemsa-bellinzona"
+        "boucles-d-oreille-pemsa-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3373,7 +3315,8 @@
           "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
+      "firstSeenAt": "2026-04-13T22:15:31.704Z",
+      "needsRetranslation": true
     },
     {
       "title": "Lattoniere",
@@ -3601,7 +3544,8 @@
           "garten-pemsa-bellinzona"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
+      "firstSeenAt": "2026-04-13T22:15:31.704Z",
+      "needsRetranslation": true
     },
     {
       "title": "Ferraiolo",
