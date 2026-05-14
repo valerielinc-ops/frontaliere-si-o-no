@@ -115,6 +115,7 @@ import { buildDiscoveryPool as _buildDiscoveryPool } from './lib/discovery/disco
 import { isNearDuplicate as _isNearDuplicateHeadline } from './lib/scheduler/slugSimilarity.mjs';
 import { fetchWordpressSearchHeadlines } from './lib/topic-sources/wordpressSearch.mjs';
 import { hasDomainAnchor } from './lib/discovery/domainAnchor.mjs';
+import { matchesFrontaliereAnchor } from './lib/discovery/frontaliereAnchor.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -265,6 +266,196 @@ function countTopicalHits(text) {
   if (!text || typeof text !== 'string') return 0;
   const lower = text.toLowerCase();
   return TOPICAL_KEYWORDS.reduce((acc, k) => acc + (lower.split(k).length - 1), 0);
+}
+
+// ── Pre-spend topic gate (REGOLA #0 short-circuit, 2026-05-15) ──
+// REGOLA #0 (the in-prompt frontaliere-angle check inside the article-gen
+// LLM) is correct but expensive: each abort burns ~5-7k tokens for the full
+// article-generation call before the LLM realises the source has no real
+// frontaliere nexus. Pattern from run #25878332289: 4/5 attempts aborted on
+// REGOLA #0 (Cantello-litter cronaca-nera variants), 5th hit a quota wall.
+//
+// This cheap pre-spend gate fires BEFORE the article-gen `Tentativo` loop:
+//
+//  (1) FAST PATH — strict frontaliere anchor (case+accent-insensitive regex).
+//      If the headline+url match a high-signal anchor, accept immediately
+//      with zero LLM cost. Anchors mirror REGOLA #0 § "nesso reale".
+//
+//  (2) CLASSIFIER PATH — for headlines that miss the anchor list (but
+//      passed the upstream keyword Topical-gate), call a tiny LLM
+//      (gemini-2.5-flash-lite, ~50 output tokens, no schema mode) to answer
+//      "is this directly relevant to frontalieri Ticino-Italia? yes/no".
+//      Off-topic → drop, no expensive article-gen attempt.
+//
+//  (3) Results are memoised in-process by lowercased headline so a re-used
+//      headline (cross-pool, retry) costs zero on the second visit.
+//
+// REGOLA #0 in the article-gen prompt stays in place as defense-in-depth:
+// the goal is for it to fire 0-1 times per run instead of 3-4.
+//
+// Env gates:
+//  - PRESPEND_TOPIC_GATE=0  → disable entirely (rollback)
+//  - PRESPEND_TOPIC_GATE_CLASSIFIER=0  → keep anchor fast-path, skip LLM step
+//  - PRESPEND_GATE_MODEL=<id>  → override classifier model (default
+//    AI_MODELS.GEMINI_FLASH_LITE)
+
+// Strict frontaliere anchors — high-precision regex set. Headlines that
+// match ANY anchor are accepted without an LLM call. The list is in a
+// dedicated module so unit tests can import it without triggering this
+// script's top-level main() call.
+// See: scripts/lib/discovery/frontaliereAnchor.mjs
+
+// In-process memoisation for the classifier (per-run). Keyed by lowercased
+// headline so duplicates / cross-pool overlap pay once.
+const _preSpendGateCache = new Map();
+
+/**
+ * Cheap LLM classifier: "is this news directly relevant to frontalieri
+ * Ticino-Italia?". Returns { relevant: boolean, reason: string }.
+ *
+ * Strict contract: ~50 output tokens, no jsonMode (AI_MODELS_SCHEMA_MODE=off
+ * is honored by the centralised callLLM). Parsing is regex-based to
+ * tolerate small variations in the model output.
+ *
+ * Failure mode: if the classifier itself errors (network, quota, parse),
+ * we DO NOT drop the headline — return { relevant: true, reason: '...' }.
+ * Defense-in-depth: REGOLA #0 inside article-gen still catches whatever
+ * the classifier missed. Better to spend an article-gen attempt than to
+ * silently drop a legit headline because of a transient classifier error.
+ */
+async function classifyFrontaliereRelevance(headline, summary) {
+  const cacheKey = String(headline || '').toLowerCase().trim();
+  if (cacheKey && _preSpendGateCache.has(cacheKey)) {
+    return _preSpendGateCache.get(cacheKey);
+  }
+  const model = process.env.PRESPEND_GATE_MODEL || AI_MODELS.GEMINI_FLASH_LITE;
+  const prompt = `Sei un classificatore breve. La fonte ha un nesso REALE e DIRETTO con la vita del frontaliere Ticino-Italia (Permesso G/B, imposta alla fonte, ristorni, AVS/LPP, LAMal, busta paga svizzera, valichi Chiasso/Brogeda/Gaggiolo/Ponte Tresa, mercato del lavoro ticinese, accordi bilaterali CH-IT, cambio CHF-EUR)?
+
+NON è un nesso reale: cronaca nera (omicidi/sparizioni/abbandono rifiuti) non-frontaliera, sport, cultura, infrastruttura italiana lontana dal confine, eventi USA/UE-altri senza impatto pendolare.
+
+HEADLINE: ${String(headline || '').slice(0, 240)}
+${summary ? `SOMMARIO: ${String(summary).slice(0, 320)}\n` : ''}
+Rispondi ESATTAMENTE in questo formato (una riga):
+relevant=<yes|no>; reason=<una frase di massimo 15 parole>`;
+
+  let text = '';
+  try {
+    text = await _aiCallLLM(
+      [{ role: 'user', content: prompt }],
+      {
+        model,
+        temperature: 0,
+        maxTokens: 80,
+        timeout: 30_000,
+        jsonMode: false,
+      },
+    );
+  } catch (err) {
+    // Classifier failed — fail-open. REGOLA #0 will catch anything bad.
+    const fallback = { relevant: true, reason: `classifier-error: ${err?.message || 'unknown'}`, fromError: true };
+    if (cacheKey) _preSpendGateCache.set(cacheKey, fallback);
+    return fallback;
+  }
+
+  const verdict = /relevant\s*=\s*(yes|no|s[ìi]|si|true|false)/i.exec(text);
+  const reasonMatch = /reason\s*=\s*([^\n\r]+)/i.exec(text);
+  const verdictRaw = verdict ? verdict[1].toLowerCase() : '';
+  // Drop only on explicit "no" / "false". Anything else (yes/sì/si/true OR
+  // unparseable output) is fail-open: REGOLA #0 stays as defense-in-depth,
+  // we'd rather spend one article-gen attempt than silently drop a legit
+  // headline because of a small parser surprise.
+  const explicitNo = verdictRaw === 'no' || verdictRaw === 'false';
+  const parsed = Boolean(verdict);
+  const result = {
+    relevant: !explicitNo,
+    reason: (reasonMatch ? reasonMatch[1] : text).trim().slice(0, 200),
+    parsed,
+  };
+  if (cacheKey) _preSpendGateCache.set(cacheKey, result);
+  return result;
+}
+
+/**
+ * Pre-spend topic gate — filters a headlines[] array BEFORE the
+ * article-generation `Tentativo` loop. Combines fast anchor regex with the
+ * cheap LLM classifier. Returns the filtered list.
+ *
+ * @param {Array<{headline: string, url?: string, relatedHeadlines?: string[]}>} headlines
+ * @param {object} [opts]
+ * @param {number} [opts.maxClassifier=12]  - max LLM classifier calls per invocation
+ * @returns {Promise<Array>} filtered headlines (preserves order)
+ */
+async function applyPreSpendTopicGate(headlines, opts = {}) {
+  if (!Array.isArray(headlines) || headlines.length === 0) return headlines;
+  if ((process.env.PRESPEND_TOPIC_GATE ?? '1') === '0') return headlines;
+
+  const classifierEnabled = (process.env.PRESPEND_TOPIC_GATE_CLASSIFIER ?? '1') !== '0';
+  const maxClassifier = Number(opts.maxClassifier ?? 12);
+
+  const kept = [];
+  const filtered = []; // { headline, reason }
+  let classifierCalls = 0;
+  let anchorHits = 0;
+
+  for (const h of headlines) {
+    const headlineText = String(h?.headline || '');
+    const urlText = String(h?.url || '');
+    const combined = `${headlineText} ${urlText}`;
+
+    // (1) Anchor fast-path — accept immediately on hit.
+    const anchor = matchesFrontaliereAnchor(combined);
+    if (anchor) {
+      anchorHits += 1;
+      kept.push(h);
+      continue;
+    }
+
+    // (2) Classifier path — only if budget remaining.
+    if (!classifierEnabled || classifierCalls >= maxClassifier) {
+      // No budget left — keep the headline. REGOLA #0 stays as the
+      // defense-in-depth backstop.
+      kept.push(h);
+      continue;
+    }
+
+    classifierCalls += 1;
+    const summary = Array.isArray(h?.relatedHeadlines) && h.relatedHeadlines.length > 0
+      ? h.relatedHeadlines.slice(0, 2).join(' · ')
+      : '';
+    let verdict;
+    try {
+      verdict = await classifyFrontaliereRelevance(headlineText, summary);
+    } catch {
+      // Should not happen — classifyFrontaliereRelevance already fails open
+      // — but belt+suspenders: keep the headline on any unexpected throw.
+      kept.push(h);
+      continue;
+    }
+    if (verdict.relevant) {
+      kept.push(h);
+    } else {
+      filtered.push({ headline: headlineText.slice(0, 80), reason: verdict.reason });
+    }
+  }
+
+  const dropped = headlines.length - kept.length;
+  if (anchorHits > 0 || classifierCalls > 0 || dropped > 0) {
+    console.error(
+      `  🔍 Pre-spend topic gate: ${headlines.length} candidates → ${kept.length} frontaliere-relevant `
+      + `(anchor-fast-path=${anchorHits}, classifier-calls=${classifierCalls}, dropped=${dropped})`,
+    );
+    if (filtered.length > 0) {
+      for (const f of filtered.slice(0, 5)) {
+        console.error(`     ↪ filtrato: "${f.headline}…" — ${f.reason}`);
+      }
+    }
+  }
+  if (typeof RUN_REPORT === 'object' && RUN_REPORT?.headlines) {
+    RUN_REPORT.headlines.droppedPreSpendGate = (RUN_REPORT.headlines.droppedPreSpendGate || 0) + dropped;
+    RUN_REPORT.headlines.preSpendGateAnchorHits = (RUN_REPORT.headlines.preSpendGateAnchorHits || 0) + anchorHits;
+    RUN_REPORT.headlines.preSpendGateClassifierCalls = (RUN_REPORT.headlines.preSpendGateClassifierCalls || 0) + classifierCalls;
+  }
+  return kept;
 }
 
 // ── Config ──────────────────────────────────────────────────
@@ -6038,6 +6229,19 @@ async function main() {
       });
       if (beforeTopicFilter > headlines.length) {
         console.error(`  📋 Post-filtro topic: ${headlines.length}/${beforeTopicFilter} headline rimanenti\n`);
+      }
+
+      // ── Pre-spend topic gate (REGOLA #0 short-circuit, 2026-05-15) ──
+      // Before the Tentativo loop burns ~5-7k tokens per headline on
+      // full article generation, run a cheap anchor-regex + tiny-LLM
+      // classifier to drop off-topic news (cronaca nera, sport, eventi
+      // non-frontalieri). Full rationale + env gates: see
+      // `applyPreSpendTopicGate` doc block above. REGOLA #0 in the
+      // article-gen prompt stays in place as defense-in-depth.
+      const beforePreSpendGate = headlines.length;
+      headlines = await applyPreSpendTopicGate(headlines);
+      if (beforePreSpendGate > headlines.length) {
+        console.error(`  📋 Post-pre-spend gate: ${headlines.length}/${beforePreSpendGate} headline rimanenti\n`);
       }
 
       const quotaPools = buildSourceQuotaPools(headlines);
