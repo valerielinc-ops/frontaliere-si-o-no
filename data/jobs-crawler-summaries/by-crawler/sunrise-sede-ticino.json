@@ -1,16 +1,16 @@
 {
   "key": "sunrise-sede-ticino",
   "label": "Sunrise Communications AG",
-  "generatedAt": "2026-05-13T23:06:51.043Z",
-  "total": 2,
+  "generatedAt": "2026-05-14T11:50:34.431Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3580,
-  "avgDurationMs": 3580,
+  "durationMs": 3081,
+  "avgDurationMs": 3081,
   "durationHistory": [
-    3580
+    3081
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -52,44 +52,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Sales Agent Agno 60-100%",
-      "slug": "agente-di-vendita-agno-60-100-sunrise-communications-ag-ticino",
-      "url": "https://careers.sunrise.ch/it/it/job/REQ_30036467/sales-agent-agno-60-100",
-      "applyUrl": "https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/Ticino/Sales-Agent-Agno-60-100-_REQ_30036467-1/apply",
-      "company": "Sunrise Communications AG",
-      "companyKey": "sunrise-sede-ticino",
-      "companyDomain": "sunrise.ch",
-      "location": "Ticino",
-      "addressLocality": "Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6982",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Tecnologia & IT",
-      "source": "sunrise-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-11",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "sunrise-sede-ticino-f4fe5b5e943b",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 7",
-      "firstSeenAt": "2026-04-27T22:35:08.265Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
