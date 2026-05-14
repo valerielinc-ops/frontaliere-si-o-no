@@ -3177,16 +3177,16 @@
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-felsberg-graubunden": {
-    "winnerJobIdentifier": "company-lzsoh3",
-    "winnerCanonical": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-    "decidedAt": "2026-05-12T00:00:00.000Z",
+    "winnerJobIdentifier": "company-metayj",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-felsberg",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
-    "score": 0.8571,
-    "candidatesCount": 2,
+    "score": 0.5,
+    "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
-    "winnerJobIdentifier": "company-lzsoh3",
+    "winnerJobIdentifier": "company-metayj",
     "winnerCanonical": "venditore-in-food-coop-genossenschaft-felsberg",
     "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
@@ -4167,11 +4167,20 @@
     "canton": "TI"
   },
   "TI::de::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uikyun",
-    "winnerCanonical": "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
-    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "arzthelferin-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
     "score": 0.3636,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1": {
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "arzthelferin-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -4298,6 +4307,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-06T00:00:00.000Z",
     "score": 0.4706,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::de::ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n6s": {
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.4545,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -4869,21 +4887,21 @@
     "canton": "TI"
   },
   "TI::en::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uikyun",
-    "winnerCanonical": "medical-practice-assistant-eoc-ente-ospedaliero-cantonale-lugano",
-    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
     "score": 0.3077,
     "candidatesCount": 2,
     "canton": "TI"
   },
   "TI::en::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1": {
-    "winnerJobIdentifier": "company-uikyun",
+    "winnerJobIdentifier": "company-uil2r1",
     "winnerCanonical": "medical-practice-assistant-eoc-ente-ospedaliero-cantonale-lugano",
-    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
     "score": 0.3846,
-    "candidatesCount": 2,
+    "candidatesCount": 3,
     "canton": "TI"
   },
   "TI::en::assistenzarzt-eoc-ente-ospedaliero-cantonale-lugano": {
@@ -4982,6 +5000,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-06T00:00:00.000Z",
     "score": 0.8571,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::en::ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n6s": {
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.4545,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -5336,6 +5363,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::en::qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio": {
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "graduated-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::en::refinery-department-operator-mks-pamp-castel-san-pietro": {
     "winnerJobIdentifier": "mks-pamp-6b726144ffd1",
     "winnerCanonical": "operator-department-raffineria-mks-pamp-castel-san-pietro",
@@ -5580,11 +5616,20 @@
     "canton": "TI"
   },
   "TI::fr::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uikyun",
-    "winnerCanonical": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
-    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
     "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::fr::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1": {
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.2667,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -5678,6 +5723,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::fr::ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n6s": {
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.4545,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::fr::fachfrau-fachmann-gesundheits-und-sozialpflege-bzw-pflegeassistentin-pflegeassistent-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
     "winnerJobIdentifier": "company-uikz1l",
     "winnerCanonical": "assistant-de-soins-ou-travailleur-socio-sanitaire-eoc-ente-ospedaliero-cantonale-lugano",
@@ -5739,6 +5793,15 @@
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
     "score": 0.2667,
     "candidatesCount": 3,
+    "canton": "TI"
+  },
+  "TI::fr::infirmier-ere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-novaggio": {
+    "winnerJobIdentifier": "company-uikz1n",
+    "winnerCanonical": "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-lugano",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.5833,
+    "candidatesCount": 2,
     "canton": "TI"
   },
   "TI::fr::infirmiere-specialisee-en-anesthesie-eoc-ente-ospedaliero-cantonale-mendrisio": {
@@ -5984,6 +6047,15 @@
     "candidatesCount": 2,
     "canton": "TI"
   },
+  "TI::fr::physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio": {
+    "winnerJobIdentifier": "company-x29n62",
+    "winnerCanonical": "physiotherapie-diplomee-eoc-ente-ospedaliero-cantonale-novaggio",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.5556,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
   "TI::fr::poste-a-temps-plein-d-un-scientifique-ingenieur-en-instrumentation-usi-universita-della-svizzera-italiana-lugano": {
     "winnerJobIdentifier": "usi-universita-della-svizzera-italiana-20d4eef1df72",
     "winnerCanonical": "poste-a-temps-plein-d-un-scientifique-ingenieur-en-instrumentation-usi-locarno",
@@ -6066,9 +6138,9 @@
     "canton": "TI"
   },
   "TI::fr::stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-x29n5y",
+    "winnerJobIdentifier": "company-x29n5z",
     "winnerCanonical": "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio",
-    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
     "score": 0.3571,
     "candidatesCount": 3,
@@ -6273,11 +6345,20 @@
     "canton": "TI"
   },
   "TI::it::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uikyun",
-    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
-    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
     "lastSeenAt": "2026-05-14T00:00:00.000Z",
     "score": 0.8,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1": {
+    "winnerJobIdentifier": "company-uikzou",
+    "winnerCanonical": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.7273,
     "candidatesCount": 2,
     "canton": "TI"
   },
@@ -6458,6 +6539,15 @@
     "decidedAt": "2026-04-30T09:24:47.194Z",
     "lastSeenAt": "2026-05-06T00:00:00.000Z",
     "score": 0.2632,
+    "candidatesCount": 2,
+    "canton": "TI"
+  },
+  "TI::it::ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-x29n6s": {
+    "winnerJobIdentifier": "company-uil2ol",
+    "winnerCanonical": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "score": 0.7,
     "candidatesCount": 2,
     "canton": "TI"
   },
