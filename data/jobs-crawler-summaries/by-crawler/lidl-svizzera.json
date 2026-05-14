@@ -1,22 +1,22 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-13T22:33:56.379Z",
+  "generatedAt": "2026-05-14T11:17:49.557Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8873,
-  "avgDurationMs": 8873,
+  "durationMs": 19969,
+  "avgDurationMs": 19969,
   "durationHistory": [
-    8873
+    19969
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-y26v7p",
-      "slug": "ch-collaboratore-collaboratrice-pulizie-m-w-d-20-40-lidl-svizzera-biasca",
+      "slug": "ch-collaboratore-collaboratrice-pulizie-m-w-d-20-40-lidl-svizzera-biasca-y26v7p",
       "company": "Lidl Svizzera",
       "title": "CH_ Collaboratore / Collaboratrice pulizie (m/f/d) 20-40%",
       "location": "Biasca",
@@ -37,7 +37,6 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-05-13T11:25:24.820Z",
       "firstSeenAt": "2026-05-13T11:25:24.820Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "streetAddress": "Via Industria 7",
@@ -46,11 +45,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 76,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -116,7 +115,6 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-05-10T10:28:23.604Z",
       "firstSeenAt": "2026-05-10T10:28:23.604Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "de",
       "streetAddress": "Via Industria 7",
@@ -125,12 +123,12 @@
       "addressRegion": "GR",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2,
-      "_qualityScore": 87,
+      "needsRetranslation": true,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 9,
         "completeness": 25
       }
     },
