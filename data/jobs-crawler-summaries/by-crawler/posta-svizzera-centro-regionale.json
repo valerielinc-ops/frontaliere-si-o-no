@@ -1,18 +1,19 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-05-14T11:34:44.486Z",
+  "generatedAt": "2026-05-14T22:36:18.330Z",
   "total": 11,
-  "newCount": 1,
-  "updatedCount": 10,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 27502,
-  "avgDurationMs": 27502,
+  "unchangedCount": 3,
+  "durationMs": 30276,
+  "avgDurationMs": 30276,
   "durationHistory": [
-    27502
+    30276
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/73637-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/73637-de_DE",
@@ -22,7 +23,7 @@
       "location": "Ilanz",
       "canton": "GR",
       "country": "CH",
-      "slug": "quereinsteiger-in-als-postauto-fahrer-in-post",
+      "slug": "candidato-a-in-riqualificazione-come-postauto-fahrer-in-postauto-ilanz",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-postali",
@@ -39,42 +40,7 @@
       },
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 58,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 9
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73636-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/73636-de_DE",
-      "title": "PostAuto-Fahrer:in",
-      "company": "PostAuto",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Ilanz",
-      "canton": "GR",
-      "country": "CH",
-      "slug": "driver-per-il-carrello-postauto-ilanz",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-05-13",
-      "validThrough": "2026-06-03",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "20-100%",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Ilanz"
-      },
-      "crawledAt": "",
-      "id": "posta-svizzera-centro-regionale-17ff4c3a48fc",
+      "id": "posta-svizzera-centro-regionale-528fb1160ca5",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -83,12 +49,13 @@
       "addressLocality": "Ilanz",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-13T22:51:51.062Z",
-      "_qualityScore": 88,
+      "firstSeenAt": "2026-05-14T11:34:44.485Z",
+      "retranslationAttempts": 1,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -351,51 +318,6 @@
       }
     },
     {
-      "url": "https://job.post.ch/default/job/Kundenberaterin/73459-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Kundenberaterin/73459-de_DE",
-      "title": "Kundenberater:in",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Promontogno",
-      "canton": "GR",
-      "country": "CH",
-      "slug": "consulente-alla-clientela-die-schweizerische-post-promontogno",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-04-22",
-      "validThrough": "2026-05-15",
-      "source": "postch-careers-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "40-50%",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Promontogno"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "id": "posta-svizzera-centro-regionale-877ff59f71dd",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via la Santa 1",
-      "postalCode": "6500",
-      "addressLocality": "Promontogno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-13T11:42:33.116Z",
-      "retranslationAttempts": 1,
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 7,
-        "translation": 16,
-        "completeness": 20
-      }
-    },
-    {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73223-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73223-de_DE",
       "title": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)",
@@ -435,6 +357,99 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73636-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/73636-de_DE",
+      "title": "PostAuto-Fahrer:in",
+      "company": "PostAuto",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Ilanz",
+      "canton": "GR",
+      "country": "CH",
+      "slug": "driver-per-il-carrello-postauto-ilanz",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-05-13",
+      "validThrough": "2026-06-03",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "20-100%",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Ilanz"
+      },
+      "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-17ff4c3a48fc",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via la Santa 1",
+      "postalCode": "6500",
+      "addressLocality": "Ilanz",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-13T22:51:51.062Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://job.post.ch/default/job/Kundenberaterin/73459-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Kundenberaterin/73459-de_DE",
+      "title": "Kundenberater:in",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Promontogno",
+      "canton": "GR",
+      "country": "CH",
+      "slug": "consulente-alla-clientela-die-schweizerische-post-promontogno",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-04-22",
+      "validThrough": "2026-05-15",
+      "source": "postch-careers-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "40-50%",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Promontogno"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "posta-svizzera-centro-regionale-877ff59f71dd",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via la Santa 1",
+      "postalCode": "6500",
+      "addressLocality": "Promontogno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-13T11:42:33.116Z",
+      "retranslationAttempts": 2,
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 7,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -481,7 +496,5 @@
         "completeness": 20
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
