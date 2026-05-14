@@ -1,16 +1,16 @@
 {
   "key": "hitachi-energy",
   "label": "Hitachi Energy",
-  "generatedAt": "2026-05-13T22:26:58.545Z",
+  "generatedAt": "2026-05-14T11:10:29.452Z",
   "total": 80,
   "newCount": 0,
   "updatedCount": 75,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 306117,
-  "avgDurationMs": 306117,
+  "durationMs": 302318,
+  "avgDurationMs": 302318,
   "durationHistory": [
-    306117
+    302318
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -302,7 +302,6 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-10T10:22:08.851Z",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -377,7 +376,6 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-10T10:22:08.851Z",
-      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -452,7 +450,6 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-10T10:22:08.851Z",
-      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -490,7 +487,6 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-10T10:22:08.851Z",
-      "needsRetranslation": true,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -1191,18 +1187,17 @@
       "contractType": "regular",
       "validThrough": "",
       "id": "hitachi-energy-3cd061cd629e",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-13T11:18:02.207Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -1235,11 +1230,11 @@
       "streetAddress": "Via Lucino 53",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-13T11:18:02.207Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
