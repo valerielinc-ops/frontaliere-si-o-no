@@ -1,16 +1,16 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-05-13T23:19:31.390Z",
-  "total": 34,
+  "generatedAt": "2026-05-14T12:03:20.714Z",
+  "total": 33,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 28,
-  "durationMs": 41825,
-  "avgDurationMs": 41825,
+  "unchangedCount": 27,
+  "durationMs": 32003,
+  "avgDurationMs": 32003,
   "durationHistory": [
-    41825
+    32003
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -367,46 +367,6 @@
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Mels",
-        "canton": ""
-      },
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-05-10T11:06:13.818Z",
-      "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "streetAddress": "Via Stazione 31",
-      "postalCode": "6500",
-      "addressLocality": "Bern",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-etokcg",
-      "slug": "personale-attenzione-al-reclutamento-swiss-armed-forces-vtg-bern",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Sachbearbeiter/-in Personal (Schwerpunkt Rekrutierung)",
-      "location": "Bern",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-20",
-      "url": "https://jobs.admin.ch/offene-stellen/sachbearbeiter-in-personal-schwerpunkt-rekrutierung/b59c833c-82e2-4d58-9270-80ca001b85ad",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Stans-Oberdorf",
         "canton": ""
       },
       "companyKey": "vtg",
