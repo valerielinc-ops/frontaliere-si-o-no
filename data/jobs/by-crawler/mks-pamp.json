@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mks-pamp",
-  "assembledAt": "2026-05-13T22:44:32.771Z",
+  "assembledAt": "2026-05-14T11:28:28.181Z",
   "jobs": [
     {
       "title": "Operatore Trattamenti Reflui",
@@ -206,7 +206,8 @@
           "controleur-de-metal-et-d-inventaire-mks-pamp-castel-san-pietro"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:10:50.570Z"
+      "firstSeenAt": "2026-04-13T22:10:50.570Z",
+      "needsRetranslation": true
     },
     {
       "title": "Operatore reparto Raffineria",
@@ -267,13 +268,9 @@
       "postalCode": "6828",
       "firstSeenAt": "2026-04-23T22:07:57.426Z",
       "previousSlugs": [
-        "operator-department-raffineria-mks-pamp-castel-san-pietro",
-        "veranstalter-raffineria-mks-pamp-castel-san-pietro",
-        "service-operateur-raffineria-mks-pamp-castel-san-pietro",
         "refinery-department-operator-mks-pamp-castel-san-pietro",
         "betreiber-der-raffinerieabteilung-mks-pamp-castel-san-pietro",
         "operateur-service-raffinerie-mks-pamp-castel-san-pietro",
-        "operatore-reparto-raffineria-mks-pamp-castel-san-pietro",
         "operator-treatments-reflui-mks-pamp-castel-san-pietro",
         "betreiberbehandlungen-reflui-mks-pamp-castel-san-pietro",
         "traitements-de-l-operateur-reflui-mks-pamp-castel-san-pietro",
@@ -281,15 +278,12 @@
       ],
       "previousSlugsByLocale": {
         "en": [
-          "operator-department-raffineria-mks-pamp-castel-san-pietro",
           "operator-treatments-reflui-mks-pamp-castel-san-pietro"
         ],
         "de": [
-          "veranstalter-raffineria-mks-pamp-castel-san-pietro",
           "betreiberbehandlungen-reflui-mks-pamp-castel-san-pietro"
         ],
         "fr": [
-          "service-operateur-raffineria-mks-pamp-castel-san-pietro",
           "traitements-de-l-operateur-reflui-mks-pamp-castel-san-pietro"
         ],
         "it": [
