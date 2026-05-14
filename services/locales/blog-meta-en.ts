@@ -7534,6 +7534,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-spese-svizzera-2026.title': 'Cross-border workers: balancing Swiss spending and Italian homes',
     'blog.article.frontalieri-ticino-spese-svizzera-2026.excerpt': 'Earning in francs and living in euros: how to best manage expenses between the two countries after the new tax agreement',
     'blog.article.frontalieri-ticino-spese-svizzera-2026.imageAlt': 'Frontalier at Chiasso border crossing with shopping bags from Switzerland and Italy, with Lugano in the background',
+    'blog.article.citta-laghi-innovativa-transfrontaliera.title': 'Lake City: cross-border innovation and sustainability',
+    'blog.article.citta-laghi-innovativa-transfrontaliera.excerpt': 'Six classes awarded for projects on sustainable development and cross-border mobility in the Insubric \'Lake City\'.',
+    'blog.article.citta-laghi-innovativa-transfrontaliera.imageAlt': 'Aerial view of Lake Lugano with modern buildings and infrastructure, showcasing a futuristic and sustainable cityscape.',
 };
 
 export default blogMetaEn;

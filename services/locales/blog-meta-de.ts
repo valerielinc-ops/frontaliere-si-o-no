@@ -7533,6 +7533,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-spese-svizzera-2026.title': 'Grenzgänger: Ausgaben in der Schweiz und Wohnsitz in Italien',
     'blog.article.frontalieri-ticino-spese-svizzera-2026.excerpt': 'In Franken verdienen und in Euro leben: Wie man die Ausgaben zwischen den beiden Ländern nach dem neuen Steuerabkommen am besten verwaltet',
     'blog.article.frontalieri-ticino-spese-svizzera-2026.imageAlt': 'Frontalier an der Grenze Chiasso mit Einkaufstaschen aus der Schweiz und Italien, mit Lugano im Hintergrund',
+    'blog.article.citta-laghi-innovativa-transfrontaliera.title': 'Stadt der Seen: Innovation und grenzüberschreitende Nachhaltigkeit',
+    'blog.article.citta-laghi-innovativa-transfrontaliera.excerpt': 'Sechs Klassen werden für Projekte zu nachhaltiger Entwicklung und grenzüberschreitender Mobilität in der \'Stadt der Seen\' ausgezeichnet.',
+    'blog.article.citta-laghi-innovativa-transfrontaliera.imageAlt': 'Luftaufnahme des Luganer Sees mit modernen Gebäuden und Infrastruktur, die eine futuristische und nachhaltige Stadtlandschaft zeigt.',
 };
 
 export default blogMetaDe;

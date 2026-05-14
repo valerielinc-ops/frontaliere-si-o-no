@@ -1,0 +1,40 @@
+{
+  "id": "citta-laghi-innovativa-transfrontaliera",
+  "slug": "citta-laghi-innovativa-transfrontaliera",
+  "publishedAt": "2026-05-14T06:50:12.702Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.426844836802345,
+    "confidence": 0.8,
+    "finalScore": 5.1414758694418765,
+    "topK": [
+      {
+        "slug": "foreste-sommerse-lago-como-lugano",
+        "cosine": 0.8570019139137072
+      },
+      {
+        "slug": "contratto-lago-lands-lake-2026",
+        "cosine": 0.8521221812815589
+      },
+      {
+        "slug": "lavena-ponte-tresa-territorio-poroso",
+        "cosine": 0.8465235491040325
+      },
+      {
+        "slug": "como-cantu-creativity-week-2026",
+        "cosine": 0.8460817672808055
+      },
+      {
+        "slug": "comuni-locarno-futuro-aggregazione",
+        "cosine": 0.8438823498293055
+      }
+    ],
+    "score": 5.1414758694418765,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

@@ -7535,6 +7535,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-spese-svizzera-2026.title': 'Frontalieri: spese in Svizzera e casa in Italia, come trovare l\'equilibrio',
     'blog.article.frontalieri-ticino-spese-svizzera-2026.excerpt': 'Guadagnare in franchi e vivere in euro: come gestire al meglio le spese tra i due Paesi dopo il nuovo accordo fiscale',
     'blog.article.frontalieri-ticino-spese-svizzera-2026.imageAlt': 'Frontaliere al valico di Chiasso con buste della spesa da Svizzera e Italia, sullo sfondo Lugano',
+    'blog.article.citta-laghi-innovativa-transfrontaliera.title': 'Città dei Laghi: innovazione e sostenibilità transfrontaliera',
+    'blog.article.citta-laghi-innovativa-transfrontaliera.excerpt': 'Sei classi premiate per progetti su sviluppo sostenibile e mobilità transfrontaliera nella \'Città dei Laghi\' insubrica.',
+    'blog.article.citta-laghi-innovativa-transfrontaliera.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni e infrastrutture, che mostra un paesaggio urbano futuristico e sostenibile.',
 };
 
 export default blogMetaIt;
