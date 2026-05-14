@@ -1,213 +1,5 @@
 [
   {
-    "timestamp": "2026-04-29T11:46:27.046Z",
-    "label": "before",
-    "total": 2674,
-    "needsRetranslation": 1178,
-    "incomplete": 135,
-    "complete": 2539,
-    "missingByLocale": {
-      "it": 74,
-      "en": 93,
-      "de": 97,
-      "fr": 123
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 50
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Lonza",
-        "pending": 7
-      },
-      {
-        "company": "Hügli Nährmittel AG",
-        "pending": 4
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 4
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 3
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-29T13:23:34.502Z",
-    "label": "after",
-    "total": 2674,
-    "needsRetranslation": 102,
-    "incomplete": 51,
-    "complete": 2623,
-    "missingByLocale": {
-      "it": 40,
-      "en": 20,
-      "de": 33,
-      "fr": 40
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 4
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 3
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 3
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 2
-      },
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 2
-      },
-      {
-        "company": "TRUMPF Schweiz AG",
-        "pending": 2
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-29T14:25:42.061Z",
-    "label": "before",
-    "total": 2674,
-    "needsRetranslation": 103,
-    "incomplete": 48,
-    "complete": 2626,
-    "missingByLocale": {
-      "it": 37,
-      "en": 17,
-      "de": 33,
-      "fr": 37
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 4
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 3
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 3
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 3
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 2
-      },
-      {
-        "company": "TRUMPF Schweiz AG",
-        "pending": 2
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-29T15:33:29.556Z",
-    "label": "after",
-    "total": 2674,
-    "needsRetranslation": 79,
-    "incomplete": 29,
-    "complete": 2645,
-    "missingByLocale": {
-      "it": 25,
-      "en": 5,
-      "de": 26,
-      "fr": 24
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-29T22:53:46.769Z",
     "label": "before",
     "total": 2667,
@@ -10451,6 +10243,118 @@
       "en": 206,
       "de": 95,
       "fr": 255
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 23
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Lonza",
+        "pending": 12
+      },
+      {
+        "company": "MSC Group",
+        "pending": 11
+      },
+      {
+        "company": "IWC",
+        "pending": 11
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 8
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 6
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-14T06:34:45.105Z",
+    "label": "before",
+    "total": 4329,
+    "needsRetranslation": 874,
+    "incomplete": 328,
+    "complete": 4001,
+    "missingByLocale": {
+      "it": 238,
+      "en": 205,
+      "de": 95,
+      "fr": 254
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 23
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Lonza",
+        "pending": 12
+      },
+      {
+        "company": "MSC Group",
+        "pending": 11
+      },
+      {
+        "company": "IWC",
+        "pending": 11
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 8
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 6
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-14T07:10:31.623Z",
+    "label": "after",
+    "total": 4329,
+    "needsRetranslation": 811,
+    "incomplete": 319,
+    "complete": 4010,
+    "missingByLocale": {
+      "it": 234,
+      "en": 197,
+      "de": 89,
+      "fr": 245
     },
     "topPending": [
       {
