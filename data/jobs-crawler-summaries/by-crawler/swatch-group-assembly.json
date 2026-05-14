@@ -1,21 +1,21 @@
 {
   "key": "swatch-group-assembly",
   "label": "swatch-group-assembly",
-  "generatedAt": "2026-05-13T23:08:57.167Z",
-  "total": 15,
-  "newCount": 17,
+  "generatedAt": "2026-05-14T11:52:57.937Z",
+  "total": 14,
+  "newCount": 16,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 23480,
-  "avgDurationMs": 23480,
+  "durationMs": 24626,
+  "avgDurationMs": 24626,
   "durationHistory": [
-    23480
+    24626
   ],
   "newJobs": [
     {
       "id": "company-7uaw1i",
-      "slug": "customer-service-specialist-the-swatch-group-u-s-inc-33126-apply-for-this-job-share-this-job-offer-main-navigation-swatch-group-the-b",
+      "slug": "servizio-clienti-specialista-the-swatch-group-u-s-inc-33126-apply-for-this-job-share-this-job-offer-main-navigation-swatch-group-the-b-7uaw1i",
       "company": "The Swatch Group (U.S.) Inc.",
       "title": "Customer Service Specialist",
       "location": "33126 Apply for this job Share this job offer Main navigation Swatch Group The B",
@@ -31,19 +31,27 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-05-13T23:08:56.225Z",
       "firstSeenAt": "2026-05-13T23:08:56.225Z",
-      "needsRetranslation": true,
       "sourceLang": "en",
-      "_qualityScore": 79,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "33126 Apply for this job Share this job offer Main navigation Swatch Group The B",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-7uaw1g",
-      "slug": "visual-merchandiser-trainer-east-coast-the-swatch-group-u-s-inc-10017-new-york-ny-new-york-united-states-company-address-the-swatch-group-u",
+      "slug": "visual-merchandiser-trainer-east-coast-the-swatch-group-u-s-inc-10017-new-york-ny-new-york-united-states-company-address-the-swatch-group-u-7uaw1g",
       "company": "The Swatch Group (U.S.) Inc.",
       "title": "Visual Merchandiser & Trainer - East Coast",
       "location": "10017 New York NY (New York) United States Company address The Swatch Group (U",
@@ -59,14 +67,22 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-05-13T23:08:56.225Z",
       "firstSeenAt": "2026-05-13T23:08:56.225Z",
-      "needsRetranslation": true,
       "sourceLang": "en",
-      "_qualityScore": 64,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "10017 New York NY (New York) United States Company address The Swatch Group (U",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
-        "completeness": 14
+        "translation": 23,
+        "completeness": 25
       }
     },
     {
@@ -447,37 +463,6 @@
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-7uargw",
-      "slug": "swatch-part-time-keyholder-sawgrass-mills-florida-the-swatch-group-u-s-inc-33323-sunrise-fl-florida-united-states-company-address-the-swatch-7uargw",
-      "company": "The Swatch Group (U.S.) Inc.",
-      "title": "Swatch Part Time Keyholder - Sawgrass Mills (Florida)",
-      "location": "33323 Sunrise FL (Florida) United States Company address The Swatch Group (U",
-      "canton": "FR",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "url": "https://www.swatchgroup.com/en/job/31302",
-      "source": "Company Careers Crawler",
-      "companyKey": "swatch-group-assembly",
-      "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-05-10T10:57:23.366Z",
-      "firstSeenAt": "2026-05-10T10:57:23.366Z",
-      "sourceLang": "en",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 23,
         "completeness": 19
       }
     },
