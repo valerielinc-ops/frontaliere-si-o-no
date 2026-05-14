@@ -1,16 +1,16 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-05-13T23:16:37.377Z",
+  "generatedAt": "2026-05-14T12:00:45.829Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2215,
-  "avgDurationMs": 2215,
+  "durationMs": 2549,
+  "avgDurationMs": 2549,
   "durationHistory": [
-    2215
+    2549
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5193056008?gh_jid=5193056008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-13T23:16:35.591Z",
+      "crawledAt": "2026-05-14T12:00:43.792Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5026185008?gh_jid=5026185008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-13T23:16:35.489Z",
+      "crawledAt": "2026-05-14T12:00:43.691Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -97,50 +97,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "vaxcyte-c453629da206",
-      "slug": "responsabile-gestione-della-catena-di-fornitura-vaxcyte-visp",
-      "company": "Vaxcyte",
-      "companyKey": "vaxcyte",
-      "companyDomain": "vaxcyte.com",
-      "title": "Manager, Supply Chain Management",
-      "location": "Visp",
-      "canton": "VS",
-      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154146008?gh_jid=5154146008",
-      "source": "Vaxcyte Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-13T12:08:40.249Z",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "postalCode": "1950",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-26",
-      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5154146008?gh_jid=5154146008",
-      "department": "Swiss Manufacturing & Supply Chain",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Visp"
-      },
-      "firstSeenAt": "2026-04-13T11:29:03.145Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
