@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-05-14T10:32:02.979Z",
+  "generatedAt": "2026-05-14T21:33:16.909Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 24598,
-  "avgDurationMs": 24598,
+  "unchangedCount": 0,
+  "durationMs": 17987,
+  "avgDurationMs": 17987,
   "durationHistory": [
-    24598
+    17987
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,6 +47,47 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-05-13T21:48:16.941Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-8H--Landquart_R_784292",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-8H--Landquart_R_784292",
+      "title": "Sales Associate Part Time 8H -Landquart",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Graubünden",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate",
+      "slug": "sales-associate-part-time-8h-landquart-capri-holdings",
+      "category": "retail",
+      "datePosted": "2026-05-13",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Graubünden"
+      },
+      "crawledAt": "",
+      "id": "capri-holdings-0e4ff3a9d6ab",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-13T10:39:13.858Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -98,47 +139,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-8H--Landquart_R_784292",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-8H--Landquart_R_784292",
-      "title": "Sales Associate Part Time 8H -Landquart",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Graubünden",
-      "canton": "GR",
-      "country": "CH",
-      "addressLocality": "Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
-      "slug": "sales-associate-part-time-8h-landquart-capri-holdings",
-      "category": "retail",
-      "datePosted": "2026-05-13",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Graubünden"
-      },
-      "crawledAt": "",
-      "id": "capri-holdings-0e4ff3a9d6ab",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-13T10:39:13.858Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
