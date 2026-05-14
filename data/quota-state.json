@@ -2,7 +2,7 @@
   "version": 1,
   "runCounter": 225,
   "currentQuota": 80,
-  "lastTune": "2026-05-13T06:47:17.717Z",
+  "lastTune": "2026-05-14T06:45:40.342Z",
   "history": [
     {
       "tunedAt": "2026-05-07T20:55:05.776Z",
@@ -146,6 +146,26 @@
     },
     {
       "tunedAt": "2026-05-13T06:47:17.717Z",
+      "prevQuota": 80,
+      "newQuota": 80,
+      "decision": "hold",
+      "reason": "cold-start no aged articles",
+      "provenWinRate": 0,
+      "discoveryWinRate": 0,
+      "ratio": null,
+      "samples": {
+        "proven": {
+          "winners": 0,
+          "total": 0
+        },
+        "discovery": {
+          "winners": 0,
+          "total": 0
+        }
+      }
+    },
+    {
+      "tunedAt": "2026-05-14T06:45:40.342Z",
       "prevQuota": 80,
       "newQuota": 80,
       "decision": "hold",
