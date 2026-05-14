@@ -8177,12 +8177,12 @@
     },
     {
       "id": "eth-zurich-6044496ae6b2",
-      "slug": "office-manager-in-am-institut-per-maschinelles-lernen-m-w-d-eth-zurich",
+      "slug": "responsabile-ufficio-nell-istituto-per-l-apprendimento-delle-macchine-m-w-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "office-manager-in-am-institut-fur-maschinelles-lernen-m-w-d-eth-zurich-ch",
-        "it": "office-manager-in-am-institut-per-maschinelles-lernen-m-w-d-eth-zurich",
-        "en": "office-manager-in-am-institut-fur-maschinelles-lernen-m-w-d-eth-zurich-ch",
-        "fr": "office-manager-in-am-institut-fur-maschinelles-lernen-m-w-d-eth-zurich-ch"
+        "it": "responsabile-ufficio-nell-istituto-per-l-apprendimento-delle-macchine-m-w-d-eth-zurich-zurich",
+        "en": "office-manager-in-the-institute-for-machine-learning-m-w-d-eth-zurich-zurich",
+        "fr": "gestionnaire-de-bureau-m-w-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8225,11 +8225,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "office-manager-in-am-institut-fur-maschinelles-lernen-m-w-d-eth-zurich-ch",
+          "office-manager-in-am-institut-per-maschinelles-lernen-m-w-d-eth-zurich"
+        ],
+        "en": [
+          "office-manager-in-am-institut-fur-maschinelles-lernen-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "office-manager-in-am-institut-fur-maschinelles-lernen-m-w-d-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "office-manager-in-am-institut-fur-maschinelles-lernen-m-w-d-eth-zurich-ch"
+        "office-manager-in-am-institut-fur-maschinelles-lernen-m-w-d-eth-zurich-ch",
+        "office-manager-in-am-institut-per-maschinelles-lernen-m-w-d-eth-zurich"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -8311,11 +8319,11 @@
     },
     {
       "id": "eth-zurich-1de2346987a1",
-      "slug": "ausbildungsverantwortliche-r-per-apprendista-m-w-d-eth-zurich",
+      "slug": "projektmanager-m-w-d-eth-zurich-zurich-f807bd",
       "slugByLocale": {
         "de": "ausbildungsverantwortliche-r-fur-lernende-m-w-d-eth-zurich-ch",
-        "it": "ausbildungsverantwortliche-r-per-apprendista-m-w-d-eth-zurich",
-        "en": "ausbildungsverantwortliche-r-fur-lernende-m-w-d-eth-zurich-ch",
+        "it": "projektmanager-m-w-d-eth-zurich-zurich-f807bd",
+        "en": "projektmanager-m-w-d-eth-zurich-zurich-f807bd",
         "fr": "ausbildungsverantwortliche-r-fur-lernende-m-w-d-eth-zurich-ch"
       },
       "company": "ETH Zürich",
@@ -8359,11 +8367,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "ausbildungsverantwortliche-r-fur-lernende-m-w-d-eth-zurich-ch",
+          "ausbildungsverantwortliche-r-per-apprendista-m-w-d-eth-zurich"
+        ],
+        "en": [
           "ausbildungsverantwortliche-r-fur-lernende-m-w-d-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "ausbildungsverantwortliche-r-fur-lernende-m-w-d-eth-zurich-ch"
+        "ausbildungsverantwortliche-r-fur-lernende-m-w-d-eth-zurich-ch",
+        "ausbildungsverantwortliche-r-per-apprendista-m-w-d-eth-zurich"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -8382,12 +8395,12 @@
     },
     {
       "id": "eth-zurich-de381af71d6c",
-      "slug": "project-management-officer-m-w-d-eth-zurich-ch",
+      "slug": "responsabile-della-gestione-del-progetto-m-w-d-eth-zurich-zurich",
       "slugByLocale": {
         "de": "project-management-officer-m-w-d-eth-zurich-ch",
-        "it": "project-management-officer-m-w-d-eth-zurich-ch",
+        "it": "responsabile-della-gestione-del-progetto-m-w-d-eth-zurich-zurich",
         "en": "project-management-officer-m-w-d-eth-zurich-ch",
-        "fr": "project-management-officer-m-w-d-eth-zurich-ch"
+        "fr": "specialiste-de-la-gestion-des-projets-m-m-j-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8441,7 +8454,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-13T22:08:28.430Z"
+      "firstSeenAt": "2026-05-13T22:08:28.430Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-management-officer-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
+          "project-management-officer-m-w-d-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-management-officer-m-w-d-eth-zurich-ch"
+      ]
     }
   ]
 }

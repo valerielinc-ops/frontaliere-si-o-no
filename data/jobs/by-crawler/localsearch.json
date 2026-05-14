@@ -2945,12 +2945,12 @@
     },
     {
       "id": "localsearch-2a88598c6dd9",
-      "slug": "outbound-sales-agent-60-100-localsearch-ch",
+      "slug": "agente-commerciale-60-100-localsearch-zurich",
       "slugByLocale": {
         "de": "outbound-sales-agent-60-100-localsearch-ch",
-        "it": "outbound-sales-agent-60-100-localsearch-ch",
+        "it": "agente-commerciale-60-100-localsearch-zurich",
         "en": "outbound-sales-agent-60-100-localsearch-ch",
-        "fr": "outbound-sales-agent-60-100-localsearch-ch"
+        "fr": "agent-de-vente-sortant-60-100-localsearch-zurich"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -3004,16 +3004,27 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-13T22:35:32.019Z"
+      "firstSeenAt": "2026-05-13T22:35:32.019Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "outbound-sales-agent-60-100-localsearch-ch"
+        ],
+        "fr": [
+          "outbound-sales-agent-60-100-localsearch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "outbound-sales-agent-60-100-localsearch-ch"
+      ]
     },
     {
       "id": "localsearch-611c97316a21",
-      "slug": "outbound-sales-agent-fr-60-100-localsearch-ch",
+      "slug": "agente-di-vendita-in-uscita-fr-60-100-localsearch-zurich",
       "slugByLocale": {
         "de": "outbound-sales-agent-fr-60-100-localsearch-ch",
-        "it": "outbound-sales-agent-fr-60-100-localsearch-ch",
+        "it": "agente-di-vendita-in-uscita-fr-60-100-localsearch-zurich",
         "en": "outbound-sales-agent-fr-60-100-localsearch-ch",
-        "fr": "outbound-sales-agent-fr-60-100-localsearch-ch"
+        "fr": "agent-de-vente-sortant-fr-60-100-localsearch-zurich"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -3067,7 +3078,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-13T22:35:31.265Z"
+      "firstSeenAt": "2026-05-13T22:35:31.265Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "outbound-sales-agent-fr-60-100-localsearch-ch"
+        ],
+        "fr": [
+          "outbound-sales-agent-fr-60-100-localsearch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "outbound-sales-agent-fr-60-100-localsearch-ch"
+      ]
     }
   ]
 }

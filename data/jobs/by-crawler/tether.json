@@ -4821,12 +4821,12 @@
     },
     {
       "id": "tether-565a3b3f5297",
-      "slug": "technical-product-manager-qvac-100-remote-tether-ch",
+      "slug": "responsabile-tecnico-del-prodotto-qvac-100-remoto-tether-operations-zurich-zurich",
       "slugByLocale": {
         "en": "technical-product-manager-qvac-100-remote-tether-ch",
-        "it": "technical-product-manager-qvac-100-remote-tether-ch",
-        "de": "technical-product-manager-qvac-100-remote-tether-ch",
-        "fr": "technical-product-manager-qvac-100-remote-tether-ch"
+        "it": "responsabile-tecnico-del-prodotto-qvac-100-remoto-tether-operations-zurich-zurich",
+        "de": "technischer-produktmanager-qvac-100-remote-tether-operations-zurich-zurich",
+        "fr": "gestionnaire-de-produits-techniques-qvac-100-distant-tether-operations-zurich-zurich"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -4886,7 +4886,21 @@
         }
       },
       "firstSeenAt": "2026-05-13T23:11:13.445Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-manager-qvac-100-remote-tether-ch"
+        ],
+        "de": [
+          "technical-product-manager-qvac-100-remote-tether-ch"
+        ],
+        "fr": [
+          "technical-product-manager-qvac-100-remote-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technical-product-manager-qvac-100-remote-tether-ch"
+      ]
     },
     {
       "id": "tether-89bd149801b5",

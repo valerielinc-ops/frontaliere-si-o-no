@@ -67,7 +67,7 @@
     },
     {
       "id": "company-9yhx5d",
-      "slug": "verkaufer-in-con-lagerverantwortung-a-60-jysk-stans-9yhx5d",
+      "slug": "venditore-con-responsabilita-del-magazzino-a-60-jysk-stans",
       "company": "JYSK",
       "title": "Verkäufer/in mit Lagerverantwortung (a) 60%",
       "location": "Stans",
@@ -99,19 +99,28 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufer-in-con-lagerverantwortung-a-60-jysk-stans-9yhx5d",
-        "en": "verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans-9yhx5d",
+        "it": "venditore-con-responsabilita-del-magazzino-a-60-jysk-stans",
+        "en": "seller-with-warehouse-responsibility-a-60-jysk-stans",
         "de": "verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans-9yhx5d",
-        "fr": "verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans-9yhx5d"
+        "fr": "vendeur-responsable-de-l-entrepot-a-60-jysk-stans"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans"
+          "verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans",
+          "verkaufer-in-con-lagerverantwortung-a-60-jysk-stans-9yhx5d"
+        ],
+        "en": [
+          "verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans-9yhx5d"
+        ],
+        "fr": [
+          "verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans-9yhx5d"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans"
+        "verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans",
+        "verkaufer-in-con-lagerverantwortung-a-60-jysk-stans-9yhx5d",
+        "verkaufer-in-mit-lagerverantwortung-a-60-jysk-stans-9yhx5d"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

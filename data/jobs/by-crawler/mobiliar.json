@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "mobiliar-261092c891bb",
-      "slug": "schadeninspektor-m-w-d-agenzia-generale-langenthal-die-mobiliar-langenthal",
+      "slug": "gestione-del-prodotto-m-d-die-mobiliar-langenthal",
       "slugByLocale": {
         "de": "schadeninspektor-w-m-d-generalagentur-langenthal-mobiliar-ch",
-        "it": "schadeninspektor-m-w-d-agenzia-generale-langenthal-die-mobiliar-langenthal",
-        "en": "schadeninspektor-w-m-d-generalagentur-langenthal-mobiliar-ch",
-        "fr": "schadeninspektor-w-m-d-generalagentur-langenthal-mobiliar-ch"
+        "it": "gestione-del-prodotto-m-d-die-mobiliar-langenthal",
+        "en": "projektmanagement-m-d-die-mobiliar-langenthal",
+        "fr": "gestion-du-projet-m-d-die-mobiliar-langenthal"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -70,11 +70,19 @@
       "sfJobId": "1164737355",
       "previousSlugsByLocale": {
         "it": [
+          "schadeninspektor-w-m-d-generalagentur-langenthal-mobiliar-ch",
+          "schadeninspektor-m-w-d-agenzia-generale-langenthal-die-mobiliar-langenthal"
+        ],
+        "en": [
+          "schadeninspektor-w-m-d-generalagentur-langenthal-mobiliar-ch"
+        ],
+        "fr": [
           "schadeninspektor-w-m-d-generalagentur-langenthal-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "schadeninspektor-w-m-d-generalagentur-langenthal-mobiliar-ch"
+        "schadeninspektor-w-m-d-generalagentur-langenthal-mobiliar-ch",
+        "schadeninspektor-m-w-d-agenzia-generale-langenthal-die-mobiliar-langenthal"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

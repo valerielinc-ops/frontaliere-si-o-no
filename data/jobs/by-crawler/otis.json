@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "otis-f959705237b1",
-      "slug": "assistant-e-administratif-ve-otis-valais-otis-martigny",
+      "slug": "assistente-amministrativo-otis-valais-otis-sa-martigny",
       "slugByLocale": {
         "en": "assistant-e-administratif-ve-otis-valais-otis-martigny",
-        "it": "assistant-e-administratif-ve-otis-valais-otis-martigny",
+        "it": "assistente-amministrativo-otis-valais-otis-sa-martigny",
         "de": "assistant-e-administratif-ve-otis-valais-otis-martigny",
         "fr": "assistant-e-administratif-ve-otis-valais-otis-martigny"
       },
@@ -59,7 +59,15 @@
         }
       },
       "postalCode": "1920",
-      "firstSeenAt": "2026-05-13T22:48:37.672Z"
+      "firstSeenAt": "2026-05-13T22:48:37.672Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-administratif-ve-otis-valais-otis-martigny"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-administratif-ve-otis-valais-otis-martigny"
+      ]
     },
     {
       "id": "otis-27a4916be08c",
@@ -439,7 +447,6 @@
       "previousSlugs": [
         "expert-technique-h-f-otis-sa-belp",
         "esperto-tecnico-m-f-d-otis-sa-belp-b38cfb",
-        "technical-expert-m-w-d-otis-belp",
         "esperto-tecnico-m-f-d-otis-sa-belp"
       ],
       "previousSlugsByLocale": {

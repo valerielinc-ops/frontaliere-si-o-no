@@ -2985,11 +2985,11 @@
     },
     {
       "id": "ubs-e71061bbe0d4",
-      "slug": "gwm-finance-intern-ubs",
+      "slug": "gwm-finanza-tirocinante-ubs",
       "slugByLocale": {
         "en": "gwm-finance-intern-ubs",
-        "it": "gwm-finance-intern-ubs",
-        "de": "gwm-finance-intern-ubs",
+        "it": "gwm-finanza-tirocinante-ubs",
+        "de": "gwm-finanzen-praktikant-ubs",
         "fr": "gwm-finance-intern-ubs"
       },
       "company": "UBS",
@@ -3053,7 +3053,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T23:15:02.481Z"
+      "firstSeenAt": "2026-05-13T23:15:02.481Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gwm-finance-intern-ubs"
+        ],
+        "de": [
+          "gwm-finance-intern-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "gwm-finance-intern-ubs"
+      ]
     },
     {
       "id": "ubs-3547c598f134",
