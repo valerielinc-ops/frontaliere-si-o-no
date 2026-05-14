@@ -1,38 +1,38 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-05-13T22:51:51.063Z",
-  "total": 10,
+  "generatedAt": "2026-05-14T11:34:44.486Z",
+  "total": 11,
   "newCount": 1,
-  "updatedCount": 6,
+  "updatedCount": 10,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 87207,
-  "avgDurationMs": 87207,
+  "unchangedCount": 0,
+  "durationMs": 27502,
+  "avgDurationMs": 27502,
   "durationHistory": [
-    87207
+    27502
   ],
   "newJobs": [
     {
-      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73636-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/73636-de_DE",
-      "title": "PostAuto-Fahrer:in",
+      "url": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/73637-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Quereinsteigerin-als-PostAuto-Fahrerin/73637-de_DE",
+      "title": "Quereinsteiger:in als PostAuto-Fahrer:in",
       "company": "PostAuto",
       "companyKey": "posta-svizzera-centro-regionale",
       "location": "Ilanz",
       "canton": "GR",
       "country": "CH",
-      "slug": "postauto-fahrer-in-post",
+      "slug": "quereinsteiger-in-als-postauto-fahrer-in-post",
       "sourceLang": "de",
       "department": "",
       "category": "servizi-postali",
       "datePosted": "2026-05-13",
-      "validThrough": "2026-06-03",
+      "validThrough": "2026-06-10",
       "source": "postch-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
       "sector": "Servizi Postali",
-      "workload": "20-100%",
+      "workload": "80-100%",
       "_targetScope": {
         "canton": "GR",
         "location": "Ilanz"
@@ -49,6 +49,92 @@
     }
   ],
   "updatedJobs": [
+    {
+      "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/73636-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/PostAuto-Fahrerin/73636-de_DE",
+      "title": "PostAuto-Fahrer:in",
+      "company": "PostAuto",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Ilanz",
+      "canton": "GR",
+      "country": "CH",
+      "slug": "driver-per-il-carrello-postauto-ilanz",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-05-13",
+      "validThrough": "2026-06-03",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "20-100%",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Ilanz"
+      },
+      "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-17ff4c3a48fc",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via la Santa 1",
+      "postalCode": "6500",
+      "addressLocality": "Ilanz",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-13T22:51:51.062Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://job.post.ch/default/job/Zustellerin-Pakete/73486-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Pakete/73486-de_DE",
+      "title": "Zusteller:in Pakete",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Untervaz",
+      "canton": "GR",
+      "country": "CH",
+      "slug": "zusteller-in-pakete-post",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-05-13",
+      "validThrough": "2026-06-03",
+      "source": "postch-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "80-100%",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Untervaz"
+      },
+      "crawledAt": "",
+      "id": "posta-svizzera-centro-regionale-946e766a9940",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via la Santa 1",
+      "postalCode": "6500",
+      "addressLocality": "Untervaz",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-13T11:42:33.116Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73273-de_DE",
       "applyUrl": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73273-de_DE",
@@ -74,7 +160,6 @@
         "location": "Trun"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-c4c3d5a77223",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -85,11 +170,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-13T11:42:33.116Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -118,7 +203,6 @@
         "location": "Samedan"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-26e166c0a5d1",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -129,11 +213,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-13T11:42:33.116Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -162,7 +246,6 @@
         "location": "Chur"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-4a516de3ee04",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -173,11 +256,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-13T11:42:33.116Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -206,7 +289,6 @@
         "location": "Scuol"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-890e79c1b976",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -217,11 +299,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-13T11:42:33.116Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -250,7 +332,6 @@
         "location": "Davos Platz"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-c26b019ebd4e",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -261,10 +342,55 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-13T11:42:33.116Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://job.post.ch/default/job/Kundenberaterin/73459-de_DE",
+      "applyUrl": "https://job.post.ch/default/job/Kundenberaterin/73459-de_DE",
+      "title": "Kundenberater:in",
+      "company": "Die Schweizerische Post",
+      "companyKey": "posta-svizzera-centro-regionale",
+      "location": "Promontogno",
+      "canton": "GR",
+      "country": "CH",
+      "slug": "consulente-alla-clientela-die-schweizerische-post-promontogno",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-postali",
+      "datePosted": "2026-04-22",
+      "validThrough": "2026-05-15",
+      "source": "postch-careers-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Postali",
+      "workload": "40-50%",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Promontogno"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "posta-svizzera-centro-regionale-877ff59f71dd",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via la Santa 1",
+      "postalCode": "6500",
+      "addressLocality": "Promontogno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-13T11:42:33.116Z",
+      "retranslationAttempts": 1,
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 7,
         "translation": 16,
         "completeness": 20
       }
@@ -294,7 +420,6 @@
         "location": "Davos Platz"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-374c1ef0e3a2",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -305,102 +430,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-13T11:42:33.116Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 20
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://job.post.ch/default/job/Zustellerin-Pakete/73486-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Zustellerin-Pakete/73486-de_DE",
-      "title": "Zusteller:in Pakete",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Untervaz",
-      "canton": "GR",
-      "country": "CH",
-      "slug": "zusteller-in-pakete-post",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-05-13",
-      "validThrough": "2026-06-03",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "80-100%",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Untervaz"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "id": "posta-svizzera-centro-regionale-946e766a9940",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via la Santa 1",
-      "postalCode": "6500",
-      "addressLocality": "Untervaz",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-13T11:42:33.116Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://job.post.ch/default/job/Kundenberaterin/73459-de_DE",
-      "applyUrl": "https://job.post.ch/default/job/Kundenberaterin/73459-de_DE",
-      "title": "Kundenberater:in",
-      "company": "Die Schweizerische Post",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Promontogno",
-      "canton": "GR",
-      "country": "CH",
-      "slug": "kundenberater-in-die-schweizerische-post-promontogno",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-postali",
-      "datePosted": "2026-04-22",
-      "validThrough": "2026-05-15",
-      "source": "postch-careers-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Postali",
-      "workload": "40-50%",
-      "_targetScope": {
-        "canton": "GR",
-        "location": "Promontogno"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "id": "posta-svizzera-centro-regionale-877ff59f71dd",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Via la Santa 1",
-      "postalCode": "6500",
-      "addressLocality": "Promontogno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-05-13T11:42:33.116Z",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 7,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -429,7 +463,6 @@
         "location": "Bellinzona"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-83cfb3b84e0a",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -440,13 +473,15 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-13T11:42:33.116Z",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
