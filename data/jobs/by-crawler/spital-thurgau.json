@@ -760,9 +760,7 @@
       "previousSlugs": [
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
         "dipl-pflegefachmann-frau-forensik-stgag-ch",
-        "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
-        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
-        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
+        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4639,7 +4637,6 @@
         "dipl-pflegefachmann-frau-forensik-stgag-ch",
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
-        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
         "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa"
       ],
       "previousSlugsByLocale": {
@@ -6137,8 +6134,7 @@
         "fachmann-frau-gesundheit-efz-im-springerpool-stgag-ch",
         "fachmann-frau-gesundheit-cfc-im-springerpool-spital-thurgau-stgag-diessenhofen",
         "dipl-pflegefachmann-frau-im-pool-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "psychologen-in-im-bereich-forensik-ambulanz-kalchrain-stgag-ch",
-        "salute-professionale-moglie-efz-nella-springerpool-spital-thurgau-stgag-diessenhofen"
+        "psychologen-in-im-bereich-forensik-ambulanz-kalchrain-stgag-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6634,7 +6630,7 @@
       "id": "spital-thurgau-d3ee284efef5",
       "slug": "dipl-professional-wife-operations-technology-hf-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "medico-senior-linea-terapeutica-spital-thurgau-stgag-weinfelden",
+        "it": "dipl-professional-wife-operations-technology-hf-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "en": "dipl-fachmann-frau-operationstechnik-hf-stgag-ch-2",
         "de": "dipl-fachmann-frau-operationstechnik-hf-stgag-ch",
         "fr": "dipl-fachmann-frau-operationstechnik-hf-stgag-ch-2"
@@ -6684,15 +6680,16 @@
         "dipl-fachmann-frau-operationstechnik-hf-stgag-ch-2",
         "dipl-fachmann-frau-operationstechnik-hf-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "dipl-fachmann-frau-operationstechnik-hf-stgag-ch",
+        "medico-senior-linea-terapeutica-spital-thurgau-stgag-weinfelden",
         "specialista-di-cura-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen",
-        "oberarzt-arztin-therapeutische-leitung-stgag-ch",
-        "dipl-professional-wife-operations-technology-hf-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "oberarzt-arztin-therapeutische-leitung-stgag-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachmann-frau-operationstechnik-hf-stgag-ch-2",
           "dipl-fachmann-frau-operationstechnik-hf-spital-thurgau-stgag-kantonsspital-munsterlingen",
-          "dipl-fachmann-frau-operationstechnik-hf-stgag-ch"
+          "dipl-fachmann-frau-operationstechnik-hf-stgag-ch",
+          "medico-senior-linea-terapeutica-spital-thurgau-stgag-weinfelden"
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.979Z",
@@ -6791,7 +6788,7 @@
       "id": "spital-thurgau-839de41f2877",
       "slug": "consulente-senior-mbf-medicina-interna-generale-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "specialista-di-cura-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen",
+        "it": "consulente-senior-mbf-medicina-interna-generale-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "en": "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch",
         "de": "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch",
         "fr": "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch"
@@ -6839,14 +6836,15 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch",
+        "specialista-di-cura-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen",
         "dipl-specialista-di-cura-servizio-psichiatrico-esterno-weinfelden-spital-thurgau-stgag-weinfelden",
         "pflegefachmann-frau-akutpsychiatrie-3-stgag-ch",
-        "pflegefachmann-frau-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen",
-        "consulente-senior-mbf-medicina-interna-generale-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "pflegefachmann-frau-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch"
+          "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch",
+          "specialista-di-cura-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.981Z",
@@ -10717,9 +10715,9 @@
     },
     {
       "id": "spital-thurgau-98d20c00d378",
-      "slug": "dipl-pflegefachmann-frau-im-pool-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "slug": "fachmann-frau-gesundheit-cfc-im-springerpool-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "salute-professionale-moglie-efz-nella-springerpool-spital-thurgau-stgag-diessenhofen",
+        "it": "fachmann-frau-gesundheit-cfc-im-springerpool-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "en": "professional-wife-health-efz-in-the-springerpool-spital-thurgau-stgag-diessenhofen",
         "de": "fachmann-frau-gesundheit-efz-im-springerpool-stgag-ch",
         "fr": "professionnel-femme-sante-efz-dans-le-springerpool-spital-thurgau-stgag-diessenhofen"
@@ -10767,13 +10765,15 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachmann-frau-im-pool-stgag-ch",
-        "fachmann-frau-gesundheit-efz-im-springerpool-stgag-ch",
-        "fachmann-frau-gesundheit-cfc-im-springerpool-spital-thurgau-stgag-diessenhofen",
-        "dipl-pflegefachmann-frau-im-pool-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "salute-professionale-moglie-efz-nella-springerpool-spital-thurgau-stgag-diessenhofen",
+        "dipl-pflegefachmann-frau-im-pool-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "fachmann-frau-gesundheit-cfc-im-springerpool-spital-thurgau-stgag-diessenhofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachmann-frau-im-pool-stgag-ch"
+          "dipl-pflegefachmann-frau-im-pool-stgag-ch",
+          "salute-professionale-moglie-efz-nella-springerpool-spital-thurgau-stgag-diessenhofen",
+          "dipl-pflegefachmann-frau-im-pool-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ],
         "en": [
           "dipl-pflegefachmann-frau-im-pool-stgag-ch"

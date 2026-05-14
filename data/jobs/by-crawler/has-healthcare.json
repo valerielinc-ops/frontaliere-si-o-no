@@ -33,9 +33,9 @@
       },
       "slugByLocale": {
         "it": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare",
-        "en": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9",
-        "de": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9",
-        "fr": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
+        "en": "mechanical-engineering-technician-sss-has-healthcare-advanced-synthesis-biasca",
+        "de": "mechaniker-in-hf-mechanik-has-healthcare-advanced-synthesis-biasca",
+        "fr": "technicien-ne-sss-en-construction-mecanique-has-healthcare-advanced-synthesis-biasca"
       },
       "_targetScope": {
         "canton": "TI",
@@ -62,7 +62,21 @@
       "addressLocality": "Biasca",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-13T22:19:52.888Z"
+      "firstSeenAt": "2026-05-13T22:19:52.888Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
+        ],
+        "de": [
+          "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
+        ],
+        "fr": [
+          "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
+        ]
+      },
+      "previousSlugs": [
+        "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
+      ]
     },
     {
       "title": "HSE Specialist",

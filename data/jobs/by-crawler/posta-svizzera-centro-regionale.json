@@ -24,12 +24,12 @@
         "en": "Postcar driver:in",
         "fr": "Conducteur d ' une voiture"
       },
-      "slug": "postauto-fahrer-in-post",
+      "slug": "driver-per-il-carrello-postauto-ilanz",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-post-2",
-        "en": "postauto-fahrer-in-post",
+        "it": "driver-per-il-carrello-postauto-ilanz",
+        "en": "postcar-driver-in-postauto-ilanz",
         "de": "postauto-fahrer-in-postauto-davos-platz",
-        "fr": "postauto-fahrer-in-post"
+        "fr": "conducteur-d-une-voiture-postauto-ilanz"
       },
       "sourceLang": "de",
       "department": "",
@@ -69,10 +69,22 @@
       "previousSlugsByLocale": {
         "de": [
           "postauto-fahrer-in-postauto-ilanz"
+        ],
+        "it": [
+          "postauto-fahrer-in-post-2",
+          "postauto-fahrer-in-post"
+        ],
+        "en": [
+          "postauto-fahrer-in-post"
+        ],
+        "fr": [
+          "postauto-fahrer-in-post"
         ]
       },
       "previousSlugs": [
-        "postauto-fahrer-in-postauto-ilanz"
+        "postauto-fahrer-in-postauto-ilanz",
+        "postauto-fahrer-in-post-2",
+        "postauto-fahrer-in-post"
       ]
     },
     {
@@ -97,12 +109,12 @@
         "de": "Zusteller:in Pakete",
         "fr": "Livreur de colis"
       },
-      "slug": "zusteller-in-pakete-post",
+      "slug": "consegna-pacchi-die-schweizerische-post-untervaz",
       "slugByLocale": {
-        "it": "zusteller-in-pakete-post",
-        "en": "zusteller-in-pakete-post",
+        "it": "consegna-pacchi-die-schweizerische-post-untervaz",
+        "en": "package-delivery-driver-die-schweizerische-post-untervaz",
         "de": "zusteller-in-pakete-die-schweizerische-post-untervaz",
-        "fr": "zusteller-in-pakete-post"
+        "fr": "livreur-de-colis-die-schweizerische-post-untervaz"
       },
       "sourceLang": "de",
       "department": "",
@@ -138,7 +150,21 @@
       "addressLocality": "Untervaz",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-13T11:42:33.116Z"
+      "firstSeenAt": "2026-05-13T11:42:33.116Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73273-de_DE",
@@ -165,9 +191,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-trun",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "mail-and-parcel-delivery-die-schweizerische-post-trun",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-de-lettres-et-de-colis-die-schweizerische-post-trun"
       },
       "sourceLang": "de",
       "department": "",
@@ -187,6 +213,12 @@
       "id": "posta-svizzera-centro-regionale-c4c3d5a77223",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -238,9 +270,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-samedan",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-samedan",
-        "en": "zusteller-in-briefe-und-pakete-post-2",
+        "en": "mail-and-parcel-delivery-person-die-schweizerische-post-samedan",
         "de": "zusteller-in-briefe-und-pakete-post-2",
-        "fr": "zusteller-in-briefe-und-pakete-post-2"
+        "fr": "livreur-de-lettres-et-de-colis-die-schweizerische-post-samedan"
       },
       "sourceLang": "de",
       "department": "",
@@ -260,6 +292,12 @@
       "id": "posta-svizzera-centro-regionale-26e166c0a5d1",
       "previousSlugsByLocale": {
         "it": [
+          "zusteller-in-briefe-und-pakete-post-2"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post-2"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post-2"
         ]
       },
@@ -308,12 +346,12 @@
         "de": "Ticketkontrolleur:in und Kundenberatung",
         "fr": "Contrôleur de billets et conseiller clientèle"
       },
-      "slug": "ticketkontrolleur-in-e-kundenberatung-postauto-chur",
+      "slug": "controllore-biglietti-e-consulenza-clienti-postauto-chur",
       "slugByLocale": {
-        "it": "ticketkontrolleur-in-e-kundenberatung-postauto-chur",
-        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
+        "it": "controllore-biglietti-e-consulenza-clienti-postauto-chur",
+        "en": "ticket-controller-and-customer-advisor-postauto-chur",
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-chur",
-        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        "fr": "controleur-de-billets-et-conseiller-clientele-postauto-chur"
       },
       "sourceLang": "de",
       "department": "",
@@ -333,11 +371,20 @@
       "id": "posta-svizzera-centro-regionale-4a516de3ee04",
       "previousSlugsByLocale": {
         "it": [
-          "ticketkontrolleur-in-und-kundenberatung-post"
+          "ticketkontrolleur-in-und-kundenberatung-post",
+          "ticketkontrolleur-in-e-kundenberatung-postauto-chur"
+        ],
+        "en": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
+        ],
+        "fr": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
         ]
       },
       "previousSlugs": [
-        "ticketkontrolleur-in-und-kundenberatung-post"
+        "ticketkontrolleur-in-und-kundenberatung-post",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-chur",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -381,12 +428,12 @@
         "de": "Ticketkontrolleur:in und Kundenberatung",
         "fr": "Contrôleur de billets et conseiller clientèle"
       },
-      "slug": "ticketkontrolleur-in-e-kundenberatung-postauto-scuol",
+      "slug": "controllore-biglietti-e-consulente-clienti-postauto-scuol",
       "slugByLocale": {
-        "it": "ticketkontrolleur-in-e-kundenberatung-postauto-scuol",
-        "en": "ticketkontrolleur-in-und-kundenberatung-postauto-scuol",
+        "it": "controllore-biglietti-e-consulente-clienti-postauto-scuol",
+        "en": "ticket-controller-and-customer-advisor-postauto-scuol",
         "de": "ticketkontrolleur-in-und-kundenberatung-postauto-scuol",
-        "fr": "ticketkontrolleur-in-und-kundenberatung-postauto-scuol"
+        "fr": "controleur-de-billets-et-conseiller-clientele-postauto-scuol"
       },
       "sourceLang": "de",
       "department": "",
@@ -406,11 +453,20 @@
       "id": "posta-svizzera-centro-regionale-890e79c1b976",
       "previousSlugsByLocale": {
         "it": [
-          "ticketkontrolleur-in-und-kundenberatung-post-2"
+          "ticketkontrolleur-in-und-kundenberatung-post-2",
+          "ticketkontrolleur-in-e-kundenberatung-postauto-scuol"
+        ],
+        "en": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-scuol"
+        ],
+        "fr": [
+          "ticketkontrolleur-in-und-kundenberatung-postauto-scuol"
         ]
       },
       "previousSlugs": [
-        "ticketkontrolleur-in-und-kundenberatung-post-2"
+        "ticketkontrolleur-in-und-kundenberatung-post-2",
+        "ticketkontrolleur-in-e-kundenberatung-postauto-scuol",
+        "ticketkontrolleur-in-und-kundenberatung-postauto-scuol"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -454,12 +510,12 @@
         "de": "PostAuto-Fahrer:in",
         "fr": "Conducteur d ' une voiture"
       },
-      "slug": "postauto-fahrer-in-post-2",
+      "slug": "driver-per-il-carrello-postauto-davos-platz",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-post-2",
-        "en": "postauto-fahrer-in-post",
+        "it": "driver-per-il-carrello-postauto-davos-platz",
+        "en": "postcar-driver-in-postauto-davos-platz",
         "de": "postauto-fahrer-in-postauto-davos-platz",
-        "fr": "postauto-fahrer-in-post"
+        "fr": "conducteur-d-une-voiture-postauto-davos-platz"
       },
       "sourceLang": "de",
       "department": "",
@@ -495,7 +551,22 @@
       "addressLocality": "Davos Platz",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-13T11:42:33.116Z"
+      "firstSeenAt": "2026-05-13T11:42:33.116Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-post-2"
+        ],
+        "en": [
+          "postauto-fahrer-in-post"
+        ],
+        "fr": [
+          "postauto-fahrer-in-post"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-post-2",
+        "postauto-fahrer-in-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Kundenberaterin/73459-de_DE",
@@ -597,9 +668,9 @@
       "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-davos-platz",
       "slugByLocale": {
         "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-davos-platz",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "en": "teaching-as-a-logistics-provider-mixed-delivery-in-efz-distribution-letters-and-packages-die-schweizerische-post-davos",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "enseignement-en-tant-que-fournisseur-de-logistique-efz-distribution-livraison-mixte-lettres-et-paquets-die"
       },
       "sourceLang": "de",
       "department": "",
@@ -620,11 +691,16 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lette",
         "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lette"
       ],
       "salaryMin": 41600,
@@ -672,9 +748,9 @@
       "slug": "pianificatore-pianificatrice-d-offerta-sud-autopostale-bellinzona",
       "slugByLocale": {
         "it": "pianificatore-pianificatrice-d-offerta-sud-autopostale-bellinzona",
-        "en": "pianificatore-pianificatrice-d-offerta-sud-post",
-        "de": "pianificatore-pianificatrice-d-offerta-sud-post",
-        "fr": "pianificatore-pianificatrice-d-offerta-sud-post"
+        "en": "south-offer-planner-autopostale-bellinzona",
+        "de": "angebotsplaner-in-sud-autopostale-bellinzona",
+        "fr": "planificateur-planificatrice-d-offre-sud-autopostale-bellinzona"
       },
       "sourceLang": "it",
       "department": "",
@@ -694,6 +770,15 @@
       "id": "posta-svizzera-centro-regionale-83cfb3b84e0a",
       "previousSlugsByLocale": {
         "it": [
+          "pianificatore-pianificatrice-d-offerta-sud-post"
+        ],
+        "en": [
+          "pianificatore-pianificatrice-d-offerta-sud-post"
+        ],
+        "de": [
+          "pianificatore-pianificatrice-d-offerta-sud-post"
+        ],
+        "fr": [
           "pianificatore-pianificatrice-d-offerta-sud-post"
         ]
       },
