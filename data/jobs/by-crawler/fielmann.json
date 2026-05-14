@@ -237,7 +237,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "fielmann-4e6719830cb1",
@@ -2249,7 +2250,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "fielmann-36d02ec1883b",
@@ -2313,7 +2315,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "fielmann-0f27052f1a48",
@@ -2723,7 +2726,9 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "fielmann-00dbba3e9007",

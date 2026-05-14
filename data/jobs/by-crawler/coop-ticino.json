@@ -69,7 +69,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "en": [
           "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
@@ -149,7 +149,9 @@
       },
       "previousSlugs": [
         "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden-8axa4k"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-w2vgxm",
@@ -230,7 +232,9 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-cprmen",
@@ -311,7 +315,9 @@
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-j9odwp",
@@ -389,7 +395,9 @@
       },
       "previousSlugs": [
         "verkaufer-in-nonfood-coop-chur-graubunden-j9odwp"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-metayj",
@@ -420,9 +428,9 @@
       "firstSeenAt": "2026-05-13T10:51:38.179Z",
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "en": "seller-in-food-coop-genossenschaft-felsberg-6dde92",
+        "en": "seller-in-food-coop-genossenschaft-felsberg",
         "de": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -463,8 +471,8 @@
         ],
         "en": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-          "seller-in-food-coop-genossenschaft-felsberg",
-          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+          "seller-in-food-coop-genossenschaft-felsberg-6dde92"
         ],
         "de": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
@@ -472,17 +480,19 @@
         ],
         "fr": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
-          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-        "seller-in-food-coop-genossenschaft-felsberg",
         "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+        "seller-in-food-coop-genossenschaft-felsberg-6dde92",
         "verkaufer-in-food-coop-genossenschaft-felsberg-lzsoh3",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
-      ]
+        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-o367qu",
@@ -575,7 +585,7 @@
         "responsable-du-rayon-nonfood-coop-genossenschaft-klosters-serneus"
       ],
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-6azqre",
@@ -647,9 +657,7 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-tessin-steinfels-swiss-winterthur-zurich-6azqre"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      ]
     },
     {
       "id": "company-3pl1h6",
@@ -729,7 +737,9 @@
         "kochin-koch-m-w-d-coop-ristorante-davos-platz-3pl1h6",
         "kochin-koch-w-m-d-coop-genossenschaft-davos",
         "kochin-koch-w-m-d-coop-genossenschaft-davos"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-pa5qt0",
@@ -808,7 +818,9 @@
       "previousSlugs": [
         "associate-gastronomie-coop-ristorante-davos-platz-pa5qt0",
         "collaborateur-trice-gastronomie-coop-ristorante-davos-platz-pa5qt0"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-4c7u4w",
@@ -878,7 +890,9 @@
       "previousSlugs": [
         "additional-apprenticeship-als-detailhandelsfachfrau-mann-efz-jumbo-grigioni-4c7u4w",
         "formation-complementaire-als-detailhandelsfachfrau-mann-efz-jumbo-grigioni-4c7u4w"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-7jjh6d",
@@ -956,9 +970,7 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-chur-graubunden-7jjh6d"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      ]
     },
     {
       "id": "company-dmiw8r",
@@ -1025,7 +1037,7 @@
         "cambio-carriera-cuoco-cuoca-in-ristorazione-sistemica-f-m-d-coop-genossenschaft-graubunden"
       ],
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-rf7c8w",
@@ -1082,7 +1094,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-i63w01",
@@ -1795,7 +1807,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ruhpr3",
@@ -1850,7 +1862,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-xobfzx",
@@ -1905,7 +1917,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-jwg1tt",
@@ -1960,7 +1972,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-o2pr97",
@@ -2015,7 +2027,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-1phnki",
@@ -2070,7 +2082,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ckylxf",
@@ -2125,7 +2137,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-fh3ugp",
@@ -2180,7 +2192,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-91gltk",
@@ -2295,7 +2307,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-n4f99v",
@@ -2352,7 +2364,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-paz7ck",
@@ -2409,7 +2421,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-u93w1d",
@@ -2466,7 +2478,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-nj9ppx",
@@ -2581,7 +2593,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-um8w6y",
@@ -2635,7 +2647,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ex2oj9",
@@ -2693,7 +2705,7 @@
         "cuciniera-gastronomica-efz-coop-ristorante-gossau"
       ],
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-tychyk",
@@ -2748,7 +2760,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ih2nto",
@@ -2803,7 +2815,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-r8azr7",
@@ -2857,7 +2869,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-xza3wt",
@@ -2914,7 +2926,7 @@
         "pasticcere-pasticceri-confettieri-coop-gossau"
       ],
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-czukhm",
@@ -2969,7 +2981,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-mstu0r",
@@ -3024,7 +3036,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-9cq18h",
@@ -3079,7 +3091,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-eit0d2",
@@ -3134,7 +3146,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-s5py3x",
@@ -3189,7 +3201,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-7ikmrq",
@@ -3243,7 +3255,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-togst4",
@@ -3298,7 +3310,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-p9e0n7",
@@ -3353,7 +3365,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-cm7fl1",
@@ -3408,7 +3420,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-94l03c",
@@ -3463,7 +3475,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-iuys8n",
@@ -3518,7 +3530,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-6yppen",
@@ -3573,7 +3585,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-c20p08",
@@ -3628,7 +3640,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-uapqtq",
@@ -3683,7 +3695,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-h8m33",
@@ -3738,7 +3750,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-d5xyy2",
@@ -3807,7 +3819,9 @@
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-interdiscount-grigioni-d5xyy2"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-ovxh7g",
@@ -3862,7 +3876,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-pd7xlx",
@@ -3917,7 +3931,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-r5vpxa",
@@ -3972,7 +3986,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-38decq",
@@ -4027,7 +4041,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-yq34a4",
@@ -4082,7 +4096,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-uglo11",
@@ -4137,7 +4151,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-h9i811",
@@ -4206,7 +4220,9 @@
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-interdiscount-grigioni-h9i811"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-fgt457",
@@ -4261,7 +4277,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-6y8rn9",
@@ -4316,7 +4332,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-2zdn0o",
@@ -4371,7 +4387,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-y26sob",
@@ -4426,7 +4442,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-nsscih",
@@ -4481,7 +4497,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ataxgb",
@@ -4535,7 +4551,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-sz1j6n",
@@ -4590,7 +4606,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ymbv0r",
@@ -4645,7 +4661,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-jeizv7",
@@ -4700,7 +4716,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-iu0e2b",
@@ -4755,7 +4771,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-h288f8",
@@ -4810,7 +4826,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-cxtwa6",
@@ -4865,7 +4881,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-2kwafk",
@@ -4935,7 +4951,9 @@
       "previousSlugs": [
         "retail-sales-specialist-efz-shaping-shopping-experiences-interdiscount-grigioni",
         "specialiste-de-vente-au-detail-efz-creer-des-experiences-d-achat-interdiscount-grigioni"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-s8ey7i",
@@ -5004,7 +5022,9 @@
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-k1bc5i",
@@ -5058,7 +5078,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-bho34r",
@@ -5112,7 +5132,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-4iugqw",
@@ -5166,7 +5186,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-96xkec",
@@ -5235,7 +5255,9 @@
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-interdiscount-grigioni-96xkec"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-6z6qsu",
@@ -5305,7 +5327,9 @@
       "previousSlugs": [
         "retail-salesperson-interdiscount-grigioni",
         "vendeur-e-en-detail-interdiscount-grigioni"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-1ceqqh",
@@ -5362,7 +5386,7 @@
         "dettagliato-assistente-commerciale-coop-gossau"
       ],
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-hwivop",
@@ -5416,7 +5440,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-6v37ek",
@@ -5470,7 +5494,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-lc95ys",
@@ -5540,7 +5564,9 @@
       "previousSlugs": [
         "retail-specialist-efz-for-shaping-shopping-experiences-jumbo-grigioni",
         "specialiste-du-retail-efz-pour-la-creation-d-experiences-d-achat-jumbo-grigioni"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-rs1mp6",
@@ -5594,7 +5620,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-aiq29c",
@@ -5648,7 +5674,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-oy7a55",
@@ -5702,7 +5728,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-21fe1k",
@@ -5756,7 +5782,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-4i2cnx",
@@ -5810,7 +5836,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-97qtb8",
@@ -5864,7 +5890,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ccing2",
@@ -5918,7 +5944,7 @@
         }
       },
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "company-ncbhm0",
@@ -5997,9 +6023,7 @@
       "previousSlugs": [
         "quereinstieg-associate-fleisch-und-fisch-coop-grigioni-ncbhm0",
         "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-ncbhm0"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      ]
     },
     {
       "id": "company-e66ikm",
@@ -6803,9 +6827,9 @@
       },
       "descriptionByLocale": {
         "de": "## Rayonleiter:in Frischprodukte\n\n**Coop Genossenschaft** — Davos, Platz, Svizzera\n\n## Aufgaben\n- Dein Ziel, wenn du das Rayon Frischeprodukte führst: dass unsere Kundschaft beim täglichen Einkaufen das bestmögliche Frischeerlebnis geniesst.\n- Wenn du die Verantwortung hast, regen die präsentierten Frischeprodukte den Appetit an und sind im Verkauf stets verfügbar.\n- Bei Fragen und Anliegen bist du mit deinem Wissen gerne für die Kundschaft da.\n- Gegenseitiger Respekt: Dieses Credo lebst du Tag für Tag und sorgst so für eine angenehme Atmosphäre im Team.\n\n## Anforderungen\n- Abgeschlossene Grundbildung im Detailhandel oder entsprechende Berufserfahrung im Verkaufsbereich? Dann bist du bei uns richtig.\n- Erfahrung in Verkauf und Führung in vergleichbarer Funktion hast du bereits.\n- Warenkenntnisse im Verantwortungsbereich Frischprodukte? Damit holst du dir Extrapunkte.\n- Deutsch schriftlich und mündlich: Darin bist du sehr gut.\n- Was die Einsatzzeiten betrifft, bist du flexibel.\n- Dich in neue Systeme einzudenken, fällt dir leicht.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nNadia Ruetsch\nHR Marketing\n\n---\n**Tipo:** Part-time\n**Sede:** Davos",
-        "it": "Rayon Leader: nei prodotti freschi Coop Cooperative — Davos, Platz, Svizzera ## Compiti - Il vostro obiettivo se si esegue i prodotti freschi Rayon: che il nostro cliente gode della migliore esperienza di freschezza nello shopping quotidiano. - No. Se avete la responsabilità, i prodotti freschi presentati stimolano l'appetito e sono sempre disponibili in vendita. - No. In caso di domande e preoccupazioni, siete soddisfatti della vostra conoscenza per la clientela. - Rispetto reciproco: Vivi questo Credo giorno per giorno e così la cura di una piacevole atmosfera nella squadra. ## \n• Requisiti - Completa formazione di base nel commercio al dettaglio o corrispondente esperienza professionale nelle vendite? Allora hai ragione con noi. - No. Hai già esperienza nelle vendite e nella leadership in funzione paragonabile. - Buona conoscenza della responsabilità per i prodotti freschi? Avrai punti extra. - Tedesco per iscritto e orale: Lei è molto bravo in esso. - Sei flessibile in termini di tempi operativi. - Vantaggi: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte numero di supermercati, fino a 20% di sconto su vari servizi di assicurazione, fino a 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamenti, sconto sulla mobilità Sconto CarSharing su abbonamento annuale, Partecipazione gratuita a vari corsi aziendali, Offerte di sport interni ## Il tuo contatto Nadia Tipotsch HR Marketing ---",
-        "en": "Rayon Leader:in fresh products Coop Cooperative — Davos, Platz, Svizzera ## Tasks - Your goal if you run the Rayon fresh products: that our client enjoys the best freshness experience in daily shopping. - If you have the responsibility, the fresh products presented stimulate appetite and are always available for sale. - In case of questions and concerns, you are happy with your knowledge for the clientele. - Mutual respect: You live this Credo day by day and so care for a pleasant atmosphere in the team. ## \n• Requirements - Complete basic training in retail trade or corresponding professional experience in sales? Then you're right with us. - You already have experience in sales and leadership in comparable function. - Good knowledge of the responsibility for fresh products? You'll get extra points. - German in writing and oral: You are very good at it. - You're flexible in terms of operating times. - Benefits: discount on the travel offer ITS Coop Travel, 5-fold number of supermarkets, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscriptions, discount on mobility CarSharing Discount on annual subscription, Free participation in various company courses, Internal sports offers ## Your contact Nadia Ruetsch HR Marketing --- Tipo: Part-time Sede: Davos",
-        "fr": "Rayon Leader:dans les produits frais Coop Cooperative — Davos, Platz, Svizzera ## Tâches - Votre objectif si vous exécutez les produits frais Rayon: que notre client bénéficie de la meilleure expérience de fraîcheur dans les achats quotidiens. - Oui. Si vous avez la responsabilité, les produits frais présentés stimulent l'appétit et sont toujours disponibles à la vente. - Oui. En cas de questions et de préoccupations, vous êtes satisfait de vos connaissances pour la clientèle. - Respect mutuel: Vous vivez ce Credo jour après jour et vous souciez d'une atmosphère agréable dans l'équipe. ## \n• Exigences - Compléter la formation de base dans le commerce de détail ou l'expérience professionnelle correspondante dans les ventes? Alors tu es avec nous. - Oui. Vous avez déjà de l'expérience dans les ventes et le leadership dans des fonctions comparables. - Bonne connaissance de la responsabilité des produits frais? Vous aurez des points supplémentaires. - Allemand par écrit et oral: Vous êtes très bon à elle. - Vous êtes flexible en termes de temps d'exploitation. - Avantages: réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de supermarchés, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats du Groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur les abonnements, réduction sur la mobilité AutoSharing Réduction sur l'abonnement annuel, participation gratuite à divers cours d'entreprise, offres sportives internes ## Votre contact Nadia Ruetsch HR Marketing --- Tipo: Sede à temps partiel: Davos"
+        "it": "## Scala Rayon:in prodotti freschi\n\n**Coop Cooperative** — Davos, place, Svizzera\n\nCompiti\n- Il vostro obiettivo se gestite i prodotti freschi Rayon: che i nostri clienti godono della migliore esperienza di freschezza nello shopping quotidiano.\n- Se avete la responsabilità, i prodotti freschi presentati stimolano l'appetito e sono sempre disponibili in vendita.\n- In caso di domande e preoccupazioni, siete soddisfatti della vostra conoscenza per la clientela.\n- Rispettando: Vivi questo Credo giorno per giorno, rendendolo un'atmosfera piacevole nella squadra.\n\n= Requisiti\n- Formazione di base completa nel commercio al dettaglio o corrispondente esperienza professionale nelle vendite? Allora hai ragione con noi.\n- Hai già esperienza nelle vendite e nella leadership in funzione paragonabile.\n- Buona conoscenza della responsabilità per i prodotti freschi? Avrai punti extra.\n- Tedesco per iscritto e orale: Lei è molto bravo in esso.\n- Sei flessibile in termini di tempi operativi.\n- Pensare in nuovi sistemi è facile per voi.\n- Vantaggi: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamento, sconto sulla mobilità CarSharing, sconto personale anche per i partner:in (favorevole)\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, Condizioni interessanti di occupazione e parità di retribuzione certificata, premi di fedeltà, piano di risparmio presso il Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità pagato\n- Tempo di lavoro: 5 settimane di vacanza, modelli di tempo di lavoro flessibili\n- Formazione continua: oltre 600 corsi di formazione interna, gestione del talento con una vasta gamma di possibilità di sviluppo, formazione e formazione offerta da L-GAV e Coop\n- Sostenibilità: impegno per l'uomo, gli animali e la natura con più di 400 azioni\n- Comunicazione: applicazione interna per i dipendenti\n- Salute: Aggiornamento fitness: Fr. 200.– Sconto su abbonamento annuale, Partecipazione gratuita a vari corsi aziendali, Offerte sportive interne\n\n## La tua persona di contatto\nNadia Ruetsch\nHR Marketing\n\n---\n**Tipo: Tempo parziale\nDavos",
+        "en": "## Rayon ladder:in fresh products\n\n**Coop Cooperative** — Davos, place, Svizzera\n\nTasks\n- Your goal if you run the Rayon fresh products: that our customers enjoy the best freshness experience in daily shopping.\n- If you have the responsibility, the fresh products presented stimulate appetite and are always available for sale.\n- In case of questions and concerns, you are happy with your knowledge for the clientele.\n- Reciprocating respect: You live this Credo day by day, making it a pleasant atmosphere in the team.\n\n= Requirements\n- Complete basic training in retail trade or corresponding professional experience in sales? Then you're right with us.\n- You already have experience in sales and leadership in comparable function.\n- Good knowledge of the responsibility for fresh products? You'll get extra points.\n- German in writing and oral: You are very good at it.\n- You're flexible in terms of operating times.\n- Thinking you into new systems is easy for you.\n- Benefits: discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all Coop Group formats, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscription, discount on mobility CarSharing, personal discount also for partners:in (favourable)\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, Attractive conditions of employment and certified pay equality, fidelity premiums, savings plan at the Pension Fund, total employment contract (GAV), 18 weeks paid maternity leave and three weeks paid paternity leave\n- Working time: 5 weeks vacation, flexible working time models\n- Continuing education: Over 600 internal training courses, talent management with a wide range of possibilities for development, training and further training offered by L-GAV and Coop\n- Sustainability: commitment to humans, animals and nature with more than 400 deeds\n- Communication: internal app for employees\n- Health: Update fitness: Fr. 200.– Discount on annual subscription, Free participation in various company courses, Internal sports offers\n\n## Your contact person\nNadia Ruetsch\nHR Marketing\n\n---\n**Tipo:** Part-time\n**Sede:** Davos",
+        "fr": "## Échelle de Rayon:en produits frais\n\n**Coopérative Coop** — Davos, lieu, Svizzera\n\nTâche\n- Votre objectif si vous utilisez les produits frais Rayon : que nos clients profitent de la meilleure expérience de fraîcheur dans les achats quotidiens.\n- Si vous avez la responsabilité, les produits frais présentés stimulent l'appétit et sont toujours disponibles à la vente.\n- En cas de questions et de préoccupations, vous êtes satisfait de vos connaissances pour la clientèle.\n- Respect réciproque: Vous vivez ce Credo jour après jour, ce qui en fait une atmosphère agréable dans l'équipe.\n\n= Exigences\n- Compléter la formation de base dans le commerce de détail ou l'expérience professionnelle correspondante dans les ventes? Alors tu es avec nous.\n- Vous avez déjà de l'expérience dans les ventes et le leadership dans des fonctions comparables.\n- Bonne connaissance de la responsabilité des produits frais? Vous aurez des points supplémentaires.\n- Allemand par écrit et oral: Vous êtes très bon à elle.\n- Vous êtes flexible en termes de temps d'exploitation.\n- Il est facile pour vous de penser à de nouveaux systèmes.\n- Avantages: réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats Coop Group, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, réduction sur la mobilité CarSharing, réduction personnelle également pour les partenaires: in (favorable)\n- Conditions d'emploi : Caisse de retraite : 2/3 est payé par Coop, Conditions d'emploi attractives et égalité salariale certifiée, primes de fidélité, plan d'épargne à la Caisse de retraite, contrat de travail total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation continue: plus de 600 formations internes, gestion des talents avec un large éventail de possibilités de développement, de formation et de perfectionnement offertes par L-GAV et Coop\n- Durabilité : engagement envers les humains, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : mise à jour de la forme physique : 200.– Réduction sur l'abonnement annuel, Participation gratuite à divers cours d'entreprise, Offres sportives internes\n\nVotre contact\nNadia Ruetsch\nMarketing des ressources humaines\n\n---\n**Tipo:** Temps partiel\n**Sede:** Davos"
       },
       "requirementsByLocale": {
         "it": [],
@@ -6886,9 +6910,9 @@
       },
       "descriptionByLocale": {
         "de": "## Metzger:in (Fleischfachfrau / Fleischfachmann)\n\n**Coop Genossenschaft** — Klosters-Serneus, Graubünden, Svizzera\n\n## Aufgaben\n- Die Offentheke ist unser Aushängeschild und wichtiger Kontaktpunkt für unsere Kundschaft. Du berätst und bedienst diese leidenschaftlich am Buffet.\n- Frisch geschnitten und dressiert: Die Fleischwaren bereitest du fachgerecht sowie ansprechend auf und produzierst auch hausgemachte Produkte wie beispielsweise Wurstwaren.\n- Du bewirtschaftest die Waren in der Selbstbedienung und trägst dazu bei, dass sie sich besser verkaufen.\n- Kundenbestellungen über das Festtagsgeschäft, aber auch ausserhalb, werden zudem aufgenommen und bereitgestellt.\n\n## Anforderungen\n- Du bringst Freude/Flair in der Kundenberatung oder -bedienung, im Optimalfall im Lebensmittelbereich, mit und interessierst dich für Fleisch und Fisch.\n- Du punktest zusätzlich mit Berufserfahrung in einer bedienten Metzgerei. Auch Erfahrungen als Köchin/Koch (w/m/d) helfen dir in deiner täglichen Beratungsarbeit.\n- Du schätzt den nahen Kundenaustausch und berätst für dein Leben gerne.\n- Du setzt Qualitätsvorgaben und Richtlinien konsequent um.\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Aus- und Weiterbildungsangeboten des L-GAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nNadia Ruetsch\nHR Marketing\n\n---\n**Tipo:** Full-time\n**Sede:** Klosters-Serneus",
-        "it": "Metzger:in (Fleischfachfrau / Fleischfachmann) Coop Cooperative — Klosters-Serneus, Grigioni, Svizzera ## Compiti - Il bancone aperto è il nostro fiore all'occhiello e importante punto di contatto per la nostra clientela. Si consiglia e servire questo buffet appassionato. - Taglio fresco e vestito: Si preparano i prodotti di carne professionalmente e attraente e anche produrre prodotti fatti in casa come salsicce. - No. Gestisci la merce in self-service e li aiuti a vendere meglio. - Gli ordini dei clienti relativi al business fisso, ma anche al di fuori, sono inclusi e forniti. ## \n• Requisiti - Porti gioia/fiamma nel consiglio del cliente o nel servizio, nel caso ottimale nel settore alimentare, con te e interessato a carne e pesce. - No. Punteggi anche con esperienza professionale in un macellaio servito. Le esperienze come cuoco/cook (w/m/d) ti aiutano nel tuo lavoro di consulenza quotidiana. - No. Apprezzi lo scambio di clienti vicino e sei felice di consigliare la tua vita. Riduzioni: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di supermercati, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamento, sconto sulla mobilità Sconto CarSharing su abbonamento annuale, Partecipazione gratuita a vari corsi aziendali, Offerte di sport interni ## Il tuo contatto Nadia Ruetsch HR Marketing --- Tipo: A tempo pieno Sede: Klosters-Serneus",
-        "en": "Metzger:in (Fleischfachfrau / Fleischfachmann) Coop Cooperative — Klosters-Serneus, Graubünden, Svizzera ## Tasks - The open counter is our flagship and important contact point for our clientele. You advise and serve this passionate buffet. - Fresh cut and dressed: You prepare the meat products professionally and attractively and also produce homemade products such as sausages. - You manage the goods in self-service and help them sell better. - Customer orders about the fixed-day business, but also outside, are also included and provided. ## \n• Requirements - You bring joy/flair in customer advice or service, in the optimal case in the food sector, with you and interested in meat and fish. - You also score with professional experience in a served butcher. Experiences as a cook/cook (w/m/d) help you in your daily consulting work. - You appreciate the close customer exchange and are happy to advise your life. Reductions: discount on the travel offer ITS Coop Travel, 5 times the number of supermarkets, up to 20% discount on various insurance services, up to 20% discount in all formats of the Coop Group, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscription, discount on mobility CarSharing Discount on annual subscription, Free participation in various company courses, Internal sports offers ## Your contact Nadia Ruetsch HR Marketing --- Tipo: Full-time Sede: Klosters-Serneus",
-        "fr": "Metzger:in (Fleischfachfrau / Fleischfachmann) Coopérative Coop — Klosters-Serneus, Graubünden, Svizzera ## Tâches - Le comptoir ouvert est notre point de contact phare et important pour notre clientèle. Vous conseillez et servez ce buffet passionné. - Coupe fraîche et habillée : Vous préparez les produits carnés de façon professionnelle et attrayante et vous produisez également des produits maison tels que des saucisses. - Oui. Vous gérez les marchandises en libre-service et les aidez à mieux vendre. - Les commandes du client concernant l'activité à jour fixe, mais aussi à l'extérieur, sont également incluses et fournies. ## \n• Exigences - Vous apportez de la joie/flacon dans les conseils ou le service à la clientèle, dans le cas optimal dans le secteur alimentaire, avec vous et intéressés par la viande et le poisson. - Oui. Vous marquez également avec une expérience professionnelle dans un boucher servi. Les expériences en tant que cuisinier/cuisinier (p/m/j) vous aident dans votre travail de consultation quotidien. - Oui. Vous appréciez l'échange de clients et êtes heureux de conseiller votre vie. Réductions : réduction sur l'offre de voyage ITS Coop Travel, 5 fois le nombre de supermarchés, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction sur tous les formats du groupe Coop, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card : réduction sur l'abonnement, réduction sur la mobilité CarSharing Réduction sur l'abonnement annuel, participation gratuite à divers cours d'entreprise, offres sportives internes ## Votre contact Nadia Ruetsch HR Marketing --- Tipo: Sede à temps plein: Klosters-Serneus"
+        "it": "## Metzger:in (specialista di carne)\n\n**Coop Cooperative** — Klosters-Serneus, Graubünden, Svizzera\n\nCompiti\n- Il contatore aperto è il nostro fiore all'occhiello e importante punto di contatto per i nostri clienti. Si consiglia e servire questo buffet appassionato.\n- Taglio fresco e vestito: Si preparano i prodotti a base di carne professionalmente e attraente e anche produrre prodotti fatti in casa come salsicce.\n- Tu gestisci la merce in self-service e li aiuti a vendere meglio.\n- Gli ordini dei clienti relativi al business fisso, ma anche al di fuori, sono inclusi e forniti.\n\n= Requisiti\n- Porti gioia/fiamma nella consulenza o nel servizio del cliente, nel caso ottimale nel settore alimentare, con e ti interessi per carne e pesce.\n- Si ottiene anche con esperienza professionale in un negozio di macelleria servito. Le esperienze come cuoco/cook (w/m/d) ti aiutano nel tuo lavoro di consulenza quotidiana.\n- Apprezzi lo scambio di clienti vicino e sei felice di consigliare per la tua vita.\n- Attui costantemente i requisiti e le linee guida di qualità.\n- Vantaggi: sconto sull'offerta di viaggio ITS Coop Travel, 5 volte il numero di punti super nel supermercato, fino al 20% di sconto su vari servizi assicurativi, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepagati a Coop Mobile, Reka Card: sconto su abbonamento, sconto sulla mobilità CarSharing, sconto personale anche per i partner:in (favorevole)\n- Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop, Condizioni interessanti di occupazione e parità di retribuzione certificata, premi di fedeltà, piano di risparmio presso il Fondo pensione, contratto di lavoro totale (GAV), 18 settimane di congedo di maternità retribuito e tre settimane di congedo di paternità pagato\n- Tempo di lavoro: 5 settimane di vacanza, modelli di tempo di lavoro flessibili\n- Formazione continua: oltre 600 corsi di formazione interna, gestione del talento con una vasta gamma di possibilità di sviluppo, formazione e formazione offerta da L-GAV e Coop\n- Sostenibilità: impegno per l'uomo, gli animali e la natura con più di 400 azioni\n- Comunicazione: applicazione interna per i dipendenti\n- Salute: Aggiornamento fitness: Fr. 200.– Sconto su abbonamento annuale, Partecipazione gratuita a vari corsi aziendali, Offerte sportive interne\n\n## La tua persona di contatto\nNadia Ruetsch\nHR Marketing\n\n---\n**Tipo: A tempo pieno\n# Klosters Renews #",
+        "en": "## Metzger:in (meat specialist)\n\n**Coop Cooperative** — Klosters-Serneus, Graubünden, Svizzera\n\nTasks\n- The open counter is our flagship and important contact point for our customers. You advise and serve this passionate buffet.\n- Fresh cut and dressed: You prepare the meat products professionally and appealingly and also produce homemade products such as sausages.\n- You manage the goods in self-service and help them sell better.\n- Customer orders about the fixed-day business, but also outside, are also included and provided.\n\n= Requirements\n- You bring joy/flair in customer advice or service, in the optimal case in the food sector, with and interest you for meat and fish.\n- You also score with professional experience in a served butcher shop. Experiences as a cook/cook (w/m/d) help you in your daily consulting work.\n- You appreciate the close customer exchange and are happy to advise for your life.\n- You consistently implement quality requirements and guidelines.\n- Benefits: discount on the travel offer ITS Coop Travel, 5 times the number of super points in the supermarket, up to 20% discount on various insurance services, up to 20% discount in all Coop Group formats, cheaper mobile and prepaid subscriptions at Coop Mobile, Reka Card: discount on subscription, discount on mobility CarSharing, personal discount also for partners:in (favourable)\n- Conditions of employment: Pension fund: 2/3 is paid by Coop, Attractive conditions of employment and certified pay equality, fidelity premiums, savings plan at the Pension Fund, total employment contract (GAV), 18 weeks paid maternity leave and three weeks paid paternity leave\n- Working time: 5 weeks vacation, flexible working time models\n- Continuing education: Over 600 internal training courses, talent management with a wide range of possibilities for development, training and further training offered by L-GAV and Coop\n- Sustainability: commitment to humans, animals and nature with more than 400 deeds\n- Communication: internal app for employees\n- Health: Update fitness: Fr. 200.– Discount on annual subscription, Free participation in various company courses, Internal sports offers\n\n## Your contact person\nNadia Ruetsch\nHR Marketing\n\n---\n**Tipo:** Full-time\n**Sede:** Klosters Renews",
+        "fr": "## Metzger:in (spécialiste de la viande)\n\n**Coopérative Coop** — Klosters-Serneus, Graubünden, Svizzera\n\nTâche\n- Le comptoir ouvert est notre point de contact phare et important pour nos clients. Vous conseillez et servez ce buffet passionné.\n- Coupe fraîche et habillée : Vous préparez les produits de viande de façon professionnelle et attrayante et vous produisez également des produits maison tels que des saucisses.\n- Vous gérez les marchandises en libre-service et les aidez à mieux vendre.\n- Les commandes du client concernant l'activité à jour fixe, mais aussi à l'extérieur, sont également incluses et fournies.\n\n= Exigences\n- Vous apportez de la joie dans les conseils ou le service à la clientèle, dans le cas optimal dans le secteur alimentaire, avec et l'intérêt pour la viande et le poisson.\n- Vous marquez également avec une expérience professionnelle dans une boucherie servie. Les expériences en tant que cuisinier/cuisinier (p/m/j) vous aident dans votre travail de consultation quotidien.\n- Vous appréciez l'échange de clients et êtes heureux de vous conseiller pour votre vie.\n- Vous appliquez systématiquement les exigences de qualité et les lignes directrices.\n- Avantages: réduction sur l'offre voyage ITS Coop Travel, 5 fois le nombre de super points dans le supermarché, jusqu'à 20% de réduction sur les différents services d'assurance, jusqu'à 20% de réduction dans tous les formats Coop Group, abonnements mobiles et prépayés moins chers chez Coop Mobile, Reka Card: réduction sur l'abonnement, réduction sur la mobilité CarSharing, réduction personnelle également pour les partenaires: in (favorable)\n- Conditions d'emploi : Caisse de retraite : 2/3 est payé par Coop, Conditions d'emploi attractives et égalité salariale certifiée, primes de fidélité, plan d'épargne à la Caisse de retraite, contrat de travail total (GAV), 18 semaines de congé de maternité payé et trois semaines de congé de paternité payé\n- Temps de travail: 5 semaines de vacances, modèles flexibles de temps de travail\n- Formation continue: plus de 600 formations internes, gestion des talents avec un large éventail de possibilités de développement, de formation et de perfectionnement offertes par L-GAV et Coop\n- Durabilité : engagement envers les humains, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : mise à jour de la forme physique : 200.– Réduction sur l'abonnement annuel, Participation gratuite à divers cours d'entreprise, Offres sportives internes\n\nVotre contact\nNadia Ruetsch\nMarketing des ressources humaines\n\n---\n**Tipo:** Temps plein\n**Sede:** Klosters Nouvelles"
       },
       "requirementsByLocale": {},
       "slugByLocale": {
@@ -6964,9 +6988,9 @@
       },
       "descriptionByLocale": {
         "de": "## Geschäftsführer:in Küblis\n\n**Coop Genossenschaft** — Küblis, Graubünden, Svizzera\n\n## Aufgaben\n- Alles im Griff! Als Geschäftsführer:in hast du die Verantwortung für den wirtschaftlichen Erfolg deiner Verkaufsstelle.\n- Du weisst: Wenn du deine Mitarbeitenden unterstützst und motivierst, setzst du und dein Team die Verkaufsförderungsmassnahmen erfolgreich um.\n- Unsere anspruchsvolle Kundschaft ist davon begeistert, wie du sie kompetent und zuvorkommend berätst.\n- Du sorgst für eine optimale Warenbewirtschaftung und dafür, dass deine Verkaufsstelle Lust macht zum Einkaufen.\n- Deine täglichen Aufgaben? Du erstellst den Personaleinsatzplan inkl. Kostenkontrolle und übernimmst die Filialadministration.\n\n## Anforderungen\n- Du überzeugst im Verkauf und hast Erfahrung in der Führung? Dann bist du bei uns richtig.\n- Deine Berufsausbildung im Bereich Lebensmittel hat dich zum fachlichen Profi gemacht. Betriebswirtschaftlich kompetent bist du aufgrund einer Weiterbildung.\n- Deutsch kannst du sehr gut – mündlich und schriftlich.\n- Office-Programme? Kein Problem für dich.\n- Mehrjährige Erfahrung in der Branche? Damit überzeugst du uns.\n- Vergünstigungen: bis zu 20% Rabatt in allen Formaten der Coop-Gruppe\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt\n- Arbeitszeit: 6 Wochen Ferien\n- Weiterbildung: Über 600 interne Weiterbildungskurse\n- Nachhaltigkeit: Engagement für Mensch und Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n\n## Deine Ansprechperson\nStefanie Thoma\nHR Marketing\n\n---\n**Tipo:** Full-time\n**Sede:** Küblis",
-        "it": "Amministratore delegato: in Küblis Coop Cooperative — Küblis, Grigioni, Svizzera ## Compiti - Tutto sotto controllo! Come amministratore delegato: in Lei ha la responsabilità per il successo economico del Suo ufficio di vendita. - Sai... Se supporti e motiva i tuoi dipendenti, tu e il tuo team implementerai con successo misure di promozione delle vendite. - No. La nostra clientela esigente è entusiasta di come li consigliate con competenza e cortesia. - No. Stai cercando una gestione ottimale delle merci e fai sentire il tuo ufficio vendite come fare shopping. - \n• I tuoi compiti quotidiani? Si avvierà il piano di distribuzione del personale, compreso il controllo dei costi e prendere il controllo dell'amministrazione del ramo. ## \n• Requisiti - Convinci le vendite e hai esperienza nella leadership? Allora hai ragione con noi. - La tua formazione professionale nel settore alimentare ti ha reso un professionista. Lei è competente per la gestione aziendale a causa di un'ulteriore formazione. - No. Si può fare il tedesco molto bene – orale e scritto. - Programmi di ufficio? Nessun problema per te. - Benefici: fino al 20% di sconto in tutti i formati del Gruppo Coop - Condizioni di lavoro: Fondo pensione: 2/3 è pagato da Coop - Ore lavorative: 6 settimane di vacanza - Formazione continua: Oltre 600 corsi di formazione interna - Sostenibilità: Impegno per gli esseri umani e gli animali e la natura con oltre 400 azioni - Comunicazione: app interna per i dipendenti - Salute: Aggiornamento fitness: p. 200.– Sconto su abbonamento annuale ## Il tuo contatto Stefanie Thoma HR Marketing --- Tipo: A tempo pieno Sede: Küblis",
-        "en": "Managing director:in Küblis Coop Cooperative — Küblis, Graubünden, Svizzera ## Tasks - Everything under control! As managing director:in you have the responsibility for the economic success of your sales office. - You know: If you support and motivate your employees, you and your team will successfully implement sales promotion measures. - Our demanding clientele is thrilled by how you advise them competently and courteously. - You're looking for optimal goods management and making your sales office feel like shopping. - Your daily tasks? You will start the personnel deployment plan including cost control and take over the branch administration. ## \n• Requirements - You convince in sales and have experience in leadership? Then you're right with us. - Your vocational training in the field of food has made you a professional professional. You are competent for business management due to a further training. - You can do German very well – oral and written. - Office programs? No problem for you. - Benefits: up to 20% discount in all formats of the Coop Group - Conditions of employment: Pension fund: 2/3 is paid by Coop - Working hours: 6 weeks holiday - Continuing training: Over 600 internal training courses - Sustainability: Engagement for humans and animals and nature with over 400 deeds - Communication: internal app for employees - Health: Update fitness: Fr. 200.– Discount on annual subscription ## Your contact Stefanie Thoma HR Marketing --- Tipo: Full-time Sede: Küblis",
-        "fr": "Directeur général:in Küblis Coop Cooperative — Küblis, Graubünden, Svizzera ## Tâches - Tout sous contrôle! En tant qu'administrateur délégué, vous avez la responsabilité du succès économique de votre bureau de vente. - Tu sais : Si vous soutenez et motivez vos employés, vous et votre équipe appliquerez avec succès des mesures de promotion des ventes. - Oui. Notre clientèle exigeante est ravie par la façon dont vous les conseillez avec compétence et courtoisie. - Oui. Vous recherchez une gestion optimale des marchandises et faites en sorte que votre bureau de vente se sente comme du shopping. - \n• Vos tâches quotidiennes ? Vous commencerez le plan de déploiement du personnel, y compris le contrôle des coûts et prendrez en charge l'administration de la succursale. ## \n• Exigences - Vous convainquez dans les ventes et avez de l'expérience dans le leadership? Alors tu es avec nous. - Votre formation professionnelle dans le domaine de la nourriture a fait de vous un professionnel. Vous êtes compétent pour la gestion d'entreprise en raison d'une formation complémentaire. - Oui. Vous pouvez très bien faire l'allemand – oral et écrit. - Des programmes de bureau ? Pas de problème pour toi. - Prestations: jusqu'à 20% de réduction dans tous les formats du groupe Coop - Conditions d'emploi: Caisse de pension: 2/3 est payé par Coop - Heures de travail: 6 semaines de vacances - Formation continue: Plus de 600 cours de formation interne - Durabilité: Engagement pour les humains et les animaux et la nature avec plus de 400 actes - Communication: application interne pour les employés - Santé: Mise à jour de la condition physique: Fr. 200.– Remise sur l'abonnement annuel ## Votre contact Stefanie Thoma HR Marketing --- Tipo: Temps plein Sede: Küblis"
+        "it": "## Managing Director:in Küblis\n\n**Coop Cooperative** — Küblis, Grigioni, Svizzera\n\nCompiti\n- Va bene! Come amministratore delegato: in Lei ha la responsabilità per il successo economico del Suo ufficio di vendita.\n- Sai... Se supporti e motiva i tuoi dipendenti, tu e il tuo team implementerai con successo misure di promozione delle vendite.\n- La nostra clientela esigente è entusiasta di come li consiglia con competenza e cortesia.\n- Stai cercando una gestione ottimale delle merci e fai sentire il tuo ufficio vendite come fare shopping.\n- I tuoi compiti quotidiani? Si avvierà il piano di distribuzione del personale, compreso il controllo dei costi e prendere il controllo dell'amministrazione del ramo.\n\n= Requisiti\n- Convinci la vendita e hai esperienza nella leadership? Allora hai ragione con noi.\n- La tua formazione professionale nel campo del cibo ti ha reso un professionista. Lei è competente per la gestione aziendale a causa di un'ulteriore formazione.\n- Tedesco si può molto bene – orale e scritto.\n- Programmi di ufficio? Nessun problema per te.\n- Esperienza pluriennale nel settore? Ci convincerai.\n- Vantaggi: fino al 20% di sconto in tutti i formati del Gruppo Coop\n- Condizioni di lavoro: Pensione: 2/3 è pagato da Coop\n- Ore lavorative: 6 settimane\n- Formazione continua: oltre 600 corsi di formazione interna\n- Sostenibilità: impegno per gli esseri umani e gli animali e la natura con più di 400 azioni\n- Comunicazione: applicazione interna per i dipendenti\n- Salute: Aggiornamento fitness: Fr. 200.– Sconto abbonamento annuale\n\n## La tua persona di contatto\nStefanie Thoma\nHR Marketing\n\n---\n**Tipo: A tempo pieno\nRevisione:",
+        "en": "## Managing Director:in Küblis\n\n**Coop Cooperative** — Küblis, Graubünden, Svizzera\n\nTasks\n- All right! As managing director:in you have the responsibility for the economic success of your sales office.\n- You know: If you support and motivate your employees, you and your team will successfully implement sales promotion measures.\n- Our demanding clientele is thrilled by how you advise them competently and courteously.\n- You're looking for optimal goods management and making your sales office feel like shopping.\n- Your daily tasks? You will start the personnel deployment plan including cost control and take over the branch administration.\n\n= Requirements\n- You convince in the sale and have experience in leadership? Then you're right with us.\n- Your professional training in the field of food has made you a professional professional. You are competent for business management due to a further training.\n- German you can very well – oral and written.\n- Office programs? No problem for you.\n- Multiannual experience in the industry? You'll convince us.\n- Benefits: up to 20% discount in all Coop Group formats\n- Conditions of employment: Pension: 2/3 is paid by Coop\n- Working hours: 6 weeks\n- Continuing training: Over 600 internal training courses\n- Sustainability: commitment to humans and animals and nature with more than 400 deeds\n- Communication: internal app for employees\n- Health: Update fitness: Fr. 200.– Annual subscription discount\n\n## Your contact person\nStefanie Thoma\nHR Marketing\n\n---\n**Tipo:** Full-time\n**Sede:** Küblis",
+        "fr": "## Directeur général:in Küblis\n\n**Coopérative de coop** — Küblis, Graubünden, Svizzera\n\nTâche\n- Très bien ! En tant qu'administrateur délégué, vous avez la responsabilité du succès économique de votre bureau de vente.\n- Tu sais : Si vous soutenez et motivez vos employés, vous et votre équipe appliquerez avec succès des mesures de promotion des ventes.\n- Notre clientèle exigeante est ravie de la façon dont vous les conseillez avec compétence et courtoisie.\n- Vous êtes à la recherche d'une gestion optimale des marchandises et de rendre votre bureau de vente se sentir comme des achats.\n- Vos tâches quotidiennes ? Vous commencerez le plan de déploiement du personnel, y compris le contrôle des coûts et prendrez en charge l'administration de la succursale.\n\n= Exigences\n- Vous avez de l'expérience en leadership ? Alors tu es avec nous.\n- Votre formation professionnelle dans le domaine de la nourriture a fait de vous un professionnel. Vous êtes compétent pour la gestion d'entreprise en raison d'une formation complémentaire.\n- Allemand vous pouvez très bien - oral et écrit.\n- Des programmes de bureau ? Pas de problème pour toi.\n- Expérience pluriannuelle dans l'industrie ? Vous allez nous convaincre.\n- Avantages: jusqu'à 20% de réduction dans tous les formats Coop Group\n- Conditions d'emploi: Pension: 2/3 est versée par Coop\n- Heures de travail: 6 semaines\n- Formation continue: plus de 600 formations internes\n- Durabilité : engagement envers les humains, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les salariés\n- Santé : mise à jour de la forme physique : 200.– Rabais d'abonnement annuel\n\nVotre contact\nStefanie Thoma\nMarketing des ressources humaines\n\n---\n**Tipo:** Temps plein\n**Sede:** Küblis"
       },
       "requirementsByLocale": {
         "it": [],
@@ -7371,7 +7395,8 @@
         "collaborateur-trice-inventuren-coop-grigioni-4whh8x",
         "personnel-en-inventaire-coop-genossenschaft-basel",
         "mitarbeiter-in-inventuren-coop-grigioni-4whh8x",
-        "associate-inventuren-coop-genossenschaft-basel-arot84"
+        "associate-inventuren-coop-genossenschaft-basel-arot84",
+        "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden"
       ]
     },
     {

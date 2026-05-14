@@ -1,109 +1,5 @@
 [
   {
-    "timestamp": "2026-04-30T04:17:49.084Z",
-    "label": "before",
-    "total": 2668,
-    "needsRetranslation": 99,
-    "incomplete": 42,
-    "complete": 2626,
-    "missingByLocale": {
-      "it": 30,
-      "en": 14,
-      "de": 36,
-      "fr": 36
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "International School of Ticino",
-        "pending": 2
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca Raiffeisen Vedeggio Cassarate",
-        "pending": 1
-      },
-      {
-        "company": "Ermenegildo Zegna Group",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-30T05:35:32.316Z",
-    "label": "after",
-    "total": 2668,
-    "needsRetranslation": 74,
-    "incomplete": 31,
-    "complete": 2637,
-    "missingByLocale": {
-      "it": 27,
-      "en": 7,
-      "de": 27,
-      "fr": 26
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-30T06:15:07.150Z",
     "label": "before",
     "total": 2668,
@@ -10404,6 +10300,118 @@
       {
         "company": "Tschuggen Collection",
         "pending": 7
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-14T14:35:19.242Z",
+    "label": "before",
+    "total": 4312,
+    "needsRetranslation": 973,
+    "incomplete": 332,
+    "complete": 3980,
+    "missingByLocale": {
+      "it": 249,
+      "en": 221,
+      "de": 88,
+      "fr": 255
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 87
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 20
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "UBS",
+        "pending": 15
+      },
+      {
+        "company": "IWC",
+        "pending": 11
+      },
+      {
+        "company": "MSC Group",
+        "pending": 10
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-14T15:34:42.228Z",
+    "label": "after",
+    "total": 4312,
+    "needsRetranslation": 935,
+    "incomplete": 278,
+    "complete": 4034,
+    "missingByLocale": {
+      "it": 217,
+      "en": 197,
+      "de": 70,
+      "fr": 226
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 87
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "UBS",
+        "pending": 15
+      },
+      {
+        "company": "IWC",
+        "pending": 11
+      },
+      {
+        "company": "MSC Group",
+        "pending": 10
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 6
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 5
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 5
       }
     ]
   }
