@@ -1,18 +1,19 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-05-13T22:23:31.123Z",
+  "generatedAt": "2026-05-14T11:07:04.197Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 11606,
-  "avgDurationMs": 11606,
+  "unchangedCount": 0,
+  "durationMs": 10976,
+  "avgDurationMs": 10976,
   "durationHistory": [
-    11606
+    10976
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Employé(e) Frontoffice service après-vente (m/f/d) 100%",
       "slug": "employe-e-frontoffice-service-apres-vente-m-f-d-100-hoval-crissier",
@@ -31,20 +32,25 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-13",
+      "postedDate": "2026-05-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 73,
+      "id": "hoval-dc5354be3e0d",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Pasquale Lucchini 4",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-05-13T22:23:31.122Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Frontoffice Mitarbeiter/in (m/w/d)",
       "slug": "frontoffice-mitarbeiter-in-m-w-d-hoval-harkingen",
@@ -63,7 +69,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-13",
+      "postedDate": "2026-05-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -100,7 +106,7 @@
       "sector": "IT & Digital",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-13",
+      "postedDate": "2026-05-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -137,7 +143,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-13",
+      "postedDate": "2026-05-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -148,7 +154,7 @@
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-10T10:18:58.925Z",
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -176,7 +182,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-13",
+      "postedDate": "2026-05-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -187,7 +193,7 @@
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-10T10:18:58.925Z",
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -196,10 +202,7 @@
         "translation": 19,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -218,7 +221,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-13",
+      "postedDate": "2026-05-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -255,7 +258,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-13",
+      "postedDate": "2026-05-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -274,5 +277,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
