@@ -1,109 +1,5 @@
 [
   {
-    "timestamp": "2026-04-30T02:58:08.701Z",
-    "label": "before",
-    "total": 2668,
-    "needsRetranslation": 99,
-    "incomplete": 42,
-    "complete": 2626,
-    "missingByLocale": {
-      "it": 30,
-      "en": 14,
-      "de": 36,
-      "fr": 36
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "International School of Ticino",
-        "pending": 2
-      },
-      {
-        "company": "Bank Cler",
-        "pending": 1
-      },
-      {
-        "company": "Banca Raiffeisen Vedeggio Cassarate",
-        "pending": 1
-      },
-      {
-        "company": "Ermenegildo Zegna Group",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-30T04:14:40.609Z",
-    "label": "after",
-    "total": 2668,
-    "needsRetranslation": 74,
-    "incomplete": 31,
-    "complete": 2637,
-    "missingByLocale": {
-      "it": 27,
-      "en": 7,
-      "de": 27,
-      "fr": 26
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-30T04:17:49.084Z",
     "label": "before",
     "total": 2668,
@@ -10396,6 +10292,118 @@
       {
         "company": "Badrutt's Palace Hotel",
         "pending": 6
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-14T12:08:01.061Z",
+    "label": "before",
+    "total": 4312,
+    "needsRetranslation": 2201,
+    "incomplete": 447,
+    "complete": 3865,
+    "missingByLocale": {
+      "it": 286,
+      "en": 274,
+      "de": 124,
+      "fr": 315
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 93
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 87
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 24
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 20
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "UBS",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 10
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-14T14:11:57.944Z",
+    "label": "after",
+    "total": 4312,
+    "needsRetranslation": 973,
+    "incomplete": 332,
+    "complete": 3980,
+    "missingByLocale": {
+      "it": 250,
+      "en": 221,
+      "de": 88,
+      "fr": 255
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 87
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 20
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "UBS",
+        "pending": 15
+      },
+      {
+        "company": "IWC",
+        "pending": 11
+      },
+      {
+        "company": "MSC Group",
+        "pending": 10
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
       }
     ]
   }
