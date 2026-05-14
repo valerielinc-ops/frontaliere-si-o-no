@@ -105,12 +105,12 @@
     {
       "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
       "clicks": 0,
-      "impressions": 23
+      "impressions": 24
     },
     {
       "query": "i am searching for caregiver jobs in ticino for elderly support.",
       "clicks": 0,
-      "impressions": 18
+      "impressions": 20
     },
     {
       "query": "نعم ابحث",
@@ -122,7 +122,7 @@
     {
       "query": "case anziani ticino offerte di lavoro",
       "clicks": 0,
-      "impressions": 12
+      "impressions": 13
     },
     {
       "query": "case anziani lugano posti di lavoro",
@@ -136,6 +136,11 @@
     },
     {
       "query": "casa anziani mendrisio lavoro",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "casa anziani paradiso offerta lavoro",
       "clicks": 0,
       "impressions": 1
     },
@@ -156,6 +161,11 @@
     },
     {
       "query": "offerte di lavoro casa anziani ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte lavoro casa di riposo svizzera",
       "clicks": 0,
       "impressions": 1
     }
@@ -209,43 +219,6 @@
       "impressions": 1
     }
   ],
-  "tutti": [
-    {
-      "query": "frontalieri",
-      "clicks": 0,
-      "impressions": 5
-    },
-    {
-      "query": "offerte di lavoro per frontalieri svizzera",
-      "clicks": 0,
-      "impressions": 4
-    },
-    {
-      "query": "offerte lavoro frontaliere svizzera",
-      "clicks": 0,
-      "impressions": 2
-    },
-    {
-      "query": "fontaniere",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "lavorare in svizzera come frontaliere",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "lavoro svizzera frontalieri",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "offerte di lavoro canton ticino per frontalieri",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "educators": [
     {
       "query": "teaching jobs in the canton of ticino",
@@ -255,22 +228,7 @@
   ],
   "lugano": [
     {
-      "query": "lavora con noi lugano",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "offerte ticino",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "tutti ch lavoro lugano",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "tutti.ch lavoro lugano",
+      "query": "recrutement lugano",
       "clicks": 0,
       "impressions": 1
     }
@@ -317,6 +275,18 @@
       "impressions": 1
     }
   ],
+  "bellinzona": [
+    {
+      "query": "bestbezahlte jobs bellinzona",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "jobs bellinzona",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "altenpflege": [
     {
       "query": "altenpfleger jobs lugano",
@@ -335,18 +305,6 @@
     },
     {
       "query": "jobs altenpflege",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "bellinzona": [
-    {
-      "query": "bestbezahlte jobs bellinzona",
-      "clicks": 0,
-      "impressions": 3
-    },
-    {
-      "query": "jobs bellinzona",
       "clicks": 0,
       "impressions": 1
     }
@@ -385,9 +343,53 @@
       "impressions": 2
     }
   ],
+  "impiegata-o-angestellter-d-ufficio-al-100-a-tempo-indeterminato-citta-di-mendrisio-mendrisio": [
+    {
+      "query": "offerte di lavoro ticino da ieri",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "lavoro mendrisio chiasso",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "lavoro mendrisio da ieri",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "praktikum tessin",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "locarno": [
     {
       "query": "locarno",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "sviluppatori": [
+    {
+      "query": "web developer ticino",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "\"qvac\" -\"career\" -\"job\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "consulente software ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "posti vacanti ticino",
       "clicks": 0,
       "impressions": 1
     }
@@ -414,24 +416,14 @@
       "impressions": 1
     }
   ],
-  "sviluppatori": [
+  "student-ricerca-assistant-development-and-assembly-of-instruments-for-atmospheric-ricerca-eth-zurich-zurich": [
     {
-      "query": "\"qvac\" -\"career\" -\"job\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com",
+      "query": "portale ricerca lavoro",
       "clicks": 0,
-      "impressions": 1
+      "impressions": 3
     },
     {
-      "query": "consulente software ticino",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "posti vacanti ticino",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "web developer ticino",
+      "query": "annuncio lavoro",
       "clicks": 0,
       "impressions": 1
     }
@@ -496,6 +488,25 @@
       "impressions": 1
     }
   ],
+  "pflegepersonal": [
+    {
+      "query": "pflegejobs regionalspital surselva ag",
+      "clicks": 0,
+      "impressions": 3
+    }
+  ],
+  "technische-analyse-des-labors-siegfried-zofingen": [
+    {
+      "query": "siegfried zofingen jobs",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "siegfried offene stellen",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "apprendistato": [
     {
       "query": "apprendistato in ticino per italiani",
@@ -520,11 +531,11 @@
       "impressions": 1
     }
   ],
-  "settori": [
+  "mendrisio": [
     {
-      "query": "frontalieri",
+      "query": "revolut hypotheken",
       "clicks": 0,
-      "impressions": 2
+      "impressions": 1
     }
   ],
   "nurses": [
@@ -534,18 +545,6 @@
       "impressions": 2
     }
   ],
-  "alle": [
-    {
-      "query": "fart job",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "jobs im tessin für deutschsprachige",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "ingenieure": [
     {
       "query": "ingenieure stellenvermittlung",
@@ -553,9 +552,9 @@
       "impressions": 2
     }
   ],
-  "pflegepersonal": [
+  "uber-ems-ems-chemie-ag-domat-ems": [
     {
-      "query": "pflegejobs regionalspital surselva ag",
+      "query": "jobs domat ems",
       "clicks": 0,
       "impressions": 2
     }
@@ -567,9 +566,9 @@
       "impressions": 1
     }
   ],
-  "mendrisio": [
+  "ricerca": [
     {
-      "query": "revolut hypotheken",
+      "query": "(\"centro dati\" or \"data center\") and (\"esenzione fiscale\" or \"agevolazione fiscale\" or \"incentivo fiscale\" or \"credito d'imposta\") and (\"investimento\" or \"progetto\" or \"insediamento\")",
       "clicks": 0,
       "impressions": 1
     }
@@ -581,13 +580,6 @@
       "impressions": 1
     }
   ],
-  "all": [
-    {
-      "query": "froneri jobs",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "developers": [
     {
       "query": "web developer ticino",
@@ -595,16 +587,16 @@
       "impressions": 1
     }
   ],
-  "branchen": [
+  "logistik": [
     {
-      "query": "süd schweiz",
+      "query": "logistiker jobs lugano",
       "clicks": 0,
       "impressions": 1
     }
   ],
-  "logistik": [
+  "omega-luxury-timepieces-keyholder-jacksonville-the-swatch-group-u-s-inc-ticino": [
     {
-      "query": "logistiker jobs lugano",
+      "query": "swatch jobs",
       "clicks": 0,
       "impressions": 1
     }
@@ -626,6 +618,76 @@
   "restauration": [
     {
       "query": "oui",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "tutti": [
+    {
+      "query": "frontalieri",
+      "clicks": 0,
+      "impressions": 5
+    },
+    {
+      "query": "offerte di lavoro per frontalieri svizzera",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "offerte lavoro frontaliere svizzera",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "fontaniere",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "lavorare in svizzera come frontaliere",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "lavoro svizzera frontalieri",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte di lavoro canton ticino per frontalieri",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "settori": [
+    {
+      "query": "frontalieri",
+      "clicks": 0,
+      "impressions": 2
+    }
+  ],
+  "alle": [
+    {
+      "query": "fart job",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "jobs im tessin für deutschsprachige",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "all": [
+    {
+      "query": "froneri jobs",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "branchen": [
+    {
+      "query": "süd schweiz",
       "clicks": 0,
       "impressions": 1
     }
