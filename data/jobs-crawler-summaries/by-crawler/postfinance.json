@@ -1,102 +1,19 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-05-13T22:51:05.116Z",
+  "generatedAt": "2026-05-14T11:34:58.114Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 11576,
-  "avgDurationMs": 11576,
+  "unchangedCount": 0,
+  "durationMs": 12999,
+  "avgDurationMs": 12999,
   "durationHistory": [
-    11576
+    12999
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Architecture-Owner-Telefonie-und-KOP-%28wmd%29/1384004633/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Architecture-Owner-Telefonie-und-KOP-%28wmd%29/1384004633/",
-      "title": "Architecture Owner Telefonie und KOP (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "architecture-owner-telefonie-e-kop-m-w-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-10",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "",
-      "id": "postfinance-b4a070864c05",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-05-10T10:42:11.590Z",
-      "needsRetranslation": true,
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
-      "title": "Mitarbeiter:in Chargebacks",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "collaboratore-trice-chargebacks-postfinance-bern",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-10",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "",
-      "id": "postfinance-c5dd413c8462",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-05-10T10:42:11.590Z",
-      "needsRetranslation": true,
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
@@ -128,7 +45,6 @@
       "currency": "CHF",
       "postalCode": "1630",
       "firstSeenAt": "2026-05-10T10:42:11.590Z",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -167,13 +83,51 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-10T10:42:11.590Z",
-      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
         "completeness": 14
+      }
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
+      "title": "Mitarbeiter:in Chargebacks",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "collaboratore-trice-chargebacks-postfinance-bern",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-10",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "id": "postfinance-c5dd413c8462",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-10T10:42:11.590Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
       }
     },
     {
@@ -207,7 +161,6 @@
       "currency": "CHF",
       "postalCode": "1227",
       "firstSeenAt": "2026-05-10T10:42:11.590Z",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -247,7 +200,45 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-11T12:20:56.971Z",
-      "needsRetranslation": true,
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Architecture-Owner-Telefonie-und-KOP-%28wmd%29/1384004633/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Architecture-Owner-Telefonie-und-KOP-%28wmd%29/1384004633/",
+      "title": "Architecture Owner Telefonie und KOP (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "architecture-owner-telefonie-e-kop-m-w-d-postfinance-bern",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-10",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "id": "postfinance-b4a070864c05",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-10T10:42:11.590Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -256,5 +247,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
