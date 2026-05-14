@@ -748,7 +748,9 @@
     "incentivi-assunzioni-2026-sgravi-contributivi",
     "hendsichen-arresto-francese-autodiebstahl",
     "lpp-nigri-country-manager-italia",
-    "frontaliere-pensione-avs-inps-2026"
+    "frontaliere-pensione-avs-inps-2026",
+    "direttrice-unispital-zurigo-whistleblower",
+    "frontalieri-ticino-calo-2026"
   ],
   "failed": [
     {
@@ -6645,8 +6647,18 @@
       "id": "frontalieri-ticino-calo-2026",
       "error": "Unterminated string in JSON at position 183 (line 4 column 72)",
       "at": "2026-05-12T04:16:29.775Z"
+    },
+    {
+      "id": "berna-skopje-scambi-economici-2026",
+      "error": "Unterminated string in JSON at position 301 (line 4 column 175)",
+      "at": "2026-05-14T04:29:46.849Z"
+    },
+    {
+      "id": "fiaccola-sacconago-speranza-amicizia",
+      "error": "Unterminated string in JSON at position 196 (line 4 column 130)",
+      "at": "2026-05-14T04:30:28.228Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-05-12T04:16:29.775Z"
+  "updatedAt": "2026-05-14T04:30:44.117Z"
 }
