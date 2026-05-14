@@ -1,5 +1,85 @@
 [
   {
+    "slug": "pflegefachfrau-pflegefachmann-imc-ksw-ch",
+    "title": "Pflegefachfrau / Pflegefachmann IMC",
+    "titleByLocale": {
+      "de": "Pflegefachfrau / Pflegefachmann BMI",
+      "it": "Pflegefachfrau / Pflegefachmann IMC",
+      "en": "Pflegefachfrau / Pflegefachmann BMI",
+      "fr": "Pflegefachfrau / Pflegefachmann BMI"
+    },
+    "company": "Kantonsspital Winterthur (KSW)",
+    "companyKey": "ksw",
+    "location": "Winterthur",
+    "addressLocality": "Winterthur",
+    "descriptionByLocale": {
+      "de": "Pflegefachfrau / Pflegefachmann IMC — Kantonsspital Winterthur (KSW), Winterthur\n\nBerufsfeld: Pflegeberufe\n• Bereich: Zentrum für Intensivmedizin\n• Pensum: 80-100%",
+      "it": "Infermieristica IMC — Ospedale cantonale Winterthur (KSW), Winterthur\n\n• Campo professionale: professioni di cura\n• Area: Centro di Medicina Intensiva\n• Penso: 80-100 %",
+      "en": "Nursing specialist IMC — Cantonal Hospital Winterthur (KSW), Winterthur\n\n• Professional field: Care professions\n• Area: Centre for Intensive Medicine\n• Pensum: 80-100 %",
+      "fr": "Spécialiste des soins infirmiers IMC — Hôpital cantonal Winterthur (KSW), Winterthur\n\n• Domaine professionnel: professions de soins\n• Domaine: Centre de médecine intensive\n• Pensum: 80-100 %"
+    },
+    "slugByLocale": {
+      "de": "pflegefachfrau-pflegefachmann-imc-ksw-ch",
+      "it": "pflegefachfrau-pflegefachmann-imc-ksw-ch",
+      "en": "pflegefachfrau-pflegefachmann-imc-ksw-ch",
+      "fr": "pflegefachfrau-pflegefachmann-imc-ksw-ch"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-05-14T08:56:52.127Z",
+    "postalCode": "8400",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "specialista-in-tecnologia-chirurgica-kantonsspital-winterthur-ksw-winterthur",
+    "title": "Fachfrau / Fachmann Operationstechnik",
+    "titleByLocale": {
+      "de": "Fachfrau / Fachmann Operationstechnik",
+      "it": "Specialista in tecnologia chirurgica",
+      "en": "Specialist in surgical technology",
+      "fr": "Spécialiste en technologie chirurgicale"
+    },
+    "company": "Kantonsspital Winterthur (KSW)",
+    "companyKey": "ksw",
+    "location": "Winterthur",
+    "addressLocality": "Winterthur",
+    "descriptionByLocale": {
+      "de": "Fachfrau / Fachmann Operationstechnik — Kantonsspital Winterthur (KSW), Winterthur\n\n• Berufsfeld: MTTB (med. techn. therapeut. Berufe)\n• Bereich: OP-Zentrum\n• Pensum: 80-100%",
+      "it": "Specialista in Ingegneria delle Operazioni — Ospedale cantonale Winterthur (KSW), Winterthur\n\n• Campo professionale: MTTB (med. techn. terapeutico. Professionisti)\n• Area: OP-Zentrum\n• Penso: 80-100 %",
+      "en": "Specialist in Operations Engineering — Cantonal Hospital Winterthur (KSW), Winterthur\n\n• Professional field: MTTB (med. techn. therapeutic. Professionals)\n• Area: OP-Zentrum\n• Pensum: 80-100 %",
+      "fr": "Spécialiste en génie des opérations — Hôpital cantonal Winterthur (KSW), Winterthur\n\n• Domaine professionnel: MTB (médecin technique thérapeutique. Professionnels)\n• Zone: OP-Zentrum\n• Pensum: 80-100 %"
+    },
+    "slugByLocale": {
+      "de": "fachfrau-fachmann-operationstechnik-ksw-ch",
+      "it": "specialista-in-tecnologia-chirurgica-kantonsspital-winterthur-ksw-winterthur",
+      "en": "specialist-in-surgical-technology-kantonsspital-winterthur-ksw-winterthur",
+      "fr": "specialiste-en-technologie-chirurgicale-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-05-14T08:56:52.127Z",
+    "previousSlugs": [
+      "fachfrau-fachmann-operationstechnik-ksw-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "fachfrau-fachmann-operationstechnik-ksw-ch"
+      ],
+      "en": [
+        "fachfrau-fachmann-operationstechnik-ksw-ch"
+      ],
+      "fr": [
+        "fachfrau-fachmann-operationstechnik-ksw-ch"
+      ]
+    },
+    "postalCode": "8400",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "stv-capogruppo-della-segreteria-clinica-presso-il-dipartimento-di-medicina-interna-kantonsspital-winterthur-ksw-winterth",
     "title": "Stv. Gruppenleiter/in Kliniksekretariat in der Klinik für Innere Medizin",
     "titleByLocale": {

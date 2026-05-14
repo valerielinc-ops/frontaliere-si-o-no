@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksw",
-  "assembledAt": "2026-05-13T09:04:22.514Z",
+  "assembledAt": "2026-05-14T08:56:52.134Z",
   "jobs": [
     {
       "id": "ksw-5c7f023db5a6",
@@ -1265,71 +1265,6 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-geburtshilfliche-abteilung-ksw-ch"
       ]
-    },
-    {
-      "id": "ksw-cd2beca619a8",
-      "slug": "pflegefachfrau-pflegefachmann-imc-ksw-ch",
-      "slugByLocale": {
-        "de": "pflegefachfrau-pflegefachmann-imc-ksw-ch",
-        "it": "pflegefachfrau-pflegefachmann-imc-ksw-ch",
-        "en": "pflegefachfrau-pflegefachmann-imc-ksw-ch",
-        "fr": "pflegefachfrau-pflegefachmann-imc-ksw-ch"
-      },
-      "company": "Kantonsspital Winterthur (KSW)",
-      "companyKey": "ksw",
-      "companyDomain": "ksw.ch",
-      "title": "Pflegefachfrau / Pflegefachmann IMC",
-      "titleByLocale": {
-        "de": "Pflegefachfrau / Pflegefachmann BMI",
-        "it": "Pflegefachfrau / Pflegefachmann IMC",
-        "en": "Pflegefachfrau / Pflegefachmann BMI",
-        "fr": "Pflegefachfrau / Pflegefachmann BMI"
-      },
-      "description": "Pflegefachfrau / Pflegefachmann IMC — Kantonsspital Winterthur (KSW), Winterthur\n\nBerufsfeld: Pflegeberufe\n• Bereich: Zentrum für Intensivmedizin\n• Pensum: 80-100%",
-      "descriptionByLocale": {
-        "de": "Pflegefachfrau / Pflegefachmann IMC — Kantonsspital Winterthur (KSW), Winterthur\n\nBerufsfeld: Pflegeberufe\n• Bereich: Zentrum für Intensivmedizin\n• Pensum: 80-100%",
-        "it": "Infermieristica IMC — Ospedale cantonale Winterthur (KSW), Winterthur\n\n• Campo professionale: professioni di cura\n• Area: Centro di Medicina Intensiva\n• Penso: 80-100 %",
-        "en": "Nursing specialist IMC — Cantonal Hospital Winterthur (KSW), Winterthur\n\n• Professional field: Care professions\n• Area: Centre for Intensive Medicine\n• Pensum: 80-100 %",
-        "fr": "Spécialiste des soins infirmiers IMC — Hôpital cantonal Winterthur (KSW), Winterthur\n\n• Domaine professionnel: professions de soins\n• Domaine: Centre de médecine intensive\n• Pensum: 80-100 %"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ksw/job/details/3996333",
-      "source": "KSW Dedicated Parser (Solique tenant ksw)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:55:26.417Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "postalCode": "8400",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://live.solique.ch/ksw/job/details/3996333",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "Zentrum für Intensivmedizin",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-10T21:55:26.417Z"
     },
     {
       "id": "ksw-320ffbad66c1",
@@ -3189,85 +3124,6 @@
       },
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-im-medizinischen-bereich-ksw-ch"
-      ]
-    },
-    {
-      "id": "ksw-db274cc7c1fa",
-      "slug": "specialista-in-tecnologia-chirurgica-kantonsspital-winterthur-ksw-winterthur",
-      "slugByLocale": {
-        "de": "fachfrau-fachmann-operationstechnik-ksw-ch",
-        "it": "specialista-in-tecnologia-chirurgica-kantonsspital-winterthur-ksw-winterthur",
-        "en": "specialist-in-surgical-technology-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "specialiste-en-technologie-chirurgicale-kantonsspital-winterthur-ksw-winterthur"
-      },
-      "company": "Kantonsspital Winterthur (KSW)",
-      "companyKey": "ksw",
-      "companyDomain": "ksw.ch",
-      "title": "Fachfrau / Fachmann Operationstechnik",
-      "titleByLocale": {
-        "de": "Fachfrau / Fachmann Operationstechnik",
-        "it": "Specialista in tecnologia chirurgica",
-        "en": "Specialist in surgical technology",
-        "fr": "Spécialiste en technologie chirurgicale"
-      },
-      "description": "Fachfrau / Fachmann Operationstechnik — Kantonsspital Winterthur (KSW), Winterthur\n\n• Berufsfeld: MTTB (med. techn. therapeut. Berufe)\n• Bereich: OP-Zentrum\n• Pensum: 80-100%",
-      "descriptionByLocale": {
-        "de": "Fachfrau / Fachmann Operationstechnik — Kantonsspital Winterthur (KSW), Winterthur\n\n• Berufsfeld: MTTB (med. techn. therapeut. Berufe)\n• Bereich: OP-Zentrum\n• Pensum: 80-100%",
-        "it": "Specialista in Ingegneria delle Operazioni — Ospedale cantonale Winterthur (KSW), Winterthur\n\n• Campo professionale: MTTB (med. techn. terapeutico. Professionisti)\n• Area: OP-Zentrum\n• Penso: 80-100 %",
-        "en": "Specialist in Operations Engineering — Cantonal Hospital Winterthur (KSW), Winterthur\n\n• Professional field: MTTB (med. techn. therapeutic. Professionals)\n• Area: OP-Zentrum\n• Pensum: 80-100 %",
-        "fr": "Spécialiste en génie des opérations — Hôpital cantonal Winterthur (KSW), Winterthur\n\n• Domaine professionnel: MTB (médecin technique thérapeutique. Professionnels)\n• Zone: OP-Zentrum\n• Pensum: 80-100 %"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ksw/job/details/3934041",
-      "source": "KSW Dedicated Parser (Solique tenant ksw)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:55:26.416Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "postalCode": "8400",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://live.solique.ch/ksw/job/details/3934041",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "OP-Zentrum",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-10T21:55:26.416Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-operationstechnik-ksw-ch"
-        ],
-        "en": [
-          "fachfrau-fachmann-operationstechnik-ksw-ch"
-        ],
-        "fr": [
-          "fachfrau-fachmann-operationstechnik-ksw-ch"
-        ]
-      },
-      "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-ksw-ch"
       ]
     },
     {
