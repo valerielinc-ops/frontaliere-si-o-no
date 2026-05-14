@@ -1,18 +1,19 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-13T21:46:13.802Z",
+  "generatedAt": "2026-05-14T10:29:20.204Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 8,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17151,
-  "avgDurationMs": 17151,
+  "durationMs": 16412,
+  "avgDurationMs": 16412,
   "durationHistory": [
-    17151
+    16412
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Praktikum in der Prozessoptimierung (w/m/div.) REF286038O",
       "slug": "praktikum-in-der-prozessoptimierung-w-m-div-ref286038o-bosch-frauenfeld",
@@ -35,16 +36,20 @@
       "sourceLang": "de",
       "postedDate": "2026-05-13",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-3a86f7697bb0",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "postalCode": "8500",
+      "firstSeenAt": "2026-05-13T21:46:13.801Z",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Entwicklungsingenieur - Bereich Oszillierende Multifunktionswerkzeuge & Säbelsägeblätter 100% (w/m/div.) REF281021P",
       "slug": "entwicklungsingenieur-bereich-oszillierende-multifunktionswerkzeuge-sabelsageblatter-100-w-m-div-ref281021p-bosch-solothurn-zuchwil",
@@ -110,8 +115,6 @@
       "currency": "CHF",
       "postalCode": "4500",
       "firstSeenAt": "2026-05-10T21:10:13.024Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -148,8 +151,6 @@
       "currency": "CHF",
       "postalCode": "1950",
       "firstSeenAt": "2026-05-10T09:43:15.857Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -222,8 +223,6 @@
       "currency": "CHF",
       "postalCode": "1950",
       "firstSeenAt": "2026-05-10T09:43:15.857Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -260,8 +259,6 @@
       "currency": "CHF",
       "postalCode": "4500",
       "firstSeenAt": "2026-05-10T21:10:13.024Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -307,42 +304,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Werkstudent HR 50% (w/m/div.) REF284793T",
-      "slug": "werkstudent-hr-50-w-m-div-ref284793-bosch-thermotechnik-ag-pratteln",
-      "url": "https://jobs.bosch.com/en/job/REF284793T-werkstudent-hr-50-w-m-div-ref284793t",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000123388209-werkstudent-hr-50-w-m-div-ref284793t?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Pratteln",
-      "addressLocality": "Pratteln",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "canton": "BL",
-      "country": "CH",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-28",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-fd5eff14665c",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-12T10:49:56.463Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
