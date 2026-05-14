@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-05-13T23:08:55.693Z",
+  "generatedAt": "2026-05-14T11:54:00.771Z",
   "total": 14,
   "newCount": 14,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 41768,
-  "avgDurationMs": 41768,
+  "durationMs": 105613,
+  "avgDurationMs": 105613,
   "durationHistory": [
-    41768
+    105613
   ],
   "newJobs": [
     {
@@ -509,7 +509,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
