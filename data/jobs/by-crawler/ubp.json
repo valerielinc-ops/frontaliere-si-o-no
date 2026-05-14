@@ -3702,10 +3702,10 @@
     },
     {
       "id": "ubp-31fa0585c8e3",
-      "slug": "junior-transformation-officer-ubp-ch",
+      "slug": "responsabile-della-trasformazione-junior-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "junior-transformation-officer-union-bancaire-privee-geneva-switzerland",
-        "it": "junior-transformation-officer-ubp-ch",
+        "it": "responsabile-della-trasformazione-junior-union-bancaire-privee-geneva-switzerland",
         "de": "junior-transformation-officer-ubp-ch",
         "fr": "junior-transformation-officer-ubp-ch"
       },
@@ -3763,13 +3763,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T23:14:39.746Z"
+      "firstSeenAt": "2026-05-13T23:14:39.746Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-transformation-officer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "junior-transformation-officer-ubp-ch"
+      ]
     },
     {
       "id": "ubp-9836c82a6e76",
-      "slug": "client-documentation-contractor-ubp-ch",
+      "slug": "appaltatore-di-documentazione-del-cliente-union-bancaire-privee-hong-kong-hong-kong",
       "slugByLocale": {
-        "it": "client-documentation-contractor-ubp-ch",
+        "it": "appaltatore-di-documentazione-del-cliente-union-bancaire-privee-hong-kong-hong-kong",
         "en": "client-documentation-contractor-ubp-ch",
         "de": "client-documentation-contractor-ubp-ch",
         "fr": "client-documentation-contractor-union-bancaire-privee-hong-kong-hong-kong"
@@ -3826,13 +3834,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-documentation-contractor-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "client-documentation-contractor-ubp-ch"
+      ]
     },
     {
       "id": "ubp-aa5dfd472d05",
-      "slug": "change-incident-problem-vulnerability-management-ubp-ch",
+      "slug": "cambia-incidente-problema-gestione-della-vulnerabilita-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "it": "change-incident-problem-vulnerability-management-ubp-ch",
+        "it": "cambia-incidente-problema-gestione-della-vulnerabilita-union-bancaire-privee-geneva-switzerland",
         "en": "change-incident-problem-vulnerability-management-union-bancaire-privee-geneva-switzerland",
         "de": "change-incident-problem-vulnerability-management-ubp-ch",
         "fr": "change-incident-problem-vulnerability-management-ubp-ch"
@@ -3889,7 +3905,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "change-incident-problem-vulnerability-management-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "change-incident-problem-vulnerability-management-ubp-ch"
+      ]
     }
   ]
 }

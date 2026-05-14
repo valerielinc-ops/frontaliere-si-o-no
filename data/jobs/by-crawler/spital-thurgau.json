@@ -1010,9 +1010,9 @@
     },
     {
       "id": "spital-thurgau-284923941835",
-      "slug": "dipl-pflegefachmann-frau-hf-fh-medizin-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "slug": "infermiere-a-dipl-sss-sup-medicina-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "dipl-pflegefachmann-frau-hf-fh-medizin-spital-thurgau-stgag-kantonsspital-munsterlingen",
+        "it": "infermiere-a-dipl-sss-sup-medicina-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "en": "dipl-pflegefachmann-frau-hf-fh-medizin-stgag-ch",
         "de": "dipl-pflegefachmann-frau-hf-fh-medizin-stgag-ch",
         "fr": "dipl-pflegefachmann-frau-hf-fh-medizin-stgag-ch"
@@ -1060,12 +1060,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachmann-frau-hf-fh-medizin-stgag-ch",
-        "infermiere-a-dipl-sss-sup-medicina-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "dipl-pflegefachmann-frau-hf-fh-medizin-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-hf-fh-medizin-stgag-ch",
-          "infermiere-a-dipl-sss-sup-medicina-spital-thurgau-stgag-kantonsspital-munsterlingen"
+          "dipl-pflegefachmann-frau-hf-fh-medizin-spital-thurgau-stgag-kantonsspital-munsterlingen"
         ]
       },
       "needsRetranslation": true,
@@ -5927,9 +5927,9 @@
     },
     {
       "id": "spital-thurgau-c89ee870610f",
-      "slug": "dipl-pflegefachmann-frau-medizin-spital-thurgau-stgag-kantonsspital-frauenfeld",
+      "slug": "infermiere-a-laureato-a-in-medicina-spital-thurgau-stgag-kantonsspital-frauenfeld",
       "slugByLocale": {
-        "it": "dipl-pflegefachmann-frau-medizin-spital-thurgau-stgag-kantonsspital-frauenfeld",
+        "it": "infermiere-a-laureato-a-in-medicina-spital-thurgau-stgag-kantonsspital-frauenfeld",
         "en": "dipl-pflegefachmann-frau-medizin-stgag-ch",
         "de": "dipl-pflegefachmann-frau-medizin-stgag-ch",
         "fr": "dipl-pflegefachmann-frau-medizin-stgag-ch"
@@ -5977,12 +5977,12 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachmann-frau-medizin-stgag-ch",
-        "infermiere-a-laureato-a-in-medicina-spital-thurgau-stgag-kantonsspital-frauenfeld"
+        "dipl-pflegefachmann-frau-medizin-spital-thurgau-stgag-kantonsspital-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-medizin-stgag-ch",
-          "infermiere-a-laureato-a-in-medicina-spital-thurgau-stgag-kantonsspital-frauenfeld"
+          "dipl-pflegefachmann-frau-medizin-spital-thurgau-stgag-kantonsspital-frauenfeld"
         ]
       },
       "needsRetranslation": true,
@@ -8381,9 +8381,9 @@
     },
     {
       "id": "spital-thurgau-0545fb9c58f1",
-      "slug": "spitalapotheker-in-fph-spitalpharmazie-fph-klinische-pharmazie-stgag-ch",
+      "slug": "farmacista-ospedaliero-a-fph-farmacia-ospedaliera-fph-farmacia-clinica-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "spitalapotheker-in-fph-spitalpharmazie-fph-klinische-pharmazie-stgag-ch",
+        "it": "farmacista-ospedaliero-a-fph-farmacia-ospedaliera-fph-farmacia-clinica-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "en": "spitalapotheker-in-fph-spitalpharmazie-fph-klinische-pharmazie-stgag-ch",
         "de": "spitalapotheker-in-fph-spitalpharmazie-fph-klinische-pharmazie-stgag-ch",
         "fr": "spitalapotheker-in-fph-spitalpharmazie-fph-klinische-pharmazie-stgag-ch"
@@ -8443,7 +8443,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "spitalapotheker-in-fph-spitalpharmazie-fph-klinische-pharmazie-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spitalapotheker-in-fph-spitalpharmazie-fph-klinische-pharmazie-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-880692d13db1",

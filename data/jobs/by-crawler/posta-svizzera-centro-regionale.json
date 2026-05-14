@@ -586,9 +586,9 @@
         "de": "Kundenberater:in",
         "fr": "Kundenberater:in"
       },
-      "slug": "kundenberater-in-die-schweizerische-post-promontogno",
+      "slug": "consulente-alla-clientela-die-schweizerische-post-promontogno",
       "slugByLocale": {
-        "it": "kundenberater-in-die-schweizerische-post-promontogno",
+        "it": "consulente-alla-clientela-die-schweizerische-post-promontogno",
         "en": "kundenberater-in-die-schweizerische-post-promontogno",
         "de": "kundenberater-in-die-schweizerische-post-promontogno",
         "fr": "kundenberater-in-die-schweizerische-post-promontogno"
@@ -612,11 +612,13 @@
       "id": "posta-svizzera-centro-regionale-877ff59f71dd",
       "previousSlugsByLocale": {
         "it": [
-          "kundenberater-in-post"
+          "kundenberater-in-post",
+          "kundenberater-in-die-schweizerische-post-promontogno"
         ]
       },
       "previousSlugs": [
-        "kundenberater-in-post"
+        "kundenberater-in-post",
+        "kundenberater-in-die-schweizerische-post-promontogno"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

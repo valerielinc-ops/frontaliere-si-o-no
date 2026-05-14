@@ -1218,9 +1218,9 @@
     },
     {
       "id": "kssg-3ddb05cc32a0",
-      "slug": "medizinische-r-praxisassistent-in-80-100-kssg-ch",
+      "slug": "assistente-di-ambulatorio-medico-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-80-100-kssg-ch",
+        "it": "assistente-di-ambulatorio-medico-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "medizinische-r-praxisassistent-in-80-100-kssg-ch",
         "de": "medizinische-r-praxisassistent-in-80-100-kssg-ch",
         "fr": "medizinische-r-praxisassistent-in-80-100-kssg-ch"
@@ -1277,14 +1277,22 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-80-100-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-80-100-kssg-ch"
+      ]
     },
     {
       "id": "kssg-37f5d5f7026f",
-      "slug": "kliniksekretar-in-80-kssg-ch",
+      "slug": "segretario-a-della-clinica-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
         "de": "kliniksekretar-in-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "it": "kliniksekretar-in-80-kssg-ch",
+        "it": "segretario-a-della-clinica-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "kliniksekretar-in-80-kssg-ch",
         "fr": "kliniksekretar-in-80-kssg-ch"
       },
@@ -1342,14 +1350,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T22:31:28.417Z"
+      "firstSeenAt": "2026-05-13T22:31:28.417Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kliniksekretar-in-80-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kliniksekretar-in-80-kssg-ch"
+      ]
     },
     {
       "id": "kssg-2cabd2274a8d",
-      "slug": "facharztin-arzt-assistenzarztin-arzt-interventionelle-radiologie-80-100-kssg-ch",
+      "slug": "medico-specialista-medico-assistente-radiologia-interventistica-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
         "de": "facharztin-arzt-assistenzarztin-arzt-interventionelle-radiologie-80-100-kssg-ch",
-        "it": "facharztin-arzt-assistenzarztin-arzt-interventionelle-radiologie-80-100-kssg-ch",
+        "it": "medico-specialista-medico-assistente-radiologia-interventistica-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "facharztin-arzt-assistenzarztin-arzt-interventionelle-radiologie-80-100-kssg-ch",
         "fr": "facharztin-arzt-assistenzarztin-arzt-interventionelle-radiologie-80-100-kssg-ch"
       },
@@ -1407,13 +1423,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T22:31:27.499Z"
+      "firstSeenAt": "2026-05-13T22:31:27.499Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-arzt-assistenzarztin-arzt-interventionelle-radiologie-80-100-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-arzt-assistenzarztin-arzt-interventionelle-radiologie-80-100-kssg-ch"
+      ]
     },
     {
       "id": "kssg-a75d00daac80",
-      "slug": "pflegeexpert-in-apn-70-kssg-ch",
+      "slug": "esperto-infermieristico-apn-70-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "pflegeexpert-in-apn-70-kssg-ch",
+        "it": "esperto-infermieristico-apn-70-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "pflegeexpert-in-apn-70-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "de": "pflegeexpert-in-apn-70-kssg-ch",
         "fr": "pflegeexpert-in-apn-70-kssg-ch"
@@ -1470,7 +1494,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpert-in-apn-70-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpert-in-apn-70-kssg-ch"
+      ]
     },
     {
       "id": "kssg-ddb3aef446e3",
@@ -1616,9 +1648,9 @@
     },
     {
       "id": "kssg-b978b6f4c2a8",
-      "slug": "oberarztin-arzt-60-100-kssg-ch",
+      "slug": "primario-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "oberarztin-arzt-60-100-kssg-ch",
+        "it": "primario-60-100-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "oberarztin-arzt-60-100-kssg-ch",
         "de": "oberarztin-arzt-60-100-kssg-ch",
         "fr": "oberarztin-arzt-60-100-kssg-ch"
@@ -1675,7 +1707,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-arzt-60-100-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-arzt-60-100-kssg-ch"
+      ]
     }
   ]
 }

@@ -165,9 +165,9 @@
     },
     {
       "id": "fielmann-df1331dbd7e0",
-      "slug": "augenoptiker-w-m-d-fielmann-ch-3",
+      "slug": "ottico-ottico-f-m-d-fielmann-group-st",
       "slugByLocale": {
-        "it": "augenoptiker-w-m-d-fielmann-ch-3",
+        "it": "ottico-ottico-f-m-d-fielmann-group-st",
         "en": "augenoptiker-w-m-d-fielmann-ch-3",
         "de": "augenoptiker-w-m-d-fielmann-group-st",
         "fr": "augenoptiker-w-m-d-fielmann-ch-3"
@@ -215,10 +215,14 @@
       "previousSlugsByLocale": {
         "de": [
           "augenoptiker-w-m-d-fielmann-ch"
+        ],
+        "it": [
+          "augenoptiker-w-m-d-fielmann-ch-3"
         ]
       },
       "previousSlugs": [
-        "augenoptiker-w-m-d-fielmann-ch"
+        "augenoptiker-w-m-d-fielmann-ch",
+        "augenoptiker-w-m-d-fielmann-ch-3"
       ],
       "firstSeenAt": "2026-05-13T11:02:41.166Z",
       "salaryMin": 49500,
@@ -2176,9 +2180,9 @@
     },
     {
       "id": "fielmann-61d377e7d7bf",
-      "slug": "bachelor-of-science-fhnw-in-optometrie-w-m-d-schweizweit-fielmann-ch",
+      "slug": "bachelor-of-science-fhnw-in-optometria-f-m-d-in-tutta-la-svizzera-fielmann-group-basel-steinenvorstadt",
       "slugByLocale": {
-        "it": "bachelor-of-science-fhnw-in-optometrie-w-m-d-schweizweit-fielmann-ch",
+        "it": "bachelor-of-science-fhnw-in-optometria-f-m-d-in-tutta-la-svizzera-fielmann-group-basel-steinenvorstadt",
         "en": "bachelor-of-science-fhnw-in-optometrie-w-m-d-schweizweit-fielmann-ch",
         "de": "bachelor-of-science-fhnw-in-optometrie-w-m-d-schweizweit-fielmann-ch",
         "fr": "bachelor-of-science-fhnw-in-optometrie-w-m-d-schweizweit-fielmann-ch"
@@ -2235,7 +2239,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "bachelor-of-science-fhnw-in-optometrie-w-m-d-schweizweit-fielmann-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bachelor-of-science-fhnw-in-optometrie-w-m-d-schweizweit-fielmann-ch"
+      ]
     },
     {
       "id": "fielmann-36d02ec1883b",
@@ -3006,7 +3018,6 @@
       },
       "previousSlugs": [
         "horakustikermeister-w-m-d-fielmann-ch",
-        "horakustikermeister-w-m-d-fielmann-group-aarau",
         "horakustikermeister-w-m-d-fielmann-ch-2"
       ],
       "salaryMin": 49500,

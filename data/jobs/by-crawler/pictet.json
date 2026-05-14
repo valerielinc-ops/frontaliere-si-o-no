@@ -483,9 +483,9 @@
     },
     {
       "id": "pictet-6a4d3fe10bfb",
-      "slug": "risk-manager-12m-fixed-term-contract-london-based-pictet-london",
+      "slug": "risk-manager-contratto-a-tempo-determinato-da-12-milioni-con-sede-a-londra-pictet-group-london",
       "slugByLocale": {
-        "it": "risk-manager-12m-fixed-term-contract-london-based-pictet-london",
+        "it": "risk-manager-contratto-a-tempo-determinato-da-12-milioni-con-sede-a-londra-pictet-group-london",
         "en": "risk-manager-12m-fixed-term-contract-london-based-pictet-london",
         "de": "risk-manager-12m-fixed-term-contract-london-based-pictet-london",
         "fr": "risk-manager-12m-fixed-term-contract-london-based-pictet-london"
@@ -542,7 +542,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "risk-manager-12m-fixed-term-contract-london-based-pictet-london"
+        ]
+      },
+      "previousSlugs": [
+        "risk-manager-12m-fixed-term-contract-london-based-pictet-london"
+      ]
     },
     {
       "id": "pictet-71533a724495",
@@ -611,10 +619,10 @@
     },
     {
       "id": "pictet-7d83ba202bb9",
-      "slug": "senior-fund-tax-expert-pictet-luxembourg",
+      "slug": "esperto-fiscale-senior-del-fondo-pictet-group-luxembourg",
       "slugByLocale": {
         "en": "senior-fund-tax-expert-pictet-luxembourg",
-        "it": "senior-fund-tax-expert-pictet-luxembourg",
+        "it": "esperto-fiscale-senior-del-fondo-pictet-group-luxembourg",
         "de": "senior-fund-tax-expert-pictet-luxembourg",
         "fr": "senior-fund-tax-expert-pictet-luxembourg"
       },
@@ -672,7 +680,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T22:49:55.559Z"
+      "firstSeenAt": "2026-05-13T22:49:55.559Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-fund-tax-expert-pictet-luxembourg"
+        ]
+      },
+      "previousSlugs": [
+        "senior-fund-tax-expert-pictet-luxembourg"
+      ]
     }
   ]
 }

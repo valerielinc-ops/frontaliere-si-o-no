@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "ubs-5ff1005d6ad4",
-      "slug": "fixed-income-structurer-ubs",
+      "slug": "strutturatore-di-reddito-fisso-ubs",
       "slugByLocale": {
-        "it": "fixed-income-structurer-ubs",
+        "it": "strutturatore-di-reddito-fisso-ubs",
         "en": "fixed-income-structurer-ubs",
         "de": "fixed-income-structurer-ubs",
         "fr": "fixed-income-structurer-ubs"
@@ -59,12 +59,12 @@
       },
       "previousSlugs": [
         "struttura-a-reddito-fisso-ubs",
-        "strutturatore-di-reddito-fisso-ubs"
+        "fixed-income-structurer-ubs"
       ],
       "previousSlugsByLocale": {
         "it": [
           "struttura-a-reddito-fisso-ubs",
-          "strutturatore-di-reddito-fisso-ubs"
+          "fixed-income-structurer-ubs"
         ]
       },
       "needsRetranslation": true,
@@ -1846,10 +1846,10 @@
     },
     {
       "id": "ubs-24136ed3b637",
-      "slug": "market-administrative-officer-ubs",
+      "slug": "addetto-amministrativo-mercato-ubs",
       "slugByLocale": {
         "en": "market-administrative-officer-ubs",
-        "it": "market-administrative-officer-ubs",
+        "it": "addetto-amministrativo-mercato-ubs",
         "de": "market-administrative-officer-ubs",
         "fr": "market-administrative-officer-ubs"
       },
@@ -1914,14 +1914,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T23:15:02.496Z"
+      "firstSeenAt": "2026-05-13T23:15:02.496Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "market-administrative-officer-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "market-administrative-officer-ubs"
+      ]
     },
     {
       "id": "ubs-cd36616d3729",
-      "slug": "associate-market-executive-ubs",
+      "slug": "executive-di-mercato-associato-ubs",
       "slugByLocale": {
         "en": "associate-market-executive-ubs",
-        "it": "associate-market-executive-ubs",
+        "it": "executive-di-mercato-associato-ubs",
         "de": "associate-market-executive-ubs",
         "fr": "associate-market-executive-ubs"
       },
@@ -1986,14 +1994,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T23:15:02.495Z"
+      "firstSeenAt": "2026-05-13T23:15:02.495Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-market-executive-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "associate-market-executive-ubs"
+      ]
     },
     {
       "id": "ubs-eac128b2732e",
-      "slug": "gwm-us-field-talent-development-and-delivery-program-manager-ubs",
+      "slug": "responsabile-del-programma-di-sviluppo-e-consegna-dei-talenti-sul-campo-di-gwm-negli-stati-uniti-ubs",
       "slugByLocale": {
         "en": "gwm-us-field-talent-development-and-delivery-program-manager-ubs",
-        "it": "gwm-us-field-talent-development-and-delivery-program-manager-ubs",
+        "it": "responsabile-del-programma-di-sviluppo-e-consegna-dei-talenti-sul-campo-di-gwm-negli-stati-uniti-ubs",
         "de": "gwm-us-field-talent-development-and-delivery-program-manager-ubs",
         "fr": "gwm-us-field-talent-development-and-delivery-program-manager-ubs"
       },
@@ -2058,7 +2074,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T23:15:02.494Z"
+      "firstSeenAt": "2026-05-13T23:15:02.494Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gwm-us-field-talent-development-and-delivery-program-manager-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "gwm-us-field-talent-development-and-delivery-program-manager-ubs"
+      ]
     },
     {
       "id": "ubs-b1ca4c087103",
@@ -2627,9 +2651,9 @@
     },
     {
       "id": "ubs-7375e23b6ff3",
-      "slug": "data-scientist-ubs",
+      "slug": "ricerca-di-dati-ubs",
       "slugByLocale": {
-        "it": "data-scientist-ubs",
+        "it": "ricerca-di-dati-ubs",
         "en": "data-scientist-ubs",
         "de": "data-scientist-ubs",
         "fr": "data-scientist-ubs"
@@ -2693,14 +2717,22 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "data-scientist-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "data-scientist-ubs"
+      ]
     },
     {
       "id": "ubs-e87371a3137e",
-      "slug": "client-associate-ubs-2",
+      "slug": "cliente-associato-ubs",
       "slugByLocale": {
         "en": "client-associate-ubs",
-        "it": "client-associate-ubs-2",
+        "it": "cliente-associato-ubs",
         "de": "client-associate-ubs-2",
         "fr": "client-associate-ubs-2"
       },
@@ -2765,14 +2797,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T23:15:02.485Z"
+      "firstSeenAt": "2026-05-13T23:15:02.485Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "client-associate-ubs-2"
+      ]
     },
     {
       "id": "ubs-8e724c68089e",
-      "slug": "registered-client-associate-client-experience-marketing-ubs",
+      "slug": "associato-cliente-registrato-esperienza-cliente-e-marketing-ubs",
       "slugByLocale": {
         "en": "registered-client-associate-client-experience-marketing-ubs",
-        "it": "registered-client-associate-client-experience-marketing-ubs",
+        "it": "associato-cliente-registrato-esperienza-cliente-e-marketing-ubs",
         "de": "registered-client-associate-client-experience-marketing-ubs",
         "fr": "registered-client-associate-client-experience-marketing-ubs"
       },
@@ -2837,7 +2877,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T23:15:02.484Z"
+      "firstSeenAt": "2026-05-13T23:15:02.484Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "registered-client-associate-client-experience-marketing-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "registered-client-associate-client-experience-marketing-ubs"
+      ]
     },
     {
       "id": "ubs-f410605fa4c6",
@@ -3068,10 +3116,10 @@
     },
     {
       "id": "ubs-3547c598f134",
-      "slug": "investment-banker-equity-capital-markets-ecm-ubs",
+      "slug": "banchiere-d-investimento-mercati-dei-capitali-azionari-ecm-ubs",
       "slugByLocale": {
         "en": "investment-banker-equity-capital-markets-ecm-ubs",
-        "it": "investment-banker-equity-capital-markets-ecm-ubs",
+        "it": "banchiere-d-investimento-mercati-dei-capitali-azionari-ecm-ubs",
         "de": "investment-banker-equity-capital-markets-ecm-ubs",
         "fr": "investment-banker-equity-capital-markets-ecm-ubs"
       },
@@ -3136,7 +3184,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T23:15:02.480Z"
+      "firstSeenAt": "2026-05-13T23:15:02.480Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "investment-banker-equity-capital-markets-ecm-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "investment-banker-equity-capital-markets-ecm-ubs"
+      ]
     },
     {
       "id": "ubs-644ee7c2c4a4",
@@ -3500,10 +3556,10 @@
     },
     {
       "id": "ubs-eda347a7c6fa",
-      "slug": "ib-operations-internship-ubs",
+      "slug": "stage-operativo-ib-ubs",
       "slugByLocale": {
         "en": "ib-operations-internship-ubs",
-        "it": "ib-operations-internship-ubs",
+        "it": "stage-operativo-ib-ubs",
         "de": "ib-operations-internship-ubs",
         "fr": "ib-operations-internship-ubs"
       },
@@ -3568,14 +3624,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T23:15:02.474Z"
+      "firstSeenAt": "2026-05-13T23:15:02.474Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ib-operations-internship-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "ib-operations-internship-ubs"
+      ]
     },
     {
       "id": "ubs-c5c88b03c38b",
-      "slug": "ib-operations-internship-ubs-2",
+      "slug": "stage-operativo-ib-ubs-13203e",
       "slugByLocale": {
         "en": "ib-operations-internship-ubs",
-        "it": "ib-operations-internship-ubs-2",
+        "it": "stage-operativo-ib-ubs-13203e",
         "de": "ib-operations-internship-ubs-2",
         "fr": "ib-operations-internship-ubs-2"
       },
@@ -3640,7 +3704,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-13T23:15:02.473Z"
+      "firstSeenAt": "2026-05-13T23:15:02.473Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ib-operations-internship-ubs-2"
+        ]
+      },
+      "previousSlugs": [
+        "ib-operations-internship-ubs-2"
+      ]
     },
     {
       "id": "ubs-03e2a1a1b319",
