@@ -8250,10 +8250,10 @@
     },
     {
       "id": "eth-zurich-1de2346987a1",
-      "slug": "projektmanager-m-w-d-eth-zurich-zurich-f807bd",
+      "slug": "ausbildungsverantwortliche-r-per-apprendista-m-w-d-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "projektmanager-m-w-d-eth-zurich-zurich-f807bd",
-        "en": "projektmanager-m-w-d-eth-zurich-zurich-f807bd",
+        "it": "ausbildungsverantwortliche-r-per-apprendista-m-w-d-eth-zurich-zurich",
+        "en": "ausbildungsverantwortliche-r-fur-apprentice-m-w-d-eth-zurich-zurich",
         "de": "ausbildungsverantwortliche-r-fur-lernende-m-w-d-eth-zurich-ch",
         "fr": "ausbildungsverantwortliche-r-fur-apprenti-e-m-w-d-eth-zurich-zurich"
       },
@@ -8296,15 +8296,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ausbildungsverantwortliche-r-fur-lernende-m-w-d-eth-zurich-ch",
-        "ausbildungsverantwortliche-r-per-apprendista-m-w-d-eth-zurich"
+        "ausbildungsverantwortliche-r-per-apprendista-m-w-d-eth-zurich",
+        "projektmanager-m-w-d-eth-zurich-zurich-f807bd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ausbildungsverantwortliche-r-fur-lernende-m-w-d-eth-zurich-ch",
-          "ausbildungsverantwortliche-r-per-apprendista-m-w-d-eth-zurich"
+          "ausbildungsverantwortliche-r-per-apprendista-m-w-d-eth-zurich",
+          "projektmanager-m-w-d-eth-zurich-zurich-f807bd"
         ],
         "en": [
-          "ausbildungsverantwortliche-r-fur-lernende-m-w-d-eth-zurich-ch"
+          "ausbildungsverantwortliche-r-fur-lernende-m-w-d-eth-zurich-ch",
+          "projektmanager-m-w-d-eth-zurich-zurich-f807bd"
         ],
         "fr": [
           "ausbildungsverantwortliche-r-fur-lernende-m-w-d-eth-zurich-ch"
@@ -8399,12 +8402,12 @@
     },
     {
       "id": "eth-zurich-b63a86c5ce77",
-      "slug": "legal-counsel-per-forschungsforderung-stiftungsgelder-eth-zurich",
+      "slug": "consigliere-legale-per-i-fondi-di-ricerca-e-di-fondazione-eth-zurich-zurich",
       "slugByLocale": {
         "de": "legal-counsel-fur-forschungsforderung-stiftungsgelder-eth-zurich-ch",
-        "it": "legal-counsel-per-forschungsforderung-stiftungsgelder-eth-zurich",
-        "en": "legal-counsel-fur-forschungsforderung-stiftungsgelder-eth-zurich-ch",
-        "fr": "legal-counsel-fur-forschungsforderung-stiftungsgelder-eth-zurich-ch"
+        "it": "consigliere-legale-per-i-fondi-di-ricerca-e-di-fondazione-eth-zurich-zurich",
+        "en": "legal-counsel-for-research-funding-foundation-funds-eth-zurich-zurich",
+        "fr": "conseiller-juridique-pour-le-financement-de-la-recherche-et-les-fonds-de-la-fondation-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8447,11 +8450,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "legal-counsel-fur-forschungsforderung-stiftungsgelder-eth-zurich-ch",
+          "legal-counsel-per-forschungsforderung-stiftungsgelder-eth-zurich"
+        ],
+        "en": [
+          "legal-counsel-fur-forschungsforderung-stiftungsgelder-eth-zurich-ch"
+        ],
+        "fr": [
           "legal-counsel-fur-forschungsforderung-stiftungsgelder-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "legal-counsel-fur-forschungsforderung-stiftungsgelder-eth-zurich-ch"
+        "legal-counsel-fur-forschungsforderung-stiftungsgelder-eth-zurich-ch",
+        "legal-counsel-per-forschungsforderung-stiftungsgelder-eth-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -31,9 +31,9 @@
       "firstSeenAt": "2026-05-14T10:43:47.823Z",
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "en": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+        "en": "seller-in-food-coop-genossenschaft-felsberg",
         "de": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "fr": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -69,7 +69,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "en": [
+          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+      ]
     },
     {
       "id": "company-8axa4k",
@@ -409,9 +420,9 @@
       "firstSeenAt": "2026-05-13T10:51:38.179Z",
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "en": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+        "en": "seller-in-food-coop-genossenschaft-felsberg-6dde92",
         "de": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
-        "fr": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -452,7 +463,8 @@
         ],
         "en": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-          "seller-in-food-coop-genossenschaft-felsberg"
+          "seller-in-food-coop-genossenschaft-felsberg",
+          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
         ],
         "de": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
@@ -460,12 +472,14 @@
         ],
         "fr": [
           "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
+          "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-felsberg-graubunden-metayj",
         "seller-in-food-coop-genossenschaft-felsberg",
+        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
         "verkaufer-in-food-coop-genossenschaft-felsberg-lzsoh3",
         "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg"
       ]
@@ -7357,8 +7371,7 @@
         "collaborateur-trice-inventuren-coop-grigioni-4whh8x",
         "personnel-en-inventaire-coop-genossenschaft-basel",
         "mitarbeiter-in-inventuren-coop-grigioni-4whh8x",
-        "associate-inventuren-coop-genossenschaft-basel-arot84",
-        "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden"
+        "associate-inventuren-coop-genossenschaft-basel-arot84"
       ]
     },
     {

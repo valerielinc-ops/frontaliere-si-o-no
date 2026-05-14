@@ -2263,12 +2263,12 @@
     },
     {
       "id": "ubs-b56c18bf7816",
-      "slug": "operations-reporting-analista-ubs",
+      "slug": "regulatory-reporting-specialista-ubs",
       "slugByLocale": {
-        "it": "operations-reporting-analista-ubs",
+        "it": "regulatory-reporting-specialista-ubs",
         "en": "regulatory-reporting-specialist-ubs",
-        "de": "operations-reporting-analyst-ubs",
-        "fr": "operations-reporting-analyste-ubs"
+        "de": "regulatory-reporting-spezialist-ubs",
+        "fr": "regulatory-reporting-specialiste-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -2322,15 +2322,22 @@
         ],
         "it": [
           "operations-reporting-analyst-ubs",
-          "regulatory-reporting-specialist-ubs"
+          "regulatory-reporting-specialist-ubs",
+          "operations-reporting-analista-ubs"
         ],
         "fr": [
+          "operations-reporting-analyst-ubs",
+          "operations-reporting-analyste-ubs"
+        ],
+        "de": [
           "operations-reporting-analyst-ubs"
         ]
       },
       "previousSlugs": [
         "operations-reporting-analyst-ubs",
-        "regulatory-reporting-specialist-ubs"
+        "regulatory-reporting-specialist-ubs",
+        "operations-reporting-analista-ubs",
+        "operations-reporting-analyste-ubs"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-13T12:06:49.095Z",
