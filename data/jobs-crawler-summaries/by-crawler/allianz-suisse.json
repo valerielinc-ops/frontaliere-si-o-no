@@ -1,19 +1,82 @@
 {
   "key": "allianz-suisse",
   "label": "Tessin",
-  "generatedAt": "2026-05-14T10:14:18.724Z",
-  "total": 4,
-  "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 2,
-  "unchangedCount": 0,
-  "durationMs": 28579,
-  "avgDurationMs": 28579,
+  "generatedAt": "2026-05-14T21:15:28.708Z",
+  "total": 6,
+  "newCount": 2,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 4,
+  "durationMs": 11514,
+  "avgDurationMs": 11514,
   "durationHistory": [
-    28579
+    11514
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "title": "| Allianz | Bewerbermanagement",
+      "slug": "allianz-bewerbermanagement",
+      "url": "https://recruitingapp-2872.umantis.com/Vacancies/403/Description/4",
+      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/403/Application/CheckLogin/4",
+      "company": "Allianz Suisse",
+      "companyKey": "allianz-suisse",
+      "companyDomain": "umantis.com",
+      "location": "Region Graubünden",
+      "addressLocality": "Region Graubünden",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "insurance",
+      "sector": "Assicurazioni",
+      "source": "allianz-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-14",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 10,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Consulente previdenziale per l’agenzia generale Chur, 100%",
+      "slug": "consulente-previdenziale-per-l-agenzia-generale-chur-100",
+      "url": "https://recruitingapp-2872.umantis.com/Vacancies/404/Description/4",
+      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/404/Application/CheckLogin/4",
+      "company": "Allianz Suisse",
+      "companyKey": "allianz-suisse",
+      "companyDomain": "umantis.com",
+      "location": "Chur",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "insurance",
+      "sector": "Assicurazioni",
+      "source": "allianz-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-14",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Responsabile vendite nel servizio esterno (f/m/d), 100%, Bellinzona",
       "slug": "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona",
@@ -162,82 +225,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [
-    {
-      "title": "| Allianz | Bewerbermanagement",
-      "slug": "allianz-bewerbermanagement-allianz-suisse-region-graubunden",
-      "url": "https://recruitingapp-2872.umantis.com/Vacancies/403/Description/4",
-      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/403/Application/CheckLogin/4",
-      "company": "Allianz Suisse",
-      "companyKey": "allianz-suisse",
-      "companyDomain": "umantis.com",
-      "location": "Region Graubünden",
-      "addressLocality": "Region Graubünden",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "insurance",
-      "sector": "Assicurazioni",
-      "source": "allianz-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-13",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "allianz-suisse-673166e2ef7b",
-      "salaryMin": 53500,
-      "salaryMax": 89000,
-      "currency": "CHF",
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-10T09:28:25.865Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 19,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Consulente previdenziale per l’agenzia generale Chur, 100%",
-      "slug": "consulente-previdenziale-per-l-agenzia-generale-chur-100",
-      "url": "https://recruitingapp-2872.umantis.com/Vacancies/404/Description/4",
-      "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/404/Application/CheckLogin/4",
-      "company": "Allianz Suisse",
-      "companyKey": "allianz-suisse",
-      "companyDomain": "umantis.com",
-      "location": "Chur",
-      "addressLocality": "Chur",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "insurance",
-      "sector": "Assicurazioni",
-      "source": "allianz-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-13",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "id": "allianz-suisse-56c69931219d",
-      "firstSeenAt": "2026-04-13T21:01:46.149Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "unchangedJobs": []
+  ]
 }
