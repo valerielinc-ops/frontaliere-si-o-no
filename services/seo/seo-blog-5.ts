@@ -36851,6 +36851,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-ticino-premi-cassa-malati': {
+    title: 'Combattiamo mostruosità come i premi di cassa malati',
+    description: 'Giuseppe Sergi, coordinatore del Movimento per il socialismo, parla di premi di cassa malati e condizioni dei frontalieri. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, combattiamo, mostruosità, premi, cassa',
+    ogTitle: 'Combattiamo mostruosità come i premi di cassa malati',
+    ogDescription: 'Giuseppe Sergi, coordinatore del Movimento per il socialismo, parla di premi di cassa malati e condizioni dei frontalieri',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-premi-cassa-malati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Combattiamo mostruosità come i premi di cassa malati",
+      "description": "Giuseppe Sergi, coordinatore del Movimento per il socialismo, parla di premi di cassa malati e condizioni dei frontalieri. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-premi-cassa-malati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano, Svizzera"
+      },
+      "datePublished": "2026-05-14T07:40:17+00:00",
+      "dateModified": "2026-05-14T07:40:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-premi-cassa-malati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

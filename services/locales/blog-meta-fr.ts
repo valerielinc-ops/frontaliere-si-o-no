@@ -7538,6 +7538,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.citta-laghi-innovativa-transfrontaliera.title': 'Ville des Lacs : innovation et durabilité transfrontalière',
     'blog.article.citta-laghi-innovativa-transfrontaliera.excerpt': 'Six classes primées pour des projets sur le développement durable et la mobilité transfrontalière dans la \'Ville des Lacs\' insubrique.',
     'blog.article.citta-laghi-innovativa-transfrontaliera.imageAlt': 'Vue aérienne du Lac de Lugano avec des bâtiments modernes et des infrastructures, montrant un paysage urbain futuriste et durable.',
+    'blog.article.frontalieri-ticino-premi-cassa-malati.title': 'Combattiamo mostruosità',
+    'blog.article.frontalieri-ticino-premi-cassa-malati.excerpt': 'Giuseppe Sergi, coordinateur du Mouvement pour le socialisme, parle des primes de caisse maladie et des conditions des frontaliers',
+    'blog.article.frontalieri-ticino-premi-cassa-malati.imageAlt': 'Lugano, Suisse',
 };
 
 export default blogMetaFr;

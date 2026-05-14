@@ -23987,4 +23987,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-ticino-premi-cassa-malati',
+ category: 'pratico',
+ date: '2026-05-14T07:40:17.326Z',
+ image: '/images/blog/frontalieri-ticino-premi-cassa-malati.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

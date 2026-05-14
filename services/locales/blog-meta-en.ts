@@ -7537,6 +7537,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.citta-laghi-innovativa-transfrontaliera.title': 'Lake City: cross-border innovation and sustainability',
     'blog.article.citta-laghi-innovativa-transfrontaliera.excerpt': 'Six classes awarded for projects on sustainable development and cross-border mobility in the Insubric \'Lake City\'.',
     'blog.article.citta-laghi-innovativa-transfrontaliera.imageAlt': 'Aerial view of Lake Lugano with modern buildings and infrastructure, showcasing a futuristic and sustainable cityscape.',
+    'blog.article.frontalieri-ticino-premi-cassa-malati.title': 'Fight cash sickness premiums',
+    'blog.article.frontalieri-ticino-premi-cassa-malati.excerpt': 'Giuseppe Sergi, coordinator of the Movement for Socialism, talks about cash sickness premiums and cross-border workers\' conditions',
+    'blog.article.frontalieri-ticino-premi-cassa-malati.imageAlt': 'Lugano, Switzerland',
 };
 
 export default blogMetaEn;

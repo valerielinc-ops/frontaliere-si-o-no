@@ -7536,6 +7536,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.citta-laghi-innovativa-transfrontaliera.title': 'Stadt der Seen: Innovation und grenzüberschreitende Nachhaltigkeit',
     'blog.article.citta-laghi-innovativa-transfrontaliera.excerpt': 'Sechs Klassen werden für Projekte zu nachhaltiger Entwicklung und grenzüberschreitender Mobilität in der \'Stadt der Seen\' ausgezeichnet.',
     'blog.article.citta-laghi-innovativa-transfrontaliera.imageAlt': 'Luftaufnahme des Luganer Sees mit modernen Gebäuden und Infrastruktur, die eine futuristische und nachhaltige Stadtlandschaft zeigt.',
+    'blog.article.frontalieri-ticino-premi-cassa-malati.title': 'Kämpfen gegen Monstrositäten wie Prämien',
+    'blog.article.frontalieri-ticino-premi-cassa-malati.excerpt': 'Giuseppe Sergi, Koordinator der Bewegung für den Sozialismus, spricht über Prämien für Krankenkassen und die Bedingungen der Grenzgänger',
+    'blog.article.frontalieri-ticino-premi-cassa-malati.imageAlt': 'Lugano, Schweiz',
 };
 
 export default blogMetaDe;

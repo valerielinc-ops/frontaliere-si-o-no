@@ -7538,6 +7538,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.citta-laghi-innovativa-transfrontaliera.title': 'Città dei Laghi: innovazione e sostenibilità transfrontaliera',
     'blog.article.citta-laghi-innovativa-transfrontaliera.excerpt': 'Sei classi premiate per progetti su sviluppo sostenibile e mobilità transfrontaliera nella \'Città dei Laghi\' insubrica.',
     'blog.article.citta-laghi-innovativa-transfrontaliera.imageAlt': 'Vista aerea del Lago di Lugano con edifici moderni e infrastrutture, che mostra un paesaggio urbano futuristico e sostenibile.',
+    'blog.article.frontalieri-ticino-premi-cassa-malati.title': 'Combattiamo mostruosità come i premi di cassa malati',
+    'blog.article.frontalieri-ticino-premi-cassa-malati.excerpt': 'Giuseppe Sergi, coordinatore del Movimento per il socialismo, parla di premi di cassa malati e condizioni dei frontalieri',
+    'blog.article.frontalieri-ticino-premi-cassa-malati.imageAlt': 'Lugano, Svizzera',
 };
 
 export default blogMetaIt;
