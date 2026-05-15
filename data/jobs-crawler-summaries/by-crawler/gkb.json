@@ -1,18 +1,57 @@
 {
   "key": "gkb",
   "label": "Graubündner Kantonalbank",
-  "generatedAt": "2026-05-14T22:01:29.582Z",
+  "generatedAt": "2026-05-15T11:04:59.430Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 13351,
-  "avgDurationMs": 13351,
+  "durationMs": 13320,
+  "avgDurationMs": 13320,
   "durationHistory": [
-    13351
+    13320
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "gkb-e34052af1ed0",
+      "slug": "co-leiter-in-privatkunden-60-100-gkb-ch",
+      "company": "Graubündner Kantonalbank",
+      "companyKey": "gkb",
+      "companyDomain": "gkb.ch",
+      "title": "Co-Leiter:in Privatkunden (60-100%)",
+      "location": "Chur",
+      "canton": "GR",
+      "url": "https://recruitingapp-2607.umantis.com/Vacancies/1918/Description/1",
+      "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-15T11:04:48.667Z",
+      "addressLocality": "Chur",
+      "postalCode": "7000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Finanza / Banca",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Finanza / Banca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-15",
+      "applyUrl": "https://recruitingapp-2607.umantis.com/Vacancies/1918/Application/CheckLogin/1",
+      "department": "Private Kunden Chur / DPVK",
+      "pensumMin": 60,
+      "pensumMax": 100,
+      "pensum": "60 - 100%",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "gkb-44afd6ccdcc4",
@@ -26,7 +65,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1927/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-14T22:01:18.944Z",
+      "crawledAt": "2026-05-15T11:04:49.599Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -66,7 +105,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1930/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-14T22:01:20.033Z",
+      "crawledAt": "2026-05-15T11:04:50.547Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -105,7 +144,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1929/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-14T22:01:20.917Z",
+      "crawledAt": "2026-05-15T11:04:51.463Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -144,7 +183,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1926/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-14T22:01:21.789Z",
+      "crawledAt": "2026-05-15T11:04:52.396Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -183,7 +222,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1925/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-14T22:01:22.684Z",
+      "crawledAt": "2026-05-15T11:04:53.308Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -222,7 +261,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1891/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-14T22:01:23.567Z",
+      "crawledAt": "2026-05-15T11:04:54.199Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -258,7 +297,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1890/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-14T22:01:24.460Z",
+      "crawledAt": "2026-05-15T11:04:55.121Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -294,7 +333,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1909/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-14T22:01:25.349Z",
+      "crawledAt": "2026-05-15T11:04:56.065Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -330,7 +369,7 @@
       "url": "https://recruitingapp-2607.umantis.com/Vacancies/1923/Description/1",
       "source": "Graubündner Kantonalbank Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-14T22:01:26.225Z",
+      "crawledAt": "2026-05-15T11:04:56.992Z",
       "addressLocality": "Davos, Klosters",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -354,10 +393,12 @@
         "translation": 19,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "gkb-a99555bd09c8",
-      "slug": "kauffrau-kaufmann-bank-in-st-moritz-lehrbeginn-2027-gkb-ch",
+      "slug": "kaufmann-bank-a-st-moritz-inizio-del-2027-graubundner-kantonalbank-st-moritz",
       "company": "Graubündner Kantonalbank",
       "companyKey": "gkb",
       "companyDomain": "gkb.ch",
@@ -384,15 +425,16 @@
       "department": "Nachwuchs / PAWB",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:12:40.728Z",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
