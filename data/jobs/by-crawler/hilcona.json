@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-444d3fc8a600",
-      "slug": "hr-assistent-assistentin-hilcona-basel",
+      "slug": "assistente-hr-bell-schweiz-ag-basel",
       "slugByLocale": {
         "de": "hr-assistent-assistentin-bell-schweiz-ag-basel",
-        "it": "hr-assistent-assistentin-hilcona-basel",
-        "en": "hr-assistent-assistentin-hilcona-basel",
-        "fr": "hr-assistent-assistentin-hilcona-basel"
+        "it": "assistente-hr-bell-schweiz-ag-basel",
+        "en": "hr-assistant-bell-schweiz-ag-basel",
+        "fr": "assistant-rh-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -59,7 +59,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-15T11:10:05.036Z"
+      "firstSeenAt": "2026-05-15T11:10:05.036Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-assistent-assistentin-hilcona-basel"
+        ],
+        "en": [
+          "hr-assistent-assistentin-hilcona-basel"
+        ],
+        "fr": [
+          "hr-assistent-assistentin-hilcona-basel"
+        ]
+      },
+      "previousSlugs": [
+        "hr-assistent-assistentin-hilcona-basel"
+      ]
     },
     {
       "id": "hilcona-932d428a37be",

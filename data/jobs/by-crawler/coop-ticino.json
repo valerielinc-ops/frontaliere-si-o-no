@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-jttwyb",
-      "slug": "chauffeuse-chauffeur-kat-c-transgourmet-prodega-brunegg",
+      "slug": "autista-cat-c-transgourmet-schweiz-ag-brunegg",
       "company": "Transgourmet Schweiz AG",
       "title": "Chauffeuse / Chauffeur Kat. C",
       "location": "Brunegg",
@@ -41,10 +41,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "chauffeuse-chauffeur-kat-c-transgourmet-prodega-brunegg-jttwyb",
-        "en": "chauffeuse-chauffeur-kat-c-transgourmet-prodega-brunegg-jttwyb",
+        "it": "autista-cat-c-transgourmet-schweiz-ag-brunegg",
+        "en": "driver-cat-c-transgourmet-schweiz-ag-brunegg",
         "de": "chauffeuse-chauffeur-kat-c-transgourmet-prodega-brunegg-jttwyb",
-        "fr": "chauffeuse-chauffeur-kat-c-transgourmet-prodega-brunegg-jttwyb"
+        "fr": "chauffeuse-chauffeur-cat-c-transgourmet-schweiz-ag-brunegg"
       },
       "addressLocality": "Brunegg",
       "sourceLang": "de",
@@ -59,11 +59,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeuse-chauffeur-kat-c-transgourmet-prodega-brunegg-jttwyb",
+          "chauffeuse-chauffeur-kat-c-transgourmet-prodega-brunegg"
+        ],
+        "en": [
+          "chauffeuse-chauffeur-kat-c-transgourmet-prodega-brunegg-jttwyb"
+        ],
+        "fr": [
+          "chauffeuse-chauffeur-kat-c-transgourmet-prodega-brunegg-jttwyb"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeuse-chauffeur-kat-c-transgourmet-prodega-brunegg-jttwyb",
+        "chauffeuse-chauffeur-kat-c-transgourmet-prodega-brunegg"
+      ]
     },
     {
       "id": "company-utv6gh",
-      "slug": "filialleiter-in-interdiscount-chur-graubunden",
+      "slug": "capo-della-filiale-in-interdiscount-chur",
       "company": "Interdiscount",
       "title": "Filialleiter:in",
       "location": "Chur",
@@ -100,10 +116,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "filialleiter-in-interdiscount-chur-graubunden-utv6gh",
-        "en": "filialleiter-in-interdiscount-chur-graubunden-utv6gh",
+        "it": "capo-della-filiale-in-interdiscount-chur",
+        "en": "head-of-branch-in-interdiscount-chur",
         "de": "filialleiter-in-interdiscount-chur-graubunden-utv6gh",
-        "fr": "filialleiter-in-interdiscount-chur-graubunden-utv6gh"
+        "fr": "tete-de-branche-dans-interdiscount-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -118,7 +134,23 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "filialleiter-in-interdiscount-chur-graubunden-utv6gh",
+          "filialleiter-in-interdiscount-chur-graubunden"
+        ],
+        "en": [
+          "filialleiter-in-interdiscount-chur-graubunden-utv6gh"
+        ],
+        "fr": [
+          "filialleiter-in-interdiscount-chur-graubunden-utv6gh"
+        ]
+      },
+      "previousSlugs": [
+        "filialleiter-in-interdiscount-chur-graubunden-utv6gh",
+        "filialleiter-in-interdiscount-chur-graubunden"
+      ]
     },
     {
       "id": "company-cprmen",
@@ -203,7 +235,6 @@
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
         "managing-director-in-christ-uhren-schmuck-ag-chur-56b8b7",
         "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-56b8b7",
         "directeur-general-christ-uhren-schmuck-ag-chur-56b8b7"
@@ -293,7 +324,6 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
         "sales-consultant-in-christ-uhren-schmuck-ag-chur-03579f",
         "verkaufsberater-in-christ-uhren-schmuck-ag-chur-03579f",
         "consultant-en-ventes-christ-uhren-schmuck-ag-chur-03579f"
@@ -382,8 +412,7 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+        "verkaufer-in-food-coop-felsberg-graubunden-metayj"
       ],
       "retranslationAttempts": 1
     },
@@ -7675,8 +7704,7 @@
         "collaborateur-trice-inventuren-coop-grigioni-4whh8x",
         "personnel-en-inventaire-coop-genossenschaft-basel",
         "mitarbeiter-in-inventuren-coop-grigioni-4whh8x",
-        "associate-inventuren-coop-genossenschaft-basel-arot84",
-        "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden"
+        "associate-inventuren-coop-genossenschaft-basel-arot84"
       ]
     },
     {

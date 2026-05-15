@@ -1640,12 +1640,12 @@
     },
     {
       "id": "arxada-1894b3c6cfcb",
-      "slug": "training-coordinator-in-arxada-ch",
+      "slug": "coordinatore-della-formazione-arxada-visp",
       "slugByLocale": {
         "de": "training-coordinator-in-arxada-ch",
-        "it": "training-coordinator-in-arxada-ch",
+        "it": "coordinatore-della-formazione-arxada-visp",
         "en": "training-coordinator-in-arxada-visp",
-        "fr": "training-coordinator-in-arxada-ch"
+        "fr": "coordonnateur-de-la-formation-arxada-visp"
       },
       "company": "Arxada",
       "companyKey": "arxada",
@@ -1700,7 +1700,18 @@
         }
       },
       "postalCode": "3930",
-      "firstSeenAt": "2026-05-15T10:24:57.988Z"
+      "firstSeenAt": "2026-05-15T10:24:57.988Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "training-coordinator-in-arxada-ch"
+        ],
+        "fr": [
+          "training-coordinator-in-arxada-ch"
+        ]
+      },
+      "previousSlugs": [
+        "training-coordinator-in-arxada-ch"
+      ]
     }
   ]
 }

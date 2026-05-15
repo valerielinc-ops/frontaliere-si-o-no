@@ -3982,11 +3982,11 @@
     },
     {
       "id": "marriott-24a430e62f28",
-      "slug": "chef-de-partie-patisserie-marriott-geneva",
+      "slug": "capo-della-pasticceria-del-partito-marriott-international-geneva",
       "slugByLocale": {
         "en": "chef-de-partie-patisserie-marriott-geneva",
-        "it": "chef-de-partie-patisserie-marriott-geneva",
-        "de": "chef-de-partie-patisserie-marriott-geneva",
+        "it": "capo-della-pasticceria-del-partito-marriott-international-geneva",
+        "de": "parteichef-pastry-marriott-international-geneva",
         "fr": "chef-de-partie-patisserie-marriott-geneva"
       },
       "company": "Marriott International",
@@ -4051,7 +4051,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-15T11:28:13.218Z"
+      "firstSeenAt": "2026-05-15T11:28:13.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-partie-patisserie-marriott-geneva"
+        ],
+        "de": [
+          "chef-de-partie-patisserie-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-partie-patisserie-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-da31dc56943e",
@@ -4377,11 +4388,11 @@
     },
     {
       "id": "marriott-260fab88a9d1",
-      "slug": "apprenti-e-specialiste-en-restauration-1ere-annee-marriott-geneva",
+      "slug": "apprendistato-specialista-in-restauro-1-anno-marriott-international-geneva",
       "slugByLocale": {
         "en": "apprenti-e-specialiste-en-restauration-1ere-annee-marriott-geneva",
-        "it": "apprenti-e-specialiste-en-restauration-1ere-annee-marriott-geneva",
-        "de": "apprenti-e-specialiste-en-restauration-1ere-annee-marriott-geneva",
+        "it": "apprendistato-specialista-in-restauro-1-anno-marriott-international-geneva",
+        "de": "auszubildende-spezialist-fur-restauration-1-jahr-marriott-international-geneva",
         "fr": "apprenti-e-specialiste-en-restauration-1ere-annee-marriott-geneva"
       },
       "company": "Marriott International",
@@ -4446,7 +4457,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-15T11:28:13.213Z"
+      "firstSeenAt": "2026-05-15T11:28:13.213Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-specialiste-en-restauration-1ere-annee-marriott-geneva"
+        ],
+        "de": [
+          "apprenti-e-specialiste-en-restauration-1ere-annee-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-specialiste-en-restauration-1ere-annee-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-5dafefc799ac",
