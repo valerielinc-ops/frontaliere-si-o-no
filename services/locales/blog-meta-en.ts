@@ -7552,6 +7552,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-immondizia-cantello-multa.title': 'Cross-border worker fined for dumping waste in Cantello',
     'blog.article.frontalieri-immondizia-cantello-multa.excerpt': 'A Swiss citizen was sanctioned for abandoning waste in Italy. Reports of cross-border workers dumping trash across the border are increasing.',
     'blog.article.frontalieri-immondizia-cantello-multa.imageAlt': 'Cross-border waste disposal in Cantello, Ticino',
+    'blog.article.ffs-dirigenza-ticino-deposito-chiasso.title': 'SBB in Ticino: management announces changes, Chiasso depot remains open',
+    'blog.article.ffs-dirigenza-ticino-deposito-chiasso.excerpt': 'SBB management visits Ticino to announce new cuts, but Chiasso depot will not close',
+    'blog.article.ffs-dirigenza-ticino-deposito-chiasso.imageAlt': 'Aerial view of Chiasso train station and cargo depot in Ticino',
 };
 
 export default blogMetaEn;

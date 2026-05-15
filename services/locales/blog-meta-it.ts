@@ -7553,6 +7553,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-immondizia-cantello-multa.title': 'Multato un frontaliere dell\'immondizia a Cantello',
     'blog.article.frontalieri-immondizia-cantello-multa.excerpt': 'Un cittadino svizzero è stato sanzionato per aver abbandonato rifiuti in Italia. Aumentano le segnalazioni di frontalieri che scaricano immondizia oltreconfine.',
     'blog.article.frontalieri-immondizia-cantello-multa.imageAlt': 'Frontalieri dell\'immondizia a Cantello, Ticino',
+    'blog.article.ffs-dirigenza-ticino-deposito-chiasso.title': 'FFS in Ticino: dirigenza annuncia cambiamenti, deposito di Chiasso resta aperto',
+    'blog.article.ffs-dirigenza-ticino-deposito-chiasso.excerpt': 'La dirigenza delle FFS scende in Ticino per annunciare nuovi tagli, ma il deposito di Chiasso non chiuderà',
+    'blog.article.ffs-dirigenza-ticino-deposito-chiasso.imageAlt': 'Vista aerea della stazione e del deposito merci di Chiasso in Ticino',
 };
 
 export default blogMetaIt;

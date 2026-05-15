@@ -7551,6 +7551,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-immondizia-cantello-multa.title': 'Grenzgänger in Cantello wegen Müllentsorgung bestraft',
     'blog.article.frontalieri-immondizia-cantello-multa.excerpt': 'Ein Schweizer Bürger wurde wegen illegaler Müllentsorgung in Italien bestraft. Es gibt immer mehr Meldungen über Grenzgänger, die Abfall über die Grenze bringen.',
     'blog.article.frontalieri-immondizia-cantello-multa.imageAlt': 'Grenzüberschreitende Müllentsorgung in Cantello, Tessin',
+    'blog.article.ffs-dirigenza-ticino-deposito-chiasso.title': 'SBB im Tessin: Änderungen angekündigt, Depot Chiasso bleibt offen',
+    'blog.article.ffs-dirigenza-ticino-deposito-chiasso.excerpt': 'Die SBB-Leitung kommt in den Kanton Tessin, um neue Einsparungen anzukündigen, doch das Depot in Chiasso wird nicht geschlossen.',
+    'blog.article.ffs-dirigenza-ticino-deposito-chiasso.imageAlt': 'Luftaufnahme des Bahnhofs und des Güterdepots von Chiasso im Tessin',
 };
 
 export default blogMetaDe;

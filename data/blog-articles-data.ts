@@ -24032,4 +24032,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'ffs-dirigenza-ticino-deposito-chiasso',
+ category: 'novita',
+ date: '2026-05-15T10:04:03.304Z',
+ image: '/images/blog/ffs-dirigenza-ticino-deposito-chiasso.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

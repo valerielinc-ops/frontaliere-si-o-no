@@ -37046,6 +37046,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ffs-dirigenza-ticino-deposito-chiasso': {
+    title: 'FFS in Ticino: dirigenza annuncia cambiamenti, deposito di Chiasso resta aperto',
+    description: 'La dirigenza delle FFS scenderà in Ticino il 19 maggio per annunciare nuovi tagli e cambiamenti nella gestione del trasporto merci. Il deposito di Chiasso non',
+    keywords: 'frontalieri, ticino, svizzera, italia, dirigenza, annuncia, cambiamenti, deposito',
+    ogTitle: 'FFS in Ticino: dirigenza annuncia cambiamenti, deposito di Chiasso resta aperto',
+    ogDescription: 'La dirigenza delle FFS scenderà in Ticino il 19 maggio per annunciare nuovi tagli e cambiamenti nella gestione del trasporto merci. Il deposito di Chiasso non',
+    canonicalPath: '/articoli-frontaliere/ffs-dirigenza-ticino-deposito-chiasso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "FFS in Ticino: dirigenza annuncia cambiamenti, deposito di Chiasso resta aperto",
+      "description": "La dirigenza delle FFS scenderà in Ticino il 19 maggio per annunciare nuovi tagli e cambiamenti nella gestione del trasporto merci. Il deposito di Chiasso non",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ffs-dirigenza-ticino-deposito-chiasso.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della stazione e del deposito merci di Chiasso in Ticino"
+      },
+      "datePublished": "2026-05-15T10:04:03+00:00",
+      "dateModified": "2026-05-15T10:04:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ffs-dirigenza-ticino-deposito-chiasso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

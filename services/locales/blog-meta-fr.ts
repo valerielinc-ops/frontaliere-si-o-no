@@ -7553,6 +7553,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-immondizia-cantello-multa.title': 'Un frontalier suisse verbalisé pour déchets à Cantello',
     'blog.article.frontalieri-immondizia-cantello-multa.excerpt': 'Un citoyen suisse a été sanctionné pour avoir abandonné des déchets en Italie. Les signalements de travailleurs frontaliers jetant des ordures de l\'autre côté de la frontière augmentent.',
     'blog.article.frontalieri-immondizia-cantello-multa.imageAlt': 'Déchets transfrontaliers à Cantello, Tessin',
+    'blog.article.ffs-dirigenza-ticino-deposito-chiasso.title': 'CFF en Ticino: direction annonce des changements, dépôt de Chiasso reste ouvert',
+    'blog.article.ffs-dirigenza-ticino-deposito-chiasso.excerpt': 'La direction des CFF se rend en Ticino pour annoncer de nouvelles réductions, mais le dépôt de Chiasso ne fermera pas',
+    'blog.article.ffs-dirigenza-ticino-deposito-chiasso.imageAlt': 'Vue aérienne de la gare et du dépôt de marchandises de Chiasso au Tessin',
 };
 
 export default blogMetaFr;
