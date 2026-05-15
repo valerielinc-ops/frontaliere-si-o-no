@@ -1,93 +1,5 @@
 [
   {
-    "timestamp": "2026-04-30T06:15:07.150Z",
-    "label": "before",
-    "total": 2668,
-    "needsRetranslation": 74,
-    "incomplete": 31,
-    "complete": 2637,
-    "missingByLocale": {
-      "it": 27,
-      "en": 7,
-      "de": 27,
-      "fr": 26
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hitachi Energy",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-30T07:16:33.484Z",
-    "label": "after",
-    "total": 2668,
-    "needsRetranslation": 32,
-    "incomplete": 28,
-    "complete": 2640,
-    "missingByLocale": {
-      "it": 26,
-      "en": 7,
-      "de": 24,
-      "fr": 24
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-30T08:48:47.330Z",
     "label": "before",
     "total": 2595,
@@ -10412,6 +10324,118 @@
       {
         "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
         "pending": 5
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-14T23:09:31.507Z",
+    "label": "before",
+    "total": 4321,
+    "needsRetranslation": 2173,
+    "incomplete": 435,
+    "complete": 3886,
+    "missingByLocale": {
+      "it": 278,
+      "en": 242,
+      "de": 111,
+      "fr": 289
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 92
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 89
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 13
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 7
+      },
+      {
+        "company": "Reboot Monkey",
+        "pending": 7
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-15T01:05:31.228Z",
+    "label": "after",
+    "total": 4321,
+    "needsRetranslation": 935,
+    "incomplete": 346,
+    "complete": 3975,
+    "missingByLocale": {
+      "it": 248,
+      "en": 216,
+      "de": 99,
+      "fr": 255
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 89
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 13
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 7
+      },
+      {
+        "company": "Reboot Monkey",
+        "pending": 7
       }
     ]
   }
