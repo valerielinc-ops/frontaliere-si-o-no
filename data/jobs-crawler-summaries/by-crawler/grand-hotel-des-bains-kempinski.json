@@ -1,18 +1,51 @@
 {
   "key": "grand-hotel-des-bains-kempinski",
   "label": "kempinski",
-  "generatedAt": "2026-05-15T11:17:11.243Z",
+  "generatedAt": "2026-05-15T22:05:03.277Z",
   "total": 7,
-  "newCount": 0,
-  "updatedCount": 7,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 6,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2633,
-  "avgDurationMs": 2633,
+  "durationMs": 2504,
+  "avgDurationMs": 2504,
   "durationHistory": [
-    2633
+    2504
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Assistant Food & Beverage Manager",
+      "slug": "assistant-food-beverage-manager-509229",
+      "url": "https://kempinski.pinpointhq.com/en/postings/3afe4c4f-e1ce-4da4-b553-a5efd13d3531",
+      "applyUrl": "https://kempinski.pinpointhq.com/en/postings/3afe4c4f-e1ce-4da4-b553-a5efd13d3531",
+      "company": "Kempinski Palace Engelberg",
+      "companyKey": "grand-hotel-des-bains-kempinski",
+      "companyDomain": "kempinski.com",
+      "location": "Engelberg",
+      "addressLocality": "Engelberg",
+      "addressRegion": "OW",
+      "addressCountry": "CH",
+      "canton": "OW",
+      "country": "CH",
+      "category": "Turismo & Ospitalità",
+      "sector": "Hotellerie & Gastronomia",
+      "department": "Food & Beverage",
+      "source": "kempinski-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-06-30T23:59:59+02:00",
+      "validThrough": "",
+      "employmentType": "FULL_TIME",
+      "contractType": "permanent",
+      "crawledAt": "2026-05-15T22:05:03.194Z",
+      "_qualityScore": 57,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 0,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Cluster Sales Manager (m/w)",
@@ -37,7 +70,7 @@
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
-      "crawledAt": "2026-05-15T11:17:10.945Z",
+      "crawledAt": "2026-05-15T22:05:03.189Z",
       "id": "grand-hotel-des-bains-kempinski-f564ef0355f2",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -76,7 +109,7 @@
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-05-15T11:17:10.946Z",
+      "crawledAt": "2026-05-15T22:05:03.190Z",
       "id": "grand-hotel-des-bains-kempinski-1e3d6c1b25df",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -117,7 +150,7 @@
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-05-15T11:17:10.947Z",
+      "crawledAt": "2026-05-15T22:05:03.190Z",
       "id": "grand-hotel-des-bains-kempinski-70c0bf5df99d",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -158,7 +191,7 @@
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-05-15T11:17:10.948Z",
+      "crawledAt": "2026-05-15T22:05:03.191Z",
       "id": "grand-hotel-des-bains-kempinski-6f74aa1f5a3e",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -197,7 +230,7 @@
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-05-15T11:17:10.948Z",
+      "crawledAt": "2026-05-15T22:05:03.192Z",
       "id": "grand-hotel-des-bains-kempinski-e7d6d391aa4f",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -238,7 +271,7 @@
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-05-15T11:17:10.949Z",
+      "crawledAt": "2026-05-15T22:05:03.192Z",
       "id": "grand-hotel-des-bains-kempinski-a7cceff65a8c",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -255,10 +288,12 @@
         "translation": 19,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Assistant Restaurant Manager",
-      "slug": "assistant-restaurant-manager-501552",
+      "slug": "assistente-direttore-del-ristorante-kempinski-palace-engelberg-engelberg",
       "url": "https://kempinski.pinpointhq.com/en/postings/fc1f1ceb-efd9-47fa-9abb-fa50771d6a99",
       "applyUrl": "https://kempinski.pinpointhq.com/en/postings/fc1f1ceb-efd9-47fa-9abb-fa50771d6a99",
       "company": "Kempinski Palace Engelberg",
@@ -296,6 +331,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
