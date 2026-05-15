@@ -10470,5 +10470,117 @@
         "pending": 5
       }
     ]
+  },
+  {
+    "timestamp": "2026-05-15T04:45:34.876Z",
+    "label": "before",
+    "total": 4321,
+    "needsRetranslation": 935,
+    "incomplete": 346,
+    "complete": 3975,
+    "missingByLocale": {
+      "it": 246,
+      "en": 216,
+      "de": 99,
+      "fr": 255
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 89
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 13
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 7
+      },
+      {
+        "company": "Reboot Monkey",
+        "pending": 7
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-15T05:57:23.825Z",
+    "label": "after",
+    "total": 4321,
+    "needsRetranslation": 856,
+    "incomplete": 286,
+    "complete": 4035,
+    "missingByLocale": {
+      "it": 209,
+      "en": 187,
+      "de": 75,
+      "fr": 219
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 89
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 13
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      },
+      {
+        "company": "Lonza",
+        "pending": 6
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 5
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 5
+      }
+    ]
   }
 ]
