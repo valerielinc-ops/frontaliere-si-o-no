@@ -7548,6 +7548,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.title': 'Grenzgänger-Arbeitslosigkeit: EU angleicht an',
     'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.excerpt': 'Neue EU-Regeln für Arbeitslosenunterstützung: Das Arbeitsland zahlt, nicht das Wohnsitzland. Was ändert sich für die Grenzgänger zwischen Tessin und Italien?',
     'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.imageAlt': 'Ein professionelles Büro in Lugano mit Dokumenten und Finanzdaten auf dem Bildschirm',
+    'blog.article.frontalieri-immondizia-cantello-multa.title': 'Grenzgänger in Cantello wegen Müllentsorgung bestraft',
+    'blog.article.frontalieri-immondizia-cantello-multa.excerpt': 'Ein Schweizer Bürger wurde wegen illegaler Müllentsorgung in Italien bestraft. Es gibt immer mehr Meldungen über Grenzgänger, die Abfall über die Grenze bringen.',
+    'blog.article.frontalieri-immondizia-cantello-multa.imageAlt': 'Grenzüberschreitende Müllentsorgung in Cantello, Tessin',
 };
 
 export default blogMetaDe;

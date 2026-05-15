@@ -7550,6 +7550,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.title': 'Chômage frontalier: l\'UE égalise résidents et travailleurs suisses',
     'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.excerpt': 'Nouvelles règles UE pour les allocations de chômage: le pays de travail paie, pas celui de résidence. Qu\'est-ce qui change pour les frontaliers Ticino-Italie.',
     'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.imageAlt': 'Bureau professionnel à Lugano avec des documents et des données financières à l\'écran',
+    'blog.article.frontalieri-immondizia-cantello-multa.title': 'Un frontalier suisse verbalisé pour déchets à Cantello',
+    'blog.article.frontalieri-immondizia-cantello-multa.excerpt': 'Un citoyen suisse a été sanctionné pour avoir abandonné des déchets en Italie. Les signalements de travailleurs frontaliers jetant des ordures de l\'autre côté de la frontière augmentent.',
+    'blog.article.frontalieri-immondizia-cantello-multa.imageAlt': 'Déchets transfrontaliers à Cantello, Tessin',
 };
 
 export default blogMetaFr;

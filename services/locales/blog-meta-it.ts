@@ -7550,6 +7550,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.title': 'Disoccupazione frontalieri: l\'UE equipara residenti e lavoratori svizzeri',
     'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.excerpt': 'Nuove regole UE per i sussidi di disoccupazione: il Paese di lavoro paga, non quello di residenza. Cosa cambia per i frontalieri Ticino-Italia.',
     'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.imageAlt': 'Ufficio professionale a Lugano con documenti e dati finanziari sullo schermo',
+    'blog.article.frontalieri-immondizia-cantello-multa.title': 'Multato un frontaliere dell\'immondizia a Cantello',
+    'blog.article.frontalieri-immondizia-cantello-multa.excerpt': 'Un cittadino svizzero è stato sanzionato per aver abbandonato rifiuti in Italia. Aumentano le segnalazioni di frontalieri che scaricano immondizia oltreconfine.',
+    'blog.article.frontalieri-immondizia-cantello-multa.imageAlt': 'Frontalieri dell\'immondizia a Cantello, Ticino',
 };
 
 export default blogMetaIt;

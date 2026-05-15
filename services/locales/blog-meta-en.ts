@@ -7549,6 +7549,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.title': 'Unemployment benefits: EU aligns Swiss workers with residents',
     'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.excerpt': 'New EU rules for unemployment benefits: the country of work pays, not the country of residence. What changes for Ticino-Italy cross-border workers.',
     'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.imageAlt': 'Professional office in Lugano with documents and financial data on the screen',
+    'blog.article.frontalieri-immondizia-cantello-multa.title': 'Cross-border worker fined for dumping waste in Cantello',
+    'blog.article.frontalieri-immondizia-cantello-multa.excerpt': 'A Swiss citizen was sanctioned for abandoning waste in Italy. Reports of cross-border workers dumping trash across the border are increasing.',
+    'blog.article.frontalieri-immondizia-cantello-multa.imageAlt': 'Cross-border waste disposal in Cantello, Ticino',
 };
 
 export default blogMetaEn;
