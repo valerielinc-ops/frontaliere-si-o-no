@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2576,
+ "numberOfItems": 2577,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7216,7 +7216,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2573, "name": "FFS in Ticino: dirigenza annuncia cambiamenti, ...", "url": `${BASE_URL}/articoli-frontaliere/ffs-dirigenza-ticino-deposito-chiasso` },
           { "@type": "ListItem", "position": 2574, "name": "Documenti necessari per frontalieri", "url": `${BASE_URL}/articoli-frontaliere/documenti-necessari-frontaliere` },
           { "@type": "ListItem", "position": 2575, "name": "Disoccupazione frontalieri, Parigi fa pressione...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-parigi-berna` },
-          { "@type": "ListItem", "position": 2576, "name": "Frontalieri, Paradosso Tassa Salute: Disparità ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-paradosso-luino-verbania` }
+          { "@type": "ListItem", "position": 2576, "name": "Frontalieri, Paradosso Tassa Salute: Disparità ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-paradosso-luino-verbania` },
+          { "@type": "ListItem", "position": 2577, "name": "FFS Cargo conferma attività a Chiasso, ma il pe...", "url": `${BASE_URL}/articoli-frontaliere/ffs-cargo-chiasso-personale-2026` }
  ]
  },
  {

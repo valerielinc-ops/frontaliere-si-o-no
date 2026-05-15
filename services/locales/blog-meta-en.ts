@@ -7564,6 +7564,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.title': 'Cross-Border Worker Disparities: Tax Differences in Ticino',
     'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.excerpt': 'Luino and Verbania, two neighboring regions with contrasting tax systems for cross-border workers.',
     'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.imageAlt': 'Frontal worker in front of a factory with different tax signals',
+    'blog.article.ffs-cargo-chiasso-personale-2026.title': 'SBB Cargo confirms Chiasso operations, staff to be reorganized',
+    'blog.article.ffs-cargo-chiasso-personale-2026.excerpt': 'SBB will remain in Chiasso despite announced cuts, with staff changes by 2027.',
+    'blog.article.ffs-cargo-chiasso-personale-2026.imageAlt': 'FFS Cargo freight depot in Chiasso near the Swiss-Italian border',
 };
 
 export default blogMetaEn;

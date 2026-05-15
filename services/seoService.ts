@@ -3764,6 +3764,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-documenti-necessari-frontaliere': { name: 'Documenti necessari', path: '/articoli-frontaliere/documenti-necessari-frontaliere', parent: 'blog' },
     'blog-disoccupazione-frontalieri-parigi-berna': { name: 'Disoccupazione frontalieri', path: '/articoli-frontaliere/disoccupazione-frontalieri-parigi-berna', parent: 'blog' },
     'blog-tassa-salute-frontalieri-paradosso-luino-verbania': { name: 'Tassa Salute Frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-paradosso-luino-verbania', parent: 'blog' },
+    'blog-ffs-cargo-chiasso-personale-2026': { name: 'FFS Cargo Chiasso', path: '/articoli-frontaliere/ffs-cargo-chiasso-personale-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

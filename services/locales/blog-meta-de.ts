@@ -7563,6 +7563,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.title': 'Frontalier, Steuerparadox: Geografische Ungleichheiten am Grenzübergang',
     'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.excerpt': 'Luino und Verbania, zwei benachbarte Realitäten mit gegensätzlichen Steuerregelungen für Grenzgänger.',
     'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.imageAlt': 'Frontalier vor einer Fabrik mit unterschiedlichen Steuersignalen',
+    'blog.article.ffs-cargo-chiasso-personale-2026.title': 'SBB Cargo bestätigt Tätigkeit in Chiasso, Personal wird umstrukturiert',
+    'blog.article.ffs-cargo-chiasso-personale-2026.excerpt': 'Die SBB bleiben trotz angekündigter Einsparungen in Chiasso, mit Personaländerungen bis 2027.',
+    'blog.article.ffs-cargo-chiasso-personale-2026.imageAlt': 'FFS Cargo Güterbahnhof in Chiasso nahe der Schweizer-italienischen Grenze',
 };
 
 export default blogMetaDe;

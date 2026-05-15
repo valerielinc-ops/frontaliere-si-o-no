@@ -7565,6 +7565,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.title': 'Frontaliers, Paradoxe Fiscal: Inégalités Géographiques au Frontière',
     'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.excerpt': 'Luino et Verbania, deux réalités adjacentes avec des régimes fiscaux opposés pour les travailleurs frontaliers.',
     'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.imageAlt': 'Travailleur frontalier devant une usine avec des signaux d\'impôt différents',
+    'blog.article.ffs-cargo-chiasso-personale-2026.title': 'FFS Cargo confirme ses activités à Chiasso, personnel réorganisé',
+    'blog.article.ffs-cargo-chiasso-personale-2026.excerpt': 'Les FFS restent à Chiasso malgré les suppressions annoncées, avec des modifications du personnel d\'ici 2027.',
+    'blog.article.ffs-cargo-chiasso-personale-2026.imageAlt': 'Dépôt de fret FFS Cargo à Chiasso près de la frontière suisse-italienne',
 };
 
 export default blogMetaFr;

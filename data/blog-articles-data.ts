@@ -24068,4 +24068,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ffs-cargo-chiasso-personale-2026',
+ category: 'pratico',
+ date: '2026-05-15T19:14:03.989Z',
+ image: '/images/blog/ffs-cargo-chiasso-personale-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
