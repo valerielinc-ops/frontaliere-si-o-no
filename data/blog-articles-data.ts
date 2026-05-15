@@ -24005,4 +24005,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cooperazione-fiscale-dac9-traguardo',
+ category: 'fiscale',
+ date: '2026-05-15T01:56:20.433Z',
+ image: '/images/blog/cooperazione-fiscale-dac9-traguardo.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

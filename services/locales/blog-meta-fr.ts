@@ -7544,6 +7544,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-immondizia-cantello-multa.title': 'Un frontalier suisse verbalisé pour abandon de déchets en Italie',
     'blog.article.frontaliere-immondizia-cantello-multa.excerpt': 'Un citoyen suisse a été verbalisé pour avoir abandonné des déchets dans une commune italienne frontalière. Découvrez les détails et les implications pour les frontaliers.',
     'blog.article.frontaliere-immondizia-cantello-multa.imageAlt': 'Personne jetant des déchets dans une ville frontalière entre l\'Italie et la Suisse',
+    'blog.article.cooperazione-fiscale-dac9-traguardo.title': 'Coopération fiscale. Directive Dac9 en vigueur',
+    'blog.article.cooperazione-fiscale-dac9-traguardo.excerpt': 'La directive Dac9 entre en vigueur en 2026, renforçant la coopération fiscale entre la Suisse et l\'Italie. Découvrez comment la fiscalité change pour les frontaliers du Tessin.',
+    'blog.article.cooperazione-fiscale-dac9-traguardo.imageAlt': 'Castelgrande à Bellinzone, Tessin, Suisse',
 };
 
 export default blogMetaFr;

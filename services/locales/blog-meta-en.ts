@@ -7543,6 +7543,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-immondizia-cantello-multa.title': 'Swiss cross-border worker fined for dumping waste in Italy',
     'blog.article.frontaliere-immondizia-cantello-multa.excerpt': 'A Swiss citizen was fined for abandoning waste in an Italian border town. Find out the details and implications for cross-border workers.',
     'blog.article.frontaliere-immondizia-cantello-multa.imageAlt': 'Person discarding waste in a border town between Italy and Switzerland',
+    'blog.article.cooperazione-fiscale-dac9-traguardo.title': 'Tax cooperation. Dac9 directive reaches milestone',
+    'blog.article.cooperazione-fiscale-dac9-traguardo.excerpt': 'The Dac9 Directive comes into force in 2026, strengthening tax cooperation between Switzerland and Italy. Find out how taxation changes for Ticino cross-border workers.',
+    'blog.article.cooperazione-fiscale-dac9-traguardo.imageAlt': 'Castelgrande in Bellinzona, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

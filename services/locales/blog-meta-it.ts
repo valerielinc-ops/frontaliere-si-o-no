@@ -7544,6 +7544,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-immondizia-cantello-multa.title': 'Frontaliere svizzero multato per abbandono di rifiuti in Italia',
     'blog.article.frontaliere-immondizia-cantello-multa.excerpt': 'Un cittadino svizzero è stato multato per aver abbandonato rifiuti in un paese italiano di confine. Scopri i dettagli e le implicazioni per i frontalieri.',
     'blog.article.frontaliere-immondizia-cantello-multa.imageAlt': 'Persona che abbandona rifiuti in un paese di confine tra Italia e Svizzera',
+    'blog.article.cooperazione-fiscale-dac9-traguardo.title': 'Cooperazione in materia fiscale. Direttiva Dac9 al traguardo',
+    'blog.article.cooperazione-fiscale-dac9-traguardo.excerpt': 'La Direttiva Dac9 entra in vigore nel 2026, rafforzando la cooperazione fiscale tra Svizzera e Italia. Scopri come cambia la fiscalità per i frontalieri del Ticino.',
+    'blog.article.cooperazione-fiscale-dac9-traguardo.imageAlt': 'Castelgrande a Bellinzona, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

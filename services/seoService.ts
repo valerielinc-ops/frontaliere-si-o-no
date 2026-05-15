@@ -3757,6 +3757,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-citta-laghi-innovativa-transfrontaliera': { name: 'Città dei Laghi', path: '/articoli-frontaliere/citta-laghi-innovativa-transfrontaliera', parent: 'blog' },
     'blog-frontalieri-ticino-premi-cassa-malati': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontalieri-ticino-premi-cassa-malati', parent: 'blog' },
     'blog-frontaliere-immondizia-cantello-multa': { name: 'Frontalieri e rifiuti', path: '/articoli-frontaliere/frontaliere-immondizia-cantello-multa', parent: 'blog' },
+    'blog-cooperazione-fiscale-dac9-traguardo': { name: 'Fiscale', path: '/articoli-frontaliere/cooperazione-fiscale-dac9-traguardo', parent: 'blog' },
  };
 
  const info = sectionNames[section];

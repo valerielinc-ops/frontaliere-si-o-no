@@ -7542,6 +7542,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-immondizia-cantello-multa.title': 'Schweizer Grenzgänger wegen illegaler Müllentsorgung bestraft',
     'blog.article.frontaliere-immondizia-cantello-multa.excerpt': 'Ein Schweizer Bürger wurde wegen illegaler Müllentsorgung in einem italienischen Grenzort bestraft. Erfahren Sie die Details und die Auswirkungen auf Grenzgänger.',
     'blog.article.frontaliere-immondizia-cantello-multa.imageAlt': 'Person, die Abfall in einer Grenzstadt zwischen Italien und der Schweiz entsorgt',
+    'blog.article.cooperazione-fiscale-dac9-traguardo.title': 'Steuerzusammenarbeit: Richtlinie Dac9 tritt in Kraft',
+    'blog.article.cooperazione-fiscale-dac9-traguardo.excerpt': 'Die Richtlinie Dac9 tritt 2026 in Kraft und stärkt die Steuerzusammenarbeit zwischen der Schweiz und Italien. Erfahren Sie, wie sich die Besteuerung für die Grenzgänger des Tessin ändert.',
+    'blog.article.cooperazione-fiscale-dac9-traguardo.imageAlt': 'Castelgrande in Bellinzona, Tessin, Schweiz',
 };
 
 export default blogMetaDe;
