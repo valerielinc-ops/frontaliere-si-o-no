@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-05-15T10:24:04.765Z",
+  "generatedAt": "2026-05-15T21:11:42.483Z",
   "total": 30,
   "newCount": 0,
-  "updatedCount": 23,
+  "updatedCount": 22,
   "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 39467,
-  "avgDurationMs": 39467,
+  "unchangedCount": 8,
+  "durationMs": 12094,
+  "avgDurationMs": 12094,
   "durationHistory": [
-    39467
+    12094
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -807,42 +807,6 @@
         "translation": 19,
         "completeness": 22
       }
-    },
-    {
-      "title": "AREA SALES MANAGER, PROJECTS - NORTH",
-      "slug": "area-sales-manager-projects-north-ariston-group-high-wycombe-gb-hp124hj",
-      "url": "https://careers.aristongroup.com/job/High-Wycombe-AREA-SALES-MANAGER%2C-PROJECTS-NORTH-High-HP124HJ/1384508033/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1384508033/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "High Wycombe, GB, HP124HJ",
-      "addressLocality": "High Wycombe, GB, HP124HJ",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "canton": "",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-05-15",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-05-22",
-      "id": "ariston-group-56de387f81a1",
-      "salaryMin": 79500,
-      "salaryMax": 120500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-10T20:59:23.430Z",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 19,
-        "completeness": 19
-      }
     }
   ],
   "removedJobs": [],
@@ -1097,6 +1061,42 @@
         "richness": 22,
         "translation": 21,
         "completeness": 22
+      }
+    },
+    {
+      "title": "AREA SALES MANAGER, PROJECTS - NORTH",
+      "slug": "area-sales-manager-projects-north-ariston-group-high-wycombe-gb-hp124hj",
+      "url": "https://careers.aristongroup.com/job/High-Wycombe-AREA-SALES-MANAGER%2C-PROJECTS-NORTH-High-HP124HJ/1384508033/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1384508033/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "High Wycombe, GB, HP124HJ",
+      "addressLocality": "High Wycombe, GB, HP124HJ",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "canton": "",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-05-15",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-05-22",
+      "id": "ariston-group-56de387f81a1",
+      "salaryMin": 79500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-10T20:59:23.430Z",
+      "needsRetranslation": true,
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 19,
+        "completeness": 19
       }
     }
   ]
