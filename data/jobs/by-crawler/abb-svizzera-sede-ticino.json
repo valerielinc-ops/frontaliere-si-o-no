@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-05-15T10:16:31.693Z",
+  "assembledAt": "2026-05-15T21:04:31.674Z",
   "jobs": [
     {
       "id": "company-w5vlie",
@@ -88,7 +88,8 @@
       "addressLocality": "Quartino, Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-1dk7xe",
@@ -411,7 +412,8 @@
           "80-100-warehouse-internal-logistique-superviseur-abb-svizzera-sede-ticino-quartino-ticino-qkvhc4"
         ]
       },
-      "firstSeenAt": "2026-03-31T20:45:35.471Z"
+      "firstSeenAt": "2026-03-31T20:45:35.471Z",
+      "needsRetranslation": true
     },
     {
       "id": "company-noo56s",
