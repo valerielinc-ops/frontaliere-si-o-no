@@ -37241,6 +37241,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-g-vs-b-frontalieri-2026-errori-comuni': {
+    title: 'Permessi G e B per i frontalieri: errori comuni e come cambiarne status',
+    description: 'I frontalieri devono cambiare status da permesso G a permesso B entro il 2026. Questo cambio di status comporta errori comuni, come la mancata presentazione dei',
+    keywords: 'frontalieri, ticino, svizzera, italia, permessi, errori, comuni, cambiarne',
+    ogTitle: 'Permessi G e B per i frontalieri: errori comuni e come cambiarne status',
+    ogDescription: 'I frontalieri devono cambiare status da permesso G a permesso B entro il 2026. Questo cambio di status comporta errori comuni, come la mancata presentazione dei',
+    canonicalPath: '/articoli-frontaliere/permesso-g-vs-b-frontalieri-2026-errori-comuni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permessi G e B per i frontalieri: errori comuni e come cambiarne status",
+      "description": "I frontalieri devono cambiare status da permesso G a permesso B entro il 2026. Questo cambio di status comporta errori comuni, come la mancata presentazione dei",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-g-vs-b-frontalieri-2026-errori-comuni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere in automobile con il permesso G nel confine italo-svizzero"
+      },
+      "datePublished": "2026-05-15T21:15:59+00:00",
+      "dateModified": "2026-05-15T21:15:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-g-vs-b-frontalieri-2026-errori-comuni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

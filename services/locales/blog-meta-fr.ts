@@ -7568,6 +7568,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ffs-cargo-chiasso-personale-2026.title': 'FFS Cargo confirme ses activités à Chiasso, personnel réorganisé',
     'blog.article.ffs-cargo-chiasso-personale-2026.excerpt': 'Les FFS restent à Chiasso malgré les suppressions annoncées, avec des modifications du personnel d\'ici 2027.',
     'blog.article.ffs-cargo-chiasso-personale-2026.imageAlt': 'Dépôt de fret FFS Cargo à Chiasso près de la frontière suisse-italienne',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.title': 'Changement de statut des frontaliers : erreurs courantes et comment les corriger',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.excerpt': 'Les frontaliers doivent être conscients des erreurs courantes lors du changement de statut de permis G à permis B. 💡 Il est essentiel de connaître les erreurs les plus fréquentes pour éviter les complications et les retards. 📊 Les frontaliers qui souhaitent changer de statut doivent être prêts à fournir les documents nécessaires et à suivre les étapes appropriées. > Les erreurs courantes incluent la mauvaise présentation des documents, la non-conformité aux exigences de la loi et la mauvaise compréhension des procédures. ⚠️ Pour éviter ces erreurs, il est recommandé de consulter les informations officielles et de contacter les autorités compétentes. Les frontaliers qui sont conscients des erreurs courantes peuvent éviter les complications et les retards, et obtenir leur nouveau statut de manière efficace.',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.imageAlt': 'Un frontalier avec un permis G à la frontière italo-suisse',
 };
 
 export default blogMetaFr;

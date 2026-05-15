@@ -7568,6 +7568,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ffs-cargo-chiasso-personale-2026.title': 'FFS Cargo conferma attività a Chiasso, ma il personale sarà riorganizzato',
     'blog.article.ffs-cargo-chiasso-personale-2026.excerpt': 'Le FFS restano a Chiasso nonostante tagli annunciati, con modifiche al personale entro il 2027.',
     'blog.article.ffs-cargo-chiasso-personale-2026.imageAlt': 'Deposito merci FFS Cargo a Chiasso vicino al confine italo-svizzero',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.title': 'Permessi G e B per i frontalieri: errori comuni e come cambiarne status',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.excerpt': 'I frontalieri devono essere consapevoli degli errori comuni nel cambio di status da permesso G a permesso B',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.imageAlt': 'Un frontaliere in automobile con il permesso G nel confine italo-svizzero',
 };
 
 export default blogMetaIt;

@@ -3765,6 +3765,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-disoccupazione-frontalieri-parigi-berna': { name: 'Disoccupazione frontalieri', path: '/articoli-frontaliere/disoccupazione-frontalieri-parigi-berna', parent: 'blog' },
     'blog-tassa-salute-frontalieri-paradosso-luino-verbania': { name: 'Tassa Salute Frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-paradosso-luino-verbania', parent: 'blog' },
     'blog-ffs-cargo-chiasso-personale-2026': { name: 'FFS Cargo Chiasso', path: '/articoli-frontaliere/ffs-cargo-chiasso-personale-2026', parent: 'blog' },
+    'blog-permesso-g-vs-b-frontalieri-2026-errori-comuni': { name: 'Cambio di status da permesso G a permesso', path: '/articoli-frontaliere/permesso-g-vs-b-frontalieri-2026-errori-comuni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

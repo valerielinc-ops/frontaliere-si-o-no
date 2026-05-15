@@ -24077,4 +24077,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'permesso-g-vs-b-frontalieri-2026-errori-comuni',
+ category: 'fiscale',
+ date: '2026-05-15T21:15:59.613Z',
+ image: '/images/blog/permesso-g-vs-b-frontalieri-2026-errori-comuni.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

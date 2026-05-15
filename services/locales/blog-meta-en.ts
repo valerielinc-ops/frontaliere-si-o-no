@@ -7567,6 +7567,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ffs-cargo-chiasso-personale-2026.title': 'SBB Cargo confirms Chiasso operations, staff to be reorganized',
     'blog.article.ffs-cargo-chiasso-personale-2026.excerpt': 'SBB will remain in Chiasso despite announced cuts, with staff changes by 2027.',
     'blog.article.ffs-cargo-chiasso-personale-2026.imageAlt': 'FFS Cargo freight depot in Chiasso near the Swiss-Italian border',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.title': 'G Permit Status for Cross-Border Workers: Common Mistakes and Changes',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.excerpt': 'Cross-border workers should be aware of common errors when switching from a G permit to a B permit. 📊💡⚠️ I cross-border workers must be aware of common mistakes in changing their status from a G permit to a B permit. 📊💡⚠️ The following are some common errors to watch out for: - Incorrect documentation - Insufficient proof of income - Failure to meet the required residence period > "It is essential to carefully review the requirements and documentation to avoid any issues with the permit change." [testo tradotto](nav:azione)',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.imageAlt': 'A cross-border worker with a permit G at the Italian-Swiss border',
 };
 
 export default blogMetaEn;
