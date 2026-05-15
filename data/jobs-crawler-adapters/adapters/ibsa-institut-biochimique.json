@@ -14,17 +14,17 @@
     "https://career.ibsagroup.com/job/Grancia-Procurement-Category-Specialist-TI-6916/1344998255/",
     "https://career.ibsagroup.com/job/Grancia-Customer-&-Business-Support-Specialist-TI-6916/1345574555/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-OT-Security-Specialist-TI-6926/1346830755/",
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Contractors-&-Audits-Specialist-TI-6926/1342349855/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Accounting-Officer-%28sost_-maternit%C3%A0%29-TI-6926/1343827855/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Industrial-Controlling-Manager-TI-6926/1348512955/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Clinical-Research-Officer-TI-6926/1348468855/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-Jr-Drug-Safety-Unit-Specialist-TI-6926/1346980655/",
     "https://career.ibsagroup.com/job/Collina-d'Oro-General-Services-&-Plant-Security-Coordinator-TI-6926/1345502355/",
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Contractors-&-Audits-Specialist-TI-6926/1342349855/",
     "https://career.ibsagroup.com/job/Grancia-Procurement-Excellence-Specialist-TI-6916/1331627455/",
     "https://career.ibsagroup.com/job/Manno-Health%2C-Safety-and-Environment-Specialist-TI-6928/1329492855/"
   ],
   "notes": "Dedicated IBSA crawler seeds from career.ibsagroup.com TI search and canonicalizes detail URLs under /job/.../:jobId/.",
-  "updatedAt": "2026-05-14T22:09:49.608Z",
+  "updatedAt": "2026-05-15T11:13:14.509Z",
   "seedMetaByUrl": {
     "https://career.ibsagroup.com/job/Grancia-CMO-Manager-TI-6916/1350206155/": {
       "location": "Ticino",
@@ -48,13 +48,6 @@
       "companyDomain": "ibsa.ch"
     },
     "https://career.ibsagroup.com/job/Collina-d'Oro-OT-Security-Specialist-TI-6926/1346830755/": {
-      "location": "Ticino",
-      "canton": "TI",
-      "country": "CH",
-      "company": "IBSA Institut Biochimique",
-      "companyDomain": "ibsa.ch"
-    },
-    "https://career.ibsagroup.com/job/Collina-d'Oro-Contractors-&-Audits-Specialist-TI-6926/1342349855/": {
       "location": "Ticino",
       "canton": "TI",
       "country": "CH",
@@ -90,6 +83,13 @@
       "companyDomain": "ibsa.ch"
     },
     "https://career.ibsagroup.com/job/Collina-d'Oro-General-Services-&-Plant-Security-Coordinator-TI-6926/1345502355/": {
+      "location": "Ticino",
+      "canton": "TI",
+      "country": "CH",
+      "company": "IBSA Institut Biochimique",
+      "companyDomain": "ibsa.ch"
+    },
+    "https://career.ibsagroup.com/job/Collina-d'Oro-Contractors-&-Audits-Specialist-TI-6926/1342349855/": {
       "location": "Ticino",
       "canton": "TI",
       "country": "CH",
