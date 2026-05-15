@@ -1,18 +1,48 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-05-14T22:36:56.442Z",
-  "total": 140,
-  "newCount": 1,
-  "updatedCount": 104,
+  "generatedAt": "2026-05-15T11:40:23.097Z",
+  "total": 141,
+  "newCount": 2,
+  "updatedCount": 105,
   "removedCount": 0,
-  "unchangedCount": 10,
-  "durationMs": 2319,
-  "avgDurationMs": 2319,
+  "unchangedCount": 9,
+  "durationMs": 2966,
+  "avgDurationMs": 2966,
   "durationHistory": [
-    2319
+    2966
   ],
   "newJobs": [
+    {
+      "title": "Manager - Deals Tax (Mergers and Acquisitions)",
+      "slug": "manager-deals-tax-mergers-and-acquisitions-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/manager-deals-tax-mergers-and-acquisitions/fe46b80f-b4ac-475f-a692-5d930dac5ad3",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Manager---Deals-Tax----Mergers-and-Acquisitions-_704400WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zurich",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-14",
+      "validThrough": "2026-06-13",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
     {
       "title": "Manager - SAP Master Data Governance Consulting",
       "slug": "manager-sap-master-data-governance-consulting-pwc-zurich",
@@ -67,18 +97,12 @@
       "validThrough": "2036-05-07",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-cbd87979f741",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "4001",
-      "firstSeenAt": "2026-05-11T12:21:25.187Z",
-      "_qualityScore": 90,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 22
+        "translation": 16,
+        "completeness": 14
       }
     },
     {
@@ -139,17 +163,12 @@
       "validThrough": "2036-05-04",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-3aa7523d85ec",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-08T10:28:56.294Z",
-      "_qualityScore": 87,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "translation": 16,
+        "completeness": 14
       }
     },
     {
@@ -714,17 +733,12 @@
       "validThrough": "2026-05-23",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-0054671bedc4",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-24T10:44:24.903Z",
-      "_qualityScore": 87,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "translation": 16,
+        "completeness": 14
       }
     },
     {
@@ -1284,8 +1298,6 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-10T10:42:36.606Z",
-      "retranslationAttempts": 2,
-      "needsRetranslation": true,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1328,41 +1340,6 @@
         "richness": 20,
         "translation": 23,
         "completeness": 22
-      }
-    },
-    {
-      "title": "Senior Associate / Assistant Manager - Audit Trade, Industries & Services",
-      "slug": "senior-associate-assistant-manager-audit-trade-industries-services-pwc-zug",
-      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-assistant-manager-audit-trade-industries-services/f0e7ad7e-a4c2-4b53-bb46-a87d942985e5",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Audit-Senior-Associate---Assistant-Manager---Trade--Industries---Services---Herbst-2026_668637WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zug",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2025-09-24",
-      "validThrough": "2035-09-21",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-1902c8b10636",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-30T11:20:06.387Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
       }
     },
     {
