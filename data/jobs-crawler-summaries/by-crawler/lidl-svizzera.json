@@ -1,58 +1,19 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-14T22:19:16.427Z",
+  "generatedAt": "2026-05-15T11:22:36.122Z",
   "total": 10,
   "newCount": 0,
-  "updatedCount": 10,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 13738,
-  "avgDurationMs": 13738,
+  "unchangedCount": 1,
+  "durationMs": 8704,
+  "avgDurationMs": 8704,
   "durationHistory": [
-    13738
+    8704
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "company-y26v7p",
-      "slug": "ch-collaboratore-collaboratrice-pulizie-m-w-d-20-40-lidl-svizzera-biasca-y26v7p",
-      "company": "Lidl Svizzera",
-      "title": "CH_ Collaboratore / Collaboratrice pulizie (m/f/d) 20-40%",
-      "location": "Biasca",
-      "canton": "ti",
-      "category": "other",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-05",
-      "url": "https://team.lidl.ch/it/jobs/ch-collaboratore-collaboratrice-pulizie-m-f-d-20-40-biasca-685180",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Biasca",
-        "canton": "TI"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-05-13T11:25:24.820Z",
-      "firstSeenAt": "2026-05-13T11:25:24.820Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "streetAddress": "Via Industria 7",
-      "postalCode": "6593",
-      "addressLocality": "Biasca",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "id": "company-ixk693",
       "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-gravesano-ixk693",
@@ -124,11 +85,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 9,
         "completeness": 25
       }
     },
@@ -417,5 +378,47 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "company-y26v7p",
+      "slug": "ch-collaboratore-collaboratrice-pulizie-m-w-d-20-40-lidl-svizzera-biasca-y26v7p",
+      "company": "Lidl Svizzera",
+      "title": "CH_ Collaboratore / Collaboratrice pulizie (m/f/d) 20-40%",
+      "location": "Biasca",
+      "canton": "ti",
+      "category": "other",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-05",
+      "url": "https://team.lidl.ch/it/jobs/ch-collaboratore-collaboratrice-pulizie-m-f-d-20-40-biasca-685180",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Biasca",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-05-13T11:25:24.820Z",
+      "firstSeenAt": "2026-05-13T11:25:24.820Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Biasca",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
