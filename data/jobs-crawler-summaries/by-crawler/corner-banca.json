@@ -1,47 +1,18 @@
 {
   "key": "corner-banca",
   "label": "Corner",
-  "generatedAt": "2026-05-15T10:48:40.128Z",
+  "generatedAt": "2026-05-15T21:36:36.969Z",
   "total": 10,
-  "newCount": 1,
-  "updatedCount": 9,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2292,
-  "avgDurationMs": 2292,
+  "durationMs": 2268,
+  "avgDurationMs": 2268,
   "durationHistory": [
-    2292
+    2268
   ],
-  "newJobs": [
-    {
-      "id": "corner-banca-8d0bd2e49371",
-      "slug": "customer-advisor-100-team-zurich-corner-banca-wallisellen",
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Customer Advisor 100% Team Zurich",
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-08",
-      "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-15T10:48:38.227Z",
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "corner-banca-55e210fc5d83",
@@ -62,13 +33,43 @@
       "url": "https://jobs.corner.ch/o/market-risk-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T10:48:38.232Z",
+      "crawledAt": "2026-05-15T21:36:35.044Z",
       "firstSeenAt": "2026-05-13T10:51:00.114Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "corner-banca-8d0bd2e49371",
+      "slug": "customer-advisor-100-team-zurich-corner-banca-wallisellen",
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Customer Advisor 100% Team Zurich",
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-08",
+      "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-15T21:36:35.036Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-15T10:48:38.227Z",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -91,7 +92,7 @@
       "url": "https://jobs.corner.ch/o/aml-monitoring",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T10:48:38.228Z",
+      "crawledAt": "2026-05-15T21:36:35.037Z",
       "firstSeenAt": "2026-04-28T10:42:06.718Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -120,7 +121,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T10:48:38.229Z",
+      "crawledAt": "2026-05-15T21:36:35.039Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -149,7 +150,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T10:48:38.229Z",
+      "crawledAt": "2026-05-15T21:36:35.040Z",
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -178,7 +179,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T10:48:38.231Z",
+      "crawledAt": "2026-05-15T21:36:35.041Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -207,7 +208,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-15T10:48:38.233Z",
+      "crawledAt": "2026-05-15T21:36:35.045Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -236,7 +237,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T10:48:38.234Z",
+      "crawledAt": "2026-05-15T21:36:35.046Z",
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -265,7 +266,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T10:48:38.235Z",
+      "crawledAt": "2026-05-15T21:36:35.047Z",
       "firstSeenAt": "2026-05-05T21:39:18.874Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -294,7 +295,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-15T10:48:38.235Z",
+      "crawledAt": "2026-05-15T21:36:35.048Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T09:57:27.167Z",
       "_qualityScore": 81,
