@@ -7559,6 +7559,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.documenti-necessari-frontaliere.title': 'Documenti necessari per frontalieri',
     'blog.article.documenti-necessari-frontaliere.excerpt': 'Checklist completa per iniziare a lavorare in Svizzera',
     'blog.article.documenti-necessari-frontaliere.imageAlt': 'Persona frontaliera con documenti in mano',
+    'blog.article.disoccupazione-frontalieri-parigi-berna.title': 'Disoccupazione frontalieri, Parigi fa pressione su Berna',
+    'blog.article.disoccupazione-frontalieri-parigi-berna.excerpt': 'Nuovo accordo europeo per il pagamento delle indennità di disoccupazione',
+    'blog.article.disoccupazione-frontalieri-parigi-berna.imageAlt': 'Vista di Lugano',
 };
 
 export default blogMetaIt;

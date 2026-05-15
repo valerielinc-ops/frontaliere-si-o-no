@@ -37124,6 +37124,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disoccupazione-frontalieri-parigi-berna': {
+    title: 'Disoccupazione frontalieri, Parigi fa pressione su Berna',
+    description: 'La Francia esercita pressione sulla Svizzera per l\'applicazione del nuovo accordo europeo sulle indennità di disoccupazione dei frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, parigi, pressione, berna',
+    ogTitle: 'Disoccupazione frontalieri, Parigi fa pressione su Berna',
+    ogDescription: 'La Francia esercita pressione sulla Svizzera per l\'applicazione del nuovo accordo europeo sulle indennità di disoccupazione dei frontalieri.',
+    canonicalPath: '/articoli-frontaliere/disoccupazione-frontalieri-parigi-berna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione frontalieri, Parigi fa pressione su Berna",
+      "description": "La Francia esercita pressione sulla Svizzera per l'applicazione del nuovo accordo europeo sulle indennità di disoccupazione dei frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-frontalieri-parigi-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano"
+      },
+      "datePublished": "2026-05-15T13:47:21+00:00",
+      "dateModified": "2026-05-15T13:47:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-parigi-berna`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

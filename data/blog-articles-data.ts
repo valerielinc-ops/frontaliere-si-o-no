@@ -24050,4 +24050,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'disoccupazione-frontalieri-parigi-berna',
+ category: 'pratico',
+ date: '2026-05-15T13:47:21.089Z',
+ image: '/images/blog/disoccupazione-frontalieri-parigi-berna.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

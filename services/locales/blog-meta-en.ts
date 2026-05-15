@@ -7558,6 +7558,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.documenti-necessari-frontaliere.title': 'Documents needed for cross-border workers',
     'blog.article.documenti-necessari-frontaliere.excerpt': 'Complete checklist to start working in Switzerland',
     'blog.article.documenti-necessari-frontaliere.imageAlt': 'Frontalier with documents in hand',
+    'blog.article.disoccupazione-frontalieri-parigi-berna.title': 'Cross-border jobless',
+    'blog.article.disoccupazione-frontalieri-parigi-berna.excerpt': 'New EU agreement on unemployment benefits',
+    'blog.article.disoccupazione-frontalieri-parigi-berna.imageAlt': 'Lugano view',
 };
 
 export default blogMetaEn;

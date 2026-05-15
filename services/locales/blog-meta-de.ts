@@ -7557,6 +7557,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.documenti-necessari-frontaliere.title': 'Dokumente für Grenzgänger',
     'blog.article.documenti-necessari-frontaliere.excerpt': 'Vollständige Checkliste für den Arbeitsbeginn in der Schweiz',
     'blog.article.documenti-necessari-frontaliere.imageAlt': 'Frontalier mit Dokumenten in der Hand',
+    'blog.article.disoccupazione-frontalieri-parigi-berna.title': 'Disoccupazione frontalieri: Paris drückt auf Bern',
+    'blog.article.disoccupazione-frontalieri-parigi-berna.excerpt': 'Neuer europäischer Vertrag für die Entlohnung von Arbeitslosen',
+    'blog.article.disoccupazione-frontalieri-parigi-berna.imageAlt': 'Blick auf Lugano',
 };
 
 export default blogMetaDe;
