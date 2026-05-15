@@ -2290,7 +2290,6 @@
       "previousSlugs": [
         "ski-room-attendant-winter-26-27-w-verbier-marriott-verbier",
         "spa-therapist-welcome-agent-spa-winter-26-27-w-verbier-marriott-verbier",
-        "addetto-alla-stanza-sciistica-inverno-26-27-w-verbier-marriott-international-verbier",
         "terapeuta-spa-welcome-agent-spa-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
@@ -2461,8 +2460,7 @@
         "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
         "addetto-spa-inverno-26-27-w-verbier-marriott-international-verbier",
         "employe-spa-hiver-26-27-w-verbier-marriott-international-verbier",
-        "spa-attendant-winter-26-27-w-verbier-marriott-verbier",
-        "pasticceria-6-mesi-w-verbier-marriott-international-verbier"
+        "spa-attendant-winter-26-27-w-verbier-marriott-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2644,10 +2642,10 @@
     },
     {
       "id": "marriott-8806a869c3bf",
-      "slug": "addetto-all-audit-notturno-marriott-international-geneva",
+      "slug": "audizione-notturna-marriott-international-geneva",
       "slugByLocale": {
         "en": "night-audit-marriott-geneva",
-        "it": "addetto-all-audit-notturno-marriott-international-geneva",
+        "it": "audizione-notturna-marriott-international-geneva",
         "de": "nachtaudit-mitarbeiter-marriott-international-geneva",
         "fr": "agent-d-audit-de-nuit-marriott-international-geneva"
       },
@@ -2715,7 +2713,15 @@
         }
       },
       "firstSeenAt": "2026-05-14T22:24:44.365Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "addetto-all-audit-notturno-marriott-international-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "addetto-all-audit-notturno-marriott-international-geneva"
+      ]
     },
     {
       "id": "marriott-e1c6e3f70c85",

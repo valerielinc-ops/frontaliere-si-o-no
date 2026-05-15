@@ -263,11 +263,11 @@
         "fr": "Social Services Spécialiste",
         "de": "Social Services Spezialist"
       },
-      "slug": "social-services-specialist-swisscom-lausanne-x5zf86",
+      "slug": "social-services-specialista-swisscom-sede-ticino-lausanne",
       "slugByLocale": {
-        "it": "social-services-specialist-swisscom-lausanne-x5zf86",
+        "it": "social-services-specialista-swisscom-sede-ticino-lausanne",
         "en": "social-services-specialist-swisscom-sede-ticino-lausanne",
-        "de": "social-services-specialist-swisscom-lausanne-x5zf86",
+        "de": "social-services-spezialist-swisscom-sede-ticino-lausanne",
         "fr": "social-services-specialist-swisscom-lausanne-x5zf86"
       },
       "category": "general",
@@ -302,7 +302,18 @@
       "postalCode": "6500",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-14T22:56:01.552Z"
+      "firstSeenAt": "2026-05-14T22:56:01.552Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "social-services-specialist-swisscom-lausanne-x5zf86"
+        ],
+        "de": [
+          "social-services-specialist-swisscom-lausanne-x5zf86"
+        ]
+      },
+      "previousSlugs": [
+        "social-services-specialist-swisscom-lausanne-x5zf86"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer_R-0005544",
