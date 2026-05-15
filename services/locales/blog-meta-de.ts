@@ -7539,6 +7539,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-premi-cassa-malati.title': 'Kämpfen gegen Monstrositäten wie Prämien',
     'blog.article.frontalieri-ticino-premi-cassa-malati.excerpt': 'Giuseppe Sergi, Koordinator der Bewegung für den Sozialismus, spricht über Prämien für Krankenkassen und die Bedingungen der Grenzgänger',
     'blog.article.frontalieri-ticino-premi-cassa-malati.imageAlt': 'Lugano, Schweiz',
+    'blog.article.frontaliere-immondizia-cantello-multa.title': 'Schweizer Grenzgänger wegen illegaler Müllentsorgung bestraft',
+    'blog.article.frontaliere-immondizia-cantello-multa.excerpt': 'Ein Schweizer Bürger wurde wegen illegaler Müllentsorgung in einem italienischen Grenzort bestraft. Erfahren Sie die Details und die Auswirkungen auf Grenzgänger.',
+    'blog.article.frontaliere-immondizia-cantello-multa.imageAlt': 'Person, die Abfall in einer Grenzstadt zwischen Italien und der Schweiz entsorgt',
 };
 
 export default blogMetaDe;

@@ -23996,4 +23996,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-immondizia-cantello-multa',
+ category: 'novita',
+ date: '2026-05-15T01:26:39.522Z',
+ image: '/images/blog/frontaliere-immondizia-cantello-multa.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

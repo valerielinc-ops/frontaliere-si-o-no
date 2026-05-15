@@ -7541,6 +7541,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-premi-cassa-malati.title': 'Combattiamo mostruosità come i premi di cassa malati',
     'blog.article.frontalieri-ticino-premi-cassa-malati.excerpt': 'Giuseppe Sergi, coordinatore del Movimento per il socialismo, parla di premi di cassa malati e condizioni dei frontalieri',
     'blog.article.frontalieri-ticino-premi-cassa-malati.imageAlt': 'Lugano, Svizzera',
+    'blog.article.frontaliere-immondizia-cantello-multa.title': 'Frontaliere svizzero multato per abbandono di rifiuti in Italia',
+    'blog.article.frontaliere-immondizia-cantello-multa.excerpt': 'Un cittadino svizzero è stato multato per aver abbandonato rifiuti in un paese italiano di confine. Scopri i dettagli e le implicazioni per i frontalieri.',
+    'blog.article.frontaliere-immondizia-cantello-multa.imageAlt': 'Persona che abbandona rifiuti in un paese di confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

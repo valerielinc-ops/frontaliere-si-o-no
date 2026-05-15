@@ -7541,6 +7541,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-premi-cassa-malati.title': 'Combattiamo mostruosità',
     'blog.article.frontalieri-ticino-premi-cassa-malati.excerpt': 'Giuseppe Sergi, coordinateur du Mouvement pour le socialisme, parle des primes de caisse maladie et des conditions des frontaliers',
     'blog.article.frontalieri-ticino-premi-cassa-malati.imageAlt': 'Lugano, Suisse',
+    'blog.article.frontaliere-immondizia-cantello-multa.title': 'Un frontalier suisse verbalisé pour abandon de déchets en Italie',
+    'blog.article.frontaliere-immondizia-cantello-multa.excerpt': 'Un citoyen suisse a été verbalisé pour avoir abandonné des déchets dans une commune italienne frontalière. Découvrez les détails et les implications pour les frontaliers.',
+    'blog.article.frontaliere-immondizia-cantello-multa.imageAlt': 'Personne jetant des déchets dans une ville frontalière entre l\'Italie et la Suisse',
 };
 
 export default blogMetaFr;

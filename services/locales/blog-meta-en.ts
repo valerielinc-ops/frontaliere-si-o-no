@@ -7540,6 +7540,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-premi-cassa-malati.title': 'Fight cash sickness premiums',
     'blog.article.frontalieri-ticino-premi-cassa-malati.excerpt': 'Giuseppe Sergi, coordinator of the Movement for Socialism, talks about cash sickness premiums and cross-border workers\' conditions',
     'blog.article.frontalieri-ticino-premi-cassa-malati.imageAlt': 'Lugano, Switzerland',
+    'blog.article.frontaliere-immondizia-cantello-multa.title': 'Swiss cross-border worker fined for dumping waste in Italy',
+    'blog.article.frontaliere-immondizia-cantello-multa.excerpt': 'A Swiss citizen was fined for abandoning waste in an Italian border town. Find out the details and implications for cross-border workers.',
+    'blog.article.frontaliere-immondizia-cantello-multa.imageAlt': 'Person discarding waste in a border town between Italy and Switzerland',
 };
 
 export default blogMetaEn;
