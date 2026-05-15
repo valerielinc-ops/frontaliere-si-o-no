@@ -1,21 +1,21 @@
 {
   "key": "swatch-group-assembly",
   "label": "swatch-group-assembly",
-  "generatedAt": "2026-05-15T11:57:41.389Z",
+  "generatedAt": "2026-05-15T22:45:22.638Z",
   "total": 12,
   "newCount": 20,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 25469,
-  "avgDurationMs": 25469,
+  "durationMs": 24354,
+  "avgDurationMs": 24354,
   "durationHistory": [
-    25469
+    24354
   ],
   "newJobs": [
     {
       "id": "company-7uaw2c",
-      "slug": "sales-assistant-part-time-orio-al-serio-bergamo-the-swatch-group-italia-s-p-a-24050-orio-al-serio-lombardia-italia-company-address-the-swatc",
+      "slug": "sales-assistant-part-time-orio-al-serio-bergamo-the-swatch-group-italia-s-p-a-24050-orio-al-serio-lombardia-italia-company-address-the-swatc-7uaw2c",
       "company": "The Swatch Group (Italia) S.p.A.",
       "title": "Sales Assistant - Part time - Orio al Serio - Bergamo",
       "location": "24050 Orio al Serio (Lombardia) Italia Company address The Swatch Group (Italia)",
@@ -33,17 +33,26 @@
       "firstSeenAt": "2026-05-15T11:57:39.936Z",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 76,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "24050 Orio al Serio (Lombardia) Italia Company address The Swatch Group (Italia)",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 15,
-        "completeness": 14
+        "completeness": 25
       }
     },
     {
       "id": "company-7uaw2b",
-      "slug": "sales-assistant-part-time-bergamo-contratto-temporaneo-the-swatch-group-italia-s-p-a-24122-bergamo-lombardia-italia-company-address-the-swat",
+      "slug": "sales-assistant-part-time-bergamo-contratto-temporaneo-the-swatch-group-italia-s-p-a-24122-bergamo-lombardia-italia-company-address-the-swat-7uaw2b",
       "company": "The Swatch Group (Italia) S.p.A.",
       "title": "Sales Assistant - part time - Bergamo - contratto temporaneo",
       "location": "24122 Bergamo (Lombardia) Italia Company address The Swatch Group (Italia) S",
@@ -61,17 +70,26 @@
       "firstSeenAt": "2026-05-15T11:57:39.936Z",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 76,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "24122 Bergamo (Lombardia) Italia Company address The Swatch Group (Italia) S",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 15,
-        "completeness": 14
+        "completeness": 25
       }
     },
     {
       "id": "company-7uaw2a",
-      "slug": "swatch-part-time-keyholder-ny-hotel-las-vegas-the-swatch-group-u-s-inc-job-location-south-las-vegas-boulevard-3790-89109-las-vegas-nv-nev",
+      "slug": "swatch-part-time-keyholder-ny-hotel-las-vegas-the-swatch-group-u-s-inc-job-location-south-las-vegas-boulevard-3790-89109-las-vegas-nv-nev-7uaw2a",
       "company": "The Swatch Group (U.S.) Inc.",
       "title": "Swatch Part Time Keyholder - NY NY Hotel (Las Vegas)",
       "location": "Job location South Las Vegas Boulevard 3790 89109 Las Vegas NV (Nevada) United S",
@@ -87,19 +105,27 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-05-15T11:57:39.936Z",
       "firstSeenAt": "2026-05-15T11:57:39.936Z",
-      "needsRetranslation": true,
       "sourceLang": "en",
-      "_qualityScore": 69,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "Job location South Las Vegas Boulevard 3790 89109 Las Vegas NV (Nevada) United S",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 9,
-        "completeness": 14
+        "translation": 23,
+        "completeness": 25
       }
     },
     {
       "id": "company-7uaw29",
-      "slug": "swatch-full-time-keyholder-ny-hotel-las-vegas-the-swatch-group-u-s-inc-job-location-south-las-vegas-boulevard-3790-89109-las-vegas-nv-nev",
+      "slug": "swatch-tempo-pieno-keyholder-ny-hotel-las-vegas-the-swatch-group-u-s-inc-job-location-south-las-vegas-boulevard-3790-89109-las-vegas-nv-n-7uaw29",
       "company": "The Swatch Group (U.S.) Inc.",
       "title": "Swatch Full Time Keyholder - NY NY Hotel (Las Vegas)",
       "location": "Job location South Las Vegas Boulevard 3790 89109 Las Vegas NV (Nevada) United S",
@@ -115,14 +141,22 @@
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-05-15T11:57:39.936Z",
       "firstSeenAt": "2026-05-15T11:57:39.936Z",
-      "needsRetranslation": true,
       "sourceLang": "en",
-      "_qualityScore": 69,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "Job location South Las Vegas Boulevard 3790 89109 Las Vegas NV (Nevada) United S",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 9,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -164,7 +198,7 @@
     },
     {
       "id": "company-7uaw1k",
-      "slug": "store-manager-bilbao-the-swatch-group-espana-s-a-48009-bilbao-vizcaya-spain-company-address-the-swatch-group-espana-s-7uaw1k",
+      "slug": "responsabile-negozio-bilbao-the-swatch-group-espana-s-a-48009-bilbao-vizcaya-spain-company-address-the-swatch-group",
       "company": "The Swatch Group (España) S.A.",
       "title": "Store Manager Bilbao",
       "location": "48009 BILBAO (Vizcaya) Spain Company address The Swatch Group (España) S",
@@ -190,7 +224,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
