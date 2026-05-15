@@ -1,16 +1,16 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-14T21:30:50.866Z",
-  "total": 8,
+  "generatedAt": "2026-05-15T10:34:39.311Z",
+  "total": 5,
   "newCount": 0,
-  "updatedCount": 8,
-  "removedCount": 0,
+  "updatedCount": 5,
+  "removedCount": 3,
   "unchangedCount": 0,
-  "durationMs": 14721,
-  "avgDurationMs": 14721,
+  "durationMs": 13000,
+  "avgDurationMs": 13000,
   "durationHistory": [
-    14721
+    13000
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -196,10 +196,12 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Teamleader Production 100% (w/m/div.) - REF284854K",
-      "slug": "teamleader-production-100-w-m-div-ref284854k-bosch-st-niklaus",
+      "slug": "produzione-teamleader-100-w-m-div-ref284854-k-bosch-thermotechnik-ag-st-niklaus",
       "url": "https://jobs.bosch.com/en/job/REF284854K-teamleader-production-100-w-m-div-ref284854k",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124828419-teamleader-production-100-w-m-div-ref284854k?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
       "company": "Bosch Thermotechnik AG",
@@ -236,7 +238,7 @@
     },
     {
       "title": "Key Account Manager Schweiz - Power Tools Zubehör Fachhandel 100% (w/m/div.) REF285400K",
-      "slug": "key-account-manager-schweiz-power-tools-zubehor-fachhandel-100-w-m-div-ref285400k-bosch-solothurn-zuchwil",
+      "slug": "key-account-manager-svizzera-accessori-per-strumenti-elettrici-vendita-al-dettaglio-100-w-m-div-ref285400-bosch-thermote",
       "url": "https://jobs.bosch.com/en/job/REF285400K-key-account-manager-schweiz-power-tools-zubehoer-fachhandel-100-w-m-div-ref285400k",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124819540-key-account-manager-schweiz-power-tools-zubehor-fachhandel-100-w-m-div-ref285400k?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
       "company": "Bosch Thermotechnik AG",
@@ -273,7 +275,7 @@
     },
     {
       "title": "Servicetechniker Öl / Gas Region Bern (w/m/div.) REF285265T",
-      "slug": "servicetechniker-ol-gas-region-bern-w-m-div-ref285265t-bosch-steinhausen",
+      "slug": "servicetechniker-ol-gas-region-bern-w-m-div-ref285265-bosch-thermotechnik-ag-steinhausen",
       "url": "https://jobs.bosch.com/en/job/REF285265T-servicetechniker-oel-gas-region-bern-w-m-div-ref285265t",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124561544-servicetechniker-ol-gas-region-bern-w-m-div-ref285265t?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
       "company": "Bosch Thermotechnik AG",
@@ -308,6 +310,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
