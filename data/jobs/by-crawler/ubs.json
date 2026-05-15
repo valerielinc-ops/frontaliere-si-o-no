@@ -2084,10 +2084,10 @@
     },
     {
       "id": "ubs-6f16f7b912d6",
-      "slug": "registered-client-associate-ubs",
+      "slug": "associato-cliente-registrato-ubs",
       "slugByLocale": {
         "en": "registered-client-associate-ubs",
-        "it": "registered-client-associate-ubs",
+        "it": "associato-cliente-registrato-ubs",
         "de": "registered-client-associate-ubs",
         "fr": "registered-client-associate-ubs"
       },
@@ -2152,7 +2152,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-14T23:00:29.334Z"
+      "firstSeenAt": "2026-05-14T23:00:29.334Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "registered-client-associate-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "registered-client-associate-ubs"
+      ]
     },
     {
       "id": "ubs-c4e0ef53a214",
@@ -2464,9 +2472,9 @@
     },
     {
       "id": "ubs-83c7b79199f2",
-      "slug": "ib-business-control-unit-bcu-client-risk-manager-ubs",
+      "slug": "responsabile-del-rischio-del-cliente-dell-unita-di-controllo-aziendale-bcu-ib-ubs",
       "slugByLocale": {
-        "it": "ib-business-control-unit-bcu-client-risk-manager-ubs",
+        "it": "responsabile-del-rischio-del-cliente-dell-unita-di-controllo-aziendale-bcu-ib-ubs",
         "en": "ib-business-control-unit-bcu-client-risk-manager-ubs",
         "de": "ib-business-control-unit-bcu-client-risk-manager-ubs",
         "fr": "ib-business-control-unit-bcu-client-risk-manager-ubs"
@@ -2530,13 +2538,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ib-business-control-unit-bcu-client-risk-manager-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "ib-business-control-unit-bcu-client-risk-manager-ubs"
+      ]
     },
     {
       "id": "ubs-6b41d9f93f69",
-      "slug": "internship-in-funds-management-team-ubs",
+      "slug": "tirocinio-nel-team-di-gestione-dei-fondi-ubs",
       "slugByLocale": {
-        "it": "internship-in-funds-management-team-ubs",
+        "it": "tirocinio-nel-team-di-gestione-dei-fondi-ubs",
         "en": "internship-in-funds-management-team-ubs",
         "de": "internship-in-funds-management-team-ubs",
         "fr": "internship-in-funds-management-team-ubs"
@@ -2600,7 +2616,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-in-funds-management-team-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "internship-in-funds-management-team-ubs"
+      ]
     },
     {
       "id": "ubs-700a5e693db6",
@@ -3464,9 +3488,9 @@
     },
     {
       "id": "ubs-9d2af35bf030",
-      "slug": "premises-manager-ubs",
+      "slug": "responsabile-locali-ubs",
       "slugByLocale": {
-        "it": "premises-manager-ubs",
+        "it": "responsabile-locali-ubs",
         "en": "premises-manager-ubs",
         "de": "premises-manager-ubs",
         "fr": "premises-manager-ubs"
@@ -3530,7 +3554,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "premises-manager-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "premises-manager-ubs"
+      ]
     },
     {
       "id": "ubs-77c13580482b",
@@ -3678,10 +3710,10 @@
     },
     {
       "id": "ubs-4bcf7c8d363a",
-      "slug": "audit-expert-financial-crime-prevention-ubs",
+      "slug": "esperto-di-audit-prevenzione-della-criminalita-finanziaria-ubs",
       "slugByLocale": {
         "en": "audit-expert-financial-crime-prevention-ubs",
-        "it": "audit-expert-financial-crime-prevention-ubs",
+        "it": "esperto-di-audit-prevenzione-della-criminalita-finanziaria-ubs",
         "de": "audit-expert-financial-crime-prevention-ubs",
         "fr": "audit-expert-financial-crime-prevention-ubs"
       },
@@ -3746,14 +3778,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-14T23:00:29.306Z"
+      "firstSeenAt": "2026-05-14T23:00:29.306Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "audit-expert-financial-crime-prevention-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "audit-expert-financial-crime-prevention-ubs"
+      ]
     },
     {
       "id": "ubs-f7d1182db8cb",
-      "slug": "americas-compliance-audit-manager-ubs",
+      "slug": "responsabile-del-controllo-di-conformita-delle-amer-ubs",
       "slugByLocale": {
         "en": "americas-compliance-audit-manager-ubs",
-        "it": "americas-compliance-audit-manager-ubs",
+        "it": "responsabile-del-controllo-di-conformita-delle-amer-ubs",
         "de": "americas-compliance-audit-manager-ubs",
         "fr": "americas-compliance-audit-manager-ubs"
       },
@@ -3818,7 +3858,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-14T23:00:29.304Z"
+      "firstSeenAt": "2026-05-14T23:00:29.304Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "americas-compliance-audit-manager-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "americas-compliance-audit-manager-ubs"
+      ]
     }
   ]
 }

@@ -1577,9 +1577,9 @@
     },
     {
       "id": "kssg-275402bd1b0b",
-      "slug": "med-kodierer-in-60-80-kssg-ch",
+      "slug": "medico-encoder-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
       "slugByLocale": {
-        "it": "med-kodierer-in-60-80-kssg-ch",
+        "it": "medico-encoder-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "en": "med-kodierer-in-60-80-kssg-ch",
         "de": "med-kodierer-in-60-80-kantonsspital-st-gallen-kssg-hoch-festanstellung",
         "fr": "med-kodierer-in-60-80-kssg-ch"
@@ -1636,13 +1636,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "med-kodierer-in-60-80-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "med-kodierer-in-60-80-kssg-ch"
+      ]
     },
     {
       "id": "kssg-a408426ed9ec",
-      "slug": "praktikum-in-der-pflege-kssg-ch",
+      "slug": "tirocinio-infermieristico-kantonsspital-st-gallen-kssg-hoch-praktikum",
       "slugByLocale": {
-        "it": "praktikum-in-der-pflege-kssg-ch",
+        "it": "tirocinio-infermieristico-kantonsspital-st-gallen-kssg-hoch-praktikum",
         "en": "praktikum-in-der-pflege-kssg-ch",
         "de": "praktikum-in-der-pflege-kssg-ch",
         "fr": "praktikum-in-der-pflege-kssg-ch"
@@ -1699,13 +1707,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-in-der-pflege-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-in-der-pflege-kssg-ch"
+      ]
     },
     {
       "id": "kssg-305a9037fa33",
-      "slug": "kurzpraktikum-im-berufsfeld-pflege-kssg-ch",
+      "slug": "tirocinio-breve-nel-settore-professionale-infermieristico-kantonsspital-st-gallen-kssg-hoch-praktikum",
       "slugByLocale": {
-        "it": "kurzpraktikum-im-berufsfeld-pflege-kssg-ch",
+        "it": "tirocinio-breve-nel-settore-professionale-infermieristico-kantonsspital-st-gallen-kssg-hoch-praktikum",
         "en": "kurzpraktikum-im-berufsfeld-pflege-kssg-ch",
         "de": "kurzpraktikum-im-berufsfeld-pflege-kssg-ch",
         "fr": "kurzpraktikum-im-berufsfeld-pflege-kssg-ch"
@@ -1762,7 +1778,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kurzpraktikum-im-berufsfeld-pflege-kssg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kurzpraktikum-im-berufsfeld-pflege-kssg-ch"
+      ]
     }
   ]
 }
