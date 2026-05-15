@@ -1,16 +1,16 @@
 {
   "key": "grace-la-margna",
   "label": "grace",
-  "generatedAt": "2026-05-15T11:07:53.154Z",
-  "total": 11,
+  "generatedAt": "2026-05-15T21:55:29.405Z",
+  "total": 10,
   "newCount": 10,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 114178,
-  "avgDurationMs": 114178,
+  "durationMs": 112211,
+  "avgDurationMs": 112211,
   "durationHistory": [
-    114178
+    112211
   ],
   "newJobs": [
     {
@@ -36,7 +36,7 @@
       "postedDate": "2026-05-15",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-15T11:06:46.269Z",
+      "crawledAt": "2026-05-15T21:54:27.846Z",
       "id": "grace-la-margna-34a5e3acb295",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -75,7 +75,7 @@
       "postedDate": "2026-05-13",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-15T11:06:50.638Z",
+      "crawledAt": "2026-05-15T21:54:32.229Z",
       "id": "grace-la-margna-34a5e3acb295",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -114,7 +114,7 @@
       "postedDate": "2026-05-15",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-15T11:06:55.353Z",
+      "crawledAt": "2026-05-15T21:54:43.658Z",
       "id": "grace-la-margna-34a5e3acb295",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -153,7 +153,7 @@
       "postedDate": "2026-05-01",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-15T11:06:59.833Z",
+      "crawledAt": "2026-05-15T21:54:48.009Z",
       "id": "grace-la-margna-34a5e3acb295",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -192,7 +192,7 @@
       "postedDate": "2026-05-13",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-15T11:07:04.302Z",
+      "crawledAt": "2026-05-15T21:54:59.458Z",
       "id": "grace-la-margna-34a5e3acb295",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -231,7 +231,7 @@
       "postedDate": "2026-05-13",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-15T11:07:15.898Z",
+      "crawledAt": "2026-05-15T21:55:03.776Z",
       "id": "grace-la-margna-34a5e3acb295",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -270,7 +270,7 @@
       "postedDate": "2026-05-13",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-15T11:07:20.250Z",
+      "crawledAt": "2026-05-15T21:55:08.297Z",
       "id": "grace-la-margna-34a5e3acb295",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -309,7 +309,7 @@
       "postedDate": "2026-05-13",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-15T11:07:31.780Z",
+      "crawledAt": "2026-05-15T21:55:12.631Z",
       "id": "grace-la-margna-34a5e3acb295",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -348,7 +348,7 @@
       "postedDate": "2026-05-13",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-15T11:07:36.217Z",
+      "crawledAt": "2026-05-15T21:55:16.970Z",
       "id": "grace-la-margna-34a5e3acb295",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -387,7 +387,7 @@
       "postedDate": "2026-05-13",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-05-15T11:07:47.814Z",
+      "crawledAt": "2026-05-15T21:55:28.442Z",
       "id": "grace-la-margna-34a5e3acb295",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -404,10 +404,11 @@
       }
     }
   ],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "title": "SPA Therapist/Receptionist - be the magic touch",
-      "slug": "spa-therapist-receptionist-be-the-magic-touch",
+      "slug": "spa-therapist-receptionist-sii-il-tocco-magico-grace-la-margna-st-moritz-st-moritz",
       "url": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/spa-therapist-receptionist-be-the-magic-touch-3959655",
       "applyUrl": "https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155/spa-therapist-receptionist-be-the-magic-touch-3959655",
       "company": "Grace La Margna St. Moritz",
@@ -445,6 +446,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
