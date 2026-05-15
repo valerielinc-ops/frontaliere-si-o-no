@@ -1,16 +1,16 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-05-14T21:12:56.054Z",
-  "total": 12,
+  "generatedAt": "2026-05-15T10:16:31.694Z",
+  "total": 9,
   "newCount": 0,
-  "updatedCount": 10,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 41476,
-  "avgDurationMs": 41476,
+  "unchangedCount": 1,
+  "durationMs": 36558,
+  "avgDurationMs": 36558,
   "durationHistory": [
-    41476
+    36558
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -134,89 +134,6 @@
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-2jc587",
-      "slug": "shift-leader-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino-ticino-2jc587",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Shift Leader Collaudo IPU Modular (80-100%)",
-      "location": "Quartino, Ticino",
-      "canton": "TI",
-      "category": "engineering",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-01",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00028637EXTERNALENGLOBAL/Shift-Leader-Collaudo-IPU-Modular--80-100",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Quartino, Ticino, Switzerland",
-        "canton": "TI"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-04-20T20:51:46.589Z",
-      "firstSeenAt": "2026-04-20T20:51:46.589Z",
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "streetAddress": "Via Luserte Sud 9",
-      "postalCode": "6572",
-      "addressLocality": "Quartino, Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 83,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
-        "translation": 23,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-vs8x2l",
-      "slug": "shift-leader-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Shift leader Assemblaggio / Imballo (80-100%)",
-      "location": "Quartino, Ticino",
-      "canton": "TI",
-      "category": "engineering",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-29",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00028630EXTERNALENGLOBAL/Shift-leader-Assemblaggio---Imballo--80-100",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Quartino, Ticino, Switzerland",
-        "canton": "TI"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-04-20T20:51:46.589Z",
-      "firstSeenAt": "2026-04-20T20:51:46.589Z",
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "streetAddress": "Via Luserte Sud 9",
-      "postalCode": "6572",
-      "addressLocality": "Quartino, Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
         "translation": 25,
         "completeness": 25
       }
@@ -467,47 +384,6 @@
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-n0py3i",
-      "slug": "shift-leader-collaudo-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino-n0py3i",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Shift Leader Collaudo IPU Standalone (80-100%)",
-      "location": "Quartino, Ticino",
-      "canton": "TI",
-      "category": "engineering",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-01",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00028639EXTERNALENGLOBAL/Shift-Leader-Collaudo-IPU-Standalone",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Quartino, Ticino, Switzerland",
-        "canton": "TI"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-04-20T20:51:46.589Z",
-      "firstSeenAt": "2026-04-20T20:51:46.589Z",
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "streetAddress": "Via Luserte Sud 9",
-      "postalCode": "6572",
-      "addressLocality": "Quartino, Ticino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 18,
         "translation": 25,
         "completeness": 25
       }
