@@ -503,6 +503,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::de::field-service-expert-100-agie-charmilles-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-a4dfdd439b6e",
+    "winnerCanonical": "experten-fur-den-au-endienst-100-agie-charmilles-sa-biel-bienne",
+    "decidedAt": "2026-05-15T00:00:00.000Z",
+    "lastSeenAt": "2026-05-15T00:00:00.000Z",
+    "score": 0.3571,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::de::field-service-expert-agie-charmilles-biel-bienne": {
     "winnerJobIdentifier": "agie-charmilles-3fdadae9c7fe",
     "winnerCanonical": "sachbearbeiter-d-w-m-agie-charmilles-sa-biel-bienne",
@@ -1328,6 +1337,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-15T00:00:00.000Z",
     "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::field-service-expert-100-agie-charmilles-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-a4dfdd439b6e",
+    "winnerCanonical": "esperto-di-servizio-di-campo-100-agie-charmilles-sa-biel-bienne",
+    "decidedAt": "2026-05-15T00:00:00.000Z",
+    "lastSeenAt": "2026-05-15T00:00:00.000Z",
+    "score": 0.3846,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -8094,7 +8112,7 @@
     "winnerJobIdentifier": "pwc-1902c8b10636",
     "winnerCanonical": "senior-associate-assistant-manager-verification-commerce-industries-et-services-pwc-switzerland-zurich",
     "decidedAt": "2026-05-13T00:00:00.000Z",
-    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-15T00:00:00.000Z",
     "score": 0.5714,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -8271,11 +8289,11 @@
     "canton": "ZH"
   },
   "ZH::it::senior-associate-assistant-manager-audit-trade-industries-services-pwc-zurich": {
-    "winnerJobIdentifier": "pwc-0054671bedc4",
-    "winnerCanonical": "associato-senior-assistente-responsabile-controllo-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-4d7553",
+    "winnerJobIdentifier": "pwc-1902c8b10636",
+    "winnerCanonical": "associato-senior-assistente-responsabile-controllo-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zurich",
     "decidedAt": "2026-05-15T00:00:00.000Z",
     "lastSeenAt": "2026-05-15T00:00:00.000Z",
-    "score": 0.087,
+    "score": 0.1364,
     "candidatesCount": 1,
     "canton": "ZH"
   },
