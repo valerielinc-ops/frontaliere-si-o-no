@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-30T22:48:53.829Z",
-    "label": "before",
-    "total": 2696,
-    "needsRetranslation": 1168,
-    "incomplete": 93,
-    "complete": 2603,
-    "missingByLocale": {
-      "it": 76,
-      "en": 55,
-      "de": 53,
-      "fr": 83
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "TRUMPF Schweiz AG",
-        "pending": 9
-      },
-      {
-        "company": "Graubündner Kantonalbank",
-        "pending": 8
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 6
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Kantonale Verwaltung Graubünden",
-        "pending": 4
-      },
-      {
-        "company": "Denner",
-        "pending": 3
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 3
-      },
-      {
-        "company": "Avaloq",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-30T23:49:21.767Z",
-    "label": "after",
-    "total": 2696,
-    "needsRetranslation": 107,
-    "incomplete": 47,
-    "complete": 2649,
-    "missingByLocale": {
-      "it": 37,
-      "en": 23,
-      "de": 40,
-      "fr": 41
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Graubündner Kantonalbank",
-        "pending": 8
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Banca Raiffeisen Vedeggio Cassarate",
-        "pending": 1
-      },
-      {
-        "company": "Center da Sanadad Engiadina Bassa",
-        "pending": 1
-      },
-      {
-        "company": "Ermenegildo Zegna Group",
-        "pending": 1
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-01T03:29:36.228Z",
     "label": "before",
     "total": 2696,
@@ -10448,6 +10336,118 @@
       {
         "company": "CHRIST Uhren & Schmuck AG",
         "pending": 89
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 13
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      },
+      {
+        "company": "Lonza",
+        "pending": 6
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 5
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 5
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-15T09:40:29.049Z",
+    "label": "before",
+    "total": 4263,
+    "needsRetranslation": 844,
+    "incomplete": 279,
+    "complete": 3984,
+    "missingByLocale": {
+      "it": 208,
+      "en": 187,
+      "de": 72,
+      "fr": 218
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 86
+      },
+      {
+        "company": "Hügli Nahrungsmittel GmbH",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 13
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      },
+      {
+        "company": "Lonza",
+        "pending": 6
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 5
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 5
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-15T09:49:51.003Z",
+    "label": "after",
+    "total": 4263,
+    "needsRetranslation": 841,
+    "incomplete": 279,
+    "complete": 3984,
+    "missingByLocale": {
+      "it": 208,
+      "en": 187,
+      "de": 72,
+      "fr": 218
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 86
       },
       {
         "company": "Hügli Nahrungsmittel GmbH",
