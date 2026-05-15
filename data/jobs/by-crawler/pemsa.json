@@ -157,8 +157,8 @@
       },
       "slugByLocale": {
         "it": "autista-camion-pemsa-bellinzona",
-        "en": "autista-camion-pemsa-bellinzona",
-        "de": "autista-camion-pemsa-bellinzona",
+        "en": "driver-truck-pemsa-bellinzona",
+        "de": "fahrer-und-fahrer-pemsa-bellinzona",
         "fr": "autista-camion-pemsa-bellinzona"
       },
       "id": "pemsa-e755e731130a",
@@ -334,9 +334,9 @@
       },
       "slugByLocale": {
         "it": "carpentiere-edile-casseratore-pemsa-lugano",
-        "en": "carpentiere-edile-casseratore-pemsa-lugano",
-        "de": "carpentiere-edile-casseratore-pemsa-lugano",
-        "fr": "carpentiere-edile-casseratore-pemsa-lugano"
+        "en": "construction-carpenters-cashier-pemsa-lugano",
+        "de": "tischler-kasse-pemsa-lugano",
+        "fr": "charpentiers-de-construction-caissier-pemsa-lugano"
       },
       "id": "pemsa-e084fd71c69e",
       "salaryMin": 49500,
@@ -452,9 +452,9 @@
       },
       "slugByLocale": {
         "it": "installatore-idraulico-pemsa-mezzovico",
-        "en": "installatore-idraulico-pemsa-mezzovico",
-        "de": "installatore-idraulico-pemsa-mezzovico",
-        "fr": "installatore-idraulico-pemsa-mezzovico"
+        "en": "hydraulic-installer-pemsa-mezzovico",
+        "de": "hydraulische-installation-pemsa-mezzovico",
+        "fr": "installation-hydraulique-pemsa-mezzovico"
       },
       "id": "pemsa-4cc26cf2bf26",
       "salaryMin": 49500,
@@ -511,9 +511,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-installatore-impianti-riscaldamento-pemsa-mendrisio",
-        "en": "idraulico-installatore-impianti-riscaldamento-pemsa-mendrisio",
-        "de": "idraulico-installatore-impianti-riscaldamento-pemsa-mendrisio",
-        "fr": "idraulico-installatore-impianti-riscaldamento-pemsa-mendrisio"
+        "en": "hydraulic-installation-heating-systems-pemsa-mendrisio",
+        "de": "hydraulische-installationsheizanlagen-pemsa-mendrisio",
+        "fr": "systemes-de-chauffage-a-installation-hydraulique-pemsa-mendrisio"
       },
       "id": "pemsa-c8ce44764384",
       "salaryMin": 49500,
@@ -570,9 +570,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-impianti-sanitari-pemsa-lugano",
-        "en": "idraulico-impianti-sanitari-pemsa-lugano",
-        "de": "idraulico-impianti-sanitari-pemsa-lugano",
-        "fr": "idraulico-impianti-sanitari-pemsa-lugano"
+        "en": "hydraulic-health-plants-pemsa-lugano",
+        "de": "hydraulische-gesundheitsanlagen-pemsa-lugano",
+        "fr": "installations-de-sante-hydraulique-pemsa-lugano"
       },
       "id": "pemsa-7675baa707d0",
       "salaryMin": 49500,
@@ -688,9 +688,9 @@
       },
       "slugByLocale": {
         "it": "manovale-edile-pemsa-bellinzona",
-        "en": "manovale-edile-pemsa-bellinzona",
-        "de": "manovale-edile-pemsa-bellinzona",
-        "fr": "manovale-edile-pemsa-bellinzona"
+        "en": "construction-pemsa-bellinzona",
+        "de": "baugewerbe-pemsa-bellinzona",
+        "fr": "batiment-pemsa-bellinzona"
       },
       "id": "pemsa-f57e68bbcee1",
       "salaryMin": 49500,

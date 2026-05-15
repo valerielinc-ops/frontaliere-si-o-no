@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "denner-fed8192f3b22",
-      "slug": "filialleiter-in-in-ausbildung-denner-winterthur",
+      "slug": "capofila-dell-istruzione-denner-winterthur",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-winterthur",
-        "en": "filialleiter-in-in-ausbildung-denner-winterthur",
+        "it": "capofila-dell-istruzione-denner-winterthur",
+        "en": "head-of-branch-in-education-denner-winterthur",
         "de": "filialleiter-in-in-ausbildung-denner-winterthur",
-        "fr": "filialleiter-in-in-ausbildung-denner-winterthur"
+        "fr": "chef-de-division-en-education-denner-winterthur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -68,20 +68,24 @@
       "crawledAt": "2026-05-15T10:51:46.940Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-winterthur"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-winterthur"
         ],
         "de": [
           "filialleiter-in-in-ausbildung-denner-allschwil"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-winterthur"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-winterthur",
         "filialleiter-in-in-ausbildung-denner-allschwil"
       ],
       "salaryMin": 59000,
@@ -496,7 +500,7 @@
         "it": "student-in-come-ferienaushilfe-denner-amriswil",
         "en": "student-in-als-ferienaushilfe-denner-amriswil",
         "de": "student-in-als-ferienaushilfe-denner",
-        "fr": "student-in-als-ferienaushilfe-denner"
+        "fr": "etudiant-en-vacances-denner-amriswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -558,6 +562,9 @@
         ],
         "en": [
           "student-in-als-ferienaushilfe-denner-horw"
+        ],
+        "fr": [
+          "student-in-als-ferienaushilfe-denner"
         ]
       },
       "previousSlugs": [
