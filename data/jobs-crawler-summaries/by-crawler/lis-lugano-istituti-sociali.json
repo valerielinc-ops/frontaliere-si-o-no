@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-05-15T11:24:04.433Z",
+  "generatedAt": "2026-05-15T22:11:48.193Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 27493,
-  "avgDurationMs": 27493,
+  "durationMs": 27047,
+  "avgDurationMs": 27047,
   "durationHistory": [
-    27493
+    27047
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 82372,
+      "salaryMin": 92920,
       "salaryMax": 109645,
       "salaryCurrency": "CHF",
       "salaryClass": "16",
@@ -77,7 +77,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 86928,
+      "salaryMin": 77526,
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
@@ -86,10 +86,10 @@
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
-        "textHash": "f56dd83696112341f6c6",
+        "textHash": "acb49732bfd362e6fefb",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-05-14T22:20:25.265Z"
+        "extractedAt": "2026-05-15T22:11:48.104Z"
       },
       "id": "lis-lugano-istituti-sociali-f650fe01210f",
       "addressLocality": "Pregassona",
@@ -122,7 +122,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 65680,
+      "salaryMin": 73140,
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
@@ -167,7 +167,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 65680,
+      "salaryMin": 59808,
       "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
@@ -176,10 +176,10 @@
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
-        "textHash": "772ab97c4b0f2c3acd83",
+        "textHash": "0b47f4d84431a08262bb",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-05-14T22:20:25.267Z"
+        "extractedAt": "2026-05-15T22:11:48.106Z"
       },
       "id": "lis-lugano-istituti-sociali-3e5d8c322840",
       "addressLocality": "Pregassona",
@@ -187,6 +187,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -258,7 +259,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 65680,
+      "salaryMin": 82372,
       "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
@@ -303,7 +304,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 86928,
+      "salaryMin": 77526,
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
@@ -312,10 +313,10 @@
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
-        "textHash": "8dfb968aba7683134c88",
+        "textHash": "cae0fc9eefa01e1e2f72",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-05-14T22:20:25.272Z"
+        "extractedAt": "2026-05-15T22:11:48.108Z"
       },
       "id": "lis-lugano-istituti-sociali-7642ecdf144c",
       "addressLocality": "Pregassona",
@@ -394,7 +395,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 65680,
+      "salaryMin": 73140,
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
@@ -439,7 +440,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 82372,
+      "salaryMin": 73140,
       "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
@@ -448,10 +449,10 @@
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
-        "textHash": "48db8b9a76cda91ce3a9",
+        "textHash": "47ac3fd860ffe7cc2059",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-05-14T22:20:25.274Z"
+        "extractedAt": "2026-05-15T22:11:48.111Z"
       },
       "id": "lis-lugano-istituti-sociali-a24dc6ee20f4",
       "addressLocality": "Pregassona",
@@ -484,7 +485,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 73140,
+      "salaryMin": 65680,
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
@@ -493,10 +494,10 @@
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
-        "textHash": "94e7e7ea024d4b010a4f",
+        "textHash": "af7a31468c8b0978d5a1",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-05-14T22:20:25.275Z"
+        "extractedAt": "2026-05-15T22:11:48.112Z"
       },
       "id": "lis-lugano-istituti-sociali-c3e0b152a64d",
       "addressLocality": "Pregassona",
@@ -529,7 +530,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 65680,
+      "salaryMin": 59808,
       "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
@@ -538,10 +539,10 @@
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
-        "textHash": "13cd63461b8e80fab971",
+        "textHash": "e427e27482a223275703",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-05-14T22:20:25.276Z"
+        "extractedAt": "2026-05-15T22:11:48.112Z"
       },
       "id": "lis-lugano-istituti-sociali-8b7fd953ec8f",
       "addressLocality": "Pregassona",
@@ -574,7 +575,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 57394,
+      "salaryMin": 53519,
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
@@ -583,10 +584,10 @@
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
-        "textHash": "61df459007751ba06ccf",
+        "textHash": "55694f4aacde1eca0fd8",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-05-14T22:20:25.277Z"
+        "extractedAt": "2026-05-15T22:11:48.113Z"
       },
       "id": "lis-lugano-istituti-sociali-728912efd55d",
       "addressLocality": "Pregassona",
