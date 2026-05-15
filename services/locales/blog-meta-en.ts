@@ -7546,6 +7546,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cooperazione-fiscale-dac9-traguardo.title': 'Tax cooperation. Dac9 directive reaches milestone',
     'blog.article.cooperazione-fiscale-dac9-traguardo.excerpt': 'The Dac9 Directive comes into force in 2026, strengthening tax cooperation between Switzerland and Italy. Find out how taxation changes for Ticino cross-border workers.',
     'blog.article.cooperazione-fiscale-dac9-traguardo.imageAlt': 'Castelgrande in Bellinzona, Ticino, Switzerland',
+    'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.title': 'Unemployment benefits: EU aligns Swiss workers with residents',
+    'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.excerpt': 'New EU rules for unemployment benefits: the country of work pays, not the country of residence. What changes for Ticino-Italy cross-border workers.',
+    'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.imageAlt': 'Professional office in Lugano with documents and financial data on the screen',
 };
 
 export default blogMetaEn;

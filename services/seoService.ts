@@ -3758,6 +3758,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-ticino-premi-cassa-malati': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/frontalieri-ticino-premi-cassa-malati', parent: 'blog' },
     'blog-frontaliere-immondizia-cantello-multa': { name: 'Frontalieri e rifiuti', path: '/articoli-frontaliere/frontaliere-immondizia-cantello-multa', parent: 'blog' },
     'blog-cooperazione-fiscale-dac9-traguardo': { name: 'Fiscale', path: '/articoli-frontaliere/cooperazione-fiscale-dac9-traguardo', parent: 'blog' },
+    'blog-disoccupazione-frontalieri-ue-svizzera-2026': { name: 'Disoccupazione frontalieri', path: '/articoli-frontaliere/disoccupazione-frontalieri-ue-svizzera-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2570,
+ "numberOfItems": 2571,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7210,7 +7210,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2567, "name": "Città dei Laghi: innovazione e sostenibilità tr...", "url": `${BASE_URL}/articoli-frontaliere/citta-laghi-innovativa-transfrontaliera` },
           { "@type": "ListItem", "position": 2568, "name": "Combattiamo mostruosità come i premi di cassa m...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-premi-cassa-malati` },
           { "@type": "ListItem", "position": 2569, "name": "Frontaliere svizzero multato per abbandono di r...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-immondizia-cantello-multa` },
-          { "@type": "ListItem", "position": 2570, "name": "Cooperazione in materia fiscale. Direttiva Dac9...", "url": `${BASE_URL}/articoli-frontaliere/cooperazione-fiscale-dac9-traguardo` }
+          { "@type": "ListItem", "position": 2570, "name": "Cooperazione in materia fiscale. Direttiva Dac9...", "url": `${BASE_URL}/articoli-frontaliere/cooperazione-fiscale-dac9-traguardo` },
+          { "@type": "ListItem", "position": 2571, "name": "Disoccupazione frontalieri: l'UE equipara resid...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-ue-svizzera-2026` }
  ]
  },
  {

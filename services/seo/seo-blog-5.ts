@@ -36968,6 +36968,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disoccupazione-frontalieri-ue-svizzera-2026': {
+    title: 'Disoccupazione frontalieri: l\'UE equipara residenti e lavoratori svizzeri',
+    description: 'Nuove regole UE per i sussidi di disoccupazione: il Paese di lavoro paga, non quello di residenza. Cosa cambia per i frontalieri Ticino-Italia. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, disoccupazione, equipara, residenti, lavoratori',
+    ogTitle: 'Disoccupazione frontalieri: l\'UE equipara residenti e lavoratori svizzeri',
+    ogDescription: 'Nuove regole UE per i sussidi di disoccupazione: il Paese di lavoro paga, non quello di residenza. Cosa cambia per i frontalieri Ticino-Italia.',
+    canonicalPath: '/articoli-frontaliere/disoccupazione-frontalieri-ue-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disoccupazione frontalieri: l'UE equipara residenti e lavoratori svizzeri",
+      "description": "Nuove regole UE per i sussidi di disoccupazione: il Paese di lavoro paga, non quello di residenza. Cosa cambia per i frontalieri Ticino-Italia. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/disoccupazione-frontalieri-ue-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio professionale a Lugano con documenti e dati finanziari sullo schermo"
+      },
+      "datePublished": "2026-05-15T06:29:54+00:00",
+      "dateModified": "2026-05-15T06:29:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-ue-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

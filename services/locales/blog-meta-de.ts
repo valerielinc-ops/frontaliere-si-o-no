@@ -7545,6 +7545,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cooperazione-fiscale-dac9-traguardo.title': 'Steuerzusammenarbeit: Richtlinie Dac9 tritt in Kraft',
     'blog.article.cooperazione-fiscale-dac9-traguardo.excerpt': 'Die Richtlinie Dac9 tritt 2026 in Kraft und stärkt die Steuerzusammenarbeit zwischen der Schweiz und Italien. Erfahren Sie, wie sich die Besteuerung für die Grenzgänger des Tessin ändert.',
     'blog.article.cooperazione-fiscale-dac9-traguardo.imageAlt': 'Castelgrande in Bellinzona, Tessin, Schweiz',
+    'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.title': 'Grenzgänger-Arbeitslosigkeit: EU angleicht an',
+    'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.excerpt': 'Neue EU-Regeln für Arbeitslosenunterstützung: Das Arbeitsland zahlt, nicht das Wohnsitzland. Was ändert sich für die Grenzgänger zwischen Tessin und Italien?',
+    'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.imageAlt': 'Ein professionelles Büro in Lugano mit Dokumenten und Finanzdaten auf dem Bildschirm',
 };
 
 export default blogMetaDe;

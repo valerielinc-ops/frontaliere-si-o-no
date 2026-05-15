@@ -24014,4 +24014,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'disoccupazione-frontalieri-ue-svizzera-2026',
+ category: 'novita',
+ date: '2026-05-15T06:29:54.579Z',
+ image: '/images/blog/disoccupazione-frontalieri-ue-svizzera-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

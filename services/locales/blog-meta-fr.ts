@@ -7547,6 +7547,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cooperazione-fiscale-dac9-traguardo.title': 'Coopération fiscale. Directive Dac9 en vigueur',
     'blog.article.cooperazione-fiscale-dac9-traguardo.excerpt': 'La directive Dac9 entre en vigueur en 2026, renforçant la coopération fiscale entre la Suisse et l\'Italie. Découvrez comment la fiscalité change pour les frontaliers du Tessin.',
     'blog.article.cooperazione-fiscale-dac9-traguardo.imageAlt': 'Castelgrande à Bellinzone, Tessin, Suisse',
+    'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.title': 'Chômage frontalier: l\'UE égalise résidents et travailleurs suisses',
+    'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.excerpt': 'Nouvelles règles UE pour les allocations de chômage: le pays de travail paie, pas celui de résidence. Qu\'est-ce qui change pour les frontaliers Ticino-Italie.',
+    'blog.article.disoccupazione-frontalieri-ue-svizzera-2026.imageAlt': 'Bureau professionnel à Lugano avec des documents et des données financières à l\'écran',
 };
 
 export default blogMetaFr;
