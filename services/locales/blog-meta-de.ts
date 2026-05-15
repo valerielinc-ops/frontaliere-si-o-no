@@ -7554,6 +7554,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ffs-dirigenza-ticino-deposito-chiasso.title': 'SBB im Tessin: Änderungen angekündigt, Depot Chiasso bleibt offen',
     'blog.article.ffs-dirigenza-ticino-deposito-chiasso.excerpt': 'Die SBB-Leitung kommt in den Kanton Tessin, um neue Einsparungen anzukündigen, doch das Depot in Chiasso wird nicht geschlossen.',
     'blog.article.ffs-dirigenza-ticino-deposito-chiasso.imageAlt': 'Luftaufnahme des Bahnhofs und des Güterdepots von Chiasso im Tessin',
+    'blog.article.documenti-necessari-frontaliere.title': 'Dokumente für Grenzgänger',
+    'blog.article.documenti-necessari-frontaliere.excerpt': 'Vollständige Checkliste für den Arbeitsbeginn in der Schweiz',
+    'blog.article.documenti-necessari-frontaliere.imageAlt': 'Frontalier mit Dokumenten in der Hand',
 };
 
 export default blogMetaDe;

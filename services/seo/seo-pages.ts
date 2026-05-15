@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2573,
+ "numberOfItems": 2574,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7213,7 +7213,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2570, "name": "Cooperazione in materia fiscale. Direttiva Dac9...", "url": `${BASE_URL}/articoli-frontaliere/cooperazione-fiscale-dac9-traguardo` },
           { "@type": "ListItem", "position": 2571, "name": "Disoccupazione frontalieri: l'UE equipara resid...", "url": `${BASE_URL}/articoli-frontaliere/disoccupazione-frontalieri-ue-svizzera-2026` },
           { "@type": "ListItem", "position": 2572, "name": "Multato un frontaliere dell'immondizia a Cantello", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-immondizia-cantello-multa` },
-          { "@type": "ListItem", "position": 2573, "name": "FFS in Ticino: dirigenza annuncia cambiamenti, ...", "url": `${BASE_URL}/articoli-frontaliere/ffs-dirigenza-ticino-deposito-chiasso` }
+          { "@type": "ListItem", "position": 2573, "name": "FFS in Ticino: dirigenza annuncia cambiamenti, ...", "url": `${BASE_URL}/articoli-frontaliere/ffs-dirigenza-ticino-deposito-chiasso` },
+          { "@type": "ListItem", "position": 2574, "name": "Documenti necessari per frontalieri", "url": `${BASE_URL}/articoli-frontaliere/documenti-necessari-frontaliere` }
  ]
  },
  {

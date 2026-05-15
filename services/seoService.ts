@@ -3761,6 +3761,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-disoccupazione-frontalieri-ue-svizzera-2026': { name: 'Disoccupazione frontalieri', path: '/articoli-frontaliere/disoccupazione-frontalieri-ue-svizzera-2026', parent: 'blog' },
     'blog-frontalieri-immondizia-cantello-multa': { name: 'Frontalieri e rifiuti', path: '/articoli-frontaliere/frontalieri-immondizia-cantello-multa', parent: 'blog' },
     'blog-ffs-dirigenza-ticino-deposito-chiasso': { name: 'Novità FFS', path: '/articoli-frontaliere/ffs-dirigenza-ticino-deposito-chiasso', parent: 'blog' },
+    'blog-documenti-necessari-frontaliere': { name: 'Documenti necessari', path: '/articoli-frontaliere/documenti-necessari-frontaliere', parent: 'blog' },
  };
 
  const info = sectionNames[section];

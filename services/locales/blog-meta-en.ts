@@ -7555,6 +7555,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ffs-dirigenza-ticino-deposito-chiasso.title': 'SBB in Ticino: management announces changes, Chiasso depot remains open',
     'blog.article.ffs-dirigenza-ticino-deposito-chiasso.excerpt': 'SBB management visits Ticino to announce new cuts, but Chiasso depot will not close',
     'blog.article.ffs-dirigenza-ticino-deposito-chiasso.imageAlt': 'Aerial view of Chiasso train station and cargo depot in Ticino',
+    'blog.article.documenti-necessari-frontaliere.title': 'Documents needed for cross-border workers',
+    'blog.article.documenti-necessari-frontaliere.excerpt': 'Complete checklist to start working in Switzerland',
+    'blog.article.documenti-necessari-frontaliere.imageAlt': 'Frontalier with documents in hand',
 };
 
 export default blogMetaEn;

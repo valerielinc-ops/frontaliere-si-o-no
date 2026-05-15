@@ -7556,6 +7556,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ffs-dirigenza-ticino-deposito-chiasso.title': 'CFF en Ticino: direction annonce des changements, dépôt de Chiasso reste ouvert',
     'blog.article.ffs-dirigenza-ticino-deposito-chiasso.excerpt': 'La direction des CFF se rend en Ticino pour annoncer de nouvelles réductions, mais le dépôt de Chiasso ne fermera pas',
     'blog.article.ffs-dirigenza-ticino-deposito-chiasso.imageAlt': 'Vue aérienne de la gare et du dépôt de marchandises de Chiasso au Tessin',
+    'blog.article.documenti-necessari-frontaliere.title': 'Documents nécessaires pour les frontaliers',
+    'blog.article.documenti-necessari-frontaliere.excerpt': 'Liste complète pour commencer à travailler en Suisse',
+    'blog.article.documenti-necessari-frontaliere.imageAlt': 'Frontalier avec documents à la main',
 };
 
 export default blogMetaFr;

@@ -7556,6 +7556,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ffs-dirigenza-ticino-deposito-chiasso.title': 'FFS in Ticino: dirigenza annuncia cambiamenti, deposito di Chiasso resta aperto',
     'blog.article.ffs-dirigenza-ticino-deposito-chiasso.excerpt': 'La dirigenza delle FFS scende in Ticino per annunciare nuovi tagli, ma il deposito di Chiasso non chiuderà',
     'blog.article.ffs-dirigenza-ticino-deposito-chiasso.imageAlt': 'Vista aerea della stazione e del deposito merci di Chiasso in Ticino',
+    'blog.article.documenti-necessari-frontaliere.title': 'Documenti necessari per frontalieri',
+    'blog.article.documenti-necessari-frontaliere.excerpt': 'Checklist completa per iniziare a lavorare in Svizzera',
+    'blog.article.documenti-necessari-frontaliere.imageAlt': 'Persona frontaliera con documenti in mano',
 };
 
 export default blogMetaIt;

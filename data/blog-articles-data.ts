@@ -24041,4 +24041,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'documenti-necessari-frontaliere',
+ category: 'pratico',
+ date: '2026-05-15T12:55:43.412Z',
+ image: '/images/blog/documenti-necessari-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
