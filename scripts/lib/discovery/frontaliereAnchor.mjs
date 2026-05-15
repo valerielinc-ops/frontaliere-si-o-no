@@ -1,8 +1,17 @@
 /**
  * Frontaliere anchor regex set — high-precision tokens that signal a news
  * headline has a direct nexus with the cross-border (Ticino-Italia) worker
- * domain. Used by the pre-spend topic gate in `scripts/create-article.mjs`
- * as a zero-cost fast-path BEFORE invoking the cheap LLM classifier.
+ * domain.
+ *
+ * History — as of 2026-05-15 anchors are NO LONGER a fast-path that
+ * short-circuits the classifier in `applyPreSpendTopicGate()`. Run
+ * #25889568431 showed the fast-path was too permissive: a URL containing
+ * "frontaliere" as a noun-adjective (e.g. cronaca/multa stories) matched
+ * an anchor and bypassed the cheap LLM step, only to be rejected by
+ * REGOLA #0 post-generation — burning ~25 min and ~150 model calls. Now
+ * EVERY candidate is classified; anchors remain available as a negative
+ * signal hint to feed into the classifier, or as a legacy fallback under
+ * the emergency rollback env (`PRESPEND_TOPIC_GATE_CLASSIFIER=0`).
  *
  * Anchor design — narrower than the upstream `TOPICAL_KEYWORDS` list
  * (which is intentionally permissive — it just needs to keep enough

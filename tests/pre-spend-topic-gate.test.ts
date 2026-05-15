@@ -12,20 +12,33 @@
  *   Tentativo 4 fallito: Topic-gate abort: caso di abbandono rifiuti
  *   Tentativo 5 fallito: All AI models failed (quote esauste)
  *
- * Fix: a cheap pre-spend gate (anchor-regex fast-path + tiny-LLM
- * classifier) fires BEFORE the Tentativo loop, so off-topic headlines
- * never reach the expensive article-gen call.
+ * Fix: a cheap pre-spend gate (tiny-LLM classifier) fires BEFORE the
+ * Tentativo loop, so off-topic headlines never reach the expensive
+ * article-gen call.
+ *
+ * 2026-05-15 follow-up — run #25889568431 (22:35 UTC) revealed the earlier
+ * anchor-fast-path was too permissive: 6/6 candidates matched an anchor
+ * (e.g. URL contained "frontaliere" as adjective in cronaca contexts) so
+ * the classifier never ran, then all 6 were rejected by REGOLA #0. Fix:
+ * removed the anchor fast-path — EVERY candidate now goes through the
+ * classifier. Anchors stay available as a negative signal / legacy
+ * fallback only.
  *
  * The tests here validate:
  *   1) the anchor-regex list contains the high-precision frontaliere
- *      tokens and rejects cronaca-nera fixtures (behavioural);
+ *      tokens and rejects cronaca-nera fixtures (behavioural, unchanged);
  *   2) the gate is wired into main() between the post-topic-filter and
  *      the quotaPools build (source-parse: importing the .mjs is unsafe
  *      because main() runs at top level);
  *   3) the gate honours the rollback env gate (PRESPEND_TOPIC_GATE=0);
  *   4) the gate fails OPEN — if the classifier itself errors, we DO NOT
  *      drop the headline (defense-in-depth: REGOLA #0 still catches it);
- *   5) REGOLA #0 stays in the article-gen prompt as defense-in-depth.
+ *   5) REGOLA #0 stays in the article-gen prompt as defense-in-depth;
+ *   6) NEW (2026-05-15 evening) — anchor match alone does NOT short-circuit
+ *      the classifier; every candidate is classified;
+ *   7) NEW — adjective-only "frontaliere" headlines that historically
+ *      bypassed the gate via anchor match are now reachable by the
+ *      classifier and will be dropped when it returns relevant=no.
  */
 
 import { describe, expect, it } from 'vitest';
@@ -119,6 +132,10 @@ describe('pre-spend topic gate — wiring into main()', () => {
     expect(SRC).toMatch(/process\.env\.PRESPEND_TOPIC_GATE\s*\?\?\s*'1'/);
   });
 
+  it('keeps the PRESPEND_TOPIC_GATE_CLASSIFIER=0 emergency rollback (anchor-only legacy path)', () => {
+    expect(SRC).toMatch(/process\.env\.PRESPEND_TOPIC_GATE_CLASSIFIER\s*\?\?\s*'1'/);
+  });
+
   it('memoises classifier results per-run', () => {
     expect(SRC).toMatch(/_preSpendGateCache\s*=\s*new Map\(\)/);
     expect(SRC).toMatch(/_preSpendGateCache\.has\(cacheKey\)/);
@@ -151,5 +168,74 @@ describe('pre-spend topic gate — wiring into main()', () => {
     // by accident, this test catches it.
     expect(SRC).toMatch(/REGOLA #0 — GATE DI RILEVANZA TOPICA/);
     expect(SRC).toMatch(/abort_topical_relevance/);
+  });
+
+  it('classifier-always: anchor match does NOT short-circuit the classifier', () => {
+    // 2026-05-15 evening regression — run #25889568431 wasted 25 min when
+    // 6/6 anchor-matched headlines bypassed the LLM step. The new gate
+    // must NOT contain an `if (anchor) { kept.push(...); continue; }`
+    // accept-on-anchor block. The legacy anchor-only path still exists
+    // but ONLY under `!classifierEnabled` (rollback env).
+    const gateBlock = SRC.match(
+      /async function applyPreSpendTopicGate[\s\S]*?\n\}\n/,
+    );
+    expect(gateBlock, 'applyPreSpendTopicGate block not found').toBeTruthy();
+    const body = gateBlock![0];
+    // No counter for the removed fast-path.
+    expect(body).not.toMatch(/anchor-fast-path=/);
+    expect(body).not.toMatch(/let\s+anchorHits/);
+    // Every candidate hits classifyFrontaliereRelevance (only one call
+    // site inside the gate); the anchor lookup only runs in the
+    // classifier-disabled rollback branch.
+    expect(body).toMatch(/classifyFrontaliereRelevance\(/);
+  });
+
+  it('log line uses the new classifier-only format (no anchor-fast-path field)', () => {
+    const gateBlock = SRC.match(
+      /async function applyPreSpendTopicGate[\s\S]*?\n\}\n/,
+    )![0];
+    expect(gateBlock).toMatch(/Pre-spend topic gate:/);
+    expect(gateBlock).toMatch(/classifier-calls=\$\{classifierCalls\}/);
+    expect(gateBlock).toMatch(/dropped=\$\{dropped\}/);
+    // Old field must be gone.
+    expect(gateBlock).not.toMatch(/anchor-fast-path=\$\{/);
+  });
+});
+
+describe('pre-spend topic gate — adjective-only "frontaliere" rejection (run #25889568431 regression)', () => {
+  // These headlines historically matched FRONTALIERE_STRICT_ANCHORS (the
+  // word "frontaliere" appears as adjective) and were accepted by the
+  // anchor fast-path without LLM confirmation, even though they are
+  // pure cronaca / culture and the article-gen REGOLA #0 will reject
+  // them. With the fast-path removed, the classifier sees them and is
+  // expected to return relevant=no.
+  const adjectiveOnlyHeadlines = [
+    'Multa per rifiuti a un cittadino frontaliere svizzero a Cantello',
+    'Festival del cinema area frontaliera Locarno: il programma',
+    'Cantello, multa al frontaliere per smaltimento illecito di rifiuti',
+    'Incidente in via Trieste: ferito un automobilista frontaliere',
+  ];
+
+  it('still anchor-matches (anchor regex unchanged — the gate fix is downstream)', () => {
+    // We're NOT removing anchors from the regex set — the fix is at the
+    // gate level (classifier-always). So these should still hit the
+    // anchor; the difference is that hitting the anchor no longer
+    // bypasses the classifier.
+    for (const h of adjectiveOnlyHeadlines) {
+      const m = matchesFrontaliereAnchor(h);
+      expect(m, `should still match anchor: ${h}`).not.toBeNull();
+    }
+  });
+
+  it('a mocked classifier returning relevant=no would now drop these headlines', () => {
+    // Source-parse assertion (we can't import the .mjs without running
+    // main()): the rejection branch exists and pushes the headline into
+    // the `filtered[]` array with the classifier's reason.
+    const gateBlock = SRC.match(
+      /async function applyPreSpendTopicGate[\s\S]*?\n\}\n/,
+    )![0];
+    // Drop branch — kept only when verdict.relevant is truthy.
+    expect(gateBlock).toMatch(/if\s*\(\s*verdict\.relevant\s*\)/);
+    expect(gateBlock).toMatch(/filtered\.push\(\s*\{\s*headline:/);
   });
 });

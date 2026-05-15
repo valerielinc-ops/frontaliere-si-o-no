@@ -277,25 +277,34 @@ function countTopicalHits(text) {
 //
 // This cheap pre-spend gate fires BEFORE the article-gen `Tentativo` loop:
 //
-//  (1) FAST PATH — strict frontaliere anchor (case+accent-insensitive regex).
-//      If the headline+url match a high-signal anchor, accept immediately
-//      with zero LLM cost. Anchors mirror REGOLA #0 § "nesso reale".
-//
-//  (2) CLASSIFIER PATH — for headlines that miss the anchor list (but
-//      passed the upstream keyword Topical-gate), call a tiny LLM
+//  (1) CLASSIFIER (ALWAYS) — every candidate headline goes through a tiny LLM
 //      (gemini-2.5-flash-lite, ~50 output tokens, no schema mode) to answer
 //      "is this directly relevant to frontalieri Ticino-Italia? yes/no".
 //      Off-topic → drop, no expensive article-gen attempt.
 //
-//  (3) Results are memoised in-process by lowercased headline so a re-used
+//      Earlier iteration (2026-05-15 morning) had an anchor-regex fast-path
+//      that accepted headlines without a classifier call when they matched a
+//      high-precision token (frontalier/ristorni/LAMal/…). Run #25889568431
+//      (22:35 UTC) showed the fast-path was too permissive: 6/6 candidates
+//      matched an anchor (e.g. URL contained "frontaliere" as adjective in
+//      "cittadino frontaliere fined for litter"), classifier never ran, all
+//      6 were then REJECTED by REGOLA #0 post-gen — 25 min + ~150 model
+//      calls wasted. Anchor match alone is no longer enough; the classifier
+//      MUST confirm every candidate. `matchesFrontaliereAnchor` is still
+//      imported and could be fed to the classifier as a hint, but it
+//      never short-circuits the cheap LLM step.
+//
+//  (2) Results are memoised in-process by lowercased headline so a re-used
 //      headline (cross-pool, retry) costs zero on the second visit.
 //
 // REGOLA #0 in the article-gen prompt stays in place as defense-in-depth:
 // the goal is for it to fire 0-1 times per run instead of 3-4.
 //
 // Env gates:
-//  - PRESPEND_TOPIC_GATE=0  → disable entirely (rollback)
-//  - PRESPEND_TOPIC_GATE_CLASSIFIER=0  → keep anchor fast-path, skip LLM step
+//  - PRESPEND_TOPIC_GATE=0  → disable entirely (rollback, no gate at all)
+//  - PRESPEND_TOPIC_GATE_CLASSIFIER=0  → legacy anchor-only fast-path
+//    (emergency rollback to pre-2026-05-15 behaviour, accepts on anchor
+//    match without LLM confirmation). Default is "classifier-always".
 //  - PRESPEND_GATE_MODEL=<id>  → override classifier model (default
 //    AI_MODELS.GEMINI_FLASH_LITE)
 
@@ -329,9 +338,16 @@ async function classifyFrontaliereRelevance(headline, summary) {
     return _preSpendGateCache.get(cacheKey);
   }
   const model = process.env.PRESPEND_GATE_MODEL || AI_MODELS.GEMINI_FLASH_LITE;
-  const prompt = `Sei un classificatore breve. La fonte ha un nesso REALE e DIRETTO con la vita del frontaliere Ticino-Italia (Permesso G/B, imposta alla fonte, ristorni, AVS/LPP, LAMal, busta paga svizzera, valichi Chiasso/Brogeda/Gaggiolo/Ponte Tresa, mercato del lavoro ticinese, accordi bilaterali CH-IT, cambio CHF-EUR)?
+  const prompt = `Sei un editor del sito frontaliereticino.ch, focalizzato ESCLUSIVAMENTE sui FRONTALIERI ITALO-SVIZZERI che lavorano in Ticino.
 
-NON è un nesso reale: cronaca nera (omicidi/sparizioni/abbandono rifiuti) non-frontaliera, sport, cultura, infrastruttura italiana lontana dal confine, eventi USA/UE-altri senza impatto pendolare.
+È RILEVANTE: lavoro/occupazione frontalieri TI, fiscalità (imposta alla fonte, ristorni, AVS/LPP), permessi B/G/C, salute (LAMal/cassa malati), trasporti pendolari, accordi Italia-Svizzera, riforme normative, mercato del lavoro ticinese, cambio CHF-EUR.
+
+NON è rilevante:
+- Cronaca dove "frontaliere/transfrontaliero" appare solo come aggettivo (cittadino frontaliere, area frontaliera, comune di confine) senza tema lavorativo/fiscale/permessi
+- Frontalieri di altri confini (Francia-Svizzera, Italia-Slovenia, ecc.) non Ticino-Italia
+- Eventi culturali, sportivi, festival, gastronomia (anche se localizzati a Ticino o area di confine)
+- Singoli episodi di cronaca (multe, incidenti, arresti, abbandono rifiuti) senza implicazioni di policy o impatto sui pendolari
+- Infrastruttura italiana lontana dal confine, eventi USA/UE senza impatto pendolare
 
 HEADLINE: ${String(headline || '').slice(0, 240)}
 ${summary ? `SOMMARIO: ${String(summary).slice(0, 320)}\n` : ''}
@@ -389,35 +405,45 @@ async function applyPreSpendTopicGate(headlines, opts = {}) {
   if (!Array.isArray(headlines) || headlines.length === 0) return headlines;
   if ((process.env.PRESPEND_TOPIC_GATE ?? '1') === '0') return headlines;
 
+  // Default: classifier-always (every candidate goes through the LLM).
+  // Set PRESPEND_TOPIC_GATE_CLASSIFIER=0 ONLY for emergency rollback to the
+  // legacy anchor-only fast-path (pre-2026-05-15 behaviour, accepts on
+  // anchor match without LLM confirmation).
   const classifierEnabled = (process.env.PRESPEND_TOPIC_GATE_CLASSIFIER ?? '1') !== '0';
-  const maxClassifier = Number(opts.maxClassifier ?? 12);
+  const maxClassifier = Number(opts.maxClassifier ?? headlines.length);
 
   const kept = [];
   const filtered = []; // { headline, reason }
   let classifierCalls = 0;
-  let anchorHits = 0;
 
   for (const h of headlines) {
     const headlineText = String(h?.headline || '');
     const urlText = String(h?.url || '');
     const combined = `${headlineText} ${urlText}`;
 
-    // (1) Anchor fast-path — accept immediately on hit.
-    const anchor = matchesFrontaliereAnchor(combined);
-    if (anchor) {
-      anchorHits += 1;
+    // Legacy emergency rollback: anchor-only acceptance (no LLM).
+    if (!classifierEnabled) {
+      const anchor = matchesFrontaliereAnchor(combined);
+      if (anchor) {
+        kept.push(h);
+      } else {
+        filtered.push({ headline: headlineText.slice(0, 80), reason: 'anchor-miss (classifier disabled)' });
+      }
+      continue;
+    }
+
+    // Budget exhausted — fail-open, keep the headline. REGOLA #0 stays as
+    // the defense-in-depth backstop. With the default maxClassifier =
+    // headlines.length this branch is effectively unreachable unless a
+    // caller overrides opts.maxClassifier.
+    if (classifierCalls >= maxClassifier) {
       kept.push(h);
       continue;
     }
 
-    // (2) Classifier path — only if budget remaining.
-    if (!classifierEnabled || classifierCalls >= maxClassifier) {
-      // No budget left — keep the headline. REGOLA #0 stays as the
-      // defense-in-depth backstop.
-      kept.push(h);
-      continue;
-    }
-
+    // Classifier path — runs for EVERY candidate, no anchor short-circuit.
+    // The anchor signal could be passed as a hint, but anchor match alone
+    // must NOT bypass the classifier (see comment block above).
     classifierCalls += 1;
     const summary = Array.isArray(h?.relatedHeadlines) && h.relatedHeadlines.length > 0
       ? h.relatedHeadlines.slice(0, 2).join(' · ')
@@ -439,10 +465,11 @@ async function applyPreSpendTopicGate(headlines, opts = {}) {
   }
 
   const dropped = headlines.length - kept.length;
-  if (anchorHits > 0 || classifierCalls > 0 || dropped > 0) {
+  if (classifierCalls > 0 || dropped > 0) {
+    const reasonsSummary = filtered.slice(0, 3).map(f => f.reason).join(' | ');
     console.error(
       `  🔍 Pre-spend topic gate: ${headlines.length} candidates → ${kept.length} frontaliere-relevant `
-      + `(anchor-fast-path=${anchorHits}, classifier-calls=${classifierCalls}, dropped=${dropped})`,
+      + `(classifier-calls=${classifierCalls}, dropped=${dropped}${reasonsSummary ? `: ${reasonsSummary}` : ''})`,
     );
     if (filtered.length > 0) {
       for (const f of filtered.slice(0, 5)) {
@@ -452,7 +479,6 @@ async function applyPreSpendTopicGate(headlines, opts = {}) {
   }
   if (typeof RUN_REPORT === 'object' && RUN_REPORT?.headlines) {
     RUN_REPORT.headlines.droppedPreSpendGate = (RUN_REPORT.headlines.droppedPreSpendGate || 0) + dropped;
-    RUN_REPORT.headlines.preSpendGateAnchorHits = (RUN_REPORT.headlines.preSpendGateAnchorHits || 0) + anchorHits;
     RUN_REPORT.headlines.preSpendGateClassifierCalls = (RUN_REPORT.headlines.preSpendGateClassifierCalls || 0) + classifierCalls;
   }
   return kept;
