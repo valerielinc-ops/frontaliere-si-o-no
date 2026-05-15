@@ -10494,5 +10494,117 @@
         "pending": 7
       }
     ]
+  },
+  {
+    "timestamp": "2026-05-15T14:45:50.680Z",
+    "label": "before",
+    "total": 4320,
+    "needsRetranslation": 2200,
+    "incomplete": 510,
+    "complete": 3810,
+    "missingByLocale": {
+      "it": 342,
+      "en": 310,
+      "de": 144,
+      "fr": 368
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 93
+      },
+      {
+        "company": "Transgourmet Schweiz AG",
+        "pending": 91
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 77
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 24
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 21
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 14
+      },
+      {
+        "company": "MSC Group",
+        "pending": 14
+      },
+      {
+        "company": "PEMSA",
+        "pending": 12
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-15T17:09:31.532Z",
+    "label": "after",
+    "total": 4320,
+    "needsRetranslation": 956,
+    "incomplete": 343,
+    "complete": 3977,
+    "missingByLocale": {
+      "it": 267,
+      "en": 228,
+      "de": 95,
+      "fr": 267
+    },
+    "topPending": [
+      {
+        "company": "Transgourmet Schweiz AG",
+        "pending": 89
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 14
+      },
+      {
+        "company": "MSC Group",
+        "pending": 14
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 7
+      }
+    ]
   }
 ]
