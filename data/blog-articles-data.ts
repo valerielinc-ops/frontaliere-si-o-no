@@ -24059,4 +24059,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tassa-salute-frontalieri-paradosso-luino-verbania',
+ category: 'fiscale',
+ date: '2026-05-15T16:15:35.019Z',
+ image: '/images/blog/tassa-salute-frontalieri-paradosso-luino-verbania.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

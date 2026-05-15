@@ -7562,6 +7562,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-parigi-berna.title': 'Disoccupazione frontalieri, Parigi fa pressione su Berna',
     'blog.article.disoccupazione-frontalieri-parigi-berna.excerpt': 'Nuovo accordo europeo per il pagamento delle indennità di disoccupazione',
     'blog.article.disoccupazione-frontalieri-parigi-berna.imageAlt': 'Vista di Lugano',
+    'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.title': 'Frontalieri, Paradosso Tassa Salute: Disparità Geografiche nel Confine',
+    'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.excerpt': 'Luino e Verbania, due realtà adiacenti con regimi fiscali opposti per i lavoratori frontalieri.',
+    'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.imageAlt': 'Frontaliero di fronte a una fabbrica con segnali di tassa diverse',
 };
 
 export default blogMetaIt;

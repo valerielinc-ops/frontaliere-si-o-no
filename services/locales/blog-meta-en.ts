@@ -7561,6 +7561,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-parigi-berna.title': 'Cross-border jobless',
     'blog.article.disoccupazione-frontalieri-parigi-berna.excerpt': 'New EU agreement on unemployment benefits',
     'blog.article.disoccupazione-frontalieri-parigi-berna.imageAlt': 'Lugano view',
+    'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.title': 'Cross-Border Worker Disparities: Tax Differences in Ticino',
+    'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.excerpt': 'Luino and Verbania, two neighboring regions with contrasting tax systems for cross-border workers.',
+    'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.imageAlt': 'Frontal worker in front of a factory with different tax signals',
 };
 
 export default blogMetaEn;

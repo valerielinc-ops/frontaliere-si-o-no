@@ -7562,6 +7562,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-parigi-berna.title': 'Disoccupation des frontaliers, Paris met la pression sur Berna',
     'blog.article.disoccupazione-frontalieri-parigi-berna.excerpt': 'Nouveau accord européen pour le paiement des indemnités de chômage',
     'blog.article.disoccupazione-frontalieri-parigi-berna.imageAlt': 'Vue de Lugano',
+    'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.title': 'Frontaliers, Paradoxe Fiscal: Inégalités Géographiques au Frontière',
+    'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.excerpt': 'Luino et Verbania, deux réalités adjacentes avec des régimes fiscaux opposés pour les travailleurs frontaliers.',
+    'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.imageAlt': 'Travailleur frontalier devant une usine avec des signaux d\'impôt différents',
 };
 
 export default blogMetaFr;

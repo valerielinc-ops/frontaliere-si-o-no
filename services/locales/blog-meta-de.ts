@@ -7560,6 +7560,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disoccupazione-frontalieri-parigi-berna.title': 'Disoccupazione frontalieri: Paris drückt auf Bern',
     'blog.article.disoccupazione-frontalieri-parigi-berna.excerpt': 'Neuer europäischer Vertrag für die Entlohnung von Arbeitslosen',
     'blog.article.disoccupazione-frontalieri-parigi-berna.imageAlt': 'Blick auf Lugano',
+    'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.title': 'Frontalier, Steuerparadox: Geografische Ungleichheiten am Grenzübergang',
+    'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.excerpt': 'Luino und Verbania, zwei benachbarte Realitäten mit gegensätzlichen Steuerregelungen für Grenzgänger.',
+    'blog.article.tassa-salute-frontalieri-paradosso-luino-verbania.imageAlt': 'Frontalier vor einer Fabrik mit unterschiedlichen Steuersignalen',
 };
 
 export default blogMetaDe;

@@ -504,12 +504,12 @@
     "canton": "BE"
   },
   "BE::de::field-service-expert-100-agie-charmilles-biel-bienne": {
-    "winnerJobIdentifier": "agie-charmilles-a4dfdd439b6e",
-    "winnerCanonical": "experten-fur-den-au-endienst-100-agie-charmilles-sa-biel-bienne",
+    "winnerJobIdentifier": "agie-charmilles-3fdadae9c7fe",
+    "winnerCanonical": "sachbearbeiter-d-w-m-agie-charmilles-sa-biel-bienne",
     "decidedAt": "2026-05-15T00:00:00.000Z",
     "lastSeenAt": "2026-05-15T00:00:00.000Z",
-    "score": 0.3571,
-    "candidatesCount": 2,
+    "score": 0.3077,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::de::field-service-expert-agie-charmilles-biel-bienne": {
@@ -3167,6 +3167,15 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::it::responsabile-vendite-m-w-d-volg-vals": {
+    "winnerJobIdentifier": "volg-fenaco-6778621893b4",
+    "winnerCanonical": "responsabile-vendite-m-w-d-volg-vals-5c52d7",
+    "decidedAt": "2026-05-15T00:00:00.000Z",
+    "lastSeenAt": "2026-05-15T00:00:00.000Z",
+    "score": 0.875,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::it::spitex-assistant-de-sante-50-100-spital-davos-davos": {
     "winnerJobIdentifier": "spital-davos-016659b12606",
     "winnerCanonical": "assistenza-sanitaria-srk-spitex-50-100-spital-davos-davos",
@@ -3240,11 +3249,11 @@
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
-    "winnerJobIdentifier": "company-lzsoh3",
-    "winnerCanonical": "venditore-in-food-coop-genossenschaft-felsberg",
+    "winnerJobIdentifier": "company-e66ikm",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur-ddc182",
     "decidedAt": "2026-05-15T00:00:00.000Z",
     "lastSeenAt": "2026-05-15T00:00:00.000Z",
-    "score": 0.4444,
+    "score": 0.2727,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -7308,9 +7317,9 @@
     "canton": "VD"
   },
   "VD::fr::position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne": {
-    "winnerJobIdentifier": "epfl-b0cd92a73585",
-    "winnerCanonical": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne-d02b8a",
-    "decidedAt": "2026-05-14T00:00:00.000Z",
+    "winnerJobIdentifier": "epfl-ad8241ec0d43",
+    "winnerCanonical": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne-aab331",
+    "decidedAt": "2026-05-15T00:00:00.000Z",
     "lastSeenAt": "2026-05-15T00:00:00.000Z",
     "score": 0.9333,
     "candidatesCount": 1,
@@ -7323,6 +7332,15 @@
     "lastSeenAt": "2026-05-15T00:00:00.000Z",
     "score": 0.2273,
     "candidatesCount": 1,
+    "canton": "VD"
+  },
+  "VD::fr::position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne-d02b8a": {
+    "winnerJobIdentifier": "epfl-b0cd92a73585",
+    "winnerCanonical": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne",
+    "decidedAt": "2026-05-15T00:00:00.000Z",
+    "lastSeenAt": "2026-05-15T00:00:00.000Z",
+    "score": 0.9333,
+    "candidatesCount": 2,
     "canton": "VD"
   },
   "VD::fr::postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne": {
@@ -8099,6 +8117,15 @@
     "candidatesCount": 17,
     "canton": "ZH"
   },
+  "ZH::fr::manager-deals-tax-mergers-and-acquisitions-pwc-zurich": {
+    "winnerJobIdentifier": "pwc-238b6c33edb1",
+    "winnerCanonical": "gestionnaire-ventes-fiscales-fusions-et-acquisitions-pwc-switzerland-zurich",
+    "decidedAt": "2026-05-15T00:00:00.000Z",
+    "lastSeenAt": "2026-05-15T00:00:00.000Z",
+    "score": 0.2143,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::fr::medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-2": {
     "winnerJobIdentifier": "ksw-5315115335ae",
     "winnerCanonical": "assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur",
@@ -8277,6 +8304,15 @@
     "lastSeenAt": "2026-05-15T00:00:00.000Z",
     "score": 0.5,
     "candidatesCount": 17,
+    "canton": "ZH"
+  },
+  "ZH::it::manager-deals-tax-mergers-and-acquisitions-pwc-zurich": {
+    "winnerJobIdentifier": "pwc-17d0af6540e0",
+    "winnerCanonical": "gestore-imposta-sulle-offerte-mergers-and-acquisitions-pwc-switzerland-zurich",
+    "decidedAt": "2026-05-15T00:00:00.000Z",
+    "lastSeenAt": "2026-05-15T00:00:00.000Z",
+    "score": 0.3846,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-2": {
