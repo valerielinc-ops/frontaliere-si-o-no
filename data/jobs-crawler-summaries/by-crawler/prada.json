@@ -1,18 +1,19 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-05-16T10:49:21.177Z",
+  "generatedAt": "2026-05-16T22:15:01.297Z",
   "total": 3,
-  "newCount": 3,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5272,
-  "avgDurationMs": 5272,
+  "durationMs": 7038,
+  "avgDurationMs": 7038,
   "durationHistory": [
-    5272
+    7038
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-b8ab80bfb2e1",
       "slug": "prada-store-manager-zurich-prada-group-zurich",
@@ -33,12 +34,13 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-PRADA-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T10:49:17.374Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-05-16T22:14:56.404Z",
+      "firstSeenAt": "2026-05-16T10:49:17.374Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -62,12 +64,14 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T10:49:17.646Z",
-      "_qualityScore": 61,
+      "crawledAt": "2026-05-16T22:14:56.850Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-16T10:49:17.646Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -91,17 +95,18 @@
       "url": "https://jobs.pradagroup.com/job/Scandicci-Addettoa-Produzione-Pelletteria/1188476101/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-16T10:49:19.274Z",
-      "_qualityScore": 63,
+      "crawledAt": "2026-05-16T22:14:59.205Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-16T10:49:19.274Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -124,8 +129,9 @@
       "url": "https://jobs.pradagroup.com/job/Scandicci-Addettoa-Produzione-Pelletteria/1188476101/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-16T10:49:19.274Z",
+      "crawledAt": "2026-05-16T22:14:59.205Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-16T10:49:19.274Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "postalCode": "6500",
@@ -157,8 +163,9 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T10:49:17.646Z",
+      "crawledAt": "2026-05-16T22:14:56.850Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-16T10:49:17.646Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "postalCode": "7500",
@@ -190,16 +197,16 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-PRADA-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T10:49:17.374Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-05-16T22:14:56.404Z",
+      "firstSeenAt": "2026-05-16T10:49:17.374Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "postalCode": "8001",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
