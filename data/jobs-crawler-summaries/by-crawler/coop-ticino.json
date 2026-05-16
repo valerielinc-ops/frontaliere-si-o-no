@@ -1,18 +1,55 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-05-16T10:02:34.147Z",
-  "total": 153,
-  "newCount": 2,
+  "generatedAt": "2026-05-16T21:27:52.283Z",
+  "total": 154,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 151,
-  "durationMs": 391536,
-  "avgDurationMs": 391536,
+  "unchangedCount": 153,
+  "durationMs": 372495,
+  "avgDurationMs": 372495,
   "durationHistory": [
-    391536
+    372495
   ],
   "newJobs": [
+    {
+      "id": "company-lzsoh3",
+      "slug": "verkaufer-in-food-coop-felsberg-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Food",
+      "location": "Felsberg",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-05",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/59f67488-9b1b-4820-b23f-476ee0c8113e",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-16T21:25:19.316Z",
+      "firstSeenAt": "2026-05-16T21:25:19.316Z",
+      "needsRetranslation": true,
+      "addressLocality": "Felsberg",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-i1ujb",
       "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
@@ -38,12 +75,15 @@
       "firstSeenAt": "2026-05-16T09:59:56.651Z",
       "needsRetranslation": true,
       "addressLocality": "Chur",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -71,18 +111,17 @@
       "firstSeenAt": "2026-05-16T09:59:56.651Z",
       "needsRetranslation": true,
       "addressLocality": "Chur",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-jttwyb",
       "slug": "chauffeuse-chauffeur-kat-c-transgourmet-prodega-brunegg",
@@ -180,6 +219,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -215,6 +255,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -250,6 +291,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -284,8 +326,6 @@
       "addressLocality": "Maienfeld",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -321,7 +361,6 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -357,6 +396,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -392,7 +432,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -428,7 +468,6 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -464,7 +503,6 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -500,7 +538,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -536,7 +574,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -572,6 +610,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -607,6 +646,7 @@
       "salaryMin": 59000,
       "salaryMax": 90500,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -983,6 +1023,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1018,6 +1059,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1053,76 +1095,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 9,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-jwg1tt",
-      "slug": "detailhandelsassistent-in-eba-coop-grigioni-3",
-      "company": "Coop",
-      "title": "Detailhandelsassistent:in EBA",
-      "location": "Gossau",
-      "canton": "GR",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-02",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/80271c7c-c1c1-44a0-9407-be8658986944",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-10T09:58:53.007Z",
-      "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "addressLocality": "Gossau",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "needsRetranslation": true,
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 9,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-o2pr97",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-3",
-      "company": "Coop",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Gossau",
-      "canton": "GR",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-02",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/693945af-eabe-40d4-98da-b3f40ef49d34",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-10T09:58:53.007Z",
-      "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "addressLocality": "Gossau",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
