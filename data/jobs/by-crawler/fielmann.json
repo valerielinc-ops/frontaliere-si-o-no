@@ -2720,7 +2720,9 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "fielmann-00dbba3e9007",
@@ -3034,7 +3036,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-15T21:47:31.512Z"
+      "firstSeenAt": "2026-05-15T21:47:31.512Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "fielmann-9c59a3eeb76f",
