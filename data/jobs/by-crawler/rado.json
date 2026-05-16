@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-05-15T22:45:22.628Z",
+  "assembledAt": "2026-05-16T11:06:58.417Z",
   "jobs": [
     {
       "id": "company-7uaw2c",
@@ -214,7 +214,8 @@
       "addressLocality": "Job location South Las Vegas Boulevard 3790 89109 Las Vegas NV (Nevada) United S",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-7uaw29",
@@ -292,7 +293,8 @@
       "addressLocality": "Job location South Las Vegas Boulevard 3790 89109 Las Vegas NV (Nevada) United S",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-7uaw28",
@@ -377,7 +379,8 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "id": "company-7uaw1k",
@@ -618,7 +621,8 @@
       "addressLocality": "33126 Apply for this job Share this job offer Main navigation Swatch Group The B",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     }
   ]
 }
