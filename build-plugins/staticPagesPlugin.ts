@@ -476,7 +476,50 @@ function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  // not touched by React hydration. Falls back to no-op if no </body>.
  if (!html.includes('</body>')) return html;
  const cantonNav = buildHomepageCantonNavHtml(locale);
- return html.replace('</body>', `${block}\n${cantonNav}\n</body>`);
+ const langSwitch = buildHomepageLangSwitchHtml(locale);
+ return html.replace('</body>', `${block}\n${langSwitch}\n${cantonNav}\n</body>`);
+}
+
+/**
+ * Language switcher anchors emitted as static `<a>` on every locale's
+ * home page. ROOT-CAUSE FIX for bfs-depth regression on
+ * sitemap-jobs-{canton}.xml (run 25954025410 — Ginevra 465/608 URLs
+ * at depth > 4, deepest=13).
+ *
+ * The audit's BFS walker follows `<a href>` only — `<link rel="alternate"
+ * hreflang>` tags in `<head>` are ignored. Before this fix, the IT home
+ * `/` had ZERO `<a>` anchors to `/en/`, `/de/`, `/fr/`, so the entire
+ * non-IT URL tree (per-canton hubs + their job-detail leaves) was
+ * orphan to static BFS. Audit reached them via indirect chains that
+ * accumulated 5-13 hops.
+ *
+ * With the switcher in place, every locale home is at depth 1 from
+ * every other locale home → non-IT canton hubs at depth 2 → tutti at
+ * depth 3 → job detail at depth 4. ✓
+ *
+ * Rendered as a compact pill row (mobile-friendly) so it's
+ * visible-not-collapsed for BFS reliability AND user UX.
+ */
+function buildHomepageLangSwitchHtml(currentLocale: HpSeoLocale): string {
+ const langs: Array<{ code: HpSeoLocale; label: string; href: string }> = [
+   { code: 'it', label: 'Italiano', href: '/' },
+   { code: 'en', label: 'English', href: '/en/' },
+   { code: 'de', label: 'Deutsch', href: '/de/' },
+   { code: 'fr', label: 'Français', href: '/fr/' },
+ ];
+ const navLabel = currentLocale === 'en' ? 'Language switcher'
+   : currentLocale === 'de' ? 'Sprachumschalter'
+   : currentLocale === 'fr' ? 'Sélecteur de langue'
+   : 'Cambia lingua';
+ const pillStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#f8fafc;color:#1e293b;text-decoration:none;font-size:13px;font-weight:600;border:1px solid #cbd5e1';
+ const activeStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#1e293b;color:#fff;font-size:13px;font-weight:600;border:1px solid #1e293b';
+ const items = langs
+   .map(({ code, label, href }) => code === currentLocale
+     ? `<span style="${activeStyle}" aria-current="page">${label}</span>`
+     : `<a href="${href}" hreflang="${code}" style="${pillStyle}">${label}</a>`,
+   )
+   .join('');
+ return `<nav id="hp-lang-switch" aria-label="${navLabel}" style="max-width:1100px;margin:16px auto 0;padding:0 20px;line-height:1.9">${items}</nav>`;
 }
 
 /**
