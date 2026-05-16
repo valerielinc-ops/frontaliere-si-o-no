@@ -1,21 +1,22 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-05-16T10:26:10.340Z",
+  "generatedAt": "2026-05-16T21:52:08.235Z",
   "total": 15,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 24175,
-  "avgDurationMs": 24175,
+  "durationMs": 30025,
+  "avgDurationMs": 30025,
   "durationHistory": [
-    24175
+    30025
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-tqkknk",
-      "slug": "store-manager-apprendista-100-per-la-region-zurich-jysk-dietlikon-tqkknk",
+      "slug": "store-manager-trainee-100-per-la-regione-di-zurigo-jysk-dietlikon",
       "company": "JYSK",
       "title": "Store Manager Trainee 100% für die Region Zürich",
       "location": "Dietlikon",
@@ -32,16 +33,18 @@
       "crawledAt": "2026-05-16T10:26:09.998Z",
       "firstSeenAt": "2026-05-16T10:26:09.998Z",
       "sourceLang": "de",
-      "_qualityScore": 84,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "employmentType": "FULL_TIME",
+      "postalCode": "8305",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-9yhx5d",
       "slug": "venditore-con-responsabilita-del-magazzino-a-60-jysk-stans",
