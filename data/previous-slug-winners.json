@@ -755,6 +755,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::en::automatiker-efz-80-100-agie-charmilles-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-9dc89a54b496",
+    "winnerCanonical": "automatiker-efz-agie-charmilles-biel-bienne",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::en::developpeur-sap-abap-fiori-agie-charmilles-sa-biel-bienne": {
     "winnerJobIdentifier": "agie-charmilles-e67647fb366d",
     "winnerCanonical": "sap-developer-agie-charmilles-biel-bienne",
@@ -1023,6 +1032,15 @@
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.1739,
     "candidatesCount": 1,
+    "canton": "BE"
+  },
+  "BE::fr::automatiker-efz-80-100-agie-charmilles-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-9dc89a54b496",
+    "winnerCanonical": "automatiker-efz-agie-charmilles-biel-bienne",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::fr::developpeur-sap-abap-fiori-agie-charmilles-sa-biel-bienne": {
@@ -1302,6 +1320,15 @@
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.0769,
     "candidatesCount": 1,
+    "canton": "BE"
+  },
+  "BE::it::automatiker-efz-80-100-agie-charmilles-biel-bienne": {
+    "winnerJobIdentifier": "agie-charmilles-9dc89a54b496",
+    "winnerCanonical": "automatiker-efz-agie-charmilles-biel-bienne",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::it::developpeur-sap-abap-fiori-agie-charmilles-sa-biel-bienne": {
@@ -1737,12 +1764,12 @@
     "canton": "GE"
   },
   "GE::it::internal-warehousing-tech-team-lead-richemont-meyrin": {
-    "winnerJobIdentifier": "richemont-237a0976fdcb",
-    "winnerCanonical": "gruppo-tecnico-warehousing-interno-lead-richemont-meyrin",
+    "winnerJobIdentifier": "richemont-326f82a572d1",
+    "winnerCanonical": "metrologo-vacheron-constantin-plan-les-ouates",
     "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
-    "score": 0.4,
-    "candidatesCount": 2,
+    "score": 0,
+    "candidatesCount": 1,
     "canton": "GE"
   },
   "GL::it::data-center-technician-switzerland-linthal-on-site-reboot-monkey-linthal-2": {
