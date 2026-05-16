@@ -7601,6 +7601,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.iniziativa-10-milioni-votazione-14-giugno.title': 'Iniziativa 10 milioni: l\'UDC torna alla carica',
     'blog.article.iniziativa-10-milioni-votazione-14-giugno.excerpt': 'Traffico, penuria di alloggi, cementificazione e criminalità alle stelle. L\'iniziativa \'No a una Svizzera da 10 milioni!\' sarà votata il 14 giugno.',
     'blog.article.iniziativa-10-milioni-votazione-14-giugno.imageAlt': 'Locarno, Ticino, Svizzera',
+    'blog.article.svizzera-investimenti-ricerca-2026.title': 'Svizzera terza al mondo negli investimenti aziendali nella ricerca',
+    'blog.article.svizzera-investimenti-ricerca-2026.excerpt': 'La Svizzera si conferma ai vertici mondiali per l\'innovazione con il terzo posto per intensità di ricerca e sviluppo.',
+    'blog.article.svizzera-investimenti-ricerca-2026.imageAlt': 'Squadra di ricercatori svizzeri al lavoro in un moderno laboratorio tecnologico',
 };
 
 export default blogMetaIt;

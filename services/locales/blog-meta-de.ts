@@ -7599,6 +7599,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.iniziativa-10-milioni-votazione-14-giugno.title': 'Initiative 10 Millionen: die SVP greift erneut an',
     'blog.article.iniziativa-10-milioni-votazione-14-giugno.excerpt': 'Verkehr, Wohnungsmangel, Zementierung und Kriminalität auf Rekordhoch. Die Initiative \'Nein zu einer Schweiz mit 10 Millionen!\' wird am 14. Juni zur Abstimmung gebracht.',
     'blog.article.iniziativa-10-milioni-votazione-14-giugno.imageAlt': 'Locarno, Tessin, Schweiz',
+    'blog.article.svizzera-investimenti-ricerca-2026.title': 'Schweiz auf Platz drei weltweit bei Unternehmensinvestitionen in Forschung',
+    'blog.article.svizzera-investimenti-ricerca-2026.excerpt': 'Die Schweiz bestätig ihre Spitzenposition in der Welt für Innovation mit dem dritten Platz in der Forschungs- und Entwicklungsintensität.',
+    'blog.article.svizzera-investimenti-ricerca-2026.imageAlt': 'Schweizer Forschungsteam bei der Arbeit in einem modernen Labor',
 };
 
 export default blogMetaDe;

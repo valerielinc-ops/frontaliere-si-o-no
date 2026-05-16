@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2588,
+ "numberOfItems": 2589,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7228,7 +7228,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2585, "name": "Checklist documenti per lavorare in Svizzera", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-documenti-necessari-inizio-lavoro-svizzera` },
           { "@type": "ListItem", "position": 2586, "name": "Petizione contro i tagli a USI e SUPSI: già 500...", "url": `${BASE_URL}/articoli-frontaliere/petizione-usi-supsi-500-firme` },
           { "@type": "ListItem", "position": 2587, "name": "Libera circolazione UE-Svizzera: gli effetti su...", "url": `${BASE_URL}/articoli-frontaliere/libera-circolazione-ue-svizzera-impatti` },
-          { "@type": "ListItem", "position": 2588, "name": "Iniziativa 10 milioni: l'UDC torna alla carica", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-10-milioni-votazione-14-giugno` }
+          { "@type": "ListItem", "position": 2588, "name": "Iniziativa 10 milioni: l'UDC torna alla carica", "url": `${BASE_URL}/articoli-frontaliere/iniziativa-10-milioni-votazione-14-giugno` },
+          { "@type": "ListItem", "position": 2589, "name": "Svizzera terza al mondo negli investimenti azie...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-investimenti-ricerca-2026` }
  ]
  },
  {

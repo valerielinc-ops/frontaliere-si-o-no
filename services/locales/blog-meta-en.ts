@@ -7600,6 +7600,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.iniziativa-10-milioni-votazione-14-giugno.title': 'Initiative 10 Million: UDC Strikes Back',
     'blog.article.iniziativa-10-milioni-votazione-14-giugno.excerpt': 'Traffic, housing shortage, urbanization, and crime at record highs. \'No to a Switzerland of 10 Million!\' initiative to be voted on June 14.',
     'blog.article.iniziativa-10-milioni-votazione-14-giugno.imageAlt': 'Locarno, Ticino, Switzerland',
+    'blog.article.svizzera-investimenti-ricerca-2026.title': 'Switzerland Third in World for Business Research Investments',
+    'blog.article.svizzera-investimenti-ricerca-2026.excerpt': 'Switzerland maintains its global innovation leadership with the third-highest research and development intensity.',
+    'blog.article.svizzera-investimenti-ricerca-2026.imageAlt': 'Swiss research team working in a modern laboratory',
 };
 
 export default blogMetaEn;

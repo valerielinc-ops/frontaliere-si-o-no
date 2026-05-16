@@ -24176,4 +24176,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'svizzera-investimenti-ricerca-2026',
+ category: 'novita',
+ date: '2026-05-16T23:10:44.790Z',
+ image: '/images/blog/svizzera-investimenti-ricerca-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

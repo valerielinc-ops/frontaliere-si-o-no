@@ -3776,6 +3776,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-petizione-usi-supsi-500-firme': { name: 'Petizione contro i tagli a USI e SUPSI', path: '/articoli-frontaliere/petizione-usi-supsi-500-firme', parent: 'blog' },
     'blog-libera-circolazione-ue-svizzera-impatti': { name: 'Economia', path: '/articoli-frontaliere/libera-circolazione-ue-svizzera-impatti', parent: 'blog' },
     'blog-iniziativa-10-milioni-votazione-14-giugno': { name: 'Iniziativa 10 milioni', path: '/articoli-frontaliere/iniziativa-10-milioni-votazione-14-giugno', parent: 'blog' },
+    'blog-svizzera-investimenti-ricerca-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-investimenti-ricerca-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];
