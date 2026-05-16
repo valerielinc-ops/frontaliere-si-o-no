@@ -140,7 +140,9 @@
       },
       "previousSlugs": [
         "assistent-in-der-centerleitung-alc-monteceneri-confederazione-monteceneri"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "Greffier/greffière de langue française, pour la Cour des affaires pénales",
@@ -360,7 +362,7 @@
       "postalCode": "6501",
       "firstSeenAt": "2026-04-17T09:38:44.875Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "title": "Raus aus der Routine? Werde Berufsoffizier/-in",
@@ -597,9 +599,7 @@
       "previousSlugs": [
         "asyl-dolmetscher-in-confederazione-alle-standorte-des-sem",
         "interprete-per-asilo-confederazione-svizzera-alle-standorte-des-sem"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      ]
     }
   ]
 }

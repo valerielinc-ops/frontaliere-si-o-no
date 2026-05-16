@@ -1,105 +1,5 @@
 [
   {
-    "timestamp": "2026-05-01T13:48:08.393Z",
-    "label": "before",
-    "total": 2668,
-    "needsRetranslation": 96,
-    "incomplete": 40,
-    "complete": 2628,
-    "missingByLocale": {
-      "it": 30,
-      "en": 15,
-      "de": 33,
-      "fr": 34
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 2
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Bosch Thermotechnik AG",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "International School of Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-01T14:32:52.365Z",
-    "label": "after",
-    "total": 2668,
-    "needsRetranslation": 61,
-    "incomplete": 29,
-    "complete": 2639,
-    "missingByLocale": {
-      "it": 27,
-      "en": 7,
-      "de": 25,
-      "fr": 25
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-01T22:39:50.078Z",
     "label": "before",
     "total": 2664,
@@ -10506,6 +10406,118 @@
       "it": 218,
       "en": 199,
       "de": 74,
+      "fr": 229
+    },
+    "topPending": [
+      {
+        "company": "Transgourmet Schweiz AG",
+        "pending": 89
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 20
+      },
+      {
+        "company": "MSC Group",
+        "pending": 15
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 12
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 5
+      },
+      {
+        "company": "Lonza",
+        "pending": 5
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-16T06:11:19.137Z",
+    "label": "before",
+    "total": 4301,
+    "needsRetranslation": 830,
+    "incomplete": 306,
+    "complete": 3995,
+    "missingByLocale": {
+      "it": 218,
+      "en": 199,
+      "de": 75,
+      "fr": 229
+    },
+    "topPending": [
+      {
+        "company": "Transgourmet Schweiz AG",
+        "pending": 89
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 20
+      },
+      {
+        "company": "MSC Group",
+        "pending": 15
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 12
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 5
+      },
+      {
+        "company": "Lonza",
+        "pending": 5
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-16T06:20:54.373Z",
+    "label": "after",
+    "total": 4301,
+    "needsRetranslation": 807,
+    "incomplete": 306,
+    "complete": 3995,
+    "missingByLocale": {
+      "it": 218,
+      "en": 199,
+      "de": 75,
       "fr": 229
     },
     "topPending": [
