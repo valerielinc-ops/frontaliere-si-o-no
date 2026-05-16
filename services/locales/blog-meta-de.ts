@@ -7572,6 +7572,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.title': 'G-Bewilligung 2026: Wann lohnt sich der Statuswechsel?',
     'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.excerpt': 'Im Vergleich zum Jahr 2025 könnte der neue Steuerabkommen 2026 einen größeren Einfluss auf Grenzgänger haben, die mehr als 20 km vom italienisch-schweizerischen Grenzgebiet entfernt wohnen.',
     'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.imageAlt': 'Ein Frontalier nähert sich dem Grenzübergang Chiasso mit seinem Auto.',
+    'blog.article.cambio-ambasciatore-italia-svizzera-2026.title': 'Wechsel an der Spitze der italienischen Botschaft in der Schweiz',
+    'blog.article.cambio-ambasciatore-italia-svizzera-2026.excerpt': 'Der Botschafter Gian Lorenzo Cornado verlässt den diplomatischen Sitz in Bern Ende Juni 2026, nachdem er die Krise des Brandes in Crans-Montana verwaltet hat.',
+    'blog.article.cambio-ambasciatore-italia-svizzera-2026.imageAlt': 'Die italienische Botschaft in Bern, Schweiz, mit der italienischen und schweizerischen Flagge.',
 };
 
 export default blogMetaDe;

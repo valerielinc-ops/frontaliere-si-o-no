@@ -24095,4 +24095,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cambio-ambasciatore-italia-svizzera-2026',
+ category: 'novita',
+ date: '2026-05-16T00:46:47.794Z',
+ image: '/images/blog/cambio-ambasciatore-italia-svizzera-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

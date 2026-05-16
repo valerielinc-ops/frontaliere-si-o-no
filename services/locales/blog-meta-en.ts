@@ -7573,6 +7573,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.title': 'G Permit vs B Permit in 2026: When Does It Really Pay to Switch?',
     'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.excerpt': 'Compared to 2025, the new 2026 fiscal agreement may have a greater impact on cross-border workers residing more than 20 km from the Italian-Swiss border.',
     'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.imageAlt': 'A frontaliere approaches the Chiasso border crossing with their car.',
+    'blog.article.cambio-ambasciatore-italia-svizzera-2026.title': 'Change at the helm of Italy\'s Swiss embassy',
+    'blog.article.cambio-ambasciatore-italia-svizzera-2026.excerpt': 'Ambassador Gian Lorenzo Cornado leaves Bern\'s diplomatic seat at the end of June 2026 after managing the Crans-Montana fire crisis.',
+    'blog.article.cambio-ambasciatore-italia-svizzera-2026.imageAlt': 'The Italian embassy in Bern, Switzerland, with the Italian and Swiss flags displayed.',
 };
 
 export default blogMetaEn;

@@ -7574,6 +7574,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.title': 'Confronto tra Permesso G e B nel 2026: quando conviene davvero cambiare status?',
     'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.excerpt': 'Rispetto al 2025, il nuovo accordo fiscale 2026 potrebbe avere un impatto maggiore sui frontalieri che risiedono oltre 20 km dal confine italo-svizzero.',
     'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.imageAlt': 'Un frontaliere si avvicina al valico di Chiasso con l\'automobile.',
+    'blog.article.cambio-ambasciatore-italia-svizzera-2026.title': 'Cambio alla guida dell\'ambasciata italiana in Svizzera',
+    'blog.article.cambio-ambasciatore-italia-svizzera-2026.excerpt': 'L\'ambasciatore Gian Lorenzo Cornado lascia la sede diplomatica di Berna a fine giugno 2026 dopo aver gestito la crisi del rogo di Crans-Montana.',
+    'blog.article.cambio-ambasciatore-italia-svizzera-2026.imageAlt': 'L\'ambasciata italiana a Berna, Svizzera, con la bandiera italiana e svizzera esposta.',
 };
 
 export default blogMetaIt;

@@ -37319,6 +37319,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cambio-ambasciatore-italia-svizzera-2026': {
+    title: 'Cambio alla guida dell\'ambasciata italiana in Svizzera',
+    description: 'L\'ambasciatore Gian Lorenzo Cornado lascia la sede diplomatica di Berna a fine giugno 2026 dopo aver gestito la crisi del rogo di Crans-Montana. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, alla, dell, ambasciata',
+    ogTitle: 'Cambio alla guida dell\'ambasciata italiana in Svizzera',
+    ogDescription: 'L\'ambasciatore Gian Lorenzo Cornado lascia la sede diplomatica di Berna a fine giugno 2026 dopo aver gestito la crisi del rogo di Crans-Montana.',
+    canonicalPath: '/articoli-frontaliere/cambio-ambasciatore-italia-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambio alla guida dell'ambasciata italiana in Svizzera",
+      "description": "L'ambasciatore Gian Lorenzo Cornado lascia la sede diplomatica di Berna a fine giugno 2026 dopo aver gestito la crisi del rogo di Crans-Montana. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cambio-ambasciatore-italia-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'ambasciata italiana a Berna, Svizzera, con la bandiera italiana e svizzera esposta."
+      },
+      "datePublished": "2026-05-16T00:46:47+00:00",
+      "dateModified": "2026-05-16T00:46:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cambio-ambasciatore-italia-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
