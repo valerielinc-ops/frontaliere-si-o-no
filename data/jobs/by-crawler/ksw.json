@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksw",
-  "assembledAt": "2026-05-14T08:56:52.134Z",
+  "assembledAt": "2026-05-16T08:22:35.765Z",
   "jobs": [
     {
       "id": "ksw-5c7f023db5a6",
@@ -238,87 +238,6 @@
       "previousSlugs": [
         "leitende-arztin-leitender-arzt-leitung-medizinische-poliklinik-ksw-ch"
       ]
-    },
-    {
-      "id": "ksw-075d82565fc2",
-      "slug": "capo-capo-delle-domande-amministrative-kantonsspital-winterthur-ksw-winterthur",
-      "slugByLocale": {
-        "de": "leiterin-leiter-administrative-applikationen-ksw-ch",
-        "it": "capo-capo-delle-domande-amministrative-kantonsspital-winterthur-ksw-winterthur",
-        "en": "head-head-of-administrative-applications-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "chef-chef-des-demandes-administratives-kantonsspital-winterthur-ksw-winterthur"
-      },
-      "company": "Kantonsspital Winterthur (KSW)",
-      "companyKey": "ksw",
-      "companyDomain": "ksw.ch",
-      "title": "Leiterin / Leiter Administrative Applikationen",
-      "titleByLocale": {
-        "de": "Leiterin / Leiter Administrative Applikationen",
-        "it": "Capo/capo delle domande amministrative",
-        "en": "Head / Head of Administrative Applications",
-        "fr": "Chef / Chef des demandes administratives"
-      },
-      "description": "Leiterin / Leiter Administrative Applikationen — Kantonsspital Winterthur (KSW), Winterthur\n\n• Berufsfeld: Administration / ICT / Prozessgestaltung und Digitalisierung\n• Bereich: ICT\n• Pensum: 80-100%",
-      "descriptionByLocale": {
-        "de": "Leiterin / Leiter Administrative Applikationen — Kantonsspital Winterthur (KSW), Winterthur\n\n• Berufsfeld: Administration / ICT / Prozessgestaltung und Digitalisierung\n• Bereich: ICT\n• Pensum: 80-100%",
-        "it": "Responsabile delle applicazioni amministrative — Ospedale cantonale Winterthur (KSW), Winterthur\n\n• Professione: Amministrazione / ICT / Progettazione di processo e digitalizzazione\n• Area: ICT\n• Penso: 80-100 %",
-        "en": "Head of Administrative Applications — Cantonal Hospital Winterthur (KSW), Winterthur\n\n• Profession: Administration / ICT / Process Design and Digitization\n• Area: ICT\n• Pensum: 80-100 %",
-        "fr": "Chef des applications administratives — Hôpital cantonal Winterthur (KSW), Winterthur\n\n• Profession: Administration / TIC / Conception et numérisation des processus\n• Domaine : TIC\n• Pensum: 80-100 %"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ksw/job/details/3992033",
-      "source": "KSW Dedicated Parser (Solique tenant ksw)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:55:26.417Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "postalCode": "8400",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://live.solique.ch/ksw/job/details/3992033",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "ICT",
-      "previousSlugsByLocale": {
-        "it": [
-          "leiterin-leiter-administrative-applikationen-ksw-ch",
-          "leiterin-leiter-administrative-applikationen-kantonsspital-winterthur-ksw-winterthur"
-        ],
-        "en": [
-          "leiterin-leiter-administrative-applikationen-ksw-ch"
-        ],
-        "fr": [
-          "leiterin-leiter-administrative-applikationen-ksw-ch"
-        ]
-      },
-      "previousSlugs": [
-        "leiterin-leiter-administrative-applikationen-ksw-ch",
-        "leiterin-leiter-administrative-applikationen-kantonsspital-winterthur-ksw-winterthur"
-      ],
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-10T21:55:26.417Z"
     },
     {
       "id": "ksw-5f3401a4d935",
@@ -2039,85 +1958,6 @@
         }
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z"
-    },
-    {
-      "id": "ksw-01167fd0270f",
-      "slug": "responsabile-del-team-di-medicina-intensiva-kantonsspital-winterthur-ksw-winterthur",
-      "slugByLocale": {
-        "de": "teamleiterin-teamleiter-intensivmedizin-ksw-ch",
-        "it": "responsabile-del-team-di-medicina-intensiva-kantonsspital-winterthur-ksw-winterthur",
-        "en": "team-leader-intensive-care-medicine-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "chef-d-equipe-de-medecine-intensive-kantonsspital-winterthur-ksw-winterthur"
-      },
-      "company": "Kantonsspital Winterthur (KSW)",
-      "companyKey": "ksw",
-      "companyDomain": "ksw.ch",
-      "title": "Teamleiterin / Teamleiter Intensivmedizin",
-      "titleByLocale": {
-        "de": "Teamleiterin / Teamleiter Intensivmedizin",
-        "it": "Responsabile del team di medicina intensiva",
-        "en": "Team Leader Intensive Care Medicine",
-        "fr": "Chef d'équipe de médecine intensive"
-      },
-      "description": "Teamleiterin / Teamleiter Intensivmedizin — Kantonsspital Winterthur (KSW), Winterthur\n\nBerufsfeld: Pflegeberufe\n• Bereich: Zentrum für Intensivmedizin\n• Pensum: 80-100%",
-      "descriptionByLocale": {
-        "de": "Descrizione\n- Teamleiterin / Teamleiter Intensivmedizin — Kantonsspital Winterthur (KSW), Winterthur\n- Berufsfeld: Pflegeberufe\n- Bereich: Zentrum für Intensivmedizin\n- Pensum: 80-100%",
-        "it": "Descrizione\n- Team Leader / Team Leader Medicina intensiva — Ospedale cantonale Winterthur (KSW), Winterthur\n- Campo professionale: professioni di cura\n- Area: Centro di Medicina Intensiva\n- Penso: 80-100 %",
-        "en": "Descrizione\n- Team Leader / Team Leader Intensive Medicine — Cantonal Hospital Winterthur (KSW), Winterthur\n- Professional field: Care professions\n- Area: Centre for Intensive Medicine\n- Pensum: 80-100 %",
-        "fr": "Descrizione\n- Chef d'équipe / Chef d'équipe Médecine intensive — Hôpital cantonal Winterthur (KSW), Winterthur\n- Domaine professionnel: professions de soins\n- Région : Centre de médecine intensive\n- Pensum: 80-100 %"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ksw/job/details/3987139",
-      "source": "KSW Dedicated Parser (Solique tenant ksw)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:55:26.417Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "postalCode": "8400",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://live.solique.ch/ksw/job/details/3987139",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "Zentrum für Intensivmedizin",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "teamleiterin-teamleiter-intensivmedizin-ksw-ch"
-        ],
-        "en": [
-          "teamleiterin-teamleiter-intensivmedizin-ksw-ch"
-        ],
-        "fr": [
-          "teamleiterin-teamleiter-intensivmedizin-ksw-ch"
-        ]
-      },
-      "previousSlugs": [
-        "teamleiterin-teamleiter-intensivmedizin-ksw-ch"
-      ]
     },
     {
       "id": "ksw-6caf46e06f72",
@@ -4156,82 +3996,6 @@
         }
       },
       "firstSeenAt": "2026-05-10T21:55:26.414Z"
-    },
-    {
-      "id": "ksw-3abcb1030205",
-      "slug": "applications-manager-in-kantonsspital-winterthur-ksw-winterthur",
-      "slugByLocale": {
-        "de": "anwendungen-manager-in-kantonsspital-winterthur-ksw-winterthur",
-        "it": "applications-manager-in-kantonsspital-winterthur-ksw-winterthur",
-        "en": "applikations-manager-in-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "applikations-manager-in-ksw-ch"
-      },
-      "company": "Kantonsspital Winterthur (KSW)",
-      "companyKey": "ksw",
-      "companyDomain": "ksw.ch",
-      "title": "Applikations-Manager-/in",
-      "titleByLocale": {
-        "de": "Anwendungen-Manager-/in",
-        "en": "Applikations-Manager-/in",
-        "fr": "Applikations-Gestionnaire-/dans",
-        "it": "Applications-Manager-/in"
-      },
-      "description": "Applikations-Manager-/in — Kantonsspital Winterthur (KSW), Winterthur\n\n• Berufsfeld: Administration / ICT / Prozessgestaltung und Digitalisierung\n• Bereich: ICT\n• Pensum: 80-100%",
-      "descriptionByLocale": {
-        "de": "Applikationen-Manager-/in — Kantonspital Winterthur (KSW), Winterthur\n\n• Berufsfeld: Administration / ICT / Prozessgestaltung und Digitalisierung\n• Bereich: IKT\n• Pensum: 80-100%",
-        "fr": "Applikations-Manager-/in — Kantonsspital Winterthur (KSW), Winterthur\n\n• Berufsfeld: Administration / ICT / Prozessgestaltung und Digitalisierung\n• Bereich: ICT\n• Pensum: 80-100%",
-        "it": "Applikations-Manager-/in — Kantonspital Winterthur (KSW), Winterthur\n\n• Berufsfeld: Amministrazione / ICT / Prozessgestaltung und Digitalisierung\n• Bereich: ICT\n• Pensum: 80-100%",
-        "en": "Applikations-Manager-/in — Kantonspital Winterthur (KSW), Winterthur\n\n• Berufsfeld: Administration / ICT / Prozessgestaltung und Digitalisierung\n• Bereich: ICT\n• Pensum: 80-100%"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ksw/job/details/3998194",
-      "source": "KSW Dedicated Parser (Solique tenant ksw)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-10T21:55:26.413Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "postalCode": "8400",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://live.solique.ch/ksw/job/details/3998194",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "ICT",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-10T21:55:26.413Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "applikations-manager-in-ksw-ch"
-        ],
-        "de": [
-          "applikations-manager-in-ksw-ch"
-        ]
-      },
-      "previousSlugs": [
-        "applikations-manager-in-ksw-ch"
-      ]
     }
   ]
 }
