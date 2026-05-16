@@ -1815,12 +1815,12 @@
     },
     {
       "id": "marriott-2790c1625139",
-      "slug": "pastry-intern-6-months-w-verbier-marriott-verbier",
+      "slug": "pasticceria-6-mesi-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "pastry-intern-6-months-w-verbier-marriott-verbier",
-        "it": "pastry-intern-6-months-w-verbier-marriott-verbier",
+        "it": "pasticceria-6-mesi-w-verbier-marriott-international-verbier",
         "de": "pastry-intern-6-months-w-verbier-marriott-verbier",
-        "fr": "pastry-intern-6-months-w-verbier-marriott-verbier"
+        "fr": "stagiaire-en-patisserie-6-mois-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1884,7 +1884,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-15T22:15:54.747Z"
+      "firstSeenAt": "2026-05-15T22:15:54.747Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pastry-intern-6-months-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "pastry-intern-6-months-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "pastry-intern-6-months-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-c86914a55f01",

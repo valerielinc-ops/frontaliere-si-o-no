@@ -8284,7 +8284,7 @@
         "de": "it-supporter-in-eth-zurich-ch",
         "it": "it-supporter-in-eth-zurich-ch",
         "en": "it-supporter-in-eth-zurich-ch",
-        "fr": "it-supporter-in-eth-zurich-ch"
+        "fr": "support-informatique-dans-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8342,12 +8342,12 @@
     },
     {
       "id": "eth-zurich-5b29b3d8b4e1",
-      "slug": "studentische-collaboratore-trice-innen-devops-e-platform-ingegnere-eth-zurich",
+      "slug": "personale-degli-studenti-in-devops-e-platform-engineer-eth-zurich-zurich",
       "slugByLocale": {
         "de": "studentische-mitarbeiter-innen-devops-und-platform-engineer-eth-zurich-ch",
-        "it": "studentische-collaboratore-trice-innen-devops-e-platform-ingegnere-eth-zurich",
+        "it": "personale-degli-studenti-in-devops-e-platform-engineer-eth-zurich-zurich",
         "en": "studentische-mitarbeiter-innen-devops-und-platform-engineer-eth-zurich-ch",
-        "fr": "studentische-mitarbeiter-innen-devops-und-platform-engineer-eth-zurich-ch"
+        "fr": "personnel-etudiant-in-devops-et-ingenieur-de-plateforme-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -8390,11 +8390,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "studentische-mitarbeiter-innen-devops-und-platform-engineer-eth-zurich-ch",
+          "studentische-collaboratore-trice-innen-devops-e-platform-ingegnere-eth-zurich"
+        ],
+        "fr": [
           "studentische-mitarbeiter-innen-devops-und-platform-engineer-eth-zurich-ch"
         ]
       },
       "previousSlugs": [
-        "studentische-mitarbeiter-innen-devops-und-platform-engineer-eth-zurich-ch"
+        "studentische-mitarbeiter-innen-devops-und-platform-engineer-eth-zurich-ch",
+        "studentische-collaboratore-trice-innen-devops-e-platform-ingegnere-eth-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
