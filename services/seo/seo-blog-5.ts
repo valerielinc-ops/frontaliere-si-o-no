@@ -37436,6 +37436,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-credit-agricole-second-pilastro-italia': {
+    title: 'Crédit Agricole, l\'Italia secondo pilastro della banca',
+    description: 'Crédit Agricole rafforza la sua presenza in Italia con il secondo pilastro della sua strategia. Scopri cosa significa per i frontalieri Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, crédit, agricole, secondo, pilastro',
+    ogTitle: 'Crédit Agricole secondo pilastro Italia',
+    ogDescription: 'Crédit Agricole rafforza la sua presenza in Italia con il secondo pilastro della sua strategia. Scopri cosa significa per i frontalieri Ticino.',
+    canonicalPath: '/articoli-frontaliere/credit-agricole-second-pilastro-italia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crédit Agricole, l'Italia secondo pilastro della banca",
+      "description": "Crédit Agricole rafforza la sua presenza in Italia con il secondo pilastro della sua strategia. Scopri cosa significa per i frontalieri Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/credit-agricole-second-pilastro-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede centrale di Crédit Agricole a Parigi"
+      },
+      "datePublished": "2026-05-16T03:49:40+00:00",
+      "dateModified": "2026-05-16T03:49:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/credit-agricole-second-pilastro-italia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

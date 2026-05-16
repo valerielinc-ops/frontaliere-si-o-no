@@ -7582,6 +7582,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.costo-benzina-ticino-frontalieri-2026.title': 'Why cross-border workers pay more for fuel in Ticino',
     'blog.article.costo-benzina-ticino-frontalieri-2026.excerpt': 'Fuel prices in Ticino remain high, with differences of over 20 cents per litre between different areas. Here\'s what changes for cross-border workers',
     'blog.article.costo-benzina-ticino-frontalieri-2026.imageAlt': 'A gas station in Ticino with a car refueling, showing the price display and the surrounding landscape',
+    'blog.article.credit-agricole-second-pilastro-italia.title': 'Crédit Agricole, Italy\'s second pillar',
+    'blog.article.credit-agricole-second-pilastro-italia.excerpt': 'Crédit Agricole strengthens its presence in Italy with its second pillar. Find out what this means for Ticino cross-border workers.',
+    'blog.article.credit-agricole-second-pilastro-italia.imageAlt': 'Crédit Agricole head office in Paris',
 };
 
 export default blogMetaEn;

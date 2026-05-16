@@ -7583,6 +7583,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.costo-benzina-ticino-frontalieri-2026.title': 'Costo benzina in Ticino: perché i frontalieri pagano di più',
     'blog.article.costo-benzina-ticino-frontalieri-2026.excerpt': 'I prezzi della benzina in Ticino rimangono elevati, con differenze di oltre 20 centesimi al litro tra le diverse zone. Ecco cosa cambia per i frontalieri',
     'blog.article.costo-benzina-ticino-frontalieri-2026.imageAlt': 'Una stazione di servizio in Ticino con un\'auto che fa il pieno, mostrando il display dei prezzi e il paesaggio circostante',
+    'blog.article.credit-agricole-second-pilastro-italia.title': 'Crédit Agricole, l\'Italia secondo pilastro della banca',
+    'blog.article.credit-agricole-second-pilastro-italia.excerpt': 'Crédit Agricole rafforza la sua presenza in Italia con il secondo pilastro. Scopri cosa significa per i frontalieri Ticino.',
+    'blog.article.credit-agricole-second-pilastro-italia.imageAlt': 'Sede centrale di Crédit Agricole a Parigi',
 };
 
 export default blogMetaIt;

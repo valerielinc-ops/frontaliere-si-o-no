@@ -7581,6 +7581,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.costo-benzina-ticino-frontalieri-2026.title': 'Benzinpreis im Tessin: Warum Grenzgänger mehr zahlen',
     'blog.article.costo-benzina-ticino-frontalieri-2026.excerpt': 'Die Benzinpreise im Tessin bleiben hoch, mit Unterschieden von über 20 Rappen pro Liter zwischen den verschiedenen Regionen. Hier erfahren Sie, was sich für Grenzgänger ändert.',
     'blog.article.costo-benzina-ticino-frontalieri-2026.imageAlt': 'Eine Tankstelle im Tessin mit einem Auto, das betankt wird, die Preisanzeige und die umliegende Landschaft zeigend',
+    'blog.article.credit-agricole-second-pilastro-italia.title': 'Crédit Agricole, Italien als zweites Standbein',
+    'blog.article.credit-agricole-second-pilastro-italia.excerpt': 'Crédit Agricole stärkt seine Präsenz in Italien mit dem zweiten Standbein. Erfahren Sie, was dies für die Grenzgänger aus dem Tessin bedeutet.',
+    'blog.article.credit-agricole-second-pilastro-italia.imageAlt': 'Crédit Agricole-Zentrale in Paris',
 };
 
 export default blogMetaDe;

@@ -24122,4 +24122,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'credit-agricole-second-pilastro-italia',
+ category: 'fiscale',
+ date: '2026-05-16T03:49:40.716Z',
+ image: '/images/blog/credit-agricole-second-pilastro-italia.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

@@ -7583,6 +7583,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.costo-benzina-ticino-frontalieri-2026.title': 'Prix de l\'essence au Tessin: pourquoi les frontaliers paient plus cher',
     'blog.article.costo-benzina-ticino-frontalieri-2026.excerpt': 'Les prix de l\'essence au Tessin restent élevés, avec des différences de plus de 20 centimes par litre entre les différentes zones. Voici ce qui change pour les frontaliers',
     'blog.article.costo-benzina-ticino-frontalieri-2026.imageAlt': 'Une station-service au Tessin avec une voiture en cours de ravitaillement, affichant le panneau des prix et le paysage environnant',
+    'blog.article.credit-agricole-second-pilastro-italia.title': 'Crédit Agricole, Italie: deuxième pilier en place',
+    'blog.article.credit-agricole-second-pilastro-italia.excerpt': 'Crédit Agricole renforce sa présence en Italie avec le deuxième pilier. Découvrez ce que cela signifie pour les frontaliers du Tessin.',
+    'blog.article.credit-agricole-second-pilastro-italia.imageAlt': 'Siège social de Crédit Agricole à Paris',
 };
 
 export default blogMetaFr;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2582,
+ "numberOfItems": 2583,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7222,7 +7222,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2579, "name": "Confronto tra Permesso G e B nel 2026: quando c...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-vs-b-frontalieri-2026-oltre-20-km` },
           { "@type": "ListItem", "position": 2580, "name": "Cambio alla guida dell'ambasciata italiana in S...", "url": `${BASE_URL}/articoli-frontaliere/cambio-ambasciatore-italia-svizzera-2026` },
           { "@type": "ListItem", "position": 2581, "name": "Varesino salvato dalla Polizia di Frontiera di ...", "url": `${BASE_URL}/articoli-frontaliere/varesino-salvato-polizia-frontiera-domodossola` },
-          { "@type": "ListItem", "position": 2582, "name": "Costo benzina in Ticino: perché i frontalieri p...", "url": `${BASE_URL}/articoli-frontaliere/costo-benzina-ticino-frontalieri-2026` }
+          { "@type": "ListItem", "position": 2582, "name": "Costo benzina in Ticino: perché i frontalieri p...", "url": `${BASE_URL}/articoli-frontaliere/costo-benzina-ticino-frontalieri-2026` },
+          { "@type": "ListItem", "position": 2583, "name": "Crédit Agricole, l'Italia secondo pilastro dell...", "url": `${BASE_URL}/articoli-frontaliere/credit-agricole-second-pilastro-italia` }
  ]
  },
  {
