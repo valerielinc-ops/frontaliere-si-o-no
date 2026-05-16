@@ -978,12 +978,12 @@
     },
     {
       "id": "denner-d6673fb90a2b",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-flims-dorf",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-nella-gestione-delle-branche-denner-flims-dorf",
+        "en": "assistant-in-branch-management-denner-flims-dorf",
         "de": "assistent-in-filialleitung-denner-flims-dorf",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-de-la-succursale-denner-flims-dorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1052,16 +1052,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-16T10:01:17.582Z"
+      "firstSeenAt": "2026-05-16T10:01:17.582Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+      ]
     },
     {
       "id": "denner-c81d819efe2a",
-      "slug": "stv-filialleiter-in-in-ausbildung-denner",
+      "slug": "stv-branch-manager-in-formazione-denner-chur",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-in-ausbildung-denner",
-        "en": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
+        "it": "stv-branch-manager-in-formazione-denner-chur",
+        "en": "stv-branch-manager-in-in-training-denner-chur",
         "de": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
-        "fr": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
+        "fr": "directeur-de-la-branche-stv-en-formation-denner-chur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1120,11 +1135,20 @@
       "crawledAt": "2026-05-16T10:01:17.577Z",
       "previousSlugsByLocale": {
         "it": [
-          "vice-responsabile-di-filiale-in-formazione-denner-chur"
+          "vice-responsabile-di-filiale-in-formazione-denner-chur",
+          "stv-filialleiter-in-in-ausbildung-denner"
+        ],
+        "en": [
+          "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
+        ],
+        "fr": [
+          "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
         ]
       },
       "previousSlugs": [
-        "vice-responsabile-di-filiale-in-formazione-denner-chur"
+        "vice-responsabile-di-filiale-in-formazione-denner-chur",
+        "stv-filialleiter-in-in-ausbildung-denner",
+        "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

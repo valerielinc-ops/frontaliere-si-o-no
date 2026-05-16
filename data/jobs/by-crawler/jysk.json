@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-tqkknk",
-      "slug": "store-manager-apprendista-100-per-la-region-zurich-jysk-dietlikon-tqkknk",
+      "slug": "store-manager-trainee-100-per-la-regione-di-zurigo-jysk-dietlikon",
       "company": "JYSK",
       "title": "Store Manager Trainee 100% für die Region Zürich",
       "location": "Dietlikon",
@@ -36,7 +36,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "store-manager-apprendista-100-per-la-region-zurich-jysk-dietlikon-tqkknk",
+        "it": "store-manager-trainee-100-per-la-regione-di-zurigo-jysk-dietlikon",
         "en": "store-manager-trainee-100-fur-die-region-zurich-jysk-dietlikon-tqkknk",
         "de": "store-manager-auszubildender-100-fur-die-region-zurich-jysk-dietlikon-tqkknk",
         "fr": "store-manager-apprenti-100-fur-die-region-zurich-jysk-dietlikon-tqkknk"
@@ -44,11 +44,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "store-manager-trainee-100-fur-die-region-zurich-jysk-dietlikon"
+          "store-manager-trainee-100-fur-die-region-zurich-jysk-dietlikon",
+          "store-manager-apprendista-100-per-la-region-zurich-jysk-dietlikon-tqkknk"
         ]
       },
       "previousSlugs": [
-        "store-manager-trainee-100-fur-die-region-zurich-jysk-dietlikon"
+        "store-manager-trainee-100-fur-die-region-zurich-jysk-dietlikon",
+        "store-manager-apprendista-100-per-la-region-zurich-jysk-dietlikon-tqkknk"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
