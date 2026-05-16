@@ -24113,4 +24113,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'costo-benzina-ticino-frontalieri-2026',
+ category: 'fiscale',
+ date: '2026-05-16T02:47:05.638Z',
+ image: '/images/blog/costo-benzina-ticino-frontalieri-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

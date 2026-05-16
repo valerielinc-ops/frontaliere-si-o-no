@@ -37397,6 +37397,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costo-benzina-ticino-frontalieri-2026': {
+    title: 'Costo benzina in Ticino: perché i frontalieri pagano di più',
+    description: 'I prezzi della benzina in Ticino rimangono elevati, con differenze di oltre 20 centesimi al litro tra le diverse zone. Ecco cosa cambia per i frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, costo, benzina, perché, pagano',
+    ogTitle: 'Costo benzina in Ticino: perché i frontalieri pagano di più',
+    ogDescription: 'I prezzi della benzina in Ticino rimangono elevati, con differenze di oltre 20 centesimi al litro tra le diverse zone. Ecco cosa cambia per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/costo-benzina-ticino-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Costo benzina in Ticino: perché i frontalieri pagano di più",
+      "description": "I prezzi della benzina in Ticino rimangono elevati, con differenze di oltre 20 centesimi al litro tra le diverse zone. Ecco cosa cambia per i frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costo-benzina-ticino-frontalieri-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una stazione di servizio in Ticino con un'auto che fa il pieno, mostrando il display dei prezzi e il paesaggio circostante"
+      },
+      "datePublished": "2026-05-16T02:47:05+00:00",
+      "dateModified": "2026-05-16T02:47:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-benzina-ticino-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

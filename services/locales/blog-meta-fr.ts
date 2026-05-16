@@ -7580,6 +7580,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varesino-salvato-polizia-frontiera-domodossola.title': 'Un Varesino sauvé par la Police des Frontières de Domodossola',
     'blog.article.varesino-salvato-polizia-frontiera-domodossola.excerpt': 'Un homme de 57 ans, résidant dans la province de Varèse, a été sauvé par la Police des Frontières de Domodossola après avoir exprimé l\'intention de se suicider.',
     'blog.article.varesino-salvato-polizia-frontiera-domodossola.imageAlt': 'La police des frontières de Domodossola aide un homme en détresse à la gare de Briga',
+    'blog.article.costo-benzina-ticino-frontalieri-2026.title': 'Prix de l\'essence au Tessin: pourquoi les frontaliers paient plus cher',
+    'blog.article.costo-benzina-ticino-frontalieri-2026.excerpt': 'Les prix de l\'essence au Tessin restent élevés, avec des différences de plus de 20 centimes par litre entre les différentes zones. Voici ce qui change pour les frontaliers',
+    'blog.article.costo-benzina-ticino-frontalieri-2026.imageAlt': 'Une station-service au Tessin avec une voiture en cours de ravitaillement, affichant le panneau des prix et le paysage environnant',
 };
 
 export default blogMetaFr;

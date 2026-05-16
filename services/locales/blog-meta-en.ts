@@ -7579,6 +7579,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varesino-salvato-polizia-frontiera-domodossola.title': 'Varese man rescued by Domodossola Border Police',
     'blog.article.varesino-salvato-polizia-frontiera-domodossola.excerpt': 'A 57-year-old man, resident in the province of Varese, was rescued by the Domodossola Border Police after expressing the intention to take his own life.',
     'blog.article.varesino-salvato-polizia-frontiera-domodossola.imageAlt': 'Domodossola Border Police assisting a distressed man at Briga station',
+    'blog.article.costo-benzina-ticino-frontalieri-2026.title': 'Why cross-border workers pay more for fuel in Ticino',
+    'blog.article.costo-benzina-ticino-frontalieri-2026.excerpt': 'Fuel prices in Ticino remain high, with differences of over 20 cents per litre between different areas. Here\'s what changes for cross-border workers',
+    'blog.article.costo-benzina-ticino-frontalieri-2026.imageAlt': 'A gas station in Ticino with a car refueling, showing the price display and the surrounding landscape',
 };
 
 export default blogMetaEn;

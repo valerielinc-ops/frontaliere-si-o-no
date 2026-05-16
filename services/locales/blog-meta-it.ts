@@ -7580,6 +7580,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varesino-salvato-polizia-frontiera-domodossola.title': 'Varesino salvato dalla Polizia di Frontiera di Domodossola',
     'blog.article.varesino-salvato-polizia-frontiera-domodossola.excerpt': 'Un uomo di 57 anni, residente in provincia di Varese, è stato salvato dalla Polizia di Frontiera di Domodossola dopo aver manifestato l\'intenzione di togliersi la vita.',
     'blog.article.varesino-salvato-polizia-frontiera-domodossola.imageAlt': 'Polizia di Frontiera di Domodossola assiste un uomo in difficoltà alla stazione di Briga',
+    'blog.article.costo-benzina-ticino-frontalieri-2026.title': 'Costo benzina in Ticino: perché i frontalieri pagano di più',
+    'blog.article.costo-benzina-ticino-frontalieri-2026.excerpt': 'I prezzi della benzina in Ticino rimangono elevati, con differenze di oltre 20 centesimi al litro tra le diverse zone. Ecco cosa cambia per i frontalieri',
+    'blog.article.costo-benzina-ticino-frontalieri-2026.imageAlt': 'Una stazione di servizio in Ticino con un\'auto che fa il pieno, mostrando il display dei prezzi e il paesaggio circostante',
 };
 
 export default blogMetaIt;
