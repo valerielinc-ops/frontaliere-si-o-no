@@ -160,10 +160,10 @@
         "de": "Solution Berater CRM",
         "fr": "Solution Consultant CRM"
       },
-      "slug": "solution-consultant-crm-fnz",
+      "slug": "solution-consulente-crm-fnz-switzerland-ag-chiasso",
       "slugByLocale": {
         "en": "solution-consultant-crm-fnz",
-        "it": "solution-consultant-crm-fnz",
+        "it": "solution-consulente-crm-fnz-switzerland-ag-chiasso",
         "de": "solution-berater-crm-fnz-switzerland-ag-chiasso-6k20bx",
         "fr": "solution-consultant-crm-fnz-switzerland-ag-chiasso-6k20bx"
       },
@@ -184,11 +184,13 @@
       "id": "fnz-addd1ea2604e",
       "previousSlugsByLocale": {
         "it": [
-          "consulente-soluzioni-crm-fnz-switzerland-ag-chiasso"
+          "consulente-soluzioni-crm-fnz-switzerland-ag-chiasso",
+          "solution-consultant-crm-fnz"
         ]
       },
       "previousSlugs": [
-        "consulente-soluzioni-crm-fnz-switzerland-ag-chiasso"
+        "consulente-soluzioni-crm-fnz-switzerland-ag-chiasso",
+        "solution-consultant-crm-fnz"
       ],
       "salaryMin": 61000,
       "salaryMax": 97000,

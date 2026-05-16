@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "buyer-ingredienti-trade-100-rapelli-stabio",
         "en": "buyer-ingredienti-trade-100-rapelli-stabio",
-        "de": "buyer-ingredienti-trade-100-rapelli-stabio",
-        "fr": "buyer-ingredienti-trade-100-rapelli-stabio"
+        "de": "kaufer-zutati-handel-100-rapelli-orior-food-ag-stabio",
+        "fr": "acheteur-ingredi-commerce-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -68,7 +68,7 @@
         "it": "collaboratore-pulizia-100-rapelli-stabio",
         "en": "collaboratore-pulizia-100-rapelli-stabio",
         "de": "collaboratore-pulizia-100-rapelli-stabio",
-        "fr": "collaboratore-pulizia-100-rapelli-stabio"
+        "fr": "nettoyage-collaboratif-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -135,7 +135,7 @@
         "it": "manutentore-maintenance-technician-100-rapelli-stabio",
         "en": "manutentore-maintenance-technician-100-rapelli-stabio",
         "de": "manutentore-maintenance-technician-100-rapelli-stabio",
-        "fr": "manutentore-maintenance-technician-100-rapelli-stabio"
+        "fr": "entretien-des-techniciens-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -192,8 +192,8 @@
       "slug": "tecnologo-alimentare-100-rapelli-stabio",
       "slugByLocale": {
         "it": "tecnologo-alimentare-100-rapelli-stabio",
-        "en": "tecnologo-alimentare-100-rapelli-stabio",
-        "de": "tecnologo-alimentare-100-rapelli-stabio",
+        "en": "food-technologist-100-rapelli-orior-food-ag-stabio",
+        "de": "lebensmitteltechnologe-rapelli-orior-food-ag-stabio",
         "fr": "tecnologo-alimentare-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
@@ -252,8 +252,8 @@
       "slugByLocale": {
         "it": "supply-chain-planner-100-rapelli-stabio",
         "en": "supply-chain-planner-100-rapelli-stabio",
-        "de": "supply-chain-planner-100-rapelli-stabio",
-        "fr": "supply-chain-planner-100-rapelli-stabio"
+        "de": "lieferkette-planner-100-rapelli-orior-food-ag-stabio",
+        "fr": "chaine-d-approvisionnement-planner-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -312,7 +312,7 @@
         "it": "chief-financial-officer-100-m-w-d-rapelli-stabio",
         "en": "chief-financial-officer-100-m-w-d-rapelli-stabio",
         "de": "chief-financial-officer-100-m-w-d-rapelli-stabio",
-        "fr": "chief-financial-officer-100-m-w-d-rapelli-stabio"
+        "fr": "directeur-financier-100-m-m-j-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -370,8 +370,8 @@
       "slugByLocale": {
         "it": "digital-order-edi-specialist-50-80-rapelli-stabio",
         "en": "digital-order-edi-specialist-50-80-rapelli-stabio",
-        "de": "digital-order-edi-specialist-50-80-rapelli-stabio",
-        "fr": "digital-order-edi-specialist-50-80-rapelli-stabio"
+        "de": "digitaler-order-edi-spezialist-50-80-rapelli-orior-food-ag-stabio",
+        "fr": "specialiste-de-la-commande-numerique-et-edi-50-80-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -428,9 +428,9 @@
       "slug": "collaboratrice-collaboratore-spedizione-100-rapelli-stabio",
       "slugByLocale": {
         "it": "collaboratrice-collaboratore-spedizione-100-rapelli-stabio",
-        "en": "collaboratore-spedizione-100-rapelli-stabio",
-        "de": "collaboratore-spedizione-100-rapelli-stabio",
-        "fr": "collaboratore-spedizione-100-rapelli-stabio"
+        "en": "collaborator-collaborator-shipping-100-rapelli-orior-food-ag-stabio",
+        "de": "mitarbeiter-mitarbeiter-versand-100-rapelli-orior-food-ag-stabio",
+        "fr": "collaborateur-collaborateur-shipping-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -469,6 +469,15 @@
       "crawledAt": "2026-05-16T10:50:15.045Z",
       "previousSlugsByLocale": {
         "it": [
+          "collaboratore-spedizione-100-rapelli-stabio"
+        ],
+        "en": [
+          "collaboratore-spedizione-100-rapelli-stabio"
+        ],
+        "de": [
+          "collaboratore-spedizione-100-rapelli-stabio"
+        ],
+        "fr": [
           "collaboratore-spedizione-100-rapelli-stabio"
         ]
       },
