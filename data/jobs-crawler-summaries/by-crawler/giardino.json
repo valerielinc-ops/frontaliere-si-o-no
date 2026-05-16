@@ -1,16 +1,16 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-05-16T10:12:38.732Z",
-  "total": 2,
+  "generatedAt": "2026-05-16T21:38:22.658Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 4700,
-  "avgDurationMs": 4700,
+  "durationMs": 4716,
+  "avgDurationMs": 4716,
   "durationHistory": [
-    4700
+    4716
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://giardinohotels.ch/en/jobs/demichef-de-partie-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T10:12:36.649Z",
+      "crawledAt": "2026-05-16T21:38:20.542Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -49,10 +49,12 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "giardino-e7f4937bce90",
-      "slug": "assistant-accounting-50-giardino-group-champfer",
+      "slug": "assistente-contabilita-50-giardino-group-champfer",
       "company": "Giardino Group",
       "companyKey": "giardino",
       "companyDomain": "giardinohotels.ch",
@@ -79,15 +81,16 @@
       "applyUrl": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-10T10:11:16.186Z",
-      "_qualityScore": 83,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
-        "completeness": 17
+        "translation": 21,
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
