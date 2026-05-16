@@ -1,7 +1,79 @@
 {
   "crawlerKey": "ubs",
-  "assembledAt": "2026-05-15T22:51:30.999Z",
+  "assembledAt": "2026-05-16T11:13:04.656Z",
   "jobs": [
+    {
+      "id": "ubs-cd36616d3729",
+      "slug": "associate-market-executive-ubs",
+      "slugByLocale": {
+        "en": "associate-market-executive-ubs",
+        "it": "associate-market-executive-ubs",
+        "de": "associate-market-executive-ubs",
+        "fr": "associate-market-executive-ubs"
+      },
+      "company": "UBS",
+      "companyKey": "ubs",
+      "companyDomain": "ubs.com",
+      "title": "Associate Market Executive",
+      "titleByLocale": {
+        "en": "Associate Market Executive",
+        "it": "Associate Market Executive",
+        "de": "Associate Market Executive",
+        "fr": "Associate Market Executive"
+      },
+      "description": "As an Associate Market Executive, you will be responsible for assisting with the day-to-day management and business growth within the Long Island and Westchester Offices.\n\nWe’re looking for an Associate Market Executive to:\n\n• Drive business growth and assist with the management and development of Financial Advisors\n• Manage and resolve escalated issues, including those that are financial, reputational, compliance, supervisory, operational, and HR Governance risks\n• Coach all team members, getting them the right training and making sure development measures are results-oriented and transparent\n• Assisting with running regular sales meetings, focusing on implementing growth initiatives, evaluate progress and create action plans to address underperformance",
+      "descriptionByLocale": {
+        "en": "As an Associate Market Executive, you will be responsible for assisting with the day-to-day management and business growth within the Long Island and Westchester Offices.\n\nWe’re looking for an Associate Market Executive to:\n\n• Drive business growth and assist with the management and development of Financial Advisors\n• Manage and resolve escalated issues, including those that are financial, reputational, compliance, supervisory, operational, and HR Governance risks\n• Coach all team members, getting them the right training and making sure development measures are results-oriented and transparent\n• Assisting with running regular sales meetings, focusing on implementing growth initiatives, evaluate progress and create action plans to address underperformance",
+        "it": "As an Associate Market Executive, you will be responsible for assisting with the day-to-day management and business growth within the Long Island and Westchester Offices.\n\nWe’re looking for an Associate Market Executive to:\n\n• Drive business growth and assist with the management and development of Financial Advisors\n• Manage and resolve escalated issues, including those that are financial, reputational, compliance, supervisory, operational, and HR Governance risks\n• Coach all team members, getting them the right training and making sure development measures are results-oriented and transparent\n• Assisting with running regular sales meetings, focusing on implementing growth initiatives, evaluate progress and create action plans to address underperformance",
+        "de": "As an Associate Market Executive, you will be responsible for assisting with the day-to-day management and business growth within the Long Island and Westchester Offices.\n\nWe’re looking for an Associate Market Executive to:\n\n• Drive business growth and assist with the management and development of Financial Advisors\n• Manage and resolve escalated issues, including those that are financial, reputational, compliance, supervisory, operational, and HR Governance risks\n• Coach all team members, getting them the right training and making sure development measures are results-oriented and transparent\n• Assisting with running regular sales meetings, focusing on implementing growth initiatives, evaluate progress and create action plans to address underperformance",
+        "fr": "As an Associate Market Executive, you will be responsible for assisting with the day-to-day management and business growth within the Long Island and Westchester Offices.\n\nWe’re looking for an Associate Market Executive to:\n\n• Drive business growth and assist with the management and development of Financial Advisors\n• Manage and resolve escalated issues, including those that are financial, reputational, compliance, supervisory, operational, and HR Governance risks\n• Coach all team members, getting them the right training and making sure development measures are results-oriented and transparent\n• Assisting with running regular sales meetings, focusing on implementing growth initiatives, evaluate progress and create action plans to address underperformance"
+      },
+      "location": "",
+      "canton": "",
+      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345329&PageType=jobdetails",
+      "source": "UBS Dedicated Parser (Taleo API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-16T11:13:02.231Z",
+      "addressLocality": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Marketing",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-13",
+      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345329&PageType=jobdetails",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "_ubsMeta": {
+        "reqId": "345329",
+        "department": "Global Wealth Management",
+        "region": "United States - New York",
+        "cities": "",
+        "categoryRaw": "Management and Business Support",
+        "jobType": ""
+      },
+      "needsRetranslation": true,
+      "salaryMin": 50500,
+      "salaryMax": 89000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 50500,
+          "maxValue": 89000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-16T11:13:02.231Z"
+    },
     {
       "id": "ubs-e71061bbe0d4",
       "slug": "gwm-finanza-tirocinante-ubs",
@@ -33,7 +105,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343851&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.682Z",
+      "crawledAt": "2026-05-16T11:13:02.229Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -117,7 +189,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343430&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.681Z",
+      "crawledAt": "2026-05-16T11:13:02.228Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -195,7 +267,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341346&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.680Z",
+      "crawledAt": "2026-05-16T11:13:02.226Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -279,7 +351,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345766&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.678Z",
+      "crawledAt": "2026-05-16T11:13:02.225Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -349,7 +421,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345768&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.677Z",
+      "crawledAt": "2026-05-16T11:13:02.224Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -419,7 +491,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345629&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.676Z",
+      "crawledAt": "2026-05-16T11:13:02.223Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -489,7 +561,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342971&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.674Z",
+      "crawledAt": "2026-05-16T11:13:02.221Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -567,7 +639,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340835&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.673Z",
+      "crawledAt": "2026-05-16T11:13:02.220Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -651,7 +723,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=326678&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.671Z",
+      "crawledAt": "2026-05-16T11:13:02.218Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -732,7 +804,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344881&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.670Z",
+      "crawledAt": "2026-05-16T11:13:02.217Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -810,7 +882,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342008&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.669Z",
+      "crawledAt": "2026-05-16T11:13:02.216Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -888,7 +960,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342691&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.667Z",
+      "crawledAt": "2026-05-16T11:13:02.214Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -966,7 +1038,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340029&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.666Z",
+      "crawledAt": "2026-05-16T11:13:02.213Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -1050,7 +1122,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345410&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.665Z",
+      "crawledAt": "2026-05-16T11:13:02.212Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -1128,7 +1200,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345798&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.663Z",
+      "crawledAt": "2026-05-16T11:13:02.210Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -1206,7 +1278,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345859&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.662Z",
+      "crawledAt": "2026-05-16T11:13:02.209Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -1276,7 +1348,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340965&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.661Z",
+      "crawledAt": "2026-05-16T11:13:02.207Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -1360,7 +1432,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343913&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.659Z",
+      "crawledAt": "2026-05-16T11:13:02.206Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -1438,7 +1510,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345778&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.658Z",
+      "crawledAt": "2026-05-16T11:13:02.205Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -1516,7 +1588,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344730&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.657Z",
+      "crawledAt": "2026-05-16T11:13:02.203Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -1600,7 +1672,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343326&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.656Z",
+      "crawledAt": "2026-05-16T11:13:02.202Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -1633,6 +1705,7 @@
         ]
       },
       "firstSeenAt": "2026-05-14T11:59:02.364Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1677,7 +1750,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345820&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.654Z",
+      "crawledAt": "2026-05-16T11:13:02.201Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -1747,7 +1820,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343316&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.653Z",
+      "crawledAt": "2026-05-16T11:13:02.200Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -1825,7 +1898,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343315&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.652Z",
+      "crawledAt": "2026-05-16T11:13:02.198Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -1858,76 +1931,7 @@
         ]
       },
       "firstSeenAt": "2026-05-14T11:59:02.361Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ubs-e5580075bca2",
-      "slug": "alternative-investment-senior-specialist-us-shift-ubs",
-      "slugByLocale": {
-        "it": "alternative-investment-senior-specialist-us-shift-ubs",
-        "en": "alternative-investment-senior-specialist-us-shift-ubs",
-        "de": "alternative-investment-senior-specialist-us-shift-ubs",
-        "fr": "alternative-investment-senior-specialist-us-shift-ubs"
-      },
-      "company": "UBS",
-      "companyKey": "ubs",
-      "companyDomain": "ubs.com",
-      "title": "Alternative Investment Senior Specialist (US Shift)",
-      "titleByLocale": {
-        "it": "Alternative Investment Senior Specialista (US Shift)",
-        "en": "Alternative Investment Senior Specialist (US Shift)",
-        "de": "Alternative Investment Senior Spezialist (US Shift)",
-        "fr": "Alternative Investment Senior Spécialiste (US Shift)"
-      },
-      "description": "Are you incredibly organized with an eye for detail? Do you know how to take care of business?\n\nWe are looking for someone like that who can\n\nPerform daily functions such as\n\nProvide premium quality service to Financial Advisors and clients invested in Alternative Investment products; ensuring deadlines are always met\n\nYour role will include the preparation and review of Net Asset Value files, as well as ensuring all client account values are updated accurately and timely, by agreed deadlines.\n\nThis role offers the chance to grow and learn within a dynamic and fast-paced environment.\n\nEstablish yourself as a trusted partner for Financial Advisors and our clients.\n\nEvaluate procedures and processes with focus on continued improvement, reduce risks, strengthen controls and increase field and client satisfaction.\n\nReconciliation of ledgers, events, and trades\n\nTracking of key events and capturing transactions",
-      "descriptionByLocale": {
-        "it": "Are you incredibly organized with an eye for detail? Do you know how to take care of business? We are looking for someone like that who can Perform daily functions such as Provide premium quality service to Financial Advisors and clients invested in Alternative Investment products; ensuring deadlines are always met Your role will include the preparation and review of Net Asset Value files, as well as ensuring all client account values are updated accurately and timely, by agreed deadlines. This role offers the chance to grow and learn within a dynamic and fast-paced environment. Establish yourself as a trusted partner for Financial Advisors and our clients. Evaluate procedures and processes with focus on continued improvement, reduce risks, strengthen controls and increase field and client satisfaction. Reconciliation of ledgers, events, and trades Tracking of key events and capturing transactions",
-        "en": "Are you incredibly organized with an eye for detail? Do you know how to take care of business? We are looking for someone like that who can Perform daily functions such as Provide premium quality service to Financial Advisors and clients invested in Alternative Investment products; ensuring deadlines are always met Your role will include the preparation and review of Net Asset Value files, as well as ensuring all client account values are updated accurately and timely, by agreed deadlines. This role offers the chance to grow and learn within a dynamic and fast-paced environment. Establish yourself as a trusted partner for Financial Advisors and our clients. Evaluate procedures and processes with focus on continued improvement, reduce risks, strengthen controls and increase field and client satisfaction. Reconciliation of ledgers, events, and trades Tracking of key events and capturing transactions",
-        "de": "Are you incredibly organized with an eye for detail? Do you know how to take care of business? We are looking for someone like that who can Perform daily functions such as Provide premium quality service to Financial Advisors and clients invested in Alternative Investment products; ensuring deadlines are always met Your role will include the preparation and review of Net Asset Value files, as well as ensuring all client account values are updated accurately and timely, by agreed deadlines. This role offers the chance to grow and learn within a dynamic and fast-paced environment. Establish yourself as a trusted partner for Financial Advisors and our clients. Evaluate procedures and processes with focus on continued improvement, reduce risks, strengthen controls and increase field and client satisfaction. Reconciliation of ledgers, events, and trades Tracking of key events and capturing transactions",
-        "fr": "Are you incredibly organized with an eye for detail? Do you know how to take care of business? We are looking for someone like that who can Perform daily functions such as Provide premium quality service to Financial Advisors and clients invested in Alternative Investment products; ensuring deadlines are always met Your role will include the preparation and review of Net Asset Value files, as well as ensuring all client account values are updated accurately and timely, by agreed deadlines. This role offers the chance to grow and learn within a dynamic and fast-paced environment. Establish yourself as a trusted partner for Financial Advisors and our clients. Evaluate procedures and processes with focus on continued improvement, reduce risks, strengthen controls and increase field and client satisfaction. Reconciliation of ledgers, events, and trades Tracking of key events and capturing transactions"
-      },
-      "location": "",
-      "canton": "",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341077&PageType=jobdetails",
-      "source": "UBS Dedicated Parser (Taleo API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.650Z",
-      "addressLocality": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-14",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341077&PageType=jobdetails",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_ubsMeta": {
-        "reqId": "341077",
-        "department": "Global Wealth Management",
-        "region": "India",
-        "cities": "",
-        "categoryRaw": "Operations",
-        "jobType": ""
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-14T11:59:02.359Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1945,8 +1949,8 @@
       "id": "ubs-3a16c8af9105",
       "slug": "cliente-associato-ubs",
       "slugByLocale": {
-        "en": "client-associate-ubs",
         "it": "cliente-associato-ubs",
+        "en": "client-associate-ubs",
         "de": "client-associate-ubs",
         "fr": "client-associate-ubs"
       },
@@ -1955,15 +1959,15 @@
       "companyDomain": "ubs.com",
       "title": "Client Associate",
       "titleByLocale": {
-        "en": "Client Associate",
         "it": "Cliente associato",
+        "en": "Client Associate",
         "de": "Client Associate",
         "fr": "Client Associate"
       },
       "description": "• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
       "descriptionByLocale": {
-        "en": "• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
         "it": "• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
+        "en": "• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
         "de": "• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities",
         "fr": "• keep management systems up-to-date with client information\n• educate clients on account services and capabilities\n• help with the preparation of reports and other materials for client meetings\n• collect the right documentation for opening new accounts and service requests\n• plan team marketing events and maintain marketing materials\n• provide the team with a detailed calendar of activities"
       },
@@ -1972,7 +1976,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340655&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.649Z",
+      "crawledAt": "2026-05-16T11:13:02.197Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -1987,9 +1991,7 @@
       "postedDate": "2026-05-15",
       "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340655&PageType=jobdetails",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "_ubsMeta": {
         "reqId": "340655",
         "department": "Global Wealth Management",
@@ -1998,7 +2000,16 @@
         "categoryRaw": "Business management, administration and support, Client advisory / Relationship management, Finance, Management and Business Support",
         "jobType": ""
       },
+      "previousSlugs": [
+        "client-associate-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-15T22:51:28.649Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2010,49 +2021,40 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-15T22:51:28.649Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "client-associate-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "client-associate-ubs"
-      ]
+      }
     },
     {
       "id": "ubs-61d64c261388",
-      "slug": "cost-basis-reporting-specialist-ubs",
+      "slug": "cost-basis-reporting-specialista-ubs",
       "slugByLocale": {
+        "it": "cost-basis-reporting-specialista-ubs",
         "en": "cost-basis-reporting-specialist-ubs",
-        "it": "cost-basis-reporting-specialist-ubs",
-        "de": "cost-basis-reporting-specialist-ubs",
-        "fr": "cost-basis-reporting-specialist-ubs"
+        "de": "cost-basis-reporting-spezialist-ubs",
+        "fr": "cost-basis-reporting-specialiste-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
       "companyDomain": "ubs.com",
       "title": "Cost Basis Reporting Specialist",
       "titleByLocale": {
-        "en": "Cost Basis Reporting Specialist",
         "it": "Cost Basis Reporting Specialista",
+        "en": "Cost Basis Reporting Specialist",
         "de": "Cost Basis Reporting Spezialist",
         "fr": "Cost Basis Reporting Spécialiste"
       },
       "description": "Are you great at problem solving? Do you like leading small teams to resolve issues and develop long term solutions to improve efficiency ? Do you like being a leader amongst peers?\n\nWe’re looking for a Cost Basis Authorized Officer:\n\n• Lead a small team in ensuring cost basis data is accurate while supporting the branch network\n\nResearch and resolve client requests for cost basis information in their accounts\n\n• Analyze and resolve tax lot breaks through research and collaboration\n\n• Adapt current, as well as establish new processes that allow the department to increase quality output",
       "descriptionByLocale": {
-        "en": "Are you great at problem solving? Do you like leading small teams to resolve issues and develop long term solutions to improve efficiency ? Do you like being a leader amongst peers?\n\nWe’re looking for a Cost Basis Authorized Officer:\n\n• Lead a small team in ensuring cost basis data is accurate while supporting the branch network\n\nResearch and resolve client requests for cost basis information in their accounts\n\n• Analyze and resolve tax lot breaks through research and collaboration\n\n• Adapt current, as well as establish new processes that allow the department to increase quality output",
-        "it": "Are you great at problem solving? Do you like leading small teams to resolve issues and develop long term solutions to improve efficiency ? Do you like being a leader amongst peers?\n\nWe’re looking for a Cost Basis Authorized Officer:\n\n• Lead a small team in ensuring cost basis data is accurate while supporting the branch network\n\nResearch and resolve client requests for cost basis information in their accounts\n\n• Analyze and resolve tax lot breaks through research and collaboration\n\n• Adapt current, as well as establish new processes that allow the department to increase quality output",
-        "de": "Are you great at problem solving? Do you like leading small teams to resolve issues and develop long term solutions to improve efficiency ? Do you like being a leader amongst peers?\n\nWe’re looking for a Cost Basis Authorized Officer:\n\n• Lead a small team in ensuring cost basis data is accurate while supporting the branch network\n\nResearch and resolve client requests for cost basis information in their accounts\n\n• Analyze and resolve tax lot breaks through research and collaboration\n\n• Adapt current, as well as establish new processes that allow the department to increase quality output",
-        "fr": "Are you great at problem solving? Do you like leading small teams to resolve issues and develop long term solutions to improve efficiency ? Do you like being a leader amongst peers?\n\nWe’re looking for a Cost Basis Authorized Officer:\n\n• Lead a small team in ensuring cost basis data is accurate while supporting the branch network\n\nResearch and resolve client requests for cost basis information in their accounts\n\n• Analyze and resolve tax lot breaks through research and collaboration\n\n• Adapt current, as well as establish new processes that allow the department to increase quality output"
+        "it": "Are you great at problem solving? Do you like leading small teams to resolve issues and develop long term solutions to improve efficiency ? Do you like being a leader amongst peers? We’re looking for a Cost Basis Authorized Officer:\n• Lead a small team in ensuring cost basis data is accurate while supporting the branch network Research and resolve client requests for cost basis information in their accounts\n• Analyze and resolve tax lot breaks through research and collaboration\n• Adapt current, as well as establish new processes that allow the department to increase quality output",
+        "en": "Are you great at problem solving? Do you like leading small teams to resolve issues and develop long term solutions to improve efficiency ? Do you like being a leader amongst peers? We’re looking for a Cost Basis Authorized Officer:\n• Lead a small team in ensuring cost basis data is accurate while supporting the branch network Research and resolve client requests for cost basis information in their accounts\n• Analyze and resolve tax lot breaks through research and collaboration\n• Adapt current, as well as establish new processes that allow the department to increase quality output",
+        "de": "Are you great at problem solving? Do you like leading small teams to resolve issues and develop long term solutions to improve efficiency ? Do you like being a leader amongst peers? We’re looking for a Cost Basis Authorized Officer:\n• Lead a small team in ensuring cost basis data is accurate while supporting the branch network Research and resolve client requests for cost basis information in their accounts\n• Analyze and resolve tax lot breaks through research and collaboration\n• Adapt current, as well as establish new processes that allow the department to increase quality output",
+        "fr": "Are you great at problem solving? Do you like leading small teams to resolve issues and develop long term solutions to improve efficiency ? Do you like being a leader amongst peers? We’re looking for a Cost Basis Authorized Officer:\n• Lead a small team in ensuring cost basis data is accurate while supporting the branch network Research and resolve client requests for cost basis information in their accounts\n• Analyze and resolve tax lot breaks through research and collaboration\n• Adapt current, as well as establish new processes that allow the department to increase quality output"
       },
       "location": "",
       "canton": "",
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340917&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.648Z",
+      "crawledAt": "2026-05-16T11:13:02.195Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -2067,9 +2069,7 @@
       "postedDate": "2026-05-15",
       "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340917&PageType=jobdetails",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "_ubsMeta": {
         "reqId": "340917",
         "department": "Global Wealth Management",
@@ -2079,6 +2079,21 @@
         "jobType": ""
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-15T22:51:28.648Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cost-basis-reporting-specialist-ubs"
+        ],
+        "de": [
+          "cost-basis-reporting-specialist-ubs"
+        ],
+        "fr": [
+          "cost-basis-reporting-specialist-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "cost-basis-reporting-specialist-ubs"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2090,168 +2105,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-15T22:51:28.648Z"
-    },
-    {
-      "id": "ubs-37fc8bd0b90c",
-      "slug": "product-manager-per-fondi-di-investimento-con-sede-in-germania-ubs",
-      "slugByLocale": {
-        "en": "product-manager-for-investment-funds-with-german-ubs",
-        "it": "product-manager-per-fondi-di-investimento-con-sede-in-germania-ubs",
-        "de": "product-manager-for-investment-funds-with-german-ubs",
-        "fr": "product-manager-for-investment-funds-with-german-ubs"
-      },
-      "company": "UBS",
-      "companyKey": "ubs",
-      "companyDomain": "ubs.com",
-      "title": "Product Manager for Investment Funds with German",
-      "titleByLocale": {
-        "en": "Product Manager for Investment Funds with German",
-        "it": "Product Manager per fondi di investimento con sede in Germania",
-        "de": "Product Manager for Investment Funds with German",
-        "fr": "Product Manager for Investment Funds with German"
-      },
-      "description": "Do you have a sound knowledge of investment funds?\nDo you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data.",
-      "descriptionByLocale": {
-        "en": "Do you have a sound knowledge of investment funds?\nDo you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data.",
-        "it": "Do you have a sound knowledge of investment funds?\nDo you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data.",
-        "de": "Do you have a sound knowledge of investment funds?\nDo you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data.",
-        "fr": "Do you have a sound knowledge of investment funds?\nDo you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data."
-      },
-      "location": "",
-      "canton": "",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342934&PageType=jobdetails",
-      "source": "UBS Dedicated Parser (Taleo API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.647Z",
-      "addressLocality": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342934&PageType=jobdetails",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "_ubsMeta": {
-        "reqId": "342934",
-        "department": "Asset Management",
-        "region": "Poland",
-        "cities": "",
-        "categoryRaw": "Management and Business Support, Process, project and program management, Product Management and Development",
-        "jobType": ""
-      },
-      "needsRetranslation": true,
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79500,
-          "maxValue": 135000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-15T22:51:28.647Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "product-manager-for-investment-funds-with-german-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "product-manager-for-investment-funds-with-german-ubs"
-      ]
-    },
-    {
-      "id": "ubs-3c02e95ef8cd",
-      "slug": "product-manager-per-fondi-di-investimento-con-sede-in-germania-ubs-f4b987",
-      "slugByLocale": {
-        "en": "product-manager-for-investment-funds-with-german-ubs",
-        "it": "product-manager-per-fondi-di-investimento-con-sede-in-germania-ubs-f4b987",
-        "de": "product-manager-for-investment-funds-with-german-ubs-2",
-        "fr": "product-manager-for-investment-funds-with-german-ubs-2"
-      },
-      "company": "UBS",
-      "companyKey": "ubs",
-      "companyDomain": "ubs.com",
-      "title": "Product Manager for Investment Funds with German",
-      "titleByLocale": {
-        "en": "Product Manager for Investment Funds with German",
-        "it": "Product Manager per fondi di investimento con sede in Germania",
-        "de": "Product Manager for Investment Funds with German",
-        "fr": "Product Manager for Investment Funds with German"
-      },
-      "description": "Do you have a sound knowledge of investment funds? Do you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n\n• Coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution\n• Support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project\n• Act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively\n• Manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting\n• Data management and maintenance required to manage our fund shelf\n• Assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data",
-      "descriptionByLocale": {
-        "en": "Do you have a sound knowledge of investment funds? Do you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n\n• Coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution\n• Support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project\n• Act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively\n• Manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting\n• Data management and maintenance required to manage our fund shelf\n• Assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data",
-        "it": "Do you have a sound knowledge of investment funds? Do you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n\n• Coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution\n• Support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project\n• Act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively\n• Manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting\n• Data management and maintenance required to manage our fund shelf\n• Assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data",
-        "de": "Do you have a sound knowledge of investment funds? Do you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n\n• Coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution\n• Support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project\n• Act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively\n• Manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting\n• Data management and maintenance required to manage our fund shelf\n• Assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data",
-        "fr": "Do you have a sound knowledge of investment funds? Do you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n\n• Coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution\n• Support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project\n• Act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively\n• Manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting\n• Data management and maintenance required to manage our fund shelf\n• Assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data"
-      },
-      "location": "",
-      "canton": "",
-      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342935&PageType=jobdetails",
-      "source": "UBS Dedicated Parser (Taleo API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.645Z",
-      "addressLocality": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342935&PageType=jobdetails",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "_ubsMeta": {
-        "reqId": "342935",
-        "department": "Asset Management",
-        "region": "Poland",
-        "cities": "",
-        "categoryRaw": "Management and Business Support, Process, project and program management, Product Management and Development",
-        "jobType": ""
-      },
-      "needsRetranslation": true,
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79500,
-          "maxValue": 135000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-15T22:51:28.645Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "product-manager-for-investment-funds-with-german-ubs-2"
-        ]
-      },
-      "previousSlugs": [
-        "product-manager-for-investment-funds-with-german-ubs-2"
-      ]
+      }
     },
     {
       "id": "ubs-7752f8c4db54",
@@ -2284,7 +2138,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340756&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.644Z",
+      "crawledAt": "2026-05-16T11:13:02.194Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -2308,6 +2162,14 @@
         "categoryRaw": "Investment Banking, Operations",
         "jobType": ""
       },
+      "previousSlugs": [
+        "product-manager-digital-capabilities-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-digital-capabilities-ubs"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-15T12:03:58.680Z",
       "salaryMin": 79500,
@@ -2321,21 +2183,13 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "product-manager-digital-capabilities-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "product-manager-digital-capabilities-ubs"
-      ]
+      }
     },
     {
       "id": "ubs-905405ad88ce",
-      "slug": "business-strategist-ufficio-strategia-capo-ubs-gwm-ubs",
+      "slug": "business-strategist-ubs-chief-strategy-office-gwm-ubs",
       "slugByLocale": {
-        "it": "business-strategist-ufficio-strategia-capo-ubs-gwm-ubs",
+        "it": "business-strategist-ubs-chief-strategy-office-gwm-ubs",
         "en": "business-strategist-ubs-chief-strategy-office-gwm-ubs",
         "de": "business-strategist-ubs-chief-strategy-office-gwm-ubs",
         "fr": "business-strategist-ubs-chief-strategy-office-gwm-ubs"
@@ -2345,7 +2199,7 @@
       "companyDomain": "ubs.com",
       "title": "Business Strategist, UBS Chief Strategy Office - GWM",
       "titleByLocale": {
-        "it": "Business Strategist, Ufficio Strategia Capo UBS - GWM",
+        "it": "Business Strategist, UBS Chief Strategy Office - GWM",
         "en": "Business Strategist, UBS Chief Strategy Office - GWM",
         "de": "Business Strategist, UBS Chief Strategy Office - GWM",
         "fr": "Business Strategist, UBS Chief Strategy Office - GWM"
@@ -2362,7 +2216,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343081&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.644Z",
+      "crawledAt": "2026-05-16T11:13:02.194Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -2386,6 +2240,14 @@
         "categoryRaw": "Strategy",
         "jobType": ""
       },
+      "previousSlugs": [
+        "business-strategist-ufficio-strategia-capo-ubs-gwm-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-strategist-ufficio-strategia-capo-ubs-gwm-ubs"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-15T12:03:58.680Z",
       "salaryMin": 68000,
@@ -2399,22 +2261,170 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "ubs-37fc8bd0b90c",
+      "slug": "product-manager-per-fondi-di-investimento-con-sede-in-germania-ubs",
+      "slugByLocale": {
+        "it": "product-manager-per-fondi-di-investimento-con-sede-in-germania-ubs",
+        "en": "product-manager-for-investment-funds-with-german-ubs",
+        "de": "product-manager-for-investment-funds-with-german-ubs",
+        "fr": "product-manager-for-investment-funds-with-german-ubs"
       },
-      "previousSlugsByLocale": {
-        "it": [
-          "business-strategist-ubs-chief-strategy-office-gwm-ubs"
-        ]
+      "company": "UBS",
+      "companyKey": "ubs",
+      "companyDomain": "ubs.com",
+      "title": "Product Manager for Investment Funds with German",
+      "titleByLocale": {
+        "it": "Product Manager per fondi di investimento con sede in Germania",
+        "en": "Product Manager for Investment Funds with German",
+        "de": "Product Manager for Investment Funds with German",
+        "fr": "Product Manager for Investment Funds with German"
+      },
+      "description": "Do you have a sound knowledge of investment funds?\nDo you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data.",
+      "descriptionByLocale": {
+        "it": "Do you have a sound knowledge of investment funds? Do you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management? We’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data.",
+        "en": "Do you have a sound knowledge of investment funds? Do you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management? We’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data.",
+        "de": "Do you have a sound knowledge of investment funds? Do you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management? We’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data.",
+        "fr": "Do you have a sound knowledge of investment funds? Do you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management? We’re looking for a Product Manager to:\n• coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution;\n• support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project;\n• act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively;\n• manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting;\n• data management and maintenance required to manage our fund shelf;\n• assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data."
+      },
+      "location": "",
+      "canton": "",
+      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342934&PageType=jobdetails",
+      "source": "UBS Dedicated Parser (Taleo API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-16T11:13:02.193Z",
+      "addressLocality": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-15",
+      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342934&PageType=jobdetails",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_ubsMeta": {
+        "reqId": "342934",
+        "department": "Asset Management",
+        "region": "Poland",
+        "cities": "",
+        "categoryRaw": "Management and Business Support, Process, project and program management, Product Management and Development",
+        "jobType": ""
       },
       "previousSlugs": [
-        "business-strategist-ubs-chief-strategy-office-gwm-ubs"
-      ]
+        "product-manager-for-investment-funds-with-german-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-for-investment-funds-with-german-ubs"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-15T22:51:28.647Z",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79500,
+          "maxValue": 135000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "ubs-3c02e95ef8cd",
+      "slug": "product-manager-per-fondi-di-investimento-con-sede-in-germania-ubs-f4b987",
+      "slugByLocale": {
+        "it": "product-manager-per-fondi-di-investimento-con-sede-in-germania-ubs-f4b987",
+        "en": "product-manager-for-investment-funds-with-german-ubs",
+        "de": "product-manager-for-investment-funds-with-german-ubs-2",
+        "fr": "product-manager-for-investment-funds-with-german-ubs-2"
+      },
+      "company": "UBS",
+      "companyKey": "ubs",
+      "companyDomain": "ubs.com",
+      "title": "Product Manager for Investment Funds with German",
+      "titleByLocale": {
+        "it": "Product Manager per fondi di investimento con sede in Germania",
+        "en": "Product Manager for Investment Funds with German",
+        "de": "Product Manager for Investment Funds with German",
+        "fr": "Product Manager for Investment Funds with German"
+      },
+      "description": "Do you have a sound knowledge of investment funds? Do you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management?\n\nWe’re looking for a Product Manager to:\n\n• Coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution\n• Support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project\n• Act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively\n• Manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting\n• Data management and maintenance required to manage our fund shelf\n• Assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data",
+      "descriptionByLocale": {
+        "it": "Do you have a sound knowledge of investment funds? Do you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management? We’re looking for a Product Manager to:\n• Coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution\n• Support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project\n• Act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively\n• Manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting\n• Data management and maintenance required to manage our fund shelf\n• Assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data",
+        "en": "Do you have a sound knowledge of investment funds? Do you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management? We’re looking for a Product Manager to:\n• Coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution\n• Support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project\n• Act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively\n• Manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting\n• Data management and maintenance required to manage our fund shelf\n• Assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data",
+        "de": "Do you have a sound knowledge of investment funds? Do you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management? We’re looking for a Product Manager to:\n• Coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution\n• Support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project\n• Act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively\n• Manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting\n• Data management and maintenance required to manage our fund shelf\n• Assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data",
+        "fr": "Do you have a sound knowledge of investment funds? Do you have experience in managing projects and like to engage with various tasks and people at the same time? Do you want to help us to manage our growing business within UBS Asset Management? We’re looking for a Product Manager to:\n• Coordinate client projects independently front-to-back, such as investment fund lifecycle events (e.g. new share classes, new sub-portfolio, change of asset manager) with all stakeholders and the client. This includes project planning, communication and execution\n• Support complex projects, such as the set-up of a new fund or mandate, their repositioning, merger or liquidation. Coordinate and manage a project stream or defined tasks such as operational implementation, depending on the project\n• Act as point of contact for day-to-day inquiries related to third party investment funds and mandates from clients and client managers, providing high quality responses and solutions, both efficiently and effectively\n• Manage recurring tasks with subject matter experts and stakeholders, such as reporting, distributions, budgeting\n• Data management and maintenance required to manage our fund shelf\n• Assume responsibility for timely completeness of processes and documentation, consistency and accuracy of data"
+      },
+      "location": "",
+      "canton": "",
+      "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342935&PageType=jobdetails",
+      "source": "UBS Dedicated Parser (Taleo API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-16T11:13:02.191Z",
+      "addressLocality": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-15",
+      "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342935&PageType=jobdetails",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_ubsMeta": {
+        "reqId": "342935",
+        "department": "Asset Management",
+        "region": "Poland",
+        "cities": "",
+        "categoryRaw": "Management and Business Support, Process, project and program management, Product Management and Development",
+        "jobType": ""
+      },
+      "previousSlugs": [
+        "product-manager-for-investment-funds-with-german-ubs-2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-for-investment-funds-with-german-ubs-2"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-15T22:51:28.645Z",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79500,
+          "maxValue": 135000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "ubs-5379063e7a98",
       "slug": "tirocinante-ubs",
       "slugByLocale": {
-        "en": "intern-ubs",
         "it": "tirocinante-ubs",
+        "en": "intern-ubs",
         "de": "praktikant-ubs",
         "fr": "stagiaire-ubs"
       },
@@ -2423,15 +2433,15 @@
       "companyDomain": "ubs.com",
       "title": "Intern",
       "titleByLocale": {
-        "en": "Intern",
         "it": "Tirocinante",
+        "en": "Intern",
         "de": "Praktikant",
         "fr": "Stagiaire"
       },
       "description": "• Are you a motivated self-starter? Can you take an assignment and run with it? If you're ready to dive into a\n• fast-paced, client-focused work environment, an internship may be the right fit for you.\n• We welcome interns to become a part of our team. You will work with our experts and learn about the\n• industry, our clients and our firm. This is an opportunity to gain valuable insight, develop new skills, and\n• establish a network of mentors and business contacts. You'll leave with a lot more than a job listing on your\n• resume.\n•  work on projects that have real impact on clients\n•  support our team of wealth management experts\n•  attend presentations by WMA leaders to help you understand our industry, culture and strategy\n•  gain product knowledge from internal and external partner sessions to support your team\n•  plan team marketing events and material\n•  assist with the responsibilities of running an entrepreneurial business model",
       "descriptionByLocale": {
-        "en": "• Are you a motivated self-starter? Can you take an assignment and run with it? If you're ready to dive into a\n• fast-paced, client-focused work environment, an internship may be the right fit for you.\n• We welcome interns to become a part of our team. You will work with our experts and learn about the\n• industry, our clients and our firm. This is an opportunity to gain valuable insight, develop new skills, and\n• establish a network of mentors and business contacts. You'll leave with a lot more than a job listing on your\n• resume.\n•  work on projects that have real impact on clients\n•  support our team of wealth management experts\n•  attend presentations by WMA leaders to help you understand our industry, culture and strategy\n•  gain product knowledge from internal and external partner sessions to support your team\n•  plan team marketing events and material\n•  assist with the responsibilities of running an entrepreneurial business model",
         "it": "• Are you a motivated self-starter? Can you take an assignment and run with it? If you're ready to dive into a\n• fast-paced, client-focused work environment, an internship may be the right fit for you.\n• We welcome interns to become a part of our team. You will work with our experts and learn about the\n• industry, our clients and our firm. This is an opportunity to gain valuable insight, develop new skills, and\n• establish a network of mentors and business contacts. You'll leave with a lot more than a job listing on your\n• resume.\n•  work on projects that have real impact on clients\n•  support our team of wealth management experts\n•  attend presentations by WMA leaders to help you understand our industry, culture and strategy\n•  gain product knowledge from internal and external partner sessions to support your team\n•  plan team marketing events and material\n•  assist with the responsibilities of running an entrepreneurial business model",
+        "en": "Are you a motivated self-starter? Can you take an assignment and run with it? If you're ready to dive into a fast-paced, client-focused work environment, an internship may be the right fit for you. We welcome interns to become a part of our team. You will work with our experts and learn about the industry, our clients and our firm. This is an opportunity to gain valuable insight, develop new skills, and establish a network of mentors and business contacts. You'll leave with a lot more than a job listing on your resume.  work on projects that have real impact on clients  support our team of wealth management experts  attend presentations by WMA leaders to help you understand our industry, culture and strategy  gain product knowledge from internal and external partner sessions to support your team  plan team marketing events and material  assist with the responsibilities of running an entrepreneurial business model",
         "de": "• Are you a motivated self-starter? Can you take an assignment and run with it? If you're ready to dive into a\n• fast-paced, client-focused work environment, an internship may be the right fit for you.\n• We welcome interns to become a part of our team. You will work with our experts and learn about the\n• industry, our clients and our firm. This is an opportunity to gain valuable insight, develop new skills, and\n• establish a network of mentors and business contacts. You'll leave with a lot more than a job listing on your\n• resume.\n•  work on projects that have real impact on clients\n•  support our team of wealth management experts\n•  attend presentations by WMA leaders to help you understand our industry, culture and strategy\n•  gain product knowledge from internal and external partner sessions to support your team\n•  plan team marketing events and material\n•  assist with the responsibilities of running an entrepreneurial business model",
         "fr": "• Are you a motivated self-starter? Can you take an assignment and run with it? If you're ready to dive into a\n• fast-paced, client-focused work environment, an internship may be the right fit for you.\n• We welcome interns to become a part of our team. You will work with our experts and learn about the\n• industry, our clients and our firm. This is an opportunity to gain valuable insight, develop new skills, and\n• establish a network of mentors and business contacts. You'll leave with a lot more than a job listing on your\n• resume.\n•  work on projects that have real impact on clients\n•  support our team of wealth management experts\n•  attend presentations by WMA leaders to help you understand our industry, culture and strategy\n•  gain product knowledge from internal and external partner sessions to support your team\n•  plan team marketing events and material\n•  assist with the responsibilities of running an entrepreneurial business model"
       },
@@ -2440,7 +2450,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345559&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.642Z",
+      "crawledAt": "2026-05-16T11:13:02.190Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -2455,9 +2465,7 @@
       "postedDate": "2026-05-15",
       "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345559&PageType=jobdetails",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "_ubsMeta": {
         "reqId": "345559",
         "department": "Global Wealth Management",
@@ -2466,15 +2474,16 @@
         "categoryRaw": "Business management, administration and support",
         "jobType": ""
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "intern-ubs"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "intern-ubs"
         ]
       },
-      "previousSlugs": [
-        "intern-ubs"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-15T22:51:28.642Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2486,41 +2495,40 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-15T22:51:28.642Z"
+      }
     },
     {
       "id": "ubs-e89d7101e45c",
-      "slug": "client-onboarding-specialist-us-shift-ubs",
+      "slug": "client-onboarding-specialista-us-shift-ubs",
       "slugByLocale": {
+        "it": "client-onboarding-specialista-us-shift-ubs",
         "en": "client-onboarding-specialist-us-shift-ubs",
-        "it": "client-onboarding-specialist-us-shift-ubs",
-        "de": "client-onboarding-specialist-us-shift-ubs",
-        "fr": "client-onboarding-specialist-us-shift-ubs"
+        "de": "client-onboarding-spezialist-us-shift-ubs",
+        "fr": "client-onboarding-specialiste-us-shift-ubs"
       },
       "company": "UBS",
       "companyKey": "ubs",
       "companyDomain": "ubs.com",
       "title": "Client Onboarding Specialist (US Shift)",
       "titleByLocale": {
-        "en": "Client Onboarding Specialist (US Shift)",
         "it": "Client Onboarding Specialista (US Shift)",
+        "en": "Client Onboarding Specialist (US Shift)",
         "de": "Client Onboarding Spezialist (US Shift)",
         "fr": "Client Onboarding Spécialiste (US Shift)"
       },
       "description": "Onboarding KYC Operations Analyst will assist with the drafting and gathering of client documents and verification of client data via public domains and internal sources at a client level prior to final review by a KYC Operations Reviewer and the client-facing team. This research is performed to ensure a client’s KYC profile is appropriately updated and any discrepancies or issues with the profile escalated to the appropriate lines of business.\n\n• Collection and Verification of confidential client data via publicly available and internal sources.\n• Understand the firm’s KYC requirements when completing documentation inclusive of Customer.\n• Identification Program (CIP), Simplified Due Diligence (SDD), Basic Due Diligence (BDD), Enhanced Due Diligence (EDD).\n• Take independent decisions consistent with client identification policy.\n• Compare and contrast differences within KYC records, highlight and escalate any discrepancies.\n• Meet firm wide quality standards.\n• Exhibit the highest standards of customer service to our internal and external customers (inclusive of confidentiality).\n• Communicating/escalating issues to management when applicable.\n• Handling and maintenance of confidential client documentation.\n• Manage multiple deadlines in a fast-paced environment\nService the AMER region and work closely with the onboarding teams to enhance the KYC standards of existing clients to new KYC jurisdictions.",
       "descriptionByLocale": {
-        "en": "Onboarding KYC Operations Analyst will assist with the drafting and gathering of client documents and verification of client data via public domains and internal sources at a client level prior to final review by a KYC Operations Reviewer and the client-facing team. This research is performed to ensure a client’s KYC profile is appropriately updated and any discrepancies or issues with the profile escalated to the appropriate lines of business.\n\n• Collection and Verification of confidential client data via publicly available and internal sources.\n• Understand the firm’s KYC requirements when completing documentation inclusive of Customer.\n• Identification Program (CIP), Simplified Due Diligence (SDD), Basic Due Diligence (BDD), Enhanced Due Diligence (EDD).\n• Take independent decisions consistent with client identification policy.\n• Compare and contrast differences within KYC records, highlight and escalate any discrepancies.\n• Meet firm wide quality standards.\n• Exhibit the highest standards of customer service to our internal and external customers (inclusive of confidentiality).\n• Communicating/escalating issues to management when applicable.\n• Handling and maintenance of confidential client documentation.\n• Manage multiple deadlines in a fast-paced environment\nService the AMER region and work closely with the onboarding teams to enhance the KYC standards of existing clients to new KYC jurisdictions.",
-        "it": "Onboarding KYC Operations Analyst will assist with the drafting and gathering of client documents and verification of client data via public domains and internal sources at a client level prior to final review by a KYC Operations Reviewer and the client-facing team. This research is performed to ensure a client’s KYC profile is appropriately updated and any discrepancies or issues with the profile escalated to the appropriate lines of business.\n\n• Collection and Verification of confidential client data via publicly available and internal sources.\n• Understand the firm’s KYC requirements when completing documentation inclusive of Customer.\n• Identification Program (CIP), Simplified Due Diligence (SDD), Basic Due Diligence (BDD), Enhanced Due Diligence (EDD).\n• Take independent decisions consistent with client identification policy.\n• Compare and contrast differences within KYC records, highlight and escalate any discrepancies.\n• Meet firm wide quality standards.\n• Exhibit the highest standards of customer service to our internal and external customers (inclusive of confidentiality).\n• Communicating/escalating issues to management when applicable.\n• Handling and maintenance of confidential client documentation.\n• Manage multiple deadlines in a fast-paced environment\nService the AMER region and work closely with the onboarding teams to enhance the KYC standards of existing clients to new KYC jurisdictions.",
-        "de": "Onboarding KYC Operations Analyst will assist with the drafting and gathering of client documents and verification of client data via public domains and internal sources at a client level prior to final review by a KYC Operations Reviewer and the client-facing team. This research is performed to ensure a client’s KYC profile is appropriately updated and any discrepancies or issues with the profile escalated to the appropriate lines of business.\n\n• Collection and Verification of confidential client data via publicly available and internal sources.\n• Understand the firm’s KYC requirements when completing documentation inclusive of Customer.\n• Identification Program (CIP), Simplified Due Diligence (SDD), Basic Due Diligence (BDD), Enhanced Due Diligence (EDD).\n• Take independent decisions consistent with client identification policy.\n• Compare and contrast differences within KYC records, highlight and escalate any discrepancies.\n• Meet firm wide quality standards.\n• Exhibit the highest standards of customer service to our internal and external customers (inclusive of confidentiality).\n• Communicating/escalating issues to management when applicable.\n• Handling and maintenance of confidential client documentation.\n• Manage multiple deadlines in a fast-paced environment\nService the AMER region and work closely with the onboarding teams to enhance the KYC standards of existing clients to new KYC jurisdictions.",
-        "fr": "Onboarding KYC Operations Analyst will assist with the drafting and gathering of client documents and verification of client data via public domains and internal sources at a client level prior to final review by a KYC Operations Reviewer and the client-facing team. This research is performed to ensure a client’s KYC profile is appropriately updated and any discrepancies or issues with the profile escalated to the appropriate lines of business.\n\n• Collection and Verification of confidential client data via publicly available and internal sources.\n• Understand the firm’s KYC requirements when completing documentation inclusive of Customer.\n• Identification Program (CIP), Simplified Due Diligence (SDD), Basic Due Diligence (BDD), Enhanced Due Diligence (EDD).\n• Take independent decisions consistent with client identification policy.\n• Compare and contrast differences within KYC records, highlight and escalate any discrepancies.\n• Meet firm wide quality standards.\n• Exhibit the highest standards of customer service to our internal and external customers (inclusive of confidentiality).\n• Communicating/escalating issues to management when applicable.\n• Handling and maintenance of confidential client documentation.\n• Manage multiple deadlines in a fast-paced environment\nService the AMER region and work closely with the onboarding teams to enhance the KYC standards of existing clients to new KYC jurisdictions."
+        "it": "Onboarding KYC Operations Analyst will assist with the drafting and gathering of client documents and verification of client data via public domains and internal sources at a client level prior to final review by a KYC Operations Reviewer and the client-facing team. This research is performed to ensure a client’s KYC profile is appropriately updated and any discrepancies or issues with the profile escalated to the appropriate lines of business.\n• Collection and Verification of confidential client data via publicly available and internal sources.\n• Understand the firm’s KYC requirements when completing documentation inclusive of Customer.\n• Identification Program (CIP), Simplified Due Diligence (SDD), Basic Due Diligence (BDD), Enhanced Due Diligence (EDD).\n• Take independent decisions consistent with client identification policy.\n• Compare and contrast differences within KYC records, highlight and escalate any discrepancies.\n• Meet firm wide quality standards.\n• Exhibit the highest standards of customer service to our internal and external customers (inclusive of confidentiality).\n• Communicating/escalating issues to management when applicable.\n• Handling and maintenance of confidential client documentation.\n• Manage multiple deadlines in a fast-paced environment Service the AMER region and work closely with the onboarding teams to enhance the KYC standards of existing clients to new KYC jurisdictions.",
+        "en": "Onboarding KYC Operations Analyst will assist with the drafting and gathering of client documents and verification of client data via public domains and internal sources at a client level prior to final review by a KYC Operations Reviewer and the client-facing team. This research is performed to ensure a client’s KYC profile is appropriately updated and any discrepancies or issues with the profile escalated to the appropriate lines of business.\n• Collection and Verification of confidential client data via publicly available and internal sources.\n• Understand the firm’s KYC requirements when completing documentation inclusive of Customer.\n• Identification Program (CIP), Simplified Due Diligence (SDD), Basic Due Diligence (BDD), Enhanced Due Diligence (EDD).\n• Take independent decisions consistent with client identification policy.\n• Compare and contrast differences within KYC records, highlight and escalate any discrepancies.\n• Meet firm wide quality standards.\n• Exhibit the highest standards of customer service to our internal and external customers (inclusive of confidentiality).\n• Communicating/escalating issues to management when applicable.\n• Handling and maintenance of confidential client documentation.\n• Manage multiple deadlines in a fast-paced environment Service the AMER region and work closely with the onboarding teams to enhance the KYC standards of existing clients to new KYC jurisdictions.",
+        "de": "Onboarding KYC Operations Analyst will assist with the drafting and gathering of client documents and verification of client data via public domains and internal sources at a client level prior to final review by a KYC Operations Reviewer and the client-facing team. This research is performed to ensure a client’s KYC profile is appropriately updated and any discrepancies or issues with the profile escalated to the appropriate lines of business.\n• Collection and Verification of confidential client data via publicly available and internal sources.\n• Understand the firm’s KYC requirements when completing documentation inclusive of Customer.\n• Identification Program (CIP), Simplified Due Diligence (SDD), Basic Due Diligence (BDD), Enhanced Due Diligence (EDD).\n• Take independent decisions consistent with client identification policy.\n• Compare and contrast differences within KYC records, highlight and escalate any discrepancies.\n• Meet firm wide quality standards.\n• Exhibit the highest standards of customer service to our internal and external customers (inclusive of confidentiality).\n• Communicating/escalating issues to management when applicable.\n• Handling and maintenance of confidential client documentation.\n• Manage multiple deadlines in a fast-paced environment Service the AMER region and work closely with the onboarding teams to enhance the KYC standards of existing clients to new KYC jurisdictions.",
+        "fr": "Onboarding KYC Operations Analyst will assist with the drafting and gathering of client documents and verification of client data via public domains and internal sources at a client level prior to final review by a KYC Operations Reviewer and the client-facing team. This research is performed to ensure a client’s KYC profile is appropriately updated and any discrepancies or issues with the profile escalated to the appropriate lines of business.\n• Collection and Verification of confidential client data via publicly available and internal sources.\n• Understand the firm’s KYC requirements when completing documentation inclusive of Customer.\n• Identification Program (CIP), Simplified Due Diligence (SDD), Basic Due Diligence (BDD), Enhanced Due Diligence (EDD).\n• Take independent decisions consistent with client identification policy.\n• Compare and contrast differences within KYC records, highlight and escalate any discrepancies.\n• Meet firm wide quality standards.\n• Exhibit the highest standards of customer service to our internal and external customers (inclusive of confidentiality).\n• Communicating/escalating issues to management when applicable.\n• Handling and maintenance of confidential client documentation.\n• Manage multiple deadlines in a fast-paced environment Service the AMER region and work closely with the onboarding teams to enhance the KYC standards of existing clients to new KYC jurisdictions."
       },
       "location": "",
       "canton": "",
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343400&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.641Z",
+      "crawledAt": "2026-05-16T11:13:02.189Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -2535,9 +2543,7 @@
       "postedDate": "2026-05-15",
       "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343400&PageType=jobdetails",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "_ubsMeta": {
         "reqId": "343400",
         "department": "Investment Bank",
@@ -2547,6 +2553,21 @@
         "jobType": ""
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-15T22:51:28.641Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-onboarding-specialist-us-shift-ubs"
+        ],
+        "de": [
+          "client-onboarding-specialist-us-shift-ubs"
+        ],
+        "fr": [
+          "client-onboarding-specialist-us-shift-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "client-onboarding-specialist-us-shift-ubs"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2558,16 +2579,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-15T22:51:28.641Z"
+      }
     },
     {
       "id": "ubs-1a8506138c82",
       "slug": "ubs-card-center-ag-praktikant-in-strategy-transformation-office-ubs",
       "slugByLocale": {
-        "de": "ubs-card-center-ag-praktikant-in-strategy-transformation-office-ubs",
         "it": "ubs-card-center-ag-praktikant-in-strategy-transformation-office-ubs",
         "en": "ubs-card-center-ag-praktikant-in-strategy-transformation-office-ubs",
+        "de": "ubs-card-center-ag-praktikant-in-strategy-transformation-office-ubs",
         "fr": "ubs-card-center-ag-praktikant-in-strategy-transformation-office-ubs"
       },
       "company": "UBS",
@@ -2575,16 +2595,16 @@
       "companyDomain": "ubs.com",
       "title": "UBS Card Center AG - Praktikant/in Strategy & Transformation Office",
       "titleByLocale": {
-        "de": "UBS Card Center AG - Praktikant/in Strategy & Transformation Office",
         "it": "UBS Card Center AG - Stagista Strategy & Transformation Office",
         "en": "UBS Card Center AG - Praktikant/in Strategy & Transformation Office",
+        "de": "UBS Card Center AG - Praktikant/in Strategy & Transformation Office",
         "fr": "UBS Card Center AG - Praktikant/in Strategy & Transformation Office"
       },
       "description": "• Unterstützung bei der Entwicklung und Weiterentwicklung der Strategie für das UBS Card Center\n• Mitwirkung bei der Erstellung von Entscheidungsgrundlagen für die Geschäftsleitung durch Analysen und zielgerichtete Präsentationen\n• Unterstützung bei der Planung und Vorbereitung von Verwaltungsratssitzungen, Management-Meetings und Workshops\n• Durchführung von Markt-, Wettbewerbs- und Benchmark-Analysen zur Ableitung von Handlungsempfehlungen\n• Unterstützung bei der Weiterentwicklung und Optimierung von Geschäftsmodellen, Prozessen und Strukturen im Kreditkartenbereich\n• Mitwirkung in bereichsübergreifenden Projekten zur Umsetzung der Unternehmensstrategie",
       "descriptionByLocale": {
-        "de": "• Unterstützung bei der Entwicklung und Weiterentwicklung der Strategie für das UBS Card Center\n• Mitwirkung bei der Erstellung von Entscheidungsgrundlagen für die Geschäftsleitung durch Analysen und zielgerichtete Präsentationen\n• Unterstützung bei der Planung und Vorbereitung von Verwaltungsratssitzungen, Management-Meetings und Workshops\n• Durchführung von Markt-, Wettbewerbs- und Benchmark-Analysen zur Ableitung von Handlungsempfehlungen\n• Unterstützung bei der Weiterentwicklung und Optimierung von Geschäftsmodellen, Prozessen und Strukturen im Kreditkartenbereich\n• Mitwirkung in bereichsübergreifenden Projekten zur Umsetzung der Unternehmensstrategie",
         "it": "• Unterstützung bei der Entwicklung und Weiterentwicklung der Strategie für das UBS Card Center\n• Mitwirkung bei der Erstellung von Entscheidungsgrundlagen für die Geschäftsleitung durch Analysen und zielgerichtete Präsentationen\n• Unterstützung bei der Planung und Vorbereitung von Verwaltungsratssitzungen, Management-Meetings und Workshops\n• Durchführung von Markt-, Wettbewerbs- und Benchmark-Analysen zur Ableitung von Handlungsempfehlungen\n• Unterstützung bei der Weiterentwicklung und Optimierung von Geschäftsmodellen, Prozessen und Strukturen im Kreditkartenbereich\n• Mitwirkung in bereichsübergreifenden Projekten zur Umsetzung der Unternehmensstrategie",
         "en": "• Unterstützung bei der Entwicklung und Weiterentwicklung der Strategie für das UBS Card Center\n• Mitwirkung bei der Erstellung von Entscheidungsgrundlagen für die Geschäftsleitung durch Analysen und zielgerichtete Präsentationen\n• Unterstützung bei der Planung und Vorbereitung von Verwaltungsratssitzungen, Management-Meetings und Workshops\n• Durchführung von Markt-, Wettbewerbs- und Benchmark-Analysen zur Ableitung von Handlungsempfehlungen\n• Unterstützung bei der Weiterentwicklung und Optimierung von Geschäftsmodellen, Prozessen und Strukturen im Kreditkartenbereich\n• Mitwirkung in bereichsübergreifenden Projekten zur Umsetzung der Unternehmensstrategie",
+        "de": "• Unterstützung bei der Entwicklung und Weiterentwicklung der Strategie für das UBS Card Center\n• Mitwirkung bei der Erstellung von Entscheidungsgrundlagen für die Geschäftsleitung durch Analysen und zielgerichtete Präsentationen\n• Unterstützung bei der Planung und Vorbereitung von Verwaltungsratssitzungen, Management-Meetings und Workshops\n• Durchführung von Markt-, Wettbewerbs- und Benchmark-Analysen zur Ableitung von Handlungsempfehlungen\n• Unterstützung bei der Weiterentwicklung und Optimierung von Geschäftsmodellen, Prozessen und Strukturen im Kreditkartenbereich\n• Mitwirkung in bereichsübergreifenden Projekten zur Umsetzung der Unternehmensstrategie",
         "fr": "• Unterstützung bei der Entwicklung und Weiterentwicklung der Strategie für das UBS Card Center\n• Mitwirkung bei der Erstellung von Entscheidungsgrundlagen für die Geschäftsleitung durch Analysen und zielgerichtete Präsentationen\n• Unterstützung bei der Planung und Vorbereitung von Verwaltungsratssitzungen, Management-Meetings und Workshops\n• Durchführung von Markt-, Wettbewerbs- und Benchmark-Analysen zur Ableitung von Handlungsempfehlungen\n• Unterstützung bei der Weiterentwicklung und Optimierung von Geschäftsmodellen, Prozessen und Strukturen im Kreditkartenbereich\n• Mitwirkung in bereichsübergreifenden Projekten zur Umsetzung der Unternehmensstrategie"
       },
       "location": "",
@@ -2592,7 +2612,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345882&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:51:28.641Z",
+      "crawledAt": "2026-05-16T11:13:02.189Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -2607,9 +2627,7 @@
       "postedDate": "2026-05-15",
       "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345882&PageType=jobdetails",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "_ubsMeta": {
         "reqId": "345882",
         "department": "Personal & Corporate Banking",
@@ -2619,6 +2637,7 @@
         "jobType": ""
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-15T22:51:28.641Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -2630,8 +2649,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-15T22:51:28.641Z"
+      }
     },
     {
       "id": "ubs-e9ecb8de574b",
@@ -2664,7 +2682,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343200&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.639Z",
+      "crawledAt": "2026-05-16T11:13:02.187Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -2734,7 +2752,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=339625&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.639Z",
+      "crawledAt": "2026-05-16T11:13:02.187Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -2758,6 +2776,14 @@
         "categoryRaw": "Audit",
         "jobType": ""
       },
+      "previousSlugs": [
+        "risk-expert-ib-derivatives-solutions-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "risk-expert-ib-derivatives-solutions-ubs"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-15T12:03:58.680Z",
       "salaryMin": 49500,
@@ -2771,15 +2797,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "risk-expert-ib-derivatives-solutions-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "risk-expert-ib-derivatives-solutions-ubs"
-      ]
+      }
     },
     {
       "id": "ubs-089cebbc4230",
@@ -2812,7 +2830,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342885&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.638Z",
+      "crawledAt": "2026-05-16T11:13:02.186Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -2882,7 +2900,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344194&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.637Z",
+      "crawledAt": "2026-05-16T11:13:02.184Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -2960,7 +2978,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=342590&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.637Z",
+      "crawledAt": "2026-05-16T11:13:02.184Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -3030,7 +3048,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343806&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.636Z",
+      "crawledAt": "2026-05-16T11:13:02.183Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -3100,7 +3118,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344201&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.634Z",
+      "crawledAt": "2026-05-16T11:13:02.181Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -3124,6 +3142,14 @@
         "categoryRaw": "Investment Banking",
         "jobType": ""
       },
+      "previousSlugs": [
+        "global-markets-business-manager-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "global-markets-business-manager-ubs"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-15T12:03:58.674Z",
       "salaryMin": 75500,
@@ -3137,21 +3163,13 @@
           "maxValue": 133000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "global-markets-business-manager-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "global-markets-business-manager-ubs"
-      ]
+      }
     },
     {
       "id": "ubs-9ac838b2f2f5",
-      "slug": "internship-in-client-lifecycle-management-ubs",
+      "slug": "tirocinio-in-client-lifecycle-management-ubs",
       "slugByLocale": {
-        "it": "internship-in-client-lifecycle-management-ubs",
+        "it": "tirocinio-in-client-lifecycle-management-ubs",
         "en": "internship-in-client-lifecycle-management-ubs",
         "de": "internship-in-client-lifecycle-management-ubs",
         "fr": "internship-in-client-lifecycle-management-ubs"
@@ -3178,7 +3196,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345643&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.633Z",
+      "crawledAt": "2026-05-16T11:13:02.180Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -3204,15 +3222,23 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-15T12:03:58.672Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-in-client-lifecycle-management-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "internship-in-client-lifecycle-management-ubs"
+      ],
+      "salaryMin": 41600,
+      "salaryMax": 63000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 41600,
+          "maxValue": 63000,
           "unitText": "YEAR"
         }
       }
@@ -3248,7 +3274,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345868&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:51:28.633Z",
+      "crawledAt": "2026-05-16T11:13:02.180Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -3326,7 +3352,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=344976&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-15T22:51:28.633Z",
+      "crawledAt": "2026-05-16T11:13:02.180Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -3350,6 +3376,14 @@
         "categoryRaw": "Conseil clientèle / Relationship management",
         "jobType": ""
       },
+      "previousSlugs": [
+        "conseiller-ere-clientele-privee-affluent-sion-80-100-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-clientele-privee-affluent-sion-80-100-ubs"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-15T12:03:58.672Z",
       "salaryMin": 49500,
@@ -3363,21 +3397,13 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-ere-clientele-privee-affluent-sion-80-100-ubs"
-        ]
-      },
-      "previousSlugs": [
-        "conseiller-ere-clientele-privee-affluent-sion-80-100-ubs"
-      ]
+      }
     },
     {
       "id": "ubs-3fa379b56f74",
-      "slug": "client-relationship-manager-etf-index-fund-ubs",
+      "slug": "client-relationship-manager-etf-e-fondo-indicizzato-ubs",
       "slugByLocale": {
-        "it": "client-relationship-manager-etf-index-fund-ubs",
+        "it": "client-relationship-manager-etf-e-fondo-indicizzato-ubs",
         "en": "client-relationship-manager-etf-index-fund-ubs",
         "de": "client-relationship-manager-etf-index-fund-ubs",
         "fr": "client-relationship-manager-etf-index-fund-ubs"
@@ -3404,7 +3430,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343996&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.632Z",
+      "crawledAt": "2026-05-16T11:13:02.178Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -3430,6 +3456,14 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-15T12:03:58.671Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-manager-etf-index-fund-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "client-relationship-manager-etf-index-fund-ubs"
+      ],
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3474,7 +3508,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=330185&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-15T22:51:28.632Z",
+      "crawledAt": "2026-05-16T11:13:02.178Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -3562,7 +3596,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345197&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.630Z",
+      "crawledAt": "2026-05-16T11:13:02.177Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -3586,8 +3620,9 @@
         "categoryRaw": "Operations, Portfolio and fund management",
         "jobType": ""
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-15T12:03:58.670Z",
+      "previousSlugs": [
+        "trade-support-specialist-ubs"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "trade-support-specialist-ubs"
@@ -3599,9 +3634,8 @@
           "trade-support-specialist-ubs"
         ]
       },
-      "previousSlugs": [
-        "trade-support-specialist-ubs"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-15T12:03:58.670Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3646,7 +3680,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345263&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.629Z",
+      "crawledAt": "2026-05-16T11:13:02.176Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -3670,8 +3704,9 @@
         "categoryRaw": "Operations",
         "jobType": ""
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-15T12:03:58.669Z",
+      "previousSlugs": [
+        "senior-client-reporting-specialist-ubs"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-client-reporting-specialist-ubs"
@@ -3683,9 +3718,8 @@
           "senior-client-reporting-specialist-ubs"
         ]
       },
-      "previousSlugs": [
-        "senior-client-reporting-specialist-ubs"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-15T12:03:58.669Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3730,7 +3764,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=338255&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.628Z",
+      "crawledAt": "2026-05-16T11:13:02.174Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -3771,9 +3805,9 @@
     },
     {
       "id": "ubs-316e233415cf",
-      "slug": "internship-in-corporate-action-team-ubs",
+      "slug": "tirocinio-in-corporate-action-team-ubs",
       "slugByLocale": {
-        "it": "internship-in-corporate-action-team-ubs",
+        "it": "tirocinio-in-corporate-action-team-ubs",
         "en": "internship-in-corporate-action-team-ubs",
         "de": "internship-in-corporate-action-team-ubs",
         "fr": "internship-in-corporate-action-team-ubs"
@@ -3800,7 +3834,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=345765&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:51:28.627Z",
+      "crawledAt": "2026-05-16T11:13:02.173Z",
       "addressLocality": "",
       "addressCountry": "CH",
       "country": "CH",
@@ -3826,15 +3860,23 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-15T12:03:58.666Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-in-corporate-action-team-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "internship-in-corporate-action-team-ubs"
+      ],
+      "salaryMin": 41600,
+      "salaryMax": 63000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 41600,
+          "maxValue": 63000,
           "unitText": "YEAR"
         }
       }
