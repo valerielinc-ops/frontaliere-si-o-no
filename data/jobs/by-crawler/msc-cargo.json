@@ -74,9 +74,9 @@
     },
     {
       "id": "msc-cargo-82745a9429a3",
-      "slug": "destinations-experience-manager-msc-geneva",
+      "slug": "responsabile-dell-esperienza-delle-destinazioni-msc-group-geneva",
       "slugByLocale": {
-        "it": "destinations-experience-manager-msc-geneva",
+        "it": "responsabile-dell-esperienza-delle-destinazioni-msc-group-geneva",
         "en": "destinations-experience-manager-msc-geneva",
         "de": "destinations-experience-manager-msc-geneva",
         "fr": "destinations-experience-manager-msc-geneva"
@@ -133,14 +133,22 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "destinations-experience-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "destinations-experience-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-be64fb5540f0",
-      "slug": "f-b-service-manager-msc-geneva",
+      "slug": "responsabile-del-servizio-f-b-msc-group-geneva",
       "slugByLocale": {
         "en": "f-b-service-manager-msc-geneva",
-        "it": "f-b-service-manager-msc-geneva",
+        "it": "responsabile-del-servizio-f-b-msc-group-geneva",
         "de": "f-b-service-manager-msc-geneva",
         "fr": "f-b-service-manager-msc-geneva"
       },
@@ -198,7 +206,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-15T22:24:51.653Z"
+      "firstSeenAt": "2026-05-15T22:24:51.653Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-service-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-service-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-8fd1f556af0a",

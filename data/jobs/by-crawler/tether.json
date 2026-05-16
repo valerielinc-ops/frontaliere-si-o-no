@@ -4535,10 +4535,10 @@
     },
     {
       "id": "tether-7a556b395615",
-      "slug": "engagement-manager-ai-implementations-tether-ch",
+      "slug": "engagement-manager-implementazioni-ai-tether-operations-brussels-brussels",
       "slugByLocale": {
         "en": "engagement-manager-ai-implementations-tether-ch",
-        "it": "engagement-manager-ai-implementations-tether-ch",
+        "it": "engagement-manager-implementazioni-ai-tether-operations-brussels-brussels",
         "de": "engagement-manager-ai-implementations-tether-ch",
         "fr": "engagement-manager-ai-implementations-tether-ch"
       },
@@ -4599,7 +4599,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-15T22:47:28.733Z"
+      "firstSeenAt": "2026-05-15T22:47:28.733Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "engagement-manager-ai-implementations-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "engagement-manager-ai-implementations-tether-ch"
+      ]
     }
   ]
 }
