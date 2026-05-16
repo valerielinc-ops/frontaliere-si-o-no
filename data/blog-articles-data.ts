@@ -24086,4 +24086,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'permesso-g-vs-b-frontalieri-2026-oltre-20-km',
+ category: 'pratico',
+ date: '2026-05-16T00:01:44.198Z',
+ image: '/images/blog/permesso-g-vs-b-frontalieri-2026-oltre-20-km.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

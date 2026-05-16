@@ -7571,6 +7571,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.title': 'Changement de statut des frontaliers : erreurs courantes et comment les corriger',
     'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.excerpt': 'Les frontaliers doivent être conscients des erreurs courantes lors du changement de statut de permis G à permis B. 💡 Il est essentiel de connaître les erreurs les plus fréquentes pour éviter les complications et les retards. 📊 Les frontaliers qui souhaitent changer de statut doivent être prêts à fournir les documents nécessaires et à suivre les étapes appropriées. > Les erreurs courantes incluent la mauvaise présentation des documents, la non-conformité aux exigences de la loi et la mauvaise compréhension des procédures. ⚠️ Pour éviter ces erreurs, il est recommandé de consulter les informations officielles et de contacter les autorités compétentes. Les frontaliers qui sont conscients des erreurs courantes peuvent éviter les complications et les retards, et obtenir leur nouveau statut de manière efficace.',
     'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.imageAlt': 'Un frontalier avec un permis G à la frontière italo-suisse',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.title': 'Confronto G/B: quando cambiare status?',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.excerpt': 'Par rapport à 2025, le nouveau accord fiscal 2026 pourrait avoir un impact plus important sur les frontaliers qui résident à plus de 20 km du frontière italo-suisse.',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.imageAlt': 'Un frontalier se rapproche de la frontière de Chiasso avec sa voiture.',
 };
 
 export default blogMetaFr;

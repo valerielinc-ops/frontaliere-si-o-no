@@ -7570,6 +7570,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.title': 'G Permit Status for Cross-Border Workers: Common Mistakes and Changes',
     'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.excerpt': 'Cross-border workers should be aware of common errors when switching from a G permit to a B permit. 📊💡⚠️ I cross-border workers must be aware of common mistakes in changing their status from a G permit to a B permit. 📊💡⚠️ The following are some common errors to watch out for: - Incorrect documentation - Insufficient proof of income - Failure to meet the required residence period > "It is essential to carefully review the requirements and documentation to avoid any issues with the permit change." [testo tradotto](nav:azione)',
     'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.imageAlt': 'A cross-border worker with a permit G at the Italian-Swiss border',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.title': 'G Permit vs B Permit in 2026: When Does It Really Pay to Switch?',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.excerpt': 'Compared to 2025, the new 2026 fiscal agreement may have a greater impact on cross-border workers residing more than 20 km from the Italian-Swiss border.',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.imageAlt': 'A frontaliere approaches the Chiasso border crossing with their car.',
 };
 
 export default blogMetaEn;

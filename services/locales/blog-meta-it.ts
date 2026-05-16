@@ -7571,6 +7571,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.title': 'Permessi G e B per i frontalieri: errori comuni e come cambiarne status',
     'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.excerpt': 'I frontalieri devono essere consapevoli degli errori comuni nel cambio di status da permesso G a permesso B',
     'blog.article.permesso-g-vs-b-frontalieri-2026-errori-comuni.imageAlt': 'Un frontaliere in automobile con il permesso G nel confine italo-svizzero',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.title': 'Confronto tra Permesso G e B nel 2026: quando conviene davvero cambiare status?',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.excerpt': 'Rispetto al 2025, il nuovo accordo fiscale 2026 potrebbe avere un impatto maggiore sui frontalieri che risiedono oltre 20 km dal confine italo-svizzero.',
+    'blog.article.permesso-g-vs-b-frontalieri-2026-oltre-20-km.imageAlt': 'Un frontaliere si avvicina al valico di Chiasso con l\'automobile.',
 };
 
 export default blogMetaIt;
