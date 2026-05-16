@@ -1,181 +1,5 @@
 [
   {
-    "timestamp": "2026-05-02T03:57:14.264Z",
-    "label": "before",
-    "total": 2664,
-    "needsRetranslation": 57,
-    "incomplete": 29,
-    "complete": 2635,
-    "missingByLocale": {
-      "it": 27,
-      "en": 7,
-      "de": 25,
-      "fr": 25
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-02T04:15:02.455Z",
-    "label": "after",
-    "total": 2664,
-    "needsRetranslation": 20,
-    "incomplete": 29,
-    "complete": 2635,
-    "missingByLocale": {
-      "it": 27,
-      "en": 7,
-      "de": 25,
-      "fr": 25
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-02T05:47:07.708Z",
-    "label": "before",
-    "total": 2664,
-    "needsRetranslation": 20,
-    "incomplete": 29,
-    "complete": 2635,
-    "missingByLocale": {
-      "it": 27,
-      "en": 7,
-      "de": 25,
-      "fr": 25
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-02T06:00:15.890Z",
-    "label": "after",
-    "total": 2664,
-    "needsRetranslation": 52,
-    "incomplete": 29,
-    "complete": 2635,
-    "missingByLocale": {
-      "it": 27,
-      "en": 7,
-      "de": 25,
-      "fr": 25
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-02T08:10:54.053Z",
     "label": "before",
     "total": 2596,
@@ -10708,6 +10532,118 @@
       {
         "company": "Tschuggen Collection",
         "pending": 7
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-16T22:47:12.946Z",
+    "label": "before",
+    "total": 4301,
+    "needsRetranslation": 2179,
+    "incomplete": 432,
+    "complete": 3869,
+    "missingByLocale": {
+      "it": 279,
+      "en": 236,
+      "de": 103,
+      "fr": 282
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 94
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 16
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 14
+      },
+      {
+        "company": "UBS",
+        "pending": 12
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 9
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-16T23:56:19.078Z",
+    "label": "after",
+    "total": 4301,
+    "needsRetranslation": 984,
+    "incomplete": 346,
+    "complete": 3955,
+    "missingByLocale": {
+      "it": 251,
+      "en": 213,
+      "de": 93,
+      "fr": 252
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 16
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 14
+      },
+      {
+        "company": "UBS",
+        "pending": 12
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 9
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
       }
     ]
   }
