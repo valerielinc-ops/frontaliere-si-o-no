@@ -3258,11 +3258,11 @@
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
-    "winnerJobIdentifier": "company-e66ikm",
-    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur-ddc182",
+    "winnerJobIdentifier": "company-lzsoh3",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-felsberg",
     "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
-    "score": 0.2727,
+    "score": 0.4444,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -4050,11 +4050,11 @@
     "canton": "TG"
   },
   "TG::fr::dipl-pflegefachmann-frau-forensik-stgag-ch": {
-    "winnerJobIdentifier": "spital-thurgau-422f0cc4c8e3",
-    "winnerCanonical": "dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
-    "score": 0.1429,
+    "score": 0.0625,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -4113,20 +4113,20 @@
     "canton": "TG"
   },
   "TG::it::dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-422f0cc4c8e3",
-    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa",
-    "decidedAt": "2026-05-15T00:00:00.000Z",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
+    "winnerCanonical": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
-    "score": 0.9,
+    "score": 0.3571,
     "candidatesCount": 1,
     "canton": "TG"
   },
   "TG::it::dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-63045915dc5f",
+    "winnerCanonical": "specialista-di-cura-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
-    "score": 0.9,
+    "score": 0.5833,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -7209,12 +7209,12 @@
     "canton": "VD"
   },
   "VD::de::postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne": {
-    "winnerJobIdentifier": "epfl-ad8241ec0d43",
+    "winnerJobIdentifier": "epfl-b0cd92a73585",
     "winnerCanonical": "postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne",
     "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.2778,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::de::postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne-aab331": {
@@ -7470,12 +7470,12 @@
     "canton": "VD"
   },
   "VD::it::postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne": {
-    "winnerJobIdentifier": "epfl-ad8241ec0d43",
+    "winnerJobIdentifier": "epfl-b0cd92a73585",
     "winnerCanonical": "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne-d02b8a",
     "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.25,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix": {
