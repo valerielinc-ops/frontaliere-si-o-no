@@ -1,5 +1,377 @@
 {
   "crawlerKey": "postfinance",
-  "assembledAt": "2026-05-15T22:27:23.000Z",
-  "jobs": []
+  "assembledAt": "2026-05-16T10:49:06.770Z",
+  "jobs": [
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Architecture-Owner-Telefonie-und-KOP-%28wmd%29/1384004633/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Architecture-Owner-Telefonie-und-KOP-%28wmd%29/1384004633/",
+      "title": "Architecture Owner Telefonie und KOP (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Das Solution Team «Kundeninteraktion» entwickelt und betreibt mit agilen Delivery Teams digitale Lösungen für die Kund:innen von PostFinance. Als Architecture Owner übernimmst du die Verantwortung für die Architektur der Delivery Teams Telefonie und KOP (Kundenkommunikationsplattform). Du entwickelst ein nachhaltiges Architektur-Zielbild und stellst sicher, dass Lösungen wie Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung und Workforce Management optimal in die Applikationslandschaft von PostFinance integriert werden. Mit deiner Leidenschaft und deinem technischen Know-how sorgst du dafür, dass unsere Architektur zukunftsfähig bleibt.\n\r\n \n\r\nDas kannst du bewirken\n\r\n\r\nGemeinsam mit dem Product Owner und dem Scrum Master bildest du das Leadership-Trio des Delivery Teams – auf Augenhöhe und mit viel Raum für Mitgestaltung\n\r\nDu entwickelst und pflegst das Architektur-Zielbild für die Integration externer Standardapplikationen wie Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung sowie Workforce Management in die Applikationslandschaft von PostFinance und stellst sicher, dass dieses konsequent umgesetzt wird\n\r\nDu erkennst technische Abhängigkeiten und Risiken frühzeitig und leitest gemeinsam mit dem Product Owner geeignete Massnahmen ein\n\r\nDu berätst den Product Owner in Architektur-, Technologie- und Security-Fragen und unterstützt bei der Planung und Umsetzung der Produkt-Roadmap\n\r\nDu vertrittst dein Delivery Team in Architektur-, Technologie- und Sicherheitsbelangen gegenüber internen und externen Stakeholdern\n\r\nDu stellst sicher, dass technische Dokumentationen und Inventarisierungsdaten aktuell, nutzbringend und nachhaltig gepflegt werden\n\r\n\n\r\n \n\r\nDas bringst du mit\n\r\n\r\nMehrjährige Erfahrung in der Softwarearchitektur, idealerweise in agilen Produktteams, sowie ein tiefes technisches Verständnis moderner Systemlandschaften\n\r\nPraktische Erfahrung mit Containerisierung (Docker, Kubernetes), CI/CD mit GitLab sowie im Umgang mit Oracle-Datenbanken und S3-Storage\n\r\nFreude an interdisziplinärer Zusammenarbeit sowie eine proaktive Arbeitsweise mit hohem Ownership\n\r\nIdealerweise Know-how im Bereich Contact-Center-Lösungen (Call Routing, IVR), SIP-Protokolle, Voice Gateways und modulare, cloudbasierte Standardapplikationen\n\r\nVertrautheit mit Sicherheitsstandards (IAM, Verschlüsselung, Zugriffskontrollen, Logging) und deren Anwendung im Cloud- und Schnittstellenumfeld\n\r\nErfahrung in der Koordination und Kommunikation mit verschiedenen Stakeholdern (z. B. Entwicklung, Betrieb, Infrastruktur, Sicherheit)",
+      "descriptionByLocale": {
+        "it": "Das Solution Team «Kundeninteraktion» entwickelt und betreibt mit agilen Delivery Teams digitale Lösungen für die Kund:innen von PostFinance. Als Architecture Owner übernimmst du die Verantwortung für die Architektur der Delivery Teams Telefonie und KOP (Kundenkommunikationsplattform). Du entwickelst ein nachhaltiges Architektur-Zielbild und stellst sicher, dass Lösungen wie Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung und Workforce Management optimal in die Applikationslandschaft von PostFinance integriert werden. Mit deiner Leidenschaft und deinem technischen Know-how sorgst du dafür, dass unsere Architektur zukunftsfähig bleibt.\n\r\n \n\r\nDas kannst du bewirken\n\r\n\r\nGemeinsam mit dem Product Owner und dem Scrum Master bildest du das Leadership-Trio des Delivery Teams – auf Augenhöhe und mit viel Raum für Mitgestaltung\n\r\nDu entwickelst und pflegst das Architektur-Zielbild für die Integration externer Standardapplikationen wie Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung sowie Workforce Management in die Applikationslandschaft von PostFinance und stellst sicher, dass dieses konsequent umgesetzt wird\n\r\nDu erkennst technische Abhängigkeiten und Risiken frühzeitig und leitest gemeinsam mit dem Product Owner geeignete Massnahmen ein\n\r\nDu berätst den Product Owner in Architektur-, Technologie- und Security-Fragen und unterstützt bei der Planung und Umsetzung der Produkt-Roadmap\n\r\nDu vertrittst dein Delivery Team in Architektur-, Technologie- und Sicherheitsbelangen gegenüber internen und externen Stakeholdern\n\r\nDu stellst sicher, dass technische Dokumentationen und Inventarisierungsdaten aktuell, nutzbringend und nachhaltig gepflegt werden\n\r\n\n\r\n \n\r\nDas bringst du mit\n\r\n\r\nMehrjährige Erfahrung in der Softwarearchitektur, idealerweise in agilen Produktteams, sowie ein tiefes technisches Verständnis moderner Systemlandschaften\n\r\nPraktische Erfahrung mit Containerisierung (Docker, Kubernetes), CI/CD mit GitLab sowie im Umgang mit Oracle-Datenbanken und S3-Storage\n\r\nFreude an interdisziplinärer Zusammenarbeit sowie eine proaktive Arbeitsweise mit hohem Ownership\n\r\nIdealerweise Know-how im Bereich Contact-Center-Lösungen (Call Routing, IVR), SIP-Protokolle, Voice Gateways und modulare, cloudbasierte Standardapplikationen\n\r\nVertrautheit mit Sicherheitsstandards (IAM, Verschlüsselung, Zugriffskontrollen, Logging) und deren Anwendung im Cloud- und Schnittstellenumfeld\n\r\nErfahrung in der Koordination und Kommunikation mit verschiedenen Stakeholdern (z. B. Entwicklung, Betrieb, Infrastruktur, Sicherheit)",
+        "de": "Das Solution Team «Kundeninteraktion» entwickelt und betreibt mit agilen Delivery Teams digitale Lösungen für die Kund:innen von PostFinance. Als Architecture Owner übernimmst du die Verantwortung für die Architektur der Delivery Teams Telefonie und KOP (Kundenkommunikationsplattform). Du entwickelst ein nachhaltiges Architektur-Zielbild und stellst sicher, dass Lösungen wie Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung und Workforce Management optimal in die Applikationslandschaft von PostFinance integriert werden. Mit deiner Leidenschaft und deinem technischen Know-how sorgst du dafür, dass unsere Architektur zukunftsfähig bleibt.\n\r\n \n\r\nDas kannst du bewirken\n\r\n\r\nGemeinsam mit dem Product Owner und dem Scrum Master bildest du das Leadership-Trio des Delivery Teams – auf Augenhöhe und mit viel Raum für Mitgestaltung\n\r\nDu entwickelst und pflegst das Architektur-Zielbild für die Integration externer Standardapplikationen wie Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung sowie Workforce Management in die Applikationslandschaft von PostFinance und stellst sicher, dass dieses konsequent umgesetzt wird\n\r\nDu erkennst technische Abhängigkeiten und Risiken frühzeitig und leitest gemeinsam mit dem Product Owner geeignete Massnahmen ein\n\r\nDu berätst den Product Owner in Architektur-, Technologie- und Security-Fragen und unterstützt bei der Planung und Umsetzung der Produkt-Roadmap\n\r\nDu vertrittst dein Delivery Team in Architektur-, Technologie- und Sicherheitsbelangen gegenüber internen und externen Stakeholdern\n\r\nDu stellst sicher, dass technische Dokumentationen und Inventarisierungsdaten aktuell, nutzbringend und nachhaltig gepflegt werden\n\r\n\n\r\n \n\r\nDas bringst du mit\n\r\n\r\nMehrjährige Erfahrung in der Softwarearchitektur, idealerweise in agilen Produktteams, sowie ein tiefes technisches Verständnis moderner Systemlandschaften\n\r\nPraktische Erfahrung mit Containerisierung (Docker, Kubernetes), CI/CD mit GitLab sowie im Umgang mit Oracle-Datenbanken und S3-Storage\n\r\nFreude an interdisziplinärer Zusammenarbeit sowie eine proaktive Arbeitsweise mit hohem Ownership\n\r\nIdealerweise Know-how im Bereich Contact-Center-Lösungen (Call Routing, IVR), SIP-Protokolle, Voice Gateways und modulare, cloudbasierte Standardapplikationen\n\r\nVertrautheit mit Sicherheitsstandards (IAM, Verschlüsselung, Zugriffskontrollen, Logging) und deren Anwendung im Cloud- und Schnittstellenumfeld\n\r\nErfahrung in der Koordination und Kommunikation mit verschiedenen Stakeholdern (z. B. Entwicklung, Betrieb, Infrastruktur, Sicherheit)",
+        "en": "Das Solution Team «Kundeninteraktion» entwickelt und betreibt mit agilen Delivery Teams digitale Lösungen für die Kund:innen von PostFinance. Als Architecture Owner übernimmst du die Verantwortung für die Architektur der Delivery Teams Telefonie und KOP (Kundenkommunikationsplattform). Du entwickelst ein nachhaltiges Architektur-Zielbild und stellst sicher, dass Lösungen wie Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung und Workforce Management optimal in die Applikationslandschaft von PostFinance integriert werden. Mit deiner Leidenschaft und deinem technischen Know-how sorgst du dafür, dass unsere Architektur zukunftsfähig bleibt.\n\r\n \n\r\nDas kannst du bewirken\n\r\n\r\nGemeinsam mit dem Product Owner und dem Scrum Master bildest du das Leadership-Trio des Delivery Teams – auf Augenhöhe und mit viel Raum für Mitgestaltung\n\r\nDu entwickelst und pflegst das Architektur-Zielbild für die Integration externer Standardapplikationen wie Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung sowie Workforce Management in die Applikationslandschaft von PostFinance und stellst sicher, dass dieses konsequent umgesetzt wird\n\r\nDu erkennst technische Abhängigkeiten und Risiken frühzeitig und leitest gemeinsam mit dem Product Owner geeignete Massnahmen ein\n\r\nDu berätst den Product Owner in Architektur-, Technologie- und Security-Fragen und unterstützt bei der Planung und Umsetzung der Produkt-Roadmap\n\r\nDu vertrittst dein Delivery Team in Architektur-, Technologie- und Sicherheitsbelangen gegenüber internen und externen Stakeholdern\n\r\nDu stellst sicher, dass technische Dokumentationen und Inventarisierungsdaten aktuell, nutzbringend und nachhaltig gepflegt werden\n\r\n\n\r\n \n\r\nDas bringst du mit\n\r\n\r\nMehrjährige Erfahrung in der Softwarearchitektur, idealerweise in agilen Produktteams, sowie ein tiefes technisches Verständnis moderner Systemlandschaften\n\r\nPraktische Erfahrung mit Containerisierung (Docker, Kubernetes), CI/CD mit GitLab sowie im Umgang mit Oracle-Datenbanken und S3-Storage\n\r\nFreude an interdisziplinärer Zusammenarbeit sowie eine proaktive Arbeitsweise mit hohem Ownership\n\r\nIdealerweise Know-how im Bereich Contact-Center-Lösungen (Call Routing, IVR), SIP-Protokolle, Voice Gateways und modulare, cloudbasierte Standardapplikationen\n\r\nVertrautheit mit Sicherheitsstandards (IAM, Verschlüsselung, Zugriffskontrollen, Logging) und deren Anwendung im Cloud- und Schnittstellenumfeld\n\r\nErfahrung in der Koordination und Kommunikation mit verschiedenen Stakeholdern (z. B. Entwicklung, Betrieb, Infrastruktur, Sicherheit)",
+        "fr": "Das Solution Team «Kundeninteraktion» entwickelt und betreibt mit agilen Delivery Teams digitale Lösungen für die Kund:innen von PostFinance. Als Architecture Owner übernimmst du die Verantwortung für die Architektur der Delivery Teams Telefonie und KOP (Kundenkommunikationsplattform). Du entwickelst ein nachhaltiges Architektur-Zielbild und stellst sicher, dass Lösungen wie Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung und Workforce Management optimal in die Applikationslandschaft von PostFinance integriert werden. Mit deiner Leidenschaft und deinem technischen Know-how sorgst du dafür, dass unsere Architektur zukunftsfähig bleibt.\n\r\n \n\r\nDas kannst du bewirken\n\r\n\r\nGemeinsam mit dem Product Owner und dem Scrum Master bildest du das Leadership-Trio des Delivery Teams – auf Augenhöhe und mit viel Raum für Mitgestaltung\n\r\nDu entwickelst und pflegst das Architektur-Zielbild für die Integration externer Standardapplikationen wie Contact-Center-Telefonie, Messaging, Co-Browsing, Videoberatung sowie Workforce Management in die Applikationslandschaft von PostFinance und stellst sicher, dass dieses konsequent umgesetzt wird\n\r\nDu erkennst technische Abhängigkeiten und Risiken frühzeitig und leitest gemeinsam mit dem Product Owner geeignete Massnahmen ein\n\r\nDu berätst den Product Owner in Architektur-, Technologie- und Security-Fragen und unterstützt bei der Planung und Umsetzung der Produkt-Roadmap\n\r\nDu vertrittst dein Delivery Team in Architektur-, Technologie- und Sicherheitsbelangen gegenüber internen und externen Stakeholdern\n\r\nDu stellst sicher, dass technische Dokumentationen und Inventarisierungsdaten aktuell, nutzbringend und nachhaltig gepflegt werden\n\r\n\n\r\n \n\r\nDas bringst du mit\n\r\n\r\nMehrjährige Erfahrung in der Softwarearchitektur, idealerweise in agilen Produktteams, sowie ein tiefes technisches Verständnis moderner Systemlandschaften\n\r\nPraktische Erfahrung mit Containerisierung (Docker, Kubernetes), CI/CD mit GitLab sowie im Umgang mit Oracle-Datenbanken und S3-Storage\n\r\nFreude an interdisziplinärer Zusammenarbeit sowie eine proaktive Arbeitsweise mit hohem Ownership\n\r\nIdealerweise Know-how im Bereich Contact-Center-Lösungen (Call Routing, IVR), SIP-Protokolle, Voice Gateways und modulare, cloudbasierte Standardapplikationen\n\r\nVertrautheit mit Sicherheitsstandards (IAM, Verschlüsselung, Zugriffskontrollen, Logging) und deren Anwendung im Cloud- und Schnittstellenumfeld\n\r\nErfahrung in der Koordination und Kommunikation mit verschiedenen Stakeholdern (z. B. Entwicklung, Betrieb, Infrastruktur, Sicherheit)"
+      },
+      "titleByLocale": {
+        "it": "Architecture Owner Telefonie e KOP (w/m/d)",
+        "de": "Architecture Owner Telefonie und KOP (w/m/d)",
+        "en": "Architecture Owner Telefonie und KOP (w/m/d)",
+        "fr": "Architecture Owner Telefonie und KOP (w/m/d)"
+      },
+      "slug": "architecture-owner-telefonie-e-kop-m-w-d-postfinance-bern",
+      "slugByLocale": {
+        "it": "architecture-owner-telefonie-e-kop-m-w-d-postfinance-bern",
+        "en": "architecture-owner-telefonie-und-kop-w-m-d-postfinance",
+        "de": "architecture-owner-telefonie-und-kop-w-m-d-postfinance",
+        "fr": "architecture-owner-telefonie-und-kop-w-m-d-postfinance"
+      },
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-16",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "id": "postfinance-b4a070864c05",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-16T10:49:06.770Z"
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Carouge-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Carouge/1374031133/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Carouge-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Carouge/1374031133/",
+      "title": "Conseiller:ère clientèle privée, Carouge",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Carouge",
+      "canton": "GE",
+      "country": "CH",
+      "description": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service.\n\r\n \n\r\nFais la différence\n\r\n\r\nTu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online\n\r\nTu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire\n\r\nTu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients\n\r\nGrâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance\n\r\n\n\r\n \n\r\nCe que tu apportes\n\r\n\r\nMinimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée \n\r\nTu habites dans la région genevoise et tu disposes de bonnes connaissances du marché local \n\r\nFormation continue dans le domaine bancaire et/ou des assurances (IAF, SAQ, AFA) \n\r\nPersonnalité indépendante avec une forte orientation client",
+      "descriptionByLocale": {
+        "it": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service.\n\r\n \n\r\nFais la différence\n\r\n\r\nTu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online\n\r\nTu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire\n\r\nTu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients\n\r\nGrâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance\n\r\n\n\r\n \n\r\nCe que tu apportes\n\r\n\r\nMinimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée \n\r\nTu habites dans la région genevoise et tu disposes de bonnes connaissances du marché local \n\r\nFormation continue dans le domaine bancaire et/ou des assurances (IAF, SAQ, AFA) \n\r\nPersonnalité indépendante avec une forte orientation client",
+        "fr": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service.\n\r\n \n\r\nFais la différence\n\r\n\r\nTu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online\n\r\nTu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire\n\r\nTu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients\n\r\nGrâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance\n\r\n\n\r\n \n\r\nCe que tu apportes\n\r\n\r\nMinimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée \n\r\nTu habites dans la région genevoise et tu disposes de bonnes connaissances du marché local \n\r\nFormation continue dans le domaine bancaire et/ou des assurances (IAF, SAQ, AFA) \n\r\nPersonnalité indépendante avec une forte orientation client",
+        "en": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service.\n\r\n \n\r\nFais la différence\n\r\n\r\nTu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online\n\r\nTu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire\n\r\nTu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients\n\r\nGrâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance\n\r\n\n\r\n \n\r\nCe que tu apportes\n\r\n\r\nMinimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée \n\r\nTu habites dans la région genevoise et tu disposes de bonnes connaissances du marché local \n\r\nFormation continue dans le domaine bancaire et/ou des assurances (IAF, SAQ, AFA) \n\r\nPersonnalité indépendante avec une forte orientation client",
+        "de": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service.\n\r\n \n\r\nFais la différence\n\r\n\r\nTu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online\n\r\nTu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire\n\r\nTu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients\n\r\nGrâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance\n\r\n\n\r\n \n\r\nCe que tu apportes\n\r\n\r\nMinimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée \n\r\nTu habites dans la région genevoise et tu disposes de bonnes connaissances du marché local \n\r\nFormation continue dans le domaine bancaire et/ou des assurances (IAF, SAQ, AFA) \n\r\nPersonnalité indépendante avec une forte orientation client"
+      },
+      "titleByLocale": {
+        "it": "Conseiller:ère clientèle privée, Carouge",
+        "fr": "Conseiller:ère clientèle privée, Carouge",
+        "en": "Conseiller:ère clientèle privée, Carouge",
+        "de": "Conseiller:ère clientèle privée, Carouge"
+      },
+      "slug": "consigliere-era-cliente-privato-carouge-postfinance-carouge",
+      "slugByLocale": {
+        "it": "consigliere-era-cliente-privato-carouge-postfinance-carouge",
+        "en": "conseiller-ere-clientele-privee-carouge-postfinance",
+        "de": "conseiller-ere-clientele-privee-carouge-postfinance",
+        "fr": "conseiller-ere-clientele-privee-carouge-postfinance"
+      },
+      "sourceLang": "fr",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-16",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "GE",
+        "location": "Carouge"
+      },
+      "crawledAt": "",
+      "id": "postfinance-5c7d91934019",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1227",
+      "firstSeenAt": "2026-05-16T10:49:06.770Z"
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
+      "title": "Collaborateur:trice Compliance Office Clientèle Commerciale",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bulle",
+      "canton": "FR",
+      "country": "CH",
+      "description": "Le respect des dispositions légales et des directives en vigueur est capital pour garantir la fiabilité de PostFinance. Dans l'exercice de tes fonctions, tu y veilles quotidiennement en fournissant des prestations de haute qualité, notamment dans la clarification et l'analyse des relations d'affaires commerciales à haut risque.\n\r\n \n\r\nFais la différence\n\r\n\r\nTu identifies les risques liés aux cas complexes et procèdes aux clarifications nécessaires directement avec les clients en tenant compte des exigences légales et réglementaires\n\r\nTu évalues les relations d'affaires et tu rédiges des rapports de manière irréprochable et précise\n\r\nTu veilles particulièrement au respect des obligations de diligence et de la compliance fiscale\n\r\nGrâce à tes connaissances, tu jongles entre le droit et la finance et cherche des solutions ciblées et conformes à la compliance pour les clients\n\r\nTon aisance dans les contacts ainsi que ta précision au travail te permettent de répondre de manière compétente aux questions et situations parfois difficiles des différents acteurs internes et externes\n\r\n\n\r\n \n\r\nCe que tu apportes\n\r\n\r\nApprentissage bancaire et/ou Maturité commerciale/gymnasiale ainsi qu'une formation supérieure en économie ou en droit\n\r\nExpérience et connaissance des métiers de la banque, en particulier dans le domaine du Compliance\n\r\nAisance dans les contacts téléphoniques\n\r\nCapacité à traiter plusieurs tâches en même temps et bonne gestion des priorités\n\r\nPersonnalité curieuse, fiable, dotée d'un bon esprit d'initiative et dotée d'une bonne capacité de gestion du stress\n\r\nParfaite maîtrise du français et bonnes connaissances de l'allemand (min. B1)",
+      "descriptionByLocale": {
+        "it": "Le respect des dispositions légales et des directives en vigueur est capital pour garantir la fiabilité de PostFinance. Dans l'exercice de tes fonctions, tu y veilles quotidiennement en fournissant des prestations de haute qualité, notamment dans la clarification et l'analyse des relations d'affaires commerciales à haut risque.\n\r\n \n\r\nFais la différence\n\r\n\r\nTu identifies les risques liés aux cas complexes et procèdes aux clarifications nécessaires directement avec les clients en tenant compte des exigences légales et réglementaires\n\r\nTu évalues les relations d'affaires et tu rédiges des rapports de manière irréprochable et précise\n\r\nTu veilles particulièrement au respect des obligations de diligence et de la compliance fiscale\n\r\nGrâce à tes connaissances, tu jongles entre le droit et la finance et cherche des solutions ciblées et conformes à la compliance pour les clients\n\r\nTon aisance dans les contacts ainsi que ta précision au travail te permettent de répondre de manière compétente aux questions et situations parfois difficiles des différents acteurs internes et externes\n\r\n\n\r\n \n\r\nCe que tu apportes\n\r\n\r\nApprentissage bancaire et/ou Maturité commerciale/gymnasiale ainsi qu'une formation supérieure en économie ou en droit\n\r\nExpérience et connaissance des métiers de la banque, en particulier dans le domaine du Compliance\n\r\nAisance dans les contacts téléphoniques\n\r\nCapacité à traiter plusieurs tâches en même temps et bonne gestion des priorités\n\r\nPersonnalité curieuse, fiable, dotée d'un bon esprit d'initiative et dotée d'une bonne capacité de gestion du stress\n\r\nParfaite maîtrise du français et bonnes connaissances de l'allemand (min. B1)",
+        "fr": "Le respect des dispositions légales et des directives en vigueur est capital pour garantir la fiabilité de PostFinance. Dans l'exercice de tes fonctions, tu y veilles quotidiennement en fournissant des prestations de haute qualité, notamment dans la clarification et l'analyse des relations d'affaires commerciales à haut risque.\n\r\n \n\r\nFais la différence\n\r\n\r\nTu identifies les risques liés aux cas complexes et procèdes aux clarifications nécessaires directement avec les clients en tenant compte des exigences légales et réglementaires\n\r\nTu évalues les relations d'affaires et tu rédiges des rapports de manière irréprochable et précise\n\r\nTu veilles particulièrement au respect des obligations de diligence et de la compliance fiscale\n\r\nGrâce à tes connaissances, tu jongles entre le droit et la finance et cherche des solutions ciblées et conformes à la compliance pour les clients\n\r\nTon aisance dans les contacts ainsi que ta précision au travail te permettent de répondre de manière compétente aux questions et situations parfois difficiles des différents acteurs internes et externes\n\r\n\n\r\n \n\r\nCe que tu apportes\n\r\n\r\nApprentissage bancaire et/ou Maturité commerciale/gymnasiale ainsi qu'une formation supérieure en économie ou en droit\n\r\nExpérience et connaissance des métiers de la banque, en particulier dans le domaine du Compliance\n\r\nAisance dans les contacts téléphoniques\n\r\nCapacité à traiter plusieurs tâches en même temps et bonne gestion des priorités\n\r\nPersonnalité curieuse, fiable, dotée d'un bon esprit d'initiative et dotée d'une bonne capacité de gestion du stress\n\r\nParfaite maîtrise du français et bonnes connaissances de l'allemand (min. B1)",
+        "en": "Le respect des dispositions légales et des directives en vigueur est capital pour garantir la fiabilité de PostFinance. Dans l'exercice de tes fonctions, tu y veilles quotidiennement en fournissant des prestations de haute qualité, notamment dans la clarification et l'analyse des relations d'affaires commerciales à haut risque.\n\r\n \n\r\nFais la différence\n\r\n\r\nTu identifies les risques liés aux cas complexes et procèdes aux clarifications nécessaires directement avec les clients en tenant compte des exigences légales et réglementaires\n\r\nTu évalues les relations d'affaires et tu rédiges des rapports de manière irréprochable et précise\n\r\nTu veilles particulièrement au respect des obligations de diligence et de la compliance fiscale\n\r\nGrâce à tes connaissances, tu jongles entre le droit et la finance et cherche des solutions ciblées et conformes à la compliance pour les clients\n\r\nTon aisance dans les contacts ainsi que ta précision au travail te permettent de répondre de manière compétente aux questions et situations parfois difficiles des différents acteurs internes et externes\n\r\n\n\r\n \n\r\nCe que tu apportes\n\r\n\r\nApprentissage bancaire et/ou Maturité commerciale/gymnasiale ainsi qu'une formation supérieure en économie ou en droit\n\r\nExpérience et connaissance des métiers de la banque, en particulier dans le domaine du Compliance\n\r\nAisance dans les contacts téléphoniques\n\r\nCapacité à traiter plusieurs tâches en même temps et bonne gestion des priorités\n\r\nPersonnalité curieuse, fiable, dotée d'un bon esprit d'initiative et dotée d'une bonne capacité de gestion du stress\n\r\nParfaite maîtrise du français et bonnes connaissances de l'allemand (min. B1)",
+        "de": "Le respect des dispositions légales et des directives en vigueur est capital pour garantir la fiabilité de PostFinance. Dans l'exercice de tes fonctions, tu y veilles quotidiennement en fournissant des prestations de haute qualité, notamment dans la clarification et l'analyse des relations d'affaires commerciales à haut risque.\n\r\n \n\r\nFais la différence\n\r\n\r\nTu identifies les risques liés aux cas complexes et procèdes aux clarifications nécessaires directement avec les clients en tenant compte des exigences légales et réglementaires\n\r\nTu évalues les relations d'affaires et tu rédiges des rapports de manière irréprochable et précise\n\r\nTu veilles particulièrement au respect des obligations de diligence et de la compliance fiscale\n\r\nGrâce à tes connaissances, tu jongles entre le droit et la finance et cherche des solutions ciblées et conformes à la compliance pour les clients\n\r\nTon aisance dans les contacts ainsi que ta précision au travail te permettent de répondre de manière compétente aux questions et situations parfois difficiles des différents acteurs internes et externes\n\r\n\n\r\n \n\r\nCe que tu apportes\n\r\n\r\nApprentissage bancaire et/ou Maturité commerciale/gymnasiale ainsi qu'une formation supérieure en économie ou en droit\n\r\nExpérience et connaissance des métiers de la banque, en particulier dans le domaine du Compliance\n\r\nAisance dans les contacts téléphoniques\n\r\nCapacité à traiter plusieurs tâches en même temps et bonne gestion des priorités\n\r\nPersonnalité curieuse, fiable, dotée d'un bon esprit d'initiative et dotée d'une bonne capacité de gestion du stress\n\r\nParfaite maîtrise du français et bonnes connaissances de l'allemand (min. B1)"
+      },
+      "titleByLocale": {
+        "it": "Collaborateur:trice Compliance Office Clientèle Commerciale",
+        "fr": "Collaborateur:trice Compliance Office Clientèle Commerciale",
+        "en": "Collaborateur:trice Compliance Office Clientèle Commerciale",
+        "de": "Collaborateur:trice Compliance Office Clientèle Commerciale"
+      },
+      "slug": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
+      "slugByLocale": {
+        "it": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
+        "en": "collaborateur-trice-compliance-office-clientele-commerciale-postfinance",
+        "de": "collaborateur-trice-compliance-office-clientele-commerciale-postfinance",
+        "fr": "collaborateur-trice-compliance-office-clientele-commerciale-postfinance"
+      },
+      "sourceLang": "fr",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-16",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Bulle"
+      },
+      "crawledAt": "",
+      "id": "postfinance-97dc609ae987",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1630",
+      "firstSeenAt": "2026-05-16T10:49:06.770Z"
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
+      "title": "Mitarbeiter:in Chargebacks",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "Als Mitarbeiter:in Chargebacks prüfst und bearbeitest du Beanstandungen von Kartenbuchungen. Du stellst sicher, dass Rückforderungen korrekt und fristgerecht abgewickelt werden und leistest damit einen wichtigen Beitrag zum Schutz unserer Kund:innen im Zahlungsverkehr.\n\r\n \n\r\nDas kannst du bewirken\n\r\n\r\nDu bearbeitest Beanstandungen von Kartenbuchungen und führst den Chargeback-Prozess gemäss den Vorgaben der Kartenorganisationen (z. B. Mastercard) durch\n\r\nDu prüfst Anfragen und Beanstandungen von Karteninhaber:innen sowie von internen und externen Partnern und beantwortest diese schriftlich oder telefonisch\n\r\nDu analysierst die einzelnen Fälle sorgfältig, entscheidest über mögliche Rückforderungen und stellst die notwendigen Unterlagen für die Weiterbearbeitung zusammen\n\r\nDu leitest die Fälle an Kartenorganisationen oder Partnerbanken weiter und stellst sicher, dass alle Fristen eingehalten werden\n\r\nDu dokumentierst die einzelnen Schritte im System und sorgst für eine saubere Nachverfolgung der Fälle\n\r\nDu stellst sicher, dass unsere Kund:innen über den Stand ihrer Beanstandung informiert sind\n\r\nBei verdächtigen Transaktionen arbeitest du eng mit dem Team Fraud Prevention zusammen und leitest die notwendigen Schritte ein\n\r\n\n\r\n \n\r\nDas bringst du mit\n\r\n\r\nAbgeschlossene kaufmännische oder vergleichbare Berufsausbildung\n\r\nErfahrung im Bereich Chargeback, Kartenservice oder Zahlungsverkehr\n\r\nStilsicheres Deutsch sowie gute Englischkenntnisse; Französisch und Italienisch von Vorteil\n\r\nSicherer Umgang mit MS Office und digitalen Tools\n\r\nEine strukturierte und genaue Arbeitsweise sowie Freude daran, komplexe Fälle zu analysieren und Lösungen zu finden\n\r\nEin dienstleistungsorientiertes Mindset im Umgang mit Kund:innen sowie internen und externen Partnern",
+      "descriptionByLocale": {
+        "it": "Als Mitarbeiter:in Chargebacks prüfst und bearbeitest du Beanstandungen von Kartenbuchungen. Du stellst sicher, dass Rückforderungen korrekt und fristgerecht abgewickelt werden und leistest damit einen wichtigen Beitrag zum Schutz unserer Kund:innen im Zahlungsverkehr.\n\r\n \n\r\nDas kannst du bewirken\n\r\n\r\nDu bearbeitest Beanstandungen von Kartenbuchungen und führst den Chargeback-Prozess gemäss den Vorgaben der Kartenorganisationen (z. B. Mastercard) durch\n\r\nDu prüfst Anfragen und Beanstandungen von Karteninhaber:innen sowie von internen und externen Partnern und beantwortest diese schriftlich oder telefonisch\n\r\nDu analysierst die einzelnen Fälle sorgfältig, entscheidest über mögliche Rückforderungen und stellst die notwendigen Unterlagen für die Weiterbearbeitung zusammen\n\r\nDu leitest die Fälle an Kartenorganisationen oder Partnerbanken weiter und stellst sicher, dass alle Fristen eingehalten werden\n\r\nDu dokumentierst die einzelnen Schritte im System und sorgst für eine saubere Nachverfolgung der Fälle\n\r\nDu stellst sicher, dass unsere Kund:innen über den Stand ihrer Beanstandung informiert sind\n\r\nBei verdächtigen Transaktionen arbeitest du eng mit dem Team Fraud Prevention zusammen und leitest die notwendigen Schritte ein\n\r\n\n\r\n \n\r\nDas bringst du mit\n\r\n\r\nAbgeschlossene kaufmännische oder vergleichbare Berufsausbildung\n\r\nErfahrung im Bereich Chargeback, Kartenservice oder Zahlungsverkehr\n\r\nStilsicheres Deutsch sowie gute Englischkenntnisse; Französisch und Italienisch von Vorteil\n\r\nSicherer Umgang mit MS Office und digitalen Tools\n\r\nEine strukturierte und genaue Arbeitsweise sowie Freude daran, komplexe Fälle zu analysieren und Lösungen zu finden\n\r\nEin dienstleistungsorientiertes Mindset im Umgang mit Kund:innen sowie internen und externen Partnern",
+        "de": "Als Mitarbeiter:in Chargebacks prüfst und bearbeitest du Beanstandungen von Kartenbuchungen. Du stellst sicher, dass Rückforderungen korrekt und fristgerecht abgewickelt werden und leistest damit einen wichtigen Beitrag zum Schutz unserer Kund:innen im Zahlungsverkehr.\n\r\n \n\r\nDas kannst du bewirken\n\r\n\r\nDu bearbeitest Beanstandungen von Kartenbuchungen und führst den Chargeback-Prozess gemäss den Vorgaben der Kartenorganisationen (z. B. Mastercard) durch\n\r\nDu prüfst Anfragen und Beanstandungen von Karteninhaber:innen sowie von internen und externen Partnern und beantwortest diese schriftlich oder telefonisch\n\r\nDu analysierst die einzelnen Fälle sorgfältig, entscheidest über mögliche Rückforderungen und stellst die notwendigen Unterlagen für die Weiterbearbeitung zusammen\n\r\nDu leitest die Fälle an Kartenorganisationen oder Partnerbanken weiter und stellst sicher, dass alle Fristen eingehalten werden\n\r\nDu dokumentierst die einzelnen Schritte im System und sorgst für eine saubere Nachverfolgung der Fälle\n\r\nDu stellst sicher, dass unsere Kund:innen über den Stand ihrer Beanstandung informiert sind\n\r\nBei verdächtigen Transaktionen arbeitest du eng mit dem Team Fraud Prevention zusammen und leitest die notwendigen Schritte ein\n\r\n\n\r\n \n\r\nDas bringst du mit\n\r\n\r\nAbgeschlossene kaufmännische oder vergleichbare Berufsausbildung\n\r\nErfahrung im Bereich Chargeback, Kartenservice oder Zahlungsverkehr\n\r\nStilsicheres Deutsch sowie gute Englischkenntnisse; Französisch und Italienisch von Vorteil\n\r\nSicherer Umgang mit MS Office und digitalen Tools\n\r\nEine strukturierte und genaue Arbeitsweise sowie Freude daran, komplexe Fälle zu analysieren und Lösungen zu finden\n\r\nEin dienstleistungsorientiertes Mindset im Umgang mit Kund:innen sowie internen und externen Partnern",
+        "en": "Als Mitarbeiter:in Chargebacks prüfst und bearbeitest du Beanstandungen von Kartenbuchungen. Du stellst sicher, dass Rückforderungen korrekt und fristgerecht abgewickelt werden und leistest damit einen wichtigen Beitrag zum Schutz unserer Kund:innen im Zahlungsverkehr.\n\r\n \n\r\nDas kannst du bewirken\n\r\n\r\nDu bearbeitest Beanstandungen von Kartenbuchungen und führst den Chargeback-Prozess gemäss den Vorgaben der Kartenorganisationen (z. B. Mastercard) durch\n\r\nDu prüfst Anfragen und Beanstandungen von Karteninhaber:innen sowie von internen und externen Partnern und beantwortest diese schriftlich oder telefonisch\n\r\nDu analysierst die einzelnen Fälle sorgfältig, entscheidest über mögliche Rückforderungen und stellst die notwendigen Unterlagen für die Weiterbearbeitung zusammen\n\r\nDu leitest die Fälle an Kartenorganisationen oder Partnerbanken weiter und stellst sicher, dass alle Fristen eingehalten werden\n\r\nDu dokumentierst die einzelnen Schritte im System und sorgst für eine saubere Nachverfolgung der Fälle\n\r\nDu stellst sicher, dass unsere Kund:innen über den Stand ihrer Beanstandung informiert sind\n\r\nBei verdächtigen Transaktionen arbeitest du eng mit dem Team Fraud Prevention zusammen und leitest die notwendigen Schritte ein\n\r\n\n\r\n \n\r\nDas bringst du mit\n\r\n\r\nAbgeschlossene kaufmännische oder vergleichbare Berufsausbildung\n\r\nErfahrung im Bereich Chargeback, Kartenservice oder Zahlungsverkehr\n\r\nStilsicheres Deutsch sowie gute Englischkenntnisse; Französisch und Italienisch von Vorteil\n\r\nSicherer Umgang mit MS Office und digitalen Tools\n\r\nEine strukturierte und genaue Arbeitsweise sowie Freude daran, komplexe Fälle zu analysieren und Lösungen zu finden\n\r\nEin dienstleistungsorientiertes Mindset im Umgang mit Kund:innen sowie internen und externen Partnern",
+        "fr": "Als Mitarbeiter:in Chargebacks prüfst und bearbeitest du Beanstandungen von Kartenbuchungen. Du stellst sicher, dass Rückforderungen korrekt und fristgerecht abgewickelt werden und leistest damit einen wichtigen Beitrag zum Schutz unserer Kund:innen im Zahlungsverkehr.\n\r\n \n\r\nDas kannst du bewirken\n\r\n\r\nDu bearbeitest Beanstandungen von Kartenbuchungen und führst den Chargeback-Prozess gemäss den Vorgaben der Kartenorganisationen (z. B. Mastercard) durch\n\r\nDu prüfst Anfragen und Beanstandungen von Karteninhaber:innen sowie von internen und externen Partnern und beantwortest diese schriftlich oder telefonisch\n\r\nDu analysierst die einzelnen Fälle sorgfältig, entscheidest über mögliche Rückforderungen und stellst die notwendigen Unterlagen für die Weiterbearbeitung zusammen\n\r\nDu leitest die Fälle an Kartenorganisationen oder Partnerbanken weiter und stellst sicher, dass alle Fristen eingehalten werden\n\r\nDu dokumentierst die einzelnen Schritte im System und sorgst für eine saubere Nachverfolgung der Fälle\n\r\nDu stellst sicher, dass unsere Kund:innen über den Stand ihrer Beanstandung informiert sind\n\r\nBei verdächtigen Transaktionen arbeitest du eng mit dem Team Fraud Prevention zusammen und leitest die notwendigen Schritte ein\n\r\n\n\r\n \n\r\nDas bringst du mit\n\r\n\r\nAbgeschlossene kaufmännische oder vergleichbare Berufsausbildung\n\r\nErfahrung im Bereich Chargeback, Kartenservice oder Zahlungsverkehr\n\r\nStilsicheres Deutsch sowie gute Englischkenntnisse; Französisch und Italienisch von Vorteil\n\r\nSicherer Umgang mit MS Office und digitalen Tools\n\r\nEine strukturierte und genaue Arbeitsweise sowie Freude daran, komplexe Fälle zu analysieren und Lösungen zu finden\n\r\nEin dienstleistungsorientiertes Mindset im Umgang mit Kund:innen sowie internen und externen Partnern"
+      },
+      "titleByLocale": {
+        "it": "Collaboratore/trice Chargebacks",
+        "de": "Mitarbeiter:in Chargebacks",
+        "en": "Associate Chargebacks",
+        "fr": "Collaborateur/trice Chargebacks"
+      },
+      "slug": "collaboratore-trice-chargebacks-postfinance-bern",
+      "slugByLocale": {
+        "it": "collaboratore-trice-chargebacks-postfinance-bern",
+        "en": "associate-chargebacks-postfinance-bern",
+        "de": "mitarbeiter-in-chargebacks-postfinance-bern",
+        "fr": "collaborateur-trice-chargebacks-postfinance-bern"
+      },
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-16",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "id": "postfinance-c5dd413c8462",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-16T10:49:06.770Z"
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
+      "title": "Conseiller:ère clientèle privée, Lausanne",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Lausanne",
+      "canton": "VD",
+      "country": "CH",
+      "description": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service.\n\r\n \n\r\nFais la différence\n\r\n\r\nTu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online\n\r\nTu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire\n\r\nTu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients\n\r\nGrâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance\n\r\n\n\r\n \n\r\nCe que tu apportes\n\r\n\r\nMinimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée \n\r\nTu habites dans la région lausannoise et tu disposes de bonnes connaissances du marché local \n\r\nFormation continue dans le domaine bancaire (IAF, SAQ)\n\r\nPersonnalité indépendante avec une forte orientation client",
+      "descriptionByLocale": {
+        "it": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service.\n\r\n \n\r\nFais la différence\n\r\n\r\nTu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online\n\r\nTu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire\n\r\nTu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients\n\r\nGrâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance\n\r\n\n\r\n \n\r\nCe que tu apportes\n\r\n\r\nMinimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée \n\r\nTu habites dans la région lausannoise et tu disposes de bonnes connaissances du marché local \n\r\nFormation continue dans le domaine bancaire (IAF, SAQ)\n\r\nPersonnalité indépendante avec une forte orientation client",
+        "fr": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service.\n\r\n \n\r\nFais la différence\n\r\n\r\nTu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online\n\r\nTu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire\n\r\nTu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients\n\r\nGrâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance\n\r\n\n\r\n \n\r\nCe que tu apportes\n\r\n\r\nMinimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée \n\r\nTu habites dans la région lausannoise et tu disposes de bonnes connaissances du marché local \n\r\nFormation continue dans le domaine bancaire (IAF, SAQ)\n\r\nPersonnalité indépendante avec une forte orientation client",
+        "en": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service.\n\r\n \n\r\nFais la différence\n\r\n\r\nTu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online\n\r\nTu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire\n\r\nTu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients\n\r\nGrâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance\n\r\n\n\r\n \n\r\nCe que tu apportes\n\r\n\r\nMinimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée \n\r\nTu habites dans la région lausannoise et tu disposes de bonnes connaissances du marché local \n\r\nFormation continue dans le domaine bancaire (IAF, SAQ)\n\r\nPersonnalité indépendante avec une forte orientation client",
+        "de": "À l'avenir aussi, PostFinance se doit de rester à la pointe de l'innovation sur la place financière suisse. Et ce, notamment en fournissant des conseils compétents, à la clientèle, pour toutes les questions ayant trait à nos services financiers. Que ce soit en ligne, par téléphone ou en personne: en tant que Conseiller/Conseillère clientèle privée tu rends la gestion de l'argent aussi simple que possible grâce à ton expérience dans la vente et ton sens du service.\n\r\n \n\r\nFais la différence\n\r\n\r\nTu conseilles nos clients pour toutes les questions financières en filiale, par téléphone ou online\n\r\nTu es chargé de promouvoir les services et produits de PostFinance dans le domaine des placements, de la prévoyance et du marché hypothécaire\n\r\nTu partages ton enthousiasme pour les services et les produits de PostFinance et organises facilement tes propres rendez-vous avec les clients\n\r\nGrâce à ton dynamisme et à ta grande indépendance, tu atteins les objectifs de vente et de développement convenus et contribues de manière significative au succès de PostFinance\n\r\n\n\r\n \n\r\nCe que tu apportes\n\r\n\r\nMinimum 2 ans d’expérience dans le secteur bancaire/assurance suisse exigée \n\r\nTu habites dans la région lausannoise et tu disposes de bonnes connaissances du marché local \n\r\nFormation continue dans le domaine bancaire (IAF, SAQ)\n\r\nPersonnalité indépendante avec une forte orientation client"
+      },
+      "titleByLocale": {
+        "it": "Conseiller:ère clientèle privée, Lausanne",
+        "fr": "Conseiller:ère clientèle privée, Lausanne",
+        "en": "Conseiller:ère clientèle privée, Lausanne",
+        "de": "Conseiller:ère clientèle privée, Lausanne"
+      },
+      "slug": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
+      "slugByLocale": {
+        "it": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
+        "en": "conseiller-ere-clientele-privee-lausanne-postfinance",
+        "de": "conseiller-ere-clientele-privee-lausanne-postfinance",
+        "fr": "conseiller-ere-clientele-privee-lausanne-postfinance"
+      },
+      "sourceLang": "fr",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-16",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Lausanne"
+      },
+      "crawledAt": "",
+      "id": "postfinance-1ee349fcd573",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-16T10:49:06.770Z"
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
+      "title": "Kundenberater:in Privatkunden, Herisau",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Herisau",
+      "canton": "AR",
+      "country": "CH",
+      "description": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt. Als Kundenberater:in weisst du, was Menschen rund um Finanzfragen wirklich brauchen. Du begleitest sie mit einer kompetenten Beratung auf Augenhöhe – ob digital, am Telefon oder vor Ort. Du wirst Teil eines dynamischen Teams, das über umfassende Erfahrung im Finanz- und Versicherungsbereich verfügt und dich dabei unterstützt, innovative Lösungen zu entwickeln und umzusetzen. Gemeinsam gestalten wir die Zukunft der Beratung: persönlich, relevant und mit Wirkung.  \n\r\n \n\r\nDas kannst du bewirken \n\r\n\r\nDu übernimmst Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche rund um Anlegen, Vorsorgen und Finanzieren \n\r\nDu planst deinen Tag eigenverantwortlich, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit grosser Autonomie \n\r\nDu bringst deine Ideen ein, verfolgst neue Beratungsansätze und erreichst gemeinsam mit dem Team ambitionierte Ziele\n\r\nDu entwickelst dein Wissen gezielt weiter, insbesondere in den Themen Anlegen, Vorsorgen und Finanzieren, und teilst dein Know-how aktiv im Team\n\r\nZudem bist du bereit, 1-2 pro Woche an unserem Hauptstandort in St. Gallen unsere Kund:innen zu betreuen\n\r\n\n\r\n \n\r\nDas bringst du mit \n\r\n\r\nAbgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Verkauf, idealerweise ergänzt durch Weiterbildungen im Banking oder in der Vorsorge\n\r\nErfahrung in der Vorsorge- und Anlageberatung sowie Begeisterung für Finanzthemen\n\r\nEin offenes, empathisches Auftreten, das Vertrauen schafft und Kund:innen ins Zentrum stellt\n\r\nSehr gute Deutschkenntnisse, weitere Sprachen sind ein Plus",
+      "descriptionByLocale": {
+        "it": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt. Als Kundenberater:in weisst du, was Menschen rund um Finanzfragen wirklich brauchen. Du begleitest sie mit einer kompetenten Beratung auf Augenhöhe – ob digital, am Telefon oder vor Ort. Du wirst Teil eines dynamischen Teams, das über umfassende Erfahrung im Finanz- und Versicherungsbereich verfügt und dich dabei unterstützt, innovative Lösungen zu entwickeln und umzusetzen. Gemeinsam gestalten wir die Zukunft der Beratung: persönlich, relevant und mit Wirkung.  \n\r\n \n\r\nDas kannst du bewirken \n\r\n\r\nDu übernimmst Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche rund um Anlegen, Vorsorgen und Finanzieren \n\r\nDu planst deinen Tag eigenverantwortlich, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit grosser Autonomie \n\r\nDu bringst deine Ideen ein, verfolgst neue Beratungsansätze und erreichst gemeinsam mit dem Team ambitionierte Ziele\n\r\nDu entwickelst dein Wissen gezielt weiter, insbesondere in den Themen Anlegen, Vorsorgen und Finanzieren, und teilst dein Know-how aktiv im Team\n\r\nZudem bist du bereit, 1-2 pro Woche an unserem Hauptstandort in St. Gallen unsere Kund:innen zu betreuen\n\r\n\n\r\n \n\r\nDas bringst du mit \n\r\n\r\nAbgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Verkauf, idealerweise ergänzt durch Weiterbildungen im Banking oder in der Vorsorge\n\r\nErfahrung in der Vorsorge- und Anlageberatung sowie Begeisterung für Finanzthemen\n\r\nEin offenes, empathisches Auftreten, das Vertrauen schafft und Kund:innen ins Zentrum stellt\n\r\nSehr gute Deutschkenntnisse, weitere Sprachen sind ein Plus",
+        "de": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt. Als Kundenberater:in weisst du, was Menschen rund um Finanzfragen wirklich brauchen. Du begleitest sie mit einer kompetenten Beratung auf Augenhöhe – ob digital, am Telefon oder vor Ort. Du wirst Teil eines dynamischen Teams, das über umfassende Erfahrung im Finanz- und Versicherungsbereich verfügt und dich dabei unterstützt, innovative Lösungen zu entwickeln und umzusetzen. Gemeinsam gestalten wir die Zukunft der Beratung: persönlich, relevant und mit Wirkung.  \n\r\n \n\r\nDas kannst du bewirken \n\r\n\r\nDu übernimmst Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche rund um Anlegen, Vorsorgen und Finanzieren \n\r\nDu planst deinen Tag eigenverantwortlich, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit grosser Autonomie \n\r\nDu bringst deine Ideen ein, verfolgst neue Beratungsansätze und erreichst gemeinsam mit dem Team ambitionierte Ziele\n\r\nDu entwickelst dein Wissen gezielt weiter, insbesondere in den Themen Anlegen, Vorsorgen und Finanzieren, und teilst dein Know-how aktiv im Team\n\r\nZudem bist du bereit, 1-2 pro Woche an unserem Hauptstandort in St. Gallen unsere Kund:innen zu betreuen\n\r\n\n\r\n \n\r\nDas bringst du mit \n\r\n\r\nAbgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Verkauf, idealerweise ergänzt durch Weiterbildungen im Banking oder in der Vorsorge\n\r\nErfahrung in der Vorsorge- und Anlageberatung sowie Begeisterung für Finanzthemen\n\r\nEin offenes, empathisches Auftreten, das Vertrauen schafft und Kund:innen ins Zentrum stellt\n\r\nSehr gute Deutschkenntnisse, weitere Sprachen sind ein Plus",
+        "en": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt. Als Kundenberater:in weisst du, was Menschen rund um Finanzfragen wirklich brauchen. Du begleitest sie mit einer kompetenten Beratung auf Augenhöhe – ob digital, am Telefon oder vor Ort. Du wirst Teil eines dynamischen Teams, das über umfassende Erfahrung im Finanz- und Versicherungsbereich verfügt und dich dabei unterstützt, innovative Lösungen zu entwickeln und umzusetzen. Gemeinsam gestalten wir die Zukunft der Beratung: persönlich, relevant und mit Wirkung.  \n\r\n \n\r\nDas kannst du bewirken \n\r\n\r\nDu übernimmst Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche rund um Anlegen, Vorsorgen und Finanzieren \n\r\nDu planst deinen Tag eigenverantwortlich, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit grosser Autonomie \n\r\nDu bringst deine Ideen ein, verfolgst neue Beratungsansätze und erreichst gemeinsam mit dem Team ambitionierte Ziele\n\r\nDu entwickelst dein Wissen gezielt weiter, insbesondere in den Themen Anlegen, Vorsorgen und Finanzieren, und teilst dein Know-how aktiv im Team\n\r\nZudem bist du bereit, 1-2 pro Woche an unserem Hauptstandort in St. Gallen unsere Kund:innen zu betreuen\n\r\n\n\r\n \n\r\nDas bringst du mit \n\r\n\r\nAbgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Verkauf, idealerweise ergänzt durch Weiterbildungen im Banking oder in der Vorsorge\n\r\nErfahrung in der Vorsorge- und Anlageberatung sowie Begeisterung für Finanzthemen\n\r\nEin offenes, empathisches Auftreten, das Vertrauen schafft und Kund:innen ins Zentrum stellt\n\r\nSehr gute Deutschkenntnisse, weitere Sprachen sind ein Plus",
+        "fr": "Bei PostFinance stehen unsere Kund:innen im Mittelpunkt. Als Kundenberater:in weisst du, was Menschen rund um Finanzfragen wirklich brauchen. Du begleitest sie mit einer kompetenten Beratung auf Augenhöhe – ob digital, am Telefon oder vor Ort. Du wirst Teil eines dynamischen Teams, das über umfassende Erfahrung im Finanz- und Versicherungsbereich verfügt und dich dabei unterstützt, innovative Lösungen zu entwickeln und umzusetzen. Gemeinsam gestalten wir die Zukunft der Beratung: persönlich, relevant und mit Wirkung.  \n\r\n \n\r\nDas kannst du bewirken \n\r\n\r\nDu übernimmst Verantwortung für dein eigenes Kundenportefeuille und führst ganzheitliche Beratungsgespräche rund um Anlegen, Vorsorgen und Finanzieren \n\r\nDu planst deinen Tag eigenverantwortlich, vereinbarst aktiv Kundentermine und gestaltest deinen Alltag mit grosser Autonomie \n\r\nDu bringst deine Ideen ein, verfolgst neue Beratungsansätze und erreichst gemeinsam mit dem Team ambitionierte Ziele\n\r\nDu entwickelst dein Wissen gezielt weiter, insbesondere in den Themen Anlegen, Vorsorgen und Finanzieren, und teilst dein Know-how aktiv im Team\n\r\nZudem bist du bereit, 1-2 pro Woche an unserem Hauptstandort in St. Gallen unsere Kund:innen zu betreuen\n\r\n\n\r\n \n\r\nDas bringst du mit \n\r\n\r\nAbgeschlossene Grundausbildung (EFZ) im kaufmännischen Bereich oder im Verkauf, idealerweise ergänzt durch Weiterbildungen im Banking oder in der Vorsorge\n\r\nErfahrung in der Vorsorge- und Anlageberatung sowie Begeisterung für Finanzthemen\n\r\nEin offenes, empathisches Auftreten, das Vertrauen schafft und Kund:innen ins Zentrum stellt\n\r\nSehr gute Deutschkenntnisse, weitere Sprachen sind ein Plus"
+      },
+      "titleByLocale": {
+        "it": "Kundenberater:in Privatkunden, Herisau",
+        "de": "Kundenberater:in Privatkunden, Herisau",
+        "en": "Kundenberater:in Privatkunden, Herisau",
+        "fr": "Kundenberater:in Privatkunden, Herisau"
+      },
+      "slug": "consulente-clienti-in-clienti-privati-herisau-postfinance-herisau",
+      "slugByLocale": {
+        "it": "consulente-clienti-in-clienti-privati-herisau-postfinance-herisau",
+        "en": "kundenberater-in-privatkunden-herisau-postfinance",
+        "de": "kundenberater-in-privatkunden-herisau-postfinance",
+        "fr": "kundenberater-in-privatkunden-herisau-postfinance"
+      },
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-16",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Consulenza",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "AR",
+        "location": "Herisau"
+      },
+      "crawledAt": "",
+      "id": "postfinance-a353cf7a3cd3",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-16T10:49:06.770Z"
+    }
+  ]
 }
