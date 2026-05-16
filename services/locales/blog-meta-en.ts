@@ -7597,6 +7597,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.libera-circolazione-ue-svizzera-impatti.title': 'EU-Switzerland Free Movement: Impact on Swiss Economy',
     'blog.article.libera-circolazione-ue-svizzera-impatti.excerpt': 'The free movement of people between Switzerland and the EU has concrete effects on the Swiss economy. Discover the details and implications for cross-border workers.',
     'blog.article.libera-circolazione-ue-svizzera-impatti.imageAlt': 'Commuters crossing the border at Brogeda',
+    'blog.article.iniziativa-10-milioni-votazione-14-giugno.title': 'Initiative 10 Million: UDC Strikes Back',
+    'blog.article.iniziativa-10-milioni-votazione-14-giugno.excerpt': 'Traffic, housing shortage, urbanization, and crime at record highs. \'No to a Switzerland of 10 Million!\' initiative to be voted on June 14.',
+    'blog.article.iniziativa-10-milioni-votazione-14-giugno.imageAlt': 'Locarno, Ticino, Switzerland',
 };
 
 export default blogMetaEn;

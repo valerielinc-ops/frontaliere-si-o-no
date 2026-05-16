@@ -7598,6 +7598,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.libera-circolazione-ue-svizzera-impatti.title': 'Libera circolazione UE-Svizzera: gli effetti sull\'economia elvetica',
     'blog.article.libera-circolazione-ue-svizzera-impatti.excerpt': 'La libera circolazione delle persone tra Svizzera e UE ha effetti concreti sull\'economia elvetica. Scopri i dettagli e le implicazioni per i frontalieri.',
     'blog.article.libera-circolazione-ue-svizzera-impatti.imageAlt': 'Frontalieri in transito al valico di Brogeda',
+    'blog.article.iniziativa-10-milioni-votazione-14-giugno.title': 'Iniziativa 10 milioni: l\'UDC torna alla carica',
+    'blog.article.iniziativa-10-milioni-votazione-14-giugno.excerpt': 'Traffico, penuria di alloggi, cementificazione e criminalità alle stelle. L\'iniziativa \'No a una Svizzera da 10 milioni!\' sarà votata il 14 giugno.',
+    'blog.article.iniziativa-10-milioni-votazione-14-giugno.imageAlt': 'Locarno, Ticino, Svizzera',
 };
 
 export default blogMetaIt;

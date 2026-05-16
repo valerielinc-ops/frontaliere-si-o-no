@@ -7598,6 +7598,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.libera-circolazione-ue-svizzera-impatti.title': 'Libre circulation UE-Suisse: les effets sur l\'économie helvétique',
     'blog.article.libera-circolazione-ue-svizzera-impatti.excerpt': 'La libre circulation des personnes entre la Suisse et l\'UE a des effets concrets sur l\'économie suisse. Découvrez les détails et les implications pour les travailleurs frontaliers.',
     'blog.article.libera-circolazione-ue-svizzera-impatti.imageAlt': 'Frontaliers en transit à la frontière de Brogeda',
+    'blog.article.iniziativa-10-milioni-votazione-14-giugno.title': 'Initiative 10 millions: l\'UDC revient à la charge',
+    'blog.article.iniziativa-10-milioni-votazione-14-giugno.excerpt': 'Circulation, pénurie de logements, bétonnage et criminalité en hausse. L\'initiative \'Non à une Suisse de 10 millions!\' sera votée le 14 juin.',
+    'blog.article.iniziativa-10-milioni-votazione-14-giugno.imageAlt': 'Locarno, Tessin, Suisse',
 };
 
 export default blogMetaFr;

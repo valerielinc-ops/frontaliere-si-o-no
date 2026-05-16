@@ -7596,6 +7596,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.libera-circolazione-ue-svizzera-impatti.title': 'EU-Swiss Freizügigkeit: Auswirkungen auf die Schweizer Wirtschaft',
     'blog.article.libera-circolazione-ue-svizzera-impatti.excerpt': 'Die Freizügigkeit zwischen der Schweiz und der EU hat konkrete Auswirkungen auf die Schweizer Wirtschaft. Entdecken Sie die Details und Implikationen für Grenzgänger.',
     'blog.article.libera-circolazione-ue-svizzera-impatti.imageAlt': 'Pendler am Grenzübergang Brogeda',
+    'blog.article.iniziativa-10-milioni-votazione-14-giugno.title': 'Initiative 10 Millionen: die SVP greift erneut an',
+    'blog.article.iniziativa-10-milioni-votazione-14-giugno.excerpt': 'Verkehr, Wohnungsmangel, Zementierung und Kriminalität auf Rekordhoch. Die Initiative \'Nein zu einer Schweiz mit 10 Millionen!\' wird am 14. Juni zur Abstimmung gebracht.',
+    'blog.article.iniziativa-10-milioni-votazione-14-giugno.imageAlt': 'Locarno, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

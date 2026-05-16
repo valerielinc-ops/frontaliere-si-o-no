@@ -24167,4 +24167,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'iniziativa-10-milioni-votazione-14-giugno',
+ category: 'fiscale',
+ date: '2026-05-16T17:49:56.666Z',
+ image: '/images/blog/iniziativa-10-milioni-votazione-14-giugno.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
