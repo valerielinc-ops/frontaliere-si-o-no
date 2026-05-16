@@ -1,16 +1,16 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-16T10:32:08.215Z",
+  "generatedAt": "2026-05-16T21:57:48.637Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15696,
-  "avgDurationMs": 15696,
+  "durationMs": 13307,
+  "avgDurationMs": 13307,
   "durationHistory": [
-    15696
+    13307
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -85,11 +85,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 81,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 9,
+        "translation": 15,
         "completeness": 25
       }
     },
