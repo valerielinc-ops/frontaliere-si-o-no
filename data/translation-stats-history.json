@@ -10598,5 +10598,117 @@
         "pending": 7
       }
     ]
+  },
+  {
+    "timestamp": "2026-05-16T13:53:08.625Z",
+    "label": "before",
+    "total": 4277,
+    "needsRetranslation": 2164,
+    "incomplete": 446,
+    "complete": 3831,
+    "missingByLocale": {
+      "it": 272,
+      "en": 283,
+      "de": 125,
+      "fr": 314
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 94
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 88
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 24
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 14
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 10
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "Rapelli - ORIOR Food AG",
+        "pending": 9
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-16T15:45:54.204Z",
+    "label": "after",
+    "total": 4277,
+    "needsRetranslation": 959,
+    "incomplete": 318,
+    "complete": 3959,
+    "missingByLocale": {
+      "it": 233,
+      "en": 216,
+      "de": 83,
+      "fr": 241
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 88
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 14
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 10
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "UBS",
+        "pending": 9
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      }
+    ]
   }
 ]
