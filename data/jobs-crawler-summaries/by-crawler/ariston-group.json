@@ -1,49 +1,18 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-05-16T09:33:19.023Z",
+  "generatedAt": "2026-05-16T20:59:01.908Z",
   "total": 31,
-  "newCount": 1,
-  "updatedCount": 22,
+  "newCount": 0,
+  "updatedCount": 23,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 11618,
-  "avgDurationMs": 11618,
+  "durationMs": 11301,
+  "avgDurationMs": 11301,
   "durationHistory": [
-    11618
+    11301
   ],
-  "newJobs": [
-    {
-      "title": "SERVICETECHNIKER ÖL/GAS ATMO (M/W)",
-      "slug": "servicetechniker-ol-gas-atmo-m-w-ariston-group-munchenstein-ch-4142",
-      "url": "https://careers.aristongroup.com/job/Munchenstein-SERVICETECHNIKER-%C3%96LGAS-ATMO-%28MW%29-M%C3%BCnc-4142/1278156701/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1278156701/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Münchenstein, CH, 4142",
-      "addressLocality": "Münchenstein, CH, 4142",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "canton": "BL",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-27",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-06-15",
-      "_qualityScore": 67,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 10,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "VERKAUFSBERATER FÜR HEIZTECHNIK (M/W/D) IM VERKAUFSGEBIET GROßRAUM FREIBURG",
@@ -546,6 +515,43 @@
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "SERVICETECHNIKER ÖL/GAS ATMO (M/W)",
+      "slug": "servicetechniker-ol-gas-atmo-m-w-ariston-group-munchenstein-ch-4142",
+      "url": "https://careers.aristongroup.com/job/Munchenstein-SERVICETECHNIKER-%C3%96LGAS-ATMO-%28MW%29-M%C3%BCnc-4142/1278156701/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1278156701/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Münchenstein, CH, 4142",
+      "addressLocality": "Münchenstein, CH, 4142",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "canton": "BL",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-27",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-06-15",
+      "id": "ariston-group-808a45ed76f6",
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "postalCode": "4142",
+      "firstSeenAt": "2026-05-16T09:33:19.019Z",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
         "completeness": 22
       }
     },
