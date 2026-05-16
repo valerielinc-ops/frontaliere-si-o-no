@@ -3,12 +3,12 @@
     {
       "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
       "clicks": 0,
-      "impressions": 25
+      "impressions": 26
     },
     {
       "query": "i am searching for caregiver jobs in ticino for elderly support.",
       "clicks": 0,
-      "impressions": 21
+      "impressions": 22
     },
     {
       "query": "نعم ابحث",
@@ -25,7 +25,7 @@
     {
       "query": "case anziani lugano posti di lavoro",
       "clicks": 0,
-      "impressions": 9
+      "impressions": 10
     },
     {
       "query": "offerte di lavoro casa di riposo svizzera",
@@ -49,6 +49,11 @@
     },
     {
       "query": "casa anziani ticino lavoro",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "case di riposo ticino lavora con noi",
       "clicks": 0,
       "impressions": 1
     },
@@ -107,6 +112,11 @@
       "impressions": 1
     },
     {
+      "query": "offerte lavoro ristorazione",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
       "query": "posti vacanti ticino",
       "clicks": 0,
       "impressions": 1
@@ -161,7 +171,39 @@
       "impressions": 1
     }
   ],
+  "capo-reparto-lis-lugano-istituti-sociali-pregassona": [
+    {
+      "query": "offerte di lavoro ticino negli ultimi 3 giorni",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "lavoro lugano negli ultimi 3 giorni",
+      "clicks": 1,
+      "impressions": 3
+    },
+    {
+      "query": "case anziani ticino offerte di lavoro",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "lavoro ticino da ieri",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "lavoro ticino negli ultimi 3 giorni",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "lugano": [
+    {
+      "query": "agrisano jobs",
+      "clicks": 0,
+      "impressions": 1
+    },
     {
       "query": "recrutement lugano",
       "clicks": 0,
@@ -261,23 +303,6 @@
       "impressions": 1
     }
   ],
-  "lehrstellen": [
-    {
-      "query": "lehrstellen orsières",
-      "clicks": 0,
-      "impressions": 3
-    },
-    {
-      "query": "lehrstellen magadino",
-      "clicks": 0,
-      "impressions": 2
-    },
-    {
-      "query": "lehrstellen stabio",
-      "clicks": 0,
-      "impressions": 2
-    }
-  ],
   "operatori-socio-sanitari": [
     {
       "query": "lavorare in svizzera come oss",
@@ -295,9 +320,31 @@
       "impressions": 1
     },
     {
+      "query": "oss in svizzera",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
       "query": "oss ticino offerte lavoro",
       "clicks": 0,
       "impressions": 1
+    }
+  ],
+  "lehrstellen": [
+    {
+      "query": "lehrstellen orsières",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "lehrstellen magadino",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "lehrstellen stabio",
+      "clicks": 0,
+      "impressions": 2
     }
   ],
   "locarno": [
@@ -329,7 +376,24 @@
       "impressions": 1
     }
   ],
+  "pflegepersonal": [
+    {
+      "query": "pflegejobs regionalspital surselva ag",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "query": "pflegedienst tessin",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "autisti": [
+    {
+      "query": "autista offerte di lavoro",
+      "clicks": 0,
+      "impressions": 1
+    },
     {
       "query": "lavorare in svizzera come autista",
       "clicks": 0,
@@ -342,6 +406,45 @@
     },
     {
       "query": "offerte di lavoro autista ticino",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "specialista-del-servizio-clienti-the-swatch-group-u-s-inc-ticino": [
+    {
+      "query": "offerte di lavoro locarno negli ultimi 3 giorni",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte di lavoro ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte di lavoro ticino negli ultimi 3 giorni",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte di lavoro vicino a me negli ultimi 3 giorni",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "venditore-in-nonfood-coop-genossenschaft-chur": [
+    {
+      "query": "offerte lavoro frontaliere svizzera",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "offerte lavoro ticino negli ultimi 3 giorni",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte lavoro vendita ticino",
       "clicks": 0,
       "impressions": 1
     }
@@ -387,6 +490,23 @@
       "impressions": 1
     }
   ],
+  "alle": [
+    {
+      "query": "fart job",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "jobs im tessin für deutschsprachige",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "stellenangebot tessin",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "entwickler": [
     {
       "query": "softwareentwicklung jobs lugano",
@@ -406,13 +526,6 @@
       "impressions": 1
     }
   ],
-  "pflegepersonal": [
-    {
-      "query": "pflegejobs regionalspital surselva ag",
-      "clicks": 0,
-      "impressions": 3
-    }
-  ],
   "apprendistato": [
     {
       "query": "apprendistato in ticino per italiani",
@@ -421,6 +534,18 @@
     },
     {
       "query": "si",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "consulente-commerciale-a-tessin-coop-genossenschaft-bellinzona": [
+    {
+      "query": "offerte di lavoro locarno negli ultimi 3 giorni",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte lavoro bellinzona",
       "clicks": 0,
       "impressions": 1
     }
@@ -446,23 +571,23 @@
       "impressions": 2
     }
   ],
-  "alle": [
-    {
-      "query": "fart job",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "jobs im tessin für deutschsprachige",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "ingenieure": [
     {
       "query": "ingenieure stellenvermittlung",
       "clicks": 0,
       "impressions": 2
+    }
+  ],
+  "maisons-retraite": [
+    {
+      "query": "emploi maison de retraite suisse",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "maison de retraite suisse recrutement",
+      "clicks": 0,
+      "impressions": 1
     }
   ],
   "logistica": [
@@ -493,6 +618,13 @@
       "impressions": 1
     }
   ],
+  "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-ticino": [
+    {
+      "query": "marketing lavoro ticino",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "branchen": [
     {
       "query": "süd schweiz",
@@ -510,13 +642,6 @@
   "chauffeurs": [
     {
       "query": "je veux au tessin un job de chauffeur poids lourd avec permis valide et tournées régionales du lundi au vendredi",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "maisons-retraite": [
-    {
-      "query": "maison de retraite suisse recrutement",
       "clicks": 0,
       "impressions": 1
     }
