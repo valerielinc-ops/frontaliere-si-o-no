@@ -1,18 +1,46 @@
 {
   "key": "swatch-group-assembly",
   "label": "swatch-group-assembly",
-  "generatedAt": "2026-05-16T11:06:58.429Z",
+  "generatedAt": "2026-05-16T22:32:37.050Z",
   "total": 12,
   "newCount": 20,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 27730,
-  "avgDurationMs": 27730,
+  "durationMs": 29502,
+  "avgDurationMs": 29502,
   "durationHistory": [
-    27730
+    29502
   ],
   "newJobs": [
+    {
+      "id": "company-7uaw2d",
+      "slug": "full-time-sales-lead-west-edmonton-mall-the-swatch-group-canada-ltd-0200-english-search-full-time-sales-lead-west-edmonton-mall-the-c",
+      "company": "The Swatch Group (Canada) Ltd.",
+      "title": "Full-Time Sales Lead (West Edmonton Mall)",
+      "location": "0200 English Search Search Full-Time Sales Lead (West Edmonton Mall) The company",
+      "canton": "FR",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-16",
+      "url": "https://www.swatchgroup.com/en/job/31967",
+      "source": "Company Careers Crawler",
+      "companyKey": "rado",
+      "companyDomain": "swatchgroup.com",
+      "crawledAt": "2026-05-16T22:32:36.279Z",
+      "firstSeenAt": "2026-05-16T22:32:36.279Z",
+      "needsRetranslation": true,
+      "sourceLang": "en",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 15,
+        "completeness": 14
+      }
+    },
     {
       "id": "company-7uaw2c",
       "slug": "sales-assistant-part-time-orio-al-serio-bergamo-the-swatch-group-italia-s-p-a-24050-orio-al-serio-lombardia-italia-company-address-the-swatc-7uaw2c",
@@ -264,42 +292,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-7uaw1i",
-      "slug": "servizio-clienti-specialista-the-swatch-group-u-s-inc-33126-apply-for-this-job-share-this-job-offer-main-navigation-swatch-group-the-b-7uaw1i",
-      "company": "The Swatch Group (U.S.) Inc.",
-      "title": "Customer Service Specialist",
-      "location": "33126 Apply for this job Share this job offer Main navigation Swatch Group The B",
-      "canton": "FR",
-      "category": "health",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-13",
-      "url": "https://www.swatchgroup.com/en/job/31957",
-      "source": "Company Careers Crawler",
-      "companyKey": "rado",
-      "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-05-13T23:08:56.225Z",
-      "firstSeenAt": "2026-05-13T23:08:56.225Z",
-      "sourceLang": "en",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "streetAddress": "Bielstrasse 45",
-      "postalCode": "2543",
-      "addressLocality": "33126 Apply for this job Share this job offer Main navigation Swatch Group The B",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 25
       }
