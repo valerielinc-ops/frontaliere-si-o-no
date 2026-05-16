@@ -3773,6 +3773,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-credit-agricole-second-pilastro-italia': { name: 'Crédit Agricole, l\'Italia secondo pilastro', path: '/articoli-frontaliere/credit-agricole-second-pilastro-italia', parent: 'blog' },
     'blog-mobilitazione-deposito-macchinisti-chiasso': { name: 'Mobilitazione Chiasso FFS', path: '/articoli-frontaliere/mobilitazione-deposito-macchinisti-chiasso', parent: 'blog' },
     'blog-frontaliere-documenti-necessari-inizio-lavoro-svizzera': { name: 'Documenti necessari per lavorare in', path: '/articoli-frontaliere/frontaliere-documenti-necessari-inizio-lavoro-svizzera', parent: 'blog' },
+    'blog-petizione-usi-supsi-500-firme': { name: 'Petizione contro i tagli a USI e SUPSI', path: '/articoli-frontaliere/petizione-usi-supsi-500-firme', parent: 'blog' },
  };
 
  const info = sectionNames[section];

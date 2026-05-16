@@ -7592,6 +7592,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.title': 'Checklist documenti per lavorare in Svizzera',
     'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.excerpt': 'Scopri quali documenti sono necessari per iniziare a lavorare in Svizzera come frontaliere e come ottenerli',
     'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.imageAlt': 'Frontiera italo-svizzera con frontalieri in attesa di attraversare',
+    'blog.article.petizione-usi-supsi-500-firme.title': 'Petizione contro i tagli a USI e SUPSI: già 500 firme',
+    'blog.article.petizione-usi-supsi-500-firme.excerpt': 'Lanciata dal sindacato VPOD, la petizione si oppone ai risparmi proposti dal Consiglio di Stato per finanziare le due iniziative sulle casse malati.',
+    'blog.article.petizione-usi-supsi-500-firme.imageAlt': 'Petizione contro i tagli a USI e SUPSI',
 };
 
 export default blogMetaIt;

@@ -7590,6 +7590,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.title': 'Dokumenten-Checkliste für die Arbeit in der Schweiz',
     'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.excerpt': 'Erfahre, welche Dokumente du als Grenzgänger benötigst und wie du sie erhältst.',
     'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.imageAlt': 'Italo-Schweizer Grenze mit Grenzgängern beim Überqueren',
+    'blog.article.petizione-usi-supsi-500-firme.title': 'Petition gegen Kürzungen an USI und SUPSI: bereits 500 Unterschriften',
+    'blog.article.petizione-usi-supsi-500-firme.excerpt': 'Vom VPOD gestartet, lehnt die Petition die vom Regierungsrat vorgeschlagenen Einsparungen ab, um die beiden Initiativen zu den Krankenkassen zu finanzieren.',
+    'blog.article.petizione-usi-supsi-500-firme.imageAlt': 'Petition gegen Kürzungen an der USI und SUPSI',
 };
 
 export default blogMetaDe;

@@ -7591,6 +7591,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.title': 'Documents Checklist for Working in Switzerland',
     'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.excerpt': 'Find out what documents you need to start working in Switzerland as a cross-border worker and how to obtain them.',
     'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.imageAlt': 'Italian-Swiss border with commuters waiting to cross',
+    'blog.article.petizione-usi-supsi-500-firme.title': 'Petition against USI and SUPSI cuts: 500 signatures already',
+    'blog.article.petizione-usi-supsi-500-firme.excerpt': 'Launched by the union VPOD, the petition opposes the savings proposed by the State Council to finance the two initiatives on health insurance.',
+    'blog.article.petizione-usi-supsi-500-firme.imageAlt': 'Petition against cuts to USI and SUPSI',
 };
 
 export default blogMetaEn;

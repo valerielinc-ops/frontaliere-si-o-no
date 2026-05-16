@@ -24149,4 +24149,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'petizione-usi-supsi-500-firme',
+ category: 'novita',
+ date: '2026-05-16T08:40:28.385Z',
+ image: '/images/blog/petizione-usi-supsi-500-firme.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
