@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-05-16T10:49:06.770Z",
+  "generatedAt": "2026-05-16T22:14:40.805Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 6,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 12799,
-  "avgDurationMs": 12799,
+  "unchangedCount": 4,
+  "durationMs": 11584,
+  "avgDurationMs": 11584,
   "durationHistory": [
-    12799
+    11584
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,80 +40,18 @@
         "location": "Bern"
       },
       "crawledAt": "",
-      "_qualityScore": 58,
+      "id": "postfinance-b4a070864c05",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-16T10:49:06.770Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://job.post.ch/PostFinance/job/Carouge-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Carouge/1374031133/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Carouge-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Carouge/1374031133/",
-      "title": "Conseiller:ère clientèle privée, Carouge",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Carouge",
-      "canton": "GE",
-      "country": "CH",
-      "slug": "consigliere-era-cliente-privato-carouge-postfinance-carouge",
-      "sourceLang": "fr",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-16",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "GE",
-        "location": "Carouge"
-      },
-      "crawledAt": "",
-      "_qualityScore": 58,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
-      "title": "Collaborateur:trice Compliance Office Clientèle Commerciale",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bulle",
-      "canton": "FR",
-      "country": "CH",
-      "slug": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
-      "sourceLang": "fr",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-16",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "FR",
-        "location": "Bulle"
-      },
-      "crawledAt": "",
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 6,
-        "completeness": 9
+        "translation": 16,
+        "completeness": 17
       }
     },
     {
@@ -142,12 +80,140 @@
         "location": "Bern"
       },
       "crawledAt": "",
-      "_qualityScore": 58,
+      "id": "postfinance-c5dd413c8462",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-16T10:49:06.770Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
-        "completeness": 9
+        "translation": 21,
+        "completeness": 17
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "url": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
+      "title": "Kundenberater:in Privatkunden, Herisau",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Herisau",
+      "canton": "AR",
+      "country": "CH",
+      "slug": "consulente-clienti-in-clienti-privati-herisau-postfinance-herisau",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-16",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Consulenza",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "AR",
+        "location": "Herisau"
+      },
+      "crawledAt": "",
+      "id": "postfinance-a353cf7a3cd3",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-16T10:49:06.770Z",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bulle-Collaborateurtrice-Compliance-Office-Client%C3%A8le-Commerciale/1374021633/",
+      "title": "Collaborateur:trice Compliance Office Clientèle Commerciale",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bulle",
+      "canton": "FR",
+      "country": "CH",
+      "slug": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
+      "sourceLang": "fr",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-16",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Bulle"
+      },
+      "crawledAt": "",
+      "id": "postfinance-97dc609ae987",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "1630",
+      "firstSeenAt": "2026-05-16T10:49:06.770Z",
+      "_qualityScore": 78,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Carouge-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Carouge/1374031133/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Carouge-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Carouge/1374031133/",
+      "title": "Conseiller:ère clientèle privée, Carouge",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Carouge",
+      "canton": "GE",
+      "country": "CH",
+      "slug": "consigliere-era-cliente-privato-carouge-postfinance-carouge",
+      "sourceLang": "fr",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-16",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "GE",
+        "location": "Carouge"
+      },
+      "crawledAt": "",
+      "id": "postfinance-5c7d91934019",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "1227",
+      "firstSeenAt": "2026-05-16T10:49:06.770Z",
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 17
       }
     },
     {
@@ -176,49 +242,19 @@
         "location": "Lausanne"
       },
       "crawledAt": "",
-      "_qualityScore": 58,
+      "id": "postfinance-1ee349fcd573",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-16T10:49:06.770Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
-      "title": "Kundenberater:in Privatkunden, Herisau",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Herisau",
-      "canton": "AR",
-      "country": "CH",
-      "slug": "consulente-clienti-in-clienti-privati-herisau-postfinance-herisau",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-16",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Consulenza",
-      "workload": "",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "AR",
-        "location": "Herisau"
-      },
-      "crawledAt": "",
-      "_qualityScore": 58,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 9
+        "translation": 16,
+        "completeness": 17
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
