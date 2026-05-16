@@ -1460,12 +1460,12 @@
     },
     {
       "id": "spital-thurgau-a7017a609abc",
-      "slug": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+      "slug": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-        "it": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+        "it": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
         "en": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-        "fr": "dipl-pflegefachmann-frau-forensik-stgag-ch"
+        "fr": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -1522,7 +1522,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-15T22:39:39.159Z"
+      "firstSeenAt": "2026-05-15T22:39:39.159Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen"
+        ],
+        "fr": [
+          "dipl-pflegefachmann-frau-forensik-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-forensik-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-18953bc68b20",
@@ -9418,7 +9430,7 @@
       "id": "spital-thurgau-d3ee284efef5",
       "slug": "dipl-professional-wife-operations-technology-hf-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "medico-senior-linea-terapeutica-spital-thurgau-stgag-weinfelden",
+        "it": "dipl-professional-wife-operations-technology-hf-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "en": "dipl-fachmann-frau-operationstechnik-hf-stgag-ch-2",
         "de": "dipl-fachmann-frau-operationstechnik-hf-stgag-ch",
         "fr": "dipl-fachmann-frau-operationstechnik-hf-stgag-ch-2"
@@ -9468,15 +9480,16 @@
         "dipl-fachmann-frau-operationstechnik-hf-stgag-ch-2",
         "dipl-fachmann-frau-operationstechnik-hf-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "dipl-fachmann-frau-operationstechnik-hf-stgag-ch",
+        "medico-senior-linea-terapeutica-spital-thurgau-stgag-weinfelden",
         "specialista-di-cura-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen",
-        "oberarzt-arztin-therapeutische-leitung-stgag-ch",
-        "dipl-professional-wife-operations-technology-hf-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "oberarzt-arztin-therapeutische-leitung-stgag-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachmann-frau-operationstechnik-hf-stgag-ch-2",
           "dipl-fachmann-frau-operationstechnik-hf-spital-thurgau-stgag-kantonsspital-munsterlingen",
-          "dipl-fachmann-frau-operationstechnik-hf-stgag-ch"
+          "dipl-fachmann-frau-operationstechnik-hf-stgag-ch",
+          "medico-senior-linea-terapeutica-spital-thurgau-stgag-weinfelden"
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.979Z",
@@ -9575,7 +9588,7 @@
       "id": "spital-thurgau-839de41f2877",
       "slug": "consulente-senior-mbf-medicina-interna-generale-spital-thurgau-stgag-kantonsspital-munsterlingen",
       "slugByLocale": {
-        "it": "specialista-di-cura-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen",
+        "it": "consulente-senior-mbf-medicina-interna-generale-spital-thurgau-stgag-kantonsspital-munsterlingen",
         "en": "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch",
         "de": "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch",
         "fr": "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch"
@@ -9623,14 +9636,15 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch",
+        "specialista-di-cura-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen",
         "dipl-specialista-di-cura-servizio-psichiatrico-esterno-weinfelden-spital-thurgau-stgag-weinfelden",
         "pflegefachmann-frau-akutpsychiatrie-3-stgag-ch",
-        "pflegefachmann-frau-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen",
-        "consulente-senior-mbf-medicina-interna-generale-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        "pflegefachmann-frau-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch"
+          "oberarzt-arztin-mbf-allgemeine-innere-medizin-stgag-ch",
+          "specialista-di-cura-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-05-10T22:26:54.981Z",

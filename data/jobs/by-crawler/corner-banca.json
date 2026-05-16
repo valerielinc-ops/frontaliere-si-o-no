@@ -919,9 +919,9 @@
     },
     {
       "id": "corner-banca-8d0bd2e49371",
-      "slug": "customer-advisor-100-team-zurich-corner-banca-wallisellen",
+      "slug": "consulente-clienti-100-team-zurigo-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "customer-advisor-100-team-zurich-corner-banca-wallisellen",
+        "it": "consulente-clienti-100-team-zurigo-corner-banca-wallisellen",
         "en": "customer-advisor-100-team-zurich-corner-banca-wallisellen",
         "de": "customer-advisor-100-team-zurich-corner-banca-wallisellen",
         "fr": "customer-advisor-100-team-zurich-corner-banca-wallisellen"
@@ -981,6 +981,7 @@
       "sourceLang": "en",
       "crawledAt": "2026-05-15T21:36:35.036Z",
       "previousSlugs": [
+        "customer-advisor-100-team-zurich-corner-banca-wallisellen",
         "customer-consulente-60-team-zurich-corner-banca-wallisellen"
       ],
       "firstSeenAt": "2026-05-15T10:48:38.227Z",
@@ -999,7 +1000,12 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-advisor-100-team-zurich-corner-banca-wallisellen"
+        ]
+      }
     }
   ]
 }

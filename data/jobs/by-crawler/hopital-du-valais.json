@@ -550,9 +550,9 @@
     },
     {
       "id": "hopital-du-valais-7e819bc76a04",
-      "slug": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+      "slug": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+        "it": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
         "en": "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion",
         "de": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
@@ -600,12 +600,12 @@
       },
       "previousSlugs": [
         "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-        "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+        "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-          "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+          "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
@@ -1556,7 +1556,7 @@
       "id": "hopital-du-valais-bedb3edb0e24",
       "slug": "gestore-ospite-50-70-hopital-du-valais-visp",
       "slugByLocale": {
-        "it": "100-medico-testa-clinica-per-radio-oncologia-hopital-du-valais-sion",
+        "it": "gestore-ospite-50-70-hopital-du-valais-visp",
         "en": "guest-manager-50-70-hopital-du-valais-visp",
         "de": "guest-manager-50-70-hopital-du-valais-visp",
         "fr": "gestionnaire-invite-50-70-hopital-du-valais-visp"
@@ -1604,12 +1604,13 @@
       },
       "previousSlugs": [
         "guest-manager-50-70-hopital-du-valais-visp",
-        "medecin-chef-fe-de-clinique-a-100-pour-le-service-de-radio-oncologie-hopital-du-valais-sio",
-        "gestore-ospite-50-70-hopital-du-valais-visp"
+        "100-medico-testa-clinica-per-radio-oncologia-hopital-du-valais-sion",
+        "medecin-chef-fe-de-clinique-a-100-pour-le-service-de-radio-oncologie-hopital-du-valais-sio"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-manager-50-70-hopital-du-valais-visp"
+          "guest-manager-50-70-hopital-du-valais-visp",
+          "100-medico-testa-clinica-per-radio-oncologia-hopital-du-valais-sion"
         ],
         "fr": [
           "guest-manager-50-70-hopital-du-valais-visp"
@@ -2370,7 +2371,6 @@
       },
       "previousSlugs": [
         "oberarztin-arzt-80-100-hopital-du-valais-brig",
-        "medico-specialista-in-psichiatria-infantile-e-adolescenziale-hopital-du-valais-brig",
         "collaborateur-trice-sante-numerique-80-100-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
@@ -2959,7 +2959,7 @@
       "id": "hopital-du-valais-b251ff1d9ecc",
       "slug": "infermiera-responsabile-psichiatria-e-psicoterapia-pki-90-hopital-du-valais-monthey",
       "slugByLocale": {
-        "it": "70-collaboratore-amministrativo-per-il-dipartimento-di-ammissione-dell-ospedale-di-sierre-hopital-du-valais-sierre",
+        "it": "infermiera-responsabile-psichiatria-e-psicoterapia-pki-90-hopital-du-valais-monthey",
         "en": "nurse-head-of-psychiatry-and-psychotherapy-pki-90-hopital-du-valais-monthey",
         "de": "krankenschwester-leiterin-psychiatrie-und-psychotherapie-pki-90-hopital-du-valais-monthey",
         "fr": "infirmier-ere-chef-fe-de-pole-icp-de-psychiatrie-et-psychotherapie-a-90-hopital-du-valais-"
@@ -3007,12 +3007,13 @@
       },
       "previousSlugs": [
         "infirmier-ere-chef-fe-de-pole-icp-de-psychiatrie-et-psychotherapie-a-90-hopital-du-valais-",
-        "collaborateur-trice-administratif-ve-a-70-pour-le-service-des-admissions-de-l-hopital-de-s",
-        "infermiera-responsabile-psichiatria-e-psicoterapia-pki-90-hopital-du-valais-monthey"
+        "70-collaboratore-amministrativo-per-il-dipartimento-di-ammissione-dell-ospedale-di-sierre-hopital-du-valais-sierre",
+        "collaborateur-trice-administratif-ve-a-70-pour-le-service-des-admissions-de-l-hopital-de-s"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-chef-fe-de-pole-icp-de-psychiatrie-et-psychotherapie-a-90-hopital-du-valais-"
+          "infirmier-ere-chef-fe-de-pole-icp-de-psychiatrie-et-psychotherapie-a-90-hopital-du-valais-",
+          "70-collaboratore-amministrativo-per-il-dipartimento-di-ammissione-dell-ospedale-di-sierre-hopital-du-valais-sierre"
         ],
         "en": [
           "infirmier-ere-chef-fe-de-pole-icp-de-psychiatrie-et-psychotherapie-a-90-hopital-du-valais-"
@@ -3118,9 +3119,9 @@
     },
     {
       "id": "hopital-du-valais-6b4230c38cbe",
-      "slug": "medici-medici-o-medici-ospedalieri-tra-il-20-e-il-100-per-la-clinica-medica-dell-ospedale-di-sierre-hopital-du-valais-si",
+      "slug": "medici-medici-o-medici-ospedalieri-tra-il-20-e-il-100-per-la-clinica-medica-dell-ospedale-di-sierre-hopital-du-valais",
       "slugByLocale": {
-        "it": "psicologo-ca-psicoterapeuta-80-100-hopital-du-valais-brig",
+        "it": "medici-medici-o-medici-ospedalieri-tra-il-20-e-il-100-per-la-clinica-medica-dell-ospedale-di-sierre-hopital-du-valais",
         "en": "medical-clinic-chiefs-or-hospital-doctors-between-20-and-100-for-the-medical-clinic-of-the-hospital-of-sierre-hopital-du",
         "de": "klinikleiter-oder-krankenhausarzte-zwischen-20-und-100-fur-die-medizinische-klinik-des-krankenhauses-von-sierre-hopital-",
         "fr": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanence-medicale-de-l-hopital-de-sie"
@@ -3168,12 +3169,15 @@
       },
       "previousSlugs": [
         "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc",
-        "psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig",
-        "medici-medici-o-medici-ospedalieri-tra-il-20-e-il-100-per-la-clinica-medica-dell-ospedale-di-sierre-hopital-du-valais-si"
+        "psicologo-ca-psicoterapeuta-80-100-hopital-du-valais-brig",
+        "medici-medici-o-medici-ospedalieri-tra-il-20-e-il-100-per-la-clinica-medica-dell-ospedale-di-sierre-hopital-du-valais-si",
+        "psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc"
+          "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc",
+          "psicologo-ca-psicoterapeuta-80-100-hopital-du-valais-brig",
+          "medici-medici-o-medici-ospedalieri-tra-il-20-e-il-100-per-la-clinica-medica-dell-ospedale-di-sierre-hopital-du-valais-si"
         ],
         "en": [
           "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc"
