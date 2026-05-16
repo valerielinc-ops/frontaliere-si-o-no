@@ -137,16 +137,16 @@ const ALLOWLIST = [
   //    for sitemap-jobs.xml — pulls per-company azienda-* leaves from BFS
   //    depth 5 to depth 4 by anchoring /aziende-che-assumono/tutte/ + the
   //    locale variants directly off `/`).
-  'build-plugins/staticPagesPlugin.ts:1212',
-  'build-plugins/staticPagesPlugin.ts:1213',
-  'build-plugins/staticPagesPlugin.ts:1214',
-  'build-plugins/staticPagesPlugin.ts:1215',
-  'build-plugins/staticPagesPlugin.ts:1234',
-  'build-plugins/staticPagesPlugin.ts:1235',
-  'build-plugins/staticPagesPlugin.ts:1769',
-  'build-plugins/staticPagesPlugin.ts:1794',
-  'build-plugins/staticPagesPlugin.ts:1819',
-  'build-plugins/staticPagesPlugin.ts:2087',
+  'build-plugins/staticPagesPlugin.ts:1255',
+  'build-plugins/staticPagesPlugin.ts:1256',
+  'build-plugins/staticPagesPlugin.ts:1257',
+  'build-plugins/staticPagesPlugin.ts:1258',
+  'build-plugins/staticPagesPlugin.ts:1277',
+  'build-plugins/staticPagesPlugin.ts:1278',
+  'build-plugins/staticPagesPlugin.ts:1812',
+  'build-plugins/staticPagesPlugin.ts:1837',
+  'build-plugins/staticPagesPlugin.ts:1862',
+  'build-plugins/staticPagesPlugin.ts:2130',
   // ── Cross-section hub anchors emitted inside buildHomepageCantonNavHtml
   //    (2026-05-13 BFS-depth fix for sitemap-jobs.xml azienda-* leaves).
   //    Per-locale URL constants reference the TI section slug; the audit
