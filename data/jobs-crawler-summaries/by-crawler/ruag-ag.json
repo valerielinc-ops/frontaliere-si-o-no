@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-05-16T10:54:12.024Z",
+  "generatedAt": "2026-05-16T22:19:53.780Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 8205,
-  "avgDurationMs": 8205,
+  "durationMs": 8234,
+  "avgDurationMs": 8234,
   "durationHistory": [
-    8205
+    8234
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -76,7 +76,6 @@
       "contractType": "part-time",
       "validThrough": "2053-09-28",
       "id": "ruag-ag-5bd331263515",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -84,6 +83,7 @@
       "postalCode": "6517",
       "firstSeenAt": "2026-05-15T11:45:04.093Z",
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
