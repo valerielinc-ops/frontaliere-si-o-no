@@ -7575,6 +7575,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cambio-ambasciatore-italia-svizzera-2026.title': 'Wechsel an der Spitze der italienischen Botschaft in der Schweiz',
     'blog.article.cambio-ambasciatore-italia-svizzera-2026.excerpt': 'Der Botschafter Gian Lorenzo Cornado verlässt den diplomatischen Sitz in Bern Ende Juni 2026, nachdem er die Krise des Brandes in Crans-Montana verwaltet hat.',
     'blog.article.cambio-ambasciatore-italia-svizzera-2026.imageAlt': 'Die italienische Botschaft in Bern, Schweiz, mit der italienischen und schweizerischen Flagge.',
+    'blog.article.varesino-salvato-polizia-frontiera-domodossola.title': 'Vareser von der Grenzpolizei Domodossola gerettet',
+    'blog.article.varesino-salvato-polizia-frontiera-domodossola.excerpt': 'Ein 57-jähriger Mann aus der Provinz Varese wurde von der Grenzpolizei Domodossola gerettet, nachdem er angekündigt hatte, sich das Leben zu nehmen.',
+    'blog.article.varesino-salvato-polizia-frontiera-domodossola.imageAlt': 'Grenzpolizei Domodossola hilft einem verzweifelten Mann am Bahnhof Briga',
 };
 
 export default blogMetaDe;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2580,
+ "numberOfItems": 2581,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7220,7 +7220,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2577, "name": "FFS Cargo conferma attività a Chiasso, ma il pe...", "url": `${BASE_URL}/articoli-frontaliere/ffs-cargo-chiasso-personale-2026` },
           { "@type": "ListItem", "position": 2578, "name": "Permessi G e B per i frontalieri: errori comuni...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-vs-b-frontalieri-2026-errori-comuni` },
           { "@type": "ListItem", "position": 2579, "name": "Confronto tra Permesso G e B nel 2026: quando c...", "url": `${BASE_URL}/articoli-frontaliere/permesso-g-vs-b-frontalieri-2026-oltre-20-km` },
-          { "@type": "ListItem", "position": 2580, "name": "Cambio alla guida dell'ambasciata italiana in S...", "url": `${BASE_URL}/articoli-frontaliere/cambio-ambasciatore-italia-svizzera-2026` }
+          { "@type": "ListItem", "position": 2580, "name": "Cambio alla guida dell'ambasciata italiana in S...", "url": `${BASE_URL}/articoli-frontaliere/cambio-ambasciatore-italia-svizzera-2026` },
+          { "@type": "ListItem", "position": 2581, "name": "Varesino salvato dalla Polizia di Frontiera di ...", "url": `${BASE_URL}/articoli-frontaliere/varesino-salvato-polizia-frontiera-domodossola` }
  ]
  },
  {

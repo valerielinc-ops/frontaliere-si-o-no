@@ -7577,6 +7577,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cambio-ambasciatore-italia-svizzera-2026.title': 'Cambio alla guida dell\'ambasciata italiana in Svizzera',
     'blog.article.cambio-ambasciatore-italia-svizzera-2026.excerpt': 'L\'ambasciatore Gian Lorenzo Cornado lascia la sede diplomatica di Berna a fine giugno 2026 dopo aver gestito la crisi del rogo di Crans-Montana.',
     'blog.article.cambio-ambasciatore-italia-svizzera-2026.imageAlt': 'L\'ambasciata italiana a Berna, Svizzera, con la bandiera italiana e svizzera esposta.',
+    'blog.article.varesino-salvato-polizia-frontiera-domodossola.title': 'Varesino salvato dalla Polizia di Frontiera di Domodossola',
+    'blog.article.varesino-salvato-polizia-frontiera-domodossola.excerpt': 'Un uomo di 57 anni, residente in provincia di Varese, è stato salvato dalla Polizia di Frontiera di Domodossola dopo aver manifestato l\'intenzione di togliersi la vita.',
+    'blog.article.varesino-salvato-polizia-frontiera-domodossola.imageAlt': 'Polizia di Frontiera di Domodossola assiste un uomo in difficoltà alla stazione di Briga',
 };
 
 export default blogMetaIt;

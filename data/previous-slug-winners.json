@@ -1677,7 +1677,7 @@
     "winnerJobIdentifier": "richemont-d129ac6e6d1d",
     "winnerCanonical": "conseiller-de-vente-vhernier-geneva",
     "decidedAt": "2026-05-12T00:00:00.000Z",
-    "lastSeenAt": "2026-05-15T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.125,
     "candidatesCount": 2,
     "canton": "GE"
@@ -1686,7 +1686,7 @@
     "winnerJobIdentifier": "richemont-c24765c6ec23",
     "winnerCanonical": "associe-de-vente-senior-cartier-geneva",
     "decidedAt": "2026-05-12T00:00:00.000Z",
-    "lastSeenAt": "2026-05-15T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.2222,
     "candidatesCount": 2,
     "canton": "GE"
@@ -3249,11 +3249,11 @@
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
-    "winnerJobIdentifier": "company-lzsoh3",
-    "winnerCanonical": "venditore-in-food-coop-genossenschaft-felsberg",
+    "winnerJobIdentifier": "company-e66ikm",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur-ddc182",
     "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
-    "score": 0.4444,
+    "score": 0.2727,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -4314,7 +4314,7 @@
     "winnerJobIdentifier": "lwphr-6421a8aa2f7c",
     "winnerCanonical": "personalwesen-spezialist-lwp-ledermann-wieting-partners-lugano",
     "decidedAt": "2026-05-14T00:00:00.000Z",
-    "lastSeenAt": "2026-05-15T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 2,
     "canton": "TI"
@@ -7199,6 +7199,15 @@
     "candidatesCount": 2,
     "canton": "VD"
   },
+  "VD::de::postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne-aab331": {
+    "winnerJobIdentifier": "epfl-ad8241ec0d43",
+    "winnerCanonical": "postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.9167,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
   "VD::de::technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix": {
     "winnerJobIdentifier": "reboot-monkey-b23f2b6b25c3",
     "winnerCanonical": "data-center-techniker-ch-villars-ste-croix-vor-ort-reboot-monkey-villars-ste-croix",
@@ -7242,6 +7251,15 @@
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.2308,
     "candidatesCount": 1,
+    "canton": "VD"
+  },
+  "VD::en::postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2": {
+    "winnerJobIdentifier": "epfl-ad8241ec0d43",
+    "winnerCanonical": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.9231,
+    "candidatesCount": 2,
     "canton": "VD"
   },
   "VD::en::technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix": {
@@ -7317,9 +7335,9 @@
     "canton": "VD"
   },
   "VD::fr::position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne": {
-    "winnerJobIdentifier": "epfl-b0cd92a73585",
+    "winnerJobIdentifier": "epfl-ad8241ec0d43",
     "winnerCanonical": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
-    "decidedAt": "2026-05-15T00:00:00.000Z",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.2381,
     "candidatesCount": 1,
@@ -7347,7 +7365,7 @@
     "winnerJobIdentifier": "epfl-b0cd92a73585",
     "winnerCanonical": "position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne",
     "decidedAt": "2026-05-14T00:00:00.000Z",
-    "lastSeenAt": "2026-05-15T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.2381,
     "candidatesCount": 1,
     "canton": "VD"
@@ -7422,6 +7440,15 @@
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.2,
     "candidatesCount": 1,
+    "canton": "VD"
+  },
+  "VD::it::posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne": {
+    "winnerJobIdentifier": "epfl-ad8241ec0d43",
+    "winnerCanonical": "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne-d02b8a",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.9231,
+    "candidatesCount": 2,
     "canton": "VD"
   },
   "VD::it::technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix": {

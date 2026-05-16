@@ -24104,4 +24104,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'varesino-salvato-polizia-frontiera-domodossola',
+ category: 'novita',
+ date: '2026-05-16T02:02:10.563Z',
+ image: '/images/blog/varesino-salvato-polizia-frontiera-domodossola.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

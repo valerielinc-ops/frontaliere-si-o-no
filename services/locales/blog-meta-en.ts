@@ -7576,6 +7576,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cambio-ambasciatore-italia-svizzera-2026.title': 'Change at the helm of Italy\'s Swiss embassy',
     'blog.article.cambio-ambasciatore-italia-svizzera-2026.excerpt': 'Ambassador Gian Lorenzo Cornado leaves Bern\'s diplomatic seat at the end of June 2026 after managing the Crans-Montana fire crisis.',
     'blog.article.cambio-ambasciatore-italia-svizzera-2026.imageAlt': 'The Italian embassy in Bern, Switzerland, with the Italian and Swiss flags displayed.',
+    'blog.article.varesino-salvato-polizia-frontiera-domodossola.title': 'Varese man rescued by Domodossola Border Police',
+    'blog.article.varesino-salvato-polizia-frontiera-domodossola.excerpt': 'A 57-year-old man, resident in the province of Varese, was rescued by the Domodossola Border Police after expressing the intention to take his own life.',
+    'blog.article.varesino-salvato-polizia-frontiera-domodossola.imageAlt': 'Domodossola Border Police assisting a distressed man at Briga station',
 };
 
 export default blogMetaEn;
