@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-05-15T22:04:00.847Z",
+  "assembledAt": "2026-05-16T10:25:30.878Z",
   "jobs": [
     {
       "id": "jumbo-1c670883-34c",
@@ -33,7 +33,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/apprentissage-de-gestionnaire-du-commerce-de-detail-conception-et-realisation-d-experiences-d-achat/1c670883-34ce-4a84-b01a-e1726167bc5c",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-15T22:03:58.585Z",
+      "crawledAt": "2026-05-16T10:25:28.901Z",
       "addressLocality": "Conthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -142,7 +142,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/apprentissage-de-gestionnaire-du-commerce-de-detail-conception-et-realisation-d-experiences-d-achat/890c5910-af33-4f69-8100-307051dff257",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-15T22:03:58.584Z",
+      "crawledAt": "2026-05-16T10:25:28.900Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -252,7 +252,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/cb72777c-d77c-4e8b-bf4a-23f23f88709a",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:03:58.584Z",
+      "crawledAt": "2026-05-16T10:25:28.900Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -358,7 +358,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-deco/5020b7ed-25d5-4c66-80ba-4a9214f8531e",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:03:58.583Z",
+      "crawledAt": "2026-05-16T10:25:28.899Z",
       "addressLocality": "Brig-Glis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -394,6 +394,7 @@
         ]
       },
       "firstSeenAt": "2026-05-07T11:15:29.086Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -438,7 +439,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-garten/f282ec2f-1438-43c5-9b32-f1862c79be45",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:03:58.583Z",
+      "crawledAt": "2026-05-16T10:25:28.899Z",
       "addressLocality": "Eyholz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -474,6 +475,7 @@
         ]
       },
       "firstSeenAt": "2026-04-29T22:06:31.253Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -518,7 +520,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-do-it-inkl-stellvertretung-der-geschaeftsfuehrung/4149462b-53bc-440b-85e0-d2773303c3c5",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:03:58.582Z",
+      "crawledAt": "2026-05-16T10:25:28.898Z",
       "addressLocality": "Eyholz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -554,6 +556,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:18:49.424Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -598,7 +601,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/conseillere-conseiller-de-vente-deco-f-h-d/f7ec3665-bd63-48fa-befc-99c8ea6b8a7d",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-15T22:03:58.580Z",
+      "crawledAt": "2026-05-16T10:25:28.896Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -620,6 +623,7 @@
       ],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-13T11:18:49.423Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
