@@ -1,197 +1,5 @@
 [
   {
-    "timestamp": "2026-05-01T04:34:12.456Z",
-    "label": "before",
-    "total": 2696,
-    "needsRetranslation": 94,
-    "incomplete": 37,
-    "complete": 2659,
-    "missingByLocale": {
-      "it": 34,
-      "en": 16,
-      "de": 32,
-      "fr": 32
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Graubündner Kantonalbank",
-        "pending": 8
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Center da Sanadad Engiadina Bassa",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-01T05:07:07.422Z",
-    "label": "after",
-    "total": 2696,
-    "needsRetranslation": 58,
-    "incomplete": 37,
-    "complete": 2659,
-    "missingByLocale": {
-      "it": 34,
-      "en": 16,
-      "de": 32,
-      "fr": 32
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Graubündner Kantonalbank",
-        "pending": 8
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Center da Sanadad Engiadina Bassa",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-01T06:25:51.169Z",
-    "label": "before",
-    "total": 2696,
-    "needsRetranslation": 58,
-    "incomplete": 37,
-    "complete": 2659,
-    "missingByLocale": {
-      "it": 34,
-      "en": 16,
-      "de": 32,
-      "fr": 32
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Graubündner Kantonalbank",
-        "pending": 8
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Center da Sanadad Engiadina Bassa",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-01T06:51:17.004Z",
-    "label": "after",
-    "total": 2696,
-    "needsRetranslation": 66,
-    "incomplete": 37,
-    "complete": 2659,
-    "missingByLocale": {
-      "it": 34,
-      "en": 16,
-      "de": 32,
-      "fr": 32
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Graubündner Kantonalbank",
-        "pending": 8
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Center da Sanadad Engiadina Bassa",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-01T08:37:57.093Z",
     "label": "before",
     "total": 2614,
@@ -10604,6 +10412,118 @@
       {
         "company": "PwC Switzerland",
         "pending": 7
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-15T23:00:17.324Z",
+    "label": "before",
+    "total": 4301,
+    "needsRetranslation": 2065,
+    "incomplete": 461,
+    "complete": 3840,
+    "missingByLocale": {
+      "it": 295,
+      "en": 251,
+      "de": 111,
+      "fr": 304
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 94
+      },
+      {
+        "company": "Transgourmet Schweiz AG",
+        "pending": 89
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 21
+      },
+      {
+        "company": "UBS",
+        "pending": 20
+      },
+      {
+        "company": "MSC Group",
+        "pending": 15
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 12
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-16T00:46:49.865Z",
+    "label": "after",
+    "total": 4301,
+    "needsRetranslation": 968,
+    "incomplete": 353,
+    "complete": 3948,
+    "missingByLocale": {
+      "it": 247,
+      "en": 217,
+      "de": 89,
+      "fr": 256
+    },
+    "topPending": [
+      {
+        "company": "Transgourmet Schweiz AG",
+        "pending": 89
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 20
+      },
+      {
+        "company": "MSC Group",
+        "pending": 15
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 12
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 8
       }
     ]
   }

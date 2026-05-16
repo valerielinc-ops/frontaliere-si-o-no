@@ -357,9 +357,9 @@
       },
       "slugByLocale": {
         "it": "assembly-operator-befristet-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
-        "en": "assembly-operator-terminated-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz-67c78b",
-        "de": "assembly-operator-befristet-80-100-w-m-d-jr-5757",
-        "fr": "assemblage-operateur-termine-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz-67c78b"
+        "en": "assembly-operator-terminated-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
+        "de": "montagetechniker-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
+        "fr": "assemblage-operateur-termine-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
       },
       "crawledAt": "2026-05-15T21:55:16.148Z",
       "id": "hamilton-bonaduz-ag-d568e2ba6207",
@@ -371,17 +371,20 @@
           "assembly-operator-befristet-80-100-w-m-d-jr-5751",
           "assembly-operator-befristet-80-100-hamilton-bonaduz-ag-bonaduz",
           "assembly-operator-befristet-80-100-w-m-d-jr-5757",
-          "assembly-operator-terminated-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
+          "assembly-operator-terminated-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
+          "assembly-operator-terminated-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz-67c78b"
         ],
         "fr": [
           "assembly-operator-befristet-80-100-w-m-d-jr-5751",
           "assembly-operateur-befristet-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
           "assembly-operator-befristet-80-100-w-m-d-jr-5757",
-          "assemblage-operateur-termine-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
+          "assemblage-operateur-termine-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
+          "assemblage-operateur-termine-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz-67c78b"
         ],
         "de": [
           "assembly-operator-befristet-80-100-w-m-d-jr-5751",
-          "montagetechniker-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
+          "montagetechniker-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
+          "assembly-operator-befristet-80-100-w-m-d-jr-5757"
         ]
       },
       "previousSlugs": [
@@ -392,7 +395,9 @@
         "assembly-operateur-befristet-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "assemblage-operateur-termine-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
         "montagetechniker-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
-        "assembly-operator-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
+        "assembly-operator-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz",
+        "assembly-operator-terminated-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz-67c78b",
+        "assemblage-operateur-termine-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz-67c78b"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1348,8 +1353,7 @@
       "previousSlugs": [
         "technical-product-owner-80-100-w-m-d-jr-5713"
       ],
-      "firstSeenAt": "2026-04-13T21:48:40.651Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-04-13T21:48:40.651Z"
     },
     {
       "title": "Automation Engineer (Software Specialisation) 80 - 100 % (w/m/d)",
@@ -1849,8 +1853,7 @@
           "chef-d-equipe-systemes-et-infrastructures-tic-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:48:40.651Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-04-13T21:48:40.651Z"
     },
     {
       "title": "Assembly Operator 80 - 100 % (w/m/d)",
