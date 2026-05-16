@@ -7588,6 +7588,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mobilitazione-deposito-macchinisti-chiasso.title': 'Chiasso: protest against FFS Cargo driver depot cuts',
     'blog.article.mobilitazione-deposito-macchinisti-chiasso.excerpt': 'Committee and workers ready to mobilize after FFS announces further cuts to the Chiasso driver depot.',
     'blog.article.mobilitazione-deposito-macchinisti-chiasso.imageAlt': 'Chiasso\'s Casa gialla and the FFS Cargo train drivers\' depot.',
+    'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.title': 'Documents Checklist for Working in Switzerland',
+    'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.excerpt': 'Find out what documents you need to start working in Switzerland as a cross-border worker and how to obtain them.',
+    'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.imageAlt': 'Italian-Swiss border with commuters waiting to cross',
 };
 
 export default blogMetaEn;

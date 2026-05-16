@@ -7587,6 +7587,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mobilitazione-deposito-macchinisti-chiasso.title': 'Chiasso: Protest gegen FFS Cargo Kürzungen beim Lokdepot',
     'blog.article.mobilitazione-deposito-macchinisti-chiasso.excerpt': 'Komitee und Mitarbeitende sind bereit zur Mobilisierung nach der Ankündigung weiterer Kürzungen von FFS beim Lokführer-Depot in Chiasso.',
     'blog.article.mobilitazione-deposito-macchinisti-chiasso.imageAlt': 'Das Casa gialla in Chiasso und das FFS Cargo-Lokführer-Depot.',
+    'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.title': 'Dokumenten-Checkliste für die Arbeit in der Schweiz',
+    'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.excerpt': 'Erfahre, welche Dokumente du als Grenzgänger benötigst und wie du sie erhältst.',
+    'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.imageAlt': 'Italo-Schweizer Grenze mit Grenzgängern beim Überqueren',
 };
 
 export default blogMetaDe;

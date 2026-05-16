@@ -24140,4 +24140,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-documenti-necessari-inizio-lavoro-svizzera',
+ category: 'pratico',
+ date: '2026-05-16T07:42:50.801Z',
+ image: '/images/blog/frontaliere-documenti-necessari-inizio-lavoro-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -7589,6 +7589,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mobilitazione-deposito-macchinisti-chiasso.title': 'Chiasso: mobilitazione contro i tagli al deposito macchinisti FFS Cargo',
     'blog.article.mobilitazione-deposito-macchinisti-chiasso.excerpt': 'Comitato e lavoratori pronti a mobilitarsi dopo l\'annuncio di ulteriori tagli FFS al deposito macchinisti di Chiasso.',
     'blog.article.mobilitazione-deposito-macchinisti-chiasso.imageAlt': 'La Casa gialla di Chiasso e il deposito macchinisti FFS Cargo.',
+    'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.title': 'Checklist documenti per lavorare in Svizzera',
+    'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.excerpt': 'Scopri quali documenti sono necessari per iniziare a lavorare in Svizzera come frontaliere e come ottenerli',
+    'blog.article.frontaliere-documenti-necessari-inizio-lavoro-svizzera.imageAlt': 'Frontiera italo-svizzera con frontalieri in attesa di attraversare',
 };
 
 export default blogMetaIt;
