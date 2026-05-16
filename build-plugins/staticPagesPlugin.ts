@@ -477,7 +477,53 @@ function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  if (!html.includes('</body>')) return html;
  const cantonNav = buildHomepageCantonNavHtml(locale);
  const langSwitch = buildHomepageLangSwitchHtml(locale);
- return html.replace('</body>', `${block}\n${langSwitch}\n${cantonNav}\n</body>`);
+ const crossLocaleNav = buildHomepageCrossLocaleCantonNavHtml();
+ return html.replace('</body>', `${block}\n${langSwitch}\n${cantonNav}\n${crossLocaleNav}\n</body>`);
+}
+
+/**
+ * Cross-locale canton-hub directory — ROOT-CAUSE FIX for the bfs-depth
+ * regression on sitemap-jobs-{canton}.xml that the user's locale-home
+ * injection isn't reaching `/en/`, `/de/`, `/fr/` reliably (later
+ * plugins overwrite). Even with PR #185's lang-switcher, the EN/DE/FR
+ * homes don't carry the per-locale canton anchors needed to reach
+ * `/en/find-jobs-{canton}/` etc.
+ *
+ * Workaround the per-locale injection gap by emitting anchors to ALL
+ * 25 cantons × 4 locales = 100 canton-hub URLs DIRECTLY from `/` (the
+ * IT home — the only page guaranteed to have the SEO block). Each
+ * canton-hub then becomes depth 1 from `/`, regardless of locale.
+ * Chain: `/ → /en/find-jobs-geneva/` (1) → tutti (2) → page-N (3) →
+ * job (4). All sitemap-jobs-{canton}.xml URLs reach depth ≤ 4 without
+ * relying on cross-locale home injection. Visible-not-collapsed pill
+ * row grouped by locale heading.
+ */
+function buildHomepageCrossLocaleCantonNavHtml(): string {
+ const cantonDataAny = (cantonSlugFile as { cantons: Record<string, Record<string, string>>; aggregate?: Record<string, string> });
+ const codes = [...ALL_CANTON_CODES, AGGREGATE_KEY];
+ const localesOrder: HpSeoLocale[] = ['en', 'de', 'fr']; // IT is already covered by buildHomepageCantonNavHtml
+ const sections: string[] = [];
+ const pillStyle = 'display:inline-block;padding:2px 7px;margin:1px;border-radius:5px;background:#f1f5f9;color:#475569;text-decoration:none;font-size:11px;border:1px solid #e2e8f0';
+ for (const loc of localesOrder) {
+   const langName = loc === 'en' ? 'English' : loc === 'de' ? 'Deutsch' : 'Français';
+   const rows: string[] = [];
+   for (const code of codes) {
+     const slugForLabel = code === AGGREGATE_KEY
+       ? cantonDataAny.aggregate?.[loc]
+       : cantonDataAny.cantons?.[code]?.[loc] ?? cantonDataAny.cantons?.[code]?.it;
+     if (!slugForLabel) continue;
+     const cantonSection = resolveCantonSection(loc as CantonLocale, code);
+     const cantonHubHref = `/${loc}/${cantonSection}/`.replace(/\/+/g, '/');
+     const displayLabel = slugForLabel
+       .split('-')
+       .map((w: string) => (w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w))
+       .join(' ');
+     rows.push(`<a href="${cantonHubHref}" hreflang="${loc}" style="${pillStyle}">${displayLabel}</a>`);
+   }
+   if (rows.length > 0) sections.push(`<div><strong style="font-size:11px;color:#64748b;font-weight:600">${langName}</strong> ${rows.join('')}</div>`);
+ }
+ if (sections.length === 0) return '';
+ return `<aside id="hp-xlocale-cantons" aria-label="Canton hubs in all languages" style="max-width:1100px;margin:8px auto 24px;padding:0 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.7"><details style="border:1px solid #e2e8f0;border-radius:6px;padding:.4rem .6rem;background:#f8fafc"><summary style="cursor:pointer;font-size:.85rem;color:#64748b;font-weight:600">Cantons in other languages (${sections.length * 25})</summary><div style="margin-top:.4rem">${sections.join('')}</div></details></aside>`;
 }
 
 /**
