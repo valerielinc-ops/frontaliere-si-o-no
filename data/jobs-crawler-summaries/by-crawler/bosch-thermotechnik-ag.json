@@ -1,16 +1,16 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-16T09:44:13.410Z",
-  "total": 8,
+  "generatedAt": "2026-05-16T21:09:58.433Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 15418,
-  "avgDurationMs": 15418,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 17278,
+  "avgDurationMs": 17278,
   "durationHistory": [
-    15418
+    17278
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -115,8 +115,8 @@
       "currency": "CHF",
       "postalCode": "4500",
       "firstSeenAt": "2026-05-10T21:10:13.024Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -153,8 +153,8 @@
       "currency": "CHF",
       "postalCode": "1950",
       "firstSeenAt": "2026-05-10T09:43:15.857Z",
-      "needsRetranslation": true,
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -200,8 +200,48 @@
       }
     },
     {
+      "title": "Key Account Manager Schweiz - Power Tools Zubehör Fachhandel 100% (w/m/div.) REF285400K",
+      "slug": "key-account-manager-schweiz-power-tools-zubehor-fachhandel-100-w-m-div-ref285400k-bosch-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF285400K-key-account-manager-schweiz-power-tools-zubehoer-fachhandel-100-w-m-div-ref285400k",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124819540-key-account-manager-schweiz-power-tools-zubehor-fachhandel-100-w-m-div-ref285400k?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-06",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-3e4035a07ad8",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "postalCode": "4500",
+      "firstSeenAt": "2026-05-15T21:22:22.915Z",
+      "retranslationAttempts": 1,
+      "needsRetranslation": true,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 22
+      }
+    }
+  ],
+  "removedJobs": [
+    {
       "title": "Servicetechniker Öl / Gas Region Bern (w/m/div.) REF285265T",
-      "slug": "servicetechniker-ol-gas-region-bern-w-m-div-ref285265t-bosch-steinhausen",
+      "slug": "servicetechniker-ol-gas-region-bern-w-m-div-ref285265-bosch-thermotechnik-ag-steinhausen",
       "url": "https://jobs.bosch.com/en/job/REF285265T-servicetechniker-oel-gas-region-bern-w-m-div-ref285265t",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124561544-servicetechniker-ol-gas-region-bern-w-m-div-ref285265t?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
       "company": "Bosch Thermotechnik AG",
@@ -236,7 +276,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Teamleader Production 100% (w/m/div.) - REF284854K",
@@ -261,51 +300,13 @@
       "postedDate": "2026-05-06",
       "validThrough": "",
       "id": "bosch-thermotechnik-ag-5b7190836571",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "postalCode": "1950",
       "firstSeenAt": "2026-05-15T21:22:22.915Z",
       "retranslationAttempts": 1,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 19,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Key Account Manager Schweiz - Power Tools Zubehör Fachhandel 100% (w/m/div.) REF285400K",
-      "slug": "key-account-manager-schweiz-power-tools-zubehor-fachhandel-100-w-m-div-ref285400k-bosch-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF285400K-key-account-manager-schweiz-power-tools-zubehoer-fachhandel-100-w-m-div-ref285400k",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124819540-key-account-manager-schweiz-power-tools-zubehor-fachhandel-100-w-m-div-ref285400k?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-06",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-3e4035a07ad8",
       "needsRetranslation": true,
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "postalCode": "4500",
-      "firstSeenAt": "2026-05-15T21:22:22.915Z",
-      "retranslationAttempts": 1,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
