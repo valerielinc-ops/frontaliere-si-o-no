@@ -7593,6 +7593,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.petizione-usi-supsi-500-firme.title': 'Petition gegen Kürzungen an USI und SUPSI: bereits 500 Unterschriften',
     'blog.article.petizione-usi-supsi-500-firme.excerpt': 'Vom VPOD gestartet, lehnt die Petition die vom Regierungsrat vorgeschlagenen Einsparungen ab, um die beiden Initiativen zu den Krankenkassen zu finanzieren.',
     'blog.article.petizione-usi-supsi-500-firme.imageAlt': 'Petition gegen Kürzungen an der USI und SUPSI',
+    'blog.article.libera-circolazione-ue-svizzera-impatti.title': 'EU-Swiss Freizügigkeit: Auswirkungen auf die Schweizer Wirtschaft',
+    'blog.article.libera-circolazione-ue-svizzera-impatti.excerpt': 'Die Freizügigkeit zwischen der Schweiz und der EU hat konkrete Auswirkungen auf die Schweizer Wirtschaft. Entdecken Sie die Details und Implikationen für Grenzgänger.',
+    'blog.article.libera-circolazione-ue-svizzera-impatti.imageAlt': 'Pendler am Grenzübergang Brogeda',
 };
 
 export default blogMetaDe;

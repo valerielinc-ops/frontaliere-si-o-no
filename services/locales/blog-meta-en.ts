@@ -7594,6 +7594,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.petizione-usi-supsi-500-firme.title': 'Petition against USI and SUPSI cuts: 500 signatures already',
     'blog.article.petizione-usi-supsi-500-firme.excerpt': 'Launched by the union VPOD, the petition opposes the savings proposed by the State Council to finance the two initiatives on health insurance.',
     'blog.article.petizione-usi-supsi-500-firme.imageAlt': 'Petition against cuts to USI and SUPSI',
+    'blog.article.libera-circolazione-ue-svizzera-impatti.title': 'EU-Switzerland Free Movement: Impact on Swiss Economy',
+    'blog.article.libera-circolazione-ue-svizzera-impatti.excerpt': 'The free movement of people between Switzerland and the EU has concrete effects on the Swiss economy. Discover the details and implications for cross-border workers.',
+    'blog.article.libera-circolazione-ue-svizzera-impatti.imageAlt': 'Commuters crossing the border at Brogeda',
 };
 
 export default blogMetaEn;

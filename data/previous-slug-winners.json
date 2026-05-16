@@ -45,9 +45,9 @@
     "canton": "AG"
   },
   "AG::it::elektro-servicemonteur-in-100-elektro-bau-ag-rothrist-rothrist": {
-    "winnerJobIdentifier": "burkhalter-group-8d5de775aa7d",
+    "winnerJobIdentifier": "burkhalter-group-71e65ffae073",
     "winnerCanonical": "mostro-di-servizio-elettrico-100-elektro-bau-ag-rothrist-rothrist",
-    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.4545,
     "candidatesCount": 1,
@@ -2069,6 +2069,24 @@
     "candidatesCount": 2,
     "canton": "GR"
   },
+  "GR::de::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
+    "winnerJobIdentifier": "company-metayj",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-felsberg-lzsoh3",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::de::verkaufer-in-food-coop-felsberg-graubunden-metayj": {
+    "winnerJobIdentifier": "company-metayj",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-felsberg-lzsoh3",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.5556,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::de::werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch": {
     "winnerJobIdentifier": "kanton-gr-5cc4b885f1fe",
     "winnerCanonical": "strassenwart-in-kanton-gr-ch",
@@ -2376,12 +2394,21 @@
     "canton": "GR"
   },
   "GR::en::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
-    "winnerJobIdentifier": "company-lzsoh3",
+    "winnerJobIdentifier": "company-metayj",
     "winnerCanonical": "seller-in-food-coop-genossenschaft-felsberg",
-    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.4444,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::en::verkaufer-in-food-coop-felsberg-graubunden-metayj": {
+    "winnerJobIdentifier": "company-metayj",
+    "winnerCanonical": "seller-in-food-coop-genossenschaft-felsberg",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.4444,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::fr::apprendistato-2027-automatiker-in-cfc-trumpf-schweiz-ag-grusch-pfrech": {
@@ -2682,12 +2709,21 @@
     "canton": "GR"
   },
   "GR::fr::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
-    "winnerJobIdentifier": "company-lzsoh3",
+    "winnerJobIdentifier": "company-metayj",
     "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
-    "decidedAt": "2026-05-13T00:00:00.000Z",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.1667,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::fr::verkaufer-in-food-coop-felsberg-graubunden-metayj": {
+    "winnerJobIdentifier": "company-metayj",
+    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::it::apprendistato-2027-automatiker-in-cfc-trumpf-schweiz-ag-grusch": {
@@ -3258,12 +3294,21 @@
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
-    "winnerJobIdentifier": "company-metayj",
-    "winnerCanonical": "venditore-in-food-coop-genossenschaft-felsberg",
+    "winnerJobIdentifier": "company-e66ikm",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur-ddc182",
     "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
-    "score": 0.4444,
+    "score": 0.2727,
     "candidatesCount": 1,
+    "canton": "GR"
+  },
+  "GR::it::verkaufer-in-food-coop-felsberg-graubunden-metayj": {
+    "winnerJobIdentifier": "company-metayj",
+    "winnerCanonical": "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
     "canton": "GR"
   },
   "GR::it::verkauferin-verkaufer-m-w-d-volg-vals": {

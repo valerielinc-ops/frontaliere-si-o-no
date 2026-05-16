@@ -7595,6 +7595,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.petizione-usi-supsi-500-firme.title': 'Petizione contro i tagli a USI e SUPSI: già 500 firme',
     'blog.article.petizione-usi-supsi-500-firme.excerpt': 'Lanciata dal sindacato VPOD, la petizione si oppone ai risparmi proposti dal Consiglio di Stato per finanziare le due iniziative sulle casse malati.',
     'blog.article.petizione-usi-supsi-500-firme.imageAlt': 'Petizione contro i tagli a USI e SUPSI',
+    'blog.article.libera-circolazione-ue-svizzera-impatti.title': 'Libera circolazione UE-Svizzera: gli effetti sull\'economia elvetica',
+    'blog.article.libera-circolazione-ue-svizzera-impatti.excerpt': 'La libera circolazione delle persone tra Svizzera e UE ha effetti concreti sull\'economia elvetica. Scopri i dettagli e le implicazioni per i frontalieri.',
+    'blog.article.libera-circolazione-ue-svizzera-impatti.imageAlt': 'Frontalieri in transito al valico di Brogeda',
 };
 
 export default blogMetaIt;

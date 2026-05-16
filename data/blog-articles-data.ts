@@ -24158,4 +24158,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'libera-circolazione-ue-svizzera-impatti',
+ category: 'novita',
+ date: '2026-05-16T10:11:00.784Z',
+ image: '/images/blog/libera-circolazione-ue-svizzera-impatti.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

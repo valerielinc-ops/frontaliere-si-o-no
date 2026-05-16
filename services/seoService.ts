@@ -3774,6 +3774,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mobilitazione-deposito-macchinisti-chiasso': { name: 'Mobilitazione Chiasso FFS', path: '/articoli-frontaliere/mobilitazione-deposito-macchinisti-chiasso', parent: 'blog' },
     'blog-frontaliere-documenti-necessari-inizio-lavoro-svizzera': { name: 'Documenti necessari per lavorare in', path: '/articoli-frontaliere/frontaliere-documenti-necessari-inizio-lavoro-svizzera', parent: 'blog' },
     'blog-petizione-usi-supsi-500-firme': { name: 'Petizione contro i tagli a USI e SUPSI', path: '/articoli-frontaliere/petizione-usi-supsi-500-firme', parent: 'blog' },
+    'blog-libera-circolazione-ue-svizzera-impatti': { name: 'Economia', path: '/articoli-frontaliere/libera-circolazione-ue-svizzera-impatti', parent: 'blog' },
  };
 
  const info = sectionNames[section];
