@@ -1,93 +1,5 @@
 [
   {
-    "timestamp": "2026-05-01T08:37:57.093Z",
-    "label": "before",
-    "total": 2614,
-    "needsRetranslation": 50,
-    "incomplete": 36,
-    "complete": 2578,
-    "missingByLocale": {
-      "it": 33,
-      "en": 15,
-      "de": 32,
-      "fr": 31
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Graubündner Kantonalbank",
-        "pending": 8
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-01T08:54:32.724Z",
-    "label": "after",
-    "total": 2614,
-    "needsRetranslation": 54,
-    "incomplete": 36,
-    "complete": 2578,
-    "missingByLocale": {
-      "it": 33,
-      "en": 15,
-      "de": 32,
-      "fr": 31
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Graubündner Kantonalbank",
-        "pending": 8
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-01T11:13:24.999Z",
     "label": "before",
     "total": 2668,
@@ -10524,6 +10436,118 @@
       {
         "company": "PwC Switzerland",
         "pending": 8
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-16T02:57:59.682Z",
+    "label": "before",
+    "total": 4301,
+    "needsRetranslation": 968,
+    "incomplete": 351,
+    "complete": 3950,
+    "missingByLocale": {
+      "it": 245,
+      "en": 215,
+      "de": 89,
+      "fr": 254
+    },
+    "topPending": [
+      {
+        "company": "Transgourmet Schweiz AG",
+        "pending": 89
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 20
+      },
+      {
+        "company": "MSC Group",
+        "pending": 15
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 12
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "Reboot Monkey",
+        "pending": 7
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-16T03:53:02.176Z",
+    "label": "after",
+    "total": 4301,
+    "needsRetranslation": 831,
+    "incomplete": 306,
+    "complete": 3995,
+    "missingByLocale": {
+      "it": 218,
+      "en": 199,
+      "de": 74,
+      "fr": 229
+    },
+    "topPending": [
+      {
+        "company": "Transgourmet Schweiz AG",
+        "pending": 89
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "UBS",
+        "pending": 20
+      },
+      {
+        "company": "MSC Group",
+        "pending": 15
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 12
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 5
+      },
+      {
+        "company": "Lonza",
+        "pending": 5
       }
     ]
   }
