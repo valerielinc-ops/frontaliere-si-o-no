@@ -1,93 +1,5 @@
 [
   {
-    "timestamp": "2026-05-02T02:45:53.502Z",
-    "label": "before",
-    "total": 2664,
-    "needsRetranslation": 84,
-    "incomplete": 29,
-    "complete": 2635,
-    "missingByLocale": {
-      "it": 27,
-      "en": 7,
-      "de": 25,
-      "fr": 25
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-02T03:04:59.747Z",
-    "label": "after",
-    "total": 2664,
-    "needsRetranslation": 57,
-    "incomplete": 29,
-    "complete": 2635,
-    "missingByLocale": {
-      "it": 27,
-      "en": 7,
-      "de": 25,
-      "fr": 25
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-02T03:57:14.264Z",
     "label": "before",
     "total": 2664,
@@ -10572,6 +10484,118 @@
       {
         "company": "Lonza",
         "pending": 5
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-16T11:21:54.995Z",
+    "label": "before",
+    "total": 4277,
+    "needsRetranslation": 2164,
+    "incomplete": 446,
+    "complete": 3831,
+    "missingByLocale": {
+      "it": 272,
+      "en": 283,
+      "de": 125,
+      "fr": 314
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 94
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 88
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 24
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 14
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 10
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "Rapelli - ORIOR Food AG",
+        "pending": 9
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-16T13:49:31.029Z",
+    "label": "after",
+    "total": 4277,
+    "needsRetranslation": 962,
+    "incomplete": 318,
+    "complete": 3959,
+    "missingByLocale": {
+      "it": 233,
+      "en": 216,
+      "de": 83,
+      "fr": 241
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 88
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 14
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 10
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      },
+      {
+        "company": "UBS",
+        "pending": 9
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
       }
     ]
   }
