@@ -1,56 +1,19 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-05-16T10:52:57.996Z",
+  "generatedAt": "2026-05-16T22:18:24.042Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3618,
-  "avgDurationMs": 3618,
+  "unchangedCount": 1,
+  "durationMs": 3198,
+  "avgDurationMs": 3198,
   "durationHistory": [
-    3618
+    3198
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "ICT-Supporter (a) Romanshorn",
-      "slug": "ict-supporter-a-romanshorn-rittmeyer-ag-romanshorn",
-      "url": "https://karriere.rittmeyer.com/offene-stellen/ict-supporter-a-romanshorn/",
-      "applyUrl": "",
-      "company": "Rittmeyer AG",
-      "companyKey": "rittmeyer-ag",
-      "companyDomain": "rittmeyer.com",
-      "location": "Camorino",
-      "addressLocality": "Camorino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "other",
-      "sector": "Energia",
-      "source": "rittmeyer-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "rittmeyer-ag-9c45889d6936",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "Inwilerriedstrasse 57",
-      "postalCode": "6340",
-      "firstSeenAt": "2026-05-10T10:45:26.433Z",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "title": "Sales Project Engineer (a) Ticino",
       "slug": "sales-project-engineer-a-ticino-rittmeyer-ag-tessin",
@@ -90,5 +53,43 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "ICT-Supporter (a) Romanshorn",
+      "slug": "ict-supporter-a-romanshorn-rittmeyer-ag-romanshorn",
+      "url": "https://karriere.rittmeyer.com/offene-stellen/ict-supporter-a-romanshorn/",
+      "applyUrl": "",
+      "company": "Rittmeyer AG",
+      "companyKey": "rittmeyer-ag",
+      "companyDomain": "rittmeyer.com",
+      "location": "Camorino",
+      "addressLocality": "Camorino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "ZG",
+      "country": "CH",
+      "category": "other",
+      "sector": "Energia",
+      "source": "rittmeyer-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-16",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "rittmeyer-ag-9c45889d6936",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Inwilerriedstrasse 57",
+      "postalCode": "6340",
+      "firstSeenAt": "2026-05-10T10:45:26.433Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
