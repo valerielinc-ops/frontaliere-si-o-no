@@ -7585,6 +7585,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.credit-agricole-second-pilastro-italia.title': 'Crédit Agricole, Italy\'s second pillar',
     'blog.article.credit-agricole-second-pilastro-italia.excerpt': 'Crédit Agricole strengthens its presence in Italy with its second pillar. Find out what this means for Ticino cross-border workers.',
     'blog.article.credit-agricole-second-pilastro-italia.imageAlt': 'Crédit Agricole head office in Paris',
+    'blog.article.mobilitazione-deposito-macchinisti-chiasso.title': 'Chiasso: protest against FFS Cargo driver depot cuts',
+    'blog.article.mobilitazione-deposito-macchinisti-chiasso.excerpt': 'Committee and workers ready to mobilize after FFS announces further cuts to the Chiasso driver depot.',
+    'blog.article.mobilitazione-deposito-macchinisti-chiasso.imageAlt': 'Chiasso\'s Casa gialla and the FFS Cargo train drivers\' depot.',
 };
 
 export default blogMetaEn;

@@ -24131,4 +24131,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'mobilitazione-deposito-macchinisti-chiasso',
+ category: 'novita',
+ date: '2026-05-16T05:10:49.342Z',
+ image: '/images/blog/mobilitazione-deposito-macchinisti-chiasso.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

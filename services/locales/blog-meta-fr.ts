@@ -7586,6 +7586,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.credit-agricole-second-pilastro-italia.title': 'Crédit Agricole, Italie: deuxième pilier en place',
     'blog.article.credit-agricole-second-pilastro-italia.excerpt': 'Crédit Agricole renforce sa présence en Italie avec le deuxième pilier. Découvrez ce que cela signifie pour les frontaliers du Tessin.',
     'blog.article.credit-agricole-second-pilastro-italia.imageAlt': 'Siège social de Crédit Agricole à Paris',
+    'blog.article.mobilitazione-deposito-macchinisti-chiasso.title': 'Chiasso : mobilisation contre les réductions au dépôt des conducteurs FFS Cargo',
+    'blog.article.mobilitazione-deposito-macchinisti-chiasso.excerpt': 'Comité et travailleurs prêts à se mobiliser après l\'annonce de nouvelles réductions FFS au dépôt des conducteurs de Chiasso.',
+    'blog.article.mobilitazione-deposito-macchinisti-chiasso.imageAlt': 'La Casa gialla de Chiasso et le dépôt des conducteurs FFS Cargo.',
 };
 
 export default blogMetaFr;

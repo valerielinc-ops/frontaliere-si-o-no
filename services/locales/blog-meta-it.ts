@@ -7586,6 +7586,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.credit-agricole-second-pilastro-italia.title': 'Crédit Agricole, l\'Italia secondo pilastro della banca',
     'blog.article.credit-agricole-second-pilastro-italia.excerpt': 'Crédit Agricole rafforza la sua presenza in Italia con il secondo pilastro. Scopri cosa significa per i frontalieri Ticino.',
     'blog.article.credit-agricole-second-pilastro-italia.imageAlt': 'Sede centrale di Crédit Agricole a Parigi',
+    'blog.article.mobilitazione-deposito-macchinisti-chiasso.title': 'Chiasso: mobilitazione contro i tagli al deposito macchinisti FFS Cargo',
+    'blog.article.mobilitazione-deposito-macchinisti-chiasso.excerpt': 'Comitato e lavoratori pronti a mobilitarsi dopo l\'annuncio di ulteriori tagli FFS al deposito macchinisti di Chiasso.',
+    'blog.article.mobilitazione-deposito-macchinisti-chiasso.imageAlt': 'La Casa gialla di Chiasso e il deposito macchinisti FFS Cargo.',
 };
 
 export default blogMetaIt;

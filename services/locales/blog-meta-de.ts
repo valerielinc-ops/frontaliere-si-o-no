@@ -7584,6 +7584,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.credit-agricole-second-pilastro-italia.title': 'Crédit Agricole, Italien als zweites Standbein',
     'blog.article.credit-agricole-second-pilastro-italia.excerpt': 'Crédit Agricole stärkt seine Präsenz in Italien mit dem zweiten Standbein. Erfahren Sie, was dies für die Grenzgänger aus dem Tessin bedeutet.',
     'blog.article.credit-agricole-second-pilastro-italia.imageAlt': 'Crédit Agricole-Zentrale in Paris',
+    'blog.article.mobilitazione-deposito-macchinisti-chiasso.title': 'Chiasso: Protest gegen FFS Cargo Kürzungen beim Lokdepot',
+    'blog.article.mobilitazione-deposito-macchinisti-chiasso.excerpt': 'Komitee und Mitarbeitende sind bereit zur Mobilisierung nach der Ankündigung weiterer Kürzungen von FFS beim Lokführer-Depot in Chiasso.',
+    'blog.article.mobilitazione-deposito-macchinisti-chiasso.imageAlt': 'Das Casa gialla in Chiasso und das FFS Cargo-Lokführer-Depot.',
 };
 
 export default blogMetaDe;

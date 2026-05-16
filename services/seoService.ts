@@ -3771,6 +3771,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-varesino-salvato-polizia-frontiera-domodossola': { name: 'Notizie', path: '/articoli-frontaliere/varesino-salvato-polizia-frontiera-domodossola', parent: 'blog' },
     'blog-costo-benzina-ticino-frontalieri-2026': { name: 'Costo benzina', path: '/articoli-frontaliere/costo-benzina-ticino-frontalieri-2026', parent: 'blog' },
     'blog-credit-agricole-second-pilastro-italia': { name: 'Crédit Agricole, l\'Italia secondo pilastro', path: '/articoli-frontaliere/credit-agricole-second-pilastro-italia', parent: 'blog' },
+    'blog-mobilitazione-deposito-macchinisti-chiasso': { name: 'Mobilitazione Chiasso FFS', path: '/articoli-frontaliere/mobilitazione-deposito-macchinisti-chiasso', parent: 'blog' },
  };
 
  const info = sectionNames[section];

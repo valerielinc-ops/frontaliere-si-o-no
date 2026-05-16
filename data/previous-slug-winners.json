@@ -215,6 +215,15 @@
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
+  "BASILEA::fr::data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2": {
+    "winnerJobIdentifier": "reboot-monkey-82b75718ba1a",
+    "winnerCanonical": "data-center-technicien-switzerland-pratteln-on-site-reboot-monkey-pratteln",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.7273,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::fr::dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch": {
     "winnerJobIdentifier": "unispital-basel-e94993893b1b",
     "winnerCanonical": "dipl-specialiste-des-soins-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel",
@@ -300,7 +309,7 @@
     "winnerJobIdentifier": "reboot-monkey-39fa58da10d7",
     "winnerCanonical": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates",
     "decidedAt": "2026-05-15T00:00:00.000Z",
-    "lastSeenAt": "2026-05-15T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
     "canton": "BASILEA"
@@ -3249,11 +3258,11 @@
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-felsberg-graubunden-lzsoh3": {
-    "winnerJobIdentifier": "company-lzsoh3",
-    "winnerCanonical": "venditore-in-food-coop-genossenschaft-felsberg",
+    "winnerJobIdentifier": "company-e66ikm",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-chur-ddc182",
     "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
-    "score": 0.4444,
+    "score": 0.2727,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -7199,6 +7208,15 @@
     "candidatesCount": 2,
     "canton": "VD"
   },
+  "VD::de::postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne": {
+    "winnerJobIdentifier": "epfl-ad8241ec0d43",
+    "winnerCanonical": "postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.2778,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
   "VD::de::postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne-aab331": {
     "winnerJobIdentifier": "epfl-b0cd92a73585",
     "winnerCanonical": "postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne",
@@ -7451,6 +7469,15 @@
     "candidatesCount": 1,
     "canton": "VD"
   },
+  "VD::it::postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne": {
+    "winnerJobIdentifier": "epfl-ad8241ec0d43",
+    "winnerCanonical": "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne-d02b8a",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
   "VD::it::technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix": {
     "winnerJobIdentifier": "reboot-monkey-b23f2b6b25c3",
     "winnerCanonical": "tecnico-data-center-ch-villars-ste-croix-presenza-in-sede-reboot-monkey-villars-ste-croix",
@@ -7631,6 +7658,15 @@
     "candidatesCount": 2,
     "canton": "VS"
   },
+  "VS::en::psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig": {
+    "winnerJobIdentifier": "hopital-du-valais-52fd4a2a9204",
+    "winnerCanonical": "psychologist-psychotherapist-80-100-hopital-du-valais-brig",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "VS"
+  },
   "VS::en::spa-attendant-winter-26-27-w-verbier-marriott-verbier": {
     "winnerJobIdentifier": "marriott-b88e0551e81a",
     "winnerCanonical": "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
@@ -7691,6 +7727,15 @@
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.8824,
+    "candidatesCount": 2,
+    "canton": "VS"
+  },
+  "VS::fr::psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig": {
+    "winnerJobIdentifier": "hopital-du-valais-52fd4a2a9204",
+    "winnerCanonical": "psychologue-psychotherapeute-80-100-hopital-du-valais-brig",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "VS"
   },
@@ -7766,6 +7811,15 @@
     "candidatesCount": 2,
     "canton": "VS"
   },
+  "VS::it::medici-medici-o-medici-ospedalieri-tra-il-20-e-il-100-per-la-clinica-medica-dell-ospedale-di-sierre-hopital-du-valais-si": {
+    "winnerJobIdentifier": "hopital-du-valais-6b4230c38cbe",
+    "winnerCanonical": "medici-medici-o-medici-ospedalieri-tra-il-20-e-il-100-per-la-clinica-medica-dell-ospedale-di-sierre-hopital-du-valais",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.95,
+    "candidatesCount": 2,
+    "canton": "VS"
+  },
   "VS::it::pasticceria-6-mesi-w-verbier-marriott-international-verbier": {
     "winnerJobIdentifier": "marriott-88712a24e938",
     "winnerCanonical": "cucina-pasticceria-inverno-26-27-w-verbier-marriott-international-verbier",
@@ -7773,6 +7827,15 @@
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.4545,
     "candidatesCount": 1,
+    "canton": "VS"
+  },
+  "VS::it::psychologische-r-psychotherapeut-in-80-100-hopital-du-valais-brig": {
+    "winnerJobIdentifier": "hopital-du-valais-52fd4a2a9204",
+    "winnerCanonical": "psicologo-ca-psicoterapeuta-80-100-hopital-du-valais-brig",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
     "canton": "VS"
   },
   "VS::it::spa-attendant-50-winter-26-27-w-verbier-marriott-verbier": {
@@ -7842,7 +7905,7 @@
     "winnerJobIdentifier": "pwc-0054671bedc4",
     "winnerCanonical": "associato-senior-assistente-responsabile-controllo-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
     "decidedAt": "2026-05-14T00:00:00.000Z",
-    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.1364,
     "candidatesCount": 1,
     "canton": "ZG"
