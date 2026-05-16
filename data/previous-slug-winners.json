@@ -99,11 +99,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::de::data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2": {
-    "winnerJobIdentifier": "reboot-monkey-82b75718ba1a",
-    "winnerCanonical": "data-center-techniker-switzerland-pratteln-on-site-reboot-monkey-pratteln",
-    "decidedAt": "2026-05-15T00:00:00.000Z",
+    "winnerJobIdentifier": "reboot-monkey-39fa58da10d7",
+    "winnerCanonical": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
-    "score": 0.7273,
+    "score": 0.9,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -216,12 +216,12 @@
     "canton": "BASILEA"
   },
   "BASILEA::fr::data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2": {
-    "winnerJobIdentifier": "reboot-monkey-82b75718ba1a",
-    "winnerCanonical": "data-center-technicien-switzerland-pratteln-on-site-reboot-monkey-pratteln",
+    "winnerJobIdentifier": "reboot-monkey-39fa58da10d7",
+    "winnerCanonical": "technicien-en-informatique-suisse-pratteln-sur-place-reboot-monkey-pratteln",
     "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
-    "score": 0.7273,
-    "candidatesCount": 2,
+    "score": 0.1875,
+    "candidatesCount": 1,
     "canton": "BASILEA"
   },
   "BASILEA::fr::dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch": {
@@ -324,9 +324,9 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2": {
-    "winnerJobIdentifier": "reboot-monkey-82b75718ba1a",
+    "winnerJobIdentifier": "reboot-monkey-39fa58da10d7",
     "winnerCanonical": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
-    "decidedAt": "2026-05-15T00:00:00.000Z",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.4615,
     "candidatesCount": 1,
@@ -1734,6 +1734,15 @@
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.5333,
     "candidatesCount": 1,
+    "canton": "GE"
+  },
+  "GE::it::internal-warehousing-tech-team-lead-richemont-meyrin": {
+    "winnerJobIdentifier": "richemont-237a0976fdcb",
+    "winnerCanonical": "gruppo-tecnico-warehousing-interno-lead-richemont-meyrin",
+    "decidedAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
     "canton": "GE"
   },
   "GL::it::data-center-technician-switzerland-linthal-on-site-reboot-monkey-linthal-2": {
@@ -3312,11 +3321,11 @@
     "canton": "GR"
   },
   "GR::it::verkauferin-verkaufer-m-w-d-volg-vals": {
-    "winnerJobIdentifier": "volg-fenaco-699f9076ff23",
-    "winnerCanonical": "responsabile-vendite-m-w-d-volg-vals-5c52d7",
+    "winnerJobIdentifier": "volg-fenaco-6778621893b4",
+    "winnerCanonical": "responsabile-vendite-m-w-d-volg-vals",
     "decidedAt": "2026-05-16T00:00:00.000Z",
     "lastSeenAt": "2026-05-16T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.5556,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -7923,7 +7932,7 @@
     "winnerJobIdentifier": "pwc-0054671bedc4",
     "winnerCanonical": "senior-associate-assistant-manager-verification-commerce-industries-et-services-pwc-switzerland-zug",
     "decidedAt": "2026-05-14T00:00:00.000Z",
-    "lastSeenAt": "2026-05-14T00:00:00.000Z",
+    "lastSeenAt": "2026-05-16T00:00:00.000Z",
     "score": 0.5714,
     "candidatesCount": 1,
     "canton": "ZG"
