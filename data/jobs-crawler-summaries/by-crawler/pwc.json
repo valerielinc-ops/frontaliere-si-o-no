@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-05-16T10:49:36.084Z",
+  "generatedAt": "2026-05-16T22:15:17.369Z",
   "total": 138,
   "newCount": 1,
   "updatedCount": 104,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 2183,
-  "avgDurationMs": 2183,
+  "durationMs": 2466,
+  "avgDurationMs": 2466,
   "durationHistory": [
-    2183
+    2466
   ],
   "newJobs": [
     {
@@ -138,18 +138,12 @@
       "validThrough": "2036-05-07",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-cbd87979f741",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "4001",
-      "firstSeenAt": "2026-05-11T12:21:25.187Z",
-      "_qualityScore": 90,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 22
+        "translation": 16,
+        "completeness": 14
       }
     },
     {
@@ -210,17 +204,12 @@
       "validThrough": "2036-05-04",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "id": "pwc-3aa7523d85ec",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-05-08T10:28:56.294Z",
-      "_qualityScore": 87,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 19
+        "translation": 16,
+        "completeness": 14
       }
     },
     {
@@ -1283,6 +1272,7 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-10T10:42:36.606Z",
+      "needsRetranslation": true,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
