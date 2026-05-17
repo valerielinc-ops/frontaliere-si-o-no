@@ -24203,4 +24203,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'molestie-sul-lavoro-oltre-alle-segnalazioni',
+ category: 'pratico',
+ date: '2026-05-17T12:53:22.669Z',
+ image: '/images/blog/molestie-sul-lavoro-oltre-alle-segnalazioni.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

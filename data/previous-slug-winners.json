@@ -4022,6 +4022,15 @@
     "candidatesCount": 2,
     "canton": "SO"
   },
+  "SO::en::mpa-poliklinik-orthopadie-m-w-d-soh-ch": {
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
+    "winnerCanonical": "projektleiter-m-w-d-solothurner-spitaler-soh-solothurn",
+    "decidedAt": "2026-05-17T00:00:00.000Z",
+    "lastSeenAt": "2026-05-17T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "SO"
+  },
   "SO::en::oberarztin-oberarzt-medizin-w-m-d-soh-ch-2": {
     "winnerJobIdentifier": "solothurner-spitaeler-4f66ec5870fa",
     "winnerCanonical": "senior-consultant-m-d-solothurner-spitaler-soh-olten",
@@ -4040,6 +4049,15 @@
     "candidatesCount": 2,
     "canton": "SO"
   },
+  "SO::fr::mpa-poliklinik-orthopadie-m-w-d-soh-ch": {
+    "winnerJobIdentifier": "solothurner-spitaeler-8930d6d07cfe",
+    "winnerCanonical": "projektleiter-m-m-solothurner-spitaler-soh-solothurn",
+    "decidedAt": "2026-05-17T00:00:00.000Z",
+    "lastSeenAt": "2026-05-17T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "SO"
+  },
   "SO::fr::oberarztin-oberarzt-medizin-w-m-d-soh-ch-2": {
     "winnerJobIdentifier": "solothurner-spitaeler-4f66ec5870fa",
     "winnerCanonical": "consultant-principal-m-j-solothurner-spitaler-soh-olten-acb83f",
@@ -4055,6 +4073,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-17T00:00:00.000Z",
     "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "SO"
+  },
+  "SO::it::mpa-poliklinik-orthopadie-m-w-d-soh-ch": {
+    "winnerJobIdentifier": "solothurner-spitaeler-4c45f38bb903",
+    "winnerCanonical": "mpa-poliklinik-orthopala-m-w-d-solothurner-spitaler-soh-solothurn",
+    "decidedAt": "2026-05-17T00:00:00.000Z",
+    "lastSeenAt": "2026-05-17T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "SO"
   },
@@ -4203,7 +4230,7 @@
     "canton": "TG"
   },
   "TG::it::dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa": {
-    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
     "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-17T00:00:00.000Z",
     "lastSeenAt": "2026-05-17T00:00:00.000Z",
@@ -7173,8 +7200,8 @@
     "canton": "TI"
   },
   "TI::it::stadio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil1ss",
-    "winnerCanonical": "tirocinio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil1sr",
+    "winnerCanonical": "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-17T00:00:00.000Z",
     "lastSeenAt": "2026-05-17T00:00:00.000Z",
     "score": 0.6364,

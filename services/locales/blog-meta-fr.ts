@@ -7610,6 +7610,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.traffico-migranti-tra-varese-e-il-ticino.title': 'Traffico migratorio tra Varese e il Ticino',
     'blog.article.traffico-migranti-tra-varese-e-il-ticino.excerpt': 'Operazione congiunta tra Italia e Svizzera porta all\'arresto di otto persone accusate di gestire un\'associazione criminale che favoriva l\'immigrazione clandestina di cittadini turchi in Europa.',
     'blog.article.traffico-migranti-tra-varese-e-il-ticino.imageAlt': 'Frontière entre la Suisse et l\'Italie',
+    'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.title': 'Harcèlements au travail: outils pour les entreprises',
+    'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.excerpt': 'L\'affaire de l\'Hôpital Civique de Lugano a mis en évidence la nécessité de canaux sûrs et d\'une formation régulière pour prévenir et gérer les harcèlements au travail.',
+    'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.imageAlt': 'Hôpital de Lugano',
 };
 
 export default blogMetaFr;

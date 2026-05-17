@@ -7608,6 +7608,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traffico-migranti-tra-varese-e-il-ticino.title': 'Schmugglerring zwischen Varese und dem Tessin aufgedeckt',
     'blog.article.traffico-migranti-tra-varese-e-il-ticino.excerpt': 'Gemeinsame Operation von Italien und der Schweiz führt zur Festnahme von acht Personen, die eine kriminelle Organisation leiteten, die die illegale Einwanderung von türkischen Bürgern nach Europa ermöglichte.',
     'blog.article.traffico-migranti-tra-varese-e-il-ticino.imageAlt': 'Grenze zwischen der Schweiz und Italien',
+    'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.title': 'Arbeitsbelästigung: Es braucht mehr als nur Meldungen in Unternehmen',
+    'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.excerpt': 'Der Fall im Zivilkrankenhaus von Lugano hat die Notwendigkeit sicherer Kanäle und regelmäßiger Schulung zur Prävention und Bewältigung von Arbeitsbelästigung aufgezeigt.',
+    'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.imageAlt': 'Krankenhaus Lugano',
 };
 
 export default blogMetaDe;

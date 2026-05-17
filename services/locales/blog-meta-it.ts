@@ -7610,6 +7610,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.traffico-migranti-tra-varese-e-il-ticino.title': 'Traffico di migranti tra Varese e il Ticino',
     'blog.article.traffico-migranti-tra-varese-e-il-ticino.excerpt': 'Operazione congiunta tra Italia e Svizzera porta all\'arresto di otto persone accusate di gestire un\'associazione criminale che favoriva l\'immigrazione clandestina di cittadini turchi in Europa.',
     'blog.article.traffico-migranti-tra-varese-e-il-ticino.imageAlt': 'Frontiera tra la Svizzera e l\'Italia',
+    'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.title': 'Molestie sul lavoro: oltre alle segnalazioni servono strumenti nelle aziende',
+    'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.excerpt': 'Il caso dell\'Ospedale Civico di Lugano ha evidenziato la necessità di canali sicuri e formazione regolare per prevenire e gestire le molestie sul lavoro.',
+    'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.imageAlt': 'Ospedale Civico di Lugano',
 };
 
 export default blogMetaIt;

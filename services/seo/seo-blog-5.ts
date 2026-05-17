@@ -37787,6 +37787,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-molestie-sul-lavoro-oltre-alle-segnalazioni': {
+    title: 'Molestie sul lavoro: oltre alle segnalazioni servono strumenti nelle aziende',
+    description: 'Il caso dell\'Ospedale Civico di Lugano ha evidenziato la necessità di canali sicuri e formazione regolare per prevenire e gestire le molestie sul lavoro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, molestie, lavoro, oltre, alle',
+    ogTitle: 'Molestie sul lavoro: oltre alle segnalazioni servono strumenti nelle aziende',
+    ogDescription: 'Il caso dell\'Ospedale Civico di Lugano ha evidenziato la necessità di canali sicuri e formazione regolare per prevenire e gestire le molestie sul lavoro.',
+    canonicalPath: '/articoli-frontaliere/molestie-sul-lavoro-oltre-alle-segnalazioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Molestie sul lavoro: oltre alle segnalazioni servono strumenti nelle aziende",
+      "description": "Il caso dell'Ospedale Civico di Lugano ha evidenziato la necessità di canali sicuri e formazione regolare per prevenire e gestire le molestie sul lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/molestie-sul-lavoro-oltre-alle-segnalazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale Civico di Lugano"
+      },
+      "datePublished": "2026-05-17T12:53:22+00:00",
+      "dateModified": "2026-05-17T12:53:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/molestie-sul-lavoro-oltre-alle-segnalazioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

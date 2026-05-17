@@ -3779,6 +3779,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-investimenti-ricerca-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-investimenti-ricerca-2026', parent: 'blog' },
     'blog-cantonale-interna-ascona-porto-ronco-lavori-disagi-vista': { name: 'Cantonale \'interna\' da Ascona a Porto', path: '/articoli-frontaliere/cantonale-interna-ascona-porto-ronco-lavori-disagi-vista', parent: 'blog' },
     'blog-traffico-migranti-tra-varese-e-il-ticino': { name: 'Traffico di migranti', path: '/articoli-frontaliere/traffico-migranti-tra-varese-e-il-ticino', parent: 'blog' },
+    'blog-molestie-sul-lavoro-oltre-alle-segnalazioni': { name: 'Molestie sul lavoro', path: '/articoli-frontaliere/molestie-sul-lavoro-oltre-alle-segnalazioni', parent: 'blog' },
  };
 
  const info = sectionNames[section];

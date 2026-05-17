@@ -7609,6 +7609,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traffico-migranti-tra-varese-e-il-ticino.title': 'Migrant Trafficking Between Varese and Ticino',
     'blog.article.traffico-migranti-tra-varese-e-il-ticino.excerpt': 'Joint operation between Italy and Switzerland leads to the arrest of eight people accused of running a criminal organization that facilitated the illegal immigration of Turkish citizens into Europe.',
     'blog.article.traffico-migranti-tra-varese-e-il-ticino.imageAlt': 'Border between Switzerland and Italy',
+    'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.title': 'Work Harassment: Beyond Reporting, Tools Needed in Businesses',
+    'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.excerpt': 'The case at Lugano\'s Civic Hospital highlighted the need for secure channels and regular training to prevent and manage workplace harassment.',
+    'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.imageAlt': 'Lugano Civic Hospital',
 };
 
 export default blogMetaEn;
