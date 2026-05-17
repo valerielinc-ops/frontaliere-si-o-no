@@ -7616,6 +7616,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.title': 'Riforma sulla disoccupazione dei frontalieri: Gobbi Stoppa derive pericolose',
     'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.excerpt': 'Il consigliere di Stato Norman Gobbi ha invitato il Consiglio federale a tutelare gli interessi del nostro Paese per non pagare un conto salatissimo.',
     'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.imageAlt': 'Frontaliers en attente à la frontière de Brogeda',
+    'blog.article.frontalieri-assemblea-generale-2023.title': 'Frontaliers: assemblée générale le 26 novembre - San Marino Rtv',
+    'blog.article.frontalieri-assemblea-generale-2023.excerpt': 'L\'assemblée générale des frontaliers aura lieu le 26 novembre, comme annoncé par San Marino Rtv.',
+    'blog.article.frontalieri-assemblea-generale-2023.imageAlt': 'Une conférence entre frontaliers dans un bureau de Lugano.',
 };
 
 export default blogMetaFr;

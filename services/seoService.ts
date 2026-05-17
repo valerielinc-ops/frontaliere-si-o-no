@@ -3781,6 +3781,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-traffico-migranti-tra-varese-e-il-ticino': { name: 'Traffico di migranti', path: '/articoli-frontaliere/traffico-migranti-tra-varese-e-il-ticino', parent: 'blog' },
     'blog-molestie-sul-lavoro-oltre-alle-segnalazioni': { name: 'Molestie sul lavoro', path: '/articoli-frontaliere/molestie-sul-lavoro-oltre-alle-segnalazioni', parent: 'blog' },
     'blog-frontalieri-disoccupazione-ue-svizzera-2026': { name: 'Riforma sulla disoccupazione dei', path: '/articoli-frontaliere/frontalieri-disoccupazione-ue-svizzera-2026', parent: 'blog' },
+    'blog-frontalieri-assemblea-generale-2023': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-assemblea-generale-2023', parent: 'blog' },
  };
 
  const info = sectionNames[section];

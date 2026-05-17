@@ -7615,6 +7615,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.title': 'Border Workers Unemployment Reform: Gobbi Stops Dangerous Trends',
     'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.excerpt': 'Councilor of State Norman Gobbi urges the Federal Council to protect Swiss interests to avoid a hefty bill.',
     'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.imageAlt': 'Commuters waiting at the Brogeda border crossing',
+    'blog.article.frontalieri-assemblea-generale-2023.title': 'Cross-Border Workers: General Assembly on November 26',
+    'blog.article.frontalieri-assemblea-generale-2023.excerpt': 'The general assembly of cross-border workers will take place on November 26, as announced by San Marino Rtv.',
+    'blog.article.frontalieri-assemblea-generale-2023.imageAlt': 'A conference between cross-border workers in a Lugano office.',
 };
 
 export default blogMetaEn;

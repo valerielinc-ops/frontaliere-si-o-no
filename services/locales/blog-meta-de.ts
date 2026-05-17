@@ -7614,6 +7614,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.title': 'Arbeitslosengeldreform: Gobbi stoppt Gefahren',
     'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.excerpt': 'Der Staatsrat Norman Gobbi hat den Bundesrat aufgefordert, die Interessen unseres Landes zu schützen, um nicht eine hohe Rechnung zu bezahlen.',
     'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.imageAlt': 'Pendler an der Grenze von Brogeda',
+    'blog.article.frontalieri-assemblea-generale-2023.title': 'Grenzgänger: Generalversammlung am 26. November - San Marino Rtv',
+    'blog.article.frontalieri-assemblea-generale-2023.excerpt': 'Die Generalversammlung der Grenzgänger findet am 26. November statt, wie von San Marino Rtv angekündigt.',
+    'blog.article.frontalieri-assemblea-generale-2023.imageAlt': 'Eine Konferenz zwischen Grenzgängern in einem Büro in Lugano.',
 };
 
 export default blogMetaDe;

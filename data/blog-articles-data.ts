@@ -24221,4 +24221,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontalieri-assemblea-generale-2023',
+ category: 'novita',
+ date: '2026-05-17T14:17:32.232Z',
+ image: '/images/blog/frontalieri-assemblea-generale-2023.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
