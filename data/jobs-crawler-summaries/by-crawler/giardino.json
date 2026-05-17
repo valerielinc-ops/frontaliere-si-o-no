@@ -1,16 +1,16 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-05-16T21:38:22.658Z",
+  "generatedAt": "2026-05-17T10:17:21.112Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4716,
-  "avgDurationMs": 4716,
+  "durationMs": 4778,
+  "avgDurationMs": 4778,
   "durationHistory": [
-    4716
+    4778
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://giardinohotels.ch/en/jobs/demichef-de-partie-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:38:20.542Z",
+      "crawledAt": "2026-05-17T10:17:19.338Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -51,46 +51,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "giardino-e7f4937bce90",
-      "slug": "assistente-contabilita-50-giardino-group-champfer",
-      "company": "Giardino Group",
-      "companyKey": "giardino",
-      "companyDomain": "giardinohotels.ch",
-      "title": "Assistant Accounting 50%",
-      "location": "Champfèr",
-      "canton": "GR",
-      "url": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
-      "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-16T10:12:36.650Z",
-      "addressLocality": "Champfèr",
-      "postalCode": "7512",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-14",
-      "applyUrl": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:11:16.186Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
