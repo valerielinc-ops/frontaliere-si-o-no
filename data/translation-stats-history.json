@@ -1,113 +1,5 @@
 [
   {
-    "timestamp": "2026-05-02T10:45:27.790Z",
-    "label": "before",
-    "total": 2647,
-    "needsRetranslation": 1124,
-    "incomplete": 98,
-    "complete": 2549,
-    "missingByLocale": {
-      "it": 34,
-      "en": 68,
-      "de": 81,
-      "fr": 85
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 47
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 21
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 4
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 2
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 2
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-02T11:42:11.463Z",
-    "label": "after",
-    "total": 2647,
-    "needsRetranslation": 75,
-    "incomplete": 34,
-    "complete": 2613,
-    "missingByLocale": {
-      "it": 27,
-      "en": 11,
-      "de": 30,
-      "fr": 30
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "International School of Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-02T13:41:20.113Z",
     "label": "before",
     "total": 2647,
@@ -10627,6 +10519,118 @@
       "en": 188,
       "de": 72,
       "fr": 216
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 14
+      },
+      {
+        "company": "UBS",
+        "pending": 12
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 9
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 5
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 5
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-17T04:40:52.534Z",
+    "label": "before",
+    "total": 4301,
+    "needsRetranslation": 854,
+    "incomplete": 281,
+    "complete": 4020,
+    "missingByLocale": {
+      "it": 204,
+      "en": 187,
+      "de": 73,
+      "fr": 215
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 14
+      },
+      {
+        "company": "UBS",
+        "pending": 12
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 9
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 5
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 5
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-17T04:51:10.522Z",
+    "label": "after",
+    "total": 4301,
+    "needsRetranslation": 856,
+    "incomplete": 281,
+    "complete": 4020,
+    "missingByLocale": {
+      "it": 204,
+      "en": 187,
+      "de": 73,
+      "fr": 215
     },
     "topPending": [
       {
