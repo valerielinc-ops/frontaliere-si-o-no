@@ -1,77 +1,5 @@
 [
   {
-    "timestamp": "2026-05-03T02:58:46.927Z",
-    "label": "before",
-    "total": 2584,
-    "needsRetranslation": 60,
-    "incomplete": 20,
-    "complete": 2564,
-    "missingByLocale": {
-      "it": 18,
-      "en": 2,
-      "de": 17,
-      "fr": 19
-    },
-    "topPending": [
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 10
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-03T03:20:26.778Z",
-    "label": "after",
-    "total": 2584,
-    "needsRetranslation": 49,
-    "incomplete": 19,
-    "complete": 2565,
-    "missingByLocale": {
-      "it": 18,
-      "en": 1,
-      "de": 17,
-      "fr": 19
-    },
-    "topPending": [
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 10
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-03T04:16:06.992Z",
     "label": "before",
     "total": 2584,
@@ -10656,6 +10584,118 @@
       {
         "company": "Spital Davos",
         "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-17T11:26:19.856Z",
+    "label": "before",
+    "total": 4419,
+    "needsRetranslation": 2346,
+    "incomplete": 1434,
+    "complete": 2985,
+    "missingByLocale": {
+      "it": 1228,
+      "en": 857,
+      "de": 582,
+      "fr": 1254
+    },
+    "topPending": [
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 186
+      },
+      {
+        "company": "IWC",
+        "pending": 110
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 107
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 92
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "Reboot Monkey",
+        "pending": 69
+      },
+      {
+        "company": "Reboot Monkey",
+        "pending": 69
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 52
+      },
+      {
+        "company": "UBS",
+        "pending": 49
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-17T13:15:57.271Z",
+    "label": "after",
+    "total": 4419,
+    "needsRetranslation": 1286,
+    "incomplete": 1303,
+    "complete": 3116,
+    "missingByLocale": {
+      "it": 1180,
+      "en": 796,
+      "de": 532,
+      "fr": 1183
+    },
+    "topPending": [
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 186
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 107
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 92
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "Reboot Monkey",
+        "pending": 69
+      },
+      {
+        "company": "Reboot Monkey",
+        "pending": 69
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 52
+      },
+      {
+        "company": "UBS",
+        "pending": 49
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 46
       }
     ]
   }
