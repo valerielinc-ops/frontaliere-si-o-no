@@ -751,7 +751,7 @@
       "slugByLocale": {
         "it": "collaboratore-di-ricerca-epfl-fribourg",
         "en": "research-collaborator-epfl-fribourg",
-        "de": "forschungskooperation-epfl-fribourg",
+        "de": "forschung-collaborator-epfl-fribourg",
         "fr": "collaborateur-de-recherche-epfl-fribourg"
       },
       "company": "EPFL",
@@ -797,10 +797,14 @@
       "previousSlugsByLocale": {
         "it": [
           "research-collaborator-epfl-fribourg"
+        ],
+        "de": [
+          "forschungskooperation-epfl-fribourg"
         ]
       },
       "previousSlugs": [
-        "research-collaborator-epfl-fribourg"
+        "research-collaborator-epfl-fribourg",
+        "forschungskooperation-epfl-fribourg"
       ],
       "firstSeenAt": "2026-05-10T21:32:10.745Z",
       "salaryMin": 49500,

@@ -421,7 +421,7 @@
     },
     {
       "id": "company-8axa4k",
-      "slug": "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden-8axa4k",
+      "slug": "ristorante-w-m-d-coop-genossenschaft-maienfeld",
       "company": "Coop Genossenschaft",
       "title": "Teammember Restaurant Auf Abruf (w/m/d)",
       "location": "Maienfeld",
@@ -458,7 +458,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden-8axa4k",
+        "it": "ristorante-w-m-d-coop-genossenschaft-maienfeld",
         "en": "teammember-restaurant-w-m-d-coop-genossenschaft-maienfeld",
         "de": "teammember-restaurant-auf-abruf-m-w-d-coop-genossenschaft-maienfeld-8axa4k",
         "fr": "membre-de-l-equipe-restaurant-m-j-coop-genossenschaft-maienfeld"
@@ -478,11 +478,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden"
+          "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden",
+          "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden-8axa4k"
         ]
       },
       "previousSlugs": [
-        "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden"
+        "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden",
+        "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden-8axa4k"
       ],
       "retranslationAttempts": 1,
       "sourceLang": "de"
@@ -751,7 +753,7 @@
     },
     {
       "id": "company-3pl1h6",
-      "slug": "kochin-koch-m-w-d-coop-ristorante-davos-platz-3pl1h6",
+      "slug": "chef-cuoco-w-m-d-coop-genossenschaft-davos",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Davos",
@@ -797,7 +799,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "kochin-koch-m-w-d-coop-ristorante-davos-platz-3pl1h6",
+        "it": "chef-cuoco-w-m-d-coop-genossenschaft-davos",
         "en": "chef-cook-w-m-d-coop-genossenschaft-davos",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-davos-3pl1h6",
         "fr": "chef-cuisinier-w-m-d-coop-genossenschaft-davos"
@@ -817,11 +819,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-m-w-d-coop-ristorante-davos-platz"
+          "kochin-koch-m-w-d-coop-ristorante-davos-platz",
+          "kochin-koch-m-w-d-coop-ristorante-davos-platz-3pl1h6"
         ]
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-davos-platz",
+        "kochin-koch-m-w-d-coop-ristorante-davos-platz-3pl1h6",
         "kochin-koch-w-m-d-coop-genossenschaft-davos"
       ],
       "retranslationAttempts": 1,
@@ -829,7 +833,7 @@
     },
     {
       "id": "company-pa5qt0",
-      "slug": "collaboratore-trice-gastronomie-coop-ristorante-davos-platz-pa5qt0",
+      "slug": "personale-nella-gastronomia-coop-genossenschaft-davos",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Gastronomie",
       "location": "Davos",
@@ -875,8 +879,8 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-gastronomie-coop-ristorante-davos-platz-pa5qt0",
-        "en": "staff-in-gastronomy-coop-genossenschaft-davos",
+        "it": "personale-nella-gastronomia-coop-genossenschaft-davos",
+        "en": "associate-gastronomie-coop-genossenschaft-davos",
         "de": "mitarbeiter-in-gastronomie-coop-genossenschaft-davos",
         "fr": "personnel-en-gastronomie-coop-genossenschaft-davos"
       },
@@ -895,13 +899,15 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "associate-gastronomie-coop-ristorante-davos-platz-pa5qt0"
+          "associate-gastronomie-coop-ristorante-davos-platz-pa5qt0",
+          "staff-in-gastronomy-coop-genossenschaft-davos"
         ],
         "fr": [
           "collaborateur-trice-gastronomie-coop-ristorante-davos-platz-pa5qt0"
         ],
         "it": [
-          "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz"
+          "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz",
+          "collaboratore-trice-gastronomie-coop-ristorante-davos-platz-pa5qt0"
         ],
         "de": [
           "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz-pa5qt0"
@@ -909,8 +915,10 @@
       },
       "previousSlugs": [
         "associate-gastronomie-coop-ristorante-davos-platz-pa5qt0",
+        "staff-in-gastronomy-coop-genossenschaft-davos",
         "collaborateur-trice-gastronomie-coop-ristorante-davos-platz-pa5qt0",
         "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz",
+        "collaboratore-trice-gastronomie-coop-ristorante-davos-platz-pa5qt0",
         "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz-pa5qt0"
       ],
       "retranslationAttempts": 1,
@@ -1653,7 +1661,7 @@
     },
     {
       "id": "company-ncbhm0",
-      "slug": "cross-entry-staff-in-carne-e-pesce-coop-genossenschaft-muttenz",
+      "slug": "cambio-carriera-collaboratore-trice-fleisch-e-fisch-coop-genossenschaft-muttenz",
       "company": "Coop Genossenschaft",
       "title": "Quereinstieg - Mitarbeiter:in Fleisch und Fisch",
       "location": "Muttenz",
@@ -1679,7 +1687,7 @@
       "crawledAt": "2026-05-10T09:58:53.007Z",
       "firstSeenAt": "2026-05-10T09:58:53.007Z",
       "slugByLocale": {
-        "it": "cross-entry-staff-in-carne-e-pesce-coop-genossenschaft-muttenz",
+        "it": "cambio-carriera-collaboratore-trice-fleisch-e-fisch-coop-genossenschaft-muttenz",
         "en": "cross-entry-staff-in-meat-and-fish-coop-genossenschaft-muttenz",
         "de": "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-genossenschaft-muttenz",
         "fr": "entree-croisee-personnel-dans-la-viande-et-le-poisson-coop-genossenschaft-muttenz"
@@ -1725,7 +1733,8 @@
           "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-ncbhm0"
         ],
         "it": [
-          "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-ncbhm0"
+          "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-ncbhm0",
+          "cross-entry-staff-in-carne-e-pesce-coop-genossenschaft-muttenz"
         ],
         "de": [
           "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-grigioni-ncbhm0"
@@ -1735,6 +1744,7 @@
         "quereinstieg-associate-fleisch-und-fisch-coop-grigioni-ncbhm0",
         "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-ncbhm0",
         "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-ncbhm0",
+        "cross-entry-staff-in-carne-e-pesce-coop-genossenschaft-muttenz",
         "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-grigioni-ncbhm0"
       ],
       "sourceLang": "de"
