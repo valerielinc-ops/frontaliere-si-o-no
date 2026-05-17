@@ -24212,4 +24212,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontalieri-disoccupazione-ue-svizzera-2026',
+ category: 'fiscale',
+ date: '2026-05-17T13:49:00.788Z',
+ image: '/images/blog/frontalieri-disoccupazione-ue-svizzera-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

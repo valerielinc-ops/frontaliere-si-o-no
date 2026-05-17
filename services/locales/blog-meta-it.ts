@@ -7613,6 +7613,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.title': 'Molestie sul lavoro: oltre alle segnalazioni servono strumenti nelle aziende',
     'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.excerpt': 'Il caso dell\'Ospedale Civico di Lugano ha evidenziato la necessità di canali sicuri e formazione regolare per prevenire e gestire le molestie sul lavoro.',
     'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.imageAlt': 'Ospedale Civico di Lugano',
+    'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.title': 'Riforma sulla disoccupazione dei frontalieri: Gobbi Stoppa derive pericolose',
+    'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.excerpt': 'Il consigliere di Stato Norman Gobbi ha invitato il Consiglio federale a tutelare gli interessi del nostro Paese per non pagare un conto salatissimo.',
+    'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.imageAlt': 'Frontalieri in attesa al valico di Brogeda',
 };
 
 export default blogMetaIt;

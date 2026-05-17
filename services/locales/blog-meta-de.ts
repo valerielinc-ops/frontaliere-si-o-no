@@ -7611,6 +7611,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.title': 'Arbeitsbelästigung: Es braucht mehr als nur Meldungen in Unternehmen',
     'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.excerpt': 'Der Fall im Zivilkrankenhaus von Lugano hat die Notwendigkeit sicherer Kanäle und regelmäßiger Schulung zur Prävention und Bewältigung von Arbeitsbelästigung aufgezeigt.',
     'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.imageAlt': 'Krankenhaus Lugano',
+    'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.title': 'Arbeitslosengeldreform: Gobbi stoppt Gefahren',
+    'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.excerpt': 'Der Staatsrat Norman Gobbi hat den Bundesrat aufgefordert, die Interessen unseres Landes zu schützen, um nicht eine hohe Rechnung zu bezahlen.',
+    'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.imageAlt': 'Pendler an der Grenze von Brogeda',
 };
 
 export default blogMetaDe;

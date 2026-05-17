@@ -7612,6 +7612,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.title': 'Work Harassment: Beyond Reporting, Tools Needed in Businesses',
     'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.excerpt': 'The case at Lugano\'s Civic Hospital highlighted the need for secure channels and regular training to prevent and manage workplace harassment.',
     'blog.article.molestie-sul-lavoro-oltre-alle-segnalazioni.imageAlt': 'Lugano Civic Hospital',
+    'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.title': 'Border Workers Unemployment Reform: Gobbi Stops Dangerous Trends',
+    'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.excerpt': 'Councilor of State Norman Gobbi urges the Federal Council to protect Swiss interests to avoid a hefty bill.',
+    'blog.article.frontalieri-disoccupazione-ue-svizzera-2026.imageAlt': 'Commuters waiting at the Brogeda border crossing',
 };
 
 export default blogMetaEn;
