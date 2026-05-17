@@ -1,46 +1,18 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-05-17T10:31:11.947Z",
+  "generatedAt": "2026-05-17T21:55:50.539Z",
   "total": 14,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 35241,
-  "avgDurationMs": 35241,
+  "unchangedCount": 9,
+  "durationMs": 34395,
+  "avgDurationMs": 34395,
   "durationHistory": [
-    35241
+    34395
   ],
-  "newJobs": [
-    {
-      "id": "company-o6pzz5",
-      "slug": "store-manager-apprendista-a-100-per-la-region-st-gallen-rheintal-jysk-st-gallen-o6pzz5",
-      "company": "JYSK",
-      "title": "Store Manager Trainee (a) 100% für die Region St. Gallen /Rheintal",
-      "location": "St. Gallen",
-      "canton": "JU",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-07",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-100-fuer-die-region-st-gallen-rheintal",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-05-17T10:31:11.607Z",
-      "firstSeenAt": "2026-05-17T10:31:11.607Z",
-      "sourceLang": "de",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 23,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-9yhx5d",
@@ -186,6 +158,37 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "company-o6pzz5",
+      "slug": "store-manager-apprendista-a-100-per-la-region-st-gallen-rheintal-jysk-st-gallen-o6pzz5",
+      "company": "JYSK",
+      "title": "Store Manager Trainee (a) 100% für die Region St. Gallen /Rheintal",
+      "location": "St. Gallen",
+      "canton": "JU",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-07",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-100-fuer-die-region-st-gallen-rheintal",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-05-17T10:31:11.607Z",
+      "firstSeenAt": "2026-05-17T10:31:11.607Z",
+      "sourceLang": "de",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "employmentType": "FULL_TIME",
+      "postalCode": "9000",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 23,
+        "completeness": 22
+      }
+    },
     {
       "id": "company-tqkknk",
       "slug": "store-manager-apprendista-100-per-la-region-zurich-jysk-dietlikon",
