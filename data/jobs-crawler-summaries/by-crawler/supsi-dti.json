@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-05-17T11:11:44.737Z",
-  "total": 14,
-  "newCount": 14,
+  "generatedAt": "2026-05-17T22:36:23.768Z",
+  "total": 12,
+  "newCount": 12,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 55166,
-  "avgDurationMs": 55166,
+  "durationMs": 48615,
+  "avgDurationMs": 48615,
   "durationHistory": [
-    55166
+    48615
   ],
   "newJobs": [
     {
@@ -36,7 +36,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-05-17T11:11:13.603Z",
       "firstSeenAt": "2026-05-17T11:11:13.603Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 51500,
@@ -47,6 +46,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -89,6 +89,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -120,7 +121,6 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-05-17T11:11:13.603Z",
       "firstSeenAt": "2026-05-17T11:11:13.603Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 79500,
@@ -131,53 +131,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-l4u547",
-      "slug": "assistente-bachelor-in-formazione-master-in-ambito-bioelettronica-per-lo-sviluppo-di-bioreattori-miniaturizzati-organ-on-chip-supsi-dti-luga",
-      "company": "SUPSI / DTI",
-      "title": "Assistente Bachelor in formazione Master in ambito bioelettronica per lo sviluppo di bioreattori miniaturizzati Organ-on-Chip",
-      "location": "Lugano. Grado d",
-      "canton": "TI",
-      "category": "health",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-09",
-      "url": "https://www.supsi.ch/bando26_5020",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Lugano",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-05-09T10:44:28.449Z",
-      "firstSeenAt": "2026-05-09T10:44:28.449Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Lugano. Grado d",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 20,
         "completeness": 25
       }
     },
@@ -430,48 +389,6 @@
         "cleanliness": 25,
         "richness": 25,
         "translation": 23,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-l4rl4l",
-      "slug": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-grado-d",
-      "company": "SUPSI / DTI",
-      "title": "Dottoranda / Dottorando in Dinamica dei materiali compositi avanzati per droni",
-      "location": "Mendrisio. Grado d",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-18",
-      "url": "https://www.supsi.ch/bando26_1008",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Mendrisio",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-04-18T10:12:40.998Z",
-      "firstSeenAt": "2026-04-18T10:12:40.998Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Mendrisio. Grado d",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 20,
         "completeness": 25
       }
     },
