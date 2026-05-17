@@ -1,19 +1,18 @@
 {
   "key": "interdiscount",
   "label": "Interdiscount",
-  "generatedAt": "2026-05-16T21:49:55.155Z",
+  "generatedAt": "2026-05-17T10:28:51.772Z",
   "total": 5,
-  "newCount": 0,
-  "updatedCount": 5,
+  "newCount": 2,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2897,
-  "avgDurationMs": 2897,
+  "durationMs": 2459,
+  "avgDurationMs": 2459,
   "durationHistory": [
-    2897
+    2459
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "id": "interdiscount-d7a2b3a9-c76",
       "slug": "gestionnaire-du-commerce-de-detail-interdiscount-martigny-cristal",
@@ -26,7 +25,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/gestionnaire-du-commerce-de-detail/d7a2b3a9-c761-417b-a9ba-be03ae0b56bb",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:49:52.996Z",
+      "crawledAt": "2026-05-17T10:28:49.913Z",
       "addressLocality": "Martigny Cristal",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -41,13 +40,11 @@
       "postedDate": "2025-08-25",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=160903",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:21:18.430Z",
-      "_qualityScore": 83,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 19,
+        "translation": 4,
         "completeness": 14
       }
     },
@@ -63,7 +60,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/gestionnaire-du-commerce-de-detail/520de24e-8e5d-47b4-bc13-c8fd1fdf9dd8",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:49:52.997Z",
+      "crawledAt": "2026-05-17T10:28:49.914Z",
       "addressLocality": "Sierre Manor",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -78,16 +75,16 @@
       "postedDate": "2025-08-25",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=160898",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:21:18.431Z",
-      "_qualityScore": 83,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 19,
+        "translation": 4,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "interdiscount-da0b842b-36a",
       "slug": "gestionnaire-du-commerce-de-detail-interdiscount-sion",
@@ -100,7 +97,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/gestionnaire-du-commerce-de-detail/da0b842b-36ac-45f9-8df2-6b8ba53a64e3",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:49:52.997Z",
+      "crawledAt": "2026-05-17T10:28:49.914Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -136,7 +133,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/d15b9148-6266-46bd-a636-f268368f9c97",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:49:52.998Z",
+      "crawledAt": "2026-05-17T10:28:49.914Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -172,7 +169,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/18863cea-2cc6-454f-80ca-17f8e7543987",
       "source": "Interdiscount Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:49:52.998Z",
+      "crawledAt": "2026-05-17T10:28:49.915Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
