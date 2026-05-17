@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-05-17T10:17:21.112Z",
+  "assembledAt": "2026-05-17T21:42:07.200Z",
   "jobs": [
     {
       "id": "giardino-c0a1ee2b00de",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/en/jobs/demichef-de-partie-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:17:19.338Z",
+      "crawledAt": "2026-05-17T21:42:05.370Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -65,6 +65,7 @@
         ]
       },
       "firstSeenAt": "2026-04-21T21:41:57.797Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
