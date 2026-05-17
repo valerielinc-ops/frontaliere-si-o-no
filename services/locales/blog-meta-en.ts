@@ -7606,6 +7606,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cantonale-interna-ascona-porto-ronco-lavori-disagi-vista.title': 'Cantonale \'interna\' works from Ascona to Porto Ronco cause traffic disruptions',
     'blog.article.cantonale-interna-ascona-porto-ronco-lavori-disagi-vista.excerpt': 'Works have started for the new canton road \'interna\' from Ascona to Porto Ronco. Cross-border workers may face traffic disruptions.',
     'blog.article.cantonale-interna-ascona-porto-ronco-lavori-disagi-vista.imageAlt': 'Construction work on a road in Ascona, Ticino',
+    'blog.article.traffico-migranti-tra-varese-e-il-ticino.title': 'Migrant Trafficking Between Varese and Ticino',
+    'blog.article.traffico-migranti-tra-varese-e-il-ticino.excerpt': 'Joint operation between Italy and Switzerland leads to the arrest of eight people accused of running a criminal organization that facilitated the illegal immigration of Turkish citizens into Europe.',
+    'blog.article.traffico-migranti-tra-varese-e-il-ticino.imageAlt': 'Border between Switzerland and Italy',
 };
 
 export default blogMetaEn;

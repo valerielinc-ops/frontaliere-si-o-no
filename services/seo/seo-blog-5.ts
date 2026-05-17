@@ -37748,6 +37748,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-traffico-migranti-tra-varese-e-il-ticino': {
+    title: 'Traffico di migranti tra Varese e il Ticino | Frontaliere Ticino',
+    description: 'Operazione congiunta tra Italia e Svizzera porta all\'arresto di otto persone accusate di gestire un\'associazione criminale che favoriva l\'immigrazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, migranti, varese, operazione',
+    ogTitle: 'Traffico di migranti tra Varese e il Ticino | Frontaliere Ticino',
+    ogDescription: 'Operazione congiunta tra Italia e Svizzera porta all\'arresto di otto persone accusate di gestire un\'associazione criminale che favoriva l\'immigrazione',
+    canonicalPath: '/articoli-frontaliere/traffico-migranti-tra-varese-e-il-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico di migranti tra Varese e il Ticino",
+      "description": "Operazione congiunta tra Italia e Svizzera porta all'arresto di otto persone accusate di gestire un'associazione criminale che favoriva l'immigrazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-migranti-tra-varese-e-il-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontiera tra la Svizzera e l'Italia"
+      },
+      "datePublished": "2026-05-17T04:03:29+00:00",
+      "dateModified": "2026-05-17T04:03:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-migranti-tra-varese-e-il-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

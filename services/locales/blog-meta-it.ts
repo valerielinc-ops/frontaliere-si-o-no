@@ -7607,6 +7607,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cantonale-interna-ascona-porto-ronco-lavori-disagi-vista.title': 'Cantonale \'interna\' da Ascona a Porto Ronco, lavori (e disagi) in vista',
     'blog.article.cantonale-interna-ascona-porto-ronco-lavori-disagi-vista.excerpt': 'Iniziati i lavori per la nuova strada cantonale \'interna\' da Ascona a Porto Ronco. I frontalieri potrebbero riscontrare disagi nella viabilità.',
     'blog.article.cantonale-interna-ascona-porto-ronco-lavori-disagi-vista.imageAlt': 'Lavori in corso su una strada a Ascona, Ticino',
+    'blog.article.traffico-migranti-tra-varese-e-il-ticino.title': 'Traffico di migranti tra Varese e il Ticino',
+    'blog.article.traffico-migranti-tra-varese-e-il-ticino.excerpt': 'Operazione congiunta tra Italia e Svizzera porta all\'arresto di otto persone accusate di gestire un\'associazione criminale che favoriva l\'immigrazione clandestina di cittadini turchi in Europa.',
+    'blog.article.traffico-migranti-tra-varese-e-il-ticino.imageAlt': 'Frontiera tra la Svizzera e l\'Italia',
 };
 
 export default blogMetaIt;

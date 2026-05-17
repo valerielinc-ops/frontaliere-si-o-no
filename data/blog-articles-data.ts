@@ -24194,4 +24194,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'traffico-migranti-tra-varese-e-il-ticino',
+ category: 'novita',
+ date: '2026-05-17T04:03:29.435Z',
+ image: '/images/blog/traffico-migranti-tra-varese-e-il-ticino.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
