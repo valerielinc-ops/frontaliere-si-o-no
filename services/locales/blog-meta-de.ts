@@ -7617,6 +7617,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-assemblea-generale-2023.title': 'Grenzgänger: Generalversammlung am 26. November - San Marino Rtv',
     'blog.article.frontalieri-assemblea-generale-2023.excerpt': 'Die Generalversammlung der Grenzgänger findet am 26. November statt, wie von San Marino Rtv angekündigt.',
     'blog.article.frontalieri-assemblea-generale-2023.imageAlt': 'Eine Konferenz zwischen Grenzgängern in einem Büro in Lugano.',
+    'blog.article.pasta-svizzera-italia-2026.title': 'Nudeln: Italien auf Platz 1, wie wichtig ist die Schweiz?',
+    'blog.article.pasta-svizzera-italia-2026.excerpt': 'Die Schweiz produziert weniger Nudeln als Italien, hat aber eigene Wertschöpfungskette. Entdecken Sie, wie wichtig der Nudelmarkt in der Schweiz ist und die Herausforderungen für Schweizer Produzenten.',
+    'blog.article.pasta-svizzera-italia-2026.imageAlt': 'Spaghetti Bolognese Gericht in einem Restaurant in Lugano',
 };
 
 export default blogMetaDe;

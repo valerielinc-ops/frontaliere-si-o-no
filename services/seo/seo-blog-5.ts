@@ -37904,6 +37904,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pasta-svizzera-italia-2026': {
+    title: 'Pasta: l\'Italia al top, ma quanto pesa la Svizzera?',
+    description: 'Scopri quanto conta il mercato della pasta in Svizzera e le sfide per i produttori elvetici. La Svizzera produce circa 40\'000 tonnellate di pasta all\'anno, ma',
+    keywords: 'frontalieri, ticino, svizzera, italia, pasta, quanto, pesa, produce',
+    ogTitle: 'Pasta: l\'Italia al top, ma quanto pesa la Svizzera? | Frontaliere Ticino',
+    ogDescription: 'La Svizzera produce circa 40\'000 tonnellate di pasta all\'anno, ma rappresenta solo una piccola parte del mercato mondiale della pasta. Scopri le sfide per i',
+    canonicalPath: '/articoli-frontaliere/pasta-svizzera-italia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pasta: l'Italia al top, ma quanto pesa la Svizzera?",
+      "description": "Scopri quanto conta il mercato della pasta in Svizzera e le sfide per i produttori elvetici. La Svizzera produce circa 40'000 tonnellate di pasta all'anno, ma",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pasta-svizzera-italia-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piatto di spaghetti alla bolognese in un ristorante di Lugano"
+      },
+      "datePublished": "2026-05-17T15:28:40+00:00",
+      "dateModified": "2026-05-17T15:28:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pasta-svizzera-italia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

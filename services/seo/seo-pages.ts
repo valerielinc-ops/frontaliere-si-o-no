@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2594,
+ "numberOfItems": 2595,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7234,7 +7234,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2591, "name": "Traffico di migranti tra Varese e il Ticino", "url": `${BASE_URL}/articoli-frontaliere/traffico-migranti-tra-varese-e-il-ticino` },
           { "@type": "ListItem", "position": 2592, "name": "Molestie sul lavoro: oltre alle segnalazioni se...", "url": `${BASE_URL}/articoli-frontaliere/molestie-sul-lavoro-oltre-alle-segnalazioni` },
           { "@type": "ListItem", "position": 2593, "name": "Riforma sulla disoccupazione dei frontalieri: G...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupazione-ue-svizzera-2026` },
-          { "@type": "ListItem", "position": 2594, "name": "Frontalieri: assemblea generale il 26 novembre ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-assemblea-generale-2023` }
+          { "@type": "ListItem", "position": 2594, "name": "Frontalieri: assemblea generale il 26 novembre ...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-assemblea-generale-2023` },
+          { "@type": "ListItem", "position": 2595, "name": "Pasta: l'Italia al top, ma quanto pesa la Svizz...", "url": `${BASE_URL}/articoli-frontaliere/pasta-svizzera-italia-2026` }
  ]
  },
  {

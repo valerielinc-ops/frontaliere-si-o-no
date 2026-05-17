@@ -309,7 +309,7 @@
     "winnerJobIdentifier": "reboot-monkey-39fa58da10d7",
     "winnerCanonical": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates",
     "decidedAt": "2026-05-15T00:00:00.000Z",
-    "lastSeenAt": "2026-05-16T00:00:00.000Z",
+    "lastSeenAt": "2026-05-17T00:00:00.000Z",
     "score": 0.6667,
     "candidatesCount": 1,
     "canton": "BASILEA"
@@ -411,6 +411,15 @@
     "lastSeenAt": "2026-05-17T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 1,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::segretario-del-dottore-in-universitatsspital-basel-basel": {
+    "winnerJobIdentifier": "unispital-basel-640a59e26647",
+    "winnerCanonical": "assistente-di-medico-universitatsspital-basel-basel",
+    "decidedAt": "2026-05-17T00:00:00.000Z",
+    "lastSeenAt": "2026-05-17T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 2,
     "canton": "BASILEA"
   },
   "BASILEA::it::servicetechniker-m-w-d-otis-sa-nenzlingerweg-2": {
@@ -4248,11 +4257,11 @@
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-daae166861d1",
-    "winnerCanonical": "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-422f0cc4c8e3",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-17T00:00:00.000Z",
     "lastSeenAt": "2026-05-17T00:00:00.000Z",
-    "score": 0.875,
+    "score": 0.4167,
     "candidatesCount": 1,
     "canton": "TG"
   },
@@ -4284,8 +4293,12 @@
     "canton": "TG"
   },
   "TG::it::dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa": {
+
     "winnerJobIdentifier": "spital-thurgau-63045915dc5f",
     "winnerCanonical": "specialista-di-cura-akutpsychiatrie-3-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-422f0cc4c8e3",
+    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+
     "decidedAt": "2026-05-17T00:00:00.000Z",
     "lastSeenAt": "2026-05-17T00:00:00.000Z",
     "score": 0.5833,
@@ -7254,8 +7267,8 @@
     "canton": "TI"
   },
   "TI::it::stadio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-bellinzona": {
-    "winnerJobIdentifier": "company-uil1ss",
-    "winnerCanonical": "tirocinio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio",
+    "winnerJobIdentifier": "company-uil1sr",
+    "winnerCanonical": "stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio",
     "decidedAt": "2026-05-17T00:00:00.000Z",
     "lastSeenAt": "2026-05-17T00:00:00.000Z",
     "score": 0.6364,
@@ -7370,6 +7383,15 @@
     "candidatesCount": 2,
     "canton": "VD"
   },
+  "VD::de::position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne-aab331": {
+    "winnerJobIdentifier": "epfl-ad8241ec0d43",
+    "winnerCanonical": "postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne-aab331",
+    "decidedAt": "2026-05-17T00:00:00.000Z",
+    "lastSeenAt": "2026-05-17T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
   "VD::de::postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne": {
     "winnerJobIdentifier": "epfl-b0cd92a73585",
     "winnerCanonical": "postdoc-position-zur-ki-ausrichtung-und-zur-sicheren-ki-bei-epfl-dlab-epfl-lausanne",
@@ -7431,6 +7453,15 @@
     "lastSeenAt": "2026-05-17T00:00:00.000Z",
     "score": 0.2308,
     "candidatesCount": 1,
+    "canton": "VD"
+  },
+  "VD::en::position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne-aab331": {
+    "winnerJobIdentifier": "epfl-b0cd92a73585",
+    "winnerCanonical": "postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne",
+    "decidedAt": "2026-05-17T00:00:00.000Z",
+    "lastSeenAt": "2026-05-17T00:00:00.000Z",
+    "score": 0.2273,
+    "candidatesCount": 2,
     "canton": "VD"
   },
   "VD::en::postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab-epfl-lausanne-2": {
@@ -7620,6 +7651,15 @@
     "lastSeenAt": "2026-05-17T00:00:00.000Z",
     "score": 0.2,
     "candidatesCount": 1,
+    "canton": "VD"
+  },
+  "VD::it::position-postdoc-sur-l-alignement-de-l-ia-et-l-ia-sure-disponible-a-l-epfl-dlab-epfl-lausanne-aab331": {
+    "winnerJobIdentifier": "epfl-ad8241ec0d43",
+    "winnerCanonical": "posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne-d02b8a",
+    "decidedAt": "2026-05-17T00:00:00.000Z",
+    "lastSeenAt": "2026-05-17T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
     "canton": "VD"
   },
   "VD::it::posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne": {
@@ -8171,6 +8211,15 @@
     "candidatesCount": 1,
     "canton": "ZH"
   },
+  "ZH::de::ingegnere-di-servizio-sul-campo-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-45a5046c4b7a",
+    "winnerCanonical": "field-service-ingenieur-f-m-d-hitachi-energy-zurich",
+    "decidedAt": "2026-05-17T00:00:00.000Z",
+    "lastSeenAt": "2026-05-17T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
   "ZH::de::lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-spital-limmattal-ch": {
     "winnerJobIdentifier": "spital-limmattal-99dc82dcb950",
     "winnerCanonical": "lehrstelle-k-u00f6chin-koch-efz-spital-limmattal-ch",
@@ -8277,6 +8326,15 @@
     "lastSeenAt": "2026-05-17T00:00:00.000Z",
     "score": 0.8,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::en::ingegnere-di-servizio-sul-campo-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-45a5046c4b7a",
+    "winnerCanonical": "field-service-engineer-f-m-d-hitachi-energy-zurich-switzerland",
+    "decidedAt": "2026-05-17T00:00:00.000Z",
+    "lastSeenAt": "2026-05-17T00:00:00.000Z",
+    "score": 0.4667,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::en::lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-spital-limmattal-ch": {
@@ -8393,6 +8451,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-17T00:00:00.000Z",
     "score": 0.4615,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::fr::ingegnere-di-servizio-sul-campo-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-45a5046c4b7a",
+    "winnerCanonical": "field-service-ingenieur-f-m-d-hitachi-energy-zurich",
+    "decidedAt": "2026-05-17T00:00:00.000Z",
+    "lastSeenAt": "2026-05-17T00:00:00.000Z",
+    "score": 0.4,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -8582,6 +8649,15 @@
     "decidedAt": "2026-05-13T00:00:00.000Z",
     "lastSeenAt": "2026-05-17T00:00:00.000Z",
     "score": 0.7273,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::ingegnere-di-servizio-sul-campo-f-m-d-hitachi-energy-zurich-switzerland": {
+    "winnerJobIdentifier": "hitachi-energy-45a5046c4b7a",
+    "winnerCanonical": "field-service-ingegnere-f-m-d-hitachi-energy-zurich",
+    "decidedAt": "2026-05-17T00:00:00.000Z",
+    "lastSeenAt": "2026-05-17T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "ZH"
   },

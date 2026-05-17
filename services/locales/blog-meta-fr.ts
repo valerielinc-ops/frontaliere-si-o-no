@@ -7619,6 +7619,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-assemblea-generale-2023.title': 'Frontaliers: assemblée générale le 26 novembre - San Marino Rtv',
     'blog.article.frontalieri-assemblea-generale-2023.excerpt': 'L\'assemblée générale des frontaliers aura lieu le 26 novembre, comme annoncé par San Marino Rtv.',
     'blog.article.frontalieri-assemblea-generale-2023.imageAlt': 'Une conférence entre frontaliers dans un bureau de Lugano.',
+    'blog.article.pasta-svizzera-italia-2026.title': 'Pâtes: l\'Italie en tête, mais quel est le poids de la Suisse?',
+    'blog.article.pasta-svizzera-italia-2026.excerpt': 'La Suisse produit moins de pâtes que l\'Italie, mais a sa propre filière. Découvrez l\'importance du marché des pâtes en Suisse et les défis pour les producteurs suisses.',
+    'blog.article.pasta-svizzera-italia-2026.imageAlt': 'Assiette de spaghetti à la bolognaise dans un restaurant de Lugano',
 };
 
 export default blogMetaFr;

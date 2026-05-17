@@ -7618,6 +7618,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-assemblea-generale-2023.title': 'Cross-Border Workers: General Assembly on November 26',
     'blog.article.frontalieri-assemblea-generale-2023.excerpt': 'The general assembly of cross-border workers will take place on November 26, as announced by San Marino Rtv.',
     'blog.article.frontalieri-assemblea-generale-2023.imageAlt': 'A conference between cross-border workers in a Lugano office.',
+    'blog.article.pasta-svizzera-italia-2026.title': 'Pasta: Italy Leads, But How Heavy is Switzerland\'s Role?',
+    'blog.article.pasta-svizzera-italia-2026.excerpt': 'Switzerland produces less pasta than Italy, but has its own supply chain. Discover the importance of the pasta market in Switzerland and the challenges faced by Swiss producers.',
+    'blog.article.pasta-svizzera-italia-2026.imageAlt': 'Spaghetti Bolognese dish in a Lugano restaurant',
 };
 
 export default blogMetaEn;

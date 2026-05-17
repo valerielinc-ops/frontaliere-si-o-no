@@ -24230,4 +24230,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pasta-svizzera-italia-2026',
+ category: 'pratico',
+ date: '2026-05-17T15:28:40.312Z',
+ image: '/images/blog/pasta-svizzera-italia-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
