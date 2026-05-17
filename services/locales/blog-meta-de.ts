@@ -7623,6 +7623,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.code-e-non-solo-in-autostrada.title': 'Code, nicht nur auf der Autobahn',
     'blog.article.code-e-non-solo-in-autostrada.excerpt': 'Schwieriger Rückweg nach dem Brückentag: Probleme auf der A2 in nördlicher Richtung und starker Verkehr auch auf kantonalen Straßen.',
     'blog.article.code-e-non-solo-in-autostrada.imageAlt': 'Stau auf der Autobahn in der Schweiz',
+    'blog.article.traffico-rientro-ascensione-ticino.title': 'Aufstieg, zunehmender Verkehr bei der Rückkehr',
+    'blog.article.traffico-rientro-ascensione-ticino.excerpt': 'Die Rückkehr nach dem langen Ascensionstag-Wochenende ist in vollem Gange, insbesondere was den Verkehr auf der A2 in nördlicher Richtung betrifft.',
+    'blog.article.traffico-rientro-ascensione-ticino.imageAlt': 'Der Rückverkehr in Ticino ist während der Osternahrung gestiegen.',
 };
 
 export default blogMetaDe;

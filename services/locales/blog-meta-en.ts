@@ -7624,6 +7624,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.code-e-non-solo-in-autostrada.title': 'Code, Not Just on the Highway',
     'blog.article.code-e-non-solo-in-autostrada.excerpt': 'Difficult return after Ascension Day weekend: Disruptions on A2 northbound and heavy traffic on cantonal roads.',
     'blog.article.code-e-non-solo-in-autostrada.imageAlt': 'Traffic jam on Ticino\'s highway',
+    'blog.article.traffico-rientro-ascensione-ticino.title': 'Ascension: Return Traffic Increases',
+    'blog.article.traffico-rientro-ascensione-ticino.excerpt': 'Return traffic from the Ascension long weekend is picking up, particularly on the A2 heading north.',
+    'blog.article.traffico-rientro-ascensione-ticino.imageAlt': 'The return traffic in Ticino has increased during Ascension.',
 };
 
 export default blogMetaEn;

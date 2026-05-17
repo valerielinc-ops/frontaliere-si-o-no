@@ -24248,4 +24248,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'traffico-rientro-ascensione-ticino',
+ category: 'novita',
+ date: '2026-05-17T23:22:16.056Z',
+ image: '/images/blog/traffico-rientro-ascensione-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

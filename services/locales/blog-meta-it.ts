@@ -7625,6 +7625,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.code-e-non-solo-in-autostrada.title': 'Code, e non solo in autostrada',
     'blog.article.code-e-non-solo-in-autostrada.excerpt': 'Rientro difficile dopo il ponte dell\'Ascensione: disagi sull\'A2 in direzione nord e traffico intenso anche sulle strade cantonali.',
     'blog.article.code-e-non-solo-in-autostrada.imageAlt': 'Coda sull\'autostrada in Ticino',
+    'blog.article.traffico-rientro-ascensione-ticino.title': 'Ascensione, in aumento il traffico del rientro',
+    'blog.article.traffico-rientro-ascensione-ticino.excerpt': 'Il rientro dal lungo ponte dell\'Ascensione sta entrando nel vivo, soprattutto per quanto concerne il traffico sulla A2, direzione Nord.',
+    'blog.article.traffico-rientro-ascensione-ticino.imageAlt': 'Il traffico del rientro in Ticino è aumentato durante l\'Ascensione.',
 };
 
 export default blogMetaIt;

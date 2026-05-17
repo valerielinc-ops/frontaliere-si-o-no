@@ -7625,6 +7625,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.code-e-non-solo-in-autostrada.title': 'Code, et pas seulement sur l\'autoroute',
     'blog.article.code-e-non-solo-in-autostrada.excerpt': 'Retour difficile après le pont de l\'Ascension : désagréments sur l\'A2 en direction du nord et trafic intense sur les routes cantonales.',
     'blog.article.code-e-non-solo-in-autostrada.imageAlt': 'Embouteillage sur l\'autoroute en Suisse',
+    'blog.article.traffico-rientro-ascensione-ticino.title': 'Ascension: augmentation de la circulation de retour',
+    'blog.article.traffico-rientro-ascensione-ticino.excerpt': 'Le retour du long pont de l\'Ascension bat son plein, en particulier pour la circulation sur l\'A2, en direction du nord.',
+    'blog.article.traffico-rientro-ascensione-ticino.imageAlt': 'Le trafic de retour en Tessin a augmenté pendant l\'Ascension.',
 };
 
 export default blogMetaFr;
