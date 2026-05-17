@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-10T22:58:29.248Z",
+  "generatedAt": "2026-05-17T23:01:26.370Z",
   "sources": {
     "redditTicino": {
       "ok": true,
-      "candidates": 3
+      "candidates": 1
     },
     "redditItaly": {
       "ok": true,
@@ -19,7 +19,7 @@
     },
     "googleNewsRss": {
       "ok": true,
-      "candidates": 232
+      "candidates": 235
     }
   },
   "candidates": [
@@ -68,66 +68,6 @@
       "totalScore": 0.406
     },
     {
-      "id": "5e1a20eb",
-      "keyword": "​​​​​​​Cross-border worker and teleworking - Filodiritto",
-      "normalizedKeyword": "​​​​​​​cross-border worker and teleworking - filodiritto",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "telelavoro frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBhVnc1ekpUM0VEa1Z1XzNILWR4YnhTai1TdWpKM0hJYWF1SHFuODNHNmJfeUtHRndQdWU5cWhYS20xRFJ3Rk8tWGFvLWF2ZnBjUXdCYi1TMHU4WTc4U1VyZlZCNTBXdHlGNzRxN2ZVVjk?oc=5",
-        "googleNewsRssPubDate": "Thu, 19 Jun 2025 07:00:00 GMT",
-        "googleNewsRssSource": "Filodiritto"
-      },
-      "rationale": "Google News RSS seed \"telelavoro frontalieri\" — Filodiritto",
-      "demandScore": 0,
-      "noveltyScore": 0.933,
-      "totalScore": 0.373
-    },
-    {
-      "id": "0d2837bd",
-      "keyword": "LPP: le taux minimal du 2e pilier restera à 1,25% - TradingView",
-      "normalizedKeyword": "lpp: le taux minimal du 2e pilier restera a 1,25% - tradingview",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0zYU9faXVucWFoODBGWDl1ZnlHY2ZVbVBfMmNJdTN5cEZuRUUxNzM0VnVsYUFzSlJfNGVob21lc05DdlJyMzBIMm11TDNBWkU2NXJmb1VTWUpyT3oyUVRuQlZR?oc=5",
-        "googleNewsRssPubDate": "Wed, 05 Nov 2025 08:00:00 GMT",
-        "googleNewsRssSource": "TradingView"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — TradingView",
-      "demandScore": 0,
-      "noveltyScore": 0.923,
-      "totalScore": 0.369
-    },
-    {
-      "id": "76a1572f",
-      "keyword": "Utili e fatturato LPP S.A. – GPW:LPP - TradingView",
-      "normalizedKeyword": "utili e fatturato lpp s.a. – gpw:lpp - tradingview",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5lYjloTDlCdkFoak1raUpucEVfanc3aVZBenRBZDAzN2lLTDlKdmloTF9KMmFGSjg1UlNRUmQ5WklQVEEza1M5dzFHemJGWWN3U3RzWFdpN25xN0JTRjdULWlPUlJhNzZ0LUFtNlhvaDc?oc=5",
-        "googleNewsRssPubDate": "Sat, 10 Sep 2022 22:48:56 GMT",
-        "googleNewsRssSource": "TradingView"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — TradingView",
-      "demandScore": 0,
-      "noveltyScore": 0.909,
-      "totalScore": 0.364
-    },
-    {
       "id": "ceaaead6",
       "keyword": "Nottambuli di r/Italy, come fate a convivere con gli orari imposti dalla società odierna?",
       "normalizedKeyword": "nottambuli di r/italy, come fate a convivere con gli orari imposti dalla societa odierna?",
@@ -150,44 +90,124 @@
       "totalScore": 0.36
     },
     {
-      "id": "aa57e6b7",
-      "keyword": "Frontalieri: dichiarazione Andreoli - San Marino Rtv",
-      "normalizedKeyword": "frontalieri: dichiarazione andreoli - san marino rtv",
+      "id": "5398c47a",
+      "keyword": "LAMal: aumento premi, assicuratore deve mostrare contabilità - Ticinonews",
+      "normalizedKeyword": "lamal: aumento premi, assicuratore deve mostrare contabilita - ticinonews",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "AVS frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOakliNnFBQzZRWHNpVzhDbUREekEzbkc2UlhMMXRhX2pLNlB6Mng4NTVvMDN6ZDNHMklCVXhWMC1aYkpYYjFXaUlaZHRhSTk2ZnY4cUlDM21ER2ltWDNudjczdXlSQlo3dUp5VFNLYmlVbnFRYkdFalFvNEt2NEY5MFRlcTdRZ092QjFxZ2JYdw?oc=5",
-        "googleNewsRssPubDate": "Wed, 26 May 2004 07:00:00 GMT",
-        "googleNewsRssSource": "San Marino Rtv"
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPdVZTaHU4Sk9PVVhTaEd2NFVGbTQ2Y1NodGhhemplM1E3SE1RdGg4MXI3MGZKejRhVWFWR0NrV09YY3Fmd19UXzdUckM4TG0wWGIyZmNDQi1NWWlsSWV2NERZbFVmSTlIdVpLZU5IZFhWb2I2My1KTzJRQUNSWGJ1TWRvaDRHZlV4eUtFVk1OWmRncktpWUxvSUhyTFZlai1U?oc=5",
+        "googleNewsRssPubDate": "Tue, 12 May 2026 13:09:59 GMT",
+        "googleNewsRssSource": "Ticinonews"
       },
-      "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
+      "rationale": "Google News RSS seed \"LAMal\" — Ticinonews",
       "demandScore": 0,
       "noveltyScore": 0.889,
       "totalScore": 0.356
     },
     {
-      "id": "93aba41f",
-      "keyword": "Nuovi frontalieri, il conto è troppo salato. “12mila euro di tasse e anche l’acconto 2026? Follia”, “18mila euro all’erario, shock”, “Conviene ancora?” - ComoZero",
-      "normalizedKeyword": "nuovi frontalieri, il conto e troppo salato. “12mila euro di tasse e anche l’acconto 2026? follia”, “18mila euro all’erario, shock”, “conviene ancora?” - comozero",
+      "id": "735584d3",
+      "keyword": "Le pensioni svizzere versate all’estero sono numerose, ma modeste - SWI swissinfo.ch",
+      "normalizedKeyword": "le pensioni svizzere versate all’estero sono numerose, ma modeste - swi swissinfo.ch",
+      "angle": null,
+      "locale": "fr",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "AVS frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQMVJvYnZTSjc4cVpLcmxNeS13RUNhMkNzeDllanFKVWtpYlM4UlN2VEZVdUg4eGxtSVlOajVxWEFMaTlKWEN0RnpoWnVpaGlkblUwb3h1SU9OVGFnME9mQ2FrUVJJUUpvaEJ2WktpbmtYODNqUnZCY0s5T0FzOVFmcG56VHJBYmJ2aE94SXNEaXJ1YVhhbEo5amhucldEUDZEdWhYTjFQNVBEaWFydkNQWlExazZaMTRR?oc=5",
+        "googleNewsRssPubDate": "Fri, 30 May 2025 07:00:00 GMT",
+        "googleNewsRssSource": "SWI swissinfo.ch"
+      },
+      "rationale": "Google News RSS seed \"AVS frontalieri\" — SWI swissinfo.ch",
+      "demandScore": 0,
+      "noveltyScore": 0.889,
+      "totalScore": 0.356
+    },
+    {
+      "id": "0d2837bd",
+      "keyword": "LPP: le taux minimal du 2e pilier restera à 1,25% - TradingView",
+      "normalizedKeyword": "lpp: le taux minimal du 2e pilier restera a 1,25% - tradingview",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "nuovo accordo fiscale",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNS3YwOUJmb21ELVF6OERWNmxzbENEeWs5MEt3bU9Zd3BLa3FTTVczZjF4bkNOa3VBWTFGMUhHbkJZU1h4SUhUNnBsNVVZUW5fVHQ0TTkwNVFSOENERnVxcE4tSmZxeEo0TFZDbGVmZ0xKdUV0c0ZHd3NEaEp4TmJkaVF4RWdPRzVNMHZsUHRGc2dTRi1fenlPRVVwei1ycHhnZklZU1NLRE5yd3daVXBWVWg0eFgxWWwzbk82S1hjbm41WWh2WEFRcnNjSXItWmt0dll3ZXREMFc4VXgxZWJZVUpERENpZUxKa2E2QkhYMzA1THpj?oc=5",
-        "googleNewsRssPubDate": "Mon, 18 Aug 2025 07:00:00 GMT",
-        "googleNewsRssSource": "ComoZero"
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE0zYU9faXVucWFoODBGWDl1ZnlHY2ZVbVBfMmNJdTN5cEZuRUUxNzM0VnVsYUFzSlJfNGVob21lc05DdlJyMzBIMm11TDNBWkU2NXJmb1VTWUpyT3oyUVRuQlZR?oc=5",
+        "googleNewsRssPubDate": "Wed, 05 Nov 2025 08:00:00 GMT",
+        "googleNewsRssSource": "TradingView"
       },
-      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — ComoZero",
+      "rationale": "Google News RSS seed \"LPP\" — TradingView",
       "demandScore": 0,
-      "noveltyScore": 0.885,
-      "totalScore": 0.354
+      "noveltyScore": 0.882,
+      "totalScore": 0.353
+    },
+    {
+      "id": "e674cc52",
+      "keyword": "Ethos boccia i compensi di Novartis: \"La busta paga del CEO è eccessiva\" - TVS tvsvizzera.it",
+      "normalizedKeyword": "ethos boccia i compensi di novartis: \"la busta paga del ceo e eccessiva\" - tvs tvsvizzera.it",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "busta paga svizzera",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNSjZoOXZsZkVXYm9WZGNwSW03T1FJV0MzQjMtVmczcFBka0xURXRCY0djb2Jsb2JqRl9Ea0dGeld1N053WGlOeXVaaC1FRlphd2FOTk1JUTdnZUZnUVk0NElZYXZiQ1BXeERNOERiTXlfdGxRZlpOdDdmSEUzVXlMeUZfamxQRTg0bUpaZVd0OTJZcWw3SXcwNjRRUjdwN2dFeGNYRnpneU9LSWE2amNILTNDajdkR3ZPUk9B?oc=5",
+        "googleNewsRssPubDate": "Tue, 24 Feb 2026 08:00:00 GMT",
+        "googleNewsRssSource": "TVS tvsvizzera.it"
+      },
+      "rationale": "Google News RSS seed \"busta paga svizzera\" — TVS tvsvizzera.it",
+      "demandScore": 0,
+      "noveltyScore": 0.875,
+      "totalScore": 0.35
+    },
+    {
+      "id": "98245622",
+      "keyword": "Prestazioni erogate dalla previdenza professionale obbligatoria svizzera: modalità di tassazione - Fisco 7",
+      "normalizedKeyword": "prestazioni erogate dalla previdenza professionale obbligatoria svizzera: modalita di tassazione - fisco 7",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQOFZDZ3g2X3J5R2V2MkM3TkdzMElsV2tLY25kYk9wcHRjQXJnaHJjWFVMTXpIQ0FRUm92M0VJVENabUljUFllUDZrOWNVd1g1QU92RFhmME9OTnBTTUtDQ0FoVEUzVWhONEdGRGJrc3hnVkVQZmFFNlFKTTBHbjk2VnlZWERPcnFzbFgwZUNDWnlGTlpNMGVZLW9JTTY1MUN2VUEteFJicW1MVTZOUC1UWUxjWEFkZEkwUUJIOHZCdnFGS3V6?oc=5",
+        "googleNewsRssPubDate": "Wed, 15 Jul 2020 07:00:00 GMT",
+        "googleNewsRssSource": "Fisco 7"
+      },
+      "rationale": "Google News RSS seed \"LPP\" — Fisco 7",
+      "demandScore": 0,
+      "noveltyScore": 0.875,
+      "totalScore": 0.35
+    },
+    {
+      "id": "a0e40e8e",
+      "keyword": "Ritenuta del 5% sulle prestazioni LPP svizzere: irrilevante la presenza dell’intermediario residente - Filodiritto",
+      "normalizedKeyword": "ritenuta del 5% sulle prestazioni lpp svizzere: irrilevante la presenza dell’intermediario residente - filodiritto",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNRlM1aEFjbFBqbjRwWWUwV3dEUk5fTWtjejE4d1J1S1RSY0JiMnlYdVA1VnZTOUM1bmhGbExCQTlyd1B6b2ZrZ21PWHdUc0xkanhrNTZ4Z2hFLTR4UE5iT0FsSWJ1UlF0MlJXQzE2V3ZMZVFrSjMzZ3FtMi1HbWRFWXJaZExzUkVYYXlSbzk5YUR4UXVSV0E1bzZWS3JBWnBlTFNITzVOb0JBX2VfRWpIdWRCbWR0cFd0dmFma2tMRk9iOG8?oc=5",
+        "googleNewsRssPubDate": "Fri, 20 Jan 2023 08:00:00 GMT",
+        "googleNewsRssSource": "Filodiritto"
+      },
+      "rationale": "Google News RSS seed \"LPP\" — Filodiritto",
+      "demandScore": 0,
+      "noveltyScore": 0.875,
+      "totalScore": 0.35
     },
     {
       "id": "ad746e23",
@@ -212,9 +232,29 @@
       "totalScore": 0.35
     },
     {
-      "id": "39da91aa",
-      "keyword": "Pensione LPP: senza intermediario è soggetta a tassazione separata - Fisco Oggi",
-      "normalizedKeyword": "pensione lpp: senza intermediario e soggetta a tassazione separata - fisco oggi",
+      "id": "2b7cad5e",
+      "keyword": "Autostrade, diritto di locazione e revisione LAMal: i temi in votazione oggi - Ticinonline",
+      "normalizedKeyword": "autostrade, diritto di locazione e revisione lamal: i temi in votazione oggi - ticinonline",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPbkdPVlBJSFZHd3d4WXdla19DNkJJTEVxVUtOYWNVazJIM1JsLTZzdUlXUmFvc0NLVktmYzR5ZTFaaVFiWUdMcWFzUDNaa1FINVBLdUJhOUVnN3M5LXZMSjEzVEwtRWpXb3IyOUk2SDdKWW9KcUJ6dVJ4S1RCME9SQ1NJVmUzOVp1dEUzWDlfekJqTFY1WC1EaXRmeU5vYUgxQnhtT2hvcmhhVHFvNkRMb0k2eXlnbGZqb3FZ?oc=5",
+        "googleNewsRssPubDate": "Sun, 24 Nov 2024 08:00:00 GMT",
+        "googleNewsRssSource": "Ticinonline"
+      },
+      "rationale": "Google News RSS seed \"LAMal\" — Ticinonline",
+      "demandScore": 0,
+      "noveltyScore": 0.867,
+      "totalScore": 0.347
+    },
+    {
+      "id": "291e14e6",
+      "keyword": "Consiglio Stati: averi LPP, miglior suddivisione in caso divorzio - Ticinonews",
+      "normalizedKeyword": "consiglio stati: averi lpp, miglior suddivisione in caso divorzio - ticinonews",
       "angle": null,
       "locale": "it",
       "sources": [
@@ -222,59 +262,19 @@
       ],
       "demandSignals": {
         "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOY2laOEkyWFRpT1ZwbXVvM1lvYUNZTHpiamFYcFUxUWhqX1BIU080QkdHTW5EZDJORFlmaUNnc2tXbk5DWnk1VG1wQzZJank5c2QwMEpPc2pXdHRSa0hNTTZ3aUpqbTE3NG0zc0FZdUgyUmpNRzhqODJ2ZVNia1I4b0tQTWRWR0JPMkRFS2JqMXhRNVRudk9lZUUyLTZnTmJRV2NSVGFHbTc?oc=5",
-        "googleNewsRssPubDate": "Mon, 27 Jan 2020 08:00:00 GMT",
-        "googleNewsRssSource": "Fisco Oggi"
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOLVVheFJ2UXZZZXdoRUZFSzVMakplSGZRMGNPSndSUkI3aXNkSWNsdEQxQjNYWmZXNURITGVCTTFkZEZNQTJBWWptTkg4S0w0Ny1KUHpsSVFFWUhEd2hpQ3JrYkRUaDhtOEFmc3FxaUN0LXc2N0E0MV9UVTVzNFpHbnhwNVBkUWpORGNBLXVrQlUzcFVzWk9mbFIyemNFOXduY0VVNHg2UlA?oc=5",
+        "googleNewsRssPubDate": "Mon, 27 Apr 2026 21:01:40 GMT",
+        "googleNewsRssSource": "Ticinonews"
       },
-      "rationale": "Google News RSS seed \"LPP\" — Fisco Oggi",
+      "rationale": "Google News RSS seed \"LPP\" — Ticinonews",
       "demandScore": 0,
       "noveltyScore": 0.867,
       "totalScore": 0.347
     },
     {
-      "id": "ba8fb27a",
-      "keyword": "Cooperazione in materia fiscale. Direttiva Dac9 al traguardo - Fisco Oggi",
-      "normalizedKeyword": "cooperazione in materia fiscale. direttiva dac9 al traguardo - fisco oggi",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNNE5KZktYM0hDTjZfMjJJanp0UFhEUTZqenJadEwtZzZ2al9jRWk2bkJ1UFhFbWk4dms2R2VEdmpHRG8tY014V3EtS1JONGUtUF9sdmRfa1Nqal9JTndJOEdocm8zSE85c1RwbzFQSHpvdWNMYUptM3NQZXV6c25hNUVxZHFfdjFRU1IxWW9hNUo1eWJiTC1BUTUwUQ?oc=5",
-        "googleNewsRssPubDate": "Fri, 06 Jun 2025 07:00:00 GMT",
-        "googleNewsRssSource": "Fisco Oggi"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Fisco Oggi",
-      "demandScore": 0,
-      "noveltyScore": 0.857,
-      "totalScore": 0.343
-    },
-    {
-      "id": "4f8af8b6",
-      "keyword": "Crédit Agricole, l’Italia secondo pilastro della banca - Economy Magazine",
-      "normalizedKeyword": "credit agricole, l’italia secondo pilastro della banca - economy magazine",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNV1BKUXZMRWlxQUdMMjBMWVdjM29UVk4zNm5fRVBvVDZmV0thVHhuQmRfSzh3djBYaF9wRHNCUUVCaFRma0Q5c3FnT0VXdUVRSEVrUWk0eUFNS09uQy00WlIyM045ZFlpOTlSTXYwQmlsRl8wZ0lEdzRZTnhnRm5xOXZGLTNheUozXzlrWg?oc=5",
-        "googleNewsRssPubDate": "Thu, 12 Mar 2026 07:00:00 GMT",
-        "googleNewsRssSource": "Economy Magazine"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Economy Magazine",
-      "demandScore": 0,
-      "noveltyScore": 0.857,
-      "totalScore": 0.343
-    },
-    {
-      "id": "59b1da32",
-      "keyword": "Frontalieri: assemblea generale il 26 novembre - San Marino Rtv",
-      "normalizedKeyword": "frontalieri: assemblea generale il 26 novembre - san marino rtv",
+      "id": "882ac2fd",
+      "keyword": "Pensioni svizzere tassate al 5% anche se pagate all’estero - QuotidianoPiù",
+      "normalizedKeyword": "pensioni svizzere tassate al 5% anche se pagate all’estero - quotidianopiu",
       "angle": null,
       "locale": "it",
       "sources": [
@@ -282,19 +282,59 @@
       ],
       "demandSignals": {
         "googleNewsRssSeed": "AVS frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNa3RhU1YzZ1lYeTJwZllIaGo0dGRJaF9HOXBTQ0MtZVFEUTJBTmNSZmczSnRQaGhpd0I3QzJaUVhFSHpCcGNWTmYyZTZzVldNbl9XQzZBa1l1Nmo1YVNQT3I5eTZqZnZRNDZ2bkcwQlZXTWNrRXJoa2pBRzRkQkZDVXljX2w1dm9qV1hvNXlpNkJMNURjQ2huODZR?oc=5",
-        "googleNewsRssPubDate": "Thu, 17 Oct 2013 07:00:00 GMT",
-        "googleNewsRssSource": "San Marino Rtv"
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQdy1TVEZaV2dITUpjN0lZQzlVdkdBYWljc21OTjFrNU93RGZjN3VMQnZQRkVNb0FwRG5fWldhSTFlSVppMXgzTVUxTENCblVaVEk5TDBDb2NzSTB1eUQzcTNodFMxcTExVmdzUllNQlBEMVFaa1Z5Y1RQMXRsQzBzYTJvY0xIZ01sUXlMaHFHNFZtcTV5aUNWcUtqemJUYzBpcWVHTWdCUGkwZkdwcVVhN21qUQ?oc=5",
+        "googleNewsRssPubDate": "Mon, 16 Jan 2023 08:00:00 GMT",
+        "googleNewsRssSource": "QuotidianoPiù"
       },
-      "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
+      "rationale": "Google News RSS seed \"AVS frontalieri\" — QuotidianoPiù",
+      "demandScore": 0,
+      "noveltyScore": 0.864,
+      "totalScore": 0.346
+    },
+    {
+      "id": "fff54c6d",
+      "keyword": "Reserved (LPP Group) si prepara al debutto in Italia, lavori in corso in centro a Milano - retail&amp;food",
+      "normalizedKeyword": "reserved (lpp group) si prepara al debutto in italia, lavori in corso in centro a milano - retail&amp;food",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOZXdzYzI0WG9NNDlNR21mNmlSWTBEbnBMS3ZReXhPTkg3RkpidXJPeTlzdUI0WTNaMGVsNEoyM2JXLWpGVThOZjZVdDdLc0JLS3dOZmhncF8wNzlnSjYtNDlmdk1sNkRLWlAyT19hM0wzb3dBZzM1bnZpeENVd3BVTllnZkJOYkltemh2b2p3RlVQeG1neF94NDFfVUo1UllSSmFXS3Q1enNEQy1RNUVHUVBxN0ZWN2dpR0Q4aF95aTU?oc=5",
+        "googleNewsRssPubDate": "Wed, 08 Mar 2023 08:00:00 GMT",
+        "googleNewsRssSource": "retail&amp;food"
+      },
+      "rationale": "Google News RSS seed \"LPP\" — retail&amp;food",
+      "demandScore": 0,
+      "noveltyScore": 0.864,
+      "totalScore": 0.346
+    },
+    {
+      "id": "81dd7e23",
+      "keyword": "Aumenta l’erogazione di mutui: giovani, frontalieri e famiglie tornano a investire nella casa - VareseNews",
+      "normalizedKeyword": "aumenta l’erogazione di mutui: giovani, frontalieri e famiglie tornano a investire nella casa - varesenews",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNdHZ6cEp1a2JXQ0FmeTBOaVNvXzN0Ymc4cHJmNWhJcG9CU0VNM2haTFR1SU9qTDNtWDlqY2N0bm9IOE93RURjS241N0lUNXpiUVlwNGdQR2toSWRHa2lKOGJhVHdna0FjSTh5ZGV5WlVXWDZERHFRS0pqdl9kSmE2OUVlWjV5allrU0JONS1DTUpwZ1dzN2FaSUU3Rk1udV92WGpnTWhNRHl5MW1Mc1M2ODNqYm1FTGVOTlE0VzlZNWRnU0g5WU04TUliSEpYZw?oc=5",
+        "googleNewsRssPubDate": "Wed, 13 May 2026 15:21:03 GMT",
+        "googleNewsRssSource": "VareseNews"
+      },
+      "rationale": "Google News RSS seed \"frontalieri\" — VareseNews",
       "demandScore": 0,
       "noveltyScore": 0.857,
       "totalScore": 0.343
     },
     {
-      "id": "e274912b",
-      "keyword": "Riforma della previdenza professionale (Riforma LPP) - Bundesamt für Sozialversicherungen (BSV)",
-      "normalizedKeyword": "riforma della previdenza professionale (riforma lpp) - bundesamt fur sozialversicherungen (bsv)",
+      "id": "1eddba7a",
+      "keyword": "Riforma della previdenza professionale (Riforma LPP) - Bundesamt für Sozialversicherungen BSV",
+      "normalizedKeyword": "riforma della previdenza professionale (riforma lpp) - bundesamt fur sozialversicherungen bsv",
       "angle": null,
       "locale": "it",
       "sources": [
@@ -304,49 +344,69 @@
         "googleNewsRssSeed": "LPP",
         "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1EUk5qaTFKYjBrSG9qSVF2VGVXN2ZCR19zakFMUnRJXzNCd1BYbTRURnJ6RER1VXZKeFdGeGR3dzZ3VjB3eW5BUlRfbURhTnhDQjEzbWdnZw?oc=5",
         "googleNewsRssPubDate": "Tue, 02 Dec 2025 16:57:22 GMT",
-        "googleNewsRssSource": "Bundesamt für Sozialversicherungen (BSV)"
+        "googleNewsRssSource": "Bundesamt für Sozialversicherungen BSV"
       },
-      "rationale": "Google News RSS seed \"LPP\" — Bundesamt für Sozialversicherungen (BSV)",
+      "rationale": "Google News RSS seed \"LPP\" — Bundesamt für Sozialversicherungen BSV",
       "demandScore": 0,
       "noveltyScore": 0.857,
       "totalScore": 0.343
     },
     {
-      "id": "04cb937a",
-      "keyword": "Vasco Errani sulla questione frontalieri - San Marino Rtv",
-      "normalizedKeyword": "vasco errani sulla questione frontalieri - san marino rtv",
+      "id": "0821f9a1",
+      "keyword": "Votazioni federali Svizzera 8 marzo 2026: contante, TV Pubblica SSR, clima e tasse - Nos Alpes - Le nostre Alpi",
+      "normalizedKeyword": "votazioni federali svizzera 8 marzo 2026: contante, tv pubblica ssr, clima e tasse - nos alpes - le nostre alpi",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "AVS frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPLXBJQ3k5WHBDdDBCRncyZWYtTjVYaEFUaXdpMGcxN1BqOFQzQ0xNSzVsNk5taHhIZ1lMMG9jeGJCOTBtSGlrdzZiODh5bjVMSTcxVVBHOUFhTnI4NUo5cFN0azFocUFoSEZCbTVfYlJ4UXhLdV9tXzhlYVRaT3E0VGFLVGw2MWV4ZElXUzlBUQ?oc=5",
-        "googleNewsRssPubDate": "Fri, 29 Apr 2011 07:00:00 GMT",
-        "googleNewsRssSource": "San Marino Rtv"
+        "googleNewsRssSeed": "tasse svizzera",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQNzBDMGZqcmhwb3FybWZpQnFTbmZFZnFwU256ZE1PNm1UYWZ6NmdZS0t1cVZmc3o0V3RJTWEycWl4RXBCNXZhR252MnBCczdaejJtXzBWNWpnUHVHYkU3R1BNdHl5MXJ3UnNERldhT3B4RzhqaXhvWW9oV05ZWFVBQ3Q5Tm90X05CWTJTX0c5WjRqcUw1bkFQX1RHX1VhV2MxdC0zSVFoakhYX3J1OGdBS9IBuAFBVV95cUxNb01iNVA3OUREZkpEM0NwQ0kyWk9vM3h0d2drUjlFSjEyMW5aNGVtaWRXeTBrRUlBMm5QaUVvb0xmWDZUWmJZM1FqRXhVcVVVT2RkNE5qc0Q0cjZkM0wyalVGMlZrcWJXUTZQVVRDYktLc3l0cTZZTE51enF0Q0ZrQV9melJPUUtuLTdMUG9WalA3X3lPX0JEbHp6cXpMVWFHazJYVzdhWmNiT1lHbHFlNFl3Vjd1MlZa?oc=5",
+        "googleNewsRssPubDate": "Tue, 03 Mar 2026 08:00:00 GMT",
+        "googleNewsRssSource": "Nos Alpes - Le nostre Alpi"
       },
-      "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
+      "rationale": "Google News RSS seed \"tasse svizzera\" — Nos Alpes - Le nostre Alpi",
       "demandScore": 0,
       "noveltyScore": 0.857,
       "totalScore": 0.343
     },
     {
-      "id": "41b1f780",
-      "keyword": "Assicurazione malattie: Progetti pilota per il contenimento dell’aumento dei costi - Bundesamt für Gesundheit BAG",
-      "normalizedKeyword": "assicurazione malattie: progetti pilota per il contenimento dell’aumento dei costi - bundesamt fur gesundheit bag",
+      "id": "5564a440",
+      "keyword": "Frontalieri, arriva il sì definitivo sullo smartworking: ecco quanto si potrà stare a casa. E ci sono i 40 milioni di ristorni - ComoZero",
+      "normalizedKeyword": "frontalieri, arriva il si definitivo sullo smartworking: ecco quanto si potra stare a casa. e ci sono i 40 milioni di ristorni - comozero",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "LAMal",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPdUNsTThOS3ExWWlDT1FESTZUVjh1bnUtRUFhVldOTE9aMzVkYllpTUZlMWFyYjdfR3Njbk5YSzlucTdQbU1JdzlqQ2FJR1pDbTkxN0VXcl9mYnhqeVNMWEJ6MzlIdy1TSWd1d3Fzd1ZwWXExNGtvRWJtTXVUczZqUUNUd1RRcHpoUC1uVmFIaUhhZ0ZsRVZmZzBjTExQLS1jTmJtYWVRRk9Fczlt?oc=5",
-        "googleNewsRssPubDate": "Mon, 23 Jun 2025 17:40:08 GMT",
-        "googleNewsRssSource": "Bundesamt für Gesundheit BAG"
+        "googleNewsRssSeed": "telelavoro frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNNVNqT2NHbEwtQlVqaC11M2lwSExTcm9RRWZCcGpDRUY3c3JSLWc5aHZWakFrUWNIU2lqbUpVUFVnNzZ0TmRuMC1HQ2dhUWFrcFEteU5fVzgyd2l6R0RMb2pWV1czVWlyZkNITjQ2R05lWVVTRlJpZHVucVpwZ1lXUGhyaE5NZXAzaVBIR1BvZDE3MUdvRVdCTkY0dU1CY3lyMUNqU0Jhbjc?oc=5",
+        "googleNewsRssPubDate": "Thu, 18 Dec 2025 14:14:52 GMT",
+        "googleNewsRssSource": "ComoZero"
       },
-      "rationale": "Google News RSS seed \"LAMal\" — Bundesamt für Gesundheit BAG",
+      "rationale": "Google News RSS seed \"telelavoro frontalieri\" — ComoZero",
+      "demandScore": 0,
+      "noveltyScore": 0.852,
+      "totalScore": 0.341
+    },
+    {
+      "id": "758eb8cc",
+      "keyword": "Frontalieri: fisco, assegno unico e telelavoro, il Consiglio Sindacale fa il punto - Ossola 24",
+      "normalizedKeyword": "frontalieri: fisco, assegno unico e telelavoro, il consiglio sindacale fa il punto - ossola 24",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "telelavoro frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNdFhaVW5IVU5KeTFvdzM5YTBaNTA2azNYQWNaa0VKekp3MWtSUXc2UFRuekgwanBTY3UtTElVdHZmRFkyeXV6YVZKVi1BQnEzT2pUMGdRYURwZTVCZUhrRHJSMmZNNHdQQ3QwbFFLMUxFY3JDS1U1UDI5VnphWm52dXQ2eDZTVkItUjZhSGVxVmsyR2RpWnlkaFNsdV93a2hZdU1mSWw5XzBBWEVhU0lXYkREcVQzZw?oc=5",
+        "googleNewsRssPubDate": "Sat, 16 May 2026 14:54:09 GMT",
+        "googleNewsRssSource": "Ossola 24"
+      },
+      "rationale": "Google News RSS seed \"telelavoro frontalieri\" — Ossola 24",
       "demandScore": 0,
       "noveltyScore": 0.85,
       "totalScore": 0.34
@@ -370,26 +430,6 @@
       "demandScore": 0,
       "noveltyScore": 0.85,
       "totalScore": 0.34
-    },
-    {
-      "id": "9a38643f",
-      "keyword": "Contenimento costi Lamal, approvato il primo pacchetto - laRegione",
-      "normalizedKeyword": "contenimento costi lamal, approvato il primo pacchetto - laregione",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LAMal",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQX1Q3Uy1xdE5rN3I0MUxRd2xMV00wcGN2ZjBGUkFPYzg1WmlLd0NDd1kyanNvemxKazg0T3BKM1h1RTNXdGZjdnNVQ3NaaEZtZTNQY2NlRmFkeUxsVksyVmk5eHVERUExSGVKUm8xSmxpWjZHWnk4SENwRi1uNWZJT2l2Z2ppMDBMR2h0eS1zY3M4dw?oc=5",
-        "googleNewsRssPubDate": "Mon, 14 Jun 2021 07:00:00 GMT",
-        "googleNewsRssSource": "laRegione"
-      },
-      "rationale": "Google News RSS seed \"LAMal\" — laRegione",
-      "demandScore": 0,
-      "noveltyScore": 0.846,
-      "totalScore": 0.338
     },
     {
       "id": "40ac9588",
@@ -452,26 +492,6 @@
       "totalScore": 0.338
     },
     {
-      "id": "cab3c99f",
-      "keyword": "LPP S.A. Ripartizione dei ricavi – GPW:LPP - TradingView",
-      "normalizedKeyword": "lpp s.a. ripartizione dei ricavi – gpw:lpp - tradingview",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBNQlJLRlNjdUVaTmtDTF9CTHBEX2hrZFpDMXlGOTktQmxwMTl5ZUoyX2c0cFdGQ0J0al9PUUdHbm9oSjk5MlRWdkxORkg3T1FfekVGN2g2eElNMU1QLUJaV1VTRjB6ZUcxYU9nQk5rYw?oc=5",
-        "googleNewsRssPubDate": "Fri, 30 Jun 2023 00:06:41 GMT",
-        "googleNewsRssSource": "TradingView"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — TradingView",
-      "demandScore": 0,
-      "noveltyScore": 0.846,
-      "totalScore": 0.338
-    },
-    {
       "id": "5da1e54b",
       "keyword": "Pensioni svizzere AVS (1° pilastro) e LPP (2° pilastro) accreditate su conto svizzero: quali sono gli obblighi fiscali per un soggetto residente in Italia? - Spazio50",
       "normalizedKeyword": "pensioni svizzere avs (1° pilastro) e lpp (2° pilastro) accreditate su conto svizzero: quali sono gli obblighi fiscali per un soggetto residente in italia? - spazio50",
@@ -492,41 +512,41 @@
       "totalScore": 0.338
     },
     {
-      "id": "acb006d4",
-      "keyword": "“Scorporare la Quarta età dalla LAMal? Una delle possibili opzioni” - RSI Radiotelevisione svizzera",
-      "normalizedKeyword": "“scorporare la quarta eta dalla lamal? una delle possibili opzioni” - rsi radiotelevisione svizzera",
-      "angle": null,
-      "locale": "fr",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LAMal",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNNnh5d0lNN3p2Tzd2N2h1Vnh3OXB3Y3g4dE01RlJTa0FleUZsLXpIang2ZXBEZ3N4a1otck1mNzRRRGcwQUF5LUJfQ3RmdFkteDF4TnFPMTBIdS1xRElUM3ZxdGFRN3A5eWMzZWt2c1BCeDdNS2o5YThPVFRmZ2loUm5EWmJhSDk0V1pEMXVfVzY4MTdvWGY2dHhudnJUTFFEeUI2ejBaSS1MVktfMy1WOFhyQ1BSWnJVbzhzVWF3MjctNldjU3JlOG16aEJzamlzaTlrNV9NalhtWGVnT3l0U2pOTnBuaTA?oc=5",
-        "googleNewsRssPubDate": "Wed, 30 Oct 2024 07:00:00 GMT",
-        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
-      },
-      "rationale": "Google News RSS seed \"LAMal\" — RSI Radiotelevisione svizzera",
-      "demandScore": 0,
-      "noveltyScore": 0.842,
-      "totalScore": 0.337
-    },
-    {
-      "id": "aa3e6eca",
-      "keyword": "Comprare casa? Uno svizzero su due svuota il secondo pilastro - TVS tvsvizzera.it",
-      "normalizedKeyword": "comprare casa? uno svizzero su due svuota il secondo pilastro - tvs tvsvizzera.it",
+      "id": "97943725",
+      "keyword": "Revisione LAMal Tariffe dell'elenco delle analisi: il cambiamento di sistema mette a rischio l'assistenza ai pazienti - Presseportal.ch",
+      "normalizedKeyword": "revisione lamal tariffe dell'elenco delle analisi: il cambiamento di sistema mette a rischio l'assistenza ai pazienti - presseportal.ch",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPMDJQQzJ4TjlQeG1SOFFfZUpXdXpPSFU2b1pHS3JCUmY1aFRYSUh4RDUxaWVCekFlbU9yVEhDLUhKeW9BZ2tHSHNrMUNkd3hTdGpFeFVfeVY2bFhuSVZJQnpZa0hsQk9EQWtXSmFwV0xBZ1AyVFBSZkF5OXB5THlES0xGX3B5czlhNmFxTm1tcFRZZzdlOVFEVG5CNEw0STJRRDhnTQ?oc=5",
-        "googleNewsRssPubDate": "Thu, 23 Oct 2025 07:00:00 GMT",
-        "googleNewsRssSource": "TVS tvsvizzera.it"
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE0xOTdXaHJYVEd0b19aaE1vbzVHbklZYlBvT1hwVEdwUWp2eFllM3RsVUJjbkJKOVYyYVo4VnA1a2h2ZnlUWXJWNUEyeUI4NjNNdnlpTldNTEdUZXNHd20tQ3ZiVQ?oc=5",
+        "googleNewsRssPubDate": "Thu, 21 Nov 2024 08:00:00 GMT",
+        "googleNewsRssSource": "Presseportal.ch"
       },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — TVS tvsvizzera.it",
+      "rationale": "Google News RSS seed \"LAMal\" — Presseportal.ch",
+      "demandScore": 0,
+      "noveltyScore": 0.846,
+      "totalScore": 0.338
+    },
+    {
+      "id": "94294238",
+      "keyword": "Assicurazione malattie: Progetti pilota per il contenimento dell’aumento dei costi - bag.admin.ch",
+      "normalizedKeyword": "assicurazione malattie: progetti pilota per il contenimento dell’aumento dei costi - bag.admin.ch",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPdUNsTThOS3ExWWlDT1FESTZUVjh1bnUtRUFhVldOTE9aMzVkYllpTUZlMWFyYjdfR3Njbk5YSzlucTdQbU1JdzlqQ2FJR1pDbTkxN0VXcl9mYnhqeVNMWEJ6MzlIdy1TSWd1d3Fzd1ZwWXExNGtvRWJtTXVUczZqUUNUd1RRcHpoUC1uVmFIaUhhZ0ZsRVZmZzBjTExQLS1jTmJtYWVRRk9Fczlt?oc=5",
+        "googleNewsRssPubDate": "Mon, 23 Jun 2025 17:40:08 GMT",
+        "googleNewsRssSource": "bag.admin.ch"
+      },
+      "rationale": "Google News RSS seed \"LAMal\" — bag.admin.ch",
       "demandScore": 0,
       "noveltyScore": 0.842,
       "totalScore": 0.337
@@ -547,6 +567,26 @@
         "googleNewsRssSource": "ForlìToday"
       },
       "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — ForlìToday",
+      "demandScore": 0,
+      "noveltyScore": 0.842,
+      "totalScore": 0.337
+    },
+    {
+      "id": "5562f3ec",
+      "keyword": "Farmaci d’oro, lo scorso anno spese LAMal per 9 miliardi - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "farmaci d’oro, lo scorso anno spese lamal per 9 miliardi - rsi radiotelevisione svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOZXcydHdnODRrVGttZWlqTkdmUlAwc3JhM3FXbVZqV3ZJa0l5aUJtVjFreTc5dVNWbTNueXA3OTNraXJ2NWVuak1reU40b3d1TWVyM3ZHSDd4blJjNUkzQ3RRWFdlZ3NUYnJUZlZ3b3hTZ1l5a05VRUJGclhWS1hTVkc1Mzc1NF9Dd0ZBc0JBWm5ka2tuN0NzNEdnY0JpR3l0bkRCeG1BbHVaWjhLY2pv?oc=5",
+        "googleNewsRssPubDate": "Tue, 03 Dec 2024 12:07:28 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
+      },
+      "rationale": "Google News RSS seed \"LAMal\" — RSI Radiotelevisione svizzera",
       "demandScore": 0,
       "noveltyScore": 0.842,
       "totalScore": 0.337
@@ -592,66 +632,6 @@
       "totalScore": 0.337
     },
     {
-      "id": "b9fe0b98",
-      "keyword": "Il GDPR pilastro del diritto digitale europeo: le implicazioni strategiche secondo EDPB - Cyber Security 360",
-      "normalizedKeyword": "il gdpr pilastro del diritto digitale europeo: le implicazioni strategiche secondo edpb - cyber security 360",
-      "angle": null,
-      "locale": "fr",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQRjc2aFJjZFJra0h5YVdiaGtGNGRnY2tpc0FXcU15TVhpbFlqeUdzTzg5WXl2MEVtRkRHVGliU25fSmhwMEU0QTJjSFA3LUtJdGw5WUZXY3FPejd3RXhkOVF3RG9pWXlTWWZRWmJNekxxRzg1bXk1a2hiMERlM2RCVEdVT3VaTG9wY0I4RjhEMF80cjk4WGZ1c181Z3JweXpBRTVwU211SllLUkFQdTVobnQxTXZmMkVQV2toekNkYVR5Zw?oc=5",
-        "googleNewsRssPubDate": "Mon, 13 Apr 2026 07:00:00 GMT",
-        "googleNewsRssSource": "Cyber Security 360"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Cyber Security 360",
-      "demandScore": 0,
-      "noveltyScore": 0.842,
-      "totalScore": 0.337
-    },
-    {
-      "id": "0c0243a8",
-      "keyword": "LPP, Nigri diventa il Country manager per l’Italia. Il gruppo spinge sul value-for-money di Sinsay - retail&amp;food",
-      "normalizedKeyword": "lpp, nigri diventa il country manager per l’italia. il gruppo spinge sul value-for-money di sinsay - retail&amp;food",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNTS13cUtCWlVTYTNWRTN3RXdKMkNtdmZLLUh6UEZ4cHZUSjdGMTVlbFJ2bktabmZSSk9CYjZaYmhaeHktcXhid3ZFVGRBbEVpS1FLVm5BVkxmT3JOamJ6anN4bFFaZ1V2WGpXQ3FLMEFBcFFOUTBBQ3ZpRDhTMl8xS1J6eFZOOWMyU1ptT3pMcmpQVzYwc2s4MFZ0bHZUV0lIQ1V2S21EYUxjd0dmT0ROYklMQVpCNGdDU2U3MnpILVFHYjMtcEE?oc=5",
-        "googleNewsRssPubDate": "Wed, 04 Dec 2024 08:00:00 GMT",
-        "googleNewsRssSource": "retail&amp;food"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — retail&amp;food",
-      "demandScore": 0,
-      "noveltyScore": 0.84,
-      "totalScore": 0.336
-    },
-    {
-      "id": "013b7205",
-      "keyword": "Frontalieri italiani in Svizzera: un esposto all’OIL contro le discriminazioni - TVS tvsvizzera.it",
-      "normalizedKeyword": "frontalieri italiani in svizzera: un esposto all’oil contro le discriminazioni - tvs tvsvizzera.it",
-      "angle": null,
-      "locale": "fr",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "nuovo accordo fiscale",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOQ3YyWFFaOERveEVFMXM1YUhzQkNHOG5ZdlJOdmNScU1aZEdIQWYwMUNqQWQ5REp0WDhYMDFab3lEeWpjb0ktOTZvS0VTNmlEeDh2WVFNbzdneEhRMmpnRmdwVHU5Z0hLZzNlcUZrSXIzQWRJMWZyb3JmbWFhdl9QR2MtNzBJb0F1SkVKOUxlaUEweUlMUkRmNkg3UVdWZHpTZmJoNlQzSjA4akJJWWRYb0J0eVFhWkU0ZTYwZVVsMTdBQmpjSlF6OHhTME9qSU9jMmZNbEFJZw?oc=5",
-        "googleNewsRssPubDate": "Wed, 19 Nov 2025 08:00:00 GMT",
-        "googleNewsRssSource": "TVS tvsvizzera.it"
-      },
-      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — TVS tvsvizzera.it",
-      "demandScore": 0,
-      "noveltyScore": 0.833,
-      "totalScore": 0.333
-    },
-    {
       "id": "2190a995",
       "keyword": "Frontalieri Svizzera: regime (opzionale) al 25% - Fiscomania",
       "normalizedKeyword": "frontalieri svizzera: regime (opzionale) al 25% - fiscomania",
@@ -661,80 +641,40 @@
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "IRPEF frontalieri",
+        "googleNewsRssSeed": "tasse svizzera",
         "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiekFVX3lxTFAtSXFxN094ZUxVTjRqY3JPTUFTVUZHSzJTeDdHUG9HaGt4eGJ2Rl9WQkNMemZWcjhWZlFxWVRCOFRWdXFWY203NzBEQUNnb1F5YU9PVmltTVhWUGVDTUtTUHBRUFRSdVYtRXR3Y0IxdUhtLXVsVUJybWlR?oc=5",
-        "googleNewsRssPubDate": "Thu, 30 Apr 2026 16:27:45 GMT",
+        "googleNewsRssPubDate": "Thu, 30 Apr 2026 07:00:00 GMT",
         "googleNewsRssSource": "Fiscomania"
       },
-      "rationale": "Google News RSS seed \"IRPEF frontalieri\" — Fiscomania",
+      "rationale": "Google News RSS seed \"tasse svizzera\" — Fiscomania",
       "demandScore": 0,
       "noveltyScore": 0.833,
       "totalScore": 0.333
     },
     {
-      "id": "cf929fdb",
-      "keyword": "Frontalieri, emendamento salva-ristorni e sì al telelavoro: la Lega canta vittoria - malpensa24",
-      "normalizedKeyword": "frontalieri, emendamento salva-ristorni e si al telelavoro: la lega canta vittoria - malpensa24",
+      "id": "554ba3fe",
+      "keyword": "L’USI compie 30 anni tra tagli e incertezze - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "l’usi compie 30 anni tra tagli e incertezze - rsi radiotelevisione svizzera",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "telelavoro frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQNk5VZWtPQ0oxS1ZIRVZzSkwwdjlmWENVRm42d1NCZVMyUVN0TTIwb0xHTFpJdXVPeFZyVHNwS3pYZ3hfOUFzTE45bVNmM2I3QXotczdPank3Qk1KM0czZldZODN3bEJSUnBHdllUSUJ3THJqdHVEMDFJMVliZkEyaUhiZXB3cURwcTItWDdGS2R3Z1dQaFMzblBVQ0pCZldqVzdwWXcxcnpmdnc?oc=5",
-        "googleNewsRssPubDate": "Thu, 18 Dec 2025 08:00:00 GMT",
-        "googleNewsRssSource": "malpensa24"
+        "googleNewsRssSeed": "tasse svizzera",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQZWNqd1k2eHlwMjJ6YWxqVjM2a3oyRER6SXhCTkxWSkpETWVrWkh1VUVsSjYyVGdUNTRtNUlOX09aSUh0U09fOGx0SHdFemh2NXlHVllycl8zS1NZdVdPSXJlbmx6SFlVMXUxT3BoTDlsNlhmUFpjTHlfcFZWSjNVbzhRM294SUJELXdoVEx4ekVrQjJmLThabzFKdWxMa2hxVGoyWmpTXzBoTEJvU0NxSDc5X0NVVEk?oc=5",
+        "googleNewsRssPubDate": "Sat, 25 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
       },
-      "rationale": "Google News RSS seed \"telelavoro frontalieri\" — malpensa24",
+      "rationale": "Google News RSS seed \"tasse svizzera\" — RSI Radiotelevisione svizzera",
       "demandScore": 0,
       "noveltyScore": 0.833,
       "totalScore": 0.333
     },
     {
-      "id": "e2a89ff6",
-      "keyword": "I ristorni dei frontalieri restano ai Comuni. Alfieri e Braga: \"Vittoria dei territori\" - Espansione TV",
-      "normalizedKeyword": "i ristorni dei frontalieri restano ai comuni. alfieri e braga: \"vittoria dei territori\" - espansione tv",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "ristorni frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOMDVYV01EZjBxVnhQWE1EWjNBMW5weHdPMzNhZXlWSl9lTzhadlZyS3U4SklVZVNrODl6REFPbTZMVG9GbXZhYW41cnRQVVB1RkZQdC1TXzZxek5LY3VTYjRzdjRjM0R0RFZVd0VwbjlsQjdBTTBfR00xN0lBWF9ZVW1QaEVtYU5UNFVRelBZNTdITXk4bmlpbVNRMXRqbjFybmQ2WTJ6YnpkX1ZtM0x5VWkxR2pwNG1nbzdLU3ROUE8?oc=5",
-        "googleNewsRssPubDate": "Fri, 19 Dec 2025 08:00:00 GMT",
-        "googleNewsRssSource": "Espansione TV"
-      },
-      "rationale": "Google News RSS seed \"ristorni frontalieri\" — Espansione TV",
-      "demandScore": 0,
-      "noveltyScore": 0.833,
-      "totalScore": 0.333
-    },
-    {
-      "id": "95e7bbe3",
-      "keyword": "Lavoro: AFIS chiede garanzie sui frontalieri - San Marino Rtv",
-      "normalizedKeyword": "lavoro: afis chiede garanzie sui frontalieri - san marino rtv",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNT0dVd0lIZUJGRTNGcXdKSGs4ZXNIeHgwSFotdDFVc01lcGxVZ3FhcjZkS1JFbF9xSTRwX09mQVpkVE9IeVhPT3hqWlBSU3ljWUd1V0FqWUtMZ2RrbFdOZTdhWXJDdVN2eV9nRTdvbHg2Wm83N3NwVHVnLXc2RzBQUFZKdFRrS3RLd250WVdIRGlzWDlwaTlibGRXT3I?oc=5",
-        "googleNewsRssPubDate": "Thu, 07 May 2026 13:11:00 GMT",
-        "googleNewsRssSource": "San Marino Rtv"
-      },
-      "rationale": "Google News RSS seed \"frontalieri\" — San Marino Rtv",
-      "demandScore": 0,
-      "noveltyScore": 0.833,
-      "totalScore": 0.333
-    },
-    {
-      "id": "ce1a7030",
-      "keyword": "N. 494 - L'evoluzione del framework prudenziale di Secondo Pilastro dopo la crisi finanziaria - bancaditalia.it",
-      "normalizedKeyword": "n. 494 - l'evoluzione del framework prudenziale di secondo pilastro dopo la crisi finanziaria - bancaditalia.it",
+      "id": "8fd4ee5e",
+      "keyword": "La svolta 2026 della previdenza complementare: tra ‘silenzio-assenso’ e nuovi bonus fiscali - AteneoWeb",
+      "normalizedKeyword": "la svolta 2026 della previdenza complementare: tra ‘silenzio-assenso’ e nuovi bonus fiscali - ateneoweb",
       "angle": null,
       "locale": "it",
       "sources": [
@@ -742,11 +682,11 @@
       ],
       "demandSignals": {
         "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1rMWJtN0VIZ3BsYkU2Um52Q2YzeTR4R3IwbDgwMngtcDlnNUNXdGo5X3k2dUNuSkVPTE1WY21KZmVCakhOakFfRWZOUXRWUE4yeUZQV0c4R1lsTUpSRjVmZzJPY1RXVFU?oc=5",
-        "googleNewsRssPubDate": "Mon, 29 Apr 2019 07:00:00 GMT",
-        "googleNewsRssSource": "bancaditalia.it"
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPNU53TUxKNDRUdGZVTGpjQWxxcldHX04yT2hNY21fUWlIMXlvdjR0MUp4M1p2bnNQODRVNzY4NkpBaTlWRlJRRlhHNGY5RlphNC1ta2VHVlRFYTRvSlBBZU51eVhBOXp5THJJY1RITEdhWkdaaUM0ZGtMbDlzU2lMbW9FSzVhWHFGWThfX082eVMwTnF6dzR5Z1RyMVVoUGxyMWhhN0JxVEZBLW9ad3YwbUVpcmQyYnQzSGtHa3lneXhwM0ZYbWFRTEZpbw?oc=5",
+        "googleNewsRssPubDate": "Thu, 02 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "AteneoWeb"
       },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — bancaditalia.it",
+      "rationale": "Google News RSS seed \"secondo pilastro\" — AteneoWeb",
       "demandScore": 0,
       "noveltyScore": 0.833,
       "totalScore": 0.333
@@ -772,106 +712,6 @@
       "totalScore": 0.333
     },
     {
-      "id": "f1e48176",
-      "keyword": "Professioni sanitarie e LaMal, decide il Cantone - laRegione",
-      "normalizedKeyword": "professioni sanitarie e lamal, decide il cantone - laregione",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LAMal",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimAFBVV95cUxObnk0Yl8yRmxsdl96d1FDOHBJYU15cV9CRWtfeWdYR3E1RFdRVUpXclJKYkFGNUQ1VGJlMDVpZWZGaEx3Uk9UTGVPMEZpdnpPaF9RV3hSc2VsLWdKVzhoOVByM2hwUzlENExiMlcyZHhILWs5SmdmSHhPUGdsOXN6OFBDMk5BbVJ3NldvSUpaWTdTWlAtM25URg?oc=5",
-        "googleNewsRssPubDate": "Mon, 06 Dec 2021 08:00:00 GMT",
-        "googleNewsRssSource": "laRegione"
-      },
-      "rationale": "Google News RSS seed \"LAMal\" — laRegione",
-      "demandScore": 0,
-      "noveltyScore": 0.833,
-      "totalScore": 0.333
-    },
-    {
-      "id": "34581bb4",
-      "keyword": "Ristorni dei frontalieri: da Regione Lombardia 14 milioni a Province e Comunità montane - TVS tvsvizzera.it",
-      "normalizedKeyword": "ristorni dei frontalieri: da regione lombardia 14 milioni a province e comunita montane - tvs tvsvizzera.it",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "ristorni frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNbmMxcmJqTEpyT1NmME9IV1FFUlQtc0NVR25DSzBOSHMtNmc0Z1kwNHpNcmhuY2MyeGhUb0l5VkIzYllzYXhaVkpsYlBFeS1sX3FkQmRQNC1Kbm41SUVpSi1ja3kxN0xXR0x3eDF5OTdyeElVUkZNTUFUSTE3VGFVeWdFWnBHRjNrdGc3NEZvT0EzY0NWUFA5OGRJLWRfTDJDZE0ySzVSa25PVkFFSVJaRFJYb2hmUjBIMzR1Mm9XY0k3SFdmSm90UU5wMGppSzJMakRmVXU5MDN6NXpkcTR0c0FNR1VJbFpTMWFn?oc=5",
-        "googleNewsRssPubDate": "Mon, 13 Oct 2025 07:00:00 GMT",
-        "googleNewsRssSource": "TVS tvsvizzera.it"
-      },
-      "rationale": "Google News RSS seed \"ristorni frontalieri\" — TVS tvsvizzera.it",
-      "demandScore": 0,
-      "noveltyScore": 0.833,
-      "totalScore": 0.333
-    },
-    {
-      "id": "8d48a3ee",
-      "keyword": "Scambio di dati salariali con l’Italia, arriva la legge d’applicazione - TVS tvsvizzera.it",
-      "normalizedKeyword": "scambio di dati salariali con l’italia, arriva la legge d’applicazione - tvs tvsvizzera.it",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "nuovo accordo fiscale",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOU00wYVpZMjBFT3pEaHFfYjI5WG5Yc1VmMExnUmFCS0gtWDhzQUo3TVQ1Sk5jS3RFeWxCbnFQVVVwVWczbUc2eGRIQ2xJYjRnajdINGYwTTVjOGwtOVFhTlBvdHpLTS1ZRnNrall2RHFmUkMtLUVDQnZkV2ljQ3Y0TFBFZXcyM0hoNkVRb3E5QWJ5ZVFnVmxNZFNUd3loQ0loek1vckNtMGJRa1NpN1piZjFiTUMxT1NkczZIOE0wNWZyTmQ2SDdhODNLMA?oc=5",
-        "googleNewsRssPubDate": "Thu, 15 May 2025 07:00:00 GMT",
-        "googleNewsRssSource": "TVS tvsvizzera.it"
-      },
-      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — TVS tvsvizzera.it",
-      "demandScore": 0,
-      "noveltyScore": 0.833,
-      "totalScore": 0.333
-    },
-    {
-      "id": "7fbefe44",
-      "keyword": "La Svizzera al voto su una tassa di successione del 50%: l'obiettivo è tassare i super ricchi per salvare il clima - Corriere della Sera",
-      "normalizedKeyword": "la svizzera al voto su una tassa di successione del 50%: l'obiettivo e tassare i super ricchi per salvare il clima - corriere della sera",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "tasse svizzera",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiswJBVV95cUxPUTl0cmZVTDZwdDZkUlVldFRrWFNnYzI0OEpLTGFqNzBzRTQzTkY4RU9TdUZhclJVenhXdWhPODFBSlpDV0RZZTJLUVFvZS1IOHpwWWtrTUxtOG9tc0NWdVdzTWw1UUJHcWNtRXhwNjVQbE9NWTlGLThzS3BuMEhYTUtwTzUtWFU2ZWV5d2JfREhvcUNMRW8yLURXekJfUzRmSTBfbGpUUjdFTlBaR094VnFrc0s2Xy12SFlnaEN3REN2UE95Z3MwaDFDMDU5TkJSelRFbDBLdHV1RFdrNHRXYTJUenZCOEtlM0RKYUN1R2xSVGZ3dFNsbUJRWndzVGRKeEhYd1VVcUpCeHAwQVliMDJoX2hYaXdTSXNFRmI0eW5mTlA1OW1KSm0xVzQwdV90dTdB0gG4AkFVX3lxTE9OQVQ3Z3lvc3A0NFNrSXVINUYxVXVoY21OeGZGZGhSdVdiaVhnb21TVk0wTHNlclpCWjVKWFExSkFyTFg5UzM5aEtETDJ5cXpBc1ZwLXdiZnViaTZKcC1OQ2k0X3NGZkZjck1mSEIxLTZfZGxIUW9KdFp6aFJTaVRHUkNiZnFTeE9URXlycFpQNGZpbDllZ2lyVENCdGVJNVJQV3JUZmN2WlhjcGRzUEU2Q2Zhb2xlU2tscGJ4bm9mcjN2RS0zNHlKR25IaUZHOXMxaFVOaXpabGJ1OURickNwMVF6N1kwbE4zdmZmWjVlRHJjTnJESmNHX2wxODA0QlcycWJqRDhuZzRYb2NZdlFSUkZrVEk1R1RHVExVLTR5TDVnbG5WQWw2Um9NanpheTFtMWpwSDR3TA?oc=5",
-        "googleNewsRssPubDate": "Sun, 30 Nov 2025 08:00:00 GMT",
-        "googleNewsRssSource": "Corriere della Sera"
-      },
-      "rationale": "Google News RSS seed \"tasse svizzera\" — Corriere della Sera",
-      "demandScore": 0,
-      "noveltyScore": 0.828,
-      "totalScore": 0.331
-    },
-    {
-      "id": "dc69db3e",
-      "keyword": "40 anni di LPP: un pilastro con un futuro colmo di interrogativi - syna.ch",
-      "normalizedKeyword": "40 anni di lpp: un pilastro con un futuro colmo di interrogativi - syna.ch",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LPP",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQTjVZakZ2YTEyRVNtdmFWYXZ0bG1FR2xBcTlRQnhrbjVqQU05Q0hpczlteXNHY2xmdWx4TFFNdlpGUEFndHNhdjFnRW1rY1U0MDFVVV9JQWVPQjlwazJfMi04VVdLY29CRXVONDdqUWlyb0o3YzQwRGdXOFpoWFdfSEg5ck5pM1FMby1rUUFBVEg2UExlLVJV0gGmAUFVX3lxTE1IbEQ4YmZPbmR1WENWcy1ReGJscWFHU3BHR3JUWnNYWlJYdHVKa1A4NHMxNi1MUFI5NU1HR1dnY3BkdEpxekYza21WbHJKWDNLbDdrZjNWX0YtaEE5WjJqVHlGZWw0eDhTSldwQkhsUTN6Ti1NUG1NSmtzZXlUWHdLclZnb08yOUNJSHV3VzltOTJON2JXUU00QnFlVnF2d1VVNHBHR1E?oc=5",
-        "googleNewsRssPubDate": "Fri, 05 Sep 2025 07:00:00 GMT",
-        "googleNewsRssSource": "syna.ch"
-      },
-      "rationale": "Google News RSS seed \"LPP\" — syna.ch",
-      "demandScore": 0,
-      "noveltyScore": 0.824,
-      "totalScore": 0.33
-    },
-    {
       "id": "6cd617f4",
       "keyword": "Ai ticinesi quasi 6mila franchi, ai frontalieri oltre 1000 in meno: la beffa delle buste paga sul confine - ComoZero",
       "normalizedKeyword": "ai ticinesi quasi 6mila franchi, ai frontalieri oltre 1000 in meno: la beffa delle buste paga sul confine - comozero",
@@ -881,12 +721,12 @@
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "busta paga svizzera",
+        "googleNewsRssSeed": "frontaliere",
         "googleNewsRssLink": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPcW42b3lkQ25ISklzTG5nNFJxZ0RLS05jVHJCWnZkQk5GaDVJbm1jbVFHYmVtRVVnNWNncnBYeTVPeWROaGg1M1pNZVVacmRvRHAtNUxwMGZxaHozczQ3dlVUQzdvTkw4alBkSE5GeU5ZVUYtVkZzS1NVVVRiV0JDZ19faDFKQnVVWGhjZ2hXVmthU2FyTTU3ekNPUnA1NUhmT3ZFTVZ0Sng1aG9MWnJvX0hVQTViQ2pHRU96NHRqYkRvOTd0eWNQdEdUek1QajA?oc=5",
         "googleNewsRssPubDate": "Fri, 24 Apr 2026 05:22:02 GMT",
         "googleNewsRssSource": "ComoZero"
       },
-      "rationale": "Google News RSS seed \"busta paga svizzera\" — ComoZero",
+      "rationale": "Google News RSS seed \"frontaliere\" — ComoZero",
       "demandScore": 0,
       "noveltyScore": 0.826,
       "totalScore": 0.33
@@ -943,12 +783,72 @@
       "demandSignals": {
         "googleNewsRssSeed": "nuovo accordo fiscale",
         "googleNewsRssLink": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPdmVxanFpa0VuLUhITkJwSFFnT1B5dlI1MXlJdTdvMVlLbnFiemFWRjVoLVlrVlV0Ym5GRGswaWhSTVRDazV6WFNoUnZ4M0RYazZTNHhGNEdTM1ctUG5aNUxQd1JxVThsazBYUVlNck1UQXBDdEVudUxEbGp4TDJYVGw3NmFtQUROeXJ1TF8xY2ZxQ1N1aE5jRFkwNXF1OExBamtVVTZaNmduN19ROF9vTkUwQ1JLejdpMi15VFRQRDFuTFpi0gHDAUFVX3lxTE02UXFPazNiRFJHWGlGcW5TdTRXWFl6bExPLWh1LTRhNE1QWHhFbWVmVHVXZGJwdE5BX1p1WEFDaTlMMWZWbENZNWt6OWpXeGs5MGp6NkF5a3dZblpDSXJhLUw0WG83b0I2RE5VUjdSYXVoVDlqcHpkeC1DUDU0cl9LWk14V1NCNlpKNVNaRXNfSXhCQkJvVVBzdEVUYUtjOUl6V0RtR3ZzZ3FjSmZlNldBdkJ3cGhKTlZIS0hvUW5qRDhxTQ?oc=5",
-        "googleNewsRssPubDate": "Wed, 04 Feb 2026 07:29:38 GMT",
+        "googleNewsRssPubDate": "Thu, 05 Feb 2026 08:00:00 GMT",
         "googleNewsRssSource": "Il Messaggero"
       },
       "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — Il Messaggero",
       "demandScore": 0,
       "noveltyScore": 0.826,
+      "totalScore": 0.33
+    },
+    {
+      "id": "ee5187ea",
+      "keyword": "Forti aumenti in busta paga per i Ceo delle casse malattia - SWI swissinfo.ch",
+      "normalizedKeyword": "forti aumenti in busta paga per i ceo delle casse malattia - swi swissinfo.ch",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "busta paga svizzera",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNaXRPS0lkQ2VMTlMyU3lCZW5DZ0gyWG1DUllDRlgyQUpjNzdTYm85LTh2ZVNqakdfYS04Snljc05kb2NEVGF1dVBidDdPOWVrakZLcGlhcFN0eUlOWUR6VUZmazVoaHJ1UkRxd3FDVTRCcTZ4UE1DMXliU0dYWkJYbS0tdjdHYi1wMHRSVWw0MENsT1YxdFFYZElhWmQ?oc=5",
+        "googleNewsRssPubDate": "Wed, 14 Sep 2022 07:00:00 GMT",
+        "googleNewsRssSource": "SWI swissinfo.ch"
+      },
+      "rationale": "Google News RSS seed \"busta paga svizzera\" — SWI swissinfo.ch",
+      "demandScore": 0,
+      "noveltyScore": 0.824,
+      "totalScore": 0.33
+    },
+    {
+      "id": "bb198181",
+      "keyword": "Frontalieri svizzeri: ratifica dell’accordo per il telelavoro - EC News - Area lavoro - ecnews.it",
+      "normalizedKeyword": "frontalieri svizzeri: ratifica dell’accordo per il telelavoro - ec news - area lavoro - ecnews.it",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "telelavoro frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQbUVfRGxKdGtvV2JubE1NSFlhNnJWSTZ1TGY2Qzh0VlQ2RV9VRjM5RnlkMG11eU1wTzZadkdvck1FSEg5d1llLURacXpMb2JNYWJyQUNMcUUxNGxSR0VhV0YtdmN6MllJdmlLeVduYndULUlqLVRRRE1sa0dhZExYd0Y0NTdNTHNPSFdxOG1PbmpRZ09qeUtMQjJsT3E5RGprOEQyMUc0RzRIMWlNcVFkTDBpTklKMVFEbm5B?oc=5",
+        "googleNewsRssPubDate": "Thu, 12 Mar 2026 22:12:09 GMT",
+        "googleNewsRssSource": "ecnews.it"
+      },
+      "rationale": "Google News RSS seed \"telelavoro frontalieri\" — ecnews.it",
+      "demandScore": 0,
+      "noveltyScore": 0.824,
+      "totalScore": 0.33
+    },
+    {
+      "id": "a7bcdd56",
+      "keyword": "Frontalieri: al via lo scambio automatico dei dati salariali con l’Italia - Ticinonline",
+      "normalizedKeyword": "frontalieri: al via lo scambio automatico dei dati salariali con l’italia - ticinonline",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "AVS frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQQ0pfTnM4STd4ZW54cXp2cHJ6YUs0cGtScVBPeDhOdVJBalkzd3ptVkl5dGpBdGN5bE9xMFg0RGRHZnk3ZmRWWnRrdjUtN19NaWlKYlRFazUzRllucE5WTjZQWlJBTVlWaXZFU3RqV1ZiUWFfMHM1b2llT2cxS1pOeWc2LVZodWdJQUwzTG5NQUN6TFVvcmFj?oc=5",
+        "googleNewsRssPubDate": "Mon, 15 Sep 2025 07:00:00 GMT",
+        "googleNewsRssSource": "Ticinonline"
+      },
+      "rationale": "Google News RSS seed \"AVS frontalieri\" — Ticinonline",
+      "demandScore": 0,
+      "noveltyScore": 0.824,
       "totalScore": 0.33
     },
     {
@@ -967,26 +867,6 @@
         "googleNewsRssSource": "Sky TG24"
       },
       "rationale": "Google News RSS seed \"frontaliere\" — Sky TG24",
-      "demandScore": 0,
-      "noveltyScore": 0.824,
-      "totalScore": 0.33
-    },
-    {
-      "id": "fd60ebc4",
-      "keyword": "Impatriati 2026: il frontaliere può accedere al regime (attenzione ai 6/7 anni) - Fiscomania",
-      "normalizedKeyword": "impatriati 2026: il frontaliere puo accedere al regime (attenzione ai 6/7 anni) - fiscomania",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "frontaliere",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFA0NGVzM05QTVZkVlpfMXp3Z21SbVItN3JqZjVOODJWNWh2ZVotYXI3MEdUVmVreHVWNkJFb2k1RkN4MUpSY2l4N3ZnTDVzMHBleEVYbF9MSEZxemFOTnU5aE4taw?oc=5",
-        "googleNewsRssPubDate": "Fri, 24 Apr 2026 07:00:00 GMT",
-        "googleNewsRssSource": "Fiscomania"
-      },
-      "rationale": "Google News RSS seed \"frontaliere\" — Fiscomania",
       "demandScore": 0,
       "noveltyScore": 0.824,
       "totalScore": 0.33
@@ -1012,26 +892,6 @@
       "totalScore": 0.33
     },
     {
-      "id": "77eee872",
-      "keyword": "LAMal, si va verso la rilevazione unica dei dati - Ticinonline",
-      "normalizedKeyword": "lamal, si va verso la rilevazione unica dei dati - ticinonline",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LAMal",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOSjR5S3Q2V1FNUUtfV0tEWmQ5WGFQQy1nTS1mZWZyVVpJNWRZOHltMU1ZVWRtdWN6eE00b29KYy1XMzdXaWRfaFkyeHRsV25SU1ZhckNPVzkyUHZiZGRadTRxQWg3YzFPRkFtN0JnNDRvcjFqRVpkNDRaNUV5dWxFdlI3R2tzQ3JORnE1eDV6cHZXZFo2VURF?oc=5",
-        "googleNewsRssPubDate": "Wed, 18 Feb 2026 08:00:00 GMT",
-        "googleNewsRssSource": "Ticinonline"
-      },
-      "rationale": "Google News RSS seed \"LAMal\" — Ticinonline",
-      "demandScore": 0,
-      "noveltyScore": 0.824,
-      "totalScore": 0.33
-    },
-    {
       "id": "5eba7522",
       "keyword": "LPP: vendite LFL preliminari del primo trimestre a -2.8% - MarketScreener Italia",
       "normalizedKeyword": "lpp: vendite lfl preliminari del primo trimestre a -2.8% - marketscreener italia",
@@ -1049,6 +909,26 @@
       "rationale": "Google News RSS seed \"LPP\" — MarketScreener Italia",
       "demandScore": 0,
       "noveltyScore": 0.824,
+      "totalScore": 0.33
+    },
+    {
+      "id": "12f57319",
+      "keyword": "Militari e Poliziotti con la pensione dimezzata: Strasburgo presenta il conto all'Italia, \"discriminati per trent'anni\" - infodifesa",
+      "normalizedKeyword": "militari e poliziotti con la pensione dimezzata: strasburgo presenta il conto all'italia, \"discriminati per trent'anni\" - infodifesa",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQLTNLb2ZSXzZUZHlURjdaNHN3SWdvOVEyN29iZUFmemJPSGw2RmhJVVlzby1vMnhzd2lkVUZKZ090NnVSUWlrejZ5cVNqVElKSWItcWF0V2xQV0UxbGVXem5mRTZQa1NDdFc5YURRLTZNQXlfeVU0MkFJcXlWeWxCa3Q3ejRLeUk5WVVoTlZlbW4yblZqMXJOb1FTVFJYQ3E1Tm1iVHhmRVVCNTZqcVUzekRMMmE0WmxRcnp2UkNKcWxwbG5xNkpTT0JfRjVCaUwtT3c?oc=5",
+        "googleNewsRssPubDate": "Mon, 16 Mar 2026 07:00:00 GMT",
+        "googleNewsRssSource": "infodifesa"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — infodifesa",
+      "demandScore": 0,
+      "noveltyScore": 0.826,
       "totalScore": 0.33
     },
     {
@@ -1072,46 +952,6 @@
       "totalScore": 0.33
     },
     {
-      "id": "6c4cb276",
-      "keyword": "Ristorni frontalieri, bufera dopo la mozione al Parlamento ticinese - TVS tvsvizzera.it",
-      "normalizedKeyword": "ristorni frontalieri, bufera dopo la mozione al parlamento ticinese - tvs tvsvizzera.it",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "ristorni frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPcmx1Um9ycGpfM3pwblROakxycVdnN2lYMG5RY3J0dEotS0g5LVlkNTNzUEt0NDdybm5ZMTEzVW5EWU9ha2VLNWNDRlRBNVZJN0E3S1FxcS1XQzh4WlhWZU93SFBCLW1XbnlUSkJ1MkUzRUJ5VERrSzRyM3E0SVFOamU1b1hvMWVKYTdULVRPZGFQNXR4VElVVmlGZWVZYm5MdUo4dVB3UWUyM0Y0RlJsdDRUdkkzMVNxTkFKaWd4RFRVSW1CRXBnZHlR?oc=5",
-        "googleNewsRssPubDate": "Sat, 21 Feb 2026 08:00:00 GMT",
-        "googleNewsRssSource": "TVS tvsvizzera.it"
-      },
-      "rationale": "Google News RSS seed \"ristorni frontalieri\" — TVS tvsvizzera.it",
-      "demandScore": 0,
-      "noveltyScore": 0.824,
-      "totalScore": 0.33
-    },
-    {
-      "id": "adfe93f9",
-      "keyword": "Sgravio fiscale frontalieri: già attivo il servizio Usl - San Marino Rtv",
-      "normalizedKeyword": "sgravio fiscale frontalieri: gia attivo il servizio usl - san marino rtv",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "AVS frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOUk9yWGRqR0szemRKZF8wN3VpamF5aC1NY0hzblRNdnJua210TDlpYjFza0c3aEJtb0FsSXBhb1o3VWRwQWRWRHJLZjdiN3BtQ2FoTHdfY0g2SnlUa3VpRk1DNnJ2UjlHQ2hCYkVqcU1sb3JxbGxnWG5qWC1iQzI3cGNRYUJHTV95OGFKRTBXb3VLVVpfQkRvUldJbnIwa2Myb1EtMHJn?oc=5",
-        "googleNewsRssPubDate": "Mon, 21 Oct 2013 07:00:00 GMT",
-        "googleNewsRssSource": "San Marino Rtv"
-      },
-      "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
-      "demandScore": 0,
-      "noveltyScore": 0.824,
-      "totalScore": 0.33
-    },
-    {
       "id": "fb223ed1",
       "keyword": "Sicurezza sul lavoro: nuovo Accordo Stato-Regioni sulla formazione in vigore da maggio 2026 - CAF - Tutela Fiscale del Contribuente",
       "normalizedKeyword": "sicurezza sul lavoro: nuovo accordo stato-regioni sulla formazione in vigore da maggio 2026 - caf - tutela fiscale del contribuente",
@@ -1127,26 +967,6 @@
         "googleNewsRssSource": "CAF - Tutela Fiscale del Contribuente"
       },
       "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — CAF - Tutela Fiscale del Contribuente",
-      "demandScore": 0,
-      "noveltyScore": 0.826,
-      "totalScore": 0.33
-    },
-    {
-      "id": "870d9813",
-      "keyword": "Votazione popolare sulla modifica della legge federale sull’assicurazione malattie (LAMal) (Finanziamento uniforme delle prestazioni) - Bundesamt für Gesundheit BAG",
-      "normalizedKeyword": "votazione popolare sulla modifica della legge federale sull’assicurazione malattie (lamal) (finanziamento uniforme delle prestazioni) - bundesamt fur gesundheit bag",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "LAMal",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPM19NTjRwX0QyRFZERHVab1FUVlFmRExlaFNKcE4zT1V0S0c2LTliZmFZZ05NTlNmY1lCTVhBVTQxVTRZbE9BMVB0SDJUZF80NUpUX016V3U2NGVfejdOV29PQlEwNlVfVnFJUXc5aS11YU9jRmQtSzFwdWEyMXVFY1ExNnl4SzNlSng1ck5OZ3U4YVlYdmE0Tk9BeDBRNl9peV9JODdYbWRtUG1BY0hsOExUTDFPaVNsVmN6cEU5dWM0dzh4ckQ2b05QZXp4OHJCbTlPamRXdXNNUUVFdlBVeUVVNDdiZ3VBQ05lTg?oc=5",
-        "googleNewsRssPubDate": "Mon, 23 Jun 2025 17:03:26 GMT",
-        "googleNewsRssSource": "Bundesamt für Gesundheit BAG"
-      },
-      "rationale": "Google News RSS seed \"LAMal\" — Bundesamt für Gesundheit BAG",
       "demandScore": 0,
       "noveltyScore": 0.826,
       "totalScore": 0.33
@@ -1214,26 +1034,6 @@
       "totalScore": 0.327
     },
     {
-      "id": "4ba36f14",
-      "keyword": "Frontalieri: gazebo in piazza a Rimini - San Marino Rtv",
-      "normalizedKeyword": "frontalieri: gazebo in piazza a rimini - san marino rtv",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "AVS frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPWTJPNmpIbnB1a05DZXg3Rko5Rm1KNkZOQnJCc3JmSzBfSjBxUU10NGl4WUp2SDI1WHctSXNHcEdQclVqYVVxVUZTd1BLWFNOV1I1REhxUVBxRFAtM3JqNnNDRFJ6Y0Y2c21hS3FSZjhSVDJEVXdoaXQwaDU1MkxkWUl4aU81SWVVZlZXQg?oc=5",
-        "googleNewsRssPubDate": "Sat, 25 Jan 2014 08:00:00 GMT",
-        "googleNewsRssSource": "San Marino Rtv"
-      },
-      "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
-      "demandScore": 0,
-      "noveltyScore": 0.818,
-      "totalScore": 0.327
-    },
-    {
       "id": "c66a4312",
       "keyword": "Il Gruppo LPP si espande in Italia, dopo Sinsay in arrivo anche Reserved e Mohito - retail&amp;food",
       "normalizedKeyword": "il gruppo lpp si espande in italia, dopo sinsay in arrivo anche reserved e mohito - retail&amp;food",
@@ -1254,41 +1054,41 @@
       "totalScore": 0.327
     },
     {
-      "id": "be6a9312",
-      "keyword": "La spesa sanitaria tra invecchiamento e vincoli di bilancio: le opportunità per il secondo pilastro - Itinerari Previdenziali",
-      "normalizedKeyword": "la spesa sanitaria tra invecchiamento e vincoli di bilancio: le opportunita per il secondo pilastro - itinerari previdenziali",
-      "angle": null,
-      "locale": "fr",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPVG5DWGV0MndseFh5UC1qSTQ0NUgyUDItbGZUeU1NaWl1WHVPOWV2YzFXYmNSNWxWZ1FjbldWNHhyWGhpMFI1YVpsakhZR1NqYW5TVnAxSTV4TDA5eEQ1RjZud2I5Nk41blUzQVhwblM5ZjJyLWd2SFJSQ2pPemNPSG9UajdRWllseUFZc1FfY1pITF9ZTW1tZU5YZw?oc=5",
-        "googleNewsRssPubDate": "Wed, 11 Feb 2026 08:00:00 GMT",
-        "googleNewsRssSource": "Itinerari Previdenziali"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Itinerari Previdenziali",
-      "demandScore": 0,
-      "noveltyScore": 0.818,
-      "totalScore": 0.327
-    },
-    {
-      "id": "46fbcc20",
-      "keyword": "La tassa sulla successione in Svizzera non è così leggera rispetto al resto dell’OCSE - TVS tvsvizzera.it",
-      "normalizedKeyword": "la tassa sulla successione in svizzera non e cosi leggera rispetto al resto dell’ocse - tvs tvsvizzera.it",
+      "id": "93aba41f",
+      "keyword": "Nuovi frontalieri, il conto è troppo salato. “12mila euro di tasse e anche l’acconto 2026? Follia”, “18mila euro all’erario, shock”, “Conviene ancora?” - ComoZero",
+      "normalizedKeyword": "nuovi frontalieri, il conto e troppo salato. “12mila euro di tasse e anche l’acconto 2026? follia”, “18mila euro all’erario, shock”, “conviene ancora?” - comozero",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "tasse svizzera",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOdWVFVUNFelJEc1FOZFI1RmY3NnhTRTNkMnJJdWxLQjRhYWZlVEVkMUNMVGJjNVB6UzFXaWY3ODhVM2gtZGVMZ0JPT2VyU0p4YkY5TUxsV2hMNjJuTjdfVF9YZ2g2LWJYeU1WeGFOeWQwbllIRUtmN3ZVR3NvTGFlYXNvUDdlRGxMNlhMRlo0Y2l2UTdpSG5UbXM4cEt6SGlFa25DQm14SExlUWJHQ3lUVWRzejQ0bUg5Q2tQRkREOHNmWmxsclFtN1NueDIzdER4aWxVQnJla3N5YVoxSktobjJicThxSFduWWRtcXNCdE1OOUUt?oc=5",
-        "googleNewsRssPubDate": "Mon, 03 Nov 2025 08:00:00 GMT",
-        "googleNewsRssSource": "TVS tvsvizzera.it"
+        "googleNewsRssSeed": "nuovo accordo fiscale",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNS3YwOUJmb21ELVF6OERWNmxzbENEeWs5MEt3bU9Zd3BLa3FTTVczZjF4bkNOa3VBWTFGMUhHbkJZU1h4SUhUNnBsNVVZUW5fVHQ0TTkwNVFSOENERnVxcE4tSmZxeEo0TFZDbGVmZ0xKdUV0c0ZHd3NEaEp4TmJkaVF4RWdPRzVNMHZsUHRGc2dTRi1fenlPRVVwei1ycHhnZklZU1NLRE5yd3daVXBWVWg0eFgxWWwzbk82S1hjbm41WWh2WEFRcnNjSXItWmt0dll3ZXREMFc4VXgxZWJZVUpERENpZUxKa2E2QkhYMzA1THpj?oc=5",
+        "googleNewsRssPubDate": "Mon, 18 Aug 2025 07:00:00 GMT",
+        "googleNewsRssSource": "ComoZero"
       },
-      "rationale": "Google News RSS seed \"tasse svizzera\" — TVS tvsvizzera.it",
+      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — ComoZero",
+      "demandScore": 0,
+      "noveltyScore": 0.818,
+      "totalScore": 0.327
+    },
+    {
+      "id": "b9cb06c6",
+      "keyword": "Questa volta la Svizzera minaccia sul serio i comuni di confine: \"Blocco ristorni, se ne discute a giugno\" - ComoZero",
+      "normalizedKeyword": "questa volta la svizzera minaccia sul serio i comuni di confine: \"blocco ristorni, se ne discute a giugno\" - comozero",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "ristorni frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOTVNCclRHcWNuUGdscHRaLWFtRmhSY2lTRGZ1NXVNLWVCR1dwMnBhSVM4Z1hHUGlJNVVuYUt4M0VFUGl0UHZDU3VTSHJFdjBqc1BDS29IcnN5em9ocmVGWkNFdk9ySzhtTzlCY3FBc0NaLUtGWHphZDFUcmVjZjVWTXU2aUFfX0F4SFI3RmxjYTVydExwNk1NX1BzbXFMRE1mOU9UWXFBTXY3c3A2NnJtNlFBaGpRd0NNR3BoczhHWkRTQVhmREpET0ZHTjhsUQ?oc=5",
+        "googleNewsRssPubDate": "Mon, 11 May 2026 06:20:38 GMT",
+        "googleNewsRssSource": "ComoZero"
+      },
+      "rationale": "Google News RSS seed \"ristorni frontalieri\" — ComoZero",
       "demandScore": 0,
       "noveltyScore": 0.818,
       "totalScore": 0.327
@@ -1334,9 +1134,9 @@
       "totalScore": 0.327
     },
     {
-      "id": "bb3f9b6d",
-      "keyword": "Calo del potere d’acquisto e LAMal, l’Uss invoca contromisure - laRegione",
-      "normalizedKeyword": "calo del potere d’acquisto e lamal, l’uss invoca contromisure - laregione",
+      "id": "1ce42ec7",
+      "keyword": "Votazione popolare sulla modifica della legge federale sull’assicurazione malattie (LAMal) (Finanziamento uniforme delle prestazioni) - bag.admin.ch",
+      "normalizedKeyword": "votazione popolare sulla modifica della legge federale sull’assicurazione malattie (lamal) (finanziamento uniforme delle prestazioni) - bag.admin.ch",
       "angle": null,
       "locale": "it",
       "sources": [
@@ -1344,14 +1144,34 @@
       ],
       "demandSignals": {
         "googleNewsRssSeed": "LAMal",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxObGkyS3FtMG5uWmhTdUtHQnRHb0QycXQwcl82VHFEeW01NUJZRlhBR2RwTkFoamVfbFJDUmRpaE15OEswa2QyMlBoR2Jxc0RKR0c1cHlZM0s1N0xOMXVPMTM4VzJtZU5MM08zYl9kQlBfVkxYN2FSUGhsZEFTQWFGSlFxLWFnUXhvcWxZ?oc=5",
-        "googleNewsRssPubDate": "Wed, 20 Apr 2022 07:00:00 GMT",
-        "googleNewsRssSource": "laRegione"
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPM19NTjRwX0QyRFZERHVab1FUVlFmRExlaFNKcE4zT1V0S0c2LTliZmFZZ05NTlNmY1lCTVhBVTQxVTRZbE9BMVB0SDJUZF80NUpUX016V3U2NGVfejdOV29PQlEwNlVfVnFJUXc5aS11YU9jRmQtSzFwdWEyMXVFY1ExNnl4SzNlSng1ck5OZ3U4YVlYdmE0Tk9BeDBRNl9peV9JODdYbWRtUG1BY0hsOExUTDFPaVNsVmN6cEU5dWM0dzh4ckQ2b05QZXp4OHJCbTlPamRXdXNNUUVFdlBVeUVVNDdiZ3VBQ05lTg?oc=5",
+        "googleNewsRssPubDate": "Mon, 23 Jun 2025 17:03:26 GMT",
+        "googleNewsRssSource": "bag.admin.ch"
       },
-      "rationale": "Google News RSS seed \"LAMal\" — laRegione",
+      "rationale": "Google News RSS seed \"LAMal\" — bag.admin.ch",
       "demandScore": 0,
-      "noveltyScore": 0.813,
-      "totalScore": 0.325
+      "noveltyScore": 0.818,
+      "totalScore": 0.327
+    },
+    {
+      "id": "42e5b784",
+      "keyword": "Crans Montana, la mutua svizzera chiederà al ministero della Salute il rimborso delle spese di ricovero dei feriti italiani - Corriere Roma",
+      "normalizedKeyword": "crans montana, la mutua svizzera chiedera al ministero della salute il rimborso delle spese di ricovero dei feriti italiani - corriere roma",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxPUHNQUDVaSWY1RWM5R2pqV3hVMU5kdEZSZmF1OWhRNXAzUVAyc0lXcXJIaThKczFjS2VCdUh6bUN2Wmh5SVU2N2R0RnlHNjlJRk1JcDdvQnh2ZWZacFRJT3VnMFVrelgwMF9pZ0tFR2JPUEpadW9xLTRaZUlVSFhBR1RBaUhYanlSZWtQVmstTzhWdDZqQzVuRW5LSHVlQjZJSnJpZ09ESXJwcnVrUUNCTmdDVmZXSUFxcDd0ZWlScWlhMHdGZTlLZlFhc0RmeWJwNzZ2Vi03NVVOb3RoS1hPOEFXVnExUFJOdURFMk5wTk9lQzVQVGFJZTNTYmFCMUtKaWliSmZIbjZiZ3Y4R25pQUpzbEttSVJiSXBOaE96Znl1MU5mb3UwdV8yWTRWc2p5UVBuMGdFdGg5bkUtMGtNVNIBxgJBVV95cUxQN0s4RjZ4d0Q5ZHZ6alJTSkx6akhRYjBUVUVEU0FjdFRzbTZ1RDNUdnZoVnhtUkxiZHdabTVMSGlGWWpWWnRoZ2xmQ3J0ZHJIRTJTcTlWajBPbk9nX1lNaFg5dXF0T0pFN2s0c1ItOW00cjRuUkd5aWJ6bzdSWWZhdkg4RFkwZktHNHZLUGhhazRqMkpBZGxsbnZyay1rWFN3YTMwQWNGbzFFZ1ZKMm1XblppbE01Tjc3TXNGT0g4V2tOMmhCQWtFT3ZUYzBralB5S2M3dnNZS2lkTF9TM1pIWi1iOXpwRG5Vd0UxenhCN09zM0hfNGk2MFF0QmplaFpFY05PMlVDWTNmY3VKaGxZaVNRSDU3RWo3OGlfN0ZlWXdJTm1MRERRWFpVU09QeW5LOVF4MU1obFpteTVoc3FsSWVEdnR2QQ?oc=5",
+        "googleNewsRssPubDate": "Fri, 24 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "Corriere Roma"
+      },
+      "rationale": "Google News RSS seed \"LAMal\" — Corriere Roma",
+      "demandScore": 0,
+      "noveltyScore": 0.815,
+      "totalScore": 0.326
     },
     {
       "id": "333b3edc",
@@ -1374,45 +1194,43 @@
       "totalScore": 0.325
     },
     {
-      "id": "e9b97e9f",
-      "keyword": "Frontalieri, ristorni da record: all’Italia ben 112 milioni - Corriere del Ticino",
-      "normalizedKeyword": "frontalieri, ristorni da record: all’italia ben 112 milioni - corriere del ticino",
+      "id": "b695cd59",
+      "keyword": "In Svizzera le tasse si pagano con i dipinti - Arte.it",
+      "normalizedKeyword": "in svizzera le tasse si pagano con i dipinti - arte.it",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "ristorni frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPUjQ0Q21XMWIwUXpJQkhxak51VW4wQXJ2VzQxc0MxUVJ5S25CamRNb2xPQmJkWm1GclpRWDY1WWhiSVJIYkYzWnROVzBWVmNYZDhVaDMyZUZrVVhzLTFMNTJLM243ZHd0X1JHR1l5Uy1vSlhFQlB1cmt2QlVIZU5odno1Z0l5ZFlCNmE0TVpwbXc?oc=5",
-        "googleNewsRssPubDate": "Thu, 23 Oct 2025 07:00:00 GMT",
-        "googleNewsRssSource": "Corriere del Ticino"
+        "googleNewsRssSeed": "tasse svizzera",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPYmVSaDlCQjNhelFVU05pa1hGTVM3RkkwS01VMWFrZ3FONFBYR0lWWEljQmVQb0hDY3IyOWpZUGhuTWk5eTBaWDl1RTIzdjM2Y096TEZSUHhkR0ZjUnJqa0s5RDR2eWZ4Y0prZnlJcjNUYXZ2V0tGZ1V4bGRZWmtmTWpqcloydGM?oc=5",
+        "googleNewsRssPubDate": "Sat, 16 May 2026 15:41:20 GMT",
+        "googleNewsRssSource": "Arte.it"
       },
-      "rationale": "Google News RSS seed \"ristorni frontalieri\" — Corriere del Ticino",
+      "rationale": "Google News RSS seed \"tasse svizzera\" — Arte.it",
       "demandScore": 0,
       "noveltyScore": 0.813,
       "totalScore": 0.325
     },
     {
-      "id": "564ef9bd",
-      "keyword": "Legal Insurance in Svizzera, davvero utile o solo un’illusione di sicurezza?",
-      "normalizedKeyword": "legal insurance in svizzera, davvero utile o solo un’illusione di sicurezza?",
+      "id": "0be75d0a",
+      "keyword": "La tassazione del reddito dei lavoratori italiani frontalieri in Svizzera - Commercialista Telematico",
+      "normalizedKeyword": "la tassazione del reddito dei lavoratori italiani frontalieri in svizzera - commercialista telematico",
       "angle": null,
       "locale": "it",
       "sources": [
-        "redditTicino"
+        "googleNewsRss"
       ],
       "demandSignals": {
-        "redditScore": 8,
-        "redditComments": 0,
-        "redditCombined": 8,
-        "redditSubreddit": "Ticino",
-        "redditViaRss": true,
-        "redditUrl": null
+        "googleNewsRssSeed": "AVS frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPNWFYUkVSc3AzQkNPYm9xM1h2ckJzUzFQUFg3YVkzY24zOFkzRDVSeFBPZ2pGdE1ZM19GOXVITmR4TkE5cVRnN2U4aU5xY3I1UTJiSGxxQjN6XzZZTXY5WWpoSTdZQzVTd0pYa1RDU0tPa05pY2JWcDZxTWtQQWMwUnlMcUNJb0czeWEybV9rMHlUVFN4X1VJblZVblZ6emlqUXViQ0p0WGhiRXh5TmdONy1kVnh2bTJUblZzUzNLSVg4MWM?oc=5",
+        "googleNewsRssPubDate": "Mon, 18 Jul 2022 07:00:00 GMT",
+        "googleNewsRssSource": "Commercialista Telematico"
       },
-      "rationale": "Reddit r/Ticino RSS feed — recency-based baseline 8 (engagement unavailable)",
-      "demandScore": 0.08,
-      "noveltyScore": 0.692,
+      "rationale": "Google News RSS seed \"AVS frontalieri\" — Commercialista Telematico",
+      "demandScore": 0,
+      "noveltyScore": 0.813,
       "totalScore": 0.325
     },
     {
@@ -1516,84 +1334,24 @@
       "totalScore": 0.324
     },
     {
-      "id": "308f2743",
-      "keyword": "La Svizzera valuta una tassa sui miliardari per combattere la crisi climatica - Euronews.com",
-      "normalizedKeyword": "la svizzera valuta una tassa sui miliardari per combattere la crisi climatica - euronews.com",
+      "id": "a0da902e",
+      "keyword": "Dichiarazione dei redditi 2026 per i frontalieri Italia-Ticino: la guida pratica alla precompilata, alla franchigia di 10'000 EUR e al telelavoro fino al 25% - MoneyMag.ch",
+      "normalizedKeyword": "dichiarazione dei redditi 2026 per i frontalieri italia-ticino: la guida pratica alla precompilata, alla franchigia di 10'000 eur e al telelavoro fino al 25% - moneymag.ch",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "tasse svizzera",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNT1FZdHpkdkdub0s2R2UyQlBfZGFpeFpaN2liQUpuQXFKZVZQYmRVRlg4OF9XLWM3Y2Fua2dXRVF6RW1lanhGa2RndnFsSmRSWEJzRkpySExFTFAzUDg0d3A5YzN0b09GckJCUUdnVkl1Qk9GWHcwcDFjZXhiOTlZT2ZYaE9tSVBsbjI0dTF6cjlsaDV2a01JeVlOekU3R21CV2FYY2VOOTJuaU02a0hEV1MwZjNSMjV0cjJGd1l3?oc=5",
-        "googleNewsRssPubDate": "Wed, 26 Nov 2025 08:00:00 GMT",
-        "googleNewsRssSource": "Euronews.com"
+        "googleNewsRssSeed": "telelavoro frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiakFVX3lxTE95b0VrMGNMSmVST1JQNVduUEg1YVpwR1ZqLU9IOWZyc3BNQl9QU1BId0owcVhzelF0Yy00dVg2NlVCZkpxYXlfeUt0Sl9FRDdPSnVjSVhXSW5PSUZaQk4teEhSVDJvbUtOLUE?oc=5",
+        "googleNewsRssPubDate": "Tue, 12 May 2026 17:10:00 GMT",
+        "googleNewsRssSource": "MoneyMag.ch"
       },
-      "rationale": "Google News RSS seed \"tasse svizzera\" — Euronews.com",
+      "rationale": "Google News RSS seed \"telelavoro frontalieri\" — MoneyMag.ch",
       "demandScore": 0,
-      "noveltyScore": 0.81,
-      "totalScore": 0.324
-    },
-    {
-      "id": "ff7ab5da",
-      "keyword": "Schiacciato tra la gru e i sacchi di sabbia: la tragedia del frontaliere ossolano morto nel Vallese - La Stampa",
-      "normalizedKeyword": "schiacciato tra la gru e i sacchi di sabbia: la tragedia del frontaliere ossolano morto nel vallese - la stampa",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "frontaliere",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPc08zdHRkNmt5c05XY1Z4UDF0TkVienhVRldjaXdJV0YzSlhtZ21oOVQ3T21sclN1bmJ5MnAxUGNpZTZ0aVg0NXVfbWt6aGNBRmpRazFkT1ZqSF95ZHhfYnU3cVlfVDBKZU5aY0tuRHpnRVB2YWlKS1BvZzhwYm43M0ZGNWl4M2dlOU5fSU9JVXYyeGl0VURqTy13RnBEbk00cGVCeng2bDgwY1JfVkdHWXVQZVBLVW94Q21V0gHAAUFVX3lxTFB3UVV6VThROEhucS1Fdm1wZWhUNV9lREZPRHhoQlF5czZQZ0JXUVdFbFVPcERyQmpLS1RRN0RBWTM0bkl3QWpBUklRbnR1MnVMTVhwTk0yOG1fM055STh5akpzUURTNkpfWGpJWE9NUWt3eDgxQjNTUjZ2RUcxYjZCc3BRMlBSaFpuRVlFb3VERDZwa0Zza3RCS3dwX09ydWhqWjZHZ2laNDRSUUViNzIwbFBycnBpSF93VkpPeHdJQw?oc=5",
-        "googleNewsRssPubDate": "Fri, 03 Apr 2026 07:00:00 GMT",
-        "googleNewsRssSource": "La Stampa"
-      },
-      "rationale": "Google News RSS seed \"frontaliere\" — La Stampa",
-      "demandScore": 0,
-      "noveltyScore": 0.81,
-      "totalScore": 0.324
-    },
-    {
-      "id": "60a855e2",
-      "keyword": "Svizzera, aumenta il salario minimo per migliaia di lavoratori (frontalieri inclusi): le cifre e quanto si guadagna - ComoZero",
-      "normalizedKeyword": "svizzera, aumenta il salario minimo per migliaia di lavoratori (frontalieri inclusi): le cifre e quanto si guadagna - comozero",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxONGdEaG92cm0zbDh0YnZ6ZVVETGRNeWlSeDlSU1lEUkpDNDNzNmg2LWJwdXowY1I4anlvc3RoeWhzV2hCUEFycjdzZTFRVXBNVjhxUFRyYTdKSjVMWHowN3gzRXdlS0o3eXY2MWZnVTJ2RS1FUUU1a2p6THJjR0dvRXNlQ3hZaWxpLXFHQ05YY3F6TlNiOU00bndZTnFyc256VWJRVURob3JZaUpTMW5FM2lObThFMWtXNHYtVmZYRzNIdllJczlJUWZ1bU1fd2R1UjVCREdFNU9yUnY0?oc=5",
-        "googleNewsRssPubDate": "Tue, 21 Apr 2026 04:44:16 GMT",
-        "googleNewsRssSource": "ComoZero"
-      },
-      "rationale": "Google News RSS seed \"frontalieri\" — ComoZero",
-      "demandScore": 0,
-      "noveltyScore": 0.81,
-      "totalScore": 0.324
-    },
-    {
-      "id": "2ba7acf3",
-      "keyword": "Ventimiglia, tragico schianto in moto muore frontaliere di 45 anni - Il Secolo XIX",
-      "normalizedKeyword": "ventimiglia, tragico schianto in moto muore frontaliere di 45 anni - il secolo xix",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "frontaliere",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNT1d2OTd2WUhORGVoYThWRVowUjY5U2NQTTBzYWIyZ011RElOZzRkOWcwRWlJWktOZENBVFRwYVlYWFVLRU4zV0JxclZ4ZUZSRWhyZWtiRi0wRUtXcThyWFZVSnNzMm1jNTA3VWFsNHhHM0J1TzdHV2xrYXFZb2dmWjdHcEVidnlDdzlsaXJxd28tWkRHOE4wVnJLODRZc3dhSThWMFJ5bjBXdXI3QTZyV1lWa2hzWTBlRFFSVtIBwgFBVV95cUxQRWVvUjdpVUptRTE2d0hYRFhQMnFoWlVyQ1Y5QnA0ZTBpYUtBS0FwQ3VCV1ZDN25TZG1VZ1l3ZFRmZnBlM3Q0dWE0U3l3VnZOOWxieGJXTjVjdUlRMktYTndBYWpRbDRXd0Y4ZWV6X2VaeEQxZmhaenl5dlhCQ3dzTFVBaXdqWm1mTFlVSXlnekQtMGJYc25vRjFmVHIzbEdha2lxUFRsWjdIdEpZeXJ4Y2k3WTVmTzBRWFZlcmR3VXR3UQ?oc=5",
-        "googleNewsRssPubDate": "Sat, 18 Apr 2026 07:00:00 GMT",
-        "googleNewsRssSource": "Il Secolo XIX"
-      },
-      "rationale": "Google News RSS seed \"frontaliere\" — Il Secolo XIX",
-      "demandScore": 0,
-      "noveltyScore": 0.81,
-      "totalScore": 0.324
+      "noveltyScore": 0.808,
+      "totalScore": 0.323
     },
     {
       "id": "e69a7e3a",
@@ -1616,21 +1374,41 @@
       "totalScore": 0.323
     },
     {
-      "id": "14303cc1",
-      "keyword": "\"Per pagare la disoccupazione ai frontalieri gli svizzeri verseranno più contributi\". Duro attacco da oltreconfine - ComoZero",
-      "normalizedKeyword": "\"per pagare la disoccupazione ai frontalieri gli svizzeri verseranno piu contributi\". duro attacco da oltreconfine - comozero",
+      "id": "730b3daf",
+      "keyword": "Ristorni dei frontalieri, l'idea della Lega: bloccarli per pagare le iniziative sulla cassa malati. Ma a Berna 5 deputati ticinesi su 5 frenano - MoneyMag.ch",
+      "normalizedKeyword": "ristorni dei frontalieri, l'idea della lega: bloccarli per pagare le iniziative sulla cassa malati. ma a berna 5 deputati ticinesi su 5 frenano - moneymag.ch",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMikgFBVV95cUxObjA1M0kzN1hFVVAxWVNKbWJtQ2xrZV9rbHNvbjZVcUg5LXVadWNwQ3VvMk9CSHhwc3ZtZXFkOXc3bldheWRWWHFTVGNQbWdNdkpfNURBWFhJOVhTalRxeFhUMzYxVVB4N29oRFJEVTBad3oxa05vQXlocmF3STB3dFpRQk1vTWRROUk1aFNYS3h6UQ?oc=5",
-        "googleNewsRssPubDate": "Sun, 10 May 2026 17:04:25 GMT",
-        "googleNewsRssSource": "ComoZero"
+        "googleNewsRssSeed": "ristorni frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5Kby1keGFyaGdaOTYtR1dDVE1ydUZCeFEzdTYtMXVNRWg5bmk1QVVOQXM1RVQ5X3lraEJ5eG1pVGt2b1FuTTZKZlFLcmFKdVByRVh1S1h3RWg5ZGQ2Zm1OSDdKdEZUUQ?oc=5",
+        "googleNewsRssPubDate": "Wed, 13 May 2026 05:11:00 GMT",
+        "googleNewsRssSource": "MoneyMag.ch"
       },
-      "rationale": "Google News RSS seed \"frontalieri\" — ComoZero",
+      "rationale": "Google News RSS seed \"ristorni frontalieri\" — MoneyMag.ch",
+      "demandScore": 0,
+      "noveltyScore": 0.808,
+      "totalScore": 0.323
+    },
+    {
+      "id": "0dae0179",
+      "keyword": "AVS: la 13esima sarà versata una volta all’anno - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "avs: la 13esima sara versata una volta all’anno - rsi radiotelevisione svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "AVS frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNeU5vQVp4b0UtVWUyNGtqZVBhbm91MndhSmhRdi1ISGVWb1FZZlFBeFNhR2QxZzM2WnFadjBDdWFBVUFkMUlvUVhTVnhhMTdXYzh3czQyQ2pWc24ydFlISWtseFFNWFhYUmlKcGQ0Wlc4M281WHBNaDZnZi15M25CaThhZXprZHM3amVyaFlwYU1rYVZBV2xoX19Sa0NEODhKazRlYkhvR3hHUQ?oc=5",
+        "googleNewsRssPubDate": "Mon, 03 Mar 2025 08:00:00 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
+      },
+      "rationale": "Google News RSS seed \"AVS frontalieri\" — RSI Radiotelevisione svizzera",
       "demandScore": 0,
       "noveltyScore": 0.8,
       "totalScore": 0.32
@@ -1676,41 +1454,21 @@
       "totalScore": 0.32
     },
     {
-      "id": "6aa75944",
-      "keyword": "Francesco Mussoni sulla collaborazione in tema frontalieri - San Marino Rtv",
-      "normalizedKeyword": "francesco mussoni sulla collaborazione in tema frontalieri - san marino rtv",
+      "id": "4610ca87",
+      "keyword": "Frontalieri, Astuti: «Se Cdx vuole rivedere la misura, ci siamo: serve confronto vero, non propaganda - Luino Notizie",
+      "normalizedKeyword": "frontalieri, astuti: «se cdx vuole rivedere la misura, ci siamo: serve confronto vero, non propaganda - luino notizie",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "AVS frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQenZ0dXBMR0JGeXlzVGhwRHN0Y2lBbTlGd3lZTjJZbHM2QzgzRHFtNUZxanVtdXFxM1VqNWlpRXJVb2NmN1FFazNWendpRTQ0eVY4RkRoLXZNeEJPYldhazhZVUhTbk5uYnFQYzZLNHlwTEpaVm9VSWNPRE53cVU5NWpDTG9iTzFrblFVX2FRMy1MSnFOeGFMSWxvclhjdUh3NThj?oc=5",
-        "googleNewsRssPubDate": "Sat, 18 Jun 2011 07:00:00 GMT",
-        "googleNewsRssSource": "San Marino Rtv"
+        "googleNewsRssSeed": "frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQZGFVUHZ4NURRcEF1Nk1OVzc0d3B0OVlsVnNrc0I4QVdvMkcwaWZRZ3ZMWFVsUm9IekxtaTd0c2ZjLW9rdm1UbEVPcllXNXdNUHNmWVB6dkVUcHkwRnZ3eWhLRmxNUno3bzRRelFYbkc1QkxtTW9veURZbGNER0FTdWtTMFc2NXpkTDhQVmlqdWU4ZEF6TFFKaWtMSFRzRW96Z3Y3QktNQlNoMFcyOXVsUDduRFBFX2duU0hYVDU0bGlEOEhzM2poTnhSV0FvTkQ5TUNkcTBrbGQ?oc=5",
+        "googleNewsRssPubDate": "Wed, 13 May 2026 16:14:23 GMT",
+        "googleNewsRssSource": "Luino Notizie"
       },
-      "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
-      "demandScore": 0,
-      "noveltyScore": 0.8,
-      "totalScore": 0.32
-    },
-    {
-      "id": "3f2862d0",
-      "keyword": "Frontalieri pronti a manifestazioni di protesta per l'articolo 56 - San Marino Rtv",
-      "normalizedKeyword": "frontalieri pronti a manifestazioni di protesta per l'articolo 56 - san marino rtv",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "AVS frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPOVpRbGM3V0ZaQk1VSFlPOGpMb2VNOUJwNDBEQ29fdW5wNEJNY0pBZm9wUWQ5SnNYTmtIYWVldGhrQVZsSHRHZV9IMWZRWk94WVBkMzViTXdPR25GczFTSEJHMERHazVLT3MyNGV5Ry1wUlVqcDAtZEcxbU1UaHBEMzhpM0lYU0w2Y0RqMS12RGE2amRtUlZORXJfcG1kRzQ0WWQ4OVlEbGduUQ?oc=5",
-        "googleNewsRssPubDate": "Sat, 17 Mar 2012 07:00:00 GMT",
-        "googleNewsRssSource": "San Marino Rtv"
-      },
-      "rationale": "Google News RSS seed \"AVS frontalieri\" — San Marino Rtv",
+      "rationale": "Google News RSS seed \"frontalieri\" — Luino Notizie",
       "demandScore": 0,
       "noveltyScore": 0.8,
       "totalScore": 0.32
@@ -1736,41 +1494,41 @@
       "totalScore": 0.32
     },
     {
-      "id": "44c0c5c0",
-      "keyword": "Frontalieri, il telelavoro entra a regime - Filodiritto",
-      "normalizedKeyword": "frontalieri, il telelavoro entra a regime - filodiritto",
+      "id": "1db05569",
+      "keyword": "Frontalieri: l’allarme degli Artigiani contro il tetto demografico - Il Bernina",
+      "normalizedKeyword": "frontalieri: l’allarme degli artigiani contro il tetto demografico - il bernina",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "telelavoro frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1UZWV2a3U3NW96cndMM2dvRkx1WGtJNEowa2l2WmpZdVJ6bE1BNUM0Mk9GWk5vMkFPeWNkOW1nVEFIS3g5NkRCTUtoanBSUnpsQVFKZkx0cFZ0NWJiS3pHbHVXSG85WThHdE9kdE5McTFjNzNU?oc=5",
-        "googleNewsRssPubDate": "Thu, 12 Feb 2026 08:00:00 GMT",
-        "googleNewsRssSource": "Filodiritto"
+        "googleNewsRssSeed": "frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNZHpaZHJmbFJZaUoxU0w5aUEtbm13MGxiMXdLM3psbV9ydTczb0Z2eVFGaE5jdENiT2JNSk1seTFwTFd4aVNnUFIteS1GeUR0c1MzZjdFYllYbTRFMDVTTGw2SGRjMkJMREhIZEpXeGNjTnlsRnJqYXhPNDVqMjN5RlZVSlpfaTFQektvREI5TV83dmxidE94LW0zczR2V2tnZ01LcF9RNUxGTnRjdXJ6NUVkYw?oc=5",
+        "googleNewsRssPubDate": "Fri, 15 May 2026 14:06:52 GMT",
+        "googleNewsRssSource": "Il Bernina"
       },
-      "rationale": "Google News RSS seed \"telelavoro frontalieri\" — Filodiritto",
+      "rationale": "Google News RSS seed \"frontalieri\" — Il Bernina",
       "demandScore": 0,
       "noveltyScore": 0.8,
       "totalScore": 0.32
     },
     {
-      "id": "5680c4fb",
-      "keyword": "Frontalieri. A Comunità Montane e Province oltre 14 milioni di euro - Lombardia Notizie Online",
-      "normalizedKeyword": "frontalieri. a comunita montane e province oltre 14 milioni di euro - lombardia notizie online",
+      "id": "b9fe0b98",
+      "keyword": "Il GDPR pilastro del diritto digitale europeo: le implicazioni strategiche secondo EDPB - Cyber Security 360",
+      "normalizedKeyword": "il gdpr pilastro del diritto digitale europeo: le implicazioni strategiche secondo edpb - cyber security 360",
       "angle": null,
-      "locale": "it",
+      "locale": "fr",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "ristorni frontalieri",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMif0FVX3lxTE5hQnRZOExJcDczOWlkVEhDWEJFQ2Z2RXlaR0ZZTU93Rm5YbzlyYkxkc3Fvak9vVHFIelhJMHZUM0FySWdoWkVFZ1QxV3Y5bW9hVm1BT3pVMzZubGVBbHRDMFF5TDZzSVRLZDhITUY0VkdibmNJdTZRQWFWMlBKX0E?oc=5",
-        "googleNewsRssPubDate": "Mon, 13 Oct 2025 07:00:00 GMT",
-        "googleNewsRssSource": "Lombardia Notizie Online"
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQRjc2aFJjZFJra0h5YVdiaGtGNGRnY2tpc0FXcU15TVhpbFlqeUdzTzg5WXl2MEVtRkRHVGliU25fSmhwMEU0QTJjSFA3LUtJdGw5WUZXY3FPejd3RXhkOVF3RG9pWXlTWWZRWmJNekxxRzg1bXk1a2hiMERlM2RCVEdVT3VaTG9wY0I4RjhEMF80cjk4WGZ1c181Z3JweXpBRTVwU211SllLUkFQdTVobnQxTXZmMkVQV2toekNkYVR5Zw?oc=5",
+        "googleNewsRssPubDate": "Mon, 13 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "Cyber Security 360"
       },
-      "rationale": "Google News RSS seed \"ristorni frontalieri\" — Lombardia Notizie Online",
+      "rationale": "Google News RSS seed \"secondo pilastro\" — Cyber Security 360",
       "demandScore": 0,
       "noveltyScore": 0.8,
       "totalScore": 0.32
@@ -1816,21 +1574,41 @@
       "totalScore": 0.32
     },
     {
-      "id": "b2849407",
-      "keyword": "Le tasse sui super ricchi fanno male a tutti: una lezione dalla Svizzera - Istituto Bruno Leoni",
-      "normalizedKeyword": "le tasse sui super ricchi fanno male a tutti: una lezione dalla svizzera - istituto bruno leoni",
+      "id": "346dffcc",
+      "keyword": "LPP realizzerà un nuovo magazzino a Tczew - MarketScreener Italia",
+      "normalizedKeyword": "lpp realizzera un nuovo magazzino a tczew - marketscreener italia",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "tasse svizzera",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPUGItSUF6eHBfVTdSN0doQnRhX18tcEZZU2EzbTRvU2NSdmNsbTF5WHpjc0dRcXJEMjlUZ0dDSXhNcjgwVGt0UFRWcFN3NWlFWFNEMjlnd1NCVDlVcXo3cFNTU2g2TzJrM2J5Wi1FUkZXbWJPTDZid1A5Z2IzMkhoQ29rMGFHVlpFZzVSTFFQR1VMS0hUS2gzNkJTQk42STQ?oc=5",
-        "googleNewsRssPubDate": "Mon, 01 Dec 2025 08:00:00 GMT",
-        "googleNewsRssSource": "Istituto Bruno Leoni"
+        "googleNewsRssSeed": "LPP",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOR3RqRDlKaFhpOXYtdUk2TTV6Z25yT0hHaEZLNWhKVFp4WjBnNVJlb3FGYXRhZTBaUVVLcWs4MWFnR3hob1dMV2staW1PWHczbmR4eWNqMEJIcE1HcldoOGZNcUc3MEo1SkJPZktHZ3hUdTN5cnpidFBLNmctZ1ZPR0FpczNmMGdsQXlOeGpFdU1xWHdHRVV3OHJYYlc?oc=5",
+        "googleNewsRssPubDate": "Fri, 17 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "MarketScreener Italia"
       },
-      "rationale": "Google News RSS seed \"tasse svizzera\" — Istituto Bruno Leoni",
+      "rationale": "Google News RSS seed \"LPP\" — MarketScreener Italia",
+      "demandScore": 0,
+      "noveltyScore": 0.8,
+      "totalScore": 0.32
+    },
+    {
+      "id": "28ed65b1",
+      "keyword": "Pensioni giovani: la complementare è ormai un obbligo - La Legge per tutti",
+      "normalizedKeyword": "pensioni giovani: la complementare e ormai un obbligo - la legge per tutti",
+      "angle": null,
+      "locale": "fr",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPNEd0UXBzMllYdXdyX3B1SXF3VHIwNkFtbC1Fb0dGb19FeGdIQzA5Xzhjd3QzYXpscEgyM3I3QUp6UFNSWlNUX2ptNUZpVmNmSTZDY1Q0ZTN1cnpleHc4emtrY0xqVDlGNjR6ckh0bnh2YnM5WHpxd3lDSjlGWmdwbFVrSHlTVXF5M1p0NG9TcC1Ydjlf0gGaAUFVX3lxTFBHR2NncV9IRW9hWjdobWg3bkx2VU5sYU5zYWl6UGl6LTBuT0hsaVlhOV9VU1QteWZ1N01aQmhHMmd4Q3JXUWJvcjc2LXFaaDllcVR4dWtTRTJlcXV6UVR4bFdYeGJpNXc5QkFsUTE1NXVwSkpGYlhyZ21ncm9fVWFGVC1zWmgwQThZQUtuSzJxcS1NVjRUbXoycmc?oc=5",
+        "googleNewsRssPubDate": "Mon, 01 Dec 2025 08:00:00 GMT",
+        "googleNewsRssSource": "La Legge per tutti"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro\" — La Legge per tutti",
       "demandScore": 0,
       "noveltyScore": 0.8,
       "totalScore": 0.32
@@ -1876,41 +1654,61 @@
       "totalScore": 0.32
     },
     {
-      "id": "652bca34",
-      "keyword": "Previndai, 35 anni di secondo pilastro - Economy Magazine",
-      "normalizedKeyword": "previndai, 35 anni di secondo pilastro - economy magazine",
+      "id": "6c4cb276",
+      "keyword": "Ristorni frontalieri, bufera dopo la mozione al Parlamento ticinese - TVS tvsvizzera.it",
+      "normalizedKeyword": "ristorni frontalieri, bufera dopo la mozione al parlamento ticinese - tvs tvsvizzera.it",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1sSDlWLXVsZkZ4YjhtYmVCOE1nOW1Vb0lHdl9VMlp1bDBST1RSQWZRejFiaGNMSjJxTEc5dHViLURTckVqeXBJZTQtTFFKbEJQZmxuaGUyN0k2a3lWZ3F1a0c3SGgtbFhjQUlUaDQ2T09NS2JpZDYwMQ?oc=5",
-        "googleNewsRssPubDate": "Mon, 15 Dec 2025 08:00:00 GMT",
-        "googleNewsRssSource": "Economy Magazine"
+        "googleNewsRssSeed": "ristorni frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPcmx1Um9ycGpfM3pwblROakxycVdnN2lYMG5RY3J0dEotS0g5LVlkNTNzUEt0NDdybm5ZMTEzVW5EWU9ha2VLNWNDRlRBNVZJN0E3S1FxcS1XQzh4WlhWZU93SFBCLW1XbnlUSkJ1MkUzRUJ5VERrSzRyM3E0SVFOamU1b1hvMWVKYTdULVRPZGFQNXR4VElVVmlGZWVZYm5MdUo4dVB3UWUyM0Y0RlJsdDRUdkkzMVNxTkFKaWd4RFRVSW1CRXBnZHlR?oc=5",
+        "googleNewsRssPubDate": "Sat, 21 Feb 2026 08:00:00 GMT",
+        "googleNewsRssSource": "TVS tvsvizzera.it"
       },
-      "rationale": "Google News RSS seed \"secondo pilastro\" — Economy Magazine",
+      "rationale": "Google News RSS seed \"ristorni frontalieri\" — TVS tvsvizzera.it",
       "demandScore": 0,
       "noveltyScore": 0.8,
       "totalScore": 0.32
     },
     {
-      "id": "13dc1fb9",
-      "keyword": "Salario orario più elevato dal 2026 per il personale domestico - blue News",
-      "normalizedKeyword": "salario orario piu elevato dal 2026 per il personale domestico - blue news",
+      "id": "0f385639",
+      "keyword": "Svizzera, passa il referendum: introdotta dal 2026 la tredicesima sulla pensione - EspansioneTv",
+      "normalizedKeyword": "svizzera, passa il referendum: introdotta dal 2026 la tredicesima sulla pensione - espansionetv",
+      "angle": null,
+      "locale": "fr",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "AVS frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNemlOUDhnWnhXa0I3OUJOQ1lUcE41SVQ5ZGxKN3paUXZXUVpnb0ZTLXBnWVRqNGM4TUtNdHhJOGxJR1UtenFYZDdOR25jcmh3WWVPTTZlcEtMSlVFLVdNaEpvb1BEUThpc3RrLTJTeHZzRkxHaG1yUVZUY1ZQX2R5dGpqYWtRY0lkekVvcGxpQVZUY1A5OW9ZSm5QR2VEV3dBNk11ZG54bVdZU1k1SEl1eEU1WXoxSWMweUE?oc=5",
+        "googleNewsRssPubDate": "Mon, 04 Mar 2024 08:00:00 GMT",
+        "googleNewsRssSource": "EspansioneTv"
+      },
+      "rationale": "Google News RSS seed \"AVS frontalieri\" — EspansioneTv",
+      "demandScore": 0,
+      "noveltyScore": 0.8,
+      "totalScore": 0.32
+    },
+    {
+      "id": "460bc742",
+      "keyword": "Tasse sulle mance? Le opinioni divergono - SWI swissinfo.ch",
+      "normalizedKeyword": "tasse sulle mance? le opinioni divergono - swi swissinfo.ch",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "busta paga svizzera",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNRTFQQS1YY3g0WjVuSk82TTdKTlVza2R0TFg2cjJnd1Y2RVVIaWpsdlJpckozS3VfQVREUHpZNk5NWk0yZkhXbTMyRDNiZXgtYk45bWt6X1pLNW5vbERsUWVUTno0empuZEFDcEsza3hUS0tUSFFPcXBFdjJQLUFHQkVEVnYzNmx5RzNFU0dGUVo1djFTcWtyS1dzQldQWk1ZSlBVdG5reERTNWVpWU84REdsSFFkdw?oc=5",
-        "googleNewsRssPubDate": "Fri, 05 Dec 2025 08:00:00 GMT",
-        "googleNewsRssSource": "blue News"
+        "googleNewsRssSeed": "tasse svizzera",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxORVRRWmxTWWtvcWxqTGltaTA1aUluTzVmNHVnaklOMEtXdjdLNHhfX1BkYkpxdmRmSDZMdHRfSFFMNXREaUlZV3FIUlZXamhvTFVmNkRsVjN4dllvNDFxaF9fLTVib244c2ZOTzBUMkFKLUFodEJWaUxxXzIzRUhVbmhlOG1DbXNZc2ZLcWVPQURIa0pQd1pZenQwVWJRMEV1WDFZeWZoUC0?oc=5",
+        "googleNewsRssPubDate": "Tue, 03 Mar 2026 08:00:00 GMT",
+        "googleNewsRssSource": "SWI swissinfo.ch"
       },
-      "rationale": "Google News RSS seed \"busta paga svizzera\" — blue News",
+      "rationale": "Google News RSS seed \"tasse svizzera\" — SWI swissinfo.ch",
       "demandScore": 0,
       "noveltyScore": 0.8,
       "totalScore": 0.32
@@ -1952,8 +1750,28 @@
       },
       "rationale": "Google News RSS seed \"ristorni frontalieri\" — Corriere del Ticino",
       "demandScore": 0,
-      "noveltyScore": 0.792,
-      "totalScore": 0.317
+      "noveltyScore": 0.789,
+      "totalScore": 0.316
+    },
+    {
+      "id": "3a13ab98",
+      "keyword": "Circolo di Poschiavo: sanità, mobilità e frontalieri al centro del confronto - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "circolo di poschiavo: sanita, mobilita e frontalieri al centro del confronto - rsi radiotelevisione svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMihwJBVV95cUxPbVdSTkxIamlaM3lZNm95ZW0zaE8tMHJhRENqNDVLY1hpZktVLTNZeHZtR3pneUJlNUd3RUxGOXNhRWIxNjV4X3ZDbDRxMmc2MDJVX2VTZkpMcnNhM2YxUnpGRzJEVW9CR191N1Fkd0FlbVp3YlhHYjc5dFMtR0hVcG12NVQxY0otVEkxbjJ1MlZveHQ0d1c3bGt3cWlTbVBlRGpHaFFBd0NzVGpnLXJJVHVVR0FGakJGVG5jRF9JUVFtMW5NblZONUgzWFk2QklLNkd2SUFKb0hyZjNtc1VvS1g5QmszcVpXaWZKUVBwbmZPc2UybnVzbXJzNHF5ZVkwY0F4UFJfOA?oc=5",
+        "googleNewsRssPubDate": "Fri, 15 May 2026 17:47:58 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
+      },
+      "rationale": "Google News RSS seed \"frontalieri\" — RSI Radiotelevisione svizzera",
+      "demandScore": 0,
+      "noveltyScore": 0.789,
+      "totalScore": 0.316
     },
     {
       "id": "6ec6f4bb",
@@ -1996,21 +1814,21 @@
       "totalScore": 0.316
     },
     {
-      "id": "4b7d8725",
-      "keyword": "La definizione di \"lavoratore frontaliere\" tra fisco, previdenza e immigrazione - Università della Svizzera italiana | USI",
-      "normalizedKeyword": "la definizione di \"lavoratore frontaliere\" tra fisco, previdenza e immigrazione - universita della svizzera italiana | usi",
+      "id": "f82dccc0",
+      "keyword": "I dati sui frontalieri inviati in Italia grazie al nuovo accordo fiscale - TVS tvsvizzera.it",
+      "normalizedKeyword": "i dati sui frontalieri inviati in italia grazie al nuovo accordo fiscale - tvs tvsvizzera.it",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "frontaliere",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1CMS1HdWtwV055b2lLLVE4UFVvSWQ3cWRZUkd2TmczNjJyQ2otcVdjSUdzTVlXeWZUMDI5bXJ3RGxzRGVkakhzUw?oc=5",
-        "googleNewsRssPubDate": "Thu, 05 Feb 2026 15:45:14 GMT",
-        "googleNewsRssSource": "Università della Svizzera italiana | USI"
+        "googleNewsRssSeed": "nuovo accordo fiscale",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPRDlnS1JXdllkWnhDRVhXcm5FVGRYbmR6MHdTS185QXNrUk1PRm9aTElVSk9IQlJzSjdLRkNrSDRCQ2drdUVaQnBHaFZXLUJYallQZUpKYUd0R1RSU3RWQU1TNUNTNk9pcFhHYklDSkk2cTNUbG82OUlNTmZCU3luUnA1N2pXc25BOFZJNjdxdzlmRVQwREdHUlE2MmUtSkMzVkdCY1RrVlEtMW5QY0ZlczZzNnVhNjhaaHNvbFh4MlpGNFFXZ3ZsUl8zbDlueFNzSmc?oc=5",
+        "googleNewsRssPubDate": "Sun, 30 Mar 2025 07:00:00 GMT",
+        "googleNewsRssSource": "TVS tvsvizzera.it"
       },
-      "rationale": "Google News RSS seed \"frontaliere\" — Università della Svizzera italiana | USI",
+      "rationale": "Google News RSS seed \"nuovo accordo fiscale\" — TVS tvsvizzera.it",
       "demandScore": 0,
       "noveltyScore": 0.789,
       "totalScore": 0.316
@@ -2034,6 +1852,186 @@
       "demandScore": 0,
       "noveltyScore": 0.789,
       "totalScore": 0.316
+    },
+    {
+      "id": "46d3e1d5",
+      "keyword": "Lo svizzero frontaliere dell’immondizia: scoperto e multato mentre abbandonava rifiuti nel paesino degli asparagi più buoni - ComoZero",
+      "normalizedKeyword": "lo svizzero frontaliere dell’immondizia: scoperto e multato mentre abbandonava rifiuti nel paesino degli asparagi piu buoni - comozero",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontaliere",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQZnhJQUhGd1pzNEdRQU5rRHV3dk4tN01CcUZEUURNMWlDNENoN2lqMWR1TUxGQUNMMEsxaW9TRnhHYXIwazNxdUl4NlBESGhzZzd4X0VKWU80Mld2REFZeGhwUDRBb3BrQWN0TklhXzhZLXl5T3VvWXR0S0JFaXFwanl2bUpORWxESHdB?oc=5",
+        "googleNewsRssPubDate": "Thu, 14 May 2026 11:07:15 GMT",
+        "googleNewsRssSource": "ComoZero"
+      },
+      "rationale": "Google News RSS seed \"frontaliere\" — ComoZero",
+      "demandScore": 0,
+      "noveltyScore": 0.789,
+      "totalScore": 0.316
+    },
+    {
+      "id": "45c90a4e",
+      "keyword": "Qual è davvero la differenza di stipendio tra nuovi e vecchi frontalieri - TVS tvsvizzera.it",
+      "normalizedKeyword": "qual e davvero la differenza di stipendio tra nuovi e vecchi frontalieri - tvs tvsvizzera.it",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "busta paga svizzera",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNbG51VXhPQjEwQnFzSjFuZDQ3TnlPRWliRVdGNURaLXpzLWVtVVdZdVJubTFvQjU5WjlyNW9VTGlLbnk3LVpqcy1melFOMm4zVmhtWE1hVjJneWdXOHdCMDVOQ0RPMzZTeDZsR1FCQ01rUlFDUU85VVRjeUI5S0xCUUMxWDMwNVFkQ3ZqLW1xMmE0OGwzc21IMGVJaFd3UXNiMnZUa1VMcWc0eTg?oc=5",
+        "googleNewsRssPubDate": "Sat, 27 Apr 2024 07:00:00 GMT",
+        "googleNewsRssSource": "TVS tvsvizzera.it"
+      },
+      "rationale": "Google News RSS seed \"busta paga svizzera\" — TVS tvsvizzera.it",
+      "demandScore": 0,
+      "noveltyScore": 0.789,
+      "totalScore": 0.316
+    },
+    {
+      "id": "86227164",
+      "keyword": "La medicina di base va sostenuta - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "la medicina di base va sostenuta - rsi radiotelevisione svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPLUZoSm5GWmE2LXZ5VG90S3Z2LTJ1eHktVjJPQlNBQ2ExUjkyMzZHMFRCdTZYbmZoZFdTM3N4QThYbXZfcVRSeENId09vbkZZMENXMWhlYmllM3VtNE5HR3l4NklBNnFfdzNLaEpZemtac2I0X1RISnBBMVVwSlVzWDFKSlY0Zw?oc=5",
+        "googleNewsRssPubDate": "Wed, 19 Mar 2025 07:00:00 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
+      },
+      "rationale": "Google News RSS seed \"LAMal\" — RSI Radiotelevisione svizzera",
+      "demandScore": 0,
+      "noveltyScore": 0.786,
+      "totalScore": 0.314
+    },
+    {
+      "id": "4143275f",
+      "keyword": "Lavoratori frontalieri, tasse agevolate al rientro in Italia: i requisiti - QuiFinanza",
+      "normalizedKeyword": "lavoratori frontalieri, tasse agevolate al rientro in italia: i requisiti - quifinanza",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "IRPEF frontalieri",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQd1Y1ZVFiQkFib2c4Z19yT1E1RWhNTjdKNEd5Q1lKazhYc0xINDQzXzQ4b1laUXBoeFhfcTZ5Y29MeWtQSE9hMHpzcDYxWnFPSm9xZnZpcDJnX213ZW1yNnMxZklIeURoZVpBMGt1QWVYLU9DYWgybERmU1VySUV6NmFn0gGHAUFVX3lxTE5OdmNNOUc4cVF3T3VGdXdjOHFLb2V0RFBZaGMxajFLTkF3YjhtTEpsU0ltcVhENnpBR1FTYUF1aVF4YzJ6Smg0dDk4b0h1NjNlb05vRzVGcE1mYzNhVkgzMGlJU3lEaThqd1RHczRvdVYyRi1wd3VzSFZuejFSM2ZRczFXQ18tSQ?oc=5",
+        "googleNewsRssPubDate": "Sun, 25 Jan 2026 08:00:00 GMT",
+        "googleNewsRssSource": "QuiFinanza"
+      },
+      "rationale": "Google News RSS seed \"IRPEF frontalieri\" — QuiFinanza",
+      "demandScore": 0,
+      "noveltyScore": 0.786,
+      "totalScore": 0.314
+    },
+    {
+      "id": "df00c29c",
+      "keyword": "Modificata la definizione di frontaliere svizzero - lavorofacile.it",
+      "normalizedKeyword": "modificata la definizione di frontaliere svizzero - lavorofacile.it",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontaliere",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNOEZHZ1BrbWdoRENTb2E1cU82UFJ5cjluN0JkMTUwa3BnS2NCNzhBZUxmWHNHbUc5WndhcGhud1A1M2NoOVBmTFM3MWliVzUwS295Yk9UNHNETDJFTFpfU3F4X1dBVGdtT3lFbzlSSUY4dWFiS05KMWZBbkI1d1NZQjdyc294LUtjY0E?oc=5",
+        "googleNewsRssPubDate": "Tue, 20 Jan 2026 08:00:00 GMT",
+        "googleNewsRssSource": "lavorofacile.it"
+      },
+      "rationale": "Google News RSS seed \"frontaliere\" — lavorofacile.it",
+      "demandScore": 0,
+      "noveltyScore": 0.786,
+      "totalScore": 0.314
+    },
+    {
+      "id": "742617ae",
+      "keyword": "Per un finanziamento uniforme delle prestazioni sanitarie - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "per un finanziamento uniforme delle prestazioni sanitarie - rsi radiotelevisione svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOQTZ2WVd3ckthY3N5YjByb1NXcHFZN0oyWmlJSm1fWE5IZGZUcTd4dE1aYWZ4a1JTMWtPRjhOLUNnMGNuN3MxNlgxQXM1ZDRJMzREZVRNVHBQZXBQU0x6NndLVGoxTjBFTU1jaVRxN2ZBbWdET1doeHpZY25pVGFCbE1QSVdOREllLWVwU3hkZU44UmpvZ2pCcWdURUdaeklMa0tIZ3NaUQ?oc=5",
+        "googleNewsRssPubDate": "Fri, 25 Oct 2024 13:51:52 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
+      },
+      "rationale": "Google News RSS seed \"LAMal\" — RSI Radiotelevisione svizzera",
+      "demandScore": 0,
+      "noveltyScore": 0.786,
+      "totalScore": 0.314
+    },
+    {
+      "id": "3083e3de",
+      "keyword": "Psicoterapia: la crescita dei costi si appiattisce - RSI Radiotelevisione svizzera",
+      "normalizedKeyword": "psicoterapia: la crescita dei costi si appiattisce - rsi radiotelevisione svizzera",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LAMal",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQemlRbklMZ3AxNGFoUkdvSERDN0lOU1J0dDlySmpDY3NMQVNSWDNoRWZIbW9MbnFoTGhOYk9jTDhVVV9NaVZSZ0l3U3NITUpQNG9tdnZBbTUzb2psSE1vUWQ1Y3o0NHNPQThyX1BFWkgyVk5remJEb2RvckxoVGIxNFFMdlZFSWNPM2tnU2xBQjJTQ0JobDk4RTlrVEo?oc=5",
+        "googleNewsRssPubDate": "Sun, 07 Sep 2025 07:00:00 GMT",
+        "googleNewsRssSource": "RSI Radiotelevisione svizzera"
+      },
+      "rationale": "Google News RSS seed \"LAMal\" — RSI Radiotelevisione svizzera",
+      "demandScore": 0,
+      "noveltyScore": 0.786,
+      "totalScore": 0.314
+    },
+    {
+      "id": "635b075a",
+      "keyword": "Effetto Trump in Canton Ticino: “Alla fine chi paga dazio sono sempre i frontalieri” - Il Giorno",
+      "normalizedKeyword": "effetto trump in canton ticino: “alla fine chi paga dazio sono sempre i frontalieri” - il giorno",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "permesso G",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOSW5HbVdkVUplWVJXTmo2aXlsTDJvMDdsb09HcU5TOTVHUlRmUUt4SDVnb3hObzREaEdtWE5mc0k0MkUySzF5OHFhckFXZ2FPWHRFREs0cTd3cV9ncEJqWTlTRkphLWRVQXlDWml4QXhsc1VjR3UtU1RZNUNvcnYxei1acw?oc=5",
+        "googleNewsRssPubDate": "Mon, 18 Aug 2025 07:00:00 GMT",
+        "googleNewsRssSource": "Il Giorno"
+      },
+      "rationale": "Google News RSS seed \"permesso G\" — Il Giorno",
+      "demandScore": 0,
+      "noveltyScore": 0.783,
+      "totalScore": 0.313
+    },
+    {
+      "id": "1564ca02",
+      "keyword": "Stipendio di 5590 franchi al mese: il sogno dei frontalieri ma in Canton Ticino è la busta paga più bassa di Svizzera - ComoZero",
+      "normalizedKeyword": "stipendio di 5590 franchi al mese: il sogno dei frontalieri ma in canton ticino e la busta paga piu bassa di svizzera - comozero",
+      "angle": null,
+      "locale": "fr",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "busta paga svizzera",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOOTZsemFRcENvUlVtT3lfaUpBaFhjUDJlNlZybzhNa19kei0tQVFBTmRSeWVlV0t6VGxlMXRRUjBMS3FBNFNxOGZOREpTcUc2Mm4yenFidUFteF9FNkwyVHlQdDBvS2FHQnlLMURpWFhPOFBUUDBDeTBVSy1XTWtuV2tPQmJZcTVST0l2NTFTNUV5bmt2MlRUN3pkREV5aHF5VTEwOFJBTjZfQnhiTXE0RDJlWmpQdzd3Vkh3RmxZdElDUEwzdmE1Q1VKYzNvd1RxUmppSWxCRjd1dC1YOTJqUw?oc=5",
+        "googleNewsRssPubDate": "Tue, 21 Jan 2025 16:28:13 GMT",
+        "googleNewsRssSource": "ComoZero"
+      },
+      "rationale": "Google News RSS seed \"busta paga svizzera\" — ComoZero",
+      "demandScore": 0,
+      "noveltyScore": 0.783,
+      "totalScore": 0.313
     }
   ]
 }
