@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-05-17T10:54:09.913Z",
-  "total": 66,
+  "generatedAt": "2026-05-17T22:19:13.243Z",
+  "total": 65,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 62,
-  "durationMs": 145404,
-  "avgDurationMs": 145404,
+  "removedCount": 1,
+  "unchangedCount": 61,
+  "durationMs": 158431,
+  "avgDurationMs": 158431,
   "durationHistory": [
-    145404
+    158431
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -163,7 +163,45 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Ferraiolo",
+      "slug": "ferraiolo-pemsa-bellinzona",
+      "url": "https://www.pemsa.ch/it/job/ferraiolo-2663206/",
+      "applyUrl": "https://www.pemsa.ch/it/job/ferraiolo-2663206/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "metallo",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-03-02",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-05-17",
+      "id": "pemsa-5c6c88a358e2",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-05-05T22:23:14.484Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Idraulico Esperto",
