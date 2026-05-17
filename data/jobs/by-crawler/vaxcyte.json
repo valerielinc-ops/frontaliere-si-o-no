@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaxcyte",
-  "assembledAt": "2026-05-16T22:40:06.849Z",
+  "assembledAt": "2026-05-17T11:19:17.645Z",
   "jobs": [
     {
       "id": "vaxcyte-c9c634d0bcbe",
@@ -33,7 +33,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5193056008?gh_jid=5193056008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:40:04.824Z",
+      "crawledAt": "2026-05-17T11:19:15.581Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5026185008?gh_jid=5026185008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:40:04.725Z",
+      "crawledAt": "2026-05-17T11:19:15.499Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -179,6 +179,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:29:03.138Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
