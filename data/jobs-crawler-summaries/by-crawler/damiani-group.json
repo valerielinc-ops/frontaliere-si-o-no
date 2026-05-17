@@ -1,49 +1,18 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-05-17T10:04:40.486Z",
+  "generatedAt": "2026-05-17T21:29:14.131Z",
   "total": 4,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5669,
-  "avgDurationMs": 5669,
+  "unchangedCount": 1,
+  "durationMs": 3846,
+  "avgDurationMs": 3846,
   "durationHistory": [
-    5669
+    3846
   ],
-  "newJobs": [
-    {
-      "title": "Sales Assistant",
-      "slug": "sales-assistant-damiani-group-serravalle-scrivia",
-      "url": "https://careers.damianigroup.com/job/Serravalle-Scrivia-Sales-Assistant/942216055/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/942216055/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Serravalle Scrivia",
-      "addressLocality": "Serravalle Scrivia",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-16",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-05-17",
-      "_qualityScore": 67,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 10,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "IT Business Intelligence Specialist",
@@ -158,5 +127,44 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Sales Assistant",
+      "slug": "sales-assistant-damiani-group-serravalle-scrivia",
+      "url": "https://careers.damianigroup.com/job/Serravalle-Scrivia-Sales-Assistant/942216055/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/942216055/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Serravalle Scrivia",
+      "addressLocality": "Serravalle Scrivia",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-16",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-05-17",
+      "id": "damiani-group-1e3bfdd1100f",
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "streetAddress": "Via Penate 12",
+      "postalCode": "6850",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:04:40.485Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 19,
+        "completeness": 25
+      }
+    }
+  ]
 }
