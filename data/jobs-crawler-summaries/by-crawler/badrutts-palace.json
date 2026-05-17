@@ -1,18 +1,19 @@
 {
   "key": "badrutts-palace",
   "label": "Badrutt's Palace Hotel",
-  "generatedAt": "2026-05-17T09:42:05.277Z",
+  "generatedAt": "2026-05-17T21:06:55.512Z",
   "total": 7,
-  "newCount": 7,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2642,
-  "avgDurationMs": 2642,
+  "durationMs": 2770,
+  "avgDurationMs": 2770,
   "durationHistory": [
-    2642
+    2770
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "badrutts-palace-76dc46ecebf9",
       "slug": "commis-patissier-m-w-d-badrutts-palace-ch",
@@ -25,7 +26,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7627802-commis-patissier-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T09:42:03.460Z",
+      "crawledAt": "2026-05-17T21:06:53.231Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -39,11 +40,13 @@
       "featured": false,
       "postedDate": "2026-04-23",
       "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/7627802-commis-patissier-m-w-d",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T09:42:03.460Z",
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -59,7 +62,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7506059-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T09:42:03.470Z",
+      "crawledAt": "2026-05-17T21:06:53.246Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -73,11 +76,13 @@
       "featured": false,
       "postedDate": "2026-04-02",
       "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/7506059-head-of-technical-services-m-w-d",
-      "_qualityScore": 58,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T09:42:03.470Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -93,7 +98,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7482296-assistant-stewarding-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T09:42:03.474Z",
+      "crawledAt": "2026-05-17T21:06:53.250Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -107,11 +112,13 @@
       "featured": false,
       "postedDate": "2026-03-30",
       "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/7482296-assistant-stewarding-manager-m-w-d",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T09:42:03.474Z",
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
     },
@@ -127,7 +134,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7377432-guest-experience-executive-m-w-d-teilzeit-50",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T09:42:03.476Z",
+      "crawledAt": "2026-05-17T21:06:53.253Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -141,11 +148,13 @@
       "featured": false,
       "postedDate": "2026-03-12",
       "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/7377432-guest-experience-executive-m-w-d-teilzeit-50",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T09:42:03.476Z",
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -161,7 +170,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7000611-director-of-brand-marketing-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T09:42:03.477Z",
+      "crawledAt": "2026-05-17T21:06:53.255Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -175,11 +184,13 @@
       "featured": false,
       "postedDate": "2026-01-05",
       "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/7000611-director-of-brand-marketing-m-w-d",
-      "_qualityScore": 51,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T09:42:03.477Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 18,
-        "translation": 4,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -195,7 +206,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6955753-it-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T09:42:03.479Z",
+      "crawledAt": "2026-05-17T21:06:53.257Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -209,11 +220,13 @@
       "featured": false,
       "postedDate": "2025-12-18",
       "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/6955753-it-manager-m-w-d",
-      "_qualityScore": 58,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T09:42:03.479Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -229,7 +242,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/3724328-beauty-therapist-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T09:42:03.480Z",
+      "crawledAt": "2026-05-17T21:06:53.259Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -243,16 +256,17 @@
       "featured": false,
       "postedDate": "2024-03-17",
       "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/3724328-beauty-therapist-m-w-d",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T09:42:03.480Z",
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
