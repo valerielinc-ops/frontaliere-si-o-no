@@ -1,6 +1,6 @@
 {
   "crawlerKey": "wuerth-international",
-  "assembledAt": "2026-05-17T11:21:59.402Z",
+  "assembledAt": "2026-05-17T22:46:31.273Z",
   "jobs": [
     {
       "id": "wuerth-international-9ce638ebba29",
@@ -47,7 +47,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_StrategischerEinkauf.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T11:21:57.324Z",
+      "crawledAt": "2026-05-17T22:46:29.163Z",
       "previousSlugsByLocale": {
         "de": [
           "strategischer-einkaufer-w-m-a-wuerth-international-chur"
@@ -125,7 +125,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_SBRechnungswesen.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T11:21:56.912Z",
+      "crawledAt": "2026-05-17T22:46:28.759Z",
       "previousSlugs": [
         "sachbearbeiter-in-rechnungswesen-a-80-100-wuerth-international-chur"
       ],
@@ -200,7 +200,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_Steuerexperte.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T11:21:56.503Z",
+      "crawledAt": "2026-05-17T22:46:28.351Z",
       "requirementsByLocale": {
         "it": [
           "Laurea triennale o magistrale in diritto tributario (nazionale/internazionale)",
@@ -242,6 +242,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:48.734Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "currency": "CHF",
@@ -301,7 +302,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular-Praktikum-Empfang.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T11:21:56.096Z",
+      "crawledAt": "2026-05-17T22:46:27.944Z",
       "previousSlugsByLocale": {
         "de": [
           "berufspraktikum-empfang-a-wuerth-international-chur"
@@ -345,6 +346,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:31:48.270Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
