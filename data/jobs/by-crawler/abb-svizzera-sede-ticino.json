@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-05-17T09:30:57.346Z",
+  "assembledAt": "2026-05-17T20:55:38.230Z",
   "jobs": [
     {
       "id": "company-w5vlie",
@@ -86,11 +86,12 @@
       "previousSlugs": [
         "senior-power-systems-computer-aided-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-w5vlie",
         "senior-power-systems-computer-aided-ingenieur-abb-svizzera-sede-ticino-quartino-ticino-w5vlie"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-1dk7xe",
-      "slug": "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe",
+      "slug": "trainer-del-prodotto-abb-svizzera-sede-ticino-ticino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Product Trainer",
       "location": "Ticino",
@@ -114,9 +115,9 @@
       "crawledAt": "2026-05-17T09:30:56.153Z",
       "firstSeenAt": "2026-05-17T09:30:56.153Z",
       "slugByLocale": {
-        "it": "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe",
+        "it": "trainer-del-prodotto-abb-svizzera-sede-ticino-ticino",
         "en": "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe",
-        "de": "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe",
+        "de": "produkt-trainer-abb-svizzera-sede-ticino-1dk7xe",
         "fr": "formateur-de-produits-abb-svizzera-sede-ticino-ticino"
       },
       "titleByLocale": {
@@ -151,7 +152,15 @@
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe"
+        ]
+      }
     },
     {
       "id": "company-noo56s",
