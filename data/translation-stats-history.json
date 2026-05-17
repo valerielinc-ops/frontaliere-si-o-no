@@ -1,97 +1,5 @@
 [
   {
-    "timestamp": "2026-05-02T22:28:34.476Z",
-    "label": "before",
-    "total": 2584,
-    "needsRetranslation": 1079,
-    "incomplete": 37,
-    "complete": 2547,
-    "missingByLocale": {
-      "it": 19,
-      "en": 11,
-      "de": 26,
-      "fr": 28
-    },
-    "topPending": [
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 10
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 7
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 4
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Manor AG",
-        "pending": 2
-      },
-      {
-        "company": "Banca Raiffeisen Vedeggio Cassarate",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-02T23:24:45.458Z",
-    "label": "after",
-    "total": 2584,
-    "needsRetranslation": 60,
-    "incomplete": 20,
-    "complete": 2564,
-    "missingByLocale": {
-      "it": 18,
-      "en": 2,
-      "de": 17,
-      "fr": 19
-    },
-    "topPending": [
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 10
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-03T02:58:46.927Z",
     "label": "before",
     "total": 2584,
@@ -10692,6 +10600,62 @@
       {
         "company": "Spital Thurgau (STGAG)",
         "pending": 5
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-17T08:44:54.706Z",
+    "label": "before",
+    "total": 3019,
+    "needsRetranslation": 116,
+    "incomplete": 3,
+    "complete": 3016,
+    "missingByLocale": {
+      "it": 2,
+      "en": 2,
+      "de": 1,
+      "fr": 3
+    },
+    "topPending": [
+      {
+        "company": "Fielmann Group",
+        "pending": 1
+      },
+      {
+        "company": "Solothurner Spitäler (soH)",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-17T08:46:47.781Z",
+    "label": "after",
+    "total": 3019,
+    "needsRetranslation": 3,
+    "incomplete": 3,
+    "complete": 3016,
+    "missingByLocale": {
+      "it": 2,
+      "en": 2,
+      "de": 1,
+      "fr": 3
+    },
+    "topPending": [
+      {
+        "company": "Fielmann Group",
+        "pending": 1
+      },
+      {
+        "company": "Solothurner Spitäler (soH)",
+        "pending": 1
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
       }
     ]
   }
