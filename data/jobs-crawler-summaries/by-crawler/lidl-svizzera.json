@@ -1,18 +1,19 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-17T10:36:40.825Z",
+  "generatedAt": "2026-05-17T22:01:28.397Z",
   "total": 9,
-  "newCount": 2,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16360,
-  "avgDurationMs": 16360,
+  "durationMs": 10830,
+  "avgDurationMs": 10830,
   "durationHistory": [
-    16360
+    10830
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-alqha9",
       "slug": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
@@ -39,12 +40,18 @@
       "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "de",
-      "_qualityScore": 65,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 4,
-        "completeness": 14
+        "completeness": 25
       }
     },
     {
@@ -73,16 +80,20 @@
       "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "de",
-      "_qualityScore": 65,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 4,
-        "completeness": 14
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-ixk693",
       "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-gravesano-ixk693",
