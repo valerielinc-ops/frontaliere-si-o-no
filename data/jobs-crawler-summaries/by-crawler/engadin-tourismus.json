@@ -1,19 +1,18 @@
 {
   "key": "engadin-tourismus",
   "label": "Engadin Tourismus AG",
-  "generatedAt": "2026-05-16T21:30:25.456Z",
+  "generatedAt": "2026-05-17T10:09:24.004Z",
   "total": 1,
-  "newCount": 0,
-  "updatedCount": 1,
+  "newCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3091,
-  "avgDurationMs": 3091,
+  "durationMs": 3203,
+  "avgDurationMs": 3203,
   "durationHistory": [
-    3091
+    3203
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "id": "engadin-tourismus-f9482812da90",
       "slug": "lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt-st-moritz-engadin-tourismus",
@@ -34,23 +33,22 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
       "featured": false,
-      "postedDate": "2026-05-10",
+      "postedDate": "2026-05-17",
       "url": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt",
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:30:24.175Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:03:42.302Z",
-      "_qualityScore": 79,
+      "crawledAt": "2026-05-17T10:09:22.701Z",
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     }
   ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
