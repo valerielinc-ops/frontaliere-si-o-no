@@ -1,6 +1,6 @@
 {
   "crawlerKey": "otis",
-  "assembledAt": "2026-05-16T22:12:24.400Z",
+  "assembledAt": "2026-05-17T10:51:20.567Z",
   "jobs": [
     {
       "id": "otis-f959705237b1",
@@ -43,7 +43,7 @@
       "postedDate": "2026-05-13",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Rue-des-Sablons-15-1920-Martigny/Assistante-Administratifve---Otis-Valais_20159762",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:21.889Z",
+      "crawledAt": "2026-05-17T10:51:18.085Z",
       "previousSlugs": [
         "assistant-e-administratif-ve-otis-valais-otis-martigny"
       ],
@@ -56,6 +56,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:48:37.672Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -111,7 +112,7 @@
       "postedDate": "2026-05-12",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Triststrasse-8-7000-Chur/Aufzugsmonteur-Modernisierung-und-Ersatzanlagen--m-w-d-_20159613",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:21.593Z",
+      "crawledAt": "2026-05-17T10:51:17.728Z",
       "previousSlugs": [
         "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-chur"
       ],
@@ -121,6 +122,7 @@
         ]
       },
       "firstSeenAt": "2026-05-12T11:49:06.760Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -176,8 +178,9 @@
       "postedDate": "2026-05-11",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Via-Corti-5-6828-Balerna/Tecnico-Manutentore_20159047-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:21.284Z",
+      "crawledAt": "2026-05-17T10:51:17.358Z",
       "firstSeenAt": "2026-05-11T12:18:24.132Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -233,7 +236,7 @@
       "postedDate": "2026-05-07",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Huhnerhubelstrasse-64-Postfach-123-3123-Belp/Technical-Expert--m-w-d-_20159327",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:20.983Z",
+      "crawledAt": "2026-05-17T10:51:16.965Z",
       "previousSlugs": [
         "technical-expert-m-w-d-otis-belp"
       ],
@@ -304,7 +307,7 @@
       "postedDate": "2026-05-06",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Aufzugsmonteur-Modernisierung-und-Ersatzanlagen--m-w-d-_20159274",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:20.663Z",
+      "crawledAt": "2026-05-17T10:51:16.544Z",
       "previousSlugs": [
         "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
         "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-reinach"
@@ -376,7 +379,7 @@
       "postedDate": "2026-05-04",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Sandackerstrasse-26-9245-Oberburen/Technische-r-Verkufer-in--m-w-d-_20158566-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:20.380Z",
+      "crawledAt": "2026-05-17T10:51:15.648Z",
       "previousSlugs": [
         "technische-r-verkaufer-in-m-w-d-otis-oberburen"
       ],
@@ -389,6 +392,7 @@
         ]
       },
       "firstSeenAt": "2026-05-04T11:23:57.249Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -402,6 +406,66 @@
         }
       },
       "postalCode": "9000"
+    },
+    {
+      "id": "otis-89c5140e6854",
+      "slug": "technical-expert-m-w-d-otis-belp",
+      "slugByLocale": {
+        "en": "technical-expert-m-w-d-otis-belp",
+        "it": "technical-expert-m-w-d-otis-belp",
+        "de": "technical-expert-m-w-d-otis-belp",
+        "fr": "technical-expert-m-w-d-otis-belp"
+      },
+      "company": "Otis SA",
+      "companyKey": "otis",
+      "companyDomain": "otis.com",
+      "title": "Technical Expert (m/w/d)",
+      "titleByLocale": {
+        "en": "Technical Expert (m/w/d)",
+        "de": "Technical Expert (m/w/d)",
+        "it": "Technical Expert (m/w/d)",
+        "fr": "Technical Expert (m/w/d)"
+      },
+      "description": "Date Posted:\n2026-04-30Country: \nSwitzerlandLocation: \nHuhnerhubelstrasse 64, Postfach 123, 3123 Belp\n\nGrundlegende Funktion\nFür die Servicegruppe Bern brauchen wir deine Unterstützung!\n\nDu bist verantwortlich für die Störungsbehebung von Aufzugsanlagen und Rolltreppen in der Niederlassung Bern. Dabei unterstützt du die Servicetechniker, Gruppenleiter und das Reparaturteam und wirst durch Fachspezialisten unterstützt. Als Vertreter von OTIS betreust du zudem unsere Kunden im Rahmen unserer Service-Excellence-Politik.\n\nHauptaufgaben\n\n• Störungsbehebungen ab 2nd-Level von Aufzugsanlagen und Rolltreppen\n\n• Einarbeitung neuer Mitarbeiter betr. analytischem Vorgehen bei Störungsanalyse\n\n• Anlagekontrolle zum Erstellen von Zustandsberichten sowie Beratung des Leiter Service bezüglich präventiver Reparaturen\n\n• Sicherstellung der Einhaltung der absoluten Unternehmensgrundsätze Sicherheit, Qualität, Ethik und aller geltenden Richtlinien, Normen, Prozessen\n\n• Erkennen von Sicherheitsrisiken und Mitwirken bei der Umsetzung von kontinuierlichen Verbesserungsmassnahmen\n\nQualifikationen/ Erfahrung/ Kenntnisse\n\n• Du hast elektromechanische Kenntnisse und kennst dich womöglich mit alter und neuer Technik aus und magst Smartphone Apps\n\n• Du hast einige Jahre Erfahrung in der Aufzugsbranche\n\n• Du führst die dir zugeteilten Aufgaben selbständig, kennst das Prinzip \"learning by doing\" und gehst eigene Fragestellungen proaktiv an\n\n• Du priorisierst/koordinierst die anfallenden Aufgaben selber\n\n• Du gehst gerne auf Mitmenschen zu, legst ein freundliches Auftreten gegenüber deinem Umfeld an den Tag und baust dir dein \"Netzwerk\" auf\n\n• Du trägst gerne Eigenverantwortung und bist dir nicht zu schade deine Hände auch mal schmutzig zu machen\n\n• Du bist im Besitz eines Führerscheins mit der Kategorie B\n\n• Du hast ausgezeichnete Deutschkenntnisse\n\nPersönliche Fähigkeiten\n\n• Organisations-, analytische Fähigkeiten und Sinn für Prioritäten\n\n• Kundenorientierung, Dienstleistungsorientierung\n\n• Proaktivität, Fähigkeit die Initiativen zu ergreifen\n\n• Mitarbeiter fordern und fördern, Sinnhaftigkeit erzeugen\n\n• Zuverlässigkeit, Ergebnisorientierung\n\n• Anpassungsfähigkeit und Belastbarkeit\n\nWas wir dir bieten\n\n• Berechtigung und Verpflichtung, Stopp zu sagen, wenn die Sicherheit nicht gewährleistet ist (Stop Work Activity)\n\n• Es erwartet dich eine Aufgabe mit viel Freiraum und Verantwortung\n\n• Ausserdem wirst du mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, welches du auch privat benutzen darfst.\n\n• Uns liegt deine persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen.\n\n• 5 Wochen Ferien\n\n• gute Pensionskasse\n\n• Verpflegungszuschuss\n\nUnsere Firmenkultur ist unser wichtigstes Gut, ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» findest Du hier.\n\nSteige ein - steige auf!\nWir freuen uns auf deine Bewerbung über unser Bewerbungsportal.\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. \n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.  \n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.  \n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.  \n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.   \n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.  \n\nBecome a part of the Otis team and help us #Buildwhatsnext! \nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\nClick on this link to read the Policy and Terms",
+      "descriptionByLocale": {
+        "en": "Date Posted:\n2026-04-30Country: \nSwitzerlandLocation: \nHuhnerhubelstrasse 64, Postfach 123, 3123 Belp\n\nGrundlegende Funktion\nFür die Servicegruppe Bern brauchen wir deine Unterstützung!\n\nDu bist verantwortlich für die Störungsbehebung von Aufzugsanlagen und Rolltreppen in der Niederlassung Bern. Dabei unterstützt du die Servicetechniker, Gruppenleiter und das Reparaturteam und wirst durch Fachspezialisten unterstützt. Als Vertreter von OTIS betreust du zudem unsere Kunden im Rahmen unserer Service-Excellence-Politik.\n\nHauptaufgaben\n\n• Störungsbehebungen ab 2nd-Level von Aufzugsanlagen und Rolltreppen\n\n• Einarbeitung neuer Mitarbeiter betr. analytischem Vorgehen bei Störungsanalyse\n\n• Anlagekontrolle zum Erstellen von Zustandsberichten sowie Beratung des Leiter Service bezüglich präventiver Reparaturen\n\n• Sicherstellung der Einhaltung der absoluten Unternehmensgrundsätze Sicherheit, Qualität, Ethik und aller geltenden Richtlinien, Normen, Prozessen\n\n• Erkennen von Sicherheitsrisiken und Mitwirken bei der Umsetzung von kontinuierlichen Verbesserungsmassnahmen\n\nQualifikationen/ Erfahrung/ Kenntnisse\n\n• Du hast elektromechanische Kenntnisse und kennst dich womöglich mit alter und neuer Technik aus und magst Smartphone Apps\n\n• Du hast einige Jahre Erfahrung in der Aufzugsbranche\n\n• Du führst die dir zugeteilten Aufgaben selbständig, kennst das Prinzip \"learning by doing\" und gehst eigene Fragestellungen proaktiv an\n\n• Du priorisierst/koordinierst die anfallenden Aufgaben selber\n\n• Du gehst gerne auf Mitmenschen zu, legst ein freundliches Auftreten gegenüber deinem Umfeld an den Tag und baust dir dein \"Netzwerk\" auf\n\n• Du trägst gerne Eigenverantwortung und bist dir nicht zu schade deine Hände auch mal schmutzig zu machen\n\n• Du bist im Besitz eines Führerscheins mit der Kategorie B\n\n• Du hast ausgezeichnete Deutschkenntnisse\n\nPersönliche Fähigkeiten\n\n• Organisations-, analytische Fähigkeiten und Sinn für Prioritäten\n\n• Kundenorientierung, Dienstleistungsorientierung\n\n• Proaktivität, Fähigkeit die Initiativen zu ergreifen\n\n• Mitarbeiter fordern und fördern, Sinnhaftigkeit erzeugen\n\n• Zuverlässigkeit, Ergebnisorientierung\n\n• Anpassungsfähigkeit und Belastbarkeit\n\nWas wir dir bieten\n\n• Berechtigung und Verpflichtung, Stopp zu sagen, wenn die Sicherheit nicht gewährleistet ist (Stop Work Activity)\n\n• Es erwartet dich eine Aufgabe mit viel Freiraum und Verantwortung\n\n• Ausserdem wirst du mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, welches du auch privat benutzen darfst.\n\n• Uns liegt deine persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen.\n\n• 5 Wochen Ferien\n\n• gute Pensionskasse\n\n• Verpflegungszuschuss\n\nUnsere Firmenkultur ist unser wichtigstes Gut, ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» findest Du hier.\n\nSteige ein - steige auf!\nWir freuen uns auf deine Bewerbung über unser Bewerbungsportal.\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. \n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.  \n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.  \n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.  \n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.   \n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.  \n\nBecome a part of the Otis team and help us #Buildwhatsnext! \nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\nClick on this link to read the Policy and Terms",
+        "de": "Date Posted:\n2026-04-30Country: \nSwitzerlandLocation: \nHuhnerhubelstrasse 64, Postfach 123, 3123 Belp\n\nGrundlegende Funktion\nFür die Servicegruppe Bern brauchen wir deine Unterstützung!\n\nDu bist verantwortlich für die Störungsbehebung von Aufzugsanlagen und Rolltreppen in der Niederlassung Bern. Dabei unterstützt du die Servicetechniker, Gruppenleiter und das Reparaturteam und wirst durch Fachspezialisten unterstützt. Als Vertreter von OTIS betreust du zudem unsere Kunden im Rahmen unserer Service-Excellence-Politik.\n\nHauptaufgaben\n\n• Störungsbehebungen ab 2nd-Level von Aufzugsanlagen und Rolltreppen\n\n• Einarbeitung neuer Mitarbeiter betr. analytischem Vorgehen bei Störungsanalyse\n\n• Anlagekontrolle zum Erstellen von Zustandsberichten sowie Beratung des Leiter Service bezüglich präventiver Reparaturen\n\n• Sicherstellung der Einhaltung der absoluten Unternehmensgrundsätze Sicherheit, Qualität, Ethik und aller geltenden Richtlinien, Normen, Prozessen\n\n• Erkennen von Sicherheitsrisiken und Mitwirken bei der Umsetzung von kontinuierlichen Verbesserungsmassnahmen\n\nQualifikationen/ Erfahrung/ Kenntnisse\n\n• Du hast elektromechanische Kenntnisse und kennst dich womöglich mit alter und neuer Technik aus und magst Smartphone Apps\n\n• Du hast einige Jahre Erfahrung in der Aufzugsbranche\n\n• Du führst die dir zugeteilten Aufgaben selbständig, kennst das Prinzip \"learning by doing\" und gehst eigene Fragestellungen proaktiv an\n\n• Du priorisierst/koordinierst die anfallenden Aufgaben selber\n\n• Du gehst gerne auf Mitmenschen zu, legst ein freundliches Auftreten gegenüber deinem Umfeld an den Tag und baust dir dein \"Netzwerk\" auf\n\n• Du trägst gerne Eigenverantwortung und bist dir nicht zu schade deine Hände auch mal schmutzig zu machen\n\n• Du bist im Besitz eines Führerscheins mit der Kategorie B\n\n• Du hast ausgezeichnete Deutschkenntnisse\n\nPersönliche Fähigkeiten\n\n• Organisations-, analytische Fähigkeiten und Sinn für Prioritäten\n\n• Kundenorientierung, Dienstleistungsorientierung\n\n• Proaktivität, Fähigkeit die Initiativen zu ergreifen\n\n• Mitarbeiter fordern und fördern, Sinnhaftigkeit erzeugen\n\n• Zuverlässigkeit, Ergebnisorientierung\n\n• Anpassungsfähigkeit und Belastbarkeit\n\nWas wir dir bieten\n\n• Berechtigung und Verpflichtung, Stopp zu sagen, wenn die Sicherheit nicht gewährleistet ist (Stop Work Activity)\n\n• Es erwartet dich eine Aufgabe mit viel Freiraum und Verantwortung\n\n• Ausserdem wirst du mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, welches du auch privat benutzen darfst.\n\n• Uns liegt deine persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen.\n\n• 5 Wochen Ferien\n\n• gute Pensionskasse\n\n• Verpflegungszuschuss\n\nUnsere Firmenkultur ist unser wichtigstes Gut, ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» findest Du hier.\n\nSteige ein - steige auf!\nWir freuen uns auf deine Bewerbung über unser Bewerbungsportal.\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. \n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.  \n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.  \n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.  \n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.   \n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.  \n\nBecome a part of the Otis team and help us #Buildwhatsnext! \nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\nClick on this link to read the Policy and Terms",
+        "it": "Date Posted:\n2026-04-30Country: \nSwitzerlandLocation: \nHuhnerhubelstrasse 64, Postfach 123, 3123 Belp\n\nGrundlegende Funktion\nFür die Servicegruppe Bern brauchen wir deine Unterstützung!\n\nDu bist verantwortlich für die Störungsbehebung von Aufzugsanlagen und Rolltreppen in der Niederlassung Bern. Dabei unterstützt du die Servicetechniker, Gruppenleiter und das Reparaturteam und wirst durch Fachspezialisten unterstützt. Als Vertreter von OTIS betreust du zudem unsere Kunden im Rahmen unserer Service-Excellence-Politik.\n\nHauptaufgaben\n\n• Störungsbehebungen ab 2nd-Level von Aufzugsanlagen und Rolltreppen\n\n• Einarbeitung neuer Mitarbeiter betr. analytischem Vorgehen bei Störungsanalyse\n\n• Anlagekontrolle zum Erstellen von Zustandsberichten sowie Beratung des Leiter Service bezüglich präventiver Reparaturen\n\n• Sicherstellung der Einhaltung der absoluten Unternehmensgrundsätze Sicherheit, Qualität, Ethik und aller geltenden Richtlinien, Normen, Prozessen\n\n• Erkennen von Sicherheitsrisiken und Mitwirken bei der Umsetzung von kontinuierlichen Verbesserungsmassnahmen\n\nQualifikationen/ Erfahrung/ Kenntnisse\n\n• Du hast elektromechanische Kenntnisse und kennst dich womöglich mit alter und neuer Technik aus und magst Smartphone Apps\n\n• Du hast einige Jahre Erfahrung in der Aufzugsbranche\n\n• Du führst die dir zugeteilten Aufgaben selbständig, kennst das Prinzip \"learning by doing\" und gehst eigene Fragestellungen proaktiv an\n\n• Du priorisierst/koordinierst die anfallenden Aufgaben selber\n\n• Du gehst gerne auf Mitmenschen zu, legst ein freundliches Auftreten gegenüber deinem Umfeld an den Tag und baust dir dein \"Netzwerk\" auf\n\n• Du trägst gerne Eigenverantwortung und bist dir nicht zu schade deine Hände auch mal schmutzig zu machen\n\n• Du bist im Besitz eines Führerscheins mit der Kategorie B\n\n• Du hast ausgezeichnete Deutschkenntnisse\n\nPersönliche Fähigkeiten\n\n• Organisations-, analytische Fähigkeiten und Sinn für Prioritäten\n\n• Kundenorientierung, Dienstleistungsorientierung\n\n• Proaktivität, Fähigkeit die Initiativen zu ergreifen\n\n• Mitarbeiter fordern und fördern, Sinnhaftigkeit erzeugen\n\n• Zuverlässigkeit, Ergebnisorientierung\n\n• Anpassungsfähigkeit und Belastbarkeit\n\nWas wir dir bieten\n\n• Berechtigung und Verpflichtung, Stopp zu sagen, wenn die Sicherheit nicht gewährleistet ist (Stop Work Activity)\n\n• Es erwartet dich eine Aufgabe mit viel Freiraum und Verantwortung\n\n• Ausserdem wirst du mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, welches du auch privat benutzen darfst.\n\n• Uns liegt deine persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen.\n\n• 5 Wochen Ferien\n\n• gute Pensionskasse\n\n• Verpflegungszuschuss\n\nUnsere Firmenkultur ist unser wichtigstes Gut, ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» findest Du hier.\n\nSteige ein - steige auf!\nWir freuen uns auf deine Bewerbung über unser Bewerbungsportal.\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. \n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.  \n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.  \n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.  \n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.   \n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.  \n\nBecome a part of the Otis team and help us #Buildwhatsnext! \nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\nClick on this link to read the Policy and Terms",
+        "fr": "Date Posted:\n2026-04-30Country: \nSwitzerlandLocation: \nHuhnerhubelstrasse 64, Postfach 123, 3123 Belp\n\nGrundlegende Funktion\nFür die Servicegruppe Bern brauchen wir deine Unterstützung!\n\nDu bist verantwortlich für die Störungsbehebung von Aufzugsanlagen und Rolltreppen in der Niederlassung Bern. Dabei unterstützt du die Servicetechniker, Gruppenleiter und das Reparaturteam und wirst durch Fachspezialisten unterstützt. Als Vertreter von OTIS betreust du zudem unsere Kunden im Rahmen unserer Service-Excellence-Politik.\n\nHauptaufgaben\n\n• Störungsbehebungen ab 2nd-Level von Aufzugsanlagen und Rolltreppen\n\n• Einarbeitung neuer Mitarbeiter betr. analytischem Vorgehen bei Störungsanalyse\n\n• Anlagekontrolle zum Erstellen von Zustandsberichten sowie Beratung des Leiter Service bezüglich präventiver Reparaturen\n\n• Sicherstellung der Einhaltung der absoluten Unternehmensgrundsätze Sicherheit, Qualität, Ethik und aller geltenden Richtlinien, Normen, Prozessen\n\n• Erkennen von Sicherheitsrisiken und Mitwirken bei der Umsetzung von kontinuierlichen Verbesserungsmassnahmen\n\nQualifikationen/ Erfahrung/ Kenntnisse\n\n• Du hast elektromechanische Kenntnisse und kennst dich womöglich mit alter und neuer Technik aus und magst Smartphone Apps\n\n• Du hast einige Jahre Erfahrung in der Aufzugsbranche\n\n• Du führst die dir zugeteilten Aufgaben selbständig, kennst das Prinzip \"learning by doing\" und gehst eigene Fragestellungen proaktiv an\n\n• Du priorisierst/koordinierst die anfallenden Aufgaben selber\n\n• Du gehst gerne auf Mitmenschen zu, legst ein freundliches Auftreten gegenüber deinem Umfeld an den Tag und baust dir dein \"Netzwerk\" auf\n\n• Du trägst gerne Eigenverantwortung und bist dir nicht zu schade deine Hände auch mal schmutzig zu machen\n\n• Du bist im Besitz eines Führerscheins mit der Kategorie B\n\n• Du hast ausgezeichnete Deutschkenntnisse\n\nPersönliche Fähigkeiten\n\n• Organisations-, analytische Fähigkeiten und Sinn für Prioritäten\n\n• Kundenorientierung, Dienstleistungsorientierung\n\n• Proaktivität, Fähigkeit die Initiativen zu ergreifen\n\n• Mitarbeiter fordern und fördern, Sinnhaftigkeit erzeugen\n\n• Zuverlässigkeit, Ergebnisorientierung\n\n• Anpassungsfähigkeit und Belastbarkeit\n\nWas wir dir bieten\n\n• Berechtigung und Verpflichtung, Stopp zu sagen, wenn die Sicherheit nicht gewährleistet ist (Stop Work Activity)\n\n• Es erwartet dich eine Aufgabe mit viel Freiraum und Verantwortung\n\n• Ausserdem wirst du mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, welches du auch privat benutzen darfst.\n\n• Uns liegt deine persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen.\n\n• 5 Wochen Ferien\n\n• gute Pensionskasse\n\n• Verpflegungszuschuss\n\nUnsere Firmenkultur ist unser wichtigstes Gut, ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» findest Du hier.\n\nSteige ein - steige auf!\nWir freuen uns auf deine Bewerbung über unser Bewerbungsportal.\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. \n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.  \n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.  \n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.  \n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.   \n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.  \n\nBecome a part of the Otis team and help us #Buildwhatsnext! \nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\nClick on this link to read the Policy and Terms"
+      },
+      "sourceLang": "de",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "location": "Belp",
+      "canton": "BE",
+      "addressLocality": "Belp",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-06",
+      "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Huhnerhubelstrasse-64-Postfach-123-3123-Belp/Technical-Expert--m-w-d-_20158857-1",
+      "source": "Otis Dedicated Parser (Workday)",
+      "crawledAt": "2026-05-17T10:51:15.295Z",
+      "needsRetranslation": true,
+      "salaryMin": 55500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 55500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-17T10:51:15.295Z"
     },
     {
       "id": "otis-c01bdb073f38",
@@ -444,7 +508,7 @@
       "postedDate": "2026-04-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Bahnhofstrasse-3-Postfach-371-Dietlikon--ZH/Aufzugsmonteur-Modernisierung-und-Ersatzanlagen--m-w-d-_20157241",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:19.782Z",
+      "crawledAt": "2026-05-17T10:51:14.904Z",
       "previousSlugs": [
         "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-postfach-371",
         "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-postfach-371",
@@ -522,7 +586,7 @@
       "postedDate": "2026-04-09",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Prodctn-Maint--Field-Svc_20157135",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:19.481Z",
+      "crawledAt": "2026-05-17T10:51:14.519Z",
       "previousSlugs": [
         "servicetechniker-m-w-d-otis-sa-kreuzstrasse-34",
         "servicetechniker-m-w-d-otis-kreuzstrasse-34",
@@ -601,7 +665,7 @@
       "postedDate": "2026-03-04",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzugsmonteur-in--m-w-d-_20154150",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:19.172Z",
+      "crawledAt": "2026-05-17T10:51:14.146Z",
       "previousSlugs": [
         "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34"
       ],
@@ -620,6 +684,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:12.488Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -675,7 +740,7 @@
       "postedDate": "2026-03-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Huhnerhubelstrasse-64-Postfach-123-3123-Belp/Gruppenleiter-Reparatur-SVC--m-w-d-_20154138",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:18.855Z",
+      "crawledAt": "2026-05-17T10:51:13.784Z",
       "previousSlugs": [
         "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123",
         "responsabile-reparazioni-svc-m-w-d-otis-sa-belp"
@@ -695,6 +760,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:12.217Z",
+      "needsRetranslation": true,
       "salaryMin": 98000,
       "salaryMax": 132000,
       "baseSalary": {
@@ -750,7 +816,7 @@
       "postedDate": "2026-04-15",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-464-1701-Fribourg/Otisline-Agent-Call-Center--m-f-d-_20148459",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:18.509Z",
+      "crawledAt": "2026-05-17T10:51:13.301Z",
       "firstSeenAt": "2026-04-15T22:07:55.930Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -807,7 +873,7 @@
       "postedDate": "2026-01-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Via-Corti-5-6828-Balerna/Pool-di-Talenti-Tecnico-Otis-Ticino---Installazione--Manutenzione---Modernizzazione_20149777",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:18.173Z",
+      "crawledAt": "2026-05-17T10:51:12.930Z",
       "previousSlugs": [
         "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-via-corti-5",
         "pool-di-talenti-technician-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-via-corti-5",
@@ -831,6 +897,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:11.357Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -886,7 +953,7 @@
       "postedDate": "2026-01-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-464-1701-Fribourg/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149772-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:17.779Z",
+      "crawledAt": "2026-05-17T10:51:12.552Z",
       "previousSlugs": [
         "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464",
         "vivier-dei-talenti-tecnico-installatore-repairman-otis-sa-fribourg"
@@ -906,6 +973,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:11.125Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -961,7 +1029,7 @@
       "postedDate": "2026-01-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Rue-des-Sablons-15-1920-Martigny/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149764-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:17.418Z",
+      "crawledAt": "2026-05-17T10:51:12.170Z",
       "previousSlugs": [
         "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15"
       ],
@@ -980,6 +1048,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:10.880Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1035,7 +1104,7 @@
       "postedDate": "2026-02-13",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Vivier-des-Talents-Vaud---Service-Technicien-Monteur-Repairman_20149775",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:17.055Z",
+      "crawledAt": "2026-05-17T10:51:11.795Z",
       "previousSlugs": [
         "talent-pool-vaud-technician-fitter-repairman-service-otis-sa-1032",
         "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032"
@@ -1059,6 +1128,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:10.576Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1114,7 +1184,7 @@
       "postedDate": "2026-02-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-de-Mouille-Galand-1214-Vernier/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149748",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:16.749Z",
+      "crawledAt": "2026-05-17T10:51:11.440Z",
       "previousSlugs": [
         "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand"
       ],
@@ -1133,6 +1203,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:10.340Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1188,7 +1259,7 @@
       "postedDate": "2026-01-07",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker--m-w-d-_20135985-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:16.418Z",
+      "crawledAt": "2026-05-17T10:51:11.093Z",
       "previousSlugs": [
         "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2-2",
         "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
@@ -1207,6 +1278,7 @@
         ]
       },
       "firstSeenAt": "2026-05-12T11:48:59.892Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1261,7 +1333,7 @@
       "postedDate": "2026-03-26",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Sandackerstrasse-26-9245-Oberburen/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122200",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:16.121Z",
+      "crawledAt": "2026-05-17T10:51:10.726Z",
       "previousSlugs": [
         "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sandackerstrasse-26",
         "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-sandackerstrasse-26",
@@ -1338,7 +1410,7 @@
       "postedDate": "2026-03-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Huhnerhubelstrasse-64-Postfach-123-3123-Belp/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122199",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:15.812Z",
+      "crawledAt": "2026-05-17T10:51:10.329Z",
       "previousSlugs": [
         "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-123",
         "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-postfach-123"
@@ -1356,6 +1428,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:09.581Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1411,7 +1484,7 @@
       "postedDate": "2026-04-13",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Bahnhofstrasse-3-Postfach-371-Dietlikon--ZH/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122198",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:15.168Z",
+      "crawledAt": "2026-05-17T10:51:09.959Z",
       "previousSlugs": [
         "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371",
         "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-postfach-371"
@@ -1487,7 +1560,7 @@
       "postedDate": "2026-02-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Triststrasse-8-7000-Chur/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122197",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:14.831Z",
+      "crawledAt": "2026-05-17T10:51:09.594Z",
       "previousSlugs": [
         "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-triststrasse-8",
         "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-triststrasse-8"
@@ -1508,6 +1581,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:09.056Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1563,7 +1637,7 @@
       "postedDate": "2026-03-18",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122196",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:14.513Z",
+      "crawledAt": "2026-05-17T10:51:09.178Z",
       "previousSlugs": [
         "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kreuzstrasse-34",
         "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34"
@@ -1640,7 +1714,7 @@
       "postedDate": "2026-03-25",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122201",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:14.175Z",
+      "crawledAt": "2026-05-17T10:51:08.812Z",
       "previousSlugs": [
         "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
         "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-nenzlingerweg-2"
@@ -1716,7 +1790,7 @@
       "postedDate": "2026-05-08",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-1136-1701-Fribourg/O-T-Sales-Lead-OA_20149659",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:13.820Z",
+      "crawledAt": "2026-05-17T10:51:08.443Z",
       "previousSlugs": [
         "o-t-sales-lead-oa-otis-cp-1136"
       ],
@@ -1787,7 +1861,7 @@
       "postedDate": "2026-02-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:13.418Z",
+      "crawledAt": "2026-05-17T10:51:08.075Z",
       "previousSlugs": [
         "aufzugsmonteur-m-w-d-otis-sa-st-gallen",
         "aufzugsmonteur-m-w-d-otis-st-gallen"
@@ -1865,7 +1939,7 @@
       "postedDate": "2026-04-21",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-464-1701-Fribourg/HR-Business-Partner-Switzerland--m-w-x-_20156901",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-05-16T22:12:13.042Z",
+      "crawledAt": "2026-05-17T10:51:07.621Z",
       "previousSlugs": [
         "hr-business-partner-switzerland-m-w-x-otis-fribourg",
         "risorse-umane-business-partner-switzerland-m-w-x-otis-sa-fribourg"
