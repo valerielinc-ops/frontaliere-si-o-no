@@ -1,24 +1,24 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-05-17T10:36:26.596Z",
+  "generatedAt": "2026-05-17T22:01:02.171Z",
   "total": 4,
   "newCount": 4,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16823,
-  "avgDurationMs": 16823,
+  "durationMs": 14869,
+  "avgDurationMs": 14869,
   "durationHistory": [
-    16823
+    14869
   ],
   "newJobs": [
     {
       "id": "company-2oxpfe",
-      "slug": "global-payroll-risorse-umane-systems-manager-chiasso",
+      "slug": "global-payroll-risorse-umane-systems-manager-switzerlandteam",
       "company": "lastminute.com",
       "title": "Global Payroll & HR Systems Manager",
-      "location": "Chiasso",
+      "location": "SwitzerlandTeam",
       "canton": "TI",
       "category": "tech",
       "contract": "full-time",
@@ -36,8 +36,7 @@
       "companyDomain": "lastminute.com",
       "crawledAt": "2026-05-17T10:36:25.314Z",
       "firstSeenAt": "2026-05-17T10:36:25.314Z",
-      "needsRetranslation": true,
-      "addressLocality": "Chiasso",
+      "addressLocality": "SwitzerlandTeam",
       "country": "CH",
       "sourceLang": "en",
       "salaryMin": 79500,
@@ -47,20 +46,21 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "company-o2ikw3",
-      "slug": "responsabile-data-platform-engineering-chiasso",
+      "slug": "responsabile-data-platform-engineering-switzerlandteam",
       "company": "lastminute.com",
       "title": "Head of Data Platform Engineering",
-      "location": "Chiasso",
+      "location": "SwitzerlandTeam",
       "canton": "TI",
       "category": "tech",
       "contract": "full-time",
@@ -78,8 +78,7 @@
       "companyDomain": "lastminute.com",
       "crawledAt": "2026-05-17T10:36:25.314Z",
       "firstSeenAt": "2026-05-17T10:36:25.314Z",
-      "needsRetranslation": true,
-      "addressLocality": "Chiasso",
+      "addressLocality": "SwitzerlandTeam",
       "country": "CH",
       "sourceLang": "en",
       "salaryMin": 79500,
@@ -89,11 +88,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 94,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
