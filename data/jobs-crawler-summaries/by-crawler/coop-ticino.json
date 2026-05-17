@@ -1,18 +1,58 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-05-17T10:06:38.585Z",
+  "generatedAt": "2026-05-17T21:31:25.753Z",
   "total": 154,
-  "newCount": 92,
-  "updatedCount": 58,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 356580,
-  "avgDurationMs": 356580,
+  "unchangedCount": 153,
+  "durationMs": 358030,
+  "avgDurationMs": 358030,
   "durationHistory": [
-    356580
+    358030
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "company-e66ikm",
+      "slug": "verkaufer-in-food-coop-city-chur-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Food",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-08",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/51a0260e-4377-4c01-abd5-03d2d3e0924f",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-17T10:03:17.418Z",
+      "firstSeenAt": "2026-05-17T10:03:17.418Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 2,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-cprmen",
       "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
@@ -38,12 +78,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Chur",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 2,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -71,45 +114,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Chur",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 2,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-e66ikm",
-      "slug": "verkaufer-in-food-coop-city-chur-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Food",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-08",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/51a0260e-4377-4c01-abd5-03d2d3e0924f",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-17T10:03:17.418Z",
-      "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "needsRetranslation": true,
-      "addressLocality": "Chur",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -137,12 +150,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Dietlikon",
-      "_qualityScore": 76,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "retranslationAttempts": 2,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -170,12 +186,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Felsberg",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 2,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -201,14 +220,15 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-17T10:03:17.418Z",
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "needsRetranslation": true,
       "addressLocality": "Jegensdorf",
-      "_qualityScore": 65,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -236,12 +256,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Muttenz",
-      "_qualityScore": 79,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 2,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -269,12 +292,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Graubünden",
-      "_qualityScore": 73,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 9,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -302,12 +328,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Lenzburg 1",
-      "_qualityScore": 76,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "retranslationAttempts": 1,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 15,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -333,14 +362,16 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-17T10:03:17.418Z",
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "needsRetranslation": true,
       "addressLocality": "Dietlikon",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -366,14 +397,15 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-17T10:03:17.418Z",
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "needsRetranslation": true,
       "addressLocality": "Jegensdorf",
-      "_qualityScore": 76,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -399,14 +431,15 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-17T10:03:17.418Z",
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "needsRetranslation": true,
       "addressLocality": "Jegensdorf",
-      "_qualityScore": 76,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -432,14 +465,15 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-17T10:03:17.418Z",
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "needsRetranslation": true,
       "addressLocality": "Dietlikon",
-      "_qualityScore": 65,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -465,14 +499,15 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-17T10:03:17.418Z",
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "needsRetranslation": true,
       "addressLocality": "Dietlikon",
-      "_qualityScore": 76,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -498,14 +533,15 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-17T10:03:17.418Z",
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "needsRetranslation": true,
       "addressLocality": "Jegensdorf",
-      "_qualityScore": 76,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -531,14 +567,15 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-17T10:03:17.418Z",
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "needsRetranslation": true,
       "addressLocality": "Jegensdorf",
-      "_qualityScore": 76,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -564,14 +601,15 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-17T10:03:17.418Z",
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "needsRetranslation": true,
       "addressLocality": "Jegensdorf",
-      "_qualityScore": 76,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -597,14 +635,15 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-17T10:03:17.418Z",
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "needsRetranslation": true,
       "addressLocality": "Jegensdorf",
-      "_qualityScore": 76,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -632,12 +671,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Gossau",
-      "_qualityScore": 70,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 9,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -665,12 +707,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Gossau",
-      "_qualityScore": 70,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 9,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -698,12 +743,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Gossau",
-      "_qualityScore": 70,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 9,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -731,12 +779,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Gossau",
-      "_qualityScore": 70,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 9,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -764,12 +815,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Gossau",
-      "_qualityScore": 70,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 9,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -797,12 +851,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Gossau",
-      "_qualityScore": 70,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 9,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -830,12 +887,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Gossau",
-      "_qualityScore": 70,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 9,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -863,12 +923,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Gossau",
-      "_qualityScore": 70,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 9,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -894,14 +957,15 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-05-17T10:03:17.418Z",
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "needsRetranslation": true,
       "addressLocality": "Jegensdorf",
-      "_qualityScore": 65,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -929,12 +993,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Lenzburg 1",
-      "_qualityScore": 76,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "retranslationAttempts": 1,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 15,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -962,12 +1029,15 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Lenzburg 1",
-      "_qualityScore": 76,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "retranslationAttempts": 1,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 15,
-        "completeness": 14
+        "completeness": 19
       }
     },
     {
@@ -995,500 +1065,30 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "needsRetranslation": true,
       "addressLocality": "Lenzburg 1",
-      "_qualityScore": 76,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "retranslationAttempts": 1,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 15,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "id": "company-lzsoh3",
-      "slug": "verkaufer-in-food-coop-felsberg-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Food",
-      "location": "Felsberg",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-05",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/59f67488-9b1b-4820-b23f-476ee0c8113e",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-16T21:25:19.316Z",
-      "firstSeenAt": "2026-05-16T21:25:19.316Z",
-      "addressLocality": "Felsberg",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "retranslationAttempts": 1,
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
         "completeness": 19
       }
     },
     {
-      "id": "company-i1ujb",
-      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
-      "company": "CHRIST Uhren & Schmuck AG",
-      "title": "Geschäftsführer:in",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-14",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in/c25d4ef3-16df-400d-bb01-f6120016d862",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-16T09:59:56.651Z",
-      "firstSeenAt": "2026-05-16T09:59:56.651Z",
-      "addressLocality": "Chur",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "retranslationAttempts": 2,
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-trpl7g",
-      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
-      "company": "CHRIST Uhren & Schmuck AG",
-      "title": "Verkaufsberater:in",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-14",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/159a4e72-49bd-4918-a892-c314f60779fd",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-16T09:59:56.651Z",
-      "firstSeenAt": "2026-05-16T09:59:56.651Z",
-      "addressLocality": "Chur",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "retranslationAttempts": 2,
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-jttwyb",
-      "slug": "chauffeuse-chauffeur-kat-c-transgourmet-prodega-brunegg",
-      "company": "Transgourmet Schweiz AG",
-      "title": "Chauffeuse / Chauffeur Kat. C",
-      "location": "Brunegg",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c/d1e03b32-5ed0-4da8-8dd9-fe6b67e5312b",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-15T10:48:54.771Z",
-      "firstSeenAt": "2026-05-15T10:48:54.771Z",
-      "addressLocality": "Brunegg",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-utv6gh",
-      "slug": "filialleiter-in-interdiscount-chur-graubunden",
-      "company": "Interdiscount",
-      "title": "Filialleiter:in",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/filialleiter-in/21e4ceeb-ddbb-4c10-8ee2-9d6882280b59",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-15T10:48:54.771Z",
-      "firstSeenAt": "2026-05-15T10:48:54.771Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-8axa4k",
-      "slug": "teammember-restaurant-auf-abruf-m-w-d-marche-maienfeld-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Teammember Restaurant Auf Abruf (w/m/d)",
-      "location": "Maienfeld",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-13",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/teammember-restaurant-auf-abruf-w-m-d/a8221973-aae0-4267-bf3c-ea4bd2cbe00b",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-13T10:51:38.179Z",
-      "firstSeenAt": "2026-05-13T10:51:38.179Z",
-      "addressLocality": "Maienfeld",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "retranslationAttempts": 1,
-      "sourceLang": "de",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-j9odwp",
-      "slug": "verkaufer-in-nonfood-coop-chur-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Nonfood",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-12",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-nonfood/b640b20b-3812-491f-92b0-2832e7f8af7f",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-13T10:51:38.179Z",
-      "firstSeenAt": "2026-05-13T10:51:38.179Z",
-      "addressLocality": "Chur",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "retranslationAttempts": 1,
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-o367qu",
-      "slug": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Rayonleiter:in Nonfood",
-      "location": "Klosters-Serneus",
-      "canton": "GR",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-12",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-nonfood/9c47ef21-c7a9-41b4-81c2-219652c1469e",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-12T21:56:31.332Z",
-      "firstSeenAt": "2026-05-12T21:56:31.332Z",
-      "addressLocality": "Klosters-Serneus",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "retranslationAttempts": 2,
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-6azqre",
-      "slug": "verkaufsberater-in-tessin-steinfels-swiss-winterthur-zurich",
-      "company": "Coop Genossenschaft",
-      "title": "Verkaufsberater:in Tessin",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-12",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-tessin/440769d8-8db0-4005-a5dc-bae6c306fe57",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-12T11:04:10.406Z",
-      "firstSeenAt": "2026-05-12T11:04:10.406Z",
-      "addressLocality": "Bellinzona",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "sourceLang": "de",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-3pl1h6",
-      "slug": "kochin-koch-m-w-d-coop-ristorante-davos-platz",
-      "company": "Coop Genossenschaft",
-      "title": "Köchin / Koch (w/m/d)",
-      "location": "Davos",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-11",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/d7fe65c8-b6b5-47e4-a159-9dc816e8c6c4",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-11T11:30:28.503Z",
-      "firstSeenAt": "2026-05-11T11:30:28.503Z",
-      "addressLocality": "Davos",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "retranslationAttempts": 1,
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-pa5qt0",
-      "slug": "mitarbeiter-in-gastronomie-coop-ristorante-davos-platz",
-      "company": "Coop Genossenschaft",
-      "title": "Mitarbeiter:in Gastronomie",
-      "location": "Davos",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-11",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/f0073708-008c-4183-8eed-1c83d7f34000",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-11T11:30:28.503Z",
-      "firstSeenAt": "2026-05-11T11:30:28.503Z",
-      "addressLocality": "Davos",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "retranslationAttempts": 1,
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-4c7u4w",
-      "slug": "zusatzlehre-als-detailhandelsfachfrau-mann-efz-jumbo-grigioni-2",
+      "id": "company-u93w1d",
+      "slug": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-u93w1d",
       "company": "Jumbo",
-      "title": "Zusatzlehre als Detailhandelsfachfrau:mann EFZ",
-      "location": "Dietlikon",
-      "canton": "GR",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/zusatzlehre-als-detailhandelsfachfrau-mann-efz/5cc9ce9b-0ca8-4576-8c83-460c466aef78",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-10T09:58:53.007Z",
-      "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "addressLocality": "Dietlikon",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "sourceLang": "de",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-7jjh6d",
-      "slug": "verkaufer-in-food-coop-chur-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Food",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-22",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/c332b966-151f-4772-90ab-3087a62648f8",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-10T09:58:53.007Z",
-      "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "addressLocality": "Chur",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-8xgtc3",
-      "slug": "impiegato-a-interdiscount-jegensdorf-8xgtc3",
-      "company": "Interdiscount",
-      "title": "Impiegato / a",
-      "location": "Jegensdorf",
+      "title": "Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
+      "location": "Lenzburg 1",
       "canton": "TI",
       "category": "sales",
-      "contract": "temporary",
+      "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-08-22",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/impiegato-a/ceff60e6-318d-4cfc-ad90-f13207435c74",
+      "postedDate": "2025-08-01",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/855a2b6e-13fa-47de-a2f7-1e02cf3704a7",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -1497,729 +1097,18 @@
       },
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-10T09:58:53.007Z",
-      "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "addressLocality": "Jegensdorf",
+      "crawledAt": "2026-05-17T10:03:17.418Z",
+      "firstSeenAt": "2026-05-17T10:03:17.418Z",
+      "needsRetranslation": true,
+      "addressLocality": "Lenzburg 1",
       "salaryMin": 59000,
       "salaryMax": 90500,
-      "sourceLang": "it",
-      "_qualityScore": 91,
+      "retranslationAttempts": 1,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-d5xyy2",
-      "slug": "detailhandelsfachfrau-mann-interdiscount-grigioni-3",
-      "company": "Interdiscount",
-      "title": "Detailhandelsfachfrau:mann",
-      "location": "Jegensdorf",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-01",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/578ed5ad-d11f-4031-941e-c27861e69460",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-10T09:58:53.007Z",
-      "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "addressLocality": "Jegensdorf",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "sourceLang": "de",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-s8ey7i",
-      "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni",
-      "company": "Interdiscount",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Jegensdorf",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-01",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/c449f8cf-e189-494e-8262-0c2a62afebbe",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-10T09:58:53.007Z",
-      "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "addressLocality": "Jegensdorf",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "sourceLang": "de",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-lc95ys",
-      "slug": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-jumbo-grigioni",
-      "company": "Jumbo",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Dietlikon",
-      "canton": "GR",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-01",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/8c36865f-f338-47a7-b00f-4a1823b429f7",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-10T09:58:53.007Z",
-      "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "addressLocality": "Dietlikon",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "sourceLang": "de",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-ncbhm0",
-      "slug": "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-ncbhm0",
-      "company": "Coop Genossenschaft",
-      "title": "Quereinstieg - Mitarbeiter:in Fleisch und Fisch",
-      "location": "Muttenz",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-05-05",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/quereinstieg-mitarbeiter-in-fleisch-und-fisch/d3acd339-9e5f-4ebe-b614-304329c8d2b1",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-10T09:58:53.007Z",
-      "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "addressLocality": "Muttenz",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-hsy2pf",
-      "slug": "stv-rayonleiter-in-wein-getranke-coop-chur-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Stv. Rayonleiter:in Wein/Getränke",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-08",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/stv-rayonleiter-in-wein-getraenke/2180b367-506d-4c1d-9657-69a9561311dc",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-08T21:37:38.561Z",
-      "firstSeenAt": "2026-05-08T21:37:38.561Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-46qgy7",
-      "slug": "verkaufer-in-kassen-services-jumbo-ilanz-glion-graubunden",
-      "company": "Jumbo, Division der Coop Genossenschaft",
-      "title": "Verkäufer:in Kassen/Services",
-      "location": "Ilanz/Glion",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-08",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/e53a7e3d-1f16-4b9d-8e4c-82314e67d0d0",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-08T09:44:50.172Z",
-      "firstSeenAt": "2026-05-08T09:44:50.172Z",
-      "addressLocality": "Ilanz/Glion",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-xnczpj",
-      "slug": "zusatzlehre-als-detailhandelsfachfrau-mann-efz-livique-grigioni",
-      "company": "LIVIQUE",
-      "title": "Zusatzlehre als Detailhandelsfachfrau:mann EFZ",
-      "location": "Dietlikon",
-      "canton": "GR",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/zusatzlehre-als-detailhandelsfachfrau-mann-efz/ffc29d28-a6c3-4635-82dd-6c91bc0f7fea",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-06T10:46:42.985Z",
-      "firstSeenAt": "2026-05-06T10:46:42.985Z",
-      "addressLocality": "Dietlikon",
-      "sourceLang": "de",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-5vdsun",
-      "slug": "zusatzlehre-als-detailhandelsfachfrau-mann-efz-coop-city-grigioni",
-      "company": "Coop City",
-      "title": "Zusatzlehre als Detailhandelsfachfrau:mann EFZ",
-      "location": "Dietlikon",
-      "canton": "GR",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/zusatzlehre-als-detailhandelsfachfrau-mann-efz/debbb03c-acef-4b71-ac8d-df8547b827a2",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-06T10:46:42.985Z",
-      "firstSeenAt": "2026-05-06T10:46:42.985Z",
-      "addressLocality": "Dietlikon",
-      "sourceLang": "de",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-yd9o00",
-      "slug": "verkausberater-in-schmuck-coop-city-chur-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Verkausberater:in Schmuck",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkausberater-in-schmuck/931055f6-97e3-432a-b179-5335bce96fa5",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-06T10:46:42.985Z",
-      "firstSeenAt": "2026-05-06T10:46:42.985Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-766z9v",
-      "slug": "verkaufsberater-in-textil-coop-city-chur-graubunden",
-      "company": "Jumbo, Division der Coop Genossenschaft",
-      "title": "Verkaufsberater:in Textil",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-textil/af4d2b1a-d2ed-48e1-9dce-d9baf90aa44d",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-06T10:46:42.985Z",
-      "firstSeenAt": "2026-05-06T10:46:42.985Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-zg79zk",
-      "slug": "verkaufer-in-kassen-services-jumbo-chur-graubunden",
-      "company": "Jumbo, Division der Coop Genossenschaft",
-      "title": "Verkäufer:in Kassen/Services",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/dbdcd189-9782-4a86-a937-cee14fc373a6",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-06T10:46:42.985Z",
-      "firstSeenAt": "2026-05-06T10:46:42.985Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-bqi6wr",
-      "slug": "rayonleiter-in-frischprodukte-coop-davos-platz",
-      "company": "Coop Genossenschaft",
-      "title": "Rayonleiter:in Frischprodukte",
-      "location": "Davos",
-      "canton": "GR",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-05",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-frischprodukte/f1c1447e-5adb-4f4d-9018-195e5b89d698",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-06T10:46:42.985Z",
-      "firstSeenAt": "2026-05-06T10:46:42.985Z",
-      "addressLocality": "Davos",
-      "sourceLang": "de",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-uwtky9",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
-      "location": "Klosters-Serneus",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-05",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/3f9d5531-2e3c-4d97-96cd-9beacb7c9c89",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-05T21:40:37.095Z",
-      "firstSeenAt": "2026-05-05T21:40:37.095Z",
-      "addressLocality": "Klosters-Serneus",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-gzq9bg",
-      "slug": "geschaftsfuhrer-in-kublis-coop-kublis-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Geschäftsführer:in Küblis",
-      "location": "Küblis",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-04",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in-kueblis/8944deea-febe-474a-930c-8217bb35b8c3",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-04T21:44:55.398Z",
-      "firstSeenAt": "2026-05-04T21:44:55.398Z",
-      "addressLocality": "Küblis",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-29z0lf",
-      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni-29z0lf",
-      "company": "Fust | Swiss Household Services AG",
-      "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
-      "location": "Oberbüren",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-04",
-      "url": "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/e5f3d8c8-ba6d-4036-8767-8e6acd0733b3",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-04T10:41:40.347Z",
-      "firstSeenAt": "2026-05-04T10:41:40.347Z",
-      "addressLocality": "Oberbüren",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-pxuu97",
-      "slug": "verkaufer-in-food-coop-disentis-muster-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Food",
-      "location": "Disentis/Mustér",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-04",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/965d7760-6b25-4892-a3e3-b61db56ddd79",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-04T10:41:40.347Z",
-      "firstSeenAt": "2026-05-04T10:41:40.347Z",
-      "addressLocality": "Disentis/Mustér",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "company-i63w01",
-      "slug": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-i63w01",
-      "company": "Interdiscount",
-      "title": "Specialista del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
-      "location": "Jegensdorf",
-      "canton": "TI",
-      "category": "sales",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-09-19",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/4644ca65-9ae4-433f-89a7-fe444e38fffb",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-10T09:58:53.007Z",
-      "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "addressLocality": "Jegensdorf",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "sourceLang": "it",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-x5agq2",
-      "slug": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-x5agq2",
-      "company": "Marché",
-      "title": "Impiegata/o di gastronomia standardizzata / Addettao digastronomia standardizzata",
-      "location": "Dietlikon",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-25",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata/36d5f0af-8385-4c9c-b9b7-b49f7c774a7d",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-10T09:58:53.007Z",
-      "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "addressLocality": "Dietlikon",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "sourceLang": "it",
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-l4jjb9",
-      "slug": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-l4jjb9",
-      "company": "Marché",
-      "title": "Impiegata / Impiegato di gastronomia standardizzata AFC",
-      "location": "Dietlikon",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-18",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/impiegata-impiegato-di-gastronomia-standardizzata-afc/b9b4cdc6-55f5-4358-ad37-8d48335d2e74",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-10T09:58:53.007Z",
-      "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "addressLocality": "Dietlikon",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "sourceLang": "it",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-ojmfcb",
-      "slug": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-ojmfcb",
-      "company": "Marché",
-      "title": "Addetta/o di gastronomia standardizzata CFP",
-      "location": "Dietlikon",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-18",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/addetta-o-di-gastronomia-standardizzata-cfp/e8e1455e-e3d8-4c58-a604-7d5e7afba8da",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-10T09:58:53.007Z",
-      "firstSeenAt": "2026-05-10T09:58:53.007Z",
-      "addressLocality": "Dietlikon",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "sourceLang": "it",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
+        "translation": 15,
         "completeness": 19
       }
     }
