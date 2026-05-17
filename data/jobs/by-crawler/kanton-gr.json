@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-05-16T21:52:31.791Z",
+  "assembledAt": "2026-05-17T10:31:30.510Z",
   "jobs": [
     {
       "id": "kanton-gr-5cc4b885f1fe",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2620/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:52:21.379Z",
+      "crawledAt": "2026-05-17T10:31:20.123Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -110,6 +110,7 @@
         "tirocinio-come-disegnatore-ice-efz-costruzioni-ingegneristiche-kantonale-verwaltung-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
