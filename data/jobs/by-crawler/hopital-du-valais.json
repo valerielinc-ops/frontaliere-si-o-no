@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-du-valais",
-  "assembledAt": "2026-05-16T21:47:07.451Z",
+  "assembledAt": "2026-05-17T10:26:05.029Z",
   "jobs": [
     {
       "id": "hopital-du-valais-797cf717f9ca",
@@ -44,7 +44,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/314398ac97577d50e7ce346e2153afd4/ATSANN0003364/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:47:05.253Z",
+      "crawledAt": "2026-05-17T10:26:02.393Z",
       "_hvsMeta": {
         "number": "ATSANN0003364",
         "sysId": "314398ac97577d50e7ce346e2153afd4",
@@ -67,6 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -123,7 +124,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e85a408297a5fe14e7ce346e2153af9f/ATSANN0004432/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:47:04.930Z",
+      "crawledAt": "2026-05-17T10:26:02.010Z",
       "_hvsMeta": {
         "number": "ATSANN0004432",
         "sysId": "e85a408297a5fe14e7ce346e2153af9f",
@@ -172,16 +173,16 @@
       "title": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE",
       "titleByLocale": {
         "it": "CONTATTO DEL TEAM PERSONALE DI RICERCA",
-        "en": "CONTACT THE RESERVE PERSONNEL TEAM",
+        "en": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE",
         "de": "TRETE DER RESERVEPERSONAL-MITGLIEDER BEI",
         "fr": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE"
       },
       "description": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE\n\n ... et aide-nous à surmonter la prochaine crise!\n\nMission:\nEn cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises.\n\n Vous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand.\n\nProfil:\n• Infirmier/ère instrumentiste ou TSO\n\n • Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie\n\n • Au moins 2 ans d'expérience professionnelle\n\n • Capacité à fixer des priorités et conscience de ses responsabilités\n\n • Personnalité flexible et résistante au stress\n\n • Prêt/e à s'engager en cas de situation extraordinaire\n\n • Volonté de maintenir ses compétences via la formation\n\n • Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins.\n\nOffre:\n• 2 jours de formation continue par an\n\n • 4 jours de formation théorique et pratique initiale\n\n • 1 indemnité annuelle de disponibilité\n\n • 1 indemnité par jour de formation\n\n • Possibilité de suivre le cours ALS",
       "descriptionByLocale": {
-        "it": "Descrizione\n\nCONTATTO DEL TEAM PERSONALE DI RICERCA\n\n... e aiutaci a superare la prossima crisi!\n\nMissione:\nIn caso di pandemica, terremoto,..., la squadra \"Reserve Personnel\" del Centro ospedaliero romano del Vallese sarà un aiuto molto importante per superare le crisi future.\n\nAnche tu puoi far parte del \"personale di riserva\" e dare un importante contributo alla popolazione del Vallese Romand.\n\nProfilo:\n• Infermiera/strumentalista o TSO\n\n• Infermiera HES/ES specializzata in assistenza di emergenza, assistenza intensiva e anestesia\n\n• Almeno 2 anni di esperienza professionale\n\n• Capacità di fissare le priorità e la consapevolezza delle responsabilità\n\n• personalità flessibile e resistente allo stress\n\n• Pronta ad impegnarsi in situazioni straordinarie\n\n• Volontà di mantenere le proprie competenze attraverso la formazione\n\n• Se si lavora in-house, la domanda sarà eleggibile solo se non si è impegnati nel campo di cura.\n\nOfferta:\n• 2 giorni di formazione continua all'anno\n\n• 4 giorni di formazione teorica e pratica iniziale\n\n• 1 indennità di disponibilità\n\n• 1 indennità al giorno di formazione\n\n• Possibilità di prendere il corso ALS",
-        "en": "Descrizione\n\nCONTACT THE RESERVE PERSONNEL TEAM\n\n... and help us overcome the next crisis!\n\nMission:\nIn the event of a pandemic, earthquake,..., the \"Reserve Personnel\" team at the Valais Romand Hospital Center will be a very important help to overcome future crises.\n\nYou too can be part of the \"reserve staff\" and make an important contribution to the population of Valais Romand.\n\nProfile:\n• Nurse/instrumentalist or TSO\n\n• Nurse HES/ES specialized in emergency care, intensive care and anaesthesia\n\n• At least 2 years of professional experience\n\n• Ability to set priorities and awareness of responsibilities\n\n• Flexible and stress-resistant personality\n\n• Ready to engage in extraordinary situations\n\n• Will to maintain its skills through training\n\n• If you work in-house, your application will only be eligible if you are not engaged in the care field.\n\nOffer:\n• 2 days of continuing training per year\n\n• 4 days of theoretical and initial practical training\n\n• 1 annual availability allowance\n\n• 1 allowance per day of training\n\n• Possibility of taking the ALS course",
-        "de": "Beschreibung\n\nKONTAKT DER ERGEBNISSE TEAM\n\n... und helfen uns, die nächste Krise zu überwinden!\n\nMission:\nIm Falle einer Pandemie, Erdbeben,... wird das \"Reserve Personal\" Team im Wallis Romand Hospital Center eine sehr wichtige Hilfe zur Bewältigung zukünftiger Krisen sein.\n\nAuch Sie können Teil des \"Reservenpersonals\" sein und einen wichtigen Beitrag zur Bevölkerung von Wallis Romand leisten.\n\nProfil:\n• Krankenschwester/Instrumentalistin oder ÜNB\n\n• Nurse HES/ES spezialisiert auf Notfallpflege, Intensivpflege und Anästhesie\n\n• mindestens 2 Jahre Berufserfahrung\n\n• Fähigkeit, Prioritäten und Verantwortungsbewusstsein festzulegen\n\n• Flexible und stressbeständige Persönlichkeit\n\n• Bereit, sich in außergewöhnlichen Situationen zu engagieren\n\n• Wird seine Fähigkeiten durch Ausbildung erhalten\n\n• Wenn Sie im Haus arbeiten, wird Ihre Bewerbung nur dann in Anspruch genommen, wenn Sie nicht im Pflegebereich tätig sind.\n\nAngebot:\n• 2 Tage Weiterbildung pro Jahr\n\n• 4 Tage theoretische und erste praktische Ausbildung\n\n• 1 jährliche Verfügbarkeitszulage\n\n• 1 Zulage pro Ausbildungstag\n\n• Möglichkeit, den ALS Kurs zu nehmen",
-        "fr": "## Descrizione\n\nREJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE\n\n... et aide-nous à surmonter la prochaine crise!\n\nMission:\nEn cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises.\n\nVous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand.\n\n## Profil:\n• Infirmier/ère instrumentiste ou TSO\n\n• Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie\n\n• Au moins 2 ans d'expérience professionnelle\n\n• Capacité à fixer des priorités et conscience de ses responsabilités\n\n• Personnalité flexible et résistante au stress\n\n• Prêt/e à s'engager en cas de situation extraordinaire\n\n• Volonté de maintenir ses compétences via la formation\n\n• Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins.\n\n## Offre:\n• 2 jours de formation continue par an\n\n• 4 jours de formation théorique et pratique initiale\n\n• 1 indemnité annuelle de disponibilité\n\n• 1 indemnité par jour de formation\n\n• Possibilité de suivre le cours ALS"
+        "it": "Descrizione CONTATTO DEL TEAM PERSONALE DI RICERCA ... e aiutaci a superare la prossima crisi! Missione: In caso di pandemica, terremoto,..., la squadra \"Reserve Personnel\" del Centro ospedaliero romano del Vallese sarà un aiuto molto importante per superare le crisi future. Anche tu puoi far parte del \"personale di riserva\" e dare un importante contributo alla popolazione del Vallese Romand. Profilo:\n• Infermiera/strumentalista o TSO\n• Infermiera HES/ES specializzata in assistenza di emergenza, assistenza intensiva e anestesia\n• Almeno 2 anni di esperienza professionale\n• Capacità di fissare le priorità e la consapevolezza delle responsabilità\n• personalità flessibile e resistente allo stress\n• Pronta ad impegnarsi in situazioni straordinarie\n• Volontà di mantenere le proprie competenze attraverso la formazione\n• Se si lavora in-house, la domanda sarà eleggibile solo se non si è impegnati nel campo di cura. Offerta:\n• 2 giorni di formazione continua all'anno\n• 4 giorni di formazione teorica e pratica iniziale\n• 1 indennità di disponibilità\n• 1 indennità al giorno di formazione\n• Possibilità di prendere il corso ALS",
+        "en": "REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE ... et aide-nous à surmonter la prochaine crise! Mission: En cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises. Vous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand. Profil:\n• Infirmier/ère instrumentiste ou TSO\n• Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie\n• Au moins 2 ans d'expérience professionnelle\n• Capacité à fixer des priorités et conscience de ses responsabilités\n• Personnalité flexible et résistante au stress\n• Prêt/e à s'engager en cas de situation extraordinaire\n• Volonté de maintenir ses compétences via la formation\n• Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins. Offre:\n• 2 jours de formation continue par an\n• 4 jours de formation théorique et pratique initiale\n• 1 indemnité annuelle de disponibilité\n• 1 indemnité par jour de formation\n• Possibilité de suivre le cours ALS",
+        "de": "Beschreibung KONTAKT DER ERGEBNISSE TEAM ... und helfen uns, die nächste Krise zu überwinden! Mission: Im Falle einer Pandemie, Erdbeben,... wird das \"Reserve Personal\" Team im Wallis Romand Hospital Center eine sehr wichtige Hilfe zur Bewältigung zukünftiger Krisen sein. Auch Sie können Teil des \"Reservenpersonals\" sein und einen wichtigen Beitrag zur Bevölkerung von Wallis Romand leisten. Profil:\n• Krankenschwester/Instrumentalistin oder ÜNB\n• Nurse HES/ES spezialisiert auf Notfallpflege, Intensivpflege und Anästhesie\n• mindestens 2 Jahre Berufserfahrung\n• Fähigkeit, Prioritäten und Verantwortungsbewusstsein festzulegen\n• Flexible und stressbeständige Persönlichkeit\n• Bereit, sich in außergewöhnlichen Situationen zu engagieren\n• Wird seine Fähigkeiten durch Ausbildung erhalten\n• Wenn Sie im Haus arbeiten, wird Ihre Bewerbung nur dann in Anspruch genommen, wenn Sie nicht im Pflegebereich tätig sind. Angebot:\n• 2 Tage Weiterbildung pro Jahr\n• 4 Tage theoretische und erste praktische Ausbildung\n• 1 jährliche Verfügbarkeitszulage\n• 1 Zulage pro Ausbildungstag\n• Möglichkeit, den ALS Kurs zu nehmen",
+        "fr": "## Descrizione REJOINS L'ÉQUIPE DE PERSONNEL DE RÉSERVE ... et aide-nous à surmonter la prochaine crise! Mission: En cas de pandémie, séisme,..., l'équipe \"Personnel de réserve\" du Centre Hospitalier du Valais Romand constituera une aide très importante pour surmonter les futures crises. Vous aussi, vous pouvez faire partie du \"personnel de réserve\" et apporter une contribution importante à la population du Valais Romand. ## Profil:\n• Infirmier/ère instrumentiste ou TSO\n• Infirmier/ère HES/ES spécialisé/e en soins d'urgences, en soins intensifs et en anesthésie\n• Au moins 2 ans d'expérience professionnelle\n• Capacité à fixer des priorités et conscience de ses responsabilités\n• Personnalité flexible et résistante au stress\n• Prêt/e à s'engager en cas de situation extraordinaire\n• Volonté de maintenir ses compétences via la formation\n• Si vous travaillez à l'interne, votre postulation sera éligible uniquement si vous n'êtes pas engagé-e dans le domaine des soins. ## Offre:\n• 2 jours de formation continue par an\n• 4 jours de formation théorique et pratique initiale\n• 1 indemnité annuelle de disponibilité\n• 1 indemnité par jour de formation\n• Possibilité de suivre le cours ALS"
       },
       "location": "Sion",
       "canton": "VS",
@@ -199,7 +200,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5c64b8d797c30290316bb0b71153af06/ATSANN0003642/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:47:04.605Z",
+      "crawledAt": "2026-05-17T10:26:01.628Z",
       "_hvsMeta": {
         "number": "ATSANN0003642",
         "sysId": "5c64b8d797c30290316bb0b71153af06",
@@ -225,6 +226,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -281,7 +283,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1c12d59597145290316bb0b71153af70/ATSANN0003701/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:47:04.282Z",
+      "crawledAt": "2026-05-17T10:26:01.228Z",
       "_hvsMeta": {
         "number": "ATSANN0003701",
         "sysId": "1c12d59597145290316bb0b71153af70",
@@ -298,6 +300,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T21:46:02.683Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -354,7 +357,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1d6abdb547ebf6d0296bd1eb736d43a8/ATSANN0004576/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:47:03.960Z",
+      "crawledAt": "2026-05-17T10:26:00.849Z",
       "_hvsMeta": {
         "number": "ATSANN0004576",
         "sysId": "1d6abdb547ebf6d0296bd1eb736d43a8",
@@ -374,6 +377,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -430,7 +434,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:47:03.636Z",
+      "crawledAt": "2026-05-17T10:26:00.469Z",
       "_hvsMeta": {
         "number": "ATSANN0004228",
         "sysId": "dfdd86de976626501b87322f2153af9d",
@@ -509,7 +513,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6c4165297e41654316bb0b71153afc3/ATSANN0003725/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:47:03.313Z",
+      "crawledAt": "2026-05-17T10:26:00.068Z",
       "_hvsMeta": {
         "number": "ATSANN0003725",
         "sysId": "c6c4165297e41654316bb0b71153afc3",
@@ -550,9 +554,9 @@
     },
     {
       "id": "hopital-du-valais-7e819bc76a04",
-      "slug": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
+      "slug": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
+        "it": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
         "en": "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion",
         "de": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
@@ -562,17 +566,17 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Médecin adjoint-e spécialiste en radiologie à 100%",
       "titleByLocale": {
-        "it": "100% Assistant X-ray Specialist",
+        "it": "Médecin adjoint-e spécialiste en radiologie à 100%",
         "en": "Associate Physician Specialist in Radiology at 100%",
         "de": "Oberarzt/Oberärztin für Radiologie zu 100%",
         "fr": "Médecin adjoint-e spécialiste en radiologie à 100%"
       },
       "description": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices.\n\n \n \n\n \n\n L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\n \n\n Médecin adjoint-e spécialiste en radiologie à 100% \n\n Le service d'imagerie diagnostique et interventionnelle déploie ses activités à Sion, Sierre et Martigny.\n\nMission:\nAssurer l’activité clinique en radiologie ostéo-articulaire : radiographie standard, échographie, scanner et IRM.\n\n Prendre en charge les actes interventionnels : infiltrations, arthrographies, biopsies.\n\n Maintenir les reconnaissances de l'Hôpital du Valais comme centre de formation en radiologie et contribuer au développement de la radiologie ostéo-articulaire.\n\n Encadrer, former et superviser les médecins en formation\n\n Participer aux réunions multidisciplinaires.\n\n Participer aux gardes du service de radiologie.\n\nProfil:\nTitre de spécialiste fédéral en radiologie ou formation jugée équivalente.\n\n Expertise confirmée en radiologie ostéo-articulaire, incluant les gestes interventionnels.\n\n Expérience comme chef de clinique dans un hôpital universitaire.\n\n Sens de la coopération, engagement et disponibilité.\n\n Intérêt pour les démarches de qualité, de sécurité des patients, de radioprotection et pour le développement de nouvelles techniques d’imagerie.\n\n \n\n Seules les offres répondant au profil seront traitées.",
       "descriptionByLocale": {
-        "it": "Descrizione\n\nIl primo datore di lavoro del cantone, l'Ospedale Vallese ha 6.200 dipendenti.\n\nL'Ospedale Vallese sta cercando il Centro ospedaliero Vallese Romand\n\n100% Assistant X-ray Specialist\n\nIl servizio di imaging diagnostico e di intervento opera a Sion, Sierre e Martigny.\n\nMissione\n\n- Attività clinica nella radiologia osteoarticolare: radiografia standard, ecografia, scanner e risonanza magnetica.\n- Prendersi cura degli atti interventi: infiltrazione, artrite, biopsie.\n- Mantenere il riconoscimento dell'Ospedale Vallese come centro di formazione in radiologia e contribuire allo sviluppo della radiologia osteoarticolare.\n- Per supervisionare, formare e supervisionare i medici nella formazione\n- Partecipa a incontri multidisciplinari.\n- Partecipate alle guardie radiologiche.\n\nProfilo\n\n- Specialista federale in radiologia o formazione equivalente.\n- Competenze confermate nella radiologia osteoarticolare, comprese le azioni interventistiche.\n- Esperienza come capo della clinica in un ospedale universitario.\n- Significato di cooperazione, impegno e disponibilità.\n- Interessi di qualità, sicurezza dei pazienti, protezione dalle radiazioni e sviluppo di nuove tecniche di imaging.\n\nVerranno elaborate solo offerte che rispondono al profilo.",
-        "en": "Descrizione\n\nThe canton's first employer, the Valais Hospital has 6,200 employees.\n\nThe Valais Hospital is looking for the Valais Romand Hospital Centre\n\n100% Assistant X-ray Specialist\n\nThe diagnostic and intervention imaging service operates in Sion, Sierre and Martigny.\n\nMission\n\n- Clinical activity in osteoarticular radiology: standard radiography, ultrasound, scanner and MRI.\n- Take care of the interventional acts: infiltration, arthrography, biopsies.\n- Maintain the recognition of the Valais Hospital as a training centre in radiology and contribute to the development of osteoarticular radiology.\n- To supervise, train and supervise doctors in training\n- Participate in multidisciplinary meetings.\n- Participate in the radiology wardens.\n\nProfile\n\n- Federal specialist in radiology or equivalent training.\n- Confirmed expertise in osteoarticular radiology, including interventional actions.\n- Experience as head of clinic in a university hospital.\n- Meaning of cooperation, commitment and availability.\n- Interest in quality, patient safety, radiation protection and the development of new imaging techniques.\n\nOnly offers responding to the profile will be processed.",
-        "de": "Beschreibung\n\nDer erste Arbeitgeber des Kantons, das Wallis Hospital, hat 6.200 Mitarbeiter.\n\nDas Wallis-Krankenhaus ist auf der Suche nach dem Walliser-Krankenhaus\n\n100% Assistent Röntgen Spezialist\n\nDer diagnostische und interventionsbildende Dienst arbeitet in Sion, Sierre und Martigny.\n\nMission\n\n- Klinische Aktivität in osteoartikulärer Radiologie: Standard-Radiographie, Ultraschall, Scanner und MRT.\n- Achten Sie auf die Interventionshandlungen: Infiltration, Arthrographie, Biopsien.\n- Bewahren Sie die Anerkennung des Walliser Krankenhauses als Ausbildungszentrum in der Radiologie und tragen zur Entwicklung der osteoartikulären Radiologie bei.\n- Um die Ärzte in der Ausbildung zu überwachen, zu trainieren und zu überwachen\n- Nehmen Sie an multidisziplinären Treffen teil.\n- Nehmen Sie an den Radiologie-Warden teil.\n\nProfil\n\n- Föderaler Spezialist für Radiologie oder gleichwertige Ausbildung.\n- Bestätigte Expertise in der osteoartikulären Radiologie, einschließlich Interventionsmaßnahmen.\n- Erfahrung als Klinikleiter in einem Universitätsklinikum.\n- Bedeutung von Zusammenarbeit, Engagement und Verfügbarkeit.\n- Interesse an Qualität, Patientensicherheit, Strahlenschutz und Entwicklung neuer Bildgebungsverfahren.\n\nNur Angebote, die auf das Profil reagieren, werden bearbeitet.",
-        "fr": "## Descrizione\n\n1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices.\n\nL’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e\n\nMédecin adjoint-e spécialiste en radiologie à 100%\n\nLe service d'imagerie diagnostique et interventionnelle déploie ses activités à Sion, Sierre et Martigny.\n\n## Mission\n\n- Assurer l’activité clinique en radiologie ostéo-articulaire : radiographie standard, échographie, scanner et IRM.\n- Prendre en charge les actes interventionnels : infiltrations, arthrographies, biopsies.\n- Maintenir les reconnaissances de l'Hôpital du Valais comme centre de formation en radiologie et contribuer au développement de la radiologie ostéo-articulaire.\n- Encadrer, former et superviser les médecins en formation\n- Participer aux réunions multidisciplinaires.\n- Participer aux gardes du service de radiologie.\n\n## Profil\n\n- Titre de spécialiste fédéral en radiologie ou formation jugée équivalente.\n- Expertise confirmée en radiologie ostéo-articulaire, incluant les gestes interventionnels.\n- Expérience comme chef de clinique dans un hôpital universitaire.\n- Sens de la coopération, engagement et disponibilité.\n- Intérêt pour les démarches de qualité, de sécurité des patients, de radioprotection et pour le développement de nouvelles techniques d’imagerie.\n\nSeules les offres répondant au profil seront traitées."
+        "it": "1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Médecin adjoint-e spécialiste en radiologie à 100% Le service d'imagerie diagnostique et interventionnelle déploie ses activités à Sion, Sierre et Martigny. Mission: Assurer l’activité clinique en radiologie ostéo-articulaire : radiographie standard, échographie, scanner et IRM. Prendre en charge les actes interventionnels : infiltrations, arthrographies, biopsies. Maintenir les reconnaissances de l'Hôpital du Valais comme centre de formation en radiologie et contribuer au développement de la radiologie ostéo-articulaire. Encadrer, former et superviser les médecins en formation Participer aux réunions multidisciplinaires. Participer aux gardes du service de radiologie. Profil: Titre de spécialiste fédéral en radiologie ou formation jugée équivalente. Expertise confirmée en radiologie ostéo-articulaire, incluant les gestes interventionnels. Expérience comme chef de clinique dans un hôpital universitaire. Sens de la coopération, engagement et disponibilité. Intérêt pour les démarches de qualité, de sécurité des patients, de radioprotection et pour le développement de nouvelles techniques d’imagerie. Seules les offres répondant au profil seront traitées.",
+        "en": "Descrizione The canton's first employer, the Valais Hospital has 6,200 employees. The Valais Hospital is looking for the Valais Romand Hospital Centre 100% Assistant X-ray Specialist The diagnostic and intervention imaging service operates in Sion, Sierre and Martigny. Mission - Clinical activity in osteoarticular radiology: standard radiography, ultrasound, scanner and MRI. - Take care of the interventional acts: infiltration, arthrography, biopsies. - Maintain the recognition of the Valais Hospital as a training centre in radiology and contribute to the development of osteoarticular radiology. - To supervise, train and supervise doctors in training - Participate in multidisciplinary meetings. - Participate in the radiology wardens. \n• Profile - Federal specialist in radiology or equivalent training. - Confirmed expertise in osteoarticular radiology, including interventional actions. - Experience as head of clinic in a university hospital. - Meaning of cooperation, commitment and availability. - Interest in quality, patient safety, radiation protection and the development of new imaging techniques. Only offers responding to the profile will be processed.",
+        "de": "Beschreibung Der erste Arbeitgeber des Kantons, das Wallis Hospital, hat 6.200 Mitarbeiter. Das Wallis-Krankenhaus ist auf der Suche nach dem Walliser-Krankenhaus 100% Assistent Röntgen Spezialist Der diagnostische und interventionsbildende Dienst arbeitet in Sion, Sierre und Martigny. Mission - Klinische Aktivität in osteoartikulärer Radiologie: Standard-Radiographie, Ultraschall, Scanner und MRT. - Achten Sie auf die Interventionshandlungen: Infiltration, Arthrographie, Biopsien. - Bewahren Sie die Anerkennung des Walliser Krankenhauses als Ausbildungszentrum in der Radiologie und tragen zur Entwicklung der osteoartikulären Radiologie bei. - Um die Ärzte in der Ausbildung zu überwachen, zu trainieren und zu überwachen - Nehmen Sie an multidisziplinären Treffen teil. - Nehmen Sie an den Radiologie-Warden teil. Profil - Föderaler Spezialist für Radiologie oder gleichwertige Ausbildung. - Bestätigte Expertise in der osteoartikulären Radiologie, einschließlich Interventionsmaßnahmen. - Erfahrung als Klinikleiter in einem Universitätsklinikum. - Bedeutung von Zusammenarbeit, Engagement und Verfügbarkeit. - Interesse an Qualität, Patientensicherheit, Strahlenschutz und Entwicklung neuer Bildgebungsverfahren. Nur Angebote, die auf das Profil reagieren, werden bearbeitet.",
+        "fr": "## Descrizione 1er employeur du canton, l’Hôpital du Valais compte 6'200 collaborateurs-trices. L’Hôpital du Valais cherche pour le Centre Hospitalier du Valais Romand un-e Médecin adjoint-e spécialiste en radiologie à 100% Le service d'imagerie diagnostique et interventionnelle déploie ses activités à Sion, Sierre et Martigny. ## Mission - Assurer l’activité clinique en radiologie ostéo-articulaire : radiographie standard, échographie, scanner et IRM. - Prendre en charge les actes interventionnels : infiltrations, arthrographies, biopsies. - Maintenir les reconnaissances de l'Hôpital du Valais comme centre de formation en radiologie et contribuer au développement de la radiologie ostéo-articulaire. - Encadrer, former et superviser les médecins en formation - Participer aux réunions multidisciplinaires. - Participer aux gardes du service de radiologie. ## Profil - Titre de spécialiste fédéral en radiologie ou formation jugée équivalente. - Expertise confirmée en radiologie ostéo-articulaire, incluant les gestes interventionnels. - Expérience comme chef de clinique dans un hôpital universitaire. - Sens de la coopération, engagement et disponibilité. - Intérêt pour les démarches de qualité, de sécurité des patients, de radioprotection et pour le développement de nouvelles techniques d’imagerie. Seules les offres répondant au profil seront traitées."
       },
       "location": "Sion",
       "canton": "VS",
@@ -590,7 +594,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/07c0eee447c0c754ff8065f8736d4369/ATSANN0004598/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:47:02.991Z",
+      "crawledAt": "2026-05-17T10:25:59.665Z",
       "_hvsMeta": {
         "number": "ATSANN0004598",
         "sysId": "07c0eee447c0c754ff8065f8736d4369",
@@ -598,17 +602,18 @@
         "famille": "Médecins",
         "site": "SION"
       },
-      "previousSlugs": [
-        "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-        "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-          "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
+          "100-assistant-x-ray-specialist-hopital-du-valais-sion"
         ]
       },
+      "previousSlugs": [
+        "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
+        "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+      ],
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -665,7 +670,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9dfd00d997c047101b87322f2153af63/ATSANN0004603/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:47:02.669Z",
+      "crawledAt": "2026-05-17T10:25:59.264Z",
       "_hvsMeta": {
         "number": "ATSANN0004603",
         "sysId": "9dfd00d997c047101b87322f2153af63",
@@ -688,6 +693,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T10:51:11.162Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -744,7 +750,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3c805fa947584f90ff8065f8736d43b2/ATSANN0004622/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:47:02.344Z",
+      "crawledAt": "2026-05-17T10:25:58.882Z",
       "_hvsMeta": {
         "number": "ATSANN0004622",
         "sysId": "3c805fa947584f90ff8065f8736d43b2",
@@ -823,7 +829,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/12d272159790c7901b87322f2153af70/ATSANN0004619/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:47:02.015Z",
+      "crawledAt": "2026-05-17T10:25:58.501Z",
       "_hvsMeta": {
         "number": "ATSANN0004619",
         "sysId": "12d272159790c7901b87322f2153af70",
@@ -846,6 +852,7 @@
         ]
       },
       "firstSeenAt": "2026-04-16T21:45:48.472Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -902,7 +909,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d57004ed975ccb5012f9322f2153afc0/ATSANN0004621/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:47:01.691Z",
+      "crawledAt": "2026-05-17T10:25:58.120Z",
       "_hvsMeta": {
         "number": "ATSANN0004621",
         "sysId": "d57004ed975ccb5012f9322f2153afc0",
@@ -960,10 +967,10 @@
       },
       "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Abteilung Rehabilitation 2 West eine:\n\n Pflegefachperson 60-80%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess\n\n• Mitarbeit in Arbeits- und Projektgruppen\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF)\n\n• Wertschätzung im täglichen Umgang mit Patienten\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
       "descriptionByLocale": {
-        "it": "Il Spital Wallis sta cercando il centro ospedaliero Oberwallis nel dipartimento di Lean Riabilitazione 2 West:\n\nSpecialista di cura 60-80 %\n\nMissione:\n• Garantire assistenza professionale e orientata al cliente insieme ad altri membri del team\n\n• Responsabilità e partecipazione attiva\n\n• Co-responsabilità nel processo interdisciplinare e multi-professionale di trattamento e cura\n\n• Lavorare in gruppi di lavoro e di progetto\n\n• Accompagnare e sostenere gli studenti durante la formazione\n\nProfilo:\n• Allenamento completo nella cura (FH, HF)\n\n• Uso giornaliero stimato dei pazienti\n\n• Personalità comunicativa, di iniziativa e flessibile\n\n• Funzionamento speditivo ed esatto\n\n• Buone competenze informatiche\n\nOfferte:\n• Attività varie, responsabili e indipendenti\n\n• Supporto da un team motivato e impegnato\n\n• Possibilità di formazione continua\n\n• Condizioni di lavoro interessanti",
-        "en": "The Spital Wallis is looking for the hospital center Oberwallis in the Lean department Rehabilitation 2 West:\n\nCare specialist 60-80 %\n\nMission:\n• Ensuring professional and customer-oriented care together with other team members\n\n• Own responsibility and active participation\n\n• Co-responsibility in the interdisciplinary and multi- professional treatment and care process\n\n• Working in work and project groups\n\n• Accompanying and supporting learners during training\n\nProfile:\n• Complete training in care (FH, HF)\n\n• Estimated daily use of patients\n\n• Communicative, initiative and flexible personality\n\n• Speditive and exact operation\n\n• Good computer skills\n\nOffre:\n• Varied, responsible and independent activities\n\n• Support by a motivated and committed team\n\n• Possibility of continuing training\n\n• Attractive employment conditions",
-        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Abteilung Rehabilitation 2 West eine:\n\n Pflegefachperson 60-80%\n\nMission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n\n• Eigenverantwortung und aktives Mitdenken\n\n• Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess\n\n• Mitarbeit in Arbeits- und Projektgruppen\n\n• Begleitung und Unterstützung der Lernenden während der Ausbildung\n\nProfil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF)\n\n• Wertschätzung im täglichen Umgang mit Patienten\n\n• Kommunikative, initiative und flexible Persönlichkeit\n\n• Speditive und exakte Arbeitsweise\n\n• Gute EDV-Kenntnisse\n\nOffre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Unterstützung durch ein motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
-        "fr": "Le Spital Wallis est à la recherche du centre hospitalier Oberwallis dans le département Lean Réhabilitation 2 Ouest:\n\nSpécialiste des soins 60-80 %\n\nMission :\n• Assurer des soins professionnels et axés sur le client avec d'autres membres de l'équipe\n\n• Responsabilité et participation active\n\n• Coresponsabilité dans le processus interdisciplinaire et multiprofessionnel de traitement et de soins\n\n• Travailler dans des groupes de travail et de projet\n\n• Accompagner et soutenir les apprenants pendant la formation\n\nProfil :\n• Formation complète en soins (FH, HF)\n\n• Utilisation quotidienne estimée des patients\n\n• Communication, initiative et personnalité flexible\n\n• Fonctionnement rapide et précis\n\n• Bonnes compétences en informatique\n\nOffre:\n• Activités variées, responsables et indépendantes\n\n• Soutien d'une équipe motivée et engagée\n\n• Possibilité de formation continue\n\n• Conditions d'emploi attrayantes"
+        "it": "Il Spital Wallis sta cercando il centro ospedaliero Oberwallis nel dipartimento di Lean Riabilitazione 2 West: Specialista di cura 60-80 % Missione:\n• Garantire assistenza professionale e orientata al cliente insieme ad altri membri del team\n• Responsabilità e partecipazione attiva\n• Co-responsabilità nel processo interdisciplinare e multi-professionale di trattamento e cura\n• Lavorare in gruppi di lavoro e di progetto\n• Accompagnare e sostenere gli studenti durante la formazione Profilo:\n• Allenamento completo nella cura (FH, HF)\n• Uso giornaliero stimato dei pazienti\n• Personalità comunicativa, di iniziativa e flessibile\n• Funzionamento speditivo ed esatto\n• Buone competenze informatiche Offerte:\n• Attività varie, responsabili e indipendenti\n• Supporto da un team motivato e impegnato\n• Possibilità di formazione continua\n• Condizioni di lavoro interessanti",
+        "en": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Abteilung Rehabilitation 2 West eine: Pflegefachperson 60-80% Mission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n• Eigenverantwortung und aktives Mitdenken\n• Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess\n• Mitarbeit in Arbeits- und Projektgruppen\n• Begleitung und Unterstützung der Lernenden während der Ausbildung Profil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF)\n• Wertschätzung im täglichen Umgang mit Patienten\n• Kommunikative, initiative und flexible Persönlichkeit\n• Speditive und exakte Arbeitsweise\n• Gute EDV-Kenntnisse Offre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n• Unterstützung durch ein motiviertes und engagiertes Team\n• Möglichkeit zur Weiterbildung\n• Attraktive Anstellungsbedingungen",
+        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Lean-Abteilung Rehabilitation 2 West eine: Pflegefachperson 60-80% Mission:\n• Sicherstellung einer fachgerechten und kundenorientierten Pflege gemeinsam mit den anderen Teammitgliedern\n• Eigenverantwortung und aktives Mitdenken\n• Mitverantwortung im interdisziplinären und multi- professionellen Behandlungs- und Betreuungsprozess\n• Mitarbeit in Arbeits- und Projektgruppen\n• Begleitung und Unterstützung der Lernenden während der Ausbildung Profil:\n• Abgeschlossene Ausbildung in Pflege (FH, HF)\n• Wertschätzung im täglichen Umgang mit Patienten\n• Kommunikative, initiative und flexible Persönlichkeit\n• Speditive und exakte Arbeitsweise\n• Gute EDV-Kenntnisse Offre:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n• Unterstützung durch ein motiviertes und engagiertes Team\n• Möglichkeit zur Weiterbildung\n• Attraktive Anstellungsbedingungen",
+        "fr": "Le Spital Wallis est à la recherche du centre hospitalier Oberwallis dans le département Lean Réhabilitation 2 Ouest: Spécialiste des soins 60-80 % Mission :\n• Assurer des soins professionnels et axés sur le client avec d'autres membres de l'équipe\n• Responsabilité et participation active\n• Coresponsabilité dans le processus interdisciplinaire et multiprofessionnel de traitement et de soins\n• Travailler dans des groupes de travail et de projet\n• Accompagner et soutenir les apprenants pendant la formation Profil :\n• Formation complète en soins (FH, HF)\n• Utilisation quotidienne estimée des patients\n• Communication, initiative et personnalité flexible\n• Fonctionnement rapide et précis\n• Bonnes compétences en informatique Offre:\n• Activités variées, responsables et indépendantes\n• Soutien d'une équipe motivée et engagée\n• Possibilité de formation continue\n• Conditions d'emploi attrayantes"
       },
       "location": "Brig",
       "canton": "VS",
@@ -981,7 +988,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5c054fae47d407d0ff8065f8736d43b1/ATSANN0004625/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:47:01.369Z",
+      "crawledAt": "2026-05-17T10:25:57.737Z",
       "_hvsMeta": {
         "number": "ATSANN0004625",
         "sysId": "5c054fae47d407d0ff8065f8736d43b1",
@@ -1001,6 +1008,7 @@
         ]
       },
       "firstSeenAt": "2026-04-20T10:47:50.886Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1057,7 +1065,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/028b2a6bc314c354a043be4c0501313d/ATSANN0004629/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:47:01.047Z",
+      "crawledAt": "2026-05-17T10:25:57.343Z",
       "_hvsMeta": {
         "number": "ATSANN0004629",
         "sysId": "028b2a6bc314c354a043be4c0501313d",
@@ -1136,7 +1144,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0cbd33b8972807141b87322f2153aff4/ATSANN0004632/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:47:00.717Z",
+      "crawledAt": "2026-05-17T10:25:56.961Z",
       "_hvsMeta": {
         "number": "ATSANN0004632",
         "sysId": "0cbd33b8972807141b87322f2153aff4",
@@ -1219,7 +1227,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/afecf9ba837abe1017a39d20ceaad302/ATSANN0004521/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:47:00.395Z",
+      "crawledAt": "2026-05-17T10:25:56.579Z",
       "_hvsMeta": {
         "number": "ATSANN0004521",
         "sysId": "afecf9ba837abe1017a39d20ceaad302",
@@ -1298,7 +1306,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2ff90c91c3e8c710a043be4c05013155/ATSANN0004636/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:47:00.073Z",
+      "crawledAt": "2026-05-17T10:25:56.192Z",
       "_hvsMeta": {
         "number": "ATSANN0004636",
         "sysId": "2ff90c91c3e8c710a043be4c05013155",
@@ -1321,6 +1329,7 @@
         ]
       },
       "firstSeenAt": "2026-04-28T11:03:22.014Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1377,7 +1386,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2a15933197e44b5412f9322f2153afeb/ATSANN0004647/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:46:59.746Z",
+      "crawledAt": "2026-05-17T10:25:55.812Z",
       "_hvsMeta": {
         "number": "ATSANN0004647",
         "sysId": "2a15933197e44b5412f9322f2153afeb",
@@ -1456,7 +1465,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b0911b3597644b5412f9322f2153af84/ATSANN0004646/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:46:59.425Z",
+      "crawledAt": "2026-05-17T10:25:55.432Z",
       "_hvsMeta": {
         "number": "ATSANN0004646",
         "sysId": "b0911b3597644b5412f9322f2153af84",
@@ -1479,6 +1488,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T21:57:19.964Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "currency": "CHF",
@@ -1535,7 +1545,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2aca6b0197011a90316bb0b71153af7e/ATSANN0003760/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:46:59.102Z",
+      "crawledAt": "2026-05-17T10:25:55.030Z",
       "_hvsMeta": {
         "number": "ATSANN0003760",
         "sysId": "2aca6b0197011a90316bb0b71153af7e",
@@ -1544,6 +1554,7 @@
         "site": "BRIG"
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1600,7 +1611,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d874620f838cb25417a39d20ceaad38a/ATSANN0004325/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:46:58.778Z",
+      "crawledAt": "2026-05-17T10:25:54.647Z",
       "_hvsMeta": {
         "number": "ATSANN0004325",
         "sysId": "d874620f838cb25417a39d20ceaad38a",
@@ -1624,6 +1635,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1680,7 +1692,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/38125af197e00b5412f9322f2153af56/ATSANN0004644/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:58.435Z",
+      "crawledAt": "2026-05-17T10:25:54.267Z",
       "_hvsMeta": {
         "number": "ATSANN0004644",
         "sysId": "38125af197e00b5412f9322f2153af56",
@@ -1692,6 +1704,7 @@
         "medico-specialista-in-psichiatria-infantile-e-adolescenziale-hopital-du-valais-brig"
       ],
       "firstSeenAt": "2026-04-30T10:55:54.039Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1748,7 +1761,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/94b27b0597c11a90316bb0b71153af92/ATSANN0003762/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:46:58.090Z",
+      "crawledAt": "2026-05-17T10:25:53.869Z",
       "_hvsMeta": {
         "number": "ATSANN0003762",
         "sysId": "94b27b0597c11a90316bb0b71153af92",
@@ -1829,7 +1842,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/572ee60b97b1b25012f9322f2153af9f/ATSANN0004455/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:46:57.726Z",
+      "crawledAt": "2026-05-17T10:25:53.484Z",
       "_hvsMeta": {
         "number": "ATSANN0004455",
         "sysId": "572ee60b97b1b25012f9322f2153af9f",
@@ -1910,7 +1923,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8931be8b9735b25012f9322f2153af59/ATSANN0004456/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:46:57.404Z",
+      "crawledAt": "2026-05-17T10:25:53.103Z",
       "_hvsMeta": {
         "number": "ATSANN0004456",
         "sysId": "8931be8b9735b25012f9322f2153af59",
@@ -1989,7 +2002,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf66751547fc72d0339c9146736d437c/ATSANN0004384/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:46:57.082Z",
+      "crawledAt": "2026-05-17T10:25:52.712Z",
       "_hvsMeta": {
         "number": "ATSANN0004384",
         "sysId": "bf66751547fc72d0339c9146736d437c",
@@ -2068,7 +2081,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/32ce638d97411a90316bb0b71153af77/ATSANN0003761/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:46:56.742Z",
+      "crawledAt": "2026-05-17T10:25:52.328Z",
       "_hvsMeta": {
         "number": "ATSANN0003761",
         "sysId": "32ce638d97411a90316bb0b71153af77",
@@ -2146,7 +2159,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/ATSANN0004378/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:46:56.420Z",
+      "crawledAt": "2026-05-17T10:25:51.935Z",
       "_hvsMeta": {
         "number": "ATSANN0004378",
         "sysId": "c6680bcc8378b69017a39d20ceaad30d",
@@ -2227,7 +2240,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/93ee5c5697ec0f5412f9322f2153af31/ATSANN0004648/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:56.098Z",
+      "crawledAt": "2026-05-17T10:25:51.552Z",
       "_hvsMeta": {
         "number": "ATSANN0004648",
         "sysId": "93ee5c5697ec0f5412f9322f2153af31",
@@ -2306,7 +2319,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/79ae66cb47e04fd0296bd1eb736d435a/ATSANN0004649/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:55.769Z",
+      "crawledAt": "2026-05-17T10:25:51.169Z",
       "_hvsMeta": {
         "number": "ATSANN0004649",
         "sysId": "79ae66cb47e04fd0296bd1eb736d435a",
@@ -2386,7 +2399,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47fc8463970c87501b87322f2153afb5/ATSANN0004609/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:55.440Z",
+      "crawledAt": "2026-05-17T10:25:50.744Z",
       "_hvsMeta": {
         "number": "ATSANN0004609",
         "sysId": "47fc8463970c87501b87322f2153afb5",
@@ -2473,7 +2486,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d5a6fca797a883941b87322f2153af92/ATSANN0004650/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:46:55.115Z",
+      "crawledAt": "2026-05-17T10:25:50.363Z",
       "_hvsMeta": {
         "number": "ATSANN0004650",
         "sysId": "d5a6fca797a883941b87322f2153af92",
@@ -2500,6 +2513,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:59:04.662Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2556,7 +2570,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1134a52397a807941b87322f2153aff6/ATSANN0004652/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:54.793Z",
+      "crawledAt": "2026-05-17T10:25:49.982Z",
       "_hvsMeta": {
         "number": "ATSANN0004652",
         "sysId": "1134a52397a807941b87322f2153aff6",
@@ -2638,7 +2652,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/912a742b972c83941b87322f2153af09/ATSANN0004651/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:46:54.469Z",
+      "crawledAt": "2026-05-17T10:25:49.599Z",
       "_hvsMeta": {
         "number": "ATSANN0004651",
         "sysId": "912a742b972c83941b87322f2153af09",
@@ -2661,6 +2675,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:59:05.416Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2717,7 +2732,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2bb992f3976c0f9412f9322f2153af46/ATSANN0004657/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:54.130Z",
+      "crawledAt": "2026-05-17T10:25:49.219Z",
       "_hvsMeta": {
         "number": "ATSANN0004657",
         "sysId": "2bb992f3976c0f9412f9322f2153af46",
@@ -2740,6 +2755,7 @@
         ]
       },
       "firstSeenAt": "2026-05-06T22:06:59.451Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2796,7 +2812,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9c5f113b972ccb9412f9322f2153af60/ATSANN0004656/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:53.809Z",
+      "crawledAt": "2026-05-17T10:25:48.836Z",
       "_hvsMeta": {
         "number": "ATSANN0004656",
         "sysId": "9c5f113b972ccb9412f9322f2153af60",
@@ -2822,6 +2838,7 @@
         ]
       },
       "firstSeenAt": "2026-05-06T11:06:23.296Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2878,7 +2895,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3a2a91f797a8cb9412f9322f2153afbb/ATSANN0004654/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:53.487Z",
+      "crawledAt": "2026-05-17T10:25:48.455Z",
       "_hvsMeta": {
         "number": "ATSANN0004654",
         "sysId": "3a2a91f797a8cb9412f9322f2153afbb",
@@ -2901,6 +2918,7 @@
         ]
       },
       "firstSeenAt": "2026-05-06T11:06:23.653Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -2957,7 +2975,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/509e4e8c97f0cf9412f9322f2153af2d/ATSANN0004659/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:53.164Z",
+      "crawledAt": "2026-05-17T10:25:48.075Z",
       "_hvsMeta": {
         "number": "ATSANN0004659",
         "sysId": "509e4e8c97f0cf9412f9322f2153af2d",
@@ -2966,6 +2984,7 @@
         "site": "SION"
       },
       "firstSeenAt": "2026-05-07T11:11:20.847Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -3022,7 +3041,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8773e73b973b3ad012f9322f2153afa8/ATSANN0004592/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:52.803Z",
+      "crawledAt": "2026-05-17T10:25:47.694Z",
       "_hvsMeta": {
         "number": "ATSANN0004592",
         "sysId": "8773e73b973b3ad012f9322f2153afa8",
@@ -3095,7 +3114,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5e0da63f97604f9412f9322f2153afc4/ATSANN0004658/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:52.475Z",
+      "crawledAt": "2026-05-17T10:25:47.307Z",
       "_hvsMeta": {
         "number": "ATSANN0004658",
         "sysId": "5e0da63f97604f9412f9322f2153afc4",
@@ -3174,7 +3193,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9873d34047f447d0ff8065f8736d4310/ATSANN0004661/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:51.851Z",
+      "crawledAt": "2026-05-17T10:25:46.446Z",
       "_hvsMeta": {
         "number": "ATSANN0004661",
         "sysId": "9873d34047f447d0ff8065f8736d4310",
@@ -3253,7 +3272,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ce59d3c4477847d0ff8065f8736d4301/ATSANN0004662/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:51.528Z",
+      "crawledAt": "2026-05-17T10:25:46.065Z",
       "_hvsMeta": {
         "number": "ATSANN0004662",
         "sysId": "ce59d3c4477847d0ff8065f8736d4301",
@@ -3335,7 +3354,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d411970047b447d0ff8065f8736d4337/ATSANN0004660/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:51.204Z",
+      "crawledAt": "2026-05-17T10:25:45.682Z",
       "_hvsMeta": {
         "number": "ATSANN0004660",
         "sysId": "d411970047b447d0ff8065f8736d4337",
@@ -3419,7 +3438,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6df81b1c47f00bd0ff8065f8736d43ed/ATSANN0004663/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:50.858Z",
+      "crawledAt": "2026-05-17T10:25:45.297Z",
       "_hvsMeta": {
         "number": "ATSANN0004663",
         "sysId": "6df81b1c47f00bd0ff8065f8736d43ed",
@@ -3498,7 +3517,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ead6047147733a50296bd1eb736d43ca/ATSANN0004587/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:50.233Z",
+      "crawledAt": "2026-05-17T10:25:44.429Z",
       "_hvsMeta": {
         "number": "ATSANN0004587",
         "sysId": "ead6047147733a50296bd1eb736d43ca",
@@ -3579,7 +3598,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c5949c35c3740bd0a043be4c0501313f/ATSANN0004667/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:49.904Z",
+      "crawledAt": "2026-05-17T10:25:44.045Z",
       "_hvsMeta": {
         "number": "ATSANN0004667",
         "sysId": "c5949c35c3740bd0a043be4c0501313f",
@@ -3658,7 +3677,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3c6e10fd973c07181b87322f2153af63/ATSANN0004668/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:46:49.580Z",
+      "crawledAt": "2026-05-17T10:25:43.663Z",
       "_hvsMeta": {
         "number": "ATSANN0004668",
         "sysId": "3c6e10fd973c07181b87322f2153af63",
@@ -3737,7 +3756,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8d8ac1f5973847181b87322f2153af26/ATSANN0004669/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:49.256Z",
+      "crawledAt": "2026-05-17T10:25:43.281Z",
       "_hvsMeta": {
         "number": "ATSANN0004669",
         "sysId": "8d8ac1f5973847181b87322f2153af26",
@@ -3816,7 +3835,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/ATSANN0004672/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-16T21:46:48.909Z",
+      "crawledAt": "2026-05-17T10:25:42.897Z",
       "_hvsMeta": {
         "number": "ATSANN0004672",
         "sysId": "43e0edce47744394296bd1eb736d43f5",
@@ -3836,6 +3855,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T11:14:12.660Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -3892,7 +3912,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/948ed58ac3fccbd0a043be4c050131c8/ATSANN0004671/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-16T21:46:48.581Z",
+      "crawledAt": "2026-05-17T10:25:42.510Z",
       "_hvsMeta": {
         "number": "ATSANN0004671",
         "sysId": "948ed58ac3fccbd0a043be4c050131c8",
