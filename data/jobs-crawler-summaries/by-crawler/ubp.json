@@ -1,19 +1,18 @@
 {
   "key": "ubp",
   "label": "Union Bancaire Privée",
-  "generatedAt": "2026-05-16T22:38:32.005Z",
+  "generatedAt": "2026-05-17T11:17:39.171Z",
   "total": 52,
-  "newCount": 0,
-  "updatedCount": 52,
+  "newCount": 52,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 30150,
-  "avgDurationMs": 30150,
+  "durationMs": 33343,
+  "avgDurationMs": 33343,
   "durationHistory": [
-    30150
+    33343
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
       "id": "ubp-aa5dfd472d05",
       "slug": "change-incident-problem-vulnerability-management-ubp-ch",
@@ -26,7 +25,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/47",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:04.937Z",
+      "crawledAt": "2026-05-17T11:17:09.040Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -41,13 +40,11 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/47",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-13T12:06:27.913Z",
-      "_qualityScore": 79,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -63,7 +60,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1072",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:05.495Z",
+      "crawledAt": "2026-05-17T11:17:09.633Z",
       "addressLocality": "Hong Kong, Hong Kong",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -78,13 +75,11 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1072",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-13T12:06:28.526Z",
-      "_qualityScore": 78,
+      "_qualityScore": 63,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 4,
         "completeness": 14
       }
     },
@@ -100,7 +95,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1076",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:06.024Z",
+      "crawledAt": "2026-05-17T11:17:10.175Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -115,13 +110,11 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1076",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-13T23:14:39.746Z",
-      "_qualityScore": 79,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -137,7 +130,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/910",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:06.497Z",
+      "crawledAt": "2026-05-17T11:17:10.713Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -152,13 +145,11 @@
       "featured": false,
       "postedDate": "2026-05-12",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/910",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-12T23:10:10.702Z",
-      "_qualityScore": 81,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -174,7 +165,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1011",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:06.982Z",
+      "crawledAt": "2026-05-17T11:17:11.255Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -189,13 +180,11 @@
       "featured": false,
       "postedDate": "2026-05-08",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1011",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:34.553Z",
-      "_qualityScore": 78,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -211,7 +200,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1060",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:07.465Z",
+      "crawledAt": "2026-05-17T11:17:11.792Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -226,13 +215,11 @@
       "featured": false,
       "postedDate": "2026-05-08",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1060",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:35.181Z",
-      "_qualityScore": 79,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -248,7 +235,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1061",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:07.944Z",
+      "crawledAt": "2026-05-17T11:17:12.335Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -263,13 +250,11 @@
       "featured": false,
       "postedDate": "2026-05-08",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1061",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:35.748Z",
-      "_qualityScore": 81,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -285,7 +270,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/603",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:08.439Z",
+      "crawledAt": "2026-05-17T11:17:12.874Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -300,13 +285,11 @@
       "featured": false,
       "postedDate": "2026-05-06",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/603",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:36.294Z",
-      "_qualityScore": 81,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -322,7 +305,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1050",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:08.965Z",
+      "crawledAt": "2026-05-17T11:17:13.423Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -337,13 +320,11 @@
       "featured": false,
       "postedDate": "2026-05-06",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1050",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:36.871Z",
-      "_qualityScore": 79,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -359,7 +340,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1015",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:09.438Z",
+      "crawledAt": "2026-05-17T11:17:13.964Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -374,13 +355,11 @@
       "featured": false,
       "postedDate": "2026-05-05",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1015",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:37.414Z",
-      "_qualityScore": 81,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -396,7 +375,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/572",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:09.918Z",
+      "crawledAt": "2026-05-17T11:17:14.500Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -411,13 +390,11 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/572",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:37.968Z",
-      "_qualityScore": 81,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -433,7 +410,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/991",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:10.385Z",
+      "crawledAt": "2026-05-17T11:17:15.043Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -448,13 +425,11 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/991",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:38.503Z",
-      "_qualityScore": 83,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -470,7 +445,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1028",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:10.854Z",
+      "crawledAt": "2026-05-17T11:17:15.584Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -485,13 +460,11 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1028",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:39.052Z",
-      "_qualityScore": 79,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -507,7 +480,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1027",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:11.332Z",
+      "crawledAt": "2026-05-17T11:17:16.114Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -522,13 +495,11 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1027",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:39.590Z",
-      "_qualityScore": 79,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -544,7 +515,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/946",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:11.809Z",
+      "crawledAt": "2026-05-17T11:17:16.651Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -559,13 +530,11 @@
       "featured": false,
       "postedDate": "2026-05-01",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/946",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:40.136Z",
-      "_qualityScore": 81,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -581,7 +550,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/948",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:12.278Z",
+      "crawledAt": "2026-05-17T11:17:17.192Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -596,13 +565,11 @@
       "featured": false,
       "postedDate": "2026-04-29",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/948",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:40.679Z",
-      "_qualityScore": 81,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -618,7 +585,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/982",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:12.770Z",
+      "crawledAt": "2026-05-17T11:17:17.733Z",
       "addressLocality": "Hong Kong, Hong Kong",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -633,13 +600,11 @@
       "featured": false,
       "postedDate": "2026-04-27",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/982",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:41.781Z",
-      "_qualityScore": 78,
+      "_qualityScore": 63,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 4,
         "completeness": 14
       }
     },
@@ -655,7 +620,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/986",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:13.243Z",
+      "crawledAt": "2026-05-17T11:17:18.265Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -670,13 +635,11 @@
       "featured": false,
       "postedDate": "2026-04-27",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/986",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:42.322Z",
-      "_qualityScore": 79,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -692,7 +655,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/974",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:13.711Z",
+      "crawledAt": "2026-05-17T11:17:18.811Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -707,13 +670,11 @@
       "featured": false,
       "postedDate": "2026-04-24",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/974",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:42.867Z",
-      "_qualityScore": 81,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -729,7 +690,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/826",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:14.184Z",
+      "crawledAt": "2026-05-17T11:17:19.347Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -744,13 +705,11 @@
       "featured": false,
       "postedDate": "2026-04-23",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/826",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:43.405Z",
-      "_qualityScore": 83,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -766,7 +725,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/916",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:14.656Z",
+      "crawledAt": "2026-05-17T11:17:19.883Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -781,13 +740,11 @@
       "featured": false,
       "postedDate": "2026-04-20",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/916",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:43.952Z",
-      "_qualityScore": 83,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -803,7 +760,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/886",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:15.129Z",
+      "crawledAt": "2026-05-17T11:17:20.416Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -818,13 +775,11 @@
       "featured": false,
       "postedDate": "2026-04-17",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/886",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:44.509Z",
-      "_qualityScore": 83,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -840,7 +795,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/840",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:15.608Z",
+      "crawledAt": "2026-05-17T11:17:20.953Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -855,13 +810,11 @@
       "featured": false,
       "postedDate": "2026-04-14",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/840",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:45.060Z",
-      "_qualityScore": 79,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -877,7 +830,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/867",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:16.085Z",
+      "crawledAt": "2026-05-17T11:17:21.491Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -892,13 +845,11 @@
       "featured": false,
       "postedDate": "2026-04-14",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/867",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:45.611Z",
-      "_qualityScore": 78,
+      "_qualityScore": 63,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 4,
         "completeness": 14
       }
     },
@@ -914,7 +865,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/849",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:16.559Z",
+      "crawledAt": "2026-05-17T11:17:22.024Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -929,13 +880,11 @@
       "featured": false,
       "postedDate": "2026-04-09",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/849",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:46.157Z",
-      "_qualityScore": 81,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -951,7 +900,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/865",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:17.027Z",
+      "crawledAt": "2026-05-17T11:17:22.567Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -966,13 +915,11 @@
       "featured": false,
       "postedDate": "2026-04-08",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/865",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:46.698Z",
-      "_qualityScore": 81,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -988,7 +935,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/831",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:17.495Z",
+      "crawledAt": "2026-05-17T11:17:23.100Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1003,13 +950,11 @@
       "featured": false,
       "postedDate": "2026-04-07",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/831",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:47.785Z",
-      "_qualityScore": 81,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -1025,7 +970,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/821",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:17.971Z",
+      "crawledAt": "2026-05-17T11:17:23.648Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1040,13 +985,11 @@
       "featured": false,
       "postedDate": "2026-04-02",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/821",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:48.327Z",
-      "_qualityScore": 79,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -1062,7 +1005,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/823",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:18.449Z",
+      "crawledAt": "2026-05-17T11:17:24.182Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1077,13 +1020,11 @@
       "featured": false,
       "postedDate": "2026-04-02",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/823",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:48.873Z",
-      "_qualityScore": 81,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     },
@@ -1099,7 +1040,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/713",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T22:38:18.925Z",
+      "crawledAt": "2026-05-17T11:17:24.718Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1114,17 +1055,16 @@
       "featured": false,
       "postedDate": "2026-03-31",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/713",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T11:02:49.415Z",
-      "_qualityScore": 79,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 4,
         "completeness": 17
       }
     }
   ],
+  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
