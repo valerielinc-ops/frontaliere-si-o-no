@@ -1,6 +1,6 @@
 {
   "crawlerKey": "amministrazione-cantonale-ti",
-  "assembledAt": "2026-05-17T11:14:14.640Z",
+  "assembledAt": "2026-05-17T22:38:54.132Z",
   "jobs": [
     {
       "id": "company-213ibh",
@@ -633,7 +633,8 @@
       "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213icl",
@@ -713,7 +714,8 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213ick",
@@ -1362,7 +1364,8 @@
           "concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-iii-consulenti-telef-213zbv"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:48:48.088Z"
+      "firstSeenAt": "2026-03-31T21:48:48.088Z",
+      "needsRetranslation": true
     }
   ]
 }
