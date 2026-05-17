@@ -186,9 +186,9 @@
         "de": "Zusteller:in Pakete",
         "fr": "Fournisseur/en paquets"
       },
-      "slug": "zusteller-in-pakete-post",
+      "slug": "fornitore-in-pacchetti-die-schweizerische-post-untervaz",
       "slugByLocale": {
-        "it": "zusteller-in-pakete-post",
+        "it": "fornitore-in-pacchetti-die-schweizerische-post-untervaz",
         "en": "supplier-in-packages-die-schweizerische-post-untervaz",
         "de": "zusteller-in-pakete-die-schweizerische-post-untervaz",
         "fr": "fournisseur-en-paquets-die-schweizerische-post-untervaz"
@@ -227,7 +227,15 @@
       "addressLocality": "Untervaz",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-13T11:42:33.116Z"
+      "firstSeenAt": "2026-05-13T11:42:33.116Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/73273-de_DE",
@@ -569,9 +577,9 @@
         "de": "PostAuto-Fahrer:in",
         "fr": "Conducteur d ' une voiture"
       },
-      "slug": "postauto-fahrer-in-post-2",
+      "slug": "driver-per-il-carrello-postauto-davos-platz",
       "slugByLocale": {
-        "it": "postauto-fahrer-in-post-2",
+        "it": "driver-per-il-carrello-postauto-davos-platz",
         "en": "postcar-driver-in-postauto-davos-platz",
         "de": "postauto-fahrer-in-postauto-davos-platz",
         "fr": "conducteur-d-une-voiture-postauto-davos-platz"
@@ -617,10 +625,14 @@
         ],
         "fr": [
           "postauto-fahrer-in-post"
+        ],
+        "it": [
+          "postauto-fahrer-in-post-2"
         ]
       },
       "previousSlugs": [
-        "postauto-fahrer-in-post"
+        "postauto-fahrer-in-post",
+        "postauto-fahrer-in-post-2"
       ]
     },
     {
@@ -728,9 +740,9 @@
       "slug": "pianificatore-pianificatrice-d-offerta-sud-autopostale-bellinzona",
       "slugByLocale": {
         "it": "pianificatore-pianificatrice-d-offerta-sud-autopostale-bellinzona",
-        "en": "pianificatore-pianificatrice-d-offerta-sud-post",
-        "de": "pianificatore-pianificatrice-d-offerta-sud-post",
-        "fr": "pianificatore-pianificatrice-d-offerta-sud-post"
+        "en": "planner-south-supply-planner-autopostale-bellinzona",
+        "de": "planner-sud-lieferplaner-autopostale-bellinzona",
+        "fr": "planificateur-planificateur-d-approvisionnement-sud-autopostale-bellinzona"
       },
       "sourceLang": "it",
       "department": "",
@@ -766,7 +778,21 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-16T10:49:06.746Z"
+      "firstSeenAt": "2026-05-16T10:49:06.746Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "pianificatore-pianificatrice-d-offerta-sud-post"
+        ],
+        "de": [
+          "pianificatore-pianificatrice-d-offerta-sud-post"
+        ],
+        "fr": [
+          "pianificatore-pianificatrice-d-offerta-sud-post"
+        ]
+      },
+      "previousSlugs": [
+        "pianificatore-pianificatrice-d-offerta-sud-post"
+      ]
     }
   ]
 }
