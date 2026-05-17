@@ -906,7 +906,6 @@
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
-        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
@@ -2131,8 +2130,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
+        "en": "dipl-care-specialist-hf-fh-universitatsspital-basel-basel",
+        "fr": "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2189,13 +2188,20 @@
       },
       "firstSeenAt": "2026-05-17T11:17:53.470Z",
       "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-4f1zbs",
-        "dipl-care-specialist-hf-fh-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-2ficdk",
-        "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel",
         "dipl-specialista-di-cura-hf-fh-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
+        ]
+      }
     },
     {
       "id": "unispital-basel-e287fdb78612",
@@ -6672,7 +6678,7 @@
       "id": "unispital-basel-e94993893b1b",
       "slug": "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel",
+        "it": "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
         "en": "dipl-care-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-universitatsspital-basel-basel",
         "fr": "dipl-specialiste-des-soins-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel"
@@ -6722,7 +6728,8 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
         ],
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel"
         ],
         "en": [
           "dipl-care-specialist-hf-fh-medical-6-2-universitatsspital-basel-basel",
@@ -6736,13 +6743,10 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-unispital-basel-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel",
         "dipl-care-specialist-hf-fh-medical-6-2-universitatsspital-basel-basel",
         "dipl-specialiste-des-soins-hf-fh-medical-6-2-universitatsspital-basel-basel",
-        "dipl-specialista-di-cura-hf-fh-medico-6-2-universitatsspital-basel-basel",
-        "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
-        "dipl-care-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-universitatsspital-basel-basel",
-        "dipl-specialiste-des-soins-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel"
+        "dipl-specialista-di-cura-hf-fh-medico-6-2-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-12T12:15:55.438Z",
       "salaryMin": 49500,

@@ -205,9 +205,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "verkaufer-in-food-coop-city-chur-graubunden-e66ikm",
-        "en": "verkaufer-in-food-coop-city-chur-graubunden-e66ikm",
+        "en": "seller-in-food-coop-genossenschaft-chur-ddc182",
         "de": "verkaufer-in-food-coop-city-chur-graubunden-e66ikm",
-        "fr": "verkaufer-in-food-coop-city-chur-graubunden-e66ikm"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-chur-ddc182"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -243,7 +243,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "en": [
+          "verkaufer-in-food-coop-city-chur-graubunden-e66ikm"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-city-chur-graubunden-e66ikm"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-city-chur-graubunden-e66ikm"
+      ]
     },
     {
       "id": "company-y5hli0",
@@ -272,9 +283,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "formazione-complementare-come-detailhandelsfachfrau-mann-cfc-jumbo-grigioni-y5hli0",
-        "en": "additional-apprenticeship-als-detailhandelsfachfrau-mann-efz-jumbo-grigioni-y5hli0",
+        "en": "additional-teaching-as-a-retailer-mann-efz-jumbo-dietlikon",
         "de": "zusatzlehre-als-detailhandelsfachfrau-mann-efz-jumbo-grigioni-y5hli0",
-        "fr": "formation-complementaire-als-detailhandelsfachfrau-mann-efz-jumbo-grigioni-y5hli0"
+        "fr": "enseignement-complementaire-en-tant-que-detaillant-mann-efz-jumbo-dietlikon"
       },
       "titleByLocale": {
         "de": "Zusatzlehre als Detailhandelsfachfrau:mann EFZ",
@@ -303,7 +314,19 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "en": [
+          "additional-apprenticeship-als-detailhandelsfachfrau-mann-efz-jumbo-grigioni-y5hli0"
+        ],
+        "fr": [
+          "formation-complementaire-als-detailhandelsfachfrau-mann-efz-jumbo-grigioni-y5hli0"
+        ]
+      },
+      "previousSlugs": [
+        "additional-apprenticeship-als-detailhandelsfachfrau-mann-efz-jumbo-grigioni-y5hli0",
+        "formation-complementaire-als-detailhandelsfachfrau-mann-efz-jumbo-grigioni-y5hli0"
+      ]
     },
     {
       "id": "company-metayj",
@@ -419,9 +442,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl",
-        "en": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl",
-        "de": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl",
-        "fr": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl"
+        "en": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-2237c8",
+        "de": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf",
+        "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-2237c8"
       },
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -479,9 +502,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-9yar0z",
-        "en": "quereinstieg-associate-fleisch-und-fisch-coop-grigioni-9yar0z",
+        "en": "cross-entry-staff-in-meat-and-fish-coop-genossenschaft-muttenz-33ad2e",
         "de": "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-grigioni-9yar0z",
-        "fr": "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-9yar0z"
+        "fr": "entree-croisee-personnel-dans-la-viande-et-le-poisson-coop-genossenschaft-muttenz-33ad2e"
       },
       "titleByLocale": {
         "de": "Quereinstieg - Mitarbeiter:in Fleisch und Fisch",
@@ -517,7 +540,19 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "en": [
+          "quereinstieg-associate-fleisch-und-fisch-coop-grigioni-9yar0z"
+        ],
+        "fr": [
+          "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-9yar0z"
+        ]
+      },
+      "previousSlugs": [
+        "quereinstieg-associate-fleisch-und-fisch-coop-grigioni-9yar0z",
+        "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-9yar0z"
+      ]
     },
     {
       "id": "company-dmiw8r",
@@ -669,9 +704,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-z0zxuf",
-        "en": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-z0zxuf",
-        "de": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-z0zxuf",
-        "fr": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-z0zxuf"
+        "en": "standardized-gastronomy-standardized-gastronomy-add-on-marche-dietlikon-5665bf",
+        "de": "standardisierte-gastronomie-standardisierte-gastronomie-marche-dietlikon-5665bf",
+        "fr": "gastronomie-normalisee-complement-gastronomique-normalise-marche-dietlikon-5665bf"
       },
       "titleByLocale": {
         "it": "Impiegata/o di gastronomia standardizzata / Addettao digastronomia standardizzata",
@@ -735,7 +770,7 @@
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-j301yl",
         "en": "employee-a-interdiscount-jegensdorf-j301yl",
-        "de": "angestellter-a-interdiscount-jegensdorf-j301yl",
+        "de": "mitarbeiter-a-interdiscount-jegensdorf-fe71db",
         "fr": "employe-a-interdiscount-jegensdorf-j301yl"
       },
       "titleByLocale": {
@@ -763,7 +798,15 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "angestellter-a-interdiscount-jegensdorf-j301yl"
+        ]
+      },
+      "previousSlugs": [
+        "angestellter-a-interdiscount-jegensdorf-j301yl"
+      ]
     },
     {
       "id": "company-4fn4u",
@@ -793,7 +836,7 @@
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-04fn4u",
         "en": "employee-a-interdiscount-jegensdorf-04fn4u",
-        "de": "angestellter-a-interdiscount-jegensdorf-04fn4u",
+        "de": "mitarbeiter-a-interdiscount-jegensdorf-b65e6b",
         "fr": "employe-a-interdiscount-jegensdorf-04fn4u"
       },
       "titleByLocale": {
@@ -821,7 +864,15 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "angestellter-a-interdiscount-jegensdorf-04fn4u"
+        ]
+      },
+      "previousSlugs": [
+        "angestellter-a-interdiscount-jegensdorf-04fn4u"
+      ]
     },
     {
       "id": "company-3og455",
@@ -850,9 +901,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-3og455",
-        "en": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-3og455",
-        "de": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-3og455",
-        "fr": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-3og455"
+        "en": "cfp-standardized-gastronomy-cuff-marche-dietlikon-a7c4ca",
+        "de": "cfp-standardisierte-gastronomiemanschette-marche-dietlikon-a7c4ca",
+        "fr": "manchette-gastronomique-normalisee-cfp-marche-dietlikon-a7c4ca"
       },
       "titleByLocale": {
         "it": "Addetta/o di gastronomia standardizzata CFP",
@@ -908,9 +959,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
-        "en": "impiegata-employee-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
-        "de": "impiegata-angestellter-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
-        "fr": "impiegata-employe-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr"
+        "en": "afc-standardized-gastronomy-use-marche-dietlikon-ab85d3",
+        "de": "afc-standardisierte-gastronomie-marche-dietlikon-ab85d3",
+        "fr": "afc-utilisation-normalisee-de-la-gastronomie-marche-dietlikon-ab85d3"
       },
       "titleByLocale": {
         "it": "Impiegata / Impiegato di gastronomia standardizzata AFC",
@@ -937,7 +988,23 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "impiegata-employee-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr"
+        ],
+        "de": [
+          "impiegata-angestellter-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr"
+        ],
+        "fr": [
+          "impiegata-employe-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr"
+        ]
+      },
+      "previousSlugs": [
+        "impiegata-employee-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
+        "impiegata-angestellter-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
+        "impiegata-employe-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr"
+      ]
     },
     {
       "id": "company-mijshv",
@@ -967,7 +1034,7 @@
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-mijshv",
         "en": "employee-a-interdiscount-jegensdorf-mijshv",
-        "de": "angestellter-a-interdiscount-jegensdorf-mijshv",
+        "de": "mitarbeiter-a-interdiscount-jegensdorf-0c1666",
         "fr": "employe-a-interdiscount-jegensdorf-mijshv"
       },
       "titleByLocale": {
@@ -995,7 +1062,15 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "angestellter-a-interdiscount-jegensdorf-mijshv"
+        ]
+      },
+      "previousSlugs": [
+        "angestellter-a-interdiscount-jegensdorf-mijshv"
+      ]
     },
     {
       "id": "company-wtgucu",
@@ -1025,7 +1100,7 @@
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-wtgucu",
         "en": "employee-a-interdiscount-jegensdorf-wtgucu",
-        "de": "angestellter-a-interdiscount-jegensdorf-wtgucu",
+        "de": "mitarbeiter-a-interdiscount-jegensdorf-73f87f",
         "fr": "employe-a-interdiscount-jegensdorf-wtgucu"
       },
       "titleByLocale": {
@@ -1053,7 +1128,15 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "angestellter-a-interdiscount-jegensdorf-wtgucu"
+        ]
+      },
+      "previousSlugs": [
+        "angestellter-a-interdiscount-jegensdorf-wtgucu"
+      ]
     },
     {
       "id": "company-yuay7y",
@@ -1083,7 +1166,7 @@
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-yuay7y",
         "en": "employee-a-interdiscount-jegensdorf-yuay7y",
-        "de": "angestellter-a-interdiscount-jegensdorf-yuay7y",
+        "de": "mitarbeiter-a-interdiscount-jegensdorf-eea1db",
         "fr": "employe-a-interdiscount-jegensdorf-yuay7y"
       },
       "titleByLocale": {
@@ -1111,7 +1194,15 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "angestellter-a-interdiscount-jegensdorf-yuay7y"
+        ]
+      },
+      "previousSlugs": [
+        "angestellter-a-interdiscount-jegensdorf-yuay7y"
+      ]
     },
     {
       "id": "company-fio33i",
@@ -1141,7 +1232,7 @@
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-fio33i",
         "en": "employee-a-interdiscount-jegensdorf-fio33i",
-        "de": "angestellter-a-interdiscount-jegensdorf-fio33i",
+        "de": "mitarbeiter-a-interdiscount-jegensdorf-6bc27a",
         "fr": "employe-a-interdiscount-jegensdorf-fio33i"
       },
       "titleByLocale": {
@@ -1169,7 +1260,15 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "angestellter-a-interdiscount-jegensdorf-fio33i"
+        ]
+      },
+      "previousSlugs": [
+        "angestellter-a-interdiscount-jegensdorf-fio33i"
+      ]
     },
     {
       "id": "company-tnet2b",
@@ -1638,9 +1737,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-91gltk",
-        "en": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-91gltk",
-        "de": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-91gltk",
-        "fr": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-91gltk"
+        "en": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-7ac0fb",
+        "de": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-7ac0fb",
+        "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-7ac0fb"
       },
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -1924,9 +2023,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-nj9ppx",
-        "en": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-nj9ppx",
-        "de": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-nj9ppx",
-        "fr": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-nj9ppx"
+        "en": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-67707d",
+        "de": "retail-trade-specialist-afc-creation-of-buying-experiences-interdiscount-jegensdorf-67707d",
+        "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf-67707d"
       },
       "titleByLocale": {
         "it": "Specialista del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
@@ -3520,9 +3619,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-interdiscount-grigioni-h9i811",
-        "en": "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
+        "en": "retailer-man-interdiscount-jegensdorf-fa9eec",
         "de": "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
-        "fr": "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811"
+        "fr": "detaillant-homme-interdiscount-jegensdorf-fa9eec"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann",
@@ -3551,7 +3650,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "en": [
+          "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811"
+      ]
     },
     {
       "id": "company-fgt457",
@@ -4239,9 +4349,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-interdiscount-grigioni",
-        "en": "retail-sales-specialist-efz-shaping-shopping-experiences-interdiscount-grigioni",
+        "en": "retailer-mann-efz-creating-shopping-experiences-interdiscount-jegensdorf",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-2kwafk",
-        "fr": "specialiste-de-vente-au-detail-efz-creer-des-experiences-d-achat-interdiscount-grigioni"
+        "fr": "detaillant-mann-efz-creer-des-experiences-d-achat-interdiscount-jegensdorf"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
@@ -4270,7 +4380,19 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "en": [
+          "retail-sales-specialist-efz-shaping-shopping-experiences-interdiscount-grigioni"
+        ],
+        "fr": [
+          "specialiste-de-vente-au-detail-efz-creer-des-experiences-d-achat-interdiscount-grigioni"
+        ]
+      },
+      "previousSlugs": [
+        "retail-sales-specialist-efz-shaping-shopping-experiences-interdiscount-grigioni",
+        "specialiste-de-vente-au-detail-efz-creer-des-experiences-d-achat-interdiscount-grigioni"
+      ]
     },
     {
       "id": "company-9v6y1x",
@@ -4299,9 +4421,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-9v6y1x",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-9v6y1x",
+        "en": "retailer-mann-efz-creating-shopping-experiences-interdiscount-jegensdorf-2db6ba",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-9v6y1x",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-9v6y1x"
+        "fr": "detaillant-mann-efz-creer-des-experiences-d-achat-interdiscount-jegensdorf-2db6ba"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
@@ -4330,7 +4452,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "en": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-9v6y1x"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-9v6y1x"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-9v6y1x"
+      ]
     },
     {
       "id": "company-fnpbu7",
@@ -4359,9 +4492,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-interdiscount-grigioni-fnpbu7",
-        "en": "detailhandelsfachfrau-mann-interdiscount-jegensdorf-fnpbu7",
+        "en": "retailer-man-interdiscount-jegensdorf-9f1921",
         "de": "detailhandelsfachfrau-mann-interdiscount-jegensdorf-fnpbu7",
-        "fr": "detailhandelsfachfrau-mann-interdiscount-jegensdorf-fnpbu7"
+        "fr": "detaillant-homme-interdiscount-jegensdorf-9f1921"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann",
@@ -4390,7 +4523,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "en": [
+          "detailhandelsfachfrau-mann-interdiscount-jegensdorf-fnpbu7"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-interdiscount-jegensdorf-fnpbu7"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-interdiscount-jegensdorf-fnpbu7"
+      ]
     },
     {
       "id": "company-k1bc5i",
@@ -4581,9 +4725,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-interdiscount-grigioni-96xkec",
-        "en": "detailhandelsfachfrau-mann-interdiscount-jegensdorf-96xkec",
+        "en": "retailer-man-interdiscount-jegensdorf-5e5998",
         "de": "detailhandelsfachfrau-mann-interdiscount-jegensdorf-96xkec",
-        "fr": "detailhandelsfachfrau-mann-interdiscount-jegensdorf-96xkec"
+        "fr": "detaillant-homme-interdiscount-jegensdorf-5e5998"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann",
@@ -4612,7 +4756,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "en": [
+          "detailhandelsfachfrau-mann-interdiscount-jegensdorf-96xkec"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-interdiscount-jegensdorf-96xkec"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-interdiscount-jegensdorf-96xkec"
+      ]
     },
     {
       "id": "company-6z6qsu",
@@ -4641,9 +4796,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "venditore-di-dettaglio-interdiscount-grigioni",
-        "en": "retail-salesperson-interdiscount-grigioni",
+        "en": "retailer-man-interdiscount-jegensdorf-0ecf66",
         "de": "detailhandelsfachfrau-mann-interdiscount-grigioni-6z6qsu",
-        "fr": "vendeur-e-en-detail-interdiscount-grigioni"
+        "fr": "detaillant-homme-interdiscount-jegensdorf-0ecf66"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann",
@@ -4672,7 +4827,19 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "en": [
+          "retail-salesperson-interdiscount-grigioni"
+        ],
+        "fr": [
+          "vendeur-e-en-detail-interdiscount-grigioni"
+        ]
+      },
+      "previousSlugs": [
+        "retail-salesperson-interdiscount-grigioni",
+        "vendeur-e-en-detail-interdiscount-grigioni"
+      ]
     },
     {
       "id": "company-6kplqg",
@@ -4701,9 +4868,9 @@
       "firstSeenAt": "2026-05-17T10:03:17.418Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-jumbo-grigioni-6kplqg",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-grigioni-6kplqg",
+        "en": "retailer-mann-efz-creating-shopping-experiences-jumbo-dietlikon-528788",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-grigioni-6kplqg",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-grigioni-6kplqg"
+        "fr": "detaillant-mann-efz-creer-des-experiences-d-achat-jumbo-dietlikon-528788"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
@@ -4732,7 +4899,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "en": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-grigioni-6kplqg"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-grigioni-6kplqg"
+        ]
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-grigioni-6kplqg"
+      ]
     },
     {
       "id": "company-1ceqqh",
@@ -8176,8 +8354,7 @@
         "collaborateur-trice-inventuren-coop-grigioni-4whh8x",
         "personnel-en-inventaire-coop-genossenschaft-basel",
         "mitarbeiter-in-inventuren-coop-grigioni-4whh8x",
-        "associate-inventuren-coop-genossenschaft-basel-arot84",
-        "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden"
+        "associate-inventuren-coop-genossenschaft-basel-arot84"
       ]
     },
     {

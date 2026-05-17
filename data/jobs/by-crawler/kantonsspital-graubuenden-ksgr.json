@@ -5682,7 +5682,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-05-17T10:33:43.517Z",
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur",
         "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur-2"
       ]
     },
@@ -6172,7 +6171,7 @@
       "slugByLocale": {
         "de": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
         "it": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
-        "en": "apprenticeship-as-a-chef-kantonsspital-graubunden-chur",
+        "en": "professional-cook-cook-kantonsspital-graubunden-chur",
         "fr": "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
@@ -6204,10 +6203,15 @@
       "currency": "CHF",
       "firstSeenAt": "2026-05-17T10:33:43.517Z",
       "previousSlugs": [
-        "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
+        "apprenticeship-as-a-chef-kantonsspital-graubunden-chur",
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
         "diet-chef-kantonsspital-graubunden-chur"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "apprenticeship-as-a-chef-kantonsspital-graubunden-chur"
+        ]
+      }
     },
     {
       "id": "9551637",

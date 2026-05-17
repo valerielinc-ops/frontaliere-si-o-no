@@ -3131,12 +3131,12 @@
     },
     {
       "id": "spital-thurgau-a7017a609abc",
-      "slug": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+      "slug": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-        "it": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+        "it": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
         "en": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-        "fr": "dipl-pflegefachmann-frau-forensik-stgag-ch"
+        "fr": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -3193,7 +3193,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-17T11:05:42.133Z"
+      "firstSeenAt": "2026-05-17T11:05:42.133Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen"
+        ],
+        "fr": [
+          "dipl-pflegefachmann-frau-forensik-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-forensik-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-18953bc68b20",
@@ -3559,12 +3571,12 @@
     },
     {
       "id": "spital-thurgau-5f2dd49d3c72",
-      "slug": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+      "slug": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
       "slugByLocale": {
         "de": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
-        "it": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
-        "en": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch",
-        "fr": "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch"
+        "it": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-886767",
+        "en": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+        "fr": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -3621,7 +3633,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-17T11:05:42.133Z"
+      "firstSeenAt": "2026-05-17T11:05:42.133Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen"
+        ],
+        "en": [
+          "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch"
+        ],
+        "fr": [
+          "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+        "ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-stgag-ch"
+      ]
     },
     {
       "id": "spital-thurgau-ee1e565ecb90",
@@ -4747,12 +4774,12 @@
     },
     {
       "id": "spital-thurgau-422f0cc4c8e3",
-      "slug": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+      "slug": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-        "it": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+        "it": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
         "en": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-        "fr": "dipl-pflegefachmann-frau-forensik-stgag-ch"
+        "fr": "dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -4799,11 +4826,17 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2"
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
+        ],
+        "fr": [
+          "dipl-pflegefachmann-frau-forensik-stgag-ch"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2"
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+        "dipl-pflegefachmann-frau-forensik-stgag-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

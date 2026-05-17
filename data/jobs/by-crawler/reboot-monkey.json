@@ -2326,7 +2326,7 @@
         "en": "data-center-technician-switzerland-gland-on-site-reboot-monkey-gland",
         "it": "data-center-technician-switzerland-gland-on-site-reboot-monkey-gland-2",
         "de": "data-center-technician-switzerland-gland-on-site-reboot-monkey-gland-2",
-        "fr": "data-center-technician-switzerland-gland-on-site-reboot-monkey-gland-2"
+        "fr": "technicien-en-centre-de-donnees-suisse-gland-sur-place-reboot-monkey-gland"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -2537,7 +2537,7 @@
         "en": "data-center-technician-switzerland-hunenberg-on-site-reboot-monkey-hunenberg",
         "it": "data-center-technician-switzerland-hunenberg-on-site-reboot-monkey-hunenberg",
         "de": "data-center-technician-switzerland-hunenberg-on-site-reboot-monkey-hunenberg",
-        "fr": "data-center-technician-switzerland-hunenberg-on-site-reboot-monkey-hunenberg"
+        "fr": "technicien-en-centre-de-donnees-suisse-hunenberg-sur-place-reboot-monkey-hunenberg"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -2619,10 +2619,10 @@
       },
       "firstSeenAt": "2026-05-17T10:55:52.890Z",
       "previousSlugs": [
-        "data-center-technician-switzerland-hunenberg-on-site-reboot-monkey-hunenberg-2",
         "tecnico-data-center-svizzera-hunenberg-on-site-reboot-monkey-hunenberg",
         "data-center-techniker-schweiz-hunenberg-on-site-reboot-monkey-hunenberg",
-        "technicien-data-center-suisse-hunenberg-on-site-reboot-monkey-hunenberg"
+        "technicien-data-center-suisse-hunenberg-on-site-reboot-monkey-hunenberg",
+        "data-center-technician-switzerland-hunenberg-on-site-reboot-monkey-hunenberg-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2746,7 +2746,7 @@
         "en": "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de",
         "it": "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon",
         "de": "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon",
-        "fr": "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon"
+        "fr": "technicien-en-centre-de-donnees-suisse-la-chaux-de-fonds-sur-place-reboot-monkey-la-chaux-de-fonds"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -2829,10 +2829,6 @@
       "postalCode": "2300",
       "firstSeenAt": "2026-05-17T10:55:52.887Z",
       "previousSlugsByLocale": {
-        "en": [
-          "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de",
-          "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon"
-        ],
         "it": [
           "tecnico-data-center-svizzera-la-chaux-de-fonds-presenza-in-sede-reboot-monkey-la-chaux-de-fonds"
         ],
@@ -2844,16 +2840,14 @@
         ]
       },
       "previousSlugs": [
-        "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de",
+        "tecnico-data-center-svizzera-la-chaux-de-fonds-presenza-in-sede-reboot-monkey-la-chaux-de-fonds",
+        "data-center-techniker-schweiz-la-chaux-de-fonds-vor-ort-reboot-monkey-la-chaux-de-fonds",
+        "technicien-data-center-suisse-la-chaux-de-fonds-sur-site-reboot-monkey-la-chaux-de-fonds",
         "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon-2",
         "tecnico-data-center-svizzera-la-chaux-de-fonds-presenza-in-sede-reboot-monkey-la-ch-q791z8",
         "technicien-data-center-suisse-la-chaux-de-fonds-presentiel-reboot-monkey-la-chaux-de-fonds",
         "technicien-de-centre-de-donnees-suisse-la-chaux-de-fonds-sur-place-reboot-monkey-la-chaux-de-fonds",
-        "tecnico-del-data-center-svizzera-la-chaux-de-fonds-sito-reboot-monkey-la-chaux-de-fonds",
-        "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon",
-        "tecnico-data-center-svizzera-la-chaux-de-fonds-presenza-in-sede-reboot-monkey-la-chaux-de-fonds",
-        "data-center-techniker-schweiz-la-chaux-de-fonds-vor-ort-reboot-monkey-la-chaux-de-fonds",
-        "technicien-data-center-suisse-la-chaux-de-fonds-sur-site-reboot-monkey-la-chaux-de-fonds"
+        "tecnico-del-data-center-svizzera-la-chaux-de-fonds-sito-reboot-monkey-la-chaux-de-fonds"
       ]
     },
     {
@@ -2966,7 +2960,7 @@
         "en": "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne",
         "it": "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne",
         "de": "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne",
-        "fr": "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne"
+        "fr": "technicien-en-informatique-suisse-lausanne-sur-place-reboot-monkey-lausanne"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -3049,14 +3043,14 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-05-17T10:55:52.884Z",
       "previousSlugs": [
+        "tecnico-data-center-svizzera-losanna-presenza-in-sede-reboot-monkey-lausanne",
+        "data-center-techniker-schweiz-lausanne-vor-ort-reboot-monkey-lausanne",
+        "technicien-data-center-suisse-lausanne-presentiel-reboot-monkey-lausanne",
         "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne-2",
         "tecnico-data-center-svizzera-losanna-presenza-in-sede-reboot-monkey-lausanne-8b5dmv",
         "datenzentrumstechniker-schweiz-lausanne-vor-ort-reboot-monkey-lausanne",
         "tecnico-di-data-center-svizzera-losanna-sito-reboot-monkey-lausanne",
-        "tecnico-del-centro-dati-svizzera-losanna-sito-reboot-monkey-lausanne",
-        "tecnico-data-center-svizzera-losanna-presenza-in-sede-reboot-monkey-lausanne",
-        "data-center-techniker-schweiz-lausanne-vor-ort-reboot-monkey-lausanne",
-        "technicien-data-center-suisse-lausanne-presentiel-reboot-monkey-lausanne"
+        "tecnico-del-centro-dati-svizzera-losanna-sito-reboot-monkey-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3626,7 +3620,7 @@
         "en": "data-center-technician-switzerland-luzern-on-site-reboot-monkey-luzern",
         "it": "data-center-technician-switzerland-luzern-on-site-reboot-monkey-luzern",
         "de": "data-center-technician-switzerland-luzern-on-site-reboot-monkey-luzern",
-        "fr": "data-center-technician-switzerland-luzern-on-site-reboot-monkey-luzern"
+        "fr": "technicien-en-centre-de-donnees-suisse-luzern-sur-place-reboot-monkey-luzern"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -3709,10 +3703,10 @@
       "postalCode": "6003",
       "firstSeenAt": "2026-05-17T10:55:52.874Z",
       "previousSlugs": [
-        "data-center-technician-switzerland-luzern-on-site-reboot-monkey-luzern-2",
         "data-center-technician-svizzera-luzern-on-site-reboot-monkey-luzern",
         "rechenzentrumstechniker-schweiz-luzern-vor-ort-reboot-monkey-luzern",
-        "technicien-de-centre-de-donnees-suisse-lucerne-sur-site-reboot-monkey-luzern"
+        "technicien-de-centre-de-donnees-suisse-lucerne-sur-site-reboot-monkey-luzern",
+        "data-center-technician-switzerland-luzern-on-site-reboot-monkey-luzern-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3829,7 +3823,7 @@
         "en": "data-center-technician-switzerland-manno-on-site-reboot-monkey-manno",
         "it": "data-center-technician-switzerland-manno-on-site-reboot-monkey-manno",
         "de": "data-center-technician-switzerland-manno-on-site-reboot-monkey-manno",
-        "fr": "data-center-technician-switzerland-manno-on-site-reboot-monkey-manno"
+        "fr": "technicien-en-centre-de-donnees-suisse-manno-sur-place-reboot-monkey-manno-665fc2"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -3912,10 +3906,10 @@
       "postalCode": "6928",
       "firstSeenAt": "2026-05-17T10:55:52.872Z",
       "previousSlugs": [
-        "data-center-technician-switzerland-manno-on-site-reboot-monkey-manno-2",
         "data-center-technician-svizzera-manno-in-loco-reboot-monkey-manno",
         "data-center-technician-schweiz-manno-vor-ort-reboot-monkey-manno",
-        "technicien-en-centre-de-donnees-suisse-manno-sur-place-reboot-monkey-manno"
+        "technicien-en-centre-de-donnees-suisse-manno-sur-place-reboot-monkey-manno",
+        "data-center-technician-switzerland-manno-on-site-reboot-monkey-manno-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4029,7 +4023,7 @@
         "en": "data-center-technician-switzerland-melano-on-site-reboot-monkey-melano",
         "it": "data-center-technician-switzerland-melano-on-site-reboot-monkey-melano",
         "de": "data-center-technician-switzerland-melano-on-site-reboot-monkey-melano",
-        "fr": "data-center-technician-switzerland-melano-on-site-reboot-monkey-melano"
+        "fr": "technicien-en-centre-de-donnees-suisse-melano-sur-place-reboot-monkey-melano"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -4112,10 +4106,10 @@
       "postalCode": "6500",
       "firstSeenAt": "2026-05-17T10:55:52.869Z",
       "previousSlugs": [
-        "data-center-technician-switzerland-melano-on-site-reboot-monkey-melano-2",
         "data-center-technician-svizzera-melano-on-site-reboot-monkey-melano",
         "rechenzentrumstechniker-schweiz-melano-vor-ort-reboot-monkey-melano",
-        "technicien-de-centre-de-donnees-suisse-melano-sur-site-reboot-monkey-melano"
+        "technicien-de-centre-de-donnees-suisse-melano-sur-site-reboot-monkey-melano",
+        "data-center-technician-switzerland-melano-on-site-reboot-monkey-melano-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4238,7 +4232,7 @@
         "en": "data-center-technician-switzerland-munchenstein-on-site-reboot-monkey-munchenstein",
         "it": "data-center-technician-switzerland-munchenstein-on-site-reboot-monkey-munchenstein",
         "de": "data-center-technician-switzerland-munchenstein-on-site-reboot-monkey-munchenstein",
-        "fr": "data-center-technician-switzerland-munchenstein-on-site-reboot-monkey-munchenstein"
+        "fr": "technicien-en-centre-de-donnees-suisse-munchenstein-sur-place-reboot-monkey-munchenstein-176c0e"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -4320,8 +4314,8 @@
       },
       "firstSeenAt": "2026-05-17T10:55:52.866Z",
       "previousSlugs": [
-        "data-center-technician-switzerland-munchenstein-on-site-reboot-monkey-munchenstein-2",
         "data-center-technician-svizzera-munchenstein-in-loco-reboot-monkey-munchenstein",
+        "data-center-technician-switzerland-munchenstein-on-site-reboot-monkey-munchenstein-2",
         "technicien-en-centre-de-donnees-suisse-munchenstein-sur-place-reboot-monkey-munchenstein"
       ],
       "previousSlugsByLocale": {
@@ -4520,7 +4514,7 @@
         "en": "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten",
         "it": "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten-2",
         "de": "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten-2",
-        "fr": "data-center-technician-switzerland-olten-on-site-reboot-monkey-olten-2"
+        "fr": "technicien-en-informatique-suisse-olten-sur-place-reboot-monkey-olten"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -4706,7 +4700,7 @@
         "en": "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
         "it": "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
         "de": "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
-        "fr": "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates"
+        "fr": "technicien-en-centre-de-donnees-suisse-plan-les-ouates-sur-place-reboot-monkey-plan-les-ouates-697dcf"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -4788,11 +4782,11 @@
       },
       "firstSeenAt": "2026-05-17T10:55:52.860Z",
       "previousSlugs": [
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-2",
-        "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
         "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates",
         "data-center-technician-schweiz-plan-les-ouates-vor-ort-reboot-monkey-plan-les-ouates",
-        "technicien-en-centre-de-donnees-suisse-plan-les-ouates-sur-place-reboot-monkey-plan-les-ouates"
+        "technicien-en-centre-de-donnees-suisse-plan-les-ouates-sur-place-reboot-monkey-plan-les-ouates",
+        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-2",
+        "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4878,8 +4872,7 @@
       "remote": false,
       "previousSlugs": [
         "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
-        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-2",
-        "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln"
+        "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4913,7 +4906,7 @@
         "en": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
         "it": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
         "de": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln",
-        "fr": "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln"
+        "fr": "technicien-en-informatique-suisse-pratteln-sur-place-reboot-monkey-pratteln"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -4995,10 +4988,10 @@
       },
       "firstSeenAt": "2026-05-17T10:55:52.858Z",
       "previousSlugs": [
-        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2",
         "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
         "data-center-techniker-switzerland-pratteln-on-site-reboot-monkey-pratteln",
-        "data-center-technicien-switzerland-pratteln-on-site-reboot-monkey-pratteln"
+        "data-center-technicien-switzerland-pratteln-on-site-reboot-monkey-pratteln",
+        "data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5119,7 +5112,7 @@
         "en": "data-center-technician-switzerland-rafz-on-site-reboot-monkey-rafz",
         "it": "data-center-technician-switzerland-rafz-on-site-reboot-monkey-rafz",
         "de": "data-center-technician-switzerland-rafz-on-site-reboot-monkey-rafz",
-        "fr": "data-center-technician-switzerland-rafz-on-site-reboot-monkey-rafz"
+        "fr": "technicien-en-informatique-suisse-rafz-sur-place-reboot-monkey-rafz"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -5202,11 +5195,11 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-05-17T10:55:52.854Z",
       "previousSlugs": [
-        "data-center-technician-switzerland-rafz-on-site-reboot-monkey-rafz-2",
-        "tecnico-del-data-center-svizzera-rafz-sito-reboot-monkey-rafz",
         "tecnico-data-center-svizzera-rafz-in-presenza-reboot-monkey-rafz",
         "data-center-techniker-schweiz-rafz-vor-ort-reboot-monkey-rafz",
-        "technicien-data-center-suisse-rafz-sur-site-reboot-monkey-rafz"
+        "technicien-data-center-suisse-rafz-sur-site-reboot-monkey-rafz",
+        "data-center-technician-switzerland-rafz-on-site-reboot-monkey-rafz-2",
+        "tecnico-del-data-center-svizzera-rafz-sito-reboot-monkey-rafz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5513,7 +5506,7 @@
         "en": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
         "it": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
         "de": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil",
-        "fr": "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil"
+        "fr": "technicien-en-informatique-suisse-ruswil-sur-place-reboot-monkey-ruswil"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -5596,15 +5589,15 @@
       "postalCode": "6003",
       "firstSeenAt": "2026-05-17T10:55:52.845Z",
       "previousSlugs": [
+        "tecnico-data-center-svizzera-ruswil-in-sede-reboot-monkey-ruswil",
+        "data-center-techniker-schweiz-ruswil-vor-ort-reboot-monkey-ruswil",
+        "technicien-data-center-suisse-ruswil-sur-site-reboot-monkey-ruswil",
         "data-center-technician-switzerland-ruswil-on-site-reboot-monkey-ruswil-2",
         "datenzentrumstechniker-schweiz-ruswil-vor-ort-reboot-monkey-ruswil",
         "technicien-de-centre-de-donnees-suisse-ruswil-sur-site-reboot-monkey-ruswil",
         "tecnico-del-data-center-svizzera-ruswil-sito-reboot-monkey-ruswil",
         "technicien-de-centre-de-donnees-suisse-ruswil-sur-place-reboot-monkey-ruswil",
-        "tecnico-del-centro-dati-svizzera-ruswil-sito-reboot-monkey-ruswil",
-        "tecnico-data-center-svizzera-ruswil-in-sede-reboot-monkey-ruswil",
-        "data-center-techniker-schweiz-ruswil-vor-ort-reboot-monkey-ruswil",
-        "technicien-data-center-suisse-ruswil-sur-site-reboot-monkey-ruswil"
+        "tecnico-del-centro-dati-svizzera-ruswil-sito-reboot-monkey-ruswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5727,7 +5720,7 @@
         "en": "data-center-technician-switzerland-schaffhausen-on-site-reboot-monkey-schaffhausen",
         "it": "data-center-technician-switzerland-schaffhausen-on-site-reboot-monkey-schaffhausen-2",
         "de": "data-center-technician-switzerland-schaffhausen-on-site-reboot-monkey-schaffhausen-2",
-        "fr": "data-center-technician-switzerland-schaffhausen-on-site-reboot-monkey-schaffhausen-2"
+        "fr": "technicien-suisse-schaffhausen-sur-place-reboot-monkey-schaffhausen"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -5920,7 +5913,7 @@
         "en": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
         "it": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
         "de": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon",
-        "fr": "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon"
+        "fr": "technicien-en-centre-de-donnees-suisse-schenkon-sur-place-reboot-monkey-schenkon"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -6003,14 +5996,14 @@
       "postalCode": "6003",
       "firstSeenAt": "2026-05-17T10:55:52.839Z",
       "previousSlugs": [
+        "tecnico-di-data-center-svizzera-schenkon-presenza-fisica-reboot-monkey-schenkon",
+        "data-center-techniker-schweiz-schenkon-vor-ort-reboot-monkey-schenkon",
+        "technicien-de-data-center-suisse-schenkon-sur-site-reboot-monkey-schenkon",
         "data-center-technician-switzerland-schenkon-on-site-reboot-monkey-schenkon-2",
         "technicien-de-centre-de-donnees-suisse-schenkon-sur-site-reboot-monkey-schenkon",
         "tecnico-del-data-center-svizzera-schenkon-sito-reboot-monkey-schenkon",
         "technicien-de-centre-de-donnees-suisse-schenkon-sur-place-reboot-monkey-schenkon",
-        "data-center-technicien-switzerland-schenkon-on-site-reboot-monkey-schenkon",
-        "tecnico-di-data-center-svizzera-schenkon-presenza-fisica-reboot-monkey-schenkon",
-        "data-center-techniker-schweiz-schenkon-vor-ort-reboot-monkey-schenkon",
-        "technicien-de-data-center-suisse-schenkon-sur-site-reboot-monkey-schenkon"
+        "data-center-technicien-switzerland-schenkon-on-site-reboot-monkey-schenkon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6124,7 +6117,7 @@
         "en": "data-center-technician-switzerland-schlieren-on-site-reboot-monkey-schlieren",
         "it": "data-center-technician-switzerland-schlieren-on-site-reboot-monkey-schlieren",
         "de": "data-center-technician-switzerland-schlieren-on-site-reboot-monkey-schlieren",
-        "fr": "data-center-technician-switzerland-schlieren-on-site-reboot-monkey-schlieren"
+        "fr": "technicien-en-informatique-suisse-schlieren-sur-place-reboot-monkey-schlieren"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -6207,10 +6200,10 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-05-17T10:55:52.835Z",
       "previousSlugs": [
-        "data-center-technician-switzerland-schlieren-on-site-reboot-monkey-schlieren-2",
         "data-center-technician-svizzera-schlieren-on-site-reboot-monkey-schlieren",
         "rechenzentrumstechniker-schweiz-schlieren-vor-ort-reboot-monkey-schlieren",
-        "technicien-data-center-suisse-schlieren-sur-site-reboot-monkey-schlieren"
+        "technicien-data-center-suisse-schlieren-sur-site-reboot-monkey-schlieren",
+        "data-center-technician-switzerland-schlieren-on-site-reboot-monkey-schlieren-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6408,7 +6401,7 @@
         "en": "data-center-technician-switzerland-rumlang-on-site-reboot-monkey-rumlang",
         "it": "data-center-technician-switzerland-rumlang-on-site-reboot-monkey-rumlang-2",
         "de": "data-center-technician-switzerland-rumlang-on-site-reboot-monkey-rumlang-2",
-        "fr": "data-center-technician-switzerland-rumlang-on-site-reboot-monkey-rumlang-2"
+        "fr": "technicien-en-informatique-suisse-rumlang-sur-place-reboot-monkey-rumlang"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -6496,7 +6489,7 @@
         "en": "data-center-technician-switzerland-lupfig-on-site-reboot-monkey-lupfig",
         "it": "data-center-technician-switzerland-lupfig-on-site-reboot-monkey-lupfig-2",
         "de": "data-center-technician-switzerland-lupfig-on-site-reboot-monkey-lupfig-2",
-        "fr": "data-center-technician-switzerland-lupfig-on-site-reboot-monkey-lupfig-2"
+        "fr": "technicien-en-centre-de-donnees-suisse-lupfig-sur-place-reboot-monkey-lupfig"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -6584,7 +6577,7 @@
         "en": "data-center-technician-switzerland-meyrin-on-site-reboot-monkey-meyrin",
         "it": "data-center-technician-switzerland-meyrin-on-site-reboot-monkey-meyrin-2",
         "de": "data-center-technician-switzerland-meyrin-on-site-reboot-monkey-meyrin-2",
-        "fr": "data-center-technician-switzerland-meyrin-on-site-reboot-monkey-meyrin-2"
+        "fr": "technicien-en-informatique-suisse-meyrin-sur-place-reboot-monkey-meyrin"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -6671,7 +6664,7 @@
         "en": "data-center-technician-switzerland-avenches-on-site-reboot-monkey-avenches",
         "it": "data-center-technician-switzerland-avenches-on-site-reboot-monkey-avenches-2",
         "de": "data-center-technician-switzerland-avenches-on-site-reboot-monkey-avenches-2",
-        "fr": "data-center-technician-switzerland-avenches-on-site-reboot-monkey-avenches-2"
+        "fr": "technicien-en-centre-de-donnees-suisse-avenches-sur-place-reboot-monkey-avenches"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -6758,7 +6751,7 @@
         "en": "data-center-technician-switzerland-baar-on-site-reboot-monkey-baar",
         "it": "data-center-technician-switzerland-baar-on-site-reboot-monkey-baar-2",
         "de": "data-center-technician-switzerland-baar-on-site-reboot-monkey-baar-2",
-        "fr": "data-center-technician-switzerland-baar-on-site-reboot-monkey-baar-2"
+        "fr": "technicien-en-informatique-suisse-baar-sur-place-reboot-monkey-baar"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -7244,7 +7237,7 @@
         "en": "data-center-technician-ch-stabio-on-site-reboot-monkey-stabio",
         "it": "data-center-technician-ch-stabio-on-site-reboot-monkey-stabio",
         "de": "data-center-technician-ch-stabio-on-site-reboot-monkey-stabio",
-        "fr": "data-center-technician-ch-stabio-on-site-reboot-monkey-stabio"
+        "fr": "technicien-en-centre-de-donnees-ch-stabio-sur-place-reboot-monkey-stabio-070fd0"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -7325,10 +7318,10 @@
       "postalCode": "6855",
       "firstSeenAt": "2026-05-17T10:55:52.821Z",
       "previousSlugs": [
-        "data-center-technician-ch-stabio-on-site-reboot-monkey-stabio-2",
         "data-center-technician-ch-stabio-in-loco-reboot-monkey-stabio",
         "data-center-technician-ch-stabio-vor-ort-reboot-monkey-stabio",
-        "technicien-en-centre-de-donnees-ch-stabio-sur-place-reboot-monkey-stabio"
+        "technicien-en-centre-de-donnees-ch-stabio-sur-place-reboot-monkey-stabio",
+        "data-center-technician-ch-stabio-on-site-reboot-monkey-stabio-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7471,7 +7464,7 @@
         "en": "data-center-technician-ch-steinhausen-on-site-reboot-monkey-steinhausen",
         "it": "data-center-technician-ch-steinhausen-on-site-reboot-monkey-steinhausen",
         "de": "data-center-technician-ch-steinhausen-on-site-reboot-monkey-steinhausen",
-        "fr": "data-center-technician-ch-steinhausen-on-site-reboot-monkey-steinhausen"
+        "fr": "technicien-en-centre-de-donnees-ch-steinhausen-sur-place-reboot-monkey-steinhausen"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -7551,10 +7544,10 @@
       },
       "firstSeenAt": "2026-05-17T10:55:52.817Z",
       "previousSlugs": [
-        "data-center-technician-ch-steinhausen-on-site-reboot-monkey-steinhausen-2",
         "tecnico-data-center-ch-steinhausen-presenza-in-sede-reboot-monkey-steinhausen",
         "data-center-techniker-ch-steinhausen-vor-ort-reboot-monkey-steinhausen",
-        "technicien-data-center-ch-steinhausen-sur-site-reboot-monkey-steinhausen"
+        "technicien-data-center-ch-steinhausen-sur-site-reboot-monkey-steinhausen",
+        "data-center-technician-ch-steinhausen-on-site-reboot-monkey-steinhausen-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7671,7 +7664,7 @@
         "en": "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil",
         "it": "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil",
         "de": "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil",
-        "fr": "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil"
+        "fr": "technicien-en-centre-de-donnees-ch-urswil-sur-place-reboot-monkey-urswil-f57b5f"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -7752,10 +7745,10 @@
       "postalCode": "1950",
       "firstSeenAt": "2026-05-17T10:55:52.813Z",
       "previousSlugs": [
-        "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil-2",
         "data-center-technician-ch-urswil-in-loco-reboot-monkey-urswil",
         "data-center-technician-ch-urswil-vor-ort-reboot-monkey-urswil",
-        "technicien-en-centre-de-donnees-ch-urswil-sur-place-reboot-monkey-urswil"
+        "technicien-en-centre-de-donnees-ch-urswil-sur-place-reboot-monkey-urswil",
+        "data-center-technician-ch-urswil-on-site-reboot-monkey-urswil-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7875,7 +7868,7 @@
         "en": "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix",
         "it": "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix",
         "de": "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix",
-        "fr": "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix"
+        "fr": "technicien-en-centre-de-donnees-ch-villars-ste-croix-sur-place-reboot-monkey-villars-ste-croix"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -7955,11 +7948,11 @@
       },
       "firstSeenAt": "2026-05-17T10:55:52.808Z",
       "previousSlugs": [
-        "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-2",
-        "technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix",
         "tecnico-data-center-ch-villars-ste-croix-presenza-in-sede-reboot-monkey-villars-ste-croix",
         "data-center-techniker-ch-villars-ste-croix-vor-ort-reboot-monkey-villars-ste-croix",
-        "technicien-data-center-ch-villars-ste-croix-sur-site-reboot-monkey-villars-ste-croix"
+        "technicien-data-center-ch-villars-ste-croix-sur-site-reboot-monkey-villars-ste-croix",
+        "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-2",
+        "technicien-data-center-ch-villars-ste-croix-presentiel-reboot-monkey-villars-ste-croix"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8076,7 +8069,7 @@
         "en": "data-center-technician-ch-widnau-on-site-reboot-monkey-widnau",
         "it": "data-center-technician-ch-widnau-on-site-reboot-monkey-widnau",
         "de": "data-center-technician-ch-widnau-on-site-reboot-monkey-widnau",
-        "fr": "data-center-technician-ch-widnau-on-site-reboot-monkey-widnau"
+        "fr": "technicien-en-centre-de-donnees-ch-widnau-sur-place-reboot-monkey-widnau-b50127"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -8157,10 +8150,10 @@
       "postalCode": "9000",
       "firstSeenAt": "2026-05-17T10:55:52.805Z",
       "previousSlugs": [
-        "data-center-technician-ch-widnau-on-site-reboot-monkey-widnau-2",
         "data-center-technician-ch-widnau-in-loco-reboot-monkey-widnau",
         "data-center-technician-ch-widnau-vor-ort-reboot-monkey-widnau",
-        "technicien-en-centre-de-donnees-ch-widnau-sur-place-reboot-monkey-widnau"
+        "technicien-en-centre-de-donnees-ch-widnau-sur-place-reboot-monkey-widnau",
+        "data-center-technician-ch-widnau-on-site-reboot-monkey-widnau-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8266,7 +8259,7 @@
         "en": "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur",
         "it": "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur-2",
         "de": "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur-2",
-        "fr": "data-center-technician-ch-winterthur-on-site-reboot-monkey-winterthur-2"
+        "fr": "technicien-en-centre-de-donnees-ch-winterthur-sur-place-reboot-monkey-winterthur-eed39a"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -8453,7 +8446,7 @@
         "en": "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains",
         "it": "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains",
         "de": "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains",
-        "fr": "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains"
+        "fr": "technicien-en-centre-de-donnees-ch-yverdon-les-bains-sur-place-reboot-monkey-yverdon-les-bains"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -8534,10 +8527,10 @@
       "postalCode": "1400",
       "firstSeenAt": "2026-05-17T10:55:52.796Z",
       "previousSlugs": [
-        "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-2",
         "tecnico-data-center-ch-yverdon-les-bains-presenza-in-sede-reboot-monkey-yverdon-les-bains",
         "data-center-techniker-ch-yverdon-les-bains-vor-ort-reboot-monkey-yverdon-les-bains",
-        "technicien-data-center-ch-yverdon-les-bains-presentiel-reboot-monkey-yverdon-les-bains"
+        "technicien-data-center-ch-yverdon-les-bains-presentiel-reboot-monkey-yverdon-les-bains",
+        "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8683,7 +8676,7 @@
         "en": "data-center-technician-ch-zuerich-on-site-reboot-monkey-zuerich",
         "it": "data-center-technician-ch-zuerich-on-site-reboot-monkey-zuerich",
         "de": "data-center-technician-ch-zuerich-on-site-reboot-monkey-zuerich",
-        "fr": "data-center-technician-ch-zuerich-on-site-reboot-monkey-zuerich"
+        "fr": "technicien-en-centre-de-donnees-ch-zuerich-sur-place-reboot-monkey-zuerich"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -8764,12 +8757,12 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-05-17T10:55:52.792Z",
       "previousSlugs": [
-        "data-center-technician-ch-zuerich-on-site-reboot-monkey-zuerich-2",
-        "data-center-technician-leuk-on-site-reboot-monkey-ch",
-        "data-center-technician-sion-on-site-reboot-monkey-ch",
         "tecnico-data-center-ch-zurigo-presenza-in-sede-reboot-monkey-zuerich",
         "data-center-techniker-ch-zurich-vor-ort-reboot-monkey-zuerich",
-        "technicien-data-center-ch-zurich-presentiel-reboot-monkey-zuerich"
+        "technicien-data-center-ch-zurich-presentiel-reboot-monkey-zuerich",
+        "data-center-technician-ch-zuerich-on-site-reboot-monkey-zuerich-2",
+        "data-center-technician-leuk-on-site-reboot-monkey-ch",
+        "data-center-technician-sion-on-site-reboot-monkey-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8874,7 +8867,7 @@
         "en": "data-center-technician-ch-zug-on-site-reboot-monkey-zug",
         "it": "data-center-technician-ch-zug-on-site-reboot-monkey-zug-2",
         "de": "data-center-technician-ch-zug-on-site-reboot-monkey-zug-2",
-        "fr": "data-center-technician-ch-zug-on-site-reboot-monkey-zug-2"
+        "fr": "technicien-en-centre-de-donnees-ch-zug-sur-place-reboot-monkey-zug-7a3a17"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -8961,7 +8954,7 @@
         "en": "data-center-technician-switzerland-biel-bienne-on-site-reboot-monkey-biel-bienne",
         "it": "data-center-technician-switzerland-biel-bienne-on-site-reboot-monkey-biel-bienne-2",
         "de": "data-center-technician-switzerland-biel-bienne-on-site-reboot-monkey-biel-bienne-2",
-        "fr": "data-center-technician-switzerland-biel-bienne-on-site-reboot-monkey-biel-bienne-2"
+        "fr": "technicien-en-centre-de-donnees-suisse-bienne-sur-place-reboot-monkey-biel-bienne"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -9051,7 +9044,7 @@
         "en": "data-center-technician-switzerland-buchs-sg-on-site-reboot-monkey-buchs-sg",
         "it": "data-center-technician-switzerland-buchs-sg-on-site-reboot-monkey-buchs-sg-2",
         "de": "data-center-technician-switzerland-buchs-sg-on-site-reboot-monkey-buchs-sg-2",
-        "fr": "data-center-technician-switzerland-buchs-sg-on-site-reboot-monkey-buchs-sg-2"
+        "fr": "technicien-en-centre-de-donnees-suisse-buchs-sg-sur-place-reboot-monkey-buchs-sg-6dbd99"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -9141,7 +9134,7 @@
         "en": "data-center-technician-switzerland-chiasso-on-site-reboot-monkey-chiasso",
         "it": "data-center-technician-switzerland-chiasso-on-site-reboot-monkey-chiasso-2",
         "de": "data-center-technician-switzerland-chiasso-on-site-reboot-monkey-chiasso-2",
-        "fr": "data-center-technician-switzerland-chiasso-on-site-reboot-monkey-chiasso-2"
+        "fr": "technicien-en-centre-de-donnees-suisse-chiasso-sur-place-reboot-monkey-chiasso"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -9231,7 +9224,7 @@
         "en": "data-center-technician-switzerland-crissier-on-site-reboot-monkey-crissier",
         "it": "data-center-technician-switzerland-crissier-on-site-reboot-monkey-crissier-2",
         "de": "data-center-technician-switzerland-crissier-on-site-reboot-monkey-crissier-2",
-        "fr": "data-center-technician-switzerland-crissier-on-site-reboot-monkey-crissier-2"
+        "fr": "technicien-en-centre-de-donnees-suisse-crisier-sur-place-reboot-monkey-crissier"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -9320,7 +9313,7 @@
         "en": "data-center-technician-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf",
         "it": "data-center-technician-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf-2",
         "de": "data-center-technician-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf-2",
-        "fr": "data-center-technician-switzerland-dielsdorf-on-site-reboot-monkey-dielsdorf-2"
+        "fr": "technicien-en-centre-de-donnees-suisse-dielsdorf-sur-place-reboot-monkey-dielsdorf"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -9410,7 +9403,7 @@
         "en": "data-center-technician-switzerland-dietikon-on-site-reboot-monkey-dietikon",
         "it": "data-center-technician-switzerland-dietikon-on-site-reboot-monkey-dietikon-2",
         "de": "data-center-technician-switzerland-dietikon-on-site-reboot-monkey-dietikon-2",
-        "fr": "data-center-technician-switzerland-dietikon-on-site-reboot-monkey-dietikon-2"
+        "fr": "technicien-en-informatique-suisse-dietikon-sur-place-reboot-monkey-dietikon"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -9500,7 +9493,7 @@
         "en": "data-center-technician-switzerland-dietlikon-on-site-reboot-monkey-dietlikon",
         "it": "data-center-technician-switzerland-dietlikon-on-site-reboot-monkey-dietlikon-2",
         "de": "data-center-technician-switzerland-dietlikon-on-site-reboot-monkey-dietlikon-2",
-        "fr": "data-center-technician-switzerland-dietlikon-on-site-reboot-monkey-dietlikon-2"
+        "fr": "technicien-en-centre-de-donnees-suisse-dietlikon-sur-place-reboot-monkey-dietlikon"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -9682,7 +9675,7 @@
         "en": "data-center-technician-switzerland-dudingen-on-site-reboot-monkey-dudingen",
         "it": "data-center-technician-switzerland-dudingen-on-site-reboot-monkey-dudingen-2",
         "de": "data-center-technician-switzerland-dudingen-on-site-reboot-monkey-dudingen-2",
-        "fr": "data-center-technician-switzerland-dudingen-on-site-reboot-monkey-dudingen-2"
+        "fr": "technicien-en-informatique-suisse-dudingen-sur-place-reboot-monkey-dudingen"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -9771,7 +9764,7 @@
         "en": "data-center-technician-switzerland-frauenfeld-on-site-reboot-monkey-frauenfeld",
         "it": "data-center-technician-switzerland-frauenfeld-on-site-reboot-monkey-frauenfeld-2",
         "de": "data-center-technician-switzerland-frauenfeld-on-site-reboot-monkey-frauenfeld-2",
-        "fr": "data-center-technician-switzerland-frauenfeld-on-site-reboot-monkey-frauenfeld-2"
+        "fr": "technicien-en-informatique-suisse-frauenfeld-sur-place-reboot-monkey-frauenfeld"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -9861,7 +9854,7 @@
         "en": "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen",
         "it": "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen-2",
         "de": "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen-2",
-        "fr": "data-center-technician-switzerland-emmen-on-site-reboot-monkey-emmen-2"
+        "fr": "technicien-de-centre-de-donnees-suisse-emmen-sur-place-reboot-monkey-emmen"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -10042,7 +10035,7 @@
         "en": "data-center-technician-switzerland-gais-on-site-reboot-monkey-gais",
         "it": "data-center-technician-switzerland-gais-on-site-reboot-monkey-gais-2",
         "de": "data-center-technician-switzerland-gais-on-site-reboot-monkey-gais-2",
-        "fr": "data-center-technician-switzerland-gais-on-site-reboot-monkey-gais-2"
+        "fr": "technicien-en-centre-de-donnees-suisse-gais-sur-place-reboot-monkey-gais"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -10131,7 +10124,7 @@
         "en": "data-center-technician-switzerland-glattbrugg-on-site-reboot-monkey-glattbrugg",
         "it": "data-center-technician-switzerland-glattbrugg-on-site-reboot-monkey-glattbrugg-2",
         "de": "data-center-technician-switzerland-glattbrugg-on-site-reboot-monkey-glattbrugg-2",
-        "fr": "data-center-technician-switzerland-glattbrugg-on-site-reboot-monkey-glattbrugg-2"
+        "fr": "technicien-en-centre-de-donnees-suisse-glattbrugg-sur-place-reboot-monkey-glattbrugg"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -12315,7 +12308,7 @@
         "en": "data-center-technician-switzerland-zug-on-site-reboot-monkey-zug",
         "it": "data-center-technician-switzerland-zug-on-site-reboot-monkey-zug-2",
         "de": "data-center-technician-switzerland-zug-on-site-reboot-monkey-zug-2",
-        "fr": "data-center-technician-switzerland-zug-on-site-reboot-monkey-zug-2"
+        "fr": "technicien-en-centre-de-donnees-suisse-zug-sur-place-reboot-monkey-zug"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -12390,7 +12383,7 @@
         "en": "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern",
         "it": "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern-2",
         "de": "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern-2",
-        "fr": "data-center-technician-switzerland-bern-on-site-reboot-monkey-bern-2"
+        "fr": "technicien-de-centre-de-donnees-suisse-berne-sur-place-reboot-monkey-bern"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -12466,7 +12459,7 @@
         "en": "data-center-technician-switzerland-winterthur-on-site-reboot-monkey-winterthur",
         "it": "data-center-technician-switzerland-winterthur-on-site-reboot-monkey-winterthur-2",
         "de": "data-center-technician-switzerland-winterthur-on-site-reboot-monkey-winterthur-2",
-        "fr": "data-center-technician-switzerland-winterthur-on-site-reboot-monkey-winterthur-2"
+        "fr": "technicien-en-centre-de-donnees-suisse-winterthur-sur-place-reboot-monkey-winterthur-f69c81"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -12542,7 +12535,7 @@
         "en": "data-center-technician-leuk-on-site-reboot-monkey-leuk",
         "it": "data-center-technician-leuk-on-site-reboot-monkey-leuk-2",
         "de": "data-center-technician-leuk-on-site-reboot-monkey-leuk-2",
-        "fr": "data-center-technician-leuk-on-site-reboot-monkey-leuk-2"
+        "fr": "technicien-en-centre-de-donnees-leuk-sur-place-reboot-monkey-leuk"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -12618,7 +12611,7 @@
         "en": "data-center-technician-lucerne-on-site-reboot-monkey-lucerne",
         "it": "data-center-technician-lucerne-on-site-reboot-monkey-lucerne-2",
         "de": "data-center-technician-lucerne-on-site-reboot-monkey-lucerne-2",
-        "fr": "data-center-technician-lucerne-on-site-reboot-monkey-lucerne-2"
+        "fr": "technicien-en-centre-de-donnees-lucerne-sur-place-reboot-monkey-lucerne-2f8633"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -12694,7 +12687,7 @@
         "en": "data-center-technician-sankt-gallen-on-site-reboot-monkey-sankt-gallen",
         "it": "data-center-technician-sankt-gallen-on-site-reboot-monkey-sankt-gallen-2",
         "de": "data-center-technician-sankt-gallen-on-site-reboot-monkey-sankt-gallen-2",
-        "fr": "data-center-technician-sankt-gallen-on-site-reboot-monkey-sankt-gallen-2"
+        "fr": "technicien-en-centre-de-donnees-sankt-gallen-sur-place-reboot-monkey-sankt-gallen"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -12770,7 +12763,7 @@
         "en": "data-center-technician-switzerland-aargau-on-site-reboot-monkey-aargau",
         "it": "data-center-technician-switzerland-aargau-on-site-reboot-monkey-aargau-2",
         "de": "data-center-technician-switzerland-aargau-on-site-reboot-monkey-aargau-2",
-        "fr": "data-center-technician-switzerland-aargau-on-site-reboot-monkey-aargau-2"
+        "fr": "technicien-en-centre-de-donnees-suisse-argovie-sur-place-reboot-monkey-aargau"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -12846,7 +12839,7 @@
         "en": "data-center-technician-chur-on-site-reboot-monkey-chur",
         "it": "data-center-technician-chur-on-site-reboot-monkey-chur-2",
         "de": "data-center-technician-chur-on-site-reboot-monkey-chur-2",
-        "fr": "data-center-technician-chur-on-site-reboot-monkey-chur-2"
+        "fr": "technicien-en-centre-de-donnees-chur-sur-place-reboot-monkey-chur"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -12922,7 +12915,7 @@
         "en": "data-center-technician-neuchatel-on-site-reboot-monkey-neuchatel",
         "it": "data-center-technician-neuchatel-on-site-reboot-monkey-neuchatel-2",
         "de": "data-center-technician-neuchatel-on-site-reboot-monkey-neuchatel-2",
-        "fr": "data-center-technician-neuchatel-on-site-reboot-monkey-neuchatel-2"
+        "fr": "technicien-de-centre-de-donnees-neuchatel-sur-place-reboot-monkey-neuchatel"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -12997,7 +12990,7 @@
         "en": "data-center-technician-montreux-on-site-reboot-monkey-montreux",
         "it": "data-center-technician-montreux-on-site-reboot-monkey-montreux-2",
         "de": "data-center-technician-montreux-on-site-reboot-monkey-montreux-2",
-        "fr": "data-center-technician-montreux-on-site-reboot-monkey-montreux-2"
+        "fr": "technicien-en-centre-de-donnees-montreux-sur-place-reboot-monkey-montreux"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -13073,7 +13066,7 @@
         "en": "data-center-technician-lugano-on-site-reboot-monkey-lugano",
         "it": "data-center-technician-lugano-on-site-reboot-monkey-lugano-2",
         "de": "data-center-technician-lugano-on-site-reboot-monkey-lugano-2",
-        "fr": "data-center-technician-lugano-on-site-reboot-monkey-lugano-2"
+        "fr": "technicien-en-centre-de-donnees-lugano-sur-place-reboot-monkey-lugano-7c8401"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -13149,7 +13142,7 @@
         "en": "data-center-technician-switzerland-biel-on-site-reboot-monkey-biel",
         "it": "data-center-technician-switzerland-biel-on-site-reboot-monkey-biel-2",
         "de": "data-center-technician-switzerland-biel-on-site-reboot-monkey-biel-2",
-        "fr": "data-center-technician-switzerland-biel-on-site-reboot-monkey-biel-2"
+        "fr": "technicien-en-informatique-suisse-biel-sur-place-reboot-monkey-biel"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -13225,7 +13218,7 @@
         "en": "data-center-technician-sion-on-site-reboot-monkey-sion",
         "it": "data-center-technician-sion-on-site-reboot-monkey-sion-2",
         "de": "data-center-technician-sion-on-site-reboot-monkey-sion-2",
-        "fr": "data-center-technician-sion-on-site-reboot-monkey-sion-2"
+        "fr": "technicien-en-centre-de-donnees-sion-sur-place-reboot-monkey-sion-4d5099"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -13301,7 +13294,7 @@
         "en": "data-center-technician-switzerland-basel-on-site-reboot-monkey-basel",
         "it": "data-center-technician-switzerland-basel-on-site-reboot-monkey-basel-2",
         "de": "data-center-technician-switzerland-basel-on-site-reboot-monkey-basel-2",
-        "fr": "data-center-technician-switzerland-basel-on-site-reboot-monkey-basel-2"
+        "fr": "technicien-en-centre-de-donnees-suisse-bale-sur-place-reboot-monkey-basel"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -13377,7 +13370,7 @@
         "en": "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich",
         "it": "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich-2",
         "de": "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich-2",
-        "fr": "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich-2"
+        "fr": "technicien-en-informatique-suisse-zurich-sur-place-reboot-monkey-zurich"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -13453,7 +13446,7 @@
         "en": "data-center-technician-switzerland-solothurn-on-site-reboot-monkey-solothurn",
         "it": "data-center-technician-switzerland-solothurn-on-site-reboot-monkey-solothurn-2",
         "de": "data-center-technician-switzerland-solothurn-on-site-reboot-monkey-solothurn-2",
-        "fr": "data-center-technician-switzerland-solothurn-on-site-reboot-monkey-solothurn-2"
+        "fr": "technicien-en-informatique-suisse-soleure-sur-place-reboot-monkey-solothurn"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",

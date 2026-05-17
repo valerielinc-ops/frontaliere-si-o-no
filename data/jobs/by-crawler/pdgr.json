@@ -1969,7 +1969,6 @@
         "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
         "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur",
-        "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
         "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
@@ -2060,7 +2059,6 @@
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch",
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch-2",
         "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur",
-        "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
         "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur"
       ],
@@ -3101,8 +3099,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
         "it": "medico-senior-psychiatrische-dienste-graubunden-cazis",
-        "en": "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
-        "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
+        "en": "senior-doctor-psychiatrische-dienste-graubunden-ilanz",
+        "fr": "medecin-principal-psychiatrische-dienste-graubunden-ilanz"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3165,11 +3163,18 @@
       "previousSlugsByLocale": {
         "de": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz"
+        ],
+        "en": [
+          "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
+        ],
+        "fr": [
+          "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "oberarztin-oberarzt-pdgr-ch",
+        "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
+        "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis",
         "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
       ]
     },
