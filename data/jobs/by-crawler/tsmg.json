@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tsmg",
-  "assembledAt": "2026-05-17T11:16:47.206Z",
+  "assembledAt": "2026-05-17T22:41:31.314Z",
   "jobs": [
     {
       "title": "Tester conversazioni vocali AI (French native speaker - Switzerland regional variant)",
@@ -614,7 +614,8 @@
       },
       "previousSlugs": [
         "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Autonomous Vehicle Driver (T1 Certified)",
@@ -839,7 +840,8 @@
         ]
       },
       "slugDisambiguator": "c23075ac",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -948,7 +950,8 @@
         ]
       },
       "slugDisambiguator": "dfa1adf1",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Gossau, Switzerland",
@@ -1016,7 +1019,8 @@
       },
       "streetAddress": "Via Cantonale 1",
       "postalCode": "6928",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Grabs, Switzerland",
@@ -1084,7 +1088,8 @@
       },
       "streetAddress": "Via Cantonale 1",
       "postalCode": "6928",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Kreuzlingen, Switzerland",
@@ -1152,7 +1157,8 @@
       },
       "streetAddress": "Via Cantonale 1",
       "postalCode": "6928",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Landquart, Switzerland (for Chur area)",
@@ -1243,7 +1249,8 @@
         ]
       },
       "slugDisambiguator": "061cc5b5",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Obervaz, Switzerland (for Chur area)",
@@ -1336,7 +1343,8 @@
         ]
       },
       "slugDisambiguator": "661cb622",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Saanen, Switzerland",
@@ -1404,7 +1412,8 @@
       },
       "streetAddress": "Via Cantonale 1",
       "postalCode": "6928",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Signau, Switzerland",
@@ -1472,7 +1481,8 @@
       },
       "streetAddress": "Via Cantonale 1",
       "postalCode": "6928",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Wil, Switzerland",
@@ -1540,7 +1550,8 @@
       },
       "streetAddress": "Via Cantonale 1",
       "postalCode": "6928",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Zweisimmen, Switzerland",
@@ -1608,7 +1619,8 @@
       },
       "streetAddress": "Via Cantonale 1",
       "postalCode": "6928",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Basel, Switzerland",
@@ -1680,7 +1692,8 @@
       },
       "streetAddress": "Via Cantonale 1",
       "postalCode": "6928",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Bellinzona, Switzerland",
@@ -1777,7 +1790,8 @@
         ]
       },
       "slugDisambiguator": "677ef911",
-      "firstSeenAt": "2026-04-13T22:36:04.537Z"
+      "firstSeenAt": "2026-04-13T22:36:04.537Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -1810,10 +1824,10 @@
         "fr": "Autista / Addetto raccolta dati à Chur, Suisse"
       },
       "descriptionByLocale": {
-        "it": "TSMG cerca Autista / Addetto raccolta dati in Chur, Svizzera per attivita operativa sul territorio in Chur. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nTerry Soot Management Group (TSMG) è una società di raccolta dati sul campo fondata nel 2017 in Europa. Raccogliamo dati in cui l'automazione non è possibile. Contiamo funzionalità, facciamo immagini, facciamo video, discorsi record e aree di scansione per ogni dettaglio è necessario prendere decisioni più informate. I nostri team di raccolta dati sul campo sono diffusi in Europa e Nord America, pronti ad accettare nuove sfide. Panoramica del progetto Questo progetto mira a raccogliere immagini di alta qualità di strade, punti chiave di interesse e spazi pubblici in tutti i paesi dell'UE. Utilizzando veicoli dotati di telecamere e lidri a 360° rimovibili, i driver catturano immagini complete dei dintorni. I dati acquisiti verranno memorizzati su computer di bordo (SSD Drives) e successivamente utilizzati per migliorare una delle principali piattaforme di mappatura online al mondo. I collezionisti di dati seguiranno percorsi pre-assegnati, concentrandosi su strade pubbliche, aree commerciali e punti di interesse. Per garantire la massima qualità dell'immagine, alcune aree possono essere rivisitate durante condizioni meteo favorevoli. La durata del progetto varia in base alla portata del lavoro richiesto in ogni area di raccolta dati mirata. In media, gli incarichi coinvolgono da 3 a 6 mesi di lavoro attivo. Orario di lavoro: impegno a tempo pieno entro le ore di lavoro standard (8 AM - 7 PM). Il processo di reclutamento per la posizione di un driver comporta tali passi: prova di guida di sicurezza, intervista con reclutatore, e processo di bordo.\n\nPanoramica del progetto\n\nTerry Soot Management Group (TSMG) è una società di raccolta dati sul campo fondata nel 2017 in Europa. Raccogliamo dati in cui l'automazione non è possibile. Contiamo funzionalità, facciamo immagini, facciamo video, discorsi record e aree di scansione per ogni dettaglio è necessario prendere decisioni più informate. I nostri team di raccolta dati sul campo sono diffusi in Europa e Nord America, pronti ad accettare nuove sfide. Panoramica del progetto Questo progetto mira a raccogliere immagini di alta qualità di strade, punti chiave di interesse e spazi pubblici in tutti i paesi dell'UE. Utilizzando veicoli dotati di telecamere e lidri a 360° rimovibili, i driver catturano immagini complete dei dintorni. I dati acquisiti verranno memorizzati su computer di bordo (SSD Drives) e successivamente utilizzati per migliorare una delle principali piattaforme di mappatura online al mondo. I collezionisti di dati seguiranno percorsi pre-assegnati, concentrandosi su strade pubbliche, aree commerciali e punti di interesse. Per garantire la massima qualità dell'immagine, alcune aree possono essere rivisitate durante condizioni meteo favorevoli. La durata del progetto varia in base alla portata del lavoro richiesto in ogni area di raccolta dati mirata. In media, gli incarichi coinvolgono da 3 a 6 mesi di lavoro attivo. Orario di lavoro: impegno a tempo pieno entro le ore di lavoro standard (8 AM - 7 PM). Il processo di reclutamento per la posizione di un driver comporta tali passi: prova di guida di sicurezza, intervista con reclutatore, e processo di bordo.\n\nCandidato ideale:\n\n- possiede una licenza valida per il conducente emesso dall’UE.\n- Mantiene un controllo di sfondo pulito (criminale e record di guida).\n- Ha almeno 5 anni di esperienza di guida.\n- Possedere esperienza di guida professionale (ad esempio, taxi, consegna, logistica).\n- Proficiente in inglese e la lingua locale.\n- Tech-savvy, con esperienza utilizzando gli strumenti GSuite (Gmail, Google Spreadsheets, Google Forms).\n- Conoscenza di base della meccanica del veicolo.\n- Dimostra responsabilità, affidabilità e professionalità.\n- Gode di viaggiare ed esplorare nuovi posti.\n- Familiare con l'area delle operazioni.\n\nCosa offriamo:\n\n- Un progetto dinamico e coinvolgente che va oltre la semplice guida.\n- Uno stipendio competitivo.\n- Formazione completa che copre sia aspetti pratici che teorici della raccolta dati.\n- Supporto continuo da manager esperti.\n- L'opportunità di lavorare in un team internazionale e in un ambiente.\n\nInformazioni\n\nSe sei interessato, applica ora e unisciti a noi per plasmare il futuro della raccolta dati!",
-        "en": "TSMG cerca Autista / Addetto raccolta dati in Chur, Switzerland per attivita operative sul territorio in Chur. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nCompany description Terry Soot Management Group (TSMG) is a field data collection company founded in 2017 in Europe. We collect data where automation is not possible. We count features, take pictures, make videos, record speech, and scan areas for every detail you need to make more informed decisions. Our field data collection teams are spread across Europe and North America, ready to accept new challenges. Project Overview This project aims to collect high-quality visuals of streets, key points of interest, and public spaces across EU countries. Using vehicles equipped with removable 360° cameras and lidars, drivers will capture comprehensive images of the surroundings. The captured data will be stored on onboard computers (SSD Drives) and later utilized to enhance one of the world’s leading online mapping platforms. Data collectors will follow pre-assigned routes, focusing on public streets, commercial areas, and points of interest. To ensure the highest image quality, certain areas may need to be revisited during favorable weather conditions. The duration of the project varies based on the scope of work required in each targeted data collection area. On average, the assignments involve 3 to 6 months of active work. Work schedule: full time engagement within standard business hours (8 AM - 7 PM). The recruitment process for the position of a Driver involves such steps: safety driving test, interview with recruiter, and onboarding process.\n\n## Panoramica del progetto\n\nCompany description Terry Soot Management Group (TSMG) is a field data collection company founded in 2017 in Europe. We collect data where automation is not possible. We count features, take pictures, make videos, record speech, and scan areas for every detail you need to make more informed decisions. Our field data collection teams are spread across Europe and North America, ready to accept new challenges. Project Overview This project aims to collect high-quality visuals of streets, key points of interest, and public spaces across EU countries. Using vehicles equipped with removable 360° cameras and lidars, drivers will capture comprehensive images of the surroundings. The captured data will be stored on onboard computers (SSD Drives) and later utilized to enhance one of the world’s leading online mapping platforms. Data collectors will follow pre-assigned routes, focusing on public streets, commercial areas, and points of interest. To ensure the highest image quality, certain areas may need to be revisited during favorable weather conditions. The duration of the project varies based on the scope of work required in each targeted data collection area. On average, the assignments involve 3 to 6 months of active work. Work schedule: full time engagement within standard business hours (8 AM - 7 PM). The recruitment process for the position of a Driver involves such steps: safety driving test, interview with recruiter, and onboarding process.\n\n## Ideal Candidate:\n\n- Holds a valid EU-issued driver’s license.\n- Maintains a clean background check (criminal and driving record).\n- Has at least 5 years of driving experience.\n- Possesses professional driving experience (e.g., taxi, delivery, logistics).\n- Proficient in English and the local language.\n- Tech-savvy, with experience using GSuite tools (Gmail, Google Spreadsheets, Google Forms).\n- Basic knowledge of vehicle mechanics.\n- Demonstrates responsibility, reliability, and professionalism.\n- Enjoys traveling and exploring new places.\n- Familiar with the area of operations.\n\n## What We Offer:\n\n- A dynamic and engaging project that goes beyond just driving.\n- Competitive salary.\n- Comprehensive training covering both practical and theoretical aspects of data collection.\n- Ongoing support from experienced managers.\n- The opportunity to work in an international team and environment.\n\n## Informazioni aggiuntive\n\nIf you’re interested, apply now and join us in shaping the future of data collection!",
-        "de": "TSMG cerca Autista / Addetto raccolta dati in Chur, Schweiz per attivita operativ sul territorio in Chur. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nDie Terry Soot Management Group (TSMG) ist ein 2017 in Europa gegründetes Felddatenerfassungsunternehmen. Wir erfassen Daten, wo die Automatisierung nicht möglich ist. Wir zählen Funktionen, nehmen Bilder, machen Videos, Plattenrede und Scan-Bereiche für jedes Detail, das Sie mehr informierte Entscheidungen treffen müssen. Unsere Felddatenerfassungsteams sind in ganz Europa und Nordamerika verbreitet und bereit, neue Herausforderungen anzunehmen. Projektübersicht Dieses Projekt zielt darauf ab, qualitativ hochwertige Sichtweisen von Straßen, wichtigen Sehenswürdigkeiten und öffentlichen Räumen in den EU-Ländern zu sammeln. Mit Fahrzeugen, die mit abnehmbaren 360°-Kameras und Deckeln ausgestattet sind, erfassen Fahrer umfassende Bilder der Umgebung. Die erfassten Daten werden an Bord von Computern (SSD Drives) gespeichert und später genutzt, um eine der weltweit führenden Online-Mapping-Plattformen zu verbessern. Die Datensammler folgen vorab zugewiesenen Strecken, die sich auf öffentliche Straßen, Gewerbegebiete und Sehenswürdigkeiten konzentrieren. Um die höchste Bildqualität zu gewährleisten, müssen bestimmte Bereiche bei günstigen Wetterbedingungen neu besucht werden. Die Dauer des Projekts hängt von dem Arbeitsumfang ab, der in jedem zielgerichteten Datenerhebungsbereich benötigt wird. Im Durchschnitt umfassen die Aufgaben 3 bis 6 Monate aktive Arbeit. Arbeitsplan: Vollzeitbeschäftigung innerhalb der normalen Geschäftszeiten (8:00 - 19:00). Der Rekrutierungsprozess für die Position eines Fahrers beinhaltet solche Schritte: Sicherheits-Fahrtest, Interview mit Rekruten und Onboarding-Prozess.\n\nPanoramica del progetto\n\nDie Terry Soot Management Group (TSMG) ist ein 2017 in Europa gegründetes Felddatenerfassungsunternehmen. Wir erfassen Daten, wo die Automatisierung nicht möglich ist. Wir zählen Funktionen, nehmen Bilder, machen Videos, Plattenrede und Scan-Bereiche für jedes Detail, das Sie mehr informierte Entscheidungen treffen müssen. Unsere Felddatenerfassungsteams sind in ganz Europa und Nordamerika verbreitet und bereit, neue Herausforderungen anzunehmen. Projektübersicht Dieses Projekt zielt darauf ab, qualitativ hochwertige Sichtweisen von Straßen, wichtigen Sehenswürdigkeiten und öffentlichen Räumen in den EU-Ländern zu sammeln. Mit Fahrzeugen, die mit abnehmbaren 360°-Kameras und Deckeln ausgestattet sind, erfassen Fahrer umfassende Bilder der Umgebung. Die erfassten Daten werden an Bord von Computern (SSD Drives) gespeichert und später genutzt, um eine der weltweit führenden Online-Mapping-Plattformen zu verbessern. Die Datensammler folgen vorab zugewiesenen Strecken, die sich auf öffentliche Straßen, Gewerbegebiete und Sehenswürdigkeiten konzentrieren. Um die höchste Bildqualität zu gewährleisten, müssen bestimmte Bereiche bei günstigen Wetterbedingungen neu besucht werden. Die Dauer des Projekts hängt von dem Arbeitsumfang ab, der in jedem zielgerichteten Datenerhebungsbereich benötigt wird. Im Durchschnitt umfassen die Aufgaben 3 bis 6 Monate aktive Arbeit. Arbeitsplan: Vollzeitbeschäftigung innerhalb der normalen Geschäftszeiten (8:00 - 19:00). Der Rekrutierungsprozess für die Position eines Fahrers beinhaltet solche Schritte: Sicherheits-Fahrtest, Interview mit Rekruten und Onboarding-Prozess.\n\nIdeale Kandidaten:\n\n- Ein gültiger EU-ausgestellter Führerschein.\n- Bewahrt eine saubere Hintergrundprüfung (Kriterium und Fahrrekord).\n- Hat mindestens 5 Jahre Fahrerfahrung.\n- Possesses professionelles Fahrerlebnis (z.B. Taxi, Lieferung, Logistik).\n- Proficient in englischer und lokaler Sprache.\n- Tech-savvy, mit Erfahrung mit GSuite-Tools (Gmail, Google Spreadsheets, Google Forms).\n- Grundkenntnisse der Fahrzeugmechanik.\n- Demonstriert Verantwortung, Zuverlässigkeit und Professionalität.\n- Geniessen Sie Reisen und erkunden Sie neue Orte.\n- Vertraut mit dem Einsatzgebiet.\n\nWas wir anbieten:\n\n- Ein dynamisches und ansprechendes Projekt, das über das Fahren hinausgeht.\n- Konkurrenzfähiges Gehalt.\n- Umfassende Schulungen zu praktischen und theoretischen Aspekten der Datenerhebung.\n- Unterstützung von erfahrenen Managern.\n- Die Möglichkeit, in einem internationalen Team und Umgebung zu arbeiten.\n\nInformazioni aggiunt\n\nWenn Sie Interesse haben, wenden Sie sich jetzt an und gestalten Sie die Zukunft der Datenerhebung!",
-        "fr": "TSMG cerca Autista / Addetto raccolta dati in Chur, Suisse per attivita operative sul territorio in Chur. Lever, con responsabilita, requisiti e dettagli pratici del progetto.\n\nDescription de l'entreprise Terry Soot Management Group (TSMG) est une société de collecte de données de terrain fondée en 2017 en Europe. Nous collectons des données lorsque l'automatisation n'est pas possible. Nous comptons les fonctionnalités, prenons des photos, faisons des vidéos, enregistrons la parole et numérisons les zones pour chaque détail que vous devez prendre des décisions plus éclairées. Nos équipes de collecte de données sur le terrain sont réparties en Europe et en Amérique du Nord, prêtes à relever de nouveaux défis. Aperçu du projet Ce projet vise à recueillir des images de haute qualité des rues, des points d'intérêt clés et des espaces publics dans les pays de l'UE. En utilisant des véhicules équipés de caméras à 360° amovibles et de lidars, les conducteurs capteront des images complètes de l'environnement. Les données capturées seront stockées sur les ordinateurs embarqués (SSD Drives) puis utilisées pour améliorer l'une des plates-formes de cartographie en ligne leader dans le monde. Les collecteurs de données suivront des itinéraires préaffectés, en se concentrant sur les rues publiques, les zones commerciales et les points d'intérêt. Pour assurer la plus haute qualité d'image, il faudra peut-être revoir certaines zones dans des conditions météorologiques favorables. La durée du projet varie en fonction de l'étendue des travaux requis dans chaque domaine de collecte de données ciblé. En moyenne, les affectations impliquent 3 à 6 mois de travail actif. Horaire de travail : engagement à temps plein dans les heures normales d'ouverture (8 h à 19 h). Le processus de recrutement pour le poste de chauffeur comporte de telles étapes : test de conduite de sécurité, entretien avec le recruteur et processus d'embarquement.\n\nPanoramica del progetto\n\nDescription de l'entreprise Terry Soot Management Group (TSMG) est une société de collecte de données de terrain fondée en 2017 en Europe. Nous collectons des données lorsque l'automatisation n'est pas possible. Nous comptons les fonctionnalités, prenons des photos, faisons des vidéos, enregistrons la parole et numérisons les zones pour chaque détail que vous devez prendre des décisions plus éclairées. Nos équipes de collecte de données sur le terrain sont réparties en Europe et en Amérique du Nord, prêtes à relever de nouveaux défis. Aperçu du projet Ce projet vise à recueillir des images de haute qualité des rues, des points d'intérêt clés et des espaces publics dans les pays de l'UE. En utilisant des véhicules équipés de caméras à 360° amovibles et de lidars, les conducteurs capteront des images complètes de l'environnement. Les données capturées seront stockées sur les ordinateurs embarqués (SSD Drives) puis utilisées pour améliorer l'une des plates-formes de cartographie en ligne leader dans le monde. Les collecteurs de données suivront des itinéraires préaffectés, en se concentrant sur les rues publiques, les zones commerciales et les points d'intérêt. Pour assurer la plus haute qualité d'image, il faudra peut-être revoir certaines zones dans des conditions météorologiques favorables. La durée du projet varie en fonction de l'étendue des travaux requis dans chaque domaine de collecte de données ciblé. En moyenne, les affectations impliquent 3 à 6 mois de travail actif. Horaire de travail : engagement à temps plein dans les heures normales d'ouverture (8 h à 19 h). Le processus de recrutement pour le poste de chauffeur comporte de telles étapes : test de conduite de sécurité, entretien avec le recruteur et processus d'embarquement.\n\nCandidat idéal :\n\n- Il détient un permis de conduire valide délivré par l'UE.\n- Tenir une vérification des antécédents (criminels et de conduite).\n- Avoir au moins 5 ans d'expérience de conduite.\n- Possède une expérience de conduite professionnelle (par exemple taxi, livraison, logistique).\n- Connaissance de l'anglais et de la langue locale.\n- Tech-savvy, avec l'expérience en utilisant des outils GSuite (Gmail, Google Spreadsheets, Google Forms).\n- Connaissance de base de la mécanique des véhicules.\n- Démontre la responsabilité, la fiabilité et le professionnalisme.\n- Profitez de voyager et explorer de nouveaux endroits.\n- Familiariser avec la zone d'opérations.\n\nCe que nous offrons:\n\n- Un projet dynamique et engageant qui va au-delà de la conduite.\n- Salaire compétitif.\n- Formation complète couvrant les aspects pratiques et théoriques de la collecte des données.\n- Soutien continu de gestionnaires expérimentés.\n- La possibilité de travailler dans une équipe et un environnement internationaux.\n\nInformations complémentaires\n\nSi vous êtes intéressé, appliquez maintenant et rejoignez-nous pour façonner l'avenir de la collecte de données!"
+        "it": "TSMG cerca Autista / Addetto raccolta dati in Chur, Svizzera per attivita operativa sul territorio in Chur. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto. Terry Soot Management Group (TSMG) è una società di raccolta dati sul campo fondata nel 2017 in Europa. Raccogliamo dati in cui l'automazione non è possibile. Contiamo funzionalità, facciamo immagini, facciamo video, discorsi record e aree di scansione per ogni dettaglio è necessario prendere decisioni più informate. I nostri team di raccolta dati sul campo sono diffusi in Europa e Nord America, pronti ad accettare nuove sfide. Panoramica del progetto Questo progetto mira a raccogliere immagini di alta qualità di strade, punti chiave di interesse e spazi pubblici in tutti i paesi dell'UE. Utilizzando veicoli dotati di telecamere e lidri a 360° rimovibili, i driver catturano immagini complete dei dintorni. I dati acquisiti verranno memorizzati su computer di bordo (SSD Drives) e successivamente utilizzati per migliorare una delle principali piattaforme di mappatura online al mondo. I collezionisti di dati seguiranno percorsi pre-assegnati, concentrandosi su strade pubbliche, aree commerciali e punti di interesse. Per garantire la massima qualità dell'immagine, alcune aree possono essere rivisitate durante condizioni meteo favorevoli. La durata del progetto varia in base alla portata del lavoro richiesto in ogni area di raccolta dati mirata. In media, gli incarichi coinvolgono da 3 a 6 mesi di lavoro attivo. Orario di lavoro: impegno a tempo pieno entro le ore di lavoro standard (8 AM - 7 PM). Il processo di reclutamento per la posizione di un driver comporta tali passi: prova di guida di sicurezza, intervista con reclutatore, e processo di bordo. Panoramica del progetto Terry Soot Management Group (TSMG) è una società di raccolta dati sul campo fondata nel 2017 in Europa. Raccogliamo dati in cui l'automazione non è possibile. Contiamo funzionalità, facciamo immagini, facciamo video, discorsi record e aree di scansione per ogni dettaglio è necessario prendere decisioni più informate. I nostri team di raccolta dati sul campo sono diffusi in Europa e Nord America, pronti ad accettare nuove sfide. Panoramica del progetto Questo progetto mira a raccogliere immagini di alta qualità di strade, punti chiave di interesse e spazi pubblici in tutti i paesi dell'UE. Utilizzando veicoli dotati di telecamere e lidri a 360° rimovibili, i driver catturano immagini complete dei dintorni. I dati acquisiti verranno memorizzati su computer di bordo (SSD Drives) e successivamente utilizzati per migliorare una delle principali piattaforme di mappatura online al mondo. I collezionisti di dati seguiranno percorsi pre-assegnati, concentrandosi su strade pubbliche, aree commerciali e punti di interesse. Per garantire la massima qualità dell'immagine, alcune aree possono essere rivisitate durante condizioni meteo favorevoli. La durata del progetto varia in base alla portata del lavoro richiesto in ogni area di raccolta dati mirata. In media, gli incarichi coinvolgono da 3 a 6 mesi di lavoro attivo. Orario di lavoro: impegno a tempo pieno entro le ore di lavoro standard (8 AM - 7 PM). Il processo di reclutamento per la posizione di un driver comporta tali passi: prova di guida di sicurezza, intervista con reclutatore, e processo di bordo. Candidato ideale: - possiede una licenza valida per il conducente emesso dall’UE. - Mantiene un controllo di sfondo pulito (criminale e record di guida). - Ha almeno 5 anni di esperienza di guida. - Possedere esperienza di guida professionale (ad esempio, taxi, consegna, logistica). - Proficiente in inglese e la lingua locale. - Tech-savvy, con esperienza utilizzando gli strumenti GSuite (Gmail, Google Spreadsheets, Google Forms). - Conoscenza di base della meccanica del veicolo. - Dimostra responsabilità, affidabilità e professionalità. - Gode di viaggiare ed esplorare nuovi posti. - Familiare con l'area delle operazioni. \n• Cosa offriamo: - Un progetto dinamico e coinvolgente che va oltre la semplice guida. - Uno stipendio competitivo. - Formazione completa che copre sia aspetti pratici che teorici della raccolta dati. - Supporto continuo da manager esperti. - L'opportunità di lavorare in un team internazionale e in un ambiente. Informazioni Se sei interessato, applica ora e unisciti a noi per plasmare il futuro della raccolta dati!",
+        "en": "TSMG cerca Autista / Addetto raccolta dati in Chur, Switzerland per attivita operative sul territorio in Chur. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto. Company description Terry Soot Management Group (TSMG) is a field data collection company founded in 2017 in Europe. We collect data where automation is not possible. We count features, take pictures, make videos, record speech, and scan areas for every detail you need to make more informed decisions. Our field data collection teams are spread across Europe and North America, ready to accept new challenges. Project Overview This project aims to collect high-quality visuals of streets, key points of interest, and public spaces across EU countries. Using vehicles equipped with removable 360° cameras and lidars, drivers will capture comprehensive images of the surroundings. The captured data will be stored on onboard computers (SSD Drives) and later utilized to enhance one of the world’s leading online mapping platforms. Data collectors will follow pre-assigned routes, focusing on public streets, commercial areas, and points of interest. To ensure the highest image quality, certain areas may need to be revisited during favorable weather conditions. The duration of the project varies based on the scope of work required in each targeted data collection area. On average, the assignments involve 3 to 6 months of active work. Work schedule: full time engagement within standard business hours (8 AM - 7 PM). The recruitment process for the position of a Driver involves such steps: safety driving test, interview with recruiter, and onboarding process. ## Panoramica del progetto Company description Terry Soot Management Group (TSMG) is a field data collection company founded in 2017 in Europe. We collect data where automation is not possible. We count features, take pictures, make videos, record speech, and scan areas for every detail you need to make more informed decisions. Our field data collection teams are spread across Europe and North America, ready to accept new challenges. Project Overview This project aims to collect high-quality visuals of streets, key points of interest, and public spaces across EU countries. Using vehicles equipped with removable 360° cameras and lidars, drivers will capture comprehensive images of the surroundings. The captured data will be stored on onboard computers (SSD Drives) and later utilized to enhance one of the world’s leading online mapping platforms. Data collectors will follow pre-assigned routes, focusing on public streets, commercial areas, and points of interest. To ensure the highest image quality, certain areas may need to be revisited during favorable weather conditions. The duration of the project varies based on the scope of work required in each targeted data collection area. On average, the assignments involve 3 to 6 months of active work. Work schedule: full time engagement within standard business hours (8 AM - 7 PM). The recruitment process for the position of a Driver involves such steps: safety driving test, interview with recruiter, and onboarding process. ## Ideal Candidate: - Holds a valid EU-issued driver’s license. - Maintains a clean background check (criminal and driving record). - Has at least 5 years of driving experience. - Possesses professional driving experience (e.g., taxi, delivery, logistics). - Proficient in English and the local language. - Tech-savvy, with experience using GSuite tools (Gmail, Google Spreadsheets, Google Forms). - Basic knowledge of vehicle mechanics. - Demonstrates responsibility, reliability, and professionalism. - Enjoys traveling and exploring new places. - Familiar with the area of operations. ## What We Offer: - A dynamic and engaging project that goes beyond just driving. - Competitive salary. - Comprehensive training covering both practical and theoretical aspects of data collection. - Ongoing support from experienced managers. - The opportunity to work in an international team and environment. ## Informazioni aggiuntive If you’re interested, apply now and join us in shaping the future of data collection!",
+        "de": "TSMG cerca Autista / Addetto raccolta dati in Chur, Schweiz per attivita operativ sul territorio in Chur. Di seguito trovi il testo integrale dell'annuncio Lever, con responsabilita, requisiti e dettagli pratici del progetto. Die Terry Soot Management Group (TSMG) ist ein 2017 in Europa gegründetes Felddatenerfassungsunternehmen. Wir erfassen Daten, wo die Automatisierung nicht möglich ist. Wir zählen Funktionen, nehmen Bilder, machen Videos, Plattenrede und Scan-Bereiche für jedes Detail, das Sie mehr informierte Entscheidungen treffen müssen. Unsere Felddatenerfassungsteams sind in ganz Europa und Nordamerika verbreitet und bereit, neue Herausforderungen anzunehmen. Projektübersicht Dieses Projekt zielt darauf ab, qualitativ hochwertige Sichtweisen von Straßen, wichtigen Sehenswürdigkeiten und öffentlichen Räumen in den EU-Ländern zu sammeln. Mit Fahrzeugen, die mit abnehmbaren 360°-Kameras und Deckeln ausgestattet sind, erfassen Fahrer umfassende Bilder der Umgebung. Die erfassten Daten werden an Bord von Computern (SSD Drives) gespeichert und später genutzt, um eine der weltweit führenden Online-Mapping-Plattformen zu verbessern. Die Datensammler folgen vorab zugewiesenen Strecken, die sich auf öffentliche Straßen, Gewerbegebiete und Sehenswürdigkeiten konzentrieren. Um die höchste Bildqualität zu gewährleisten, müssen bestimmte Bereiche bei günstigen Wetterbedingungen neu besucht werden. Die Dauer des Projekts hängt von dem Arbeitsumfang ab, der in jedem zielgerichteten Datenerhebungsbereich benötigt wird. Im Durchschnitt umfassen die \n• Aufgaben 3 bis 6 Monate aktive Arbeit. Arbeitsplan: Vollzeitbeschäftigung innerhalb der normalen Geschäftszeiten (8:00 - 19:00). Der Rekrutierungsprozess für die Position eines Fahrers beinhaltet solche Schritte: Sicherheits-Fahrtest, Interview mit Rekruten und Onboarding-Prozess. Panoramica del progetto Die Terry Soot Management Group (TSMG) ist ein 2017 in Europa gegründetes Felddatenerfassungsunternehmen. Wir erfassen Daten, wo die Automatisierung nicht möglich ist. Wir zählen Funktionen, nehmen Bilder, machen Videos, Plattenrede und Scan-Bereiche für jedes Detail, das Sie mehr informierte Entscheidungen treffen müssen. Unsere Felddatenerfassungsteams sind in ganz Europa und Nordamerika verbreitet und bereit, neue Herausforderungen anzunehmen. Projektübersicht Dieses Projekt zielt darauf ab, qualitativ hochwertige Sichtweisen von Straßen, wichtigen Sehenswürdigkeiten und öffentlichen Räumen in den EU-Ländern zu sammeln. Mit Fahrzeugen, die mit abnehmbaren 360°-Kameras und Deckeln ausgestattet sind, erfassen Fahrer umfassende Bilder der Umgebung. Die erfassten Daten werden an Bord von Computern (SSD Drives) gespeichert und später genutzt, um eine der weltweit führenden Online-Mapping-Plattformen zu verbessern. Die Datensammler folgen vorab zugewiesenen Strecken, die sich auf öffentliche Straßen, Gewerbegebiete und Sehenswürdigkeiten konzentrieren. Um die höchste Bildqualität zu gewährleisten, müssen bestimmte Bereiche bei günstigen Wetterbedingungen neu besucht werden. Die Dauer des Projekts hängt von dem Arbeitsumfang ab, der in jedem zielgerichteten Datenerhebungsbereich benötigt wird. Im Durchschnitt umfassen die \n• Aufgaben 3 bis 6 Monate aktive Arbeit. Arbeitsplan: Vollzeitbeschäftigung innerhalb der normalen Geschäftszeiten (8:00 - 19:00). Der Rekrutierungsprozess für die Position eines Fahrers beinhaltet solche Schritte: Sicherheits-Fahrtest, Interview mit Rekruten und Onboarding-Prozess. Ideale Kandidaten: - Ein gültiger EU-ausgestellter Führerschein. - Bewahrt eine saubere Hintergrundprüfung (Kriterium und Fahrrekord). - Hat mindestens 5 Jahre Fahrerfahrung. - Possesses professionelles Fahrerlebnis (z.B. Taxi, Lieferung, Logistik). - Proficient in englischer und lokaler Sprache. - Tech-savvy, mit Erfahrung mit GSuite-Tools (Gmail, Google Spreadsheets, Google Forms). - Grundkenntnisse der Fahrzeugmechanik. - Demonstriert Verantwortung, Zuverlässigkeit und Professionalität. - Geniessen Sie Reisen und erkunden Sie neue Orte. - Vertraut mit dem Einsatzgebiet. Was wir anbieten: - Ein dynamisches und ansprechendes Projekt, das über das Fahren hinausgeht. - Konkurrenzfähiges Gehalt. - Umfassende Schulungen zu praktischen und theoretischen Aspekten der Datenerhebung. - Unterstützung von erfahrenen Managern. - Die Möglichkeit, in einem internationalen Team und Umgebung zu arbeiten. Informazioni aggiunt Wenn Sie Interesse haben, wenden Sie sich jetzt an und gestalten Sie die Zukunft der Datenerhebung!",
+        "fr": "TSMG cerca Autista / Addetto raccolta dati in Chur, Suisse per attivita operative sul territorio in Chur. Lever, con responsabilita, requisiti e dettagli pratici del progetto. Description de l'entreprise Terry Soot Management Group (TSMG) est une société de collecte de données de terrain fondée en 2017 en Europe. Nous collectons des données lorsque l'automatisation n'est pas possible. Nous comptons les fonctionnalités, prenons des photos, faisons des vidéos, enregistrons la parole et numérisons les zones pour chaque détail que vous devez prendre des décisions plus éclairées. Nos équipes de collecte de données sur le terrain sont réparties en Europe et en Amérique du Nord, prêtes à relever de nouveaux défis. Aperçu du projet Ce projet vise à recueillir des images de haute qualité des rues, des points d'intérêt clés et des espaces publics dans les pays de l'UE. En utilisant des véhicules équipés de caméras à 360° amovibles et de lidars, les conducteurs capteront des images complètes de l'environnement. Les données capturées seront stockées sur les ordinateurs embarqués (SSD Drives) puis utilisées pour améliorer l'une des plates-formes de cartographie en ligne leader dans le monde. Les collecteurs de données suivront des itinéraires préaffectés, en se concentrant sur les rues publiques, les zones commerciales et les points d'intérêt. Pour assurer la plus haute qualité d'image, il faudra peut-être revoir certaines zones dans des conditions météorologiques favorables. La durée du projet varie en fonction de l'étendue des travaux requis dans chaque domaine de collecte de données ciblé. En moyenne, les affectations impliquent 3 à 6 mois de travail actif. Horaire de travail : engagement à temps plein dans les heures normales d'ouverture (8 h à 19 h). Le processus de recrutement pour le poste de chauffeur comporte de telles étapes : test de conduite de sécurité, entretien avec le recruteur et processus d'embarquement. Panoramica del progetto Description de l'entreprise Terry Soot Management Group (TSMG) est une société de collecte de données de terrain fondée en 2017 en Europe. Nous collectons des données lorsque l'automatisation n'est pas possible. Nous comptons les fonctionnalités, prenons des photos, faisons des vidéos, enregistrons la parole et numérisons les zones pour chaque détail que vous devez prendre des décisions plus éclairées. Nos équipes de collecte de données sur le terrain sont réparties en Europe et en Amérique du Nord, prêtes à relever de nouveaux défis. Aperçu du projet Ce projet vise à recueillir des images de haute qualité des rues, des points d'intérêt clés et des espaces publics dans les pays de l'UE. En utilisant des véhicules équipés de caméras à 360° amovibles et de lidars, les conducteurs capteront des images complètes de l'environnement. Les données capturées seront stockées sur les ordinateurs embarqués (SSD Drives) puis utilisées pour améliorer l'une des plates-formes de cartographie en ligne leader dans le monde. Les collecteurs de données suivront des itinéraires préaffectés, en se concentrant sur les rues publiques, les zones commerciales et les points d'intérêt. Pour assurer la plus haute qualité d'image, il faudra peut-être revoir certaines zones dans des conditions météorologiques favorables. La durée du projet varie en fonction de l'étendue des travaux requis dans chaque domaine de collecte de données ciblé. En moyenne, les affectations impliquent 3 à 6 mois de travail actif. Horaire de travail : engagement à temps plein dans les heures normales d'ouverture (8 h à 19 h). Le processus de recrutement pour le poste de chauffeur comporte de telles étapes : test de conduite de sécurité, entretien avec le recruteur et processus d'embarquement. Candidat idéal : - Il détient un permis de conduire valide délivré par l'UE. - Tenir une vérification des antécédents (criminels et de conduite). - Avoir au moins 5 ans d'expérience de conduite. - Possède une expérience de conduite professionnelle (par exemple taxi, livraison, logistique). - Connaissance de l'anglais et de la langue locale. - Tech-savvy, avec l'expérience en utilisant des outils GSuite (Gmail, Google Spreadsheets, Google Forms). - Connaissance de base de la mécanique des véhicules. - Démontre la responsabilité, la fiabilité et le professionnalisme. - Profitez de voyager et explorer de nouveaux endroits. - Familiariser avec la zone d'opérations. Ce que nous offrons: - Un projet dynamique et engageant qui va au-delà de la conduite. - Salaire compétitif. - Formation complète couvrant les aspects pratiques et théoriques de la collecte des données. - Soutien continu de gestionnaires expérimentés. - La possibilité de travailler dans une équipe et un environnement internationaux. Informations complémentaires Si vous êtes intéressé, appliquez maintenant et rejoignez-nous pour façonner l'avenir de la collecte de données!"
       },
       "slugByLocale": {
         "it": "autista-addetto-raccolta-dati-in-chur-switzerland-tsmg-chur-e483453a",
@@ -1828,11 +1842,9 @@
           "autista-addetto-raccolta-dati-in-chur-switzerland-tsmg-chur"
         ],
         "de": [
-          "fahrer-datenerfasser-in-chur-switzerland-tsmg-chur-e483453a",
           "autista-mitarbeiter-raccolta-dati-in-chur-switzerland-tsmg-chur-tpdis1"
         ],
         "fr": [
-          "chauffeur-collecteur-de-donnees-in-chur-switzerland-tsmg-chur-e483453a",
           "chauffeur-collecteur-de-donnees-in-chur-switzerland-tsmg-chur-dfa1adf1"
         ],
         "it": [
@@ -1841,14 +1853,11 @@
       },
       "previousSlugs": [
         "driver-data-collector-in-chur-switzerland-tsmg-chur-e483453a",
-        "fahrer-datenerfasser-in-chur-switzerland-tsmg-chur-e483453a",
-        "chauffeur-collecteur-de-donnees-in-chur-switzerland-tsmg-chur-e483453a",
         "driver-data-collector-in-chur-switzerland-tsmg-chur-dfa1adf1",
         "fahrer-datenerfasser-in-chur-switzerland-tsmg-chur-dfa1adf1",
         "autista-prepose-raccolta-dati-in-chur-switzerland-tsmg-chur-tpdis1",
         "chauffeur-collecteur-de-donnees-in-chur-switzerland-tsmg-chur",
         "autista-mitarbeiter-raccolta-dati-in-chur-switzerland-tsmg-chur-9fa4vp",
-        "autista-addetto-raccolta-dati-in-chur-switzerland-tsmg-chur-e483453a",
         "autista-prepose-raccolta-dati-in-chur-switzerland-tsmg-chur-9fa4vp",
         "autista-addetto-raccolta-dati-a-coira-svizzera-tsmg-chur",
         "autista-addetto-raccolta-dati-in-chur-svizzera-tsmg-chur",
@@ -1872,7 +1881,8 @@
       },
       "streetAddress": "Via Cantonale 1",
       "postalCode": "6928",
-      "firstSeenAt": "2026-05-17T11:16:47.206Z"
+      "firstSeenAt": "2026-05-17T11:16:47.206Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Lausanne, Switzerland",
@@ -1940,7 +1950,8 @@
       },
       "streetAddress": "Via Cantonale 1",
       "postalCode": "6928",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Lucerne, Switzerland",
@@ -2008,7 +2019,8 @@
       },
       "streetAddress": "Via Cantonale 1",
       "postalCode": "6928",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Winterthur, Switzerland",
@@ -2076,7 +2088,8 @@
       },
       "streetAddress": "Via Cantonale 1",
       "postalCode": "6928",
-      "firstSeenAt": "2026-05-10T11:02:15.330Z"
+      "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "needsRetranslation": true
     },
     {
       "title": "Field Data Collection Specialist\\Surveyor",
