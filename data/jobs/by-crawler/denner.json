@@ -878,11 +878,11 @@
     },
     {
       "id": "denner-5972e427cb8f",
-      "slug": "vendeur-vendeuse-denner-thonex",
+      "slug": "venditore-venditore-denner-thonex",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-denner-thonex",
-        "en": "vendeur-vendeuse-denner",
-        "de": "vendeur-vendeuse-denner",
+        "it": "venditore-venditore-denner-thonex",
+        "en": "seller-seller-denner-thonex",
+        "de": "verkaufer-denner-thonex",
         "fr": "vendeur-vendeuse-denner-thonex"
       },
       "company": "Denner",
@@ -943,15 +943,23 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-denner-geneve",
-          "vendeur-vendeuse-denner"
+          "vendeur-vendeuse-denner",
+          "vendeur-vendeuse-denner-thonex"
         ],
         "fr": [
           "vendeur-vendeuse-denner-geneve"
+        ],
+        "en": [
+          "vendeur-vendeuse-denner"
+        ],
+        "de": [
+          "vendeur-vendeuse-denner"
         ]
       },
       "previousSlugs": [
         "vendeur-vendeuse-denner-geneve",
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "vendeur-vendeuse-denner-thonex"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -1062,12 +1070,12 @@
     },
     {
       "id": "denner-d1df27d4f8ab",
-      "slug": "filialleiter-in-in-ausbildung-denner-chur",
+      "slug": "capofila-dell-istruzione-denner-chur",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-chur",
-        "en": "filialleiter-in-in-ausbildung-denner-chur",
+        "it": "capofila-dell-istruzione-denner-chur",
+        "en": "head-of-branch-in-education-denner-chur",
         "de": "filialleiter-in-in-ausbildung-denner-chur",
-        "fr": "filialleiter-in-in-ausbildung-denner-chur"
+        "fr": "chef-de-division-en-education-denner-chur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -1126,20 +1134,24 @@
       "crawledAt": "2026-05-17T10:05:57.007Z",
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-chur"
         ],
         "en": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-chur"
         ],
         "de": [
           "filialleiter-in-in-ausbildung-denner-allschwil"
         ],
         "fr": [
-          "filialleiter-in-in-ausbildung-denner"
+          "filialleiter-in-in-ausbildung-denner",
+          "filialleiter-in-in-ausbildung-denner-chur"
         ]
       },
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
+        "filialleiter-in-in-ausbildung-denner-chur",
         "filialleiter-in-in-ausbildung-denner-allschwil"
       ],
       "salaryMin": 59000,
