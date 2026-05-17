@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-05-16T21:13:53.986Z",
+  "assembledAt": "2026-05-17T09:52:53.169Z",
   "jobs": [
     {
       "id": "cedes-095fd9bf3819",
@@ -43,7 +43,7 @@
       "url": "https://www.cedes.com/en/career/jobs/sales-manager-elevator-escalator/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T21:13:52.175Z",
+      "crawledAt": "2026-05-17T09:52:51.435Z",
       "previousSlugs": [
         "sales-manager-elevator-escalator-cedes-landquart"
       ],
@@ -114,7 +114,7 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T21:13:51.882Z",
+      "crawledAt": "2026-05-17T09:52:50.941Z",
       "previousSlugs": [
         "packaging-line-worker-100-cedes-landquart"
       ],
@@ -130,6 +130,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:12:15.192Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -185,7 +186,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T21:13:51.596Z",
+      "crawledAt": "2026-05-17T09:52:50.642Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
         "unsolicited-applications-cedes-landquart"
