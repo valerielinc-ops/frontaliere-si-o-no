@@ -1,5 +1,57 @@
 [
   {
+    "slug": "assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
+    "title": "Medizinische Praxisassistentin / Medizinischer Praxisassistent",
+    "titleByLocale": {
+      "de": "Medizinische Praxisassistentin / Medizinischer Praxisassistent",
+      "it": "Assistente di pratica medica",
+      "en": "Medical Practice Assistant",
+      "fr": "Assistant de pratique médicale"
+    },
+    "company": "Kantonsspital Winterthur (KSW)",
+    "companyKey": "ksw",
+    "location": "Winterthur",
+    "addressLocality": "Winterthur",
+    "descriptionByLocale": {
+      "de": "Descrizione\nMedizinische Praxisassistentin / Medizinischer Praxisassistent — Kantonsspital Winterthur (KSW), Winterthur\n\n- Berufsfeld: MPA / Arztsekretariate\n- Bereich: Klinik für Urologie\n- Pensum: 80-100%",
+      "it": "Descrizione\nAssistente di pratica medica / Assistente di pratica medica — Ospedale cantonale Winterthur (KSW), Winterthur\n\n- Campo di professione: MPA / Segreteria del Dottore\n- Dipartimento di Urologia\n- Penso: 80-100 %",
+      "en": "Descrizione\nMedical practice assistant / Medical practice assistant — Cantonal Hospital Winterthur (KSW), Winterthur\n\n- Profession field: MPA / Doctor's Secretariat\n- Department: Department of Urology\n- Pensum: 80-100 %",
+      "fr": "Descrizione\nAssistant médical / Assistant médical — Hôpital cantonal Winterthur (KSW), Winterthur\n\n- Domaine professionnel : MPA / Secrétariat du Docteur\n- Département: Département d'urologie\n- Pensum: 80-100 %"
+    },
+    "slugByLocale": {
+      "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
+      "it": "assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
+      "en": "medical-practice-assistant-kantonsspital-winterthur-ksw-winterthur",
+      "fr": "assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-05-17T07:45:27.196Z",
+    "previousSlugs": [
+      "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-2",
+      "assistente-di-pratica-medica-assistente-di-pratica-medica-nel-campo-della-poliambulanza-medica-kantonsspital-winterthur-",
+      "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische-poliklinik-kantonsspital-winterthur",
+      "medical-practice-assistant-medical-practice-assistant-in-the-field-of-medical-polyclinic-kantonsspital-winterthur-ksw-wi",
+      "assistant-de-pratique-medicale-assistant-de-pratique-medicale-dans-le-domaine-de-la-polyclinique-medicale-kantonsspital-",
+      "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische-polik"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-2"
+      ],
+      "en": [
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-2"
+      ],
+      "fr": [
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-2"
+      ]
+    },
+    "postalCode": "8400",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "capo-capo-delle-domande-amministrative-kantonsspital-winterthur-ksw-winterthur",
     "title": "Leiterin / Leiter Administrative Applikationen",
     "titleByLocale": {
