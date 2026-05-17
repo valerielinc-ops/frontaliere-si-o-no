@@ -1,93 +1,5 @@
 [
   {
-    "timestamp": "2026-05-02T08:10:54.053Z",
-    "label": "before",
-    "total": 2596,
-    "needsRetranslation": 50,
-    "incomplete": 29,
-    "complete": 2567,
-    "missingByLocale": {
-      "it": 27,
-      "en": 7,
-      "de": 25,
-      "fr": 25
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-02T08:31:41.495Z",
-    "label": "after",
-    "total": 2596,
-    "needsRetranslation": 54,
-    "incomplete": 29,
-    "complete": 2567,
-    "missingByLocale": {
-      "it": 27,
-      "en": 7,
-      "de": 25,
-      "fr": 25
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 20
-      },
-      {
-        "company": "Fusalp",
-        "pending": 3
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 2
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      },
-      {
-        "company": "Tether Operations",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-02T10:45:27.790Z",
     "label": "before",
     "total": 2647,
@@ -10644,6 +10556,118 @@
       {
         "company": "SUPSI / DTI",
         "pending": 9
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-17T03:32:08.413Z",
+    "label": "before",
+    "total": 4301,
+    "needsRetranslation": 984,
+    "incomplete": 346,
+    "complete": 3955,
+    "missingByLocale": {
+      "it": 250,
+      "en": 213,
+      "de": 93,
+      "fr": 252
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 16
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 14
+      },
+      {
+        "company": "UBS",
+        "pending": 12
+      },
+      {
+        "company": "PostAuto",
+        "pending": 10
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 9
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 9
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-17T04:32:55.382Z",
+    "label": "after",
+    "total": 4301,
+    "needsRetranslation": 854,
+    "incomplete": 282,
+    "complete": 4019,
+    "missingByLocale": {
+      "it": 205,
+      "en": 188,
+      "de": 72,
+      "fr": 216
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "MSC Group",
+        "pending": 14
+      },
+      {
+        "company": "UBS",
+        "pending": 12
+      },
+      {
+        "company": "IWC",
+        "pending": 10
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 9
+      },
+      {
+        "company": "Tschuggen Collection",
+        "pending": 7
+      },
+      {
+        "company": "Badrutt's Palace Hotel",
+        "pending": 5
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 5
       }
     ]
   }
