@@ -1,18 +1,47 @@
 {
   "key": "corner-banca",
   "label": "Corner",
-  "generatedAt": "2026-05-16T21:24:10.379Z",
+  "generatedAt": "2026-05-17T10:03:00.502Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2676,
-  "avgDurationMs": 2676,
+  "durationMs": 2183,
+  "avgDurationMs": 2183,
   "durationHistory": [
-    2676
+    2183
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "corner-banca-f803e5cc9fe2",
+      "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Candidatura spontanea apprendistato",
+      "location": "Switzerland",
+      "canton": "TI",
+      "addressLocality": "Switzerland",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-10-02",
+      "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-17T10:02:58.679Z",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 21,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "corner-banca-55e210fc5d83",
@@ -33,7 +62,7 @@
       "url": "https://jobs.corner.ch/o/market-risk-manager",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T21:24:08.135Z",
+      "crawledAt": "2026-05-17T10:02:58.675Z",
       "firstSeenAt": "2026-05-13T10:51:00.114Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -62,7 +91,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T21:24:08.128Z",
+      "crawledAt": "2026-05-17T10:02:58.669Z",
       "firstSeenAt": "2026-05-15T10:48:38.227Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -91,7 +120,7 @@
       "url": "https://jobs.corner.ch/o/aml-monitoring",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T21:24:08.129Z",
+      "crawledAt": "2026-05-17T10:02:58.670Z",
       "firstSeenAt": "2026-04-28T10:42:06.718Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -120,7 +149,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T21:24:08.131Z",
+      "crawledAt": "2026-05-17T10:02:58.671Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -149,7 +178,7 @@
       "url": "https://jobs.corner.ch/o/employee-front-office-collection",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T21:24:08.132Z",
+      "crawledAt": "2026-05-17T10:02:58.672Z",
       "firstSeenAt": "2026-04-17T09:43:40.223Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -178,7 +207,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T21:24:08.133Z",
+      "crawledAt": "2026-05-17T10:02:58.674Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -207,7 +236,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-16T21:24:08.136Z",
+      "crawledAt": "2026-05-17T10:02:58.676Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -236,7 +265,7 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-100-team-lugano",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T21:24:08.137Z",
+      "crawledAt": "2026-05-17T10:02:58.677Z",
       "firstSeenAt": "2026-04-17T21:20:43.270Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -265,43 +294,13 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-16T21:24:08.138Z",
+      "crawledAt": "2026-05-17T10:02:58.678Z",
       "firstSeenAt": "2026-05-05T21:39:18.874Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "corner-banca-f803e5cc9fe2",
-      "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Candidatura spontanea apprendistato",
-      "location": "Switzerland",
-      "canton": "TI",
-      "addressLocality": "Switzerland",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-10-02",
-      "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-05-16T21:24:08.139Z",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T09:57:27.167Z",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 21,
         "completeness": 14
       }
     }
