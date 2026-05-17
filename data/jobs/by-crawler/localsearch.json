@@ -1,6 +1,6 @@
 {
   "crawlerKey": "localsearch",
-  "assembledAt": "2026-05-17T10:38:48.084Z",
+  "assembledAt": "2026-05-17T22:03:28.801Z",
   "jobs": [
     {
       "id": "localsearch-dbae903f8a6d",
@@ -33,7 +33,7 @@
       "url": "https://emp.jobylon.com/jobs/310123-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:45.525Z",
+      "crawledAt": "2026-05-17T22:03:26.428Z",
       "addressLocality": "Bremgarten",
       "addressCountry": "CH",
       "country": "CH",
@@ -88,6 +88,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:19.132Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -133,7 +134,7 @@
       "url": "https://emp.jobylon.com/jobs/310124-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:44.652Z",
+      "crawledAt": "2026-05-17T22:03:25.562Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -188,6 +189,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:18.129Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -233,7 +235,7 @@
       "url": "https://emp.jobylon.com/jobs/310125-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:43.764Z",
+      "crawledAt": "2026-05-17T22:03:24.781Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -288,6 +290,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:16.719Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -333,7 +336,7 @@
       "url": "https://emp.jobylon.com/jobs/310141-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:42.879Z",
+      "crawledAt": "2026-05-17T22:03:23.996Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -388,6 +391,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:15.782Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -433,7 +437,7 @@
       "url": "https://emp.jobylon.com/jobs/310143-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:42.010Z",
+      "crawledAt": "2026-05-17T22:03:23.132Z",
       "addressLocality": "Landquart",
       "addressCountry": "CH",
       "country": "CH",
@@ -488,6 +492,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:14.891Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -533,7 +538,7 @@
       "url": "https://emp.jobylon.com/jobs/310150-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:41.164Z",
+      "crawledAt": "2026-05-17T22:03:22.300Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -585,6 +590,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:13.170Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -630,7 +636,7 @@
       "url": "https://emp.jobylon.com/jobs/310151-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:40.296Z",
+      "crawledAt": "2026-05-17T22:03:21.538Z",
       "addressLocality": "Urdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -672,9 +678,9 @@
       "id": "localsearch-124dfc817854",
       "slug": "venditore-venditore-nel-campo-localsearch-zurich",
       "slugByLocale": {
-        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "it": "venditore-venditore-nel-campo-localsearch-zurich",
         "en": "seller-seller-in-the-field-localsearch-zurich",
+        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "fr": "vendeur-vendeur-dans-le-champ-localsearch-zurich"
       },
       "company": "localsearch",
@@ -682,24 +688,24 @@
       "companyDomain": "localsearch.ch",
       "title": "Verkäuferin / Verkäufer im Aussendienst",
       "titleByLocale": {
-        "de": "Verkäuferin / Verkäufer im Aussendienst",
         "it": "Venditore / venditore nel campo",
         "en": "Seller / seller in the field",
+        "de": "Verkäuferin / Verkäufer im Aussendienst",
         "fr": "Vendeur / vendeur dans le champ"
       },
       "description": "Region: Zürich \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.  \nWir machen Kunden erfolgreich in der digitalen Welt.  \n\n Verkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig! \n\n Wir suchen dich als   Verkaufstalent im Aussendienst \n\n Du besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\n Skills und Anforderungen \n\n Das bringst du mit, um bei uns erfolgreich zu sein: \n\n \n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen. \n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen. \n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig. \n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel. \n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich. \n \n Das bieten wir dir \n\n Darum willst du Teil von localsearch werden:\n\n \n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.  \n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.  \n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.  \n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.  \n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.  \n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen. \n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss. \n\n \n Kontakt & Bewerbung \n\n Bei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n\n \n\n \n\n Wir freuen uns darauf, dich kennenzulernen!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
       "descriptionByLocale": {
-        "de": "Region: Zürich\n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. \nWir machen Kunden erfolgreich in der digitalen Welt. \n\n Verkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\n Wir suchen dich als   Verkaufstalent im Aussendienst\n\n Du besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\n Skills und Anforderungen\n\n Das bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich. \n\n Das bieten wir dir\n\n Darum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft. \n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt. \n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung. \n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative. \n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte. \n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen. \n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss. \n\n Kontakt & Bewerbung\n\n Bei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25.\n\n Wir freuen uns darauf, dich kennenzulernen!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "it": "Regione: Zurigo\n\nlocalsearch è il principale partner commerciale e pubblicitario per le PMI svizzere.\nFacciamo i clienti di successo nel mondo digitale.\n\nVendere è la tua passione? Il vostro cuore dorme per il marketing digitale? Ti piace immergerti nel mondo delle PMI? E vuoi influenzare il tuo merito? Allora sei qui!\n\nTi stiamo cercando come agente di vendita sul campo\n\nVisiterete clienti PMI esistenti e potenziali nuovi clienti e li presenterete soluzioni di marketing digitale su misura. Il vostro obiettivo è quello di creare un valore aggiunto sostenibile e rendere le PMI digitalmente di successo.\n\nCompetenze e requisiti\n\nPorti questo per avere successo con noi:\n\n• Piacere di vendere e consigliare: si brucia per il contatto personale e telefonico e mettere grande valore sulla reale comprensione dei nostri clienti.\n\n• L'orientamento del cliente: si costruisce relazioni di fiducia con i vostri clienti e spiegare con successo i vantaggi delle nostre soluzioni di marketing online.\n\n• L'orientamento al successo: la vostra motivazione personale e l'ambizione sono i vostri fattori di successo. Anche in tempi turbolenti rimani concentrato e mirato.\n\n• Comunicativo: Lei parla fluentemente tedesco e padroneggia i mezzi comuni di comunicazione.\n\n• Spiegazione: Hai umorismo e ti piace mostrare la tua personalità.\n\n• Mobilità: hai una carta guida valida (cat. B) e la tua auto, in modo da poter visitare i nostri clienti in modo affidabile sul sito.\n\n• Azione reattiva: il tuo aspetto è professionale e la tua reputazione è perfetta (Leumund)\n\n• Flessibilità: è possibile lavorare a tempo parziale, ma solo dal secondo mese di lavoro. Nel primo mese è richiesta la partecipazione alla formazione di base presso la nostra sede di Zurigo.\n\nVi offriamo\n\nEcco perché si desidera far parte della ricerca locale:\n\n• Lavoro di squadra: Lei è integrato in una squadra vivace che si sostiene e incontra incontri regolari.\n\n• area di vendita propria: ti verrà assegnato un'area con clienti PMI esistenti e potenziali nuovi clienti.\n\n• Soluzioni di marketing: hai una vasta gamma di prodotti dal marketing digitale.\n\n• Lavoro autonomo: Lei si assume la responsabilità per le Sue mansioni, pianifica i Suoi appuntamenti del cliente in modo indipendente e si occupa di un alto grado di iniziativa.\n\n• Formazione completa e ulteriore sviluppo: si inizia con la formazione multi-settimana e ricevere accompagnamenti regolari e formazione nel campo delle vendite e dei prodotti.\n\n• Un attraente modello di messa in servizio: il vostro successo è ricompensato direttamente – qualsiasi buon consiglio che porta a un ordine determina il vostro reddito.\n\n• Vassoio Espositore: Il tuo veicolo sicuramente ti porterà alla data del cliente e ti compenseremo per questo.\n\nContatto e applicazione\n\nSe hai domande, contatta il nostro Sales Manager Simone Conversano: +41 79 941 93 25.\n\nNon vediamo l'ora di incontrarvi!\n\nUlteriori informazioni sulla posizione e localsearch possono essere trovate qui .",
-        "en": "Region: Zurich\n\nlocalsearch is the leading marketing and advertising partner for Swiss SMEs.\nWe make customers successful in the digital world.\n\nSelling is your passion? Does your heart sleep for digital marketing? Do you like to dive into the SME world? And do you want to influence your merit? Then you're right here!\n\nWe are looking for you as a sales agent in the field\n\nYou will visit existing SME customers as well as potential new customers and present them tailor-made digital marketing solutions. Your goal is to create sustainable added value and make SMEs digitally successful.\n\nSkills and requirements\n\nYou bring this to be successful with us:\n\n• Pleasure to sell and advise: You burn for personal and telephone contact and place great value on real understanding our customers.\n\n• Customer orientation: You build trusted relationships with your customers and successfully explain the benefits of our online marketing solutions.\n\n• Success orientation : Your personal motivation and ambition are your success factors. Also in turbulent times you stay focused and targeted.\n\n• Communicative : You speak fluent German and master the common means of communication.\n\n• Explanation: You have humor and like to show your personality.\n\n• Mobility: You have a valid guide card (cat. B) and your own car, so you can visit our customers reliably on site.\n\n• Responsive action: Your appearance is professional and your reputation is perfect (Leumund)\n\n• Flexibility: parttime work is possible, but only from the second month of employment. In the first month, participation in the basic training at our headquarters in Zurich is required.\n\nWe offer you\n\nThat's why you want to be part of localsearch:\n\n• Teamwork: You are integrated into a lively team that supports each other and meets regular meetings.\n\n• Own sales area: You will be assigned an area with existing SME customers and potential new customers.\n\n• Marketing solutions: You have a varied range of products from digital marketing.\n\n• Self-employed work: You take responsibility for your tasks, plan your customer appointments independently and deal with a high degree of initiative.\n\n• Comprehensive training and further development: You start with multi-week training and receive regular accompaniments and training in the field of sales and products.\n\n• An attractive commissioning model: Your success is rewarded directly – any good advice that leads to an order determines your income.\n\n• Exhibitor tray: Your own vehicle will surely take you to the customer date and we will compensate you for this.\n\nContact & Application\n\nIf you have any questions, please contact our Sales Manager Simone Conversano: +41 79 941 93 25.\n\nWe look forward to meeting you!\n\nAdditional information about the location and localsearch can be found here .",
-        "fr": "Région: Zurich\n\nlocalsearch est le principal partenaire commercial et publicitaire des PME suisses.\nNous faisons des clients un succès dans le monde numérique.\n\nVendre est votre passion ? Votre cœur dort-il pour le marketing numérique? Vous aimez plonger dans le monde des PME ? Et voulez-vous influencer votre mérite ? Alors vous êtes là !\n\nNous vous recherchons comme agent de vente dans le domaine\n\nVous visiterez les PME existantes ainsi que de nouveaux clients potentiels et leur présenterez des solutions de marketing numérique sur mesure. Votre objectif est de créer une valeur ajoutée durable et de faire des PME un succès numérique.\n\nCompétences et exigences\n\nVous apportez ceci pour réussir avec nous:\n\n• Plaisir de vendre et de conseiller: Vous brûlez pour le contact personnel et téléphonique et placez une grande valeur sur la compréhension réelle de nos clients.\n\n• Orientation client: Vous créez des relations de confiance avec vos clients et expliquez avec succès les avantages de nos solutions marketing en ligne.\n\n• Orientation du succès : Votre motivation personnelle et votre ambition sont vos facteurs de réussite. Aussi dans les temps agités, vous restez concentré et ciblé.\n\n• Communicative : Vous parlez couramment allemand et maîtrisez les moyens de communication communs.\n\n• Explication: Vous avez de l'humour et aimez montrer votre personnalité.\n\n• Mobilité: Vous avez une carte de guide valide (cat. B) et votre propre voiture, afin que vous puissiez visiter nos clients de manière fiable sur le site.\n\n• Action réceptive: Votre apparence est professionnelle et votre réputation est parfaite (Leumund)\n\n• Flexibilité: le travail à temps partiel est possible, mais seulement à partir du deuxième mois d'emploi. Dans le premier mois, la participation à la formation de base de notre siège à Zurich est requise.\n\nNous vous offrons\n\nC'est pourquoi vous voulez faire partie de la recherche locale:\n\n• Travail d'équipe: Vous êtes intégré dans une équipe animée qui se soutient mutuellement et se réunit régulièrement.\n\n• Espace de vente propre : un espace vous sera assigné avec des clients PME existants et de nouveaux clients potentiels.\n\n• Solutions marketing : Vous avez une gamme variée de produits du marketing numérique.\n\n• Travail indépendant : vous assumez la responsabilité de vos tâches, planifiez vos rendez-vous clients de manière indépendante et traitez avec un degré élevé d'initiative.\n\n• Formation complète et perfectionnement: Vous commencez par une formation multi-semaines et recevez régulièrement des accompagnements et une formation dans le domaine des ventes et des produits.\n\n• Un modèle de mise en service attrayant : votre succès est récompensé directement – tout bon conseil qui mène à une commande détermine votre revenu.\n\n• Plateau exposant: Votre propre véhicule vous mènera sûrement à la date du client et nous vous indemniserons pour cela.\n\nDemande de contact &\n\nSi vous avez des questions, veuillez contacter notre responsable des ventes Simone Conversano: +41 79 941 93 25.\n\nNous sommes impatients de vous rencontrer!\n\nDes informations supplémentaires sur l'emplacement et la recherche locale peuvent être trouvées ici ."
+        "it": "Regione: Zurigo localsearch è il principale partner commerciale e pubblicitario per le PMI svizzere. Facciamo i clienti di successo nel mondo digitale. Vendere è la tua passione? Il vostro cuore dorme per il marketing digitale? Ti piace immergerti nel mondo delle PMI? E vuoi influenzare il tuo merito? Allora sei qui! Ti stiamo cercando come agente di vendita sul campo Visiterete clienti PMI esistenti e potenziali nuovi clienti e li presenterete soluzioni di marketing digitale su misura. Il vostro obiettivo è quello di creare un valore aggiunto sostenibile e rendere le PMI digitalmente di successo. Competenze e requisiti Porti questo per avere successo con noi:\n• Piacere di vendere e consigliare: si brucia per il contatto personale e telefonico e mettere grande valore sulla reale comprensione dei nostri clienti.\n• L'orientamento del cliente: si costruisce relazioni di fiducia con i vostri clienti e spiegare con successo i vantaggi delle nostre soluzioni di marketing online.\n• L'orientamento al successo: la vostra motivazione personale e l'ambizione sono i vostri fattori di successo. Anche in tempi turbolenti rimani concentrato e mirato.\n• Comunicativo: Lei parla fluentemente tedesco e padroneggia i mezzi comuni di comunicazione.\n• Spiegazione: Hai umorismo e ti piace mostrare la tua personalità.\n• Mobilità: hai una carta guida valida (cat. B) e la tua auto, in modo da poter visitare i nostri clienti in modo affidabile sul sito.\n• Azione reattiva: il tuo aspetto è professionale e la tua reputazione è perfetta (Leumund)\n• Flessibilità: è possibile lavorare a tempo parziale, ma solo dal secondo mese di lavoro. Nel primo mese è richiesta la partecipazione alla formazione di base presso la nostra sede di Zurigo. Vi offriamo Ecco perché si desidera far parte della ricerca locale:\n• Lavoro di squadra: Lei è integrato in una squadra vivace che si sostiene e incontra incontri regolari.\n• area di vendita propria: ti verrà assegnato un'area con clienti PMI esistenti e potenziali nuovi clienti.\n• Soluzioni di marketing: hai una vasta gamma di prodotti dal marketing digitale.\n• Lavoro autonomo: Lei si assume la responsabilità per le Sue mansioni, pianifica i Suoi appuntamenti del cliente in modo indipendente e si occupa di un alto grado di iniziativa.\n• Formazione completa e ulteriore sviluppo: si inizia con la formazione multi-settimana e ricevere accompagnamenti regolari e formazione nel campo delle vendite e dei prodotti.\n• Un attraente modello di messa in servizio: il vostro successo è ricompensato direttamente – qualsiasi buon consiglio che porta a un ordine determina il vostro reddito.\n• Vassoio Espositore: Il tuo veicolo sicuramente ti porterà alla data del cliente e ti compenseremo per questo. Contatto e applicazione Se hai domande, contatta il nostro Sales Manager Simone Conversano: +41 79 941 93 25. Non vediamo l'ora di incontrarvi! Ulteriori informazioni sulla posizione e localsearch possono essere trovate qui .",
+        "en": "Region: Zurich localsearch is the leading marketing and advertising partner for Swiss SMEs. We make customers successful in the digital world. Selling is your passion? Does your heart sleep for digital marketing? Do you like to dive into the SME world? And do you want to influence your merit? Then you're right here! We are looking for you as a sales agent in the field You will visit existing SME customers as well as potential new customers and present them tailor-made digital marketing solutions. Your goal is to create sustainable added value and make SMEs digitally successful. Skills and requirements You bring this to be successful with us:\n• Pleasure to sell and advise: You burn for personal and telephone contact and place great value on real understanding our customers.\n• Customer orientation: You build trusted relationships with your customers and successfully explain the benefits of our online marketing solutions.\n• Success orientation : Your personal motivation and ambition are your success factors. Also in turbulent times you stay focused and targeted.\n• Communicative : You speak fluent German and master the common means of communication.\n• Explanation: You have humor and like to show your personality.\n• Mobility: You have a valid guide card (cat. B) and your own car, so you can visit our customers reliably on site.\n• Responsive action: Your appearance is professional and your reputation is perfect (Leumund)\n• Flexibility: parttime work is possible, but only from the second month of employment. In the first month, participation in the basic training at our headquarters in Zurich is required. We offer you That's why you want to be part of localsearch:\n• Teamwork: You are integrated into a lively team that supports each other and meets regular meetings.\n• Own sales area: You will be assigned an area with existing SME customers and potential new customers.\n• Marketing solutions: You have a varied range of products from digital marketing.\n• Self-employed work: You take responsibility for your tasks, plan your customer appointments independently and deal with a high degree of initiative.\n• Comprehensive training and further development: You start with multi-week training and receive regular accompaniments and training in the field of sales and products.\n• An attractive commissioning model: Your success is rewarded directly – any good advice that leads to an order determines your income.\n• Exhibitor tray: Your own vehicle will surely take you to the customer date and we will compensate you for this. Contact & Application If you have any questions, please contact our Sales Manager Simone Conversano: +41 79 941 93 25. We look forward to meeting you! Additional information about the location and localsearch can be found here .",
+        "de": "Region: Zürich localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Verkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig! Wir suchen dich als Verkaufstalent im Aussendienst Du besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen. Skills und Anforderungen Das bringst du mit, um bei uns erfolgreich zu sein:\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich. Das bieten wir dir Darum willst du Teil von localsearch werden:\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss. Kontakt & Bewerbung Bei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Simone Conversano wenden: +41 79 941 93 25. Wir freuen uns darauf, dich kennenzulernen! Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "fr": "Région: Zurich localsearch est le principal partenaire commercial et publicitaire des PME suisses. Nous faisons des clients un succès dans le monde numérique. Vendre est votre passion ? Votre cœur dort-il pour le marketing numérique? Vous aimez plonger dans le monde des PME ? Et voulez-vous influencer votre mérite ? Alors vous êtes là ! Nous vous recherchons comme agent de vente dans le domaine Vous visiterez les PME existantes ainsi que de nouveaux clients potentiels et leur présenterez des solutions de marketing numérique sur mesure. Votre objectif est de créer une valeur ajoutée durable et de faire des PME un succès numérique. Compétences et exigences Vous apportez ceci pour réussir avec nous:\n• Plaisir de vendre et de conseiller: Vous brûlez pour le contact personnel et téléphonique et placez une grande valeur sur la compréhension réelle de nos clients.\n• Orientation client: Vous créez des relations de confiance avec vos clients et expliquez avec succès les avantages de nos solutions marketing en ligne.\n• Orientation du succès : Votre motivation personnelle et votre ambition sont vos facteurs de réussite. Aussi dans les temps agités, vous restez concentré et ciblé.\n• Communicative : Vous parlez couramment allemand et maîtrisez les moyens de communication communs.\n• Explication: Vous avez de l'humour et aimez montrer votre personnalité.\n• Mobilité: Vous avez une carte de guide valide (cat. B) et votre propre voiture, afin que vous puissiez visiter nos clients de manière fiable sur le site.\n• Action réceptive: Votre apparence est professionnelle et votre réputation est parfaite (Leumund)\n• Flexibilité: le travail à temps partiel est possible, mais seulement à partir du deuxième mois d'emploi. Dans le premier mois, la participation à la formation de base de notre siège à Zurich est requise. Nous vous offrons C'est pourquoi vous voulez faire partie de la recherche locale:\n• Travail d'équipe: Vous êtes intégré dans une équipe animée qui se soutient mutuellement et se réunit régulièrement.\n• Espace de vente propre : un espace vous sera assigné avec des clients PME existants et de nouveaux clients potentiels.\n• Solutions marketing : Vous avez une gamme variée de produits du marketing numérique.\n• Travail indépendant : vous assumez la responsabilité de vos tâches, planifiez vos rendez-vous clients de manière indépendante et traitez avec un degré élevé d'initiative.\n• Formation complète et perfectionnement: Vous commencez par une formation multi-semaines et recevez régulièrement des accompagnements et une formation dans le domaine des ventes et des produits.\n• Un modèle de mise en service attrayant : votre succès est récompensé directement – tout bon conseil qui mène à une commande détermine votre revenu.\n• Plateau exposant: Votre propre véhicule vous mènera sûrement à la date du client et nous vous indemniserons pour cela. Demande de contact & Si vous avez des questions, veuillez contacter notre responsable des ventes Simone Conversano: +41 79 941 93 25. Nous sommes impatients de vous rencontrer! Des informations supplémentaires sur l'emplacement et la recherche locale peuvent être trouvées ici ."
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://emp.jobylon.com/jobs/310140-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:39.388Z",
+      "crawledAt": "2026-05-17T22:03:20.760Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -713,9 +719,22 @@
       "postedDate": "2025-10-23",
       "applyUrl": "https://emp.jobylon.com/jobs/310140-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-9"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-9"
+        ],
+        "en": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-9"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-9"
+        ]
       },
+      "firstSeenAt": "2026-05-17T10:38:39.388Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -728,22 +747,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
-      "firstSeenAt": "2026-05-17T10:38:39.388Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-9"
-        ],
-        "en": [
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-9"
-        ],
-        "fr": [
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-9"
-        ]
-      },
-      "previousSlugs": [
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-9"
-      ]
+      "postalCode": "8001"
     },
     {
       "id": "localsearch-c838db6788fb",
@@ -776,7 +780,7 @@
       "url": "https://emp.jobylon.com/jobs/310149-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:38.513Z",
+      "crawledAt": "2026-05-17T22:03:19.985Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -830,6 +834,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:07.844Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -875,7 +880,7 @@
       "url": "https://emp.jobylon.com/jobs/310070-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:37.623Z",
+      "crawledAt": "2026-05-17T22:03:19.179Z",
       "addressLocality": "Unterentfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -929,6 +934,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:03.826Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -974,7 +980,7 @@
       "url": "https://emp.jobylon.com/jobs/310081-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:36.750Z",
+      "crawledAt": "2026-05-17T22:03:18.363Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -1028,6 +1034,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:02.889Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1073,7 +1080,7 @@
       "url": "https://emp.jobylon.com/jobs/323253-localsearch-regionalleiter-sales-mwa-verkauf-von-onlinemarketing-losungen-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:35.818Z",
+      "crawledAt": "2026-05-17T22:03:17.575Z",
       "addressLocality": "Landquart",
       "addressCountry": "CH",
       "country": "CH",
@@ -1128,6 +1135,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:01.984Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1173,7 +1181,7 @@
       "url": "https://emp.jobylon.com/jobs/310122-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:34.843Z",
+      "crawledAt": "2026-05-17T22:03:16.797Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1228,6 +1236,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:00.973Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1272,7 +1281,7 @@
       "url": "https://emp.jobylon.com/jobs/310097-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:33.959Z",
+      "crawledAt": "2026-05-17T22:03:16.005Z",
       "addressLocality": "Rapperswil-Jona",
       "addressCountry": "CH",
       "country": "CH",
@@ -1326,6 +1335,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:00.086Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1371,7 +1381,7 @@
       "url": "https://emp.jobylon.com/jobs/310027-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:33.082Z",
+      "crawledAt": "2026-05-17T22:03:15.237Z",
       "addressLocality": "Sirnach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1425,6 +1435,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:59.193Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1469,7 +1480,7 @@
       "url": "https://emp.jobylon.com/jobs/310139-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:32.219Z",
+      "crawledAt": "2026-05-17T22:03:14.443Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1524,6 +1535,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:56.002Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1569,7 +1581,7 @@
       "url": "https://emp.jobylon.com/jobs/310098-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:31.373Z",
+      "crawledAt": "2026-05-17T22:03:13.603Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1624,6 +1636,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:54.880Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1642,9 +1655,9 @@
       "id": "localsearch-9f2c08e6b713",
       "slug": "venditore-venditore-nel-campo-localsearch-lyssach",
       "slugByLocale": {
-        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "it": "venditore-venditore-nel-campo-localsearch-lyssach",
         "en": "seller-seller-in-the-field-localsearch-lyssach",
+        "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
         "fr": "vendeur-vendeur-dans-le-champ-localsearch-lyssach"
       },
       "company": "localsearch",
@@ -1652,24 +1665,24 @@
       "companyDomain": "localsearch.ch",
       "title": "Verkäuferin / Verkäufer im Aussendienst",
       "titleByLocale": {
-        "de": "Verkäuferin / Verkäufer im Aussendienst",
         "it": "Venditore / venditore nel campo",
         "en": "Seller / seller in the field",
+        "de": "Verkäuferin / Verkäufer im Aussendienst",
         "fr": "Vendeur / vendeur dans le champ"
       },
       "description": "Region: Biel / Bienne \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.  \nWir machen Kunden erfolgreich in der digitalen Welt.  \n\n Verkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig! \n\n Wir suchen dich als   Verkaufstalent im Aussendienst \n\n Du besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\n \n\n Skills und Anforderungen \n\n Das bringst du mit, um bei uns erfolgreich zu sein: \n\n \n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen. \n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen. \n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig. \n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel. \n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit. \n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.  \n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich. \n\n \n Das bieten wir dir \n\n Darum willst du Teil von localsearch werden:\n\n \n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.  \n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.  \n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.  \n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.  \n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.  \n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen. \n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss. \n\n \n Kontakt & Bewerbung \n\n Bei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Behar Selmani wenden: +41 79 364 14 95.\n\n Wir freuen uns darauf, dich kennenzulernen!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
       "descriptionByLocale": {
-        "de": "Region: Biel / Bienne\n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. \nWir machen Kunden erfolgreich in der digitalen Welt. \n\n Verkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\n Wir suchen dich als   Verkaufstalent im Aussendienst\n\n Du besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\n Skills und Anforderungen\n\n Das bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst. \n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich. \n\n Das bieten wir dir\n\n Darum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft. \n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt. \n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung. \n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative. \n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte. \n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen. \n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss. \n\n Kontakt & Bewerbung\n\n Bei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Behar Selmani wenden: +41 79 364 14 95.\n\n Wir freuen uns darauf, dich kennenzulernen!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "it": "Regione: Biel / Bienne\n\nlocalsearch è il principale partner commerciale e pubblicitario per le PMI svizzere.\nFacciamo i clienti di successo nel mondo digitale.\n\nVendere è la tua passione? Il vostro cuore dorme per il marketing digitale? Ti piace immergerti nel mondo delle PMI? E vuoi influenzare il tuo merito? Allora sei qui!\n\nTi stiamo cercando come agente di vendita sul campo\n\nVisiterete clienti PMI esistenti e potenziali nuovi clienti e li presenterete soluzioni di marketing digitale su misura. Il vostro obiettivo è quello di creare un valore aggiunto sostenibile e rendere le PMI digitalmente di successo.\n\nCompetenze e requisiti\n\nPorti questo per avere successo con noi:\n\n• Piacere di vendere e consigliare: si brucia per il contatto personale e telefonico e mettere grande valore sulla reale comprensione dei nostri clienti.\n\n• L'orientamento del cliente: si costruisce relazioni di fiducia con i vostri clienti e spiegare con successo i vantaggi delle nostre soluzioni di marketing online.\n\n• L'orientamento al successo: la vostra motivazione personale e l'ambizione sono i vostri fattori di successo. Anche in tempi turbolenti rimani concentrato e mirato.\n\n• Comunicativo: Lei parla fluentemente tedesco e padroneggia i mezzi comuni di comunicazione.\n\n• Spiegazione: Hai umorismo e ti piace mostrare la tua personalità.\n\n• Mobilità: hai una carta guida valida (cat. B) e la tua auto, in modo da poter visitare i nostri clienti in modo affidabile sul sito.\n\n• Azione reattiva: il tuo aspetto è professionale e la tua reputazione è perfetta (Leumund)\n\n• Flessibilità: è possibile lavorare a tempo parziale, ma solo dal secondo mese di lavoro. Nel primo mese è richiesta la partecipazione alla formazione di base presso la nostra sede di Zurigo.\n\nVi offriamo\n\nEcco perché si desidera far parte della ricerca locale:\n\n• Lavoro di squadra: Lei è integrato in una squadra vivace che si sostiene e incontra incontri regolari.\n\n• area di vendita propria: ti verrà assegnato un'area con clienti PMI esistenti e potenziali nuovi clienti.\n\n• Soluzioni di marketing: hai una vasta gamma di prodotti dal marketing digitale.\n\n• Lavoro autonomo: Lei si assume la responsabilità per le Sue mansioni, pianifica i Suoi appuntamenti del cliente in modo indipendente e si occupa di un alto grado di iniziativa.\n\n• Formazione completa e ulteriore sviluppo: si inizia con la formazione multi-settimana e ricevere accompagnamenti regolari e formazione nel campo delle vendite e dei prodotti.\n\n• Un attraente modello di messa in servizio: il vostro successo è ricompensato direttamente – qualsiasi buon consiglio che porta a un ordine determina il vostro reddito.\n\n• Vassoio Espositore: Il tuo veicolo sicuramente ti porterà alla data del cliente e ti compenseremo per questo.\n\nContatto e applicazione\n\nSe avete domande circa il lavoro, si prega di contattare il nostro responsabile vendite Behar Selmani: +41 79 364 14 95.\n\nNon vediamo l'ora di incontrarvi!\n\nUlteriori informazioni sulla posizione e localsearch possono essere trovate qui .",
-        "en": "Region: Biel / Bienne\n\nlocalsearch is the leading marketing and advertising partner for Swiss SMEs.\nWe make customers successful in the digital world.\n\nSelling is your passion? Does your heart sleep for digital marketing? Do you like to dive into the SME world? And do you want to influence your merit? Then you're right here!\n\nWe are looking for you as a sales agent in the field\n\nYou will visit existing SME customers as well as potential new customers and present them tailor-made digital marketing solutions. Your goal is to create sustainable added value and make SMEs digitally successful.\n\nSkills and requirements\n\nYou bring this to be successful with us:\n\n• Pleasure to sell and advise: You burn for personal and telephone contact and place great value on real understanding our customers.\n\n• Customer orientation: You build trusted relationships with your customers and successfully explain the benefits of our online marketing solutions.\n\n• Success orientation : Your personal motivation and ambition are your success factors. Also in turbulent times you stay focused and targeted.\n\n• Communicative : You speak fluent German and master the common means of communication.\n\n• Explanation: You have humor and like to show your personality.\n\n• Mobility: You have a valid guide card (cat. B) and your own car, so you can visit our customers reliably on site.\n\n• Responsive action: Your appearance is professional and your reputation is perfect (Leumund)\n\n• Flexibility: parttime work is possible, but only from the second month of employment. In the first month, participation in the basic training at our headquarters in Zurich is required.\n\nWe offer you\n\nThat's why you want to be part of localsearch:\n\n• Teamwork: You are integrated into a lively team that supports each other and meets regular meetings.\n\n• Own sales area: You will be assigned an area with existing SME customers and potential new customers.\n\n• Marketing solutions: You have a varied range of products from digital marketing.\n\n• Self-employed work: You take responsibility for your tasks, plan your customer appointments independently and deal with a high degree of initiative.\n\n• Comprehensive training and further development: You start with multi-week training and receive regular accompaniments and training in the field of sales and products.\n\n• An attractive commissioning model: Your success is rewarded directly – any good advice that leads to an order determines your income.\n\n• Exhibitor tray: Your own vehicle will surely take you to the customer date and we will compensate you for this.\n\nContact & Application\n\nIf you have any questions about the job, please contact our Sales Manager Behar Selmani: +41 79 364 14 95.\n\nWe look forward to meeting you!\n\nAdditional information about the location and localsearch can be found here .",
-        "fr": "Région: Bienne\n\nlocalsearch est le principal partenaire commercial et publicitaire des PME suisses.\nNous faisons des clients un succès dans le monde numérique.\n\nVendre est votre passion ? Votre cœur dort-il pour le marketing numérique? Vous aimez plonger dans le monde des PME ? Et voulez-vous influencer votre mérite ? Alors vous êtes là !\n\nNous vous recherchons comme agent de vente dans le domaine\n\nVous visiterez les PME existantes ainsi que de nouveaux clients potentiels et leur présenterez des solutions de marketing numérique sur mesure. Votre objectif est de créer une valeur ajoutée durable et de faire des PME un succès numérique.\n\nCompétences et exigences\n\nVous apportez ceci pour réussir avec nous:\n\n• Plaisir de vendre et de conseiller: Vous brûlez pour le contact personnel et téléphonique et placez une grande valeur sur la compréhension réelle de nos clients.\n\n• Orientation client: Vous créez des relations de confiance avec vos clients et expliquez avec succès les avantages de nos solutions marketing en ligne.\n\n• Orientation du succès : Votre motivation personnelle et votre ambition sont vos facteurs de réussite. Aussi dans les temps agités, vous restez concentré et ciblé.\n\n• Communicative : Vous parlez couramment allemand et maîtrisez les moyens de communication communs.\n\n• Explication: Vous avez de l'humour et aimez montrer votre personnalité.\n\n• Mobilité: Vous avez une carte de guide valide (cat. B) et votre propre voiture, afin que vous puissiez visiter nos clients de manière fiable sur le site.\n\n• Action réceptive: Votre apparence est professionnelle et votre réputation est parfaite (Leumund)\n\n• Flexibilité: le travail à temps partiel est possible, mais seulement à partir du deuxième mois d'emploi. Dans le premier mois, la participation à la formation de base de notre siège à Zurich est requise.\n\nNous vous offrons\n\nC'est pourquoi vous voulez faire partie de la recherche locale:\n\n• Travail d'équipe: Vous êtes intégré dans une équipe animée qui se soutient mutuellement et se réunit régulièrement.\n\n• Espace de vente propre : un espace vous sera assigné avec des clients PME existants et de nouveaux clients potentiels.\n\n• Solutions marketing : Vous avez une gamme variée de produits du marketing numérique.\n\n• Travail indépendant : vous assumez la responsabilité de vos tâches, planifiez vos rendez-vous clients de manière indépendante et traitez avec un degré élevé d'initiative.\n\n• Formation complète et perfectionnement: Vous commencez par une formation multi-semaines et recevez régulièrement des accompagnements et une formation dans le domaine des ventes et des produits.\n\n• Un modèle de mise en service attrayant : votre succès est récompensé directement – tout bon conseil qui mène à une commande détermine votre revenu.\n\n• Plateau exposant: Votre propre véhicule vous mènera sûrement à la date du client et nous vous indemniserons pour cela.\n\nDemande de contact &\n\nSi vous avez des questions sur l'emploi, veuillez contacter notre responsable des ventes Behar Selmani: +41 79 364 14 95.\n\nNous sommes impatients de vous rencontrer!\n\nDes informations supplémentaires sur l'emplacement et la recherche locale peuvent être trouvées ici ."
+        "it": "Regione: Biel / Bienne localsearch è il principale partner commerciale e pubblicitario per le PMI svizzere. Facciamo i clienti di successo nel mondo digitale. Vendere è la tua passione? Il vostro cuore dorme per il marketing digitale? Ti piace immergerti nel mondo delle PMI? E vuoi influenzare il tuo merito? Allora sei qui! Ti stiamo cercando come agente di vendita sul campo Visiterete clienti PMI esistenti e potenziali nuovi clienti e li presenterete soluzioni di marketing digitale su misura. Il vostro obiettivo è quello di creare un valore aggiunto sostenibile e rendere le PMI digitalmente di successo. Competenze e requisiti Porti questo per avere successo con noi:\n• Piacere di vendere e consigliare: si brucia per il contatto personale e telefonico e mettere grande valore sulla reale comprensione dei nostri clienti.\n• L'orientamento del cliente: si costruisce relazioni di fiducia con i vostri clienti e spiegare con successo i vantaggi delle nostre soluzioni di marketing online.\n• L'orientamento al successo: la vostra motivazione personale e l'ambizione sono i vostri fattori di successo. Anche in tempi turbolenti rimani concentrato e mirato.\n• Comunicativo: Lei parla fluentemente tedesco e padroneggia i mezzi comuni di comunicazione.\n• Spiegazione: Hai umorismo e ti piace mostrare la tua personalità.\n• Mobilità: hai una carta guida valida (cat. B) e la tua auto, in modo da poter visitare i nostri clienti in modo affidabile sul sito.\n• Azione reattiva: il tuo aspetto è professionale e la tua reputazione è perfetta (Leumund)\n• Flessibilità: è possibile lavorare a tempo parziale, ma solo dal secondo mese di lavoro. Nel primo mese è richiesta la partecipazione alla formazione di base presso la nostra sede di Zurigo. Vi offriamo Ecco perché si desidera far parte della ricerca locale:\n• Lavoro di squadra: Lei è integrato in una squadra vivace che si sostiene e incontra incontri regolari.\n• area di vendita propria: ti verrà assegnato un'area con clienti PMI esistenti e potenziali nuovi clienti.\n• Soluzioni di marketing: hai una vasta gamma di prodotti dal marketing digitale.\n• Lavoro autonomo: Lei si assume la responsabilità per le Sue mansioni, pianifica i Suoi appuntamenti del cliente in modo indipendente e si occupa di un alto grado di iniziativa.\n• Formazione completa e ulteriore sviluppo: si inizia con la formazione multi-settimana e ricevere accompagnamenti regolari e formazione nel campo delle vendite e dei prodotti.\n• Un attraente modello di messa in servizio: il vostro successo è ricompensato direttamente – qualsiasi buon consiglio che porta a un ordine determina il vostro reddito.\n• Vassoio Espositore: Il tuo veicolo sicuramente ti porterà alla data del cliente e ti compenseremo per questo. Contatto e applicazione Se avete domande circa il lavoro, si prega di contattare il nostro responsabile vendite Behar Selmani: +41 79 364 14 95. Non vediamo l'ora di incontrarvi! Ulteriori informazioni sulla posizione e localsearch possono essere trovate qui .",
+        "en": "Region: Biel / Bienne localsearch is the leading marketing and advertising partner for Swiss SMEs. We make customers successful in the digital world. Selling is your passion? Does your heart sleep for digital marketing? Do you like to dive into the SME world? And do you want to influence your merit? Then you're right here! We are looking for you as a sales agent in the field You will visit existing SME customers as well as potential new customers and present them tailor-made digital marketing solutions. Your goal is to create sustainable added value and make SMEs digitally successful. Skills and requirements You bring this to be successful with us:\n• Pleasure to sell and advise: You burn for personal and telephone contact and place great value on real understanding our customers.\n• Customer orientation: You build trusted relationships with your customers and successfully explain the benefits of our online marketing solutions.\n• Success orientation : Your personal motivation and ambition are your success factors. Also in turbulent times you stay focused and targeted.\n• Communicative : You speak fluent German and master the common means of communication.\n• Explanation: You have humor and like to show your personality.\n• Mobility: You have a valid guide card (cat. B) and your own car, so you can visit our customers reliably on site.\n• Responsive action: Your appearance is professional and your reputation is perfect (Leumund)\n• Flexibility: parttime work is possible, but only from the second month of employment. In the first month, participation in the basic training at our headquarters in Zurich is required. We offer you That's why you want to be part of localsearch:\n• Teamwork: You are integrated into a lively team that supports each other and meets regular meetings.\n• Own sales area: You will be assigned an area with existing SME customers and potential new customers.\n• Marketing solutions: You have a varied range of products from digital marketing.\n• Self-employed work: You take responsibility for your tasks, plan your customer appointments independently and deal with a high degree of initiative.\n• Comprehensive training and further development: You start with multi-week training and receive regular accompaniments and training in the field of sales and products.\n• An attractive commissioning model: Your success is rewarded directly – any good advice that leads to an order determines your income.\n• Exhibitor tray: Your own vehicle will surely take you to the customer date and we will compensate you for this. Contact & Application If you have any questions about the job, please contact our Sales Manager Behar Selmani: +41 79 364 14 95. We look forward to meeting you! Additional information about the location and localsearch can be found here .",
+        "de": "Region: Biel / Bienne localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Verkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig! Wir suchen dich als Verkaufstalent im Aussendienst Du besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen. Skills und Anforderungen Das bringst du mit, um bei uns erfolgreich zu sein:\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich. Das bieten wir dir Darum willst du Teil von localsearch werden:\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss. Kontakt & Bewerbung Bei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Behar Selmani wenden: +41 79 364 14 95. Wir freuen uns darauf, dich kennenzulernen! Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "fr": "Région: Bienne localsearch est le principal partenaire commercial et publicitaire des PME suisses. Nous faisons des clients un succès dans le monde numérique. Vendre est votre passion ? Votre cœur dort-il pour le marketing numérique? Vous aimez plonger dans le monde des PME ? Et voulez-vous influencer votre mérite ? Alors vous êtes là ! Nous vous recherchons comme agent de vente dans le domaine Vous visiterez les PME existantes ainsi que de nouveaux clients potentiels et leur présenterez des solutions de marketing numérique sur mesure. Votre objectif est de créer une valeur ajoutée durable et de faire des PME un succès numérique. Compétences et exigences Vous apportez ceci pour réussir avec nous:\n• Plaisir de vendre et de conseiller: Vous brûlez pour le contact personnel et téléphonique et placez une grande valeur sur la compréhension réelle de nos clients.\n• Orientation client: Vous créez des relations de confiance avec vos clients et expliquez avec succès les avantages de nos solutions marketing en ligne.\n• Orientation du succès : Votre motivation personnelle et votre ambition sont vos facteurs de réussite. Aussi dans les temps agités, vous restez concentré et ciblé.\n• Communicative : Vous parlez couramment allemand et maîtrisez les moyens de communication communs.\n• Explication: Vous avez de l'humour et aimez montrer votre personnalité.\n• Mobilité: Vous avez une carte de guide valide (cat. B) et votre propre voiture, afin que vous puissiez visiter nos clients de manière fiable sur le site.\n• Action réceptive: Votre apparence est professionnelle et votre réputation est parfaite (Leumund)\n• Flexibilité: le travail à temps partiel est possible, mais seulement à partir du deuxième mois d'emploi. Dans le premier mois, la participation à la formation de base de notre siège à Zurich est requise. Nous vous offrons C'est pourquoi vous voulez faire partie de la recherche locale:\n• Travail d'équipe: Vous êtes intégré dans une équipe animée qui se soutient mutuellement et se réunit régulièrement.\n• Espace de vente propre : un espace vous sera assigné avec des clients PME existants et de nouveaux clients potentiels.\n• Solutions marketing : Vous avez une gamme variée de produits du marketing numérique.\n• Travail indépendant : vous assumez la responsabilité de vos tâches, planifiez vos rendez-vous clients de manière indépendante et traitez avec un degré élevé d'initiative.\n• Formation complète et perfectionnement: Vous commencez par une formation multi-semaines et recevez régulièrement des accompagnements et une formation dans le domaine des ventes et des produits.\n• Un modèle de mise en service attrayant : votre succès est récompensé directement – tout bon conseil qui mène à une commande détermine votre revenu.\n• Plateau exposant: Votre propre véhicule vous mènera sûrement à la date du client et nous vous indemniserons pour cela. Demande de contact & Si vous avez des questions sur l'emploi, veuillez contacter notre responsable des ventes Behar Selmani: +41 79 364 14 95. Nous sommes impatients de vous rencontrer! Des informations supplémentaires sur l'emplacement et la recherche locale peuvent être trouvées ici ."
       },
       "location": "Lyssach",
       "canton": "BE",
       "url": "https://emp.jobylon.com/jobs/310100-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:30.526Z",
+      "crawledAt": "2026-05-17T22:03:12.833Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1683,9 +1696,22 @@
       "postedDate": "2026-02-24",
       "applyUrl": "https://emp.jobylon.com/jobs/310100-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
+        ],
+        "en": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
+        ]
       },
+      "firstSeenAt": "2026-05-17T10:38:30.526Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1698,22 +1724,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001",
-      "firstSeenAt": "2026-05-17T10:38:30.526Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
-        ],
-        "en": [
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
-        ],
-        "fr": [
-          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
-        ]
-      },
-      "previousSlugs": [
-        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
-      ]
+      "postalCode": "3001"
     },
     {
       "id": "localsearch-bc732d1544a3",
@@ -1746,7 +1757,7 @@
       "url": "https://emp.jobylon.com/jobs/310148-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:29.336Z",
+      "crawledAt": "2026-05-17T22:03:12.035Z",
       "addressLocality": "Volketswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -1801,6 +1812,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:47.599Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1846,7 +1858,7 @@
       "url": "https://emp.jobylon.com/jobs/312122-localsearch-customer-success-sales-agent-fr-de-60-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:28.376Z",
+      "crawledAt": "2026-05-17T22:03:11.198Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1899,6 +1911,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:43.923Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1944,7 +1957,7 @@
       "url": "https://emp.jobylon.com/jobs/354624-localsearch-customer-success-manager-de-80100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:27.551Z",
+      "crawledAt": "2026-05-17T22:03:10.465Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1971,6 +1984,7 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:57:39.187Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2016,7 +2030,7 @@
       "url": "https://emp.jobylon.com/jobs/349346-localsearch-ai-product-engineer-80100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:26.751Z",
+      "crawledAt": "2026-05-17T22:03:09.720Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2041,6 +2055,7 @@
         ]
       },
       "firstSeenAt": "2026-04-27T11:14:18.246Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2086,7 +2101,7 @@
       "url": "https://emp.jobylon.com/jobs/351860-localsearch-ai-content-product-prototyping-internship-ab-010826-80100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:25.904Z",
+      "crawledAt": "2026-05-17T22:03:08.972Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2102,6 +2117,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-04-27T11:14:17.258Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2147,7 +2163,7 @@
       "url": "https://emp.jobylon.com/jobs/310087-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:25.086Z",
+      "crawledAt": "2026-05-17T22:03:08.208Z",
       "addressLocality": "Regensdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -2222,7 +2238,7 @@
       "url": "https://emp.jobylon.com/jobs/310107-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:24.223Z",
+      "crawledAt": "2026-05-17T22:03:07.417Z",
       "addressLocality": "Fehraltorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -2297,7 +2313,7 @@
       "url": "https://emp.jobylon.com/jobs/357760-localsearch-sales-consultant-digital-marketing/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-05-17T10:38:23.323Z",
+      "crawledAt": "2026-05-17T22:03:06.643Z",
       "addressLocality": "Melide",
       "addressCountry": "CH",
       "country": "CH",
@@ -2326,6 +2342,7 @@
         ]
       },
       "firstSeenAt": "2026-04-30T22:08:27.722Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2371,7 +2388,7 @@
       "url": "https://emp.jobylon.com/jobs/357955-localsearch-online-campaign-managerin-frde-80100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:22.355Z",
+      "crawledAt": "2026-05-17T22:03:05.915Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2387,6 +2404,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-04T11:13:12.721Z",
+      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "baseSalary": {
@@ -2432,7 +2450,7 @@
       "url": "https://emp.jobylon.com/jobs/358400-localsearch-product-owner-product-engineering-80-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T10:38:21.511Z",
+      "crawledAt": "2026-05-17T22:03:05.175Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2477,9 +2495,9 @@
       "id": "localsearch-264852de8162",
       "slug": "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz",
       "slugByLocale": {
-        "de": "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz",
         "it": "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz",
         "en": "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz",
+        "de": "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz",
         "fr": "verkaufsberater-in-aussendienst-localsearch-aargau-schweiz"
       },
       "company": "localsearch",
@@ -2487,24 +2505,24 @@
       "companyDomain": "localsearch.ch",
       "title": "Verkaufsberater:in Aussendienst",
       "titleByLocale": {
-        "de": "Verkaufsberater:in Aussendienst",
         "it": "Verkaufsberater:in Aussendienst",
         "en": "Verkaufsberater:in Aussendienst",
+        "de": "Verkaufsberater:in Aussendienst",
         "fr": "Verkaufsberater:in Aussendienst"
       },
       "description": "Region: Aargau \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\n Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! \n\n Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! \n\n Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. \n\n \n\n Das machst du konkret \n Kundenberatung mit Impact \n\n \n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen \n\n• Du analysierst regionale Bedürfnisse \n \n Skills und Anforderungen \n\n Mindset: \n\n \n\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe\n\n \n Skills: \n\n \n\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n\n• Bei dir trifft Empathie auf Verhandlungsstärke \n\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel\n \n Mobilität\n\n \n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern\n \n Das bieten wir dir: \n\n \n\n• progressives Bonusmodell\n\n• Eine zeitgemässe technische Ausstattung\n\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus \n\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit\n\n \n Kontakt & Bewerbung \n\n Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
       "descriptionByLocale": {
-        "de": "Region: Aargau \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\n Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! \n\n Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! \n\n Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. \n\n \n\n Das machst du konkret \n Kundenberatung mit Impact \n\n \n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen \n\n• Du analysierst regionale Bedürfnisse \n \n Skills und Anforderungen \n\n Mindset: \n\n \n\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe\n\n \n Skills: \n\n \n\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n\n• Bei dir trifft Empathie auf Verhandlungsstärke \n\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel\n \n Mobilität\n\n \n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern\n \n Das bieten wir dir: \n\n \n\n• progressives Bonusmodell\n\n• Eine zeitgemässe technische Ausstattung\n\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus \n\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit\n\n \n Kontakt & Bewerbung \n\n Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "it": "Region: Aargau \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\n Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! \n\n Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! \n\n Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. \n\n \n\n Das machst du konkret \n Kundenberatung mit Impact \n\n \n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen \n\n• Du analysierst regionale Bedürfnisse \n \n Skills und Anforderungen \n\n Mindset: \n\n \n\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe\n\n \n Skills: \n\n \n\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n\n• Bei dir trifft Empathie auf Verhandlungsstärke \n\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel\n \n Mobilität\n\n \n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern\n \n Das bieten wir dir: \n\n \n\n• progressives Bonusmodell\n\n• Eine zeitgemässe technische Ausstattung\n\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus \n\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit\n\n \n Kontakt & Bewerbung \n\n Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "en": "Region: Aargau \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\n Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! \n\n Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! \n\n Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. \n\n \n\n Das machst du konkret \n Kundenberatung mit Impact \n\n \n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen \n\n• Du analysierst regionale Bedürfnisse \n \n Skills und Anforderungen \n\n Mindset: \n\n \n\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe\n\n \n Skills: \n\n \n\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n\n• Bei dir trifft Empathie auf Verhandlungsstärke \n\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel\n \n Mobilität\n\n \n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern\n \n Das bieten wir dir: \n\n \n\n• progressives Bonusmodell\n\n• Eine zeitgemässe technische Ausstattung\n\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus \n\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit\n\n \n Kontakt & Bewerbung \n\n Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "fr": "Region: Aargau \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\n Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! \n\n Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! \n\n Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. \n\n \n\n Das machst du konkret \n Kundenberatung mit Impact \n\n \n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen \n\n• Du analysierst regionale Bedürfnisse \n \n Skills und Anforderungen \n\n Mindset: \n\n \n\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe\n\n \n Skills: \n\n \n\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n\n• Bei dir trifft Empathie auf Verhandlungsstärke \n\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel\n \n Mobilität\n\n \n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern\n \n Das bieten wir dir: \n\n \n\n• progressives Bonusmodell\n\n• Eine zeitgemässe technische Ausstattung\n\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus \n\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit\n\n \n Kontakt & Bewerbung \n\n Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier ."
+        "it": "Region: Aargau localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. Das machst du konkret Kundenberatung mit Impact\n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen\n• Du analysierst regionale Bedürfnisse Skills und Anforderungen Mindset:\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe Skills:\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n• Bei dir trifft Empathie auf Verhandlungsstärke\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel Mobilität\n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern Das bieten wir dir:\n• progressives Bonusmodell\n• Eine zeitgemässe technische Ausstattung\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit Kontakt & Bewerbung Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks! Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "en": "Region: Aargau localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. Das machst du konkret Kundenberatung mit Impact\n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen\n• Du analysierst regionale Bedürfnisse Skills und Anforderungen Mindset:\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe Skills:\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n• Bei dir trifft Empathie auf Verhandlungsstärke\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel Mobilität\n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern Das bieten wir dir:\n• progressives Bonusmodell\n• Eine zeitgemässe technische Ausstattung\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit Kontakt & Bewerbung Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks! Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "de": "Region: Aargau localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. Das machst du konkret Kundenberatung mit Impact\n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen\n• Du analysierst regionale Bedürfnisse Skills und Anforderungen Mindset:\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe Skills:\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n• Bei dir trifft Empathie auf Verhandlungsstärke\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel Mobilität\n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern Das bieten wir dir:\n• progressives Bonusmodell\n• Eine zeitgemässe technische Ausstattung\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit Kontakt & Bewerbung Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks! Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "fr": "Region: Aargau localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. Das machst du konkret Kundenberatung mit Impact\n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen\n• Du analysierst regionale Bedürfnisse Skills und Anforderungen Mindset:\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe Skills:\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n• Bei dir trifft Empathie auf Verhandlungsstärke\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel Mobilität\n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern Das bieten wir dir:\n• progressives Bonusmodell\n• Eine zeitgemässe technische Ausstattung\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit Kontakt & Bewerbung Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks! Zusätzliche Informationen über die Stelle und localsearch findest du hier ."
       },
       "location": "Aargau, Schweiz",
       "canton": "AG",
       "url": "https://emp.jobylon.com/jobs/360005-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:20.626Z",
+      "crawledAt": "2026-05-17T22:03:04.456Z",
       "addressLocality": "Aargau, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2518,21 +2536,20 @@
       "postedDate": "2026-05-12",
       "applyUrl": "https://emp.jobylon.com/jobs/360005-localsearch-verkaufsberaterin-aussendienst/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
           "verkaufsberater-in-aussendienst-localsearch-ch"
         ],
-        "de": [
+        "it": [
           "verkaufsberater-in-aussendienst-localsearch-ch"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-aussendienst-localsearch-ch"
       ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:38:20.626Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2545,17 +2562,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000",
-      "firstSeenAt": "2026-05-17T10:38:20.626Z",
-      "retranslationAttempts": 1
+      "postalCode": "5000"
     },
     {
       "id": "localsearch-4fe13b918f05",
       "slug": "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz",
       "slugByLocale": {
-        "de": "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz",
         "it": "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz",
         "en": "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz",
+        "de": "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz",
         "fr": "verkaufsberater-in-aussendienst-localsearch-baselland-schweiz"
       },
       "company": "localsearch",
@@ -2563,24 +2578,24 @@
       "companyDomain": "localsearch.ch",
       "title": "Verkaufsberater:in Aussendienst",
       "titleByLocale": {
-        "de": "Verkaufsberater:in Aussendienst",
         "it": "Verkaufsberater:in Aussendienst",
         "en": "Verkaufsberater:in Aussendienst",
+        "de": "Verkaufsberater:in Aussendienst",
         "fr": "Verkaufsberater:in Aussendienst"
       },
       "description": "Region: Baselland \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\n Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! \n\n Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! \n\n Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. \n\n \n\n Das machst du konkret \n Kundenberatung mit Impact \n\n \n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen \n\n• Du analysierst regionale Bedürfnisse \n \n Skills und Anforderungen \n\n Mindset: \n\n \n\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe\n\n \n Skills: \n\n \n\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n\n• Bei dir trifft Empathie auf Verhandlungsstärke \n\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel\n \n Mobilität\n\n \n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern\n \n Das bieten wir dir: \n\n \n\n• progressives Bonusmodell\n\n• Eine zeitgemässe technische Ausstattung\n\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus \n\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit\n\n \n Kontakt & Bewerbung \n\n Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
       "descriptionByLocale": {
-        "de": "Region: Baselland \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\n Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! \n\n Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! \n\n Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. \n\n \n\n Das machst du konkret \n Kundenberatung mit Impact \n\n \n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen \n\n• Du analysierst regionale Bedürfnisse \n \n Skills und Anforderungen \n\n Mindset: \n\n \n\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe\n\n \n Skills: \n\n \n\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n\n• Bei dir trifft Empathie auf Verhandlungsstärke \n\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel\n \n Mobilität\n\n \n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern\n \n Das bieten wir dir: \n\n \n\n• progressives Bonusmodell\n\n• Eine zeitgemässe technische Ausstattung\n\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus \n\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit\n\n \n Kontakt & Bewerbung \n\n Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "it": "Region: Baselland \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\n Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! \n\n Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! \n\n Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. \n\n \n\n Das machst du konkret \n Kundenberatung mit Impact \n\n \n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen \n\n• Du analysierst regionale Bedürfnisse \n \n Skills und Anforderungen \n\n Mindset: \n\n \n\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe\n\n \n Skills: \n\n \n\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n\n• Bei dir trifft Empathie auf Verhandlungsstärke \n\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel\n \n Mobilität\n\n \n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern\n \n Das bieten wir dir: \n\n \n\n• progressives Bonusmodell\n\n• Eine zeitgemässe technische Ausstattung\n\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus \n\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit\n\n \n Kontakt & Bewerbung \n\n Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "en": "Region: Baselland \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\n Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! \n\n Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! \n\n Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. \n\n \n\n Das machst du konkret \n Kundenberatung mit Impact \n\n \n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen \n\n• Du analysierst regionale Bedürfnisse \n \n Skills und Anforderungen \n\n Mindset: \n\n \n\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe\n\n \n Skills: \n\n \n\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n\n• Bei dir trifft Empathie auf Verhandlungsstärke \n\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel\n \n Mobilität\n\n \n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern\n \n Das bieten wir dir: \n\n \n\n• progressives Bonusmodell\n\n• Eine zeitgemässe technische Ausstattung\n\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus \n\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit\n\n \n Kontakt & Bewerbung \n\n Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "fr": "Region: Baselland \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\n Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! \n\n Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! \n\n Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. \n\n \n\n Das machst du konkret \n Kundenberatung mit Impact \n\n \n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen \n\n• Du analysierst regionale Bedürfnisse \n \n Skills und Anforderungen \n\n Mindset: \n\n \n\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe\n\n \n Skills: \n\n \n\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n\n• Bei dir trifft Empathie auf Verhandlungsstärke \n\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel\n \n Mobilität\n\n \n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern\n \n Das bieten wir dir: \n\n \n\n• progressives Bonusmodell\n\n• Eine zeitgemässe technische Ausstattung\n\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus \n\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit\n\n \n Kontakt & Bewerbung \n\n Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier ."
+        "it": "Region: Baselland localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. Das machst du konkret Kundenberatung mit Impact\n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen\n• Du analysierst regionale Bedürfnisse Skills und Anforderungen Mindset:\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe Skills:\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n• Bei dir trifft Empathie auf Verhandlungsstärke\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel Mobilität\n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern Das bieten wir dir:\n• progressives Bonusmodell\n• Eine zeitgemässe technische Ausstattung\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit Kontakt & Bewerbung Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks! Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "en": "Region: Baselland localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. Das machst du konkret Kundenberatung mit Impact\n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen\n• Du analysierst regionale Bedürfnisse Skills und Anforderungen Mindset:\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe Skills:\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n• Bei dir trifft Empathie auf Verhandlungsstärke\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel Mobilität\n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern Das bieten wir dir:\n• progressives Bonusmodell\n• Eine zeitgemässe technische Ausstattung\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit Kontakt & Bewerbung Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks! Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "de": "Region: Baselland localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. Das machst du konkret Kundenberatung mit Impact\n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen\n• Du analysierst regionale Bedürfnisse Skills und Anforderungen Mindset:\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe Skills:\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n• Bei dir trifft Empathie auf Verhandlungsstärke\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel Mobilität\n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern Das bieten wir dir:\n• progressives Bonusmodell\n• Eine zeitgemässe technische Ausstattung\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit Kontakt & Bewerbung Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks! Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "fr": "Region: Baselland localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. Das machst du konkret Kundenberatung mit Impact\n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen\n• Du analysierst regionale Bedürfnisse Skills und Anforderungen Mindset:\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe Skills:\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n• Bei dir trifft Empathie auf Verhandlungsstärke\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel Mobilität\n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern Das bieten wir dir:\n• progressives Bonusmodell\n• Eine zeitgemässe technische Ausstattung\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit Kontakt & Bewerbung Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks! Zusätzliche Informationen über die Stelle und localsearch findest du hier ."
       },
       "location": "Baselland, Schweiz",
       "canton": "ZH",
       "url": "https://emp.jobylon.com/jobs/360110-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:19.787Z",
+      "crawledAt": "2026-05-17T22:03:03.740Z",
       "addressLocality": "Baselland, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2594,22 +2609,21 @@
       "postedDate": "2026-05-13",
       "applyUrl": "https://emp.jobylon.com/jobs/360110-localsearch-verkaufsberaterin-aussendienst/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-aussendienst-localsearch-ch-2"
-        ],
         "de": [
           "verkaufsberater-in-aussendienst-localsearch-ch"
+        ],
+        "it": [
+          "verkaufsberater-in-aussendienst-localsearch-ch-2"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-aussendienst-localsearch-ch-2",
-        "verkaufsberater-in-aussendienst-localsearch-ch"
+        "verkaufsberater-in-aussendienst-localsearch-ch",
+        "verkaufsberater-in-aussendienst-localsearch-ch-2"
       ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:38:19.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2622,9 +2636,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001",
-      "firstSeenAt": "2026-05-17T10:38:19.787Z",
-      "retranslationAttempts": 1
+      "postalCode": "8001"
     },
     {
       "id": "localsearch-90cc2bda49a8",
@@ -2657,7 +2669,7 @@
       "url": "https://emp.jobylon.com/jobs/360113-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:18.963Z",
+      "crawledAt": "2026-05-17T22:03:02.985Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2711,9 +2723,9 @@
       "id": "localsearch-6d1ddda45eca",
       "slug": "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz",
       "slugByLocale": {
-        "de": "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz",
         "it": "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz",
         "en": "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz",
+        "de": "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz",
         "fr": "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz"
       },
       "company": "localsearch",
@@ -2721,24 +2733,24 @@
       "companyDomain": "localsearch.ch",
       "title": "Verkaufsberater:in Aussendienst",
       "titleByLocale": {
-        "de": "Verkaufsberater:in Aussendienst",
         "it": "Verkaufsberater:in Aussendienst",
         "en": "Verkaufsberater:in Aussendienst",
+        "de": "Verkaufsberater:in Aussendienst",
         "fr": "Verkaufsberater:in Aussendienst"
       },
       "description": "Region: Graubünden \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\n Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! \n\n Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! \n\n Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. \n\n \n\n Das machst du konkret \n Kundenberatung mit Impact \n\n \n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen \n\n• Du analysierst regionale Bedürfnisse \n \n Skills und Anforderungen \n\n Mindset: \n\n \n\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe\n\n \n Skills: \n\n \n\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n\n• Bei dir trifft Empathie auf Verhandlungsstärke \n\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel\n \n Mobilität\n\n \n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern\n \n Das bieten wir dir: \n\n \n\n• progressives Bonusmodell\n\n• Eine zeitgemässe technische Ausstattung\n\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus \n\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit\n\n \n Kontakt & Bewerbung \n\n Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
       "descriptionByLocale": {
-        "de": "Region: Graubünden \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\n Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! \n\n Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! \n\n Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. \n\n \n\n Das machst du konkret \n Kundenberatung mit Impact \n\n \n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen \n\n• Du analysierst regionale Bedürfnisse \n \n Skills und Anforderungen \n\n Mindset: \n\n \n\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe\n\n \n Skills: \n\n \n\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n\n• Bei dir trifft Empathie auf Verhandlungsstärke \n\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel\n \n Mobilität\n\n \n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern\n \n Das bieten wir dir: \n\n \n\n• progressives Bonusmodell\n\n• Eine zeitgemässe technische Ausstattung\n\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus \n\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit\n\n \n Kontakt & Bewerbung \n\n Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "it": "Region: Graubünden \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\n Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! \n\n Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! \n\n Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. \n\n \n\n Das machst du konkret \n Kundenberatung mit Impact \n\n \n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen \n\n• Du analysierst regionale Bedürfnisse \n \n Skills und Anforderungen \n\n Mindset: \n\n \n\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe\n\n \n Skills: \n\n \n\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n\n• Bei dir trifft Empathie auf Verhandlungsstärke \n\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel\n \n Mobilität\n\n \n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern\n \n Das bieten wir dir: \n\n \n\n• progressives Bonusmodell\n\n• Eine zeitgemässe technische Ausstattung\n\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus \n\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit\n\n \n Kontakt & Bewerbung \n\n Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "en": "Region: Graubünden \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\n Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! \n\n Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! \n\n Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. \n\n \n\n Das machst du konkret \n Kundenberatung mit Impact \n\n \n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen \n\n• Du analysierst regionale Bedürfnisse \n \n Skills und Anforderungen \n\n Mindset: \n\n \n\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe\n\n \n Skills: \n\n \n\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n\n• Bei dir trifft Empathie auf Verhandlungsstärke \n\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel\n \n Mobilität\n\n \n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern\n \n Das bieten wir dir: \n\n \n\n• progressives Bonusmodell\n\n• Eine zeitgemässe technische Ausstattung\n\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus \n\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit\n\n \n Kontakt & Bewerbung \n\n Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
-        "fr": "Region: Graubünden \n\n localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\n Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! \n\n Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! \n\n Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. \n\n \n\n Das machst du konkret \n Kundenberatung mit Impact \n\n \n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen \n\n• Du analysierst regionale Bedürfnisse \n \n Skills und Anforderungen \n\n Mindset: \n\n \n\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe\n\n \n Skills: \n\n \n\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n\n• Bei dir trifft Empathie auf Verhandlungsstärke \n\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel\n \n Mobilität\n\n \n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern\n \n Das bieten wir dir: \n\n \n\n• progressives Bonusmodell\n\n• Eine zeitgemässe technische Ausstattung\n\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus \n\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit\n\n \n Kontakt & Bewerbung \n\n Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks!\n\n Zusätzliche Informationen über die Stelle und localsearch findest du hier ."
+        "it": "Region: Graubünden localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. Das machst du konkret Kundenberatung mit Impact\n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen\n• Du analysierst regionale Bedürfnisse Skills und Anforderungen Mindset:\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe Skills:\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n• Bei dir trifft Empathie auf Verhandlungsstärke\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel Mobilität\n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern Das bieten wir dir:\n• progressives Bonusmodell\n• Eine zeitgemässe technische Ausstattung\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit Kontakt & Bewerbung Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks! Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "en": "Region: Graubünden localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. Das machst du konkret Kundenberatung mit Impact\n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen\n• Du analysierst regionale Bedürfnisse Skills und Anforderungen Mindset:\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe Skills:\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n• Bei dir trifft Empathie auf Verhandlungsstärke\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel Mobilität\n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern Das bieten wir dir:\n• progressives Bonusmodell\n• Eine zeitgemässe technische Ausstattung\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit Kontakt & Bewerbung Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks! Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "de": "Region: Graubünden localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. Das machst du konkret Kundenberatung mit Impact\n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen\n• Du analysierst regionale Bedürfnisse Skills und Anforderungen Mindset:\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe Skills:\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n• Bei dir trifft Empathie auf Verhandlungsstärke\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel Mobilität\n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern Das bieten wir dir:\n• progressives Bonusmodell\n• Eine zeitgemässe technische Ausstattung\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit Kontakt & Bewerbung Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks! Zusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "fr": "Region: Graubünden localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt. Zur Ergänzung unseres Teams von renovero, dem Nummer 1 Handwerker-Portal der Schweiz, suchen wir dich im Aussendienst! Als Motor unserer Wachstumsstrategie bringst du dem Schweizer Handwerk die digitale Zukunft. Mit unseren auf das Handwerk fokussierten Produkten generieren wir bereits über 65.000 Anfragen pro Jahr, aber wir wollen mehr! Du überzeugst ambitionierte Betriebe, wie sie z.B. mit unserem KI-gestützten Offerten Tool, Premium-Platzierungen im grössten Handwerkerverzeichnis der Schweiz und weiteren fixpreis-Serviceangeboten neue Aufträge gewinnen. Das machst du konkret Kundenberatung mit Impact\n• Du identifizierst Betriebe mit Wachstumspotenzial und zeigst auf, wie renovero-Pakete (Präsenz/Starter/Profi) ihre Sichtbarkeit verfünffachen\n• Nutze Case Studies, um Vertrauen mit echten Erfolgen aufzubauen\n• Du analysierst regionale Bedürfnisse Skills und Anforderungen Mindset:\n• Du brennst für Handwerk – ob Schreiner, Elektriker oder Gärtner: Du sprichst ihre Sprache\n• \"Noch nie gehört\" gibt es nicht für dich – mit deiner Resilienz knackst du auch skeptische Betriebe Skills:\n• 3+ Jahre B2B-Vertriebserfahrung (SaaS/Handwerksbranche ist ein optionales Extra\n• Bei dir trifft Empathie auf Verhandlungsstärke\n• Flucht vor CRM-Systemen? Bei dir nicht – du nutzt Tools als Hebel Mobilität\n• Führerschein B mit eigenem Fahrzeug, um deine Vertriebsregion zu erobern Das bieten wir dir:\n• progressives Bonusmodell\n• Eine zeitgemässe technische Ausstattung\n• Zeitgemässe Spesen für dein eigenes Fahrzeug und flexible Arbeitsmodelle, die zu deinem Leben passen\n• 60% Remote – 40% beim Kunden vor Ort (kein \"8-to-5\"-Druck)\n• Keine Mikromanagement-Kultur – du bestimmst deinen Vertriebsrhythmus\n• Als führender Marketingpartner für Schweizer KMU gestaltest du die Zukunft unserer Wirtschaft mit Kontakt & Bewerbung Frédéric Manfrini freut sich darauf, dich kennenzulernen! Gestalte mit uns die Zukunft des Schweizer Handwerks! Zusätzliche Informationen über die Stelle und localsearch findest du hier ."
       },
       "location": "Graubünden, Schweiz",
       "canton": "GR",
       "url": "https://emp.jobylon.com/jobs/360117-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:18.107Z",
+      "crawledAt": "2026-05-17T22:03:02.207Z",
       "addressLocality": "Graubünden, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -2752,22 +2764,21 @@
       "postedDate": "2026-05-13",
       "applyUrl": "https://emp.jobylon.com/jobs/360117-localsearch-verkaufsberaterin-aussendienst/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "needsRetranslation": true,
+      "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-aussendienst-localsearch-ch-3"
-        ],
         "de": [
           "verkaufsberater-in-aussendienst-localsearch-ch"
+        ],
+        "it": [
+          "verkaufsberater-in-aussendienst-localsearch-ch-3"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-aussendienst-localsearch-ch-3",
-        "verkaufsberater-in-aussendienst-localsearch-ch"
+        "verkaufsberater-in-aussendienst-localsearch-ch",
+        "verkaufsberater-in-aussendienst-localsearch-ch-3"
       ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:38:18.107Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2780,9 +2791,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000",
-      "firstSeenAt": "2026-05-17T10:38:18.107Z",
-      "retranslationAttempts": 1
+      "postalCode": "7000"
     },
     {
       "id": "localsearch-36f721160a26",
@@ -2815,7 +2824,7 @@
       "url": "https://emp.jobylon.com/jobs/357963-localsearch-senior-accountant-80-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:17.305Z",
+      "crawledAt": "2026-05-17T22:03:01.464Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2839,6 +2848,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:35:32.758Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2884,7 +2894,7 @@
       "url": "https://emp.jobylon.com/jobs/360370-localsearch-outbound-sales-agent-60-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:16.393Z",
+      "crawledAt": "2026-05-17T22:03:00.708Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2911,6 +2921,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:35:32.019Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2956,7 +2967,7 @@
       "url": "https://emp.jobylon.com/jobs/360378-localsearch-outbound-sales-agent-fr-60-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T10:38:15.555Z",
+      "crawledAt": "2026-05-17T22:02:59.956Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2983,6 +2994,7 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:35:31.265Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
