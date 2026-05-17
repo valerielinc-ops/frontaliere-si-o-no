@@ -24185,4 +24185,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cantonale-interna-ascona-porto-ronco-lavori-disagi-vista',
+ category: 'novita',
+ date: '2026-05-17T01:08:08.276Z',
+ image: '/images/blog/cantonale-interna-ascona-porto-ronco-lavori-disagi-vista.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

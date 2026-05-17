@@ -7604,6 +7604,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-investimenti-ricerca-2026.title': 'Svizzera terza al mondo negli investimenti aziendali nella ricerca',
     'blog.article.svizzera-investimenti-ricerca-2026.excerpt': 'La Svizzera si conferma ai vertici mondiali per l\'innovazione con il terzo posto per intensità di ricerca e sviluppo.',
     'blog.article.svizzera-investimenti-ricerca-2026.imageAlt': 'Squadra di ricercatori svizzeri al lavoro in un moderno laboratorio tecnologico',
+    'blog.article.cantonale-interna-ascona-porto-ronco-lavori-disagi-vista.title': 'Cantonale \'interna\' da Ascona a Porto Ronco, lavori (e disagi) in vista',
+    'blog.article.cantonale-interna-ascona-porto-ronco-lavori-disagi-vista.excerpt': 'Iniziati i lavori per la nuova strada cantonale \'interna\' da Ascona a Porto Ronco. I frontalieri potrebbero riscontrare disagi nella viabilità.',
+    'blog.article.cantonale-interna-ascona-porto-ronco-lavori-disagi-vista.imageAlt': 'Lavori in corso su una strada a Ascona, Ticino',
 };
 
 export default blogMetaIt;

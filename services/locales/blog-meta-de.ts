@@ -7602,6 +7602,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-investimenti-ricerca-2026.title': 'Schweiz auf Platz drei weltweit bei Unternehmensinvestitionen in Forschung',
     'blog.article.svizzera-investimenti-ricerca-2026.excerpt': 'Die Schweiz bestätig ihre Spitzenposition in der Welt für Innovation mit dem dritten Platz in der Forschungs- und Entwicklungsintensität.',
     'blog.article.svizzera-investimenti-ricerca-2026.imageAlt': 'Schweizer Forschungsteam bei der Arbeit in einem modernen Labor',
+    'blog.article.cantonale-interna-ascona-porto-ronco-lavori-disagi-vista.title': 'Ascona-Porto Ronco: Interner Kantonsstrassenbau bevorsteht',
+    'blog.article.cantonale-interna-ascona-porto-ronco-lavori-disagi-vista.excerpt': 'Arbeiten f├╝r die neue Kantonsstra├če \'intern\' von Ascona nach Porto Ronco haben begonnen. Grenzg├Ąnger k├Ânnten Behinderungen in der Verkehrsanbindung erleben.',
+    'blog.article.cantonale-interna-ascona-porto-ronco-lavori-disagi-vista.imageAlt': 'Arbeiten auf einer Straße in Ascona, Tessin',
 };
 
 export default blogMetaDe;

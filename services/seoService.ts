@@ -3777,6 +3777,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-libera-circolazione-ue-svizzera-impatti': { name: 'Economia', path: '/articoli-frontaliere/libera-circolazione-ue-svizzera-impatti', parent: 'blog' },
     'blog-iniziativa-10-milioni-votazione-14-giugno': { name: 'Iniziativa 10 milioni', path: '/articoli-frontaliere/iniziativa-10-milioni-votazione-14-giugno', parent: 'blog' },
     'blog-svizzera-investimenti-ricerca-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-investimenti-ricerca-2026', parent: 'blog' },
+    'blog-cantonale-interna-ascona-porto-ronco-lavori-disagi-vista': { name: 'Cantonale \'interna\' da Ascona a Porto', path: '/articoli-frontaliere/cantonale-interna-ascona-porto-ronco-lavori-disagi-vista', parent: 'blog' },
  };
 
  const info = sectionNames[section];
