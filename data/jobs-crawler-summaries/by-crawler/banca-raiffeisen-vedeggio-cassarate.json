@@ -1,18 +1,21 @@
 {
   "key": "banca-raiffeisen-vedeggio-cassarate",
   "label": "Raiffeisen VC",
-  "generatedAt": "2026-05-17T10:54:52.252Z",
+  "generatedAt": "2026-05-17T22:19:48.388Z",
   "total": 3,
-  "newCount": 3,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 19991,
-  "avgDurationMs": 19991,
+  "unchangedCount": 3,
+  "durationMs": 24276,
+  "avgDurationMs": 24276,
   "durationHistory": [
-    19991
+    24276
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-yifl2t",
       "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino-yifl2t",
@@ -38,12 +41,20 @@
       "firstSeenAt": "2026-05-17T10:54:51.136Z",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 77,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Piazza Indipendenza",
+      "postalCode": "6814",
+      "addressLocality": "Rivera, Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 14
+        "completeness": 25
       }
     },
     {
@@ -71,12 +82,20 @@
       "firstSeenAt": "2026-05-17T10:54:51.136Z",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 82,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Piazza Indipendenza",
+      "postalCode": "6814",
+      "addressLocality": "Gravesano, Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 18,
-        "completeness": 14
+        "completeness": 25
       }
     },
     {
@@ -104,16 +123,21 @@
       "firstSeenAt": "2026-05-17T10:54:51.136Z",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 77,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Piazza Indipendenza",
+      "postalCode": "6814",
+      "addressLocality": "Gravesano, Ticino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 14
+        "completeness": 25
       }
     }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
