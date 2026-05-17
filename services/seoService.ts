@@ -3783,6 +3783,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontalieri-disoccupazione-ue-svizzera-2026': { name: 'Riforma sulla disoccupazione dei', path: '/articoli-frontaliere/frontalieri-disoccupazione-ue-svizzera-2026', parent: 'blog' },
     'blog-frontalieri-assemblea-generale-2023': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-assemblea-generale-2023', parent: 'blog' },
     'blog-pasta-svizzera-italia-2026': { name: 'Pasta Svizzera', path: '/articoli-frontaliere/pasta-svizzera-italia-2026', parent: 'blog' },
+    'blog-code-e-non-solo-in-autostrada': { name: 'Traffico', path: '/articoli-frontaliere/code-e-non-solo-in-autostrada', parent: 'blog' },
  };
 
  const info = sectionNames[section];

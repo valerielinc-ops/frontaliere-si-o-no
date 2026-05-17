@@ -7622,6 +7622,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pasta-svizzera-italia-2026.title': 'Pâtes: l\'Italie en tête, mais quel est le poids de la Suisse?',
     'blog.article.pasta-svizzera-italia-2026.excerpt': 'La Suisse produit moins de pâtes que l\'Italie, mais a sa propre filière. Découvrez l\'importance du marché des pâtes en Suisse et les défis pour les producteurs suisses.',
     'blog.article.pasta-svizzera-italia-2026.imageAlt': 'Assiette de spaghetti à la bolognaise dans un restaurant de Lugano',
+    'blog.article.code-e-non-solo-in-autostrada.title': 'Code, et pas seulement sur l\'autoroute',
+    'blog.article.code-e-non-solo-in-autostrada.excerpt': 'Retour difficile après le pont de l\'Ascension : désagréments sur l\'A2 en direction du nord et trafic intense sur les routes cantonales.',
+    'blog.article.code-e-non-solo-in-autostrada.imageAlt': 'Embouteillage sur l\'autoroute en Suisse',
 };
 
 export default blogMetaFr;

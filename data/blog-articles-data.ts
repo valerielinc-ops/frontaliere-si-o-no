@@ -24239,4 +24239,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'code-e-non-solo-in-autostrada',
+ category: 'novita',
+ date: '2026-05-17T18:48:38.908Z',
+ image: '/images/blog/code-e-non-solo-in-autostrada.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

@@ -37943,6 +37943,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-code-e-non-solo-in-autostrada': {
+    title: 'Code, e non solo in autostrada | Frontaliere Ticino',
+    description: 'Rientro difficile dopo il ponte dell\'Ascensione: disagi sull\'A2 in direzione nord e traffico intenso anche sulle strade cantonali. Scopri le cause e come',
+    keywords: 'frontalieri, ticino, svizzera, italia, code, solo, autostrada, rientro',
+    ogTitle: 'Code, e non solo in autostrada | Frontaliere Ticino',
+    ogDescription: 'Rientro difficile dopo il ponte dell\'Ascensione: disagi sull\'A2 in direzione nord e traffico intenso anche sulle strade cantonali. Scopri le cause e come',
+    canonicalPath: '/articoli-frontaliere/code-e-non-solo-in-autostrada',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Code, e non solo in autostrada",
+      "description": "Rientro difficile dopo il ponte dell'Ascensione: disagi sull'A2 in direzione nord e traffico intenso anche sulle strade cantonali. Scopri le cause e come",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/code-e-non-solo-in-autostrada.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Coda sull'autostrada in Ticino"
+      },
+      "datePublished": "2026-05-17T18:48:38+00:00",
+      "dateModified": "2026-05-17T18:48:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/code-e-non-solo-in-autostrada`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

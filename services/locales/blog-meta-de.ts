@@ -7620,6 +7620,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pasta-svizzera-italia-2026.title': 'Nudeln: Italien auf Platz 1, wie wichtig ist die Schweiz?',
     'blog.article.pasta-svizzera-italia-2026.excerpt': 'Die Schweiz produziert weniger Nudeln als Italien, hat aber eigene Wertschöpfungskette. Entdecken Sie, wie wichtig der Nudelmarkt in der Schweiz ist und die Herausforderungen für Schweizer Produzenten.',
     'blog.article.pasta-svizzera-italia-2026.imageAlt': 'Spaghetti Bolognese Gericht in einem Restaurant in Lugano',
+    'blog.article.code-e-non-solo-in-autostrada.title': 'Code, nicht nur auf der Autobahn',
+    'blog.article.code-e-non-solo-in-autostrada.excerpt': 'Schwieriger Rückweg nach dem Brückentag: Probleme auf der A2 in nördlicher Richtung und starker Verkehr auch auf kantonalen Straßen.',
+    'blog.article.code-e-non-solo-in-autostrada.imageAlt': 'Stau auf der Autobahn in der Schweiz',
 };
 
 export default blogMetaDe;

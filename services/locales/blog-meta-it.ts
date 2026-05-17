@@ -7622,6 +7622,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pasta-svizzera-italia-2026.title': 'Pasta: l\'Italia al top, ma quanto pesa la Svizzera?',
     'blog.article.pasta-svizzera-italia-2026.excerpt': 'La Svizzera produce meno pasta dell\'Italia, ma ha una propria filiera. Scopri quanto conta il mercato della pasta in Svizzera e le sfide per i produttori elvetici.',
     'blog.article.pasta-svizzera-italia-2026.imageAlt': 'Piatto di spaghetti alla bolognese in un ristorante di Lugano',
+    'blog.article.code-e-non-solo-in-autostrada.title': 'Code, e non solo in autostrada',
+    'blog.article.code-e-non-solo-in-autostrada.excerpt': 'Rientro difficile dopo il ponte dell\'Ascensione: disagi sull\'A2 in direzione nord e traffico intenso anche sulle strade cantonali.',
+    'blog.article.code-e-non-solo-in-autostrada.imageAlt': 'Coda sull\'autostrada in Ticino',
 };
 
 export default blogMetaIt;

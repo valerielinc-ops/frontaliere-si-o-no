@@ -7621,6 +7621,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pasta-svizzera-italia-2026.title': 'Pasta: Italy Leads, But How Heavy is Switzerland\'s Role?',
     'blog.article.pasta-svizzera-italia-2026.excerpt': 'Switzerland produces less pasta than Italy, but has its own supply chain. Discover the importance of the pasta market in Switzerland and the challenges faced by Swiss producers.',
     'blog.article.pasta-svizzera-italia-2026.imageAlt': 'Spaghetti Bolognese dish in a Lugano restaurant',
+    'blog.article.code-e-non-solo-in-autostrada.title': 'Code, Not Just on the Highway',
+    'blog.article.code-e-non-solo-in-autostrada.excerpt': 'Difficult return after Ascension Day weekend: Disruptions on A2 northbound and heavy traffic on cantonal roads.',
+    'blog.article.code-e-non-solo-in-autostrada.imageAlt': 'Traffic jam on Ticino\'s highway',
 };
 
 export default blogMetaEn;
