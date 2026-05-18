@@ -4233,6 +4233,151 @@ function renderItalianStationFrontalierExtra(args: {
   </section>`;
 }
 
+// ── Italian per-station hero + advice helpers (2026-05-18 parity) ──
+//
+// Mirrors the Swiss-side hero/advice components (`renderStationHero`,
+// `renderStationAdvice`) but localises currency (EUR), rank-link target
+// (city hub instead of zone hub), and advice copy ("media città" vs
+// "media zona"). All other above-the-fold affordances — map+location
+// card, lucide SVG icons, OSM fallback, last-updated timestamp — are
+// rendered by the same shared helpers the Swiss path uses, so any UX
+// change to those affects both countries simultaneously.
+
+interface ItalianStationHeroInput {
+  readonly locale: FuelDailyLocale;
+  readonly brand: string;
+  readonly street: string;
+  readonly city: string;
+  readonly cityHubPath: string;
+  readonly priceFmt: string;
+  readonly fuelLabel: string;
+  readonly deltaCity: number | null;
+  readonly deltaCityFmt: string;
+  readonly rankIdx: number;
+  readonly total: number;
+  readonly lat: number | null;
+  readonly lng: number | null;
+  readonly rootDir: string | undefined;
+}
+
+function renderItalianStationHero(inp: ItalianStationHeroInput): string {
+  const labels = STATION_REDESIGN[inp.locale];
+  const logo = renderBrandVisual(inp.rootDir, inp.brand, 64);
+  const rankText = labels.rankSuffix(inp.rankIdx, inp.total);
+  const deltaTone =
+    inp.deltaCity === null
+      ? 'var(--color-subtle)'
+      : inp.deltaCity < -0.005
+        ? 'var(--color-success)'
+        : inp.deltaCity > 0.005
+          ? 'var(--color-danger)'
+          : 'var(--color-subtle)';
+  const deltaBg =
+    inp.deltaCity === null
+      ? 'var(--color-surface-alt)'
+      : inp.deltaCity < -0.005
+        ? 'var(--color-success-subtle)'
+        : inp.deltaCity > 0.005
+          ? 'var(--color-danger-subtle)'
+          : 'var(--color-surface-alt)';
+  const hasCoords = inp.lat !== null && inp.lng !== null;
+  const gmapsHref = hasCoords
+    ? `https://www.google.com/maps/search/?api=1&query=${inp.lat!.toFixed(6)},${inp.lng!.toFixed(6)}`
+    : '';
+  const wazeHref = hasCoords
+    ? `https://www.waze.com/ul?ll=${inp.lat!.toFixed(6)}%2C${inp.lng!.toFixed(6)}&navigate=yes`
+    : '';
+  const ext = labels.externalLinkSuffix;
+  const labelGmaps = `${labels.openInMaps} (${ext})`;
+  const labelWaze = `${labels.openInWaze} (${ext})`;
+
+  const actionsHtml = `<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px">
+    <a href="${esc(inp.cityHubPath)}" style="${CTA_PRIMARY_STYLE};font-size:14px;padding:9px 14px">${ICON_BAR_CHART_SVG} ${esc(labels.viewRanking(inp.city))} →</a>
+    ${hasCoords ? `<a href="${esc(gmapsHref)}" target="_blank" rel="noopener" aria-label="${esc(labelGmaps)}" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;background:var(--color-surface-alt);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-edge)">${ICON_MAP_PIN_SVG} ${esc(labels.openInMaps)}<span aria-hidden="true" style="font-size:11px;opacity:0.7;margin-left:2px">↗</span></a>` : ''}
+    ${hasCoords ? `<a href="${esc(wazeHref)}" target="_blank" rel="noopener" aria-label="${esc(labelWaze)}" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;background:var(--color-surface-alt);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-edge)">${ICON_NAVIGATION_SVG} ${esc(labels.openInWaze)}<span aria-hidden="true" style="font-size:11px;opacity:0.7;margin-left:2px">↗</span></a>` : ''}
+  </div>`;
+
+  return `<section style="${CARD_BODY_STYLE};padding:22px 22px 20px;margin:0 0 18px" aria-label="${esc(inp.brand)} ${esc(inp.city)}">
+  <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+    ${logo}
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:22px;font-weight:700;color:var(--color-heading);line-height:1.2">${esc(inp.brand)}</div>
+      <div style="margin-top:4px;font-size:14px;color:var(--color-subtle);line-height:1.4">${esc(inp.street || inp.city)} · ${esc(inp.city)}</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:baseline;margin-top:20px">
+    <div>
+      <div style="font-size:clamp(2.2rem,6vw,3rem);font-weight:800;color:var(--color-heading);line-height:1;font-variant-numeric:tabular-nums">${esc(inp.priceFmt)}</div>
+      <div style="margin-top:6px;font-size:13px;color:var(--color-subtle);text-transform:uppercase;letter-spacing:0.04em;font-weight:600">EUR/litro · ${esc(inp.fuelLabel)}</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:${deltaBg};color:${deltaTone};font-weight:700;font-size:13px;font-variant-numeric:tabular-nums">${esc(inp.deltaCityFmt)} vs ${esc(inp.city)}</span>
+      <a href="${esc(inp.cityHubPath)}" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);font-weight:700;font-size:13px;text-decoration:none;border:1px solid var(--color-accent-border)">${ICON_TROPHY_SVG} ${esc(rankText)} a ${esc(inp.city)} →</a>
+    </div>
+  </div>
+  ${actionsHtml}
+</section>`;
+}
+
+/**
+ * IT-side advice banner — same tone palette as the Swiss path
+ * (`renderStationAdvice`), but the copy says "media città X" instead of
+ * "media zona X" so the recommendation matches the data source the user
+ * is reading. Currency stays in the rendered delta string.
+ */
+function renderItalianStationAdvice(
+  locale: FuelDailyLocale,
+  deltaCity: number | null,
+  deltaCityFmt: string,
+  city: string,
+): string {
+  // formatDelta with EUR override returns "+0.012 EUR" — strip sign + " EUR"
+  // suffix so the advice template controls punctuation.
+  const absDeltaFmt = deltaCityFmt.replace(/^[-+]/, '').replace(/\s*EUR\s*$/, '');
+  let text: string;
+  let tone: string;
+  if (deltaCity === null || Math.abs(deltaCity) <= 0.02) {
+    text = IT_STATION_ADVICE[locale].median(city);
+    tone = STAT_TILE_WARNING;
+  } else if (deltaCity < 0) {
+    text = IT_STATION_ADVICE[locale].cheaper(absDeltaFmt, city);
+    tone = STAT_TILE_SUCCESS;
+  } else {
+    text = IT_STATION_ADVICE[locale].premium(absDeltaFmt, city);
+    tone = STAT_TILE_DANGER;
+  }
+  return `<aside data-station-advice style="${tone};margin:0 0 22px;font-weight:600;line-height:1.5">${esc(text)}</aside>`;
+}
+
+interface ItalianAdviceCopy {
+  readonly cheaper: (delta: string, city: string) => string;
+  readonly median: (city: string) => string;
+  readonly premium: (delta: string, city: string) => string;
+}
+
+const IT_STATION_ADVICE: Record<FuelDailyLocale, ItalianAdviceCopy> = {
+  it: {
+    cheaper: (d, c) => `Buona scelta: oggi questa stazione è ${d} EUR/litro più economica della media città ${c}.`,
+    median: (c) => `Prezzo in linea con la media della città ${c}: scegli in base alla comodità del percorso.`,
+    premium: (d, c) => `Attenzione: oggi questa stazione è ${d} EUR/litro più cara della media città ${c}. Valuta una stazione più economica nella classifica.`,
+  },
+  en: {
+    cheaper: (d, c) => `Good pick: today this station is ${d} EUR/litre cheaper than the ${c} city average.`,
+    median: (c) => `Price in line with the ${c} city average: pick by route convenience.`,
+    premium: (d, c) => `Heads up: today this station is ${d} EUR/litre above the ${c} city average. Consider a cheaper one from the ranking.`,
+  },
+  de: {
+    cheaper: (d, c) => `Gute Wahl: heute ist diese Tankstelle ${d} EUR/Liter günstiger als der Stadt-${c}-Schnitt.`,
+    median: (c) => `Preis im Schnitt der Stadt ${c}: wähle nach Route.`,
+    premium: (d, c) => `Achtung: heute ist diese Tankstelle ${d} EUR/Liter teurer als der Stadt-${c}-Schnitt.`,
+  },
+  fr: {
+    cheaper: (d, c) => `Bon choix : aujourd'hui cette station est ${d} EUR/litre moins chère que la moyenne de la ville ${c}.`,
+    median: (c) => `Prix conforme à la moyenne de la ville ${c} : choisissez selon votre itinéraire.`,
+    premium: (d, c) => `Attention : aujourd'hui cette station est ${d} EUR/litre plus chère que la moyenne de la ville ${c}.`,
+  },
+};
+
 function renderItalianStationPage(opts: {
   readonly ctx: ItalianStationContext;
   readonly locale: FuelDailyLocale;
@@ -4244,9 +4389,12 @@ function renderItalianStationPage(opts: {
   readonly canonicalPath: string;
   readonly alternates: Record<FuelDailyLocale, string>;
   readonly distDir?: string;
+  /** Project root for resolving brand logos via resolveBrandLogoUrl. */
+  readonly rootDir?: string;
 }): string {
-  const { ctx, locale, fuel, cityAvg, cityStations, history, today, canonicalPath, alternates, distDir } = opts;
+  const { ctx, locale, fuel, cityAvg, cityStations, history, today, canonicalPath, alternates, distDir, rootDir } = opts;
   const copy = IT_STATION_COPY[locale];
+  const redesignLabels = STATION_REDESIGN[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const cityName = ctx.cityEntry.display;
   const dateStamp = today.toISOString().slice(0, 10);
@@ -4399,6 +4547,40 @@ function renderItalianStationPage(opts: {
       </section>`
     : '';
 
+  const hasGeo =
+    typeof ctx.station.lat === 'number' &&
+    typeof ctx.station.lng === 'number' &&
+    Number.isFinite(ctx.station.lat) &&
+    Number.isFinite(ctx.station.lng);
+  const heroHtml = renderItalianStationHero({
+    locale,
+    brand: ctx.brandDisplay,
+    street: ctx.streetDisplay,
+    city: cityName,
+    cityHubPath: `${BASE_URL}${cityHubPath}`,
+    priceFmt,
+    fuelLabel,
+    deltaCity,
+    deltaCityFmt,
+    rankIdx: Math.max(rankIdx, 0),
+    total,
+    lat: hasGeo ? (ctx.station.lat as number) : null,
+    lng: hasGeo ? (ctx.station.lng as number) : null,
+    rootDir,
+  });
+  const adviceHtml = renderItalianStationAdvice(locale, deltaCity, deltaCityFmt, cityName);
+  const locationHtml = hasGeo
+    ? renderStationLocationCard({
+        locale,
+        brand: ctx.brandDisplay,
+        city: cityName,
+        address: ctx.station.address ?? '',
+        lat: ctx.station.lat as number,
+        lng: ctx.station.lng as number,
+      })
+    : '';
+  const lastUpdatedLine = `<p style="margin:8px 0 0;color:var(--color-subtle);font-size:12px;text-align:right;font-variant-numeric:tabular-nums">${esc(redesignLabels.historyLastUpdated(dateStamp))}</p>`;
+
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
   <nav aria-label="Breadcrumb" style="${BREADCRUMB_STYLE}">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
@@ -4409,28 +4591,24 @@ function renderItalianStationPage(opts: {
     <span> / </span>
     <span>${esc(ctx.brandDisplay)} ${esc(ctx.streetDisplay)}</span>
   </nav>
-  <header style="margin-bottom:22px">
+  <header style="margin-bottom:18px">
     <p style="${HERO_EYEBROW_STYLE}">${esc(dateStamp)}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(italianStationTaglineByLocale[locale])}</p>
   </header>
-  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 18px">
-    <div style="${STAT_TILE_ACCENT}">
-      <div style="${STAT_TILE_LABEL}">${esc(copy.priceLabel)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:32px">${priceFmt}</div>
-      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.currency)}</div>
-    </div>
-    <div style="${deltaCity === null ? STAT_TILE_BASE : deltaCity < 0 ? STAT_TILE_SUCCESS : STAT_TILE_WARNING}">
-      <div style="${STAT_TILE_LABEL}">${esc(copy.deltaVsCity)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:22px">${esc(deltaCityFmt)}</div>
-    </div>
-    <div style="${STAT_TILE_SUCCESS}">
-      <div style="${STAT_TILE_LABEL}">${esc(rankLabel)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:18px">${esc(rankingLine)}</div>
-    </div>
-  </section>
+  ${heroHtml}
+  ${adviceHtml}
+  ${locationHtml}
+  ${historyCard
+    ? `<section style="margin:0 0 24px" aria-labelledby="itStationTrend">
+        <h2 id="itStationTrend" style="${H2_STYLE};margin:0 0 8px;font-size:20px">${esc(IT_TREND_LABEL[locale])}</h2>
+        <p style="margin:0 0 12px;color:var(--color-subtle);line-height:1.6;font-style:italic">${esc(IT_TREND_INTRO[locale])}</p>
+        ${historyCard}
+        ${lastUpdatedLine}
+      </section>`
+    : ''}
   <section style="margin:0 0 24px;${CARD_STYLE}" aria-labelledby="itStationInfo">
-    <h2 id="itStationInfo" style="${H2_STYLE}">${esc(copy.infoHeading)}</h2>
+    <h2 id="itStationInfo" style="${H2_STYLE};margin:0 0 12px;font-size:20px">${esc(copy.infoHeading)}</h2>
     <dl style="margin:0;display:grid;grid-template-columns:max-content 1fr;column-gap:16px;row-gap:8px;font-size:14px;color:var(--color-body)">
       <dt style="font-weight:600">${esc(copy.infoBrand)}</dt><dd style="margin:0">${esc(ctx.brandDisplay)}</dd>
       <dt style="font-weight:600">${esc(copy.infoAddress)}</dt><dd style="margin:0">${esc(ctx.station.address ?? '—')}, ${esc(cityName)} (${esc(ctx.cityEntry.province)})</dd>
@@ -4439,7 +4617,7 @@ function renderItalianStationPage(opts: {
     </dl>
   </section>
   <section style="margin:0 0 24px" aria-labelledby="itStationContext">
-    <h2 id="itStationContext" style="${H2_STYLE}">${esc(copy.contextHeading)}</h2>
+    <h2 id="itStationContext" style="${H2_STYLE};margin:0 0 12px;font-size:20px">${esc(copy.contextHeading)}</h2>
     <p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
     <p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
     ${copy.contextParagraphs(ctx.brandDisplay, cityName, nearestZoneLabel)
@@ -4456,13 +4634,6 @@ function renderItalianStationPage(opts: {
     priceFmt,
     cityAvgFmt,
   })}
-  ${historyCard
-    ? `<section style="margin:0 0 24px" aria-labelledby="itStationTrend">
-        <h2 id="itStationTrend" style="${H2_STYLE}">${esc(IT_TREND_LABEL[locale])}</h2>
-        <p style="margin:0 0 12px;color:var(--color-subtle);line-height:1.6">${esc(IT_TREND_INTRO[locale])}</p>
-        ${historyCard}
-      </section>`
-    : ''}
   <p style="margin:0 0 22px"><a href="${BASE_URL}${cityHubPath}" style="${LINK_ACCENT_STYLE};font-weight:600">← ${esc(copy.backToCity(cityName))}</a></p>
   ${siblingsHtml}
   <section style="margin-top:32px" aria-label="advertisement">
@@ -4511,11 +4682,14 @@ export function generateFuelItalianStationPages(opts: {
    * skips its own `collectItalianStationContexts(dataset)` call.
    */
   contexts?: readonly ItalianStationContext[];
+  /** Project root — passed to renderItalianStationPage so it can resolve brand logos. */
+  rootDir?: string;
 }): Record<string, string> {
   const dataset = opts.dataset;
   const history = opts.history ?? [];
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
+  const rootDir = opts.rootDir;
   const pages: Record<string, string> = {};
 
   const contexts = opts.contexts ?? collectItalianStationContexts(dataset);
@@ -4555,6 +4729,7 @@ export function generateFuelItalianStationPages(opts: {
           canonicalPath,
           alternates,
           distDir,
+          rootDir,
         });
         pages[canonicalPath] = html;
       }
@@ -4759,6 +4934,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         today,
         distDir,
         contexts: italianContexts,
+        rootDir,
       });
 
       // ── F6.5: Browseable indexes (anti-orphan-page fix) ────────
