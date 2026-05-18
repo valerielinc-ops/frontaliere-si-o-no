@@ -93,28 +93,24 @@ export const AI_MODELS = Object.freeze({
   COHERE_CMD_A:     'Cohere-command-a',
   LLAMA_3_2_90B:    'Llama-3.2-90B-Vision-Instruct',
   DEEPSEEK_V3:      'DeepSeek-V3-0324',
-  GPT_5_NANO:       'gpt-5-nano',
-  GPT_5_MINI:       'gpt-5-mini',
-  O4_MINI:          'o4-mini',
-  O3_MINI:          'o3-mini',
+  // GPT_5_NANO removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
+  // GPT_5_MINI removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
+  // O4_MINI removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   DEEPSEEK_R1_0528: 'DeepSeek-R1-0528',
   MINISTRAL_3B:     'Ministral-3B',
-  GPT_5:            'gpt-5',
-  GROK_3:           'Grok-3',
-  GROK_3_MINI:      'Grok-3-Mini',
+  // GPT_5 removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
+  // GROK_3 removed — GitHub Models HTTP 400 "unknown_model: grok-3" (2026-05-18)
+  // GROK_3_MINI removed — GitHub Models HTTP 400 "unknown_model: grok-3-mini" (2026-05-18)
   MAI_DS_R1:        'MAI-DS-R1',
   MISTRAL_MEDIUM_3: 'Mistral-Medium-3',
-  O1:               'o1',
-  O3:               'o3',
+  // O1 removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   PHI_4_MINI_REASON:'Phi-4-mini-reasoning',
-  GPT_5_CHAT:       'gpt-5-chat',
+  // GPT_5_CHAT removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   PHI_4_REASON:     'Phi-4-reasoning',
   PHI_4_MINI_INST:  'Phi-4-mini-instruct',
   JAMBA_1_5_LARGE:  'AI21-Jamba-1.5-Large',
   MISTRAL_SM_31_GH: 'Mistral-Small-3.1',
-  O1_MINI:          'o1-mini',
-
-  // ── Google Gemini + Gemma (native API, shared GEMINI_API_KEY) ──
+  // O1_MINI removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   // Gemma models use the same Gemini API endpoint — 14,400 req/day each!
   GEMINI_FLASH:     'gemini-2.5-flash',
   GEMINI_PRO:       'gemini-2.5-pro',
@@ -123,13 +119,24 @@ export const AI_MODELS = Object.freeze({
   // Gemma models via Gemini API — 14,400 req/day each!
   GEMMA_4_31B:      'gemma-4-31b-it',
   GEMMA_4_26B:      'gemma-4-26b-a4b-it',
-  GEMMA_3_27B:      'gemma-3-27b-it',
-  GEMMA_3_12B:      'gemma-3-12b-it',
+  // GEMMA_3_27B removed — Gemini API HTTP 404 "models/gemma-3-27b-it is not found" (2026-05-18,
+  //                       Google dropped Gemma 3.x from the Gemini API in favour of Gemma 4 MoE).
+  //                       OpenRouter/HuggingFace mirrors of the same weights remain reachable as
+  //                       OR_GEMMA_3_27B / HF_GEMMA_3_27B.
+  // GEMMA_3_12B removed — Gemini API HTTP 404 (same Google deprecation 2026-05-18); mirrors
+  //                       OR_GEMMA_3_12B / CF_GEMMA_3_12B remain available.
   // New Gemini 3.x models (preview)
   GEMINI_3_FLASH:   'gemini-3-flash-preview',
   GEMINI_3_PRO:     'gemini-3-pro-preview',
   GEMINI_31_FLASH_LITE: 'gemini-3.1-flash-lite-preview',
   GEMINI_31_PRO:    'gemini-3.1-pro-preview',
+  // Gemini "always latest stable" aliases (discovered 2026-05-18) — point at current
+  // production endpoint so we follow Google's promotions without code changes.
+  GEMINI_FLASH_LATEST:        'gemini-flash-latest',
+  GEMINI_FLASH_LITE_LATEST:   'gemini-flash-lite-latest',
+  GEMINI_PRO_LATEST:          'gemini-pro-latest',
+  GEMINI_2_FLASH_LITE:        'gemini-2.0-flash-lite',
+  GEMINI_31_FLASH_LITE_GA:    'gemini-3.1-flash-lite',
 
   // ── Groq (OpenAI-compatible, ultra-fast inference) ──
   // Each model: 1000 req/day (free tier)
@@ -140,11 +147,15 @@ export const AI_MODELS = Object.freeze({
   GROQ_KIMI_K2:     'groq/moonshotai/kimi-k2-instruct',
   GROQ_GPT_OSS_120B:'groq/openai/gpt-oss-120b',
   GROQ_GPT_OSS_20B: 'groq/openai/gpt-oss-20b',
-  GROQ_LLAMA_4_MAV: 'groq/meta-llama/llama-4-maverick-17b-128e-instruct',
-  GROQ_QWQ_32B:     'groq/qwen/qwq-32b',
+  // Discovered 2026-05-18: full compound family (non-mini variant of compound-beta).
+  // Note the double "groq/" — Groq's own catalog id is "groq/compound" and our wrapper
+  // strips one "groq/" prefix before sending to the API, so the stored id needs both.
+  GROQ_COMPOUND_FULL: 'groq/groq/compound',
+  // GROQ_LLAMA_4_MAV removed — Groq HTTP 404 "model `meta-llama/llama-4-maverick-17b-128e-instruct` does not exist" (2026-05-18)
+  // GROQ_QWQ_32B removed — Groq HTTP 404 "model `qwen/qwq-32b` does not exist" (2026-05-18)
   GROQ_COMPOUND:    'groq/compound-beta',
   GROQ_COMPOUND_MINI:'groq/compound-mini',
-  GROQ_KIMI_K2_0905:'groq/moonshotai/kimi-k2-instruct-0905',
+  // GROQ_KIMI_K2_0905 removed — Groq HTTP 404 "model `moonshotai/kimi-k2-instruct-0905` does not exist" (2026-05-18)
   GROQ_GPT_OSS_SAFE: 'groq/openai/gpt-oss-safeguard-20b',
 
   // ── OpenRouter (OpenAI-compatible, free models with :free suffix) ──
@@ -183,14 +194,15 @@ export const AI_MODELS = Object.freeze({
   OR_GPT_OSS_20B:      'openrouter/openai/gpt-oss-20b:free',
   OR_DOLPHIN_24B:      'openrouter/cognitivecomputations/dolphin-mistral-24b-venice-edition:free',
   OR_GEMMA_3N_E4B:     'openrouter/google/gemma-3n-e4b-it:free',
+  // ── OpenRouter free models discovered 2026-05-18 (replace removed Chutes/dead OR ids) ──
+  OR_DEEPSEEK_V4_FLASH: 'openrouter/deepseek/deepseek-v4-flash:free',
+  OR_LLAMA_3_2_3B:      'openrouter/meta-llama/llama-3.2-3b-instruct:free',
 
   // ── Groq additional models (OpenAI-compatible, ultra-fast inference) ──
   GROQ_GEMMA2_9B:      'groq/gemma2-9b-it',
   GROQ_LLAMA_3_1_70B:  'groq/llama-3.1-70b-versatile',
-  GROQ_LLAMA3_8B:      'groq/llama3-8b-8192',
-  GROQ_LLAMA3_70B:     'groq/llama3-70b-8192',
-
-  // ── Cerebras (OpenAI-compatible, ultra-fast inference, free tier) ──
+  // GROQ_LLAMA3_8B removed — Groq HTTP 400 "model `llama3-8b-8192` has been decommissioned" (2026-05-18)
+  // GROQ_LLAMA3_70B removed — Groq HTTP 400 "model `llama3-70b-8192` has been decommissioned" (2026-05-18)
   CB_LLAMA_3_1_8B:  'cerebras/llama3.1-8b',
   CB_LLAMA_3_1_70B: 'cerebras/llama3.1-70b',
   CB_LLAMA_3_3_70B: 'cerebras/llama3.3-70b',
@@ -211,9 +223,7 @@ export const AI_MODELS = Object.freeze({
   NV_NEMOTRON_70B:   'nvidia/nvidia/llama-3.1-nemotron-70b-instruct',   // API: nvidia/llama-3.1-nemotron-70b-instruct
   NV_NEMOTRON_49B:   'nvidia/nvidia/llama-3.3-nemotron-super-49b-v1',   // API: nvidia/llama-3.3-nemotron-super-49b-v1
   NV_LLAMA_3_1_8B:   'nvidia/meta/llama-3.1-8b-instruct',
-  NV_PHI_3_MINI:     'nvidia/microsoft/phi-3-mini-4k-instruct',
-
-  // ── HuggingFace Inference Router (OpenAI-compatible, free tier) ──
+  // NV_PHI_3_MINI removed — NVIDIA NIM HTTP 404 "404 page not found" (2026-05-18)
   HF_MISTRAL_7B:   'hf/mistralai/Mistral-7B-Instruct-v0.3',
   HF_ZEPHYR_7B:    'hf/HuggingFaceH4/zephyr-7b-beta',
   HF_LLAMA_3_3_70B:'hf/meta-llama/Llama-3.3-70B-Instruct',
@@ -248,8 +258,7 @@ export const AI_MODELS = Object.freeze({
   CF_GPT_OSS_20B:      'cf/@cf/openai/gpt-oss-20b',
   CF_GEMMA_3_12B:      'cf/@cf/google/gemma-3-12b-it',
   CF_GLM_47_FLASH:     'cf/@cf/zai-org/glm-4.7-flash',
-  CF_DEEPSEEK_R1_32B:  'cf/@cf/deepseek/deepseek-r1-distill-qwen-32b',
-  // New Cloudflare models (2026-04)
+  // CF_DEEPSEEK_R1_32B removed — Cloudflare HTTP 400 "No such model @cf/deepseek/deepseek-r1-distill-qwen-32b" (2026-05-18)
   // CF_GEMMA_4_26B removed — returns empty responses (model loads but won't generate, 2026-04)
   // CF_KIMI_K2_5 removed — returns empty responses (model loads but won't generate, 2026-04)
   CF_NV_NEMOTRON_120B: 'cf/@cf/nvidia/nemotron-3-120b-a12b',
@@ -260,16 +269,22 @@ export const AI_MODELS = Object.freeze({
   MISTRAL_CODESTRAL:   'mistral/codestral-latest',
   MISTRAL_8B:          'mistral/ministral-8b-latest',
   MISTRAL_NEMO:        'mistral/open-mistral-nemo',
+  // Mistral additions discovered 2026-05-18 — all share the 1B-token/month tier
+  // but add variety so a single model's quota dip doesn't stall the chain.
+  MISTRAL_MEDIUM:           'mistral/mistral-medium-latest',
+  MISTRAL_MAGISTRAL_SMALL:  'mistral/magistral-small-latest',
+  MISTRAL_DEVSTRAL_MEDIUM:  'mistral/devstral-medium-latest',
+  MISTRAL_3B:               'mistral/ministral-3b-latest',
 
   // ── Mistral Codestral (separate endpoint, separate quota: 2000 req/day) ──
   CDSTRL_LATEST:       'codestral/codestral-latest',
 
-  // ── Chutes.ai (OpenAI-compatible, PAID per-token — added 2026-05-18) ──
-  // 2026-05-18 smoke test: HTTP 402 "balance $0.0". Chutes is NOT free; uses
-  // TAO/USD per-token billing. Real model IDs use the `-TEE` (Trusted
-  // Execution Env) suffix. Listed here so the provider machinery + correct
-  // IDs are ready IF the account is funded; NOT in DEFAULT_CHAIN to avoid
-  // burning fallback slots on 402 errors.
+  // ── Chutes.ai (OpenAI-compatible, PAID per-token — verified 2026-05-18) ──
+  // Smoke test returned HTTP 402 "balance $0.0". Chutes is NOT free; it bills
+  // TAO/USD per token. Real model IDs use the `-TEE` (Trusted Execution Env)
+  // suffix. Listed here so the provider machinery + correct IDs are ready IF
+  // the account is funded; NOT in DEFAULT_CHAIN to avoid burning fallback
+  // slots on 402 errors.
   CH_DEEPSEEK_V32:     'chutes/deepseek-ai/DeepSeek-V3.2-TEE',
   CH_KIMI_K26:         'chutes/moonshotai/Kimi-K2.6-TEE',
   CH_GLM_5:            'chutes/zai-org/GLM-5-TEE',
@@ -277,25 +292,20 @@ export const AI_MODELS = Object.freeze({
   CH_MINIMAX_M25:      'chutes/MiniMaxAI/MiniMax-M2.5-TEE',
 
   // ── Z.AI (Zhipu, OpenAI-compatible — added 2026-05-18) ──
-  // 2026-05-18 smoke test: only `glm-4.5-flash` is in the free tier with
-  // this key. `glm-4.6`, `glm-4.5-air`, `glm-4.5-airx`, `glm-4.5v` all
-  // return HTTP 429 "no resource package" → paid plan required.
+  // Smoke test: only `glm-4.5-flash` is in the free tier with this key.
+  // `glm-4.6`, `glm-4.5-air`, `glm-4.5-airx`, `glm-4.5v` all return
+  // HTTP 429 "no resource package" → paid plan required.
   ZAI_GLM_45_FLASH:    'zai/glm-4.5-flash',
 
   // ── Extended OpenRouter free models (2026-05) ──
-  OR_QWEN3_CODER_PLUS: 'openrouter/qwen/qwen3-coder-plus:free',
-  OR_KIMI_K2_0905:     'openrouter/moonshotai/kimi-k2-0905:free',
-  OR_GLM_46:           'openrouter/z-ai/glm-4.6:free',
-  OR_DEEPSEEK_V32:     'openrouter/deepseek/deepseek-v3.2-exp:free',
-  OR_MERIDIAN_8B:      'openrouter/cognitivecomputations/meridian-8b:free',
-
-  // ── Extended Groq models (2026-05) ──
-  GROQ_LLAMA_4_MAV_INSTR: 'groq/meta-llama/llama-4-maverick-17b-128e-instruct-fp8',
-  GROQ_DEEPSEEK_R1_DIST:  'groq/deepseek-r1-distill-llama-70b',
-
-  // ── Extended Cerebras preview models (2026-05) ──
-  CB_QWEN3_CODER_480B: 'cerebras/qwen-3-coder-480b',
-  CB_GPT_OSS_20B_2:    'cerebras/gpt-oss-20b',
+  // OR_QWEN3_CODER_PLUS removed — OpenRouter HTTP 404 "No endpoints found for qwen/qwen3-coder-plus:free" (2026-05-18)
+  // OR_KIMI_K2_0905 removed — OpenRouter HTTP 404 "No endpoints found for moonshotai/kimi-k2-0905:free" (2026-05-18)
+  // OR_GLM_46 removed — OpenRouter HTTP 404 "No endpoints found for z-ai/glm-4.6:free" (2026-05-18)
+  // OR_DEEPSEEK_V32 removed — OpenRouter HTTP 404 "No endpoints found for deepseek/deepseek-v3.2-exp:free" (2026-05-18)
+  // OR_MERIDIAN_8B removed — OpenRouter HTTP 400 "cognitivecomputations/meridian-8b:free is not a valid model ID" (2026-05-18)
+  // GROQ_LLAMA_4_MAV_INSTR removed — Groq HTTP 404 "model `…-128e-instruct-fp8` does not exist" (2026-05-18)
+  // CB_QWEN3_CODER_480B removed — Cerebras HTTP 404 "Model qwen-3-coder-480b does not exist" (2026-05-18)
+  // CB_GPT_OSS_20B_2 removed — Cerebras HTTP 404 "Model gpt-oss-20b does not exist" (2026-05-18)
 });
 
 /**
@@ -316,25 +326,25 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.GPT4O,              // 1.  OpenAI flagship        (GitHub Models)
   AI_MODELS.GPT_4_1,            // 2.  GPT 4.1 flagship       (GitHub Models)
   AI_MODELS.GEMMA_4_31B,        // 2b. Gemma 4 31B            (Gemini API — 14,400/day!)
-  AI_MODELS.GPT_5,              // 3.  GPT-5 flagship         (GitHub Models)
+  // AI_MODELS.GPT_5 removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   AI_MODELS.LLAMA_4_MAVERICK,   // 4.  Meta Llama 4 flagship  (GitHub Models)
   AI_MODELS.GEMINI_FLASH,       // 5.  Google fast            (Gemini API free)
   AI_MODELS.GEMINI_3_PRO,       // 5b. Gemini 3 Pro preview   (Gemini API free)
   AI_MODELS.GEMINI_3_FLASH,     // 5c. Gemini 3 Flash preview (Gemini API free)
-  AI_MODELS.O3,                 // 6.  OpenAI o3 reasoning    (GitHub Models)
-  AI_MODELS.GROK_3,             // 7.  xAI Grok 3 flagship   (GitHub Models)
+  // AI_MODELS.O3 removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
+  // AI_MODELS.GROK_3 removed — GitHub Models HTTP 400 "unknown_model: grok-3" (2026-05-18)
   // GROQ_KIMI_K2 removed — Groq returns HTTP 413 consistently (payload too large, 2026-03)
   // SN_LLAMA_4_MAVERICK removed — SambaNova returns HTTP 404 "Model not found" (2026-03)
   AI_MODELS.GPT4O_MINI,           // 9.  OpenAI fast             (GitHub Models)
-  AI_MODELS.GPT_5_CHAT,           // 9b. GPT-5 chat             (GitHub Models)
+  // AI_MODELS.GPT_5_CHAT removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   AI_MODELS.GEMMA_4_26B,          // 9c. Gemma 4 26B MoE        (Gemini API — 14,400/day!)
   AI_MODELS.GROQ_GPT_OSS_120B,  // 10. GPT-OSS 120B          (Groq - ultra fast)
   AI_MODELS.GPT_4_1_MINI,       // 11. GPT 4.1 Mini           (GitHub Models)
   AI_MODELS.LLAMA_3_3_70B,      // 12. Meta 70B               (GitHub Models)
   AI_MODELS.LLAMA_4_SCOUT,      // 13. Meta Llama 4 Scout     (GitHub Models)
-  AI_MODELS.GEMMA_3_27B,        // 13b. Gemma 3 27B           (Gemini API — 14,400/day!)
+  // GEMMA_3_27B removed from chain — Gemini API dropped Gemma 3.x (2026-05-18); OR_GEMMA_3_27B mirror still in chain at #39
   AI_MODELS.PHI_4_REASON,       // 13c. Phi-4 reasoning       (GitHub Models)
-  AI_MODELS.GPT_5_NANO,         // 14. GPT-5 nano reason     (GitHub Models)
+  // AI_MODELS.GPT_5_NANO removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   AI_MODELS.COHERE_CMD_A,       // 15. Cohere latest          (GitHub Models)
   AI_MODELS.MISTRAL_SMALL,      // 16. Mistral Small latest   (Mistral AI direct)
   AI_MODELS.GROQ_LLAMA_3_3,     // 17. Llama 3.3 70B          (Groq)
@@ -348,15 +358,15 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.GROQ_QWEN3_32B,      // 22. Qwen3 32B              (Groq - ultra fast)
   AI_MODELS.CB_QWEN3_235B,       // 22a. Qwen3 235B frontier   (Cerebras preview — ultra fast)
   // CB_GLM_47 removed — Cerebras HTTP 404 "Model zai-glm-4.7 does not exist" (2026-04)
-  AI_MODELS.GEMMA_3_12B,         // 22c. Gemma 3 12B           (Gemini API — 14,400/day!)
+  // GEMMA_3_12B removed from chain — Gemini API dropped Gemma 3.x (2026-05-18); OR_GEMMA_3_12B / CF_GEMMA_3_12B mirrors still in chain
   // JAMBA_1_5_LARGE removed — GitHub Models HTTP 400 "unknown_model" (2026-04)
   // SN_LLAMA_3_3_70B removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
-  AI_MODELS.O1,                  // 23. OpenAI o1 reasoning    (GitHub Models)
+  // AI_MODELS.O1 removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   AI_MODELS.LLAMA_3_2_90B,      // 24. Llama 3.2 90B           (GitHub Models)
   AI_MODELS.GEMINI_2_FLASH,     // 25. Google 2.0 flash       (Gemini API free)
   AI_MODELS.GEMINI_31_FLASH_LITE, // 25b. Gemini 3.1 Flash Lite (Gemini API free)
   AI_MODELS.MISTRAL_CODESTRAL,  // 26. Codestral latest       (Mistral AI direct)
-  AI_MODELS.GPT_5_MINI,         // 27. GPT-5 mini reason     (GitHub Models)
+  // AI_MODELS.GPT_5_MINI removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   AI_MODELS.CF_LLAMA_4_SCOUT,   // 28. Llama 4 Scout          (Cloudflare Workers AI)
   // CF_GEMMA_4_26B removed — returns empty responses (2026-04)
   // CF_KIMI_K2_5 removed — returns empty responses (2026-04)
@@ -370,7 +380,7 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.CF_QWQ_32B,         // 35. QwQ 32B reasoning      (Cloudflare Workers AI)
   AI_MODELS.GROQ_GPT_OSS_20B,   // 36. GPT-OSS 20B           (Groq - ultra fast)
   // CB_LLAMA_3_3_70B removed — Cerebras 404 (model deprecated 2026-03)
-  AI_MODELS.GROK_3_MINI,        // 37. xAI Grok 3 Mini       (GitHub Models)
+  // AI_MODELS.GROK_3_MINI removed — GitHub Models HTTP 400 "unknown_model: grok-3-mini" (2026-05-18)
   AI_MODELS.COH_CMD_A_REASON,   // 38. Cohere reasoning       (Cohere direct)
   AI_MODELS.OR_GEMMA_3_27B,     // 39. Gemma 3 27B instruct   (OpenRouter free)
   // CB_LLAMA_3_1_70B removed — Cerebras 404 (model deprecated 2026-03)
@@ -386,7 +396,7 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.OR_GEMMA_4_31B,     // 47. Gemma 4 31B             (OpenRouter free — replaces Mistral Small 3.1)
   // OR_MISTRAL_SM removed from OpenRouter free list (2026-04)
   // MAI_DS_R1 removed — GitHub Models HTTP 400 "unknown_model" (2026-04)
-  AI_MODELS.O4_MINI,            // 49. OpenAI o4-mini reason  (GitHub Models)
+  // AI_MODELS.O4_MINI removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   AI_MODELS.CODESTRAL,          // 50. Mistral Codestral      (GitHub Models)
   AI_MODELS.GEMINI_FLASH_LITE,  // 51. Google flash lite      (Gemini API free)
   AI_MODELS.CF_QWEN3_30B,       // 52. Qwen3 30B              (Cloudflare Workers AI)
@@ -405,8 +415,8 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.LLAMA_3_1_8B,       // 56. Meta 8B fast           (GitHub Models)
   AI_MODELS.MINISTRAL_3B,       // 57. Mistral 3B fast        (GitHub Models)
   AI_MODELS.CF_GPT_OSS_20B,     // 58. GPT-OSS 20B            (Cloudflare Workers AI)
-  AI_MODELS.O3_MINI,            // 59. OpenAI o3-mini reason  (GitHub Models)
-  AI_MODELS.O1_MINI,            // 59b. OpenAI o1-mini reason (GitHub Models)
+  // AI_MODELS.O3_MINI removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
+  // AI_MODELS.O1_MINI removed — GitHub Models HTTP 400 "unavailable_model" (2026-05-18)
   // CDSTRL_LATEST removed — codestral.mistral.ai endpoint returns HTTP 401
   // Unauthorized (stale Codestral key, distinct from MISTRAL_API_KEY). Tracked
   // in run 25874585556 (2026-05-14). MISTRAL_CODESTRAL on Mistral La Plateforme
@@ -427,8 +437,8 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.CF_GLM_47_FLASH,    // 69. GLM 4.7 Flash           (Cloudflare Workers AI)
   AI_MODELS.NV_NEMOTRON_49B,     // 70. Nemotron 49B           (NVIDIA NIM direct)
   AI_MODELS.NV_LLAMA_3_1_8B,    // 71. Llama 3.1 8B           (NVIDIA NIM)
-  AI_MODELS.NV_PHI_3_MINI,      // 72. Phi-3 Mini             (NVIDIA NIM)
-  AI_MODELS.CF_DEEPSEEK_R1_32B, // 73. DeepSeek R1 32B        (Cloudflare Workers AI)
+  // AI_MODELS.NV_PHI_3_MINI removed — NVIDIA NIM HTTP 404 "404 page not found" (2026-05-18)
+  // AI_MODELS.CF_DEEPSEEK_R1_32B removed — Cloudflare HTTP 400 "No such model @cf/deepseek/deepseek-r1-distill-qwen-32b" (2026-05-18)
   // CF_GRANITE_4_MICRO removed — "No such model @cf/ibm/granite-4.0-h-micro" (2026-04)
   // HF_MISTRAL_7B removed — HuggingFace HTTP 400 "not a chat model" (2026-04)
   // HF_ZEPHYR_7B removed — HuggingFace HTTP 400 "not supported by any provider" (2026-04)
@@ -445,9 +455,9 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.OR_NV_NEMOTRON_9B,   // 83. NVIDIA Nemotron 9B     (OpenRouter free)
   AI_MODELS.OR_TRINITY_MINI,     // 84. Arcee Trinity Mini      (OpenRouter free)
   // ── Extended capacity: additional Groq models (1000 req/day each) ──
-  AI_MODELS.GROQ_LLAMA3_8B,      // 85. Llama 3 8B              (Groq)
-  AI_MODELS.GROQ_LLAMA3_70B,     // 86. Llama 3 70B             (Groq)
-  AI_MODELS.GROQ_KIMI_K2_0905,   // 87. Kimi K2 0905            (Groq)
+  // AI_MODELS.GROQ_LLAMA3_8B removed — Groq HTTP 400 "model `llama3-8b-8192` has been decommissioned" (2026-05-18)
+  // AI_MODELS.GROQ_LLAMA3_70B removed — Groq HTTP 400 "model `llama3-70b-8192` has been decommissioned" (2026-05-18)
+  // AI_MODELS.GROQ_KIMI_K2_0905 removed — Groq HTTP 404 "model `moonshotai/kimi-k2-instruct-0905` does not exist" (2026-05-18)
   // ── Extended capacity: new models (2026-04) ──
   AI_MODELS.COH_CMD_R7B,         // 88. Cohere R7B              (Cohere direct)
   // ── Extended capacity: new OpenRouter free models (2026-04, replacing removed models) ──
@@ -456,35 +466,54 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.OR_GEMMA_3N_E4B,     // 91. Gemma 3n E4B              (OpenRouter free — replaces Phi-4)
   // OR_DEEPSEEK_V3, OR_QWEN_2_5_72B, OR_PHI_4, OR_PHI_4_REASON removed from OpenRouter free list (2026-04)
   // OR_KIMI_K2, OR_DEEPSEEK_R1, OR_LLAMA_4_MAVERICK, OR_MISTRAL_SM_31 removed from OpenRouter free list (2026-04)
-  AI_MODELS.GROQ_LLAMA_4_MAV,    // 92. Llama 4 Maverick          (Groq)
-  AI_MODELS.GROQ_QWQ_32B,        // 93. QwQ 32B reasoning         (Groq)
+  // AI_MODELS.GROQ_LLAMA_4_MAV removed — Groq HTTP 404 "model `meta-llama/llama-4-maverick-17b-128e-instruct` does not exist" (2026-05-18)
+  // AI_MODELS.GROQ_QWQ_32B removed — Groq HTTP 404 "model `qwen/qwq-32b` does not exist" (2026-05-18)
   AI_MODELS.GROQ_COMPOUND,       // 94. Compound Beta             (Groq)
   AI_MODELS.HF_LLAMA_3_3_70B,    // 95. Llama 3.3 70B             (HuggingFace)
   AI_MODELS.HF_QWEN_2_5_72B,     // 96. Qwen 2.5 72B              (HuggingFace)
   AI_MODELS.HF_GEMMA_3_27B,      // 97. Gemma 3 27B               (HuggingFace)
   // HF_MISTRAL_SM removed — HuggingFace HTTP 400 "not a chat model" (2026-04)
 
-  // ── Chutes.ai: SKIPPED — 2026-05-18 smoke test returned HTTP 402
-  // (balance $0.0). Re-add CH_* entries here once the account is funded.
+  // ── Chutes.ai: SKIPPED — paid per-token; smoke test returned HTTP 402
+  // ("balance $0.0"). Re-add CH_DEEPSEEK_V32 / CH_KIMI_K26 / CH_GLM_5 /
+  // CH_QWEN_3_5_397B / CH_MINIMAX_M25 here once the account is funded.
 
   // ── Z.AI GLM free tier (added + verified 2026-05-18) ──
   // Only glm-4.5-flash is free with the issued key; smoke test 200 OK.
   AI_MODELS.ZAI_GLM_45_FLASH,    // 98. GLM 4.5 Flash              (Z.AI free)
 
   // ── Extended OpenRouter 2026-05 free additions ──
-  AI_MODELS.OR_QWEN3_CODER_PLUS, // 99.  Qwen3 Coder Plus          (OpenRouter free)
-  AI_MODELS.OR_KIMI_K2_0905,     // 100. Kimi K2 0905              (OpenRouter free)
-  AI_MODELS.OR_GLM_46,           // 101. GLM 4.6                   (OpenRouter free)
-  AI_MODELS.OR_DEEPSEEK_V32,     // 102. DeepSeek V3.2 exp         (OpenRouter free)
-  AI_MODELS.OR_MERIDIAN_8B,      // 103. Meridian 8B               (OpenRouter free)
+  // AI_MODELS.OR_QWEN3_CODER_PLUS removed — OpenRouter HTTP 404 "No endpoints found for qwen/qwen3-coder-plus:free" (2026-05-18)
+  // AI_MODELS.OR_KIMI_K2_0905 removed — OpenRouter HTTP 404 "No endpoints found for moonshotai/kimi-k2-0905:free" (2026-05-18)
+  // AI_MODELS.OR_GLM_46 removed — OpenRouter HTTP 404 "No endpoints found for z-ai/glm-4.6:free" (2026-05-18)
+  // AI_MODELS.OR_DEEPSEEK_V32 removed — OpenRouter HTTP 404 "No endpoints found for deepseek/deepseek-v3.2-exp:free" (2026-05-18)
+  // AI_MODELS.OR_MERIDIAN_8B removed — OpenRouter HTTP 400 "cognitivecomputations/meridian-8b:free is not a valid model ID" (2026-05-18)
 
   // ── Extended Groq 2026-05 additions ──
-  AI_MODELS.GROQ_LLAMA_4_MAV_INSTR,    // 104. Llama 4 Maverick fp8 (Groq)
-  AI_MODELS.GROQ_DEEPSEEK_R1_DIST,     // 105. DeepSeek R1 Distill Llama 70B (Groq)
+  // AI_MODELS.GROQ_LLAMA_4_MAV_INSTR removed — Groq HTTP 404 "model `…-128e-instruct-fp8` does not exist" (2026-05-18)
+  // AI_MODELS.GROQ_DEEPSEEK_R1_DIST removed — Groq HTTP 400 "model `deepseek-r1-distill-llama-70b` has been decommissioned" (2026-05-18)
 
   // ── Extended Cerebras 2026-05 additions ──
-  AI_MODELS.CB_QWEN3_CODER_480B, // 106. Qwen3 Coder 480B         (Cerebras preview)
-  AI_MODELS.CB_GPT_OSS_20B_2,    // 107. GPT-OSS 20B               (Cerebras)
+  // AI_MODELS.CB_QWEN3_CODER_480B removed — Cerebras HTTP 404 "Model qwen-3-coder-480b does not exist" (2026-05-18)
+  // AI_MODELS.CB_GPT_OSS_20B_2 removed — Cerebras HTTP 404 "Model gpt-oss-20b does not exist" (2026-05-18)
+
+  // ── Replacements for the 33 models pruned 2026-05-18 (each smoke-tested live) ──
+  // Gemini "always latest stable" aliases — auto-follow Google's promotions.
+  AI_MODELS.GEMINI_FLASH_LATEST,        // alias → today's stable flash
+  AI_MODELS.GEMINI_FLASH_LITE_LATEST,   // alias → today's stable flash-lite
+  AI_MODELS.GEMINI_PRO_LATEST,          // alias → today's stable pro
+  AI_MODELS.GEMINI_2_FLASH_LITE,        // Gemini 2.0 flash lite (extra quota)
+  AI_MODELS.GEMINI_31_FLASH_LITE_GA,    // Gemini 3.1 flash lite GA (non-preview)
+  // Groq compound full (not just mini)
+  AI_MODELS.GROQ_COMPOUND_FULL,
+  // OpenRouter free additions
+  AI_MODELS.OR_DEEPSEEK_V4_FLASH,       // DeepSeek V4 flash on OR :free
+  AI_MODELS.OR_LLAMA_3_2_3B,            // Llama 3.2 3B small/fast on OR :free
+  // Mistral La Plateforme (shares 1B-token/month bucket — adds model variety)
+  AI_MODELS.MISTRAL_MEDIUM,             // mistral-medium-latest
+  AI_MODELS.MISTRAL_MAGISTRAL_SMALL,    // magistral-small (reasoning)
+  AI_MODELS.MISTRAL_DEVSTRAL_MEDIUM,    // devstral medium (code)
+  AI_MODELS.MISTRAL_3B,                 // ministral 3B (small/fast)
 ];
 
 // ── Provider constants ───────────────────────────────────────

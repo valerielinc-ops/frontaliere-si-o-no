@@ -147,13 +147,15 @@ async function initAI() {
 // Avoids the 115+ model shotgun that causes cascading 429s and slow fallbacks.
 // ~150 cohort briefings + 4 subjects = ~155 calls — well within free tier limits.
 // Models are still sorted by score at runtime, so the best performer leads.
+// IMPORTANT: keep these strings in sync with the canonical IDs in scripts/lib/ai-models.mjs
+// (AI_MODELS.*). When Google renames a model on the Gemini API, fix it there first.
 const NEWSLETTER_AI_CHAIN = [
   'gemini-2.5-flash',           // Google — 1500 req/day free, fast
   'gemini-2.0-flash',           // Google — 1500 req/day free, reliable
   'gpt-4.1-nano',               // GitHub Models — proven workhorse in past sends
   'gemini-2.5-flash-lite',      // Google — 3000 req/day free, lightweight
   'gemma-4-31b-it',             // Google — 14,400 req/day free
-  'gemma-4-26b-it',             // Google — 14,400 req/day free
+  'gemma-4-26b-a4b-it',         // Google — 14,400 req/day free (Gemma 4 MoE — exact API id)
   'mistral/mistral-small-latest', // Mistral — 1B tokens/month free
   'gemini-2.5-pro',             // Google — 500 req/day free, highest quality fallback
 ];
