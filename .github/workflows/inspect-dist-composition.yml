@@ -1,0 +1,173 @@
+name: Inspect dist composition from prior run
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_run_id:
+        description: 'Deploy run ID to fetch the github-pages artifact from (numeric)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Resolve github-pages artifact
+        id: art
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          RID=${{ inputs.deploy_run_id }}
+          ARTIFACT_ID=$(gh api repos/${{ github.repository }}/actions/runs/$RID/artifacts \
+            --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
+          if [ -z "$ARTIFACT_ID" ]; then
+            echo "::error::No 'github-pages' artifact on run $RID."
+            exit 1
+          fi
+          echo "artifact_id=$ARTIFACT_ID" >> "$GITHUB_OUTPUT"
+          echo "Resolved artifact id=$ARTIFACT_ID on run $RID"
+
+      - name: Download + extract github-pages artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          mkdir -p /tmp/pages
+          gh api -H "Accept: application/vnd.github+json" \
+            repos/${{ github.repository }}/actions/artifacts/${{ steps.art.outputs.artifact_id }}/zip \
+            > /tmp/pages.zip
+          unzip -q /tmp/pages.zip -d /tmp/pages
+          test -f /tmp/pages/artifact.tar
+          mkdir -p dist
+          tar -xf /tmp/pages/artifact.tar -C dist
+          echo "Extracted $(find dist -type f | wc -l) files into dist/"
+
+      - name: Analyze composition
+        run: |
+          set -e
+          REPORT=/tmp/composition-report.txt
+          : > "$REPORT"
+          log() { echo "$@" | tee -a "$REPORT"; }
+
+          log "════════════════════════════════════════════════"
+          log "DIST COMPOSITION REPORT — run ${{ inputs.deploy_run_id }}"
+          log "Generated: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          log "════════════════════════════════════════════════"
+
+          log ""
+          log "── TOTAL ──"
+          du -sh dist | tee -a "$REPORT"
+          du -sb dist | awk '{printf "  %d bytes (%.2f GB)\n", $1, $1/1024/1024/1024}' | tee -a "$REPORT"
+          log "  File count: $(find dist -type f | wc -l)"
+          log "  Symlinks: $(find dist -type l | wc -l)"
+          log "  Hard links (nlink>1): $(find dist -type f -links +1 | wc -l)"
+
+          log ""
+          log "── TOP 30 DIRS BY SIZE (depth ≤ 2) ──"
+          du -ah dist --max-depth=2 2>/dev/null | sort -hr | head -30 | tee -a "$REPORT"
+
+          log ""
+          log "── BY FILE EXTENSION ──"
+          find dist -type f -name '*.*' | sed -E 's/.*\.([A-Za-z0-9]+)$/\1/' | sort | uniq -c | sort -hr | head -30 | tee -a "$REPORT"
+
+          log ""
+          log "── SIZE BY EXTENSION (top 15) ──"
+          for ext in html json js css map webp jpg avif png svg xml txt; do
+            total=$(find dist -type f -name "*.$ext" -printf '%s\n' 2>/dev/null | awk '{s+=$1} END {print s+0}')
+            count=$(find dist -type f -name "*.$ext" 2>/dev/null | wc -l)
+            if [ "$total" != "0" ] && [ "$total" != "" ]; then
+              printf "  %-6s  %10d files  %12d bytes  (%6.1f MB)\n" "$ext" "$count" "$total" "$(echo "$total/1024/1024" | bc -l)" | tee -a "$REPORT"
+            fi
+          done
+
+          log ""
+          log "── PER-LOCALE BREAKDOWN ──"
+          for loc in en de fr; do
+            if [ -d "dist/$loc" ]; then
+              size=$(du -sb "dist/$loc" | awk '{print $1}')
+              count=$(find "dist/$loc" -type f | wc -l)
+              printf "  /%s  %12d bytes  (%6.1f MB)  %6d files\n" "$loc" "$size" "$(echo "$size/1024/1024" | bc -l)" "$count" | tee -a "$REPORT"
+            fi
+          done
+          # implicit IT = everything except /en /de /fr /assets /images /og /data /.well-known
+          it_size=$(du -sb dist | awk '{print $1}')
+          en_size=$(du -sb dist/en 2>/dev/null | awk '{print $1}'); en_size=${en_size:-0}
+          de_size=$(du -sb dist/de 2>/dev/null | awk '{print $1}'); de_size=${de_size:-0}
+          fr_size=$(du -sb dist/fr 2>/dev/null | awk '{print $1}'); fr_size=${fr_size:-0}
+          remainder=$(( it_size - en_size - de_size - fr_size ))
+          printf "  /it (root) %12d bytes  (%6.1f MB)\n" "$remainder" "$(echo "$remainder/1024/1024" | bc -l)" | tee -a "$REPORT"
+
+          log ""
+          log "── HTML PAGES — per top-level dir (count + avg+total size) ──"
+          for d in $(find dist -maxdepth 1 -mindepth 1 -type d | sort); do
+            name=$(basename "$d")
+            count=$(find "$d" -type f -name '*.html' 2>/dev/null | wc -l)
+            if [ "$count" -gt 100 ]; then
+              total=$(find "$d" -type f -name '*.html' -printf '%s\n' 2>/dev/null | awk '{s+=$1} END {print s+0}')
+              avg_kb=$(echo "$total/$count/1024" | bc -l)
+              total_mb=$(echo "$total/1024/1024" | bc -l)
+              printf "  /%-32s  %6d html  avg %6.1f KB  total %7.1f MB\n" "$name" "$count" "$avg_kb" "$total_mb" | tee -a "$REPORT"
+            fi
+          done
+
+          log ""
+          log "── TOP 20 LARGEST INDIVIDUAL FILES ──"
+          find dist -type f -printf '%s %p\n' | sort -nr | head -20 | awk '{printf "  %10d  %s\n", $1, substr($0, index($0,$2))}' | tee -a "$REPORT"
+
+          log ""
+          log "── TOP 20 LARGEST .json FILES ──"
+          find dist -type f -name '*.json' -printf '%s %p\n' | sort -nr | head -20 | awk '{printf "  %10d  %s\n", $1, substr($0, index($0,$2))}' | tee -a "$REPORT"
+
+          log ""
+          log "── TOP 20 LARGEST .js FILES ──"
+          find dist -type f -name '*.js' -printf '%s %p\n' | sort -nr | head -20 | awk '{printf "  %10d  %s\n", $1, substr($0, index($0,$2))}' | tee -a "$REPORT"
+
+          log ""
+          log "── TOP 20 LARGEST .html FILES ──"
+          find dist -type f -name '*.html' -printf '%s %p\n' | sort -nr | head -20 | awk '{printf "  %10d  %s\n", $1, substr($0, index($0,$2))}' | tee -a "$REPORT"
+
+          log ""
+          log "── DUPLICATE-SUSPECT IMAGE FORMATS ──"
+          log "  webp+jpg siblings in dist/images:"
+          find dist/images -type f -name '*.webp' 2>/dev/null | sed 's/\.webp$//' | while read b; do
+            [ -f "$b.jpg" ] && echo "DUP $b"
+          done | wc -l | xargs -I{} echo "    {} files"
+          log "  webp+avif+jpg triplets in dist/images:"
+          find dist/images -type f -name '*.webp' 2>/dev/null | sed 's/\.webp$//' | while read b; do
+            [ -f "$b.jpg" ] && [ -f "$b.avif" ] && echo "TRIP $b"
+          done | wc -l | xargs -I{} echo "    {} files"
+
+          log ""
+          log "── COMPRESSION RATIO ESTIMATE ──"
+          uncompressed=$(du -sb dist | awk '{print $1}')
+          # gzip a representative HTML sample to gauge ratio
+          sample=$(find dist -type f -name '*.html' | head -100)
+          if [ -n "$sample" ]; then
+            cat $sample > /tmp/sample.html
+            raw=$(stat -c '%s' /tmp/sample.html)
+            gz=$(gzip -9c /tmp/sample.html | wc -c)
+            ratio=$(echo "scale=2; $raw / $gz" | bc -l)
+            log "  HTML sample (100 files): raw=$raw gz=$gz ratio=${ratio}x"
+            log "  Implied compressed total if uniform: $(echo "$uncompressed / $ratio / 1024 / 1024" | bc -l) MB"
+          fi
+
+          log ""
+          log "════════════════════════════════════════════════"
+          log "END REPORT"
+          log "════════════════════════════════════════════════"
+
+          # Also echo to job log
+          cat "$REPORT"
+
+      - name: Upload composition report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-composition-${{ inputs.deploy_run_id }}
+          path: /tmp/composition-report.txt
+          retention-days: 14
