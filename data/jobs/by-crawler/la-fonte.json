@@ -1,6 +1,6 @@
 {
   "crawlerKey": "la-fonte",
-  "assembledAt": "2026-05-17T22:00:33.828Z",
+  "assembledAt": "2026-05-18T12:43:38.468Z",
   "jobs": [
     {
       "title": "Supplenti nell’area abitativa a Fonte 3 e Fonte 6",
@@ -43,7 +43,6 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "la-fonte-aef1608c745a",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -66,7 +65,8 @@
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
       "previousSlugs": [
         "supplenti-nell-area-abitativa-a-fonte-3-e-fonte-6-fondazione-la-fonte-neggio-agno"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Stagiaire",
@@ -109,7 +109,6 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "la-fonte-fbf80dc4d87c",
       "previousSlugsByLocale": {
         "it": [
@@ -142,7 +141,8 @@
       "addressLocality": "Luganese, Malcantone",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-17T10:35:50.358Z"
+      "firstSeenAt": "2026-05-17T10:35:50.358Z",
+      "needsRetranslation": true
     },
     {
       "title": "Apprendisti/e operatori/trici socioassistenziali AFC",
@@ -185,7 +185,6 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "la-fonte-95d0ab9a541b",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -214,7 +213,8 @@
         "en": [
           "apprentice-socio-assistential-worker-afc-fondazione-la-fonte-lugano-neggio"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Un/a educatore/trice diplomato/a 80% al Fornaio Fonte 7",
