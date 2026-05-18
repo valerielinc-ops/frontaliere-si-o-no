@@ -38,6 +38,12 @@ export interface SalaryTile {
   readonly label: string;
   readonly value: string;
   readonly tone?: StatTileTone;
+  /**
+   * Optional click target. When set, the tile is wrapped as `<a>` so the whole
+   * tile becomes a tap target. Typically auto-populated by the shell on the
+   * accent tile to mirror `ctaPrimary.href` — closes a $dead_click hotspot.
+   */
+  readonly href?: string;
 }
 
 export interface SalaryTableRow {
@@ -1902,7 +1908,20 @@ export function renderSalaryLandingShell(
   const h1 = `<h1 style="${H1_STYLE}">${esc(args.h1Text)}</h1>`;
   const lede = `<p style="${LEDE_STYLE}">${esc(data.tagline)}</p>`;
 
-  const tilesHtml = renderStatGrid(data.tiles);
+  // Wire the primary CTA href into the first `accent`-toned tile so the
+  // visually prominent headline metric becomes a tap target. Closes the
+  // `$dead_click` hotspot observed on calc SEO variants (e.g.
+  // /calcola-stipendio/nuovi-frontalieri-oltre-20-km — 24 dead clicks in 7d)
+  // where users tap the rounded, colored tile expecting it to be interactive.
+  let accentLinked = false;
+  const tilesWithHref = data.tiles.map((t) => {
+    if (!accentLinked && (t.tone ?? 'accent') === 'accent' && data.ctaPrimary?.href) {
+      accentLinked = true;
+      return { ...t, href: data.ctaPrimary.href };
+    }
+    return t;
+  });
+  const tilesHtml = renderStatGrid(tilesWithHref);
   const adviceHtml = data.advice ? renderAdvice(pack.adviceLabel, data.advice) : '';
   const ctaHtml = renderCtaBlock(data.ctaPrimary, data.ctaSecondary);
   const dataAreaHtml = args.dataAreaHtmlOverride ?? (data.table ? renderTable(data.table) : '');
