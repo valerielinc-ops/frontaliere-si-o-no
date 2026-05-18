@@ -82,7 +82,7 @@ export function buildCanonicalBridgePage(options: {
  <link rel="canonical" href="${canonicalUrl}">${hreflangHtml}
  ${ANALYTICS_SNIPPET}
  ${SPA_ACTION_REDIRECT_SCRIPT}
- <style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#f8fafc;color:#334155;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px}.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);max-width:480px;width:100%;padding:32px 24px;text-align:center}.logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:20px}.logo svg{width:28px;height:28px}.logo span{font-size:16px;font-weight:700;color:#1e293b}h1{font-size:20px;font-weight:700;color:#1e293b;margin-bottom:8px;line-height:1.3}p{font-size:14px;color:#64748b;line-height:1.6;margin-bottom:16px}.btn{display:inline-block;background:#533afd;color:#fff;font-size:14px;font-weight:600;padding:10px 24px;border-radius:6px;text-decoration:none;transition:background .15s}.btn:hover{background:#4529e6}.footer{margin-top:24px;font-size:12px;color:#94a3b8}</style>
+ <link rel="stylesheet" href="/assets/bridge.css?v=${BUILD_ID}">
  </head>
  <body>
  <main class="card">
@@ -141,7 +141,7 @@ export function buildFlatRedirect(
  <meta name="robots" content="noindex,follow">
  <link rel="canonical" href="${canonicalUrl}">${ogTags}
  ${ANALYTICS_SNIPPET}
- <style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#f8fafc;color:#334155;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px}.card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;box-shadow:0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);max-width:480px;width:100%;padding:32px 24px;text-align:center}.logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:20px}.logo svg{width:28px;height:28px}.logo span{font-size:16px;font-weight:700;color:#1e293b}h1{font-size:20px;font-weight:700;color:#1e293b;margin-bottom:8px;line-height:1.3}p{font-size:14px;color:#64748b;line-height:1.6;margin-bottom:16px}.btn{display:inline-block;background:#533afd;color:#fff;font-size:14px;font-weight:600;padding:10px 24px;border-radius:6px;text-decoration:none;transition:background .15s}.btn:hover{background:#4529e6}.footer{margin-top:24px;font-size:12px;color:#94a3b8}</style>
+ <link rel="stylesheet" href="/assets/bridge.css?v=${BUILD_ID}">
  </head>
  <body>
  <main class="card">
