@@ -15,6 +15,7 @@
     "https://team.lidl.ch/de/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-588255",
     "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-moritz-673001",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-st-moritz-685630",
+    "https://team.lidl.ch/it/jobs/361-venditore-venditrice-m-f-d-20-40-riazzino-674241",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-arbedo-castione-588228",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-604777",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lugano-588267",
@@ -22,8 +23,17 @@
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch search API (/it/search_api/jobsearch) using Ticino and Grigioni italiano geo queries.",
-  "updatedAt": "2026-05-17T22:01:18.803Z",
+  "updatedAt": "2026-05-18T12:44:26.416Z",
   "seedMetaByUrl": {
+    "https://team.lidl.ch/it/jobs/361-venditore-venditrice-m-f-d-20-40-riazzino-674241": {
+      "location": "Riazzino",
+      "addressLocality": "Riazzino",
+      "canton": "TI",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-st-moritz-685630": {
       "location": "St. Moritz",
       "addressLocality": "St. Moritz",
