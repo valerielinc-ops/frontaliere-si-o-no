@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-05-18T12:33:48.134Z",
+  "generatedAt": "2026-05-18T22:07:02.046Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 11459,
-  "avgDurationMs": 11459,
+  "unchangedCount": 2,
+  "durationMs": 12700,
+  "avgDurationMs": 12700,
   "durationHistory": [
-    11459
+    12700
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -148,13 +148,13 @@
       "contractType": "full-time",
       "validThrough": "",
       "id": "hoval-52337b034fbb",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:26:05.869Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -186,13 +186,13 @@
       "contractType": "full-time",
       "validThrough": "",
       "id": "hoval-0dcbc94c2c7a",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:26:05.869Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -200,7 +200,10 @@
         "translation": 19,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Tecnico di servizio per impianti di riscaldamento energie rinnovabili (m/f/d)",
       "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-rc-ticino",
@@ -275,7 +278,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
