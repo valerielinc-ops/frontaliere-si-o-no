@@ -37,6 +37,10 @@ import {
  buildJobPartTimeLandingModel,
  buildJobSectorRegionLandingModel,
  buildJobTodayLandingModel,
+ careClusterSlug,
+ getJobNursesHubSlug,
+ getJobPartTimeLandingSlug,
+ getJobTodayLandingSlug,
  resolveEditorialJobLandingDescriptor,
 } from '../build-plugins/jobEditorialLanding';
 import { JOB_RECENCY_LANDING_SLUGS as RECENCY_LANDING_SLUGS } from '../build-plugins/jobRecencyLanding';
@@ -2018,6 +2022,14 @@ export interface ParseResult {
  locale: Locale;
  /** Set when the URL could not be matched to any known route */
  notFoundPath?: string;
+ /**
+  * Set when the URL is a recognisable variant of a canonical route but
+  * lives at a non-canonical path (e.g. a TI-form editorial slug nested
+  * under a non-TI canton section). App.tsx should `window.location.replace`
+  * to this canonical URL so the user lands on the real page (and Google
+  * eventually drops the orphan from its index).
+  */
+ redirectTo?: string;
 }
 
 export function parsePath(pathname: string): ParseResult {
@@ -2387,6 +2399,47 @@ export function parsePath(pathname: string): ParseResult {
              jobBoardCanton: cantonCode,
              jobBoardCity: rawSecond,
            },
+           locale,
+         };
+       }
+       // Editorial-landing slugs (today / nurses-hub / part-time / care-
+       // variant / official-gazette). The descriptor resolver accepts
+       // every canton variant — TI long-form (`offerte-di-lavoro-ticino-
+       // oggi`) and the short non-TI form (`oggi`). If the URL nests a
+       // foreign canton's slug under this canton's section (e.g.
+       // `/cerca-lavoro-basilea/offerte-di-lavoro-ticino-oggi/`), no
+       // static HTML exists at that path, so the SPA would otherwise
+       // fall through to the empty job-detail view. Redirect to this
+       // canton's own canonical slug — the build emits that page.
+       const editorialDescriptor = cantonCode !== '_AGGREGATE_'
+         ? resolveEditorialJobLandingDescriptor(rawSecond)
+         : null;
+       if (editorialDescriptor) {
+         const canonicalSlug: string | null = (() => {
+           if (editorialDescriptor.kind === 'today') return getJobTodayLandingSlug(locale, cantonCode);
+           if (editorialDescriptor.kind === 'nurses-hub') return getJobNursesHubSlug(locale, cantonCode);
+           if (editorialDescriptor.kind === 'part-time') return getJobPartTimeLandingSlug(locale, cantonCode);
+           if (editorialDescriptor.kind === 'care-variant') return careClusterSlug(editorialDescriptor.clusterKey, cantonCode, locale);
+           // official-gazette only emitted for TI; recency variants don't
+           // have per-canton slug variants. Let these fall through to the
+           // static-overlay branch so the existing handler renders the
+           // build-time HTML if present.
+           return null;
+         })();
+         if (canonicalSlug && canonicalSlug !== rawSecond) {
+           const sectionForRedirect = first;
+           const localePref = locale === 'it' ? '' : `/${locale}`;
+           const redirectTo = `${localePref}/${sectionForRedirect}/${canonicalSlug}/`.replace(/\/+/g, '/');
+           return {
+             route: { activeTab: 'job-board', jobBoardCanton: cantonCode, staticOverlay: true },
+             locale,
+             redirectTo,
+           };
+         }
+         // Canonical slug for this canton — render the static overlay
+         // (the build emits the HTML at this exact path).
+         return {
+           route: { activeTab: 'job-board', jobBoardCanton: cantonCode, staticOverlay: true },
            locale,
          };
        }
