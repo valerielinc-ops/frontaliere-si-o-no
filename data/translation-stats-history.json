@@ -1,77 +1,5 @@
 [
   {
-    "timestamp": "2026-05-03T06:15:12.635Z",
-    "label": "before",
-    "total": 2584,
-    "needsRetranslation": 30,
-    "incomplete": 19,
-    "complete": 2565,
-    "missingByLocale": {
-      "it": 18,
-      "en": 1,
-      "de": 17,
-      "fr": 19
-    },
-    "topPending": [
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 10
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-03T06:27:31.575Z",
-    "label": "after",
-    "total": 2584,
-    "needsRetranslation": 57,
-    "incomplete": 19,
-    "complete": 2565,
-    "missingByLocale": {
-      "it": 18,
-      "en": 1,
-      "de": 17,
-      "fr": 19
-    },
-    "topPending": [
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 10
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-03T08:26:46.439Z",
     "label": "before",
     "total": 2530,
@@ -10736,6 +10664,118 @@
       {
         "company": "Guyer Wärme und Wasser AG",
         "pending": 43
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-17T22:51:15.079Z",
+    "label": "before",
+    "total": 4235,
+    "needsRetranslation": 2182,
+    "incomplete": 851,
+    "complete": 3384,
+    "missingByLocale": {
+      "it": 304,
+      "en": 252,
+      "de": 127,
+      "fr": 292
+    },
+    "topPending": [
+      {
+        "company": "IWC",
+        "pending": 110
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 80
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 79
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 66
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "UBS",
+        "pending": 34
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 29
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 22
+      },
+      {
+        "company": "Guyer Wärme und Wasser AG",
+        "pending": 21
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-18T00:23:04.046Z",
+    "label": "after",
+    "total": 4235,
+    "needsRetranslation": 1081,
+    "incomplete": 764,
+    "complete": 3471,
+    "missingByLocale": {
+      "it": 275,
+      "en": 227,
+      "de": 117,
+      "fr": 262
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 80
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 79
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 66
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "UBS",
+        "pending": 34
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 29
+      },
+      {
+        "company": "IWC",
+        "pending": 26
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 22
+      },
+      {
+        "company": "Guyer Wärme und Wasser AG",
+        "pending": 21
       }
     ]
   }
