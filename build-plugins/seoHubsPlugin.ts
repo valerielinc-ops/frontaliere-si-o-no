@@ -43,7 +43,7 @@ import {
   STAT_TILE_VALUE,
   CTA_PRIMARY_STYLE,
 } from './shared/seoContentTokens';
-import { ALL_CANTON_CODES, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
+import { ALL_CANTON_CODES, resolveCantonSection, resolveJobCanton, legacyTiSectionRoot } from './shared/cantonSection';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
 
@@ -2070,9 +2070,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       }
     } else if (hubKey === 'sectors') {
       pageSize = HUB_SECTORS.length;
-      const sectionRoot = locale === 'it' ? '/cerca-lavoro-ticino' : `/${locale}/${
-        locale === 'en' ? 'find-jobs-ticino' : locale === 'de' ? 'jobs-im-tessin' : 'trouver-emploi-tessin'
-      }`;
+      const sectionRoot = legacyTiSectionRoot(locale);
       // Sectors with a curated static hub get the canonical URL; the rest
       // fall back to `?q=` keyword search. Routing footer + SectorsHub
       // traffic through the canonical hub avoids diluting internal link
@@ -2086,9 +2084,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       }
     } else if (hubKey === 'companies') {
       pageSize = COMPANIES_PAGE_SIZE;
-      const sectionRoot = locale === 'it' ? '/cerca-lavoro-ticino' : `/${locale}/${
-        locale === 'en' ? 'find-jobs-ticino' : locale === 'de' ? 'jobs-im-tessin' : 'trouver-emploi-tessin'
-      }`;
+      const sectionRoot = legacyTiSectionRoot(locale);
       for (const slug of companySlugs) {
         // Resolve the short employer key for this URL slug, then look up logos.
         // Manifest and CRAWLED_COMPANY_LOGOS are keyed by short employerKey

@@ -31,11 +31,9 @@ const ALLOWLIST = [
   'build-plugins/jobsSeoPagesPlugin.ts:787',
   'build-plugins/jobsSeoPagesPlugin.ts:788',
   'build-plugins/jobsSeoPagesPlugin.ts:793',          // jsdoc reference to the legacy slugs
-  // Cathedral breadcrumb-bugfix comment (2026-05-13) — references the
-  // TI slug as illustrative example in the prior-bug explanation. Shifted
-  // +11 by the keyword-landing BreadcrumbList insertion at line 6785
-  // (2026-05-18 — fix for breadcrumb-coverage.test.ts).
-  'build-plugins/jobsSeoPagesPlugin.ts:7853',
+  // (`:7853` removed 2026-05-18 — the breadcrumb-bugfix comment no longer
+  // quotes "cerca-lavoro-ticino" directly; rephrased to "TI legacy
+  // job-board section name" so the literal-grep stops matching.)
 
   // ── jobBoardSeo: TI legacy job-board landing paths (kept for legacy entry) ──
   'build-plugins/jobBoardSeo.ts:38',
@@ -100,15 +98,10 @@ const ALLOWLIST = [
   'build-plugins/searchConsoleCompat.ts:13',
   'build-plugins/searchConsoleCompat.ts:14',
 
-  // ── seoHubsPlugin: per-locale alternation pulling the TI legacy slug for
-  //    the TI hub. Aggregator/per-canton hubs live in a different code path. ──
-  //    2026-05-18 re-anchor: PR #275 (recency landings) + #279 (orphan-pillar
-  //    related-guides) shifted prior 1674/1675/1690/1691/2043/2059 site
-  //    OUT of the TI-literal region. Only the canton-aziende+settori block
-  //    (PR #235) still carries the slugs — now at lines 2057 + 2073 (2-line
-  //    paired template literals for EN/DE/FR fallback).
-  'build-plugins/seoHubsPlugin.ts:2057',
-  'build-plugins/seoHubsPlugin.ts:2073',
+  // (seoHubsPlugin.ts:2057 + :2073 removed 2026-05-18 — both ternary blocks
+  // refactored to use `legacyTiSectionRoot(locale)` from shared/cantonSection.
+  // No more TI literals in this file — when future shifts happen, nothing
+  // breaks because the slug strings live in the helper.)
 
   // ── professionLandingsLinksPlugin: TI hub injection targets (intentional —
   //    the prose explicitly references "10 most-searched roles in Ticino"). ──
@@ -175,7 +168,29 @@ function parseGrepLine(line: string): { path: string; lineNo: number; content: s
   return { path: m[1], lineNo: parseInt(m[2], 10), content: m[3] };
 }
 
-function isAllowlisted(entry: { path: string; lineNo: number }): boolean {
+// Inline-annotation marker (2026-05-18, definitive fix). Any line whose
+// content carries this marker is auto-skipped by the audit — the marker
+// travels WITH the code as it shifts, so the test never breaks on a
+// harmless line-number drift in an unrelated PR.
+//
+// Usage in source: append ` // cathedral-allow: <one-line reason>` to the
+// line. The marker is checked CASE-SENSITIVELY and must appear in the
+// content (after the `path:line:` prefix grep emits).
+//
+// The ALLOWLIST array above is preserved as a transitional safety net for
+// lines that have not yet been migrated to inline annotations. New
+// hardcodes MUST use the inline marker — do NOT add new entries to
+// ALLOWLIST.
+const INLINE_ALLOW_MARKER = /\bcathedral-allow\b/;
+
+function hasInlineAllow(content: string): boolean {
+  return INLINE_ALLOW_MARKER.test(content);
+}
+
+function isAllowlisted(entry: { path: string; lineNo: number; content: string }): boolean {
+  // 1) Inline annotation — travels with the line, never drifts.
+  if (hasInlineAllow(entry.content)) return true;
+  // 2) Legacy line-pinned allowlist — kept as transitional safety net.
   for (const allow of ALLOWLIST) {
     // "path:line" form — exact match
     if (allow.includes(':')) {
@@ -197,7 +212,7 @@ describe('cathedral — no TI URL hardcodes outside allowlist (P1-E boundary-saf
         .map(parseGrepLine).filter((e): e is NonNullable<typeof e> => e !== null)
         .filter((entry) => !isAllowlisted(entry))
         .map((e) => `${e.path}:${e.lineNo}: ${e.content}`);
-      expect(offenders, `Unallowlisted hardcodes for ${literal}:\n${offenders.join('\n')}`).toEqual([]);
+      expect(offenders, `Unallowlisted hardcodes for ${literal}:\n${offenders.join('\n')}\n\nTo allowlist a NEW hardcode, append \` // cathedral-allow: <reason>\` to the offending line — do not add new line-pinned entries to ALLOWLIST.`).toEqual([]);
     });
   }
 });
