@@ -6813,14 +6813,16 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   if (dropOffTopicSource && typeof pageContent === 'string' && pageContent.length > 0) {
     const sourceHits = countTopicalHits(pageContent);
     if (sourceHits === 0) {
-      console.error(`\n⏭️  Source non frontaliere-rilevante (pre-LLM): 0 topical hits sul testo sorgente (URL: ${url}). Salto questo run prima del primo callGemini.`);
-      finalizeRunReport('skipped', {
-        notes: [
-          ...RUN_REPORT.notes,
-          `Source skipped pre-LLM: 0 topical hits (url=${url})`,
-        ],
-      });
-      process.exit(0);
+      console.error(`\n⏭️  Source non frontaliere-rilevante (pre-LLM): 0 topical hits sul testo sorgente (URL: ${url}). Provo un altro headline.`);
+      RUN_REPORT.notes.push(`Source skipped pre-LLM: 0 topical hits (url=${url})`);
+      // Same pattern as the post-LLM skip below: throw with topicGateAbort
+      // so the outer ranker loop tries a different headline within this run
+      // instead of exiting hard and letting the next cron re-pick the same
+      // one. process.exit(0) here was the proximate cause of the same-headline
+      // infinite skip loop observed 2026-05-18.
+      const err = new Error(`topic-gate abort: pre-LLM 0 topical hits for ${url}`);
+      err.topicGateAbort = true;
+      throw err;
     }
   }
 
@@ -6905,14 +6907,17 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       const itBodyEarly = `${data.content?.it?.body1 || ''} ${data.content?.it?.body2 || ''} ${data.content?.it?.body3 || ''}`;
       const earlyDensity = checkFrontaliereDensity(itBodyEarly);
       if (earlyDensity.hits === 0 && earlyDensity.wordCount > 0) {
-        console.error(`\n⏭️  Topic non frontaliere-rilevante: 0 keyword density su ${earlyDensity.wordCount} parole (URL: ${url}). Salto questo run, il prossimo cron selezionerà un topic diverso.`);
-        finalizeRunReport('skipped', {
-          notes: [
-            ...RUN_REPORT.notes,
-            `Topic skipped: 0 frontaliere-density hits on attempt 1 (url=${url})`,
-          ],
-        });
-        process.exit(0);
+        console.error(`\n⏭️  Topic non frontaliere-rilevante: 0 keyword density su ${earlyDensity.wordCount} parole (URL: ${url}). Provo un altro headline.`);
+        RUN_REPORT.notes.push(`Topic skipped: 0 frontaliere-density hits on attempt 1 (url=${url})`);
+        // Throw with topicGateAbort so the outer ranker loop at line ~6588
+        // catches it and picks a different headline within this same run.
+        // Previously `process.exit(0)` exited hard → next cron tick re-picked
+        // the same top-scored headline → infinite skip loop (observed
+        // 2026-05-18 runs 26019355100, 26019412679, 26019478370 all picking
+        // the same `terapia-attestati-cerimonia-formazione-lugano`).
+        const err = new Error(`topic-gate abort: 0 frontaliere keywords for ${url}`);
+        err.topicGateAbort = true;
+        throw err;
       }
     }
 
