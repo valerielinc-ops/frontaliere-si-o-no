@@ -24,6 +24,7 @@ import { relatedSearchClustersPlugin } from './build-plugins/relatedSearchCluste
 import { staticPagesPlugin } from './build-plugins/staticPagesPlugin';
 import { sitemapAliasPlugin } from './build-plugins/sitemapAliasPlugin';
 import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
+import { cantonOrphanRedirectsPlugin } from './build-plugins/cantonOrphanRedirectsPlugin';
 import { calculatorLegacyAliasPlugin } from './build-plugins/calculatorLegacyAliasPlugin';
 import { jobOrphanBridgePlugin } from './build-plugins/jobOrphanBridgePlugin';
 import { locationHubBridgePlugin } from './build-plugins/locationHubBridgePlugin';
@@ -189,6 +190,14 @@ export default defineConfig(({ mode }) => {
  relatedSearchClustersPlugin(__dirname),
  salaryHubPlugin(__dirname),
  legacyRedirectsPlugin(__dirname),
+ // Canton-orphan redirects: emits HTTP-200 canonical-bridge HTML at every
+ // /cerca-lavoro-{canton}/{foreign-editorial-slug}/ combination (TI long-
+ // form slug under a non-TI section, etc.) → that canton's canonical
+ // slug. Closes the GSC 404 trail left by the pre-Phase-8d URL structure
+ // when Google had indexed cross-canton slug nestings. Pair with the SPA
+ // router redirect in services/router.ts (shipped PR #200) which handles
+ // the same URLs on hydrated navigation. Plugin is collision-safe.
+ ...(process.env.SKIP_CANTON_ORPHAN_REDIRECTS !== '1' ? [cantonOrphanRedirectsPlugin()] : []),
  // Calculator legacy-alias pages: recover the 22 GSC 404s for
  // `/{en|de|fr}/calcola-stipendio/?reddito=...` historical share-links.
  // Emits 200 HTML with locale-canonical `<link rel="canonical">` + an
