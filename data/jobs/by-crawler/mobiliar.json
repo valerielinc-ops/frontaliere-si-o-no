@@ -75,12 +75,12 @@
     },
     {
       "id": "mobiliar-8713325a075f",
-      "slug": "sachbearbeiter-beratung-e-schaden-m-w-d-die-mobiliar-bern",
+      "slug": "consulente-senior-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch",
-        "it": "sachbearbeiter-beratung-e-schaden-m-w-d-die-mobiliar-bern",
-        "en": "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch",
-        "fr": "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch"
+        "it": "consulente-senior-m-d-die-mobiliar-bern",
+        "en": "senior-consultant-m-d-die-mobiliar-bern",
+        "fr": "consultant-principal-m-j-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -141,11 +141,19 @@
       "sfJobId": "1164481355",
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch",
+          "sachbearbeiter-beratung-e-schaden-m-w-d-die-mobiliar-bern"
+        ],
+        "en": [
+          "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
           "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch"
+        "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch",
+        "sachbearbeiter-beratung-e-schaden-m-w-d-die-mobiliar-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

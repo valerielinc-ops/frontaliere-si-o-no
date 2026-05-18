@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-3fb305c8651c",
-      "slug": "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
+      "slug": "capo-turno-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
       "slugByLocale": {
         "de": "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "it": "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "en": "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "fr": "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
+        "it": "capo-turno-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
+        "en": "shift-leader-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
+        "fr": "chef-d-equipe-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
       },
       "company": "Eisberg Österreich GmbH",
       "companyKey": "hilcona",
@@ -49,14 +49,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "schichtleiter-produktion-m-w-d-hilcona-marchtrenk"
+          "schichtleiter-produktion-m-w-d-hilcona-marchtrenk",
+          "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
         ],
         "de": [
           "schichtleiter-produktion-m-w-d-hilcona-marchtrenk"
+        ],
+        "en": [
+          "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
+        ],
+        "fr": [
+          "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
         ]
       },
       "previousSlugs": [
-        "schichtleiter-produktion-m-w-d-hilcona-marchtrenk"
+        "schichtleiter-produktion-m-w-d-hilcona-marchtrenk",
+        "schichtleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -137,12 +145,12 @@
     },
     {
       "id": "hilcona-e7209e483834",
-      "slug": "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
+      "slug": "adjointe-responsable-technique-charcuterie-cheseaux-vice-direttore-tecnico-charcuterie-cheseaux-bell-suisse-sa-cheseaux",
       "slugByLocale": {
         "de": "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell",
-        "it": "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
-        "en": "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell",
-        "fr": "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell"
+        "it": "adjointe-responsable-technique-charcuterie-cheseaux-vice-direttore-tecnico-charcuterie-cheseaux-bell-suisse-sa-cheseaux",
+        "en": "adjointe-responsable-technique-charcuterie-cheseaux-deputy-technical-director-charcuterie-cheseaux-bell-suisse-sa",
+        "fr": "adjointe-responsable-technique-charcuterie-cheseaux-directeur-technique-adjoint-charcuterie-cheseaux-bell-suisse-sa"
       },
       "company": "Bell Suisse SA",
       "companyKey": "hilcona",
@@ -181,14 +189,23 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne"
+          "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
+          "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne"
         ],
         "de": [
           "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne"
+        ],
+        "en": [
+          "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell"
+        ],
+        "fr": [
+          "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell"
         ]
       },
       "previousSlugs": [
-        "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne"
+        "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-hilcona-cheseaux-sur-lausanne",
+        "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell-suisse-sa-cheseaux-sur-lausanne",
+        "adjointe-responsable-technique-charcuterie-cheseaux-stellvertretender-technischer-leiter-charcuterie-cheseaux-bell"
       ],
       "salaryMin": 98000,
       "salaryMax": 132000,

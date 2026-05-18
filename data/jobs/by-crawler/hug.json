@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hug-9a04808ea474",
-      "slug": "medecin-interne-en-radiologie-100-hug-geneve",
+      "slug": "medico-interno-in-radiologia-100-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-interne-en-radiologie-100-hug-geneve",
-        "it": "medecin-interne-en-radiologie-100-hug-geneve",
-        "en": "medecin-interne-en-radiologie-100-hug-geneve",
-        "de": "medecin-interne-en-radiologie-100-hug-geneve"
+        "it": "medico-interno-in-radiologia-100-hug-geneve",
+        "en": "internal-physician-in-radiology-100-hug-geneve",
+        "de": "interner-arzt-in-der-radiologie-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -65,16 +65,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.807Z"
+      "firstSeenAt": "2026-05-18T12:34:13.807Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-en-radiologie-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-interne-en-radiologie-100-hug-geneve"
+        ],
+        "de": [
+          "medecin-interne-en-radiologie-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-en-radiologie-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-37020167bee2",
-      "slug": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-100-hug-geneve",
+      "slug": "responsabile-della-clinica-a-raggi-x-con-specialita-titolo-100-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-100-hug-geneve",
-        "it": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-100-hug-geneve",
-        "en": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-100-hug-geneve",
-        "de": "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-100-hug-geneve"
+        "it": "responsabile-della-clinica-a-raggi-x-con-specialita-titolo-100-hug-geneve",
+        "en": "head-of-x-ray-clinic-with-specialty-title-100-hug-geneve",
+        "de": "leiter-der-rontgenklinik-mit-spezialtitel-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -130,16 +144,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.806Z"
+      "firstSeenAt": "2026-05-18T12:34:13.806Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-100-hug-geneve"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-100-hug-geneve"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-908de6d21dbf",
-      "slug": "medecin-adjoint-ou-adjointe-en-radiologie-orl-et-maxillo-faciale-100-hug-geneve",
+      "slug": "assistente-medico-in-radiologia-ent-e-maxillofacial-100-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-adjoint-ou-adjointe-en-radiologie-orl-et-maxillo-faciale-100-hug-geneve",
-        "it": "medecin-adjoint-ou-adjointe-en-radiologie-orl-et-maxillo-faciale-100-hug-geneve",
-        "en": "medecin-adjoint-ou-adjointe-en-radiologie-orl-et-maxillo-faciale-100-hug-geneve",
-        "de": "medecin-adjoint-ou-adjointe-en-radiologie-orl-et-maxillo-faciale-100-hug-geneve"
+        "it": "assistente-medico-in-radiologia-ent-e-maxillofacial-100-hug-geneve",
+        "en": "assistant-physician-in-ent-and-maxillofacial-radiology-100-hug-geneve",
+        "de": "assistenzarzt-in-ent-und-maxillofacial-radiologie-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -195,16 +223,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.805Z"
+      "firstSeenAt": "2026-05-18T12:34:13.805Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-adjoint-ou-adjointe-en-radiologie-orl-et-maxillo-faciale-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-adjoint-ou-adjointe-en-radiologie-orl-et-maxillo-faciale-100-hug-geneve"
+        ],
+        "de": [
+          "medecin-adjoint-ou-adjointe-en-radiologie-orl-et-maxillo-faciale-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-adjoint-ou-adjointe-en-radiologie-orl-et-maxillo-faciale-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-f42d692de83d",
-      "slug": "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou-cheffe-de-clinique-pour-une-formation-approfondie-en-radiologie-pediatrique-100-hug-geneve",
+      "slug": "assistente-medico-con-una-specializzazione-in-radiologia-pediatrica-o-head-o-head-of-clinic-per-una-formazione",
       "slugByLocale": {
         "fr": "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou",
-        "it": "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou-cheffe-de-clinique-pour-une-formation-approfondie-en-radiologie-pediatrique-100-hug-geneve",
-        "en": "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou",
-        "de": "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou"
+        "it": "assistente-medico-con-una-specializzazione-in-radiologia-pediatrica-o-head-o-head-of-clinic-per-una-formazione",
+        "en": "assistant-physician-with-a-specialty-in-pediatric-radiology-or-head-or-head-of-clinic-for-in-depth-training-in-pediatric",
+        "de": "assistenzarzt-mit-einer-spezialitat-in-der-padiatrischen-radiologie-oder-leiter-oder-leiter-der-klinik-fur-tiefgehende"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -249,11 +291,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou",
+          "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou-cheffe-de-clinique-pour-une-formation-approfondie-en-radiologie-pediatrique-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou"
+        ],
+        "de": [
           "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou"
         ]
       },
       "previousSlugs": [
-        "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou"
+        "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou",
+        "medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou-cheffe-de-clinique-pour-une-formation-approfondie-en-radiologie-pediatrique-100-hug-geneve"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -272,12 +322,12 @@
     },
     {
       "id": "hug-cbdf080f6b27",
-      "slug": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a",
+      "slug": "capo-o-capo-di-clinica-con-o-senza-specializzazione-in-servizi-di-emergenza-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a",
-        "it": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a",
-        "en": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a",
-        "de": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a"
+        "it": "capo-o-capo-di-clinica-con-o-senza-specializzazione-in-servizi-di-emergenza-80-al-100-hug-geneve",
+        "en": "chief-or-chief-of-clinic-with-or-without-specialty-status-in-emergency-services-80-to-100-hug-geneve",
+        "de": "chief-oder-chief-of-clinic-mit-oder-ohne-spezialstatus-in-notfalldiensten-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -333,16 +383,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.804Z"
+      "firstSeenAt": "2026-05-18T12:34:13.804Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a"
+      ]
     },
     {
       "id": "hug-156c9ef6572c",
-      "slug": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex",
+      "slug": "medico-interno-nel-reparto-riabilitazione-e-geriatria-100-hug-thonex",
       "slugByLocale": {
         "fr": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex",
-        "it": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex",
-        "en": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex",
-        "de": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex"
+        "it": "medico-interno-nel-reparto-riabilitazione-e-geriatria-100-hug-thonex",
+        "en": "internal-physician-in-the-rehabilitation-and-geriatric-department-100-hug-thonex",
+        "de": "interner-arzt-in-der-rehabilitations-und-geriatsabteilung-100-hug-thonex"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -397,16 +461,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T12:34:13.803Z"
+      "firstSeenAt": "2026-05-18T12:34:13.803Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex"
+        ],
+        "en": [
+          "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex"
+        ],
+        "de": [
+          "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-thonex"
+      ]
     },
     {
       "id": "hug-41d5d67cb57c",
-      "slug": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100",
+      "slug": "responsabile-clinica-con-o-senza-titolo-di-specializzazione-presso-il-servizio-neurologico-100-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100",
-        "it": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100",
-        "en": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100",
-        "de": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100"
+        "it": "responsabile-clinica-con-o-senza-titolo-di-specializzazione-presso-il-servizio-neurologico-100-hug-geneve",
+        "en": "head-of-clinic-with-or-without-speciality-title-at-the-neurology-service-100-hug-geneve",
+        "de": "klinikleiter-mit-oder-ohne-spezialtitel-am-neurologiedienst-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -462,16 +540,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.802Z"
+      "firstSeenAt": "2026-05-18T12:34:13.802Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100"
+      ]
     },
     {
       "id": "hug-cdab4554a709",
-      "slug": "medecin-adjoint-ou-adjointe-service-d-angiologie-et-hemostase-80-a-95-hug-geneve",
+      "slug": "assistente-medico-angiologia-e-servizio-di-emostasi-80-al-95-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-adjoint-ou-adjointe-service-d-angiologie-et-hemostase-80-a-95-hug-geneve",
-        "it": "medecin-adjoint-ou-adjointe-service-d-angiologie-et-hemostase-80-a-95-hug-geneve",
-        "en": "medecin-adjoint-ou-adjointe-service-d-angiologie-et-hemostase-80-a-95-hug-geneve",
-        "de": "medecin-adjoint-ou-adjointe-service-d-angiologie-et-hemostase-80-a-95-hug-geneve"
+        "it": "assistente-medico-angiologia-e-servizio-di-emostasi-80-al-95-hug-geneve",
+        "en": "assistant-physician-angiology-and-hemostase-service-80-to-95-hug-geneve",
+        "de": "assistenzarzt-angiologie-und-hamostase-service-80-bis-95-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -527,16 +619,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.802Z"
+      "firstSeenAt": "2026-05-18T12:34:13.802Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-adjoint-ou-adjointe-service-d-angiologie-et-hemostase-80-a-95-hug-geneve"
+        ],
+        "en": [
+          "medecin-adjoint-ou-adjointe-service-d-angiologie-et-hemostase-80-a-95-hug-geneve"
+        ],
+        "de": [
+          "medecin-adjoint-ou-adjointe-service-d-angiologie-et-hemostase-80-a-95-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-adjoint-ou-adjointe-service-d-angiologie-et-hemostase-80-a-95-hug-geneve"
+      ]
     },
     {
       "id": "hug-6d78c7f842a8",
-      "slug": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro",
+      "slug": "responsabile-clinica-con-o-senza-titolo-di-specializzazione-presso-il-servizio-neurologico-neuromonitoring-per-la-cura",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro",
-        "it": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro",
-        "en": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro",
-        "de": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro"
+        "it": "responsabile-clinica-con-o-senza-titolo-di-specializzazione-presso-il-servizio-neurologico-neuromonitoring-per-la-cura",
+        "en": "head-of-clinic-with-or-without-speciality-title-at-the-neurology-service-neuromonitoring-for-intensive-care-100-hug",
+        "de": "klinikleiter-mit-oder-ohne-spezialtitel-am-neurologiedienst-neuromonitoring-fur-intensivpflege-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -592,16 +698,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.801Z"
+      "firstSeenAt": "2026-05-18T12:34:13.801Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro"
+      ]
     },
     {
       "id": "hug-96cb89d010fc",
-      "slug": "cheffe-ou-chef-de-clinique-avec-titre-de-specialite-service-d-hematologie-80-hug-geneve",
+      "slug": "responsabile-clinica-con-specializzazione-servizio-ematologia-80-hug-geneve",
       "slugByLocale": {
         "fr": "cheffe-ou-chef-de-clinique-avec-titre-de-specialite-service-d-hematologie-80-hug-geneve",
-        "it": "cheffe-ou-chef-de-clinique-avec-titre-de-specialite-service-d-hematologie-80-hug-geneve",
-        "en": "cheffe-ou-chef-de-clinique-avec-titre-de-specialite-service-d-hematologie-80-hug-geneve",
-        "de": "cheffe-ou-chef-de-clinique-avec-titre-de-specialite-service-d-hematologie-80-hug-geneve"
+        "it": "responsabile-clinica-con-specializzazione-servizio-ematologia-80-hug-geneve",
+        "en": "head-of-clinic-with-specialty-status-hematology-service-80-hug-geneve",
+        "de": "klinikleiter-mit-sonderstatus-hematologie-service-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -657,16 +777,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.800Z"
+      "firstSeenAt": "2026-05-18T12:34:13.800Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cheffe-ou-chef-de-clinique-avec-titre-de-specialite-service-d-hematologie-80-hug-geneve"
+        ],
+        "en": [
+          "cheffe-ou-chef-de-clinique-avec-titre-de-specialite-service-d-hematologie-80-hug-geneve"
+        ],
+        "de": [
+          "cheffe-ou-chef-de-clinique-avec-titre-de-specialite-service-d-hematologie-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "cheffe-ou-chef-de-clinique-avec-titre-de-specialite-service-d-hematologie-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-5d6a9ff0e0fd",
-      "slug": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge",
+      "slug": "responsabile-clinica-con-o-senza-titolo-di-specialita-80-al-100-hug-collonge-bellerive",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge",
-        "it": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge",
-        "en": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge",
-        "de": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge"
+        "it": "responsabile-clinica-con-o-senza-titolo-di-specialita-80-al-100-hug-collonge-bellerive",
+        "en": "head-of-clinic-with-or-without-specialty-title-80-to-100-hug-collonge-bellerive",
+        "de": "klinikleiter-mit-oder-ohne-fachtitel-80-bis-100-hug-collonge-bellerive"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -721,16 +855,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T12:34:13.800Z"
+      "firstSeenAt": "2026-05-18T12:34:13.800Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-collonge"
+      ]
     },
     {
       "id": "hug-f80ed98a507a",
-      "slug": "medecin-interne-au-service-d-hematologie-100-hug-geneve",
+      "slug": "medico-interno-presso-il-dipartimento-di-ematologia-100-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-interne-au-service-d-hematologie-100-hug-geneve",
-        "it": "medecin-interne-au-service-d-hematologie-100-hug-geneve",
-        "en": "medecin-interne-au-service-d-hematologie-100-hug-geneve",
-        "de": "medecin-interne-au-service-d-hematologie-100-hug-geneve"
+        "it": "medico-interno-presso-il-dipartimento-di-ematologia-100-hug-geneve",
+        "en": "internal-physician-at-the-hematology-department-100-hug-geneve",
+        "de": "interner-arzt-an-der-hematologie-abteilung-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -786,16 +934,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.799Z"
+      "firstSeenAt": "2026-05-18T12:34:13.799Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-au-service-d-hematologie-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-interne-au-service-d-hematologie-100-hug-geneve"
+        ],
+        "de": [
+          "medecin-interne-au-service-d-hematologie-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-au-service-d-hematologie-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-314ab8a8bbfc",
-      "slug": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-puplinge",
+      "slug": "responsabile-clinica-con-o-senza-titolo-di-specialita-80-al-100-hug-puplinge",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-puplinge",
-        "it": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-puplinge",
-        "en": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-puplinge",
-        "de": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-puplinge"
+        "it": "responsabile-clinica-con-o-senza-titolo-di-specialita-80-al-100-hug-puplinge",
+        "en": "head-of-clinic-with-or-without-specialty-title-80-to-100-hug-puplinge",
+        "de": "klinikleiter-mit-oder-ohne-fachtitel-80-bis-100-hug-puplinge"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -850,16 +1012,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T12:34:13.798Z"
+      "firstSeenAt": "2026-05-18T12:34:13.798Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-puplinge"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-puplinge"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-puplinge"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-80-a-100-hug-puplinge"
+      ]
     },
     {
       "id": "hug-58011518d834",
-      "slug": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2",
+      "slug": "capo-o-capo-di-clinica-con-o-senza-specializzazione-in-servizi-di-emergenza-80-al-100-hug-geneve-9cbab1",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a",
-        "it": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2",
-        "en": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2",
-        "de": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2"
+        "it": "capo-o-capo-di-clinica-con-o-senza-specializzazione-in-servizi-di-emergenza-80-al-100-hug-geneve-9cbab1",
+        "en": "chief-or-chief-of-clinic-with-or-without-specialty-status-in-emergency-services-80-to-100-hug-geneve-9cbab1",
+        "de": "chief-oder-chief-of-clinic-mit-oder-ohne-spezialstatus-in-notfalldiensten-80-bis-100-hug-geneve-9cbab1"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -914,16 +1090,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T12:34:13.798Z"
+      "firstSeenAt": "2026-05-18T12:34:13.798Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-2"
+      ]
     },
     {
       "id": "hug-fddbffd51053",
-      "slug": "chef-ou-cheffe-de-clinique-a-l-unite-de-medecine-de-la-reproduction-et-d-endocrinologie",
+      "slug": "responsabile-della-clinica-presso-la-medicina-riproduttiva-e-l-endocrinologia-ginecologica-100-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-a-l-unite-de-medecine-de-la-reproduction-et-d-endocrinologie",
-        "it": "chef-ou-cheffe-de-clinique-a-l-unite-de-medecine-de-la-reproduction-et-d-endocrinologie",
-        "en": "chef-ou-cheffe-de-clinique-a-l-unite-de-medecine-de-la-reproduction-et-d-endocrinologie",
-        "de": "chef-ou-cheffe-de-clinique-a-l-unite-de-medecine-de-la-reproduction-et-d-endocrinologie"
+        "it": "responsabile-della-clinica-presso-la-medicina-riproduttiva-e-l-endocrinologia-ginecologica-100-hug-geneve",
+        "en": "head-of-clinic-at-the-reproductive-medicine-and-gynecological-endocrinology-unit-100-hug-geneve",
+        "de": "klinikleiter-an-der-reproduktiven-medizin-und-gynakologische-endokrinologie-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -979,16 +1169,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.796Z"
+      "firstSeenAt": "2026-05-18T12:34:13.796Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-a-l-unite-de-medecine-de-la-reproduction-et-d-endocrinologie"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-a-l-unite-de-medecine-de-la-reproduction-et-d-endocrinologie"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-a-l-unite-de-medecine-de-la-reproduction-et-d-endocrinologie"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-a-l-unite-de-medecine-de-la-reproduction-et-d-endocrinologie"
+      ]
     },
     {
       "id": "hug-ffacf864b897",
-      "slug": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve",
+      "slug": "responsabile-clinica-con-status-di-specialita-50-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve",
-        "it": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve",
-        "en": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve",
-        "de": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve"
+        "it": "responsabile-clinica-con-status-di-specialita-50-hug-geneve",
+        "en": "head-of-clinic-with-specialty-status-50-hug-geneve",
+        "de": "klinikleiter-mit-sonderstatus-50-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -1044,16 +1248,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.795Z"
+      "firstSeenAt": "2026-05-18T12:34:13.795Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve"
+      ]
     },
     {
       "id": "hug-6cf9dc46d30f",
-      "slug": "medecin-adjoint-ou-adjointe-regulateur-medical-ou-regulatrice-medicale-pour-la-direction-des-blocs-operatoires-50-a-100-hug-geneve",
+      "slug": "assistente-medico-o-assistente-regolatore-medico-o-regolatore-medico-per-la-gestione-della-sala-operatoria-50-al-100-hug",
       "slugByLocale": {
         "fr": "medecin-adjoint-ou-adjointe-regulateur-medical-ou-regulatrice-medicale-pour-la-direction",
-        "it": "medecin-adjoint-ou-adjointe-regulateur-medical-ou-regulatrice-medicale-pour-la-direction-des-blocs-operatoires-50-a-100-hug-geneve",
-        "en": "medecin-adjoint-ou-adjointe-regulateur-medical-ou-regulatrice-medicale-pour-la-direction",
-        "de": "medecin-adjoint-ou-adjointe-regulateur-medical-ou-regulatrice-medicale-pour-la-direction"
+        "it": "assistente-medico-o-assistente-regolatore-medico-o-regolatore-medico-per-la-gestione-della-sala-operatoria-50-al-100-hug",
+        "en": "assistant-physician-or-assistant-medical-regulator-or-medical-regulator-for-operating-room-management-50-to-100-hug",
+        "de": "assistenzarzt-oder-assistent-medizinischer-regulator-oder-medizinischer-regulator-fur-das-betriebszimmermanagement-50"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -1098,11 +1316,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medecin-adjoint-ou-adjointe-regulateur-medical-ou-regulatrice-medicale-pour-la-direction",
+          "medecin-adjoint-ou-adjointe-regulateur-medical-ou-regulatrice-medicale-pour-la-direction-des-blocs-operatoires-50-a-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-adjoint-ou-adjointe-regulateur-medical-ou-regulatrice-medicale-pour-la-direction"
+        ],
+        "de": [
           "medecin-adjoint-ou-adjointe-regulateur-medical-ou-regulatrice-medicale-pour-la-direction"
         ]
       },
       "previousSlugs": [
-        "medecin-adjoint-ou-adjointe-regulateur-medical-ou-regulatrice-medicale-pour-la-direction"
+        "medecin-adjoint-ou-adjointe-regulateur-medical-ou-regulatrice-medicale-pour-la-direction",
+        "medecin-adjoint-ou-adjointe-regulateur-medical-ou-regulatrice-medicale-pour-la-direction-des-blocs-operatoires-50-a-100-hug-geneve"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1121,12 +1347,12 @@
     },
     {
       "id": "hug-7525fc18ca72",
-      "slug": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-50-ou-100-hug-geneve",
+      "slug": "responsabile-clinica-con-o-senza-titolo-di-specialita-50-o-100-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-50-ou-100-hug-geneve",
-        "it": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-50-ou-100-hug-geneve",
-        "en": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-50-ou-100-hug-geneve",
-        "de": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-50-ou-100-hug-geneve"
+        "it": "responsabile-clinica-con-o-senza-titolo-di-specialita-50-o-100-hug-geneve",
+        "en": "head-of-clinic-with-or-without-specialty-title-50-or-100-hug-geneve",
+        "de": "klinikleiter-mit-oder-ohne-spezialtitel-50-oder-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -1182,16 +1408,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.794Z"
+      "firstSeenAt": "2026-05-18T12:34:13.794Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-50-ou-100-hug-geneve"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-50-ou-100-hug-geneve"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-50-ou-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-50-ou-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-d18202dd7eea",
-      "slug": "responsable-de-psychologues-specialises-ou-specialisees-en-psychotherapie-crans-montana-80",
+      "slug": "responsabile-psicologi-specializzati-in-psicoterapia-crans-montana-80-hug-crans-montana",
       "slugByLocale": {
         "fr": "responsable-de-psychologues-specialises-ou-specialisees-en-psychotherapie-crans-montana-80",
-        "it": "responsable-de-psychologues-specialises-ou-specialisees-en-psychotherapie-crans-montana-80",
-        "en": "responsable-de-psychologues-specialises-ou-specialisees-en-psychotherapie-crans-montana-80",
-        "de": "responsable-de-psychologues-specialises-ou-specialisees-en-psychotherapie-crans-montana-80"
+        "it": "responsabile-psicologi-specializzati-in-psicoterapia-crans-montana-80-hug-crans-montana",
+        "en": "head-of-psychologists-specializing-in-psychotherapy-crans-montana-80-hug-crans-montana",
+        "de": "leiter-der-psychologen-spezialisiert-auf-psychotherapie-crans-montana-80-hug-crans-montana"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -1247,16 +1487,30 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-05-18T12:34:13.793Z"
+      "firstSeenAt": "2026-05-18T12:34:13.793Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-psychologues-specialises-ou-specialisees-en-psychotherapie-crans-montana-80"
+        ],
+        "en": [
+          "responsable-de-psychologues-specialises-ou-specialisees-en-psychotherapie-crans-montana-80"
+        ],
+        "de": [
+          "responsable-de-psychologues-specialises-ou-specialisees-en-psychotherapie-crans-montana-80"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-psychologues-specialises-ou-specialisees-en-psychotherapie-crans-montana-80"
+      ]
     },
     {
       "id": "hug-1c2c52cfe75d",
-      "slug": "stage-de-master-2-en-qualite-appui-a-l-outillage-a-la-documentation-et-au-reporting-du",
+      "slug": "master-2-corso-di-qualita-supporto-per-l-uso-di-strumenti-documentazione-e-reporting-del-programma-dynamo-100-hug-geneve",
       "slugByLocale": {
         "fr": "stage-de-master-2-en-qualite-appui-a-l-outillage-a-la-documentation-et-au-reporting-du",
-        "it": "stage-de-master-2-en-qualite-appui-a-l-outillage-a-la-documentation-et-au-reporting-du",
-        "en": "stage-de-master-2-en-qualite-appui-a-l-outillage-a-la-documentation-et-au-reporting-du",
-        "de": "stage-de-master-2-en-qualite-appui-a-l-outillage-a-la-documentation-et-au-reporting-du"
+        "it": "master-2-corso-di-qualita-supporto-per-l-uso-di-strumenti-documentazione-e-reporting-del-programma-dynamo-100-hug-geneve",
+        "en": "master-2-course-in-quality-support-for-the-use-of-tools-documentation-and-reporting-of-the-dynamo-programme-100-hug",
+        "de": "master-2-kurs-in-qualitat-unterstutzung-fur-die-verwendung-von-werkzeugen-dokumentation-und-berichterstattung-des-dynamo"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -1312,16 +1566,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.780Z"
+      "firstSeenAt": "2026-05-18T12:34:13.780Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-de-master-2-en-qualite-appui-a-l-outillage-a-la-documentation-et-au-reporting-du"
+        ],
+        "en": [
+          "stage-de-master-2-en-qualite-appui-a-l-outillage-a-la-documentation-et-au-reporting-du"
+        ],
+        "de": [
+          "stage-de-master-2-en-qualite-appui-a-l-outillage-a-la-documentation-et-au-reporting-du"
+        ]
+      },
+      "previousSlugs": [
+        "stage-de-master-2-en-qualite-appui-a-l-outillage-a-la-documentation-et-au-reporting-du"
+      ]
     },
     {
       "id": "hug-4967abd5c894",
-      "slug": "gestionnaire-tarifaire-expert-ou-experte-100-hug-chene-bourg",
+      "slug": "responsabile-tariffa-esperto-o-esperto-100-hug-chene-bourg",
       "slugByLocale": {
         "fr": "gestionnaire-tarifaire-expert-ou-experte-100-hug-chene-bourg",
-        "it": "gestionnaire-tarifaire-expert-ou-experte-100-hug-chene-bourg",
-        "en": "gestionnaire-tarifaire-expert-ou-experte-100-hug-chene-bourg",
-        "de": "gestionnaire-tarifaire-expert-ou-experte-100-hug-chene-bourg"
+        "it": "responsabile-tariffa-esperto-o-esperto-100-hug-chene-bourg",
+        "en": "expert-or-expert-tariff-manager-100-hug-chene-bourg",
+        "de": "experte-oder-experte-tarifmanager-100-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -1376,16 +1644,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T12:34:13.779Z"
+      "firstSeenAt": "2026-05-18T12:34:13.779Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-tarifaire-expert-ou-experte-100-hug-chene-bourg"
+        ],
+        "en": [
+          "gestionnaire-tarifaire-expert-ou-experte-100-hug-chene-bourg"
+        ],
+        "de": [
+          "gestionnaire-tarifaire-expert-ou-experte-100-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-tarifaire-expert-ou-experte-100-hug-chene-bourg"
+      ]
     },
     {
       "id": "hug-9324d12d0ae1",
-      "slug": "medecin-interne-au-centre-de-vaccinologie-100-hug-geneve",
+      "slug": "medico-al-centro-per-la-vaccineologia-100-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-interne-au-centre-de-vaccinologie-100-hug-geneve",
-        "it": "medecin-interne-au-centre-de-vaccinologie-100-hug-geneve",
-        "en": "medecin-interne-au-centre-de-vaccinologie-100-hug-geneve",
-        "de": "medecin-interne-au-centre-de-vaccinologie-100-hug-geneve"
+        "it": "medico-al-centro-per-la-vaccineologia-100-hug-geneve",
+        "en": "physician-at-the-centre-for-vaccineology-100-hug-geneve",
+        "de": "physiker-im-zentrum-fur-impfung-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -1441,16 +1723,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.778Z"
+      "firstSeenAt": "2026-05-18T12:34:13.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-au-centre-de-vaccinologie-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-interne-au-centre-de-vaccinologie-100-hug-geneve"
+        ],
+        "de": [
+          "medecin-interne-au-centre-de-vaccinologie-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-au-centre-de-vaccinologie-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-e5b254b8811a",
-      "slug": "stage-en-cybersecurite-dans-le-but-d-ameliorer-l-orchestration-d-un-soc-100-hug-geneve",
+      "slug": "stage-in-sicurezza-informatica-per-migliorare-l-orchestrazione-di-un-soc-100-hug-geneve",
       "slugByLocale": {
         "fr": "stage-en-cybersecurite-dans-le-but-d-ameliorer-l-orchestration-d-un-soc-100-hug-geneve",
-        "it": "stage-en-cybersecurite-dans-le-but-d-ameliorer-l-orchestration-d-un-soc-100-hug-geneve",
-        "en": "stage-en-cybersecurite-dans-le-but-d-ameliorer-l-orchestration-d-un-soc-100-hug-geneve",
-        "de": "stage-en-cybersecurite-dans-le-but-d-ameliorer-l-orchestration-d-un-soc-100-hug-geneve"
+        "it": "stage-in-sicurezza-informatica-per-migliorare-l-orchestrazione-di-un-soc-100-hug-geneve",
+        "en": "internship-in-cybersecurity-to-improve-the-orchestration-of-a-soc-100-hug-geneve",
+        "de": "praktikum-in-cybersicherheit-um-die-orchestrierung-eines-soc-zu-verbessern-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -1506,16 +1802,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.778Z"
+      "firstSeenAt": "2026-05-18T12:34:13.778Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-en-cybersecurite-dans-le-but-d-ameliorer-l-orchestration-d-un-soc-100-hug-geneve"
+        ],
+        "en": [
+          "stage-en-cybersecurite-dans-le-but-d-ameliorer-l-orchestration-d-un-soc-100-hug-geneve"
+        ],
+        "de": [
+          "stage-en-cybersecurite-dans-le-but-d-ameliorer-l-orchestration-d-un-soc-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "stage-en-cybersecurite-dans-le-but-d-ameliorer-l-orchestration-d-un-soc-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-d310083b702e",
-      "slug": "comptable-100-hug-chene-bourg",
+      "slug": "contabile-100-hug-chene-bourg",
       "slugByLocale": {
         "fr": "comptable-100-hug-chene-bourg",
-        "it": "comptable-100-hug-chene-bourg",
+        "it": "contabile-100-hug-chene-bourg",
         "en": "comptable-100-hug-chene-bourg",
-        "de": "comptable-100-hug-chene-bourg"
+        "de": "buchhalter-100-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -1570,7 +1880,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T12:34:13.777Z"
+      "firstSeenAt": "2026-05-18T12:34:13.777Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "comptable-100-hug-chene-bourg"
+        ],
+        "de": [
+          "comptable-100-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "comptable-100-hug-chene-bourg"
+      ]
     },
     {
       "id": "hug-fc20f2be7bcd",
@@ -1578,8 +1899,8 @@
       "slugByLocale": {
         "fr": "stage-de-pre-admission-esede-ecole-superieure-d-educateur-et-educatrice-de-l-enfance-80-a",
         "it": "stage-de-pre-admission-esede-ecole-superieure-d-educateur-et-educatrice-de-l-enfance-80-a",
-        "en": "stage-de-pre-admission-esede-ecole-superieure-d-educateur-et-educatrice-de-l-enfance-80-a",
-        "de": "stage-de-pre-admission-esede-ecole-superieure-d-educateur-et-educatrice-de-l-enfance-80-a"
+        "en": "esede-pre-admission-course-higher-school-of-childhood-education-and-education-80-to-100-hug-geneve",
+        "de": "esede-pre-admission-course-hochschule-fur-erziehung-und-bildung-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -1639,12 +1960,12 @@
     },
     {
       "id": "hug-16e05a113c76",
-      "slug": "medecin-interne-au-service-de-medecine-de-premier-recours-50-a-100-hug-geneve",
+      "slug": "medico-interno-servizio-medico-primario-50-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-interne-au-service-de-medecine-de-premier-recours-50-a-100-hug-geneve",
-        "it": "medecin-interne-au-service-de-medecine-de-premier-recours-50-a-100-hug-geneve",
-        "en": "medecin-interne-au-service-de-medecine-de-premier-recours-50-a-100-hug-geneve",
-        "de": "medecin-interne-au-service-de-medecine-de-premier-recours-50-a-100-hug-geneve"
+        "it": "medico-interno-servizio-medico-primario-50-al-100-hug-geneve",
+        "en": "internal-physician-primary-medical-service-50-to-100-hug-geneve",
+        "de": "interner-arzt-primary-medical-service-50-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -1700,16 +2021,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.775Z"
+      "firstSeenAt": "2026-05-18T12:34:13.775Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-au-service-de-medecine-de-premier-recours-50-a-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-interne-au-service-de-medecine-de-premier-recours-50-a-100-hug-geneve"
+        ],
+        "de": [
+          "medecin-interne-au-service-de-medecine-de-premier-recours-50-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-au-service-de-medecine-de-premier-recours-50-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-03b39a5c4029",
-      "slug": "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve",
+      "slug": "learning-cfc-system-restoration-manager-100-hug-geneve",
       "slugByLocale": {
         "fr": "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve",
-        "it": "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve",
+        "it": "learning-cfc-system-restoration-manager-100-hug-geneve",
         "en": "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve",
-        "de": "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve"
+        "de": "lernen-cfc-system-restoration-manager-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -1765,15 +2100,26 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.774Z"
+      "firstSeenAt": "2026-05-18T12:34:13.774Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve"
+        ],
+        "de": [
+          "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-gestionnaire-en-restauration-de-systeme-cfc-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-5f453332796b",
-      "slug": "assistant-ou-assistante-en-soins-et-sante-communautaire-80-hug-geneve",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-80-hug-geneve",
       "slugByLocale": {
         "fr": "assistant-ou-assistante-en-soins-et-sante-communautaire-80-hug-geneve",
-        "it": "assistant-ou-assistante-en-soins-et-sante-communautaire-80-hug-geneve",
-        "en": "assistant-ou-assistante-en-soins-et-sante-communautaire-80-hug-geneve",
+        "it": "assistente-per-la-salute-e-la-cura-della-comunita-80-hug-geneve",
+        "en": "community-health-and-care-assistant-80-hug-geneve",
         "de": "assistant-ou-assistante-en-soins-et-sante-communautaire-80-hug-geneve"
       },
       "company": "HUG",
@@ -1830,16 +2176,27 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.773Z"
+      "firstSeenAt": "2026-05-18T12:34:13.773Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-ou-assistante-en-soins-et-sante-communautaire-80-hug-geneve"
+        ],
+        "en": [
+          "assistant-ou-assistante-en-soins-et-sante-communautaire-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-ou-assistante-en-soins-et-sante-communautaire-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-a85156de6b47",
-      "slug": "chef-ou-cheffe-de-clinique-sans-ou-avec-titre-de-specialite-a-l-unite-de-pneumologie",
+      "slug": "responsabile-clinica-senza-o-con-specializzazione-in-unita-pneumologia-pediatrica-100-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-sans-ou-avec-titre-de-specialite-a-l-unite-de-pneumologie",
-        "it": "chef-ou-cheffe-de-clinique-sans-ou-avec-titre-de-specialite-a-l-unite-de-pneumologie",
-        "en": "chef-ou-cheffe-de-clinique-sans-ou-avec-titre-de-specialite-a-l-unite-de-pneumologie",
-        "de": "chef-ou-cheffe-de-clinique-sans-ou-avec-titre-de-specialite-a-l-unite-de-pneumologie"
+        "it": "responsabile-clinica-senza-o-con-specializzazione-in-unita-pneumologia-pediatrica-100-hug-geneve",
+        "en": "head-of-clinic-without-or-with-speciality-in-pediatric-pneumology-unit-100-hug-geneve",
+        "de": "klinikleiter-ohne-oder-mit-spezialitat-in-der-pneumologie-einheit-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -1895,16 +2252,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.773Z"
+      "firstSeenAt": "2026-05-18T12:34:13.773Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-sans-ou-avec-titre-de-specialite-a-l-unite-de-pneumologie"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-sans-ou-avec-titre-de-specialite-a-l-unite-de-pneumologie"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-sans-ou-avec-titre-de-specialite-a-l-unite-de-pneumologie"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-sans-ou-avec-titre-de-specialite-a-l-unite-de-pneumologie"
+      ]
     },
     {
       "id": "hug-7b1385b96d09",
-      "slug": "assistant-ou-assistante-de-recherche-au-service-de-pharmacologie-et-toxicologie-cliniques",
+      "slug": "assistente-di-ricerca-farmacologia-clinica-e-servizio-tossicologico-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "assistant-ou-assistante-de-recherche-au-service-de-pharmacologie-et-toxicologie-cliniques",
-        "it": "assistant-ou-assistante-de-recherche-au-service-de-pharmacologie-et-toxicologie-cliniques",
-        "en": "assistant-ou-assistante-de-recherche-au-service-de-pharmacologie-et-toxicologie-cliniques",
-        "de": "assistant-ou-assistante-de-recherche-au-service-de-pharmacologie-et-toxicologie-cliniques"
+        "it": "assistente-di-ricerca-farmacologia-clinica-e-servizio-tossicologico-80-al-100-hug-geneve",
+        "en": "research-assistant-clinical-pharmacology-and-toxicology-service-80-to-100-hug-geneve",
+        "de": "wissenschaftlicher-assistent-klinische-pharmakologie-und-toxikologie-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -1960,16 +2331,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.772Z"
+      "firstSeenAt": "2026-05-18T12:34:13.772Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-ou-assistante-de-recherche-au-service-de-pharmacologie-et-toxicologie-cliniques"
+        ],
+        "en": [
+          "assistant-ou-assistante-de-recherche-au-service-de-pharmacologie-et-toxicologie-cliniques"
+        ],
+        "de": [
+          "assistant-ou-assistante-de-recherche-au-service-de-pharmacologie-et-toxicologie-cliniques"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-ou-assistante-de-recherche-au-service-de-pharmacologie-et-toxicologie-cliniques"
+      ]
     },
     {
       "id": "hug-31cd586b2f88",
-      "slug": "psychologue-en-formation-post-graduee-de-mas-en-psychotherapie-comportementale-et",
+      "slug": "psicologo-nella-formazione-post-laurea-in-psicoterapia-comportamentale-e-cognitiva-60-hug-puplinge",
       "slugByLocale": {
         "fr": "psychologue-en-formation-post-graduee-de-mas-en-psychotherapie-comportementale-et",
-        "it": "psychologue-en-formation-post-graduee-de-mas-en-psychotherapie-comportementale-et",
-        "en": "psychologue-en-formation-post-graduee-de-mas-en-psychotherapie-comportementale-et",
-        "de": "psychologue-en-formation-post-graduee-de-mas-en-psychotherapie-comportementale-et"
+        "it": "psicologo-nella-formazione-post-laurea-in-psicoterapia-comportamentale-e-cognitiva-60-hug-puplinge",
+        "en": "psychologist-in-post-graduate-mas-training-in-behavioural-and-cognitive-psychotherapy-60-hug-puplinge",
+        "de": "psychologe-im-postgradualen-mas-training-in-der-verhaltens-und-kognitiven-psychotherapie-60-hug-puplinge"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2024,16 +2409,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T12:34:13.771Z"
+      "firstSeenAt": "2026-05-18T12:34:13.771Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-en-formation-post-graduee-de-mas-en-psychotherapie-comportementale-et"
+        ],
+        "en": [
+          "psychologue-en-formation-post-graduee-de-mas-en-psychotherapie-comportementale-et"
+        ],
+        "de": [
+          "psychologue-en-formation-post-graduee-de-mas-en-psychotherapie-comportementale-et"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-en-formation-post-graduee-de-mas-en-psychotherapie-comportementale-et"
+      ]
     },
     {
       "id": "hug-d726ce3ffb85",
-      "slug": "secretaire-d-un-medecin-adjoint-responsable-d-unite-au-service-de-cardiologie-70-hug-geneve",
+      "slug": "segretario-di-un-assistente-medico-responsabile-del-dipartimento-di-cardiologia-70-hug-geneve",
       "slugByLocale": {
         "fr": "secretaire-d-un-medecin-adjoint-responsable-d-unite-au-service-de-cardiologie-70-hug",
-        "it": "secretaire-d-un-medecin-adjoint-responsable-d-unite-au-service-de-cardiologie-70-hug-geneve",
-        "en": "secretaire-d-un-medecin-adjoint-responsable-d-unite-au-service-de-cardiologie-70-hug",
-        "de": "secretaire-d-un-medecin-adjoint-responsable-d-unite-au-service-de-cardiologie-70-hug"
+        "it": "segretario-di-un-assistente-medico-responsabile-del-dipartimento-di-cardiologia-70-hug-geneve",
+        "en": "secretary-of-an-assistant-medical-officer-in-charge-of-the-cardiology-department-70-hug-geneve",
+        "de": "sekretar-eines-fur-die-abteilung-kardiologie-verantwortlichen-assistenten-medical-officer-70-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2078,11 +2477,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "secretaire-d-un-medecin-adjoint-responsable-d-unite-au-service-de-cardiologie-70-hug",
+          "secretaire-d-un-medecin-adjoint-responsable-d-unite-au-service-de-cardiologie-70-hug-geneve"
+        ],
+        "en": [
+          "secretaire-d-un-medecin-adjoint-responsable-d-unite-au-service-de-cardiologie-70-hug"
+        ],
+        "de": [
           "secretaire-d-un-medecin-adjoint-responsable-d-unite-au-service-de-cardiologie-70-hug"
         ]
       },
       "previousSlugs": [
-        "secretaire-d-un-medecin-adjoint-responsable-d-unite-au-service-de-cardiologie-70-hug"
+        "secretaire-d-un-medecin-adjoint-responsable-d-unite-au-service-de-cardiologie-70-hug",
+        "secretaire-d-un-medecin-adjoint-responsable-d-unite-au-service-de-cardiologie-70-hug-geneve"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2101,12 +2508,12 @@
     },
     {
       "id": "hug-7f1f5f567650",
-      "slug": "experte-ou-expert-en-analyse-financiere-de-projets-institutionnels-80-hug-geneve",
+      "slug": "esperto-nell-analisi-finanziaria-dei-progetti-istituzionali-80-hug-geneve",
       "slugByLocale": {
         "fr": "experte-ou-expert-en-analyse-financiere-de-projets-institutionnels-80-hug-geneve",
-        "it": "experte-ou-expert-en-analyse-financiere-de-projets-institutionnels-80-hug-geneve",
-        "en": "experte-ou-expert-en-analyse-financiere-de-projets-institutionnels-80-hug-geneve",
-        "de": "experte-ou-expert-en-analyse-financiere-de-projets-institutionnels-80-hug-geneve"
+        "it": "esperto-nell-analisi-finanziaria-dei-progetti-istituzionali-80-hug-geneve",
+        "en": "expert-in-financial-analysis-of-institutional-projects-80-hug-geneve",
+        "de": "experte-fur-finanzanalyse-institutioneller-projekte-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2162,7 +2569,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.770Z"
+      "firstSeenAt": "2026-05-18T12:34:13.770Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "experte-ou-expert-en-analyse-financiere-de-projets-institutionnels-80-hug-geneve"
+        ],
+        "en": [
+          "experte-ou-expert-en-analyse-financiere-de-projets-institutionnels-80-hug-geneve"
+        ],
+        "de": [
+          "experte-ou-expert-en-analyse-financiere-de-projets-institutionnels-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "experte-ou-expert-en-analyse-financiere-de-projets-institutionnels-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-ac14d84cd996",
@@ -2170,8 +2591,8 @@
       "slugByLocale": {
         "fr": "auditeur-ou-auditrice-interne-100-hug-chene-bourg",
         "it": "auditeur-ou-auditrice-interne-100-hug-chene-bourg",
-        "en": "auditeur-ou-auditrice-interne-100-hug-chene-bourg",
-        "de": "auditeur-ou-auditrice-interne-100-hug-chene-bourg"
+        "en": "internal-auditor-100-hug-chene-bourg",
+        "de": "interner-auditor-100-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2230,12 +2651,12 @@
     },
     {
       "id": "hug-bb858fb6091e",
-      "slug": "auditeur-ou-auditrice-interne-medico-soignant-100-hug-chene-bourg",
+      "slug": "revisore-interno-100-hug-chene-bourg",
       "slugByLocale": {
         "fr": "auditeur-ou-auditrice-interne-medico-soignant-100-hug-chene-bourg",
-        "it": "auditeur-ou-auditrice-interne-medico-soignant-100-hug-chene-bourg",
-        "en": "auditeur-ou-auditrice-interne-medico-soignant-100-hug-chene-bourg",
-        "de": "auditeur-ou-auditrice-interne-medico-soignant-100-hug-chene-bourg"
+        "it": "revisore-interno-100-hug-chene-bourg",
+        "en": "internal-auditor-100-hug-chene-bourg-95a7d5",
+        "de": "interner-auditor-100-hug-chene-bourg-95a7d5"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2290,16 +2711,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T12:34:13.768Z"
+      "firstSeenAt": "2026-05-18T12:34:13.768Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "auditeur-ou-auditrice-interne-medico-soignant-100-hug-chene-bourg"
+        ],
+        "en": [
+          "auditeur-ou-auditrice-interne-medico-soignant-100-hug-chene-bourg"
+        ],
+        "de": [
+          "auditeur-ou-auditrice-interne-medico-soignant-100-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "auditeur-ou-auditrice-interne-medico-soignant-100-hug-chene-bourg"
+      ]
     },
     {
       "id": "hug-e0b24488937d",
-      "slug": "magasinier-ou-magasiniere-100-hug-chene-bourg",
+      "slug": "shopkeeper-o-shopkeeper-100-hug-chene-bourg",
       "slugByLocale": {
         "fr": "magasinier-ou-magasiniere-100-hug-chene-bourg",
-        "it": "magasinier-ou-magasiniere-100-hug-chene-bourg",
-        "en": "magasinier-ou-magasiniere-100-hug-chene-bourg",
-        "de": "magasinier-ou-magasiniere-100-hug-chene-bourg"
+        "it": "shopkeeper-o-shopkeeper-100-hug-chene-bourg",
+        "en": "shopkeeper-or-shopkeeper-100-hug-chene-bourg",
+        "de": "shopkeeper-oder-shopkeeper-100-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2354,7 +2789,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T12:34:13.767Z"
+      "firstSeenAt": "2026-05-18T12:34:13.767Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "magasinier-ou-magasiniere-100-hug-chene-bourg"
+        ],
+        "en": [
+          "magasinier-ou-magasiniere-100-hug-chene-bourg"
+        ],
+        "de": [
+          "magasinier-ou-magasiniere-100-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "magasinier-ou-magasiniere-100-hug-chene-bourg"
+      ]
     },
     {
       "id": "hug-ca0646a38d3e",
@@ -2424,12 +2873,12 @@
     },
     {
       "id": "hug-fd30e81e49e2",
-      "slug": "infirmiers-ou-infirmieres-au-service-de-medecine-interne-et-readaptation-du-departement-de",
+      "slug": "infermieri-nella-medicina-interna-e-riabilitazione-dipartimento-di-riabilitazione-e-geriatria-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "infirmiers-ou-infirmieres-au-service-de-medecine-interne-et-readaptation-du-departement-de",
-        "it": "infirmiers-ou-infirmieres-au-service-de-medecine-interne-et-readaptation-du-departement-de",
-        "en": "infirmiers-ou-infirmieres-au-service-de-medecine-interne-et-readaptation-du-departement-de",
-        "de": "infirmiers-ou-infirmieres-au-service-de-medecine-interne-et-readaptation-du-departement-de"
+        "it": "infermieri-nella-medicina-interna-e-riabilitazione-dipartimento-di-riabilitazione-e-geriatria-80-al-100-hug-geneve",
+        "en": "nurses-in-the-internal-medicine-and-rehabilitation-department-of-rehabilitation-and-geriatrics-80-to-100-hug-geneve",
+        "de": "krankenschwestern-in-der-internen-medizin-und-rehabilitation-abteilung-fur-rehabilitation-und-geriatrie-80-bis-100-hug"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2485,14 +2934,28 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.766Z"
+      "firstSeenAt": "2026-05-18T12:34:13.766Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiers-ou-infirmieres-au-service-de-medecine-interne-et-readaptation-du-departement-de"
+        ],
+        "en": [
+          "infirmiers-ou-infirmieres-au-service-de-medecine-interne-et-readaptation-du-departement-de"
+        ],
+        "de": [
+          "infirmiers-ou-infirmieres-au-service-de-medecine-interne-et-readaptation-du-departement-de"
+        ]
+      },
+      "previousSlugs": [
+        "infirmiers-ou-infirmieres-au-service-de-medecine-interne-et-readaptation-du-departement-de"
+      ]
     },
     {
       "id": "hug-bda41f012e78",
-      "slug": "responsable-de-la-securite-des-systemes-d-information-rssi-100-hug-carouge",
+      "slug": "information-systems-security-officer-isrs-100-hug-carouge",
       "slugByLocale": {
         "fr": "responsable-de-la-securite-des-systemes-d-information-rssi-100-hug-carouge",
-        "it": "responsable-de-la-securite-des-systemes-d-information-rssi-100-hug-carouge",
+        "it": "information-systems-security-officer-isrs-100-hug-carouge",
         "en": "responsable-de-la-securite-des-systemes-d-information-rssi-100-hug-carouge",
         "de": "responsable-de-la-securite-des-systemes-d-information-rssi-100-hug-carouge"
       },
@@ -2550,16 +3013,24 @@
         }
       },
       "postalCode": "1227",
-      "firstSeenAt": "2026-05-18T12:34:13.765Z"
+      "firstSeenAt": "2026-05-18T12:34:13.765Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-la-securite-des-systemes-d-information-rssi-100-hug-carouge"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-la-securite-des-systemes-d-information-rssi-100-hug-carouge"
+      ]
     },
     {
       "id": "hug-e8337aed32f6",
-      "slug": "employee-ou-employe-de-buanderie-100-hug-chene-bourg",
+      "slug": "dipendente-o-lavanderia-100-hug-chene-bourg",
       "slugByLocale": {
         "fr": "employee-ou-employe-de-buanderie-100-hug-chene-bourg",
-        "it": "employee-ou-employe-de-buanderie-100-hug-chene-bourg",
-        "en": "employee-ou-employe-de-buanderie-100-hug-chene-bourg",
-        "de": "employee-ou-employe-de-buanderie-100-hug-chene-bourg"
+        "it": "dipendente-o-lavanderia-100-hug-chene-bourg",
+        "en": "employee-or-laundry-worker-100-hug-chene-bourg",
+        "de": "mitarbeiter-oder-waschearbeiter-100-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2614,16 +3085,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T12:34:13.764Z"
+      "firstSeenAt": "2026-05-18T12:34:13.764Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "employee-ou-employe-de-buanderie-100-hug-chene-bourg"
+        ],
+        "en": [
+          "employee-ou-employe-de-buanderie-100-hug-chene-bourg"
+        ],
+        "de": [
+          "employee-ou-employe-de-buanderie-100-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "employee-ou-employe-de-buanderie-100-hug-chene-bourg"
+      ]
     },
     {
       "id": "hug-2a9291a3b6df",
-      "slug": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve",
+      "slug": "imparare-manager-di-ospitalita-e-stewardship-cfc-100-hug-geneve",
       "slugByLocale": {
         "fr": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve",
-        "it": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve",
-        "en": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve",
-        "de": "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve"
+        "it": "imparare-manager-di-ospitalita-e-stewardship-cfc-100-hug-geneve",
+        "en": "learning-manager-of-hospitality-and-stewardship-cfc-100-hug-geneve",
+        "de": "lernen-manager-von-hospitality-und-stewardship-cfc-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2679,16 +3164,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.763Z"
+      "firstSeenAt": "2026-05-18T12:34:13.763Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve"
+        ],
+        "en": [
+          "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve"
+        ],
+        "de": [
+          "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-gestionnaire-en-hotellerie-intendance-cfc-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-447506adef5c",
-      "slug": "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug-geneve",
+      "slug": "assistente-medico-o-assistente-responsabile-dell-unita-sanitaria-asilo-e-rifugiati-usar-100-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug",
-        "it": "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug-geneve",
-        "en": "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug",
-        "de": "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug"
+        "it": "assistente-medico-o-assistente-responsabile-dell-unita-sanitaria-asilo-e-rifugiati-usar-100-hug-geneve",
+        "en": "assistant-physician-or-assistant-responsible-for-the-asylum-and-refugee-health-unit-usar-100-hug-geneve",
+        "de": "assistent-arzt-oder-assistent-fur-die-asyl-und-fluchtlingsgesundheitseinheit-usar-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2733,11 +3232,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug",
+          "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug"
+        ],
+        "de": [
           "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug"
         ]
       },
       "previousSlugs": [
-        "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug"
+        "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug",
+        "medecin-adjoint-ou-adjointe-responsable-de-l-unite-sante-asile-et-refugies-usar-100-hug-geneve"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2756,12 +3263,12 @@
     },
     {
       "id": "hug-6201aaa8d089",
-      "slug": "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana",
+      "slug": "psicologo-specializzato-in-psicoterapia-crans-montana-80-hug-crans-montana",
       "slugByLocale": {
         "fr": "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana",
-        "it": "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana",
-        "en": "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana",
-        "de": "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana"
+        "it": "psicologo-specializzato-in-psicoterapia-crans-montana-80-hug-crans-montana",
+        "en": "psychologist-specialized-in-psychotherapy-crans-montana-80-hug-crans-montana",
+        "de": "psychologe-spezialisiert-auf-psychotherapie-crans-montana-80-hug-crans-montana"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2817,16 +3324,30 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-05-18T12:34:13.761Z"
+      "firstSeenAt": "2026-05-18T12:34:13.761Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana"
+        ],
+        "en": [
+          "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana"
+        ],
+        "de": [
+          "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana"
+      ]
     },
     {
       "id": "hug-2ff5ff1d7ade",
-      "slug": "apprentissage-aide-en-soins-et-accompagnement-afp-100-hug-geneve",
+      "slug": "imparare-cura-e-supporto-afp-100-hug-geneve",
       "slugByLocale": {
         "fr": "apprentissage-aide-en-soins-et-accompagnement-afp-100-hug-geneve",
-        "it": "apprentissage-aide-en-soins-et-accompagnement-afp-100-hug-geneve",
-        "en": "apprentissage-aide-en-soins-et-accompagnement-afp-100-hug-geneve",
-        "de": "apprentissage-aide-en-soins-et-accompagnement-afp-100-hug-geneve"
+        "it": "imparare-cura-e-supporto-afp-100-hug-geneve",
+        "en": "learning-care-and-support-afp-100-hug-geneve",
+        "de": "lernen-pflege-und-unterstutzung-afp-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2882,16 +3403,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.745Z"
+      "firstSeenAt": "2026-05-18T12:34:13.745Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-aide-en-soins-et-accompagnement-afp-100-hug-geneve"
+        ],
+        "en": [
+          "apprentissage-aide-en-soins-et-accompagnement-afp-100-hug-geneve"
+        ],
+        "de": [
+          "apprentissage-aide-en-soins-et-accompagnement-afp-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-aide-en-soins-et-accompagnement-afp-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-893209782cb5",
-      "slug": "ingenieure-ou-ingenieur-projet-gmao-100-hug-geneve",
+      "slug": "ingegnere-o-project-engineer-gmao-100-hug-geneve",
       "slugByLocale": {
         "fr": "ingenieure-ou-ingenieur-projet-gmao-100-hug-geneve",
-        "it": "ingenieure-ou-ingenieur-projet-gmao-100-hug-geneve",
-        "en": "ingenieure-ou-ingenieur-projet-gmao-100-hug-geneve",
-        "de": "ingenieure-ou-ingenieur-projet-gmao-100-hug-geneve"
+        "it": "ingegnere-o-project-engineer-gmao-100-hug-geneve",
+        "en": "engineer-or-project-engineer-gmao-100-hug-geneve",
+        "de": "ingenieur-oder-projektingenieur-gmao-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2947,16 +3482,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.743Z"
+      "firstSeenAt": "2026-05-18T12:34:13.743Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieure-ou-ingenieur-projet-gmao-100-hug-geneve"
+        ],
+        "en": [
+          "ingenieure-ou-ingenieur-projet-gmao-100-hug-geneve"
+        ],
+        "de": [
+          "ingenieure-ou-ingenieur-projet-gmao-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieure-ou-ingenieur-projet-gmao-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-4c5e23ce6270",
-      "slug": "secretaire-medical-ou-medicale-d-unite-80-hug-thonex",
+      "slug": "segreteria-medica-o-unitaria-80-hug-thonex",
       "slugByLocale": {
         "fr": "secretaire-medical-ou-medicale-d-unite-80-hug-thonex",
-        "it": "secretaire-medical-ou-medicale-d-unite-80-hug-thonex",
-        "en": "secretaire-medical-ou-medicale-d-unite-80-hug-thonex",
-        "de": "secretaire-medical-ou-medicale-d-unite-80-hug-thonex"
+        "it": "segreteria-medica-o-unitaria-80-hug-thonex",
+        "en": "medical-or-unit-secretary-80-hug-thonex",
+        "de": "medizinische-oder-einheitssekretar-80-hug-thonex"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3011,16 +3560,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T12:34:13.742Z"
+      "firstSeenAt": "2026-05-18T12:34:13.742Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-ou-medicale-d-unite-80-hug-thonex"
+        ],
+        "en": [
+          "secretaire-medical-ou-medicale-d-unite-80-hug-thonex"
+        ],
+        "de": [
+          "secretaire-medical-ou-medicale-d-unite-80-hug-thonex"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-ou-medicale-d-unite-80-hug-thonex"
+      ]
     },
     {
       "id": "hug-0a0ce38e742c",
-      "slug": "technicien-ou-technicienne-de-maintenance-frigoriste-100-hug-geneve",
+      "slug": "tecnologia-di-manutenzione-del-frigorifero-100-hug-geneve",
       "slugByLocale": {
         "fr": "technicien-ou-technicienne-de-maintenance-frigoriste-100-hug-geneve",
-        "it": "technicien-ou-technicienne-de-maintenance-frigoriste-100-hug-geneve",
-        "en": "technicien-ou-technicienne-de-maintenance-frigoriste-100-hug-geneve",
-        "de": "technicien-ou-technicienne-de-maintenance-frigoriste-100-hug-geneve"
+        "it": "tecnologia-di-manutenzione-del-frigorifero-100-hug-geneve",
+        "en": "refrigerator-maintenance-technician-100-hug-geneve",
+        "de": "kuhlerwartungstechniker-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3076,16 +3639,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.741Z"
+      "firstSeenAt": "2026-05-18T12:34:13.741Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ou-technicienne-de-maintenance-frigoriste-100-hug-geneve"
+        ],
+        "en": [
+          "technicien-ou-technicienne-de-maintenance-frigoriste-100-hug-geneve"
+        ],
+        "de": [
+          "technicien-ou-technicienne-de-maintenance-frigoriste-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ou-technicienne-de-maintenance-frigoriste-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-6d76a5f73f67",
-      "slug": "psychologue-psychotherapeute-70-hug-geneve",
+      "slug": "psicoterapeuta-70-hug-geneve",
       "slugByLocale": {
         "fr": "psychologue-psychotherapeute-70-hug-geneve",
-        "it": "psychologue-psychotherapeute-70-hug-geneve",
-        "en": "psychologue-psychotherapeute-70-hug-geneve",
-        "de": "psychologue-psychotherapeute-70-hug-geneve"
+        "it": "psicoterapeuta-70-hug-geneve",
+        "en": "psychotherapist-70-hug-geneve",
+        "de": "psychotherapeutin-70-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3141,16 +3718,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.740Z"
+      "firstSeenAt": "2026-05-18T12:34:13.740Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-psychotherapeute-70-hug-geneve"
+        ],
+        "en": [
+          "psychologue-psychotherapeute-70-hug-geneve"
+        ],
+        "de": [
+          "psychologue-psychotherapeute-70-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-psychotherapeute-70-hug-geneve"
+      ]
     },
     {
       "id": "hug-c3678420a960",
-      "slug": "technicienne-ou-technicien-de-maintenance-industrielle-100-hug-chene-bourg",
+      "slug": "tecnico-di-manutenzione-industriale-100-hug-chene-bourg",
       "slugByLocale": {
         "fr": "technicienne-ou-technicien-de-maintenance-industrielle-100-hug-chene-bourg",
-        "it": "technicienne-ou-technicien-de-maintenance-industrielle-100-hug-chene-bourg",
-        "en": "technicienne-ou-technicien-de-maintenance-industrielle-100-hug-chene-bourg",
-        "de": "technicienne-ou-technicien-de-maintenance-industrielle-100-hug-chene-bourg"
+        "it": "tecnico-di-manutenzione-industriale-100-hug-chene-bourg",
+        "en": "industrial-maintenance-technician-100-hug-chene-bourg",
+        "de": "industrielle-instandhaltung-techniker-100-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3205,16 +3796,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T12:34:13.739Z"
+      "firstSeenAt": "2026-05-18T12:34:13.739Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicienne-ou-technicien-de-maintenance-industrielle-100-hug-chene-bourg"
+        ],
+        "en": [
+          "technicienne-ou-technicien-de-maintenance-industrielle-100-hug-chene-bourg"
+        ],
+        "de": [
+          "technicienne-ou-technicien-de-maintenance-industrielle-100-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "technicienne-ou-technicien-de-maintenance-industrielle-100-hug-chene-bourg"
+      ]
     },
     {
       "id": "hug-3a857f0f96a0",
-      "slug": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve",
+      "slug": "medico-interno-nel-reparto-riabilitazione-e-geriatria-100-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve",
-        "it": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve",
-        "en": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve",
-        "de": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve"
+        "it": "medico-interno-nel-reparto-riabilitazione-e-geriatria-100-hug-geneve",
+        "en": "internal-physician-in-the-rehabilitation-and-geriatric-department-100-hug-geneve",
+        "de": "interner-arzt-in-der-rehabilitations-und-geriatsabteilung-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3270,16 +3875,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.738Z"
+      "firstSeenAt": "2026-05-18T12:34:13.738Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve"
+        ],
+        "de": [
+          "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-d1497e21c9cf",
-      "slug": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
+      "slug": "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve",
       "slugByLocale": {
         "fr": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
-        "it": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
+        "it": "responsabile-clinica-con-o-senza-titolo-di-specialita-fellowship-in-medicina-intensiva-pediatrica-100-hug-geneve",
         "en": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine",
-        "de": "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
+        "de": "klinikleiter-mit-oder-ohne-fachtitel-fellowship-in-der-padiatrischen-intensivmedizin-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3335,16 +3954,27 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.737Z"
+      "firstSeenAt": "2026-05-18T12:34:13.737Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
+        ],
+        "de": [
+          "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
+        ]
+      },
+      "previousSlugs": [
+        "cheffe-ou-chef-de-clinique-avec-ou-sans-titre-de-specialite-fellowship-en-medecine"
+      ]
     },
     {
       "id": "hug-7439aadcdffe",
-      "slug": "infirmier-ou-infirmiere-a-l-unite-des-urgences-ambulatoires-80-a-100-hug-geneve",
+      "slug": "infermiera-nell-unita-di-emergenza-ambulatorio-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "infirmier-ou-infirmiere-a-l-unite-des-urgences-ambulatoires-80-a-100-hug-geneve",
-        "it": "infirmier-ou-infirmiere-a-l-unite-des-urgences-ambulatoires-80-a-100-hug-geneve",
-        "en": "infirmier-ou-infirmiere-a-l-unite-des-urgences-ambulatoires-80-a-100-hug-geneve",
-        "de": "infirmier-ou-infirmiere-a-l-unite-des-urgences-ambulatoires-80-a-100-hug-geneve"
+        "it": "infermiera-nell-unita-di-emergenza-ambulatorio-80-al-100-hug-geneve",
+        "en": "nurse-in-the-ambulatory-emergency-unit-80-to-100-hug-geneve",
+        "de": "krankenschwester-in-der-krankenstation-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3400,16 +4030,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.736Z"
+      "firstSeenAt": "2026-05-18T12:34:13.736Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ou-infirmiere-a-l-unite-des-urgences-ambulatoires-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "infirmier-ou-infirmiere-a-l-unite-des-urgences-ambulatoires-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "infirmier-ou-infirmiere-a-l-unite-des-urgences-ambulatoires-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ou-infirmiere-a-l-unite-des-urgences-ambulatoires-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-4062e3512d3e",
-      "slug": "ergotherapeute-en-psychiatrie-geriatrique-ambulatoire-80-a-100-hug-chene-bourg",
+      "slug": "ergoterapista-in-psichiatria-ambulatoria-80-al-100-hug-chene-bourg",
       "slugByLocale": {
         "fr": "ergotherapeute-en-psychiatrie-geriatrique-ambulatoire-80-a-100-hug-chene-bourg",
-        "it": "ergotherapeute-en-psychiatrie-geriatrique-ambulatoire-80-a-100-hug-chene-bourg",
-        "en": "ergotherapeute-en-psychiatrie-geriatrique-ambulatoire-80-a-100-hug-chene-bourg",
-        "de": "ergotherapeute-en-psychiatrie-geriatrique-ambulatoire-80-a-100-hug-chene-bourg"
+        "it": "ergoterapista-in-psichiatria-ambulatoria-80-al-100-hug-chene-bourg",
+        "en": "ergotherapist-in-ambulatory-geriatric-psychiatry-80-to-100-hug-chene-bourg",
+        "de": "ergotherapist-in-der-ambulanten-geriatrischen-psychiatrie-80-bis-100-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3464,16 +4108,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T12:34:13.735Z"
+      "firstSeenAt": "2026-05-18T12:34:13.735Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-en-psychiatrie-geriatrique-ambulatoire-80-a-100-hug-chene-bourg"
+        ],
+        "en": [
+          "ergotherapeute-en-psychiatrie-geriatrique-ambulatoire-80-a-100-hug-chene-bourg"
+        ],
+        "de": [
+          "ergotherapeute-en-psychiatrie-geriatrique-ambulatoire-80-a-100-hug-chene-bourg"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeute-en-psychiatrie-geriatrique-ambulatoire-80-a-100-hug-chene-bourg"
+      ]
     },
     {
       "id": "hug-225a7a3b4549",
-      "slug": "collaboratrice-ou-collaborateur-scientifique-au-service-de-dermatologie-et-venereologie",
+      "slug": "collaboratore-o-collaboratore-scientifico-per-dermatologia-e-venerologia-100-hug-geneve",
       "slugByLocale": {
         "fr": "collaboratrice-ou-collaborateur-scientifique-au-service-de-dermatologie-et-venereologie",
-        "it": "collaboratrice-ou-collaborateur-scientifique-au-service-de-dermatologie-et-venereologie",
-        "en": "collaboratrice-ou-collaborateur-scientifique-au-service-de-dermatologie-et-venereologie",
-        "de": "collaboratrice-ou-collaborateur-scientifique-au-service-de-dermatologie-et-venereologie"
+        "it": "collaboratore-o-collaboratore-scientifico-per-dermatologia-e-venerologia-100-hug-geneve",
+        "en": "collaborator-or-scientific-collaborator-for-dermatology-and-venerology-100-hug-geneve",
+        "de": "mitarbeiter-oder-wissenschaftlicher-mitarbeiter-fur-dermatologie-und-venerologie-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3529,16 +4187,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.734Z"
+      "firstSeenAt": "2026-05-18T12:34:13.734Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-ou-collaborateur-scientifique-au-service-de-dermatologie-et-venereologie"
+        ],
+        "en": [
+          "collaboratrice-ou-collaborateur-scientifique-au-service-de-dermatologie-et-venereologie"
+        ],
+        "de": [
+          "collaboratrice-ou-collaborateur-scientifique-au-service-de-dermatologie-et-venereologie"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-ou-collaborateur-scientifique-au-service-de-dermatologie-et-venereologie"
+      ]
     },
     {
       "id": "hug-0fa1e35cbfb4",
-      "slug": "infirmiere-ou-infirmier-a-l-unite-de-medecine-b2-de-la-pediatrie-generale-90-a-100-hug",
+      "slug": "infermiera-presso-la-general-paediatric-medical-unit-b2-90-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "infirmiere-ou-infirmier-a-l-unite-de-medecine-b2-de-la-pediatrie-generale-90-a-100-hug",
-        "it": "infirmiere-ou-infirmier-a-l-unite-de-medecine-b2-de-la-pediatrie-generale-90-a-100-hug",
-        "en": "infirmiere-ou-infirmier-a-l-unite-de-medecine-b2-de-la-pediatrie-generale-90-a-100-hug",
-        "de": "infirmiere-ou-infirmier-a-l-unite-de-medecine-b2-de-la-pediatrie-generale-90-a-100-hug"
+        "it": "infermiera-presso-la-general-paediatric-medical-unit-b2-90-al-100-hug-geneve",
+        "en": "nurse-at-the-general-paediatric-medical-unit-b2-90-to-100-hug-geneve",
+        "de": "krankenschwester-bei-der-general-paediatric-medical-unit-b2-90-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3594,16 +4266,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.733Z"
+      "firstSeenAt": "2026-05-18T12:34:13.733Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiere-ou-infirmier-a-l-unite-de-medecine-b2-de-la-pediatrie-generale-90-a-100-hug"
+        ],
+        "en": [
+          "infirmiere-ou-infirmier-a-l-unite-de-medecine-b2-de-la-pediatrie-generale-90-a-100-hug"
+        ],
+        "de": [
+          "infirmiere-ou-infirmier-a-l-unite-de-medecine-b2-de-la-pediatrie-generale-90-a-100-hug"
+        ]
+      },
+      "previousSlugs": [
+        "infirmiere-ou-infirmier-a-l-unite-de-medecine-b2-de-la-pediatrie-generale-90-a-100-hug"
+      ]
     },
     {
       "id": "hug-cc16266a07c0",
-      "slug": "infirmiere-ou-infirmier-aupres-de-l-unite-de-medecine-bba1-de-la-pediatrie-generale-90-a",
+      "slug": "infermiera-presso-bba1-general-paediatric-medical-unit-90-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "infirmiere-ou-infirmier-aupres-de-l-unite-de-medecine-bba1-de-la-pediatrie-generale-90-a",
-        "it": "infirmiere-ou-infirmier-aupres-de-l-unite-de-medecine-bba1-de-la-pediatrie-generale-90-a",
-        "en": "infirmiere-ou-infirmier-aupres-de-l-unite-de-medecine-bba1-de-la-pediatrie-generale-90-a",
-        "de": "infirmiere-ou-infirmier-aupres-de-l-unite-de-medecine-bba1-de-la-pediatrie-generale-90-a"
+        "it": "infermiera-presso-bba1-general-paediatric-medical-unit-90-al-100-hug-geneve",
+        "en": "nurse-at-bba1-general-paediatric-medical-unit-90-to-100-hug-geneve",
+        "de": "krankenschwester-bei-bba1-general-paediatric-medical-unit-90-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3659,16 +4345,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.733Z"
+      "firstSeenAt": "2026-05-18T12:34:13.733Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiere-ou-infirmier-aupres-de-l-unite-de-medecine-bba1-de-la-pediatrie-generale-90-a"
+        ],
+        "en": [
+          "infirmiere-ou-infirmier-aupres-de-l-unite-de-medecine-bba1-de-la-pediatrie-generale-90-a"
+        ],
+        "de": [
+          "infirmiere-ou-infirmier-aupres-de-l-unite-de-medecine-bba1-de-la-pediatrie-generale-90-a"
+        ]
+      },
+      "previousSlugs": [
+        "infirmiere-ou-infirmier-aupres-de-l-unite-de-medecine-bba1-de-la-pediatrie-generale-90-a"
+      ]
     },
     {
       "id": "hug-d622f426689d",
-      "slug": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-a-l-unite-de-chirurgie",
+      "slug": "responsabile-clinica-con-o-senza-titolo-speciale-presso-l-unita-di-chirurgia-paediatrica-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-a-l-unite-de-chirurgie",
-        "it": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-a-l-unite-de-chirurgie",
-        "en": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-a-l-unite-de-chirurgie",
-        "de": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-a-l-unite-de-chirurgie"
+        "it": "responsabile-clinica-con-o-senza-titolo-speciale-presso-l-unita-di-chirurgia-paediatrica-80-al-100-hug-geneve",
+        "en": "head-of-clinic-with-or-without-specialty-title-at-the-paediatric-surgery-unit-80-to-100-hug-geneve",
+        "de": "klinikleiter-mit-oder-ohne-fachtitel-bei-der-paediatric-surgery-unit-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3724,16 +4424,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.732Z"
+      "firstSeenAt": "2026-05-18T12:34:13.732Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-a-l-unite-de-chirurgie"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-a-l-unite-de-chirurgie"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-a-l-unite-de-chirurgie"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-a-l-unite-de-chirurgie"
+      ]
     },
     {
       "id": "hug-cc99c996fe69",
-      "slug": "medecin-interne-a-l-unite-de-chirurgie-pediatrique-80-a-100-hug-geneve",
+      "slug": "medico-interno-presso-l-unita-di-chirurgia-pediatrica-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-interne-a-l-unite-de-chirurgie-pediatrique-80-a-100-hug-geneve",
-        "it": "medecin-interne-a-l-unite-de-chirurgie-pediatrique-80-a-100-hug-geneve",
-        "en": "medecin-interne-a-l-unite-de-chirurgie-pediatrique-80-a-100-hug-geneve",
-        "de": "medecin-interne-a-l-unite-de-chirurgie-pediatrique-80-a-100-hug-geneve"
+        "it": "medico-interno-presso-l-unita-di-chirurgia-pediatrica-80-al-100-hug-geneve",
+        "en": "internal-physician-at-the-paediatric-surgery-unit-80-to-100-hug-geneve",
+        "de": "interner-arzt-an-der-paediatric-surgery-unit-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3789,16 +4503,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.731Z"
+      "firstSeenAt": "2026-05-18T12:34:13.731Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-a-l-unite-de-chirurgie-pediatrique-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-interne-a-l-unite-de-chirurgie-pediatrique-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "medecin-interne-a-l-unite-de-chirurgie-pediatrique-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-a-l-unite-de-chirurgie-pediatrique-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-b16d9c759e0f",
-      "slug": "stage-conventionne-en-gestion-de-projet-100-hug-geneve",
+      "slug": "stage-di-gestione-dei-progetti-contratti-100-hug-geneve",
       "slugByLocale": {
         "fr": "stage-conventionne-en-gestion-de-projet-100-hug-geneve",
-        "it": "stage-conventionne-en-gestion-de-projet-100-hug-geneve",
-        "en": "stage-conventionne-en-gestion-de-projet-100-hug-geneve",
-        "de": "stage-conventionne-en-gestion-de-projet-100-hug-geneve"
+        "it": "stage-di-gestione-dei-progetti-contratti-100-hug-geneve",
+        "en": "contracted-project-management-internship-100-hug-geneve",
+        "de": "projektmanagementpraktikum-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3854,16 +4582,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.730Z"
+      "firstSeenAt": "2026-05-18T12:34:13.730Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-conventionne-en-gestion-de-projet-100-hug-geneve"
+        ],
+        "en": [
+          "stage-conventionne-en-gestion-de-projet-100-hug-geneve"
+        ],
+        "de": [
+          "stage-conventionne-en-gestion-de-projet-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "stage-conventionne-en-gestion-de-projet-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-9ba7eba63ce6",
-      "slug": "infirmier-ou-infirmiere-a-l-unite-de-cardiologie-interventionnelle-structurelle",
+      "slug": "infermiera-nell-unita-cardiaca-interventistica-strutturale-elettrofisiologica-e-stimolante-80-al-90-hug-geneve",
       "slugByLocale": {
         "fr": "infirmier-ou-infirmiere-a-l-unite-de-cardiologie-interventionnelle-structurelle",
-        "it": "infirmier-ou-infirmiere-a-l-unite-de-cardiologie-interventionnelle-structurelle",
-        "en": "infirmier-ou-infirmiere-a-l-unite-de-cardiologie-interventionnelle-structurelle",
-        "de": "infirmier-ou-infirmiere-a-l-unite-de-cardiologie-interventionnelle-structurelle"
+        "it": "infermiera-nell-unita-cardiaca-interventistica-strutturale-elettrofisiologica-e-stimolante-80-al-90-hug-geneve",
+        "en": "nurse-in-the-interventional-structural-electrophysiology-and-stimulation-cardiac-unit-80-to-90-hug-geneve",
+        "de": "krankenschwester-in-der-interventionellen-strukturellen-elektrophysiologischen-und-stimulierenden-herzeinheit-80-bis-90"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3919,16 +4661,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.729Z"
+      "firstSeenAt": "2026-05-18T12:34:13.729Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ou-infirmiere-a-l-unite-de-cardiologie-interventionnelle-structurelle"
+        ],
+        "en": [
+          "infirmier-ou-infirmiere-a-l-unite-de-cardiologie-interventionnelle-structurelle"
+        ],
+        "de": [
+          "infirmier-ou-infirmiere-a-l-unite-de-cardiologie-interventionnelle-structurelle"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ou-infirmiere-a-l-unite-de-cardiologie-interventionnelle-structurelle"
+      ]
     },
     {
       "id": "hug-a9e68b801984",
-      "slug": "infirmier-ou-infirmiere-en-nephrologie-ambulatoire-70-a-80-hug-geneve",
+      "slug": "infermiera-in-nefrode-ambulatorio-70-a-80-hug-geneve",
       "slugByLocale": {
         "fr": "infirmier-ou-infirmiere-en-nephrologie-ambulatoire-70-a-80-hug-geneve",
-        "it": "infirmier-ou-infirmiere-en-nephrologie-ambulatoire-70-a-80-hug-geneve",
-        "en": "infirmier-ou-infirmiere-en-nephrologie-ambulatoire-70-a-80-hug-geneve",
-        "de": "infirmier-ou-infirmiere-en-nephrologie-ambulatoire-70-a-80-hug-geneve"
+        "it": "infermiera-in-nefrode-ambulatorio-70-a-80-hug-geneve",
+        "en": "nurse-in-outpatient-nephrology-70-to-80-hug-geneve",
+        "de": "krankenschwester-ambulanter-nephrologie-70-bis-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3984,16 +4740,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.727Z"
+      "firstSeenAt": "2026-05-18T12:34:13.727Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ou-infirmiere-en-nephrologie-ambulatoire-70-a-80-hug-geneve"
+        ],
+        "en": [
+          "infirmier-ou-infirmiere-en-nephrologie-ambulatoire-70-a-80-hug-geneve"
+        ],
+        "de": [
+          "infirmier-ou-infirmiere-en-nephrologie-ambulatoire-70-a-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ou-infirmiere-en-nephrologie-ambulatoire-70-a-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-c1fe66531dca",
-      "slug": "directrice-ou-directeur-des-risques-et-du-controle-interne-100-hug-geneve",
+      "slug": "direttore-o-direttore-del-rischio-e-controllo-interno-100-hug-geneve",
       "slugByLocale": {
         "fr": "directrice-ou-directeur-des-risques-et-du-controle-interne-100-hug-geneve",
-        "it": "directrice-ou-directeur-des-risques-et-du-controle-interne-100-hug-geneve",
-        "en": "directrice-ou-directeur-des-risques-et-du-controle-interne-100-hug-geneve",
-        "de": "directrice-ou-directeur-des-risques-et-du-controle-interne-100-hug-geneve"
+        "it": "direttore-o-direttore-del-rischio-e-controllo-interno-100-hug-geneve",
+        "en": "director-or-director-of-risk-and-internal-control-100-hug-geneve",
+        "de": "director-oder-director-of-risk-and-intern-control-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4049,16 +4819,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.726Z"
+      "firstSeenAt": "2026-05-18T12:34:13.726Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "directrice-ou-directeur-des-risques-et-du-controle-interne-100-hug-geneve"
+        ],
+        "en": [
+          "directrice-ou-directeur-des-risques-et-du-controle-interne-100-hug-geneve"
+        ],
+        "de": [
+          "directrice-ou-directeur-des-risques-et-du-controle-interne-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "directrice-ou-directeur-des-risques-et-du-controle-interne-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-abaa80abe2c0",
-      "slug": "specialiste-rh-en-recrutement-80-hug-geneve",
+      "slug": "reclutamento-hr-specialist-80-hug-geneve",
       "slugByLocale": {
         "fr": "specialiste-rh-en-recrutement-80-hug-geneve",
-        "it": "specialiste-rh-en-recrutement-80-hug-geneve",
-        "en": "specialiste-rh-en-recrutement-80-hug-geneve",
-        "de": "specialiste-rh-en-recrutement-80-hug-geneve"
+        "it": "reclutamento-hr-specialist-80-hug-geneve",
+        "en": "recruitment-hr-specialist-80-hug-geneve",
+        "de": "personalrekrutierung-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4114,16 +4898,30 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.725Z"
+      "firstSeenAt": "2026-05-18T12:34:13.725Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-rh-en-recrutement-80-hug-geneve"
+        ],
+        "en": [
+          "specialiste-rh-en-recrutement-80-hug-geneve"
+        ],
+        "de": [
+          "specialiste-rh-en-recrutement-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-rh-en-recrutement-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-ab53507347d3",
-      "slug": "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve",
+      "slug": "segretario-medico-o-medico-per-la-consultazione-di-anestesiologia-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve",
-        "it": "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve",
-        "en": "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve",
-        "de": "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve"
+        "it": "segretario-medico-o-medico-per-la-consultazione-di-anestesiologia-80-al-100-hug-geneve",
+        "en": "medical-or-medical-secretary-for-anaesthesiology-consultation-80-to-100-hug-geneve",
+        "de": "medizinischer-oder-medizinischer-sekretar-fur-anasthesiologieberatung-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4179,7 +4977,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T12:34:13.713Z"
+      "firstSeenAt": "2026-05-18T12:34:13.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medicale-ou-medical-a-la-consultation-d-anesthesiologie-80-a-100-hug-geneve"
+      ]
     }
   ]
 }

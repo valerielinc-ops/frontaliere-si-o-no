@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "vaudoise-af42da4bda4f",
-      "slug": "conseiller-conseillere-h-f-x-100-vaudoise-ch",
+      "slug": "consigliere-consigliere-h-f-x-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-        "it": "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-        "en": "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-        "de": "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+        "it": "consigliere-consigliere-h-f-x-100-vaudoise-assurances-lausanne",
+        "en": "counsellor-counsellor-h-f-x-100-vaudoise-assurances-lausanne",
+        "de": "berater-berater-h-f-x-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -64,15 +64,29 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:28.199Z"
+      "firstSeenAt": "2026-05-18T13:27:28.199Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+        ],
+        "en": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+        ],
+        "de": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-conseillere-h-f-x-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-dabb05a3e709",
-      "slug": "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch",
+      "slug": "perdita-di-testa-gruppo-di-guadagno-di-malattia-80-100-h-f-x-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch",
-        "it": "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch",
-        "en": "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch",
+        "it": "perdita-di-testa-gruppo-di-guadagno-di-malattia-80-100-h-f-x-vaudoise-assurances-lausanne",
+        "en": "head-group-head-loss-of-sickness-gain-80-100-h-f-x-vaudoise-assurances-lausanne",
         "de": "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -128,16 +142,27 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:27.916Z"
+      "firstSeenAt": "2026-05-18T13:27:27.916Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
+        ],
+        "en": [
+          "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-cheffe-de-groupe-perte-de-gain-maladie-80-100-h-f-x-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-eefd5f45cc90",
-      "slug": "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch",
+      "slug": "consulente-senior-m-w-d-80-100-vaudoise-assurances-berne",
       "slugByLocale": {
         "de": "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch",
-        "it": "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch",
-        "en": "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch",
-        "fr": "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+        "it": "consulente-senior-m-w-d-80-100-vaudoise-assurances-berne",
+        "en": "senior-consultant-m-w-d-80-100-vaudoise-assurances-berne",
+        "fr": "consultant-principal-m-m-j-80-100-vaudoise-assurances-berne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -192,7 +217,21 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-18T13:27:27.638Z"
+      "firstSeenAt": "2026-05-18T13:27:27.638Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-9fccffa4b3df",
@@ -260,12 +299,12 @@
     },
     {
       "id": "vaudoise-fd644763f735",
-      "slug": "brokerbetreuer-in-m-w-d-100-vaudoise-ch",
+      "slug": "account-manager-m-w-d-100-vaudoise-assurances-bern",
       "slugByLocale": {
         "de": "brokerbetreuer-in-m-w-d-100-vaudoise-assurances-bern",
-        "it": "brokerbetreuer-in-m-w-d-100-vaudoise-ch",
+        "it": "account-manager-m-w-d-100-vaudoise-assurances-bern",
         "en": "brokerbetreuer-in-m-w-d-100-vaudoise-ch",
-        "fr": "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
+        "fr": "gestionnaire-de-compte-m-m-j-100-vaudoise-assurances-bern"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -320,7 +359,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-18T13:27:27.079Z"
+      "firstSeenAt": "2026-05-18T13:27:27.079Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
+        ],
+        "fr": [
+          "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "brokerbetreuer-in-m-w-d-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-ab6daccf96aa",
@@ -329,7 +379,7 @@
         "de": "key-account-manager-in-tierversicherungen-m-w-d-80-100-vaudoise-ch",
         "it": "key-account-manager-in-tierversicherungen-m-w-d-80-100-vaudoise-ch",
         "en": "key-account-manager-in-tierversicherungen-m-w-d-80-100-vaudoise-ch",
-        "fr": "key-account-manager-in-tierversicherungen-m-w-d-80-100-vaudoise-ch"
+        "fr": "gestionnaire-de-compte-cle-dans-tierversicherungen-m-p-j-80-100-vaudoise-assurances-berne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -388,12 +438,12 @@
     },
     {
       "id": "vaudoise-8c3dc5e78b46",
-      "slug": "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-m-w-d-80-100-vaudoise-assurances-lausanne",
+      "slug": "prestazioni-pensionistiche-nei-rami-dell-assicurazione-ricchezza-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-h-f-x-80",
-        "it": "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-m-w-d-80-100-vaudoise-assurances-lausanne",
-        "en": "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-h-f-x-80",
-        "de": "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-h-f-x-80"
+        "it": "prestazioni-pensionistiche-nei-rami-dell-assicurazione-ricchezza-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "en": "manager-pension-benefits-in-the-branches-of-wealth-insurance-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "de": "manager-pension-profitiert-in-den-zweigen-der-vermogensversicherung-h-f-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -437,11 +487,19 @@
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-h-f-x-80",
+          "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-m-w-d-80-100-vaudoise-assurances-lausanne"
+        ],
+        "en": [
+          "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-h-f-x-80"
+        ],
+        "de": [
           "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-h-f-x-80"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-h-f-x-80"
+        "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-h-f-x-80",
+        "gestionnaire-prestations-sinistres-dans-les-branches-de-l-assurance-patrimoine-m-w-d-80-100-vaudoise-assurances-lausanne"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -460,12 +518,12 @@
     },
     {
       "id": "vaudoise-5ffade5a784f",
-      "slug": "ingenieur-ingenieure-en-securite-de-l-information-h-f-x-80-100-vaudoise-ch",
+      "slug": "information-security-engineer-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "ingenieur-ingenieure-en-securite-de-l-information-h-f-x-80-100-vaudoise-ch",
-        "it": "ingenieur-ingenieure-en-securite-de-l-information-h-f-x-80-100-vaudoise-ch",
+        "it": "information-security-engineer-h-f-x-80-100-vaudoise-assurances-lausanne",
         "en": "ingenieur-ingenieure-en-securite-de-l-information-h-f-x-80-100-vaudoise-ch",
-        "de": "ingenieur-ingenieure-en-securite-de-l-information-h-f-x-80-100-vaudoise-ch"
+        "de": "informationssicherheitsingenieur-h-f-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -520,15 +578,26 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:26.237Z"
+      "firstSeenAt": "2026-05-18T13:27:26.237Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-ingenieure-en-securite-de-l-information-h-f-x-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "ingenieur-ingenieure-en-securite-de-l-information-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-ingenieure-en-securite-de-l-information-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-cc575da5136d",
-      "slug": "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch",
+      "slug": "responsabile-gruppo-delle-soluzioni-architetti-it-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch",
-        "it": "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch",
-        "en": "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch",
+        "it": "responsabile-gruppo-delle-soluzioni-architetti-it-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "en": "head-group-of-architects-solutions-it-h-f-x-80-100-vaudoise-assurances-lausanne",
         "de": "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -584,7 +653,18 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:25.959Z"
+      "firstSeenAt": "2026-05-18T13:27:25.959Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch"
+        ],
+        "en": [
+          "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-groupe-des-architectes-solutions-it-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-3ff0e716961a",
@@ -661,12 +741,12 @@
     },
     {
       "id": "vaudoise-c4339ab9c493",
-      "slug": "conseiller-conseillere-h-f-x-100-vaudoise-ch-2",
+      "slug": "consigliere-consigliere-h-f-x-100-vaudoise-assurances-lausanne-0b4c4b",
       "slugByLocale": {
         "fr": "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-        "it": "conseiller-conseillere-h-f-x-100-vaudoise-ch-2",
-        "en": "conseiller-conseillere-h-f-x-100-vaudoise-ch-2",
-        "de": "conseiller-conseillere-h-f-x-100-vaudoise-ch-2"
+        "it": "consigliere-consigliere-h-f-x-100-vaudoise-assurances-lausanne-0b4c4b",
+        "en": "counsellor-counsellor-h-f-x-100-vaudoise-assurances-lausanne-0b4c4b",
+        "de": "berater-berater-h-f-x-100-vaudoise-assurances-lausanne-0b4c4b"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -721,7 +801,21 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:25.400Z"
+      "firstSeenAt": "2026-05-18T13:27:25.400Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch-2"
+        ],
+        "en": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch-2"
+        ],
+        "de": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-conseillere-h-f-x-100-vaudoise-ch-2"
+      ]
     },
     {
       "id": "vaudoise-dde64aff63f2",
@@ -729,8 +823,8 @@
       "slugByLocale": {
         "de": "ubersetzungspraktikant-in-universitat-oder-fachhochschule-m-w-x-100-vaudoise-ch",
         "it": "ubersetzungspraktikant-in-universitat-o-fachhochschule-m-w-d-100-vaudoise-assurances-lausanne",
-        "en": "ubersetzungspraktikant-in-universitat-oder-fachhochschule-m-w-x-100-vaudoise-ch",
-        "fr": "ubersetzungspraktikant-in-universitat-oder-fachhochschule-m-w-x-100-vaudoise-ch"
+        "en": "senior-consultant-m-w-x-100-vaudoise-assurances-lausanne",
+        "fr": "consultant-principal-m-m-x-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -775,6 +869,12 @@
       "previousSlugsByLocale": {
         "it": [
           "ubersetzungspraktikant-in-universitat-oder-fachhochschule-m-w-x-100-vaudoise-ch"
+        ],
+        "en": [
+          "ubersetzungspraktikant-in-universitat-oder-fachhochschule-m-w-x-100-vaudoise-ch"
+        ],
+        "fr": [
+          "ubersetzungspraktikant-in-universitat-oder-fachhochschule-m-w-x-100-vaudoise-ch"
         ]
       },
       "previousSlugs": [
@@ -797,12 +897,12 @@
     },
     {
       "id": "vaudoise-28ce444790ce",
-      "slug": "expert-experte-en-gouvernance-des-donnees-h-f-x-80-100-vaudoise-ch",
+      "slug": "expert-data-governance-expert-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "expert-experte-en-gouvernance-des-donnees-h-f-x-80-100-vaudoise-ch",
-        "it": "expert-experte-en-gouvernance-des-donnees-h-f-x-80-100-vaudoise-ch",
+        "it": "expert-data-governance-expert-h-f-x-80-100-vaudoise-assurances-lausanne",
         "en": "expert-experte-en-gouvernance-des-donnees-h-f-x-80-100-vaudoise-ch",
-        "de": "expert-experte-en-gouvernance-des-donnees-h-f-x-80-100-vaudoise-ch"
+        "de": "experte-data-governance-expert-h-f-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -857,14 +957,25 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:24.842Z"
+      "firstSeenAt": "2026-05-18T13:27:24.842Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-experte-en-gouvernance-des-donnees-h-f-x-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "expert-experte-en-gouvernance-des-donnees-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "expert-experte-en-gouvernance-des-donnees-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-cb6971dd11db",
-      "slug": "expert-experte-dommages-rc-construction-h-f-x-80-100-vaudoise-ch",
+      "slug": "esperto-esperto-danno-rc-costruzione-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "expert-experte-dommages-rc-construction-h-f-x-80-100-vaudoise-ch",
-        "it": "expert-experte-dommages-rc-construction-h-f-x-80-100-vaudoise-ch",
+        "it": "esperto-esperto-danno-rc-costruzione-h-f-x-80-100-vaudoise-assurances-lausanne",
         "en": "expert-experte-dommages-rc-construction-h-f-x-80-100-vaudoise-ch",
         "de": "expert-experte-dommages-rc-construction-h-f-x-80-100-vaudoise-ch"
       },
@@ -921,14 +1032,22 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:24.561Z"
+      "firstSeenAt": "2026-05-18T13:27:24.561Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-experte-dommages-rc-construction-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "expert-experte-dommages-rc-construction-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-1c50ac373c7c",
-      "slug": "sachbearbeiter-in-leistungen-unfall-m-w-d-60-100-vaudoise-ch",
+      "slug": "projektleiter-m-w-d-vaudoise-assurances-berne",
       "slugByLocale": {
         "de": "sachbearbeiter-in-leistungen-unfall-m-w-d-60-100-vaudoise-ch",
-        "it": "sachbearbeiter-in-leistungen-unfall-m-w-d-60-100-vaudoise-ch",
+        "it": "projektleiter-m-w-d-vaudoise-assurances-berne",
         "en": "sachbearbeiter-in-leistungen-unfall-m-w-d-60-100-vaudoise-ch",
         "fr": "sachbearbeiter-in-leistungen-unfall-m-w-d-60-100-vaudoise-ch"
       },
@@ -985,15 +1104,23 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-18T13:27:24.282Z"
+      "firstSeenAt": "2026-05-18T13:27:24.282Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-leistungen-unfall-m-w-d-60-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-leistungen-unfall-m-w-d-60-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-97a6fe61652a",
-      "slug": "chef-cheffe-de-service-souscription-choses-h-f-x-80-100-vaudoise-ch",
+      "slug": "capo-capo-servizio-abbonamento-cose-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "chef-cheffe-de-service-souscription-choses-h-f-x-80-100-vaudoise-ch",
-        "it": "chef-cheffe-de-service-souscription-choses-h-f-x-80-100-vaudoise-ch",
-        "en": "chef-cheffe-de-service-souscription-choses-h-f-x-80-100-vaudoise-ch",
+        "it": "capo-capo-servizio-abbonamento-cose-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "en": "chief-chief-of-service-subscription-things-h-f-x-80-100-vaudoise-assurances-lausanne",
         "de": "chef-cheffe-de-service-souscription-choses-h-f-x-80-100-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -1049,16 +1176,27 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:24.004Z"
+      "firstSeenAt": "2026-05-18T13:27:24.004Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-cheffe-de-service-souscription-choses-h-f-x-80-100-vaudoise-ch"
+        ],
+        "en": [
+          "chef-cheffe-de-service-souscription-choses-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-cheffe-de-service-souscription-choses-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-d01ccf0f0962",
-      "slug": "data-scientist-h-f-x-80-100-vaudoise-ch",
+      "slug": "scienziato-dei-dati-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "data-scientist-h-f-x-80-100-vaudoise-ch",
-        "it": "data-scientist-h-f-x-80-100-vaudoise-ch",
+        "it": "scienziato-dei-dati-h-f-x-80-100-vaudoise-assurances-lausanne",
         "en": "data-scientist-h-f-x-80-100-vaudoise-ch",
-        "de": "data-scientist-h-f-x-80-100-vaudoise-ch"
+        "de": "datenwissenschaftler-h-f-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -1113,16 +1251,27 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:23.716Z"
+      "firstSeenAt": "2026-05-18T13:27:23.716Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-scientist-h-f-x-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "data-scientist-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "data-scientist-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-bdb345293eb4",
-      "slug": "principal-technical-lead-h-f-x-80-100-vaudoise-ch",
+      "slug": "piombo-tecnico-principale-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "principal-technical-lead-h-f-x-80-100-vaudoise-ch",
-        "it": "principal-technical-lead-h-f-x-80-100-vaudoise-ch",
+        "it": "piombo-tecnico-principale-h-f-x-80-100-vaudoise-assurances-lausanne",
         "en": "principal-technical-lead-h-f-x-80-100-vaudoise-ch",
-        "de": "principal-technical-lead-h-f-x-80-100-vaudoise-ch"
+        "de": "technischer-leiter-h-f-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -1177,16 +1326,27 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:23.438Z"
+      "firstSeenAt": "2026-05-18T13:27:23.438Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "principal-technical-lead-h-f-x-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "principal-technical-lead-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "principal-technical-lead-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-3a0f67aa3621",
-      "slug": "conseiller-conseillere-h-f-x-100-vaudoise-ch-3",
+      "slug": "consigliere-consigliere-h-f-x-100-vaudoise-assurances-chatel-saint-denis",
       "slugByLocale": {
         "fr": "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-        "it": "conseiller-conseillere-h-f-x-100-vaudoise-ch-3",
-        "en": "conseiller-conseillere-h-f-x-100-vaudoise-ch-3",
-        "de": "conseiller-conseillere-h-f-x-100-vaudoise-ch-3"
+        "it": "consigliere-consigliere-h-f-x-100-vaudoise-assurances-chatel-saint-denis",
+        "en": "counsellor-counsellor-h-f-x-100-vaudoise-assurances-chatel-saint-denis",
+        "de": "berater-berater-h-f-x-100-vaudoise-assurances-chatel-saint-denis"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -1240,16 +1400,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T13:27:23.162Z"
+      "firstSeenAt": "2026-05-18T13:27:23.162Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch-3"
+        ],
+        "en": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch-3"
+        ],
+        "de": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch-3"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-conseillere-h-f-x-100-vaudoise-ch-3"
+      ]
     },
     {
       "id": "vaudoise-3fafe24b02b8",
-      "slug": "gestionnaire-backoffice-service-hypotheques-m-w-d-100-cdd-de-9-mois-a-partir-de-juillet-vaudoise-assurances-lausanne",
+      "slug": "manager-backoffice-servizio-ipotecario-h-f-x-100-9-mese-cdd-da-luglio-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-backoffice-service-hypotheques-h-f-x-100-cdd-de-9-mois-a-partir-de-juillet",
-        "it": "gestionnaire-backoffice-service-hypotheques-m-w-d-100-cdd-de-9-mois-a-partir-de-juillet-vaudoise-assurances-lausanne",
-        "en": "gestionnaire-backoffice-service-hypotheques-h-f-x-100-cdd-de-9-mois-a-partir-de-juillet",
-        "de": "gestionnaire-backoffice-service-hypotheques-h-f-x-100-cdd-de-9-mois-a-partir-de-juillet"
+        "it": "manager-backoffice-servizio-ipotecario-h-f-x-100-9-mese-cdd-da-luglio-vaudoise-assurances-lausanne",
+        "en": "manager-backoffice-mortgage-service-h-f-x-100-9-month-cdd-from-july-vaudoise-assurances-lausanne",
+        "de": "manager-backoffice-hypothekenservice-h-f-x-100-9-monate-cdd-ab-juli-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -1293,11 +1467,19 @@
       "jobCategory": "Amministrazione e segretariato",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-backoffice-service-hypotheques-h-f-x-100-cdd-de-9-mois-a-partir-de-juillet",
+          "gestionnaire-backoffice-service-hypotheques-m-w-d-100-cdd-de-9-mois-a-partir-de-juillet-vaudoise-assurances-lausanne"
+        ],
+        "en": [
+          "gestionnaire-backoffice-service-hypotheques-h-f-x-100-cdd-de-9-mois-a-partir-de-juillet"
+        ],
+        "de": [
           "gestionnaire-backoffice-service-hypotheques-h-f-x-100-cdd-de-9-mois-a-partir-de-juillet"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-backoffice-service-hypotheques-h-f-x-100-cdd-de-9-mois-a-partir-de-juillet"
+        "gestionnaire-backoffice-service-hypotheques-h-f-x-100-cdd-de-9-mois-a-partir-de-juillet",
+        "gestionnaire-backoffice-service-hypotheques-m-w-d-100-cdd-de-9-mois-a-partir-de-juillet-vaudoise-assurances-lausanne"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1316,12 +1498,12 @@
     },
     {
       "id": "vaudoise-9670a5945437",
-      "slug": "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch",
+      "slug": "specialista-di-casi-complessi-francese-tedesco-laa-h-f-x-80-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch",
-        "it": "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch",
-        "en": "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch",
-        "de": "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch"
+        "it": "specialista-di-casi-complessi-francese-tedesco-laa-h-f-x-80-vaudoise-assurances-lausanne",
+        "en": "french-german-laa-complex-case-specialist-h-f-x-80-vaudoise-assurances-lausanne",
+        "de": "franzosisch-deutscher-laa-komplexkoffer-spezialist-h-f-x-80-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -1376,7 +1558,21 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:22.605Z"
+      "firstSeenAt": "2026-05-18T13:27:22.605Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch"
+        ],
+        "en": [
+          "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch"
+        ],
+        "de": [
+          "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-prestations-cas-complexes-laa-francais-allemand-h-f-x-80-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-6a2048f4cfd8",
@@ -1453,12 +1649,12 @@
     },
     {
       "id": "vaudoise-4f12584d52a9",
-      "slug": "gestionnaire-senior-prestations-cas-complexes-laa-m-w-d-80-vaudoise-assurances-lausanne",
+      "slug": "senior-benefit-manager-laa-casi-complessi-h-f-x-80-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-senior-prestations-cas-complexes-laa-h-f-x-80-vaudoise-ch",
-        "it": "gestionnaire-senior-prestations-cas-complexes-laa-m-w-d-80-vaudoise-assurances-lausanne",
-        "en": "gestionnaire-senior-prestations-cas-complexes-laa-h-f-x-80-vaudoise-ch",
-        "de": "gestionnaire-senior-prestations-cas-complexes-laa-h-f-x-80-vaudoise-ch"
+        "it": "senior-benefit-manager-laa-casi-complessi-h-f-x-80-vaudoise-assurances-lausanne",
+        "en": "senior-benefits-manager-laa-complex-cases-h-f-x-80-vaudoise-assurances-lausanne",
+        "de": "senior-benefit-manager-laa-komplexe-falle-h-f-x-80-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -1502,11 +1698,19 @@
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-senior-prestations-cas-complexes-laa-h-f-x-80-vaudoise-ch",
+          "gestionnaire-senior-prestations-cas-complexes-laa-m-w-d-80-vaudoise-assurances-lausanne"
+        ],
+        "en": [
+          "gestionnaire-senior-prestations-cas-complexes-laa-h-f-x-80-vaudoise-ch"
+        ],
+        "de": [
           "gestionnaire-senior-prestations-cas-complexes-laa-h-f-x-80-vaudoise-ch"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-senior-prestations-cas-complexes-laa-h-f-x-80-vaudoise-ch"
+        "gestionnaire-senior-prestations-cas-complexes-laa-h-f-x-80-vaudoise-ch",
+        "gestionnaire-senior-prestations-cas-complexes-laa-m-w-d-80-vaudoise-assurances-lausanne"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -1529,7 +1733,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-schaden-m-w-d-60-100-vaudoise-ch",
         "it": "collaboratore-trice-schaden-m-w-d-60-100-vaudoise-assurances-bern",
-        "en": "mitarbeiter-in-schaden-m-w-d-60-100-vaudoise-ch",
+        "en": "projektleiter-m-w-d-vaudoise-assurances-bern",
         "fr": "mitarbeiter-in-schaden-m-w-d-60-100-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -1575,6 +1779,9 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-schaden-m-w-d-60-100-vaudoise-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-schaden-m-w-d-60-100-vaudoise-ch"
         ]
       },
       "previousSlugs": [
@@ -1597,12 +1804,12 @@
     },
     {
       "id": "vaudoise-32433a726e9a",
-      "slug": "versicherungs-traineeprogramm-young-insurance-professional-vbv-vaudoise-ch",
+      "slug": "programma-di-formazione-assicurativa-young-insurance-professional-vbv-vaudoise-assurances-bern",
       "slugByLocale": {
         "de": "versicherungs-traineeprogramm-young-insurance-professional-vbv-vaudoise-ch",
-        "it": "versicherungs-traineeprogramm-young-insurance-professional-vbv-vaudoise-ch",
+        "it": "programma-di-formazione-assicurativa-young-insurance-professional-vbv-vaudoise-assurances-bern",
         "en": "versicherungs-traineeprogramm-young-insurance-professional-vbv-vaudoise-ch",
-        "fr": "versicherungs-traineeprogramm-young-insurance-professional-vbv-vaudoise-ch"
+        "fr": "programme-de-formation-en-assurance-jeunes-professionnels-de-l-assurance-vbv-vaudoise-assurances-bern"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -1657,16 +1864,27 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-18T13:27:21.493Z"
+      "firstSeenAt": "2026-05-18T13:27:21.493Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungs-traineeprogramm-young-insurance-professional-vbv-vaudoise-ch"
+        ],
+        "fr": [
+          "versicherungs-traineeprogramm-young-insurance-professional-vbv-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungs-traineeprogramm-young-insurance-professional-vbv-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-a40415c3cf73",
-      "slug": "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion",
+      "slug": "gruppo-leader-specializzato-nella-gestione-dei-contratti-gruppo-leader-specializzato-nella-gestione-dei-contratti-h-f-x",
       "slugByLocale": {
         "fr": "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion",
-        "it": "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion",
-        "en": "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion",
-        "de": "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion"
+        "it": "gruppo-leader-specializzato-nella-gestione-dei-contratti-gruppo-leader-specializzato-nella-gestione-dei-contratti-h-f-x",
+        "en": "group-leader-specialized-in-contract-management-group-leader-specialized-in-contract-management-h-f-x-100-vaudoise",
+        "de": "gruppenleiter-spezialisiert-auf-vertragsmanagement-gruppenleiter-spezialisiert-auf-vertragsmanagement-h-f-x-100-vaudoise"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -1721,16 +1939,30 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:21.219Z"
+      "firstSeenAt": "2026-05-18T13:27:21.219Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion"
+        ],
+        "en": [
+          "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion"
+        ],
+        "de": [
+          "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-groupe-specialise-en-gestion-contrats-cheffe-de-groupe-specialisee-en-gestion"
+      ]
     },
     {
       "id": "vaudoise-537f61c3d885",
-      "slug": "versicherungs-e-vorsorgeberater-in-m-w-d-100-vaudoise-assurances-zurich",
+      "slug": "consulente-assicurativo-e-previdenziale-m-f-d-100-vaudoise-assurances-zurich",
       "slugByLocale": {
         "de": "versicherungs-und-vorsorgeberater-in-m-w-d-100-vaudoise-ch",
-        "it": "versicherungs-e-vorsorgeberater-in-m-w-d-100-vaudoise-assurances-zurich",
-        "en": "versicherungs-und-vorsorgeberater-in-m-w-d-100-vaudoise-ch",
-        "fr": "versicherungs-und-vorsorgeberater-in-m-w-d-100-vaudoise-ch"
+        "it": "consulente-assicurativo-e-previdenziale-m-f-d-100-vaudoise-assurances-zurich",
+        "en": "insurance-and-pension-advisor-m-f-d-100-vaudoise-assurances-zurich",
+        "fr": "conseiller-en-assurances-et-prevoyance-h-f-d-100-vaudoise-assurances-zurich"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -1774,11 +2006,19 @@
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugsByLocale": {
         "it": [
+          "versicherungs-und-vorsorgeberater-in-m-w-d-100-vaudoise-ch",
+          "versicherungs-e-vorsorgeberater-in-m-w-d-100-vaudoise-assurances-zurich"
+        ],
+        "en": [
+          "versicherungs-und-vorsorgeberater-in-m-w-d-100-vaudoise-ch"
+        ],
+        "fr": [
           "versicherungs-und-vorsorgeberater-in-m-w-d-100-vaudoise-ch"
         ]
       },
       "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-in-m-w-d-100-vaudoise-ch"
+        "versicherungs-und-vorsorgeberater-in-m-w-d-100-vaudoise-ch",
+        "versicherungs-e-vorsorgeberater-in-m-w-d-100-vaudoise-assurances-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1866,7 +2106,7 @@
         "fr": "product-manager-prevoyance-h-f-x-80-100-vaudoise-ch",
         "it": "product-manager-prevoyance-h-f-x-80-100-vaudoise-ch",
         "en": "product-manager-prevoyance-h-f-x-80-100-vaudoise-ch",
-        "de": "product-manager-prevoyance-h-f-x-80-100-vaudoise-ch"
+        "de": "produktmanager-vorhersage-h-f-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -1989,12 +2229,12 @@
     },
     {
       "id": "vaudoise-aec22eec18e8",
-      "slug": "conseiller-conseillere-h-f-x-100-vaudoise-ch-4",
+      "slug": "consigliere-consigliere-h-f-x-100-vaudoise-assurances-fribourg",
       "slugByLocale": {
         "fr": "conseiller-conseillere-h-f-x-100-vaudoise-ch",
-        "it": "conseiller-conseillere-h-f-x-100-vaudoise-ch-4",
-        "en": "conseiller-conseillere-h-f-x-100-vaudoise-ch-4",
-        "de": "conseiller-conseillere-h-f-x-100-vaudoise-ch-4"
+        "it": "consigliere-consigliere-h-f-x-100-vaudoise-assurances-fribourg",
+        "en": "counsellor-counsellor-h-f-x-100-vaudoise-assurances-fribourg",
+        "de": "berater-berater-h-f-x-100-vaudoise-assurances-fribourg"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2049,15 +2289,29 @@
         }
       },
       "postalCode": "1700",
-      "firstSeenAt": "2026-05-18T13:27:19.814Z"
+      "firstSeenAt": "2026-05-18T13:27:19.814Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch-4"
+        ],
+        "en": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch-4"
+        ],
+        "de": [
+          "conseiller-conseillere-h-f-x-100-vaudoise-ch-4"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-conseillere-h-f-x-100-vaudoise-ch-4"
+      ]
     },
     {
       "id": "vaudoise-004be3e282c0",
-      "slug": "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch",
+      "slug": "assicurazione-legale-e-compliance-esperienza-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch",
-        "it": "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch",
-        "en": "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch",
+        "it": "assicurazione-legale-e-compliance-esperienza-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "en": "legal-insurance-and-experienced-compliance-h-f-x-80-100-vaudoise-assurances-lausanne",
         "de": "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -2113,16 +2367,27 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:19.533Z"
+      "firstSeenAt": "2026-05-18T13:27:19.533Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
+        ],
+        "en": [
+          "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juriste-assurances-et-conformite-experimente-e-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-4482311a0a1a",
-      "slug": "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch",
+      "slug": "formazione-responsabile-formazione-assicurativa-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch",
-        "it": "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch",
+        "it": "formazione-responsabile-formazione-assicurativa-h-f-x-80-100-vaudoise-assurances-lausanne",
         "en": "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch",
-        "de": "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch"
+        "de": "verantwortliche-ausbildung-versicherungstraining-h-f-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2177,14 +2442,25 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:19.254Z"
+      "firstSeenAt": "2026-05-18T13:27:19.254Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-formation-insurance-training-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-d7fe0d357f8c",
-      "slug": "business-analyst-atlassian-h-f-x-80-100-vaudoise-ch",
+      "slug": "atlanti-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "business-analyst-atlassian-h-f-x-80-100-vaudoise-ch",
-        "it": "business-analyst-atlassian-h-f-x-80-100-vaudoise-ch",
+        "it": "atlanti-h-f-x-80-100-vaudoise-assurances-lausanne",
         "en": "business-analyst-atlassian-h-f-x-80-100-vaudoise-ch",
         "de": "business-analyst-atlassian-h-f-x-80-100-vaudoise-ch"
       },
@@ -2241,16 +2517,24 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:18.970Z"
+      "firstSeenAt": "2026-05-18T13:27:18.970Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-atlassian-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyst-atlassian-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-8c0425667a13",
-      "slug": "technicien-technicienne-ict-h-f-x-80-100-vaudoise-ch",
+      "slug": "tecnico-tecnico-tecnico-ict-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "technicien-technicienne-ict-h-f-x-80-100-vaudoise-ch",
-        "it": "technicien-technicienne-ict-h-f-x-80-100-vaudoise-ch",
-        "en": "technicien-technicienne-ict-h-f-x-80-100-vaudoise-ch",
-        "de": "technicien-technicienne-ict-h-f-x-80-100-vaudoise-ch"
+        "it": "tecnico-tecnico-tecnico-ict-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "en": "technician-ict-technician-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "de": "techniker-ikt-techniker-h-f-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2305,7 +2589,21 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:18.689Z"
+      "firstSeenAt": "2026-05-18T13:27:18.689Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-technicienne-ict-h-f-x-80-100-vaudoise-ch"
+        ],
+        "en": [
+          "technicien-technicienne-ict-h-f-x-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "technicien-technicienne-ict-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-technicienne-ict-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-c050a7a368d3",
@@ -2314,7 +2612,7 @@
         "de": "product-manager-in-vorsorge-m-w-d-80-100-vaudoise-ch",
         "it": "product-manager-in-previdenza-m-w-d-80-100-vaudoise-assurances-lausanne",
         "en": "product-manager-in-vorsorge-m-w-d-80-100-vaudoise-ch",
-        "fr": "product-manager-in-vorsorge-m-w-d-80-100-vaudoise-ch"
+        "fr": "gestionnaire-de-produits-m-p-j-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2359,6 +2657,9 @@
       "previousSlugsByLocale": {
         "it": [
           "product-manager-in-vorsorge-m-w-d-80-100-vaudoise-ch"
+        ],
+        "fr": [
+          "product-manager-in-vorsorge-m-w-d-80-100-vaudoise-ch"
         ]
       },
       "previousSlugs": [
@@ -2381,12 +2682,12 @@
     },
     {
       "id": "vaudoise-1d8037bd8277",
-      "slug": "sachbearbeiter-in-inkasso-m-w-d-80-100-vaudoise-ch",
+      "slug": "consulente-senior-m-w-d-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "de": "sachbearbeiter-in-inkasso-m-w-d-80-100-vaudoise-ch",
-        "it": "sachbearbeiter-in-inkasso-m-w-d-80-100-vaudoise-ch",
-        "en": "sachbearbeiter-in-inkasso-m-w-d-80-100-vaudoise-ch",
-        "fr": "sachbearbeiter-in-inkasso-m-w-d-80-100-vaudoise-ch"
+        "it": "consulente-senior-m-w-d-80-100-vaudoise-assurances-lausanne",
+        "en": "senior-consultant-m-w-d-80-100-vaudoise-assurances-lausanne",
+        "fr": "consultant-principal-m-m-j-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2441,15 +2742,29 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:18.134Z"
+      "firstSeenAt": "2026-05-18T13:27:18.134Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-inkasso-m-w-d-80-100-vaudoise-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-inkasso-m-w-d-80-100-vaudoise-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-inkasso-m-w-d-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-inkasso-m-w-d-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-3a5568bf32f4",
-      "slug": "gestionnaire-contentieux-fr-de-m-w-d-80-100-vaudoise-assurances-lausanne",
+      "slug": "gestione-delle-controversie-fr-de-e-h-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "gestionnaire-contentieux-fr-de-f-h-x-80-100-vaudoise-ch",
-        "it": "gestionnaire-contentieux-fr-de-m-w-d-80-100-vaudoise-assurances-lausanne",
-        "en": "gestionnaire-contentieux-fr-de-f-h-x-80-100-vaudoise-ch",
+        "it": "gestione-delle-controversie-fr-de-e-h-x-80-100-vaudoise-assurances-lausanne",
+        "en": "dispute-manager-fr-de-e-h-x-80-100-vaudoise-assurances-lausanne",
         "de": "gestionnaire-contentieux-fr-de-f-h-x-80-100-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -2494,11 +2809,16 @@
       "jobCategory": "Finanze",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-contentieux-fr-de-f-h-x-80-100-vaudoise-ch",
+          "gestionnaire-contentieux-fr-de-m-w-d-80-100-vaudoise-assurances-lausanne"
+        ],
+        "en": [
           "gestionnaire-contentieux-fr-de-f-h-x-80-100-vaudoise-ch"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-contentieux-fr-de-f-h-x-80-100-vaudoise-ch"
+        "gestionnaire-contentieux-fr-de-f-h-x-80-100-vaudoise-ch",
+        "gestionnaire-contentieux-fr-de-m-w-d-80-100-vaudoise-assurances-lausanne"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2522,7 +2842,7 @@
         "fr": "expert-technique-microsoft-365-h-f-x-80-100-vaudoise-ch",
         "it": "expert-technique-microsoft-365-h-f-x-80-100-vaudoise-ch",
         "en": "expert-technique-microsoft-365-h-f-x-80-100-vaudoise-ch",
-        "de": "expert-technique-microsoft-365-h-f-x-80-100-vaudoise-ch"
+        "de": "technischer-experte-microsoft-365-h-f-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2581,10 +2901,10 @@
     },
     {
       "id": "vaudoise-57397f3b5cd3",
-      "slug": "quality-finops-manager-h-f-x-80-100-vaudoise-ch",
+      "slug": "responsabile-qualita-finops-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "quality-finops-manager-h-f-x-80-100-vaudoise-ch",
-        "it": "quality-finops-manager-h-f-x-80-100-vaudoise-ch",
+        "it": "responsabile-qualita-finops-h-f-x-80-100-vaudoise-assurances-lausanne",
         "en": "quality-finops-manager-h-f-x-80-100-vaudoise-ch",
         "de": "quality-finops-manager-h-f-x-80-100-vaudoise-ch"
       },
@@ -2643,7 +2963,15 @@
       },
       "postalCode": "1003",
       "firstSeenAt": "2026-05-18T13:27:17.298Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-finops-manager-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-finops-manager-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-95b6284d520e",
@@ -2651,8 +2979,8 @@
       "slugByLocale": {
         "de": "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch",
         "it": "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch",
-        "en": "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch",
-        "fr": "interne-r-autoexperte-in-m-w-d-80-100-vaudoise-ch"
+        "en": "auto-expert-intern-m-f-d-80-100-vaudoise-assurances-bern",
+        "fr": "stagiaire-expert-auto-h-f-d-80-100-vaudoise-assurances-bern"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2711,12 +3039,12 @@
     },
     {
       "id": "vaudoise-ff715795b409",
-      "slug": "ingenieur-ingenieure-integration-80-100-vaudoise-ch",
+      "slug": "ingegnere-integratore-ingegnere-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "ingenieur-ingenieure-integration-80-100-vaudoise-ch",
-        "it": "ingenieur-ingenieure-integration-80-100-vaudoise-ch",
-        "en": "ingenieur-ingenieure-integration-80-100-vaudoise-ch",
-        "de": "ingenieur-ingenieure-integration-80-100-vaudoise-ch"
+        "it": "ingegnere-integratore-ingegnere-80-100-vaudoise-assurances-lausanne",
+        "en": "engineer-engineer-integration-80-100-vaudoise-assurances-lausanne",
+        "de": "ingenieur-ingenieurintegration-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2771,7 +3099,21 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:16.745Z"
+      "firstSeenAt": "2026-05-18T13:27:16.745Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-ingenieure-integration-80-100-vaudoise-ch"
+        ],
+        "en": [
+          "ingenieur-ingenieure-integration-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "ingenieur-ingenieure-integration-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-ingenieure-integration-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-883d9d719f8e",
@@ -2779,8 +3121,8 @@
       "slugByLocale": {
         "fr": "juriste-junior-italophone-h-f-x-60-vaudoise-ch",
         "it": "juriste-junior-italophone-h-f-x-60-vaudoise-ch",
-        "en": "juriste-junior-italophone-h-f-x-60-vaudoise-ch",
-        "de": "juriste-junior-italophone-h-f-x-60-vaudoise-ch"
+        "en": "italian-speaking-junior-jurist-h-f-x-60-vaudoise-assurances-lausanne",
+        "de": "italienischsprachiger-juniorjurist-h-f-x-60-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2903,12 +3245,12 @@
     },
     {
       "id": "vaudoise-bfdaf48f33b7",
-      "slug": "test-manager-dataspace-data-platform-h-f-x-80-100-vaudoise-ch",
+      "slug": "spazio-dati-piattaforma-dati-del-gestore-di-test-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "test-manager-dataspace-data-platform-h-f-x-80-100-vaudoise-ch",
-        "it": "test-manager-dataspace-data-platform-h-f-x-80-100-vaudoise-ch",
+        "it": "spazio-dati-piattaforma-dati-del-gestore-di-test-h-f-x-80-100-vaudoise-assurances-lausanne",
         "en": "test-manager-dataspace-data-platform-h-f-x-80-100-vaudoise-ch",
-        "de": "test-manager-dataspace-data-platform-h-f-x-80-100-vaudoise-ch"
+        "de": "testmanager-dataspace-datenplattform-h-f-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -2965,7 +3307,18 @@
       },
       "postalCode": "1003",
       "firstSeenAt": "2026-05-18T13:27:15.898Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "test-manager-dataspace-data-platform-h-f-x-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "test-manager-dataspace-data-platform-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "test-manager-dataspace-data-platform-h-f-x-80-100-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-cccb4935a3da",
@@ -3033,12 +3386,12 @@
     },
     {
       "id": "vaudoise-08b2fb3d4e56",
-      "slug": "collaboratore-trice-kundensupport-m-w-d-80-100-vaudoise-assurances-zurich",
+      "slug": "addetto-a-al-supporto-clienti-m-f-d-80-100-vaudoise-assurances-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-kundensupport-m-w-d-80-100-vaudoise-ch",
-        "it": "collaboratore-trice-kundensupport-m-w-d-80-100-vaudoise-assurances-zurich",
-        "en": "mitarbeiter-in-kundensupport-m-w-d-80-100-vaudoise-ch",
-        "fr": "mitarbeiter-in-kundensupport-m-w-d-80-100-vaudoise-ch"
+        "it": "addetto-a-al-supporto-clienti-m-f-d-80-100-vaudoise-assurances-zurich",
+        "en": "customer-support-associate-m-f-d-80-100-vaudoise-assurances-zurich",
+        "fr": "collaborateur-trice-support-client-h-f-d-80-100-vaudoise-assurances-zurich"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3082,11 +3435,19 @@
       "jobCategory": "Vendita, commercio e servizio alla clientela",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-kundensupport-m-w-d-80-100-vaudoise-ch",
+          "collaboratore-trice-kundensupport-m-w-d-80-100-vaudoise-assurances-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-kundensupport-m-w-d-80-100-vaudoise-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-kundensupport-m-w-d-80-100-vaudoise-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-kundensupport-m-w-d-80-100-vaudoise-ch"
+        "mitarbeiter-in-kundensupport-m-w-d-80-100-vaudoise-ch",
+        "collaboratore-trice-kundensupport-m-w-d-80-100-vaudoise-assurances-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3105,12 +3466,12 @@
     },
     {
       "id": "vaudoise-64cf76fe2e5d",
-      "slug": "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch",
+      "slug": "vantaggi-specialistici-incidente-h-f-x-80-100-vaudoise-assurances-lausanne",
       "slugByLocale": {
         "fr": "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch",
-        "it": "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch",
-        "en": "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch",
-        "de": "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch"
+        "it": "vantaggi-specialistici-incidente-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "en": "specialist-benefits-accident-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "de": "sachleistungen-unfall-h-f-x-80-100-vaudoise-assurances-lausanne"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3165,7 +3526,21 @@
         }
       },
       "postalCode": "1003",
-      "firstSeenAt": "2026-05-18T13:27:15.028Z"
+      "firstSeenAt": "2026-05-18T13:27:15.028Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch"
+        ],
+        "en": [
+          "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch"
+        ],
+        "de": [
+          "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-prestations-accident-h-f-x-80-100-vaudoise-ch"
+      ]
     }
   ]
 }

@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-pgglsr",
-      "slug": "collaboratore-trice-in-take-away-genossenschaft-migros-ostschweiz-chur-pgglsr",
+      "slug": "personale-portatelo-via-genossenschaft-migros-ostschweiz-chur",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Mitarbeiter*in Take away",
       "location": "Chur",
@@ -70,19 +70,28 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-in-take-away-genossenschaft-migros-ostschweiz-chur-pgglsr",
-        "en": "mitarbeiter-in-take-away-genossenschaft-migros-ostschweiz-chur-pgglsr",
+        "it": "personale-portatelo-via-genossenschaft-migros-ostschweiz-chur",
+        "en": "staff-in-take-away-genossenschaft-migros-ostschweiz-chur",
         "de": "mitarbeiter-in-take-away-genossenschaft-migros-ostschweiz-chur-pgglsr",
-        "fr": "mitarbeiter-in-take-away-genossenschaft-migros-ostschweiz-chur-pgglsr"
+        "fr": "personnel-a-emporter-genossenschaft-migros-ostschweiz-chur"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-take-away-genossenschaft-migros-ostschweiz-chur"
+          "mitarbeiter-in-take-away-genossenschaft-migros-ostschweiz-chur",
+          "collaboratore-trice-in-take-away-genossenschaft-migros-ostschweiz-chur-pgglsr"
+        ],
+        "en": [
+          "mitarbeiter-in-take-away-genossenschaft-migros-ostschweiz-chur-pgglsr"
+        ],
+        "fr": [
+          "mitarbeiter-in-take-away-genossenschaft-migros-ostschweiz-chur-pgglsr"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-take-away-genossenschaft-migros-ostschweiz-chur"
+        "mitarbeiter-in-take-away-genossenschaft-migros-ostschweiz-chur",
+        "collaboratore-trice-in-take-away-genossenschaft-migros-ostschweiz-chur-pgglsr",
+        "mitarbeiter-in-take-away-genossenschaft-migros-ostschweiz-chur-pgglsr"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
