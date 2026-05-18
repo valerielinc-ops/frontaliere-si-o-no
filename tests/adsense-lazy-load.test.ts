@@ -13,6 +13,7 @@ import { describe, expect, it } from 'vitest';
 import {
   ADSENSE_CLIENT_ID,
   ADSENSE_LAZY_LOADER,
+  ADSENSE_LOADER_CONTENT,
   ADSENSE_SCRIPT_SRC,
   ADSENSE_SNIPPET,
 } from '@/build-plugins/constants';
@@ -55,10 +56,16 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
     );
   });
 
-  it('embeds the IntersectionObserver-based lazy loader', () => {
+  it('embeds the IntersectionObserver-based lazy loader (via external /assets/adsense-loader.js)', () => {
     expect(ADSENSE_SNIPPET).toContain(ADSENSE_LAZY_LOADER);
-    expect(ADSENSE_LAZY_LOADER).toContain('IntersectionObserver');
-    expect(ADSENSE_LAZY_LOADER).toContain('rootMargin');
+    // ADSENSE_LAZY_LOADER is now a tiny <script src="..."> tag pointing to the
+    // externalised loader file written by staticScriptsPlugin. The actual loader
+    // body lives in ADSENSE_LOADER_CONTENT (also written to dist/assets/adsense-loader.js).
+    expect(ADSENSE_LAZY_LOADER).toMatch(
+      /<script\s+defer\s+src=["']\/assets\/adsense-loader\.js\?v=\d+["']><\/script>/,
+    );
+    expect(ADSENSE_LOADER_CONTENT).toContain('IntersectionObserver');
+    expect(ADSENSE_LOADER_CONTENT).toContain('rootMargin');
   });
 
   it('exposes the correct client id + script URL', () => {
@@ -79,9 +86,11 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
 
   it('pushes queued slots after script onload (not synchronously on DOMContentLoaded)', () => {
     // Regression: ensure we call push({}) only after the dynamically-injected
-    // script fires its onload event, not before it exists.
-    expect(ADSENSE_LAZY_LOADER).toContain('s.onload');
-    expect(ADSENSE_LAZY_LOADER).toContain('adsbygoogle');
+    // script fires its onload event, not before it exists. Assertions moved to
+    // ADSENSE_LOADER_CONTENT (the actual JS body) after the external-script
+    // refactor.
+    expect(ADSENSE_LOADER_CONTENT).toContain('s.onload');
+    expect(ADSENSE_LOADER_CONTENT).toContain('adsbygoogle');
   });
 });
 

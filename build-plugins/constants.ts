@@ -35,13 +35,13 @@ export const BUILD_ID = String(Date.now());
  * has those globals — soft-landing pages then fall back to the generic
  * "annuncio non trovato" view instead of the rich expired-job content.
  */
-export const SPA_ACTION_REDIRECT_SCRIPT = `<script>(function(){
- var p=new URLSearchParams(location.search);
- if(p.get('action')||p.get('at')||p.get('authToken')||p.get('newsletter_autologin')){
- sessionStorage.redirect=location.href;
- location.replace('/');
- }
-})()</script>`;
+/**
+ * Plain JS body (no <script> wrapper) — written to dist/assets/spa-action-redirect.js
+ * by staticScriptsPlugin and referenced via <script src="..."> from SPA_ACTION_REDIRECT_SCRIPT.
+ * Externalising this snippet saves ~150 B/page across ~200k SEO pages (~30 MB dist).
+ */
+export const SPA_ACTION_REDIRECT_SCRIPT_CONTENT = `(function(){var p=new URLSearchParams(location.search);if(p.get('action')||p.get('at')||p.get('authToken')||p.get('newsletter_autologin')){sessionStorage.redirect=location.href;location.replace('/');}})();`;
+export const SPA_ACTION_REDIRECT_SCRIPT = `<script src="/assets/spa-action-redirect.js?v=${BUILD_ID}"></script>`;
 
 export function buildCanonicalBridgePage(options: {
  canonicalUrl: string;
@@ -195,8 +195,14 @@ export const GA4_MEASUREMENT_ID = 'G-LGJ9LE360F';
  * Firebase now always fires page_view, accepting a minor duplicate for
  * non-blocked users in exchange for correct landing page in all sessions.
  */
+/**
+ * Plain JS body for the gtag init — written to dist/assets/gtag-init.js by
+ * staticScriptsPlugin. The googletagmanager loader stays inline (it's already
+ * external + async). Saves ~260 B/page across ~200k SEO pages (~52 MB dist).
+ */
+export const GTAG_INIT_CONTENT = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon'});`;
 export const GTAG_SNIPPET = `<script async crossorigin="anonymous" src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>
- <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon'})</script>`;
+ <script src="/assets/gtag-init.js?v=${BUILD_ID}"></script>`;
 
 /**
  * PostHog EU Cloud init snippet for standalone static pages that don't load the
@@ -257,59 +263,14 @@ export const ADSENSE_SCRIPT_SRC = `https://pagead2.googlesyndication.com/pagead/
  *  3. On script load, pushes {} for every slot currently in the DOM.
  */
 const BOT_PATTERNS_LITERAL = JSON.stringify(BOT_UA_PATTERNS);
-export const ADSENSE_LAZY_LOADER = `<script>
-(function(){
-  var ua=(navigator.userAgent||'').toLowerCase();
-  if(!ua||navigator.webdriver===true)return;
-  var P=${BOT_PATTERNS_LITERAL};
-  for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return;
-  if(ua.indexOf('chrome')>=0&&!('chrome' in window))return;
-  // Modern stealth signals — only fire on a UA claiming desktop Chrome.
-  // Mirror the layered logic in services/adAnalytics.ts isLikelyBot().
-  if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){
-    var L=navigator.languages;
-    if(L&&L.length===0)return;
-    if(navigator.plugins&&navigator.plugins.length===0)return;
-    if(typeof navigator.permissions==='undefined')return;
-  }
-  var loaded=false;
-  function loadScript(){
-    if(loaded)return;loaded=true;
-    var s=document.createElement('script');
-    s.async=true;s.crossOrigin='anonymous';
-    s.src='${ADSENSE_SCRIPT_SRC}';
-    s.setAttribute('data-overlays','bottom');
-    s.setAttribute('data-ad-frequency-hint','120s');
-    s.onload=function(){
-      var slots=document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');
-      for(var i=0;i<slots.length;i++){
-        try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}
-      }
-    };
-    document.head.appendChild(s);
-  }
-  function observe(){
-    var slots=document.querySelectorAll('ins.adsbygoogle');
-    if(!('IntersectionObserver' in window)||slots.length===0){
-      // No manual slots or old browser — still load for Auto Ads, but deferred.
-      (window.requestIdleCallback||function(cb){return setTimeout(cb,2000);})(loadScript,{timeout:4000});
-      return;
-    }
-    var io=new IntersectionObserver(function(entries){
-      for(var i=0;i<entries.length;i++){
-        if(entries[i].isIntersecting){io.disconnect();loadScript();return;}
-      }
-    },{rootMargin:'200px 0px'});
-    for(var j=0;j<slots.length;j++)io.observe(slots[j]);
-    // Always also schedule an idle fallback so Auto Ads can run even if no
-    // manual slot ever enters the viewport (e.g. short pages above the fold).
-    (window.requestIdleCallback||function(cb){return setTimeout(cb,3000);})(loadScript,{timeout:6000});
-  }
-  if(document.readyState==='loading'){
-    document.addEventListener('DOMContentLoaded',observe,{once:true});
-  }else{observe();}
-})();
-</script>`;
+/**
+ * Plain JS body for the AdSense lazy loader — written to dist/assets/adsense-loader.js
+ * by staticScriptsPlugin. This was the LARGEST inline script in every static page:
+ * ~2 KB minified × ~200k SEO pages = ~400 MB dist. Externalising drops per-page cost
+ * from ~2200 B to ~90 B (the <script src=...> tag).
+ */
+export const ADSENSE_LOADER_CONTENT = `(function(){var ua=(navigator.userAgent||'').toLowerCase();if(!ua||navigator.webdriver===true)return;var P=${BOT_PATTERNS_LITERAL};for(var k=0;k<P.length;k++)if(ua.indexOf(P[k])>=0)return;if(ua.indexOf('chrome')>=0&&!('chrome' in window))return;if(ua.indexOf('chrome')>=0&&ua.indexOf('mobile')<0){var L=navigator.languages;if(L&&L.length===0)return;if(navigator.plugins&&navigator.plugins.length===0)return;if(typeof navigator.permissions==='undefined')return;}var loaded=false;function loadScript(){if(loaded)return;loaded=true;var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','120s');s.onload=function(){var slots=document.querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])');for(var i=0;i<slots.length;i++){try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}};document.head.appendChild(s);}function observe(){var slots=document.querySelectorAll('ins.adsbygoogle');if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||function(cb){return setTimeout(cb,2000);})(loadScript,{timeout:4000});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'200px 0px'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||function(cb){return setTimeout(cb,3000);})(loadScript,{timeout:6000});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}})();`;
+export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/adsense-loader.js?v=${BUILD_ID}"></script>`;
 
 export const ADSENSE_SNIPPET = `<meta name="google-adsense-account" content="${ADSENSE_CLIENT_ID}">
  <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
