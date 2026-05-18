@@ -2633,7 +2633,10 @@ function BlogArticles({
  // ── List View (Newspaper style) ──────────────────────
 
  return (
- <div className="max-w-5xl mx-auto space-y-6">
+ // CLS fix (Phase 6 — 2026-05-18): reserve min-height to absorb the
+ // async articles-load reflow that Lighthouse desktop attributed score 0.17
+ // to this container on /articoli-frontaliere/.
+ <div className="max-w-5xl mx-auto space-y-6 min-h-[640px]">
  {/* Header with stats hook */}
  <div className="text-center mb-2">
  <h1 className="text-2xl sm:text-3xl font-bold font-display text-strong mb-2 flex items-center justify-center gap-2">

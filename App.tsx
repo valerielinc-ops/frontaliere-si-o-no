@@ -2404,8 +2404,13 @@ const App: React.FC = () => {
    * so the footer flows naturally after the SEO content in visual order. */}
  {(() => {
    const footerPortalTarget = staticOverlay ? document.getElementById('footer-root') : null;
+   // CLS fix (Phase 6 — 2026-05-18): removed content-visibility:auto +
+   // containIntrinsicSize 'auto 1600px'. Lighthouse desktop attributed score
+   // 0.61+0.26=0.87 on /cerca-lavoro-ticino/ to this footer because the real
+   // rendered height (lazy weather/newsletter/donation/sponsor logos) diverged
+   // too much from the 1600px intrinsic-size. Widgets stay Suspense-lazy.
    const footerJsx = (
- <footer className="border-t border-edge bg-surface-alt py-8 pb-20 md:pb-8 mt-auto relative z-10" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 1600px' }}>
+ <footer className="border-t border-edge bg-surface-alt py-8 pb-20 md:pb-8 mt-auto relative z-10">
  <div className="max-w-7xl mx-auto px-4 space-y-6">
  {/* Footer weather widget */}
  <Suspense fallback={<SkeletonFooterSlot height="min-h-[36px]" />}><FooterWeather /></Suspense>
