@@ -504,9 +504,6 @@ function renderPage(opts: {
     ${featuredHtml}
     ${employerGridHtml}
     ${dividerHtml}
-    <section style="margin:0 0 28px">
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:62ch;font-size:17px;font-style:italic">${inlineFormat(copy.lede)}</p>
-    </section>
     ${sectionsHtml}
     ${salaryTable}
     ${employersTable}
@@ -519,6 +516,9 @@ function renderPage(opts: {
     <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
       <a href="${esc(jobBoardUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
       <a href="${esc(calculatorUrl)}" style="padding:10px 16px;border-radius:10px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:600">${esc(copy.ctaSimulator)}</a>
+    </section>
+    <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-label="${esc(copy.h1)}">
+      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px;font-style:italic">${inlineFormat(copy.lede)}</p>
     </section>`;
 
   const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">${body}</main>`;
