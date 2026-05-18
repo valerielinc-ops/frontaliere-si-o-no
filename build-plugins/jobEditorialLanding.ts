@@ -6,6 +6,7 @@ export type JobCareClusterKey = 'clinics' | 'careHomes' | 'oss' | 'educators';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import municipalitiesFile from '../data/canton-municipalities.json';
 import { resolveJobCanton } from './shared/cantonSection';
+import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 
 type CantonSlugEntry = { it: string; en: string; de: string; fr: string; dePrefix?: string };
 type CantonMunicipalitiesFile = {
@@ -2010,6 +2011,14 @@ export function buildJobTodayLandingModel(options: {
  const recent3d = cantonJobs.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
  const partTime = cantonJobs.filter((job) => isPartTime(job));
  const citySourceJobs = cantonJobs;
+ // Two URL schemes coexist:
+ //  - TI legacy: `/cerca-lavoro-ticino/ricerca-{city}/` (5 hub cities, indexed)
+ //  - Cathedral: `/cerca-lavoro-{canton}/{city}/` (every canton-known municipality)
+ // For TI hubs we keep the legacy `ricerca-*` URL to preserve link equity.
+ // For everything else we emit the cathedral path, gated on `getCantonCities`
+ // so we never link to a city the cathedral plugin did not actually generate.
+ const TICINO_RICERCA_HUBS = new Set(['lugano', 'bellinzona', 'mendrisio', 'locarno', 'chiasso']);
+ const cantonKnownCitySlugs = new Set(getCantonCities(cantonCode).map(normalizeCitySlug));
  const cityLeaders = Array.from(
  citySourceJobs.reduce<Map<string, number>>((map, job) => {
  const location = normalizeSpace(job.location || '');
@@ -2018,15 +2027,16 @@ export function buildJobTodayLandingModel(options: {
  return map;
  }, new Map<string, number>()),
  ) .map(([name, count]) => {
- // Only the 5 main Ticino hub cities have `/cerca-lavoro-ticino/ricerca-{city}/`
- // search pages generated. For any other city (Grigioni/Vallese villages,
- // Ticino rural locations, multi-word location strings) we leave href empty
- // so the template renders a plain-text card (no broken links).
  const slug = slugifyTerm(name) || '';
- const TICINO_RICERCA_HUBS = new Set(['lugano', 'bellinzona', 'mendrisio', 'locarno', 'chiasso']);
- const href = cantonCode === 'TI' && TICINO_RICERCA_HUBS.has(slug)
- ? buildSearchHref(baseUrl, options.localePrefix, options.sectionSlug, locale, name)
- : '';
+ let href = '';
+ if (cantonCode === 'TI' && TICINO_RICERCA_HUBS.has(slug)) {
+ href = buildSearchHref(baseUrl, options.localePrefix, options.sectionSlug, locale, name);
+ } else {
+ const citySlug = normalizeCitySlug(name);
+ if (citySlug && cantonKnownCitySlugs.has(citySlug)) {
+ href = ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${citySlug}`.replace(/\/+/g, '/')}`);
+ }
+ }
  return { name, count, href };
  })
  .sort((a, b) => (b.count - a.count) || a.name.localeCompare(b.name, 'it', { sensitivity: 'base' }))
