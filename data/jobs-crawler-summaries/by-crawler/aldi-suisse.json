@@ -1,25 +1,26 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-05-18T11:43:12.625Z",
+  "generatedAt": "2026-05-18T21:17:03.858Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6290,
-  "avgDurationMs": 6290,
+  "durationMs": 4462,
+  "avgDurationMs": 4462,
   "durationHistory": [
-    6290
+    4462
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "aldi-suisse-0c5c9bc1b71c",
       "slug": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
       "companyDomain": "aldi.ch",
-      "title": "Stellvertretender FIlialleiter (m/w/d)",
+      "title": "Stellvertretender Filialleiter (m/w/d)",
       "location": "en in elf Ländern weltweit. Seit dem",
       "postalCode": "6928",
       "canton": "TI",
@@ -37,8 +38,9 @@
       "url": "https://www.jobs.aldi.ch/job/1391132333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T11:43:10.534Z",
+      "crawledAt": "2026-05-18T21:17:02.026Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T11:43:10.534Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "_qualityScore": 87,
@@ -48,9 +50,7 @@
         "translation": 16,
         "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "aldi-suisse-2b7849368ea3",
       "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
@@ -75,7 +75,7 @@
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T11:43:10.528Z",
+      "crawledAt": "2026-05-18T21:17:02.020Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T09:33:14.853Z",
       "salaryMin": 59000,
