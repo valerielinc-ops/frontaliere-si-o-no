@@ -1,16 +1,16 @@
 {
   "key": "swatch-group-assembly",
   "label": "swatch-group-assembly",
-  "generatedAt": "2026-05-17T22:36:21.381Z",
+  "generatedAt": "2026-05-18T13:19:19.612Z",
   "total": 12,
-  "newCount": 20,
+  "newCount": 19,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 26278,
-  "avgDurationMs": 26278,
+  "durationMs": 27835,
+  "avgDurationMs": 27835,
   "durationHistory": [
-    26278
+    27835
   ],
   "newJobs": [
     {
@@ -87,7 +87,7 @@
     },
     {
       "id": "company-7uaw1k",
-      "slug": "store-manager-bilbao-the-swatch-group-espana-s-a-48009-bilbao-vizcaya-spain-company-address-the-swatch-group-espana-s-7uaw1k",
+      "slug": "responsabile-negozio-bilbao-the-swatch-group-espana-s-a-48009-bilbao-vizcaya-spain-company-address-the-swatch-group",
       "company": "The Swatch Group (España) S.A.",
       "title": "Store Manager Bilbao",
       "location": "48009 BILBAO (Vizcaya) Spain Company address The Swatch Group (España) S",
@@ -113,11 +113,11 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 81,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 10,
+        "translation": 13,
         "completeness": 25
       }
     },
@@ -155,7 +155,7 @@
     },
     {
       "id": "company-7uaq6d",
-      "slug": "boutique-manager-omega-o-grupo-swatch-macau-limitada-job-location-avenida-dr-sun-yat-sen-995a-1173-853-macau-7uaq6d",
+      "slug": "direttore-della-boutique-omega-o-grupo-swatch-macau-limitada-job-location-avenida-dr-sun-yat-sen-995a-1173-853-macau",
       "company": "O Grupo Swatch (Macau) Limitada",
       "title": "Boutique Manager - OMEGA",
       "location": "Job location 孫逸仙大馬路 Avenida Dr. Sun Yat-Sen 995A-1173 853 Macau Macau",
@@ -177,11 +177,11 @@
       "salaryMax": 103000,
       "employmentType": "FULL_TIME",
       "postalCode": "1173",
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 18,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -254,42 +254,6 @@
         "cleanliness": 25,
         "richness": 21,
         "translation": 23,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-7uaw29",
-      "slug": "swatch-tempo-pieno-keyholder-ny-hotel-las-vegas-the-swatch-group-u-s-inc-job-location-south-las-vegas-boulevard-3790-89109-las-vegas-nv-n-7uaw29",
-      "company": "The Swatch Group (U.S.) Inc.",
-      "title": "Swatch Full Time Keyholder - NY NY Hotel (Las Vegas)",
-      "location": "Job location South Las Vegas Boulevard 3790 89109 Las Vegas NV (Nevada) United S",
-      "canton": "FR",
-      "category": "health",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "url": "https://www.swatchgroup.com/en/job/31963",
-      "source": "Company Careers Crawler",
-      "companyKey": "rado",
-      "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-05-15T11:57:39.936Z",
-      "firstSeenAt": "2026-05-15T11:57:39.936Z",
-      "sourceLang": "en",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "streetAddress": "Bielstrasse 45",
-      "postalCode": "2543",
-      "addressLocality": "Job location South Las Vegas Boulevard 3790 89109 Las Vegas NV (Nevada) United S",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
         "completeness": 25
       }
     },
