@@ -77,7 +77,7 @@ jobs:
           # Known large crawlers (>50 estimated jobs per run)
           LARGE_CRAWLERS="update-jobs-coop update-jobs-sbb update-jobs-migros update-jobs-post update-jobs-confederazione update-jobs-sunrise update-jobs-amag"
           # Known medium crawlers (10-50 jobs)
-          MEDIUM_CRAWLERS="update-jobs-allianz update-jobs-axpo update-jobs-axa update-jobs-raiffeisen update-jobs-hamilton update-jobs-volg update-jobs-hitachi update-jobs-trumpf update-jobs-agroscope update-jobs-bosch update-jobs-boggi update-jobs-kempinski update-jobs-colin-cie update-jobs-dot-life update-jobs-engelvoelkers update-jobs-stadt-chur update-jobs-cler update-jobs-guess update-jobs-giorgio-armani update-jobs-sintetica update-jobs-casale update-jobs-citta-di-lugano update-jobs-ferrovia-retica update-jobs-mikron update-jobs-rapelli update-jobs-bancastato update-jobs-denner update-jobs-lonza"
+          MEDIUM_CRAWLERS="update-jobs-allianz update-jobs-axpo update-jobs-axa update-jobs-raiffeisen update-jobs-hamilton update-jobs-volg update-jobs-hitachi update-jobs-trumpf update-jobs-agroscope update-jobs-bosch update-jobs-kempinski update-jobs-colin-cie update-jobs-engelvoelkers update-jobs-stadt-chur update-jobs-cler update-jobs-guess update-jobs-giorgio-armani update-jobs-sintetica update-jobs-casale update-jobs-citta-di-lugano update-jobs-ferrovia-retica update-jobs-mikron update-jobs-rapelli update-jobs-denner update-jobs-lonza"
 
           get_delay() {
             local name="$1"
