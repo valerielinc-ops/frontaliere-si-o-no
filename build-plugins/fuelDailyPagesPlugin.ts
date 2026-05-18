@@ -86,6 +86,7 @@ import {
   BREADCRUMB_STYLE,
   CARD_BODY_STYLE,
   CARD_STYLE,
+  CTA_PRIMARY_STYLE,
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
@@ -97,6 +98,7 @@ import {
   resolveBrandLogoUrl,
   STAT_TILE_ACCENT,
   STAT_TILE_BASE,
+  STAT_TILE_DANGER,
   STAT_TILE_LABEL,
   STAT_TILE_SUCCESS,
   STAT_TILE_VALUE,
@@ -2408,6 +2410,344 @@ function buildStationSignaturePargaraph(inp: StationSignatureInput): string {
   return `${parts.join('. ')}. Use this page as a precise reference for your refuelling routine: the comparison with the closest Italian price and with the other stations in the ${zone} zone shifts day by day.`;
 }
 
+// ── Per-station hero + map + chart helpers (2026-05-18 redesign) ──
+//
+// These helpers compose the above-the-fold section of every per-station page.
+// They replace the old "wall of prose first" layout that violated CLAUDE.md
+// rule #15/16 (mobile-first, filler below fold). The long editorial prose
+// remains in the page — just moved below this block so the meaty data
+// (brand identity, today's price, location, history chart) reaches mobile
+// users without scrolling past 80 lines of methodology.
+//
+// All styling binds to the OKLCH semantic tokens from `seoContentTokens.ts`
+// (no inline hex, per CLAUDE.md rule #17). Brand logos are resolved via
+// `resolveBrandLogoUrl` against `public/images/brands/{slug}.{png,svg}`;
+// missing logos fall back to a neutral monogram chip. The mini-map embeds
+// an OpenStreetMap iframe lazy-loaded (no API key, no script). The history
+// chart reuses the existing zone-level `renderFuelHistoryCard` machinery —
+// honest caption clarifies it's the zone trend (this station follows it).
+
+interface StationRedesignLabels {
+  readonly heroTagline: (street: string, city: string, zone: string) => string;
+  readonly viewRanking: (city: string) => string;
+  readonly openInMaps: string;
+  readonly openInWaze: string;
+  readonly locationHeading: string;
+  readonly locationCaption: (brand: string, city: string) => string;
+  readonly mapAria: (brand: string, city: string) => string;
+  readonly coordinatesLabel: string;
+  readonly historyHeading: (zone: string) => string;
+  readonly historyDisclaimer: string;
+  readonly historyAriaLabel: (zone: string, fuel: string, avgFmt: string) => string;
+  readonly historyTrendLabel: string;
+  readonly adviceCheaper: (delta: string, zone: string) => string;
+  readonly adviceMedian: (zone: string) => string;
+  readonly advicePremium: (delta: string, zone: string) => string;
+  readonly rankSuffix: (rankIdx: number, total: number) => string;
+}
+
+const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
+  it: {
+    heroTagline: (st, c, z) => `${st || c} · ${c} · zona ${z}`,
+    viewRanking: (c) => `Vedi classifica ${c}`,
+    openInMaps: 'Apri in Google Maps',
+    openInWaze: 'Apri in Waze',
+    locationHeading: 'Dove si trova',
+    locationCaption: (b, c) => `Posizione della stazione ${b} a ${c}. Tocca la mappa per zoom o usa i pulsanti per la navigazione.`,
+    mapAria: (b, c) => `Mappa OpenStreetMap che mostra la posizione della stazione ${b} a ${c}`,
+    coordinatesLabel: 'Coordinate',
+    historyHeading: (z) => `Andamento prezzo nella zona ${z}`,
+    historyDisclaimer: 'Questa stazione segue il trend della zona. La cronologia per singola stazione sarà disponibile a breve.',
+    historyAriaLabel: (z, f, avg) => `Andamento storico del prezzo ${f.toLowerCase()} nella zona ${z}, media ${avg} CHF/litro nell'intervallo selezionato.`,
+    historyTrendLabel: 'Andamento prezzo',
+    adviceCheaper: (delta, z) => `Buona scelta: oggi questa stazione è ${delta} CHF/litro più economica della media zona ${z}.`,
+    adviceMedian: (z) => `Prezzo in linea con la media della zona ${z}: scegli in base alla comodità del percorso.`,
+    advicePremium: (delta, z) => `Attenzione: oggi questa stazione è ${delta} CHF/litro più cara della media zona ${z}. Valuta una stazione più economica nella classifica.`,
+    rankSuffix: (idx, tot) => tot > 0 ? `${idx + 1}° su ${tot}` : '—',
+  },
+  en: {
+    heroTagline: (st, c, z) => `${st || c} · ${c} · ${z} zone`,
+    viewRanking: (c) => `View ${c} ranking`,
+    openInMaps: 'Open in Google Maps',
+    openInWaze: 'Open in Waze',
+    locationHeading: 'Where it is',
+    locationCaption: (b, c) => `Location of the ${b} station in ${c}. Tap the map to zoom, or use the buttons for navigation.`,
+    mapAria: (b, c) => `OpenStreetMap showing the location of the ${b} station in ${c}`,
+    coordinatesLabel: 'Coordinates',
+    historyHeading: (z) => `Price trend in the ${z} zone`,
+    historyDisclaimer: 'This station follows the zone trend. Per-station history is coming soon.',
+    historyAriaLabel: (z, f, avg) => `Historical ${f.toLowerCase()} price trend in the ${z} zone, average ${avg} CHF/litre over the selected range.`,
+    historyTrendLabel: 'Price trend',
+    adviceCheaper: (delta, z) => `Good pick: today this station is ${delta} CHF/litre cheaper than the ${z}-zone average.`,
+    adviceMedian: (z) => `Price in line with the ${z}-zone average: pick by route convenience.`,
+    advicePremium: (delta, z) => `Heads up: today this station is ${delta} CHF/litre above the ${z}-zone average. Consider a cheaper one from the ranking.`,
+    rankSuffix: (idx, tot) => tot > 0 ? `#${idx + 1} of ${tot}` : '—',
+  },
+  de: {
+    heroTagline: (st, c, z) => `${st || c} · ${c} · Zone ${z}`,
+    viewRanking: (c) => `Rangliste ${c} ansehen`,
+    openInMaps: 'In Google Maps öffnen',
+    openInWaze: 'In Waze öffnen',
+    locationHeading: 'Standort',
+    locationCaption: (b, c) => `Standort der Tankstelle ${b} in ${c}. Tippe die Karte für Zoom oder nutze die Buttons für Navigation.`,
+    mapAria: (b, c) => `OpenStreetMap mit Standort der Tankstelle ${b} in ${c}`,
+    coordinatesLabel: 'Koordinaten',
+    historyHeading: (z) => `Preisverlauf in der Zone ${z}`,
+    historyDisclaimer: 'Diese Tankstelle folgt dem Zonen-Trend. Stations-spezifische Historie folgt in Kürze.',
+    historyAriaLabel: (z, f, avg) => `Historischer ${f}-Preisverlauf in der Zone ${z}, Durchschnitt ${avg} CHF/Liter im ausgewählten Zeitraum.`,
+    historyTrendLabel: 'Preisverlauf',
+    adviceCheaper: (delta, z) => `Gute Wahl: heute ist diese Tankstelle ${delta} CHF/Liter günstiger als der Zonen-${z}-Schnitt.`,
+    adviceMedian: (z) => `Preis im Schnitt der Zone ${z}: wähle nach Route.`,
+    advicePremium: (delta, z) => `Achtung: heute ist diese Tankstelle ${delta} CHF/Liter teurer als der Zonen-${z}-Schnitt. Eine günstigere findest du in der Rangliste.`,
+    rankSuffix: (idx, tot) => tot > 0 ? `${idx + 1}/${tot}` : '—',
+  },
+  fr: {
+    heroTagline: (st, c, z) => `${st || c} · ${c} · zone ${z}`,
+    viewRanking: (c) => `Voir le classement de ${c}`,
+    openInMaps: 'Ouvrir dans Google Maps',
+    openInWaze: 'Ouvrir dans Waze',
+    locationHeading: 'Où elle se trouve',
+    locationCaption: (b, c) => `Emplacement de la station ${b} à ${c}. Touchez la carte pour zoomer ou utilisez les boutons pour la navigation.`,
+    mapAria: (b, c) => `OpenStreetMap montrant l'emplacement de la station ${b} à ${c}`,
+    coordinatesLabel: 'Coordonnées',
+    historyHeading: (z) => `Tendance du prix dans la zone ${z}`,
+    historyDisclaimer: 'Cette station suit la tendance de la zone. L\'historique par station arrive bientôt.',
+    historyAriaLabel: (z, f, avg) => `Tendance historique du prix ${f.toLowerCase()} dans la zone ${z}, moyenne ${avg} CHF/litre sur la période sélectionnée.`,
+    historyTrendLabel: 'Tendance du prix',
+    adviceCheaper: (delta, z) => `Bon choix : aujourd'hui cette station est ${delta} CHF/litre moins chère que la moyenne de la zone ${z}.`,
+    adviceMedian: (z) => `Prix conforme à la moyenne de la zone ${z} : choisissez selon votre itinéraire.`,
+    advicePremium: (delta, z) => `Attention : aujourd'hui cette station est ${delta} CHF/litre plus chère que la moyenne de la zone ${z}. Voyez le classement pour une option moins chère.`,
+    rankSuffix: (idx, tot) => tot > 0 ? `${idx + 1}/${tot}` : '—',
+  },
+};
+
+/** Normalised slug for `resolveBrandLogoUrl` (matches its [a-z0-9-] filter). */
+function brandLogoSlug(brand: string): string {
+  return String(brand || '')
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9-]/g, '');
+}
+
+/** Compose the inline SVG monogram fallback when no brand logo is on disk. */
+function renderBrandMonogram(brand: string, size: number): string {
+  const initials = String(brand || '?')
+    .trim()
+    .split(/\s+/)
+    .slice(0, 2)
+    .map((w) => w.charAt(0).toUpperCase())
+    .join('') || '?';
+  return `<span aria-hidden="true" style="display:inline-flex;align-items:center;justify-content:center;width:${size}px;height:${size}px;border-radius:14px;background:var(--color-accent-subtle);color:var(--color-accent);font-weight:800;font-size:${Math.round(size * 0.38)}px;border:1px solid var(--color-accent-border);flex-shrink:0">${esc(initials)}</span>`;
+}
+
+/** Render the brand visual: real logo if available, monogram fallback. */
+function renderBrandVisual(rootDir: string | undefined, brand: string, size: number): string {
+  const slug = brandLogoSlug(brand);
+  const logoUrl = rootDir ? resolveBrandLogoUrl(rootDir, slug) : null;
+  if (!logoUrl) return renderBrandMonogram(brand, size);
+  return `<img src="${esc(logoUrl)}" alt="${esc(brand)}" width="${size}" height="${size}" loading="lazy" decoding="async" style="display:block;width:${size}px;height:${size}px;border-radius:14px;object-fit:contain;background:var(--color-surface-alt);padding:6px;border:1px solid var(--color-edge);flex-shrink:0">`;
+}
+
+interface StationHeroInput {
+  readonly locale: FuelDailyLocale;
+  readonly brand: string;
+  readonly street: string;
+  readonly city: string;
+  readonly zoneLabel: string;
+  readonly zonePath: string;
+  readonly priceFmt: string;
+  readonly currency: string;
+  readonly fuelLabel: string;
+  readonly deltaZone: number | null;
+  readonly deltaZoneFmt: string;
+  readonly rankIdx: number;
+  readonly total: number;
+  readonly lat: number | null;
+  readonly lng: number | null;
+  readonly rootDir: string | undefined;
+}
+
+/** Top hero card: brand identity + headline price + quick actions. */
+function renderStationHero(inp: StationHeroInput): string {
+  const labels = STATION_REDESIGN[inp.locale];
+  const logo = renderBrandVisual(inp.rootDir, inp.brand, 64);
+  const rankText = labels.rankSuffix(inp.rankIdx, inp.total);
+  const deltaTone =
+    inp.deltaZone === null
+      ? 'var(--color-subtle)'
+      : inp.deltaZone < -0.005
+      ? 'var(--color-success)'
+      : inp.deltaZone > 0.005
+      ? 'var(--color-danger)'
+      : 'var(--color-subtle)';
+  const deltaBg =
+    inp.deltaZone === null
+      ? 'var(--color-surface-alt)'
+      : inp.deltaZone < -0.005
+      ? 'var(--color-success-subtle)'
+      : inp.deltaZone > 0.005
+      ? 'var(--color-danger-subtle)'
+      : 'var(--color-surface-alt)';
+
+  const hasCoords = inp.lat !== null && inp.lng !== null;
+  const gmapsHref = hasCoords
+    ? `https://www.google.com/maps/search/?api=1&query=${inp.lat!.toFixed(6)},${inp.lng!.toFixed(6)}`
+    : '';
+  const wazeHref = hasCoords
+    ? `https://www.waze.com/ul?ll=${inp.lat!.toFixed(6)}%2C${inp.lng!.toFixed(6)}&navigate=yes`
+    : '';
+
+  const actionsHtml = `<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px">
+    <a href="${esc(inp.zonePath)}" style="${CTA_PRIMARY_STYLE};font-size:14px;padding:9px 14px">📊 ${esc(labels.viewRanking(inp.city))} →</a>
+    ${hasCoords ? `<a href="${esc(gmapsHref)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;background:var(--color-surface-alt);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-edge)">📍 ${esc(labels.openInMaps)}</a>` : ''}
+    ${hasCoords ? `<a href="${esc(wazeHref)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;background:var(--color-surface-alt);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-edge)">🚗 ${esc(labels.openInWaze)}</a>` : ''}
+  </div>`;
+
+  return `<section style="${CARD_BODY_STYLE};padding:22px 22px 20px;margin:0 0 18px" aria-label="${esc(inp.brand)} ${esc(inp.city)}">
+  <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+    ${logo}
+    <div style="flex:1;min-width:200px">
+      <div style="font-size:22px;font-weight:700;color:var(--color-heading);line-height:1.2">${esc(inp.brand)}</div>
+      <div style="margin-top:4px;font-size:14px;color:var(--color-subtle);line-height:1.4">${esc(labels.heroTagline(inp.street, inp.city, inp.zoneLabel))}</div>
+    </div>
+  </div>
+  <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:baseline;margin-top:20px">
+    <div>
+      <div style="font-size:clamp(2.2rem,6vw,3rem);font-weight:800;color:var(--color-heading);line-height:1;font-variant-numeric:tabular-nums">${esc(inp.priceFmt)}</div>
+      <div style="margin-top:6px;font-size:13px;color:var(--color-subtle);text-transform:uppercase;letter-spacing:0.04em;font-weight:600">${esc(inp.currency)} · ${esc(inp.fuelLabel)}</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:${deltaBg};color:${deltaTone};font-weight:700;font-size:13px;font-variant-numeric:tabular-nums">${esc(inp.deltaZoneFmt)} vs ${esc(inp.zoneLabel)}</span>
+      <a href="${esc(inp.zonePath)}" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);font-weight:700;font-size:13px;text-decoration:none;border:1px solid var(--color-accent-border)">🏆 ${esc(rankText)} a ${esc(inp.city)} →</a>
+    </div>
+  </div>
+  ${actionsHtml}
+</section>`;
+}
+
+/** Advice banner that interprets the delta-vs-zone in one sentence. */
+function renderStationAdvice(
+  locale: FuelDailyLocale,
+  deltaZone: number | null,
+  deltaZoneFmt: string,
+  zoneLabel: string,
+): string {
+  const labels = STATION_REDESIGN[locale];
+  let text: string;
+  let tone: string;
+  // formatDelta returns "+0,065 CHF" / "-0,065 CHF" / "0,000 CHF" — strip the
+  // sign + " CHF" suffix so the advice template controls punctuation.
+  const absDeltaFmt = deltaZoneFmt.replace(/^[-+]/, '').replace(/\s*CHF\s*$/, '');
+  if (deltaZone === null || Math.abs(deltaZone) <= 0.02) {
+    text = labels.adviceMedian(zoneLabel);
+    tone = STAT_TILE_WARNING;
+  } else if (deltaZone < 0) {
+    text = labels.adviceCheaper(absDeltaFmt, zoneLabel);
+    tone = STAT_TILE_SUCCESS;
+  } else {
+    text = labels.advicePremium(absDeltaFmt, zoneLabel);
+    tone = STAT_TILE_DANGER;
+  }
+  return `<aside data-station-advice style="${tone};margin:0 0 22px;font-weight:600;line-height:1.5">${esc(text)}</aside>`;
+}
+
+interface StationLocationInput {
+  readonly locale: FuelDailyLocale;
+  readonly brand: string;
+  readonly city: string;
+  readonly address: string;
+  readonly lat: number;
+  readonly lng: number;
+}
+
+/** Map + address card. OSM iframe lazy-loaded, no API key required. */
+function renderStationLocationCard(inp: StationLocationInput): string {
+  const labels = STATION_REDESIGN[inp.locale];
+  const { lat, lng } = inp;
+  // ~600m bbox at the equator; tighter near the poles. OK for the latitudes
+  // covered by Ticino + 4 border cantons.
+  const span = 0.006;
+  const bbox = `${(lng - span).toFixed(5)},${(lat - span).toFixed(5)},${(lng + span).toFixed(5)},${(lat + span).toFixed(5)}`;
+  const marker = `${lat.toFixed(6)},${lng.toFixed(6)}`;
+  const iframeSrc = `https://www.openstreetmap.org/export/embed.html?bbox=${encodeURIComponent(bbox)}&amp;layer=mapnik&amp;marker=${encodeURIComponent(marker)}`;
+  const gmapsHref = `https://www.google.com/maps/search/?api=1&query=${marker}`;
+  const wazeHref = `https://www.waze.com/ul?ll=${marker.replace(',', '%2C')}&navigate=yes`;
+
+  return `<section style="${CARD_BODY_STYLE};padding:0;margin:0 0 22px;overflow:hidden" aria-labelledby="stationLocation">
+  <div style="display:grid;grid-template-columns:minmax(0,1fr);gap:0">
+    <div style="position:relative;background:var(--color-surface-alt);min-height:240px">
+      <iframe
+        src="${iframeSrc}"
+        width="100%"
+        height="240"
+        style="border:0;display:block;width:100%;height:240px"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="${esc(labels.mapAria(inp.brand, inp.city))}"
+        aria-label="${esc(labels.mapAria(inp.brand, inp.city))}"></iframe>
+    </div>
+    <div style="padding:18px 22px">
+      <h2 id="stationLocation" style="${H2_STYLE};margin:0 0 10px;font-size:18px">${esc(labels.locationHeading)}</h2>
+      <p style="margin:0 0 12px;color:var(--color-body);font-size:14px;line-height:1.5">${esc(labels.locationCaption(inp.brand, inp.city))}</p>
+      <dl style="margin:0 0 14px;display:grid;grid-template-columns:max-content 1fr;column-gap:14px;row-gap:6px;font-size:14px;color:var(--color-body)">
+        <dt style="font-weight:600">📌</dt><dd style="margin:0">${esc(inp.address || `${inp.city}`)}</dd>
+        <dt style="font-weight:600">🧭</dt><dd style="margin:0;font-variant-numeric:tabular-nums">${esc(labels.coordinatesLabel)}: ${lat.toFixed(5)}, ${lng.toFixed(5)}</dd>
+      </dl>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <a href="${esc(gmapsHref)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;background:var(--color-accent);color:var(--color-on-accent);text-decoration:none;font-weight:600;font-size:14px">📍 ${esc(labels.openInMaps)}</a>
+        <a href="${esc(wazeHref)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;background:var(--color-surface-alt);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-edge)">🚗 ${esc(labels.openInWaze)}</a>
+      </div>
+    </div>
+  </div>
+</section>`;
+}
+
+interface StationHistoryInput {
+  readonly locale: FuelDailyLocale;
+  readonly zone: FuelZone;
+  readonly zoneLabel: string;
+  readonly fuel: FuelType;
+  readonly fuelLabel: string;
+  readonly history: readonly HistorySnapshot[];
+  readonly today: Date;
+  readonly zoneAvg: number | null;
+}
+
+/** Reuse the zone history chart with a per-station honest disclaimer. */
+function renderStationHistoryCard(inp: StationHistoryInput): string {
+  const labels = STATION_REDESIGN[inp.locale];
+  const seriesByRange = FUEL_RANGE_KEYS.reduce(
+    (acc, rk) => {
+      acc[rk] = buildFuelHistorySeries(
+        inp.history as HistorySnapshot[],
+        inp.zone,
+        inp.fuel,
+        FUEL_RANGE_DAYS[rk],
+        inp.today,
+        inp.zoneAvg,
+      );
+      return acc;
+    },
+    {} as Record<FuelRangeKey, FuelSeriesPoint[]>,
+  );
+  // If we have no points in any range, omit the card entirely.
+  const anyPoints = Object.values(seriesByRange).some((s) => s.length >= 2);
+  if (!anyPoints) return '';
+  const chartCard = renderFuelHistoryCard({
+    locale: inp.locale,
+    trendLabel: labels.historyTrendLabel,
+    buildAriaLabel: (avgFmt) => labels.historyAriaLabel(inp.zoneLabel, inp.fuelLabel, avgFmt),
+    seriesByRange,
+    currency: 'CHF',
+  });
+  return `<section style="margin:0 0 24px" aria-labelledby="stationHistory">
+  <h2 id="stationHistory" style="${H2_STYLE};margin:0 0 8px;font-size:20px">${esc(labels.historyHeading(inp.zoneLabel))}</h2>
+  <p style="margin:0 0 14px;color:var(--color-subtle);font-size:13px;line-height:1.5;font-style:italic">${esc(labels.historyDisclaimer)}</p>
+  ${chartCard}
+</section>`;
+}
+
 /** Render a Swiss per-station HTML page for a single fuel. */
 /**
  * Per-station prose section that ties station price to the cross-border
@@ -2472,8 +2812,10 @@ function renderStationPage(opts: {
   canonicalPath: string;
   alternates: Record<FuelDailyLocale, string>;
   distDir?: string;
+  history?: readonly HistorySnapshot[];
+  rootDir?: string;
 }): string {
-  const { ctx, locale, fuel, zoneAvg, zoneStations, today, canonicalPath, alternates, distDir } = opts;
+  const { ctx, locale, fuel, zoneAvg, zoneStations, today, canonicalPath, alternates, distDir, history, rootDir } = opts;
   const copy = STATION_COPY[locale];
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
   const zoneLabel = FUEL_ZONE_DISPLAY[ctx.zone];
@@ -2626,6 +2968,54 @@ function renderStationPage(opts: {
   h1 = differentiateH1FromTitle(h1, title, locale);
   const description = intro.slice(0, 180);
 
+  const zonePath = `${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}`;
+  const hasGeo =
+    typeof ctx.station.lat === 'number' &&
+    typeof ctx.station.lng === 'number' &&
+    Number.isFinite(ctx.station.lat) &&
+    Number.isFinite(ctx.station.lng);
+  const heroHtml = renderStationHero({
+    locale,
+    brand: ctx.brandDisplay,
+    street: ctx.streetDisplay,
+    city: ctx.city,
+    zoneLabel,
+    zonePath,
+    priceFmt,
+    currency: copy.currency,
+    fuelLabel,
+    deltaZone,
+    deltaZoneFmt,
+    rankIdx: Math.max(rankIdx, 0),
+    total,
+    lat: hasGeo ? (ctx.station.lat as number) : null,
+    lng: hasGeo ? (ctx.station.lng as number) : null,
+    rootDir,
+  });
+  const adviceHtml = renderStationAdvice(locale, deltaZone, deltaZoneFmt, zoneLabel);
+  const locationHtml = hasGeo
+    ? renderStationLocationCard({
+        locale,
+        brand: ctx.brandDisplay,
+        city: ctx.city,
+        address: ctx.station.address ?? '',
+        lat: ctx.station.lat as number,
+        lng: ctx.station.lng as number,
+      })
+    : '';
+  const historyHtml = history && history.length > 0
+    ? renderStationHistoryCard({
+        locale,
+        zone: ctx.zone,
+        zoneLabel,
+        fuel,
+        fuelLabel,
+        history,
+        today,
+        zoneAvg,
+      })
+    : '';
+
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
   <nav aria-label="Breadcrumb" style="${BREADCRUMB_STYLE}">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">Home</a>
@@ -2636,28 +3026,17 @@ function renderStationPage(opts: {
     <span> / </span>
     <span>${esc(ctx.brandDisplay)} ${esc(ctx.streetDisplay)}</span>
   </nav>
-  <header style="margin-bottom:22px">
+  <header style="margin-bottom:18px">
     <p style="${HERO_EYEBROW_STYLE}">${esc(dateStamp)}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(stationTaglineByLocale[locale])}</p>
   </header>
-  <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 18px">
-    <div style="${STAT_TILE_ACCENT}">
-      <div style="${STAT_TILE_LABEL}">${esc(fuel === 'diesel' ? copy.priceDiesel : copy.priceBenzina)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:32px">${priceFmt}</div>
-      <div style="margin-top:2px;font-size:13px;color:var(--color-subtle)">${esc(copy.currency)}</div>
-    </div>
-    <div style="${STAT_TILE_WARNING}">
-      <div style="${STAT_TILE_LABEL}">${esc(copy.deltaVsZone)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:22px">${esc(deltaZoneFmt)}</div>
-    </div>
-    <div style="${STAT_TILE_SUCCESS}">
-      <div style="${STAT_TILE_LABEL}">${esc(rankLabel)}</div>
-      <div style="${STAT_TILE_VALUE};font-size:18px">${esc(rankingLine)}</div>
-    </div>
-  </section>
+  ${heroHtml}
+  ${adviceHtml}
+  ${locationHtml}
+  ${historyHtml}
   <section style="margin:0 0 24px;${CARD_STYLE}" aria-labelledby="stationReview">
-    <h2 id="stationReview" style="${H2_STYLE}">${esc(editorialAssessment.heading)}</h2>
+    <h2 id="stationReview" style="${H2_STYLE};margin:0 0 12px;font-size:20px">${esc(editorialAssessment.heading)}</h2>
     <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(editorialAssessment.body)}</p>
   </section>
   <section style="margin:0 0 24px">
@@ -2665,7 +3044,7 @@ function renderStationPage(opts: {
     <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
   </section>
   <section style="margin:0 0 24px;${CARD_STYLE}" aria-labelledby="stationInfo">
-    <h2 id="stationInfo" style="${H2_STYLE}">${esc(copy.infoHeading)}</h2>
+    <h2 id="stationInfo" style="${H2_STYLE};margin:0 0 12px;font-size:20px">${esc(copy.infoHeading)}</h2>
     <dl style="margin:0;display:grid;grid-template-columns:max-content 1fr;column-gap:16px;row-gap:8px;font-size:14px;color:var(--color-body)">
       <dt style="font-weight:600">${esc(copy.infoBrand)}</dt><dd style="margin:0">${esc(ctx.brandDisplay)}</dd>
       <dt style="font-weight:600">${esc(copy.infoAddress)}</dt><dd style="margin:0">${esc(ctx.station.address ?? '—')}</dd>
@@ -3274,10 +3653,16 @@ export function generateFuelStationPages(opts: {
    * hook so the index plugin and the detail-page generator share one list.
    */
   contexts?: readonly StationContext[];
+  /** History snapshots — drives the per-page zone history chart. */
+  history?: readonly HistorySnapshot[];
+  /** Project root dir — passed to renderStationPage so it can resolve brand logos. */
+  rootDir?: string;
 }): Record<string, string> {
   const dataset = opts.dataset;
   const today = opts.today ?? new Date();
   const distDir = opts.distDir;
+  const history = opts.history;
+  const rootDir = opts.rootDir;
   const maxPages = opts.maxPages ?? Number(process.env.MAX_FUEL_STATION_PAGES_PER_BUILD || 1500);
   const pages: Record<string, string> = {};
 
@@ -3323,6 +3708,8 @@ export function generateFuelStationPages(opts: {
           canonicalPath,
           alternates,
           distDir,
+          history,
+          rootDir,
         });
         pages[canonicalPath] = html;
         emitted++;
@@ -4218,6 +4605,8 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         today,
         distDir,
         contexts: swissContexts,
+        history,
+        rootDir,
       });
       const italianCityPages = generateFuelItalianCityPages({ dataset, history, today, distDir });
       const italianStationPages = generateFuelItalianStationPages({
