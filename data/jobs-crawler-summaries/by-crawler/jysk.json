@@ -1,21 +1,21 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-05-18T12:38:44.258Z",
+  "generatedAt": "2026-05-18T22:12:12.285Z",
   "total": 15,
-  "newCount": 2,
+  "newCount": 1,
   "updatedCount": 3,
   "removedCount": 1,
-  "unchangedCount": 10,
-  "durationMs": 31057,
-  "avgDurationMs": 31057,
+  "unchangedCount": 11,
+  "durationMs": 34135,
+  "avgDurationMs": 34135,
   "durationHistory": [
-    31057
+    34135
   ],
   "newJobs": [
     {
-      "id": "company-esp7om",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
+      "id": "company-qrsmyr",
+      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
       "company": "JYSK",
       "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
       "location": "Schattdorf",
@@ -24,13 +24,13 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-18",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf-0",
+      "postedDate": "2026-04-25",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf",
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-05-18T12:38:43.352Z",
-      "firstSeenAt": "2026-05-18T12:38:43.352Z",
+      "crawledAt": "2026-05-18T22:12:11.910Z",
+      "firstSeenAt": "2026-05-18T22:12:11.910Z",
       "sourceLang": "de",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -39,10 +39,12 @@
         "translation": 21,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "company-ds4mvl",
-      "slug": "store-manager-apprendista-a-80-100-per-la-region-langenthal-burgdorf-jysk-langenthal-ds4mvl",
+      "slug": "store-manager-trainee-a-80-100-per-la-regione-langenthal-burgdorf-jysk-langenthal",
       "company": "JYSK",
       "title": "Store Manager Trainee (a) 80-100% für die Region Langenthal - Burgdorf",
       "location": "Langenthal",
@@ -59,16 +61,16 @@
       "crawledAt": "2026-05-18T12:38:43.352Z",
       "firstSeenAt": "2026-05-18T12:38:43.352Z",
       "sourceLang": "de",
-      "_qualityScore": 84,
+      "employmentType": "FULL_TIME",
+      "postalCode": "4900",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-9yhx5d",
       "slug": "venditore-con-responsabilita-del-magazzino-a-60-jysk-stans",
@@ -124,40 +126,12 @@
         "translation": 25,
         "completeness": 19
       }
-    },
-    {
-      "id": "company-gvoozi",
-      "slug": "venditore-con-responsabilita-del-magazzino-a-80-nella-filiale-schlieren-jysk-schlieren",
-      "company": "JYSK",
-      "title": "Verkäufer/in mit Lagerverantwortung (a) 80% in der Filiale Schlieren",
-      "location": "Schlieren",
-      "canton": "JU",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-15",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-80-der-filiale-schlieren",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-05-10T10:23:36.404Z",
-      "firstSeenAt": "2026-05-10T10:23:36.404Z",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
     }
   ],
   "removedJobs": [
     {
-      "id": "company-qrsmyr",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf",
+      "id": "company-esp7om",
+      "slug": "efz-a-nel-ramo-schattdorf-jysk-schattdorf",
       "company": "JYSK",
       "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
       "location": "Schattdorf",
@@ -166,17 +140,17 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-25",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf",
+      "postedDate": "2026-05-18",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf-0",
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-05-10T10:23:36.404Z",
-      "firstSeenAt": "2026-05-10T10:23:36.404Z",
+      "crawledAt": "2026-05-18T12:38:43.352Z",
+      "firstSeenAt": "2026-05-18T12:38:43.352Z",
       "sourceLang": "de",
-      "employmentType": "FULL_TIME",
       "salaryMin": 41600,
       "salaryMax": 63000,
+      "employmentType": "FULL_TIME",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -369,6 +343,36 @@
         "richness": 22,
         "translation": 25,
         "completeness": 22
+      }
+    },
+    {
+      "id": "company-gvoozi",
+      "slug": "venditore-con-responsabilita-del-magazzino-a-80-nella-filiale-schlieren-jysk-schlieren",
+      "company": "JYSK",
+      "title": "Verkäufer/in mit Lagerverantwortung (a) 80% in der Filiale Schlieren",
+      "location": "Schlieren",
+      "canton": "JU",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-80-der-filiale-schlieren",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-05-10T10:23:36.404Z",
+      "firstSeenAt": "2026-05-10T10:23:36.404Z",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
