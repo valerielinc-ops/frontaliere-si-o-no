@@ -45,6 +45,8 @@ export interface ProfessionLandingCopy {
   description: string;
   h1: string;
   lede: string;
+  /** Template B dense lede: numeric facts in 1 line (used above the fold). */
+  denseLede: string;
   updatedLabel: string;
   breadcrumbHome: string;
   breadcrumbJobs: string;
@@ -70,7 +72,22 @@ export interface ProfessionLandingCopy {
   employersTableTitle: string;
   salaryTableTitle: string;
   sourcesLabel: string;
-  // Per-profession strings (IT only — other locales map by ID in LOCALE_PROFESSION_STRINGS).
+  // ── Template B labels (mostly static per locale) ─────────────────────────
+  eyebrow: string;
+  statTileLiveLabel: string;
+  statTileSalaryLabel: string;
+  statTileFreshLabel: string;
+  statSalaryValue: string;
+  statFreshValue: string;
+  statLiveValue: string;
+  primaryCtaLabel: string;
+  featuredJobsTitle: string;
+  featuredJobsCtaAllLabel: string;
+  featuredJobsEmpty: string;
+  employerGridTitle: string;
+  approfondisciHeading: string;
+  formatJobPosted: (daysAgo: number) => string;
+  formatJobSalary: (min: number | null, max: number | null) => string;
 }
 
 // ─────────────────────────────────────────────────────────────────
@@ -533,6 +550,30 @@ interface LocaleShell {
   employersTableTitle: string;
   salaryTableTitle: string;
   sourcesLabel: string;
+  // ── Template B additions ───────────────────────────────────────────────
+  /** Dense lede that lists 3 numbers (count · CHF · fresh) under the H1. */
+  denseLedeTemplate: (parts: {
+    role: string;
+    live: number;
+    fresh30: number;
+    median: number;
+  }) => string;
+  /** Eyebrow line above the H1 (e.g. "Mestiere · Ticino · 2026"). */
+  eyebrow: string;
+  statTileLiveLabel: string;
+  statTileSalaryLabel: string;
+  statTileFreshLabel: string;
+  statSalaryValueFmt: (n: number) => string;
+  statFreshValueFmt: (n: number) => string;
+  primaryCtaLabel: string;
+  featuredJobsTitle: string;
+  featuredJobsCtaAll: (n: number) => string;
+  featuredJobsEmpty: string;
+  employerGridTitle: string;
+  /** Heading that introduces the long-form prose block at the bottom. */
+  approfondisciHeading: string;
+  jobPostedLabel: (daysAgo: number) => string;
+  jobSalaryFmt: (min: number | null, max: number | null) => string;
 }
 
 const IT_SHELL: LocaleShell = {
@@ -567,6 +608,28 @@ const IT_SHELL: LocaleShell = {
   employersTableTitle: 'Top 5 datori di lavoro ticinesi',
   salaryTableTitle: 'Forchetta salariale di riferimento',
   sourcesLabel: 'Fonti ufficiali',
+  denseLedeTemplate: ({ role, live, fresh30, median }) =>
+    `${live} posizioni aperte per ${role} in Ticino · ${fresh30} nuove negli ultimi 30 giorni · stipendio mediano CHF ${median.toLocaleString('it-CH')} lordi all'anno.`,
+  eyebrow: 'Mestiere · Ticino · 2026',
+  statTileLiveLabel: 'Offerte aperte',
+  statTileSalaryLabel: 'Stipendio mediano',
+  statTileFreshLabel: 'Nuove (30 gg)',
+  statSalaryValueFmt: (n) => `CHF ${n.toLocaleString('it-CH')}/anno`,
+  statFreshValueFmt: (n) => `${n} nuove`,
+  primaryCtaLabel: 'Calcola il tuo netto come frontaliere',
+  featuredJobsTitle: 'Offerte in evidenza',
+  featuredJobsCtaAll: (n) => `Vedi tutte le ${n} offerte →`,
+  featuredJobsEmpty: 'Nessuna offerta indicizzata in questo momento — controlla il job board completo.',
+  employerGridTitle: 'Chi assume in Ticino',
+  approfondisciHeading: 'La professione in Ticino',
+  jobPostedLabel: (d) =>
+    d <= 0 ? 'Pubblicata oggi' : d === 1 ? 'Pubblicata ieri' : `Pubblicata ${d} giorni fa`,
+  jobSalaryFmt: (min, max) => {
+    if (min && max) return `CHF ${min.toLocaleString('it-CH')}–${max.toLocaleString('it-CH')}/anno`;
+    if (min) return `Da CHF ${min.toLocaleString('it-CH')}/anno`;
+    if (max) return `Fino a CHF ${max.toLocaleString('it-CH')}/anno`;
+    return '';
+  },
 };
 
 const EN_SHELL: LocaleShell = {
@@ -603,6 +666,28 @@ const EN_SHELL: LocaleShell = {
   employersTableTitle: 'Top 5 Ticino employers',
   salaryTableTitle: 'Reference salary band',
   sourcesLabel: 'Official sources',
+  denseLedeTemplate: ({ role, live, fresh30, median }) =>
+    `${live} open positions for ${role} in Ticino · ${fresh30} new in the last 30 days · median gross salary CHF ${median.toLocaleString('en-CH')} per year.`,
+  eyebrow: 'Profession · Ticino · 2026',
+  statTileLiveLabel: 'Open positions',
+  statTileSalaryLabel: 'Median salary',
+  statTileFreshLabel: 'New (30 days)',
+  statSalaryValueFmt: (n) => `CHF ${n.toLocaleString('en-CH')}/year`,
+  statFreshValueFmt: (n) => `${n} new`,
+  primaryCtaLabel: 'Calculate your cross-border net',
+  featuredJobsTitle: 'Featured openings',
+  featuredJobsCtaAll: (n) => `See all ${n} openings →`,
+  featuredJobsEmpty: 'No indexed openings right now — check the full job board.',
+  employerGridTitle: 'Who is hiring in Ticino',
+  approfondisciHeading: 'The profession in Ticino',
+  jobPostedLabel: (d) =>
+    d <= 0 ? 'Posted today' : d === 1 ? 'Posted yesterday' : `Posted ${d} days ago`,
+  jobSalaryFmt: (min, max) => {
+    if (min && max) return `CHF ${min.toLocaleString('en-CH')}–${max.toLocaleString('en-CH')}/year`;
+    if (min) return `From CHF ${min.toLocaleString('en-CH')}/year`;
+    if (max) return `Up to CHF ${max.toLocaleString('en-CH')}/year`;
+    return '';
+  },
 };
 
 const DE_SHELL: LocaleShell = {
@@ -637,6 +722,28 @@ const DE_SHELL: LocaleShell = {
   employersTableTitle: 'Top-5-Arbeitgeber im Tessin',
   salaryTableTitle: 'Referenz-Lohnbandbreite',
   sourcesLabel: 'Offizielle Quellen',
+  denseLedeTemplate: ({ role, live, fresh30, median }) =>
+    `${live} offene Stellen für ${role} im Tessin · ${fresh30} neu in den letzten 30 Tagen · Medianlohn CHF ${median.toLocaleString('de-CH')} brutto pro Jahr.`,
+  eyebrow: 'Beruf · Tessin · 2026',
+  statTileLiveLabel: 'Offene Stellen',
+  statTileSalaryLabel: 'Medianlohn',
+  statTileFreshLabel: 'Neu (30 Tage)',
+  statSalaryValueFmt: (n) => `CHF ${n.toLocaleString('de-CH')}/Jahr`,
+  statFreshValueFmt: (n) => `${n} neu`,
+  primaryCtaLabel: 'Grenzgänger-Nettolohn berechnen',
+  featuredJobsTitle: 'Empfohlene Stellen',
+  featuredJobsCtaAll: (n) => `Alle ${n} Stellen ansehen →`,
+  featuredJobsEmpty: 'Derzeit keine indexierten Stellen — siehe vollständige Stellenbörse.',
+  employerGridTitle: 'Wer im Tessin einstellt',
+  approfondisciHeading: 'Der Beruf im Tessin',
+  jobPostedLabel: (d) =>
+    d <= 0 ? 'Heute veröffentlicht' : d === 1 ? 'Gestern veröffentlicht' : `Vor ${d} Tagen veröffentlicht`,
+  jobSalaryFmt: (min, max) => {
+    if (min && max) return `CHF ${min.toLocaleString('de-CH')}–${max.toLocaleString('de-CH')}/Jahr`;
+    if (min) return `Ab CHF ${min.toLocaleString('de-CH')}/Jahr`;
+    if (max) return `Bis CHF ${max.toLocaleString('de-CH')}/Jahr`;
+    return '';
+  },
 };
 
 const FR_SHELL: LocaleShell = {
@@ -673,6 +780,28 @@ const FR_SHELL: LocaleShell = {
   employersTableTitle: 'Top 5 des employeurs tessinois',
   salaryTableTitle: 'Fourchette salariale de référence',
   sourcesLabel: 'Sources officielles',
+  denseLedeTemplate: ({ role, live, fresh30, median }) =>
+    `${live} postes ouverts pour ${role} au Tessin · ${fresh30} nouveaux ces 30 derniers jours · salaire médian CHF ${median.toLocaleString('fr-CH')} brut par an.`,
+  eyebrow: 'Métier · Tessin · 2026',
+  statTileLiveLabel: 'Postes ouverts',
+  statTileSalaryLabel: 'Salaire médian',
+  statTileFreshLabel: 'Nouveaux (30 j)',
+  statSalaryValueFmt: (n) => `CHF ${n.toLocaleString('fr-CH')}/an`,
+  statFreshValueFmt: (n) => `${n} nouveaux`,
+  primaryCtaLabel: 'Calculer votre net frontalier',
+  featuredJobsTitle: 'Offres mises en avant',
+  featuredJobsCtaAll: (n) => `Voir les ${n} offres →`,
+  featuredJobsEmpty: 'Aucune offre indexée actuellement — consultez la bourse complète.',
+  employerGridTitle: 'Qui recrute au Tessin',
+  approfondisciHeading: 'Le métier au Tessin',
+  jobPostedLabel: (d) =>
+    d <= 0 ? 'Publié aujourd\'hui' : d === 1 ? 'Publié hier' : `Publié il y a ${d} jours`,
+  jobSalaryFmt: (min, max) => {
+    if (min && max) return `CHF ${min.toLocaleString('fr-CH')}–${max.toLocaleString('fr-CH')}/an`;
+    if (min) return `Dès CHF ${min.toLocaleString('fr-CH')}/an`;
+    if (max) return `Jusqu'à CHF ${max.toLocaleString('fr-CH')}/an`;
+    return '';
+  },
 };
 
 const LOCALE_SHELLS: Record<ProfessionLocale, LocaleShell> = {
@@ -1083,19 +1212,37 @@ function buildFaqs(locale: ProfessionLocale, id: ProfessionId): ProfessionLandin
 // Public API — assemble copy for (locale, id).
 // ─────────────────────────────────────────────────────────────────
 
+export interface ProfessionLandingCopySnapshot {
+  /** Live aggregate count from professionJobsAggregate (NOT the frozen jobsCount). */
+  readonly liveCount: number;
+  /** New jobs in the last 30 days, from aggregate. */
+  readonly fresh30Count: number;
+}
+
 export function buildProfessionLandingCopy(
   locale: ProfessionLocale,
   id: ProfessionId,
+  snapshot: ProfessionLandingCopySnapshot = { liveCount: 0, fresh30Count: 0 },
 ): ProfessionLandingCopy {
   const shell = LOCALE_SHELLS[locale];
   const strings = PROFESSION_STRINGS_BY_LOCALE[locale][id];
   const facts = PROFESSION_FACTS[id];
 
+  // Pick the most informative count: prefer the live aggregate when it has
+  // signal, otherwise fall back to the frozen editorial snapshot.
+  const displayCount = snapshot.liveCount > 0 ? snapshot.liveCount : facts.jobsCount;
+
   return {
     title: shell.titleTemplate(strings.role),
     description: shell.descriptionTemplate(strings.role, facts.medianSalaryChf),
     h1: shell.h1Template(strings.role),
-    lede: shell.ledeTemplate(strings, facts.medianSalaryChf, facts.jobsCount),
+    lede: shell.ledeTemplate(strings, facts.medianSalaryChf, displayCount),
+    denseLede: shell.denseLedeTemplate({
+      role: strings.role,
+      live: displayCount,
+      fresh30: snapshot.fresh30Count,
+      median: facts.medianSalaryChf,
+    }),
     updatedLabel: shell.updatedLabel,
     breadcrumbHome: shell.breadcrumbHome,
     breadcrumbJobs: shell.breadcrumbJobs,
@@ -1108,6 +1255,23 @@ export function buildProfessionLandingCopy(
     employersTableTitle: shell.employersTableTitle,
     salaryTableTitle: shell.salaryTableTitle,
     sourcesLabel: shell.sourcesLabel,
+    eyebrow: shell.eyebrow,
+    statTileLiveLabel: shell.statTileLiveLabel,
+    statTileSalaryLabel: shell.statTileSalaryLabel,
+    statTileFreshLabel: shell.statTileFreshLabel,
+    statLiveValue: displayCount.toLocaleString(
+      ({ it: 'it-CH', en: 'en-CH', de: 'de-CH', fr: 'fr-CH' } as const)[locale],
+    ),
+    statSalaryValue: shell.statSalaryValueFmt(facts.medianSalaryChf),
+    statFreshValue: shell.statFreshValueFmt(snapshot.fresh30Count),
+    primaryCtaLabel: shell.primaryCtaLabel,
+    featuredJobsTitle: shell.featuredJobsTitle,
+    featuredJobsCtaAllLabel: shell.featuredJobsCtaAll(displayCount),
+    featuredJobsEmpty: shell.featuredJobsEmpty,
+    employerGridTitle: shell.employerGridTitle,
+    approfondisciHeading: shell.approfondisciHeading,
+    formatJobPosted: shell.jobPostedLabel,
+    formatJobSalary: shell.jobSalaryFmt,
   };
 }
 

@@ -1,30 +1,37 @@
 /**
- * Profession landings (AE-3) — Vite build plugin.
+ * Profession landings (AE-3) — Vite build plugin, template B.
  *
- * Emits 40 static HTML pages (10 professions × 4 locales):
+ * Emits 40 static HTML pages (10 professions × 4 locales). The 2026-05 redesign
+ * inverts the previous layout: live signal first (stat tiles + featured live
+ * jobs + employer grid), long-form SEO prose at the bottom under an
+ * "Approfondisci" heading. Designed mobile-first per CLAUDE.md regola #17 —
+ * 75 % of traffic is mobile and the meaty content (offerte, stipendio) must
+ * sit above the fold at ≤414 px.
  *
  *   IT canonical                             EN / DE / FR variants
  *   /lavoro-ticino-infermiere/               /en/jobs-ticino-nurse/ …
  *   /lavoro-ticino-operaio/                  /en/jobs-ticino-worker/ …
  *   … etc.
  *
- * Each page carries:
- *   - 7 H2 sections composed from PROFESSION_FACTS (authority URLs, CCL,
- *     salary, employers, permits, application) — 600-750 IT words,
- *     420-520 other locales.
- *   - Employer top-5 table + salary band table (visible markup).
- *   - FAQ block — 5 Q/A per locale, profession-keyed to stay unique
- *     against nursingLandings, hub FAQs, pillars, etc.
- *   - JSON-LD: BreadcrumbList + FAQPage + Article + ItemList (top-5 employers).
- *   - Hreflang × 4 locales + x-default → IT canonical.
+ * Body order (template B, mobile-first):
+ *   1. breadcrumb
+ *   2. header (eyebrow · H1 · dense lede with 3 numbers)
+ *   3. 3 stat tiles (open positions · median salary · fresh in 30 days)
+ *   4. primary CTA → salary calculator (the killer-hook conversion path)
+ *   5. featured live jobs (3 cards) + "see all" CTA
+ *   6. employer grid (top 6, compact 2-col)
+ *   7. ─── "Approfondisci" divider ───
+ *   8. long-form prose H2 sections (existing 7 blocks)
+ *   9. salary band table + employers table
+ *  10. sources · FAQ · related · final CTAs
  *
- * Hub chrome: `hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' }`
- * matches the parity pattern used by AE-2 / nursingLandings — keeps the
- * sub-nav visible on the first paint even though React suspends via the
- * `staticOverlay: true` route in services/router.ts.
+ * Live signal comes from professionJobsAggregate (build-time read of
+ * data/jobs.json). PROFESSION_FACTS stays as the editorial authority for
+ * typicalSalaryRange / CCL / recognition.
  *
- * Sitemap: writes `dist/sitemap-professions.xml` (IT canonicals only; EN/DE/FR
- * are surfaced via hreflang). `sitemapAliasPlugin` auto-discovers the file.
+ * Hub chrome: `hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' }`.
+ * Sitemap: writes `dist/sitemap-professions.xml` (IT canonicals; EN/DE/FR
+ * surface via hreflang). `sitemapAliasPlugin` auto-discovers the file.
  */
 
 import fs from 'node:fs';
@@ -40,9 +47,17 @@ import {
   BREADCRUMB_STYLE,
   CTA_PRIMARY_STYLE,
   CARD_STYLE,
+  CARD_BODY_STYLE,
+  CARD_PADDING_STYLE,
   LINK_ACCENT_STYLE,
   TABLE_HEAD_STYLE,
   TABLE_CELL_STYLE,
+  HERO_EYEBROW_STYLE,
+  H1_STYLE,
+  LEDE_STYLE,
+  SMALL_HEADING_STYLE,
+  renderStatGrid,
+  ICON_BUILDING_SVG,
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import {
@@ -58,6 +73,13 @@ import {
   buildProfessionLandingSections,
   buildProfessionLandingFaqs,
 } from './professionLandingsCopy';
+import {
+  aggregateProfessionJobs,
+  buildFeaturedJobUrl,
+  buildJobBoardUrl,
+  type FeaturedJob,
+  type ProfessionJobsSnapshot,
+} from './professionJobsAggregate';
 
 // ── Helpers ──────────────────────────────────────────────────────
 
@@ -71,12 +93,8 @@ function esc(s: unknown): string {
 
 // Convert inline markdown-style bold (**…**) to <strong> in copy paragraphs.
 function inlineFormat(s: string): string {
-  // Escape first, then re-introduce controlled tags (<strong>, <a>).
   const escaped = esc(s);
-  // Bold: **text** -> <strong>text</strong>
   const bolded = escaped.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-  // Inline links [text](url). URL has been &-escaped; restore naked & in URLs
-  // (the attribute is already safe because the quote-escape happened before).
   const linked = bolded.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, text: string, url: string) => {
     const safeUrl = url.replace(/&amp;/g, '&');
     return `<a href="${esc(safeUrl)}" rel="noopener" style="color:var(--color-link);text-decoration:underline">${text}</a>`;
@@ -122,7 +140,108 @@ const RELATED_LINKS: Record<ProfessionLocale, Array<{ href: string; label: strin
   ],
 };
 
-// ── Rendering ─────────────────────────────────────────────────────
+/** Salary-calculator URL per locale (RELATED_LINKS index 1). */
+const CALCULATOR_URL: Record<ProfessionLocale, string> = {
+  it: '/calcola-stipendio/',
+  en: '/en/calculate-salary/',
+  de: '/de/gehalt-berechnen/',
+  fr: '/fr/calculer-salaire/',
+};
+
+// ── Template B renderers ─────────────────────────────────────────────────────
+
+interface CopyView {
+  formatJobPosted: (daysAgo: number) => string;
+  formatJobSalary: (min: number | null, max: number | null) => string;
+  featuredJobsEmpty: string;
+  featuredJobsTitle: string;
+  featuredJobsCtaAllLabel: string;
+  employerGridTitle: string;
+}
+
+function pickJobTitle(job: FeaturedJob, locale: ProfessionLocale): string {
+  return job.titleByLocale[locale] ?? job.title;
+}
+
+function renderFeaturedJobCard(
+  job: FeaturedJob,
+  locale: ProfessionLocale,
+  copy: CopyView,
+): string {
+  const href = buildFeaturedJobUrl(job, locale);
+  const title = pickJobTitle(job, locale);
+  const subtitleParts: string[] = [];
+  if (job.company) subtitleParts.push(job.company);
+  if (job.city) subtitleParts.push(job.city);
+  const subtitle = subtitleParts.join(' · ');
+  const salary = copy.formatJobSalary(job.salaryMin, job.salaryMax);
+  const posted = copy.formatJobPosted(job.daysAgo);
+
+  return `<a class="seo-card-link" href="${esc(href)}" style="${CARD_STYLE};text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:6px">
+    <div style="font-weight:700;font-size:16px;line-height:1.35;color:var(--color-heading)">${esc(title)}</div>
+    ${subtitle ? `<div style="font-size:14px;color:var(--color-body);line-height:1.4">${esc(subtitle)}</div>` : ''}
+    <div style="display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-top:4px;font-size:13px;color:var(--color-subtle)">
+      ${salary ? `<span style="color:var(--color-accent);font-weight:700">${esc(salary)}</span>` : ''}
+      <span>${esc(posted)}</span>
+    </div>
+  </a>`;
+}
+
+function renderFeaturedJobs(
+  locale: ProfessionLocale,
+  snapshot: ProfessionJobsSnapshot,
+  copy: CopyView,
+): string {
+  if (snapshot.featured.length === 0) {
+    return `<section style="margin:0 0 28px">
+      <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(copy.featuredJobsTitle)}</h2>
+      <p style="${CARD_STYLE};color:var(--color-subtle);font-size:14px;margin:0">${esc(copy.featuredJobsEmpty)}</p>
+    </section>`;
+  }
+  const cards = snapshot.featured
+    .map((j) => renderFeaturedJobCard(j, locale, copy))
+    .join('');
+  const ctaHref = buildJobBoardUrl(locale);
+  return `<section style="margin:0 0 28px">
+    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(copy.featuredJobsTitle)}</h2>
+    <div style="display:grid;gap:12px;margin-bottom:14px">${cards}</div>
+    <a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px">${esc(copy.featuredJobsCtaAllLabel)}</a>
+  </section>`;
+}
+
+function renderEmployerGrid(
+  snapshot: ProfessionJobsSnapshot,
+  id: ProfessionId,
+  copy: CopyView,
+): string {
+  // Prefer live aggregate employers; fall back to PROFESSION_FACTS curated list
+  // when the aggregate found < 3 (sparse profession in the dataset).
+  const useAggregate = snapshot.topEmployers.length >= 3;
+  const items: Array<{ name: string; count: number | null }> = useAggregate
+    ? snapshot.topEmployers.map((e) => ({ name: e.name, count: e.count }))
+    : PROFESSION_FACTS[id].topEmployers.slice(0, 6).map((n) => ({ name: n, count: null }));
+
+  if (items.length === 0) return '';
+
+  const cells = items
+    .map(
+      (e) => `<div style="display:flex;align-items:center;gap:10px;${CARD_PADDING_STYLE};${CARD_BODY_STYLE}">
+        <span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:var(--color-surface-alt);color:var(--color-subtle);flex-shrink:0">${ICON_BUILDING_SVG}</span>
+        <div style="flex:1;min-width:0">
+          <div style="font-weight:700;font-size:14px;color:var(--color-heading);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(e.name)}</div>
+        </div>
+        ${e.count !== null ? `<div style="flex-shrink:0;font-weight:700;color:var(--color-accent);font-variant-numeric:tabular-nums">${e.count}</div>` : ''}
+      </div>`,
+    )
+    .join('');
+
+  return `<section style="margin:0 0 28px">
+    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(copy.employerGridTitle)}</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">${cells}</div>
+  </section>`;
+}
+
+// ── Long-form (legacy below-the-fold) renderers ──────────────────────────────
 
 interface RenderResult {
   urlPath: string;
@@ -134,10 +253,10 @@ function renderSection(title: string, paragraphs: string[]): string {
   const ps = paragraphs
     .map(
       (p) =>
-        `<p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${inlineFormat(p)}</p>`,
+        `<p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:62ch">${inlineFormat(p)}</p>`,
     )
     .join('');
-  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:24px;color:var(--color-body)">${esc(title)}</h2>${ps}</section>`;
+  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:24px;color:var(--color-heading);font-weight:600">${esc(title)}</h2>${ps}</section>`;
 }
 
 function renderEmployersTable(
@@ -157,7 +276,7 @@ function renderEmployersTable(
     )
     .join('');
   return `<section style="margin:0 0 28px">
-    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-body)">${esc(title)}</h2>
+    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:600">${esc(title)}</h2>
     <div style="overflow-x:auto;max-width:860px">
       <table style="border-collapse:collapse;width:100%;background:var(--color-surface);border:1px solid var(--color-edge);border-radius:12px">
         <thead>
@@ -180,11 +299,11 @@ function renderSalaryBandTable(
   const facts = PROFESSION_FACTS[id];
   const [min, max] = facts.typicalSalaryRange;
   return `<section style="margin:0 0 28px;max-width:860px">
-    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-body)">${esc(title)}</h2>
+    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:600">${esc(title)}</h2>
     <div style="${CARD_STYLE};padding:16px 18px">
       <p style="margin:0 0 6px;color:var(--color-subtle);font-size:13px">${esc(salaryLabel)}</p>
-      <p style="margin:0;font-size:22px;font-weight:700;color:var(--color-body)">CHF ${min.toLocaleString('en-CH')} &ndash; ${max.toLocaleString('en-CH')}</p>
-      <p style="margin:6px 0 0;color:var(--color-subtle);font-size:12px">Mediana: CHF ${facts.medianSalaryChf.toLocaleString('en-CH')} &middot; dataset Frontaliere Ticino, ${facts.jobsCount} campioni</p>
+      <p style="margin:0;font-size:22px;font-weight:700;color:var(--color-heading)">CHF ${min.toLocaleString('en-CH')} &ndash; ${max.toLocaleString('en-CH')}</p>
+      <p style="margin:6px 0 0;color:var(--color-subtle);font-size:12px">Mediana: CHF ${facts.medianSalaryChf.toLocaleString('en-CH')}</p>
     </div>
   </section>`;
 }
@@ -194,7 +313,7 @@ function renderFaqBlock(faqs: Array<{ question: string; answer: string }>): stri
     .map(
       (f) => `
       <details style="margin:0 0 10px;padding:14px 16px;border:1px solid var(--color-edge);border-radius:12px;background:var(--color-surface)">
-        <summary style="font-weight:700;cursor:pointer;color:var(--color-body);line-height:1.45">${esc(f.question)}</summary>
+        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading);line-height:1.45">${esc(f.question)}</summary>
         <p style="margin:10px 0 0;color:var(--color-body);line-height:1.65">${inlineFormat(f.answer)}</p>
       </details>`,
     )
@@ -218,9 +337,10 @@ function renderSourcesBlock(id: ProfessionId, label: string): string {
         `<li style="margin:0 0 6px"><a href="${esc(it.url)}" rel="noopener" style="${LINK_ACCENT_STYLE}">${esc(it.label)}</a></li>`,
     )
     .join('');
-  return `<section style="margin:0 0 24px;padding:14px 18px;border-left:4px solid var(--color-accent);background:var(--color-surface);max-width:860px">
-    <h2 style="margin:0 0 8px;font-size:18px;color:var(--color-body)">${esc(label)}</h2>
-    <ul style="margin:0 0 0 20px;padding:0;color:var(--color-body);line-height:1.55;font-size:14px">${lis}</ul>
+  // Replaces the previous border-left:4px accent stripe (banned pattern).
+  return `<section style="margin:0 0 24px;${CARD_STYLE};max-width:860px">
+    <p style="${SMALL_HEADING_STYLE};margin:0 0 10px">${esc(label)}</p>
+    <ul style="margin:0;padding:0 0 0 20px;color:var(--color-body);line-height:1.55;font-size:14px">${lis}</ul>
   </section>`;
 }
 
@@ -231,17 +351,31 @@ function renderRelatedLinks(locale: ProfessionLocale, label: string): string {
         `<li style="margin:0 0 8px"><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE}">${esc(l.label)}</a></li>`,
     )
     .join('');
-  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:22px;color:var(--color-body)">${esc(label)}</h2><ul style="margin:0 0 0 20px;padding:0;color:var(--color-body);line-height:1.55;max-width:860px">${items}</ul></section>`;
+  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:600">${esc(label)}</h2><ul style="margin:0 0 0 20px;padding:0;color:var(--color-body);line-height:1.55;max-width:860px">${items}</ul></section>`;
 }
+
+function renderApprofondisciDivider(label: string): string {
+  return `<div role="separator" aria-label="${esc(label)}" style="margin:36px 0 28px;display:flex;align-items:center;gap:14px;color:var(--color-subtle)">
+    <span aria-hidden="true" style="flex:1;height:1px;background:var(--color-edge)"></span>
+    <span style="${SMALL_HEADING_STYLE};margin:0">${esc(label)}</span>
+    <span aria-hidden="true" style="flex:1;height:1px;background:var(--color-edge)"></span>
+  </div>`;
+}
+
+// ── Page assembly ────────────────────────────────────────────────────────────
 
 function renderPage(opts: {
   locale: ProfessionLocale;
   id: ProfessionId;
   dateStamp: string;
   distDir?: string;
+  snapshot: ProfessionJobsSnapshot;
 }): RenderResult {
-  const { locale, id, dateStamp, distDir } = opts;
-  const copy = buildProfessionLandingCopy(locale, id);
+  const { locale, id, dateStamp, distDir, snapshot } = opts;
+  const copy = buildProfessionLandingCopy(locale, id, {
+    liveCount: snapshot.liveCount,
+    fresh30Count: snapshot.fresh30Count,
+  });
   const sections = buildProfessionLandingSections(locale, id);
   const faqs = buildProfessionLandingFaqs(locale, id);
   const facts = PROFESSION_FACTS[id];
@@ -259,15 +393,8 @@ function renderPage(opts: {
   const alternates = hreflangLines.join('\n');
 
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
-  const jobBoardUrl = `${BASE_URL}${
-    locale === 'it'
-      ? '/cerca-lavoro-ticino/'
-      : locale === 'en'
-        ? '/en/find-jobs-ticino/'
-        : locale === 'de'
-          ? '/de/jobs-im-tessin/'
-          : '/fr/trouver-emploi-tessin/'
-  }`;
+  const jobBoardUrl = `${BASE_URL}${buildJobBoardUrl(locale)}`;
+  const calculatorUrl = `${BASE_URL}${CALCULATOR_URL[locale]}`;
 
   const breadcrumbLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -330,6 +457,28 @@ function renderPage(opts: {
     })),
   });
 
+  // ── Template B body ────────────────────────────────────────────────────
+  const copyView: CopyView = {
+    formatJobPosted: copy.formatJobPosted,
+    formatJobSalary: copy.formatJobSalary,
+    featuredJobsEmpty: copy.featuredJobsEmpty,
+    featuredJobsTitle: copy.featuredJobsTitle,
+    featuredJobsCtaAllLabel: copy.featuredJobsCtaAllLabel,
+    employerGridTitle: copy.employerGridTitle,
+  };
+
+  const statTilesHtml = renderStatGrid([
+    { label: copy.statTileLiveLabel, value: copy.statLiveValue, tone: 'success' },
+    { label: copy.statTileSalaryLabel, value: copy.statSalaryValue, tone: 'accent' },
+    { label: copy.statTileFreshLabel, value: copy.statFreshValue, tone: 'warning' },
+  ]);
+
+  const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.primaryCtaLabel)} →</a></div>`;
+
+  const featuredHtml = renderFeaturedJobs(locale, snapshot, copyView);
+  const employerGridHtml = renderEmployerGrid(snapshot, id, copyView);
+  const dividerHtml = renderApprofondisciDivider(copy.approfondisciHeading);
+
   const sectionsHtml = sections.map((s) => renderSection(s.title, s.paragraphs)).join('');
   const employersTable = renderEmployersTable(locale, id, copy.tableHeadings, copy.employersTableTitle);
   const salaryTable = renderSalaryBandTable(id, copy.tableHeadings.salaryLabel, copy.salaryTableTitle);
@@ -345,23 +494,31 @@ function renderPage(opts: {
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
-    <header style="margin-bottom:24px">
-      <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
-      <h1 style="margin:0 0 16px;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15">${esc(copy.h1)}</h1>
-      <p style="margin:0;color:var(--color-body);font-size:17px;line-height:1.65;max-width:860px">${inlineFormat(copy.lede)}</p>
+    <header style="margin-bottom:20px">
+      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.eyebrow)} · ${esc(copy.updatedLabel)} ${esc(dateStamp)}</p>
+      <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
+      <p style="${LEDE_STYLE}">${esc(copy.denseLede)}</p>
     </header>
-    ${salaryTable}
+    ${statTilesHtml}
+    ${primaryCtaHtml}
+    ${featuredHtml}
+    ${employerGridHtml}
+    ${dividerHtml}
+    <section style="margin:0 0 28px">
+      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:62ch;font-size:17px;font-style:italic">${inlineFormat(copy.lede)}</p>
+    </section>
     ${sectionsHtml}
+    ${salaryTable}
     ${employersTable}
     ${sourcesHtml}
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 12px;font-size:24px;color:var(--color-body)">${esc(copy.faqTitle)}</h2>
+      <h2 style="margin:0 0 12px;font-size:24px;color:var(--color-heading);font-weight:600">${esc(copy.faqTitle)}</h2>
       ${faqHtml}
     </section>
     ${relatedHtml}
     <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
       <a href="${esc(jobBoardUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
-      <a href="${esc(homeUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:700">${esc(copy.ctaSimulator)}</a>
+      <a href="${esc(calculatorUrl)}" style="padding:10px 16px;border-radius:10px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:600">${esc(copy.ctaSimulator)}</a>
     </section>`;
 
   const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">${body}</main>`;
@@ -455,6 +612,9 @@ export function professionLandingsPlugin(rootDir: string): Plugin {
       // sitemap <lastmod>.
       const dateStamp = new Date().toISOString().slice(0, 10);
 
+      // Aggregate live jobs per profession once. Module-level cached.
+      const snapshots = aggregateProfessionJobs(rootDir);
+
       const collector = new WriteCollector({
         distDir,
         pluginName: 'professionLandingsPlugin',
@@ -471,7 +631,13 @@ export function professionLandingsPlugin(rootDir: string): Plugin {
         alternates.push(`x-default|${BASE_URL}${buildProfessionLandingPath('it', id)}`);
 
         for (const locale of PROFESSION_LOCALES) {
-          const rendered = renderPage({ locale, id, dateStamp, distDir });
+          const rendered = renderPage({
+            locale,
+            id,
+            dateStamp,
+            distDir,
+            snapshot: snapshots[id],
+          });
 
           if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
             thinSkipped++;
@@ -511,10 +677,6 @@ export function professionLandingsPlugin(rootDir: string): Plugin {
         `\x1b[36m[profession-landings]\x1b[0m Generated ${pagesWritten} pages (${thinSkipped} skipped as thin) — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
       );
 
-      // Always-run: patch sitemap.xml index lastmod (other plugins regenerate
-      // sitemap.xml every build, so our entry's <lastmod> would otherwise
-      // drop out). Only when our sitemap actually exists in dist (either
-      // freshly written or restored from cache).
       if (fs.existsSync(np.join(distDir, 'sitemap-professions.xml'))) {
         try {
           patchSitemapIndex(distDir, dateStamp);
@@ -523,10 +685,6 @@ export function professionLandingsPlugin(rootDir: string): Plugin {
         }
       }
 
-      // Always-run: signal the linker (professionLandingsLinksPlugin) that
-      // the 40 landings have landed on disk. Resolve unconditionally — on
-      // cache hit the files were just restored, on miss the work() above
-      // already flushed the collector.
       resolveProfessionLandingsFlushed();
     },
   };
