@@ -4958,6 +4958,7 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       }));
       const indexPages = generateFuelIndexPages({
         distDir,
+        rootDir,
         today,
         swissStations: swissLeaves,
         italianStations: italianLeaves,
