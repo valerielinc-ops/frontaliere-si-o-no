@@ -159,6 +159,10 @@ interface CantonJobEntry {
   readonly employer: string;
   readonly employerKey: string;
   readonly city: string;
+  /** ISO YYYY-MM-DD when the job was first posted by the source ATS — drives
+   *  the recency landings ("offerte da ieri", "ultimi 3 giorni", "ultima
+   *  settimana"). Optional because pre-2026-04 snapshots omit it. */
+  readonly postedAt?: string;
 }
 
 function readJobsData(
@@ -220,6 +224,7 @@ function readJobsData(
           employer: typeof job?.employer === 'string' ? job.employer : '',
           employerKey: typeof job?.employerKey === 'string' ? job.employerKey : '',
           city: typeof job?.city === 'string' ? job.city : '',
+          postedAt: typeof job?.postedAt === 'string' ? job.postedAt : undefined,
         });
         cantonJobs.set(canton, arr);
       }
@@ -234,19 +239,6 @@ function readJobsData(
   }
   return { counts, urlToKey, cantonJobCounts, cantonJobs, cantonEmployerCounts };
 }
-
-/**
- * Per-category label for the article hub badge — translates the IT-rooted
- * category key ('fiscale' | 'pratico' | 'novita' | 'pensione') into the
- * user's locale. Unknown categories fall through with the raw key, so the
- * card never breaks on a new category added later.
- */
-const ARTICLE_CATEGORY_LABELS: Record<HubLocale, Record<string, string>> = {
-  it: { fiscale: 'Fisco', pratico: 'Pratico', novita: 'Novità', pensione: 'Pensione' },
-  en: { fiscale: 'Tax', pratico: 'How-to', novita: 'News', pensione: 'Pension' },
-  de: { fiscale: 'Steuern', pratico: 'Praxis', novita: 'News', pensione: 'Rente' },
-  fr: { fiscale: 'Fiscal', pratico: 'Pratique', novita: 'Actualité', pensione: 'Retraite' },
-};
 
 /**
  * Per-hub-kind label for the headline stat tile shown on each global hub
@@ -912,37 +904,6 @@ function readArticleSlugs(
 }
 
 /**
- * Read per-article publication metadata from `data/blog-articles-data.ts`.
- * Returns a map of `BlogArticleId` → `{ date, category, updatedAt? }`.
- * Used to render the articles hub cards with a date chip + category badge.
- * Parser mirrors the regex pattern used by other readers in this file.
- */
-function readArticleMetadata(
-  fs: typeof fsT,
-  np: typeof npT,
-  rootDir: string,
-): Map<string, { date: string; category: string; updatedAt?: string }> {
-  const file = np.resolve(rootDir, 'data/blog-articles-data.ts');
-  const out = new Map<string, { date: string; category: string; updatedAt?: string }>();
-  try {
-    if (!fs.existsSync(file)) return out;
-    const src = fs.readFileSync(file, 'utf-8');
-    // Match each `{ id: '...', category: '...', date: '...', updatedAt?: '...' }`
-    // entry. updatedAt is optional and may sit between date and image, so we
-    // capture it conditionally.
-    const rx = /id:\s*'([^']+)',\s*category:\s*'([^']+)',\s*date:\s*'([^']+)'(?:,\s*updatedAt:\s*'([^']+)')?/g;
-    let m: RegExpExecArray | null;
-    while ((m = rx.exec(src)) !== null) {
-      const [, id, category, date, updatedAt] = m;
-      out.set(id, { date, category, updatedAt: updatedAt || undefined });
-    }
-  } catch (err) {
-    console.warn('[seo-hubs] failed to read blog-articles-data.ts', err);
-  }
-  return out;
-}
-
-/**
  * Read per-article excerpts from `services/locales/blog-meta-{locale}.ts`.
  * Used to render the articles hub items as cards (rule #17 step 6 — actual
  * data area carries 1-line previews instead of plain anchors).
@@ -1027,10 +988,6 @@ interface BuildHtmlArgs {
     emoji?: string;
     /** 1-line preview text for article items (truncated to ~140 chars). */
     excerpt?: string;
-    /** ISO date string (YYYY-MM-DD) for article items — rendered as a chip. */
-    articleDate?: string;
-    /** Localized category label for article items — rendered as a badge. */
-    articleCategory?: string;
   }>;
   totalItems: number;
   hasSpaBundle: boolean;
@@ -1148,21 +1105,7 @@ function buildHtml(args: BuildHtmlArgs): string {
               return `<li><a href="${esc(it.href)}" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge)"><span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--color-surface-alt);font-size:24px;line-height:1;flex-shrink:0">${it.emoji}</span><span style="flex:1;min-width:0"><span style="display:block;font-weight:700;font-size:15px;line-height:1.3;color:var(--color-heading)">${esc(it.label)}</span><span style="display:block;font-size:12.5px;color:var(--color-subtle);margin-top:2px;line-height:1.4">${subLabel}</span></span></a></li>`;
             }
             if (it.excerpt !== undefined) {
-              // Article card: optional badge (category) + chip (date) header,
-              // then title, then excerpt preview. Header row is rendered only
-              // when at least one of the two metadata pieces is present so
-              // older articles without metadata still render cleanly.
-              const headerParts: string[] = [];
-              if (it.articleCategory) {
-                headerParts.push(`<span style="display:inline-block;padding:2px 8px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(it.articleCategory)}</span>`);
-              }
-              if (it.articleDate) {
-                headerParts.push(`<time datetime="${esc(it.articleDate)}" style="font-size:12px;color:var(--color-subtle);font-weight:600">${esc(it.articleDate)}</time>`);
-              }
-              const headerHtml = headerParts.length > 0
-                ? `<span style="display:flex;align-items:center;gap:8px;margin-bottom:8px">${headerParts.join('')}</span>`
-                : '';
-              return `<li><a href="${esc(it.href)}" style="display:block;padding:14px 16px;border-radius:14px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge)">${headerHtml}<span style="display:block;font-weight:700;font-size:15px;line-height:1.35;color:var(--color-heading);margin-bottom:6px">${esc(it.label)}</span><span style="display:block;font-size:13px;color:var(--color-subtle);line-height:1.5">${esc(it.excerpt)}</span></a></li>`;
+              return `<li><a href="${esc(it.href)}" style="display:block;padding:14px 16px;border-radius:14px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge)"><span style="display:block;font-weight:700;font-size:15px;line-height:1.35;color:var(--color-heading);margin-bottom:6px">${esc(it.label)}</span><span style="display:block;font-size:13px;color:var(--color-subtle);line-height:1.5">${esc(it.excerpt)}</span></a></li>`;
             }
             return `<li><a href="${esc(it.href)}" style="display:block;padding:10px 12px;border-radius:8px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge);font-size:14px;line-height:1.4">${esc(it.label)}</a></li>`;
           })
@@ -1188,6 +1131,14 @@ function buildHtml(args: BuildHtmlArgs): string {
     : '/en/calculate-salary/';
   const ctaLabelGlobal = { it: 'Calcola lo stipendio netto frontaliere →', en: 'Calculate your cross-border net salary →', de: 'Grenzgänger-Nettolohn berechnen →', fr: 'Calculer le salaire net frontalier →' }[locale];
   const ctaHtmlGlobal = `<div style="margin:0 0 22px"><a href="${esc(ctaPathGlobal)}" style="${CTA_PRIMARY_STYLE}">${esc(ctaLabelGlobal)}</a></div>`;
+
+  // Recency chip nav — IT-only on the jobs hub (BFS-depth closure for
+  // the three pilot recency landings: 24h / 3 days / 7 days). Renders a
+  // 3-link inline strip below the primary CTA. Only on `jobs` hub since
+  // recency intent is job-search-specific.
+  const recencyChipsHtml = (hubKey === 'jobs' && locale === 'it')
+    ? `<nav aria-label="Offerte recenti" style="margin:0 0 22px;display:flex;flex-wrap:wrap;gap:8px;font-size:13px"><span style="color:var(--color-subtle);font-weight:600;align-self:center">Offerte recenti:</span><a href="/cerca-lavoro-ticino/offerte-da-ieri/" style="padding:6px 12px;border-radius:999px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-link);text-decoration:none;font-weight:600">Ultime 24h</a><a href="/cerca-lavoro-ticino/offerte-ultimi-3-giorni/" style="padding:6px 12px;border-radius:999px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-link);text-decoration:none;font-weight:600">Ultimi 3 giorni</a><a href="/cerca-lavoro-ticino/offerte-ultima-settimana/" style="padding:6px 12px;border-radius:999px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-link);text-decoration:none;font-weight:600">Ultima settimana</a></nav>`
+    : '';
 
   // Long prose (methodology + footer + FAQ + closing) collapsed under a
   // single details accordion: preserves text-to-HTML ratio + crawler depth
@@ -1238,6 +1189,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
       </header>
       ${statTilesHtml}
       ${ctaHtmlGlobal}
+      ${recencyChipsHtml}
       <section>
         ${itemsHtml}
       </section>
@@ -2083,7 +2035,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       : HUB_SLUGS[locale].articlesAll
     );
 
-    let items: Array<{ href: string; label: string; logo?: string | null; jobCount?: number; emoji?: string; excerpt?: string; articleDate?: string; articleCategory?: string }> = [];
+    let items: Array<{ href: string; label: string; logo?: string | null; jobCount?: number; emoji?: string; excerpt?: string }> = [];
     let pageSize = 100;
 
     if (hubKey === 'jobs') {
@@ -2157,8 +2109,6 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const itBySlug = new Map(itArticles.map((a) => [a.slug, a.title]));
       const localeExcerpts = readArticleExcerpts(fs, np, rootDir, locale);
       const itExcerpts = readArticleExcerpts(fs, np, rootDir, 'it');
-      const articleMeta = readArticleMetadata(fs, np, rootDir);
-      const categoryLabels = ARTICLE_CATEGORY_LABELS[locale];
       const blogUrlSlugs = readBlogUrlSlugs(fs, np, rootDir);
       const blogSection = locale === 'it' ? 'articoli-frontaliere'
         : locale === 'en' ? 'cross-border-articles'
@@ -2191,27 +2141,8 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
         const excerpt = rawExcerpt && rawExcerpt.length > 140
           ? rawExcerpt.slice(0, 137).trimEnd() + '…'
           : rawExcerpt;
-        // Publication metadata (date + category) from data/blog-articles-data.ts.
-        // Articles missing from that file (auto-generated entries) render
-        // without the header chips — graceful degradation.
-        const meta = articleMeta.get(slug);
-        const articleDate = meta?.updatedAt ?? meta?.date;
-        const articleCategory = meta?.category
-          ? (categoryLabels[meta.category] ?? meta.category)
-          : undefined;
-        items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label, excerpt, articleDate, articleCategory });
+        items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label, excerpt });
       }
-      // Sort articles by most-recent-first so the freshest content shows on
-      // page 1. Articles without metadata fall to the end. Stable sort keeps
-      // alphabetical secondary order for ties.
-      items.sort((a, b) => {
-        const da = a.articleDate ?? '';
-        const db = b.articleDate ?? '';
-        if (da === db) return 0;
-        if (!da) return 1;
-        if (!db) return -1;
-        return db.localeCompare(da);
-      });
     }
 
     const total = items.length;
@@ -2301,6 +2232,102 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     hasSpaBundle,
     onPageEmitted: () => { pagesEmitted++; },
   });
+
+  // ── GSC-driven "recency" landings (pilot — 2026-05-18) ──
+  // GSC orphan-queries data shows ~150 untapped impressions/90d concentrated
+  // on time-intent queries ("offerte di lavoro ticino negli ultimi 3
+  // giorni", "lavoro ticino da ieri", "lavoro ticino ultima settimana").
+  // The 10 curated sector hubs already cover top sector demand, so the next
+  // unit of SEO value is recency, not new sectors. Pilot: 3 TI/IT pages
+  // (24h, 3d, 7d) using the canton-hub thin template, jobs filtered by
+  // postedAt window. If they earn clicks, generalize to all cantons + locales.
+  {
+    const tiJobs = cantonJobs.get('TI') ?? [];
+    const totalTi = cantonJobCounts.get('TI') ?? 0;
+    const empCountsTi = cantonEmployerCounts.get('TI') ?? new Map<string, number>();
+    const now = Date.now();
+    const DAY = 86400e3;
+    const RECENCY_PAGES: Array<{ slug: string; windowDays: number; label: string; descLabel: string }> = [
+      { slug: 'offerte-da-ieri', windowDays: 1, label: 'Offerte di lavoro pubblicate da ieri', descLabel: 'nelle ultime 24 ore' },
+      { slug: 'offerte-ultimi-3-giorni', windowDays: 3, label: 'Offerte di lavoro degli ultimi 3 giorni', descLabel: 'negli ultimi 3 giorni' },
+      { slug: 'offerte-ultima-settimana', windowDays: 7, label: 'Offerte di lavoro dell’ultima settimana', descLabel: 'negli ultimi 7 giorni' },
+    ];
+    for (const r of RECENCY_PAGES) {
+      const windowMs = r.windowDays * DAY;
+      const recentJobs = tiJobs.filter((j) => {
+        if (!j.postedAt) return false;
+        const ts = new Date(j.postedAt).getTime();
+        return Number.isFinite(ts) && (now - ts) <= windowMs;
+      });
+      // Don't emit empty pages — would trip thin-content gates. Skip when
+      // the window has fewer than 5 jobs (sanity gate, not SEO-strict).
+      if (recentJobs.length < 5) continue;
+
+      const basePath = `/cerca-lavoro-ticino/${r.slug}/`;
+      const items = recentJobs
+        .sort((a, b) => (b.postedAt ?? '').localeCompare(a.postedAt ?? ''))
+        .slice(0, 100)
+        .map((j) => ({
+          href: `/cerca-lavoro-ticino/${j.slug}/`,
+          label: j.role || humanizeSlug(j.slug),
+          sub: j.city ? `${j.city} · ${j.postedAt ?? ''}` : (j.postedAt ?? undefined),
+        }));
+
+      const top3Employers = Array.from(
+        recentJobs.reduce((m, j) => {
+          if (j.employerKey) m.set(j.employerKey, (m.get(j.employerKey) ?? 0) + 1);
+          return m;
+        }, new Map<string, number>()).entries(),
+      ).sort((a, b) => b[1] - a[1]).slice(0, 1);
+      const topEmp = top3Employers[0];
+      const topEmpLabel = topEmp ? `${humanizeSlug(topEmp[0])} · ${topEmp[1]}` : '—';
+
+      const html = buildThinCantonHubHtml({
+        locale: 'it',
+        hub: 'tutti',
+        canton: 'TI',
+        cantonLabel: 'Ticino',
+        basePath,
+        totalItems: recentJobs.length,
+        items,
+        hasSpaBundle,
+        entryJs,
+        entryCss,
+        dateStamp,
+        statTiles: [
+          { label: 'Offerte nuove', value: recentJobs.length.toLocaleString('it'), tone: 'accent' },
+          { label: 'Top datore', value: topEmpLabel, tone: 'success' },
+          { label: 'Finestra', value: r.descLabel, tone: 'base' },
+        ],
+        cta: {
+          href: '/calcola-stipendio/',
+          label: 'Calcola lo stipendio netto frontaliere →',
+        },
+        advice: `${recentJobs.length} annunci pubblicati ${r.descLabel} nel cantone Ticino, ordinati per data più recente. Per offerte oltre questa finestra apri l’indice completo. Verifica Permesso G, ritenuta cantonale e contributi sociali con il calcolatore prima di candidarti.`,
+      });
+      // Override the H1/title that the canton-hub template would have
+      // generated from `cantonHubH1`. We do this by string-replacing the
+      // first <h1>…</h1> in the emitted HTML — cleaner than threading an
+      // override param through every callsite for a single pilot.
+      const customH1 = `${r.label} · Ticino`;
+      const customTitle = `${r.label} Ticino | Frontaliere`;
+      const customDesc = `Indice delle offerte di lavoro nel cantone Ticino pubblicate ${r.descLabel}. ${recentJobs.length} posizioni aperte aggiornate quotidianamente.`;
+      const patched = html
+        .replace(/<title>[^<]*<\/title>/, `<title>${esc(customTitle)}</title>`)
+        .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(customDesc)}">`)
+        .replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${esc(customTitle)}">`)
+        .replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${esc(customDesc)}">`)
+        .replace(/<h1 [^>]*>[^<]*<\/h1>/, (match) => match.replace(/>[^<]*</, `>${esc(customH1)}<`))
+        .replace(/<p style="font-size:16px[^"]*"[^>]*>[^<]*<\/p>/, `<p style="font-size:16px;color:var(--color-body);max-width:780px;line-height:1.55;margin:0">${esc(customDesc)}</p>`);
+
+      qw(np.join(distDir, basePath.slice(1), 'index.html'), patched);
+      pagesEmitted++;
+      const url = `${BASE_URL}${basePath}`;
+      sitemapEntries.push(
+        `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+      );
+    }
+  }
 
   // Patch sitemap.xml index to include sitemap-seo-hubs.xml
   if (sitemapEntries.length > 0) {
