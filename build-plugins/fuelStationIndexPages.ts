@@ -69,13 +69,125 @@ import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
   CARD_STYLE,
+  CTA_PRIMARY_STYLE,
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
-  LEDE_STYLE,
+  ICON_FUEL_SVG,
+  ICON_MAP_PIN_SVG,
+  ICON_NAVIGATION_SVG,
   LINK_ACCENT_STYLE,
+  STAT_TILE_ACCENT,
+  STAT_TILE_BASE,
+  STAT_TILE_LABEL,
+  STAT_TILE_SUCCESS,
+  STAT_TILE_VALUE,
   clampSiteSuffix,
+  renderEntityCard,
 } from './shared/seoContentTokens';
+
+// ── Visual style constants (local to the index pages) ─────────────
+//
+// The index pages use a richer visual layout than the original flat list:
+// stat tiles + advice banner + primary CTA + sticky zone-chip jump nav +
+// per-zone header cards + entity-card station grid. All styles bind to the
+// shared OKLCH semantic tokens (CLAUDE.md "no new color values, ever") and
+// gracefully degrade to single column on mobile.
+
+const TAGLINE_STYLE =
+  'margin:0 0 18px;font-size:16px;line-height:1.55;color:var(--color-body);max-width:62ch';
+
+const STAT_GRID_STYLE =
+  'display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:0 0 22px';
+
+const ADVICE_STYLE =
+  'display:flex;align-items:flex-start;gap:12px;margin:0 0 22px;padding:16px 18px;border-radius:14px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border);color:var(--color-heading)';
+
+const ADVICE_BADGE_STYLE =
+  'flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:10px;background:var(--color-accent);color:var(--color-on-accent)';
+
+const ADVICE_LABEL_STYLE =
+  'display:block;font-size:11px;font-weight:700;color:var(--color-accent);text-transform:uppercase;letter-spacing:0.06em;margin:0 0 4px';
+
+const ADVICE_BODY_STYLE =
+  'margin:0;font-size:14.5px;line-height:1.5;color:var(--color-heading)';
+
+const CTA_ROW_STYLE =
+  'display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 26px';
+
+const ZONE_NAV_STYLE =
+  'display:flex;gap:8px;overflow-x:auto;margin:0 -8px 24px;padding:6px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch';
+
+const ZONE_CHIP_STYLE =
+  'flex-shrink:0;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-heading);font-size:14px;font-weight:600;text-decoration:none;white-space:nowrap;transition:border-color 0.15s';
+
+const ZONE_CHIP_COUNT_STYLE =
+  'display:inline-flex;align-items:center;justify-content:center;min-width:22px;padding:0 7px;height:20px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);font-size:12px;font-weight:700;font-variant-numeric:tabular-nums';
+
+const ZONE_HEADER_STYLE =
+  'display:flex;align-items:center;gap:14px;margin:8px 0 14px;padding:14px 18px;border-radius:14px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border)';
+
+const ZONE_HEADER_BADGE_STYLE =
+  'flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--color-accent);color:var(--color-on-accent)';
+
+const ZONE_HEADER_TITLE_STYLE =
+  'margin:0;font-size:17px;font-weight:700;color:var(--color-heading);line-height:1.2';
+
+const ZONE_HEADER_META_STYLE =
+  'margin:3px 0 0;font-size:13px;color:var(--color-subtle);line-height:1.4';
+
+const ZONE_HEADER_COUNT_STYLE =
+  'flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:28px;padding:0 10px;border-radius:999px;background:var(--color-surface);border:1px solid var(--color-accent-border);color:var(--color-accent);font-size:13px;font-weight:700;font-variant-numeric:tabular-nums';
+
+const STATION_GRID_STYLE =
+  'display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin:0 0 28px';
+
+const ZONE_SECTION_STYLE = 'margin:0 0 8px;scroll-margin-top:80px';
+
+const PROSE_BLOCK_STYLE =
+  'margin:40px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)';
+
+const PROSE_HEADING_STYLE =
+  'margin:0 0 10px;font-size:18px;font-weight:700;color:var(--color-heading);line-height:1.3';
+
+const PROSE_BODY_STYLE =
+  'margin:0 0 18px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px';
+
+// Zone-context hint: short locale-aware line that adds geographic flavour
+// under each zone header. Keeps the page from feeling like a wall of brand
+// names — gives commuters an instant "is this my crossing?" signal.
+const FUEL_ZONE_BORDER_HINT: Record<FuelZone, Record<FuelDailyLocale, string>> = {
+  chiasso: {
+    it: 'Confine: Chiasso · Brogeda · Pedrinate',
+    en: 'Border: Chiasso · Brogeda · Pedrinate',
+    de: 'Grenze: Chiasso · Brogeda · Pedrinate',
+    fr: 'Frontière : Chiasso · Brogeda · Pedrinate',
+  },
+  mendrisio: {
+    it: 'Confine: Stabio · Gaggiolo · Bizzarone',
+    en: 'Border: Stabio · Gaggiolo · Bizzarone',
+    de: 'Grenze: Stabio · Gaggiolo · Bizzarone',
+    fr: 'Frontière : Stabio · Gaggiolo · Bizzarone',
+  },
+  lugano: {
+    it: 'Centro Sottoceneri · A2 Lugano-Sud/Nord',
+    en: 'Sottoceneri hub · A2 Lugano-South/North',
+    de: 'Sottoceneri-Knoten · A2 Lugano-Süd/Nord',
+    fr: 'Pôle Sottoceneri · A2 Lugano-Sud/Nord',
+  },
+  bellinzona: {
+    it: 'Capitale cantonale · biforcazione A2/A13',
+    en: 'Cantonal capital · A2/A13 split',
+    de: 'Kantonshauptstadt · A2/A13-Verzweigung',
+    fr: 'Capitale cantonale · embranchement A2/A13',
+  },
+  locarno: {
+    it: 'Lago Maggiore · valico di Brissago',
+    en: 'Lake Maggiore · Brissago crossing',
+    de: 'Lago Maggiore · Übergang Brissago',
+    fr: 'Lac Majeur · passage de Brissago',
+  },
+};
 
 // ── Types ─────────────────────────────────────────────────────────
 
@@ -161,6 +273,8 @@ interface IndexCopy {
   readonly updatedLabel: string;
   readonly groupHeadingByZone: (zone: string) => string;
   readonly groupHeadingByCity: (city: string) => string;
+  /** "Vicino a Chiasso" / "Near Chiasso" — used to group Italian cities by the nearest Ticino zone. */
+  readonly groupHeadingNearZone: (zone: string) => string;
   readonly seeStationLink: (label: string) => string;
   readonly faqTitle: string;
   readonly methodologyHeading: string;
@@ -173,6 +287,28 @@ interface IndexCopy {
     readonly italianCities: string;
     readonly dailyHub: string;
   };
+  /** Stat tile labels — kept short so the value (number) dominates. */
+  readonly statLabels: {
+    readonly stations: string;
+    readonly cities: string;
+    readonly zones: string;
+    readonly source: string;
+    readonly updateFreq: string;
+    readonly updateValue: string;
+  };
+  /** "Consiglio" advice banner content (locale-aware). */
+  readonly advice: {
+    readonly label: string;
+    readonly bodyByKind: (kind: FuelIndexKind, fuelLabel: string) => string;
+  };
+  /** Primary CTA label that links to the matching daily-hub page. */
+  readonly ctaDailyHub: (fuelLabel: string) => string;
+  /** Header above the zone-chip quick-jump nav. */
+  readonly jumpNavLabel: string;
+  /** Singular/plural noun for a station, used in zone count chips. */
+  readonly stationsNoun: (count: number) => string;
+  /** Singular/plural noun for a city, used in city-grouped indexes. */
+  readonly citiesNoun: (count: number) => string;
 }
 
 const COPY_IT: IndexCopy = {
@@ -180,11 +316,12 @@ const COPY_IT: IndexCopy = {
   updatedLabel: 'Aggiornato',
   groupHeadingByZone: (zone) => `Stazioni di ${zone}`,
   groupHeadingByCity: (city) => `Stazioni a ${city}`,
+  groupHeadingNearZone: (zone) => `Vicino a ${zone}`,
   seeStationLink: (label) => `Vedi prezzi: ${label}`,
   faqTitle: 'Domande frequenti',
   methodologyHeading: 'Come funziona questo indice',
   frontaliereHeading: 'Perché questo indice è utile per i frontalieri',
-  browseHeading: 'Sfoglia tutte le pagine',
+  browseHeading: 'Sfoglia per zona',
   relatedHeading: 'Vedi anche',
   relatedLinkLabels: {
     swissStations: 'Indice stazioni svizzere',
@@ -192,6 +329,30 @@ const COPY_IT: IndexCopy = {
     italianCities: 'Indice città italiane',
     dailyHub: 'Prezzo carburanti oggi (Ticino)',
   },
+  statLabels: {
+    stations: 'Stazioni',
+    cities: 'Città',
+    zones: 'Zone',
+    source: 'Fonte',
+    updateFreq: 'Aggiornamento',
+    updateValue: 'Giornaliero',
+  },
+  advice: {
+    label: 'Consiglio frontaliere',
+    bodyByKind: (kind, fuelLabel) => {
+      if (kind === 'swissStations') {
+        return `Scegli la stazione vicino al tuo valico: la differenza fra il distributore più caro e più economico della stessa zona è spesso di 5–10 centesimi/litro. Su un pendolarismo annuale può valere 500–1000 CHF.`;
+      }
+      if (kind === 'italianStations') {
+        return `Confronta il prezzo italiano del ${fuelLabel.toLowerCase()} con la stazione svizzera del tuo valico prima di partire: lo spread CHF/EUR cambia ogni giorno e ribalta facilmente la convenienza.`;
+      }
+      return `Apri prima la pagina della tua città: vedi la media del giorno e la stazione svizzera più vicina per confrontare al volo prima di fare il pieno.`;
+    },
+  },
+  ctaDailyHub: (fuelLabel) => `Vedi il prezzo ${fuelLabel.toLowerCase()} di oggi`,
+  jumpNavLabel: 'Salta alla zona',
+  stationsNoun: (n) => (n === 1 ? 'stazione' : 'stazioni'),
+  citiesNoun: (n) => (n === 1 ? 'città' : 'città'),
 };
 
 const COPY_EN: IndexCopy = {
@@ -199,11 +360,12 @@ const COPY_EN: IndexCopy = {
   updatedLabel: 'Updated',
   groupHeadingByZone: (zone) => `Stations in ${zone}`,
   groupHeadingByCity: (city) => `Stations in ${city}`,
+  groupHeadingNearZone: (zone) => `Near ${zone}`,
   seeStationLink: (label) => `See prices: ${label}`,
   faqTitle: 'Frequently asked questions',
   methodologyHeading: 'How this index works',
   frontaliereHeading: 'Why this index helps cross-border commuters',
-  browseHeading: 'Browse every page',
+  browseHeading: 'Browse by zone',
   relatedHeading: 'See also',
   relatedLinkLabels: {
     swissStations: 'Swiss stations index',
@@ -211,6 +373,30 @@ const COPY_EN: IndexCopy = {
     italianCities: 'Italian cities index',
     dailyHub: 'Today\'s fuel price (Ticino)',
   },
+  statLabels: {
+    stations: 'Stations',
+    cities: 'Cities',
+    zones: 'Zones',
+    source: 'Source',
+    updateFreq: 'Refresh',
+    updateValue: 'Daily',
+  },
+  advice: {
+    label: 'Commuter tip',
+    bodyByKind: (kind, fuelLabel) => {
+      if (kind === 'swissStations') {
+        return `Pick the right station near your crossing: the gap between the cheapest and the priciest pump in the same zone is often CHF 0.05–0.10 per litre. Over a year of commuting that’s CHF 500–1000.`;
+      }
+      if (kind === 'italianStations') {
+        return `Compare today’s Italian ${fuelLabel.toLowerCase()} with the Swiss station at your usual crossing before driving — the CHF/EUR spread shifts daily and can flip the convenient side.`;
+      }
+      return `Open your city page first: it shows today’s average plus the closest Swiss station so you can decide where to refuel without leaving the page.`;
+    },
+  },
+  ctaDailyHub: (fuelLabel) => `See today’s ${fuelLabel.toLowerCase()} price`,
+  jumpNavLabel: 'Jump to zone',
+  stationsNoun: (n) => (n === 1 ? 'station' : 'stations'),
+  citiesNoun: (n) => (n === 1 ? 'city' : 'cities'),
 };
 
 const COPY_DE: IndexCopy = {
@@ -218,11 +404,12 @@ const COPY_DE: IndexCopy = {
   updatedLabel: 'Aktualisiert',
   groupHeadingByZone: (zone) => `Tankstellen in ${zone}`,
   groupHeadingByCity: (city) => `Tankstellen in ${city}`,
+  groupHeadingNearZone: (zone) => `Nahe ${zone}`,
   seeStationLink: (label) => `Preise ansehen: ${label}`,
   faqTitle: 'Häufige Fragen',
   methodologyHeading: 'So funktioniert dieser Index',
   frontaliereHeading: 'Warum dieser Index Grenzgängern hilft',
-  browseHeading: 'Alle Seiten durchsuchen',
+  browseHeading: 'Nach Region durchsuchen',
   relatedHeading: 'Siehe auch',
   relatedLinkLabels: {
     swissStations: 'Index Schweizer Tankstellen',
@@ -230,6 +417,30 @@ const COPY_DE: IndexCopy = {
     italianCities: 'Index italienische Städte',
     dailyHub: 'Spritpreis heute (Tessin)',
   },
+  statLabels: {
+    stations: 'Tankstellen',
+    cities: 'Städte',
+    zones: 'Regionen',
+    source: 'Quelle',
+    updateFreq: 'Aktualisierung',
+    updateValue: 'Täglich',
+  },
+  advice: {
+    label: 'Grenzgänger-Tipp',
+    bodyByKind: (kind, fuelLabel) => {
+      if (kind === 'swissStations') {
+        return `Wähle die richtige Tankstelle nah am Grenzübergang: der Unterschied zwischen günstigster und teuerster Zapfsäule in derselben Region liegt oft bei CHF 0.05–0.10 pro Liter — übers Jahr gerechnet sind das CHF 500–1000.`;
+      }
+      if (kind === 'italianStations') {
+        return `Vergleiche den italienischen Preis für ${fuelLabel} mit der Schweizer Tankstelle deines Übergangs, bevor du losfährst: der CHF/EUR-Kurs verändert die günstigere Seite täglich.`;
+      }
+      return `Öffne zuerst die Stadtseite: dort siehst du den Tagesdurchschnitt und die nächstgelegene Schweizer Tankstelle für einen schnellen Vergleich.`;
+    },
+  },
+  ctaDailyHub: (fuelLabel) => `${fuelLabel}-Preis heute ansehen`,
+  jumpNavLabel: 'Zur Region springen',
+  stationsNoun: (n) => (n === 1 ? 'Tankstelle' : 'Tankstellen'),
+  citiesNoun: (n) => (n === 1 ? 'Stadt' : 'Städte'),
 };
 
 const COPY_FR: IndexCopy = {
@@ -237,11 +448,12 @@ const COPY_FR: IndexCopy = {
   updatedLabel: 'Mis à jour',
   groupHeadingByZone: (zone) => `Stations à ${zone}`,
   groupHeadingByCity: (city) => `Stations à ${city}`,
+  groupHeadingNearZone: (zone) => `Près de ${zone}`,
   seeStationLink: (label) => `Voir les prix : ${label}`,
   faqTitle: 'Questions fréquentes',
   methodologyHeading: 'Comment fonctionne cet index',
   frontaliereHeading: 'Pourquoi cet index aide les frontaliers',
-  browseHeading: 'Parcourir toutes les pages',
+  browseHeading: 'Parcourir par zone',
   relatedHeading: 'Voir aussi',
   relatedLinkLabels: {
     swissStations: 'Index stations suisses',
@@ -249,6 +461,30 @@ const COPY_FR: IndexCopy = {
     italianCities: 'Index villes italiennes',
     dailyHub: 'Prix du carburant aujourd\'hui (Tessin)',
   },
+  statLabels: {
+    stations: 'Stations',
+    cities: 'Villes',
+    zones: 'Zones',
+    source: 'Source',
+    updateFreq: 'Mise à jour',
+    updateValue: 'Quotidienne',
+  },
+  advice: {
+    label: 'Astuce frontalier',
+    bodyByKind: (kind, fuelLabel) => {
+      if (kind === 'swissStations') {
+        return `Choisissez la station proche de votre passage : l’écart entre la pompe la moins chère et la plus chère d’une même zone atteint souvent CHF 0.05–0.10 le litre. Sur une année de trajets, cela représente CHF 500–1000.`;
+      }
+      if (kind === 'italianStations') {
+        return `Comparez le prix italien du ${fuelLabel.toLowerCase()} avec la station suisse de votre passage avant de partir : le taux CHF/EUR évolue chaque jour et fait basculer le côté avantageux.`;
+      }
+      return `Ouvrez d’abord la page ville : vous voyez la moyenne du jour et la station suisse la plus proche pour comparer sans changer de page.`;
+    },
+  },
+  ctaDailyHub: (fuelLabel) => `Voir le prix ${fuelLabel.toLowerCase()} du jour`,
+  jumpNavLabel: 'Aller à la zone',
+  stationsNoun: (n) => (n === 1 ? 'station' : 'stations'),
+  citiesNoun: (n) => (n === 1 ? 'ville' : 'villes'),
 };
 
 const COPY: Record<FuelDailyLocale, IndexCopy> = {
@@ -401,16 +637,128 @@ function esc(s: unknown): string {
 interface GroupedAnchors {
   readonly heading: string;
   readonly anchors: ReadonlyArray<{ readonly href: string; readonly label: string; readonly subtitle: string }>;
+  /** Stable id for the zone-chip jump nav and the H3 anchor target. */
+  readonly slug: string;
+  /** When set, FUEL_ZONE_BORDER_HINT is rendered as a 2nd line under the zone header. */
+  readonly zoneKey?: FuelZone;
 }
 
-function renderGroup(group: GroupedAnchors, copy: IndexCopy): string {
-  const lis = group.anchors
-    .map(
-      (a) =>
-        `<li style="margin:0;padding:8px 0;border-bottom:1px solid var(--color-edge,rgba(0,0,0,0.08))"><a href="${esc(a.href)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(a.label)}</a><div style="font-size:13px;color:var(--color-subtle);margin-top:2px">${esc(a.subtitle)}</div></li>`,
+/**
+ * Render a per-zone (or per-city) data block: zone header card + grid of
+ * entity cards. Replaces the original flat `<ul><li>` list with a visually
+ * scannable two-column grid that uses the shared `renderEntityCard` helper
+ * and the lucide fuel-pump / map-pin icons for instant visual differentiation.
+ */
+function renderGroup(
+  group: GroupedAnchors,
+  copy: IndexCopy,
+  locale: FuelDailyLocale,
+  cardIcon: 'fuel' | 'mapPin',
+): string {
+  const iconSvg = cardIcon === 'fuel' ? ICON_FUEL_SVG : ICON_MAP_PIN_SVG;
+  const count = group.anchors.length;
+  const noun = cardIcon === 'fuel' ? copy.stationsNoun(count) : copy.citiesNoun(count);
+  const borderHint = group.zoneKey ? FUEL_ZONE_BORDER_HINT[group.zoneKey][locale] : '';
+
+  const cards = group.anchors
+    .map((a) =>
+      renderEntityCard({
+        href: a.href,
+        iconSvg,
+        title: a.label,
+        subtitle: a.subtitle,
+      }),
     )
     .join('');
-  return `<section style="margin:0 0 28px"><h3 style="font-size:18px;margin:0 0 12px;color:var(--color-heading)">${esc(group.heading)}</h3><ul style="list-style:none;padding:0;margin:0">${lis}</ul></section>`;
+
+  const headerBadge = `<span aria-hidden="true" style="${ZONE_HEADER_BADGE_STYLE}">${iconSvg}</span>`;
+  const headerTitle = `<div style="flex:1;min-width:0"><h3 id="zone-${esc(group.slug)}" style="${ZONE_HEADER_TITLE_STYLE}">${esc(group.heading)}</h3>${borderHint ? `<p style="${ZONE_HEADER_META_STYLE}">${esc(borderHint)}</p>` : ''}</div>`;
+  const headerCount = `<span style="${ZONE_HEADER_COUNT_STYLE}" aria-label="${esc(`${count} ${noun}`)}">${count}</span>`;
+  const header = `<div style="${ZONE_HEADER_STYLE}">${headerBadge}${headerTitle}${headerCount}</div>`;
+
+  return `<section style="${ZONE_SECTION_STYLE}" aria-labelledby="zone-${esc(group.slug)}">${header}<div style="${STATION_GRID_STYLE}">${cards}</div></section>`;
+}
+
+/** Build the locale-aware short tagline shown directly under the H1. */
+function buildTagline(
+  kind: FuelIndexKind,
+  locale: FuelDailyLocale,
+  fuel: FuelType,
+  totalAnchors: number,
+  totalGroups: number,
+): string {
+  const fuelLabel = FUEL_TYPE_LABEL[locale][fuel].toLowerCase();
+  const n = totalAnchors;
+  if (locale === 'it') {
+    if (kind === 'swissStations') return `${n} stazioni ${fuelLabel} in Ticino, ${totalGroups} zone di confine. Aggiornamento giornaliero TCS.`;
+    if (kind === 'italianStations') return `${n} stazioni ${fuelLabel} nelle città italiane di confine. Prezzi MIMIT aggiornati ogni giorno.`;
+    return `${n} città italiane di confine seguite ogni giorno con il prezzo medio ${fuelLabel}.`;
+  }
+  if (locale === 'en') {
+    if (kind === 'swissStations') return `${n} Swiss ${fuelLabel} stations across ${totalGroups} border zones. TCS data refreshed daily.`;
+    if (kind === 'italianStations') return `${n} Italian ${fuelLabel} stations across the border-zone cities. MIMIT prices refreshed daily.`;
+    return `${n} Italian border cities tracked daily with the average ${fuelLabel} price.`;
+  }
+  if (locale === 'de') {
+    if (kind === 'swissStations') return `${n} Schweizer ${fuelLabel}-Tankstellen in ${totalGroups} Grenzregionen. TCS-Daten, täglich aktualisiert.`;
+    if (kind === 'italianStations') return `${n} italienische ${fuelLabel}-Tankstellen in den Grenzstädten. MIMIT-Preise, täglich aktualisiert.`;
+    return `${n} italienische Grenzstädte mit täglichem Durchschnittspreis für ${fuelLabel}.`;
+  }
+  if (kind === 'swissStations') return `${n} stations ${fuelLabel} en Suisse sur ${totalGroups} zones frontalières. Données TCS, mise à jour quotidienne.`;
+  if (kind === 'italianStations') return `${n} stations italiennes ${fuelLabel} dans les villes frontalières. Prix MIMIT, mise à jour quotidienne.`;
+  return `${n} villes italiennes frontalières suivies chaque jour avec le prix moyen du ${fuelLabel}.`;
+}
+
+/** Render the 4 header stat tiles (totals + source + refresh frequency). */
+function renderStatBar(
+  kind: FuelIndexKind,
+  copy: IndexCopy,
+  totalAnchors: number,
+  totalGroups: number,
+): string {
+  const source = kind === 'swissStations' ? 'TCS Benzinpreis' : 'MIMIT';
+  const isCityIndex = kind === 'italianCities';
+  const primaryLabel = isCityIndex ? copy.statLabels.cities : copy.statLabels.stations;
+  const secondaryLabel = isCityIndex ? copy.statLabels.zones : copy.statLabels.zones;
+  const tile = (style: string, label: string, value: string) =>
+    `<div style="${style}"><div style="${STAT_TILE_LABEL}">${esc(label)}</div><div style="${STAT_TILE_VALUE}">${esc(value)}</div></div>`;
+  return `<div style="${STAT_GRID_STYLE}">
+    ${tile(STAT_TILE_ACCENT, primaryLabel, String(totalAnchors))}
+    ${tile(STAT_TILE_SUCCESS, secondaryLabel, String(totalGroups))}
+    ${tile(STAT_TILE_BASE, copy.statLabels.source, source)}
+    ${tile(STAT_TILE_BASE, copy.statLabels.updateFreq, copy.statLabels.updateValue)}
+  </div>`;
+}
+
+/** Render the "Consiglio frontaliere" advice banner (always present). */
+function renderAdviceBanner(copy: IndexCopy, kind: FuelIndexKind, fuelLabel: string): string {
+  const body = copy.advice.bodyByKind(kind, fuelLabel);
+  return `<aside style="${ADVICE_STYLE}" aria-label="${esc(copy.advice.label)}">
+    <span aria-hidden="true" style="${ADVICE_BADGE_STYLE}">${ICON_NAVIGATION_SVG}</span>
+    <div style="flex:1;min-width:0">
+      <span style="${ADVICE_LABEL_STYLE}">${esc(copy.advice.label)}</span>
+      <p style="${ADVICE_BODY_STYLE}">${esc(body)}</p>
+    </div>
+  </aside>`;
+}
+
+/** Render the primary CTA row (link to the matching daily-hub page). */
+function renderCtaRow(href: string, label: string): string {
+  return `<div style="${CTA_ROW_STYLE}"><a href="${esc(href)}" style="${CTA_PRIMARY_STYLE}">${esc(label)} →</a></div>`;
+}
+
+/** Render the horizontally-scrollable zone-chip quick-jump nav. */
+function renderZoneNav(
+  groups: ReadonlyArray<GroupedAnchors>,
+  copy: IndexCopy,
+): string {
+  if (groups.length < 2 || groups.length > 8) return '';
+  const chips = groups
+    .map((g) =>
+      `<a href="#zone-${esc(g.slug)}" style="${ZONE_CHIP_STYLE}">${esc(g.heading)}<span style="${ZONE_CHIP_COUNT_STYLE}">${g.anchors.length}</span></a>`,
+    )
+    .join('');
+  return `<nav aria-label="${esc(copy.jumpNavLabel)}" style="${ZONE_NAV_STYLE}">${chips}</nav>`;
 }
 
 // ── Page assembly ─────────────────────────────────────────────────
@@ -437,13 +785,18 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
   const totalAnchors = groups.reduce((acc, g) => acc + g.anchors.length, 0);
+  const totalGroups = groups.filter((g) => g.anchors.length > 0).length;
 
-  // Browse list (the load-bearing internal-link block — these are the anchors
-  // that BFS from the homepage will follow to reach the per-station / per-city
+  // Card icon per index kind — fuel-pump for station indexes, map-pin for the
+  // city index (so the visual signal matches the dominant entity).
+  const cardIcon: 'fuel' | 'mapPin' = kind === 'italianCities' ? 'mapPin' : 'fuel';
+
+  // Browse blocks (the load-bearing internal-link section — these anchors are
+  // what BFS from the homepage follows to reach the per-station / per-city
   // leaves and lift them out of the orphans bucket).
   const groupsHtml =
     totalAnchors > 0
-      ? groups.map((g) => renderGroup(g, copy)).join('')
+      ? groups.map((g) => renderGroup(g, copy, locale, cardIcon)).join('')
       : `<p style="padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle,#fff7ed);color:var(--color-warning,#9a3412)">${esc(locale === 'it' ? 'Nessuna stazione monitorata oggi.' : locale === 'de' ? 'Heute keine Stationen erfasst.' : locale === 'fr' ? 'Aucune station suivie aujourd\'hui.' : 'No stations tracked today.')}</p>`;
 
   // Cross-links to sibling indexes + daily hub.
@@ -493,6 +846,24 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   const title = clampSiteSuffix(titles.title, 'Frontaliere Ticino');
   const description = titles.description.slice(0, 180);
 
+  // Header is intentionally short (eyebrow + H1 + ≤140-char tagline); the
+  // long methodology + frontaliere-context prose moves to the BOTTOM of the
+  // page per CLAUDE.md rules #16/#17 (SEO filler must never push real
+  // content below the mobile fold).
+  const tagline = buildTagline(kind, locale, fuel, totalAnchors, totalGroups);
+  const statBar = renderStatBar(kind, copy, totalAnchors, totalGroups);
+  const advice = totalAnchors > 0 ? renderAdviceBanner(copy, kind, fuelLabel) : '';
+  const ctaHref = buildFuelTodayPath(locale, fuel);
+  const ctaRow = renderCtaRow(ctaHref, copy.ctaDailyHub(fuelLabel));
+  const zoneNav = totalAnchors > 0 ? renderZoneNav(groups, copy) : '';
+
+  const proseBlock = `<section style="${PROSE_BLOCK_STYLE}" aria-label="${esc(copy.methodologyHeading)}">
+    <h2 style="${PROSE_HEADING_STYLE}">${esc(copy.methodologyHeading)}</h2>
+    <p style="${PROSE_BODY_STYLE}">${esc(titles.methodology)}</p>
+    <h2 style="${PROSE_HEADING_STYLE}">${esc(copy.frontaliereHeading)}</h2>
+    <p style="${PROSE_BODY_STYLE.replace('margin:0 0 18px;', 'margin:0;')}">${esc(titles.frontaliereContext)}</p>
+  </section>`;
+
   const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
   <nav style="${BREADCRUMB_STYLE}">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
@@ -501,24 +872,21 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     <span> / </span>
     <span>${esc(titles.h1)}</span>
   </nav>
-  <header style="margin-bottom:22px">
+  <header style="margin-bottom:18px">
     <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp}</p>
     <h1 style="${H1_STYLE}">${esc(titles.h1)}</h1>
-    <p style="${LEDE_STYLE}">${esc(titles.lede)}</p>
+    <p style="${TAGLINE_STYLE}">${esc(tagline)}</p>
   </header>
-  <section style="${CARD_STYLE};margin:0 0 22px;padding:18px 20px">
-    <h2 style="${H2_STYLE};margin:0 0 10px;font-size:18px">${esc(copy.methodologyHeading)}</h2>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(titles.methodology)}</p>
-  </section>
-  <section style="${CARD_STYLE};margin:0 0 28px;padding:18px 20px">
-    <h2 style="${H2_STYLE};margin:0 0 10px;font-size:18px">${esc(copy.frontaliereHeading)}</h2>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(titles.frontaliereContext)}</p>
-  </section>
+  ${statBar}
+  ${advice}
+  ${ctaRow}
+  ${zoneNav}
   <section aria-labelledby="browseAll">
-    <h2 id="browseAll" style="${H2_STYLE}">${esc(copy.browseHeading)}</h2>
+    <h2 id="browseAll" style="${H2_STYLE};margin-top:8px">${esc(copy.browseHeading)}</h2>
     ${groupsHtml}
   </section>
   ${relatedHtml}
+  ${proseBlock}
 </article>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
@@ -644,6 +1012,8 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
           if (list.length === 0) continue;
           groups.push({
             heading: copy.groupHeadingByZone(FUEL_ZONE_DISPLAY[zone]),
+            slug: zone,
+            zoneKey: zone,
             anchors: list.map((s) => ({
               href: buildFuelStationPath(locale, fuel, zone, s.slug),
               label: s.brand ? `${s.brand}${s.name && s.name !== s.brand ? ` — ${s.name}` : ''}` : s.name,
@@ -680,7 +1050,9 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
           const cities = byZone.get(z) ?? [];
           if (cities.length === 0) continue;
           cityGroups.push({
-            heading: copy.groupHeadingByZone(FUEL_ZONE_DISPLAY[z]),
+            heading: copy.groupHeadingNearZone(FUEL_ZONE_DISPLAY[z]),
+            slug: z,
+            zoneKey: z,
             anchors: cities.map((c) => ({
               href: buildFuelItalianCityPath(locale, fuel, c.slug),
               label: c.display,
@@ -710,6 +1082,7 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
           if (list.length === 0) continue;
           groups.push({
             heading: copy.groupHeadingByCity(c.display),
+            slug: c.slug,
             anchors: list.map((s) => ({
               href: buildFuelItalianStationPath(locale, fuel, s.citySlug, s.stationSlug),
               label: s.brand ? `${s.brand}${s.name && s.name !== s.brand ? ` — ${s.name}` : ''}` : s.name,
