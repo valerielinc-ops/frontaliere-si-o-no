@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lis-lugano-istituti-sociali",
-  "assembledAt": "2026-05-17T22:02:37.866Z",
+  "assembledAt": "2026-05-18T12:45:43.254Z",
   "jobs": [
     {
       "title": "Capireparto",
@@ -18,7 +18,7 @@
       "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Salute",
+      "role": "Medicina/Sanità",
       "source": "arca24",
       "titleByLocale": {
         "it": "Capireparto",
@@ -84,7 +84,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T11:20:10.630Z"
+      "firstSeenAt": "2026-05-14T11:20:10.630Z",
+      "needsRetranslation": true
     },
     {
       "title": "Infermieri",
@@ -102,7 +103,7 @@
       "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Salute",
+      "role": "Medicina/Sanità",
       "source": "arca24",
       "titleByLocale": {
         "it": "Infermieri",
@@ -188,7 +189,7 @@
       "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Salute",
+      "role": "Medicina/Sanità",
       "source": "arca24",
       "titleByLocale": {
         "it": "Operatori Sociosanitari",
@@ -275,7 +276,7 @@
       "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Salute",
+      "role": "Medicina/Sanità",
       "source": "arca24",
       "titleByLocale": {
         "it": "Assistenti di cura",
@@ -338,7 +339,8 @@
         "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona-d2blfr",
         "assistente-di-cura-lis-lugano-istituti-sociali-pregassona",
         "assistente-di-cura-lis-lugano-istituti-sociali-pregassona"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Collaboratori sanitari",
@@ -356,7 +358,7 @@
       "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Salute",
+      "role": "Medicina/Sanità",
       "source": "arca24",
       "titleByLocale": {
         "it": "Collaboratori sanitari",
@@ -416,7 +418,6 @@
         "healthcare-assistants-lis-lugano-istituti-sociali-pregassona",
         "gesundheitsassistenten-lis-lugano-istituti-sociali-pregassona",
         "collaborateurs-sanitaires-lis-lugano-istituti-sociali-pregassona",
-        "kindergartner-lis-lugano-istituti-sociali-pregassona",
         "kindergartner-lis-lugano-istituti-sociali-pregassona"
       ],
       "currency": "CHF",
@@ -488,7 +489,8 @@
           "collaborateurs-sanitaires-lis-lugano-istituti-sociali-pregassona"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:02:43.951Z"
+      "firstSeenAt": "2026-04-13T22:02:43.951Z",
+      "needsRetranslation": true
     },
     {
       "title": "Operatori settore animazione",
@@ -506,7 +508,7 @@
       "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Salute",
+      "role": "Medicina/Sanità",
       "source": "arca24",
       "titleByLocale": {
         "it": "Operatori settore animazione",
@@ -593,7 +595,7 @@
       "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Salute",
+      "role": "Medicina/Sanità",
       "source": "arca24",
       "titleByLocale": {
         "it": "Fisioterapisti / Ergoterapisti",
@@ -662,7 +664,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z"
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "needsRetranslation": true
     },
     {
       "title": "Educatori sociali",
@@ -680,7 +683,7 @@
       "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Salute",
+      "role": "Medicina/Sanità",
       "source": "arca24",
       "titleByLocale": {
         "it": "Educatori sociali",
@@ -791,7 +794,8 @@
           "les-educateurs-sociaux-lis-lugano-istituti-sociali-pregassona"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:02:43.951Z"
+      "firstSeenAt": "2026-04-13T22:02:43.951Z",
+      "needsRetranslation": true
     },
     {
       "title": "Operatori socioassistenziali (infanza)",
@@ -809,7 +813,7 @@
       "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Salute",
+      "role": "Medicina/Sanità",
       "source": "arca24",
       "titleByLocale": {
         "it": "Operatori socioassistenziali (infanza)",
@@ -896,7 +900,7 @@
       "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Salute",
+      "role": "Medicina/Sanità",
       "source": "arca24",
       "titleByLocale": {
         "it": "Educatori dell'infanzia",
@@ -983,7 +987,7 @@
       "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Salute",
+      "role": "Medicina/Sanità",
       "source": "arca24",
       "titleByLocale": {
         "it": "Capisquadra - chef di cucina",
@@ -1070,7 +1074,7 @@
       "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Salute",
+      "role": "Medicina/Sanità",
       "source": "arca24",
       "titleByLocale": {
         "it": "Cuochi",
@@ -1156,7 +1160,7 @@
       "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Salute",
+      "role": "Medicina/Sanità",
       "source": "arca24",
       "titleByLocale": {
         "it": "Addetti servizi alla casa",
