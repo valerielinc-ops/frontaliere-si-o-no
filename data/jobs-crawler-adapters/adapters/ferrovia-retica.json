@@ -8,6 +8,7 @@
     "html"
   ],
   "seedUrls": [
+    "https://www.rhb.ch/it/job/fachspezialist-in-rollmaterialeinsatzplanung-50-100_2026-2202/",
     "https://www.rhb.ch/it/job/technik-und-ereignismanager-in-50-60_2026-2201/",
     "https://www.rhb.ch/it/job/quereinstieg-als-zugverkehrsleiter-in-100_2026-2197/",
     "https://www.rhb.ch/it/job/produktmanager-in-pendlerverkehr-und-tarifverbunde-80-100_2026-2194/",
@@ -16,10 +17,13 @@
     "https://www.rhb.ch/it/job/ausbildung-als-lokfuhrer-in-100-region-nord_2026-2145/",
     "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2026-2171/",
     "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2026-2196/",
-    "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2026-2195/",
-    "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2026-2152/"
+    "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2026-2195/"
   ],
   "seedMetaByUrl": {
+    "https://www.rhb.ch/it/job/fachspezialist-in-rollmaterialeinsatzplanung-50-100_2026-2202/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
     "https://www.rhb.ch/it/job/technik-und-ereignismanager-in-50-60_2026-2201/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
@@ -55,12 +59,8 @@
     "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2026-2195/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2026-2152/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
     }
   },
   "notes": "Rhaetian Railway, largest employer in Graubünden. Career page HTML crawler.",
-  "updatedAt": "2026-05-18T12:19:58.578Z"
+  "updatedAt": "2026-05-18T21:53:35.360Z"
 }
