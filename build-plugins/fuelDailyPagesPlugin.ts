@@ -90,7 +90,11 @@ import {
   H1_STYLE,
   H2_STYLE,
   HERO_EYEBROW_STYLE,
+  ICON_BAR_CHART_SVG,
   ICON_FUEL_SVG,
+  ICON_MAP_PIN_SVG,
+  ICON_NAVIGATION_SVG,
+  ICON_TROPHY_SVG,
   LEDE_STYLE,
   LINK_ACCENT_STYLE,
   renderDiscoverMore,
@@ -241,6 +245,17 @@ interface HistorySnapshot {
    * MIMIT-Gasolio ingestion not yet wired into the data pipeline.
    */
   italianCities?: Record<string, { benzina?: number | null; stationCount?: number } | undefined>;
+  /**
+   * Per-station prices, added 2026-05-18. Keyed by buildStationSlug output
+   * (must mirror scripts/lib/fuel-station-slug.mjs). Populated by every
+   * snapshot from that date forward; older snapshots omit this field.
+   *
+   * Consumed by `buildStationHistorySeries` which feeds the per-station
+   * price-history chart on the SEO leaf pages. When fewer than 3 points
+   * exist in any range the renderer falls back to the zone series with a
+   * "this station follows the zone trend" disclaimer.
+   */
+  stations?: Record<string, { diesel?: number | null; benzina?: number | null } | undefined>;
 }
 
 interface ZonePrice {
@@ -922,6 +937,38 @@ function buildFuelHistorySeries(
   }
   if (typeof todayAvg === 'number' && Number.isFinite(todayAvg)) {
     points.push({ date: todayKey, value: Number(todayAvg.toFixed(3)) });
+  }
+  points.sort((a, b) => a.date.localeCompare(b.date));
+  return points;
+}
+
+/**
+ * Per-station price series (added 2026-05-18). Mirrors `buildFuelHistorySeries`
+ * but reads from `snap.stations[stationSlug][fuel]`. Returns `[]` when no
+ * snapshot in the range carries a price for the station — callers must check
+ * `.length >= 3` before rendering, falling back to the zone series otherwise.
+ */
+function buildStationHistorySeries(
+  history: HistorySnapshot[],
+  stationSlug: string,
+  fuel: FuelType,
+  rangeDays: number,
+  today: Date,
+  todayPrice: number | null,
+): FuelSeriesPoint[] {
+  const cutoff = new Date(today.getTime() - rangeDays * 24 * 60 * 60 * 1000);
+  const cutoffKey = cutoff.toISOString().slice(0, 10);
+  const todayKey = today.toISOString().slice(0, 10);
+  const points: FuelSeriesPoint[] = [];
+  for (const snap of history) {
+    if (snap.date < cutoffKey || snap.date >= todayKey) continue;
+    const v = snap.stations?.[stationSlug]?.[fuel];
+    if (typeof v === 'number' && Number.isFinite(v)) {
+      points.push({ date: snap.date, value: Number(v.toFixed(3)) });
+    }
+  }
+  if (typeof todayPrice === 'number' && Number.isFinite(todayPrice)) {
+    points.push({ date: todayKey, value: Number(todayPrice.toFixed(3)) });
   }
   points.sort((a, b) => a.date.localeCompare(b.date));
   return points;
@@ -2437,8 +2484,11 @@ interface StationRedesignLabels {
   readonly mapAria: (brand: string, city: string) => string;
   readonly coordinatesLabel: string;
   readonly historyHeading: (zone: string) => string;
+  readonly historyHeadingStation: (brand: string) => string;
   readonly historyDisclaimer: string;
+  readonly historyCaptionStation: string;
   readonly historyAriaLabel: (zone: string, fuel: string, avgFmt: string) => string;
+  readonly historyAriaLabelStation: (brand: string, fuel: string, avgFmt: string) => string;
   readonly historyTrendLabel: string;
   readonly adviceCheaper: (delta: string, zone: string) => string;
   readonly adviceMedian: (zone: string) => string;
@@ -2457,8 +2507,11 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     mapAria: (b, c) => `Mappa OpenStreetMap che mostra la posizione della stazione ${b} a ${c}`,
     coordinatesLabel: 'Coordinate',
     historyHeading: (z) => `Andamento prezzo nella zona ${z}`,
-    historyDisclaimer: 'Questa stazione segue il trend della zona. La cronologia per singola stazione sarà disponibile a breve.',
+    historyHeadingStation: (b) => `Andamento prezzo di ${b}`,
+    historyDisclaimer: 'Cronologia per singola stazione non ancora disponibile: mostriamo l\'andamento medio della zona, che questa stazione segue da vicino.',
+    historyCaptionStation: 'Serie giornaliera dei prezzi rilevati per questa specifica stazione.',
     historyAriaLabel: (z, f, avg) => `Andamento storico del prezzo ${f.toLowerCase()} nella zona ${z}, media ${avg} CHF/litro nell'intervallo selezionato.`,
+    historyAriaLabelStation: (b, f, avg) => `Andamento storico del prezzo ${f.toLowerCase()} alla stazione ${b}, media ${avg} CHF/litro nell'intervallo selezionato.`,
     historyTrendLabel: 'Andamento prezzo',
     adviceCheaper: (delta, z) => `Buona scelta: oggi questa stazione è ${delta} CHF/litro più economica della media zona ${z}.`,
     adviceMedian: (z) => `Prezzo in linea con la media della zona ${z}: scegli in base alla comodità del percorso.`,
@@ -2475,8 +2528,11 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     mapAria: (b, c) => `OpenStreetMap showing the location of the ${b} station in ${c}`,
     coordinatesLabel: 'Coordinates',
     historyHeading: (z) => `Price trend in the ${z} zone`,
-    historyDisclaimer: 'This station follows the zone trend. Per-station history is coming soon.',
+    historyHeadingStation: (b) => `Price trend at ${b}`,
+    historyDisclaimer: 'Per-station history not yet available: showing the zone average, which this station closely tracks.',
+    historyCaptionStation: 'Daily price series observed at this specific station.',
     historyAriaLabel: (z, f, avg) => `Historical ${f.toLowerCase()} price trend in the ${z} zone, average ${avg} CHF/litre over the selected range.`,
+    historyAriaLabelStation: (b, f, avg) => `Historical ${f.toLowerCase()} price trend at ${b}, average ${avg} CHF/litre over the selected range.`,
     historyTrendLabel: 'Price trend',
     adviceCheaper: (delta, z) => `Good pick: today this station is ${delta} CHF/litre cheaper than the ${z}-zone average.`,
     adviceMedian: (z) => `Price in line with the ${z}-zone average: pick by route convenience.`,
@@ -2493,8 +2549,11 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     mapAria: (b, c) => `OpenStreetMap mit Standort der Tankstelle ${b} in ${c}`,
     coordinatesLabel: 'Koordinaten',
     historyHeading: (z) => `Preisverlauf in der Zone ${z}`,
-    historyDisclaimer: 'Diese Tankstelle folgt dem Zonen-Trend. Stations-spezifische Historie folgt in Kürze.',
+    historyHeadingStation: (b) => `Preisverlauf bei ${b}`,
+    historyDisclaimer: 'Stations-Historie noch nicht verfügbar: gezeigt wird der Zonen-Durchschnitt, dem diese Tankstelle folgt.',
+    historyCaptionStation: 'Tägliche Preisreihe dieser spezifischen Tankstelle.',
     historyAriaLabel: (z, f, avg) => `Historischer ${f}-Preisverlauf in der Zone ${z}, Durchschnitt ${avg} CHF/Liter im ausgewählten Zeitraum.`,
+    historyAriaLabelStation: (b, f, avg) => `Historischer ${f}-Preisverlauf bei ${b}, Durchschnitt ${avg} CHF/Liter im ausgewählten Zeitraum.`,
     historyTrendLabel: 'Preisverlauf',
     adviceCheaper: (delta, z) => `Gute Wahl: heute ist diese Tankstelle ${delta} CHF/Liter günstiger als der Zonen-${z}-Schnitt.`,
     adviceMedian: (z) => `Preis im Schnitt der Zone ${z}: wähle nach Route.`,
@@ -2511,8 +2570,11 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     mapAria: (b, c) => `OpenStreetMap montrant l'emplacement de la station ${b} à ${c}`,
     coordinatesLabel: 'Coordonnées',
     historyHeading: (z) => `Tendance du prix dans la zone ${z}`,
-    historyDisclaimer: 'Cette station suit la tendance de la zone. L\'historique par station arrive bientôt.',
+    historyHeadingStation: (b) => `Tendance du prix chez ${b}`,
+    historyDisclaimer: 'Historique par station pas encore disponible : la moyenne de la zone est affichée, cette station la suit de près.',
+    historyCaptionStation: 'Série quotidienne des prix relevés à cette station spécifique.',
     historyAriaLabel: (z, f, avg) => `Tendance historique du prix ${f.toLowerCase()} dans la zone ${z}, moyenne ${avg} CHF/litre sur la période sélectionnée.`,
+    historyAriaLabelStation: (b, f, avg) => `Tendance historique du prix ${f.toLowerCase()} chez ${b}, moyenne ${avg} CHF/litre sur la période sélectionnée.`,
     historyTrendLabel: 'Tendance du prix',
     adviceCheaper: (delta, z) => `Bon choix : aujourd'hui cette station est ${delta} CHF/litre moins chère que la moyenne de la zone ${z}.`,
     adviceMedian: (z) => `Prix conforme à la moyenne de la zone ${z} : choisissez selon votre itinéraire.`,
@@ -2599,9 +2661,9 @@ function renderStationHero(inp: StationHeroInput): string {
     : '';
 
   const actionsHtml = `<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:18px">
-    <a href="${esc(inp.zonePath)}" style="${CTA_PRIMARY_STYLE};font-size:14px;padding:9px 14px">📊 ${esc(labels.viewRanking(inp.city))} →</a>
-    ${hasCoords ? `<a href="${esc(gmapsHref)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;background:var(--color-surface-alt);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-edge)">📍 ${esc(labels.openInMaps)}</a>` : ''}
-    ${hasCoords ? `<a href="${esc(wazeHref)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;background:var(--color-surface-alt);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-edge)">🚗 ${esc(labels.openInWaze)}</a>` : ''}
+    <a href="${esc(inp.zonePath)}" style="${CTA_PRIMARY_STYLE};font-size:14px;padding:9px 14px">${ICON_BAR_CHART_SVG} ${esc(labels.viewRanking(inp.city))} →</a>
+    ${hasCoords ? `<a href="${esc(gmapsHref)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;background:var(--color-surface-alt);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-edge)">${ICON_MAP_PIN_SVG} ${esc(labels.openInMaps)}</a>` : ''}
+    ${hasCoords ? `<a href="${esc(wazeHref)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:10px;background:var(--color-surface-alt);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-edge)">${ICON_NAVIGATION_SVG} ${esc(labels.openInWaze)}</a>` : ''}
   </div>`;
 
   return `<section style="${CARD_BODY_STYLE};padding:22px 22px 20px;margin:0 0 18px" aria-label="${esc(inp.brand)} ${esc(inp.city)}">
@@ -2619,7 +2681,7 @@ function renderStationHero(inp: StationHeroInput): string {
     </div>
     <div style="display:flex;flex-direction:column;gap:8px">
       <span style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:${deltaBg};color:${deltaTone};font-weight:700;font-size:13px;font-variant-numeric:tabular-nums">${esc(inp.deltaZoneFmt)} vs ${esc(inp.zoneLabel)}</span>
-      <a href="${esc(inp.zonePath)}" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);font-weight:700;font-size:13px;text-decoration:none;border:1px solid var(--color-accent-border)">🏆 ${esc(rankText)} a ${esc(inp.city)} →</a>
+      <a href="${esc(inp.zonePath)}" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);font-weight:700;font-size:13px;text-decoration:none;border:1px solid var(--color-accent-border)">${ICON_TROPHY_SVG} ${esc(rankText)} a ${esc(inp.city)} →</a>
     </div>
   </div>
   ${actionsHtml}
@@ -2691,12 +2753,12 @@ function renderStationLocationCard(inp: StationLocationInput): string {
       <h2 id="stationLocation" style="${H2_STYLE};margin:0 0 10px;font-size:18px">${esc(labels.locationHeading)}</h2>
       <p style="margin:0 0 12px;color:var(--color-body);font-size:14px;line-height:1.5">${esc(labels.locationCaption(inp.brand, inp.city))}</p>
       <dl style="margin:0 0 14px;display:grid;grid-template-columns:max-content 1fr;column-gap:14px;row-gap:6px;font-size:14px;color:var(--color-body)">
-        <dt style="font-weight:600">📌</dt><dd style="margin:0">${esc(inp.address || `${inp.city}`)}</dd>
-        <dt style="font-weight:600">🧭</dt><dd style="margin:0;font-variant-numeric:tabular-nums">${esc(labels.coordinatesLabel)}: ${lat.toFixed(5)}, ${lng.toFixed(5)}</dd>
+        <dt style="display:flex;align-items:center;color:var(--color-subtle)" aria-hidden="true">${ICON_MAP_PIN_SVG}</dt><dd style="margin:0">${esc(inp.address || `${inp.city}`)}</dd>
+        <dt style="display:flex;align-items:center;color:var(--color-subtle)" aria-hidden="true">${ICON_NAVIGATION_SVG}</dt><dd style="margin:0;font-variant-numeric:tabular-nums">${esc(labels.coordinatesLabel)}: ${lat.toFixed(5)}, ${lng.toFixed(5)}</dd>
       </dl>
       <div style="display:flex;flex-wrap:wrap;gap:8px">
-        <a href="${esc(gmapsHref)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;background:var(--color-accent);color:var(--color-on-accent);text-decoration:none;font-weight:600;font-size:14px">📍 ${esc(labels.openInMaps)}</a>
-        <a href="${esc(wazeHref)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;background:var(--color-surface-alt);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-edge)">🚗 ${esc(labels.openInWaze)}</a>
+        <a href="${esc(gmapsHref)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;background:var(--color-accent);color:var(--color-on-accent);text-decoration:none;font-weight:600;font-size:14px">${ICON_MAP_PIN_SVG} ${esc(labels.openInMaps)}</a>
+        <a href="${esc(wazeHref)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;background:var(--color-surface-alt);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-edge)">${ICON_NAVIGATION_SVG} ${esc(labels.openInWaze)}</a>
       </div>
     </div>
   </div>
@@ -2712,12 +2774,66 @@ interface StationHistoryInput {
   readonly history: readonly HistorySnapshot[];
   readonly today: Date;
   readonly zoneAvg: number | null;
+  /** Slug of the current station — used to look up per-station prices in history. */
+  readonly stationSlug: string;
+  /** Brand display name — used in the heading + aria label when per-station data is present. */
+  readonly brand: string;
+  /** Today's per-station price for the chosen fuel (anchors the last point). */
+  readonly stationPriceToday: number | null;
 }
 
-/** Reuse the zone history chart with a per-station honest disclaimer. */
+/**
+ * Render the per-station price-history card.
+ *
+ * Strategy:
+ *  - First try a per-station series from `snap.stations[slug][fuel]`.
+ *  - If any range yields ≥3 numeric points → render the per-station chart.
+ *  - Otherwise fall back to the zone series with an honest disclaimer
+ *    ("station-level history not yet available, showing zone average").
+ *
+ * Going forward (from 2026-05-18 when the snapshot writer started persisting
+ * `stations`), the per-station path will activate after ~3 snapshots, i.e.
+ * within a few days for any actively-monitored station. Older snapshots
+ * lack the `stations` field and contribute 0 station-level points — the
+ * fallback path keeps the chart honest in the transition window.
+ */
 function renderStationHistoryCard(inp: StationHistoryInput): string {
   const labels = STATION_REDESIGN[inp.locale];
-  const seriesByRange = FUEL_RANGE_KEYS.reduce(
+
+  // Try per-station first.
+  const stationSeriesByRange = FUEL_RANGE_KEYS.reduce(
+    (acc, rk) => {
+      acc[rk] = buildStationHistorySeries(
+        inp.history as HistorySnapshot[],
+        inp.stationSlug,
+        inp.fuel,
+        FUEL_RANGE_DAYS[rk],
+        inp.today,
+        inp.stationPriceToday,
+      );
+      return acc;
+    },
+    {} as Record<FuelRangeKey, FuelSeriesPoint[]>,
+  );
+  const stationHasEnough = Object.values(stationSeriesByRange).some((s) => s.length >= 3);
+
+  if (stationHasEnough) {
+    const chartCard = renderFuelHistoryCard({
+      locale: inp.locale,
+      trendLabel: labels.historyTrendLabel,
+      buildAriaLabel: (avgFmt) => labels.historyAriaLabelStation(inp.brand, inp.fuelLabel, avgFmt),
+      seriesByRange: stationSeriesByRange,
+      currency: 'CHF',
+    });
+    return `<section style="margin:0 0 24px" aria-labelledby="stationHistory">
+  <h2 id="stationHistory" style="${H2_STYLE};margin:0 0 8px;font-size:20px">${esc(labels.historyHeadingStation(inp.brand))}</h2>
+  <p style="margin:0 0 14px;color:var(--color-subtle);font-size:13px;line-height:1.5">${esc(labels.historyCaptionStation)}</p>
+  ${chartCard}
+</section>`;
+  }
+
+  // Fallback: zone series.
+  const zoneSeriesByRange = FUEL_RANGE_KEYS.reduce(
     (acc, rk) => {
       acc[rk] = buildFuelHistorySeries(
         inp.history as HistorySnapshot[],
@@ -2731,14 +2847,13 @@ function renderStationHistoryCard(inp: StationHistoryInput): string {
     },
     {} as Record<FuelRangeKey, FuelSeriesPoint[]>,
   );
-  // If we have no points in any range, omit the card entirely.
-  const anyPoints = Object.values(seriesByRange).some((s) => s.length >= 2);
-  if (!anyPoints) return '';
+  const zoneHasPoints = Object.values(zoneSeriesByRange).some((s) => s.length >= 2);
+  if (!zoneHasPoints) return '';
   const chartCard = renderFuelHistoryCard({
     locale: inp.locale,
     trendLabel: labels.historyTrendLabel,
     buildAriaLabel: (avgFmt) => labels.historyAriaLabel(inp.zoneLabel, inp.fuelLabel, avgFmt),
-    seriesByRange,
+    seriesByRange: zoneSeriesByRange,
     currency: 'CHF',
   });
   return `<section style="margin:0 0 24px" aria-labelledby="stationHistory">
@@ -3013,6 +3128,9 @@ function renderStationPage(opts: {
         history,
         today,
         zoneAvg,
+        stationSlug: ctx.slug,
+        brand: ctx.brandDisplay,
+        stationPriceToday: price,
       })
     : '';
 
