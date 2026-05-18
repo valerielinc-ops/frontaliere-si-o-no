@@ -20,17 +20,20 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const BY_CRAWLER_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler');
 const LOCALES = ['it', 'en', 'de', 'fr'];
-const MAX_SLUG_LENGTH = 120;
 
-// Import locale-aware previousSlugs helpers
 import { addPreviousSlugForLocale, cleanPreviousSlugsPerLocale } from './lib/dedicated-crawler-common.mjs';
-import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import {
+  appendDisambiguatorTail,
+  buildSlug,
+  isLikelyUntranslated,
+  shortJobHash,
+  slugMatchesTitle,
+} from './lib/regenerate-slugs-helpers.mjs';
 
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -38,111 +41,6 @@ function readJson(filePath) {
 
 function writeJson(filePath, value) {
   fs.writeFileSync(filePath, JSON.stringify(value, null, 2) + '\n', 'utf-8');
-}
-
-/**
- * Slugify a string: lowercase, replace non-alphanumeric with dashes, trim.
- * Trims at word boundary when the cap would split a token.
- */
-function slugify(text) {
-  const base = String(text || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '') // strip diacritics
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-  return truncateSlugAtWordBoundary(base, MAX_SLUG_LENGTH);
-}
-
-/**
- * Derive a 6-char hex tail from a job identifier \u2014 used as a deterministic
- * disambiguating suffix when a generated slug already belongs to another job.
- *
- * Why 6 chars: 16^6 \u2248 16 M slots \u2192 birthday-paradox collision probability
- * with the ~3000 active jobs in the feed is well below 0.001 %, while
- * keeping URLs short. The hash is stable for a given `job.id` (which is
- * itself content-addressed by the crawler), so the suffix doesn't churn
- * across builds \u2014 Google's link equity stays glued to one URL per job.
- */
-function shortJobHash(jobId) {
-  return crypto.createHash('sha1').update(String(jobId || '')).digest('hex').slice(0, 6);
-}
-
-/**
- * Append a hex disambiguator tail to a slug, respecting MAX_SLUG_LENGTH.
- * Returns the original slug if it's empty (no point disambiguating nothing).
- */
-function appendDisambiguatorTail(slug, tail) {
-  const t = String(tail || '').trim();
-  if (!t) return slug;
-  const maxBase = Math.max(0, MAX_SLUG_LENGTH - t.length - 1);
-  const trimmed = truncateSlugAtWordBoundary(String(slug || ''), maxBase).replace(/-+$/, '');
-  return trimmed ? `${trimmed}-${t}` : t;
-}
-
-/**
- * Build a slug from title + company + location (same format as the crawler).
- * When disambiguator is provided, appends it as a stable suffix.
- */
-function buildSlug(title, company, location, disambiguator = '') {
-  const parts = [title, company, location].filter(Boolean);
-  const base = slugify(parts.join(' '));
-  const d = String(disambiguator || '').trim();
-  if (!d || !base) return base;
-  const maxBase = Math.max(0, MAX_SLUG_LENGTH - d.length - 1);
-  const trimmed = truncateSlugAtWordBoundary(base, maxBase).replace(/-+$/, '');
-  return trimmed ? `${trimmed}-${d}` : d;
-}
-
-// Stop words filtered from slug tokens (IT/EN/DE/FR connectives)
-const SLUG_STOP_WORDS = new Set(
-  'del,dei,della,delle,degli,nel,nella,per,con,una,uno,che,tra,fra,sur,les,des,une,pour,avec,dans,par,the,and,for,with,from,die,der,das,den,dem,des,und,fur,mit,von,bei,ein,eine,einer,einem,einen'.split(','),
-);
-
-function slugTokenSet(slug) {
-  return new Set(
-    String(slug || '').split('-').filter((w) => w.length >= 3 && !SLUG_STOP_WORDS.has(w)),
-  );
-}
-
-/**
- * Jaccard similarity between two slugified strings based on their meaningful tokens.
- * Returns a value in [0, 1]: 1 = identical token sets, 0 = disjoint.
- */
-function slugJaccard(a, b) {
-  const setA = slugTokenSet(a);
-  const setB = slugTokenSet(b);
-  if (setA.size === 0 && setB.size === 0) return 1;
-  if (setA.size === 0 || setB.size === 0) return 0;
-  let intersection = 0;
-  for (const t of setA) if (setB.has(t)) intersection++;
-  return intersection / (setA.size + setB.size - intersection);
-}
-
-/**
- * Check if a locale title is likely untranslated (still in the source language).
- * Uses Jaccard token similarity on slugified versions — threshold 0.5 catches
- * exact copies AND partial heuristic translations that changed only 1-2 words.
- */
-function isLikelyUntranslated(localeTitle, sourceTitle) {
-  if (!localeTitle || !sourceTitle) return false;
-  const a = slugify(localeTitle);
-  const b = slugify(sourceTitle);
-  if (a === b) return true;
-  return slugJaccard(a, b) > 0.5;
-}
-
-/**
- * Check if a slug roughly corresponds to a title+company+location (Jaccard-based).
- * Compares the full derived slug (with company+location) to avoid false negatives
- * when the existing slug contains company/location tokens that dilute Jaccard
- * against a title-only slugified string.
- */
-function slugMatchesTitle(slug, title, company, location, disambiguator = '') {
-  if (!slug || !title) return false;
-  const fullSlug = buildSlug(title, company, location, disambiguator);
-  if (!fullSlug) return false;
-  return slugJaccard(slug, fullSlug) >= 0.5;
 }
 
 async function main() {

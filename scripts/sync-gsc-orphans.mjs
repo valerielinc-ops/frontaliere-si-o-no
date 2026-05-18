@@ -27,6 +27,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import {
+  buildCityCantonIndex,
+  buildOrphanLocalePaths,
+} from './lib/orphan-canton-paths.mjs';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
@@ -1202,16 +1207,23 @@ async function main() {
       pathToTrackingEntry.set(key, entry);
     }
 
+    // City→canton index for canton-aware fallback path generation. Pre-fix
+    // every fallback hardcoded Ticino, so any orphan whose canonical canton
+    // is non-TI (e.g. RhB Chur → GR) ended up with a soft-landing only at
+    // `/en/find-jobs-ticino/...`, while Google's actual indexed URL at
+    // `/en/find-jobs-graubunden/...` had no page to land on and 404'd.
+    const cityIndex = buildCityCantonIndex();
+
     for (const o of orphans) {
       // Skip enrichment-only entries (already in tracking, no new compat paths needed)
       if (o.source === 'enrichment-only') continue;
-      // 1. Add basic slug × 4 locale paths
-      const basicPaths = [
-        `/cerca-lavoro-ticino/${o.slug}`,
-        `/en/find-jobs-ticino/${o.slug}`,
-        `/de/jobs-im-tessin/${o.slug}`,
-        `/fr/trouver-emploi-tessin/${o.slug}`,
-      ];
+      // 1. Add basic slug × 4 locale paths — canton-aware where possible,
+      //    falling back to legacy Ticino-only shape for unresolvable slugs.
+      const inferred = buildOrphanLocalePaths(
+        { slug: o.slug, path: o.path },
+        { cityIndex, pathHints: trackingData[o.slug] },
+      );
+      const basicPaths = [inferred.it, inferred.en, inferred.de, inferred.fr];
       for (const p of basicPaths) {
         if (!existingCompatPaths.has(p)) {
           existingCompatPaths.add(p);
@@ -1263,6 +1275,7 @@ async function main() {
   if (!DRY_RUN) {
     const trackingFile = dataPath('all-known-job-slugs.json');
     const tracking = readJsonSafe(trackingFile) || {};
+    const cityIndex = buildCityCantonIndex();
 
     // Build reverse index: slug-in-any-locale-path → tracking key
     const slugToKey = new Map();
@@ -1300,30 +1313,38 @@ async function main() {
       }
 
       if (existingKey) {
-        // Slug already tracked under a different key — ensure all 4 locales exist
+        // Slug already tracked under a different key — ensure all 4 locales exist.
+        // Re-derive the canton from the existing entry's own paths (the tracked
+        // entry usually already encodes the canonical canton) so backfills land
+        // under the right section instead of defaulting to Ticino.
         const entry = tracking[existingKey];
+        const inferred = buildOrphanLocalePaths(
+          { slug: existingKey, path: o.path },
+          { cityIndex, pathHints: entry },
+        );
         let patched = false;
-        if (!entry.it) { entry.it = `/cerca-lavoro-ticino/${existingKey}`; patched = true; }
-        if (!entry.en) { entry.en = `/en/find-jobs-ticino/${existingKey}`; patched = true; }
-        if (!entry.de) { entry.de = `/de/jobs-im-tessin/${existingKey}`; patched = true; }
-        if (!entry.fr) { entry.fr = `/fr/trouver-emploi-tessin/${existingKey}`; patched = true; }
+        for (const loc of ['it', 'en', 'de', 'fr']) {
+          if (!entry[loc]) { entry[loc] = inferred[loc]; patched = true; }
+        }
         if (patched) trackingPatched++;
       } else if (!tracking[o.slug]) {
-        // New slug — add to tracking
-        tracking[o.slug] = {
-          it: `/cerca-lavoro-ticino/${o.slug}`,
-          en: `/en/find-jobs-ticino/${o.slug}`,
-          de: `/de/jobs-im-tessin/${o.slug}`,
-          fr: `/fr/trouver-emploi-tessin/${o.slug}`,
-        };
+        // New slug — add to tracking with canton-aware paths.
+        tracking[o.slug] = buildOrphanLocalePaths(
+          { slug: o.slug, path: o.path },
+          { cityIndex },
+        );
         trackingAdded++;
       } else {
-        // Already tracked under this key — ensure all 4 locales exist
+        // Already tracked under this key — ensure all 4 locales exist, using
+        // existing locale paths as hints for canton inference.
         const entry = tracking[o.slug];
-        if (!entry.it) entry.it = `/cerca-lavoro-ticino/${o.slug}`;
-        if (!entry.en) entry.en = `/en/find-jobs-ticino/${o.slug}`;
-        if (!entry.de) entry.de = `/de/jobs-im-tessin/${o.slug}`;
-        if (!entry.fr) entry.fr = `/fr/trouver-emploi-tessin/${o.slug}`;
+        const inferred = buildOrphanLocalePaths(
+          { slug: o.slug, path: o.path },
+          { cityIndex, pathHints: entry },
+        );
+        for (const loc of ['it', 'en', 'de', 'fr']) {
+          if (!entry[loc]) entry[loc] = inferred[loc];
+        }
       }
     }
     if (trackingAdded > 0 || trackingPatched > 0) {
