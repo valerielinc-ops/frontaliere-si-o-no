@@ -62,6 +62,11 @@ interface LegacyAliasEntry {
   readonly h1: string;
   /** Lead paragraph above the SPA root — supplies text-to-HTML ratio. */
   readonly prose: string;
+  /** Additional FAQ block paragraphs (kept short, lifts text-to-HTML ratio
+   *  above the 10% Semrush threshold for these stub pages — they ship a
+   *  ~7 KB shell with only the lead paragraph, which floors the ratio at
+   *  ~9.4%). Each entry is one Q + A pair rendered as a <p>. */
+  readonly faq: ReadonlyArray<{ readonly q: string; readonly a: string }>;
   /** OpenGraph locale token. */
   readonly ogLocale: string;
 }
@@ -74,6 +79,12 @@ const ENTRIES: ReadonlyArray<LegacyAliasEntry> = [
     description: 'Net salary calculator for Swiss-Italian frontalieri. We pre-filled your scenario from the URL parameters — adjust income, family status, residence distance and recalculate live.',
     h1: 'Salary calculator — your scenario',
     prose: 'This page recovers a legacy URL from an older share link. The calculator below is pre-filled from the parameters in your URL (income, frontaliere type, marital status, children, residence distance) and recalculates net salary instantly under both the old (pre-2026) and new bilateral agreements. Drag the inputs or paste a new income to see updated CHF and EUR figures, plus the AVS/AC/LAA/IJM/LPP breakdown and the monthly net comparison between living in Switzerland on a Permit B and commuting from Italy. The full guide to the 2026 frontaliere reform lives on the canonical page linked from the header.',
+    faq: [
+      { q: 'What is the new 2026 frontaliere agreement?', a: 'The 2026 Switzerland–Italy bilateral treaty replaces the 1974 cantonal-reversal-only scheme with a 80/20 split: 80% of income tax goes to the canton of employment, 20% to the Italian municipality of residence. New frontalieri hired after 17 July 2023 fall under the new rules; those hired before keep grandfathered terms.' },
+      { q: 'Why do I see two net figures (CHF and EUR)?', a: 'The calculator converts the Swiss net salary at the current CHF/EUR rate so you can compare like-for-like with Italian payslips. The EUR figure already subtracts the LAMal premium, cross-border health contribution, and an estimated commute cost so the comparison reflects what actually lands in your pocket.' },
+      { q: 'Does the result include the 13th-month salary?', a: 'Yes — the gross we use already includes the 13th-month pay where the contract provides one, and AVS/AC/UV/KTG/BVG contributions are deducted on the same base. A 14th month is rare in Switzerland and treated as a discretionary bonus, not built into the default scenario.' },
+      { q: 'Can I share the pre-filled scenario?', a: 'Yes — copy the URL from your browser address bar after adjusting the inputs. The query string encodes every parameter so the recipient lands on the same scenario without retyping it.' },
+    ],
     ogLocale: 'en_US',
   },
   {
@@ -83,6 +94,12 @@ const ENTRIES: ReadonlyArray<LegacyAliasEntry> = [
     description: 'Nettolohn-Rechner für italienisch-schweizerische Grenzgänger. Ihr Szenario wurde aus den URL-Parametern vorausgefüllt — Einkommen, Familienstand und Wohnentfernung jederzeit anpassen.',
     h1: 'Lohnrechner — Ihr Szenario',
     prose: 'Diese Seite stellt eine ältere geteilte Verknüpfung wieder her. Der Rechner unten ist mit den Werten aus Ihrer URL vorausgefüllt (Bruttoeinkommen, Grenzgänger-Typ, Familienstand, Kinder, Wohnentfernung) und berechnet den Nettolohn sofort unter dem alten und dem neuen bilateralen Abkommen. Passen Sie die Eingaben an, um aktualisierte CHF- und EUR-Beträge zu sehen — inklusive AHV/ALV/UV/KTG/BVG-Aufschlüsselung und dem monatlichen Netto-Vergleich zwischen einer Permit-B-Wohnsitznahme in der Schweiz und dem Pendeln aus Italien. Den vollständigen Leitfaden zur Reform 2026 finden Sie auf der kanonischen Seite, verlinkt im Header.',
+    faq: [
+      { q: 'Was bringt das neue Grenzgänger-Abkommen 2026?', a: 'Der bilaterale Schweiz–Italien-Vertrag 2026 ersetzt die alte 100%-Quellensteuer auf Schweizer Seite durch eine 80/20-Aufteilung: 80 % der Einkommensteuer bleiben im Beschäftigungskanton, 20 % gehen an die italienische Wohnsitzgemeinde. Neue Grenzgänger ab dem 17. Juli 2023 fallen unter die neue Regelung; früher Eingestellte behalten den Bestandsstatus.' },
+      { q: 'Warum sehe ich zwei Netto-Beträge (CHF und EUR)?', a: 'Der Rechner konvertiert den Schweizer Nettolohn zum aktuellen CHF/EUR-Kurs für einen Vergleich mit italienischen Lohnabrechnungen. Im EUR-Wert sind LAMal-Prämie, italienischer Gesundheitsbeitrag und geschätzte Pendelkosten bereits abgezogen — was tatsächlich auf dem Konto landet.' },
+      { q: 'Ist der 13. Monatslohn enthalten?', a: 'Ja — der verwendete Bruttolohn enthält bereits den 13. Monatslohn, soweit vertraglich vorgesehen, und AHV/ALV/UV/KTG/BVG werden auf derselben Basis abgezogen. Ein 14. Monat ist in der Schweiz selten und gilt als diskretionärer Bonus.' },
+      { q: 'Kann ich das vorausgefüllte Szenario teilen?', a: 'Ja — kopieren Sie nach Eingabe der Werte die URL aus der Adressleiste. Der Query-String kodiert alle Parameter, sodass die empfangende Person dasselbe Szenario direkt vorgeführt bekommt.' },
+    ],
     ogLocale: 'de_DE',
   },
   {
@@ -92,6 +109,12 @@ const ENTRIES: ReadonlyArray<LegacyAliasEntry> = [
     description: 'Calculateur de salaire net pour les frontaliers italo-suisses. Votre scénario a été pré-rempli depuis les paramètres URL — ajustez revenu, statut familial et distance domicile à tout moment.',
     h1: 'Calculateur de salaire — votre scénario',
     prose: 'Cette page récupère une ancienne URL partagée. Le calculateur ci-dessous est pré-rempli avec les valeurs de votre URL (salaire brut, type de frontalier, statut familial, enfants, distance du domicile) et calcule le salaire net en direct sous l\'ancien et le nouvel accord bilatéral. Ajustez les entrées pour voir les montants CHF et EUR mis à jour — y compris la ventilation AVS/AC/LAA/IJM/LPP et la comparaison mensuelle entre vivre en Suisse avec un permis B et faire la navette depuis l\'Italie. Le guide complet de la réforme frontaliere 2026 se trouve sur la page canonique liée dans l\'en-tête.',
+    faq: [
+      { q: 'Qu\'apporte le nouvel accord frontalier 2026 ?', a: 'Le traité bilatéral Suisse–Italie 2026 remplace l\'ancien système de retenue à 100 % côté suisse par un partage 80/20 : 80 % de l\'impôt sur le revenu restent au canton d\'emploi, 20 % vont à la commune italienne de résidence. Les nouveaux frontaliers embauchés après le 17 juillet 2023 relèvent du nouveau régime ; les autres conservent leur statut antérieur.' },
+      { q: 'Pourquoi deux montants nets (CHF et EUR) ?', a: 'Le calculateur convertit le salaire net suisse au taux CHF/EUR courant pour comparer point par point avec une fiche de paie italienne. Le montant en EUR déduit déjà la prime LAMal, la contribution italienne santé et un coût de trajet estimé — ce qui atterrit effectivement sur le compte.' },
+      { q: 'Le 13ème mois est-il inclus ?', a: 'Oui — le brut utilisé inclut le 13ème mois lorsque prévu au contrat, et AVS/AC/LAA/IJM/LPP sont déduits sur la même base. Un 14ème mois est rare en Suisse et traité comme bonus discrétionnaire, pas intégré au scénario par défaut.' },
+      { q: 'Puis-je partager le scénario pré-rempli ?', a: 'Oui — copiez l\'URL depuis la barre d\'adresse après avoir ajusté les entrées. La query string encode tous les paramètres, le destinataire ouvre exactement le même scénario sans le re-saisir.' },
+    ],
     ogLocale: 'fr_FR',
   },
 ];
@@ -115,11 +138,24 @@ function renderAliasPage(entry: LegacyAliasEntry, distDir: string): string {
   const canonicalUrl = `${BASE_URL}${entry.canonicalPath}`;
   const legacyAbsoluteUrl = `${BASE_URL}${legacyPath}`;
 
+  // FAQ heading label per locale — short, matches the canonical calculator
+  // pages' FAQ section convention.
+  const faqHeading = entry.locale === 'de' ? 'Häufige Fragen'
+    : entry.locale === 'fr' ? 'Questions fréquentes'
+    : 'Frequently asked';
+  const faqHtml = entry.faq
+    .map((qa) => `<p style="margin:14px 0 0;font-size:15px"><strong>${qa.q}</strong> ${qa.a}</p>`)
+    .join('');
+
   const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
     <header style="margin-bottom:16px">
       <h1 style="font-size:28px;font-weight:700;color:var(--color-heading);margin:0 0 8px;letter-spacing:-0.01em">${entry.h1}</h1>
     </header>
     <p style="margin:0;font-size:15.5px">${entry.prose}</p>
+    <section style="margin-top:24px" aria-label="${faqHeading}">
+      <h2 style="font-size:20px;font-weight:700;color:var(--color-heading);margin:0 0 6px">${faqHeading}</h2>
+      ${faqHtml}
+    </section>
   </main>`;
 
   // Minimal 2-level BreadcrumbList (Home → page) — required by the D.2 SEO
