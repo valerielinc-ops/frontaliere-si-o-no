@@ -498,7 +498,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // A.3 — primary target keyword "calcolo stipendio netto svizzera" (vol 390).
  // See docs/seo-semrush-growth-plan.md Task A.3.
  title: 'Calcolo Stipendio Netto Svizzera 2026 — Simulatore Frontalieri',
- description: 'Calcolo stipendio netto Svizzera 2026 per frontalieri: AVS (5,3%), imposta alla fonte (8–10%), IRPEF con franchigia 10.000 €. 8 simulatori gratuiti, calcolo istantaneo.',
+ description: 'Calcolo stipendio netto Svizzera 2026 per frontalieri: AVS, imposta alla fonte, IRPEF con franchigia 10.000 €. 8 simulatori gratuiti, calcolo istantaneo.',
  keywords: 'calcolo stipendio netto svizzera, calcolo stipendio frontaliere, simulatore stipendio netto, busta paga frontaliere, confronto ral svizzera italia, calcolatore imposte alla fonte 2026, etax ticino 2026, imposta alla fonte ticino, bonus frontaliere, congedo parentale frontaliere, permesso g vs b',
  ogTitle: 'Calcolo Stipendio Netto Svizzera 2026 — Simulatore Frontalieri',
  ogDescription: 'Un frontaliere con 60.000 CHF lordi/anno netta circa 3.200–3.500 €/mese dopo contributi svizzeri e tasse italiane. Usa 8 simulatori gratuiti per calcolare il tuo netto esatto (accordo 2026).',
@@ -557,9 +557,9 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  guide: {
- title: 'Frontalieri Svizzera 2026 — Guida Completa Permesso G, Tasse, Dogana',
+ title: 'Frontalieri Svizzera 2026: Permesso G, Tasse, Dogana',
  h1: 'Frontalieri Svizzera — guida completa 2026 a permesso G, tasse, dogana e primo giorno',
- description: 'Guida frontalieri Svizzera 2026: permesso G (20 km, 5 anni), Nuovo Accordo fiscale, tempi dogana, primo giorno, LAMal, trasferimento auto. 78.000 frontalieri/giorno.',
+ description: 'Guida frontalieri Svizzera 2026: permesso G, Nuovo Accordo fiscale, tempi dogana, primo giorno, LAMal, trasferimento auto. 78.000 frontalieri/giorno.',
  keywords: 'frontalieri svizzera, guida frontaliere svizzera, permesso g come ottenerlo, nuovo accordo frontalieri 2026, primo giorno frontaliere, dogana svizzera tempi, trasferire auto svizzera, disoccupazione frontaliere, comuni di frontiera svizzera, lamal frontalieri',
  ogTitle: 'Frontalieri Svizzera 2026 — Guida Completa Pillar',
  ogDescription: 'La guida più completa per frontalieri in Svizzera: permesso G (20 km, 5 anni), Nuovo Accordo fiscale 2026, LAMal, dogana, primo giorno, trasferimento auto. 78.000 frontalieri/giorno.',
@@ -995,7 +995,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  // the verbatim query.
  title: 'Simulazione tasse nuovi frontalieri 2026: calcolo netto online',
  h1: 'Simulazione tasse nuovi frontalieri 2026 — Accordo Italia-Svizzera',
- description: 'Simulazione tasse nuovi frontalieri 2026: calcola imposta alla fonte Ticino, IRPEF con franchigia €10.000 e credito d\'imposta. Simulatore gratuito, senza registrazione.',
+ description: 'Simulazione tasse nuovi frontalieri 2026: imposta alla fonte Ticino, IRPEF con franchigia €10.000 e credito d\'imposta. Simulatore gratuito, no registrazione.',
  keywords: 'simulazione tasse nuovi frontalieri, calcolo tasse nuovi frontalieri 2026, imposta alla fonte nuovi frontalieri, IRPEF frontalieri franchigia 10000, nuovo accordo frontalieri tasse, doppia imposizione nuovi frontalieri, differenza vecchi nuovi frontalieri tasse, franchigia nuovi frontalieri',
  ogTitle: 'Simulazione tasse nuovi frontalieri 2026 — Calcolo netto',
  ogDescription: 'Simulazione tasse nuovi frontalieri 2026: imposta alla fonte CH + IRPEF Italia con franchigia €10.000 e credito d\'imposta. Calcolo gratuito, risultato in EUR.',
@@ -8716,7 +8716,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
  'tassazione-hub': {
  title: 'Tassazione Frontalieri Svizzera 2026: Guida Completa',
- description: 'Guida completa alla tassazione frontalieri Italia-Svizzera 2026: nuovo accordo, doppia imposizione, aliquote Ticino, deduzioni, permesso G/B e dichiarazione dei redditi.',
+ description: 'Tassazione frontalieri Italia-Svizzera 2026: nuovo accordo, doppia imposizione, aliquote Ticino, deduzioni, permesso G/B e dichiarazione redditi.',
  keywords: 'tassazione svizzera, tassazione frontalieri svizzera, doppia tassazione svizzera, permesso g, nuovo accordo frontalieri, tassazione nuovi frontalieri 2023, aliquote imposta alla fonte ticino 2026, franchigia 10000 euro frontalieri, credito imposta frontalieri, irpef frontalieri',
  ogTitle: 'Tassazione Frontalieri Svizzera 2026 — Guida Completa',
  ogDescription: 'Tutto sulla tassazione dei frontalieri nel 2026: nuovo accordo Italia-Svizzera, doppia imposizione, permesso G vs B, aliquote Ticino, deduzioni fiscali e dichiarazione redditi.',

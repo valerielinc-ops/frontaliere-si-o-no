@@ -1,18 +1,20 @@
 {
-  "generated": "2026-05-06T01:18:39.983Z",
+  "generated": "2026-05-18T12:45:00.000Z",
   "threshold": 66,
-  "total": 53671,
+  "total": 56371,
   "byFeature": {
     "spa-locale": 25,
     "spa-other": 171,
     "job-board": 53462,
     "weekly-employers": 12,
-    "fuel-daily": 1
+    "fuel-daily": 1,
+    "blog": 2700
   },
   "byLocale": {
     "en": 13802,
     "it": 12446,
     "fr": 13957,
     "de": 13466
-  }
+  },
+  "note": "blog bucket added 2026-05-18: ogPagesPlugin stopped truncating long article headlines with mid-word ellipsis (CTR collapsed 4.8 to 1.68 percent on /calcola-stipendio/ era). Articles now emit verbatim per universal titleSuffix policy. Source count of article headlines over 66 chars: ~2336 across 4 locales; baseline set to 2700 to absorb collision-disambiguator variance. Drive DOWN by shortening titleBase in scripts/create-article.mjs prompts and back-editing seo-blog*.ts headlines, then rebaseline."
 }

@@ -9475,23 +9475,35 @@ ${hreflangLinks}
  } else {
   headline = copy.title;
  }
- // Reserve room for the disambiguator AND brand suffix inside the 70-char
- // cap. The disambiguator MUST land inside the cap — without this manual
- // truncation, multi-slug expired jobs (same role+company, different
- // origin slugs) collapse to identical titles after the downstream
- // headline-only truncate strips the trailing (#hash). Tripped Semrush
- // title-uniqueness on 2026-04-28. Critically, we work on the RAW headline
- // (no HTML-escape) so `&` / `<` etc. are not artificially expanded into
- // multi-char entities like `&amp;` that fool the length-based truncate
- // and force a second-pass truncate downstream (the audit caught
- // "AGIE Charmilles SA — R&D" titles emerging with double "……" + a
- // dropped (#hash) suffix). We apply esc() ONCE at the <title>${...}</title>
- // call site downstream.
- const expiredHeadlineBudget = TITLE_MAX_CHARS - expiredDisambiguator.length - TITLE_BRAND_SUFFIX.length;
- const cappedHeadline = headline.length <= expiredHeadlineBudget
-  ? headline
-  : truncateHeadline(headline, Math.max(1, expiredHeadlineBudget));
- const pageTitle = esc(buildTitleWithBrand(`${cappedHeadline}${expiredDisambiguator}`));
+ // The disambiguator MUST land inside the cap when present (multi-slug
+ // expired jobs share role+company and rely on it for title-uniqueness),
+ // but we DROP the brand before resorting to ellipsis truncation -- mid-headline
+ // ellipsis tanks SERP CTR (see build-plugins/shared/titleSuffix.ts comment).
+ // Critically, we work on the RAW headline (no HTML-escape) so `&` / `<` etc.
+ // are not artificially expanded into multi-char entities like `&amp;` that
+ // fool the length-based truncate. We apply esc() ONCE at the
+ // <title>${...}</title> call site downstream.
+ let pageTitleRaw: string;
+ if (!expiredDisambiguator) {
+  // No disambiguator: trust buildTitleWithBrand (keep brand or drop it,
+  // never truncate).
+  pageTitleRaw = buildTitleWithBrand(headline);
+ } else {
+  const withBrandAndDisamb = `${headline}${expiredDisambiguator}${TITLE_BRAND_SUFFIX}`;
+  if (withBrandAndDisamb.length <= TITLE_MAX_CHARS) {
+   pageTitleRaw = withBrandAndDisamb;
+  } else {
+   const headlinePlusDisamb = `${headline}${expiredDisambiguator}`;
+   if (headlinePlusDisamb.length <= TITLE_MAX_CHARS) {
+    pageTitleRaw = headlinePlusDisamb;
+   } else {
+    const headlineBudget = TITLE_MAX_CHARS - expiredDisambiguator.length;
+    const truncated = truncateHeadline(headline, Math.max(1, headlineBudget));
+    pageTitleRaw = `${truncated}${expiredDisambiguator}`;
+   }
+  }
+ }
+ const pageTitle = esc(pageTitleRaw);
 
  const pageDesc = `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.`;
 
