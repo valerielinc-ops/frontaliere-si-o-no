@@ -1,0 +1,116 @@
+name: Audit dist from prior run
+on:
+  workflow_dispatch:
+    inputs:
+      deploy_run_id:
+        description: 'Deploy run ID to reuse the github-pages artifact from (numeric)'
+        required: true
+        type: string
+      audits:
+        description: 'Comma-sep audit script names to run (omit = all 4 currently-failing). e.g. text-html-ratio,page-weight,h1-title-duplicates,max-bfs-depth,footer-root-presence'
+        required: false
+        default: 'text-html-ratio,page-weight,h1-title-duplicates,max-bfs-depth,footer-root-presence'
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repo (for audit scripts only)
+        uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Install minimal deps (no build)
+        run: npm ci --no-audit --no-fund --ignore-scripts
+
+      - name: Resolve github-pages artifact for run ${{ inputs.deploy_run_id }}
+        id: art
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          RID=${{ inputs.deploy_run_id }}
+          ARTIFACT_ID=$(gh api repos/${{ github.repository }}/actions/runs/$RID/artifacts --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
+          if [ -z "$ARTIFACT_ID" ]; then
+            echo "::error::No 'github-pages' artifact on run $RID."
+            exit 1
+          fi
+          echo "artifact_id=$ARTIFACT_ID" >> "$GITHUB_OUTPUT"
+          echo "Found github-pages artifact id=$ARTIFACT_ID on run $RID"
+
+      - name: Download github-pages artifact (the deployed dist tarball)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          mkdir -p /tmp/pages
+          gh api -H "Accept: application/vnd.github+json" \
+            repos/${{ github.repository }}/actions/artifacts/${{ steps.art.outputs.artifact_id }}/zip \
+            > /tmp/pages.zip
+          unzip -q /tmp/pages.zip -d /tmp/pages
+          # github-pages artifact ships a single artifact.tar inside the zip
+          if [ -f /tmp/pages/artifact.tar ]; then
+            mkdir -p dist
+            tar -xf /tmp/pages/artifact.tar -C dist
+            echo "Restored $(find dist -type f | wc -l) files into dist/"
+          else
+            echo "::error::Expected /tmp/pages/artifact.tar — saw $(ls /tmp/pages)"
+            exit 1
+          fi
+
+      - name: Run requested audits
+        id: audits
+        run: |
+          set +e
+          IFS=',' read -ra AUDITS <<< "${{ inputs.audits }}"
+          mkdir -p /tmp/audit-logs
+          FAIL=0
+          for name in "${AUDITS[@]}"; do
+            n=$(echo "$name" | xargs)
+            [ -z "$n" ] && continue
+            log=/tmp/audit-logs/$n.log
+            echo "──── npm run audit:$n ────" | tee -a /tmp/summary.txt
+            (npm run "audit:$n" 2>&1) > "$log"
+            rc=$?
+            tail -25 "$log" | tee -a /tmp/summary.txt
+            if [ $rc -ne 0 ]; then
+              echo "❌ FAIL audit:$n rc=$rc" | tee -a /tmp/summary.txt
+              FAIL=$((FAIL+1))
+            else
+              echo "✅ PASS audit:$n" | tee -a /tmp/summary.txt
+            fi
+          done
+          echo ""
+          echo "── SUMMARY: $FAIL failing audit(s)"
+          if [ $FAIL -gt 0 ]; then exit 1; fi
+
+      - name: Upload audit logs + reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-replay-${{ inputs.deploy_run_id }}
+          path: |
+            /tmp/audit-logs/
+            /tmp/summary.txt
+            dist/audit-reports/
+          retention-days: 7
+          if-no-files-found: warn
+
+      - name: Post summary to job
+        if: always()
+        run: |
+          {
+            echo "## Audit replay for deploy run \`${{ inputs.deploy_run_id }}\`"
+            echo ''
+            echo '```'
+            tail -120 /tmp/summary.txt 2>/dev/null || echo '(no summary captured)'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
