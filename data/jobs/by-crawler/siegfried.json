@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-05-18T13:09:16.217Z",
+  "assembledAt": "2026-05-18T22:42:06.586Z",
   "jobs": [
     {
       "id": "siegfried-32003d941376",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebselektriker-in_R25_632",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T13:09:13.924Z",
+      "crawledAt": "2026-05-18T22:42:04.262Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,6 +94,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:43.288Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -139,7 +140,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-18T13:09:13.055Z",
+      "crawledAt": "2026-05-18T22:42:03.614Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -214,7 +215,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Process-Safety-Engineer_R26_215",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-18T13:09:12.127Z",
+      "crawledAt": "2026-05-18T22:42:02.976Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -246,6 +247,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:40.286Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -291,7 +293,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Officer-Process-Assistant-50-_R26_312",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-18T13:09:11.326Z",
+      "crawledAt": "2026-05-18T22:42:02.184Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -353,6 +355,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:36.725Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -398,7 +401,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-18T13:09:10.212Z",
+      "crawledAt": "2026-05-18T22:42:01.344Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -454,6 +457,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -499,7 +503,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Teamleiter-Werkschutz_R26_305",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T13:09:09.260Z",
+      "crawledAt": "2026-05-18T22:42:00.560Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -550,6 +554,7 @@
         "teamleiter-werkschutz-siegfried-ch"
       ],
       "firstSeenAt": "2026-04-13T11:14:34.800Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -595,7 +600,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Data-Reviewer_R26_289",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T13:09:08.128Z",
+      "crawledAt": "2026-05-18T22:41:59.767Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -621,6 +626,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:34.210Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -666,7 +672,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Mechaniker--m-w-d-_R26_349",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T13:09:07.407Z",
+      "crawledAt": "2026-05-18T22:41:59.120Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -707,6 +713,7 @@
         "ingenieur-m-m-j-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -752,7 +759,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Kalibriertechniker--in_R26_347",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T13:09:06.789Z",
+      "crawledAt": "2026-05-18T22:41:58.478Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -789,6 +796,7 @@
         "kalibriertechniker-m-w-d-siegfried-zofingen"
       ],
       "firstSeenAt": "2026-04-14T22:22:01.733Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -834,7 +842,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Site-HR-Head_R26_379",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T13:09:06.054Z",
+      "crawledAt": "2026-05-18T22:41:57.577Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -918,7 +926,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Administrative-Assistent-in-Analytik--60----m-w-d-_R26_406",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T13:09:05.348Z",
+      "crawledAt": "2026-05-18T22:41:56.885Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -936,6 +944,7 @@
       "jobReqId": "R26_406",
       "hiringOrganization": "Siegfried AG",
       "firstSeenAt": "2026-05-01T22:19:23.354Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -981,7 +990,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Operations-support-specialist_R26_313",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-18T13:09:04.588Z",
+      "crawledAt": "2026-05-18T22:41:55.023Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1014,6 +1023,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:36.115Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1059,7 +1069,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Head-DP-Development---Technology_R26_123",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T13:09:03.889Z",
+      "crawledAt": "2026-05-18T22:41:54.323Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1136,7 +1146,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Emergency-and-Fire-Services-Coordinator_R26_416",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-18T13:09:03.156Z",
+      "crawledAt": "2026-05-18T22:41:53.261Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1165,6 +1175,7 @@
         ]
       },
       "firstSeenAt": "2026-05-06T22:37:48.270Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1210,7 +1221,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebsingenieur-in_R26_362",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T13:09:02.436Z",
+      "crawledAt": "2026-05-18T22:41:52.610Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1241,6 +1252,7 @@
         ]
       },
       "firstSeenAt": "2026-05-08T10:35:32.137Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1286,7 +1298,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-Metrologie_R26_401",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T13:09:01.579Z",
+      "crawledAt": "2026-05-18T22:41:51.908Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1318,6 +1330,7 @@
         ]
       },
       "firstSeenAt": "2026-05-01T22:19:22.405Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1363,7 +1376,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T13:09:00.864Z",
+      "crawledAt": "2026-05-18T22:41:51.230Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1392,6 +1405,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T12:28:48.174Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1437,7 +1451,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-18T13:09:00.009Z",
+      "crawledAt": "2026-05-18T22:41:50.567Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1488,6 +1502,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:38.458Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1533,7 +1548,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_413",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T13:08:59.233Z",
+      "crawledAt": "2026-05-18T22:41:49.934Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1559,6 +1574,7 @@
         ]
       },
       "firstSeenAt": "2026-05-12T11:59:11.839Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1604,7 +1620,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Logistic-Professionnal--temporary-_R26_434",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-18T13:08:58.603Z",
+      "crawledAt": "2026-05-18T22:41:49.266Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1622,6 +1638,7 @@
       "jobReqId": "R26_434",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "firstSeenAt": "2026-05-13T11:50:27.648Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1638,11 +1655,11 @@
     },
     {
       "id": "siegfried-5242db5ae6b0",
-      "slug": "laborant-in-efz-chemie-siegfried-ch",
+      "slug": "laborant-in-cfc-chemie-siegfried-zofingen",
       "slugByLocale": {
-        "de": "laborant-in-efz-chemie-siegfried-ch",
-        "it": "laborant-in-efz-chemie-siegfried-ch",
+        "it": "laborant-in-cfc-chemie-siegfried-zofingen",
         "en": "laborant-in-efz-chemie-siegfried-ch",
+        "de": "laborant-in-efz-chemie-siegfried-ch",
         "fr": "laborant-in-efz-chemie-siegfried-ch"
       },
       "company": "Siegfried",
@@ -1650,24 +1667,24 @@
       "companyDomain": "siegfried.ch",
       "title": "Laborant/in EFZ Chemie",
       "titleByLocale": {
-        "de": "Laborant/in EFZ Chemie",
         "it": "Laborant/in CFC Chemie",
         "en": "Laborant/in EFZ Chemie",
+        "de": "Laborant/in EFZ Chemie",
         "fr": "Laborant/in EFZ Chemie"
       },
       "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nBewerben Sie sich auf diese Stelle für eine Lehrstelle, wie auch eine Schnupperlehre. \n Your Profile: \n Was machen Laborant/-innen EFZ Fachrichtung Chemie? \nSie unterstützen die Entwicklung und Optimierung chemischer Verfahren (Fachgebiet Synthese) und analysieren diese auf Qualität und Identität und verbessern Analysemethoden (Fachgebiet Analytik).\n\n Wie ist die Lehre aufgebaut? \nIn den drei Lehrjahren erlernen die Laborantenlernenden in 3 internen Lehrlaborkursen (entspricht überbetrieblichen Kursen) und in verschiedenen analytischen und synthetischen Labors ihr Handwerk. An der Berufsfachschule in Aarau werden an 1½ Tagen in der Woche die Fächer anorganische und organische Chemie, Fachrechnen, Labormethodik und physikalische Grundlagen, Biologie, Englisch, Informatik, Allgemeinbildung und Sport gelehrt. Der Besuch der Berufsmatura während der Lehre wird von der Firma unterstützt.\n\n Was für Weiterbildungsmöglichkeiten bietet mir dieser Beruf? \n \n• Spezialisierung in einem Arbeitsbereich\n\n• Naturwissenschaftliche/r Labortechniker/in mit eidg. Diplom \n\n• Dipl. Techniker/in HF Systemtechnik, pharmazeutische und chemische Technik \n\n• Chemiker/in Fachhochschule \n\n• Betreuung von Lernenden \n\n \n \n Your Benefits: \n Wir bieten \n \n• Einen sozialverantwortlichen Arbeitgeber\n\n• Gegenseitiger Respekt mit offener und transparenter Kommunikation \n\n• Persönliche Verantwortung und eine leistungsorientierte Unternehmenskultur \n\n• Eine nachhaltige und umfassende Ausbildung als Laborant Fachrichtung Chemie mit Stage in Synthese und Analytik \n\n• Mehrere Fachspezialisierungen sind möglich, namentlich Analytik, Synthese und Galenik \n\n• Ein eigenes Lehrlabor, in dem die Lernenden eine solide Grundausbildung erhalten und die überbetrieblichen Kurse intern besuchen \n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen \n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt \n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen \n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr \n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden \n\n \n \n Wie bewerbe ich mich? \nBewerbe Dich über den Link und schicke uns Dein Motivationsschreiben, Deinen Lebenslauf und alle Oberstufenzeugnisse. Nach dem Prüfen der Bewerbung melden wir uns bei Dir. \n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
-        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nBewerben Sie sich auf diese Stelle für eine Lehrstelle, wie auch eine Schnupperlehre. \n Your Profile: \n Was machen Laborant/-innen EFZ Fachrichtung Chemie? \nSie unterstützen die Entwicklung und Optimierung chemischer Verfahren (Fachgebiet Synthese) und analysieren diese auf Qualität und Identität und verbessern Analysemethoden (Fachgebiet Analytik).\n\n Wie ist die Lehre aufgebaut? \nIn den drei Lehrjahren erlernen die Laborantenlernenden in 3 internen Lehrlaborkursen (entspricht überbetrieblichen Kursen) und in verschiedenen analytischen und synthetischen Labors ihr Handwerk. An der Berufsfachschule in Aarau werden an 1½ Tagen in der Woche die Fächer anorganische und organische Chemie, Fachrechnen, Labormethodik und physikalische Grundlagen, Biologie, Englisch, Informatik, Allgemeinbildung und Sport gelehrt. Der Besuch der Berufsmatura während der Lehre wird von der Firma unterstützt.\n\n Was für Weiterbildungsmöglichkeiten bietet mir dieser Beruf? \n \n• Spezialisierung in einem Arbeitsbereich\n\n• Naturwissenschaftliche/r Labortechniker/in mit eidg. Diplom \n\n• Dipl. Techniker/in HF Systemtechnik, pharmazeutische und chemische Technik \n\n• Chemiker/in Fachhochschule \n\n• Betreuung von Lernenden \n\n \n \n Your Benefits: \n Wir bieten \n \n• Einen sozialverantwortlichen Arbeitgeber\n\n• Gegenseitiger Respekt mit offener und transparenter Kommunikation \n\n• Persönliche Verantwortung und eine leistungsorientierte Unternehmenskultur \n\n• Eine nachhaltige und umfassende Ausbildung als Laborant Fachrichtung Chemie mit Stage in Synthese und Analytik \n\n• Mehrere Fachspezialisierungen sind möglich, namentlich Analytik, Synthese und Galenik \n\n• Ein eigenes Lehrlabor, in dem die Lernenden eine solide Grundausbildung erhalten und die überbetrieblichen Kurse intern besuchen \n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen \n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt \n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen \n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr \n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden \n\n \n \n Wie bewerbe ich mich? \nBewerbe Dich über den Link und schicke uns Dein Motivationsschreiben, Deinen Lebenslauf und alle Oberstufenzeugnisse. Nach dem Prüfen der Bewerbung melden wir uns bei Dir. \n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "it": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nBewerben Sie sich auf diese Stelle für eine Lehrstelle, wie auch eine Schnupperlehre. \n Your Profile: \n Was machen Laborant/-innen EFZ Fachrichtung Chemie? \nSie unterstützen die Entwicklung und Optimierung chemischer Verfahren (Fachgebiet Synthese) und analysieren diese auf Qualität und Identität und verbessern Analysemethoden (Fachgebiet Analytik).\n\n Wie ist die Lehre aufgebaut? \nIn den drei Lehrjahren erlernen die Laborantenlernenden in 3 internen Lehrlaborkursen (entspricht überbetrieblichen Kursen) und in verschiedenen analytischen und synthetischen Labors ihr Handwerk. An der Berufsfachschule in Aarau werden an 1½ Tagen in der Woche die Fächer anorganische und organische Chemie, Fachrechnen, Labormethodik und physikalische Grundlagen, Biologie, Englisch, Informatik, Allgemeinbildung und Sport gelehrt. Der Besuch der Berufsmatura während der Lehre wird von der Firma unterstützt.\n\n Was für Weiterbildungsmöglichkeiten bietet mir dieser Beruf? \n \n• Spezialisierung in einem Arbeitsbereich\n\n• Naturwissenschaftliche/r Labortechniker/in mit eidg. Diplom \n\n• Dipl. Techniker/in HF Systemtechnik, pharmazeutische und chemische Technik \n\n• Chemiker/in Fachhochschule \n\n• Betreuung von Lernenden \n\n \n \n Your Benefits: \n Wir bieten \n \n• Einen sozialverantwortlichen Arbeitgeber\n\n• Gegenseitiger Respekt mit offener und transparenter Kommunikation \n\n• Persönliche Verantwortung und eine leistungsorientierte Unternehmenskultur \n\n• Eine nachhaltige und umfassende Ausbildung als Laborant Fachrichtung Chemie mit Stage in Synthese und Analytik \n\n• Mehrere Fachspezialisierungen sind möglich, namentlich Analytik, Synthese und Galenik \n\n• Ein eigenes Lehrlabor, in dem die Lernenden eine solide Grundausbildung erhalten und die überbetrieblichen Kurse intern besuchen \n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen \n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt \n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen \n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr \n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden \n\n \n \n Wie bewerbe ich mich? \nBewerbe Dich über den Link und schicke uns Dein Motivationsschreiben, Deinen Lebenslauf und alle Oberstufenzeugnisse. Nach dem Prüfen der Bewerbung melden wir uns bei Dir. \n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "en": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nBewerben Sie sich auf diese Stelle für eine Lehrstelle, wie auch eine Schnupperlehre. \n Your Profile: \n Was machen Laborant/-innen EFZ Fachrichtung Chemie? \nSie unterstützen die Entwicklung und Optimierung chemischer Verfahren (Fachgebiet Synthese) und analysieren diese auf Qualität und Identität und verbessern Analysemethoden (Fachgebiet Analytik).\n\n Wie ist die Lehre aufgebaut? \nIn den drei Lehrjahren erlernen die Laborantenlernenden in 3 internen Lehrlaborkursen (entspricht überbetrieblichen Kursen) und in verschiedenen analytischen und synthetischen Labors ihr Handwerk. An der Berufsfachschule in Aarau werden an 1½ Tagen in der Woche die Fächer anorganische und organische Chemie, Fachrechnen, Labormethodik und physikalische Grundlagen, Biologie, Englisch, Informatik, Allgemeinbildung und Sport gelehrt. Der Besuch der Berufsmatura während der Lehre wird von der Firma unterstützt.\n\n Was für Weiterbildungsmöglichkeiten bietet mir dieser Beruf? \n \n• Spezialisierung in einem Arbeitsbereich\n\n• Naturwissenschaftliche/r Labortechniker/in mit eidg. Diplom \n\n• Dipl. Techniker/in HF Systemtechnik, pharmazeutische und chemische Technik \n\n• Chemiker/in Fachhochschule \n\n• Betreuung von Lernenden \n\n \n \n Your Benefits: \n Wir bieten \n \n• Einen sozialverantwortlichen Arbeitgeber\n\n• Gegenseitiger Respekt mit offener und transparenter Kommunikation \n\n• Persönliche Verantwortung und eine leistungsorientierte Unternehmenskultur \n\n• Eine nachhaltige und umfassende Ausbildung als Laborant Fachrichtung Chemie mit Stage in Synthese und Analytik \n\n• Mehrere Fachspezialisierungen sind möglich, namentlich Analytik, Synthese und Galenik \n\n• Ein eigenes Lehrlabor, in dem die Lernenden eine solide Grundausbildung erhalten und die überbetrieblichen Kurse intern besuchen \n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen \n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt \n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen \n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr \n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden \n\n \n \n Wie bewerbe ich mich? \nBewerbe Dich über den Link und schicke uns Dein Motivationsschreiben, Deinen Lebenslauf und alle Oberstufenzeugnisse. Nach dem Prüfen der Bewerbung melden wir uns bei Dir. \n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "fr": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n \n \n \n \n Your Role: \nBewerben Sie sich auf diese Stelle für eine Lehrstelle, wie auch eine Schnupperlehre. \n Your Profile: \n Was machen Laborant/-innen EFZ Fachrichtung Chemie? \nSie unterstützen die Entwicklung und Optimierung chemischer Verfahren (Fachgebiet Synthese) und analysieren diese auf Qualität und Identität und verbessern Analysemethoden (Fachgebiet Analytik).\n\n Wie ist die Lehre aufgebaut? \nIn den drei Lehrjahren erlernen die Laborantenlernenden in 3 internen Lehrlaborkursen (entspricht überbetrieblichen Kursen) und in verschiedenen analytischen und synthetischen Labors ihr Handwerk. An der Berufsfachschule in Aarau werden an 1½ Tagen in der Woche die Fächer anorganische und organische Chemie, Fachrechnen, Labormethodik und physikalische Grundlagen, Biologie, Englisch, Informatik, Allgemeinbildung und Sport gelehrt. Der Besuch der Berufsmatura während der Lehre wird von der Firma unterstützt.\n\n Was für Weiterbildungsmöglichkeiten bietet mir dieser Beruf? \n \n• Spezialisierung in einem Arbeitsbereich\n\n• Naturwissenschaftliche/r Labortechniker/in mit eidg. Diplom \n\n• Dipl. Techniker/in HF Systemtechnik, pharmazeutische und chemische Technik \n\n• Chemiker/in Fachhochschule \n\n• Betreuung von Lernenden \n\n \n \n Your Benefits: \n Wir bieten \n \n• Einen sozialverantwortlichen Arbeitgeber\n\n• Gegenseitiger Respekt mit offener und transparenter Kommunikation \n\n• Persönliche Verantwortung und eine leistungsorientierte Unternehmenskultur \n\n• Eine nachhaltige und umfassende Ausbildung als Laborant Fachrichtung Chemie mit Stage in Synthese und Analytik \n\n• Mehrere Fachspezialisierungen sind möglich, namentlich Analytik, Synthese und Galenik \n\n• Ein eigenes Lehrlabor, in dem die Lernenden eine solide Grundausbildung erhalten und die überbetrieblichen Kurse intern besuchen \n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen \n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt \n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen \n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr \n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden \n\n \n \n Wie bewerbe ich mich? \nBewerbe Dich über den Link und schicke uns Dein Motivationsschreiben, Deinen Lebenslauf und alle Oberstufenzeugnisse. Nach dem Prüfen der Bewerbung melden wir uns bei Dir. \n \n \n Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
+        "it": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken. Your Role: Bewerben Sie sich auf diese Stelle für eine Lehrstelle, wie auch eine Schnupperlehre. Your Profile: Was machen Laborant/-innen EFZ Fachrichtung Chemie? Sie unterstützen die Entwicklung und Optimierung chemischer Verfahren (Fachgebiet Synthese) und analysieren diese auf Qualität und Identität und verbessern Analysemethoden (Fachgebiet Analytik). Wie ist die Lehre aufgebaut? In den drei Lehrjahren erlernen die Laborantenlernenden in 3 internen Lehrlaborkursen (entspricht überbetrieblichen Kursen) und in verschiedenen analytischen und synthetischen Labors ihr Handwerk. An der Berufsfachschule in Aarau werden an 1½ Tagen in der Woche die Fächer anorganische und organische Chemie, Fachrechnen, Labormethodik und physikalische Grundlagen, Biologie, Englisch, Informatik, Allgemeinbildung und Sport gelehrt. Der Besuch der Berufsmatura während der Lehre wird von der Firma unterstützt. Was für Weiterbildungsmöglichkeiten bietet mir dieser Beruf?\n• Spezialisierung in einem Arbeitsbereich\n• Naturwissenschaftliche/r Labortechniker/in mit eidg. Diplom\n• Dipl. Techniker/in HF Systemtechnik, pharmazeutische und chemische Technik\n• Chemiker/in Fachhochschule\n• Betreuung von Lernenden Your Benefits: Wir bieten\n• Einen sozialverantwortlichen Arbeitgeber\n• Gegenseitiger Respekt mit offener und transparenter Kommunikation\n• Persönliche Verantwortung und eine leistungsorientierte Unternehmenskultur\n• Eine nachhaltige und umfassende Ausbildung als Laborant Fachrichtung Chemie mit Stage in Synthese und Analytik\n• Mehrere Fachspezialisierungen sind möglich, namentlich Analytik, Synthese und Galenik\n• Ein eigenes Lehrlabor, in dem die Lernenden eine solide Grundausbildung erhalten und die überbetrieblichen Kurse intern besuchen\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden Wie bewerbe ich mich? Bewerbe Dich über den Link und schicke uns Dein Motivationsschreiben, Deinen Lebenslauf und alle Oberstufenzeugnisse. Nach dem Prüfen der Bewerbung melden wir uns bei Dir. Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "en": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken. Your Role: Bewerben Sie sich auf diese Stelle für eine Lehrstelle, wie auch eine Schnupperlehre. Your Profile: Was machen Laborant/-innen EFZ Fachrichtung Chemie? Sie unterstützen die Entwicklung und Optimierung chemischer Verfahren (Fachgebiet Synthese) und analysieren diese auf Qualität und Identität und verbessern Analysemethoden (Fachgebiet Analytik). Wie ist die Lehre aufgebaut? In den drei Lehrjahren erlernen die Laborantenlernenden in 3 internen Lehrlaborkursen (entspricht überbetrieblichen Kursen) und in verschiedenen analytischen und synthetischen Labors ihr Handwerk. An der Berufsfachschule in Aarau werden an 1½ Tagen in der Woche die Fächer anorganische und organische Chemie, Fachrechnen, Labormethodik und physikalische Grundlagen, Biologie, Englisch, Informatik, Allgemeinbildung und Sport gelehrt. Der Besuch der Berufsmatura während der Lehre wird von der Firma unterstützt. Was für Weiterbildungsmöglichkeiten bietet mir dieser Beruf?\n• Spezialisierung in einem Arbeitsbereich\n• Naturwissenschaftliche/r Labortechniker/in mit eidg. Diplom\n• Dipl. Techniker/in HF Systemtechnik, pharmazeutische und chemische Technik\n• Chemiker/in Fachhochschule\n• Betreuung von Lernenden Your Benefits: Wir bieten\n• Einen sozialverantwortlichen Arbeitgeber\n• Gegenseitiger Respekt mit offener und transparenter Kommunikation\n• Persönliche Verantwortung und eine leistungsorientierte Unternehmenskultur\n• Eine nachhaltige und umfassende Ausbildung als Laborant Fachrichtung Chemie mit Stage in Synthese und Analytik\n• Mehrere Fachspezialisierungen sind möglich, namentlich Analytik, Synthese und Galenik\n• Ein eigenes Lehrlabor, in dem die Lernenden eine solide Grundausbildung erhalten und die überbetrieblichen Kurse intern besuchen\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden Wie bewerbe ich mich? Bewerbe Dich über den Link und schicke uns Dein Motivationsschreiben, Deinen Lebenslauf und alle Oberstufenzeugnisse. Nach dem Prüfen der Bewerbung melden wir uns bei Dir. Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken. Your Role: Bewerben Sie sich auf diese Stelle für eine Lehrstelle, wie auch eine Schnupperlehre. Your Profile: Was machen Laborant/-innen EFZ Fachrichtung Chemie? Sie unterstützen die Entwicklung und Optimierung chemischer Verfahren (Fachgebiet Synthese) und analysieren diese auf Qualität und Identität und verbessern Analysemethoden (Fachgebiet Analytik). Wie ist die Lehre aufgebaut? In den drei Lehrjahren erlernen die Laborantenlernenden in 3 internen Lehrlaborkursen (entspricht überbetrieblichen Kursen) und in verschiedenen analytischen und synthetischen Labors ihr Handwerk. An der Berufsfachschule in Aarau werden an 1½ Tagen in der Woche die Fächer anorganische und organische Chemie, Fachrechnen, Labormethodik und physikalische Grundlagen, Biologie, Englisch, Informatik, Allgemeinbildung und Sport gelehrt. Der Besuch der Berufsmatura während der Lehre wird von der Firma unterstützt. Was für Weiterbildungsmöglichkeiten bietet mir dieser Beruf?\n• Spezialisierung in einem Arbeitsbereich\n• Naturwissenschaftliche/r Labortechniker/in mit eidg. Diplom\n• Dipl. Techniker/in HF Systemtechnik, pharmazeutische und chemische Technik\n• Chemiker/in Fachhochschule\n• Betreuung von Lernenden Your Benefits: Wir bieten\n• Einen sozialverantwortlichen Arbeitgeber\n• Gegenseitiger Respekt mit offener und transparenter Kommunikation\n• Persönliche Verantwortung und eine leistungsorientierte Unternehmenskultur\n• Eine nachhaltige und umfassende Ausbildung als Laborant Fachrichtung Chemie mit Stage in Synthese und Analytik\n• Mehrere Fachspezialisierungen sind möglich, namentlich Analytik, Synthese und Galenik\n• Ein eigenes Lehrlabor, in dem die Lernenden eine solide Grundausbildung erhalten und die überbetrieblichen Kurse intern besuchen\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden Wie bewerbe ich mich? Bewerbe Dich über den Link und schicke uns Dein Motivationsschreiben, Deinen Lebenslauf und alle Oberstufenzeugnisse. Nach dem Prüfen der Bewerbung melden wir uns bei Dir. Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "fr": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken. Your Role: Bewerben Sie sich auf diese Stelle für eine Lehrstelle, wie auch eine Schnupperlehre. Your Profile: Was machen Laborant/-innen EFZ Fachrichtung Chemie? Sie unterstützen die Entwicklung und Optimierung chemischer Verfahren (Fachgebiet Synthese) und analysieren diese auf Qualität und Identität und verbessern Analysemethoden (Fachgebiet Analytik). Wie ist die Lehre aufgebaut? In den drei Lehrjahren erlernen die Laborantenlernenden in 3 internen Lehrlaborkursen (entspricht überbetrieblichen Kursen) und in verschiedenen analytischen und synthetischen Labors ihr Handwerk. An der Berufsfachschule in Aarau werden an 1½ Tagen in der Woche die Fächer anorganische und organische Chemie, Fachrechnen, Labormethodik und physikalische Grundlagen, Biologie, Englisch, Informatik, Allgemeinbildung und Sport gelehrt. Der Besuch der Berufsmatura während der Lehre wird von der Firma unterstützt. Was für Weiterbildungsmöglichkeiten bietet mir dieser Beruf?\n• Spezialisierung in einem Arbeitsbereich\n• Naturwissenschaftliche/r Labortechniker/in mit eidg. Diplom\n• Dipl. Techniker/in HF Systemtechnik, pharmazeutische und chemische Technik\n• Chemiker/in Fachhochschule\n• Betreuung von Lernenden Your Benefits: Wir bieten\n• Einen sozialverantwortlichen Arbeitgeber\n• Gegenseitiger Respekt mit offener und transparenter Kommunikation\n• Persönliche Verantwortung und eine leistungsorientierte Unternehmenskultur\n• Eine nachhaltige und umfassende Ausbildung als Laborant Fachrichtung Chemie mit Stage in Synthese und Analytik\n• Mehrere Fachspezialisierungen sind möglich, namentlich Analytik, Synthese und Galenik\n• Ein eigenes Lehrlabor, in dem die Lernenden eine solide Grundausbildung erhalten und die überbetrieblichen Kurse intern besuchen\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden Wie bewerbe ich mich? Bewerbe Dich über den Link und schicke uns Dein Motivationsschreiben, Deinen Lebenslauf und alle Oberstufenzeugnisse. Nach dem Prüfen der Bewerbung melden wir uns bei Dir. Gegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 13 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 3.800 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
       },
       "location": "Zofingen",
       "canton": "AG",
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Lab-Technician_R26_410",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T13:08:57.746Z",
+      "crawledAt": "2026-05-18T22:41:48.523Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1681,12 +1698,19 @@
       "postedDate": "2026-05-18",
       "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Lab-Technician_R26_410",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "R26_410",
       "hiringOrganization": "Siegfried AG",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T13:08:57.746Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laborant-in-efz-chemie-siegfried-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laborant-in-efz-chemie-siegfried-ch"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1699,41 +1723,40 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000",
-      "firstSeenAt": "2026-05-18T13:08:57.746Z"
+      "postalCode": "5000"
     },
     {
       "id": "siegfried-612b054c6700",
       "slug": "lab-technician-r-d-siegfried-ch",
       "slugByLocale": {
-        "fr": "lab-technician-r-d-siegfried-ch",
         "it": "lab-technician-r-d-siegfried-ch",
         "en": "lab-technician-r-d-siegfried-evionnaz",
-        "de": "lab-techniker-r-d-siegfried-evionnaz"
+        "de": "lab-techniker-r-d-siegfried-evionnaz",
+        "fr": "lab-technician-r-d-siegfried-ch"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
       "companyDomain": "siegfried.ch",
       "title": "Lab Technician R&D",
       "titleByLocale": {
-        "fr": "Lab Technicien R&D",
-        "en": "Lab Technician R&D",
         "it": "Lab Technician R&D",
-        "de": "Lab Techniker R&D"
+        "en": "Lab Technician R&D",
+        "de": "Lab Techniker R&D",
+        "fr": "Lab Technicien R&D"
       },
       "description": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n \n \n \n \n Your Role: \n•\tEn tant que laborantin(e), vous exécutez des synthèses d’intermédiaires chimiques, de principes actifs pharmaceutiques, d’impuretés de synthèse au encore d’excipients. Vous exécutez ces travaux dans le cadre des projets de développement mais aussi du support à la production et des qualifications de nouveaux fournisseurs de matières premières .\n•\tVous protocolez les procédures relatives aux synthèses ainsi que les résultats et les conclusions dans le cahier de laboratoire de façon rigoureuse.\n•\tVous travaillez en collaboration avec les autres départements de l’entreprise: analytique, production.\n•\tVous effectuez votre activité dans le respect des règles HSE et qualité en respectant les procédures de Siegfried. \n Your Profile: \n \n• Vous possédez une formation de laborantin(e) en chimie (CFC).\n\n• Vous avez de l'expérience en synthèse\n\n• Vous maitrisez les outils informatiques classiques tels que Word, Excel, Labware et Outlook.\n\n• Parlant couramment français, une bonne connaissance de l’anglais est un plus.\n \n Your Benefits: \n \n• Parking gratuit\n\n• Assurances maladie : jusqu’à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n\n• Plan d’achat d’actions généreux et personnalisable\n\n• Allocation pour enfants : Siegfried AG augmente l’allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n\n• Possibilités de formation continue individuelles\n\n• Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n\n• Caisse de pension d’entreprise attrayante\n\n• Cours de sport sur site et nombreux événements d'entreprises\n\n• Accès à la plateforme d’avantages collaborateurs Swibeco\n\n• 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines\n\n \n \n Fondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
-        "fr": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n \n \n \n \n Your Role: \n•\tEn tant que laborantin(e), vous exécutez des synthèses d’intermédiaires chimiques, de principes actifs pharmaceutiques, d’impuretés de synthèse au encore d’excipients. Vous exécutez ces travaux dans le cadre des projets de développement mais aussi du support à la production et des qualifications de nouveaux fournisseurs de matières premières .\n•\tVous protocolez les procédures relatives aux synthèses ainsi que les résultats et les conclusions dans le cahier de laboratoire de façon rigoureuse.\n•\tVous travaillez en collaboration avec les autres départements de l’entreprise: analytique, production.\n•\tVous effectuez votre activité dans le respect des règles HSE et qualité en respectant les procédures de Siegfried. \n Your Profile: \n \n• Vous possédez une formation de laborantin(e) en chimie (CFC).\n\n• Vous avez de l'expérience en synthèse\n\n• Vous maitrisez les outils informatiques classiques tels que Word, Excel, Labware et Outlook.\n\n• Parlant couramment français, une bonne connaissance de l’anglais est un plus.\n \n Your Benefits: \n \n• Parking gratuit\n\n• Assurances maladie : jusqu’à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n\n• Plan d’achat d’actions généreux et personnalisable\n\n• Allocation pour enfants : Siegfried AG augmente l’allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n\n• Possibilités de formation continue individuelles\n\n• Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n\n• Caisse de pension d’entreprise attrayante\n\n• Cours de sport sur site et nombreux événements d'entreprises\n\n• Accès à la plateforme d’avantages collaborateurs Swibeco\n\n• 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines\n\n \n \n Fondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "it": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n \n \n \n \n Your Role: \n•\tEn tant que laborantin(e), vous exécutez des synthèses d’intermédiaires chimiques, de principes actifs pharmaceutiques, d’impuretés de synthèse au encore d’excipients. Vous exécutez ces travaux dans le cadre des projets de développement mais aussi du support à la production et des qualifications de nouveaux fournisseurs de matières premières .\n•\tVous protocolez les procédures relatives aux synthèses ainsi que les résultats et les conclusions dans le cahier de laboratoire de façon rigoureuse.\n•\tVous travaillez en collaboration avec les autres départements de l’entreprise: analytique, production.\n•\tVous effectuez votre activité dans le respect des règles HSE et qualité en respectant les procédures de Siegfried. \n Your Profile: \n \n• Vous possédez une formation de laborantin(e) en chimie (CFC).\n\n• Vous avez de l'expérience en synthèse\n\n• Vous maitrisez les outils informatiques classiques tels que Word, Excel, Labware et Outlook.\n\n• Parlant couramment français, une bonne connaissance de l’anglais est un plus.\n \n Your Benefits: \n \n• Parking gratuit\n\n• Assurances maladie : jusqu’à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n\n• Plan d’achat d’actions généreux et personnalisable\n\n• Allocation pour enfants : Siegfried AG augmente l’allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n\n• Possibilités de formation continue individuelles\n\n• Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n\n• Caisse de pension d’entreprise attrayante\n\n• Cours de sport sur site et nombreux événements d'entreprises\n\n• Accès à la plateforme d’avantages collaborateurs Swibeco\n\n• 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines\n\n \n \n Fondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "en": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n \n \n \n \n Your Role: \n•\tEn tant que laborantin(e), vous exécutez des synthèses d’intermédiaires chimiques, de principes actifs pharmaceutiques, d’impuretés de synthèse au encore d’excipients. Vous exécutez ces travaux dans le cadre des projets de développement mais aussi du support à la production et des qualifications de nouveaux fournisseurs de matières premières .\n•\tVous protocolez les procédures relatives aux synthèses ainsi que les résultats et les conclusions dans le cahier de laboratoire de façon rigoureuse.\n•\tVous travaillez en collaboration avec les autres départements de l’entreprise: analytique, production.\n•\tVous effectuez votre activité dans le respect des règles HSE et qualité en respectant les procédures de Siegfried. \n Your Profile: \n \n• Vous possédez une formation de laborantin(e) en chimie (CFC).\n\n• Vous avez de l'expérience en synthèse\n\n• Vous maitrisez les outils informatiques classiques tels que Word, Excel, Labware et Outlook.\n\n• Parlant couramment français, une bonne connaissance de l’anglais est un plus.\n \n Your Benefits: \n \n• Parking gratuit\n\n• Assurances maladie : jusqu’à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n\n• Plan d’achat d’actions généreux et personnalisable\n\n• Allocation pour enfants : Siegfried AG augmente l’allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n\n• Possibilités de formation continue individuelles\n\n• Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n\n• Caisse de pension d’entreprise attrayante\n\n• Cours de sport sur site et nombreux événements d'entreprises\n\n• Accès à la plateforme d’avantages collaborateurs Swibeco\n\n• 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines\n\n \n \n Fondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n \n \n \n \n Your Role: \n•\tEn tant que laborantin(e), vous exécutez des synthèses d’intermédiaires chimiques, de principes actifs pharmaceutiques, d’impuretés de synthèse au encore d’excipients. Vous exécutez ces travaux dans le cadre des projets de développement mais aussi du support à la production et des qualifications de nouveaux fournisseurs de matières premières .\n•\tVous protocolez les procédures relatives aux synthèses ainsi que les résultats et les conclusions dans le cahier de laboratoire de façon rigoureuse.\n•\tVous travaillez en collaboration avec les autres départements de l’entreprise: analytique, production.\n•\tVous effectuez votre activité dans le respect des règles HSE et qualité en respectant les procédures de Siegfried. \n Your Profile: \n \n• Vous possédez une formation de laborantin(e) en chimie (CFC).\n\n• Vous avez de l'expérience en synthèse\n\n• Vous maitrisez les outils informatiques classiques tels que Word, Excel, Labware et Outlook.\n\n• Parlant couramment français, une bonne connaissance de l’anglais est un plus.\n \n Your Benefits: \n \n• Parking gratuit\n\n• Assurances maladie : jusqu’à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n\n• Plan d’achat d’actions généreux et personnalisable\n\n• Allocation pour enfants : Siegfried AG augmente l’allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n\n• Possibilités de formation continue individuelles\n\n• Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n\n• Caisse de pension d’entreprise attrayante\n\n• Cours de sport sur site et nombreux événements d'entreprises\n\n• Accès à la plateforme d’avantages collaborateurs Swibeco\n\n• 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines\n\n \n \n Fondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
+        "it": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact. Your Role:\n• En tant que laborantin(e), vous exécutez des synthèses d’intermédiaires chimiques, de principes actifs pharmaceutiques, d’impuretés de synthèse au encore d’excipients. Vous exécutez ces travaux dans le cadre des projets de développement mais aussi du support à la production et des qualifications de nouveaux fournisseurs de matières premières .\n• Vous protocolez les procédures relatives aux synthèses ainsi que les résultats et les conclusions dans le cahier de laboratoire de façon rigoureuse.\n• Vous travaillez en collaboration avec les autres départements de l’entreprise: analytique, production.\n• Vous effectuez votre activité dans le respect des règles HSE et qualité en respectant les procédures de Siegfried. Your Profile:\n• Vous possédez une formation de laborantin(e) en chimie (CFC).\n• Vous avez de l'expérience en synthèse\n• Vous maitrisez les outils informatiques classiques tels que Word, Excel, Labware et Outlook.\n• Parlant couramment français, une bonne connaissance de l’anglais est un plus. Your Benefits:\n• Parking gratuit\n• Assurances maladie : jusqu’à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n• Plan d’achat d’actions généreux et personnalisable\n• Allocation pour enfants : Siegfried AG augmente l’allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n• Possibilités de formation continue individuelles\n• Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n• Caisse de pension d’entreprise attrayante\n• Cours de sport sur site et nombreux événements d'entreprises\n• Accès à la plateforme d’avantages collaborateurs Swibeco\n• 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines Fondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique. Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "en": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact. Your Role:\n• En tant que laborantin(e), vous exécutez des synthèses d’intermédiaires chimiques, de principes actifs pharmaceutiques, d’impuretés de synthèse au encore d’excipients. Vous exécutez ces travaux dans le cadre des projets de développement mais aussi du support à la production et des qualifications de nouveaux fournisseurs de matières premières .\n• Vous protocolez les procédures relatives aux synthèses ainsi que les résultats et les conclusions dans le cahier de laboratoire de façon rigoureuse.\n• Vous travaillez en collaboration avec les autres départements de l’entreprise: analytique, production.\n• Vous effectuez votre activité dans le respect des règles HSE et qualité en respectant les procédures de Siegfried. Your Profile:\n• Vous possédez une formation de laborantin(e) en chimie (CFC).\n• Vous avez de l'expérience en synthèse\n• Vous maitrisez les outils informatiques classiques tels que Word, Excel, Labware et Outlook.\n• Parlant couramment français, une bonne connaissance de l’anglais est un plus. Your Benefits:\n• Parking gratuit\n• Assurances maladie : jusqu’à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n• Plan d’achat d’actions généreux et personnalisable\n• Allocation pour enfants : Siegfried AG augmente l’allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n• Possibilités de formation continue individuelles\n• Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n• Caisse de pension d’entreprise attrayante\n• Cours de sport sur site et nombreux événements d'entreprises\n• Accès à la plateforme d’avantages collaborateurs Swibeco\n• 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines Fondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique. Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact. Your Role:\n• En tant que laborantin(e), vous exécutez des synthèses d’intermédiaires chimiques, de principes actifs pharmaceutiques, d’impuretés de synthèse au encore d’excipients. Vous exécutez ces travaux dans le cadre des projets de développement mais aussi du support à la production et des qualifications de nouveaux fournisseurs de matières premières .\n• Vous protocolez les procédures relatives aux synthèses ainsi que les résultats et les conclusions dans le cahier de laboratoire de façon rigoureuse.\n• Vous travaillez en collaboration avec les autres départements de l’entreprise: analytique, production.\n• Vous effectuez votre activité dans le respect des règles HSE et qualité en respectant les procédures de Siegfried. Your Profile:\n• Vous possédez une formation de laborantin(e) en chimie (CFC).\n• Vous avez de l'expérience en synthèse\n• Vous maitrisez les outils informatiques classiques tels que Word, Excel, Labware et Outlook.\n• Parlant couramment français, une bonne connaissance de l’anglais est un plus. Your Benefits:\n• Parking gratuit\n• Assurances maladie : jusqu’à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n• Plan d’achat d’actions généreux et personnalisable\n• Allocation pour enfants : Siegfried AG augmente l’allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n• Possibilités de formation continue individuelles\n• Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n• Caisse de pension d’entreprise attrayante\n• Cours de sport sur site et nombreux événements d'entreprises\n• Accès à la plateforme d’avantages collaborateurs Swibeco\n• 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines Fondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique. Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "fr": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact. Your Role:\n• En tant que laborantin(e), vous exécutez des synthèses d’intermédiaires chimiques, de principes actifs pharmaceutiques, d’impuretés de synthèse au encore d’excipients. Vous exécutez ces travaux dans le cadre des projets de développement mais aussi du support à la production et des qualifications de nouveaux fournisseurs de matières premières .\n• Vous protocolez les procédures relatives aux synthèses ainsi que les résultats et les conclusions dans le cahier de laboratoire de façon rigoureuse.\n• Vous travaillez en collaboration avec les autres départements de l’entreprise: analytique, production.\n• Vous effectuez votre activité dans le respect des règles HSE et qualité en respectant les procédures de Siegfried. Your Profile:\n• Vous possédez une formation de laborantin(e) en chimie (CFC).\n• Vous avez de l'expérience en synthèse\n• Vous maitrisez les outils informatiques classiques tels que Word, Excel, Labware et Outlook.\n• Parlant couramment français, une bonne connaissance de l’anglais est un plus. Your Benefits:\n• Parking gratuit\n• Assurances maladie : jusqu’à 10 % de rabais sur les assurances complémentaires auprès de nos partenaires\n• Plan d’achat d’actions généreux et personnalisable\n• Allocation pour enfants : Siegfried AG augmente l’allocation légale cantonale de 10 % et verse en plus CHF 100 par mois\n• Possibilités de formation continue individuelles\n• Chèques Reka : Siegfried AG accorde à ses collaborateurs un rabais de 20 %\n• Caisse de pension d’entreprise attrayante\n• Cours de sport sur site et nombreux événements d'entreprises\n• Accès à la plateforme d’avantages collaborateurs Swibeco\n• 5 semaines de vacances et possibilité de rachat allant jusqu'à 2 semaines Fondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 13 sites répartis sur trois continents. Avec une équipe de plus de 3 800 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique. Siegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
       },
       "location": "Evionnaz",
       "canton": "VS",
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-R-D_R26_438",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-18T13:08:56.939Z",
+      "crawledAt": "2026-05-18T22:41:47.863Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1747,12 +1770,11 @@
       "postedDate": "2026-05-18",
       "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-R-D_R26_438",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "R26_438",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T13:08:56.939Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1765,8 +1787,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-05-18T13:08:56.939Z"
+      "postalCode": "1950"
     }
   ]
 }
