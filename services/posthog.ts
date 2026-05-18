@@ -10,6 +10,8 @@
  * PostHog EU Cloud runs under legitimate interest basis (GDPR Art. 6(1)(f)).
  */
 
+import { createExceptionFilter } from './posthog-error-filter';
+
 const POSTHOG_KEY = 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT';
 const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
 
@@ -35,26 +37,10 @@ async function ensurePostHog(): Promise<any> {
  // Sample 30% of sessions for replay to stay under free-tier 5k/mo cap
  session_recording: { sampleRate: 0.3 },
  // Filter benign noise from exception tracking so real errors stay visible.
- before_send: (event) => {
- if (!event || event.event !== '$exception') return event;
- const props = event.properties || {};
- const msgs: string[] = [];
- const rawValues = props.$exception_values || props.$exception_list;
- if (Array.isArray(rawValues)) {
- for (const v of rawValues) {
- if (typeof v === 'string') msgs.push(v);
- else if (v && typeof v === 'object' && typeof v.value === 'string') msgs.push(v.value);
- }
- }
- const blob = msgs.join(' | ');
- if (!blob) return event;
- // Benign browser noise — drop.
- if (/ResizeObserver loop/i.test(blob)) return null;
- if (/Non-Error promise rejection captured with value: undefined/i.test(blob)) return null;
- // Cross-origin scripts with no stack info — useless to track.
- if (/^Script error\.?$/i.test(blob.trim())) return null;
- return event;
- },
+ // Patterns + rationale: services/posthog-error-filter.ts. The minimal
+ // event shape in posthog-error-filter is a subset of posthog-js's
+ // CaptureResult — cast at the boundary so the helper stays SDK-free.
+ before_send: createExceptionFilter() as unknown as (event: any) => any,
  // Performance
  loaded: (ph) => { _posthog = ph; },
  });
