@@ -201,6 +201,35 @@ interface LocaleStrings {
   readonly title: (city: string) => string;
   readonly description: (city: string, province: string) => string;
   readonly related: readonly { readonly href: string; readonly label: string }[];
+  // ── Template B (mobile-first) labels & formatters ────────────────────────
+  /** Eyebrow above the H1 (e.g. "Costo della vita · Lugano · 2026"). */
+  readonly eyebrow: (city: string) => string;
+  /**
+   * 1-line dense lede ≤120 chars combining the 3 killer numbers
+   * (median rent CHF, paired province delta %, live jobs count). Falls back to
+   * an editorial 1-liner when the snapshot has no live jobs in the city.
+   */
+  readonly denseLedeTemplate: (parts: {
+    city: string;
+    rentMedianChf: number;
+    pairedProvince: string;
+    pairedDeltaPct: number;
+    liveJobs: number;
+  }) => string;
+  readonly statTileSalaryLabel: string;
+  readonly statTileRentLabel: string;
+  readonly statTileLiveJobsLabel: string;
+  readonly statSalaryFmt: (chfPerYear: number | null) => string;
+  readonly statRentFmt: (chfPerMonth: number) => string;
+  readonly statLiveJobsFmt: (n: number) => string;
+  readonly primaryCtaLabel: (city: string) => string;
+  readonly featuredJobsTitle: (city: string) => string;
+  readonly featuredJobsCtaAll: (city: string, n: number) => string;
+  readonly featuredJobsEmpty: (city: string) => string;
+  readonly employerGridTitle: (city: string) => string;
+  readonly approfondisciHeading: string;
+  readonly jobPostedLabel: (daysAgo: number) => string;
+  readonly jobSalaryFmt: (min: number | null, max: number | null) => string;
 }
 
 function rtFmtChf(n: number): string {
@@ -257,6 +286,33 @@ const LS: Record<ColLocale, LocaleStrings> = {
       { href: '/statistiche/confronta-stipendi/', label: 'Confronto stipendi CH vs IT' },
       { href: '/guida-frontaliere/tempi-attesa-dogana/', label: 'Tempi di attesa alla dogana' },
     ],
+    eyebrow: (city) => `Costo della vita · ${city} · 2026`,
+    denseLedeTemplate: ({ city, rentMedianChf, pairedProvince, pairedDeltaPct, liveJobs }) =>
+      liveJobs > 0
+        ? `Bilocale a ${city} CHF ${rentMedianChf.toLocaleString('it-CH')}/mese (-${pairedDeltaPct}% vs ${pairedProvince}) · ${liveJobs} offerte aperte.`
+        : `Bilocale a ${city} CHF ${rentMedianChf.toLocaleString('it-CH')}/mese · -${pairedDeltaPct}% vs ${pairedProvince}.`,
+    statTileSalaryLabel: 'Stipendio mediano',
+    statTileRentLabel: 'Affitto bilocale (mediana)',
+    statTileLiveJobsLabel: 'Offerte aperte',
+    statSalaryFmt: (chf) => (chf ? `CHF ${chf.toLocaleString('it-CH')}/anno` : 'CHF — dati in arrivo'),
+    statRentFmt: (chf) => `CHF ${chf.toLocaleString('it-CH')}/mese`,
+    statLiveJobsFmt: (n) => (n > 0 ? `${n} offerte` : 'Nessuna offerta'),
+    primaryCtaLabel: (city) => `Calcola netto come frontaliere a ${city}`,
+    featuredJobsTitle: (city) => `Offerte in evidenza a ${city}`,
+    featuredJobsCtaAll: (city, n) =>
+      n > 0 ? `Vedi tutte le ${n} offerte a ${city} →` : `Vedi job board completo →`,
+    featuredJobsEmpty: (city) =>
+      `Nessuna offerta indicizzata per ${city} in questo momento — controlla il job board completo per la Svizzera italiana.`,
+    employerGridTitle: (city) => `Chi assume a ${city}`,
+    approfondisciHeading: 'Approfondisci: costo vita, fonti, confronto',
+    jobPostedLabel: (d) =>
+      d <= 0 ? 'Pubblicata oggi' : d === 1 ? 'Pubblicata ieri' : `Pubblicata ${d} giorni fa`,
+    jobSalaryFmt: (min, max) => {
+      if (min && max) return `CHF ${min.toLocaleString('it-CH')}–${max.toLocaleString('it-CH')}/anno`;
+      if (min) return `Da CHF ${min.toLocaleString('it-CH')}/anno`;
+      if (max) return `Fino a CHF ${max.toLocaleString('it-CH')}/anno`;
+      return '';
+    },
   },
   en: {
     updatedLabel: 'Last updated',
@@ -307,6 +363,33 @@ const LS: Record<ColLocale, LocaleStrings> = {
       { href: '/en/statistics/compare-salaries/', label: 'CH vs IT salary comparison' },
       { href: '/en/cross-border-guide/border-waiting-times/', label: 'Border waiting times' },
     ],
+    eyebrow: (city) => `Cost of living · ${city} · 2026`,
+    denseLedeTemplate: ({ city, rentMedianChf, pairedProvince, pairedDeltaPct, liveJobs }) =>
+      liveJobs > 0
+        ? `2.5-room flat in ${city} CHF ${rentMedianChf.toLocaleString('en-CH')}/month (-${pairedDeltaPct}% vs ${pairedProvince}) · ${liveJobs} open jobs.`
+        : `2.5-room flat in ${city} CHF ${rentMedianChf.toLocaleString('en-CH')}/month · -${pairedDeltaPct}% vs ${pairedProvince}.`,
+    statTileSalaryLabel: 'Median salary',
+    statTileRentLabel: '2.5-room rent (median)',
+    statTileLiveJobsLabel: 'Open positions',
+    statSalaryFmt: (chf) => (chf ? `CHF ${chf.toLocaleString('en-CH')}/year` : 'CHF — data pending'),
+    statRentFmt: (chf) => `CHF ${chf.toLocaleString('en-CH')}/month`,
+    statLiveJobsFmt: (n) => (n > 0 ? `${n} openings` : 'No openings'),
+    primaryCtaLabel: (city) => `Calculate your cross-border net in ${city}`,
+    featuredJobsTitle: (city) => `Featured openings in ${city}`,
+    featuredJobsCtaAll: (city, n) =>
+      n > 0 ? `See all ${n} openings in ${city} →` : `Browse the full job board →`,
+    featuredJobsEmpty: (city) =>
+      `No indexed openings in ${city} right now — check the full Swiss-Italian job board.`,
+    employerGridTitle: (city) => `Who is hiring in ${city}`,
+    approfondisciHeading: 'Dig deeper: cost of living, sources, comparison',
+    jobPostedLabel: (d) =>
+      d <= 0 ? 'Posted today' : d === 1 ? 'Posted yesterday' : `Posted ${d} days ago`,
+    jobSalaryFmt: (min, max) => {
+      if (min && max) return `CHF ${min.toLocaleString('en-CH')}–${max.toLocaleString('en-CH')}/year`;
+      if (min) return `From CHF ${min.toLocaleString('en-CH')}/year`;
+      if (max) return `Up to CHF ${max.toLocaleString('en-CH')}/year`;
+      return '';
+    },
   },
   de: {
     updatedLabel: 'Aktualisiert',
@@ -357,6 +440,33 @@ const LS: Record<ColLocale, LocaleStrings> = {
       { href: '/de/statistiken/gehaelter-vergleichen/', label: 'Lohnvergleich CH vs IT' },
       { href: '/de/grenzgaenger-ratgeber/wartezeiten-grenze/', label: 'Grenzwartezeiten' },
     ],
+    eyebrow: (city) => `Lebenshaltungskosten · ${city} · 2026`,
+    denseLedeTemplate: ({ city, rentMedianChf, pairedProvince, pairedDeltaPct, liveJobs }) =>
+      liveJobs > 0
+        ? `2,5-Zi-Wohnung in ${city} CHF ${rentMedianChf.toLocaleString('de-CH')}/Monat (-${pairedDeltaPct}% vs ${pairedProvince}) · ${liveJobs} offene Stellen.`
+        : `2,5-Zi-Wohnung in ${city} CHF ${rentMedianChf.toLocaleString('de-CH')}/Monat · -${pairedDeltaPct}% vs ${pairedProvince}.`,
+    statTileSalaryLabel: 'Medianlohn',
+    statTileRentLabel: '2,5-Zi-Miete (Median)',
+    statTileLiveJobsLabel: 'Offene Stellen',
+    statSalaryFmt: (chf) => (chf ? `CHF ${chf.toLocaleString('de-CH')}/Jahr` : 'CHF — Daten folgen'),
+    statRentFmt: (chf) => `CHF ${chf.toLocaleString('de-CH')}/Monat`,
+    statLiveJobsFmt: (n) => (n > 0 ? `${n} Stellen` : 'Keine Stellen'),
+    primaryCtaLabel: (city) => `Grenzgänger-Nettolohn für ${city} berechnen`,
+    featuredJobsTitle: (city) => `Empfohlene Stellen in ${city}`,
+    featuredJobsCtaAll: (city, n) =>
+      n > 0 ? `Alle ${n} Stellen in ${city} ansehen →` : `Vollständige Stellenbörse →`,
+    featuredJobsEmpty: (city) =>
+      `Derzeit keine indexierten Stellen in ${city} — siehe vollständige Stellenbörse für die italienische Schweiz.`,
+    employerGridTitle: (city) => `Wer in ${city} einstellt`,
+    approfondisciHeading: 'Vertiefen: Lebenshaltungskosten, Quellen, Vergleich',
+    jobPostedLabel: (d) =>
+      d <= 0 ? 'Heute veröffentlicht' : d === 1 ? 'Gestern veröffentlicht' : `Vor ${d} Tagen veröffentlicht`,
+    jobSalaryFmt: (min, max) => {
+      if (min && max) return `CHF ${min.toLocaleString('de-CH')}–${max.toLocaleString('de-CH')}/Jahr`;
+      if (min) return `Ab CHF ${min.toLocaleString('de-CH')}/Jahr`;
+      if (max) return `Bis CHF ${max.toLocaleString('de-CH')}/Jahr`;
+      return '';
+    },
   },
   fr: {
     updatedLabel: 'Mis à jour',
@@ -407,6 +517,33 @@ const LS: Record<ColLocale, LocaleStrings> = {
       { href: '/fr/statistiques/comparer-salaires/', label: 'Comparaison des salaires CH vs IT' },
       { href: '/fr/guide-frontalier/temps-attente-douane/', label: "Temps d'attente aux douanes" },
     ],
+    eyebrow: (city) => `Coût de la vie · ${city} · 2026`,
+    denseLedeTemplate: ({ city, rentMedianChf, pairedProvince, pairedDeltaPct, liveJobs }) =>
+      liveJobs > 0
+        ? `2,5 pièces à ${city} CHF ${rentMedianChf.toLocaleString('fr-CH')}/mois (-${pairedDeltaPct}% vs ${pairedProvince}) · ${liveJobs} offres ouvertes.`
+        : `2,5 pièces à ${city} CHF ${rentMedianChf.toLocaleString('fr-CH')}/mois · -${pairedDeltaPct}% vs ${pairedProvince}.`,
+    statTileSalaryLabel: 'Salaire médian',
+    statTileRentLabel: 'Loyer 2,5 pièces (médian)',
+    statTileLiveJobsLabel: 'Offres ouvertes',
+    statSalaryFmt: (chf) => (chf ? `CHF ${chf.toLocaleString('fr-CH')}/an` : 'CHF — données à venir'),
+    statRentFmt: (chf) => `CHF ${chf.toLocaleString('fr-CH')}/mois`,
+    statLiveJobsFmt: (n) => (n > 0 ? `${n} offres` : 'Aucune offre'),
+    primaryCtaLabel: (city) => `Calculer votre net frontalier à ${city}`,
+    featuredJobsTitle: (city) => `Offres mises en avant à ${city}`,
+    featuredJobsCtaAll: (city, n) =>
+      n > 0 ? `Voir les ${n} offres à ${city} →` : `Voir la bourse complète →`,
+    featuredJobsEmpty: (city) =>
+      `Aucune offre indexée à ${city} actuellement — consultez la bourse complète pour la Suisse italienne.`,
+    employerGridTitle: (city) => `Qui recrute à ${city}`,
+    approfondisciHeading: 'Aller plus loin : coût de la vie, sources, comparaison',
+    jobPostedLabel: (d) =>
+      d <= 0 ? "Publié aujourd'hui" : d === 1 ? 'Publié hier' : `Publié il y a ${d} jours`,
+    jobSalaryFmt: (min, max) => {
+      if (min && max) return `CHF ${min.toLocaleString('fr-CH')}–${max.toLocaleString('fr-CH')}/an`;
+      if (min) return `Dès CHF ${min.toLocaleString('fr-CH')}/an`;
+      if (max) return `Jusqu'à CHF ${max.toLocaleString('fr-CH')}/an`;
+      return '';
+    },
   },
 };
 
