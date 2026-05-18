@@ -350,6 +350,7 @@ jobs:
               "audit:title-no-disambig-hash|/tmp/g17b.log|npm run audit:title-no-disambig-hash" \
               "audit:title-length|/tmp/g17.log|npm run audit:title-length" \
               "audit:content-duplicates|/tmp/g8.log|npm run audit:content-duplicates" \
+              "audit:faqpage-validity|/tmp/g20.log|npm run audit:faqpage-validity" \
             ; do
               IFS='|' read -r step_name step_log step_cmd <<<"$chain_step"
               start=$(date +%s.%N)
