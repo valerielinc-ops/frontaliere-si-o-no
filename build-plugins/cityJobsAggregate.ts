@@ -72,6 +72,13 @@ export interface CityFeaturedJob {
   readonly slug: string;
   readonly slugByLocale: Partial<Record<ColLocale, string>>;
   readonly employmentType: string | null;
+  /**
+   * True when the job was added via the cantonal fallback path (city had
+   * fewer than {@link FEATURED_TARGET} strict matches, so we topped up from
+   * the wider canton scope). UI must show a "Ticino" badge so the user
+   * knows the job isn't physically in `cityId`.
+   */
+  readonly isCantonalFallback: boolean;
 }
 
 export interface CityJobsSnapshot {
@@ -183,7 +190,19 @@ function jobMidpoint(job: JobRecord): number | null {
   return null;
 }
 
-function toFeatured(job: JobRecord, now: number): CityFeaturedJob | null {
+/**
+ * Target number of featured jobs per city. When strict (city-scope) matches
+ * fall below this threshold, we top up from the surrounding canton
+ * ({@link buildSnapshotForCity}) and flag the borrowed jobs with
+ * `isCantonalFallback: true` so the UI can render a "Ticino" badge.
+ */
+const FEATURED_TARGET = 3;
+
+function toFeatured(
+  job: JobRecord,
+  now: number,
+  isCantonalFallback: boolean,
+): CityFeaturedJob | null {
   if (!job.id || !job.title || !job.slug) return null;
   const postedDate = job.postedDate || job.firstSeenAt || '';
   const ts = postedDate ? Date.parse(postedDate) : NaN;
@@ -201,7 +220,19 @@ function toFeatured(job: JobRecord, now: number): CityFeaturedJob | null {
     slug: job.slug,
     slugByLocale: job.slugByLocale ?? {},
     employmentType: job.employmentType ?? null,
+    isCantonalFallback,
   };
+}
+
+function sortByFreshness(records: readonly JobRecord[]): JobRecord[] {
+  return [...records].sort((a, b) => {
+    const aFeat = a.featured ? 1 : 0;
+    const bFeat = b.featured ? 1 : 0;
+    if (aFeat !== bFeat) return bFeat - aFeat;
+    const aTs = a.postedDate ? Date.parse(a.postedDate) : 0;
+    const bTs = b.postedDate ? Date.parse(b.postedDate) : 0;
+    return bTs - aTs;
+  });
 }
 
 function buildSnapshotForCity(
@@ -239,20 +270,39 @@ function buildSnapshotForCity(
     .slice(0, 6)
     .map(([name, count]) => ({ name, count }));
 
-  // Featured: top 3 — prefer `featured: true`, then freshest postedDate.
-  const sortedMatches = [...matches].sort((a, b) => {
-    const aFeat = a.featured ? 1 : 0;
-    const bFeat = b.featured ? 1 : 0;
-    if (aFeat !== bFeat) return bFeat - aFeat;
-    const aTs = a.postedDate ? Date.parse(a.postedDate) : 0;
-    const bTs = b.postedDate ? Date.parse(b.postedDate) : 0;
-    return bTs - aTs;
-  });
+  // Featured: top FEATURED_TARGET, strict city scope first. If we have fewer
+  // than FEATURED_TARGET strict matches, top up from the cantonal pool
+  // (Ticino) — this protects small cities (Chiasso, Locarno) on weeks when
+  // `data/jobs.json` thins out, so the page never collapses to the empty
+  // state if there's at least one TI opening anywhere.
+  const sortedStrict = sortByFreshness(matches);
   const featured: CityFeaturedJob[] = [];
-  for (const job of sortedMatches) {
-    if (featured.length >= 3) break;
-    const f = toFeatured(job, now);
-    if (f) featured.push(f);
+  const usedIds = new Set<string>();
+  for (const job of sortedStrict) {
+    if (featured.length >= FEATURED_TARGET) break;
+    const f = toFeatured(job, now, false);
+    if (!f) continue;
+    featured.push(f);
+    usedIds.add(f.id);
+  }
+
+  // Cantonal fallback — only for non-Ticino cities (Ticino IS the canton).
+  if (featured.length < FEATURED_TARGET && cityId !== 'ticino') {
+    const cantonPool: JobRecord[] = [];
+    for (const job of jobs) {
+      if (jobMatchesCity(job, 'ticino') && !jobMatchesCity(job, cityId)) {
+        cantonPool.push(job);
+      }
+    }
+    const sortedCanton = sortByFreshness(cantonPool);
+    for (const job of sortedCanton) {
+      if (featured.length >= FEATURED_TARGET) break;
+      if (!job.id || usedIds.has(job.id)) continue;
+      const f = toFeatured(job, now, true);
+      if (!f) continue;
+      featured.push(f);
+      usedIds.add(f.id);
+    }
   }
 
   return {

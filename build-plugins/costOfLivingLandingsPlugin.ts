@@ -133,6 +133,7 @@ interface CityCopyView {
   readonly featuredJobsTitle: string;
   readonly featuredJobsCtaAll: string;
   readonly featuredJobsEmpty: string;
+  readonly featuredFallbackBadge: string;
   readonly employerGridTitle: string;
   readonly approfondisciHeading: string;
   readonly jobPostedLabel: (daysAgo: number) => string;
@@ -142,6 +143,12 @@ interface CityCopyView {
 function pickJobTitle(job: CityFeaturedJob, locale: ColLocale): string {
   return job.titleByLocale[locale] ?? job.title;
 }
+
+// Inline cantonal-fallback badge. Uses warning-tone semantic tokens (same
+// palette as STAT_TILE_WARNING) so we don't introduce any new colour. No
+// border-left, no hex — only var(--color-*).
+const FALLBACK_BADGE_STYLE =
+  'font-size:11px;color:var(--color-subtle);font-weight:600;padding:2px 6px;border-radius:6px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border)';
 
 function renderFeaturedJobCard(
   job: CityFeaturedJob,
@@ -156,10 +163,13 @@ function renderFeaturedJobCard(
   const subtitle = subtitleParts.join(' · ');
   const salary = view.jobSalaryFmt(job.salaryMin, job.salaryMax);
   const posted = view.jobPostedLabel(job.daysAgo);
+  const fallbackBadge = job.isCantonalFallback
+    ? `<span aria-label="${esc(view.featuredFallbackBadge)}" style="${FALLBACK_BADGE_STYLE}">📍 ${esc(view.featuredFallbackBadge)}</span>`
+    : '';
 
   return `<a class="seo-card-link" href="${esc(href)}" style="${CARD_STYLE};text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:6px">
     <div style="font-weight:700;font-size:16px;line-height:1.35;color:var(--color-heading)">${esc(title)}</div>
-    ${subtitle ? `<div style="font-size:14px;color:var(--color-body);line-height:1.4">${esc(subtitle)}</div>` : ''}
+    ${subtitle || fallbackBadge ? `<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;color:var(--color-body);line-height:1.4">${subtitle ? esc(subtitle) : ''}${fallbackBadge}</div>` : ''}
     <div style="display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-top:4px;font-size:13px;color:var(--color-subtle)">
       ${salary ? `<span style="color:var(--color-accent);font-weight:700">${esc(salary)}</span>` : ''}
       <span>${esc(posted)}</span>
@@ -173,11 +183,13 @@ function renderFeaturedJobs(
   snapshot: CityJobsSnapshot,
   view: CityCopyView,
 ): string {
-  // Fall back garbato: city with <3 indexed jobs → empty-state card + CTA to
-  // the full job board (the "Nessuna offerta indicizzata in questo momento"
-  // path from the spec). This protects sparse cities (Chiasso, Bellinzona,
-  // Locarno on quiet weeks) from a "graveyard" featured grid.
-  if (snapshot.featured.length < 3) {
+  // Fall back garbato: only when zero featured jobs (strict city scope AND
+  // cantonal pool both empty) we show the empty-state card. With the cantonal
+  // fallback in cityJobsAggregate.ts, snapshot.featured will normally hit the
+  // 3-card target even for sparse cities (Chiasso, Bellinzona, Locarno on
+  // quiet weeks) — borrowed jobs render with a "Ticino" badge so the user
+  // knows they're outside the city perimeter.
+  if (snapshot.featured.length === 0) {
     const allJobsHref = buildJobBoardUrl(locale);
     return `<section style="margin:0 0 28px">
       <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(view.featuredJobsTitle)}</h2>
@@ -422,6 +434,7 @@ function renderPage(opts: {
     featuredJobsTitle: L.featuredJobsTitle(cityName),
     featuredJobsCtaAll: L.featuredJobsCtaAll(cityName, snapshot.liveCount),
     featuredJobsEmpty: L.featuredJobsEmpty(cityName),
+    featuredFallbackBadge: L.featuredFallbackBadge,
     employerGridTitle: L.employerGridTitle(cityName),
     approfondisciHeading: L.approfondisciHeading,
     jobPostedLabel: L.jobPostedLabel,
