@@ -2111,18 +2111,18 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const NAV_LABELS: Record<string, { href: string; label: string }[]> = {
  it: [
  { href: '/', label: 'Simulatore Fiscale' },
- { href: '/compara-servizi', label: 'Confronta Servizi' },
- { href: '/tasse-e-pensione', label: 'Tasse e Pensione' },
- { href: '/guida-frontaliere', label: 'Guida Frontaliere' },
- { href: '/domande-frequenti-frontalieri', label: 'FAQ' },
- { href: '/glossario-frontaliere', label: 'Glossario' },
- { href: '/articoli-frontaliere', label: 'Articoli' },
- { href: '/mappa-del-sito', label: 'Mappa del Sito' },
- { href: '/chi-siamo', label: 'Chi Siamo' },
- { href: '/correzioni', label: 'Correzioni' },
- { href: '/metodologia', label: 'Metodologia' },
- { href: '/contattaci', label: 'Contattaci' },
- { href: '/privacy', label: 'Privacy' },
+ { href: '/compara-servizi/', label: 'Confronta Servizi' },
+ { href: '/tasse-e-pensione/', label: 'Tasse e Pensione' },
+ { href: '/guida-frontaliere/', label: 'Guida Frontaliere' },
+ { href: '/domande-frequenti-frontalieri/', label: 'FAQ' },
+ { href: '/glossario-frontaliere/', label: 'Glossario' },
+ { href: '/articoli-frontaliere/', label: 'Articoli' },
+ { href: '/mappa-del-sito/', label: 'Mappa del Sito' },
+ { href: '/chi-siamo/', label: 'Chi Siamo' },
+ { href: '/correzioni/', label: 'Correzioni' },
+ { href: '/metodologia/', label: 'Metodologia' },
+ { href: '/contattaci/', label: 'Contattaci' },
+ { href: '/privacy/', label: 'Privacy' },
  { href: '/about/', label: 'About' },
  { href: '/contact/', label: 'Contact' },
  { href: '/privacy-policy/', label: 'Privacy Policy' },
@@ -2395,157 +2395,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { href: '/prezzi-diesel/oggi/', label: 'Prezzi diesel oggi' },
  { href: '/prezzi-benzina/oggi/', label: 'Prezzi benzina oggi' },
  );
- } else {
- // ── Root SPA-page outbound links (dead-end fix, 2026-05-18) ──
- // Pages like /buongiorno-frontaliere/, /calcolo-tredicesima-frontaliere/,
- // /benvenuto-frontaliere/, /community/, /quiz-permesso-b-o-g/, ... are
- // emitted with only chrome (footer-style) <a>s inside <main>. Squirrel
- // flags them as `links/dead-end-pages` (no outgoing internal links in
- // body). Curated map below gives every known root SPA page 3-5 contextually
- // relevant outbound links. Pages not in the map fall through to a
- // GENERIC_ROOT_LINKS catch-all so no top-level page stays dead-end.
- const ROOT_CONTEXTUAL_LINKS: Record<string, { href: string; label: string }[]> = {
-   '/buongiorno-frontaliere/': [
-     { href: '/traffico-dogane/', label: 'Tempi attesa dogane' },
-     { href: '/allerte-meteo/', label: 'Allerte meteo' },
-     { href: '/compara-servizi/cambio-franco-euro/', label: 'Cambio CHF/EUR' },
-     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio' },
-     { href: '/cerca-lavoro-ticino/', label: 'Offerte di lavoro Ticino' },
-   ],
-   '/benvenuto-frontaliere/': [
-     { href: '/guida-frontaliere/primo-giorno-lavoro/', label: 'Primo giorno di lavoro' },
-     { href: '/guida-frontaliere/permessi-di-lavoro/', label: 'Permessi B vs G' },
-     { href: '/calcola-stipendio/', label: 'Calcola lo stipendio netto' },
-     { href: '/compara-servizi/confronta-casse-malati/', label: 'Casse malati' },
-     { href: '/tasse-e-pensione/', label: 'Tasse e previdenza' },
-   ],
-   '/calcolo-tredicesima-frontaliere/': [
-     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio netto' },
-     { href: '/tasse-e-pensione/', label: 'Tasse e previdenza' },
-     { href: '/tfr-liquidazione-frontaliere/', label: 'TFR e liquidazione' },
-     { href: '/cerca-lavoro-ticino/', label: 'Offerte di lavoro Ticino' },
-     { href: '/contratti-lavoro-svizzera/', label: 'Contratti lavoro CH' },
-   ],
-   '/tfr-liquidazione-frontaliere/': [
-     { href: '/calcolo-tredicesima-frontaliere/', label: 'Tredicesima' },
-     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio' },
-     { href: '/tasse-e-pensione/calcola-previdenza/', label: 'Pensioni' },
-     { href: '/contratti-lavoro-svizzera/', label: 'Contratti lavoro' },
-   ],
-   '/contratti-lavoro-svizzera/': [
-     { href: '/guida-frontaliere/permessi-di-lavoro/', label: 'Permessi di lavoro' },
-     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio' },
-     { href: '/cerca-lavoro-ticino/', label: 'Offerte di lavoro' },
-     { href: '/sindacati-frontalieri/', label: 'Sindacati frontalieri' },
-     { href: '/tfr-liquidazione-frontaliere/', label: 'TFR e liquidazione' },
-   ],
-   '/sindacati-frontalieri/': [
-     { href: '/contratti-lavoro-svizzera/', label: 'Contratti di lavoro' },
-     { href: '/guida-frontaliere/permessi-di-lavoro/', label: 'Permessi lavoro' },
-     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio' },
-     { href: '/cerca-lavoro-ticino/', label: 'Lavoro Ticino' },
-   ],
-   '/dialetto-ticinese/': [
-     { href: '/vivere-in-ticino/', label: 'Vivere in Ticino' },
-     { href: '/guida-frontaliere/', label: 'Guida frontaliere' },
-     { href: '/articoli-frontaliere/', label: 'Articoli e attualità' },
-     { href: '/cerca-lavoro-ticino/', label: 'Lavoro in Ticino' },
-   ],
-   '/vivere-in-ticino/': [
-     { href: '/costo-della-vita/', label: 'Costo della vita' },
-     { href: '/dialetto-ticinese/', label: 'Dialetto ticinese' },
-     { href: '/guida-frontaliere/', label: 'Guida frontaliere' },
-     { href: '/cerca-lavoro-ticino/', label: 'Offerte di lavoro' },
-     { href: '/compara-servizi/confronta-casse-malati/', label: 'Casse malati' },
-   ],
-   '/quiz-permesso-b-o-g/': [
-     { href: '/guida-frontaliere/permessi-di-lavoro/', label: 'Permessi B vs G' },
-     { href: '/calcola-stipendio/', label: 'Calcola lo stipendio' },
-     { href: '/tasse-e-pensione/', label: 'Tasse e previdenza' },
-     { href: '/benvenuto-frontaliere/', label: 'Benvenuto frontaliere' },
-   ],
-   '/community/': [
-     { href: '/articoli-frontaliere/', label: 'Articoli e attualità' },
-     { href: '/digest-settimanale/', label: 'Newsletter settimanale' },
-     { href: '/strumento-della-settimana/', label: 'Strumento della settimana' },
-     { href: '/contattaci/', label: 'Contattaci' },
-   ],
-   '/digest-settimanale/': [
-     { href: '/articoli-frontaliere/', label: 'Tutti gli articoli' },
-     { href: '/strumento-della-settimana/', label: 'Strumento della settimana' },
-     { href: '/community/', label: 'Community' },
-     { href: '/buongiorno-frontaliere/', label: 'Buongiorno frontaliere' },
-   ],
-   '/strumento-della-settimana/': [
-     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio' },
-     { href: '/compara-servizi/', label: 'Confronti' },
-     { href: '/articoli-frontaliere/', label: 'Articoli' },
-     { href: '/digest-settimanale/', label: 'Newsletter' },
-   ],
-   '/gamificazione/': [
-     { href: '/quiz-permesso-b-o-g/', label: 'Quiz permessi B vs G' },
-     { href: '/community/', label: 'Community' },
-     { href: '/profilo/', label: 'Profilo' },
-     { href: '/articoli-frontaliere/', label: 'Articoli' },
-   ],
-   '/profilo/': [
-     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio' },
-     { href: '/community/', label: 'Community' },
-     { href: '/digest-settimanale/', label: 'Newsletter' },
-     { href: '/cerca-lavoro-ticino/', label: 'Offerte di lavoro' },
-   ],
-   '/statistiche/': [
-     { href: '/cerca-lavoro-ticino/', label: 'Offerte di lavoro' },
-     { href: '/costo-della-vita/', label: 'Costo della vita' },
-     { href: '/compara-servizi/', label: 'Confronti' },
-     { href: '/articoli-frontaliere/', label: 'Articoli e analisi' },
-   ],
-   '/supporto/': [
-     { href: '/contattaci/', label: 'Contattaci' },
-     { href: '/domande-frequenti-frontalieri/', label: 'FAQ' },
-     { href: '/correzioni/', label: 'Correzioni' },
-     { href: '/metodologia/', label: 'Metodologia' },
-   ],
-   '/contattaci/': [
-     { href: '/supporto/', label: 'Supporto' },
-     { href: '/domande-frequenti-frontalieri/', label: 'FAQ' },
-     { href: '/chi-siamo/', label: 'Chi siamo' },
-     { href: '/correzioni/', label: 'Correzioni' },
-   ],
-   '/privacy/': [
-     { href: '/termini-di-servizio/', label: 'Termini di servizio' },
-     { href: '/eliminazione-dati/', label: 'Eliminazione dati' },
-     { href: '/chi-siamo/', label: 'Chi siamo' },
-     { href: '/contattaci/', label: 'Contattaci' },
-   ],
-   '/termini-di-servizio/': [
-     { href: '/privacy/', label: 'Privacy' },
-     { href: '/eliminazione-dati/', label: 'Eliminazione dati' },
-     { href: '/chi-siamo/', label: 'Chi siamo' },
-     { href: '/contattaci/', label: 'Contattaci' },
-   ],
-   '/eliminazione-dati/': [
-     { href: '/privacy/', label: 'Privacy' },
-     { href: '/termini-di-servizio/', label: 'Termini di servizio' },
-     { href: '/contattaci/', label: 'Contattaci' },
-     { href: '/supporto/', label: 'Supporto' },
-   ],
- };
- const rootLinks = ROOT_CONTEXTUAL_LINKS[canonicalPath];
- if (rootLinks) {
-   contextualLinks.push(...rootLinks);
- } else if (segments.length === 1) {
-   // Generic fallback: any uncovered root page gets a 4-link cross-funnel
-   // block so it never stays dead-end. Skip multi-segment paths — those
-   // already get section-specific links above or are owned by other plugins.
-   contextualLinks.push(
-     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio' },
-     { href: '/cerca-lavoro-ticino/', label: 'Offerte di lavoro' },
-     { href: '/compara-servizi/', label: 'Confronti servizi' },
-     { href: '/articoli-frontaliere/', label: 'Articoli e attualità' },
-     { href: '/guida-frontaliere/', label: 'Guida frontaliere' },
-   );
- }
  }
  // Deduplicate (don't repeat links already in main nav or pointing to self)
  const allHrefs = new Set(navLinks.map(l => l.href));
@@ -4130,10 +3979,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // (and locale equivalents) that read content-farm-y on every page.
  // Fix #7.
  const AUTHOR_BYLINE: Record<string, string> = {
- it: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">A cura di <a href="/chi-siamo" rel="author" style="color:var(--color-link);text-decoration:none;">Redazione Frontaliere Ticino</a></span></p>',
- en: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">By <a href="/en/about-us" rel="author" style="color:var(--color-link);text-decoration:none;">Frontaliere Ticino Editorial Team</a></span></p>',
- de: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Von <a href="/de/ueber-uns" rel="author" style="color:var(--color-link);text-decoration:none;">Redaktion Frontaliere Ticino</a></span></p>',
- fr: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Par <a href="/fr/a-propos" rel="author" style="color:var(--color-link);text-decoration:none;">Rédaction Frontaliere Ticino</a></span></p>',
+ it: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">A cura di <a href="/chi-siamo/" rel="author" style="color:var(--color-link);text-decoration:none;">Redazione Frontaliere Ticino</a></span></p>',
+ en: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">By <a href="/en/about-us/" rel="author" style="color:var(--color-link);text-decoration:none;">Frontaliere Ticino Editorial Team</a></span></p>',
+ de: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Von <a href="/de/ueber-uns/" rel="author" style="color:var(--color-link);text-decoration:none;">Redaktion Frontaliere Ticino</a></span></p>',
+ fr: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Par <a href="/fr/a-propos/" rel="author" style="color:var(--color-link);text-decoration:none;">Rédaction Frontaliere Ticino</a></span></p>',
  };
  const authorLine = AUTHOR_BYLINE[locale] ?? AUTHOR_BYLINE.it;
 
