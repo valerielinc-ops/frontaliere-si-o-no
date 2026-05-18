@@ -2492,15 +2492,34 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  margin: 0 0 10px 0;
  font-size: 18px;
  }
- /* Related-jobs list (.rj/.rja/.rjw/.rjt/.rjs/.rjp): one-shot CSS for what
-    used to be ~390 B of inline styles per `<li>`. With 6 items/page × 641k
-    job HTML files this saves ~900 MB across dist. */
+ /* Related-jobs list .rj/.rja/.rjw/.rjt/.rjs/.rjp: one-shot CSS for what
+    used to be ~390 B of inline styles per LI. With 6 items/page × cached
+    HTML reused across previous-slug + cross-locale bridges this saves
+    several hundred MB across dist. */
  .rj { margin: 0 0 8px 0; }
  .rja { display: flex; align-items: flex-start; gap: 12px; text-decoration: none; padding: 12px; border: 1px solid var(--color-edge); border-radius: 12px; }
  .rjw { min-width: 0; flex: 1; }
  .rjt { font-size: 14px; font-weight: 700; color: var(--color-heading); line-height: 1.3; }
  .rjs { font-size: 12px; color: var(--color-subtle); margin-top: 2px; }
  .rjp { font-size: 12px; font-weight: 600; color: var(--color-success); margin-top: 4px; }
+ /* Round-2 dist slim: back-nav, company banner card, related <ul>, more
+    anchors. One-shot per page × ~93k cached HTMLs reused by previous-
+    slug bridges (43k) + cross-locale reconciliation (37k) ≈ ~150 MB. */
+ .bn { margin: 0 0 16px; font-size: 14px; }
+ .bn a { color: var(--color-accent); text-decoration: none; font-weight: 600; }
+ .cb { display: flex; align-items: flex-start; gap: 12px; text-decoration: none; padding: 16px; border: 1px solid var(--color-edge); border-radius: 12px; margin-top: 12px; }
+ .cbt { font-size: 14px; font-weight: 700; color: var(--color-heading); }
+ .cbs { font-size: 14px; color: var(--color-subtle); margin-top: 4px; }
+ .cbm { font-size: 14px; color: var(--color-subtle); margin-top: 8px; }
+ .cbl { margin: 12px 0 0; font-size: 15px; }
+ .cbl a { color: var(--color-link); text-decoration: underline; font-weight: 700; }
+ .rul { list-style: none; padding: 0; margin: 0; }
+ .lnk-acc { color: var(--color-link); text-decoration: none; font-weight: 600; }
+ .pill { display: inline-flex; padding: 8px 14px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 13px; }
+ .pill-a { background: var(--color-accent-subtle); color: var(--color-accent); }
+ .pill-w { background: var(--color-warning-subtle); color: var(--color-warning); }
+ .pillrow { display: flex; flex-wrap: wrap; gap: 10px; }
+ .fn { margin: 24px 0 0; padding: 16px 0; border-top: 1px solid var(--color-edge); font-size: 14px; }
  @media (max-width: 980px) {
  body > #root > main.static-job-page { padding: 14px; }
  .hero-title { font-size: 22px; }
@@ -2518,7 +2537,7 @@ ${hreflangHtml}
  <body>
  <div id="root">
  <main class="static-job-page">
- <nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}" style="color:var(--color-accent);text-decoration:none;font-weight:600">&larr; ${esc(localeCopy[locale].allJobsLink)}</a></nav>
+ <nav class="bn"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}">&larr; ${esc(localeCopy[locale].allJobsLink)}</a></nav>
  <article class="proposal">
  <section class="hero">
  <h1 class="hero-title">${esc(composeJobPageH1(localizedTitle, String(job.company || '')))}</h1>
@@ -2555,11 +2574,11 @@ ${hreflangHtml}
  };
  const anchorText = allOffersAnchor[locale] || allOffersAnchor.it;
  const cLogoImg = renderLogoImg(cLogo, `Logo ${job.company}`, 40, 40, 'width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid var(--color-edge);flex-shrink:0');
- const card = `<a href="${cHref}" aria-label="${esc(anchorText)}" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:16px;border:1px solid var(--color-edge);border-radius:12px;margin-top:12px">${cLogoImg}<div><div style="font-size:14px;font-weight:700;color:var(--color-heading)">${companyHeading[locale] || companyHeading.it}</div><div style="font-size:14px;color:var(--color-subtle);margin-top:4px">${esc(job.company)} · ${esc(job.location || dc)}</div><div style="font-size:14px;color:var(--color-subtle);margin-top:8px">${companyMonitoring[locale] || companyMonitoring.it}</div></div></a>`;
- const ctaLink = `<p style="margin:12px 0 0;font-size:15px"><a href="${cHref}" style="color:var(--color-link);text-decoration:underline;font-weight:700">${esc(anchorText)} &rarr;</a></p>`;
+ const card = `<a href="${cHref}" aria-label="${esc(anchorText)}" class="cb">${cLogoImg}<div><div class="cbt">${companyHeading[locale] || companyHeading.it}</div><div class="cbs">${esc(job.company)} · ${esc(job.location || dc)}</div><div class="cbm">${companyMonitoring[locale] || companyMonitoring.it}</div></div></a>`;
+ const ctaLink = `<p class="cbl"><a href="${cHref}">${esc(anchorText)} &rarr;</a></p>`;
  return card + ctaLink;
  })()}
- ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2><ul style="list-style:none;padding:0;margin:0">${relatedHtml}</ul></section>` : ''}
+ ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2><ul class="rul">${relatedHtml}</ul></section>` : ''}
  ${buildRecentArticlesHtml(locale)}
  ${(() => {
  const loc = esc(job.location || dc);
@@ -2755,26 +2774,26 @@ ${hreflangHtml}
  const links: string[] = [];
  if (matchedCity) {
  const href = `${BASE_URL}${buildCityHubPath(locale as never, matchedCity)}`;
- links.push(`<a href="${href}" style="display:inline-flex;padding:8px 14px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);text-decoration:none;font-weight:700;font-size:13px">${esc(cityCopy[locale] || cityCopy.it)} ${esc(CITY_HUB_DISPLAY_NAME[matchedCity])} &rarr;</a>`);
+ links.push(`<a href="${href}" class="pill pill-a">${esc(cityCopy[locale] || cityCopy.it)} ${esc(CITY_HUB_DISPLAY_NAME[matchedCity])} &rarr;</a>`);
  }
  if (matchedSector) {
  const href = `${BASE_URL}${buildSectorHubPath(locale as never, matchedSector)}`;
  const label = SECTOR_HUB_DISPLAY[locale as never]?.[matchedSector] || matchedSector;
  const prefix = locale === 'it' || locale === 'fr' ? `${sectorCopy[locale]} ${label}` : `${sectorCopy[locale]} ${label}`;
- links.push(`<a href="${href}" style="display:inline-flex;padding:8px 14px;border-radius:999px;background:var(--color-warning-subtle);color:var(--color-warning);text-decoration:none;font-weight:700;font-size:13px">${esc(prefix)} &rarr;</a>`);
+ links.push(`<a href="${href}" class="pill pill-w">${esc(prefix)} &rarr;</a>`);
  }
- return `<section class="section"><h4>${esc(heading[locale] || heading.it)}</h4><div style="display:flex;flex-wrap:wrap;gap:10px">${links.join('')}</div></section>`;
+ return `<section class="section"><h4>${esc(heading[locale] || heading.it)}</h4><div class="pillrow">${links.join('')}</div></section>`;
  })();
  return (frontalierInfo[locale] || '') + (faqSection[locale] || '') + hubLinks;
  })()}
- <nav style="margin:24px 0 0;padding:16px 0;border-top:1px solid var(--color-edge);font-size:14px">
- <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(cantonSectionName(locale, dc))} &rarr;</a>${(() => {
+ <nav class="fn">
+ <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}" class="lnk-acc">${esc(cantonSectionName(locale, dc))} &rarr;</a>${(() => {
  const cSlug = canonicalCompanySlugBuild(job.company, job.companyKey);
  if (!cSlug) return '';
  const cPrefix = companyRoutePrefix[locale];
  const cFullSlug = `${cPrefix}-${cSlug}`;
  const cPath = withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${cFullSlug}`.replace(/\/+/g, '/'));
- return ` · <a href="${BASE_URL}${cPath}" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(job.company)} &rarr;</a>`;
+ return ` · <a href="${BASE_URL}${cPath}" class="lnk-acc">${esc(job.company)} &rarr;</a>`;
  })()}
  </nav>
  </main>
