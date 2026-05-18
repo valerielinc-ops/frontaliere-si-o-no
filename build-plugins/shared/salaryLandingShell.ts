@@ -162,7 +162,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
   'nuovi-frontalieri-oltre-20-km': {
     it: {
       eyebrow: 'Nuovo Accordo 2024 · Oltre 20 km',
-      tagline: 'Tassazione concorrente: la Svizzera trattiene il 100%, poi l\'Italia ricalcola con credito d\'imposta.',
+      tagline: 'Vivi oltre 20 km dal confine? Paghi tasse in entrambi i paesi — qui sotto quanto ti costa, per RAL.',
       tiles: [
         { label: 'Imposta alla fonte CH', value: '100%', tone: 'accent' },
         { label: 'Quota ai comuni IT', value: '0%', tone: 'neutral' },
@@ -190,7 +190,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
     },
     en: {
       eyebrow: 'New Agreement 2024 · Over 20 km',
-      tagline: 'Concurrent taxation: Switzerland withholds 100%, then Italy recalculates with foreign-tax credit.',
+      tagline: 'Live more than 20 km from the border? You\'re taxed in both countries — here\'s exactly how much, by salary.',
       tiles: [
         { label: 'Swiss withholding', value: '100%', tone: 'accent' },
         { label: 'Italian commune share', value: '0%', tone: 'neutral' },
@@ -218,7 +218,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
     },
     de: {
       eyebrow: 'Neues Abkommen 2024 · Über 20 km',
-      tagline: 'Konkurrierende Besteuerung: Die Schweiz behält 100 % ein, dann rechnet Italien mit Anrechnung.',
+      tagline: 'Wohnen Sie über 20 km von der Grenze? Sie werden in beiden Ländern besteuert — hier sehen Sie genau, was es kostet.',
       tiles: [
         { label: 'Schweizer Quellensteuer', value: '100%', tone: 'accent' },
         { label: 'Anteil an IT-Gemeinden', value: '0%', tone: 'neutral' },
@@ -246,7 +246,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
     },
     fr: {
       eyebrow: 'Nouvel Accord 2024 · Plus de 20 km',
-      tagline: 'Imposition concurrente : la Suisse retient 100 %, puis l\'Italie recalcule avec crédit d\'impôt.',
+      tagline: 'Vous habitez à plus de 20 km de la frontière ? Vous payez dans les deux pays — voici combien, par salaire.',
       tiles: [
         { label: 'Impôt à la source CH', value: '100%', tone: 'accent' },
         { label: 'Part aux communes IT', value: '0%', tone: 'neutral' },
@@ -277,7 +277,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
   'simula-busta-paga': {
     it: {
       eyebrow: 'Busta paga frontaliere · Ticino 2026',
-      tagline: 'Decomposizione completa: lordo → contributi → imposta alla fonte → netto in CHF e EUR.',
+      tagline: 'Cosa trattengono davvero dalla tua busta paga: voce per voce, dal lordo al netto in CHF e EUR.',
       tiles: [
         { label: 'AVS / AI / IPG', value: '5,3%', tone: 'accent' },
         { label: 'Disoccupazione', value: '1,1%', tone: 'accent' },
@@ -308,7 +308,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
     },
     en: {
       eyebrow: 'Cross-border payslip · Ticino 2026',
-      tagline: 'Full breakdown: gross → social charges → source tax → net in CHF and EUR.',
+      tagline: 'See exactly what gets withheld from your paycheck: line by line, from gross to net in CHF and EUR.',
       tiles: [
         { label: 'AVS / AI / IPG', value: '5.3%', tone: 'accent' },
         { label: 'Unemployment', value: '1.1%', tone: 'accent' },
@@ -339,7 +339,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
     },
     de: {
       eyebrow: 'Grenzgänger-Lohnabrechnung · Tessin 2026',
-      tagline: 'Vollständige Aufschlüsselung: Brutto → Sozialabgaben → Quellensteuer → Netto in CHF und EUR.',
+      tagline: 'Was wirklich vom Lohn abgezogen wird: jede Position einzeln, vom Brutto bis zum Netto in CHF und EUR.',
       tiles: [
         { label: 'AHV / IV / EO', value: '5,3%', tone: 'accent' },
         { label: 'Arbeitslosen', value: '1,1%', tone: 'accent' },
@@ -370,7 +370,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
     },
     fr: {
       eyebrow: 'Fiche de paie frontalier · Tessin 2026',
-      tagline: 'Décomposition complète : brut → cotisations → impôt à la source → net en CHF et EUR.',
+      tagline: 'Ce qui est vraiment retenu sur votre fiche de paie : poste par poste, du brut au net en CHF et EUR.',
       tiles: [
         { label: 'AVS / AI / APG', value: '5,3%', tone: 'accent' },
         { label: 'Chômage', value: '1,1%', tone: 'accent' },
@@ -886,7 +886,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
   'simula-cambio-residenza': {
     it: {
       eyebrow: 'Simulatore residenza · Frontaliere',
-      tagline: 'Stima il delta netto annuo se ti trasferisci in Svizzera (permesso B) o resti in Italia (permesso G).',
+      tagline: 'Conviene davvero il permesso B? Quanto guadagni in più (o in meno) trasferendoti dall\'Italia, su 12 mesi.',
       tiles: [
         { label: 'Permit G → B', value: '+CHF 3-7k/anno', tone: 'success' },
         { label: 'Costo LAMal', value: '200-600 CHF/mese', tone: 'warning' },
@@ -917,7 +917,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
   'stima-bonus-frontaliere': {
     it: {
       eyebrow: 'Bonus & 13ª · Frontaliere Ticino',
-      tagline: 'Stima il valore reale del bonus annuo + 13ª mensilità nel tuo netto, dopo tasse e contributi.',
+      tagline: 'Il bonus annunciato non è quello che incassi: vediamo quanto resta dopo AVS, LPP e imposta alla fonte.',
       tiles: [
         { label: '13ª obbligatoria', value: 'Standard CCL', tone: 'success' },
         { label: 'Tassazione bonus', value: 'Stessa fonte', tone: 'warning' },
@@ -948,7 +948,7 @@ const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingDa
   'verifica-congedo-parentale': {
     it: {
       eyebrow: 'Congedo parentale · Frontaliere',
-      tagline: 'Diritti, durata e indennità del congedo parentale per frontaliere: cosa offre la Svizzera vs l\'Italia.',
+      tagline: 'Sei in maternità/paternità da frontaliere? Confronto netto CH vs IT su durata, indennità e copertura.',
       tiles: [
         { label: 'Maternità CH', value: '14 settimane (80%)', tone: 'accent' },
         { label: 'Paternità CH', value: '2 settimane (80%)', tone: 'accent' },
