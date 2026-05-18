@@ -236,6 +236,19 @@ function readJobsData(
 }
 
 /**
+ * Per-category label for the article hub badge — translates the IT-rooted
+ * category key ('fiscale' | 'pratico' | 'novita' | 'pensione') into the
+ * user's locale. Unknown categories fall through with the raw key, so the
+ * card never breaks on a new category added later.
+ */
+const ARTICLE_CATEGORY_LABELS: Record<HubLocale, Record<string, string>> = {
+  it: { fiscale: 'Fisco', pratico: 'Pratico', novita: 'Novità', pensione: 'Pensione' },
+  en: { fiscale: 'Tax', pratico: 'How-to', novita: 'News', pensione: 'Pension' },
+  de: { fiscale: 'Steuern', pratico: 'Praxis', novita: 'News', pensione: 'Rente' },
+  fr: { fiscale: 'Fiscal', pratico: 'Pratique', novita: 'Actualité', pensione: 'Retraite' },
+};
+
+/**
  * Per-hub-kind label for the headline stat tile shown on each global hub
  * page-1 (rule #17). Italian copy aligned with the section title so the
  * tile reads naturally next to the H1.
@@ -899,6 +912,37 @@ function readArticleSlugs(
 }
 
 /**
+ * Read per-article publication metadata from `data/blog-articles-data.ts`.
+ * Returns a map of `BlogArticleId` → `{ date, category, updatedAt? }`.
+ * Used to render the articles hub cards with a date chip + category badge.
+ * Parser mirrors the regex pattern used by other readers in this file.
+ */
+function readArticleMetadata(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+): Map<string, { date: string; category: string; updatedAt?: string }> {
+  const file = np.resolve(rootDir, 'data/blog-articles-data.ts');
+  const out = new Map<string, { date: string; category: string; updatedAt?: string }>();
+  try {
+    if (!fs.existsSync(file)) return out;
+    const src = fs.readFileSync(file, 'utf-8');
+    // Match each `{ id: '...', category: '...', date: '...', updatedAt?: '...' }`
+    // entry. updatedAt is optional and may sit between date and image, so we
+    // capture it conditionally.
+    const rx = /id:\s*'([^']+)',\s*category:\s*'([^']+)',\s*date:\s*'([^']+)'(?:,\s*updatedAt:\s*'([^']+)')?/g;
+    let m: RegExpExecArray | null;
+    while ((m = rx.exec(src)) !== null) {
+      const [, id, category, date, updatedAt] = m;
+      out.set(id, { date, category, updatedAt: updatedAt || undefined });
+    }
+  } catch (err) {
+    console.warn('[seo-hubs] failed to read blog-articles-data.ts', err);
+  }
+  return out;
+}
+
+/**
  * Read per-article excerpts from `services/locales/blog-meta-{locale}.ts`.
  * Used to render the articles hub items as cards (rule #17 step 6 — actual
  * data area carries 1-line previews instead of plain anchors).
@@ -983,6 +1027,10 @@ interface BuildHtmlArgs {
     emoji?: string;
     /** 1-line preview text for article items (truncated to ~140 chars). */
     excerpt?: string;
+    /** ISO date string (YYYY-MM-DD) for article items — rendered as a chip. */
+    articleDate?: string;
+    /** Localized category label for article items — rendered as a badge. */
+    articleCategory?: string;
   }>;
   totalItems: number;
   hasSpaBundle: boolean;
@@ -1100,7 +1148,21 @@ function buildHtml(args: BuildHtmlArgs): string {
               return `<li><a href="${esc(it.href)}" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge)"><span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--color-surface-alt);font-size:24px;line-height:1;flex-shrink:0">${it.emoji}</span><span style="flex:1;min-width:0"><span style="display:block;font-weight:700;font-size:15px;line-height:1.3;color:var(--color-heading)">${esc(it.label)}</span><span style="display:block;font-size:12.5px;color:var(--color-subtle);margin-top:2px;line-height:1.4">${subLabel}</span></span></a></li>`;
             }
             if (it.excerpt !== undefined) {
-              return `<li><a href="${esc(it.href)}" style="display:block;padding:14px 16px;border-radius:14px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge)"><span style="display:block;font-weight:700;font-size:15px;line-height:1.35;color:var(--color-heading);margin-bottom:6px">${esc(it.label)}</span><span style="display:block;font-size:13px;color:var(--color-subtle);line-height:1.5">${esc(it.excerpt)}</span></a></li>`;
+              // Article card: optional badge (category) + chip (date) header,
+              // then title, then excerpt preview. Header row is rendered only
+              // when at least one of the two metadata pieces is present so
+              // older articles without metadata still render cleanly.
+              const headerParts: string[] = [];
+              if (it.articleCategory) {
+                headerParts.push(`<span style="display:inline-block;padding:2px 8px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(it.articleCategory)}</span>`);
+              }
+              if (it.articleDate) {
+                headerParts.push(`<time datetime="${esc(it.articleDate)}" style="font-size:12px;color:var(--color-subtle);font-weight:600">${esc(it.articleDate)}</time>`);
+              }
+              const headerHtml = headerParts.length > 0
+                ? `<span style="display:flex;align-items:center;gap:8px;margin-bottom:8px">${headerParts.join('')}</span>`
+                : '';
+              return `<li><a href="${esc(it.href)}" style="display:block;padding:14px 16px;border-radius:14px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge)">${headerHtml}<span style="display:block;font-weight:700;font-size:15px;line-height:1.35;color:var(--color-heading);margin-bottom:6px">${esc(it.label)}</span><span style="display:block;font-size:13px;color:var(--color-subtle);line-height:1.5">${esc(it.excerpt)}</span></a></li>`;
             }
             return `<li><a href="${esc(it.href)}" style="display:block;padding:10px 12px;border-radius:8px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge);font-size:14px;line-height:1.4">${esc(it.label)}</a></li>`;
           })
@@ -2021,7 +2083,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       : HUB_SLUGS[locale].articlesAll
     );
 
-    let items: Array<{ href: string; label: string; logo?: string | null; jobCount?: number; emoji?: string; excerpt?: string }> = [];
+    let items: Array<{ href: string; label: string; logo?: string | null; jobCount?: number; emoji?: string; excerpt?: string; articleDate?: string; articleCategory?: string }> = [];
     let pageSize = 100;
 
     if (hubKey === 'jobs') {
@@ -2095,6 +2157,8 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const itBySlug = new Map(itArticles.map((a) => [a.slug, a.title]));
       const localeExcerpts = readArticleExcerpts(fs, np, rootDir, locale);
       const itExcerpts = readArticleExcerpts(fs, np, rootDir, 'it');
+      const articleMeta = readArticleMetadata(fs, np, rootDir);
+      const categoryLabels = ARTICLE_CATEGORY_LABELS[locale];
       const blogUrlSlugs = readBlogUrlSlugs(fs, np, rootDir);
       const blogSection = locale === 'it' ? 'articoli-frontaliere'
         : locale === 'en' ? 'cross-border-articles'
@@ -2127,8 +2191,27 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
         const excerpt = rawExcerpt && rawExcerpt.length > 140
           ? rawExcerpt.slice(0, 137).trimEnd() + '…'
           : rawExcerpt;
-        items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label, excerpt });
+        // Publication metadata (date + category) from data/blog-articles-data.ts.
+        // Articles missing from that file (auto-generated entries) render
+        // without the header chips — graceful degradation.
+        const meta = articleMeta.get(slug);
+        const articleDate = meta?.updatedAt ?? meta?.date;
+        const articleCategory = meta?.category
+          ? (categoryLabels[meta.category] ?? meta.category)
+          : undefined;
+        items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label, excerpt, articleDate, articleCategory });
       }
+      // Sort articles by most-recent-first so the freshest content shows on
+      // page 1. Articles without metadata fall to the end. Stable sort keeps
+      // alphabetical secondary order for ties.
+      items.sort((a, b) => {
+        const da = a.articleDate ?? '';
+        const db = b.articleDate ?? '';
+        if (da === db) return 0;
+        if (!da) return 1;
+        if (!db) return -1;
+        return db.localeCompare(da);
+      });
     }
 
     const total = items.length;
