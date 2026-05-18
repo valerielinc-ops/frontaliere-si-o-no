@@ -30,6 +30,7 @@ run_post_build_task() {
     validate:jobposting-schema)   npm run validate:jobposting-schema ;;
     validate:jobs-quality)        npm run validate:jobs-quality ;;
     validate:sitemap-links)       npm run validate:sitemap-links ;;
+    validate:sitemap-shard-size)  npm run validate:sitemap-shard-size ;;
     validate:spa-render)          timeout 300 node scripts/validate-spa-render.mjs ;;
     validate:structured-data)     node scripts/validate-structured-data-completeness.mjs ;;
     validate:soft-404)            node scripts/validate-soft404.mjs ;;
@@ -62,6 +63,7 @@ ALL_POST_BUILD_TASKS=(
   validate:sitemap-links
   audit:sitemap-canonicals
   validate:canonical
+  validate:sitemap-shard-size
   gate:seo-source
   audit:faqpage-validity
 )
@@ -83,6 +85,7 @@ POST_BUILD_SHARD_2=(
   audit:h1-title-duplicates
   validate:structured-data
   validate:sitemap-links
+  validate:sitemap-shard-size
 )
 POST_BUILD_SHARD_3=(
   test:e2e:smoke

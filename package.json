@@ -182,6 +182,7 @@
     "validate:sitemap": "node scripts/validate-sitemap.mjs",
     "validate:sitemap-links": "node scripts/validate-sitemap-links.mjs",
     "validate:sitemap-pages": "node scripts/validate-sitemap-pages.mjs",
+    "validate:sitemap-shard-size": "node scripts/check-dist-sitemap-shard-size.mjs",
     "validate:page-seo": "node scripts/validate-page-seo-quality.mjs",
     "validate:spa-render": "node scripts/validate-spa-render.mjs",
     "validate:blog-meta-placeholders": "node scripts/validate-blog-meta-placeholders.mjs",

@@ -218,7 +218,50 @@ const CACHE_KEY_INPUTS = [
 // clusters (GSC orphans with expired source jobs; audit-derived slugs
 // whose tokens don't AND-match any current job) now emit. Bumping the
 // version invalidates v3 caches so the new pages render on next build.
-const CACHE_VERSION = 'v4';
+//
+// v5 (2026-05-18) shards sitemap-search-clusters.xml into <45k-URL files
+// (sitemap-search-clusters-001.xml, …) so we stay under the sitemaps.org
+// 50k hard cap. Old single-file caches would restore one 81k file and
+// reintroduce the violation — bump invalidates them.
+const CACHE_VERSION = 'v5';
+
+/**
+ * sitemaps.org caps each sitemap at 50,000 URLs. We shard at 45,000 to
+ * leave a safety margin for incidental growth between builds. The
+ * `sitemap-search-clusters.xml` cohort topped 81,537 URLs as of
+ * 2026-05-18, silently failing GSC ingestion above the cap.
+ */
+const SITEMAP_SHARD_CAP = 45_000;
+const SITEMAP_SHARD_PREFIX = 'sitemap-search-clusters';
+
+function padShardIndex(index: number): string {
+  return index >= 1000 ? String(index) : String(index).padStart(3, '0');
+}
+
+function shardFilename(index: number): string {
+  return `${SITEMAP_SHARD_PREFIX}-${padShardIndex(index)}.xml`;
+}
+
+/**
+ * Remove any pre-existing cluster sitemap files (single-file legacy +
+ * stale shard residue from a previous, longer run). Returns the list of
+ * filenames removed so callers can log if desired.
+ */
+function clearStaleClusterSitemaps(distDir: string): string[] {
+  const removed: string[] = [];
+  if (!fs.existsSync(distDir)) return removed;
+  const re = new RegExp(`^${SITEMAP_SHARD_PREFIX}(?:-\\d+)?\\.xml$`);
+  for (const file of fs.readdirSync(distDir)) {
+    if (!re.test(file)) continue;
+    try {
+      fs.unlinkSync(path.join(distDir, file));
+      removed.push(file);
+    } catch {
+      // best-effort cleanup
+    }
+  }
+  return removed;
+}
 
 interface CacheManifest {
   version: string;
@@ -306,14 +349,25 @@ async function tryRestoreFromCache(
     }));
   }
 
-  // The sitemap fragment carries a `<lastmod>` per URL; refresh today's date
-  // so the master sitemap signals freshness even when the body is unchanged.
-  const sitemapPath = path.join(distDir, 'sitemap-search-clusters.xml');
-  if (fs.existsSync(sitemapPath)) {
-    const today = new Date().toISOString().slice(0, 10);
-    const xml = fs.readFileSync(sitemapPath, 'utf-8')
-      .replace(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
-    fs.writeFileSync(sitemapPath, xml, 'utf-8');
+  // Each shard carries a `<lastmod>` per URL; refresh today's date on every
+  // restored sitemap-search-clusters*.xml so the master sitemap signals
+  // freshness even when the body is unchanged. Walks the actual restored
+  // shard set (legacy single-file caches will surface as a single match;
+  // post-sharding caches have N matches — both handled uniformly).
+  const today = new Date().toISOString().slice(0, 10);
+  if (fs.existsSync(distDir)) {
+    const shardRe = new RegExp(`^${SITEMAP_SHARD_PREFIX}(?:-\\d+)?\\.xml$`);
+    for (const file of fs.readdirSync(distDir)) {
+      if (!shardRe.test(file)) continue;
+      const p = path.join(distDir, file);
+      try {
+        const xml = fs.readFileSync(p, 'utf-8')
+          .replace(/<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
+        fs.writeFileSync(p, xml, 'utf-8');
+      } catch {
+        // best-effort refresh
+      }
+    }
   }
   return { ...manifest, emittedCount: restored };
 }
@@ -1331,7 +1385,11 @@ function dropOverwrittenLocs(distDir: string, locs: ReadonlyArray<string>): stri
   return out;
 }
 
-async function writeSitemap(distDir: string, allLocs: ReadonlyArray<string>, dateStamp: string): Promise<void> {
+async function writeSitemap(
+  distDir: string,
+  allLocs: ReadonlyArray<string>,
+  dateStamp: string,
+): Promise<string[]> {
   // Wait for jobsSeoPagesPlugin to flush its buffered writes (notably the
   // previousSlugs bridge HTML) before scanning dist/ HTML for canonical
   // mismatches. Vite/Rollup runs closeBundle hooks in parallel by default
@@ -1341,20 +1399,37 @@ async function writeSitemap(distDir: string, allLocs: ReadonlyArray<string>, dat
   // leak into sitemap-search-clusters.xml — audit:sitemap-canonicals fails.
   await jobsSeoPagesFlushed;
   const locs = dropOverwrittenLocs(distDir, allLocs);
-  if (locs.length === 0) return;
-  const entries = locs.map((loc) =>
-    `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
-  ).join('\n');
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
-  const sitemapPath = path.join(distDir, 'sitemap-search-clusters.xml');
+  if (locs.length === 0) return [];
+
+  // Clear any stale single-file legacy sitemap or shard residue from a
+  // previous run that produced more shards than this one. Without this,
+  // a shrinking corpus would leave dangling sitemap-search-clusters-NNN.xml
+  // files referenced by the auto-discovered sitemap.xml index.
+  clearStaleClusterSitemaps(distDir);
+
+  const totalShards = Math.max(1, Math.ceil(locs.length / SITEMAP_SHARD_CAP));
+  const written: string[] = [];
   try {
     fs.mkdirSync(distDir, { recursive: true });
-    fs.writeFileSync(sitemapPath, xml, 'utf-8');
+    for (let i = 0; i < totalShards; i++) {
+      const slice = locs.slice(i * SITEMAP_SHARD_CAP, (i + 1) * SITEMAP_SHARD_CAP);
+      const entries = slice.map((loc) =>
+        `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+      ).join('\n');
+      const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
+      const file = shardFilename(i + 1);
+      fs.writeFileSync(path.join(distDir, file), xml, 'utf-8');
+      written.push(file);
+    }
   } catch (err) {
     console.warn('\x1b[33m[related-search-clusters]\x1b[0m sitemap write failed:', err);
-    return;
+    return written;
   }
-  patchMasterSitemap(distDir, dateStamp);
+  console.log(
+    `\x1b[36m[related-search-clusters]\x1b[0m sharded ${locs.length} URLs into ${written.length} file(s) at ${SITEMAP_SHARD_CAP}/shard`,
+  );
+  patchMasterSitemap(distDir, dateStamp, written);
+  return written;
 }
 
 /**
@@ -1364,26 +1439,33 @@ async function writeSitemap(distDir: string, allLocs: ReadonlyArray<string>, dat
  * `dist/sitemap.xml` is owned by another plugin and is regenerated each
  * build.
  */
-function patchMasterSitemap(distDir: string, dateStamp: string): void {
+function patchMasterSitemap(distDir: string, dateStamp: string, shardFiles: ReadonlyArray<string>): void {
   const masterPath = path.join(distDir, 'sitemap.xml');
   if (!fs.existsSync(masterPath)) return;
+  if (shardFiles.length === 0) return;
   try {
     let idx = fs.readFileSync(masterPath, 'utf-8');
-    if (idx.includes('sitemap-search-clusters.xml')) {
-      idx = idx.replace(
-        /(<loc>https:\/\/frontaliereticino\.ch\/sitemap-search-clusters\.xml<\/loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}(<\/lastmod>)/,
-        `$1${dateStamp}$2`,
-      );
-    } else {
-      idx = idx.replace(
-        '</sitemapindex>',
-        `  <sitemap>\n    <loc>${BASE_URL}/sitemap-search-clusters.xml</loc>\n    <lastmod>${dateStamp}</lastmod>\n  </sitemap>\n</sitemapindex>`,
-      );
-    }
+    // Strip any legacy single-file entry plus prior shard entries — they're
+    // re-emitted below from the authoritative shardFiles list.
+    idx = idx.replace(
+      /\s*<sitemap>\s*<loc>https:\/\/frontaliereticino\.ch\/sitemap-search-clusters(?:-\d+)?\.xml<\/loc>\s*<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>\s*<\/sitemap>/g,
+      '',
+    );
+    const newEntries = shardFiles
+      .map(
+        (file) =>
+          `  <sitemap>\n    <loc>${BASE_URL}/${file}</loc>\n    <lastmod>${dateStamp}</lastmod>\n  </sitemap>`,
+      )
+      .join('\n');
+    idx = idx.replace('</sitemapindex>', `${newEntries}\n</sitemapindex>`);
     fs.writeFileSync(masterPath, idx, 'utf-8');
   } catch (err) {
     console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to patch master sitemap:', err);
   }
+  // Note: sitemapAliasPlugin runs `enforce: 'post'` AFTER us and regenerates
+  // sitemap.xml entirely from a directory scan of dist/sitemap-*.xml. This
+  // patch is therefore defensive — it keeps the file valid for any consumer
+  // that inspects it between our write and the alias plugin's overwrite.
 }
 
 // ── Plugin entry ────────────────────────────────────────────────────────
@@ -1432,7 +1514,14 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
           for (const { locale, url } of restored.hubs) {
             injectHubLinkIntoSectionLanding(distDir, locale, url, COPY[locale]);
           }
-          patchMasterSitemap(distDir, dateStamp);
+          // Discover whatever shards the cache restored (legacy single-file
+          // or sharded) and re-advertise them in the master sitemap.
+          const restoredShards = fs.existsSync(distDir)
+            ? fs.readdirSync(distDir).filter((f) =>
+                new RegExp(`^${SITEMAP_SHARD_PREFIX}(?:-\\d+)?\\.xml$`).test(f),
+              ).sort()
+            : [];
+          patchMasterSitemap(distDir, dateStamp, restoredShards);
           console.log(
             `\x1b[36m[related-search-clusters]\x1b[0m cache HIT (key=${cacheKey}): ${restored.emittedCount} files restored in ${((Date.now() - startedAt) / 1000).toFixed(1)}s`,
           );
@@ -1587,8 +1676,8 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
       }
 
       const written = await collector.flush();
-      await writeSitemap(distDir, sitemapLocs, dateStamp);
-      emittedFiles.push('sitemap-search-clusters.xml');
+      const sitemapShards = await writeSitemap(distDir, sitemapLocs, dateStamp);
+      for (const shard of sitemapShards) emittedFiles.push(shard);
 
       // Capture stats before releasing the maps that hold them.
       const ctxCount = contexts.length;
