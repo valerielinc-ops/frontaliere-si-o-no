@@ -84,6 +84,7 @@ import {
 } from './jobSectorLanding';
 import { SEO_HUB_RESERVED_SLUGS, JOBS_PAGE_SIZE as HUB_JOBS_PAGE_SIZE, hubSlugFor } from './seoHubsData';
 import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
+import { renderJobCardHtml, type JobCardLocale } from './shared/jobCardHtml';
 // F3a — Job Page CTR Optimization: shared 50-60 char title templates and
 // 140-160 char meta-description templates that drive SERP CTR on the
 // top-20 job listing pages. See services/seo/job-board-titles.ts and
@@ -7931,11 +7932,16 @@ ${alternates}
          : '') +
        `</section>`;
 
-     // Listing grid: 12 most recent canton jobs. Each card links to the
-     // canonical job-detail URL via the canton-aware section, which matches
-     // the job-detail emit loop in Phase 1.
+     // Listing grid: 12 most recent canton jobs. Each card uses the shared
+     // `renderJobCardHtml` helper so the static-HTML cards match the SPA
+     // `<JobCard>` pixel-for-pixel (logo + title + salary + contract chip
+     // + relative posted date + "Nuovo" badge). Previously the canton-
+     // index emit used a thin custom <article> (title + company + city
+     // only) which looked visually out-of-band vs the rest of the site
+     // (sector pages, employer hubs, search results all use the shared
+     // renderer). data-listing-grid is preserved for tests / selectors.
      const listingGrid = cantonJobs.length > 0
-       ? `<section data-listing-grid style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:24px 0">` +
+       ? `<section data-listing-grid class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 my-6">` +
          cantonJobs.map((j) => {
            const jt = j as {
              slugByLocale?: Record<string, string>;
@@ -7943,25 +7949,27 @@ ${alternates}
              titleByLocale?: Record<string, string>;
              title?: string;
              company?: string;
+             companyKey?: string;
+             companyDomain?: string;
              location?: string;
              canton?: string;
+             contract?: string;
+             datePosted?: string;
+             postedDate?: string;
+             salaryMin?: number | string | null;
+             salaryMax?: number | string | null;
+             featured?: boolean;
+             logo?: string | null;
+             url?: string;
            };
            const jslug = jt.slugByLocale?.[entry.locale] || jt.slug || '';
            const jCanton = sharedResolveJobCanton({ canton: jt.canton, location: jt.location });
            const jSection = buildCantonAwareSection(entry.locale, jCanton);
            const jHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${jSection}/${jslug}`.replace(/\/+/g, '/'))}`;
-           const jTitle = String(jt.titleByLocale?.[entry.locale] || jt.title || '');
-           const jCompany = String(jt.company || '');
-           const jLocation = String(jt.location || '').split(',')[0].trim();
-           return (
-             `<article data-job-id="${esc(jslug)}" style="background:var(--color-surface);border:1px solid var(--color-edge);border-radius:12px;padding:16px">` +
-             `<h3 style="font-size:16px;margin:0 0 8px;line-height:1.3">` +
-             `<a href="${jHref}" style="color:var(--color-heading);text-decoration:none">${esc(jTitle)}</a>` +
-             `</h3>` +
-             `<div style="font-size:14px;color:var(--color-body);margin-bottom:4px">${esc(jCompany)}</div>` +
-             `<div style="font-size:13px;color:var(--color-muted)">${esc(jLocation)}</div>` +
-             `</article>`
-           );
+           return renderJobCardHtml(jt, {
+             href: jHref,
+             locale: entry.locale as JobCardLocale,
+           });
          }).join('') +
          `</section>`
        : '';

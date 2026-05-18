@@ -23,17 +23,17 @@ const ALLOWLIST = [
   'build-plugins/shared/cantonSection.ts',
 
   // ── jobsSeoPagesPlugin: sectionByLocale legacy preservation (TI default) ──
-  // Lines shifted +3 by the BFS-depth Explore navigator imports added at
-  // the top of the file (getJobNursesHubSlug / getJobPartTimeLandingSlug /
-  // careClusterSlug). Previous +1 shift from Phase 8(g) imports is included.
-  'build-plugins/jobsSeoPagesPlugin.ts:784',
+  // Lines shifted +1 by the renderJobCardHtml import added for the canton-
+  // index card-layout swap (2026-05-18). Prior +3 shift from BFS-depth
+  // Explore navigator imports + Phase 8(g) imports is included.
   'build-plugins/jobsSeoPagesPlugin.ts:785',
   'build-plugins/jobsSeoPagesPlugin.ts:786',
   'build-plugins/jobsSeoPagesPlugin.ts:787',
-  'build-plugins/jobsSeoPagesPlugin.ts:792',          // jsdoc reference to the legacy slugs
+  'build-plugins/jobsSeoPagesPlugin.ts:788',
+  'build-plugins/jobsSeoPagesPlugin.ts:793',          // jsdoc reference to the legacy slugs
   // Cathedral breadcrumb-bugfix comment (2026-05-13) — references the
   // TI slug as illustrative example in the prior-bug explanation.
-  'build-plugins/jobsSeoPagesPlugin.ts:7841',
+  'build-plugins/jobsSeoPagesPlugin.ts:7842',
 
   // ── jobBoardSeo: TI legacy job-board landing paths (kept for legacy entry) ──
   'build-plugins/jobBoardSeo.ts:38',
