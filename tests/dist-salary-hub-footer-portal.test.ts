@@ -113,4 +113,38 @@ describe('staticOverlay salary-hub pages emit the footer portal target', () => {
         `App.tsx portals the footer into #footer-root; if it sits above the main, the footer paints above the content.`,
     ).toEqual([]);
   });
+
+  it('no text-color hex (#rrggbb) ships inside main.seo-static-content (dark-mode gate)', () => {
+    // CLAUDE.md rule 17 — every color must come from a `var(--color-*)` OKLCH
+    // semantic token so dark mode renders correctly. Inline `color:#xxxxxx`
+    // works only on the original light theme and goes invisible in dark mode.
+    // This gate watches only `color:` (text); `background:` / `border:` /
+    // gradients can stay hex for now (rolled out in a later PR).
+    const TEXT_HEX_RX = /style="[^"]*color\s*:\s*#[0-9a-fA-F]{6}/;
+    const offenders: Array<{ file: string; sample: string }> = [];
+
+    for (const file of pages) {
+      const html = readFileSync(file, 'utf-8');
+      if (!html.includes('class="seo-static-content"')) continue;
+
+      // Only scan content INSIDE the SEO main, not the <head> + scripts.
+      const mainStart = html.indexOf('<main class="seo-static-content"');
+      if (mainStart === -1) continue;
+      const mainEnd = html.indexOf('</main>', mainStart);
+      const slice = mainEnd > 0 ? html.slice(mainStart, mainEnd) : html.slice(mainStart);
+      const match = slice.match(TEXT_HEX_RX);
+      if (match) {
+        offenders.push({
+          file: file.replace(`${DIST_DIR}/`, ''),
+          sample: match[0].slice(0, 90),
+        });
+      }
+    }
+
+    expect(
+      offenders.map((o) => `${o.file} → ${o.sample}`),
+      `${offenders.length} salary-hub page(s) ship inline text-color hex. ` +
+        `Migrate to var(--color-subtle/link/body/heading) so dark mode works.`,
+    ).toEqual([]);
+  });
 });
