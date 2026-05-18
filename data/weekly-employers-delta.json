@@ -1,218 +1,211 @@
 {
-  "generatedAt": "2026-05-11T09:41:49.199Z",
+  "generatedAt": "2026-05-18T10:06:48.807Z",
   "degraded": false,
-  "currentWeek": "2026-20",
-  "previousWeek": "2026-19",
+  "currentWeek": "2026-21",
+  "previousWeek": "2026-20",
   "cities": {
     "ticino": {
-      "totalActive": 2968,
+      "totalActive": 3092,
       "topCompanies": [
         {
-          "employer": "Solothurner Spitäler (soH)",
-          "employerKey": "solothurner-spitaeler",
-          "active": 124,
-          "delta": 124
+          "employer": "ProCadrans",
+          "employerKey": "richemont",
+          "active": 154,
+          "delta": 154
         },
         {
-          "employer": "ETH Zürich",
-          "employerKey": "eth-zurich",
-          "active": 105,
-          "delta": 105
+          "employer": "Guyer Wärme und Wasser AG",
+          "employerKey": "burkhalter-group",
+          "active": 204,
+          "delta": 118
         },
         {
-          "employer": "Universitätsspital Basel",
-          "employerKey": "unispital-basel",
-          "active": 96,
-          "delta": 96
+          "employer": "Fielmann Group",
+          "employerKey": "fielmann",
+          "active": 36,
+          "delta": 36
         },
         {
-          "employer": "die Mobiliar",
-          "employerKey": "mobiliar",
-          "active": 67,
-          "delta": 67
+          "employer": "EOC – Ente Ospedaliero Cantonale",
+          "employerKey": "eoc-ente-ospedaliero-cantonale",
+          "active": 172,
+          "delta": 28
         },
         {
-          "employer": "Hitachi Energy",
-          "employerKey": "hitachi-energy",
-          "active": 67,
-          "delta": 62
-        },
-        {
-          "employer": "EPFL",
-          "employerKey": "epfl",
-          "active": 61,
-          "delta": 61
-        },
-        {
-          "employer": "Kantonsspital Winterthur (KSW)",
-          "employerKey": "ksw",
-          "active": 61,
-          "delta": 61
-        },
-        {
-          "employer": "Spital Limmattal",
-          "employerKey": "spital-limmattal",
-          "active": 48,
-          "delta": 48
-        },
-        {
-          "employer": "Axpo Group",
-          "employerKey": "axpo-group",
-          "active": 49,
-          "delta": 47
-        },
-        {
-          "employer": "Spital Thurgau (STGAG)",
-          "employerKey": "spital-thurgau",
-          "active": 47,
-          "delta": 47
-        },
-        {
-          "employer": "Swisscom (sede Ticino)",
-          "employerKey": "swisscom-sede-ticino",
-          "active": 46,
-          "delta": 37
-        },
-        {
-          "employer": "AGIE Charmilles SA",
-          "employerKey": "agie-charmilles",
-          "active": 38,
-          "delta": 37
-        },
-        {
-          "employer": "Lindenhofgruppe",
-          "employerKey": "lindenhofgruppe",
-          "active": 35,
-          "delta": 35
-        },
-        {
-          "employer": "Swiss Armed Forces (VTG)",
-          "employerKey": "vtg",
-          "active": 34,
-          "delta": 29
-        },
-        {
-          "employer": "TSMG",
-          "employerKey": "tsmg",
-          "active": 33,
-          "delta": 25
-        },
-        {
-          "employer": "EFG International AG",
-          "employerKey": "efg-international",
-          "active": 29,
+          "employer": "PEMSA",
+          "employerKey": "pemsa",
+          "active": 65,
           "delta": 17
         },
         {
-          "employer": "AFRY",
-          "employerKey": "afry",
-          "active": 30,
-          "delta": 15
-        },
-        {
-          "employer": "The Swatch Group (U.S.) Inc.",
-          "employerKey": "swatch-group-assembly",
-          "active": 15,
-          "delta": 15
-        },
-        {
-          "employer": "Agroscope",
-          "employerKey": "agroscope",
+          "employer": "Heineken Switzerland",
+          "employerKey": "heineken-ch",
           "active": 10,
           "delta": 10
         },
         {
-          "employer": "JYSK",
-          "employerKey": "jysk",
-          "active": 9,
-          "delta": 8
-        }
-      ],
-      "newcomers": [
-        {
-          "employer": "Solothurner Spitäler (soH)",
-          "employerKey": "solothurner-spitaeler",
-          "active": 124
+          "employer": "AGIE Charmilles SA",
+          "employerKey": "agie-charmilles",
+          "active": 45,
+          "delta": 7
         },
         {
           "employer": "ETH Zürich",
           "employerKey": "eth-zurich",
-          "active": 105
-        },
-        {
-          "employer": "Universitätsspital Basel",
-          "employerKey": "unispital-basel",
-          "active": 96
-        },
-        {
-          "employer": "die Mobiliar",
-          "employerKey": "mobiliar",
-          "active": 67
-        },
-        {
-          "employer": "EPFL",
-          "employerKey": "epfl",
-          "active": 61
-        },
-        {
-          "employer": "Kantonsspital Winterthur (KSW)",
-          "employerKey": "ksw",
-          "active": 61
-        },
-        {
-          "employer": "Spital Limmattal",
-          "employerKey": "spital-limmattal",
-          "active": 48
+          "active": 111,
+          "delta": 6
         },
         {
           "employer": "Spital Thurgau (STGAG)",
           "employerKey": "spital-thurgau",
-          "active": 47
+          "active": 53,
+          "delta": 6
         },
         {
-          "employer": "Lindenhofgruppe",
-          "employerKey": "lindenhofgruppe",
-          "active": 35
+          "employer": "VOLG",
+          "employerKey": "volg-fenaco",
+          "active": 42,
+          "delta": 4
         },
         {
-          "employer": "The Swatch Group (U.S.) Inc.",
-          "employerKey": "swatch-group-assembly",
-          "active": 15
+          "employer": "USI – Università della Svizzera italiana",
+          "employerKey": "usi-universita-della-svizzera-italiana",
+          "active": 22,
+          "delta": 4
+        },
+        {
+          "employer": "JYSK",
+          "employerKey": "jysk",
+          "active": 13,
+          "delta": 4
+        },
+        {
+          "employer": "Denner",
+          "employerKey": "denner",
+          "active": 12,
+          "delta": 4
+        },
+        {
+          "employer": "EPFL",
+          "employerKey": "epfl",
+          "active": 64,
+          "delta": 3
+        },
+        {
+          "employer": "Swisscom (sede Ticino)",
+          "employerKey": "swisscom-sede-ticino",
+          "active": 49,
+          "delta": 3
+        },
+        {
+          "employer": "TALLY WEiJL",
+          "employerKey": "tally-weijl",
+          "active": 31,
+          "delta": 3
+        },
+        {
+          "employer": "Psychiatrische Dienste Graubünden",
+          "employerKey": "pdgr",
+          "active": 32,
+          "delta": 2
+        },
+        {
+          "employer": "EFG International AG",
+          "employerKey": "efg-international",
+          "active": 31,
+          "delta": 2
+        },
+        {
+          "employer": "Hochgebirgsklinik Davos",
+          "employerKey": "hochgebirgsklinik-davos",
+          "active": 16,
+          "delta": 2
+        },
+        {
+          "employer": "Matterhorn Gotthard Bahn",
+          "employerKey": "matterhorn-gotthard-bahn",
+          "active": 10,
+          "delta": 2
+        }
+      ],
+      "newcomers": [
+        {
+          "employer": "ProCadrans",
+          "employerKey": "richemont",
+          "active": 154
+        },
+        {
+          "employer": "Fielmann Group",
+          "employerKey": "fielmann",
+          "active": 36
+        },
+        {
+          "employer": "Heineken Switzerland",
+          "employerKey": "heineken-ch",
+          "active": 10
+        },
+        {
+          "employer": "Pictet Group",
+          "employerKey": "pictet",
+          "active": 1
+        },
+        {
+          "employer": "Mabetex Group",
+          "employerKey": "mabetex",
+          "active": 1
         }
       ]
     },
     "lugano": {
-      "totalActive": 144,
+      "totalActive": 162,
       "topCompanies": [
         {
-          "employer": "die Mobiliar",
-          "employerKey": "mobiliar",
+          "employer": "EOC – Ente Ospedaliero Cantonale",
+          "employerKey": "eoc-ente-ospedaliero-cantonale",
+          "active": 35,
+          "delta": 35
+        },
+        {
+          "employer": "SUPSI / DTI",
+          "employerKey": "supsi-dti",
+          "active": 6,
+          "delta": 6
+        },
+        {
+          "employer": "PEMSA",
+          "employerKey": "pemsa",
+          "active": 12,
+          "delta": 4
+        },
+        {
+          "employer": "Unione Farmaceutica Distribuzione SA (Galenica)",
+          "employerKey": "galenica",
+          "active": 3,
+          "delta": 3
+        },
+        {
+          "employer": "Banca Migros",
+          "employerKey": "migros-ticino",
+          "active": 2,
+          "delta": 2
+        },
+        {
+          "employer": "International School of Ticino",
+          "employerKey": "international-school-of-ticino",
           "active": 2,
           "delta": 2
         },
         {
           "employer": "Fincons Group",
           "employerKey": "fincons-group",
-          "active": 7,
+          "active": 8,
           "delta": 1
         },
         {
-          "employer": "ETH Zürich",
-          "employerKey": "eth-zurich",
+          "employer": "Mabetex Group",
+          "employerKey": "mabetex",
           "active": 1,
           "delta": 1
-        },
-        {
-          "employer": "LIS – Lugano Istituti Sociali",
-          "employerKey": "lis-lugano-istituti-sociali",
-          "active": 13,
-          "delta": 0
-        },
-        {
-          "employer": "EFG International AG",
-          "employerKey": "efg-international",
-          "active": 11,
-          "delta": 0
         },
         {
           "employer": "Città di Lugano",
@@ -221,15 +214,9 @@
           "delta": 0
         },
         {
-          "employer": "LWP Ledermann Wieting & Partners",
-          "employerKey": "lwphr",
-          "active": 9,
-          "delta": 0
-        },
-        {
-          "employer": "Tether Operations",
-          "employerKey": "tether",
-          "active": 6,
+          "employer": "Casale SA",
+          "employerKey": "casale",
+          "active": 7,
           "delta": 0
         },
         {
@@ -239,44 +226,14 @@
           "delta": 0
         },
         {
-          "employer": "Fondazione La Fonte",
-          "employerKey": "la-fonte",
-          "active": 4,
-          "delta": 0
-        },
-        {
-          "employer": "Manor AG",
-          "employerKey": "manor",
-          "active": 3,
-          "delta": 0
-        },
-        {
           "employer": "Artisa Group",
           "employerKey": "artisa-group",
           "active": 3,
           "delta": 0
         },
         {
-          "employer": "HAS Healthcare Advanced Synthesis",
-          "employerKey": "has-healthcare",
-          "active": 3,
-          "delta": 0
-        },
-        {
-          "employer": "CambiaValute.ch",
-          "employerKey": "cambiavalute",
-          "active": 2,
-          "delta": 0
-        },
-        {
-          "employer": "BPS (Banca Popolare di Sondrio) SUISSE",
-          "employerKey": "bps-suisse",
-          "active": 2,
-          "delta": 0
-        },
-        {
-          "employer": "Ticino Premium Properties SA",
-          "employerKey": "engel-voelkers",
+          "employer": "die Mobiliar",
+          "employerKey": "mobiliar",
           "active": 2,
           "delta": 0
         },
@@ -293,9 +250,21 @@
           "delta": 0
         },
         {
-          "employer": "FNZ (Switzerland) AG",
-          "employerKey": "fnz",
-          "active": 2,
+          "employer": "TSMG",
+          "employerKey": "tsmg",
+          "active": 1,
+          "delta": 0
+        },
+        {
+          "employer": "Allianz Suisse",
+          "employerKey": "allianz-suisse",
+          "active": 1,
+          "delta": 0
+        },
+        {
+          "employer": "Tarchini Group",
+          "employerKey": "tarchini-group",
+          "active": 1,
           "delta": 0
         },
         {
@@ -303,40 +272,90 @@
           "employerKey": "mtic-group",
           "active": 1,
           "delta": 0
-        }
-      ],
-      "newcomers": [
-        {
-          "employer": "die Mobiliar",
-          "employerKey": "mobiliar",
-          "active": 2
         },
         {
           "employer": "ETH Zürich",
           "employerKey": "eth-zurich",
+          "active": 1,
+          "delta": 0
+        }
+      ],
+      "newcomers": [
+        {
+          "employer": "EOC – Ente Ospedaliero Cantonale",
+          "employerKey": "eoc-ente-ospedaliero-cantonale",
+          "active": 35
+        },
+        {
+          "employer": "SUPSI / DTI",
+          "employerKey": "supsi-dti",
+          "active": 6
+        },
+        {
+          "employer": "Unione Farmaceutica Distribuzione SA (Galenica)",
+          "employerKey": "galenica",
+          "active": 3
+        },
+        {
+          "employer": "Banca Migros",
+          "employerKey": "migros-ticino",
+          "active": 2
+        },
+        {
+          "employer": "International School of Ticino",
+          "employerKey": "international-school-of-ticino",
+          "active": 2
+        },
+        {
+          "employer": "Mabetex Group",
+          "employerKey": "mabetex",
           "active": 1
         }
       ]
     },
     "mendrisio": {
-      "totalActive": 25,
+      "totalActive": 58,
       "topCompanies": [
         {
-          "employer": "Damiani Group",
-          "employerKey": "damiani-group",
-          "active": 3,
-          "delta": 2
+          "employer": "EOC – Ente Ospedaliero Cantonale",
+          "employerKey": "eoc-ente-ospedaliero-cantonale",
+          "active": 20,
+          "delta": 20
         },
         {
-          "employer": "Città di Mendrisio",
-          "employerKey": "citta-di-mendrisio",
-          "active": 4,
-          "delta": 0
+          "employer": "Amministrazione Cantonale Ticino",
+          "employerKey": "amministrazione-cantonale-ti",
+          "active": 7,
+          "delta": 7
+        },
+        {
+          "employer": "USI – Università della Svizzera italiana",
+          "employerKey": "usi-universita-della-svizzera-italiana",
+          "active": 5,
+          "delta": 5
+        },
+        {
+          "employer": "Amavita (Galenica)",
+          "employerKey": "galenica",
+          "active": 2,
+          "delta": 2
         },
         {
           "employer": "PEMSA",
           "employerKey": "pemsa",
-          "active": 2,
+          "active": 3,
+          "delta": 1
+        },
+        {
+          "employer": "Sintetica SA",
+          "employerKey": "sintetica",
+          "active": 12,
+          "delta": 0
+        },
+        {
+          "employer": "Damiani Group",
+          "employerKey": "damiani-group",
+          "active": 3,
           "delta": 0
         },
         {
@@ -352,27 +371,48 @@
           "delta": 0
         },
         {
-          "employer": "LWP Ledermann Wieting & Partners",
-          "employerKey": "lwphr",
-          "active": 1,
-          "delta": 0
-        },
-        {
-          "employer": "Sintetica SA",
-          "employerKey": "sintetica",
-          "active": 12,
-          "delta": -2
+          "employer": "Città di Mendrisio",
+          "employerKey": "citta-di-mendrisio",
+          "active": 3,
+          "delta": -1
         }
       ],
-      "newcomers": []
+      "newcomers": [
+        {
+          "employer": "EOC – Ente Ospedaliero Cantonale",
+          "employerKey": "eoc-ente-ospedaliero-cantonale",
+          "active": 20
+        },
+        {
+          "employer": "Amministrazione Cantonale Ticino",
+          "employerKey": "amministrazione-cantonale-ti",
+          "active": 7
+        },
+        {
+          "employer": "USI – Università della Svizzera italiana",
+          "employerKey": "usi-universita-della-svizzera-italiana",
+          "active": 5
+        },
+        {
+          "employer": "Amavita (Galenica)",
+          "employerKey": "galenica",
+          "active": 2
+        }
+      ]
     },
     "chiasso": {
-      "totalActive": 30,
+      "totalActive": 27,
       "topCompanies": [
         {
-          "employer": "lastminute.com",
-          "employerKey": "lastminute-com",
-          "active": 5,
+          "employer": "FNZ (Switzerland) AG",
+          "employerKey": "fnz",
+          "active": 1,
+          "delta": 1
+        },
+        {
+          "employer": "ReleWant",
+          "employerKey": "relewant",
+          "active": 17,
           "delta": 0
         },
         {
@@ -388,29 +428,23 @@
           "delta": 0
         },
         {
-          "employer": "Bracco Suisse S.A.",
-          "employerKey": "bracco",
-          "active": 1,
-          "delta": 0
-        },
-        {
-          "employer": "ReleWant",
-          "employerKey": "relewant",
-          "active": 17,
-          "delta": -1
+          "employer": "lastminute.com",
+          "employerKey": "lastminute-com",
+          "active": 2,
+          "delta": -3
         }
       ],
-      "newcomers": []
+      "newcomers": [
+        {
+          "employer": "FNZ (Switzerland) AG",
+          "employerKey": "fnz",
+          "active": 1
+        }
+      ]
     },
     "stabio": {
-      "totalActive": 56,
+      "totalActive": 15,
       "topCompanies": [
-        {
-          "employer": "VF International (The North Face, Timberland)",
-          "employerKey": "vf-international-the-north-face-timberland",
-          "active": 40,
-          "delta": 2
-        },
         {
           "employer": "Rapelli - ORIOR Food AG",
           "employerKey": "rapelli",
@@ -430,12 +464,6 @@
           "delta": 0
         },
         {
-          "employer": "Guess Europe Sagl",
-          "employerKey": "guess-europe",
-          "active": 1,
-          "delta": 0
-        },
-        {
           "employer": "GOLINE SA",
           "employerKey": "goline",
           "active": 1,
@@ -445,53 +473,29 @@
       "newcomers": []
     },
     "bellinzona": {
-      "totalActive": 271,
+      "totalActive": 137,
       "topCompanies": [
         {
-          "employer": "Swiss Armed Forces (VTG)",
-          "employerKey": "vtg",
-          "active": 34,
-          "delta": 29
-        },
-        {
-          "employer": "EOC – Ente Ospedaliero Cantonale",
-          "employerKey": "eoc-ente-ospedaliero-cantonale",
-          "active": 144,
-          "delta": 4
-        },
-        {
-          "employer": "Genossenschaft Migros Ostschweiz",
-          "employerKey": "migros-ticino",
-          "active": 26,
+          "employer": "PEMSA",
+          "employerKey": "pemsa",
+          "active": 24,
           "delta": 1
         },
         {
-          "employer": "Amministrazione Cantonale Ticino",
-          "employerKey": "amministrazione-cantonale-ti",
-          "active": 19,
-          "delta": 1
-        },
-        {
-          "employer": "AMAG Group",
-          "employerKey": "amag-group",
+          "employer": "Coop Genossenschaft",
+          "employerKey": "coop-ticino",
           "active": 1,
           "delta": 1
         },
         {
-          "employer": ". Dein neuer Job Erfassen, Modellieren und Verarbeiten von strukturierten sowie unstrukturierten Daten Durchführen von Ad-hoc-Analysen und A",
-          "employerKey": "banca-cler",
-          "active": 5,
-          "delta": 0
-        },
-        {
-          "employer": "Swisscom (sede Ticino)",
-          "employerKey": "swisscom-sede-ticino",
-          "active": 5,
-          "delta": 0
-        },
-        {
           "employer": "Allianz Suisse",
           "employerKey": "allianz-suisse",
+          "active": 3,
+          "delta": 0
+        },
+        {
+          "employer": "FFS Officine (Ferrovie Federali)",
+          "employerKey": "ffs-officine-ferrovie-federali",
           "active": 3,
           "delta": 0
         },
@@ -502,9 +506,15 @@
           "delta": 0
         },
         {
-          "employer": "Reboot Monkey",
-          "employerKey": "reboot-monkey",
-          "active": 2,
+          "employer": "AFRY",
+          "employerKey": "afry",
+          "active": 1,
+          "delta": 0
+        },
+        {
+          "employer": "AMAG Group",
+          "employerKey": "amag-group",
+          "active": 1,
           "delta": 0
         },
         {
@@ -526,40 +536,88 @@
           "delta": 0
         },
         {
-          "employer": "FFS Officine (Ferrovie Federali)",
-          "employerKey": "ffs-officine-ferrovie-federali",
-          "active": 3,
+          "employer": ". Dein neuer Job Erfassen, Modellieren und Verarbeiten von strukturierten sowie unstrukturierten Daten Durchführen von Ad-hoc-Analysen und A",
+          "employerKey": "banca-cler",
+          "active": 4,
           "delta": -1
         },
         {
-          "employer": "PEMSA",
-          "employerKey": "pemsa",
-          "active": 23,
-          "delta": -2
+          "employer": "Swisscom (sede Ticino)",
+          "employerKey": "swisscom-sede-ticino",
+          "active": 4,
+          "delta": -1
         },
         {
-          "employer": "AFRY",
-          "employerKey": "afry",
+          "employer": "Reboot Monkey",
+          "employerKey": "reboot-monkey",
           "active": 1,
-          "delta": -2
+          "delta": -1
+        },
+        {
+          "employer": "Amministrazione Cantonale Ticino",
+          "employerKey": "amministrazione-cantonale-ti",
+          "active": 8,
+          "delta": -11
+        },
+        {
+          "employer": "Scuola Club Migros",
+          "employerKey": "migros-ticino",
+          "active": 1,
+          "delta": -25
+        },
+        {
+          "employer": "EOC – Ente Ospedaliero Cantonale",
+          "employerKey": "eoc-ente-ospedaliero-cantonale",
+          "active": 81,
+          "delta": -63
         }
       ],
       "newcomers": [
         {
-          "employer": "AMAG Group",
-          "employerKey": "amag-group",
+          "employer": "Coop Genossenschaft",
+          "employerKey": "coop-ticino",
           "active": 1
         }
       ]
     },
     "locarno": {
-      "totalActive": 14,
+      "totalActive": 36,
       "topCompanies": [
         {
-          "employer": "ETH Zürich",
-          "employerKey": "eth-zurich",
+          "employer": "EOC – Ente Ospedaliero Cantonale",
+          "employerKey": "eoc-ente-ospedaliero-cantonale",
+          "active": 17,
+          "delta": 17
+        },
+        {
+          "employer": "Amministrazione Cantonale Ticino",
+          "employerKey": "amministrazione-cantonale-ti",
+          "active": 2,
+          "delta": 2
+        },
+        {
+          "employer": "USI – Università della Svizzera italiana",
+          "employerKey": "usi-universita-della-svizzera-italiana",
+          "active": 2,
+          "delta": 2
+        },
+        {
+          "employer": "Lidl Svizzera",
+          "employerKey": "lidl-svizzera",
           "active": 1,
           "delta": 1
+        },
+        {
+          "employer": "Sun Store Apotheke (Galenica)",
+          "employerKey": "galenica",
+          "active": 1,
+          "delta": 1
+        },
+        {
+          "employer": "PEMSA",
+          "employerKey": "pemsa",
+          "active": 8,
+          "delta": 0
         },
         {
           "employer": "Città di Locarno",
@@ -568,8 +626,8 @@
           "delta": 0
         },
         {
-          "employer": "Schindler",
-          "employerKey": "schindler",
+          "employer": "ETH Zürich",
+          "employerKey": "eth-zurich",
           "active": 1,
           "delta": 0
         },
@@ -584,18 +642,32 @@
           "employerKey": "fart",
           "active": 1,
           "delta": 0
-        },
-        {
-          "employer": "PEMSA",
-          "employerKey": "pemsa",
-          "active": 8,
-          "delta": -2
         }
       ],
       "newcomers": [
         {
-          "employer": "ETH Zürich",
-          "employerKey": "eth-zurich",
+          "employer": "EOC – Ente Ospedaliero Cantonale",
+          "employerKey": "eoc-ente-ospedaliero-cantonale",
+          "active": 17
+        },
+        {
+          "employer": "Amministrazione Cantonale Ticino",
+          "employerKey": "amministrazione-cantonale-ti",
+          "active": 2
+        },
+        {
+          "employer": "USI – Università della Svizzera italiana",
+          "employerKey": "usi-universita-della-svizzera-italiana",
+          "active": 2
+        },
+        {
+          "employer": "Lidl Svizzera",
+          "employerKey": "lidl-svizzera",
+          "active": 1
+        },
+        {
+          "employer": "Sun Store Apotheke (Galenica)",
+          "employerKey": "galenica",
           "active": 1
         }
       ]
