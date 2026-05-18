@@ -3862,11 +3862,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // #334155 below) shipped invisible text in dark mode — CLAUDE.md rule 17.
  const dateLine = `<p style="margin:.5rem 0;font-size:.8rem;color:var(--color-subtle)"><time itemprop="datePublished" datetime="${new Date().toISOString().slice(0, 10)}">${dateLabel}: ${formattedDate}</time></p>`;
 
+ // Byline kept tight — schema.org/author + link to /chi-siamo only.
+ // Dropped the "Esperti in fiscalità e previdenza frontaliera" subtitle
+ // (and locale equivalents) that read content-farm-y on every page.
+ // Fix #7.
  const AUTHOR_BYLINE: Record<string, string> = {
- it: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">A cura di <a href="/chi-siamo" rel="author" style="color:var(--color-link);text-decoration:none;">Redazione Frontaliere Ticino</a></span> · Esperti in fiscalità e previdenza frontaliera</p>',
- en: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">By <a href="/en/about-us" rel="author" style="color:var(--color-link);text-decoration:none;">Frontaliere Ticino Editorial Team</a></span> · Cross-border tax &amp; pension specialists</p>',
- de: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Von <a href="/de/ueber-uns" rel="author" style="color:var(--color-link);text-decoration:none;">Redaktion Frontaliere Ticino</a></span> · Experten für Grenzgänger-Steuern und Vorsorge</p>',
- fr: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Par <a href="/fr/a-propos" rel="author" style="color:var(--color-link);text-decoration:none;">Rédaction Frontaliere Ticino</a></span> · Spécialistes fiscalité et prévoyance frontalière</p>',
+ it: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">A cura di <a href="/chi-siamo" rel="author" style="color:var(--color-link);text-decoration:none;">Redazione Frontaliere Ticino</a></span></p>',
+ en: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">By <a href="/en/about-us" rel="author" style="color:var(--color-link);text-decoration:none;">Frontaliere Ticino Editorial Team</a></span></p>',
+ de: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Von <a href="/de/ueber-uns" rel="author" style="color:var(--color-link);text-decoration:none;">Redaktion Frontaliere Ticino</a></span></p>',
+ fr: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Par <a href="/fr/a-propos" rel="author" style="color:var(--color-link);text-decoration:none;">Rédaction Frontaliere Ticino</a></span></p>',
  };
  const authorLine = AUTHOR_BYLINE[locale] ?? AUTHOR_BYLINE.it;
 
@@ -4025,12 +4029,24 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // BELOW the data area so the meaty content stays above the mobile fold.
  /^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/[^/]/.test(canonicalPath)
  ) {
+ // H1 must be a headline, not a SERP title. Strip the `| Simulazione 2026`
+ // and `| Frontaliere Ticino` suffixes that come from seoData.title
+ // fallback when no explicit seoData.h1 is provided. Fix #5.
+ const salaryLandingH1 = h1Text.replace(
+   /\s*\|\s*(Simulazione\s+\d{4}|Frontaliere\s+Ticino).*$/i,
+   '',
+ ).trim() || h1Text;
  rootHtml = buildSalaryLandingBody({
  canonicalPath,
- h1Text,
+ h1Text: salaryLandingH1,
  seoDesc: seoData.desc,
  editorialHtml,
- navHtml,
+ // Suppress the 16-link pipe-separated "site nav" dump for salary-landing
+ // pages: the SPA footer (portalled below #footer-root after PR #243)
+ // already exposes the full sitemap. Fix #8 + #9 — also kills the
+ // duplicated "Approfondimenti correlati" links that appeared both in
+ // the editorial block and in the pipe nav.
+ navHtml: '',
  });
  } else {
  // Default: calculator-like layout
