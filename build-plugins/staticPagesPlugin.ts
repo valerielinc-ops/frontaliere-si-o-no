@@ -3800,6 +3800,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  }
  }
  } else if (seoData.sd) {
+ // Salary-landing shell (buildSalaryLandingBody) already renders the FAQ
+ // as `<details>` from `landingData.faqs`. Suppress this editorial `<dl>`
+ // mirror for those paths to avoid a duplicate FAQ section on every
+ // /calcola-stipendio/* scenario page. JSON-LD FAQPage stays unchanged.
+ const salaryLandingPath = /^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/[^/]/.test(canonicalPath);
  try {
  const sdSeparator = '</script>\n <script type="application/ld+json">';
  const sdParts = seoData.sd.split(sdSeparator);
@@ -3815,8 +3820,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const qas = obj.mainEntity
  .filter((e: Record<string, unknown>) => e['@type'] === 'Question' && e.name && (e as Record<string, Record<string, unknown>>).acceptedAnswer?.text)
  .slice(0, 5);
- if (qas.length > 0) {
- faqHtml = `<section style="margin-top:1.25rem"><h2 style="font-size:1rem;font-weight:700;margin:0 0 .75rem">${esc(FAQ_HEADING[locale] ?? FAQ_HEADING.it)}</h2><dl style="margin:0">${qas.map((q: Record<string, Record<string, string>>) => `<dt style="font-weight:600;margin:.75rem 0 .25rem">${esc(String(q.name))}</dt><dd style="margin:0 0 .5rem 0;color:#334155">${esc(String(q.acceptedAnswer?.text ?? ''))}</dd>`).join('')}</dl></section>`;
+ if (qas.length > 0 && !salaryLandingPath) {
+ faqHtml = `<section style="margin-top:1.25rem"><h2 style="font-size:1rem;font-weight:700;margin:0 0 .75rem">${esc(FAQ_HEADING[locale] ?? FAQ_HEADING.it)}</h2><dl style="margin:0">${qas.map((q: Record<string, Record<string, string>>) => `<dt style="font-weight:600;margin:.75rem 0 .25rem">${esc(String(q.name))}</dt><dd style="margin:0 0 .5rem 0;color:var(--color-body)">${esc(String(q.acceptedAnswer?.text ?? ''))}</dd>`).join('')}</dl></section>`;
  }
  break;
  }
@@ -3852,13 +3857,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const dateLabel = LAST_UPDATED_LABEL[locale] ?? LAST_UPDATED_LABEL.it;
  const dateFormatLocale = locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-DE' : locale === 'fr' ? 'fr-FR' : 'en-GB';
  const formattedDate = new Date().toLocaleDateString(dateFormatLocale, { month: 'long', year: 'numeric' });
- const dateLine = `<p style="margin:.5rem 0;font-size:.8rem;color:#94a3b8"><time itemprop="datePublished" datetime="${new Date().toISOString().slice(0, 10)}">${dateLabel}: ${formattedDate}</time></p>`;
+ // Tokens bind to OKLCH semantic vars in index.css so the editorial wrapper
+ // adapts to light/dark theme. Prior hardcoded hex (#94a3b8, #64748b, #2563eb,
+ // #334155 below) shipped invisible text in dark mode — CLAUDE.md rule 17.
+ const dateLine = `<p style="margin:.5rem 0;font-size:.8rem;color:var(--color-subtle)"><time itemprop="datePublished" datetime="${new Date().toISOString().slice(0, 10)}">${dateLabel}: ${formattedDate}</time></p>`;
 
  const AUTHOR_BYLINE: Record<string, string> = {
- it: '<p style="color:#64748b;font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">A cura di <a href="/chi-siamo" rel="author" style="color:#2563eb;text-decoration:none;">Redazione Frontaliere Ticino</a></span> · Esperti in fiscalità e previdenza frontaliera</p>',
- en: '<p style="color:#64748b;font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">By <a href="/en/about-us" rel="author" style="color:#2563eb;text-decoration:none;">Frontaliere Ticino Editorial Team</a></span> · Cross-border tax &amp; pension specialists</p>',
- de: '<p style="color:#64748b;font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Von <a href="/de/ueber-uns" rel="author" style="color:#2563eb;text-decoration:none;">Redaktion Frontaliere Ticino</a></span> · Experten für Grenzgänger-Steuern und Vorsorge</p>',
- fr: '<p style="color:#64748b;font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Par <a href="/fr/a-propos" rel="author" style="color:#2563eb;text-decoration:none;">Rédaction Frontaliere Ticino</a></span> · Spécialistes fiscalité et prévoyance frontalière</p>',
+ it: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">A cura di <a href="/chi-siamo" rel="author" style="color:var(--color-link);text-decoration:none;">Redazione Frontaliere Ticino</a></span> · Esperti in fiscalità e previdenza frontaliera</p>',
+ en: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">By <a href="/en/about-us" rel="author" style="color:var(--color-link);text-decoration:none;">Frontaliere Ticino Editorial Team</a></span> · Cross-border tax &amp; pension specialists</p>',
+ de: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Von <a href="/de/ueber-uns" rel="author" style="color:var(--color-link);text-decoration:none;">Redaktion Frontaliere Ticino</a></span> · Experten für Grenzgänger-Steuern und Vorsorge</p>',
+ fr: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Par <a href="/fr/a-propos" rel="author" style="color:var(--color-link);text-decoration:none;">Rédaction Frontaliere Ticino</a></span> · Spécialistes fiscalité et prévoyance frontalière</p>',
  };
  const authorLine = AUTHOR_BYLINE[locale] ?? AUTHOR_BYLINE.it;
 
@@ -3866,7 +3874,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // contains any HTML tag at all (e.g. paragraphs that begin with text but
  // embed `<strong>` / `<a>` / `<em>`). Without the second check those tags
  // were escaped to literal `&lt;strong&gt;` text on the rendered page.
- const editorialHtml = `<div style="margin-top:.75rem;font-size:.95rem;line-height:1.6;color:#334155">${dateLine}${authorLine}${editorialBlocks.map((b) => {
+ const editorialHtml = `<div style="margin-top:.75rem;font-size:.95rem;line-height:1.6;color:var(--color-body)">${dateLine}${authorLine}${editorialBlocks.map((b) => {
    if (/^<(h[1-6]|p|nav|div|details|section|ul|ol|table|figure|aside|blockquote)\b/.test(b)) return b;
    if (/<[a-zA-Z][^>]*>/.test(b)) return `<p style="margin:.5rem 0">${b}</p>`;
    return `<p style="margin:.5rem 0">${esc(b)}</p>`;
@@ -4125,13 +4133,21 @@ ${hrefTags}
  innerHtml: rootHtml,
  })
  : null;
+ // `<div id="footer-root"></div>` is the portal target App.tsx reads via
+ // `document.getElementById('footer-root')` in lite-shell mode. Without it,
+ // React falls back to inline render INSIDE `#root`, painting the footer
+ // ABOVE `<main class="seo-static-content">` (its DOM sibling) and burying
+ // the page content under the entire footer chrome (~1500 px). Mirrors the
+ // canonical wrapper from `build-plugins/shared/seoPageShell.ts:188-193`.
  const bodySection = hubChromeSplit
  ? `<div id="root"></div>
 ${hubChromeSplit.subnavHtml}
  <main class="seo-static-content">
 ${hubChromeSplit.bodyHtml}
- </main>`
- : `<div id="root"><main id="main-content">${rootHtml}</main></div>`;
+ </main>
+ <div id="footer-root"></div>`
+ : `<div id="root"><main id="main-content">${rootHtml}</main></div>
+ <div id="footer-root"></div>`;
 
  return `<!DOCTYPE html>
 <html lang="${locale}">
