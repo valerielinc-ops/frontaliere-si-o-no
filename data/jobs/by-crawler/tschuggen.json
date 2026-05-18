@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-05-17T22:41:17.209Z",
+  "assembledAt": "2026-05-18T13:24:29.234Z",
   "jobs": [
     {
       "id": "tschuggen-2cb375117405",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T22:41:14.758Z",
+      "crawledAt": "2026-05-18T13:24:27.059Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -51,6 +51,15 @@
       "requirementsByLocale": {},
       "department": "Food and Beverage",
       "hotelName": "Carlton Hotel St. Moritz",
+      "previousSlugs": [
+        "responsabile-food-beverage-tschuggen-collection-st-moritz",
+        "projektmanager-m-w-d-tschuggen-collection-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-food-beverage-tschuggen-collection-st-moritz"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:16:37.212Z",
       "salaryMin": 68000,
@@ -64,15 +73,6 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "responsabile-food-beverage-tschuggen-collection-st-moritz",
-        "projektmanager-m-w-d-tschuggen-collection-st-moritz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "responsabile-food-beverage-tschuggen-collection-st-moritz"
-        ]
       }
     },
     {
@@ -106,7 +106,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1332/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T22:41:13.880Z",
+      "crawledAt": "2026-05-18T13:24:26.169Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -172,7 +172,7 @@
       "companyDomain": "tschuggencollection.ch",
       "title": "Night Auditor (m/w/d) Wintersaison 2026/2027",
       "titleByLocale": {
-        "it": "Night Auditor (m/f/d) stagione invernale 2026/2027",
+        "it": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "en": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "de": "Night Auditor (m/w/d) Wintersaison 2026/2027",
         "fr": "Night Auditor (m/w/d) Wintersaison 2026/2027"
@@ -189,7 +189,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1336/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T22:41:12.964Z",
+      "crawledAt": "2026-05-18T13:24:25.262Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -207,6 +207,9 @@
       "requirementsByLocale": {},
       "department": "Front Office",
       "hotelName": "Carlton Hotel St. Moritz",
+      "previousSlugs": [
+        "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-collection-st-moritz"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:16:35.204Z",
       "salaryMin": 49500,
@@ -220,10 +223,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "night-auditor-m-w-d-wintersaison-2026-2027-tschuggen-collection-st-moritz"
-      ]
+      }
     },
     {
       "id": "tschuggen-ce4059f4e4c9",
@@ -256,7 +256,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1339/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T22:41:12.064Z",
+      "crawledAt": "2026-05-18T13:24:24.602Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -275,6 +275,7 @@
       "department": "Küche",
       "hotelName": "Tschuggen Grand Hotel",
       "firstSeenAt": "2026-04-21T22:32:28.567Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -319,7 +320,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1335/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T22:41:11.169Z",
+      "crawledAt": "2026-05-18T13:24:23.678Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -383,7 +384,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1340/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T22:41:10.234Z",
+      "crawledAt": "2026-05-18T13:24:22.752Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -447,7 +448,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1341/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T22:41:09.346Z",
+      "crawledAt": "2026-05-18T13:24:21.862Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -465,6 +466,15 @@
       "requirementsByLocale": {},
       "department": "Housekeeping",
       "hotelName": "Carlton Hotel St. Moritz",
+      "previousSlugs": [
+        "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "account-manager-m-w-d-tschuggen-collection-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:16:31.064Z",
       "salaryMin": 49500,
@@ -478,22 +488,13 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "account-manager-m-w-d-tschuggen-collection-st-moritz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "etagenportier-m-w-d-wintersaison-2026-2027-tschuggen-ch"
-        ]
       }
     },
     {
       "id": "tschuggen-8d1a677afc27",
-      "slug": "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+      "slug": "chef-de-partie-tournant-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
       "slugByLocale": {
-        "it": "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "it": "chef-de-partie-tournant-m-f-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz",
         "en": "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "de": "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch",
         "fr": "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch"
@@ -520,7 +521,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1342/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T22:41:08.442Z",
+      "crawledAt": "2026-05-18T13:24:20.988Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -538,8 +539,17 @@
       "requirementsByLocale": {},
       "department": "Küche",
       "hotelName": "Carlton Hotel St. Moritz",
+      "previousSlugs": [
+        "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "head-de-partie-tournant-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:16:30.049Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-partie-tournant-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ]
+      },
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -551,10 +561,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "head-de-partie-tournant-m-w-d-stagione-invernale-2026-2027-tschuggen-collection-st-moritz"
-      ]
+      }
     },
     {
       "id": "tschuggen-b8ea0b25f793",
@@ -587,7 +594,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1337/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T22:41:07.532Z",
+      "crawledAt": "2026-05-18T13:24:20.336Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -605,6 +612,15 @@
       "requirementsByLocale": {},
       "department": "Technik",
       "hotelName": "Carlton Hotel St. Moritz",
+      "previousSlugs": [
+        "haustechniker-m-w-d-wintersaison-2026-2027-tschuggen-ch",
+        "projektleiter-m-w-d-tschuggen-collection-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "haustechniker-m-w-d-wintersaison-2026-2027-tschuggen-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:16:29.035Z",
       "salaryMin": 49500,
@@ -618,15 +634,6 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "haustechniker-m-w-d-wintersaison-2026-2027-tschuggen-ch",
-        "projektleiter-m-w-d-tschuggen-collection-st-moritz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "haustechniker-m-w-d-wintersaison-2026-2027-tschuggen-ch"
-        ]
       }
     },
     {
@@ -660,7 +667,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1348/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-17T22:41:06.610Z",
+      "crawledAt": "2026-05-18T13:24:19.458Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
