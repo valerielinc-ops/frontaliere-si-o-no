@@ -3787,6 +3787,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-traffico-rientro-ascensione-ticino': { name: 'Ticino', path: '/articoli-frontaliere/traffico-rientro-ascensione-ticino', parent: 'blog' },
     'blog-ffs-tagli-ticino-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/ffs-tagli-ticino-frontalieri-2026', parent: 'blog' },
     'blog-terapia-complementare-attestati-lugano': { name: 'Novità', path: '/articoli-frontaliere/terapia-complementare-attestati-lugano', parent: 'blog' },
+    'blog-blocco-ristorni-ticino-de-rosa-aperto-a-valutare': { name: 'Blocco dei ristorni', path: '/articoli-frontaliere/blocco-ristorni-ticino-de-rosa-aperto-a-valutare', parent: 'blog' },
  };
 
  const info = sectionNames[section];

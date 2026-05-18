@@ -7632,6 +7632,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.terapia-complementare-attestati-lugano.title': 'Komplementärtherapie: 16 Kantonszeugnisse in Lugano ausgehändigt',
     'blog.article.terapia-complementare-attestati-lugano.excerpt': '16 Teilnehmer haben das Kantonszeugnis Tronco comune OmL Komplementärtherapie am CPS in Lugano erhalten',
     'blog.article.terapia-complementare-attestati-lugano.imageAlt': 'Zertifikatsverleihung am CPS in Lugano',
+    'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.title': 'Block der Rückerstattungen. De Rosa ist offen für eine Bewertung',
+    'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.excerpt': 'Der Direktor des DSS Raffaele De Rosa ist offen für eine Bewertung der Option eines Blocks oder einer Kürzung der Rückerstattungen.',
+    'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.imageAlt': 'Der Direktor des DSS Raffaele De Rosa im Vordergrund, mit dem Profil von Bellinzona im Hintergrund.',
 };
 
 export default blogMetaDe;

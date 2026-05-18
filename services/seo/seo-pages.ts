@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2599,
+ "numberOfItems": 2600,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7239,7 +7239,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2596, "name": "Code, e non solo in autostrada", "url": `${BASE_URL}/articoli-frontaliere/code-e-non-solo-in-autostrada` },
           { "@type": "ListItem", "position": 2597, "name": "Ascensione, in aumento il traffico del rientro", "url": `${BASE_URL}/articoli-frontaliere/traffico-rientro-ascensione-ticino` },
           { "@type": "ListItem", "position": 2598, "name": "FFS verso nuovi tagli in Ticino: cosa cambia pe...", "url": `${BASE_URL}/articoli-frontaliere/ffs-tagli-ticino-frontalieri-2026` },
-          { "@type": "ListItem", "position": 2599, "name": "Terapia complementare: 16 attestati cantonali c...", "url": `${BASE_URL}/articoli-frontaliere/terapia-complementare-attestati-lugano` }
+          { "@type": "ListItem", "position": 2599, "name": "Terapia complementare: 16 attestati cantonali c...", "url": `${BASE_URL}/articoli-frontaliere/terapia-complementare-attestati-lugano` },
+          { "@type": "ListItem", "position": 2600, "name": "Blocco dei ristorni. De Rosa si dice aperto a v...", "url": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-ticino-de-rosa-aperto-a-valutare` }
  ]
  },
  {

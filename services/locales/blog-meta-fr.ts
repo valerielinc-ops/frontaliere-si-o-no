@@ -7634,6 +7634,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.terapia-complementare-attestati-lugano.title': 'Thérapie complémentaire : 16 permis frontaliers délivrés à Lugano',
     'blog.article.terapia-complementare-attestati-lugano.excerpt': '16 participants ont obtenu le permis frontalier Tronco commun OmL Thérapie complémentaire au CPS de Lugano',
     'blog.article.terapia-complementare-attestati-lugano.imageAlt': 'Cérémonie de remise des certificats au CPS de Lugano',
+    'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.title': 'Blocage des réductions. De Rosa est ouvert à l\'évaluation',
+    'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.excerpt': 'Le directeur du DSS Raffaele De Rosa déclare être ouvert à l\'évaluation de l\'option d\'un blocage ou d\'une réduction des réductions.',
+    'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.imageAlt': 'Le directeur du DSS Raffaele De Rosa en premier plan, avec le profil de Bellinzona en arrière-plan.',
 };
 
 export default blogMetaFr;

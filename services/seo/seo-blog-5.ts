@@ -38099,6 +38099,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-blocco-ristorni-ticino-de-rosa-aperto-a-valutare': {
+    title: 'Blocco dei ristorni. De Rosa si dice aperto a valutare',
+    description: 'Il direttore del DSS Raffaele De Rosa si dice aperto a valutare l\'opzione di un blocco o di una decurtazione dei ristorni. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, blocco, ristorni, rosa, dice',
+    ogTitle: 'Blocco dei ristorni. De Rosa si dice aperto a valutare',
+    ogDescription: 'Il direttore del DSS Raffaele De Rosa si dice aperto a valutare l\'opzione di un blocco o di una decurtazione dei ristorni.',
+    canonicalPath: '/articoli-frontaliere/blocco-ristorni-ticino-de-rosa-aperto-a-valutare',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Blocco dei ristorni. De Rosa si dice aperto a valutare",
+      "description": "Il direttore del DSS Raffaele De Rosa si dice aperto a valutare l'opzione di un blocco o di una decurtazione dei ristorni. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/blocco-ristorni-ticino-de-rosa-aperto-a-valutare.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il direttore del DSS Raffaele De Rosa in primo piano, con il profilo di Bellinzona sullo sfondo."
+      },
+      "datePublished": "2026-05-18T08:04:22+00:00",
+      "dateModified": "2026-05-18T08:04:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/blocco-ristorni-ticino-de-rosa-aperto-a-valutare`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

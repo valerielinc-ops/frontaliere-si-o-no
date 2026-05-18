@@ -24275,4 +24275,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'blocco-ristorni-ticino-de-rosa-aperto-a-valutare',
+ category: 'fiscale',
+ date: '2026-05-18T08:04:22.460Z',
+ image: '/images/blog/blocco-ristorni-ticino-de-rosa-aperto-a-valutare.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

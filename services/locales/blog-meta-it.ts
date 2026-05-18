@@ -7634,6 +7634,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.terapia-complementare-attestati-lugano.title': 'Terapia complementare: 16 attestati cantonali consegnati a Lugano',
     'blog.article.terapia-complementare-attestati-lugano.excerpt': '16 partecipanti hanno ottenuto l’attestato cantonale Tronco comune OmL Terapia complementare al CPS di Lugano',
     'blog.article.terapia-complementare-attestati-lugano.imageAlt': 'Cerimonia di consegna attestati al CPS di Lugano',
+    'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.title': 'Blocco dei ristorni. De Rosa si dice aperto a valutare',
+    'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.excerpt': 'Il direttore del DSS Raffaele De Rosa si dice aperto a valutare l\'opzione di un blocco o di una decurtazione dei ristorni.',
+    'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.imageAlt': 'Il direttore del DSS Raffaele De Rosa in primo piano, con il profilo di Bellinzona sullo sfondo.',
 };
 
 export default blogMetaIt;

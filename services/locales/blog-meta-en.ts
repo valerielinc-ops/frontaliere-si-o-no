@@ -7633,6 +7633,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.terapia-complementare-attestati-lugano.title': 'Complementary Therapy: 16 Ticino Canton Certificates Issued in Lugano',
     'blog.article.terapia-complementare-attestati-lugano.excerpt': '16 participants have obtained the Ticino Canton Tronco comune OmL Complementary Therapy certificate at the CPS in Lugano',
     'blog.article.terapia-complementare-attestati-lugano.imageAlt': 'Certificate awarding ceremony at CPS in Lugano',
+    'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.title': 'De Rosa Considers Ristorni Block or Reduction',
+    'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.excerpt': 'The DSS director Raffaele De Rosa says he is open to evaluating the option of a block or reduction of ristorni. 💡',
+    'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.imageAlt': 'The director of the DSS Raffaele De Rosa in the foreground, with the profile of Bellinzona in the background.',
 };
 
 export default blogMetaEn;
