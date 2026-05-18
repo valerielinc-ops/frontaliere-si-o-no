@@ -8,26 +8,36 @@
  *   /lavoro-oss-svizzera/                    /en/healthcare-assistant-jobs-switzerland/ …
  *   /lavoro-sanitario-ticino/                /en/healthcare-jobs-ticino/ …
  *
- * Each IT page is ≥1.200 words (hand-written, no placeholder) and covers:
- *   CCL OSS 2024 + infermieri, stipendi medi per esperienza, permessi G vs B,
- *   cliniche principali (EOC, Moncucco, LIS, Clinica Luganese, Ticino Cuore),
- *   concorsi ricorrenti, riconoscimento MEBEKO, differenze CH vs IT.
+ * 2026-05 redesign (template B, mobile-first per CLAUDE.md regola #17):
+ * the live signal — open positions, median salary, freshness, featured
+ * jobs and employer grid — sits above the fold; the long-form hand-written
+ * prose lives below an "Approfondisci" divider where it preserves the
+ * text-to-HTML ratio gate without pushing the meaty content off the first
+ * mobile viewport.
  *
- * Locale variants (EN/DE/FR) are ≥400 words and cover the same structure at
- * condensed length. No `needsRetranslation` placeholders — all 4 locales have
- * real content before publish.
+ * Body order:
+ *   1. breadcrumb
+ *   2. <header>: eyebrow + H1 + dense lede (≤120 char, 1 line)
+ *   3. 3 stat tiles (open positions · median salary · fresh in 30 days)
+ *   4. primary CTA → salary calculator
+ *   5. featured live jobs (top 3) + "see all" link
+ *   6. employer grid (top 6 employers)
+ *   7. ─── "Approfondisci" divider ───
+ *   8. lede paragraph + hand-written H2 sections + FAQ + related
+ *   9. final CTA row (sector hub + simulator)
  *
- * JSON-LD emitted: BreadcrumbList + FAQPage + Article (Article carries
- * `inLanguage` so Google indexes the correct locale variant).
+ * Live signal comes from `nursingJobsAggregate` (build-time read of
+ * data/jobs.json). The hand-written editorial copy lives in
+ * `nursingLandingsCopy.ts` and is untouched by the template B redesign.
+ *
+ * JSON-LD emitted: BreadcrumbList + FAQPage + Article + ItemList.
  *
  * Routing: paths are registered as `staticOverlay` routes in
  * `services/router.ts` so the SPA doesn't replace the SEO content with a
- * NotFoundSuggestions UI on hydrate (content lives outside `#root` via
- * `seoContentOutsideRoot: true`, same trick used by F2-F8 plugins).
+ * NotFoundSuggestions UI on hydrate.
  *
  * Sitemap: writes `dist/sitemap-nursing.xml` and patches `sitemap.xml`
- * index. `sitemapAliasPlugin` auto-discovers the file so no extra wiring
- * is needed in `sitemapAliasPlugin.ts`.
+ * index. `sitemapAliasPlugin` auto-discovers the file.
  *
  * Gate: SKIP_NURSING=1 fast-exits the plugin for local builds only. CI
  * (`npm run build:ci`) always exercises it — exit 0 required.
@@ -39,32 +49,58 @@ import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
+import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
   CTA_PRIMARY_STYLE,
+  CARD_STYLE,
+  CARD_BODY_STYLE,
+  CARD_PADDING_STYLE,
   LINK_ACCENT_STYLE,
+  HERO_EYEBROW_STYLE,
+  H1_STYLE,
+  LEDE_STYLE,
+  SMALL_HEADING_STYLE,
+  renderStatGrid,
+  ICON_BUILDING_SVG,
 } from './shared/seoContentTokens';
 import {
   NURSING_LOCALES,
   NURSING_LANDING_IDS,
-  NURSING_LOCALE_PREFIX,
   buildNursingLandingPath,
   type NursingLocale,
   type NursingLandingId,
 } from './nursingLandingsData';
-import { NURSING_LANDING_COPY, type NursingLandingCopy } from './nursingLandingsCopy';
+import {
+  buildNursingLandingCopy,
+  type NursingLandingComposedCopy,
+} from './nursingLandingsCopy';
 import { buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
-import { imageObjectLd } from '../services/seo/imageObjectLd';
+import {
+  aggregateNursingJobs,
+  buildFeaturedJobUrl,
+  buildJobBoardUrl,
+  type NursingFeaturedJob,
+  type NursingJobsSnapshot,
+} from './nursingJobsAggregate';
 
 // CTA target sector for each landing id — null means "fall back to the
 // unfiltered job-board hub" (used by `healthcare-ticino`, whose CTA copy
 // explicitly says "all openings"). The other two landings target a
-// concrete sector so the CTA lands on a filtered list, not the hub.
+// concrete sector so the final-row CTA lands on a filtered list.
 const CTA_SECTOR: Record<NursingLandingId, SectorHubKey | null> = {
   nurses: 'infermieri',
   oss: 'case-anziani',
   'healthcare-ticino': null,
+};
+
+// Salary-calculator URL per locale — the primary CTA's killer-hook target.
+const CALCULATOR_URL: Record<NursingLocale, string> = {
+  it: '/calcola-stipendio/',
+  en: '/en/calculate-salary/',
+  de: '/de/gehalt-berechnen/',
+  fr: '/fr/calculer-salaire/',
 };
 
 // ── Helpers ──────────────────────────────────────────────────────
@@ -86,12 +122,7 @@ const OG_LOCALE: Record<NursingLocale, string> = {
 
 /**
  * Related internal links per locale. IT canonicals are verified against
- * `services/router.ts`:
- *   - `/` — root (calcolatore)
- *   - `/cerca-lavoro-ticino/` — job board hub
- *   - `/cerca-lavoro-ticino/infermieri/` — nurses sector hub (existing)
- *   - `/calcola-stipendio/` — salary hub
- *   - `/confronti/stipendi/` — confronto stipendi CH vs IT
+ * `services/router.ts`.
  */
 const RELATED_LINKS: Record<NursingLocale, Array<{ href: string; label: string }>> = {
   it: [
@@ -144,25 +175,22 @@ function renderSection(title: string, paragraphs: string[]): string {
   const ps = paragraphs
     .map(
       (p) =>
-        `<p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(
-          p,
-        )}</p>`,
+        `<p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:62ch">${esc(p)}</p>`,
     )
     .join('');
-  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:24px;color:var(--color-body)">${esc(title)}</h2>${ps}</section>`;
+  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:24px;color:var(--color-heading);font-weight:600">${esc(title)}</h2>${ps}</section>`;
 }
 
-function renderFaqBlock(faqs: NursingLandingCopy['faqs']): string {
-  const items = faqs
+function renderFaqBlock(faqs: NursingLandingComposedCopy['faqs']): string {
+  return faqs
     .map(
       (f) => `
       <details style="margin:0 0 10px;padding:14px 16px;border:1px solid var(--color-edge);border-radius:12px;background:var(--color-surface)">
-        <summary style="font-weight:700;cursor:pointer;color:var(--color-body);line-height:1.45">${esc(f.question)}</summary>
+        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading);line-height:1.45">${esc(f.question)}</summary>
         <p style="margin:10px 0 0;color:var(--color-body);line-height:1.65">${esc(f.answer)}</p>
       </details>`,
     )
     .join('');
-  return items;
 }
 
 function renderRelatedLinks(locale: NursingLocale, label: string): string {
@@ -172,17 +200,106 @@ function renderRelatedLinks(locale: NursingLocale, label: string): string {
         `<li style="margin:0 0 8px"><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE}">${esc(l.label)}</a></li>`,
     )
     .join('');
-  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:22px;color:var(--color-body)">${esc(label)}</h2><ul style="margin:0 0 0 20px;padding:0;color:var(--color-body);line-height:1.55;max-width:860px">${items}</ul></section>`;
+  return `<section style="margin:0 0 28px"><h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:600">${esc(label)}</h2><ul style="margin:0 0 0 20px;padding:0;color:var(--color-body);line-height:1.55;max-width:860px">${items}</ul></section>`;
 }
+
+function renderApprofondisciDivider(label: string): string {
+  return `<div role="separator" aria-label="${esc(label)}" style="margin:36px 0 28px;display:flex;align-items:center;gap:14px;color:var(--color-subtle)">
+    <span aria-hidden="true" style="flex:1;height:1px;background:var(--color-edge)"></span>
+    <span style="${SMALL_HEADING_STYLE};margin:0">${esc(label)}</span>
+    <span aria-hidden="true" style="flex:1;height:1px;background:var(--color-edge)"></span>
+  </div>`;
+}
+
+// ── Featured-jobs + employer-grid renderers (template B) ─────────────────────
+
+function pickJobTitle(job: NursingFeaturedJob, locale: NursingLocale): string {
+  return (
+    (job.titleByLocale as Partial<Record<NursingLocale, string>>)[locale] ?? job.title
+  );
+}
+
+function renderFeaturedJobCard(
+  job: NursingFeaturedJob,
+  locale: NursingLocale,
+  copy: NursingLandingComposedCopy,
+): string {
+  const href = buildFeaturedJobUrl(job, locale);
+  const title = pickJobTitle(job, locale);
+  const subtitleParts: string[] = [];
+  if (job.company) subtitleParts.push(job.company);
+  if (job.city) subtitleParts.push(job.city);
+  const subtitle = subtitleParts.join(' · ');
+  const salary = copy.shell.jobSalaryFmt(job.salaryMin, job.salaryMax);
+  const posted = copy.shell.jobPostedLabel(job.daysAgo);
+
+  return `<a class="seo-card-link" href="${esc(href)}" style="${CARD_STYLE};text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:6px">
+    <div style="font-weight:700;font-size:16px;line-height:1.35;color:var(--color-heading)">${esc(title)}</div>
+    ${subtitle ? `<div style="font-size:14px;color:var(--color-body);line-height:1.4">${esc(subtitle)}</div>` : ''}
+    <div style="display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-top:4px;font-size:13px;color:var(--color-subtle)">
+      ${salary ? `<span style="color:var(--color-accent);font-weight:700">${esc(salary)}</span>` : ''}
+      <span>${esc(posted)}</span>
+    </div>
+  </a>`;
+}
+
+function renderFeaturedJobs(
+  locale: NursingLocale,
+  snapshot: NursingJobsSnapshot,
+  copy: NursingLandingComposedCopy,
+): string {
+  if (snapshot.featured.length === 0) {
+    return `<section style="margin:0 0 28px">
+      <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(copy.shell.featuredJobsTitle)}</h2>
+      <p style="${CARD_STYLE};color:var(--color-subtle);font-size:14px;margin:0">${esc(copy.shell.featuredJobsEmpty)}</p>
+    </section>`;
+  }
+  const cards = snapshot.featured.map((j) => renderFeaturedJobCard(j, locale, copy)).join('');
+  const ctaHref = buildJobBoardUrl(locale);
+  return `<section style="margin:0 0 28px">
+    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(copy.shell.featuredJobsTitle)}</h2>
+    <div style="display:grid;gap:12px;margin-bottom:14px">${cards}</div>
+    <a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px">${esc(copy.featuredJobsCtaAllLabel)}</a>
+  </section>`;
+}
+
+function renderEmployerGrid(
+  snapshot: NursingJobsSnapshot,
+  copy: NursingLandingComposedCopy,
+): string {
+  if (snapshot.topEmployers.length === 0) return '';
+  const cells = snapshot.topEmployers
+    .map(
+      (e) => `<div style="display:flex;align-items:center;gap:10px;${CARD_PADDING_STYLE};${CARD_BODY_STYLE}">
+        <span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:var(--color-surface-alt);color:var(--color-subtle);flex-shrink:0">${ICON_BUILDING_SVG}</span>
+        <div style="flex:1;min-width:0">
+          <div style="font-weight:700;font-size:14px;color:var(--color-heading);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(e.name)}</div>
+        </div>
+        <div style="flex-shrink:0;font-weight:700;color:var(--color-accent);font-variant-numeric:tabular-nums">${e.count}</div>
+      </div>`,
+    )
+    .join('');
+  return `<section style="margin:0 0 28px">
+    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(copy.shell.employerGridTitle)}</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">${cells}</div>
+  </section>`;
+}
+
+// ── Page assembly ────────────────────────────────────────────────────────────
 
 function renderPage(opts: {
   locale: NursingLocale;
   id: NursingLandingId;
   dateStamp: string;
   distDir?: string;
+  snapshot: NursingJobsSnapshot;
 }): RenderResult {
-  const { locale, id, dateStamp, distDir } = opts;
-  const copy = NURSING_LANDING_COPY[locale][id];
+  const { locale, id, dateStamp, distDir, snapshot } = opts;
+  const copy = buildNursingLandingCopy(locale, id, {
+    liveCount: snapshot.liveCount,
+    fresh30Count: snapshot.fresh30Count,
+    medianSalaryChf: snapshot.medianSalaryChf,
+  });
   const urlPath = buildNursingLandingPath(locale, id);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
 
@@ -196,15 +313,14 @@ function renderPage(opts: {
   );
   const alternates = hreflangLines.join('\n');
 
-  // Breadcrumbs
+  // Breadcrumbs + downstream URLs
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
-  const jobBoardUrl = `${BASE_URL}${locale === 'it' ? '/cerca-lavoro-ticino/' : locale === 'en' ? '/en/find-jobs-ticino/' : locale === 'de' ? '/de/jobs-im-tessin/' : '/fr/trouver-emploi-tessin/'}`;
-  // CTA must land on the filtered sector hub when the copy promises a
-  // specific filter (e.g. "Vedi offerte infermieri" → /cerca-lavoro-ticino/infermieri/).
+  const jobBoardUrl = `${BASE_URL}${buildJobBoardUrl(locale)}`;
   const ctaSector = CTA_SECTOR[id];
   const ctaJobsUrl = ctaSector
     ? `${BASE_URL}${buildSectorHubPath(locale, ctaSector)}`
     : jobBoardUrl;
+  const calculatorUrl = `${BASE_URL}${CALCULATOR_URL[locale]}`;
 
   const breadcrumbLd = JSON.stringify({
     '@context': 'https://schema.org',
@@ -223,10 +339,7 @@ function renderPage(opts: {
     mainEntity: copy.faqs.map((f) => ({
       '@type': 'Question',
       name: f.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: f.answer,
-      },
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
     })),
   });
 
@@ -253,9 +366,40 @@ function renderPage(opts: {
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   });
 
-  // Sections — lede + 6–8 H2 + FAQ + related.
-  const sections = copy.sections.map((s) => renderSection(s.title, s.paragraphs)).join('');
+  // ItemList — top employers from the live aggregate. Empty featured grid =
+  // skip the JSON-LD entry (rather than emit an empty list, which Google
+  // flags as a structured-data warning).
+  const itemListLd =
+    snapshot.topEmployers.length > 0
+      ? JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: copy.shell.employerGridTitle,
+          itemListOrder: 'https://schema.org/ItemListOrderAscending',
+          numberOfItems: snapshot.topEmployers.length,
+          itemListElement: snapshot.topEmployers.map((e, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            item: { '@type': 'Organization', name: e.name },
+          })),
+        })
+      : null;
 
+  // ── Template B body ──────────────────────────────────────────────────────
+
+  const statTilesHtml = renderStatGrid([
+    { label: copy.shell.statTileLiveLabel, value: copy.statLiveValue, tone: 'success' },
+    { label: copy.shell.statTileSalaryLabel, value: copy.statSalaryValue, tone: 'accent' },
+    { label: copy.shell.statTileFreshLabel, value: copy.statFreshValue, tone: 'warning' },
+  ]);
+
+  const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.shell.primaryCtaLabel)} →</a></div>`;
+
+  const featuredHtml = renderFeaturedJobs(locale, snapshot, copy);
+  const employerGridHtml = renderEmployerGrid(snapshot, copy);
+  const dividerHtml = renderApprofondisciDivider(copy.shell.approfondisciHeading);
+
+  const sectionsHtml = copy.sections.map((s) => renderSection(s.title, s.paragraphs)).join('');
   const faqHtml = renderFaqBlock(copy.faqs);
   const relatedHtml = renderRelatedLinks(locale, copy.relatedLabel);
 
@@ -267,20 +411,28 @@ function renderPage(opts: {
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
-    <header style="margin-bottom:24px">
-      <p style="margin:0 0 8px;color:var(--color-accent);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
-      <h1 style="margin:0 0 16px;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15">${esc(copy.h1)}</h1>
-      <p style="margin:0;color:var(--color-body);font-size:17px;line-height:1.65;max-width:860px">${esc(copy.lede)}</p>
+    <header style="margin-bottom:20px">
+      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.shell.eyebrow)} · ${esc(copy.updatedLabel)} ${esc(dateStamp)}</p>
+      <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
+      <p style="${LEDE_STYLE}">${esc(copy.denseLede)}</p>
     </header>
-    ${sections}
+    ${statTilesHtml}
+    ${primaryCtaHtml}
+    ${featuredHtml}
+    ${employerGridHtml}
+    ${dividerHtml}
     <section style="margin:0 0 28px">
-      <h2 style="margin:0 0 12px;font-size:24px;color:var(--color-body)">${esc(copy.faqTitle)}</h2>
+      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:62ch;font-size:17px;font-style:italic">${esc(copy.lede)}</p>
+    </section>
+    ${sectionsHtml}
+    <section style="margin:0 0 28px">
+      <h2 style="margin:0 0 12px;font-size:24px;color:var(--color-heading);font-weight:600">${esc(copy.faqTitle)}</h2>
       ${faqHtml}
     </section>
     ${relatedHtml}
     <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
       <a href="${esc(ctaJobsUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
-      <a href="${esc(homeUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:700">${esc(copy.ctaSimulator)}</a>
+      <a href="${esc(calculatorUrl)}" style="padding:12px 18px;border-radius:12px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:700">${esc(copy.ctaSimulator)}</a>
     </section>`;
 
   const bodyHtml = `<main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body)">${body}</main>`;
@@ -294,6 +446,9 @@ function renderPage(opts: {
 
   const wordCount = countHtmlBodyWords(body);
 
+  const jsonLdScripts = [breadcrumbLd, faqLd, articleLd];
+  if (itemListLd) jsonLdScripts.push(itemListLd);
+
   const html = buildSeoPageHtml({
     locale,
     title: copy.title,
@@ -304,7 +459,7 @@ function renderPage(opts: {
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: alternates,
     extraHeadHtml: extraHead,
-    jsonLdScripts: [breadcrumbLd, faqLd, articleLd],
+    jsonLdScripts,
     bodyHtml,
     distDir,
   });
@@ -363,6 +518,9 @@ export function nursingLandingsPlugin(rootDir: string): Plugin {
 
       const dateStamp = new Date().toISOString().slice(0, 10);
 
+      // Aggregate live jobs per nursing landing once. Module-level cached.
+      const snapshots = aggregateNursingJobs(rootDir);
+
       const collector = new WriteCollector({
         distDir,
         pluginName: 'nursingLandingsPlugin',
@@ -377,7 +535,13 @@ export function nursingLandingsPlugin(rootDir: string): Plugin {
         alternates.push(`x-default|${BASE_URL}${buildNursingLandingPath('it', id)}`);
 
         for (const locale of NURSING_LOCALES) {
-          const rendered = renderPage({ locale, id, dateStamp, distDir });
+          const rendered = renderPage({
+            locale,
+            id,
+            dateStamp,
+            distDir,
+            snapshot: snapshots[id],
+          });
 
           if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
             thinSkipped++;

@@ -45,6 +45,224 @@ export interface NursingLandingCopy {
 }
 
 // ─────────────────────────────────────────────────────────────────
+// Template B per-locale shell (2026-05 redesign).
+//
+// The template B layout uses a 1-line dense lede + 3 stat tiles + a primary
+// CTA above the fold, and pushes the editorial prose below an "Approfondisci"
+// divider. The labels below are reused across all 3 nursing IDs for a given
+// locale (only the numbers/values change per snapshot).
+// ─────────────────────────────────────────────────────────────────
+
+export interface NursingLandingShell {
+  eyebrow: string;
+  /** Pre-rendered dense-lede sentence template. */
+  denseLedeTemplate: (parts: { live: number; fresh30: number; median: number | null }) => string;
+  statTileLiveLabel: string;
+  statTileSalaryLabel: string;
+  statTileFreshLabel: string;
+  statSalaryValueFmt: (n: number | null) => string;
+  statFreshValueFmt: (n: number) => string;
+  statLiveValueFmt: (n: number) => string;
+  primaryCtaLabel: string;
+  featuredJobsTitle: string;
+  featuredJobsCtaAll: (n: number) => string;
+  featuredJobsEmpty: string;
+  employerGridTitle: string;
+  approfondisciHeading: string;
+  jobPostedLabel: (daysAgo: number) => string;
+  jobSalaryFmt: (min: number | null, max: number | null) => string;
+}
+
+const IT_SHELL: NursingLandingShell = {
+  eyebrow: 'Sanità · Ticino · 2026',
+  denseLedeTemplate: ({ live, fresh30, median }) => {
+    const livePart = `${live.toLocaleString('it-CH')} posizioni sanitarie indicizzate in Ticino`;
+    const freshPart = `${fresh30} nuove negli ultimi 30 giorni`;
+    const medianPart = median
+      ? `stipendio mediano CHF ${median.toLocaleString('it-CH')} lordi all'anno`
+      : 'CCL svizzero applicato integralmente';
+    return `${livePart} · ${freshPart} · ${medianPart}.`;
+  },
+  statTileLiveLabel: 'Offerte aperte',
+  statTileSalaryLabel: 'Stipendio mediano',
+  statTileFreshLabel: 'Nuove (30 gg)',
+  statSalaryValueFmt: (n) => (n ? `CHF ${n.toLocaleString('it-CH')}/anno` : 'CCL svizzero'),
+  statFreshValueFmt: (n) => `${n} nuove`,
+  statLiveValueFmt: (n) => n.toLocaleString('it-CH'),
+  primaryCtaLabel: 'Calcola il tuo netto come frontaliere',
+  featuredJobsTitle: 'Offerte in evidenza',
+  featuredJobsCtaAll: (n) =>
+    n > 0 ? `Vedi tutte le ${n.toLocaleString('it-CH')} offerte →` : 'Vedi tutte le offerte →',
+  featuredJobsEmpty: 'Nessuna offerta sanitaria indicizzata in questo momento — controlla il job board completo.',
+  employerGridTitle: 'Chi assume in Ticino',
+  approfondisciHeading: 'Approfondisci',
+  jobPostedLabel: (d) =>
+    d <= 0 ? 'Pubblicata oggi' : d === 1 ? 'Pubblicata ieri' : `Pubblicata ${d} giorni fa`,
+  jobSalaryFmt: (min, max) => {
+    if (min && max) return `CHF ${min.toLocaleString('it-CH')}–${max.toLocaleString('it-CH')}/anno`;
+    if (min) return `Da CHF ${min.toLocaleString('it-CH')}/anno`;
+    if (max) return `Fino a CHF ${max.toLocaleString('it-CH')}/anno`;
+    return '';
+  },
+};
+
+const EN_SHELL: NursingLandingShell = {
+  eyebrow: 'Healthcare · Ticino · 2026',
+  denseLedeTemplate: ({ live, fresh30, median }) => {
+    const livePart = `${live.toLocaleString('en-CH')} healthcare openings indexed in Ticino`;
+    const freshPart = `${fresh30} new in the last 30 days`;
+    const medianPart = median
+      ? `median CHF ${median.toLocaleString('en-CH')} gross per year`
+      : 'Swiss collective agreement applies in full';
+    return `${livePart} · ${freshPart} · ${medianPart}.`;
+  },
+  statTileLiveLabel: 'Open positions',
+  statTileSalaryLabel: 'Median salary',
+  statTileFreshLabel: 'New (30 days)',
+  statSalaryValueFmt: (n) => (n ? `CHF ${n.toLocaleString('en-CH')}/year` : 'Swiss CCL'),
+  statFreshValueFmt: (n) => `${n} new`,
+  statLiveValueFmt: (n) => n.toLocaleString('en-CH'),
+  primaryCtaLabel: 'Calculate your cross-border net salary',
+  featuredJobsTitle: 'Featured openings',
+  featuredJobsCtaAll: (n) =>
+    n > 0 ? `See all ${n.toLocaleString('en-CH')} openings →` : 'See all openings →',
+  featuredJobsEmpty: 'No indexed healthcare openings right now — check the full job board.',
+  employerGridTitle: 'Who is hiring in Ticino',
+  approfondisciHeading: 'Learn more',
+  jobPostedLabel: (d) =>
+    d <= 0 ? 'Posted today' : d === 1 ? 'Posted yesterday' : `Posted ${d} days ago`,
+  jobSalaryFmt: (min, max) => {
+    if (min && max) return `CHF ${min.toLocaleString('en-CH')}–${max.toLocaleString('en-CH')}/year`;
+    if (min) return `From CHF ${min.toLocaleString('en-CH')}/year`;
+    if (max) return `Up to CHF ${max.toLocaleString('en-CH')}/year`;
+    return '';
+  },
+};
+
+const DE_SHELL: NursingLandingShell = {
+  eyebrow: 'Gesundheit · Tessin · 2026',
+  denseLedeTemplate: ({ live, fresh30, median }) => {
+    const livePart = `${live.toLocaleString('de-CH')} Gesundheitsstellen im Tessin indexiert`;
+    const freshPart = `${fresh30} neu in den letzten 30 Tagen`;
+    const medianPart = median
+      ? `Medianlohn CHF ${median.toLocaleString('de-CH')} brutto pro Jahr`
+      : 'Schweizer GAV gilt vollständig';
+    return `${livePart} · ${freshPart} · ${medianPart}.`;
+  },
+  statTileLiveLabel: 'Offene Stellen',
+  statTileSalaryLabel: 'Medianlohn',
+  statTileFreshLabel: 'Neu (30 Tage)',
+  statSalaryValueFmt: (n) => (n ? `CHF ${n.toLocaleString('de-CH')}/Jahr` : 'Schweizer GAV'),
+  statFreshValueFmt: (n) => `${n} neu`,
+  statLiveValueFmt: (n) => n.toLocaleString('de-CH'),
+  primaryCtaLabel: 'Grenzgänger-Nettolohn berechnen',
+  featuredJobsTitle: 'Empfohlene Stellen',
+  featuredJobsCtaAll: (n) =>
+    n > 0 ? `Alle ${n.toLocaleString('de-CH')} Stellen ansehen →` : 'Alle Stellen ansehen →',
+  featuredJobsEmpty: 'Derzeit keine indexierten Gesundheitsstellen — siehe vollständige Stellenbörse.',
+  employerGridTitle: 'Wer im Tessin einstellt',
+  approfondisciHeading: 'Mehr erfahren',
+  jobPostedLabel: (d) =>
+    d <= 0 ? 'Heute veröffentlicht' : d === 1 ? 'Gestern veröffentlicht' : `Vor ${d} Tagen veröffentlicht`,
+  jobSalaryFmt: (min, max) => {
+    if (min && max) return `CHF ${min.toLocaleString('de-CH')}–${max.toLocaleString('de-CH')}/Jahr`;
+    if (min) return `Ab CHF ${min.toLocaleString('de-CH')}/Jahr`;
+    if (max) return `Bis CHF ${max.toLocaleString('de-CH')}/Jahr`;
+    return '';
+  },
+};
+
+const FR_SHELL: NursingLandingShell = {
+  eyebrow: 'Santé · Tessin · 2026',
+  denseLedeTemplate: ({ live, fresh30, median }) => {
+    const livePart = `${live.toLocaleString('fr-CH')} postes santé indexés au Tessin`;
+    const freshPart = `${fresh30} nouveaux ces 30 derniers jours`;
+    const medianPart = median
+      ? `salaire médian CHF ${median.toLocaleString('fr-CH')} brut par an`
+      : 'CCT suisse appliquée intégralement';
+    return `${livePart} · ${freshPart} · ${medianPart}.`;
+  },
+  statTileLiveLabel: 'Postes ouverts',
+  statTileSalaryLabel: 'Salaire médian',
+  statTileFreshLabel: 'Nouveaux (30 j)',
+  statSalaryValueFmt: (n) => (n ? `CHF ${n.toLocaleString('fr-CH')}/an` : 'CCT suisse'),
+  statFreshValueFmt: (n) => `${n} nouveaux`,
+  statLiveValueFmt: (n) => n.toLocaleString('fr-CH'),
+  primaryCtaLabel: 'Calculer votre net frontalier',
+  featuredJobsTitle: 'Offres mises en avant',
+  featuredJobsCtaAll: (n) =>
+    n > 0 ? `Voir les ${n.toLocaleString('fr-CH')} offres →` : 'Voir toutes les offres →',
+  featuredJobsEmpty: 'Aucune offre santé indexée actuellement — consultez la bourse complète.',
+  employerGridTitle: 'Qui recrute au Tessin',
+  approfondisciHeading: 'Pour aller plus loin',
+  jobPostedLabel: (d) =>
+    d <= 0 ? "Publié aujourd'hui" : d === 1 ? 'Publié hier' : `Publié il y a ${d} jours`,
+  jobSalaryFmt: (min, max) => {
+    if (min && max) return `CHF ${min.toLocaleString('fr-CH')}–${max.toLocaleString('fr-CH')}/an`;
+    if (min) return `Dès CHF ${min.toLocaleString('fr-CH')}/an`;
+    if (max) return `Jusqu'à CHF ${max.toLocaleString('fr-CH')}/an`;
+    return '';
+  },
+};
+
+export const NURSING_LANDING_SHELLS: Record<NursingLocale, NursingLandingShell> = {
+  it: IT_SHELL,
+  en: EN_SHELL,
+  de: DE_SHELL,
+  fr: FR_SHELL,
+};
+
+/**
+ * Snapshot inputs the plugin passes when rendering the page. Only counts +
+ * median are needed — featured jobs are kept on the snapshot object itself.
+ */
+export interface NursingLandingCopySnapshot {
+  liveCount: number;
+  fresh30Count: number;
+  medianSalaryChf: number | null;
+}
+
+/**
+ * Composite copy view used by the plugin renderer. Combines the editorial
+ * copy (above) with the template B shell (this block) so the plugin can
+ * read every label off a single object.
+ */
+export interface NursingLandingComposedCopy extends NursingLandingCopy {
+  shell: NursingLandingShell;
+  denseLede: string;
+  statLiveValue: string;
+  statSalaryValue: string;
+  statFreshValue: string;
+  featuredJobsCtaAllLabel: string;
+}
+
+/**
+ * Build the composed copy for one nursing landing × locale, with the
+ * snapshot numbers already interpolated into the dense lede + stat tiles.
+ */
+export function buildNursingLandingCopy(
+  locale: NursingLocale,
+  id: NursingLandingId,
+  snapshot: NursingLandingCopySnapshot = { liveCount: 0, fresh30Count: 0, medianSalaryChf: null },
+): NursingLandingComposedCopy {
+  const base = NURSING_LANDING_COPY[locale][id];
+  const shell = NURSING_LANDING_SHELLS[locale];
+  return {
+    ...base,
+    shell,
+    denseLede: shell.denseLedeTemplate({
+      live: snapshot.liveCount,
+      fresh30: snapshot.fresh30Count,
+      median: snapshot.medianSalaryChf,
+    }),
+    statLiveValue: shell.statLiveValueFmt(snapshot.liveCount),
+    statSalaryValue: shell.statSalaryValueFmt(snapshot.medianSalaryChf),
+    statFreshValue: shell.statFreshValueFmt(snapshot.fresh30Count),
+    featuredJobsCtaAllLabel: shell.featuredJobsCtaAll(snapshot.liveCount),
+  };
+}
+
+// ─────────────────────────────────────────────────────────────────
 // IT — canonical (≥1.200 words per page)
 // ─────────────────────────────────────────────────────────────────
 
