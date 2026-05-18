@@ -279,15 +279,23 @@ export const AI_MODELS = Object.freeze({
   // ── Mistral Codestral (separate endpoint, separate quota: 2000 req/day) ──
   CDSTRL_LATEST:       'codestral/codestral-latest',
 
-  // ── Chutes.ai (OpenAI-compatible, generous free tier — added 2026-05-18) ──
-  // Free tier: ~200 req/day shared quota; high-quality reasoning models.
-  // CH_DEEPSEEK_R1 removed — Chutes HTTP 404 "model not found: deepseek-ai/DeepSeek-R1-TEE" (2026-05-18)
-  // CH_DEEPSEEK_V3 removed — Chutes HTTP 404 "model not found: deepseek-ai/DeepSeek-V3" (2026-05-18)
-  // CH_GLM_45 removed — Chutes HTTP 404 "model not found: zai-org/GLM-4.5-Air" (2026-05-18)
-  // CH_QWEN3_235B removed — Chutes HTTP 404 "model not found: Qwen/Qwen3-235B-A22B-Instruct-2507-TEE" (2026-05-18)
-  // CH_LLAMA_4_MAVERICK removed — Chutes HTTP 404 "model not found: meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8" (2026-05-18)
-  ZAI_GLM_46:          'zai/glm-4.6',
-  ZAI_GLM_45_AIR:      'zai/glm-4.5-air',
+  // ── Chutes.ai (OpenAI-compatible, PAID per-token — verified 2026-05-18) ──
+  // Smoke test returned HTTP 402 "balance $0.0". Chutes is NOT free; it bills
+  // TAO/USD per token. Real model IDs use the `-TEE` (Trusted Execution Env)
+  // suffix. Listed here so the provider machinery + correct IDs are ready IF
+  // the account is funded; NOT in DEFAULT_CHAIN to avoid burning fallback
+  // slots on 402 errors.
+  CH_DEEPSEEK_V32:     'chutes/deepseek-ai/DeepSeek-V3.2-TEE',
+  CH_KIMI_K26:         'chutes/moonshotai/Kimi-K2.6-TEE',
+  CH_GLM_5:            'chutes/zai-org/GLM-5-TEE',
+  CH_QWEN_3_5_397B:    'chutes/Qwen/Qwen3.5-397B-A17B-TEE',
+  CH_MINIMAX_M25:      'chutes/MiniMaxAI/MiniMax-M2.5-TEE',
+
+  // ── Z.AI (Zhipu, OpenAI-compatible — added 2026-05-18) ──
+  // Smoke test: only `glm-4.5-flash` is in the free tier with this key.
+  // `glm-4.6`, `glm-4.5-air`, `glm-4.5-airx`, `glm-4.5v` all return
+  // HTTP 429 "no resource package" → paid plan required.
+  ZAI_GLM_45_FLASH:    'zai/glm-4.5-flash',
 
   // ── Extended OpenRouter free models (2026-05) ──
   // OR_QWEN3_CODER_PLUS removed — OpenRouter HTTP 404 "No endpoints found for qwen/qwen3-coder-plus:free" (2026-05-18)
@@ -466,17 +474,13 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.HF_GEMMA_3_27B,      // 97. Gemma 3 27B               (HuggingFace)
   // HF_MISTRAL_SM removed — HuggingFace HTTP 400 "not a chat model" (2026-04)
 
-  // ── Chutes.ai free tier (added 2026-05-18) ──
-  // AI_MODELS.CH_DEEPSEEK_R1 removed — Chutes HTTP 404 "model not found: deepseek-ai/DeepSeek-R1-TEE" (2026-05-18)
-  // AI_MODELS.CH_KIMI_K2 removed — Chutes HTTP 404 "model not found: moonshotai/Kimi-K2-Instruct-0905" (2026-05-18)
-  // AI_MODELS.CH_GLM_45 removed — Chutes HTTP 404 "model not found: zai-org/GLM-4.5-Air" (2026-05-18)
-  // AI_MODELS.CH_QWEN3_235B removed — Chutes HTTP 404 "model not found: Qwen/Qwen3-235B-A22B-Instruct-2507-TEE" (2026-05-18)
-  // AI_MODELS.CH_DEEPSEEK_V3 removed — Chutes HTTP 404 "model not found: deepseek-ai/DeepSeek-V3" (2026-05-18)
-  // AI_MODELS.CH_LLAMA_4_MAVERICK removed — Chutes HTTP 404 "model not found: meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8" (2026-05-18)
+  // ── Chutes.ai: SKIPPED — paid per-token; smoke test returned HTTP 402
+  // ("balance $0.0"). Re-add CH_DEEPSEEK_V32 / CH_KIMI_K26 / CH_GLM_5 /
+  // CH_QWEN_3_5_397B / CH_MINIMAX_M25 here once the account is funded.
 
-  // ── Z.AI GLM free tier (added 2026-05-18) ──
-  AI_MODELS.ZAI_GLM_46,          // 104. GLM 4.6                   (Z.AI free)
-  AI_MODELS.ZAI_GLM_45_AIR,      // 105. GLM 4.5 Air               (Z.AI free)
+  // ── Z.AI GLM free tier (added + verified 2026-05-18) ──
+  // Only glm-4.5-flash is free with the issued key; smoke test 200 OK.
+  AI_MODELS.ZAI_GLM_45_FLASH,    // 98. GLM 4.5 Flash              (Z.AI free)
 
   // ── Extended OpenRouter 2026-05 free additions ──
   // AI_MODELS.OR_QWEN3_CODER_PLUS removed — OpenRouter HTTP 404 "No endpoints found for qwen/qwen3-coder-plus:free" (2026-05-18)

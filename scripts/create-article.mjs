@@ -498,6 +498,28 @@ const GH_MODEL_LIGHT = AI_MODELS.GPT4O_MINI;
 const BLOG_IMAGE_TARGET_MAX_BYTES = 220 * 1024; // target ~220KB
 const BLOG_IMAGE_HARD_MAX_BYTES = 320 * 1024;   // hard cap ~320KB
 const MIN_BODY_CHARS = 2500;  // ~400 words minimum; 800 chars was too permissive
+const MIN_BODY_CHARS_FLOOR = Math.max(
+  1500,
+  Number.parseInt(process.env.MIN_BODY_CHARS_FLOOR || '1800', 10) || 1800,
+);
+/**
+ * Companion to computeAdaptiveMinWords: scales the chars-based thin-content
+ * gate when the source is short. Without this, a successful 400-word
+ * adaptive run (~2400 chars) trips the static 2500-char floor and is
+ * either re-expanded into hallucination or rejected outright at the
+ * final guard. Mirrors the word-ladder thresholds.
+ *   - source ≥ 4000 chars → full 2500-char target
+ *   - source 2000-3999    → 2200 chars
+ *   - source 1000-1999    → 1900 chars
+ *   - source < 1000       → MIN_BODY_CHARS_FLOOR (1800 chars)
+ */
+function computeAdaptiveMinChars(sourceText) {
+  const len = (sourceText || '').length;
+  if (len >= 4000) return MIN_BODY_CHARS;
+  if (len >= 2000) return Math.max(MIN_BODY_CHARS_FLOOR, 2200);
+  if (len >= 1000) return Math.max(MIN_BODY_CHARS_FLOOR, 1900);
+  return MIN_BODY_CHARS_FLOOR;
+}
 
 // Static places catalog
 const PLACES_IMAGES = [
@@ -3911,7 +3933,8 @@ export function validateHeadline(headline) {
 }
 
 // ── Step 3: Validate Gemini response ────────────────────────
-function validate(data) {
+function validate(data, opts = {}) {
+  const minBodyChars = Number(opts.minBodyChars || MIN_BODY_CHARS);
   // `content` is the only truly irreplaceable field — everything else can be
   // synthesized from it. Smaller fallback models (Cerebras llama-3.1-8b, etc.)
   // frequently omit top-level metadata (`id`, `category`, `image`, `slugs`)
@@ -4016,8 +4039,8 @@ function validate(data) {
   // Final thin content check happens after all retry/expand attempts.
   const itBodyEarly = `${(data.content.it || data.content)?.body1 || ''} ${(data.content.it || data.content)?.body2 || ''} ${(data.content.it || data.content)?.body3 || ''}`;
   const itPlainCharsEarly = itBodyEarly.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().length;
-  if (itPlainCharsEarly < MIN_BODY_CHARS) {
-    console.warn(`  ⚠️  [thin-content] Articolo corto: ${itPlainCharsEarly} chars (min: ${MIN_BODY_CHARS}) — il retry loop tenterà di espandere`);
+  if (itPlainCharsEarly < minBodyChars) {
+    console.warn(`  ⚠️  [thin-content] Articolo corto: ${itPlainCharsEarly} chars (min: ${minBodyChars}) — il retry loop tenterà di espandere`);
   }
 
   // ── Frontaliere density check ──────────────────────────────
@@ -6790,14 +6813,16 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   if (dropOffTopicSource && typeof pageContent === 'string' && pageContent.length > 0) {
     const sourceHits = countTopicalHits(pageContent);
     if (sourceHits === 0) {
-      console.error(`\n⏭️  Source non frontaliere-rilevante (pre-LLM): 0 topical hits sul testo sorgente (URL: ${url}). Salto questo run prima del primo callGemini.`);
-      finalizeRunReport('skipped', {
-        notes: [
-          ...RUN_REPORT.notes,
-          `Source skipped pre-LLM: 0 topical hits (url=${url})`,
-        ],
-      });
-      process.exit(0);
+      console.error(`\n⏭️  Source non frontaliere-rilevante (pre-LLM): 0 topical hits sul testo sorgente (URL: ${url}). Provo un altro headline.`);
+      RUN_REPORT.notes.push(`Source skipped pre-LLM: 0 topical hits (url=${url})`);
+      // Same pattern as the post-LLM skip below: throw with topicGateAbort
+      // so the outer ranker loop tries a different headline within this run
+      // instead of exiting hard and letting the next cron re-pick the same
+      // one. process.exit(0) here was the proximate cause of the same-headline
+      // infinite skip loop observed 2026-05-18.
+      const err = new Error(`topic-gate abort: pre-LLM 0 topical hits for ${url}`);
+      err.topicGateAbort = true;
+      throw err;
     }
   }
 
@@ -6855,9 +6880,11 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       throw e;
     }
 
-    // Step 3: Validate (works on IT-only data)
+    // Step 3: Validate (works on IT-only data). Pass the adaptive chars
+    // threshold so the early thin-content warning matches what the final
+    // gate at the bottom of this function actually enforces.
     try {
-      data = validate(rawData);
+      data = validate(rawData, { minBodyChars: computeAdaptiveMinChars(pageContent) });
     } catch (validationErr) {
       console.error(`  ⚠️  Validazione fallita: ${validationErr.message}`);
       if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
@@ -6880,14 +6907,17 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       const itBodyEarly = `${data.content?.it?.body1 || ''} ${data.content?.it?.body2 || ''} ${data.content?.it?.body3 || ''}`;
       const earlyDensity = checkFrontaliereDensity(itBodyEarly);
       if (earlyDensity.hits === 0 && earlyDensity.wordCount > 0) {
-        console.error(`\n⏭️  Topic non frontaliere-rilevante: 0 keyword density su ${earlyDensity.wordCount} parole (URL: ${url}). Salto questo run, il prossimo cron selezionerà un topic diverso.`);
-        finalizeRunReport('skipped', {
-          notes: [
-            ...RUN_REPORT.notes,
-            `Topic skipped: 0 frontaliere-density hits on attempt 1 (url=${url})`,
-          ],
-        });
-        process.exit(0);
+        console.error(`\n⏭️  Topic non frontaliere-rilevante: 0 keyword density su ${earlyDensity.wordCount} parole (URL: ${url}). Provo un altro headline.`);
+        RUN_REPORT.notes.push(`Topic skipped: 0 frontaliere-density hits on attempt 1 (url=${url})`);
+        // Throw with topicGateAbort so the outer ranker loop at line ~6588
+        // catches it and picks a different headline within this same run.
+        // Previously `process.exit(0)` exited hard → next cron tick re-picked
+        // the same top-scored headline → infinite skip loop (observed
+        // 2026-05-18 runs 26019355100, 26019412679, 26019478370 all picking
+        // the same `terapia-attestati-cerimonia-formazione-lugano`).
+        const err = new Error(`topic-gate abort: 0 frontaliere keywords for ${url}`);
+        err.topicGateAbort = true;
+        throw err;
       }
     }
 
@@ -7141,10 +7171,11 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   {
     const itBodyFinal = `${(data.content.it || data.content)?.body1 || ''} ${(data.content.it || data.content)?.body2 || ''} ${(data.content.it || data.content)?.body3 || ''}`;
     const itPlainCharsFinal = itBodyFinal.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().length;
-    if (itPlainCharsFinal < MIN_BODY_CHARS) {
-      throw new Error(`Articolo troppo corto dopo retry: ${itPlainCharsFinal} chars (min: ${MIN_BODY_CHARS}). Google penalizza thin content.`);
+    const adaptiveMinChars = computeAdaptiveMinChars(pageContent);
+    if (itPlainCharsFinal < adaptiveMinChars) {
+      throw new Error(`Articolo troppo corto dopo retry: ${itPlainCharsFinal} chars (min: ${adaptiveMinChars}). Google penalizza thin content.`);
     }
-    console.error(`  ✅ [thin-content] Body finale: ${itPlainCharsFinal} chars (min: ${MIN_BODY_CHARS})`);
+    console.error(`  ✅ [thin-content] Body finale: ${itPlainCharsFinal} chars (min: ${adaptiveMinChars})`);
   }
 
     // Step 3a.0b: Strip leaked internal URLs from IT

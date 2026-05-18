@@ -7626,6 +7626,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traffico-rientro-ascensione-ticino.title': 'Aufstieg, zunehmender Verkehr bei der Rückkehr',
     'blog.article.traffico-rientro-ascensione-ticino.excerpt': 'Die Rückkehr nach dem langen Ascensionstag-Wochenende ist in vollem Gange, insbesondere was den Verkehr auf der A2 in nördlicher Richtung betrifft.',
     'blog.article.traffico-rientro-ascensione-ticino.imageAlt': 'Der Rückverkehr in Ticino ist während der Osternahrung gestiegen.',
+    'blog.article.ffs-tagli-ticino-frontalieri-2026.title': 'SBB plant Stellenstreichungen im Tessin: Was ändert sich für Grenzgänger?',
+    'blog.article.ffs-tagli-ticino-frontalieri-2026.excerpt': 'Die Schweizerischen Bundesbahnen kündigen neue Stellenstreichungen im Tessin an, was bei den Arbeitnehmern und den lokalen Behörden für Besorgnis sorgt.',
+    'blog.article.ffs-tagli-ticino-frontalieri-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit modernem Bahnhof und Stadtpanorama',
 };
 
 export default blogMetaDe;

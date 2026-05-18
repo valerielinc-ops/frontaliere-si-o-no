@@ -1,35 +1,28 @@
 {
-  "elderly-care": [
-    {
-      "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
-      "clicks": 0,
-      "impressions": 27
-    },
-    {
-      "query": "i am searching for caregiver jobs in ticino for elderly support.",
-      "clicks": 0,
-      "impressions": 23
-    },
-    {
-      "query": "نعم ابحث",
-      "clicks": 1,
-      "impressions": 1
-    }
-  ],
   "case-anziani": [
     {
       "query": "case anziani ticino offerte di lavoro",
       "clicks": 1,
-      "impressions": 17
+      "impressions": 21
     },
     {
       "query": "case anziani lugano posti di lavoro",
       "clicks": 0,
-      "impressions": 10
+      "impressions": 11
     },
     {
       "query": "offerte di lavoro casa di riposo svizzera",
       "clicks": 1,
+      "impressions": 9
+    },
+    {
+      "query": "offerte lavoro casa di riposo svizzera",
+      "clicks": 0,
+      "impressions": 5
+    },
+    {
+      "query": "case di riposo ticino lavora con noi",
+      "clicks": 0,
       "impressions": 4
     },
     {
@@ -53,11 +46,6 @@
       "impressions": 1
     },
     {
-      "query": "case di riposo ticino lavora con noi",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
       "query": "lavoro casa anziani ticino",
       "clicks": 0,
       "impressions": 1
@@ -66,16 +54,50 @@
       "query": "offerte di lavoro casa anziani ticino",
       "clicks": 0,
       "impressions": 1
+    }
+  ],
+  "elderly-care": [
+    {
+      "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
+      "clicks": 0,
+      "impressions": 28
     },
     {
-      "query": "offerte lavoro casa di riposo svizzera",
+      "query": "i am searching for caregiver jobs in ticino for elderly support.",
       "clicks": 0,
+      "impressions": 24
+    },
+    {
+      "query": "نعم ابحث",
+      "clicks": 1,
       "impressions": 1
     }
   ],
   "chiasso": [
     {
       "query": "job chiasso",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "lugano": [
+    {
+      "query": "recrutement lugano",
+      "clicks": 0,
+      "impressions": 2
+    },
+    {
+      "query": "agrisano jobs",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "allianz jobs lugano",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "stellenangebot lugano",
       "clicks": 0,
       "impressions": 1
     }
@@ -117,6 +139,11 @@
       "impressions": 2
     },
     {
+      "query": "lavoro ristorazione ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
       "query": "offerte di lavoro ristorazione svizzera",
       "clicks": 0,
       "impressions": 1
@@ -128,28 +155,6 @@
     },
     {
       "query": "posti vacanti ticino",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
-  "lugano": [
-    {
-      "query": "agrisano jobs",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "allianz jobs lugano",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "recrutement lugano",
-      "clicks": 0,
-      "impressions": 1
-    },
-    {
-      "query": "stellenangebot lugano",
       "clicks": 0,
       "impressions": 1
     }
@@ -244,6 +249,13 @@
       "impressions": 1
     }
   ],
+  "locarno": [
+    {
+      "query": "locarno",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "educatori": [
     {
       "query": "educatore sociale offerte lavoro ticino",
@@ -328,18 +340,16 @@
       "impressions": 1
     }
   ],
-  "locarno": [
-    {
-      "query": "locarno",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "entwickler": [
     {
       "query": "softwareentwicklung jobs lugano",
       "clicks": 0,
       "impressions": 5
+    },
+    {
+      "query": "graubündner kantonalbank",
+      "clicks": 0,
+      "impressions": 2
     },
     {
       "query": "softwareentwickler jobs lugano",
@@ -415,6 +425,47 @@
       "impressions": 1
     }
   ],
+  "swatch-part-time-keyholder-ny-ny-hotel-las-vegas-the-swatch-group-u-s-inc-ticino": [
+    {
+      "query": "lavoro part time locarno",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "lavoro part time ticino",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "lavoro ticino part time",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "query": "offerte di lavoro ticino part-time",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "nurses": [
+    {
+      "query": "nursing jobs",
+      "clicks": 0,
+      "impressions": 4
+    }
+  ],
+  "restaurants": [
+    {
+      "query": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
+      "clicks": 0,
+      "impressions": 3
+    },
+    {
+      "query": "en hosteleria",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "apprendistato": [
     {
       "query": "apprendistato in ticino per italiani",
@@ -461,18 +512,6 @@
       "impressions": 1
     }
   ],
-  "restaurants": [
-    {
-      "query": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
-      "clicks": 0,
-      "impressions": 2
-    },
-    {
-      "query": "en hosteleria",
-      "clicks": 0,
-      "impressions": 1
-    }
-  ],
   "ingenieure": [
     {
       "query": "ingenieure stellenvermittlung",
@@ -492,9 +531,9 @@
       "impressions": 1
     }
   ],
-  "nurses": [
+  "developers": [
     {
-      "query": "nursing jobs",
+      "query": "web developer ticino",
       "clicks": 0,
       "impressions": 2
     }
@@ -532,17 +571,24 @@
       "impressions": 1
     }
   ],
+  "manutentore-manutentore-100-rapelli-orior-food-ag-stabio": [
+    {
+      "query": "offerte lavoro mendrisio negli ultimi 3 giorni",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
+  "tecnico-di-servizio-m-f-d-otis-sa-reinach": [
+    {
+      "query": "otis lavora con noi",
+      "clicks": 0,
+      "impressions": 1
+    }
+  ],
   "engineers": [
     {
       "query": "offerte di lavoro",
       "clicks": 1,
-      "impressions": 1
-    }
-  ],
-  "developers": [
-    {
-      "query": "web developer ticino",
-      "clicks": 0,
       "impressions": 1
     }
   ],
