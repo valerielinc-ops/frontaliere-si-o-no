@@ -105,7 +105,15 @@ const STATIC_OVERLAY_HUB_CHROME: Record<string, StaticOverlayHubChrome> = {
 
 function lookupStaticOverlayHubChrome(canonicalPath: string): StaticOverlayHubChrome | null {
  const normalized = canonicalPath.endsWith('/') ? canonicalPath : `${canonicalPath}/`;
- return STATIC_OVERLAY_HUB_CHROME[normalized] ?? null;
+ const explicit = STATIC_OVERLAY_HUB_CHROME[normalized];
+ if (explicit) return explicit;
+ // Every /calcola-stipendio/* scenario page (and locale equivalents) renders
+ // through `buildSalaryLandingBody` as a staticOverlay route — emit the body
+ // OUTSIDE `#root` so React hydration keeps the SEO-landing template visible.
+ if (/^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/[^/]/.test(canonicalPath)) {
+   return { hubKey: 'calculator', activeSubTab: 'calculator' };
+ }
+ return null;
 }
 
 function toHubLocale(locale: string): HubLocale {

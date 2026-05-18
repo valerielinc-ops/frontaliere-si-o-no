@@ -2446,7 +2446,13 @@ export function parsePath(pathname: string): ParseResult {
  if (sub === 'calculator' && second) {
  const landing = SEO_LANDING_REVERSE[locale][second];
  if (landing) {
- return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator', seoLanding: landing }, locale };
+ // staticOverlay: true keeps the SSG body (rendered by
+ // staticPagesPlugin → buildSalaryLandingBody) visible after React
+ // hydration. The SPA still mounts but App.tsx skips the calculator
+ // sub-tab render for these routes — users land on the mobile-first
+ // SEO-landing template (breadcrumb, tiles, comparative table, FAQ)
+ // and reach the live calculator via the primary CTA.
+ return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator', seoLanding: landing, staticOverlay: true }, locale };
  }
  // Salary Hub pattern: stipendio-netto-XXXXX-chf-* / net-salary-XXXXX-chf-* / etc.
  // Build-time static HTML rendered OUTSIDE `#root` (see salaryHubPlugin.ts
