@@ -9084,10 +9084,15 @@ ${alternates}
  return [l, { nav, footer, listingPath: lp }];
  }));
 
- // Assembler: builds a complete soft-landing HTML page from pre-computed parts + dynamic slots
+ // Assembler: builds a complete soft-landing HTML page from pre-computed parts + dynamic slots.
+ // `__STATIC_BODY_HTML__` is no longer JSON-embedded in head (which used to duplicate the entire
+ // body twice per page — once as HTML, once as JSON-stringified blob). Instead the snippet right
+ // before `${spaBundleJs}` snapshots `.ft-static-article` from DOM at parse time, BEFORE the
+ // module-script SPA bundle hydrates and replaces #root. JobOrphanView.tsx then reads
+ // window.__STATIC_BODY_HTML__ exactly as before. Saves ~3-5 KB × 98k pages ≈ ~400 MB dist.
  const buildSoftLandingHtml = (locale: string, pageTitle: string, pageDesc: string, robotsTag: string,
  selfUrl: string, hreflangLinks: string, jsonLdScripts: string, expiredWindowData: string,
- staticBodyJson: string, staticBody: string): string => {
+ staticBody: string): string => {
  const shell = localeShells[locale];
  return `<!DOCTYPE html>
 <html lang="${locale}">
@@ -9104,7 +9109,7 @@ ${hreflangLinks}
  ${darkModeScript}
  ${seoStaticCssLink}
  ${jsonLdScripts}
- <script>window.__EXPIRED_JOB_DATA__=${expiredWindowData};window.__STATIC_BODY_HTML__=${staticBodyJson};</script>${spaBundleCss}
+ <script>window.__EXPIRED_JOB_DATA__=${expiredWindowData};</script>${spaBundleCss}
  ${SPA_ACTION_REDIRECT_SCRIPT}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
@@ -9116,7 +9121,8 @@ ${hreflangLinks}
  ${staticBody}
  </article>
  ${shell.footer}
- </div>${spaBundleJs}
+ </div>
+ <script>window.__STATIC_BODY_HTML__=(document.querySelector('.ft-static-article')||{}).innerHTML||'';</script>${spaBundleJs}
  </body>
 </html>`;
  };
@@ -9599,9 +9605,6 @@ ${hreflangLinks}
  itBodyWordCount = countHtmlBodyWords(staticBody);
  }
 
- // Escape staticBody for embedding in a JS string (JSON.stringify handles quotes/newlines)
- const staticBodyJson = JSON.stringify(staticBody);
-
  // Make robots directive conditional on actual content quality.
  // Pages with >= MIN_INDEXABLE_WORDS of real text get index,follow (SEO value
  // from long-tail searches). Pages below threshold get noindex,follow.
@@ -9691,7 +9694,7 @@ ${hreflangLinks}
  const softLandingHtml = buildSoftLandingHtml(
  locale, pageTitle, pageDesc, expiredRobotsTag,
  selfUrl, hreflangLinks, jsonLdScripts, expiredWindowData,
- staticBodyJson, staticBody
+ staticBody
  );
 
  // Skip if a previous (most-recent due to sort) slug already emitted
