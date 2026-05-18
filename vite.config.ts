@@ -11,6 +11,7 @@ import { BUILD_ID, COMMIT_HASH, SHORT_COMMIT_HASH } from './build-plugins/consta
 
 /* ── Custom build plugins (extracted for clarity) ─────────────── */
 import { buildIdPlugin } from './build-plugins/buildIdPlugin';
+import { staticScriptsPlugin } from './build-plugins/staticScriptsPlugin';
 import { asyncCssPlugin } from './build-plugins/asyncCssPlugin';
 import { prepareOutDirPlugin } from './build-plugins/prepareOutDirPlugin';
 import { preloadLocalePlugin } from './build-plugins/preloadLocalePlugin';
@@ -117,6 +118,7 @@ export default defineConfig(({ mode }) => {
  // To re-enable: restore the bootstrap+finalize plugins below and the
  // `Cache content-hash manifest` step in .github/workflows/deploy.yml.
  buildIdPlugin(__dirname),
+ staticScriptsPlugin(__dirname),
  asyncCssPlugin(),
  preloadLocalePlugin(__dirname),
  sitemapAliasPlugin(__dirname),
