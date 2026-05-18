@@ -7343,7 +7343,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  )}
  {showAd && !isMobile && (
- <div key={`infeed-d-${idx}-${adRefreshKey}`} style={{ minHeight: '110px' }}>
+ <div key={`infeed-d-${idx}-${adRefreshKey}`} style={{ minHeight: '220px' }}>
  <AdSenseBanner
  adSlot={AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}
  adFormat={AD_SLOTS.JOBLIST_INFEED_DESKTOP.format}
@@ -7392,7 +7392,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  {enableJobAlerts && filteredJobs.length >= 3 && (
- <Suspense fallback={null}>
+ <Suspense fallback={<div className="mt-6 rounded-2xl border border-edge bg-surface-raised animate-pulse" style={{ minHeight: '280px' }} aria-hidden="true" />}>
  <JobAlertEndCard keyword={deferredSearchQuery.trim()} />
  </Suspense>
  )}
