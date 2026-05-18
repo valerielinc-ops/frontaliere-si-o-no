@@ -157,12 +157,54 @@ function plainText(html) {
 
 const BOILERPLATE_RE = /^(datore di lavoro|als arbeitgeber|come employer|en tant qu.?employeur|as employer)/i;
 
+/**
+ * Phrases that only appear when a parser has leaked the surrounding
+ * application form, footer, or contact chrome into the per-job description.
+ * A real role description never mentions wpcf7 form-element classes,
+ * "I agree to the treatment of my personal information", "Attachment: CV
+ * in PDF format", "Send your application" headers, or the standard
+ * cookie/privacy policy footers.
+ *
+ * Added 2026-05-18 after the Centiel After-Sales Technician regression:
+ * the regex-split parser ran from the last <h3> to end-of-document and
+ * swept in the WordPress Contact Form 7 application widget plus the
+ * footer's Centiel Global HQ block. None of the existing checks caught
+ * it — ~1000 chars of plain-text labels passed both the 100-char minimum
+ * and the 15% tag-soup ratio, and 1/5 contaminated rows was below the
+ * duplicate-description threshold.
+ */
+// Each pattern must be a phrase that ONLY appears in a rendered web
+// form / footer widget and never inside a legitimate role description or
+// PDF instruction text. "Send your application" was rejected — every
+// Centiel role PDF ends with "please send your application to hr@..."
+// which is legitimate apply-instruction content. The phrases below are
+// widget tells (form labels, WordPress Contact Form 7 classes, exact
+// placeholder strings) with no legitimate counterpart in role copy.
+const FORM_CHROME_PATTERNS = [
+  /Attachment\s*:?\s*CV in PDF format,\s*maximum weight/i,
+  /I agree to the treatment of my personal information/i,
+  /\bwpcf7[-_]/i,
+  /\bDesired Position\b.*\bAfter[- ]?Sales\b/i,
+  /A brief presentation\s*\*/i,
+  /CORPORATE ENQUIRIES/i,
+  /Media\s*&\s*Investor Enquiries/i,
+];
+
+export function hasFormChrome(desc) {
+  const text = plainText(desc);
+  return FORM_CHROME_PATTERNS.some((re) => re.test(text));
+}
+
 function isThinDescription(desc) {
   const text = plainText(desc);
   if (text.length < 100) return 'too-short';
   if (BOILERPLATE_RE.test(text)) return 'boilerplate';
   // Mostly whitespace / tags — if raw is 5x longer than plain, it's tag soup
   if ((desc || '').length > 200 && text.length < (desc || '').length * 0.15) return 'tag-soup';
+  // Form/footer/contact chrome leaked from the page surrounding the job.
+  // Treated as thin because the actual role content is buried under noise
+  // and the page's text-to-content ratio is destroyed.
+  if (hasFormChrome(desc)) return 'form-chrome';
   return false;
 }
 
@@ -462,13 +504,20 @@ async function main() {
     const types = new Set(entry.issues.map((i) => i.type));
     const thin = entry.issues.find((i) => i.type === 'thin-description');
     const thinRatio = thin ? thin.count / thin.total : 0;
+    const formChromeCount = thin?.reasons?.['form-chrome'] || 0;
     const urlFail = types.has('stale-urls');
     if (types.has('parse-error')) entry.severity = 'CRITICAL';
+    // Form-chrome is a hard signal: even one row means the parser is
+    // leaking the surrounding page (form, footer, contact info) into the
+    // job description. There is no benign source of these phrases — never
+    // a false positive — so skip the ratio gate.
+    else if (formChromeCount > 0) entry.severity = 'CRITICAL';
     else if (thinRatio >= 0.5 || (thinRatio > 0 && urlFail)) entry.severity = 'CRITICAL';
     else if (entry.issues.length > 0) entry.severity = 'WARNING';
     else entry.severity = 'OK';
     if (entry.severity === 'CRITICAL') {
       const h = [];
+      if (formChromeCount > 0) h.push(`${formChromeCount} description(s) contain form/footer/contact chrome — parser is sweeping page boundaries (most likely an unbounded HTML split). Bound extraction to the per-job DOM subtree`);
       if (thinRatio >= 0.5) h.push('Most descriptions are thin — parser likely scraping nav/boilerplate instead of job content');
       if (urlFail) h.push('Detail URLs returning errors — likely site migration or URL structure change');
       if (types.has('parse-error')) h.push('Crawler JSON file could not be parsed');

@@ -16,6 +16,7 @@ import { describe, it, expect } from 'vitest';
 import {
   applyNoStructureRatchet,
   applyDuplicateDescriptionRatchet,
+  hasFormChrome,
 } from '../../scripts/audit-parser-quality.mjs';
 
 type Issue = {
@@ -296,5 +297,43 @@ describe('applyDuplicateDescriptionRatchet', () => {
 
     expect(report['templated-source'].severity).toBe('WARNING');
     expect(regressions).toHaveLength(0);
+  });
+});
+
+describe('hasFormChrome', () => {
+  // Each pattern came from the 2026-05-18 Centiel After-Sales Technician
+  // regression: the regex-split parser ran past the last accordion and
+  // swept in WordPress Contact Form 7 widget HTML + footer chrome.
+  it('flags the wpcf7 form-control class', () => {
+    expect(hasFormChrome('Some text wpcf7-form-control here')).toBe(true);
+  });
+
+  it('flags the privacy-checkbox label verbatim', () => {
+    expect(hasFormChrome('I agree to the treatment of my personal information.')).toBe(true);
+  });
+
+  it('flags the exact CV-upload field label', () => {
+    expect(hasFormChrome('Attachment: CV in PDF format, maximum weight 3 Mb')).toBe(true);
+  });
+
+  it('flags the "A brief presentation *" placeholder', () => {
+    expect(hasFormChrome('A brief presentation *')).toBe(true);
+  });
+
+  it('flags the CORPORATE ENQUIRIES footer block', () => {
+    expect(hasFormChrome('CORPORATE ENQUIRIES Media & Investor Enquiries')).toBe(true);
+  });
+
+  it('does NOT flag legitimate apply-instruction copy from a role PDF', () => {
+    // The Centiel role PDFs all end with this sentence. It is legitimate
+    // role content (the apply-to address) and must not trigger the chrome
+    // signal — that would force a parser fix where none is needed.
+    const pdfTail = 'If you identify with this role, please send your application, indicating "After-Sales Technician" in the subject line, to: hr@hq.centiel.com';
+    expect(hasFormChrome(pdfTail)).toBe(false);
+  });
+
+  it('does NOT flag a generic role description', () => {
+    const desc = 'We are looking for a Senior Engineer to join our team in Lugano. Responsibilities include designing systems, reviewing code, and mentoring junior engineers.';
+    expect(hasFormChrome(desc)).toBe(false);
   });
 });
