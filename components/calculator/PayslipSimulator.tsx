@@ -493,7 +493,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
  </div>
  </div>
  {/* Inline ad between calculator and related tools */}
- <Suspense fallback={null}><AdSenseBanner adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot} adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format} adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout} fullWidthResponsive={false} className="my-6" /></Suspense>
+ <Suspense fallback={<div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight, contain: 'content' }} className="my-6" />}><AdSenseBanner adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot} adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format} adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout} fullWidthResponsive={false} className="my-6" /></Suspense>
 
  {/* HowTo visible content — mirrors HowTo JSON-LD for Google Rich Results */}
  <section

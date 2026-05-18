@@ -210,7 +210,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  <div className="p-2 bg-success-subtle rounded-xl">
  <ArrowLeftRight className="w-6 h-6 text-success" />
  </div>
- <h1 className="text-2xl font-bold font-display text-success">{t('ral.title')}</h1>
+ <h2 className="text-2xl font-bold font-display text-success">{t('ral.title')}</h2>
  </div>
  <p className="text-success text-sm">{t('ral.subtitle')}</p>
  </div>
@@ -513,7 +513,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  </div>
  )}
  {/* Inline ad between comparator and related tools */}
- <Suspense fallback={null}><AdSenseBanner adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot} adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format} adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout} fullWidthResponsive={false} className="my-6" /></Suspense>
+ <Suspense fallback={<div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight, contain: 'content' }} className="my-6" />}><AdSenseBanner adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot} adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format} adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout} fullWidthResponsive={false} className="my-6" /></Suspense>
  <Suspense fallback={null}><RelatedTools context="salary" /></Suspense>
  </div>
  );
