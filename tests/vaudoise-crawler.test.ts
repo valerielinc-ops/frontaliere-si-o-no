@@ -116,6 +116,19 @@ describe('Vaudoise Assurances crawler parser', () => {
       expect(isTrustedDomain('https://careers.vaudoise.ch/job/456')).toBe(true);
     });
 
+    // Postings live on the Softgarden ATS subdomain — the dedicated
+    // locale-validation gate flags `url_not_vaudoise_domain` otherwise
+    // (regression covered by GH run 26004869125, 49/49 jobs).
+    it('trusts the Softgarden ATS subdomain', () => {
+      expect(
+        isTrustedDomain('https://vaudoise.softgarden.io/job/64060113/some-title'),
+      ).toBe(true);
+    });
+
+    it('rejects other softgarden tenants', () => {
+      expect(isTrustedDomain('https://other.softgarden.io/job/1/foo')).toBe(false);
+    });
+
     it('rejects other domains', () => {
       expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
     });
@@ -341,8 +354,87 @@ describe('Vaudoise Assurances crawler parser', () => {
     });
   });
 
+  // ── Detail-page description extraction ──
+  describe('parseVaudoiseDetailHtml', () => {
+    it('returns the JSON-LD description (HTML stripped)', () => {
+      const html = `
+        <html><head>
+        <script type="application/ld+json">
+        {"@context":"http://schema.org/","@type":"JobPosting","title":"X","description":"<p>Première phrase.</p><p>Seconde phrase avec plus de détails sur le poste à pourvoir au sein du Département Assurances de personnes pour assurer la gestion des sinistres.</p>"}
+        </script>
+        </head><body></body></html>`;
+      const out = __testables.parseVaudoiseDetailHtml(html);
+      expect(out).toContain('Première phrase.');
+      expect(out).toContain('gestion des sinistres');
+      expect(out).not.toContain('<p>');
+      expect(out.length).toBeGreaterThanOrEqual(120);
+    });
+
+    it('handles array-shaped JSON-LD (multiple @types)', () => {
+      const html = `
+        <script type="application/ld+json">
+        [{"@type":"WebPage"},{"@type":"JobPosting","description":"<strong>Real description body content that comfortably exceeds the one-hundred-and-twenty character minimum threshold required by the locale-validation gate.</strong>"}]
+        </script>`;
+      const out = __testables.parseVaudoiseDetailHtml(html);
+      expect(out).toMatch(/Real description body/);
+      expect(out.length).toBeGreaterThanOrEqual(120);
+    });
+
+    it('returns empty string when no JSON-LD is present', () => {
+      expect(__testables.parseVaudoiseDetailHtml('<html></html>')).toBe('');
+    });
+
+    it('returns empty string when JSON-LD is malformed', () => {
+      const html = `<script type="application/ld+json">{ not json }</script>`;
+      expect(__testables.parseVaudoiseDetailHtml(html)).toBe('');
+    });
+
+    it('handles null/undefined gracefully', () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      expect(__testables.parseVaudoiseDetailHtml(null as any)).toBe('');
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      expect(__testables.parseVaudoiseDetailHtml(undefined as any)).toBe('');
+    });
+  });
+
+  describe('fetchVaudoiseDescription', () => {
+    it('returns description when fetcher resolves with JSON-LD HTML', async () => {
+      const longDesc =
+        'Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, plus assez de texte pour le seuil de 120 caractères.';
+      const html = `<script type="application/ld+json">{"@type":"JobPosting","description":"${longDesc}"}</script>`;
+      const fetcher = vi.fn(async () => html);
+      const out = await __testables.fetchVaudoiseDescription(
+        'https://vaudoise.softgarden.io/job/123/foo',
+        fetcher,
+      );
+      expect(out).toContain('Lorem ipsum');
+      expect(fetcher).toHaveBeenCalledOnce();
+    });
+
+    it('returns empty string on fetcher failure', async () => {
+      const fetcher = vi.fn(async () => '');
+      const out = await __testables.fetchVaudoiseDescription(
+        'https://vaudoise.softgarden.io/job/123/foo',
+        fetcher,
+      );
+      expect(out).toBe('');
+    });
+
+    it('returns empty string for empty url', async () => {
+      const fetcher = vi.fn(async () => 'whatever');
+      const out = await __testables.fetchVaudoiseDescription('', fetcher);
+      expect(out).toBe('');
+      expect(fetcher).not.toHaveBeenCalled();
+    });
+  });
+
   // ── End-to-end through fetchAllVaudoiseJobs ──
   describe('fetchAllVaudoiseJobs (with stubbed runtime)', () => {
+    const longDetailDesc =
+      "Employeur solide et tourné vers l'avenir, la Vaudoise est l'un des assureurs leaders en Suisse. Nous recherchons un spécialiste avec expérience confirmée dans la gestion des sinistres pour rejoindre notre équipe.";
+    const detailHtml = `<script type="application/ld+json">{"@type":"JobPosting","description":"<p>${longDetailDesc}</p>"}</script>`;
+    const detailFetcher = async () => detailHtml;
+
     it('builds NormalizedJob shape from a Softgarden row', async () => {
       const row: RowShape = {
         title: 'Product Manager/in Vorsorge (m/w/d) - 80-100%',
@@ -357,6 +449,7 @@ describe('Vaudoise Assurances crawler parser', () => {
 
       const jobs = await fetchAllVaudoiseJobs({
         _runtime: async () => runtime,
+        _detailFetcher: detailFetcher,
       });
 
       expect(jobs).toHaveLength(1);
@@ -376,6 +469,33 @@ describe('Vaudoise Assurances crawler parser', () => {
       expect(job.employmentType).toBe('PART_TIME');
       expect(job.slug).toMatch(/^product-manager/);
       expect(job.slugByLocale).toHaveProperty(job.sourceLang);
+      // Description should come from the detail page (≥120 chars) so the
+      // locale-validation gate doesn't flag the locale copies as
+      // `untranslated_description`.
+      expect(job.description.length).toBeGreaterThanOrEqual(120);
+      expect(job.description).toContain('assureurs leaders');
+      expect(job.descriptionByLocale[job.sourceLang]).toBe(job.description);
+    });
+
+    it('falls back to a stub description when the detail fetcher returns empty', async () => {
+      const row: RowShape = {
+        title: 'Stub Test Role 100%',
+        url: '../job/77/Stub-Test',
+        location: 'Lausanne',
+        postedDate: '5/8/26',
+        audience: '',
+        jobCategory: '',
+        id: '77',
+      };
+      const { runtime } = makeRuntime([row]);
+      const jobs = await fetchAllVaudoiseJobs({
+        _runtime: async () => runtime,
+        _detailFetcher: async () => '',
+      });
+      expect(jobs).toHaveLength(1);
+      const job = jobs[0];
+      expect(job.description).toContain('Vaudoise Assurances');
+      expect(job.descriptionByLocale[job.sourceLang]).toBe(job.description);
     });
 
     it('returns [] when no Swiss listings are found', async () => {
@@ -392,6 +512,7 @@ describe('Vaudoise Assurances crawler parser', () => {
 
       const jobs = await fetchAllVaudoiseJobs({
         _runtime: async () => runtime,
+        _detailFetcher: detailFetcher,
       });
       expect(jobs).toEqual([]);
     });
