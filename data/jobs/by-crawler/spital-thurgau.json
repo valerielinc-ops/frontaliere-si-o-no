@@ -231,7 +231,7 @@
         "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
         "it": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
         "en": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
-        "fr": "dipl-pflegefachmann-frau-forensik-stgag-ch-2"
+        "fr": "dipl-specialiste-des-soins-infirmiers-forensik-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -288,7 +288,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-17T22:30:20.841Z"
+      "firstSeenAt": "2026-05-17T22:30:20.841Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "dipl-pflegefachmann-frau-forensik-stgag-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachmann-frau-forensik-stgag-ch-2"
+      ]
     },
     {
       "id": "spital-thurgau-9d8463383dd3",
@@ -498,14 +506,12 @@
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
         "dipl-pflegefachmann-frau-forensik-stgag-ch",
-        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
         "dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
-          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
-          "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen"
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
         ],
         "fr": [
           "dipl-pflegefachmann-frau-forensik-stgag-ch",

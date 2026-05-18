@@ -154,9 +154,9 @@
         "de": "Berater: Privater Kundenservice, Lausanne",
         "fr": "Conseiller:ère clientèle privée, Lausanne"
       },
-      "slug": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
+      "slug": "consigliere-clienti-privati-losanna-postfinance-lausanne",
       "slugByLocale": {
-        "it": "consigliere-era-cliente-privato-losanna-postfinance-lausanne",
+        "it": "consigliere-clienti-privati-losanna-postfinance-lausanne",
         "en": "advisor-private-customer-service-lausanne-postfinance-lausanne",
         "de": "berater-privater-kundenservice-lausanne-postfinance-lausanne",
         "fr": "conseiller-ere-clientele-privee-lausanne-postfinance"
@@ -198,10 +198,14 @@
         ],
         "de": [
           "conseiller-ere-clientele-privee-lausanne-postfinance"
+        ],
+        "it": [
+          "consigliere-era-cliente-privato-losanna-postfinance-lausanne"
         ]
       },
       "previousSlugs": [
-        "conseiller-ere-clientele-privee-lausanne-postfinance"
+        "conseiller-ere-clientele-privee-lausanne-postfinance",
+        "consigliere-era-cliente-privato-losanna-postfinance-lausanne"
       ]
     },
     {
@@ -297,11 +301,11 @@
         "de": "Compliance-Mitarbeiter:in Kundenservice Handel",
         "fr": "Collaborateur:trice Compliance Office Clientèle Commerciale"
       },
-      "slug": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
+      "slug": "collaboratore-trice-compliance-office-clienti-commerciali-postfinance-bulle",
       "slugByLocale": {
-        "it": "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle",
-        "en": "collaborator-compliance-office-commercial-clientele-postfinance-bulle",
-        "de": "mitarbeiter-compliance-office-commercial-clientele-postfinance-bulle",
+        "it": "collaboratore-trice-compliance-office-clienti-commerciali-postfinance-bulle",
+        "en": "compliance-officer-customer-commercial-postfinance-bulle",
+        "de": "compliance-mitarbeiter-in-kundenservice-handel-postfinance-bulle",
         "fr": "collaborateur-trice-compliance-office-clientele-commerciale-postfinance"
       },
       "sourceLang": "fr",
@@ -337,14 +341,22 @@
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
       "previousSlugsByLocale": {
         "en": [
-          "collaborateur-trice-compliance-office-clientele-commerciale-postfinance"
+          "collaborateur-trice-compliance-office-clientele-commerciale-postfinance",
+          "collaborator-compliance-office-commercial-clientele-postfinance-bulle"
         ],
         "de": [
-          "collaborateur-trice-compliance-office-clientele-commerciale-postfinance"
+          "collaborateur-trice-compliance-office-clientele-commerciale-postfinance",
+          "mitarbeiter-compliance-office-commercial-clientele-postfinance-bulle"
+        ],
+        "it": [
+          "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle"
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-compliance-office-clientele-commerciale-postfinance"
+        "collaborateur-trice-compliance-office-clientele-commerciale-postfinance",
+        "collaborator-compliance-office-commercial-clientele-postfinance-bulle",
+        "mitarbeiter-compliance-office-commercial-clientele-postfinance-bulle",
+        "collaboratore-trice-compliance-ufficio-clientela-commerciale-postfinance-bulle"
       ]
     },
     {
@@ -369,9 +381,9 @@
         "de": "Berater: Privatkunden, Carouge",
         "fr": "Conseiller:ère clientèle privée, Carouge"
       },
-      "slug": "consigliere-era-cliente-privato-carouge-postfinance-carouge",
+      "slug": "consulente-clienti-privati-carouge-postfinance-carouge",
       "slugByLocale": {
-        "it": "consigliere-era-cliente-privato-carouge-postfinance-carouge",
+        "it": "consulente-clienti-privati-carouge-postfinance-carouge",
         "en": "advisor-private-clients-carouge-postfinance-carouge",
         "de": "berater-privatkunden-carouge-postfinance-carouge",
         "fr": "conseiller-ere-clientele-privee-carouge-postfinance"
@@ -413,10 +425,14 @@
         ],
         "de": [
           "conseiller-ere-clientele-privee-carouge-postfinance"
+        ],
+        "it": [
+          "consigliere-era-cliente-privato-carouge-postfinance-carouge"
         ]
       },
       "previousSlugs": [
-        "conseiller-ere-clientele-privee-carouge-postfinance"
+        "conseiller-ere-clientele-privee-carouge-postfinance",
+        "consigliere-era-cliente-privato-carouge-postfinance-carouge"
       ]
     }
   ]
