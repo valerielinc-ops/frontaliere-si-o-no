@@ -67,7 +67,10 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-nds-notfallpflege-o-pflegefachperson-hf-con-berufserfahrung-40-100-regionalspital-surselva-ilan"
+      ]
     },
     {
       "id": "rss-surselva-d7b292c8c793",
@@ -202,7 +205,8 @@
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-nds-anasthesie-80-100-rss-surselva-ch"
+        "dipl-pflegefachperson-hf-nds-anasthesie-80-100-rss-surselva-ch",
+        "dipl-carriera-hf-nds-anestesia-80-100-regionalspital-surselva-ilanz"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:58:29.574Z",
@@ -654,7 +658,10 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "dipl-expert-expert-hf-emergency-care-100-regionalspital-surselva-ilanz"
+      ]
     },
     {
       "id": "rss-surselva-9b4c791a3514",
@@ -721,7 +728,10 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "specialista-di-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz"
+      ]
     },
     {
       "id": "rss-surselva-603a52cbba5a",
@@ -781,7 +791,8 @@
         ]
       },
       "previousSlugs": [
-        "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-rss-surselva-ch"
+        "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-rss-surselva-ch",
+        "testa-in-emergenza-labbra-ospedale-giornaliero-laboratorio-funzionale-80-100-regionalspital-surselva-ilanz"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:58:28.633Z",
@@ -935,7 +946,10 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "medicina-interna-regionalspital-surselva-ilanz"
+      ]
     },
     {
       "id": "rss-surselva-23abde2079d7",
@@ -1074,7 +1088,10 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "home-medico-50-100-regionalspital-surselva-ilanz"
+      ]
     }
   ]
 }
