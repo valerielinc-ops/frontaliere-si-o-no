@@ -226,10 +226,10 @@
     },
     {
       "id": "spital-thurgau-39f64cefd83d",
-      "slug": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+      "slug": "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
         "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-        "it": "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+        "it": "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
         "en": "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
         "fr": "dipl-specialiste-des-soins-infirmiers-forensik-spital-thurgau-stgag-munsterlingen"
       },
@@ -292,10 +292,14 @@
       "previousSlugsByLocale": {
         "fr": [
           "dipl-pflegefachmann-frau-forensik-stgag-ch-2"
+        ],
+        "it": [
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-forensik-stgag-ch-2"
+        "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
       ]
     },
     {
@@ -4063,9 +4067,9 @@
     },
     {
       "id": "spital-thurgau-54e8c6acd3db",
-      "slug": "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen",
+      "slug": "nutrizionista-in-hf-bsc-spital-thurgau-stgag-diessenhofen",
       "slugByLocale": {
-        "it": "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen",
+        "it": "nutrizionista-in-hf-bsc-spital-thurgau-stgag-diessenhofen",
         "en": "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen",
         "de": "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen",
         "fr": "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen"
@@ -4116,11 +4120,13 @@
           "ernahrungsberater-in-hf-bsc-stgag-ch"
         ],
         "it": [
-          "ernahrungsberater-in-hf-bsc-stgag-ch"
+          "ernahrungsberater-in-hf-bsc-stgag-ch",
+          "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen"
         ]
       },
       "previousSlugs": [
-        "ernahrungsberater-in-hf-bsc-stgag-ch"
+        "ernahrungsberater-in-hf-bsc-stgag-ch",
+        "ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen"
       ],
       "firstSeenAt": "2026-05-10T22:26:54.982Z",
       "salaryMin": 49500,

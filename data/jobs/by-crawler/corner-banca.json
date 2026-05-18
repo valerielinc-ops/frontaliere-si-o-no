@@ -77,12 +77,12 @@
     },
     {
       "id": "corner-banca-b69f1f79bbe3",
-      "slug": "consulente-clienti-40-corner-banca-wallisellen",
+      "slug": "customer-consulente-40-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "consulente-clienti-40-corner-banca-wallisellen",
+        "it": "customer-consulente-40-corner-banca-wallisellen",
         "en": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
-        "de": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
-        "fr": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
+        "de": "customer-berater-40-corner-banca-wallisellen",
+        "fr": "customer-conseiller-40-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -139,11 +139,20 @@
       "sourceLang": "en",
       "crawledAt": "2026-05-17T21:27:47.900Z",
       "previousSlugs": [
-        "customer-advisor-40-corner-banca-wallisellen"
+        "customer-advisor-40-corner-banca-wallisellen",
+        "consulente-clienti-40-corner-banca-wallisellen",
+        "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-advisor-40-corner-banca-wallisellen"
+          "customer-advisor-40-corner-banca-wallisellen",
+          "consulente-clienti-40-corner-banca-wallisellen"
+        ],
+        "de": [
+          "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
+        ],
+        "fr": [
+          "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
         ]
       },
       "firstSeenAt": "2026-05-05T21:39:18.874Z",
@@ -474,11 +483,11 @@
     },
     {
       "id": "corner-banca-b9d1611cce63",
-      "slug": "compliance-officer-senior-corner-banca-lugano",
+      "slug": "responsabile-senior-della-conformita-corner-banca-lugano",
       "slugByLocale": {
-        "it": "compliance-officer-senior-corner-banca-lugano",
+        "it": "responsabile-senior-della-conformita-corner-banca-lugano",
         "en": "compliance-officer-senior-corner-banca-lugano",
-        "de": "compliance-officer-senior-corner-banca-lugano",
+        "de": "leitender-compliance-beauftragter-corner-banca-lugano",
         "fr": "compliance-officer-senior-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
@@ -545,18 +554,18 @@
       "previousSlugs": [
         "responsabile-compliance-senior-corner-banca-lugano",
         "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
+        "compliance-officer-senior-corner-banca-lugano",
         "compliance-officer-senior-corner-banca-lugano-nnfx9o",
-        "leitender-compliance-beauftragter-corner-banca-lugano",
         "compliance-offizier-senior-corner-banca-lugano",
         "responsabile-senior-compliance-corner-banca-lugano",
-        "responsabile-senior-della-conformita-corner-banca-lugano",
         "ufficiale-di-compliance-senior-corner-banca-lugano",
         "senior-compliance-officer-corner-banca-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-compliance-senior-corner-banca-lugano",
-          "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o"
+          "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
+          "compliance-officer-senior-corner-banca-lugano"
         ],
         "en": [
           "responsabile-compliance-senior-corner-banca-lugano",
@@ -566,7 +575,8 @@
         "de": [
           "responsabile-compliance-senior-corner-banca-lugano",
           "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
-          "compliance-officer-senior-corner-banca-lugano-nnfx9o"
+          "compliance-officer-senior-corner-banca-lugano-nnfx9o",
+          "compliance-officer-senior-corner-banca-lugano"
         ],
         "fr": [
           "responsabile-compliance-senior-corner-banca-lugano",
@@ -693,9 +703,9 @@
     },
     {
       "id": "corner-banca-7be6f12f5702",
-      "slug": "consulente-e-cliente-m-f-corner-banca-lugano",
+      "slug": "credit-client-consulente-m-f-corner-banca-lugano",
       "slugByLocale": {
-        "it": "consulente-e-cliente-m-f-corner-banca-lugano",
+        "it": "credit-client-consulente-m-f-corner-banca-lugano",
         "en": "credit-e-client-advisor-m-f-corner-banca-lugano",
         "de": "kredit-und-kundenzentrale-m-w-corner-banca-lugano",
         "fr": "conseiller-et-client-m-f-corner-banca-lugano"
@@ -767,6 +777,7 @@
       "crawledAt": "2026-05-17T21:27:47.889Z",
       "previousSlugs": [
         "credit-e-client-advisor-m-f-corner-banca-lugano",
+        "consulente-e-cliente-m-f-corner-banca-lugano",
         "conseiller-client-a-100-corner-banca-lugano",
         "conseiller-clients-corner-banca-lugano",
         "consulente-cliente-al-100-corner-banca-lugano",
@@ -774,7 +785,6 @@
         "credit-client-advisor-m-f-corner-banca-lugano",
         "credit-client-berater-m-f-corner-banca-lugano",
         "credit-client-conseiller-m-f-corner-banca-lugano",
-        "credit-client-consulente-m-f-corner-banca-lugano",
         "customer-advisor-100-corner-banca-lugano",
         "customer-berater-100-corner-banca-lugano",
         "customer-conseiller-100-corner-banca-lugano",
@@ -784,7 +794,8 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "credit-e-client-advisor-m-f-corner-banca-lugano"
+          "credit-e-client-advisor-m-f-corner-banca-lugano",
+          "consulente-e-cliente-m-f-corner-banca-lugano"
         ],
         "de": [
           "credit-e-client-advisor-m-f-corner-banca-lugano"

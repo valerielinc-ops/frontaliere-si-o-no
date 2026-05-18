@@ -8214,8 +8214,7 @@
         "collaborateur-trice-inventuren-coop-grigioni-4whh8x",
         "personnel-en-inventaire-coop-genossenschaft-basel",
         "mitarbeiter-in-inventuren-coop-grigioni-4whh8x",
-        "associate-inventuren-coop-genossenschaft-basel-arot84",
-        "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden"
+        "associate-inventuren-coop-genossenschaft-basel-arot84"
       ]
     },
     {
@@ -8292,7 +8291,7 @@
     },
     {
       "id": "company-c0vdfl",
-      "slug": "mitarbeiter-in-nachtverlad-coop-chur-graubunden",
+      "slug": "collaboratore-trice-nachtverlad-coop-genossenschaft-chur",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Nachtverlad",
       "location": "Chur",
@@ -8329,8 +8328,8 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "personale-a-nachtverlad-coop-genossenschaft-chur",
-        "en": "staff-in-nachtverlad-coop-genossenschaft-chur",
+        "it": "collaboratore-trice-nachtverlad-coop-genossenschaft-chur",
+        "en": "associate-nachtverlad-coop-genossenschaft-chur",
         "de": "mitarbeiter-in-nachtverlad-coop-genossenschaft-chur",
         "fr": "collaborateur-trice-nachtverlad-coop-chur-graubunden-c0vdfl"
       },
@@ -8350,10 +8349,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "collaboratore-trice-nachtverlad-coop-chur-graubunden-c0vdfl"
+          "collaboratore-trice-nachtverlad-coop-chur-graubunden-c0vdfl",
+          "personale-a-nachtverlad-coop-genossenschaft-chur",
+          "mitarbeiter-in-nachtverlad-coop-chur-graubunden"
         ],
         "en": [
-          "associate-nachtverlad-coop-chur-graubunden-c0vdfl"
+          "associate-nachtverlad-coop-chur-graubunden-c0vdfl",
+          "staff-in-nachtverlad-coop-genossenschaft-chur"
         ],
         "de": [
           "mitarbeiter-in-nachtverlad-coop-chur-graubunden-c0vdfl"
@@ -8361,7 +8363,10 @@
       },
       "previousSlugs": [
         "collaboratore-trice-nachtverlad-coop-chur-graubunden-c0vdfl",
+        "personale-a-nachtverlad-coop-genossenschaft-chur",
+        "mitarbeiter-in-nachtverlad-coop-chur-graubunden",
         "associate-nachtverlad-coop-chur-graubunden-c0vdfl",
+        "staff-in-nachtverlad-coop-genossenschaft-chur",
         "mitarbeiter-in-nachtverlad-coop-chur-graubunden-c0vdfl",
         "mitarbeiter-in-gastronomie-coop-ristorante-chur-graubunden",
         "personale-nella-gastronomia-coop-genossenschaft-chur",
@@ -9106,7 +9111,7 @@
         "it": "quadro-junior-vendita-coop-ticino-ilanz-glion",
         "en": "junior-sales-team-member-coop-genossenschaft-ilanz-glion",
         "de": "nachwuchskader-verkauf-coop-genossenschaft-ilanz-glion",
-        "fr": "cadre-junior-vente-coop-genossenschaft-ilanz-glion"
+        "fr": "nachwuchskader-vente-coop-genossenschaft-ilanz-glion"
       },
       "titleByLocale": {
         "de": "Nachwuchskader Verkauf",
@@ -9138,6 +9143,7 @@
       "previousSlugs": [
         "nachwuchskader-verkauf-coop-genossenschaft-ilanz-glion",
         "nachwuchskader-verkauf-coop-ilanz-glion-graubunden-3jfhc8",
+        "cadre-junior-vente-coop-genossenschaft-ilanz-glion",
         "responsabile-junior-vendita-coop-genossenschaft-ilanz-glion",
         "sales-assistant-food-coop-genossenschaft-ilanz-glion",
         "vendeur-euse-food-coop-genossenschaft-ilanz-glion",
@@ -9159,14 +9165,15 @@
         ],
         "fr": [
           "nachwuchskader-verkauf-coop-genossenschaft-ilanz-glion",
-          "nachwuchskader-verkauf-coop-ilanz-glion-graubunden-3jfhc8"
+          "nachwuchskader-verkauf-coop-ilanz-glion-graubunden-3jfhc8",
+          "cadre-junior-vente-coop-genossenschaft-ilanz-glion"
         ]
       },
       "firstSeenAt": "2026-03-31T07:18:28.826Z"
     },
     {
       "id": "company-6lujcy",
-      "slug": "collaboratore-trice-saison-coop-davos-graubunden-6lujcy",
+      "slug": "collaboratore-trice-saison-coop-genossenschaft-davos",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Saison",
       "location": "Davos",
@@ -9189,7 +9196,7 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
       "slugByLocale": {
-        "it": "membro-di-sostegno-saison-coop-genossenschaft-davos",
+        "it": "collaboratore-trice-saison-coop-genossenschaft-davos",
         "en": "seasonal-support-staff-coop-genossenschaft-davos",
         "de": "mitarbeiter-in-saison-coop-genossenschaft-davos",
         "fr": "collaborateur-trice-saison-coop-genossenschaft-davos"
@@ -9224,16 +9231,19 @@
       "previousSlugs": [
         "associate-saison-coop-davos-graubunden-6lujcy",
         "collaborateur-trice-saison-coop-davos-graubunden-6lujcy",
+        "membro-di-sostegno-saison-coop-genossenschaft-davos",
+        "collaboratore-trice-saison-coop-davos-graubunden-6lujcy",
         "mitarbeiter-in-saison-coop-davos-graubunden-6lujcy",
         "membre-de-soutien-saisonnier-coop-genossenschaft-davos",
         "collaboratore-trice-in-saison-coop-genossenschaft-davos",
-        "collaboratore-trice-saison-coop-genossenschaft-davos",
         "aspirant-in-coop-genossenschaft-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
           "associate-saison-coop-davos-graubunden-6lujcy",
-          "collaborateur-trice-saison-coop-davos-graubunden-6lujcy"
+          "collaborateur-trice-saison-coop-davos-graubunden-6lujcy",
+          "membro-di-sostegno-saison-coop-genossenschaft-davos",
+          "collaboratore-trice-saison-coop-davos-graubunden-6lujcy"
         ],
         "en": [
           "associate-saison-coop-davos-graubunden-6lujcy",

@@ -549,7 +549,7 @@
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-arbedo-castione-zdpsyo",
         "en": "retail-apprenticeship-cfp-or-afc-start-2026-lidl-svizzera-arbedo-castione",
-        "de": "einsteigerlehre-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-arbedo-castione",
+        "de": "detailhandelslehre-eba-oder-efz-start-2026-arbedo-castione-lidl-svizzera-arbedo-castione",
         "fr": "apprentissage-en-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-arbedo-castione"
       },
       "titleByLocale": {
@@ -611,6 +611,7 @@
       "firstSeenAt": "2026-04-12T09:43:42.513Z",
       "qualityScore": 97,
       "previousSlugs": [
+        "einsteigerlehre-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-arbedo-castione",
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-arbedo-castione",
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-arbedo-castione",
         "apprentissage-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-arbedo-castione",
@@ -624,7 +625,12 @@
         "apprenti-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-arbedo-castione"
       ],
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "previousSlugsByLocale": {
+        "de": [
+          "einsteigerlehre-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-arbedo-castione"
+        ]
+      }
     },
     {
       "id": "company-ethzl9",
@@ -770,7 +776,7 @@
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh",
         "en": "apprenticeship-in-retail-cfp-or-afc-start-2026-lidl-svizzera-sant-antonino",
         "de": "berufslehre-detailhandel-eba-oder-efz-start-2026-lidl-svizzera-sant-antonino",
-        "fr": "stage-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-sant-antonino"
+        "fr": "apprentissage-dans-le-commerce-de-detail-afp-ou-cfc-debut-2026-sant-antonino-lidl-svizzera-sant-antonino"
       },
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026 — Sant'Antonino",
@@ -838,11 +844,15 @@
         "de": [
           "ausbildung-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-sant-antonino",
           "lehre-im-einzelhandel-cfp-oder-afc-beginn-2026-lidl-svizzera-sant-antonino"
+        ],
+        "fr": [
+          "stage-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-sant-antonino"
         ]
       },
       "previousSlugs": [
         "ausbildung-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-sant-antonino",
         "lehre-im-einzelhandel-cfp-oder-afc-beginn-2026-lidl-svizzera-sant-antonino",
+        "stage-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-sant-antonino",
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-sant-antonino",
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino",
         "apprenti-en-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-sant-antonino",

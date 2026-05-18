@@ -230,10 +230,10 @@
     {
       "id": "heineken-ch-851cd5272115",
       "jobReqId": "152911",
-      "slug": "logistiker-in-getrankelager-100-heineken-switzerland-luzern",
+      "slug": "logistica-negozio-100-heineken-switzerland-luzern",
       "slugByLocale": {
         "de": "logistiker-in-getrankelager-100-heineken-ch-luzern",
-        "it": "logistiker-in-getrankelager-100-heineken-switzerland-luzern",
+        "it": "logistica-negozio-100-heineken-switzerland-luzern",
         "en": "logistics-store-100-heineken-switzerland-luzern",
         "fr": "magasin-logistique-100-heineken-switzerland-luzern"
       },
@@ -276,7 +276,8 @@
       "crawledAt": "2026-05-13T11:12:50.193Z",
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-getrankelager-100-heineken-ch-luzern"
+          "logistiker-in-getrankelager-100-heineken-ch-luzern",
+          "logistiker-in-getrankelager-100-heineken-switzerland-luzern"
         ],
         "en": [
           "logistiker-in-getrankelager-100-heineken-ch-luzern"
@@ -286,7 +287,8 @@
         ]
       },
       "previousSlugs": [
-        "logistiker-in-getrankelager-100-heineken-ch-luzern"
+        "logistiker-in-getrankelager-100-heineken-ch-luzern",
+        "logistiker-in-getrankelager-100-heineken-switzerland-luzern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -460,7 +462,7 @@
         "de": "chauffeur-kat-c-e-heineken-ch-luzern",
         "it": "autista-cat-c-e-heineken-switzerland-luzern",
         "en": "driver-cat-c-e-heineken-switzerland-luzern",
-        "fr": "chauffeur-kat-c-e-heineken-ch-luzern"
+        "fr": "chauffeur-cat-c-e-heineken-switzerland-luzern"
       },
       "company": "Heineken Switzerland",
       "companyKey": "heineken-ch",
@@ -518,6 +520,9 @@
           "chauffeur-kat-c-e-heineken-ch-luzern"
         ],
         "en": [
+          "chauffeur-kat-c-e-heineken-ch-luzern"
+        ],
+        "fr": [
           "chauffeur-kat-c-e-heineken-ch-luzern"
         ]
       },

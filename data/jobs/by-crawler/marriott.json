@@ -87,7 +87,7 @@
       "slugByLocale": {
         "it": "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-verbier",
         "en": "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-verbier",
-        "de": "willkommensagent-rezeptionist-tag-und-nacht-winter-26-27-w-verbier-marriott-international-verbier",
+        "de": "welcome-agent-empfanger-tag-nacht-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "agent-d-accueil-receptionniste-jour-et-nuit-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
@@ -150,7 +150,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "willkommensagent-rezeptionist-tag-und-nacht-winter-26-27-w-verbier-marriott-international-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "willkommensagent-rezeptionist-tag-und-nacht-winter-26-27-w-verbier-marriott-international-verbier"
+      ]
     },
     {
       "id": "marriott-671e44c717f5",
@@ -399,7 +407,7 @@
         "it": "cameriera-tress-mattina-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier",
         "de": "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "serveur-serveuse-matin-hiver-26-27-w-verbier-marriott-international-verbier"
+        "fr": "garcon-mere-matin-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -483,7 +491,8 @@
       "previousSlugs": [
         "waiter-tress-morning-winter-26-27-w-verbier-marriott-verbier",
         "cameriere-maestra-mattina-inverno-26-27-w-verbier-marriott-international-verbier",
-        "morning-waiter-waitress-winter-26-27-w-verbier-marriott-international-verbier"
+        "morning-waiter-waitress-winter-26-27-w-verbier-marriott-international-verbier",
+        "serveur-serveuse-matin-hiver-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -492,6 +501,9 @@
         ],
         "en": [
           "morning-waiter-waitress-winter-26-27-w-verbier-marriott-international-verbier"
+        ],
+        "fr": [
+          "serveur-serveuse-matin-hiver-26-27-w-verbier-marriott-international-verbier"
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.154Z",
@@ -786,7 +798,7 @@
         "it": "style-agent-housekeeper-estate-inverno-w-verbier-marriott-international-verbier",
         "en": "style-agent-housekeeper-summer-winter-w-verbier-marriott-verbier",
         "de": "style-agent-housekeeper-summer-winter-w-verbier-marriott-verbier",
-        "fr": "agent-de-mode-femme-de-menage-ete-hiver-w-verbier-marriott-international-verbier"
+        "fr": "agent-de-style-menageur-ete-hiver-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -837,11 +849,15 @@
         "publishEndDate": "2026-06-12T11:18:00.000Z"
       },
       "previousSlugs": [
-        "agente-di-stile-addetto-alle-pulizie-estate-inverno-w-verbier-marriott-international-verbier"
+        "agente-di-stile-addetto-alle-pulizie-estate-inverno-w-verbier-marriott-international-verbier",
+        "agent-de-mode-femme-de-menage-ete-hiver-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "agente-di-stile-addetto-alle-pulizie-estate-inverno-w-verbier-marriott-international-verbier"
+        ],
+        "fr": [
+          "agent-de-mode-femme-de-menage-ete-hiver-w-verbier-marriott-international-verbier"
         ]
       },
       "firstSeenAt": "2026-04-30T11:09:31.156Z",
@@ -1642,7 +1658,7 @@
       "slugByLocale": {
         "it": "tirocinante-finanza-marriott-international-geneva",
         "en": "stagiaire-finance-marriott-geneva",
-        "de": "finanzpraktikant-marriott-international-geneva",
+        "de": "stagiaire-finanzen-marriott-international-geneva",
         "fr": "stagiaire-finance-marriott-geneva"
       },
       "company": "Marriott International",
@@ -1718,7 +1734,8 @@
       },
       "previousSlugs": [
         "stagiaire-finance-marriott-geneva",
-        "finance-intern-marriott-international-geneva"
+        "finance-intern-marriott-international-geneva",
+        "finanzpraktikant-marriott-international-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1726,6 +1743,9 @@
         ],
         "en": [
           "finance-intern-marriott-international-geneva"
+        ],
+        "de": [
+          "finanzpraktikant-marriott-international-geneva"
         ]
       },
       "firstSeenAt": "2026-04-13T10:57:29.147Z",

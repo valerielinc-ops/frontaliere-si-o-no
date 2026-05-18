@@ -42,20 +42,28 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "specialista-in-hr-swiss-armed-forces-vtg-bern",
-        "en": "fachspezialist-in-hr-swiss-armed-forces-vtg-bern-3mzk6n",
+        "en": "specialist-in-hr-swiss-armed-forces-vtg-bern",
         "de": "fachspezialist-in-hr-swiss-armed-forces-vtg-bern-3mzk6n",
-        "fr": "fachspezialist-in-ressources-humaines-swiss-armed-forces-vtg-bern-3mzk6n"
+        "fr": "specialiste-des-ressources-humaines-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-hr-swiss-armed-forces-vtg-bern",
           "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-bern-3mzk6n"
+        ],
+        "en": [
+          "fachspezialist-in-hr-swiss-armed-forces-vtg-bern-3mzk6n"
+        ],
+        "fr": [
+          "fachspezialist-in-ressources-humaines-swiss-armed-forces-vtg-bern-3mzk6n"
         ]
       },
       "previousSlugs": [
         "fachspezialist-in-hr-swiss-armed-forces-vtg-bern",
-        "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-bern-3mzk6n"
+        "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-bern-3mzk6n",
+        "fachspezialist-in-hr-swiss-armed-forces-vtg-bern-3mzk6n",
+        "fachspezialist-in-ressources-humaines-swiss-armed-forces-vtg-bern-3mzk6n"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1182,9 +1190,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "mannschaft-e-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bellinzona",
-        "en": "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
+        "en": "team-und-kader-im-bereich-infrastructure-m-w-swiss-armed-forces-vtg-bern",
         "de": "mannschaft-und-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bern",
-        "fr": "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl"
+        "fr": "equipe-und-kader-im-bereich-infrastructure-m-p-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -1195,6 +1203,12 @@
         "de": [
           "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl",
           "mannschaft-und-kader-im-bereich-infrastruktur-m-w-swiss-armed-forces-vtg-bellinzona"
+        ],
+        "en": [
+          "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl"
+        ],
+        "fr": [
+          "mannschaft-und-kader-im-bereich-infrastruktur-m-w-d-swiss-armed-forces-vtg-bern-6okqpl"
         ]
       },
       "previousSlugs": [

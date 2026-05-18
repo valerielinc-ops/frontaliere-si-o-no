@@ -7,9 +7,9 @@
       "slug": "responsabile-generale-del-progetto-in-sviluppo-immobiliare-ffs-officine-ferrovie-federali-bellinzona",
       "slugByLocale": {
         "it": "responsabile-generale-del-progetto-in-sviluppo-immobiliare-ffs-officine-ferrovie-federali-bellinzona",
-        "en": "overall-project-manager-real-estate-development-ffs-officine-ferrovie-federali-bellinzona",
+        "en": "project-manager-in-immobilien-development-ffs-officine-ferrovie-federali-bellinzona",
         "de": "gesamtprojektleiter-in-immobilien-development-ffs-officine-ferrovie-federali-bellinzona",
-        "fr": "chef-de-projet-global-en-developpement-immobilier-ffs-officine-ferrovie-federali-bellinzona"
+        "fr": "gestionnaire-de-projet-en-developpement-immobilien-ffs-officine-ferrovie-federali-bellinzona"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -67,11 +67,19 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-05-17T22:24:05.458Z",
       "previousSlugs": [
-        "gesamtprojektleiter-in-immobilien-development-ffs-officine-ferrovie-federali-bellinzona"
+        "gesamtprojektleiter-in-immobilien-development-ffs-officine-ferrovie-federali-bellinzona",
+        "overall-project-manager-real-estate-development-ffs-officine-ferrovie-federali-bellinzona",
+        "chef-de-projet-global-en-developpement-immobilier-ffs-officine-ferrovie-federali-bellinzona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gesamtprojektleiter-in-immobilien-development-ffs-officine-ferrovie-federali-bellinzona"
+        ],
+        "en": [
+          "overall-project-manager-real-estate-development-ffs-officine-ferrovie-federali-bellinzona"
+        ],
+        "fr": [
+          "chef-de-projet-global-en-developpement-immobilier-ffs-officine-ferrovie-federali-bellinzona"
         ]
       },
       "firstSeenAt": "2026-05-07T22:28:47.416Z",
@@ -97,7 +105,7 @@
       "slug": "capo-progetto-generale-immobili-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
       "slugByLocale": {
         "it": "capo-progetto-generale-immobili-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
-        "en": "head-of-general-property-project-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
+        "en": "general-project-manager-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
         "de": "gesamtprojektleiter-immobilien-m-w-d-ffs-officine-ferrovie-federali-bellinzona",
         "fr": "chef-de-projet-general-immeubles-m-f-d-ffs-officine-ferrovie-federali-bellinzona"
       },
@@ -157,6 +165,7 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-05-17T22:24:24.443Z",
       "previousSlugs": [
+        "head-of-general-property-project-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
         "tecnico-della-qualita-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
         "quality-technician-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
         "qualitatstechniker-m-w-d-ffs-officine-ferrovie-federali-bellinzona",
@@ -178,7 +187,12 @@
       "streetAddress": "Via Officina 3",
       "postalCode": "6500",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "en": [
+          "head-of-general-property-project-m-f-d-ffs-officine-ferrovie-federali-bellinzona"
+        ]
+      }
     },
     {
       "id": "sbb-2790b9af9e03",
@@ -275,7 +289,7 @@
       "slug": "responsabile-impianti-accesso-ai-treni-m-f-d-ffs-officine-ferrovie-federali-giubiasco",
       "slugByLocale": {
         "it": "responsabile-impianti-accesso-ai-treni-m-f-d-ffs-officine-ferrovie-federali-giubiasco",
-        "en": "train-access-facilities-manager-m-f-d-ffs-officine-ferrovie-federali-giubiasco",
+        "en": "responsible-for-installations-access-to-trains-m-f-d-ffs-officine-ferrovie-federali-giubiasco",
         "de": "zugzugangsleiter-m-m-f-d-ffs-officine-ferrovie-federali-giubiasco",
         "fr": "responsable-des-installations-acces-aux-trains-m-f-j-ffs-officine-ferrovie-federali-giubiasco"
       },
@@ -339,6 +353,7 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-05-17T22:24:29.311Z",
       "previousSlugs": [
+        "train-access-facilities-manager-m-f-d-ffs-officine-ferrovie-federali-giubiasco",
         "operatore-trice-di-edifici-e-infrastrutture-afc-giubiasco-ffs-officine-ferrovie-federali-giubiasco",
         "afc-giubiasco-ffs-officine-ferrovie-federali-giubiasco",
         "fachfrau-mann-betriebsunterhalt-efz-giubiasco-ffs-officine-ferrovie-federali-giubiasco",
@@ -360,7 +375,12 @@
       "streetAddress": "Via Officina 3",
       "postalCode": "6500",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "en": [
+          "train-access-facilities-manager-m-f-d-ffs-officine-ferrovie-federali-giubiasco"
+        ]
+      }
     },
     {
       "id": "sbb-f4d78cef9cf1",

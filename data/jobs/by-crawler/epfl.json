@@ -526,7 +526,7 @@
         "it": "ricercatore-post-dottorato-ingegnere-di-ricerca-epfl-lausanne",
         "en": "postdoctoral-researcher-research-engineer-epfl-lausanne",
         "de": "postdoctoral-researcher-forschungsingenieur-epfl-lausanne",
-        "fr": "postdoctoral-researcher-research-engineer-epfl-lausanne"
+        "fr": "postdoctoral-researcher-recherche-ingenieur-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -580,7 +580,8 @@
           "postdoctoral-researcher-research-engineer-epfl-lausanne"
         ],
         "fr": [
-          "chercheur-postdoctoral-ingenieur-de-recherche-epfl-lausanne"
+          "chercheur-postdoctoral-ingenieur-de-recherche-epfl-lausanne",
+          "postdoctoral-researcher-research-engineer-epfl-lausanne"
         ]
       },
       "firstSeenAt": "2026-05-10T21:32:10.746Z",
@@ -961,7 +962,7 @@
         "it": "responsabile-del-programma-epfl-lausanne",
         "en": "programme-manager-epfl-lausanne",
         "de": "programmleiter-epfl-lausanne",
-        "fr": "programme-manager-epfl-lausanne"
+        "fr": "gestionnaire-de-programme-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -1008,6 +1009,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "programme-manager-epfl-lausanne"
+        ],
+        "fr": [
           "programme-manager-epfl-lausanne"
         ]
       },
@@ -4537,7 +4541,7 @@
         "it": "post-doc-sull-ottimizzazione-della-topologia-epfl-lausanne",
         "en": "post-doc-on-topology-optimization-epfl-lausanne",
         "de": "postdoc-zur-topologieoptimierung-epfl-lausanne",
-        "fr": "post-doc-on-topology-optimization-epfl-lausanne"
+        "fr": "post-doc-sur-l-optimisation-topologique-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4584,6 +4588,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "post-doc-on-topology-optimization-epfl-lausanne"
+        ],
+        "fr": [
           "post-doc-on-topology-optimization-epfl-lausanne"
         ]
       },

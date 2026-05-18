@@ -899,7 +899,7 @@
       "slugByLocale": {
         "it": "ingegnere-di-ricerca-ai-pre-training-tether-operations-san-francisco",
         "en": "ai-research-engineer-pre-training-tether-ch",
-        "de": "ai-forschungsingenieur-pre-training-tether-operations-san-francisco",
+        "de": "ai-forschung-ingenieur-pre-training-tether-operations-san-francisco-california",
         "fr": "ingenieur-de-recherche-ai-pre-entrainement-tether-operations-san-francisco"
       },
       "company": "Tether Operations",
@@ -957,7 +957,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "ai-forschungsingenieur-pre-training-tether-operations-san-francisco"
+        ]
+      },
+      "previousSlugs": [
+        "ai-forschungsingenieur-pre-training-tether-operations-san-francisco"
+      ]
     },
     {
       "id": "tether-fdafa81bd9eb",

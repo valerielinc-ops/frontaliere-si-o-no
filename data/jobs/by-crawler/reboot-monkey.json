@@ -1468,7 +1468,7 @@
         "it": "data-center-technician-svizzera-dietikon-in-loco-reboot-monkey-dietikon",
         "en": "data-center-technician-switzerland-dietikon-on-site-reboot-monkey-dietikon",
         "de": "rechenzentrumstechniker-schweiz-dietikon-vor-ort-reboot-monkey-dietikon",
-        "fr": "technicien-de-centre-de-donnees-suisse-dietikon-sur-site-reboot-monkey-dietikon"
+        "fr": "technicien-en-informatique-suisse-dietikon-sur-place-reboot-monkey-dietikon"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -1533,11 +1533,15 @@
       },
       "remote": false,
       "previousSlugs": [
-        "data-center-technician-switzerland-dietikon-on-site-reboot-monkey-dietikon"
+        "data-center-technician-switzerland-dietikon-on-site-reboot-monkey-dietikon",
+        "technicien-de-centre-de-donnees-suisse-dietikon-sur-site-reboot-monkey-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-switzerland-dietikon-on-site-reboot-monkey-dietikon"
+        ],
+        "fr": [
+          "technicien-de-centre-de-donnees-suisse-dietikon-sur-site-reboot-monkey-dietikon"
         ]
       },
       "firstSeenAt": "2026-04-13T11:09:46.818Z",
@@ -11670,7 +11674,7 @@
       "slugByLocale": {
         "it": "tecnico-data-center-lugano-presenza-fisica-reboot-monkey-lugano",
         "en": "data-center-technician-lugano-on-site-reboot-monkey-lugano",
-        "de": "rechenzentrum-techniker-lugano-vor-ort-reboot-monkey-lugano",
+        "de": "data-center-techniker-freiberufler-lugano-vor-ort-reboot-monkey-lugano",
         "fr": "technicien-en-centre-de-donnees-lugano-sur-place-reboot-monkey-lugano"
       },
       "company": "Reboot Monkey",
@@ -11741,11 +11745,15 @@
       },
       "remote": false,
       "previousSlugs": [
-        "data-center-technician-lugano-on-site-reboot-monkey-lugano"
+        "data-center-technician-lugano-on-site-reboot-monkey-lugano",
+        "rechenzentrum-techniker-lugano-vor-ort-reboot-monkey-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "data-center-technician-lugano-on-site-reboot-monkey-lugano"
+        ],
+        "de": [
+          "rechenzentrum-techniker-lugano-vor-ort-reboot-monkey-lugano"
         ]
       },
       "firstSeenAt": "2026-04-13T11:09:46.750Z",

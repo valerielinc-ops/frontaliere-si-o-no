@@ -4121,10 +4121,10 @@
     },
     {
       "id": "solothurner-spitaeler-ba379d7ee2b0",
-      "slug": "unterassistentin-unterassistent-w-m-d-solothurner-spitaler-soh-solothurn",
+      "slug": "m-d-solothurner-spitaler-soh-solothurn",
       "slugByLocale": {
         "de": "unterassistentin-unterassistent-w-m-d-solothurner-spitaler-soh-solothurn",
-        "it": "unterassistentin-unterassistent-w-m-d-solothurner-spitaler-soh-solothurn",
+        "it": "m-d-solothurner-spitaler-soh-solothurn",
         "en": "unterassistentin-unterassistent-w-m-d-solothurner-spitaler-soh-solothurn",
         "fr": "unterassistentin-unterassistent-w-m-d-solothurner-spitaler-soh-solothurn"
       },
@@ -4173,14 +4173,16 @@
       "workplace": "Solothurner Spitäler AG",
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-w-m-d-soh-ch"
+          "unterassistentin-unterassistent-w-m-d-soh-ch",
+          "unterassistentin-unterassistent-w-m-d-solothurner-spitaler-soh-solothurn"
         ],
         "de": [
           "unterassistentin-unterassistent-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "unterassistentin-unterassistent-w-m-d-soh-ch"
+        "unterassistentin-unterassistent-w-m-d-soh-ch",
+        "unterassistentin-unterassistent-w-m-d-solothurner-spitaler-soh-solothurn"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4363,7 +4365,7 @@
         "de": "ergotherapeutin-ergotherapeut-w-m-d-soh-ch",
         "it": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
         "en": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn",
-        "fr": "ergotherapeutin-ergotherapeut-w-m-d-solothurner-spitaler-soh-solothurn"
+        "fr": "ergotherapeutine-ergotherapeut-m-d-solothurner-spitaler-soh-solothurn"
       },
       "company": "Solothurner Spitäler (soH)",
       "companyKey": "solothurner-spitaeler",

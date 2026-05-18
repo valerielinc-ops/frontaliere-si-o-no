@@ -109,9 +109,9 @@
       },
       "slugByLocale": {
         "it": "assistente-di-produzione-has-healthcare",
-        "en": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5",
-        "de": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5",
-        "fr": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5"
+        "en": "assistente-di-production-has-healthcare-advanced-synthesis-biasca",
+        "de": "assistente-di-produktion-has-healthcare-advanced-synthesis-biasca",
+        "fr": "assistant-de-production-has-healthcare-advanced-synthesis-biasca"
       },
       "_targetScope": {
         "canton": "TI",
@@ -138,7 +138,21 @@
       "addressLocality": "Biasca",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-13T22:19:52.888Z"
+      "firstSeenAt": "2026-05-13T22:19:52.888Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5"
+        ],
+        "de": [
+          "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5"
+        ],
+        "fr": [
+          "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5"
+        ]
+      },
+      "previousSlugs": [
+        "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5"
+      ]
     },
     {
       "title": "Production Manager",
@@ -171,8 +185,8 @@
       "slugByLocale": {
         "it": "direttore-di-produzione-has-healthcare-advanced-synthesis-biasca",
         "en": "production-manager-has-healthcare-advanced-synthesis-biasca",
-        "de": "production-manager-has-healthcare-advanced-synthesis-biasca-068qc2",
-        "fr": "production-manager-has-healthcare-advanced-synthesis-biasca-068qc2"
+        "de": "produktionsleiter-has-healthcare-advanced-synthesis-biasca",
+        "fr": "responsable-de-production-has-healthcare-advanced-synthesis-biasca"
       },
       "_targetScope": {
         "canton": "TI",
@@ -213,6 +227,12 @@
         ],
         "it": [
           "production-manager-has-healthcare"
+        ],
+        "de": [
+          "production-manager-has-healthcare-advanced-synthesis-biasca-068qc2"
+        ],
+        "fr": [
+          "production-manager-has-healthcare-advanced-synthesis-biasca-068qc2"
         ]
       },
       "firstSeenAt": "2026-04-13T21:49:35.924Z"
@@ -248,9 +268,9 @@
       },
       "slugByLocale": {
         "it": "operaio-polimeccanico-afc-has-healthcare",
-        "en": "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca",
-        "de": "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca",
-        "fr": "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca"
+        "en": "afc-polimechanics-operator-has-healthcare-advanced-synthesis-biasca",
+        "de": "afc-polimechaniker-has-healthcare-advanced-synthesis-biasca",
+        "fr": "operateur-polymecanique-afc-has-healthcare-advanced-synthesis-biasca"
       },
       "_targetScope": {
         "canton": "TI",
@@ -261,6 +281,15 @@
       "id": "has-healthcare-abd89b88470d",
       "previousSlugsByLocale": {
         "it": [
+          "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca"
+        ],
+        "en": [
+          "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca"
+        ],
+        "de": [
+          "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca"
+        ],
+        "fr": [
           "operaio-polimeccanico-afc-has-healthcare-advanced-synthesis-biasca"
         ]
       },

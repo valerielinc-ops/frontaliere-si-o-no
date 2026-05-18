@@ -110,10 +110,10 @@
     },
     {
       "id": "swiss-life-925a50eb1c92",
-      "slug": "consulente-previdenziale-e-finanziario-f-m-d-nell-ambito-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life-",
+      "slug": "consulente-in-assicurazioni-e-finanza-w-m-d-nel-quadro-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life",
       "slugByLocale": {
-        "it": "consulente-previdenziale-e-finanziario-f-m-d-nell-ambito-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life-",
-        "en": "pension-and-financial-advisor-f-m-d-as-part-of-a-succession-plan-general-agency-visp-oberwallis-swiss-life-visp",
+        "it": "consulente-in-assicurazioni-e-finanza-w-m-d-nel-quadro-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life",
+        "en": "insurance-and-finance-advisor-w-m-d-within-the-framework-of-a-succession-plan-general-agency-visp-oberwallis-swiss-life",
         "de": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp-o",
         "fr": "conseiller-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-une-succession-agence-generale-visp-oberwallis-swiss-life-v"
       },
@@ -188,11 +188,17 @@
       "jobReqId": "R09488",
       "hiringOrganization": "Swiss Life GA Visp-Oberwallis",
       "previousSlugs": [
-        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp-o"
+        "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp-o",
+        "consulente-previdenziale-e-finanziario-f-m-d-nell-ambito-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life-",
+        "pension-and-financial-advisor-f-m-d-as-part-of-a-succession-plan-general-agency-visp-oberwallis-swiss-life-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp-o"
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp-o",
+          "consulente-previdenziale-e-finanziario-f-m-d-nell-ambito-di-una-successione-agenzia-generale-visp-oberwallis-swiss-life-"
+        ],
+        "en": [
+          "pension-and-financial-advisor-f-m-d-as-part-of-a-succession-plan-general-agency-visp-oberwallis-swiss-life-visp"
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:39.938Z",
@@ -331,7 +337,7 @@
       "slugByLocale": {
         "it": "consulente-immobiliare-f-m-d-agenzia-generale-sion-vallese-romando-swiss-life-sion",
         "en": "conseiller-en-immobilier-f-h-d-agence-generale-sion-valais-romand-swiss-life-ch",
-        "de": "immobilienberater-w-m-d-generalagentur-sitten-wallis-swiss-life-sion",
+        "de": "immobilienberater-f-h-d-generalagentur-sion-valais-romand-swiss-life-sion",
         "fr": "conseiller-en-immobilier-f-h-d-agence-generale-sion-valais-romand-swiss-life-ch"
       },
       "company": "Swiss Life",
@@ -408,6 +414,7 @@
         "conseiller-en-immobilier-f-h-d-agence-generale-sion-valais-romand-swiss-life-ch",
         "real-estate-advisor-f-h-d-sion-valais-french-general-agency-swiss-life-sion",
         "real-estate-advisor-f-m-d-agence-generale-sion-valais-romand-swiss-life-sion",
+        "immobilienberater-w-m-d-generalagentur-sitten-wallis-swiss-life-sion",
         "consulente-immobiliare-f-h-d-agenzia-generale-sion-valais-romand-swiss-life-sion"
       ],
       "previousSlugsByLocale": {
@@ -417,6 +424,9 @@
         "en": [
           "real-estate-advisor-f-h-d-sion-valais-french-general-agency-swiss-life-sion",
           "real-estate-advisor-f-m-d-agence-generale-sion-valais-romand-swiss-life-sion"
+        ],
+        "de": [
+          "immobilienberater-w-m-d-generalagentur-sitten-wallis-swiss-life-sion"
         ]
       },
       "firstSeenAt": "2026-04-13T11:22:38.624Z",

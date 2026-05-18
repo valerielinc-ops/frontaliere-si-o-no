@@ -473,7 +473,7 @@
       },
       "slugByLocale": {
         "it": "funzionario-della-ricerca-clinica-ibsa-institut-biochimique-montagnola",
-        "en": "clinical-research-officer-ibsa-institut-biochimique-all-area-all-clear-apply-now-clinical-research-officer-location-coll",
+        "en": "clinical-research-officer-ibsa-institut-biochimique-all-area-all-clear-apply-now-clinical-research-officer-location",
         "de": "klinischer-forschungsbeauftragter-ibsa-institut-biochimique-all-area-all-clear-apply-now-clinical-research-officer-locat",
         "fr": "responsable-de-projet-clinique-ibsa-institut-biochimique-all-area-all-clear-apply-now-clinical-research-officer-location"
       },
@@ -487,6 +487,7 @@
         "clinical-ricerca-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-studio-u7vkyi",
         "clinical-research-officer-ibsa-institut-biochimique-6926-working-area",
         "clinical-research-officer-ibsa-institut-biochimique-montagnola",
+        "clinical-research-officer-ibsa-institut-biochimique-all-area-all-clear-apply-now-clinical-research-officer-location-coll",
         "klinischer-forschungsbeauftragter-ibsa-institut-biochimique-6926-working-area",
         "responsable-de-projet-clinique-ibsa-institut-biochimique-6926-working-area",
         "biochemical-laboratory-technician-ibsa-institut-biochimique-montagnola",
@@ -520,7 +521,8 @@
         ],
         "en": [
           "clinical-research-officer-ibsa-institut-biochimique-6926-working-area",
-          "clinical-research-officer-ibsa-institut-biochimique-montagnola"
+          "clinical-research-officer-ibsa-institut-biochimique-montagnola",
+          "clinical-research-officer-ibsa-institut-biochimique-all-area-all-clear-apply-now-clinical-research-officer-location-coll"
         ],
         "de": [
           "clinical-forschung-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-stud-u7vkyi",
@@ -642,7 +644,7 @@
     },
     {
       "id": "company-q2u6mq",
-      "slug": "procurement-category-specialista-ibsa-institut-biochimique-6916-working-area",
+      "slug": "procurement-category-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-procurement-category-specialist",
       "company": "IBSA Institut Biochimique",
       "title": "Procurement Category Specialist",
       "location": "All Area All Clear Apply now » Procurement Category Specialist Location: Grancia",
@@ -665,10 +667,10 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-31T21:23:52.685Z",
       "slugByLocale": {
-        "it": "procurement-category-specialista-ibsa-institut-biochimique-6916-working-area",
+        "it": "procurement-category-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-procurement-category-specialist",
         "en": "procurement-category-specialist-ibsa-institut-biochimique-grancia",
-        "de": "procurement-category-spezialist-ibsa-institut-biochimique-6916-working-area",
-        "fr": "procurement-category-specialiste-ibsa-institut-biochimique-6916-working-area"
+        "de": "procurement-category-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-procurement-category-specialist",
+        "fr": "procurement-category-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-procurement-category-specialist"
       },
       "titleByLocale": {
         "it": "Procurement Category Specialista",
@@ -690,9 +692,12 @@
         "procurement-category-spezialist-ibsa-institut-biochimique-6916-working-area-q2u6mq",
         "procurement-category-specialiste-ibsa-institut-biochimique-6916-working-area-q2u6mq",
         "procurement-category-specialista-ibsa-institut-biochimique-montagnola",
+        "procurement-category-specialista-ibsa-institut-biochimique-6916-working-area",
         "procurement-category-specialist-ibsa-institut-biochimique-6916-working-area-q2u6mq",
         "procurement-category-specialist-ibsa-institut-biochimique-6916-working-area",
         "procurement-category-specialist-ibsa-institut-biochimique-montagnola",
+        "procurement-category-spezialist-ibsa-institut-biochimique-6916-working-area",
+        "procurement-category-specialiste-ibsa-institut-biochimique-6916-working-area",
         "specialista-categoria-acquisti-ibsa-institut-biochimique-montagnola",
         "specialista-dell-applicazione-ibsa-institut-biochimique-montagnola",
         "procurement-category-specialista-ibsa-institut-biochimique-grancia"
@@ -720,7 +725,8 @@
           "procurement-category-specialista-ibsa-institut-biochimique-6916-working-area-q2u6mq",
           "procurement-category-spezialist-ibsa-institut-biochimique-6916-working-area-q2u6mq",
           "procurement-category-specialiste-ibsa-institut-biochimique-6916-working-area-q2u6mq",
-          "procurement-category-specialista-ibsa-institut-biochimique-montagnola"
+          "procurement-category-specialista-ibsa-institut-biochimique-montagnola",
+          "procurement-category-specialista-ibsa-institut-biochimique-6916-working-area"
         ],
         "en": [
           "procurement-category-specialist-ibsa-institut-biochimique-6916-working-area-q2u6mq",
@@ -731,11 +737,13 @@
         ],
         "de": [
           "procurement-category-spezialist-ibsa-institut-biochimique-6916-working-area-q2u6mq",
-          "procurement-category-specialiste-ibsa-institut-biochimique-6916-working-area-q2u6mq"
+          "procurement-category-specialiste-ibsa-institut-biochimique-6916-working-area-q2u6mq",
+          "procurement-category-spezialist-ibsa-institut-biochimique-6916-working-area"
         ],
         "fr": [
           "procurement-category-spezialist-ibsa-institut-biochimique-6916-working-area-q2u6mq",
-          "procurement-category-specialiste-ibsa-institut-biochimique-6916-working-area-q2u6mq"
+          "procurement-category-specialiste-ibsa-institut-biochimique-6916-working-area-q2u6mq",
+          "procurement-category-specialiste-ibsa-institut-biochimique-6916-working-area"
         ]
       },
       "firstSeenAt": "2026-03-31T21:23:52.685Z"

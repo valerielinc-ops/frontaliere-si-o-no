@@ -88,7 +88,7 @@
         "it": "medico-dirigente-in-geriatria-80-100-hopital-du-valais-brig",
         "en": "senior-physician-in-geriatrics-80-100-hopital-du-valais-brig",
         "de": "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig",
-        "fr": "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig"
+        "fr": "medecin-chef-de-clinique-en-geriatrie-80-100-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -140,6 +140,9 @@
         ],
         "en": [
           "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig"
         ]
       },
       "firstSeenAt": "2026-04-13T10:43:49.851Z",
@@ -162,7 +165,7 @@
       "slug": "contatto-del-team-personale-di-ricerca-hopital-du-valais-sion",
       "slugByLocale": {
         "it": "contatto-del-team-personale-di-ricerca-hopital-du-valais-sion",
-        "en": "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion",
+        "en": "contact-the-reserve-personnel-team-hopital-du-valais-sion",
         "de": "trete-der-reservepersonal-mitglieder-bei-hopital-du-valais-sion",
         "fr": "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion"
       },
@@ -218,7 +221,8 @@
           "unisciti-al-team-del-personale-di-riserva-hopital-du-valais-sion"
         ],
         "en": [
-          "join-the-reserve-staff-team-hopital-du-valais-sion"
+          "join-the-reserve-staff-team-hopital-du-valais-sion",
+          "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion"
         ],
         "de": [
           "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion"
@@ -554,7 +558,7 @@
       "slugByLocale": {
         "it": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
         "en": "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion",
-        "de": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+        "de": "oberarzt-oberarztin-fur-radiologie-zu-100-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
@@ -601,6 +605,9 @@
       "previousSlugsByLocale": {
         "it": [
           "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
+          "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
+        ],
+        "de": [
           "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
         ]
       },
@@ -1498,7 +1505,7 @@
       "slug": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
       "slugByLocale": {
         "it": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
-        "en": "specialist-psychologist-outpatient-clinic-80-100-hopital-du-valais-brig",
+        "en": "clinical-psychologist-ambulatory-80-100-hopital-du-valais-brig",
         "de": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
         "fr": "psychologue-specialiste-ambulatoire-80-100-hopital-du-valais-brig"
       },
@@ -1556,7 +1563,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "specialist-psychologist-outpatient-clinic-80-100-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "specialist-psychologist-outpatient-clinic-80-100-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-ceafa8ea0914",
@@ -2031,7 +2046,7 @@
       "slug": "psicologo-specialista-per-il-team-mobile-60-hopital-du-valais-brig",
       "slugByLocale": {
         "it": "psicologo-specialista-per-il-team-mobile-60-hopital-du-valais-brig",
-        "en": "fachpsychologe-in-fur-das-mobile-team-60-hopital-du-valais-brig",
+        "en": "specialist-psychologist-for-the-mobile-team-60-hopital-du-valais-brig",
         "de": "fachpsychologe-in-fur-das-mobile-team-60-hopital-du-valais-brig",
         "fr": "psychologue-specialiste-pour-l-equipe-mobile-60-hopital-du-valais-brig"
       },
@@ -2086,6 +2101,9 @@
           "fachpsychologe-in-per-das-mobile-team-60-hopital-du-valais-brig"
         ],
         "fr": [
+          "fachpsychologe-in-fur-das-mobile-team-60-hopital-du-valais-brig"
+        ],
+        "en": [
           "fachpsychologe-in-fur-das-mobile-team-60-hopital-du-valais-brig"
         ]
       },

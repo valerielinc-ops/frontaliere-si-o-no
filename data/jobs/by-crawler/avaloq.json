@@ -1153,20 +1153,18 @@
       },
       "slugByLocale": {
         "it": "apprendista-di-commercio-afc-con-maturita-avaloq-bioggio",
-        "en": "apprentice-di-commercio-afc-con-maturita-avaloq-bioggio",
+        "en": "commercial-apprentice-afc-with-maturity-avaloq-bioggio",
         "de": "kaufmannischer-lernender-afc-mit-maturitat-avaloq-bioggio",
-        "fr": "apprenti-e-di-commercio-afc-con-maturita-avaloq-bioggio"
+        "fr": "apprenti-commercial-afc-avec-maturite-avaloq-bioggio"
       },
       "previousSlugs": [
         "lernende-r-di-commercio-afc-con-maturita-avaloq-bioggio",
+        "apprentice-di-commercio-afc-con-maturita-avaloq-bioggio",
+        "apprenti-e-di-commercio-afc-con-maturita-avaloq-bioggio",
         "apprenti-afc-avec-maturite-avaloq-bioggio",
         "kaufmannischer-auszubildender-efz-mit-maturitat-avaloq-bioggio",
         "afc-trade-apprentice-with-maturity-avaloq-bioggio",
-        "apprenti-en-commerce-cfc-avec-maturite-avaloq-bioggio",
-        "commercial-apprentice-afc-with-maturity-avaloq-bioggio",
-        "commercial-apprentice-afc-with-maturity-avaloq-bioggio",
-        "apprenti-commercial-afc-avec-maturite-avaloq-bioggio",
-        "apprenti-commercial-afc-avec-maturite-avaloq-bioggio"
+        "apprenti-en-commerce-cfc-avec-maturite-avaloq-bioggio"
       ],
       "salaryMin": 55500,
       "salaryMax": 75500,
@@ -1189,6 +1187,12 @@
         ],
         "de": [
           "lernende-r-di-commercio-afc-con-maturita-avaloq-bioggio"
+        ],
+        "en": [
+          "apprentice-di-commercio-afc-con-maturita-avaloq-bioggio"
+        ],
+        "fr": [
+          "apprenti-e-di-commercio-afc-con-maturita-avaloq-bioggio"
         ]
       },
       "firstSeenAt": "2026-04-13T21:08:54.024Z"

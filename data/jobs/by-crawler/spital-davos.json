@@ -2073,7 +2073,7 @@
         "it": "dipl-stazione-di-monitoraggio-hf-specialista-di-cura-40-60-spital-davos-davos",
         "en": "dipl-nurse-hf-monitoring-station-40-60-spital-davos-davos",
         "de": "dipl-pflegefachperson-hf-uberwachungsstation-40-60-spital-davos-ch",
-        "fr": "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos"
+        "fr": "dipl-station-de-surveillance-hf-40-60-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -2124,6 +2124,7 @@
         "dipl-health-care-assistant-hf-monitoring-station-70-100-spital-davos-davos",
         "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch",
         "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",
+        "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos",
         "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos"
       ],
       "previousSlugsByLocale": {
@@ -2138,7 +2139,8 @@
           "dipl-pflegefachperson-hf-uberwachungsstation-70-100-spital-davos-ch"
         ],
         "fr": [
-          "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos"
+          "dipl-auxiliaire-de-sante-hf-station-de-surveillance-70-100-spital-davos-davos",
+          "dipl-infirmiere-hf-service-de-surveillance-40-60-spital-davos-davos"
         ]
       },
       "firstSeenAt": "2026-04-15T22:20:10.023Z",

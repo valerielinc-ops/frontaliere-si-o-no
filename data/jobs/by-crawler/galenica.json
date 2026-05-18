@@ -474,9 +474,9 @@
       "slug": "galenica-unione-farmaceutica-distribuzione-sa-impiegato-a-in-logistica-afc-lugano",
       "slugByLocale": {
         "it": "galenica-unione-farmaceutica-distribuzione-sa-impiegato-a-in-logistica-afc-lugano",
-        "en": "galenica-unione-farmaceutica-distribuzione-sa-logistiker-in-efz-lugano",
+        "en": "employee-in-afc-logistics-unione-farmaceutica-distribuzione-sa-galenica-lugano",
         "de": "galenica-unione-farmaceutica-distribuzione-sa-logistiker-in-efz-lugano",
-        "fr": "galenica-unione-farmaceutica-distribuzione-sa-logisticien-ne-cfc-lugano"
+        "fr": "employe-e-in-logistique-afc-unione-farmaceutica-distribuzione-sa-galenica-lugano"
       },
       "titleByLocale": {
         "it": "Impiegato/a in logistica AFC",
@@ -504,7 +504,19 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "galenica-unione-farmaceutica-distribuzione-sa-logistiker-in-efz-lugano"
+        ],
+        "fr": [
+          "galenica-unione-farmaceutica-distribuzione-sa-logisticien-ne-cfc-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-unione-farmaceutica-distribuzione-sa-logistiker-in-efz-lugano",
+        "galenica-unione-farmaceutica-distribuzione-sa-logisticien-ne-cfc-lugano"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",

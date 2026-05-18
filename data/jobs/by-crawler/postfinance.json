@@ -85,10 +85,10 @@
         "de": "Mitarbeiter:in Chargebacks",
         "fr": "Chargé(e) de Contestations"
       },
-      "slug": "collaboratore-trice-chargebacks-postfinance-bern",
+      "slug": "addetto-a-chargebacks-postfinance-bern",
       "slugByLocale": {
-        "it": "collaboratore-trice-chargebacks-postfinance-bern",
-        "en": "associate-chargebacks-postfinance-bern",
+        "it": "addetto-a-chargebacks-postfinance-bern",
+        "en": "chargebacks-specialist-postfinance-bern",
         "de": "mitarbeiter-in-chargebacks-postfinance-bern",
         "fr": "charge-e-de-contestations-postfinance-bern"
       },
@@ -126,10 +126,18 @@
       "previousSlugsByLocale": {
         "fr": [
           "collaborateur-trice-chargebacks-postfinance-bern"
+        ],
+        "it": [
+          "collaboratore-trice-chargebacks-postfinance-bern"
+        ],
+        "en": [
+          "associate-chargebacks-postfinance-bern"
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-chargebacks-postfinance-bern"
+        "collaborateur-trice-chargebacks-postfinance-bern",
+        "collaboratore-trice-chargebacks-postfinance-bern",
+        "associate-chargebacks-postfinance-bern"
       ]
     },
     {
@@ -157,7 +165,7 @@
       "slug": "consigliere-clienti-privati-losanna-postfinance-lausanne",
       "slugByLocale": {
         "it": "consigliere-clienti-privati-losanna-postfinance-lausanne",
-        "en": "advisor-private-customer-service-lausanne-postfinance-lausanne",
+        "en": "advisor-private-clients-lausanne-postfinance-lausanne",
         "de": "berater-privater-kundenservice-lausanne-postfinance-lausanne",
         "fr": "conseiller-ere-clientele-privee-lausanne-postfinance"
       },
@@ -194,7 +202,8 @@
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
       "previousSlugsByLocale": {
         "en": [
-          "conseiller-ere-clientele-privee-lausanne-postfinance"
+          "conseiller-ere-clientele-privee-lausanne-postfinance",
+          "advisor-private-customer-service-lausanne-postfinance-lausanne"
         ],
         "de": [
           "conseiller-ere-clientele-privee-lausanne-postfinance"
@@ -205,6 +214,7 @@
       },
       "previousSlugs": [
         "conseiller-ere-clientele-privee-lausanne-postfinance",
+        "advisor-private-customer-service-lausanne-postfinance-lausanne",
         "consigliere-era-cliente-privato-losanna-postfinance-lausanne"
       ]
     },

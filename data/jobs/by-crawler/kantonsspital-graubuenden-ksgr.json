@@ -2538,7 +2538,7 @@
         "de": "mitarbeiter-in-room-service-kantonsspital-graubunden-chur",
         "it": "addetto-al-room-service-kantonsspital-graubunden-chur",
         "en": "room-service-attendant-kantonsspital-graubunden-chur",
-        "fr": "agent-de-room-service-kantonsspital-graubunden-chur"
+        "fr": "collaborateur-trice-room-service-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Mitarbeiter:in Room-Service",
@@ -2565,11 +2565,15 @@
       "featured": false,
       "previousSlugs": [
         "mitarbeiter-in-room-service-kantonsspital-graubunden-chur",
+        "agent-de-room-service-kantonsspital-graubunden-chur",
         "collaboratore-trice-room-service-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-room-service-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "agent-de-room-service-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,
@@ -6169,12 +6173,12 @@
       "employmentType": "100",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-05-17T21:58:22.964Z",
-      "slug": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
+      "slug": "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
-        "it": "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
+        "it": "cucina-professionale-cuoco-kantonsspital-graubunden-chur",
         "en": "professional-cook-cook-kantonsspital-graubunden-chur",
-        "fr": "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur"
+        "fr": "cuisinier-professionnel-cuisinier-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Berufslehre Köchin / Koch",
@@ -6201,12 +6205,22 @@
       "featured": false,
       "previousSlugs": [
         "apprenticeship-as-a-chef-kantonsspital-graubunden-chur",
+        "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
+        "berufslehre-kochin-koch-kantonsspital-graubunden-chur",
+        "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur",
         "cuoco-dietetico-cuoco-dietetico-kantonsspital-graubunden-chur",
         "diet-chef-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "en": [
           "apprenticeship-as-a-chef-kantonsspital-graubunden-chur"
+        ],
+        "it": [
+          "apprendistato-come-cuoco-a-kantonsspital-graubunden-chur",
+          "berufslehre-kochin-koch-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "apprentissage-de-cuisinier-ere-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,
@@ -6372,8 +6386,8 @@
       "slug": "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-chur",
-        "en": "diagnostic-radiology-technologist-kantonsspital-graubunden-chur",
-        "fr": "technicien-en-radiologie-diagnostique-kantonsspital-graubunden-chur",
+        "en": "radiology-specialist-radiology-specialist-diagnostics-kantonsspital-graubunden-chur",
+        "fr": "specialiste-en-radiologie-specialiste-en-radiologie-diagnostic-kantonsspital-graubunden-chur",
         "it": "radiologiefachfrau-radiologiefachmann-diagnostik-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
@@ -6403,7 +6417,19 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:59:17.590Z"
+      "firstSeenAt": "2026-04-13T21:59:17.590Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "diagnostic-radiology-technologist-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "technicien-en-radiologie-diagnostique-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "diagnostic-radiology-technologist-kantonsspital-graubunden-chur",
+        "technicien-en-radiologie-diagnostique-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "9474525",

@@ -157,9 +157,9 @@
     },
     {
       "id": "pdgr-4f88a64e2238",
-      "slug": "psicologo-specializzato-psychiatrische-dienste-graubunden-chur",
+      "slug": "specialista-psicologo-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "psicologo-specializzato-psychiatrische-dienste-graubunden-chur",
+        "it": "specialista-psicologo-psychiatrische-dienste-graubunden-chur",
         "en": "specialist-psychologist-psychiatrische-dienste-graubunden-chur",
         "de": "fachpsychologe-in-psychiatrische-dienste-graubunden-chur",
         "fr": "psychologue-specialise-psychiatrische-dienste-graubunden-chur"
@@ -240,11 +240,13 @@
           "fachpsychologe-in-pdgr-ch"
         ],
         "it": [
-          "fachpsychologe-in-pdgr-ch"
+          "fachpsychologe-in-pdgr-ch",
+          "psicologo-specializzato-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "fachpsychologe-in-pdgr-ch"
+        "fachpsychologe-in-pdgr-ch",
+        "psicologo-specializzato-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 49500,
@@ -265,7 +267,7 @@
       "slug": "assistente-medico-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "assistente-medico-psychiatrische-dienste-graubunden-chur",
-        "en": "resident-physician-psychiatrische-dienste-graubunden-chur",
+        "en": "resident-psychiatrist-psychiatrische-dienste-graubunden-chur",
         "de": "assistenzarztin-assistenzarzt-psychiatrische-dienste-graubunden-chur",
         "fr": "medecin-resident-psychiatrische-dienste-graubunden-chur"
       },
@@ -334,10 +336,14 @@
         ],
         "it": [
           "assistenzarztin-assistenzarzt-pdgr-ch"
+        ],
+        "en": [
+          "resident-physician-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-pdgr-ch"
+        "assistenzarztin-assistenzarzt-pdgr-ch",
+        "resident-physician-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 49500,
@@ -500,9 +506,9 @@
       "slug": "medico-senior-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "it": "medico-senior-psychiatrische-dienste-graubunden-cazis",
-        "en": "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
+        "en": "senior-doctor-psychiatrische-dienste-graubunden-cazis",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
-        "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
+        "fr": "medecin-principal-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -580,11 +586,19 @@
         "it": [
           "oberarztin-oberarzt-pdgr-ch",
           "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
+        ],
+        "en": [
+          "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis"
+        ],
+        "fr": [
+          "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch",
-        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
+        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
+        "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
+        "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
       "salaryMin": 68000,
@@ -1979,9 +1993,9 @@
       "slug": "medico-senior-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "medico-senior-psychiatrische-dienste-graubunden-chur",
-        "en": "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "en": "senior-doctor-psychiatrische-dienste-graubunden-chur",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "fr": "psychiatre-psychiatrische-dienste-graubunden-chur"
+        "fr": "medecin-principal-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2032,11 +2046,19 @@
         ],
         "it": [
           "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur"
+        ],
+        "en": [
+          "psychiatrist-psychiatrische-dienste-graubunden-chur"
+        ],
+        "fr": [
+          "psychiatre-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch",
-        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur"
+        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
+        "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "psychiatre-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-17T10:51:43.094Z",
       "salaryMin": 68000,
@@ -2475,9 +2497,9 @@
       "slug": "dipartimento-di-salute-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "dipartimento-di-salute-psychiatrische-dienste-graubunden-chur",
-        "en": "healthcare-assistant-psychiatrische-dienste-graubunden-chur",
+        "en": "department-of-health-psychiatrische-dienste-graubunden-chur",
         "de": "fachperson-gesundheit-psychiatrische-dienste-graubunden-chur",
-        "fr": "assistant-de-sante-psychiatrische-dienste-graubunden-chur"
+        "fr": "departement-de-la-sante-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2528,11 +2550,19 @@
         ],
         "it": [
           "assistente-sanitaria-psychiatrische-dienste-graubunden-chur"
+        ],
+        "en": [
+          "healthcare-assistant-psychiatrische-dienste-graubunden-chur"
+        ],
+        "fr": [
+          "assistant-de-sante-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "fachperson-gesundheit-pdgr-ch",
-        "assistente-sanitaria-psychiatrische-dienste-graubunden-chur"
+        "assistente-sanitaria-psychiatrische-dienste-graubunden-chur",
+        "healthcare-assistant-psychiatrische-dienste-graubunden-chur",
+        "assistant-de-sante-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-17T10:51:37.722Z",
       "salaryMin": 49500,
@@ -2924,7 +2954,7 @@
         "it": "staff-in-hotellerie-psychiatrische-dienste-graubunden-chur",
         "en": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
         "de": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur",
-        "fr": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur"
+        "fr": "personnel-a-hotellerie-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2975,11 +3005,15 @@
         "it": [
           "mitarbeiter-in-hotellerie-pdgr-ch",
           "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur"
+        ],
+        "fr": [
+          "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-hotellerie-pdgr-ch",
-        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur"
+        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-chur",
+        "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-30T11:17:31.580Z",
       "salaryMin": 49500,
@@ -3339,9 +3373,9 @@
     },
     {
       "id": "pdgr-aa7ae6872b43",
-      "slug": "capo-di-tessuto-psychiatrische-dienste-graubunden-chur",
+      "slug": "responsabile-textil-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "capo-di-tessuto-psychiatrische-dienste-graubunden-chur",
+        "it": "responsabile-textil-psychiatrische-dienste-graubunden-chur",
         "en": "head-of-textile-psychiatrische-dienste-graubunden-chur",
         "de": "leiter-in-textil-psychiatrische-dienste-graubunden-chur",
         "fr": "tete-de-textile-psychiatrische-dienste-graubunden-chur"
@@ -3395,7 +3429,7 @@
         ],
         "it": [
           "leiter-in-textil-pdgr-ch",
-          "responsabile-textil-psychiatrische-dienste-graubunden-chur"
+          "capo-di-tessuto-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "leiter-in-textil-pdgr-ch"
@@ -3406,7 +3440,7 @@
       },
       "previousSlugs": [
         "leiter-in-textil-pdgr-ch",
-        "responsabile-textil-psychiatrische-dienste-graubunden-chur"
+        "capo-di-tessuto-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-13T11:40:26.413Z",
       "salaryMin": 68000,

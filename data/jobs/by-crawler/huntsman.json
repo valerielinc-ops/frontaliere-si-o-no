@@ -176,11 +176,11 @@
     },
     {
       "id": "huntsman-c9b97480b222",
-      "slug": "responsabile-del-laboratorio-di-assistenza-tecnica-huntsman-corporation-basel",
+      "slug": "responsabile-laboratorio-servizio-tecnico-huntsman-corporation-basel",
       "slugByLocale": {
-        "it": "responsabile-del-laboratorio-di-assistenza-tecnica-huntsman-corporation-basel",
+        "it": "responsabile-laboratorio-servizio-tecnico-huntsman-corporation-basel",
         "en": "technical-service-laboratory-leader-huntsman-ch",
-        "de": "leiter-technisches-servicelabor-huntsman-corporation-basel",
+        "de": "leiter-des-technischen-laboratoriums-huntsman-corporation-basel",
         "fr": "responsable-du-laboratoire-de-service-technique-huntsman-corporation-basel"
       },
       "company": "Huntsman Corporation",
@@ -254,11 +254,16 @@
       "jobReqId": "J-019480",
       "previousSlugs": [
         "technical-service-laboratory-leader-huntsman-ch",
-        "responsabile-laboratorio-servizio-tecnico-huntsman-corporation-basel"
+        "responsabile-del-laboratorio-di-assistenza-tecnica-huntsman-corporation-basel",
+        "leiter-technisches-servicelabor-huntsman-corporation-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-service-laboratory-leader-huntsman-ch"
+          "technical-service-laboratory-leader-huntsman-ch",
+          "responsabile-del-laboratorio-di-assistenza-tecnica-huntsman-corporation-basel"
+        ],
+        "de": [
+          "leiter-technisches-servicelabor-huntsman-corporation-basel"
         ]
       },
       "firstSeenAt": "2026-04-13T10:44:46.530Z",
@@ -282,7 +287,7 @@
       "slugByLocale": {
         "it": "site-logistics-warehousing-supervisor-huntsman-ch",
         "en": "site-logistics-supervis-huntsman-corporation-monthey",
-        "de": "standortleiter-logistik-lagerhaltung-huntsman-corporation-monthey",
+        "de": "site-logistik-und-lagerverwalter-huntsman-corporation-monthey",
         "fr": "site-logistics-warehousing-supervisor-huntsman-ch"
       },
       "company": "Huntsman Corporation",
@@ -356,12 +361,16 @@
       "jobReqId": "J-019430",
       "previousSlugs": [
         "superviseur-de-la-logistique-et-de-l-entreposage-du-site-huntsman-corporation-monthey",
-        "site-logistics-warehousing-superviseur-huntsman-corporation-monthey"
+        "site-logistics-warehousing-superviseur-huntsman-corporation-monthey",
+        "standortleiter-logistik-lagerhaltung-huntsman-corporation-monthey"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "superviseur-de-la-logistique-et-de-l-entreposage-du-site-huntsman-corporation-monthey",
           "site-logistics-warehousing-superviseur-huntsman-corporation-monthey"
+        ],
+        "de": [
+          "standortleiter-logistik-lagerhaltung-huntsman-corporation-monthey"
         ]
       },
       "firstSeenAt": "2026-04-13T10:44:46.029Z",
@@ -492,7 +501,7 @@
       "slugByLocale": {
         "it": "operatore-pilota-huntsman-corporation-monthey",
         "en": "pilot-operator-huntsman-corporation-monthey",
-        "de": "pilot-anlagenbediener-huntsman-corporation-monthey",
+        "de": "pilotoperator-huntsman-corporation-monthey",
         "fr": "operateur-pilote-huntsman-corporation-monthey"
       },
       "company": "Huntsman Corporation",
@@ -570,10 +579,14 @@
         ],
         "it": [
           "operateur-pilote-huntsman-ch"
+        ],
+        "de": [
+          "pilot-anlagenbediener-huntsman-corporation-monthey"
         ]
       },
       "previousSlugs": [
-        "operateur-pilote-huntsman-ch"
+        "operateur-pilote-huntsman-ch",
+        "pilot-anlagenbediener-huntsman-corporation-monthey"
       ],
       "firstSeenAt": "2026-04-13T10:44:44.868Z",
       "salaryMin": 49500,

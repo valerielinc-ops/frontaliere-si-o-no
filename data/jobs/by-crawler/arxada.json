@@ -993,9 +993,9 @@
       "slug": "operatore-in-2-schicht-arxada-visp",
       "slugByLocale": {
         "it": "operatore-in-2-schicht-arxada-visp",
-        "en": "operator-2-shift-arxada-visp",
+        "en": "operator-in-2-layer-arxada-visp",
         "de": "operator-in-2-schicht-arxada-visp",
-        "fr": "operateur-2-tours-arxada-visp"
+        "fr": "operateur-in-2-schicht-arxada-visp"
       },
       "company": "Arxada",
       "companyKey": "arxada",
@@ -1044,18 +1044,22 @@
           "operator-in-2-schicht-arxada-visp"
         ],
         "en": [
-          "operator-operator-2-shift-arxada-visp"
+          "operator-operator-2-shift-arxada-visp",
+          "operator-2-shift-arxada-visp"
         ],
         "fr": [
-          "operateur-operatrice-2-shift-arxada-visp"
+          "operateur-operatrice-2-shift-arxada-visp",
+          "operateur-2-tours-arxada-visp"
         ]
       },
       "previousSlugs": [
         "operator-in-2-schicht-arxada-ch",
-        "operator-in-2-schicht-arxada-visp",
         "operatore-a-2-schicht-arxada-visp",
+        "operator-in-2-schicht-arxada-visp",
         "operator-operator-2-shift-arxada-visp",
-        "operateur-operatrice-2-shift-arxada-visp"
+        "operator-2-shift-arxada-visp",
+        "operateur-operatrice-2-shift-arxada-visp",
+        "operateur-2-tours-arxada-visp"
       ],
       "firstSeenAt": "2026-05-17T09:39:34.264Z",
       "salaryMin": 49500,

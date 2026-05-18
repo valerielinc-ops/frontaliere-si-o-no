@@ -1652,7 +1652,7 @@
       },
       "slugByLocale": {
         "it": "tecnici-di-servizio-100-halter-gebaudetechnik-ag-dubendorf",
-        "en": "service-technicians-100-halter-gebaudetechnik-ag-dubendorf",
+        "en": "service-technician-sanitar-100-halter-gebaudetechnik-ag-dubendorf",
         "de": "servicetechniker-in-sanitar-100-halter-gebaudetechnik-ag-dubendorf",
         "fr": "technicien-ne-de-service-sanitar-100-halter-gebaudetechnik-ag-dubendorf"
       },
@@ -1668,7 +1668,8 @@
           "tecnico-a-di-servizio-sanitar-100-halter-gebaudetechnik-ag-dubendorf"
         ],
         "en": [
-          "servicetechniker-in-sanitar-100-halter-gebaudetechnik-ag-dubendorf"
+          "servicetechniker-in-sanitar-100-halter-gebaudetechnik-ag-dubendorf",
+          "service-technicians-100-halter-gebaudetechnik-ag-dubendorf"
         ],
         "fr": [
           "servicetechniker-in-sanitar-100-halter-gebaudetechnik-ag-dubendorf",
@@ -1678,6 +1679,7 @@
       "previousSlugs": [
         "servicetechniker-in-sanitar-100-halter-gebaudetechnik-ag-dubendorf",
         "tecnico-a-di-servizio-sanitar-100-halter-gebaudetechnik-ag-dubendorf",
+        "service-technicians-100-halter-gebaudetechnik-ag-dubendorf",
         "techniciens-de-services-100-halter-gebaudetechnik-ag-dubendorf"
       ],
       "salaryMin": 49500,
@@ -1936,9 +1938,9 @@
       },
       "slugByLocale": {
         "it": "servicemonteur-sanitar-e-o-heizung-m-w-d-80-100-arnold-ag-heizung-sanitar-schattdorf",
-        "en": "servicemonteur-sanitar-und-oder-heizung-m-w-d-80-100-arnold-ag-heizung-sanitar-schattdorf",
+        "en": "servicemonteur-sanitary-and-or-heating-m-w-d-80-100-arnold-ag-heizung-sanitar-schattdorf",
         "de": "servicemonteur-sanitar-und-oder-heizung-m-w-d-80-100-arnold-ag-heizung-sanitar-schattdorf",
-        "fr": "servicemonteur-sanitar-und-oder-heizung-m-w-d-80-100-arnold-ag-heizung-sanitar-schattdorf"
+        "fr": "servicemonteur-sanitaire-et-ou-chauffage-m-p-j-80-100-arnold-ag-heizung-sanitar-schattdorf"
       },
       "crawledAt": "2026-05-17T21:14:58.667Z",
       "coordinates": [
@@ -1948,6 +1950,12 @@
       "id": "burkhalter-group-86df09bdf3ee",
       "previousSlugsByLocale": {
         "it": [
+          "servicemonteur-sanitar-und-oder-heizung-m-w-d-80-100-arnold-ag-heizung-sanitar-schattdorf"
+        ],
+        "en": [
+          "servicemonteur-sanitar-und-oder-heizung-m-w-d-80-100-arnold-ag-heizung-sanitar-schattdorf"
+        ],
+        "fr": [
           "servicemonteur-sanitar-und-oder-heizung-m-w-d-80-100-arnold-ag-heizung-sanitar-schattdorf"
         ]
       },
@@ -7035,7 +7043,7 @@
         "it": "installatore-trice-elettrico-a-in-cfc-100-elektrohuus-von-allmen-ag-gstaad",
         "en": "electric-installer-in-efz-100-elektrohuus-von-allmen-ag-gstaad",
         "de": "elektroinstallateur-in-efz-100-elektrohuus-von-allmen-ag-gstaad",
-        "fr": "installation-electrique-dans-efz-100-elektrohuus-von-allmen-ag-gstaad"
+        "fr": "installateur-trice-electricien-ne-efz-100-elektrohuus-von-allmen-ag-gstaad"
       },
       "crawledAt": "2026-05-17T21:14:58.737Z",
       "coordinates": [
@@ -7051,11 +7059,13 @@
           "elektroinstallateur-in-efz-100-elektrohuus-von-allmen-ag-gstaad"
         ],
         "fr": [
-          "elektroinstallateur-in-efz-100-elektrohuus-von-allmen-ag-gstaad"
+          "elektroinstallateur-in-efz-100-elektrohuus-von-allmen-ag-gstaad",
+          "installation-electrique-dans-efz-100-elektrohuus-von-allmen-ag-gstaad"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-efz-100-elektrohuus-von-allmen-ag-gstaad"
+        "elektroinstallateur-in-efz-100-elektrohuus-von-allmen-ag-gstaad",
+        "installation-electrique-dans-efz-100-elektrohuus-von-allmen-ag-gstaad"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -9529,7 +9539,7 @@
       },
       "slugByLocale": {
         "it": "installatore-trice-elettrico-a-in-cfc-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil",
-        "en": "elektroinstallateur-in-efz-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil",
+        "en": "electrical-installer-efz-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil",
         "de": "elektroinstallateur-in-efz-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil",
         "fr": "installateur-trice-electricien-ne-efz-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil"
       },
@@ -9544,6 +9554,9 @@
           "elektroinstallateur-in-efz-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil"
         ],
         "fr": [
+          "elektroinstallateur-in-efz-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil"
+        ],
+        "en": [
           "elektroinstallateur-in-efz-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil"
         ]
       },
@@ -9603,7 +9616,7 @@
       },
       "slugByLocale": {
         "it": "bauleitende-r-installatore-trice-elettrico-a-in-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil",
-        "en": "bauleitende-r-elektroinstallateur-in-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil",
+        "en": "bauleitende-r-electrical-installer-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil",
         "de": "bauleitende-r-elektroinstallateur-in-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil",
         "fr": "bauleitende-r-installateur-trice-electricien-ne-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil"
       },
@@ -9618,6 +9631,9 @@
           "bauleitende-r-elektroinstallateur-in-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil"
         ],
         "fr": [
+          "bauleitende-r-elektroinstallateur-in-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil"
+        ],
+        "en": [
           "bauleitende-r-elektroinstallateur-in-100-elektro-gutzwiller-znl-der-elektro-schmidlin-ag-oberwil"
         ]
       },
@@ -10812,7 +10828,7 @@
       },
       "slugByLocale": {
         "it": "elektro-tecnico-a-di-servizio-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria",
-        "en": "elektro-servicetechniker-in-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria",
+        "en": "elektro-service-technician-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria",
         "de": "elektro-servicetechniker-in-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria",
         "fr": "elektro-servicetechniker-in-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria"
       },
@@ -10824,6 +10840,9 @@
       "id": "burkhalter-group-737858e56511",
       "previousSlugsByLocale": {
         "it": [
+          "elektro-servicetechniker-in-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria"
+        ],
+        "en": [
           "elektro-servicetechniker-in-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria"
         ]
       },
@@ -10885,9 +10904,9 @@
       },
       "slugByLocale": {
         "it": "installatore-trice-elettrico-a-in-cfc-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria",
-        "en": "elektroinstallateur-in-efz-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria",
+        "en": "electrical-installer-efz-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria",
         "de": "elektroinstallateur-in-efz-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria",
-        "fr": "elektroinstallateur-in-efz-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria"
+        "fr": "installateur-trice-electricien-ne-efz-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria"
       },
       "crawledAt": "2026-05-17T21:14:58.781Z",
       "coordinates": [
@@ -10897,6 +10916,12 @@
       "id": "burkhalter-group-a9ec5cb166ca",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-efz-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria"
+        ],
+        "en": [
+          "elektroinstallateur-in-efz-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria"
+        ],
+        "fr": [
           "elektroinstallateur-in-efz-100-fliri-conrad-electro-znl-der-electra-buin-sa-sta-maria"
         ]
       },
@@ -12227,9 +12252,9 @@
       },
       "slugByLocale": {
         "it": "tecnici-di-servizio-100-hans-ziegler-ag-hauptsitz-lachen",
-        "en": "service-technicians-100-hans-ziegler-ag-hauptsitz-lachen",
+        "en": "service-technician-sanitartechnik-100-hans-ziegler-ag-hauptsitz-lachen",
         "de": "servicetechniker-in-sanitartechnik-100-hans-ziegler-ag-hauptsitz-lachen",
-        "fr": "techniciens-de-services-100-hans-ziegler-ag-hauptsitz-lachen"
+        "fr": "technicien-ne-de-service-sanitartechnik-100-hans-ziegler-ag-hauptsitz-lachen"
       },
       "crawledAt": "2026-05-17T21:14:58.794Z",
       "coordinates": [
@@ -12243,15 +12268,19 @@
           "tecnico-a-di-servizio-sanitartechnik-100-hans-ziegler-ag-hauptsitz-lachen"
         ],
         "en": [
-          "servicetechniker-in-sanitartechnik-100-hans-ziegler-ag-hauptsitz-lachen"
+          "servicetechniker-in-sanitartechnik-100-hans-ziegler-ag-hauptsitz-lachen",
+          "service-technicians-100-hans-ziegler-ag-hauptsitz-lachen"
         ],
         "fr": [
-          "servicetechniker-in-sanitartechnik-100-hans-ziegler-ag-hauptsitz-lachen"
+          "servicetechniker-in-sanitartechnik-100-hans-ziegler-ag-hauptsitz-lachen",
+          "techniciens-de-services-100-hans-ziegler-ag-hauptsitz-lachen"
         ]
       },
       "previousSlugs": [
         "servicetechniker-in-sanitartechnik-100-hans-ziegler-ag-hauptsitz-lachen",
-        "tecnico-a-di-servizio-sanitartechnik-100-hans-ziegler-ag-hauptsitz-lachen"
+        "tecnico-a-di-servizio-sanitartechnik-100-hans-ziegler-ag-hauptsitz-lachen",
+        "service-technicians-100-hans-ziegler-ag-hauptsitz-lachen",
+        "techniciens-de-services-100-hans-ziegler-ag-hauptsitz-lachen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -13274,7 +13303,7 @@
         "it": "installatore-trice-elettrico-a-in-cfc-100-pauli-elektro-ag-burgdorf",
         "en": "electric-installer-in-efz-100-pauli-elektro-ag-burgdorf",
         "de": "elektroinstallateur-in-efz-100-pauli-elektro-ag-burgdorf",
-        "fr": "installation-electrique-dans-efz-100-pauli-elektro-ag-burgdorf"
+        "fr": "installateur-trice-electricien-ne-efz-100-pauli-elektro-ag-burgdorf"
       },
       "crawledAt": "2026-05-17T21:14:58.804Z",
       "coordinates": [
@@ -13290,11 +13319,13 @@
           "elektroinstallateur-in-efz-100-pauli-elektro-ag-burgdorf"
         ],
         "fr": [
-          "elektroinstallateur-in-efz-100-pauli-elektro-ag-burgdorf"
+          "elektroinstallateur-in-efz-100-pauli-elektro-ag-burgdorf",
+          "installation-electrique-dans-efz-100-pauli-elektro-ag-burgdorf"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-efz-100-pauli-elektro-ag-burgdorf"
+        "elektroinstallateur-in-efz-100-pauli-elektro-ag-burgdorf",
+        "installation-electrique-dans-efz-100-pauli-elektro-ag-burgdorf"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -13895,9 +13926,9 @@
       },
       "slugByLocale": {
         "it": "installatore-trice-elettrico-a-in-cfc-100-robert-widmer-ag-elektrische-anlagen-luzern",
-        "en": "elektroinstallateur-in-efz-100-robert-widmer-ag-elektrische-anlagen-luzern",
+        "en": "electrical-installer-efz-100-robert-widmer-ag-elektrische-anlagen-luzern",
         "de": "elektroinstallateur-in-efz-100-robert-widmer-ag-elektrische-anlagen-luzern",
-        "fr": "installation-electrique-dans-efz-100-robert-widmer-ag-elektrische-anlagen-luzern"
+        "fr": "installateur-trice-electricien-ne-efz-100-robert-widmer-ag-elektrische-anlagen-luzern"
       },
       "crawledAt": "2026-05-17T21:14:58.811Z",
       "coordinates": [
@@ -13910,11 +13941,16 @@
           "elektroinstallateur-in-efz-100-robert-widmer-ag-elektrische-anlagen-luzern"
         ],
         "fr": [
+          "elektroinstallateur-in-efz-100-robert-widmer-ag-elektrische-anlagen-luzern",
+          "installation-electrique-dans-efz-100-robert-widmer-ag-elektrische-anlagen-luzern"
+        ],
+        "en": [
           "elektroinstallateur-in-efz-100-robert-widmer-ag-elektrische-anlagen-luzern"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-efz-100-robert-widmer-ag-elektrische-anlagen-luzern"
+        "elektroinstallateur-in-efz-100-robert-widmer-ag-elektrische-anlagen-luzern",
+        "installation-electrique-dans-efz-100-robert-widmer-ag-elektrische-anlagen-luzern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -14559,7 +14595,7 @@
         "it": "installatore-trice-elettrico-a-in-cfc-100-elektro-bau-ag-rothrist",
         "en": "electric-installer-in-efz-100-elektro-bau-ag-rothrist-rothrist",
         "de": "elektroinstallateur-in-efz-100-elektro-bau-ag-rothrist-rothrist",
-        "fr": "installation-electrique-dans-efz-100-elektro-bau-ag-rothrist-rothrist"
+        "fr": "installateur-trice-electricien-ne-efz-100-elektro-bau-ag-rothrist-rothrist"
       },
       "crawledAt": "2026-05-17T21:14:58.819Z",
       "coordinates": [
@@ -14575,11 +14611,13 @@
           "elektroinstallateur-in-efz-100-elektro-bau-ag-rothrist-rothrist"
         ],
         "fr": [
-          "elektroinstallateur-in-efz-100-elektro-bau-ag-rothrist-rothrist"
+          "elektroinstallateur-in-efz-100-elektro-bau-ag-rothrist-rothrist",
+          "installation-electrique-dans-efz-100-elektro-bau-ag-rothrist-rothrist"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-efz-100-elektro-bau-ag-rothrist-rothrist"
+        "elektroinstallateur-in-efz-100-elektro-bau-ag-rothrist-rothrist",
+        "installation-electrique-dans-efz-100-elektro-bau-ag-rothrist-rothrist"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -15211,10 +15249,7 @@
       },
       "streetAddress": "Via Cantonale",
       "postalCode": "6928",
-      "firstSeenAt": "2026-05-17T09:50:14.993Z",
-      "previousSlugs": [
-        "depanneur-installateur-electricien-avec-cfc-depanneuse-installatrice-electricienne-avec-cfc-100-merinat-s-a-succursale-d"
-      ]
+      "firstSeenAt": "2026-05-17T09:50:14.993Z"
     },
     {
       "title": "Dépanneur installateur électricien avec CFC / Dépanneuse installatrice électricienne avec CFC (100%)",
@@ -15406,7 +15441,7 @@
       },
       "slugByLocale": {
         "it": "bauleitende-r-installatore-trice-elettrico-a-in-cfc-100-elektro-niklaus-ag-bischofszell",
-        "en": "building-director-r-electric-installer-in-efz-100-elektro-niklaus-ag-bischofszell",
+        "en": "bauleitende-r-electrical-installer-efz-100-elektro-niklaus-ag-bischofszell",
         "de": "bauleitende-r-elektroinstallateur-in-efz-100-elektro-niklaus-ag-bischofszell",
         "fr": "directeur-du-batiment-r-installateur-electrique-dans-efz-100-elektro-niklaus-ag-bischofszell"
       },
@@ -15421,14 +15456,16 @@
           "bauleitende-r-elektroinstallateur-in-efz-100-elektro-niklaus-ag-bischofszell"
         ],
         "en": [
-          "bauleitende-r-elektroinstallateur-in-efz-100-elektro-niklaus-ag-bischofszell"
+          "bauleitende-r-elektroinstallateur-in-efz-100-elektro-niklaus-ag-bischofszell",
+          "building-director-r-electric-installer-in-efz-100-elektro-niklaus-ag-bischofszell"
         ],
         "fr": [
           "bauleitende-r-elektroinstallateur-in-efz-100-elektro-niklaus-ag-bischofszell"
         ]
       },
       "previousSlugs": [
-        "bauleitende-r-elektroinstallateur-in-efz-100-elektro-niklaus-ag-bischofszell"
+        "bauleitende-r-elektroinstallateur-in-efz-100-elektro-niklaus-ag-bischofszell",
+        "building-director-r-electric-installer-in-efz-100-elektro-niklaus-ag-bischofszell"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -15783,7 +15820,7 @@
         "it": "installatore-trice-elettrico-a-in-cfc-100-schild-elektro-ag-grindelwald",
         "en": "electric-installer-in-efz-100-schild-elektro-ag-grindelwald",
         "de": "elektroinstallateur-in-efz-100-schild-elektro-ag-grindelwald",
-        "fr": "installation-electrique-dans-efz-100-schild-elektro-ag-grindelwald"
+        "fr": "installateur-trice-electricien-ne-efz-100-schild-elektro-ag-grindelwald"
       },
       "crawledAt": "2026-05-17T21:14:58.834Z",
       "coordinates": [
@@ -15799,11 +15836,13 @@
           "elektroinstallateur-in-efz-100-schild-elektro-ag-grindelwald"
         ],
         "fr": [
-          "elektroinstallateur-in-efz-100-schild-elektro-ag-grindelwald"
+          "elektroinstallateur-in-efz-100-schild-elektro-ag-grindelwald",
+          "installation-electrique-dans-efz-100-schild-elektro-ag-grindelwald"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-efz-100-schild-elektro-ag-grindelwald"
+        "elektroinstallateur-in-efz-100-schild-elektro-ag-grindelwald",
+        "installation-electrique-dans-efz-100-schild-elektro-ag-grindelwald"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -17935,7 +17974,7 @@
         "it": "installatore-trice-elettrico-a-in-cfc-100-elektro-steiger-altstatten",
         "en": "electrical-installer-efz-elektro-steiger-altstatten",
         "de": "elektroinstallateur-in-efz-100-elektro-steiger-altstatten",
-        "fr": "electricien-efz-elektro-steiger-altstatten"
+        "fr": "installateur-trice-electricien-ne-efz-100-elektro-steiger-altstatten"
       },
       "crawledAt": "2026-05-17T21:14:58.863Z",
       "coordinates": [
@@ -17952,12 +17991,14 @@
           "elektroinstallateur-in-efz-100-elektro-steiger-altstatten"
         ],
         "fr": [
-          "elektroinstallateur-in-efz-100-elektro-steiger-altstatten"
+          "elektroinstallateur-in-efz-100-elektro-steiger-altstatten",
+          "electricien-efz-elektro-steiger-altstatten"
         ]
       },
       "previousSlugs": [
         "elektroinstallateur-in-efz-100-elektro-steiger-altstatten",
-        "elettricista-efz-elektro-steiger-altstatten"
+        "elettricista-efz-elektro-steiger-altstatten",
+        "electricien-efz-elektro-steiger-altstatten"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -18885,7 +18926,7 @@
       },
       "slugByLocale": {
         "it": "installatore-trice-elettrico-a-in-cfc-100-robert-widmer-ag-elektrische-anlagen-kussnacht",
-        "en": "elektroinstallateur-in-efz-100-robert-widmer-ag-elektrische-anlagen-kussnacht",
+        "en": "electrical-installer-efz-100-robert-widmer-ag-elektrische-anlagen-kussnacht",
         "de": "elektroinstallateur-in-efz-100-robert-widmer-ag-elektrische-anlagen-kussnacht",
         "fr": "installateur-trice-electricien-ne-efz-100-robert-widmer-ag-elektrische-anlagen-kussnacht"
       },
@@ -18900,6 +18941,9 @@
           "elektroinstallateur-in-efz-100-robert-widmer-ag-elektrische-anlagen-kussnacht"
         ],
         "fr": [
+          "elektroinstallateur-in-efz-100-robert-widmer-ag-elektrische-anlagen-kussnacht"
+        ],
+        "en": [
           "elektroinstallateur-in-efz-100-robert-widmer-ag-elektrische-anlagen-kussnacht"
         ]
       },
