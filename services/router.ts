@@ -2032,6 +2032,49 @@ export interface ParseResult {
  redirectTo?: string;
 }
 
+/**
+ * Hub-index slugs (page-1 of the seoHubs paginated indexes) emitted under
+ * every per-canton job-board section as `/cerca-lavoro-{canton}/{slug}/`.
+ * Accepts every locale variant since URL → locale resolution upstream may
+ * tolerate slight mismatches (defensive).
+ */
+const CANTON_HUB_EXACT_SLUGS: ReadonlySet<string> = new Set([
+  // tutti / all / alle / tous
+  'tutti', 'all', 'alle', 'tous',
+  // settori / sectors / branchen / secteurs
+  'settori', 'sectors', 'branchen', 'secteurs',
+  // aziende / companies / unternehmen / entreprises
+  'aziende', 'companies', 'unternehmen', 'entreprises',
+]);
+
+/**
+ * Slug-prefix patterns for per-canton static SEO pages emitted by
+ * jobsSeoPagesPlugin: pagination (`pagina-N` / `page-N` / `seite-N`),
+ * per-company hubs (`azienda-X` / `company-X` / `unternehmen-X` /
+ * `entreprise-X`) and category listings (`categoria-X` / `category-X` /
+ * `kategorie-X` / `categorie-X`). All three families wrap real HTML files
+ * on disk and must not be misrouted to the SPA's job-detail view.
+ */
+const CANTON_PAGINATION_RE = /^(?:pagina|page|seite)-\d+$/;
+const CANTON_COMPANY_PREFIX_RE = /^(?:azienda|company|unternehmen|entreprise)-[a-z0-9][a-z0-9-]*$/;
+const CANTON_CATEGORY_PREFIX_RE = /^(?:categoria|category|kategorie|categorie)-[a-z0-9][a-z0-9-]*$/;
+
+/**
+ * Returns true iff `slug` is a canonical static-SEO sub-page under a
+ * per-canton job-board section (e.g. `/cerca-lavoro-basilea/<slug>/`).
+ * Caller pairs this with `staticOverlay: true` so the SPA click
+ * interceptor falls through to a native navigation (the file is served
+ * from `dist/` and renders standalone via the SPA shell).
+ */
+function isCantonStaticOverlaySlug(slug: string): boolean {
+  if (!slug) return false;
+  if (CANTON_HUB_EXACT_SLUGS.has(slug)) return true;
+  if (CANTON_PAGINATION_RE.test(slug)) return true;
+  if (CANTON_COMPANY_PREFIX_RE.test(slug)) return true;
+  if (CANTON_CATEGORY_PREFIX_RE.test(slug)) return true;
+  return false;
+}
+
 export function parsePath(pathname: string): ParseResult {
  const path = pathname.replace(/\/$/, '').toLowerCase() || '/';
  const allParts = path.split('/').filter(Boolean);
@@ -2443,6 +2486,25 @@ export function parsePath(pathname: string): ParseResult {
            locale,
          };
        }
+       // Build-time static SEO pages emitted under /cerca-lavoro-{canton}/:
+       // hub indexes (tutti/settori/aziende + locale equivalents) from
+       // seoHubsPlugin; pagination (pagina-N / page-N / seite-N) from
+       // jobsSeoPagesPlugin (per-canton paginated listings); company hubs
+       // (azienda-/company-/unternehmen-/entreprise-) and category listings
+       // (categoria-/category-/kategorie-/categorie-) likewise emitted by
+       // jobsSeoPagesPlugin. All exist as real HTML on disk and hydrate
+       // the SPA shell. Without staticOverlay the click interceptor would
+       // intercept these links and treat the trailing slug as a `jobSlug`
+       // → JobBoard renders "Annuncio non trovato" while a new-tab open
+       // works (browser loads the static HTML directly). Returning
+       // staticOverlay:true lets the click interceptor fall through to
+       // native navigation so the static page is fetched as designed.
+       if (isCantonStaticOverlaySlug(rawSecond)) {
+          return {
+            route: { activeTab: 'job-board', jobBoardCanton: cantonCode, staticOverlay: true },
+            locale,
+          };
+        }
        // Non-city second segment: treat as a job detail slug. We pass it
        // through as `jobSlug` so the existing job-detail rendering path
        // handles it. Build-time SEO pages provide static-overlay
