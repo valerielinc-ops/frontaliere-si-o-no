@@ -207,7 +207,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  <Gift size={28} />
  <h2 className="text-2xl font-bold font-display">{t('bonus.title')}</h2>
  </div>
- <p className="text-success text-sm">{t('bonus.subtitle')}</p>
+ <p className="text-on-accent/80 text-sm">{t('bonus.subtitle')}</p>
  </div>
 
  {/* Input section */}
