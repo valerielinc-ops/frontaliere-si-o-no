@@ -1,18 +1,62 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-05-17T22:09:51.587Z",
-  "total": 24,
-  "newCount": 0,
+  "generatedAt": "2026-05-18T12:53:14.766Z",
+  "total": 25,
+  "newCount": 1,
   "updatedCount": 22,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 39550,
-  "avgDurationMs": 39550,
+  "durationMs": 51759,
+  "avgDurationMs": 51759,
   "durationHistory": [
-    39550
+    51759
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-pgglsr",
+      "slug": "mitarbeiter-in-take-away-genossenschaft-migros-ostschweiz-chur",
+      "company": "Genossenschaft Migros Ostschweiz",
+      "title": "Mitarbeiter*in Take away",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/mitarbeiterin-take-away/f3adae64-a6ec-44e6-a3e9-61bd8d600c33",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du produzierst verschiedene Speisen gemäss vorgegebenen Rezepturen",
+        "Du präsentierst unsere Speisen am Take-away-Counter ansprechend – abgestimmt auf Tageszeit und Saison",
+        "Du betreust und bedienst unsere Kunden am Take-away und an der Kasse mit einem Lächeln",
+        "Du berätst unsere Kunden über das Bestell- und Abholsortiment und hilfst ihnen bei individuellen Wünschen",
+        "Du führst diverse Reinigungsarbeiten durch und sorgst für einen glänzenden und einladenden Take away Bereich",
+        "Du stellst die Einhaltung der Hygienevorschriften (Food Safety) sicher und garantierst höchste Qualität"
+      ],
+      "_migrosBenefits": [
+        "Berufliche Vorsorge: Attraktive Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung",
+        "Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde",
+        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
+        "Versicherungen: Vorteilskonditionen bei diversen Versicherungsgesellschaften"
+      ],
+      "_migrosWorkPercentage": "33%",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-05-18T12:53:11.956Z",
+      "firstSeenAt": "2026-05-18T12:53:11.956Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 9,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-70fjie",
