@@ -223,3 +223,80 @@ main { max-width: 1120px; margin: 0 auto; display: grid; gap: 12px; }
   color: var(--color-subtle);
   margin-top: 2px;
 }
+
+/* ── Soft-landing template (jobsSeoPagesPlugin / buildSoftLandingHtml) ── */
+/* ~98k expired-job soft-landing pages — each one inlined ~1 KB of
+   identical CSS for nav/footer/article/dark-mode. Extraction here saves
+   ~100 MB across dist. */
+.ft-static-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-job-sticky-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-job-sticky-border);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+  padding: 0 16px;
+}
+.ft-static-nav .ft-row {
+  max-width: 2400px;
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  gap: 12px;
+}
+.ft-static-nav .ft-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--color-link);
+  font-weight: 700;
+  font-size: 15px;
+  font-family: system-ui, sans-serif;
+}
+.ft-static-nav .ft-spacer { flex: 1; }
+.ft-static-nav .ft-section {
+  font-size: 13px;
+  color: var(--color-accent);
+  text-decoration: none;
+  font-family: system-ui, sans-serif;
+}
+.ft-static-article {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  font-family: system-ui, sans-serif;
+  color: var(--color-body);
+}
+.ft-static-footer {
+  border-top: 1px solid var(--color-edge);
+  background: var(--color-surface);
+  padding: 24px 16px;
+  margin-top: auto;
+  font-family: system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--color-subtle);
+  text-align: center;
+}
+.ft-static-footer .ft-wrap { max-width: 1280px; margin: 0 auto; }
+.ft-static-footer a { color: var(--color-accent); text-decoration: none; }
+
+/* Dark-mode (moved from inline `darkModeStyles` in jobsSeoPagesPlugin.ts). */
+.dark body { background: #0f172a; color: #e2e8f0; }
+.dark .ft-static-nav {
+  background: rgba(15, 23, 42, .7);
+  border-color: rgba(30, 41, 59, .5);
+}
+.dark .ft-static-nav a { color: #93c5fd; }
+.dark .ft-static-article { color: #e2e8f0; }
+.dark .ft-static-article a { color: #818cf8; }
+.dark .ft-static-footer {
+  background: rgba(15, 23, 42, .5);
+  border-color: rgba(30, 41, 59, 1);
+  color: #94a3b8;
+}
+.dark .ft-static-footer a { color: #93c5fd; }

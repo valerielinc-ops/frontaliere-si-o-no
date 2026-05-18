@@ -9066,15 +9066,11 @@ ${alternates}
  // Avoids re-building the same ~2KB of boilerplate for each page.
  const currentYear = new Date().getFullYear();
  const darkModeScript = `<script>(function(){if(localStorage.theme==='dark'||((!('theme' in localStorage))&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}})()</script>`;
- const darkModeStyles = `<style>
- .dark body{background:#0f172a;color:#e2e8f0}
- .dark .ft-static-nav{background:rgba(15,23,42,.7);border-color:rgba(30,41,59,.5)}
- .dark .ft-static-nav a{color:#93c5fd}
- .dark .ft-static-article{color:#e2e8f0}
- .dark .ft-static-article a{color:#818cf8}
- .dark .ft-static-footer{background:rgba(15,23,42,.5);border-color:rgba(30,41,59,1);color:#94a3b8}
- .dark .ft-static-footer a{color:#93c5fd}
- </style>`;
+ // darkModeStyles + nav/footer/article inline styles now live in
+ // /assets/seo-static.css (loaded via <link> in the template head).
+ // Deduplicates ~1 KB of identical CSS across ~98k soft-landing pages
+ // → saves ~100 MB across dist.
+ const seoStaticCssLink = `<link rel="stylesheet" href="/assets/seo-static.css?v=${BUILD_ID}">`;
  const navSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="28" height="28"><rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b"/><rect x="22" y="22" width="56" height="20" rx="4" fill="#94a3b8"/><rect x="22" y="52" width="24" height="24" rx="6" fill="#dc2626"/><path d="M34 58v12M28 64h12" stroke="white" stroke-width="3" stroke-linecap="round"/><mask id="m"><rect x="54" y="52" width="24" height="24" rx="6" fill="white"/></mask><g mask="url(#m)"><rect x="54" y="52" width="8" height="24" fill="#16a34a"/><rect x="62" y="52" width="8" height="24" fill="white"/><rect x="70" y="52" width="8" height="24" fill="#dc2626"/></g></svg>`;
  const spaBundleCss = hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : '';
  const spaBundleJs = hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : '';
@@ -9083,22 +9079,8 @@ ${alternates}
  const lp = `${localePrefix[l]}/${sectionByLocale[l]}/`.replace(/\/+/g, '/');
  const sectionLink = `${BASE_URL}${lp}`;
  const sectionName = esc(localeCopy[l].sectionName);
- const nav = `<nav class="ft-static-nav" aria-label="Navigazione principale" style="position:sticky;top:0;z-index:50;background:var(--color-job-sticky-bg);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--color-job-sticky-border);box-shadow:0 1px 2px rgba(0,0,0,.05);padding:0 16px">
- <div style="max-width:2400px;width:95%;margin:0 auto;display:flex;align-items:center;height:56px;gap:12px">
- <a href="${BASE_URL}/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--color-link);font-weight:700;font-size:15px;font-family:system-ui,sans-serif">
- ${navSvg}
- Frontaliere Ticino
- </a>
- <span style="flex:1"></span>
- <a href="${sectionLink}" style="font-size:13px;color:var(--color-accent);text-decoration:none;font-family:system-ui,sans-serif">${sectionName}</a>
- </div>
- </nav>`;
- const footer = `<footer class="ft-static-footer" style="border-top:1px solid var(--color-edge);background:var(--color-surface);padding:24px 16px;margin-top:auto;font-family:system-ui,sans-serif;font-size:13px;color:var(--color-subtle);text-align:center">
- <div style="max-width:1280px;margin:0 auto">
- &copy; ${currentYear} <a href="${BASE_URL}/" style="color:var(--color-accent);text-decoration:none">Frontaliere Ticino</a> &mdash;
- <a href="${sectionLink}" style="color:var(--color-accent);text-decoration:none">${sectionName}</a>
- </div>
- </footer>`;
+ const nav = `<nav class="ft-static-nav" aria-label="Navigazione principale"><div class="ft-row"><a href="${BASE_URL}/" class="ft-brand">${navSvg} Frontaliere Ticino</a><span class="ft-spacer"></span><a href="${sectionLink}" class="ft-section">${sectionName}</a></div></nav>`;
+ const footer = `<footer class="ft-static-footer"><div class="ft-wrap">&copy; ${currentYear} <a href="${BASE_URL}/">Frontaliere Ticino</a> &mdash; <a href="${sectionLink}">${sectionName}</a></div></footer>`;
  return [l, { nav, footer, listingPath: lp }];
  }));
 
@@ -9120,7 +9102,7 @@ ${alternates}
  <link rel="canonical" href="${selfUrl}">
 ${hreflangLinks}
  ${darkModeScript}
- ${darkModeStyles}
+ ${seoStaticCssLink}
  ${jsonLdScripts}
  <script>window.__EXPIRED_JOB_DATA__=${expiredWindowData};window.__STATIC_BODY_HTML__=${staticBodyJson};</script>${spaBundleCss}
  ${SPA_ACTION_REDIRECT_SCRIPT}
@@ -9130,7 +9112,7 @@ ${hreflangLinks}
  <body>
  <div id="root">
  ${shell.nav}
- <article class="ft-static-article" style="max-width:1280px;margin:0 auto;padding:24px 16px;font-family:system-ui,sans-serif;color:var(--color-body);">
+ <article class="ft-static-article">
  ${staticBody}
  </article>
  ${shell.footer}
