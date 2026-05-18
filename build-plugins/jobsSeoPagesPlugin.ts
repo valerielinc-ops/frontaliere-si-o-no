@@ -9071,7 +9071,10 @@ ${alternates}
  // Deduplicates ~1 KB of identical CSS across ~98k soft-landing pages
  // → saves ~100 MB across dist.
  const seoStaticCssLink = `<link rel="stylesheet" href="/assets/seo-static.css?v=${BUILD_ID}">`;
- const navSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="28" height="28"><rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b"/><rect x="22" y="22" width="56" height="20" rx="4" fill="#94a3b8"/><rect x="22" y="52" width="24" height="24" rx="6" fill="#dc2626"/><path d="M34 58v12M28 64h12" stroke="white" stroke-width="3" stroke-linecap="round"/><mask id="m"><rect x="54" y="52" width="24" height="24" rx="6" fill="white"/></mask><g mask="url(#m)"><rect x="54" y="52" width="8" height="24" fill="#16a34a"/><rect x="62" y="52" width="8" height="24" fill="white"/><rect x="70" y="52" width="8" height="24" fill="#dc2626"/></g></svg>`;
+ // Externalised from inline <svg> (~700 B/page) — same logo now served from
+ // /assets/logo.svg, cached by browser. Saves ~68 MB across ~98k soft-landing
+ // pages. Static path; browser caches first-load globally.
+ const navSvg = `<img src="/assets/logo.svg" width="28" height="28" alt="" loading="lazy" decoding="async">`;
  const spaBundleCss = hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : '';
  const spaBundleJs = hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : '';
  // Per-locale pre-built nav + footer (only 4 strings to cache)
