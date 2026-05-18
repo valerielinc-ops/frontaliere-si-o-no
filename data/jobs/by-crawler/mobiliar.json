@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "mobiliar-391038408440",
-      "slug": "digital-content-specialist-w-m-d-mobiliar-ch",
+      "slug": "specialista-di-contenuti-digitali-uomo-donna-die-mobiliar-bern",
       "slugByLocale": {
         "de": "digital-content-specialist-w-m-d-mobiliar-ch",
-        "it": "digital-content-specialist-w-m-d-mobiliar-ch",
+        "it": "specialista-di-contenuti-digitali-uomo-donna-die-mobiliar-bern",
         "en": "digital-content-specialist-w-m-d-mobiliar-ch",
-        "fr": "digital-content-specialist-w-m-d-mobiliar-ch"
+        "fr": "specialiste-du-contenu-numerique-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -83,7 +83,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-17T22:13:27.966Z"
+      "firstSeenAt": "2026-05-17T22:13:27.966Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-content-specialist-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "digital-content-specialist-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "digital-content-specialist-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-9e43bdc3ede0",
