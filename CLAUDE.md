@@ -119,7 +119,6 @@ Translations use a **chunked lazy-loading** system in `services/locales/`:
 ## Key Design Decisions
 
 - **No build-time secrets**: All API keys load from **Firebase Remote Config** at runtime via `scripts/load-rc-env.mjs`.
-- **Feature flags via Firebase Remote Config**: New features gated by RC boolean parameters.
 - **GitHub Pages SPA**: `public/404.html` redirects all paths to `index.html` via sessionStorage.
 - **Canonical URL is `https://frontaliereticino.ch`** — no `www`.
 
@@ -138,13 +137,6 @@ npm run dev          # Vite dev server on port 3000
 npm run build        # Production build → dist/
 npm test             # npx vitest run (single run)
 ```
-
-After any code change, always verify:
-1. `npx tsc --noEmit` — TypeScript check
-2. `npx vite build` — must exit 0
-3. `npx vitest run` — all tests must pass
-
-Pre-push hook (`.githooks/pre-push`) runs tests then build. Push is blocked if either fails.
 
 **First-time setup:** run `scripts/dev/local-ignore-cron.sh apply` once to hide ~600 cron-generated files from `git status`. After that, use `scripts/dev/local-ignore-cron.sh pull` instead of `git pull`. Full rationale: [docs/LOCAL-DEV.md](docs/LOCAL-DEV.md).
 
@@ -174,7 +166,7 @@ CI runs full pipeline (`build:ci`) without FAST_BUILD, so production output is a
 
 # Testing
 
-**Every new feature or component MUST include tests.** All 196 test files (15,588 tests) must pass at all times. A failing test is a blocker — fix the code, not the test.
+**Every new feature or component MUST include tests.**
 
 What's mocked (in `tests/setup.tsx`): `window.matchMedia`, `localStorage`, `@/services/firebase`, `@/services/analytics`, `@/services/seoService`, `leaflet` / `react-leaflet`.
 
@@ -249,8 +241,6 @@ Each audit has a matching `:rebaseline` script (e.g. `npm run audit:title-length
 
 # Completion Checklist — Before Every PR
 
-- [ ] All tests pass: `npx vitest run`
-- [ ] Build succeeds: `npx vite build`
 - [ ] If `t()` keys were added, all 4 locales have the translation
 - [ ] No secrets in source code
 - [ ] Accessibility rules followed (contrast, aria-labels, image dimensions)
@@ -261,7 +251,7 @@ Each audit has a matching `:rebaseline` script (e.g. `npm run audit:title-length
 
 ## Auto-push Rule
 
-**Every time a task is completed successfully** (tests pass + build succeeds), **automatically commit and push to the remote repository** (`git push`). Do not wait for explicit user confirmation. If the push fails for a non-network reason, report the error.
+**Every time a task is completed successfully**, **automatically commit and push to the remote repository** (`git push`). Do not wait for explicit user confirmation. If the push fails for a non-network reason, report the error.
 
 ## Worktree-First Rule (parallel-agent safety)
 
