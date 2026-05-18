@@ -3,7 +3,7 @@ domains = []
 name = "frontaliere-ticino"
 
 [crawler]
-max_pages = 100
+max_pages = 120
 coverage = "surface"
 delay_ms = 100
 timeout_ms = 30000
@@ -12,7 +12,7 @@ follow_redirects = true
 concurrency = 5
 per_host_concurrency = 2
 per_host_delay_ms = 200
-include = ["/about", "/contact", "/privacy-policy"]
+include = []
 exclude = []
 allow_query_params = []
 drop_query_prefixes = [ "utm_", "gclid", "fbclid" ]
@@ -20,17 +20,29 @@ respect_robots = true
 breadth_first = true
 max_prefix_budget = 1.0
 seed_urls = [
-  "https://frontaliereticino.ch/chi-siamo",
-  "https://frontaliereticino.ch/contattaci",
-  "https://frontaliereticino.ch/privacy",
+  "https://frontaliereticino.ch/",
+  "https://frontaliereticino.ch/calcola-stipendio/",
+  "https://frontaliereticino.ch/calcola-stipendio/stipendio-netto-60000-chf/",
+  "https://frontaliereticino.ch/calcola-stipendio/confronta-retribuzione-ral",
+  "https://frontaliereticino.ch/cerca-lavoro-ticino/",
+  "https://frontaliereticino.ch/cerca-lavoro-ticino/lavora-con-noi-casale-sa-lugano",
+  "https://frontaliereticino.ch/cerca-lavoro-ticino/concorsi-per-l-assunzione-di-personale-educativo",
+  "https://frontaliereticino.ch/comparatori/",
+  "https://frontaliereticino.ch/comparatori/cambio-valuta",
+  "https://frontaliereticino.ch/fisco/",
+  "https://frontaliereticino.ch/guida-frontaliere/",
+  "https://frontaliereticino.ch/articoli-frontaliere/",
+  "https://frontaliereticino.ch/articoli-frontaliere/stipendio-medio-ticino-2026",
+  "https://frontaliereticino.ch/articoli-frontaliere/a13-cantieri-frontalieri-ticino",
+  "https://frontaliereticino.ch/vita-quotidiana/",
+  "https://frontaliereticino.ch/statistiche/",
   "https://frontaliereticino.ch/about",
   "https://frontaliereticino.ch/contact",
   "https://frontaliereticino.ch/privacy-policy",
-  "https://frontaliereticino.ch/articoli-frontaliere/a13-cantieri-frontalieri-ticino",
-  "https://frontaliereticino.ch/articoli-frontaliere/stipendio-medio-ticino-2026",
-  "https://frontaliereticino.ch/en/about-us",
-  "https://frontaliereticino.ch/en/contact-us",
-  "https://frontaliereticino.ch/en/privacy"
+  "https://frontaliereticino.ch/fuel-daily/coop-mendrisio",
+  "https://frontaliereticino.ch/aziende-che-assumono-questa-settimana/lugano",
+  "https://frontaliereticino.ch/health-premiums/ticino",
+  "https://frontaliereticino.ch/border-wait/chiasso-brogeda"
 ]
 
 [rules]
