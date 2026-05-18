@@ -40,6 +40,7 @@ import {
   buildNearWinQueries,
   clusterTopQueries,
 } from './lib/analytics-opportunity-utils.mjs';
+import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -3950,7 +3951,7 @@ async function reportIndexing(token, existingReport = {}) {
           method: 'POST',
           headers,
           body: JSON.stringify({
-            inspectionUrl: `${SITE_URL}${path}`,
+            inspectionUrl: normalizeInspectionUrl(`${SITE_URL}${path}`),
             siteUrl: siteUrl,
           }),
         }
