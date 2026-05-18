@@ -1,21 +1,22 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-05-18T12:53:14.766Z",
+  "generatedAt": "2026-05-18T22:26:03.634Z",
   "total": 25,
-  "newCount": 1,
-  "updatedCount": 22,
+  "newCount": 0,
+  "updatedCount": 23,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 51759,
-  "avgDurationMs": 51759,
+  "durationMs": 37872,
+  "avgDurationMs": 37872,
   "durationHistory": [
-    51759
+    37872
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-pgglsr",
-      "slug": "mitarbeiter-in-take-away-genossenschaft-migros-ostschweiz-chur",
+      "slug": "collaboratore-trice-in-take-away-genossenschaft-migros-ostschweiz-chur-pgglsr",
       "company": "Genossenschaft Migros Ostschweiz",
       "title": "Mitarbeiter*in Take away",
       "location": "Chur",
@@ -46,18 +47,24 @@
       "companyDomain": "migros.ch",
       "crawledAt": "2026-05-18T12:53:11.956Z",
       "firstSeenAt": "2026-05-18T12:53:11.956Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 73,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Chur",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 9,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-70fjie",
       "slug": "verantwortliche-r-administration-immobilienmanagement-genossenschaft-migros-wallis-martigny-70fjie",
