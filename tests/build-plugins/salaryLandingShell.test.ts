@@ -96,7 +96,7 @@ describe('salaryLandingShell · buildSalaryLandingBody', () => {
     expect(html).toContain('aria-label="breadcrumb"');
     expect(html).toContain('Nuovo Accordo 2024');
     expect(html).toContain('Calcolo Tasse Frontalieri Oltre 20 km');
-    expect(html).toContain('Tassazione concorrente');
+    expect(html).toContain('oltre 20 km dal confine');
     expect(html).toContain('Imposta alla fonte CH');
     expect(html).toContain('Consiglio');
     expect(html).toContain('Calcola il tuo netto');
