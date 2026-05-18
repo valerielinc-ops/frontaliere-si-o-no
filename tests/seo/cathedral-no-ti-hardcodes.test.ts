@@ -32,8 +32,10 @@ const ALLOWLIST = [
   'build-plugins/jobsSeoPagesPlugin.ts:788',
   'build-plugins/jobsSeoPagesPlugin.ts:793',          // jsdoc reference to the legacy slugs
   // Cathedral breadcrumb-bugfix comment (2026-05-13) — references the
-  // TI slug as illustrative example in the prior-bug explanation.
-  'build-plugins/jobsSeoPagesPlugin.ts:7842',
+  // TI slug as illustrative example in the prior-bug explanation. Shifted
+  // +11 by the keyword-landing BreadcrumbList insertion at line 6785
+  // (2026-05-18 — fix for breadcrumb-coverage.test.ts).
+  'build-plugins/jobsSeoPagesPlugin.ts:7853',
 
   // ── jobBoardSeo: TI legacy job-board landing paths (kept for legacy entry) ──
   'build-plugins/jobBoardSeo.ts:38',
@@ -122,6 +124,13 @@ const ALLOWLIST = [
   'build-plugins/seoHubsPlugin.ts:1675',
   'build-plugins/seoHubsPlugin.ts:1690',
   'build-plugins/seoHubsPlugin.ts:1691',
+  // 2026-05-18: PR #235 (canton aziende+settori hubs) added a paired
+  // template-literal pattern for non-IT locales — the TI legacy slugs
+  // appear as inline fallbacks on these 2 lines (sectors hub + companies
+  // hub, mirroring the 1674/1675/1690/1691 pattern but in the new emit
+  // block ~275 lines below the existing one).
+  'build-plugins/seoHubsPlugin.ts:1949',
+  'build-plugins/seoHubsPlugin.ts:1965',
 
   // ── professionLandingsLinksPlugin: TI hub injection targets (intentional —
   //    the prose explicitly references "10 most-searched roles in Ticino"). ──
