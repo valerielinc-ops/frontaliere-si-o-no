@@ -481,6 +481,21 @@ function resultsTableHtml(result: SimulationResult, l: Labels): string {
 // Per-locale strings the new mobile-first SEO-landing shell needs that aren't
 // already in `Labels`. Kept tight on purpose — only the bits that the shell
 // renders (eyebrow, 4 tile labels, advice template, secondary CTA copy).
+//
+// Note: These are intentionally NOT moved into `shared/salaryLandingShell`
+// `LOCALE_PACKS`. SHELL_PACK is salaryHub-scoped:
+//   - `eyebrow` and `advice` are functions of `SalaryHubScenario` /
+//     `SimulationResult` — they can't be flat strings.
+//   - The 4 tile labels describe the Permesso B vs G comparison that's
+//     unique to per-scenario salary-hub pages. Other landings (net-comparison,
+//     orphan hubs) use entirely different tile sets.
+//   - `ctaSecondary` differs in semantics from `LOCALE_PACKS.ctaSecondary`
+//     ("Compare similar scenarios" vs "Open what-if simulator") — same field
+//     name, different intent.
+//
+// Promoting these to LOCALE_PACKS would couple two unrelated scopes and
+// force every other consumer to ignore fields they don't need. Local pack
+// is the right scope.
 interface ShellPack {
   readonly eyebrow: (scenario: SalaryHubScenario) => string;
   readonly tileNetCh: string;
@@ -669,42 +684,36 @@ export function generatePageHtml(
 }
 
 /**
- * Salary-hub page-scoped CSS. All selectors are namespaced under
- * `.salary-hub-page` so they don't override the SPA's Tailwind globals
- * for the surrounding header/footer rendered by the React shell.
+ * Salary-hub page-scoped CSS. Selectors are namespaced under
+ * `.salary-hub-page` so they don't override the SPA's Tailwind globals.
+ *
+ * After the PR #215 refactor only TWO `<section class="salary-hub-page">`
+ * blocks remain in the DOM: the data-area override (results table +
+ * savings badge + inline AdSense) and the editorial prose (5 H2 + related
+ * grid + tail AdSense). H1, breadcrumb, lede, stat tiles, advice banner,
+ * CTA and FAQ are rendered by `renderSalaryLandingShell` and bind to
+ * `var(--color-*)` tokens already — no per-page CSS needed.
+ *
+ * All colors bind to OKLCH semantic tokens (light/dark adaptive) — no
+ * inline hex, matching CLAUDE.md SEO-landing template rule 17.
  */
 const SALARY_HUB_PAGE_STYLE = `<style>
-.salary-hub-page{max-width:1200px;margin:0 auto;padding:24px 16px;color:#334155;line-height:1.7}
-.salary-hub-page .hub-grid{display:grid;grid-template-columns:1fr;gap:24px}
-.salary-hub-page .rail{display:none}
-@media(min-width:1024px){.salary-hub-page .hub-grid{grid-template-columns:160px minmax(0,1fr) 160px}.salary-hub-page .rail{position:sticky;top:80px;align-self:start;display:block}.salary-hub-page .content{grid-column:2}}
-.salary-hub-page .content{min-width:0}
-.salary-hub-page .breadcrumb{font-size:13px;color:#64748b;margin-bottom:16px}
-.salary-hub-page .breadcrumb a{color:#533afd;text-decoration:none}
-.salary-hub-page h1{font-size:28px;font-weight:800;color:#1e293b;margin:0 0 8px;line-height:1.3}
-.salary-hub-page .subtitle{font-size:15px;color:#64748b;margin:0 0 24px}
-.salary-hub-page h2{font-size:20px;font-weight:700;color:#1e293b;margin:32px 0 12px}
+.salary-hub-page{color:var(--color-body);line-height:1.7}
+.salary-hub-page h2{font-size:20px;font-weight:700;color:var(--color-heading);margin:32px 0 12px}
 .salary-hub-page p{margin:0 0 16px;font-size:15px}
-.salary-hub-page a{color:#533afd}
+.salary-hub-page a{color:var(--color-link)}
 .salary-hub-page .results-table-wrap{overflow-x:auto;margin:24px 0}
 .salary-hub-page .results-table{width:100%;border-collapse:collapse;font-size:14px}
-.salary-hub-page .results-table th,.salary-hub-page .results-table td{padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:left}
-.salary-hub-page .results-table th{background:#f1f5f9;font-weight:600;color:#475569}
+.salary-hub-page .results-table th,.salary-hub-page .results-table td{padding:10px 12px;border-bottom:1px solid var(--color-edge);text-align:left}
+.salary-hub-page .results-table th{background:var(--color-surface-alt);font-weight:600;color:var(--color-subtle)}
 .salary-hub-page .results-table .num{text-align:right;font-variant-numeric:tabular-nums}
-.salary-hub-page .results-table .net-row td{background:#ecfdf5;font-weight:700}
-.salary-hub-page .results-table .highlight{color:#059669}
+.salary-hub-page .results-table .net-row td{background:var(--color-success-subtle);font-weight:700}
+.salary-hub-page .results-table .highlight{color:var(--color-success)}
 .salary-hub-page .savings-badge{text-align:center;padding:12px;border-radius:8px;margin-top:12px;font-size:14px}
-.salary-hub-page .savings-badge.positive{background:#ecfdf5;color:#059669}
-.salary-hub-page .savings-badge.negative{background:#fef2f2;color:#dc2626}
-.salary-hub-page .cta-box{background:linear-gradient(135deg,#533afd 0%,#7c3aed 100%);color:#fff;padding:24px;border-radius:12px;text-align:center;margin:32px 0}
-.salary-hub-page .cta-box p{margin:0;color:#fff}
-.salary-hub-page .cta-box a{display:inline-block;background:#fff;color:#533afd;padding:12px 32px;border-radius:8px;font-weight:700;text-decoration:none;margin-top:12px}
+.salary-hub-page .savings-badge.positive{background:var(--color-success-subtle);color:var(--color-success)}
+.salary-hub-page .savings-badge.negative{background:var(--color-danger-subtle);color:var(--color-danger)}
 .salary-hub-page .related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px}
-.salary-hub-page .related-card{display:block;padding:16px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;text-decoration:none;color:#334155;font-size:14px;transition:box-shadow .15s}
-.salary-hub-page .related-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1)}
-.salary-hub-page .faq-section{margin-top:32px}
-.salary-hub-page .faq-item{border-bottom:1px solid #e2e8f0;padding:16px 0}
-.salary-hub-page .faq-q{font-weight:700;font-size:15px;color:#1e293b}
-.salary-hub-page .faq-a{font-size:14px;color:#475569;margin-top:8px}
+.salary-hub-page .related-card{display:block;padding:16px;background:var(--color-surface);border:1px solid var(--color-edge);border-radius:8px;text-decoration:none;color:var(--color-body);font-size:14px;transition:box-shadow .15s}
+.salary-hub-page .related-card:hover{box-shadow:0 4px 12px rgba(0,0,0,.1);border-color:var(--color-accent-border)}
 .salary-hub-page .ad-unit{margin:24px 0;min-height:220px}
 </style>`;

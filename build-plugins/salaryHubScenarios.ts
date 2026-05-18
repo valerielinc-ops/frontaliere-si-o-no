@@ -33,28 +33,22 @@ export interface SalaryHubScenario {
 }
 
 // ── Existing SEO landing slugs to skip (avoid duplicates) ───────
-
-const EXISTING_IT_SLUGS = new Set([
-  'stipendio-netto-60000-chf',
-  'stipendio-netto-80000-chf',
-  'stipendio-netto-100000-chf',
-  'stipendio-netto-120000-chf',
-  'stipendio-netto-60000-chf-vecchio-frontaliere',
-  'stipendio-netto-60000-chf-nuovo-frontaliere-2026',
-  'stipendio-netto-80000-chf-vecchio-frontaliere',
-  'stipendio-netto-80000-chf-nuovo-frontaliere-2026',
-  'stipendio-netto-100000-chf-vecchio-frontaliere',
-  'stipendio-netto-100000-chf-nuovo-frontaliere-2026',
-  'stipendio-netto-60000-chf-sposato-2-figli',
-  'stipendio-netto-80000-chf-sposato-2-figli',
-  'stipendio-netto-100000-chf-sposato-2-figli',
-  'stipendio-netto-80000-chf-residenza-oltre-20km',
-  'stipendio-netto-80000-chf-residenza-entro-20km',
-  'stipendio-netto-60000-chf-residenza-oltre-20km',
-  'stipendio-netto-60000-chf-residenza-entro-20km',
-  'stipendio-netto-100000-chf-residenza-oltre-20km',
-  'stipendio-netto-100000-chf-residenza-entro-20km',
-]);
+//
+// Only slugs that salaryHub itself CAN generate are listed here. After
+// PR #215 / #216 the salaryHub pipeline uses the same mobile-first
+// SEO-landing shell as staticPagesPlugin, so letting salaryHub take over
+// removes a visual divergence between "base tier" and "tier + variant"
+// pages of the same salary level (single shell, single data source).
+//
+// The 9 entries that salaryHub naturally generates (base, sposato+2figli,
+// vecchio-frontaliere) were previously listed here to avoid race-overwrite.
+// They are now intentionally absent — salaryHub wins the collector dedupe
+// (see salaryHubPlugin.ts:35-60 contract) and ships richer simulation data.
+//
+// The remaining legacy slugs that salaryHub CAN'T match (different naming
+// convention: `nuovo-frontaliere-2026`, `residenza-{entro,oltre}-20km`,
+// 40k / 120k tiers) keep their staticPagesPlugin parametric rendering.
+const EXISTING_IT_SLUGS = new Set<string>([]);
 
 // ── Slug generation ─────────────────────────────────────────────
 
