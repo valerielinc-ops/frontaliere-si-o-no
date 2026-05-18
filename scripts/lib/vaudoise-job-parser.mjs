@@ -83,11 +83,21 @@ export function isVaudoiseJob(job) {
 
 /**
  * Validate that a URL belongs to Vaudoise Assurances's domain.
+ *
+ * Trusts both the corporate domain (vaudoise.ch + subdomains) and the
+ * Softgarden ATS subdomain (`vaudoise.softgarden.io`), which is where the
+ * public job postings actually live. Without the ATS host the dedicated
+ * locale-validation gate flags every job as `url_not_vaudoise_domain` and
+ * the crawler exits 1 (49/49 issues, GH run 26004869125 + history).
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'vaudoise.ch' || host.endsWith('.vaudoise.ch');
+    return (
+      host === 'vaudoise.ch' ||
+      host.endsWith('.vaudoise.ch') ||
+      host === 'vaudoise.softgarden.io'
+    );
   } catch {
     return false;
   }
@@ -325,10 +335,90 @@ async function fetchJobListings(options = {}) {
   }
 }
 
+/* ── Detail-page description extraction ────────────────────── */
+
+const DETAIL_FETCH_UA =
+  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
+const DETAIL_FETCH_TIMEOUT_MS = 15_000;
+
+/**
+ * Parse a Softgarden job-detail HTML page and extract the long description
+ * from the embedded JSON-LD `JobPosting`. Returns plain text (HTML stripped)
+ * or `''` when unavailable.
+ *
+ * @param {string} html
+ * @returns {string}
+ */
+export function parseVaudoiseDetailHtml(html = '') {
+  if (!html || typeof html !== 'string') return '';
+  const ldMatch = html.match(
+    /<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/i,
+  );
+  if (!ldMatch) return '';
+  try {
+    const ld = JSON.parse(ldMatch[1]);
+    const candidates = Array.isArray(ld) ? ld : [ld];
+    for (const entry of candidates) {
+      if (!entry || typeof entry !== 'object') continue;
+      const type = entry['@type'];
+      const isJobPosting =
+        type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'));
+      if (isJobPosting && entry.description) {
+        return normalizeSpace(stripHtml(String(entry.description)));
+      }
+    }
+  } catch {
+    /* ignore parse errors — fall through to '' */
+  }
+  return '';
+}
+
+/**
+ * Default `fetch` wrapper used to pull Softgarden detail pages. Isolated so
+ * tests can inject a stub via the `_detailFetcher` option without touching
+ * the global `fetch`.
+ *
+ * @param {string} url
+ * @returns {Promise<string>}
+ */
+async function defaultDetailFetcher(url) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), DETAIL_FETCH_TIMEOUT_MS);
+  try {
+    const res = await fetch(url, {
+      headers: { 'User-Agent': DETAIL_FETCH_UA, Accept: 'text/html' },
+      signal: controller.signal,
+    });
+    if (!res.ok) return '';
+    return await res.text();
+  } catch {
+    return '';
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+/**
+ * Fetch and parse the long description for a single detail URL.
+ *
+ * @param {string} url
+ * @param {(url: string) => Promise<string>} [fetcher]
+ * @returns {Promise<string>}
+ */
+export async function fetchVaudoiseDescription(url, fetcher = defaultDetailFetcher) {
+  if (!url) return '';
+  const html = await fetcher(url);
+  if (!html) return '';
+  return parseVaudoiseDetailHtml(html);
+}
+
 // Internal export for test injection — not part of the public crawler contract.
 export const __testables = {
   fetchJobListings,
   resolveApplyUrl,
+  parseVaudoiseDetailHtml,
+  fetchVaudoiseDescription,
+  defaultDetailFetcher,
   SWISS_LOCATION_RX,
   SOFTGARDEN_LISTING_URL,
   SOFTGARDEN_BASE,
@@ -344,6 +434,7 @@ export const __testables = {
  *
  * @param {object} [options]
  * @param {() => Promise<unknown>} [options._runtime] Test seam — Playwright runtime factory.
+ * @param {(url: string) => Promise<string>} [options._detailFetcher] Test seam — Softgarden detail-page fetcher.
  */
 export async function fetchAllVaudoiseJobs(options = {}) {
   console.log(`🔍 Fetching Vaudoise Assurances jobs`);
@@ -357,16 +448,36 @@ export async function fetchAllVaudoiseJobs(options = {}) {
 
   console.log(`  📋 Listings found: ${listings.length}`);
 
+  const detailFetcher = options._detailFetcher || defaultDetailFetcher;
+
   const jobs = [];
+  let detailFilled = 0;
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
     const location = listing.location || 'Lausanne'; // HQ: Lausanne (VD)
     const canton = inferSwissTargetCanton(location) || 'VD';
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || SOFTGARDEN_LISTING_URL;
+
+    // Softgarden listing rows do NOT include the long description — only
+    // title/location/date/category. Fetch the detail page and pull the
+    // JSON-LD `JobPosting.description` so source-locale descriptions are
+    // real content (≥120 chars) instead of a `"${title} — Vaudoise…"`
+    // stub. Without this every job tripped the locale-validation gate's
+    // `untranslated_description` check after hardening copied the stub
+    // into every locale slot (GH run 26004869125).
+    let descriptionText = '';
+    try {
+      descriptionText = await fetchVaudoiseDescription(publicUrl, detailFetcher);
+    } catch {
+      descriptionText = '';
+    }
+    if (descriptionText && descriptionText.length >= 120) {
+      detailFilled += 1;
+    } else if (listing.description) {
+      descriptionText = stripHtml(listing.description);
+    }
 
     const sourceLang = detectLang(descriptionText || title, 'fr');
     const jobSlug = slugify(`${title} vaudoise ch`);
@@ -413,7 +524,10 @@ export async function fetchAllVaudoiseJobs(options = {}) {
     await new Promise((r) => setTimeout(r, 100)); // Rate limiting
   }
 
-  console.log(`\n📋 Total Vaudoise Assurances jobs discovered: ${jobs.length}`);
+  console.log(
+    `\n📋 Total Vaudoise Assurances jobs discovered: ${jobs.length} ` +
+      `(${detailFilled} with real detail-page descriptions).`,
+  );
   return jobs;
 }
 
