@@ -9477,7 +9477,7 @@ ${hreflangLinks}
  }
  // The disambiguator MUST land inside the cap when present (multi-slug
  // expired jobs share role+company and rely on it for title-uniqueness),
- // but we DROP the brand before resorting to ellipsis truncation -- mid-headline
+ // but we DROP the brand before resorting to `…` truncation — mid-headline
  // ellipsis tanks SERP CTR (see build-plugins/shared/titleSuffix.ts comment).
  // Critically, we work on the RAW headline (no HTML-escape) so `&` / `<` etc.
  // are not artificially expanded into multi-char entities like `&amp;` that

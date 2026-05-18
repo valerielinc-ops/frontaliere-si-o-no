@@ -16,5 +16,5 @@
     "fr": 13957,
     "de": 13466
   },
-  "note": "blog bucket added 2026-05-18: ogPagesPlugin stopped truncating long article headlines with mid-word ellipsis (CTR collapsed 4.8 to 1.68 percent on /calcola-stipendio/ era). Articles now emit verbatim per universal titleSuffix policy. Source count of article headlines over 66 chars: ~2336 across 4 locales; baseline set to 2700 to absorb collision-disambiguator variance. Drive DOWN by shortening titleBase in scripts/create-article.mjs prompts and back-editing seo-blog*.ts headlines, then rebaseline."
+  "note": "blog bucket added 2026-05-18: ogPagesPlugin stopped truncating long article headlines with mid-word '…' (CTR collapsed 4.8 % → 1.68 % on /calcola-stipendio/ era). Articles now emit verbatim per universal titleSuffix policy. Source count of article headlines >66 chars: ~2336 across 4 locales; baseline set to 2700 to absorb collision-disambiguator variance. Drive DOWN by shortening titleBase in scripts/create-article.mjs prompts and back-editing seo-blog*.ts headlines, then rebaseline."
 }

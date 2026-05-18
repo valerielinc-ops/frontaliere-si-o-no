@@ -618,13 +618,12 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const metaDesc = metaDescRaw.length > 155
  ? metaDescRaw.substring(0, 152) + '…'
  : metaDescRaw;
- // <title>: headline VERBATIM, brand suffix only when total <= TITLE_MAX_CHARS.
- // Per build-plugins/shared/titleSuffix.ts, mid-headline ellipsis truncation
- // tanks CTR (see /calcola-stipendio/ regression doc). We only force a
- // truncation when there's a real disambiguator collision that MUST be
- // preserved to satisfy audit:title-uniqueness -- and even then, we drop the
- // brand first (it's "nice-to-have", not a ranking signal) before resorting
- // to mid-headline truncation.
+ // <title>: headline VERBATIM, brand suffix only when total ≤ TITLE_MAX_CHARS.
+ // Per build-plugins/shared/titleSuffix.ts, mid-headline `…` truncation tanks
+ // CTR (see /calcola-stipendio/ regression doc). We only force a truncation
+ // when there's a real disambiguator collision that MUST be preserved to
+ // satisfy audit:title-uniqueness — and even then, we drop the brand first
+ // (it's "nice-to-have", not a ranking signal) before resorting to `…`.
  const articleLocale: 'it' | 'en' | 'de' | 'fr' = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const baseTitleProbe = buildTitleWithBrand(localizedTitle);
  const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
@@ -633,15 +632,15 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  let htmlPageTitle: string;
  if (!disamb) {
   // No collision: trust buildTitleWithBrand to either keep brand or drop it.
-  // It never truncates -- long headlines emit verbatim and the audit baseline
+  // It never truncates — long headlines emit verbatim and the audit baseline
   // ratchets them down at source.
   htmlPageTitle = buildTitleWithBrand(localizedTitle);
  } else {
   // Disambiguator MUST survive (collision-resolution for title-uniqueness).
   // Try brand+disamb first; if it doesn't fit, drop brand and keep disamb;
-  // if even headline+disamb overflows, truncate headline (last resort -- the
-  // only path where ellipsis truncation is acceptable because the alternative
-  // is dropping the (#hash) and breaking the title-uniqueness audit).
+  // if even headline+disamb overflows, truncate headline (last resort, the
+  // only path where `…` is acceptable because the alternative is dropping
+  // the (#hash) and breaking the title-uniqueness audit).
   const withBrandAndDisamb = `${localizedTitle}${disamb}${TITLE_BRAND_SUFFIX}`;
   if (withBrandAndDisamb.length <= TITLE_MAX_CHARS) {
    htmlPageTitle = withBrandAndDisamb;
