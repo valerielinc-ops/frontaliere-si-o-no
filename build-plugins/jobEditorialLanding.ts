@@ -1915,8 +1915,8 @@ export function buildJobCareVariantLandingModel(options: {
  const baseUrl = options.baseUrl.replace(/\/+$/, '');
  // Per-canton scoping: care-variant pages (clinics / care-homes / OSS /
  // educators) previously bypassed the canton filter so per-canton URLs
- // like /cerca-lavoro-basilea/cliniche/ listed clinic jobs from across
- // Switzerland. Narrow to the requested canton — the partition is
+ // like /cerca-lavoro-basilea/cliniche-basilea/ listed clinic jobs from
+ // across Switzerland. Narrow to the requested canton — the partition is
  // canton-agnostic, so the filter is applied in both branches.
  const matchesPool: JobLike[] = options.partition
  ? [...options.partition.byCluster[clusterKey]]
