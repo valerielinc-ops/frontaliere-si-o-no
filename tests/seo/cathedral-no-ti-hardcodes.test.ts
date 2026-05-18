@@ -49,10 +49,13 @@ const ALLOWLIST = [
   'build-plugins/cityJobsHub.ts:113',
   'build-plugins/cityJobsHub.ts:114',
   // cityJobsAggregate: JOB_BOARD_SECTION fallback table (TI default per locale).
-  'build-plugins/cityJobsAggregate.ts:308',
-  'build-plugins/cityJobsAggregate.ts:309',
-  'build-plugins/cityJobsAggregate.ts:310',
-  'build-plugins/cityJobsAggregate.ts:311',
+  // Lines shifted +50 by helper functions added between
+  // buildSnapshotForCity and the JOB_BOARD_SECTION block
+  // (aggregateAllCities + aggregateCityJobs + _resetCityJobsAggregateCache).
+  'build-plugins/cityJobsAggregate.ts:358',
+  'build-plugins/cityJobsAggregate.ts:359',
+  'build-plugins/cityJobsAggregate.ts:360',
+  'build-plugins/cityJobsAggregate.ts:361',
   // Lines shifted +1 by the cantonSeoProse helper import added at the top
   // of the file (May 2026 — text-to-html-ratio gate fix).
   'build-plugins/companyHubBridgePlugin.ts:41',
@@ -142,16 +145,20 @@ const ALLOWLIST = [
   //    for sitemap-jobs.xml — pulls per-company azienda-* leaves from BFS
   //    depth 5 to depth 4 by anchoring /aziende-che-assumono/tutte/ + the
   //    locale variants directly off `/`).
-  'build-plugins/staticPagesPlugin.ts:1310',
+  // Lines shifted +1 by feat(fuel-station-IT) (cab4042246, 2026-05-18) —
+  // a single line was added above the JobBoard category map in
+  // buildSectionToCategoryMap, propagating +1 down to every subsequent
+  // TI-section entry inside the same file.
   'build-plugins/staticPagesPlugin.ts:1311',
   'build-plugins/staticPagesPlugin.ts:1312',
   'build-plugins/staticPagesPlugin.ts:1313',
-  'build-plugins/staticPagesPlugin.ts:1332',
+  'build-plugins/staticPagesPlugin.ts:1314',
   'build-plugins/staticPagesPlugin.ts:1333',
-  'build-plugins/staticPagesPlugin.ts:1867',
-  'build-plugins/staticPagesPlugin.ts:1892',
-  'build-plugins/staticPagesPlugin.ts:1917',
-  'build-plugins/staticPagesPlugin.ts:2185',
+  'build-plugins/staticPagesPlugin.ts:1334',
+  'build-plugins/staticPagesPlugin.ts:1868',
+  'build-plugins/staticPagesPlugin.ts:1893',
+  'build-plugins/staticPagesPlugin.ts:1918',
+  'build-plugins/staticPagesPlugin.ts:2186',
   // ── Cross-section hub anchors emitted inside buildHomepageCantonNavHtml
   //    (2026-05-13 BFS-depth fix for sitemap-jobs.xml azienda-* leaves).
   //    Per-locale URL constants reference the TI section slug; the audit
