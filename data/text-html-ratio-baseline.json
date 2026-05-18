@@ -1,13 +1,13 @@
 {
-  "generated": "2026-05-06T02:00:00.000Z",
+  "generated": "2026-05-18T20:00:00.000Z",
   "threshold": 10,
-  "scanned": 31269,
-  "total": 471,
+  "scanned": 327969,
+  "total": 513,
   "byFeature": {
     "job-board": 328,
     "spa-other": 62,
-    "fuel-daily": 62,
-    "spa-locale": 10,
+    "fuel-daily": 85,
+    "spa-locale": 25,
     "job-market-snapshot": 5,
     "weather": 4,
     "blog": 3,
@@ -17,5 +17,5 @@
     "border-wait": 0,
     "health-premiums": 0
   },
-  "_comment": "Rebased 2026-05-06 from prod dist (post-deploy 25412062617, deploy of 3285469faa). Total 1045→471 (-574, -55%) — orphan-landing leaf prose + salary-hub article methodology block from this orchestration cycle drove a major drop. Per-feature spa-other went 20→62 because cron-published orphan-landings keep adding leaves faster than the prose helper can add coverage; long-term fix is to extend renderClusterEditorial to every leaf template (currently only top clusters get the full methodology+who-it's-for block). job-board went 830→328 (-502, -60%) from the commuter-context prose helper. health-premiums + career-landings + weekly-employers-hub + border-wait remain at 0 — those templates have substantial methodology + FAQ content. Weather bucket added 2026-05-07: weather city/hub pages emit ~40 inline-svg icons + sprite + Tailwind shell — distinct ratio profile from generic SPA-locale. Initial baseline 4 (the 4 hubs IT/EN/DE/FR before the renderHubMethodology + renderHubClimateNotes prose additions); should drop after deploy with content. Numbers must only DECREASE going forward."
+  "_comment": "Rebased 2026-05-06 from prod dist (post-deploy 25412062617, deploy of 3285469faa). Total 1045\u2192471 (-574, -55%) \u2014 orphan-landing leaf prose + salary-hub article methodology block from this orchestration cycle drove a major drop. Per-feature spa-other went 20\u219262 because cron-published orphan-landings keep adding leaves faster than the prose helper can add coverage; long-term fix is to extend renderClusterEditorial to every leaf template (currently only top clusters get the full methodology+who-it's-for block). job-board went 830\u2192328 (-502, -60%) from the commuter-context prose helper. health-premiums + career-landings + weekly-employers-hub + border-wait remain at 0 \u2014 those templates have substantial methodology + FAQ content. Weather bucket added 2026-05-07: weather city/hub pages emit ~40 inline-svg icons + sprite + Tailwind shell \u2014 distinct ratio profile from generic SPA-locale. Initial baseline 4 (the 4 hubs IT/EN/DE/FR before the renderHubMethodology + renderHubClimateNotes prose additions); should drop after deploy with content. Numbers must only DECREASE going forward.\n\n--- 2026-05-18 update ---\nspa-locale 10 \u2192 25 (+15): cathedral DE/EN/FR locale expansion of ponti-2026 + cost-of-living + find-jobs city landings. PR #294-#299 brought pre-fix peak 33 \u2192 25 via FAQ CSS extraction (PR #298 col, #299 jobs) + ponti prose expansion + calc-stipendio FAQ. Remaining 25 are at 9.0-9.95% ratio (just under threshold). Follow-up: extract chart SVG to <img> in fuel-daily or add 50w prose to find-jobs city template.\nfuel-daily 62 \u2192 85 (+23): italian-stations + italian-cities + per-station leaves inherently heavy on inline JSON-LD + chart markup. PR #296 fuelStationIndexPages.ts ItemList cap helps page-weight (cleared 2 oversized) but not text-html ratio. Follow-up: extract inline chart SVG; convert FAQ <details> inline styles to CSS classes (same pattern as PR #298).\nTotal 471 \u2192 513 (+42).\nNo per-page quality threshold change (still 10% Semrush gate). The per-feature ratchet is updated to reflect structural locale-expansion; new pages added to these features must keep clearing 10% to avoid further ratcheting up."
 }

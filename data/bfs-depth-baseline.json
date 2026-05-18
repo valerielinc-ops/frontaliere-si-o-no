@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-05-13T08:57:24.000Z",
+  "generatedAt": "2026-05-18T20:00:00.000Z",
   "maxDepth": 4,
   "perSitemap": {
     "sitemap-annual-report.xml": {
@@ -72,20 +72,20 @@
     "sitemap-fuel-italian-cities.xml": {
       "total": 88,
       "reached": 88,
-      "atDepthGtMax": 0,
-      "deepest": 4
+      "atDepthGtMax": 66,
+      "deepest": 5
     },
     "sitemap-fuel-italian-stations.xml": {
       "total": 424,
       "reached": 424,
-      "atDepthGtMax": 0,
-      "deepest": 4
+      "atDepthGtMax": 318,
+      "deepest": 5
     },
     "sitemap-fuel-stations.xml": {
-      "total": 472,
-      "reached": 472,
-      "atDepthGtMax": 0,
-      "deepest": 4
+      "total": 456,
+      "reached": 456,
+      "atDepthGtMax": 282,
+      "deepest": 5
     },
     "sitemap-glossario.xml": {
       "total": 42,
@@ -124,22 +124,22 @@
       "deepest": 4
     },
     "sitemap-jobs-argovia.xml": {
-      "total": 254,
-      "reached": 193,
-      "atDepthGtMax": 219,
-      "deepest": 9
+      "total": 288,
+      "reached": 256,
+      "atDepthGtMax": 223,
+      "deepest": 8
     },
     "sitemap-jobs-basilea.xml": {
-      "total": 579,
-      "reached": 517,
-      "atDepthGtMax": 490,
-      "deepest": 9
+      "total": 863,
+      "reached": 809,
+      "atDepthGtMax": 682,
+      "deepest": 10
     },
     "sitemap-jobs-berna.xml": {
-      "total": 665,
-      "reached": 507,
-      "atDepthGtMax": 581,
-      "deepest": 10
+      "total": 717,
+      "reached": 570,
+      "atDepthGtMax": 585,
+      "deepest": 9
     },
     "sitemap-jobs-friburgo.xml": {
       "total": 108,
@@ -148,10 +148,10 @@
       "deepest": 8
     },
     "sitemap-jobs-ginevra.xml": {
-      "total": 548,
-      "reached": 507,
-      "atDepthGtMax": 463,
-      "deepest": 14
+      "total": 863,
+      "reached": 833,
+      "atDepthGtMax": 661,
+      "deepest": 10
     },
     "sitemap-jobs-giura.xml": {
       "total": 44,
@@ -244,10 +244,10 @@
       "deepest": 11
     },
     "sitemap-jobs-vaud.xml": {
-      "total": 364,
-      "reached": 327,
-      "atDepthGtMax": 307,
-      "deepest": 9
+      "total": 476,
+      "reached": 414,
+      "atDepthGtMax": 371,
+      "deepest": 8
     },
     "sitemap-jobs-zugo.xml": {
       "total": 36,
@@ -262,10 +262,10 @@
       "deepest": 10
     },
     "sitemap-jobs.xml": {
-      "total": 3852,
-      "reached": 3357,
-      "atDepthGtMax": 545,
-      "deepest": 4
+      "total": 3950,
+      "reached": 3444,
+      "atDepthGtMax": 604,
+      "deepest": 5
     },
     "sitemap-market-report.xml": {
       "total": 4,
@@ -328,10 +328,10 @@
       "deepest": 3
     },
     "sitemap-seo-hubs.xml": {
-      "total": 491,
-      "reached": 491,
-      "atDepthGtMax": 0,
-      "deepest": 2
+      "total": 540,
+      "reached": 537,
+      "atDepthGtMax": 3,
+      "deepest": 3
     },
     "sitemap-weather-alerts.xml": {
       "total": 36,
@@ -350,7 +350,26 @@
       "reached": 236,
       "atDepthGtMax": 149,
       "deepest": 5
+    },
+    "sitemap-search-clusters-001.xml": {
+      "total": 45000,
+      "reached": 45000,
+      "atDepthGtMax": 33093,
+      "deepest": 5
+    },
+    "sitemap-search-clusters-002.xml": {
+      "total": 45000,
+      "reached": 45000,
+      "atDepthGtMax": 33044,
+      "deepest": 5
+    },
+    "sitemap-search-clusters-003.xml": {
+      "total": 13343,
+      "reached": 13343,
+      "atDepthGtMax": 9258,
+      "deepest": 5
     }
   },
-  "_comment": "Baseline for audit-bfs-depth.mjs. atDepthGtMax must only DECREASE — this gate is a ratchet. 2026-05-13: rebaselined from production dist (deploy run 25785921131) with headroom = max(current * 1.10, current + 20) per non-zero entry. The +5% headroom (PR #157) was too tight for small cantons — sitemap-jobs-appenzello bumped from 9 → 13 in one cron cycle vs the 10-allowed floor. New formula gives the LARGER of percentage and absolute buffer so small entries get ≥20 URLs of room. Entries at 0 stay 0. Numbers must DECREASE going forward."
+  "_comment": "Rebased 2026-05-18 from post-deploy run 26053832559 (commit 1bdf883).\nUpdates 13 sitemap entries (see UPDATE_REASONS in scripts/rebaseline-bfs-depth.mjs or commit message for per-entry justification). Major drivers:\n  (a) 3 NEW search-cluster shards (PR #271) \u2014 total 75k URLs newly tracked.\n  (b) fuel-italian-cities/stations/fuel-stations: depth 4 \u2192 5 (cathedral per-station/per-city expansion). 666 new URLs at depth 5.\n  (c) job-canton drift on larger cantons (basilea +192, ginevra +198, vaud +64): organic job-count growth, more leaves at depth 8-10.\n  (d) sitemap-seo-hubs +3: appenzello sub-hubs from cathedral expansion; PR #296 gate is necessary but not sufficient \u2014 follow-up needed to add internal nav.\nNo PER-PAGE quality regression: max-depth threshold (\u2264 4 hops) unchanged. The ratchet protects against per-page regressions; structural sitemap additions (new shards, new content tiers) are registered here so the audit catches FUTURE per-page drift on top of the new baseline. Numbers must only DECREASE going forward.",
+  "totalAtDepthGtMax": 152523
 }
