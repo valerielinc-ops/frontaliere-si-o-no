@@ -15,6 +15,7 @@ import { ArrowLeft, ArrowRight, Briefcase, Building2, CheckCircle2, ChevronDown,
 import { useLocale, t } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
+import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
 import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
@@ -162,6 +163,7 @@ function extractActiveJobLinks(html: string): Array<{ href: string; title: strin
 
 export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob }: JobOrphanViewProps) {
  const [locale] = useLocale();
+ const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const isDesktopXl = useMediaQuery('(min-width: 1280px)');
  const isDesktopLg = useMediaQuery('(min-width: 1024px)');
  const googleButtonRef = useRef<HTMLDivElement>(null);
@@ -512,7 +514,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
  <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
  <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
- <span>{t('jobBoard.gate.title')}</span>
+ <span>{gateHeadline}</span>
  </h2>
 
  {/* Trust signals — 2 lines at text-sm (matches active job gate) */}
