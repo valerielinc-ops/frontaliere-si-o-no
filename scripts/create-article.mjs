@@ -498,6 +498,28 @@ const GH_MODEL_LIGHT = AI_MODELS.GPT4O_MINI;
 const BLOG_IMAGE_TARGET_MAX_BYTES = 220 * 1024; // target ~220KB
 const BLOG_IMAGE_HARD_MAX_BYTES = 320 * 1024;   // hard cap ~320KB
 const MIN_BODY_CHARS = 2500;  // ~400 words minimum; 800 chars was too permissive
+const MIN_BODY_CHARS_FLOOR = Math.max(
+  1500,
+  Number.parseInt(process.env.MIN_BODY_CHARS_FLOOR || '1800', 10) || 1800,
+);
+/**
+ * Companion to computeAdaptiveMinWords: scales the chars-based thin-content
+ * gate when the source is short. Without this, a successful 400-word
+ * adaptive run (~2400 chars) trips the static 2500-char floor and is
+ * either re-expanded into hallucination or rejected outright at the
+ * final guard. Mirrors the word-ladder thresholds.
+ *   - source ≥ 4000 chars → full 2500-char target
+ *   - source 2000-3999    → 2200 chars
+ *   - source 1000-1999    → 1900 chars
+ *   - source < 1000       → MIN_BODY_CHARS_FLOOR (1800 chars)
+ */
+function computeAdaptiveMinChars(sourceText) {
+  const len = (sourceText || '').length;
+  if (len >= 4000) return MIN_BODY_CHARS;
+  if (len >= 2000) return Math.max(MIN_BODY_CHARS_FLOOR, 2200);
+  if (len >= 1000) return Math.max(MIN_BODY_CHARS_FLOOR, 1900);
+  return MIN_BODY_CHARS_FLOOR;
+}
 
 // Static places catalog
 const PLACES_IMAGES = [
@@ -3911,7 +3933,8 @@ export function validateHeadline(headline) {
 }
 
 // ── Step 3: Validate Gemini response ────────────────────────
-function validate(data) {
+function validate(data, opts = {}) {
+  const minBodyChars = Number(opts.minBodyChars || MIN_BODY_CHARS);
   // `content` is the only truly irreplaceable field — everything else can be
   // synthesized from it. Smaller fallback models (Cerebras llama-3.1-8b, etc.)
   // frequently omit top-level metadata (`id`, `category`, `image`, `slugs`)
@@ -4016,8 +4039,8 @@ function validate(data) {
   // Final thin content check happens after all retry/expand attempts.
   const itBodyEarly = `${(data.content.it || data.content)?.body1 || ''} ${(data.content.it || data.content)?.body2 || ''} ${(data.content.it || data.content)?.body3 || ''}`;
   const itPlainCharsEarly = itBodyEarly.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().length;
-  if (itPlainCharsEarly < MIN_BODY_CHARS) {
-    console.warn(`  ⚠️  [thin-content] Articolo corto: ${itPlainCharsEarly} chars (min: ${MIN_BODY_CHARS}) — il retry loop tenterà di espandere`);
+  if (itPlainCharsEarly < minBodyChars) {
+    console.warn(`  ⚠️  [thin-content] Articolo corto: ${itPlainCharsEarly} chars (min: ${minBodyChars}) — il retry loop tenterà di espandere`);
   }
 
   // ── Frontaliere density check ──────────────────────────────
@@ -6855,9 +6878,11 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       throw e;
     }
 
-    // Step 3: Validate (works on IT-only data)
+    // Step 3: Validate (works on IT-only data). Pass the adaptive chars
+    // threshold so the early thin-content warning matches what the final
+    // gate at the bottom of this function actually enforces.
     try {
-      data = validate(rawData);
+      data = validate(rawData, { minBodyChars: computeAdaptiveMinChars(pageContent) });
     } catch (validationErr) {
       console.error(`  ⚠️  Validazione fallita: ${validationErr.message}`);
       if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
@@ -7141,10 +7166,11 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   {
     const itBodyFinal = `${(data.content.it || data.content)?.body1 || ''} ${(data.content.it || data.content)?.body2 || ''} ${(data.content.it || data.content)?.body3 || ''}`;
     const itPlainCharsFinal = itBodyFinal.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim().length;
-    if (itPlainCharsFinal < MIN_BODY_CHARS) {
-      throw new Error(`Articolo troppo corto dopo retry: ${itPlainCharsFinal} chars (min: ${MIN_BODY_CHARS}). Google penalizza thin content.`);
+    const adaptiveMinChars = computeAdaptiveMinChars(pageContent);
+    if (itPlainCharsFinal < adaptiveMinChars) {
+      throw new Error(`Articolo troppo corto dopo retry: ${itPlainCharsFinal} chars (min: ${adaptiveMinChars}). Google penalizza thin content.`);
     }
-    console.error(`  ✅ [thin-content] Body finale: ${itPlainCharsFinal} chars (min: ${MIN_BODY_CHARS})`);
+    console.error(`  ✅ [thin-content] Body finale: ${itPlainCharsFinal} chars (min: ${adaptiveMinChars})`);
   }
 
     // Step 3a.0b: Strip leaked internal URLs from IT

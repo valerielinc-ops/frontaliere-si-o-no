@@ -264,18 +264,23 @@ export const AI_MODELS = Object.freeze({
   // ── Mistral Codestral (separate endpoint, separate quota: 2000 req/day) ──
   CDSTRL_LATEST:       'codestral/codestral-latest',
 
-  // ── Chutes.ai (OpenAI-compatible, generous free tier — added 2026-05-18) ──
-  // Free tier: ~200 req/day shared quota; high-quality reasoning models.
-  CH_DEEPSEEK_R1:      'chutes/deepseek-ai/DeepSeek-R1',
-  CH_DEEPSEEK_V3:      'chutes/deepseek-ai/DeepSeek-V3',
-  CH_KIMI_K2:          'chutes/moonshotai/Kimi-K2-Instruct',
-  CH_GLM_45:           'chutes/zai-org/GLM-4.5-Air',
-  CH_QWEN3_235B:       'chutes/Qwen/Qwen3-235B-A22B-Instruct-2507',
-  CH_LLAMA_4_MAVERICK: 'chutes/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8',
+  // ── Chutes.ai (OpenAI-compatible, PAID per-token — added 2026-05-18) ──
+  // 2026-05-18 smoke test: HTTP 402 "balance $0.0". Chutes is NOT free; uses
+  // TAO/USD per-token billing. Real model IDs use the `-TEE` (Trusted
+  // Execution Env) suffix. Listed here so the provider machinery + correct
+  // IDs are ready IF the account is funded; NOT in DEFAULT_CHAIN to avoid
+  // burning fallback slots on 402 errors.
+  CH_DEEPSEEK_V32:     'chutes/deepseek-ai/DeepSeek-V3.2-TEE',
+  CH_KIMI_K26:         'chutes/moonshotai/Kimi-K2.6-TEE',
+  CH_GLM_5:            'chutes/zai-org/GLM-5-TEE',
+  CH_QWEN_3_5_397B:    'chutes/Qwen/Qwen3.5-397B-A17B-TEE',
+  CH_MINIMAX_M25:      'chutes/MiniMaxAI/MiniMax-M2.5-TEE',
 
-  // ── Z.AI (Zhipu, OpenAI-compatible, GLM free tier — added 2026-05-18) ──
-  ZAI_GLM_46:          'zai/glm-4.6',
-  ZAI_GLM_45_AIR:      'zai/glm-4.5-air',
+  // ── Z.AI (Zhipu, OpenAI-compatible — added 2026-05-18) ──
+  // 2026-05-18 smoke test: only `glm-4.5-flash` is in the free tier with
+  // this key. `glm-4.6`, `glm-4.5-air`, `glm-4.5-airx`, `glm-4.5v` all
+  // return HTTP 429 "no resource package" → paid plan required.
+  ZAI_GLM_45_FLASH:    'zai/glm-4.5-flash',
 
   // ── Extended OpenRouter free models (2026-05) ──
   OR_QWEN3_CODER_PLUS: 'openrouter/qwen/qwen3-coder-plus:free',
@@ -459,32 +464,27 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.HF_GEMMA_3_27B,      // 97. Gemma 3 27B               (HuggingFace)
   // HF_MISTRAL_SM removed — HuggingFace HTTP 400 "not a chat model" (2026-04)
 
-  // ── Chutes.ai free tier (added 2026-05-18) ──
-  AI_MODELS.CH_DEEPSEEK_R1,      // 98. DeepSeek R1 reasoning     (Chutes free)
-  AI_MODELS.CH_KIMI_K2,          // 99. Kimi K2                    (Chutes free)
-  AI_MODELS.CH_GLM_45,           // 100. GLM 4.5 Air               (Chutes free)
-  AI_MODELS.CH_QWEN3_235B,       // 101. Qwen3 235B                (Chutes free)
-  AI_MODELS.CH_DEEPSEEK_V3,      // 102. DeepSeek V3               (Chutes free)
-  AI_MODELS.CH_LLAMA_4_MAVERICK, // 103. Llama 4 Maverick          (Chutes free)
+  // ── Chutes.ai: SKIPPED — 2026-05-18 smoke test returned HTTP 402
+  // (balance $0.0). Re-add CH_* entries here once the account is funded.
 
-  // ── Z.AI GLM free tier (added 2026-05-18) ──
-  AI_MODELS.ZAI_GLM_46,          // 104. GLM 4.6                   (Z.AI free)
-  AI_MODELS.ZAI_GLM_45_AIR,      // 105. GLM 4.5 Air               (Z.AI free)
+  // ── Z.AI GLM free tier (added + verified 2026-05-18) ──
+  // Only glm-4.5-flash is free with the issued key; smoke test 200 OK.
+  AI_MODELS.ZAI_GLM_45_FLASH,    // 98. GLM 4.5 Flash              (Z.AI free)
 
   // ── Extended OpenRouter 2026-05 free additions ──
-  AI_MODELS.OR_QWEN3_CODER_PLUS, // 106. Qwen3 Coder Plus          (OpenRouter free)
-  AI_MODELS.OR_KIMI_K2_0905,     // 107. Kimi K2 0905              (OpenRouter free)
-  AI_MODELS.OR_GLM_46,           // 108. GLM 4.6                   (OpenRouter free)
-  AI_MODELS.OR_DEEPSEEK_V32,     // 109. DeepSeek V3.2 exp         (OpenRouter free)
-  AI_MODELS.OR_MERIDIAN_8B,      // 110. Meridian 8B               (OpenRouter free)
+  AI_MODELS.OR_QWEN3_CODER_PLUS, // 99.  Qwen3 Coder Plus          (OpenRouter free)
+  AI_MODELS.OR_KIMI_K2_0905,     // 100. Kimi K2 0905              (OpenRouter free)
+  AI_MODELS.OR_GLM_46,           // 101. GLM 4.6                   (OpenRouter free)
+  AI_MODELS.OR_DEEPSEEK_V32,     // 102. DeepSeek V3.2 exp         (OpenRouter free)
+  AI_MODELS.OR_MERIDIAN_8B,      // 103. Meridian 8B               (OpenRouter free)
 
   // ── Extended Groq 2026-05 additions ──
-  AI_MODELS.GROQ_LLAMA_4_MAV_INSTR,    // 111. Llama 4 Maverick fp8 (Groq)
-  AI_MODELS.GROQ_DEEPSEEK_R1_DIST,     // 112. DeepSeek R1 Distill Llama 70B (Groq)
+  AI_MODELS.GROQ_LLAMA_4_MAV_INSTR,    // 104. Llama 4 Maverick fp8 (Groq)
+  AI_MODELS.GROQ_DEEPSEEK_R1_DIST,     // 105. DeepSeek R1 Distill Llama 70B (Groq)
 
   // ── Extended Cerebras 2026-05 additions ──
-  AI_MODELS.CB_QWEN3_CODER_480B, // 113. Qwen3 Coder 480B         (Cerebras preview)
-  AI_MODELS.CB_GPT_OSS_20B_2,    // 114. GPT-OSS 20B               (Cerebras)
+  AI_MODELS.CB_QWEN3_CODER_480B, // 106. Qwen3 Coder 480B         (Cerebras preview)
+  AI_MODELS.CB_GPT_OSS_20B_2,    // 107. GPT-OSS 20B               (Cerebras)
 ];
 
 // ── Provider constants ───────────────────────────────────────
