@@ -466,13 +466,17 @@ function renderPage(opts: {
   const employerGridHtml = renderEmployerGrid(snapshot, view);
   const dividerHtml = renderApprofondisciDivider(view.approfondisciHeading);
 
-  const faqHtml = faqs
+  // Extract FAQ <details> styling to a single <style> block + 3 classes
+  // (.cf, .cs, .ca). Inline-style variant cost ~500 B per FAQ × N items per
+  // page; on 16 cost-of-living locale pages this floored the text-to-HTML
+  // ratio in the 9.0-9.95% band (just under the Semrush 10% gate). The
+  // class-based variant costs ~250 B once + ~80 B per FAQ — saves ~6-10 KB
+  // per page, lifting the ratio above the threshold without rewriting the
+  // editorial content.
+  const faqStyleBlock = `<style>.cf{margin:0 0 10px;${CARD_STYLE};border-radius:12px}.cs{font-weight:700;cursor:pointer;color:var(--color-heading);line-height:1.45}.ca{margin:10px 0 0;color:var(--color-body);line-height:1.65}</style>`;
+  const faqHtml = faqStyleBlock + faqs
     .map(
-      (f) => `
-      <details style="margin:0 0 10px;${CARD_STYLE};border-radius:12px">
-        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading);line-height:1.45">${esc(f.question)}</summary>
-        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.65">${esc(f.answer)}</p>
-      </details>`,
+      (f) => `<details class="cf"><summary class="cs">${esc(f.question)}</summary><p class="ca">${esc(f.answer)}</p></details>`,
     )
     .join('');
 
