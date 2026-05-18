@@ -102,35 +102,13 @@ const ALLOWLIST = [
 
   // ── seoHubsPlugin: per-locale alternation pulling the TI legacy slug for
   //    the TI hub. Aggregator/per-canton hubs live in a different code path. ──
-  //    Lines shift as Phase 7.2 / future per-canton emit blocks grow; we
-  //    allowlist a small range around the known stable site.
-  // Lines shifted by the cantonSeoProse helper import + block added in
-  // buildThinCantonHubHtml (May 2026 — text-to-html-ratio gate fix). Lines
-  // shifted again on 2026-05-12 by the BFS-depth `tutti` pagination fix
-  // (paginationHtml block in buildThinCantonHubHtml + jobPerLocale plumbing
-  // in emitThinCantonHubs), and once more on 2026-05-12 by the flat-ladder
-  // navigator added inside renderPagination (BFS-depth closure run
-  // 25753701178 — every page-N now lists every other page-N inside a
-  // collapsed <details>). Then shifted back -10 on 2026-05-12 when the
-  // `tutti/page-N` pagination loop was reverted in emitThinCantonHubs
-  // (deploy artifact >1 GB Pages cap + text-html-ratio regression — only
-  // page-1 stays as static HTML for non-TI cantons). 2026-05-13: shifted
-  // +234 by the `buildHubFaqHtml` helper added to lift text-html-ratio
-  // above 10 % on the master-hub `cerca-lavoro-ticino/tutti/page-N`
-  // family (5 Q/A pairs × 4 locales × 4 hub kinds). The 4 literals all
-  // live on 2 paired template literals (sectors hub + companies hub),
-  // each spanning 2 lines.
-  'build-plugins/seoHubsPlugin.ts:1674',
-  'build-plugins/seoHubsPlugin.ts:1675',
-  'build-plugins/seoHubsPlugin.ts:1690',
-  'build-plugins/seoHubsPlugin.ts:1691',
-  // 2026-05-18: PR #235 (canton aziende+settori hubs) added a paired
-  // template-literal pattern for non-IT locales — the TI legacy slugs
-  // appear as inline fallbacks on these 2 lines (sectors hub + companies
-  // hub, mirroring the 1674/1675/1690/1691 pattern but in the new emit
-  // block ~275 lines below the existing one).
-  'build-plugins/seoHubsPlugin.ts:2043',
-  'build-plugins/seoHubsPlugin.ts:2059',
+  //    2026-05-18 re-anchor: PR #275 (recency landings) + #279 (orphan-pillar
+  //    related-guides) shifted prior 1674/1675/1690/1691/2043/2059 site
+  //    OUT of the TI-literal region. Only the canton-aziende+settori block
+  //    (PR #235) still carries the slugs — now at lines 2057 + 2073 (2-line
+  //    paired template literals for EN/DE/FR fallback).
+  'build-plugins/seoHubsPlugin.ts:2057',
+  'build-plugins/seoHubsPlugin.ts:2073',
 
   // ── professionLandingsLinksPlugin: TI hub injection targets (intentional —
   //    the prose explicitly references "10 most-searched roles in Ticino"). ──
@@ -141,47 +119,21 @@ const ALLOWLIST = [
 
   // ── staticPagesPlugin: section→category / section→label maps. These ARE
   //    keyed by the TI legacy section name; they are data, not links. ──
-  //    Lines shifted +197 by the BFS-depth non-TI canton deep-navigator
-  //    data-prep block added in closeBundle (May 2026, run 25739076601 —
-  //    bfs-depth gate fix for the 23 non-TI cathedral cantons). The previous
-  //    +129 shift from PR #133 TI hub deep-navigator data-prep is included.
-  //    Lines shifted again on 2026-05-12 by the homepage canton-nav helper
-  //    (`buildHomepageCantonNavHtml`) added between `injectHomepageSeoContent`
-  //    and `injectCalculatorSeoContent` — BFS-depth closure run 25753701178.
-  //    Every entry shifts by the same +74 lines (helper block size).
-  //    Then shifted again +44 on 2026-05-13 by the cross-section hubs block
-  //    appended INSIDE `buildHomepageCantonNavHtml` (azienda-* depth fix
-  //    for sitemap-jobs.xml — pulls per-company azienda-* leaves from BFS
-  //    depth 5 to depth 4 by anchoring /aziende-che-assumono/tutte/ + the
-  //    locale variants directly off `/`).
-  // Lines shifted +1 by feat(fuel-station-IT) (cab4042246, 2026-05-18) —
-  // a single line was added above the JobBoard category map in
-  // buildSectionToCategoryMap, propagating +1 down to every subsequent
-  // TI-section entry inside the same file.
-  'build-plugins/staticPagesPlugin.ts:1315',
-  'build-plugins/staticPagesPlugin.ts:1316',
-  'build-plugins/staticPagesPlugin.ts:1317',
-  'build-plugins/staticPagesPlugin.ts:1318',
-  'build-plugins/staticPagesPlugin.ts:1337',
-  'build-plugins/staticPagesPlugin.ts:1338',
-  'build-plugins/staticPagesPlugin.ts:1872',
-  'build-plugins/staticPagesPlugin.ts:1897',
-  'build-plugins/staticPagesPlugin.ts:1922',
-  'build-plugins/staticPagesPlugin.ts:2190',
-  // ── Cross-section hub anchors emitted inside buildHomepageCantonNavHtml
-  //    (2026-05-13 BFS-depth fix for sitemap-jobs.xml azienda-* leaves).
-  //    Per-locale URL constants reference the TI section slug; the audit
-  //    treats them as legitimate URL building blocks rather than rogue
-  //    hardcodes. Pattern mirrors the hubChrome.ts allowlist above.
-  'build-plugins/staticPagesPlugin.ts:565',
-  'build-plugins/staticPagesPlugin.ts:566',
-  'build-plugins/staticPagesPlugin.ts:572',
-  'build-plugins/staticPagesPlugin.ts:573',
-  'build-plugins/staticPagesPlugin.ts:578',
-  'build-plugins/staticPagesPlugin.ts:579',
-  'build-plugins/staticPagesPlugin.ts:584',
-  'build-plugins/staticPagesPlugin.ts:585',
-
+  //    2026-05-18 re-anchor: PR #277 (a11y) + #279 (orphan-pillar) added
+  //    ~108 lines above the JobBoard slug map, propagating +108 to every
+  //    TI-section entry inside the same file. Previous historical shifts
+  //    (+197 cathedral, +129 PR#133, +74 homepageCantonNav, +44 cross-section
+  //    hubs, +1 fuel-station-IT) remain folded into the absolute numbers.
+  'build-plugins/staticPagesPlugin.ts:1423',
+  'build-plugins/staticPagesPlugin.ts:1424',
+  'build-plugins/staticPagesPlugin.ts:1425',
+  'build-plugins/staticPagesPlugin.ts:1426',
+  'build-plugins/staticPagesPlugin.ts:1445',
+  'build-plugins/staticPagesPlugin.ts:1446',
+  'build-plugins/staticPagesPlugin.ts:1980',
+  'build-plugins/staticPagesPlugin.ts:2005',
+  'build-plugins/staticPagesPlugin.ts:2030',
+  'build-plugins/staticPagesPlugin.ts:2298',
   // ── shared/hubChrome.ts: per-locale hub-chrome registry keyed on TI section name ──
   'build-plugins/shared/hubChrome.ts:115',
   'build-plugins/shared/hubChrome.ts:156',
