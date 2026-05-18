@@ -1,18 +1,19 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-05-18T12:05:58.235Z",
+  "generatedAt": "2026-05-18T21:39:39.100Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1682,
-  "avgDurationMs": 1682,
+  "durationMs": 1197,
+  "avgDurationMs": 1197,
   "durationHistory": [
-    1682
+    1197
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Hochschulpraktikant/in Digitale Transformation",
       "slug": "hochschulpraktikant-in-digitale-transformation-confederazione-bern",
@@ -35,16 +36,21 @@
       "validThrough": "2028-05-16",
       "employmentType": "internship",
       "contractType": "internship",
-      "_qualityScore": 61,
+      "id": "confederazione-ticino-f3a09af57bc6",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "firstSeenAt": "2026-05-18T12:05:58.234Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Polizeiliche/-r Fachspezialist/-in",
       "slug": "polizeiliche-r-fachspezialist-in-confederazione-bern",
@@ -111,8 +117,6 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-07T10:45:16.573Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -224,6 +228,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-17T09:57:57.728Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -261,6 +267,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-17T09:57:57.728Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -298,6 +306,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-17T09:57:57.728Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
