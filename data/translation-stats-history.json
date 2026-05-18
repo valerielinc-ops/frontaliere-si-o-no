@@ -10942,5 +10942,117 @@
         "pending": 14
       }
     ]
+  },
+  {
+    "timestamp": "2026-05-18T18:06:16.667Z",
+    "label": "before",
+    "total": 4793,
+    "needsRetranslation": 2752,
+    "incomplete": 1103,
+    "complete": 3690,
+    "missingByLocale": {
+      "it": 937,
+      "en": 510,
+      "de": 672,
+      "fr": 828
+    },
+    "topPending": [
+      {
+        "company": "Roche",
+        "pending": 357
+      },
+      {
+        "company": "IWC",
+        "pending": 112
+      },
+      {
+        "company": "Coop Immobilien",
+        "pending": 79
+      },
+      {
+        "company": "Eisberg Österreich GmbH",
+        "pending": 76
+      },
+      {
+        "company": "HUG",
+        "pending": 64
+      },
+      {
+        "company": "Vaudoise Assurances",
+        "pending": 48
+      },
+      {
+        "company": "Lombard Odier",
+        "pending": 34
+      },
+      {
+        "company": "Novartis",
+        "pending": 27
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 24
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 20
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-18T22:52:20.230Z",
+    "label": "after",
+    "total": 4793,
+    "needsRetranslation": 1422,
+    "incomplete": 742,
+    "complete": 4051,
+    "missingByLocale": {
+      "it": 663,
+      "en": 290,
+      "de": 453,
+      "fr": 629
+    },
+    "topPending": [
+      {
+        "company": "Roche",
+        "pending": 280
+      },
+      {
+        "company": "Eisberg Österreich GmbH",
+        "pending": 75
+      },
+      {
+        "company": "Coop Immobilien",
+        "pending": 74
+      },
+      {
+        "company": "Lombard Odier",
+        "pending": 27
+      },
+      {
+        "company": "Novartis",
+        "pending": 24
+      },
+      {
+        "company": "IWC",
+        "pending": 20
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 20
+      },
+      {
+        "company": "UBS",
+        "pending": 17
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Avaloq",
+        "pending": 14
+      }
+    ]
   }
 ]

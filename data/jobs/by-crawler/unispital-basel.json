@@ -914,6 +914,7 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
         "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
@@ -991,6 +992,7 @@
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
+        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
@@ -1973,8 +1975,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
-        "en": "dipl-care-specialist-hf-fh-universitatsspital-basel-basel",
-        "fr": "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel"
+        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2031,22 +2033,15 @@
       },
       "firstSeenAt": "2026-05-18T13:25:45.944Z",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-4f1zbs",
         "dipl-nursing-specialist-hf-fh-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-2ficdk",
+        "dipl-care-specialist-hf-fh-universitatsspital-basel-basel",
+        "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel",
         "dipl-specialista-di-cura-hf-fh-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
         "assistente-di-pratica-medica-assistente-di-pratica-medica-mpa-anestesiologia-universitatsspital-basel-basel"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
-        ]
-      }
+      ]
     },
     {
       "id": "unispital-basel-e287fdb78612",
@@ -3728,7 +3723,7 @@
       "id": "unispital-basel-b08993222c09",
       "slug": "amministrativo-r-staff-in-amministrazione-paziente-coordinamento-funzione-integrale-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "amministrativo-r-staff-in-amministrazione-paziente-coordinamento-funzione-integrale-universitatsspital-basel-basel",
+        "it": "assistente-alla-salute-e-agli-affari-sociali-ags-assistente-alla-cura-pa-universitatsspital-basel-basel",
         "en": "administrative-r-staff-in-patient-administration-coordination-allround-function-universitatsspital-basel-basel",
         "de": "administrative-r-mitarbeiter-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel-basel",
         "fr": "personnel-administratif-en-administration-et-coordination-des-patients-fonction-complete-universitatsspital-basel-basel"
@@ -3778,8 +3773,7 @@
         ],
         "it": [
           "administrative-r-mitarbeiter-in-patientenadministration-amp-koordination-allround-funktion",
-          "administrative-r-collaboratore-trice-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel",
-          "assistente-alla-salute-e-agli-affari-sociali-ags-assistente-alla-cura-pa-universitatsspital-basel-basel"
+          "administrative-r-collaboratore-trice-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel"
         ],
         "en": [
           "administrative-r-mitarbeiter-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel-basel"
@@ -3791,11 +3785,11 @@
       "previousSlugs": [
         "administrative-r-mitarbeiter-in-patientenadministration-amp-koordination-allround-funktion",
         "administrative-r-collaboratore-trice-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel",
-        "assistente-alla-salute-e-agli-affari-sociali-ags-assistente-alla-cura-pa-universitatsspital-basel-basel",
         "administrative-r-mitarbeiter-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel-basel",
         "assistentin-gesundheit-und-soziales-ags-pflegeassistentin-pa-unispital-basel-ch",
         "assistentin-gesundheit-und-soziales-ags-pflegeassistentin-pa-universitatsspital-basel-basel",
-        "assistentin-gesundheit-e-soziales-ags-pflegeassistentin-pa-universitatsspital-basel"
+        "assistentin-gesundheit-e-soziales-ags-pflegeassistentin-pa-universitatsspital-basel",
+        "amministrativo-r-staff-in-amministrazione-paziente-coordinamento-funzione-integrale-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.313Z",
       "salaryMin": 49500,
@@ -4065,7 +4059,7 @@
       "id": "unispital-basel-a732e1d3b54d",
       "slug": "biomedical-analyst-in-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "biomedical-analyst-in-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-basel",
+        "it": "personale-amministrativo-in-segretario-universitatsspital-basel-basel",
         "en": "biomedical-analyst-in-hf-laboratory-diagnostics-in-fh-molecular-diagnostic-hematology-universitatsspital-basel-basel",
         "de": "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba",
         "fr": "analyste-biomedical-en-hf-diagnostic-de-laboratoire-en-fh-hematologie-diagnostique-moleculaire-universitatsspital-basel-"
@@ -4113,18 +4107,17 @@
         "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatolog",
         "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba",
         "analista-biomedica-nella-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-bas",
-        "personale-amministrativo-in-segretario-universitatsspital-basel-basel",
         "logistikerin-logistiker-cfc-specializzazione-lagertechnik-lagerlogistik-apprendistato-universitatsspital-basel",
         "administrative-r-mitarbeiter-in-sekretar-in-unispital-basel-ch",
         "administrative-r-mitarbeiter-in-sekretar-in-universitatsspital-basel-basel",
-        "administrative-r-collaboratore-trice-in-sekretar-in-universitatsspital-basel"
+        "administrative-r-collaboratore-trice-in-sekretar-in-universitatsspital-basel",
+        "biomedical-analyst-in-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatolog",
           "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba",
-          "analista-biomedica-nella-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-bas",
-          "personale-amministrativo-in-segretario-universitatsspital-basel-basel"
+          "analista-biomedica-nella-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-bas"
         ],
         "en": [
           "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba"
@@ -6059,7 +6052,7 @@
       "id": "unispital-basel-a058cdd33fda",
       "slug": "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
+        "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
         "en": "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
         "de": "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-universitatsspital-basel-basel",
         "fr": "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
@@ -6109,8 +6102,7 @@
         ],
         "it": [
           "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
-          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
-          "fisioterapista-fisioterapista-universitatsspital-basel-basel"
+          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
         ],
         "en": [
           "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch"
@@ -6122,13 +6114,13 @@
       "previousSlugs": [
         "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
         "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
-        "fisioterapista-fisioterapista-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
         "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel",
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
+        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
+        "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
       "salaryMin": 49500,
@@ -6467,7 +6459,7 @@
       "id": "unispital-basel-e94993893b1b",
       "slug": "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel",
         "en": "dipl-care-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-universitatsspital-basel-basel",
         "fr": "dipl-specialiste-des-soins-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel"
@@ -6517,8 +6509,7 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
         ],
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
         ],
         "en": [
           "dipl-care-specialist-hf-fh-medical-6-2-universitatsspital-basel-basel",
@@ -6532,10 +6523,13 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-unispital-basel-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel",
         "dipl-care-specialist-hf-fh-medical-6-2-universitatsspital-basel-basel",
         "dipl-specialiste-des-soins-hf-fh-medical-6-2-universitatsspital-basel-basel",
-        "dipl-specialista-di-cura-hf-fh-medico-6-2-universitatsspital-basel-basel"
+        "dipl-specialista-di-cura-hf-fh-medico-6-2-universitatsspital-basel-basel",
+        "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
+        "dipl-care-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-universitatsspital-basel-basel",
+        "dipl-specialiste-des-soins-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-12T12:15:55.438Z",
       "salaryMin": 49500,
@@ -7596,12 +7590,12 @@
     },
     {
       "id": "unispital-basel-c8d08ab0b3f2",
-      "slug": "assistente-assistente-salute-e-affari-sociali-ags-universitatsspital-basel-basel",
+      "slug": "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
       "slugByLocale": {
         "de": "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel",
-        "it": "assistente-assistente-salute-e-affari-sociali-ags-universitatsspital-basel-basel",
-        "en": "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
-        "fr": "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel"
+        "it": "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
+        "en": "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
+        "fr": "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -7616,8 +7610,8 @@
       "description": "Aufgaben:\n• Mithilfe bei der Pflege in Absprache mit der zuständigen Pflegefachperson\n\n• Transport von Patientinnen und Patienten\n\n• Selbständige Übernahme hauswirtschaftlicher Tätigkeiten\n\n• Materialbeschaffung, Aufbereitung und Bewirtschaftung von Geräten\n\n• Ordnung halten in den Räumen\n\n• Einsatz als Sitzwache auf Station\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Assistent*in Gesundheit und Soziales, Pflegeassistent*in oder Gesundheits- und Krankenpflegehelfer*in oder \"diplôme d'État d'aide-soignant (DEAS)\"\n\n• Erfahrung im Akutbereich wünschenswert\n\n• Gute Deutschkenntnisse\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie deren Angehörigen\n\n• Ausgeprägte Dienstleistungsorientierung und Teamfähigkeit\n\n• Bereitschaft zum Einsatz im Früh-, Spät- und Nachtdienst sowie an Wochenenden und Feiertagen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Mithilfe bei der Pflege in Absprache mit der zuständigen Pflegefachperson\n\n• Transport von Patientinnen und Patienten\n\n• Selbständige Übernahme hauswirtschaftlicher Tätigkeiten\n\n• Materialbeschaffung, Aufbereitung und Bewirtschaftung von Geräten\n\n• Ordnung halten in den Räumen\n\n• Einsatz als Sitzwache auf Station\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Assistent*in Gesundheit und Soziales, Pflegeassistent*in oder Gesundheits- und Krankenpflegehelfer*in oder \"diplôme d'État d'aide-soignant (DEAS)\"\n\n• Erfahrung im Akutbereich wünschenswert\n\n• Gute Deutschkenntnisse\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie deren Angehörigen\n\n• Ausgeprägte Dienstleistungsorientierung und Teamfähigkeit\n\n• Bereitschaft zum Einsatz im Früh-, Spät- und Nachtdienst sowie an Wochenenden und Feiertagen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Compiti:\n• Aiutare con cura in consultazione con lo specialista di assistenza competente\n\n• Trasporto di pazienti\n\n• Assunzione autonoma delle attività economiche\n\n• Acquisti, trasformazione e gestione dei materiali\n\n• Mantenere l'ordine nelle camere\n\n• Utilizzare come guardia di sicurezza in stazione\n\nRequisiti:\n• Formazione completa come assistente per la salute e l'assistenza sociale, infermieristica*in o assistente sanitaria e infermieristica*in o \"diplôme d'État d'aide-soignant (DEAS)\"\n\n• Esperienza nella zona acuta auspicabile\n\n• Buona conoscenza tedesca\n\n• Gestione sensibile e stimata dei pazienti e dei loro parenti\n\n• orientamento del servizio goffrato e capacità del team\n\n• pronto per l'uso nei servizi di prima, tarda e notte, nonché nei fine settimana e nelle vacanze\n\nOffriamo:\n• Politica salariale attraente e vantaggi sociali eccellenti\n\n• Vantaggi nello shopping, nello sport e nel tempo libero\n\n• Supporto per spostamento e alloggiamento\n\n• 25 giorni festivi più 5 anche free flexitage\n\n• Sostegno alla formazione continua e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e il Dreiländereck\n\n• Servizi per l'infanzia completi\n\n• Programma di sport e di esercizio gratuito",
-        "en": "Tasks:\n• Help with care in consultation with the competent care specialist\n\n• Transport of patients\n\n• Self-employed takeover of economic activities\n\n• Material procurement, processing and management of equipment\n\n• Keep order in the rooms\n\n• Use as seat guard on station\n\nRequirements:\n• Complete training as an assistant to health and social, nursing assistant*in or health and nursing assistant*in or \"diplôme d'État d'aide-soignant (DEAS)\"\n\n• Experience in the acute area desirable\n\n• Good German knowledge\n\n• Sensitive and value-estimating handling of patients and their relatives\n\n• Embossed service orientation and team capacity\n\n• ready for use in early, late and night services as well as weekends and holidays\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Benefits in shopping, sports and leisure\n\n• Support for moving and housing\n\n• 25 Holiday days plus 5 also free flexitage\n\n• Support for continuing and continuing training and career planning\n\n• Campus in the heart of Basel and the Dreiländereck\n\n• Comprehensive childcare facilities\n\n• Free sports and exercise program",
+        "it": "• Servizi di assistenza e assistenza per la cura dei malati • Trasporto di pazienti • Rifornimento autonomo delle attività domestiche • Acquisti di materiale, lavorazione e gestione delle attrezzature • Mantenere l'ordine nelle camere • Utilizzare come guardia di sicurezza per la stazione Requisiti: • Formazione completa come assistente alla salute e assistente sociale, infermieristica*in o assistenza sanitaria e infermieristica*in o \"diplôme d'État d'aide-soluignant (DEAS) Offriamo: • Attraente politica salariale e eccellenti benefici sociali • Vantaggi nello shopping, nello sport e nel tempo libero • Supporto per lo spostamento e la ricerca di alloggi • 25 giorni di vacanza più 5 flexi gratuiti",
+        "en": "Tasks: • Help with care in consultation with the competent care specialist • Transport of patients • Self-employed takeover of domestic activities • Material procurement, processing and management of equipment • Keep order in the rooms • Use as a seat guard on station Requirements: • Complete training as an assistant to health and social, nursing assistant*in or health and nursing assistant*in or \"diplôme d'État d'aide-soignant (DEAS)\" • Experience in the field desirable • • Recreational and valuing treatment of patients and their relatives • Impressive service orientation and team skills • Ready to use early, late and night services as well as weekends and holidays We offer: • Attractive wage policy and excellent social benefits • Benefits in shopping, sports and leisure • Support in moving and seeking accommodation • 25 holiday days plus 5 free flexi",
         "fr": "Tâches: • Aide aux soins en consultation avec le spécialiste compétent des soins • Transport des patients • Prise en charge par des travailleurs indépendants des activités domestiques • Acquisition, traitement et gestion du matériel • Maintien de l'ordre dans les chambres • Utilisation comme garde de siège sur la station Exigences: • Formation complète en tant qu'assistant de santé et sociale, assistant infirmier* dans ou assistant infirmier* dans ou \"diplôme d'État d'aide-soignant (DEAS)\" • Expérience sur le terrain souhaitable • • Traitement récréatif et valorisant des patients et de leurs proches • Orientation impressionnante des services et compétences d'équipe • Prêt à utiliser les services tôt, tard et nuit ainsi que les week-ends et les vacances Nous offrons: • Attractive politique salariale et d'excellents avantages sociaux • Avantages dans le shopping, les sports et les loisirs • Soutien dans le déménagement et la recherche d'un logement • 25 jours de vacances plus 5 flexi gratuit"
       },
       "location": "Basel",
@@ -7647,11 +7641,11 @@
       "previousSlugsByLocale": {
         "it": [
           "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
-          "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
-          "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel"
+          "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel"
         ],
         "de": [
           "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
+          "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel",
           "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-universitatsspital-basel-basel"
         ],
         "en": [
@@ -7665,13 +7659,16 @@
       },
       "previousSlugs": [
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
-        "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
+        "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel",
+        "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
+        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
         "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
+        "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
+        "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
+        "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
         "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-universitatsspital-basel-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
-        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
-        "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
-        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
+        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
