@@ -7871,8 +7871,9 @@ ${alternates}
      // Per-canton: Home → "Cerca lavoro in Svizzera" (aggregator) → canton.
      // Aggregator page itself: Home → "Svizzera" (skip dupe parent).
      // Prior bug (GSC "Unparsable structured data", 2026-05-13): position 2
-     // used `sectionByLocale[locale]` — a URL slug like "cerca-lavoro-ticino" —
-     // as the human `name`, and `legacyJobBoardHref` resolved to the same URL
+     // used `sectionByLocale[locale]` — a URL slug (the TI legacy job-board
+     // section name) — as the human `name`, and `legacyJobBoardHref`
+     // resolved to the same URL
      // as the canton page itself (e.g. /cerca-lavoro-argovia/ on the AG page),
      // producing a malformed breadcrumb that Google rejected as invalid.
      const homeItem = { '@type': 'ListItem', position: 1, name: homeLabel[entry.locale], item: `${BASE_URL}${entry.locale === 'it' ? '/' : `/${entry.locale}/`}` };

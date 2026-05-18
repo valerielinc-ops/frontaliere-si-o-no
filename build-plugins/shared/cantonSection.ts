@@ -54,6 +54,23 @@ export function resolveCantonSection(locale: CantonLocale, cantonCode: string): 
   return `${SECTION_PREFIX_BY_LOCALE[locale]}-${getCantonUrlSlug(code, locale)}`;
 }
 
+/**
+ * Build the absolute SPA-prefixed root path for the legacy TI job-board hub
+ * in a given locale. Returns e.g. `/cerca-lavoro-ticino` (IT) or
+ * `/en/find-jobs-ticino` (EN). Use this when a caller would otherwise
+ * inline the ternary
+ * `locale === 'en' ? 'find-jobs-ticino' : locale === 'de' ? 'jobs-im-tessin' : ...`
+ * — the literal slugs stay encapsulated here, so other build-plugin files
+ * never carry the TI hardcodes (and never trip
+ * `tests/seo/cathedral-no-ti-hardcodes.test.ts`).
+ *
+ * For canton-aware paths (everything except TI), use `resolveCantonSection`.
+ */
+export function legacyTiSectionRoot(locale: CantonLocale): string {
+  const prefix = locale === 'it' ? '' : `/${locale}`;
+  return `${prefix}/${SECTION_LEGACY_TI[locale]}`;
+}
+
 // Normalize for city → canton lookup. NFD-decompose, strip combining diacritics,
 // lowercase, trim. Matches input "Zurich" against stored "Zürich" so jobs whose
 // `location` comes from a non-German source still resolve to ZH.
