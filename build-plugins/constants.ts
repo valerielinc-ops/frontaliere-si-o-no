@@ -43,6 +43,18 @@ export const BUILD_ID = String(Date.now());
 export const SPA_ACTION_REDIRECT_SCRIPT_CONTENT = `(function(){var p=new URLSearchParams(location.search);if(p.get('action')||p.get('at')||p.get('authToken')||p.get('newsletter_autologin')){sessionStorage.redirect=location.href;location.replace('/');}})();`;
 export const SPA_ACTION_REDIRECT_SCRIPT = `<script src="/assets/spa-action-redirect.js?v=${BUILD_ID}"></script>`;
 
+/**
+ * Plain JS body for the dark-mode init — written to dist/assets/dark-mode-init.js
+ * by staticScriptsPlugin. Adds 'dark' class to <html> before first paint to avoid
+ * FOUC on dark-mode pages. Used by soft-landing + staticPagesPlugin templates.
+ * Externalising drops ~140 B/page across the ~100k pages that emit it (~14 MB dist).
+ *
+ * Loaded synchronously (no defer/async) — must run before paint so dark-mode
+ * styles in seo-static.css apply on first render.
+ */
+export const DARK_MODE_INIT_CONTENT = `(function(){if(localStorage.theme==='dark'||((!('theme' in localStorage))&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}})();`;
+export const DARK_MODE_SCRIPT = `<script src="/assets/dark-mode-init.js?v=${BUILD_ID}"></script>`;
+
 export function buildCanonicalBridgePage(options: {
  canonicalUrl: string;
  pathLabel: string;

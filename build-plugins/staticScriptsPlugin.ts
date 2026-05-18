@@ -22,6 +22,7 @@ import {
   ADSENSE_LOADER_CONTENT,
   SPA_ACTION_REDIRECT_SCRIPT_CONTENT,
   POSTHOG_INIT_CONTENT,
+  DARK_MODE_INIT_CONTENT,
 } from './constants';
 
 export function staticScriptsPlugin(rootDir: string): Plugin {
@@ -38,6 +39,7 @@ export function staticScriptsPlugin(rootDir: string): Plugin {
         ['adsense-loader.js', ADSENSE_LOADER_CONTENT],
         ['spa-action-redirect.js', SPA_ACTION_REDIRECT_SCRIPT_CONTENT],
         ['posthog-init.js', POSTHOG_INIT_CONTENT],
+        ['dark-mode-init.js', DARK_MODE_INIT_CONTENT],
       ];
 
       let totalBytes = 0;
