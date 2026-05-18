@@ -1,31 +1,31 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-05-18T12:14:04.908Z",
-  "total": 156,
-  "newCount": 5,
-  "updatedCount": 2,
+  "generatedAt": "2026-05-18T21:47:13.662Z",
+  "total": 157,
+  "newCount": 1,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 149,
-  "durationMs": 328549,
-  "avgDurationMs": 328549,
+  "unchangedCount": 152,
+  "durationMs": 289428,
+  "avgDurationMs": 289428,
   "durationHistory": [
-    328549
+    289428
   ],
   "newJobs": [
     {
-      "id": "company-9y4g1i",
-      "slug": "leiter-in-bauprojekte-100-region-ostschweiz-ticino-coop-immobilien-gossau-sankt-gallen",
-      "company": "Coop Immobilien",
-      "title": "Leiter:in Bauprojekte 100% Region Ostschweiz/Ticino",
-      "location": "Gossau",
+      "id": "company-lesziv",
+      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino",
+      "company": "Fust | Swiss Household Services AG",
+      "title": "Montatore/trice di impianti sanitari per cucine & bagni",
+      "location": "Bellinzona",
       "canton": "TI",
-      "category": "admin",
-      "contract": "temporary",
+      "category": "health",
+      "contract": "part-time",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-18",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/leiter-in-bauprojekte-region-ostschweiz-ticino/84fcb6f6-717f-4d77-b481-647e5fa0f05c",
+      "url": "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/d6f8e0ea-dc4e-4756-a34c-9e81ade56af4",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -34,18 +34,20 @@
       },
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-18T12:12:02.636Z",
-      "firstSeenAt": "2026-05-18T12:12:02.636Z",
+      "crawledAt": "2026-05-18T21:44:45.062Z",
+      "firstSeenAt": "2026-05-18T21:44:45.062Z",
       "needsRetranslation": true,
-      "addressLocality": "Gossau",
-      "_qualityScore": 72,
+      "addressLocality": "Bellinzona",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 9,
+        "translation": 4,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "company-4j1lnt",
       "slug": "kochin-koch-m-w-d-coop-chur-graubunden",
@@ -71,78 +73,15 @@
       "firstSeenAt": "2026-05-18T12:12:02.636Z",
       "needsRetranslation": true,
       "addressLocality": "Chur",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-i1ujb",
-      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
-      "company": "CHRIST Uhren & Schmuck AG",
-      "title": "Geschäftsführer:in",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-14",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in/c25d4ef3-16df-400d-bb01-f6120016d862",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-18T12:12:02.636Z",
-      "firstSeenAt": "2026-05-18T12:12:02.636Z",
-      "needsRetranslation": true,
-      "addressLocality": "Chur",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-trpl7g",
-      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
-      "company": "CHRIST Uhren & Schmuck AG",
-      "title": "Verkaufsberater:in",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-14",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/159a4e72-49bd-4918-a892-c314f60779fd",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-18T12:12:02.636Z",
-      "firstSeenAt": "2026-05-18T12:12:02.636Z",
-      "needsRetranslation": true,
-      "addressLocality": "Chur",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -170,64 +109,30 @@
       "firstSeenAt": "2026-05-18T12:12:02.636Z",
       "needsRetranslation": true,
       "addressLocality": "Felsberg",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "id": "company-c0vdfl",
-      "slug": "mitarbeiter-in-nachtverlad-coop-chur-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Mitarbeiter:in Nachtverlad",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-26",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-nachtverlad/bb9a0b8a-ea51-4ad3-8eb0-d847cb30b258",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-26T21:15:43.060Z",
-      "firstSeenAt": "2026-04-26T21:15:43.060Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
     },
     {
-      "id": "company-6lujcy",
-      "slug": "collaboratore-trice-saison-coop-davos-graubunden-6lujcy",
+      "id": "company-metayj",
+      "slug": "verkaufer-in-food-coop-felsberg-graubunden",
       "company": "Coop Genossenschaft",
-      "title": "Mitarbeiter:in Saison",
-      "location": "Davos",
+      "title": "Verkäufer:in Food",
+      "location": "Felsberg",
       "canton": "GR",
       "category": "admin",
-      "contract": "temporary",
+      "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-09-17",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-saison/568272fd-384d-411f-ba35-6f77d1c3761f",
+      "postedDate": "2026-04-22",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/ead7bb69-ab5a-4ecd-9daa-c151b4ccadf3",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -236,16 +141,50 @@
       },
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "addressLocality": "Davos",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "firstSeenAt": "2026-03-31T07:18:28.826Z",
-      "_qualityScore": 93,
+      "crawledAt": "2026-05-17T10:03:17.418Z",
+      "firstSeenAt": "2026-05-17T10:03:17.418Z",
+      "addressLocality": "Felsberg",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-6y8rn9",
+      "slug": "detailhandelsassistent-in-eba-coop-grigioni-9",
+      "company": "Coop",
+      "title": "Detailhandelsassistent:in EBA",
+      "location": "Gossau",
+      "canton": "GR",
+      "category": "finance",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-08-01",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsassistent-in-eba/a2f0d68f-68f8-4b2f-bce6-c8527bbe9f48",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-17T10:03:17.418Z",
+      "firstSeenAt": "2026-05-17T10:03:17.418Z",
+      "addressLocality": "Gossau",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 19
       }
@@ -253,6 +192,114 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "company-9y4g1i",
+      "slug": "leiter-in-bauprojekte-100-region-ostschweiz-ticino-coop-immobilien-gossau-sankt-gallen",
+      "company": "Coop Immobilien",
+      "title": "Leiter:in Bauprojekte 100% Region Ostschweiz/Ticino",
+      "location": "Gossau",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/leiter-in-bauprojekte-region-ostschweiz-ticino/84fcb6f6-717f-4d77-b481-647e5fa0f05c",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-18T12:12:02.636Z",
+      "firstSeenAt": "2026-05-18T12:12:02.636Z",
+      "needsRetranslation": true,
+      "addressLocality": "Gossau",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 9,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-i1ujb",
+      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
+      "company": "CHRIST Uhren & Schmuck AG",
+      "title": "Geschäftsführer:in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-14",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in/c25d4ef3-16df-400d-bb01-f6120016d862",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-18T12:12:02.636Z",
+      "firstSeenAt": "2026-05-18T12:12:02.636Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-trpl7g",
+      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
+      "company": "CHRIST Uhren & Schmuck AG",
+      "title": "Verkaufsberater:in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-14",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/159a4e72-49bd-4918-a892-c314f60779fd",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-05-18T12:12:02.636Z",
+      "firstSeenAt": "2026-05-18T12:12:02.636Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "retranslationAttempts": 1,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
     {
       "id": "company-cprmen",
       "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
@@ -280,7 +327,6 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -316,7 +362,6 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -352,6 +397,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -390,41 +436,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-metayj",
-      "slug": "verkaufer-in-food-coop-felsberg-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Food",
-      "location": "Felsberg",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-22",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/ead7bb69-ab5a-4ecd-9daa-c151b4ccadf3",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-17T10:03:17.418Z",
-      "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "addressLocality": "Felsberg",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 19
       }
@@ -490,6 +501,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -525,6 +537,7 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -560,6 +573,7 @@
       "salaryMin": 59000,
       "salaryMax": 90500,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -902,6 +916,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -937,6 +952,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -972,6 +988,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1007,6 +1024,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1042,6 +1060,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1077,6 +1096,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1112,6 +1132,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1147,6 +1168,7 @@
       "salaryMin": 85500,
       "salaryMax": 150000,
       "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1220,76 +1242,6 @@
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-n4f99v",
-      "slug": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-n4f99v",
-      "company": "Jumbo",
-      "title": "Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
-      "location": "Lenzburg 1",
-      "canton": "TI",
-      "category": "sales",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-01",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/79deb1f1-c79a-48f3-aa33-dfa6935b7b7b",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-17T10:03:17.418Z",
-      "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "addressLocality": "Lenzburg 1",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "needsRetranslation": true,
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 15,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-paz7ck",
-      "slug": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-paz7ck",
-      "company": "Jumbo",
-      "title": "Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
-      "location": "Lenzburg 1",
-      "canton": "TI",
-      "category": "sales",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-01",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/c597e73f-348a-4e59-bff3-f246089fe0ac",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-05-17T10:03:17.418Z",
-      "firstSeenAt": "2026-05-17T10:03:17.418Z",
-      "addressLocality": "Lenzburg 1",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "needsRetranslation": true,
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 15,
         "completeness": 19
       }
     }
