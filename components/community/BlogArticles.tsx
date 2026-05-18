@@ -18,7 +18,8 @@ import { eagerAuth, isLinkedInSignInAvailable, signInWithGoogle, signInWithLinke
 import type { LucideIcon } from 'lucide-react';
 import { PARTNERS, buildAffiliateUrl, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
-import { AD_SLOTS } from '@/services/adsenseSlots';
+import { AD_SLOTS, isPlaceholderAdSlot } from '@/services/adsenseSlots';
+import { computeArticleAdSlots } from '@/services/articleAdSlots';
 import Callout from '@/components/shared/Callout';
 import { resolveCompanyLogoUrl, resolveCompanyWebsiteHost } from '@/services/jobDataNormalization';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
@@ -1741,6 +1742,20 @@ function BlogArticles({
  // for users who are already logged in when they land on an article.
  const contentGateApplies = !authLoading && !hasArticleAccess && paywallable;
  const visibleSegmentCount = paywallable ? Math.ceil(presentSegments.length / 2) : presentSegments.length;
+ // Inline ad placement — scalable density (every >=2 segments AND >=250 words),
+ // capped at 5 inline ads. Pure walk over visible segments, paywall-aware,
+ // heading-safe. Cheap enough to recompute on every render.
+ const adInsertionPlan = adEligibleInline
+  ? computeArticleAdSlots(presentSegments, visibleSegmentCount, { minimumWhenEligible: 1 })
+  : null;
+ // Slot config lookup table (positions 1..5 → AD_SLOTS entries).
+ const articleInlineSlotByPosition = [
+  AD_SLOTS.ARTICLE_INLINE_MOBILE,
+  AD_SLOTS.ARTICLE_INLINE_MOBILE_2,
+  AD_SLOTS.ARTICLE_INLINE_MOBILE_3,
+  AD_SLOTS.ARTICLE_INLINE_MOBILE_4,
+  AD_SLOTS.ARTICLE_INLINE_MOBILE_5,
+ ] as const;
 
  // TOC headings extracted from article body
  const tocHeadings = extractHeadings(bodySegments);
@@ -2096,20 +2111,28 @@ function BlogArticles({
  </Suspense>
  )}
 
- {/* In-article ad #1 — between body1 and body2 */}
- <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}>
- <AdSenseBanner
- adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
- adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
- adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout}
- fullWidthResponsive={false}
- enabled={adEligibleInline}
- className="my-4"
- />
- </Suspense>
-
  </>
  )}
+
+ {/* Scalable inline ads — placement computed by computeArticleAdSlots.
+   Renders before the segment at `idx` when the placer decided to plant one there. */}
+ {!hideForVisitor && adInsertionPlan?.insertions.has(idx) && (() => {
+  const position = adInsertionPlan.insertions.get(idx)!;
+  const slotConfig = articleInlineSlotByPosition[position - 1];
+  if (!slotConfig || isPlaceholderAdSlot(slotConfig.slot)) return null;
+  return (
+   <Suspense fallback={<div style={{ minHeight: slotConfig.placeholderMinHeight, contain: 'content' }} className="my-4" />}>
+    <AdSenseBanner
+     adSlot={slotConfig.slot}
+     adFormat={slotConfig.format}
+     adLayout={slotConfig.layout}
+     fullWidthResponsive={false}
+     enabled={adEligibleInline}
+     className="my-4"
+    />
+   </Suspense>
+  );
+ })()}
 
  {/* Interstitials after body2 (index 1) */}
  {!hideForVisitor && idx === 2 && (

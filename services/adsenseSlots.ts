@@ -98,9 +98,35 @@ export const AD_SLOTS = {
  fullWidthResponsive: false,
  placeholderMinHeight: 400,
  },
- /** Article: second inline-mobile ad for long-form articles (>1500 words) */
+ /** Article: 2nd inline-mobile ad (position 2 in the scalable placer). */
  ARTICLE_INLINE_MOBILE_2: {
  slot: '6483829128',
+ format: 'fluid',
+ layout: 'in-article',
+ fullWidthResponsive: false,
+ placeholderMinHeight: 220,
+ },
+ /** Article: 3rd inline-mobile ad (position 3 in the scalable placer).
+  *  Slot ID prefixed `TBD-` until created in AdSense console — the
+  *  isPlaceholderAdSlot guard short-circuits rendering for placeholders. */
+ ARTICLE_INLINE_MOBILE_3: {
+ slot: 'TBD-CREATE-IN-CONSOLE',
+ format: 'fluid',
+ layout: 'in-article',
+ fullWidthResponsive: false,
+ placeholderMinHeight: 220,
+ },
+ /** Article: 4th inline-mobile ad (position 4 in the scalable placer). */
+ ARTICLE_INLINE_MOBILE_4: {
+ slot: 'TBD-CREATE-IN-CONSOLE',
+ format: 'fluid',
+ layout: 'in-article',
+ fullWidthResponsive: false,
+ placeholderMinHeight: 220,
+ },
+ /** Article: 5th inline-mobile ad (position 5 in the scalable placer). */
+ ARTICLE_INLINE_MOBILE_5: {
+ slot: 'TBD-CREATE-IN-CONSOLE',
  format: 'fluid',
  layout: 'in-article',
  fullWidthResponsive: false,
@@ -114,3 +140,10 @@ export const AD_SLOTS = {
  placeholderMinHeight: 400,
  },
 } as const;
+
+/** Returns true when an ad-unit's slot id is still a `TBD-` placeholder.
+ *  Callers MUST check this before rendering an `<ins data-ad-slot="…">` —
+ *  shipping a literal `TBD-…` to AdSense violates publisher policy. */
+export function isPlaceholderAdSlot(slotId: string): boolean {
+ return slotId.startsWith('TBD-');
+}
