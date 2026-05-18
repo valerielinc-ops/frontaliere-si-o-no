@@ -835,7 +835,7 @@ const MIN_WORDS_MODEL_ROTATION = [
   GH_MODEL_HEAVY,                    // attempt 1: gpt-4o (GitHub Models)
   AI_MODELS.GPT_4_1,                 // attempt 2: gpt-4.1 (GitHub Models, different daily limit)
   'gemini',                          // attempt 3: gemini-2.5-flash (Google, different provider)
-  AI_MODELS.GPT_5_NANO,              // attempt 4: gpt-5-nano (GitHub Models, different limit)
+  AI_MODELS.GPT_4_1_NANO,             // attempt 4: gpt-4.1-nano (GitHub Models — GPT_5_NANO killed 2026-05-18)
   AI_MODELS.GROQ_KIMI_K2,            // attempt 5: Kimi K2 (Groq, different provider)
   GH_MODEL_LIGHT,                    // attempt 6: gpt-4o-mini (then expansion fallback)
 ];
