@@ -5919,21 +5919,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gateCompanyHref = buildPath({ activeTab: 'job-board' as any, jobSlug: gateCompanySlug }, locale);
  const gateLocationSlug = jobLocation ? buildLocationSearchSlug(selectedJob.addressLocality || jobLocation, locale) : '';
  const gateLocationHref = gateLocationSlug ? buildPath({ activeTab: 'job-board' as any, jobSlug: gateLocationSlug }, locale) : '';
- // Personalized gate H2: surface the job-specific value (salary + company) so the
- // CTA promise is concrete, not generic. Falls back to "Unlock contacts" when no salary.
- const gateHeadline = (() => {
- const company = companyName;
- if (gateSalary) {
- if (locale === 'it') return `Sblocca ${gateSalary} — ${company}`;
- if (locale === 'de') return `${gateSalary} freischalten — ${company}`;
- if (locale === 'fr') return `Débloquer ${gateSalary} — ${company}`;
- return `Unlock ${gateSalary} — ${company}`;
- }
- if (locale === 'it') return `Sblocca contatti — ${company}`;
- if (locale === 'de') return `Kontakte freischalten — ${company}`;
- if (locale === 'fr') return `Débloquer les contacts — ${company}`;
- return `Unlock contacts — ${company}`;
- })();
 
  return (
  <div className="space-y-5">
@@ -6018,12 +6003,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  {/* Auth gate — embedded inline for all viewports (no extra click needed) */}
  <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
- {/* Compact header: H2 with inline Eye icon. Personalized with the job's salary
- + company so the click promise is concrete, not generic. Subtitle removed:
- the trust bullets below already carry that information. */}
  <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
  <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
- <span>{gateHeadline}</span>
+ <span>{t('jobBoard.gate.title')}</span>
  </h2>
 
  {/* Trust signals — 2 lines at text-sm. text-xs is reserved for metadata

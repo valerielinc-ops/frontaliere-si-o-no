@@ -508,15 +508,11 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp, 
  {/* Active jobs */}
  {activeJobsSection}
 
- {/* Sign-in / alert block — orphan-context headline (slug has no job data → promise is "all active listings") */}
+ {/* Sign-in / alert block */}
  <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
  <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
  <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
- <span>{
- totalActiveJobs != null && totalActiveJobs > 0
- ? (locale === 'it' ? `Sblocca ${totalActiveJobs.toLocaleString()}+ annunci attivi` : locale === 'de' ? `${totalActiveJobs.toLocaleString()}+ aktive Stellen freischalten` : locale === 'fr' ? `Débloquer ${totalActiveJobs.toLocaleString()}+ offres actives` : `Unlock ${totalActiveJobs.toLocaleString()}+ active listings`)
- : (locale === 'it' ? 'Sblocca tutti gli annunci attivi' : locale === 'de' ? 'Alle aktiven Stellen freischalten' : locale === 'fr' ? 'Débloquer toutes les offres actives' : 'Unlock all active listings')
- }</span>
+ <span>{t('jobBoard.gate.title')}</span>
  </h2>
 
  {/* Trust signals — 2 lines at text-sm (matches active job gate) */}

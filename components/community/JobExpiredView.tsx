@@ -690,11 +690,11 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
  )}
 
- {/* Auth gate — expired-context headline (job not applicable → promise is "similar listings") */}
+ {/* Auth gate */}
  <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
  <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
  <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
- <span>{locale === 'it' ? 'Sblocca annunci simili' : locale === 'de' ? 'Ähnliche Stellen freischalten' : locale === 'fr' ? 'Débloquer les offres similaires' : 'Unlock similar listings'}</span>
+ <span>{t('jobBoard.gate.title')}</span>
  </h2>
 
  {/* Trust signals — 2 lines at text-sm (matches active job gate) */}
