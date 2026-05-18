@@ -490,8 +490,14 @@ function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  if (!html.includes('</body>')) return html;
  const cantonNav = buildHomepageCantonNavHtml(locale);
  const langSwitch = buildHomepageLangSwitchHtml(locale);
- const crossLocaleNav = buildHomepageCrossLocaleCantonNavHtml();
- return html.replace('</body>', `${block}\n${langSwitch}\n${cantonNav}\n${crossLocaleNav}\n</body>`);
+ // Squirrel reported `/` with 234 internal links (cap 100). Cross-locale
+ // canton anchors (~81) added a row per canton × 3 locales just for BFS
+ // — but the lang-switcher already exposes /en/, /de/, /fr/ at depth 1
+ // and each locale home carries its own full canton nav. Drop the
+ // 81-anchor bridge here; the canton hubs remain reachable at depth 2
+ // via the language switcher → locale home → canton hub.
+ const relatedGuides = buildHomepageRelatedGuidesBlock(locale);
+ return html.replace('</body>', `${block}\n${langSwitch}\n${relatedGuides}\n${cantonNav}\n</body>`);
 }
 
 /**
@@ -511,12 +517,15 @@ function injectHomepageSeoContent(html: string, locale: HpSeoLocale): string {
  * relying on cross-locale home injection. Visible-not-collapsed pill
  * row grouped by locale heading.
  */
+// Retained for emergency re-enablement; see injectHomepageSeoContent
+// commentary (2026-05-18 trim to fit Squirrel 100-link cap).
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function buildHomepageCrossLocaleCantonNavHtml(): string {
  const cantonDataAny = (cantonSlugFile as { cantons: Record<string, Record<string, string>>; aggregate?: Record<string, string> });
  const codes = [...ALL_CANTON_CODES, AGGREGATE_KEY];
  const localesOrder: HpSeoLocale[] = ['en', 'de', 'fr']; // IT is already covered by buildHomepageCantonNavHtml
  const sections: string[] = [];
- const pillStyle = 'display:inline-block;padding:8px 12px;margin:3px;border-radius:6px;background:#f1f5f9;color:#475569;text-decoration:none;font-size:13px;border:1px solid #e2e8f0;min-height:36px;line-height:1.4';
+ const pillStyle = 'display:inline-block;padding:2px 7px;margin:1px;border-radius:5px;background:#f1f5f9;color:#475569;text-decoration:none;font-size:11px;border:1px solid #e2e8f0';
  for (const loc of localesOrder) {
    const langName = loc === 'en' ? 'English' : loc === 'de' ? 'Deutsch' : 'Français';
    const rows: string[] = [];
@@ -533,7 +542,7 @@ function buildHomepageCrossLocaleCantonNavHtml(): string {
        .join(' ');
      rows.push(`<a href="${cantonHubHref}" hreflang="${loc}" style="${pillStyle}">${displayLabel}</a>`);
    }
-   if (rows.length > 0) sections.push(`<div style="margin:8px 0"><strong style="font-size:13px;color:var(--color-subtle);font-weight:600;display:block;margin-bottom:4px">${langName}</strong> ${rows.join('')}</div>`);
+   if (rows.length > 0) sections.push(`<div><strong style="font-size:11px;color:var(--color-subtle);font-weight:600">${langName}</strong> ${rows.join('')}</div>`);
  }
  if (sections.length === 0) return '';
  return `<aside id="hp-xlocale-cantons" aria-label="Canton hubs in all languages" style="max-width:1100px;margin:8px auto 24px;padding:0 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.7"><details style="border:1px solid #e2e8f0;border-radius:6px;padding:.4rem .6rem;background:#f8fafc"><summary style="cursor:pointer;font-size:.85rem;color:var(--color-subtle);font-weight:600">Cantons in other languages (${sections.length * 25})</summary><div style="margin-top:.4rem">${sections.join('')}</div></details></aside>`;
@@ -570,8 +579,8 @@ function buildHomepageLangSwitchHtml(currentLocale: HpSeoLocale): string {
    : currentLocale === 'de' ? 'Sprachumschalter'
    : currentLocale === 'fr' ? 'Sélecteur de langue'
    : 'Cambia lingua';
- const pillStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#f8fafc;color:var(--color-heading);text-decoration:none;font-size:14px;font-weight:600;border:1px solid #cbd5e1;min-height:44px;line-height:1.4;box-sizing:border-box';
- const activeStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#1e293b;color:#fff;font-size:14px;font-weight:600;border:1px solid #1e293b;min-height:44px;line-height:1.4;box-sizing:border-box';
+ const pillStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#f8fafc;color:var(--color-heading);text-decoration:none;font-size:13px;font-weight:600;border:1px solid #cbd5e1';
+ const activeStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#1e293b;color:#fff;font-size:13px;font-weight:600;border:1px solid #1e293b';
  const items = langs
    .map(({ code, label, href }) => code === currentLocale
      ? `<span style="${activeStyle}" aria-current="page">${label}</span>`
@@ -643,9 +652,16 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
      .map((w: string) => (w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w))
      .join(' ');
    const hubPillStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:12px;font-weight:600;border:1px solid #c7d2fe';
-   const tuttiPillStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;border:1px solid #bbf7d0';
+   // The per-canton `tutti/` pill was dropped: each canton hub links to its
+   // own `tutti/` archive internally, so a depth-1 anchor here was redundant
+   // ambiguous link-text "Tutte" → 27 different URLs (Squirrel a11y
+   // identical-links-same-purpose) and pushed the home over the 100-link
+   // cap. The bridge BFS path now goes / → canton-hub → tutti/page-N (3
+   // hops, still inside the depth-4 budget).
+   void tuttiHref;
+   void allJobsLabel;
    cantonRows.push(
-     `<span style="display:inline-flex;align-items:center;gap:4px;margin:2px"><a href="${cantonHubHref}" style="${hubPillStyle}">${displayLabel}</a><a href="${tuttiHref}" style="${tuttiPillStyle}" aria-label="${displayLabel} — ${allJobsLabel}">${allJobsLabel}</a></span>`,
+     `<a href="${cantonHubHref}" style="${hubPillStyle}" aria-label="${displayLabel}">${displayLabel}</a>`,
    );
  }
  if (cantonRows.length === 0) return '';
@@ -698,6 +714,86 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
  return `<aside id="hp-canton-nav" aria-label="${navLabel}" style="max-width:1100px;margin:24px auto 56px;padding:0 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--color-body);line-height:1.65">${xsHubsBlock}<details style="border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem;background:#f8fafc"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:var(--color-heading);padding:.25rem 0">${navLabel} (${cantonRows.length})</summary><nav aria-label="${navLabel}" style="margin-top:.5rem;line-height:1.9">${cantonRows.join('')}</nav></details></aside>`;
 }
 
+// ── Related-guides block (orphan-page rescue) ──────────────────────
+// Squirrel deep crawl 2026-05-18 flagged 108 orphan pages with <2
+// incoming links, including high-value pillars like
+// /guida-tassazione-frontalieri-2026 (rank pos 3.7 on
+// "simulazione tasse nuovi frontalieri", 28.7% CTR). Per CLAUDE.md
+// non-negotiable #5 + feedback_never_noindex_without_approval.md the
+// default fix is internal linking, not de-indexing. This block exposes
+// the highest-value pillar/guide URLs at BFS depth 1 from `/`, the
+// calculator landing, and the job-board landing — three pages every
+// user/crawler hits early in the funnel.
+//
+// Mobile-first (CLAUDE.md #15/#16): rendered below the fold via the
+// `</body>` injection point, sibling of #root, never above interactive
+// content. Anchor text uses the target's actual title (no "leggi di
+// piu" or "tutte" boilerplate — Squirrel a11y identical-links-same-purpose).
+const ORPHAN_PILLAR_LINKS: Record<HpSeoLocale, Array<{ href: string; label: string }>> = {
+ it: [
+  { href: '/guida-tassazione-frontalieri-2026/', label: 'Guida tassazione frontalieri 2026' },
+  { href: '/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/', label: 'Guida completa lavoro frontaliere Svizzera 2026' },
+  { href: '/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/', label: 'Aliquote imposta alla fonte Ticino 2026' },
+  { href: '/guida-frontaliere/lamal-frontalieri/', label: 'LAMal frontalieri — guida pillar' },
+  { href: '/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/', label: 'Simulazione tasse nuovi frontalieri' },
+  { href: '/calcola-stipendio/', label: 'Simulatore stipendio frontaliere' },
+  { href: '/comparatori/lamal-vs-cmi/', label: 'LAMal vs CMI — diritto d’opzione' },
+  { href: '/cerca-lavoro-ticino/', label: 'Cerca lavoro Ticino' },
+  { href: '/domande-frequenti-frontalieri/', label: 'FAQ frontalieri' },
+  { href: '/glossario-frontaliere/', label: 'Glossario frontaliere' },
+ ],
+ en: [
+  { href: '/en/guide-cross-border-taxation-2026/', label: 'Cross-border taxation guide 2026' },
+  { href: '/en/cross-border-worker-guide/complete-cross-border-work-guide-switzerland-2026/', label: 'Complete cross-border work guide Switzerland 2026' },
+  { href: '/en/taxes-and-pension/withholding-tax-rates-ticino-2026/', label: 'Withholding-tax rates Ticino 2026' },
+  { href: '/en/cross-border-worker-guide/lamal-cross-border-workers/', label: 'LAMal for cross-border workers' },
+  { href: '/en/taxes-and-pension/new-cross-border-tax-simulation/', label: 'New cross-border tax simulation' },
+  { href: '/en/calculate-salary/', label: 'Cross-border salary simulator' },
+  { href: '/en/find-jobs-ticino/', label: 'Find jobs in Ticino' },
+  { href: '/en/frequently-asked-questions/', label: 'Cross-border FAQ' },
+ ],
+ de: [
+  { href: '/de/leitfaden-grenzgaenger-besteuerung-2026/', label: 'Leitfaden Grenzgänger-Besteuerung 2026' },
+  { href: '/de/grenzgaenger-leitfaden/vollstaendiger-grenzgaenger-leitfaden-schweiz-2026/', label: 'Vollständiger Grenzgänger-Leitfaden Schweiz 2026' },
+  { href: '/de/steuern-und-rente/quellensteuersaetze-tessin-2026/', label: 'Quellensteuersätze Tessin 2026' },
+  { href: '/de/grenzgaenger-leitfaden/kvg-grenzgaenger/', label: 'KVG für Grenzgänger' },
+  { href: '/de/steuern-und-rente/neue-grenzgaenger-steuersimulation/', label: 'Steuersimulation neue Grenzgänger' },
+  { href: '/de/gehalt-berechnen/', label: 'Grenzgänger-Lohnsimulator' },
+  { href: '/de/jobs-im-tessin/', label: 'Jobs im Tessin' },
+  { href: '/de/haeufig-gestellte-fragen/', label: 'Grenzgänger-FAQ' },
+ ],
+ fr: [
+  { href: '/fr/guide-imposition-frontaliers-2026/', label: 'Guide imposition frontaliers 2026' },
+  { href: '/fr/guide-frontalier/guide-complet-travail-frontalier-suisse-2026/', label: 'Guide complet travail frontalier Suisse 2026' },
+  { href: '/fr/impots-et-retraite/taux-impot-source-tessin-2026/', label: 'Taux d’impôt à la source Tessin 2026' },
+  { href: '/fr/guide-frontalier/lamal-frontaliers/', label: 'LAMal pour frontaliers' },
+  { href: '/fr/impots-et-retraite/simulation-impot-nouveaux-frontaliers/', label: 'Simulation impôt nouveaux frontaliers' },
+  { href: '/fr/calculer-salaire/', label: 'Simulateur de salaire frontalier' },
+  { href: '/fr/trouver-emploi-tessin/', label: 'Trouver un emploi au Tessin' },
+  { href: '/fr/questions-frequentes/', label: 'FAQ frontaliers' },
+ ],
+};
+
+const escAttr = (s: string): string => s
+ .replace(/&/g, '&amp;')
+ .replace(/</g, '&lt;')
+ .replace(/>/g, '&gt;')
+ .replace(/"/g, '&quot;');
+
+function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
+ const links = ORPHAN_PILLAR_LINKS[locale] ?? ORPHAN_PILLAR_LINKS.it;
+ if (links.length === 0) return '';
+ const heading = locale === 'en' ? 'In-depth guides'
+   : locale === 'de' ? 'Vertiefende Leitfäden'
+   : locale === 'fr' ? 'Guides approfondis'
+   : 'Guide approfondite';
+ const pillStyle = 'display:inline-block;padding:4px 10px;margin:3px;border-radius:6px;background:var(--color-surface-alt);color:var(--color-link);text-decoration:none;font-size:13px;font-weight:500;border:1px solid var(--color-edge);line-height:1.4';
+ const anchors = links
+  .map(({ href, label }) => `<a href="${href}" style="${pillStyle}">${escAttr(label)}</a>`)
+  .join('');
+ return `<aside id="hp-related-guides" aria-labelledby="hpRelatedGuidesTitle" style="max-width:1100px;margin:24px auto;padding:0 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.7"><h2 id="hpRelatedGuidesTitle" style="font-size:1rem;font-weight:700;color:var(--color-heading);margin:0 0 .5rem">${heading}</h2><nav aria-label="${heading}" style="line-height:1.9">${anchors}</nav></aside>`;
+}
+
 // ── Calculator landing SEO block ─────────────────────────────────────
 // Substantive prerendered content for /calcola-stipendio/ + locale variants
 // so they clear the Semrush low-text/HTML ratio gate. Same emission pattern
@@ -715,7 +811,14 @@ function injectCalculatorSeoContent(html: string, locale: HpSeoLocale): string {
  if (html.includes('id="calc-seo-block"')) return html;
  const block = collapsifySeoBlock(CALCULATOR_SEO_BLOCK_HTML[locale] ?? CALCULATOR_SEO_BLOCK_HTML.it);
  if (!html.includes('</body>')) return html;
- return html.replace('</body>', `${block}\n</body>`);
+ // Inject orphan-pillar pill-rail next to the calc SEO block: the
+ // calculator landing is a top-3 traffic page so it doubles as a
+ // depth-1 source for low-link pillar pages (CLAUDE.md non-negotiable
+ // #5 + feedback_never_noindex_without_approval.md).
+ const guides = html.includes('id="hp-related-guides"')
+  ? ''
+  : buildHomepageRelatedGuidesBlock(locale);
+ return html.replace('</body>', `${block}\n${guides}\n</body>`);
 }
 
 // ── Job-board landing SEO block ──────────────────────────────────────
@@ -748,8 +851,13 @@ function injectJobboardSeoContent(html: string, locale: HpSeoLocale): string {
  const block = collapsifySeoBlock(JOBBOARD_SEO_BLOCK_HTML[locale] ?? JOBBOARD_SEO_BLOCK_HTML.it);
  if (!html.includes('</body>')) return html;
  // Archive CTA sits before the SEO aside so it is visible at the top of the
- // sibling block (above the FAQ/methodology copy).
- return html.replace('</body>', `${cta}\n${block}\n</body>`);
+ // sibling block (above the FAQ/methodology copy). Orphan-pillar pill-rail
+ // appended after so the job-board landing also seeds those pages with
+ // depth-1 traffic (orphan-rescue, CLAUDE.md non-negotiable #5).
+ const guides = html.includes('id="hp-related-guides"')
+  ? ''
+  : buildHomepageRelatedGuidesBlock(locale);
+ return html.replace('</body>', `${cta}\n${block}\n${guides}\n</body>`);
 }
 
 // ── Path classification for home-critical SEO blocks ─────────────────
@@ -3259,7 +3367,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
    .split('-')
    .map((w: string) => w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w)
    .join(' ');
- cantonAnchors.push(`<a href="${cantonHubHref}" style="display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:14px;font-weight:600;border:1px solid #c7d2fe;min-height:44px;line-height:1.4;box-sizing:border-box">${esc(displayLabel)}</a>`);
+ cantonAnchors.push(`<a href="${cantonHubHref}" style="display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:13px;font-weight:600;border:1px solid #c7d2fe">${esc(displayLabel)}</a>`);
  // Per-canton "today" landing lives under that canton's own section
  // with the canton's per-locale long-form slug, e.g.
  // `/cerca-lavoro-basilea/offerte-di-lavoro-basilea-oggi/` or
@@ -3270,7 +3378,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const todaySlug = getJobTodayLandingSlug(cantonLocale, code);
  const cantonSectionForToday = resolveCantonSection(cantonLocale, code);
  const todayHref = `/${(locale === 'it' ? '' : `${locale}/`)}${cantonSectionForToday}/${todaySlug}/`.replace(/\/+/g, '/');
- cantonAnchors.push(`<a href="${todayHref}" style="display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:13px;border:1px solid #bbf7d0;min-height:44px;line-height:1.4;box-sizing:border-box">${esc(displayLabel)} &mdash; ${esc(todayLabel)}</a>`);
+ cantonAnchors.push(`<a href="${todayHref}" style="display:inline-block;padding:3px 8px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;border:1px solid #bbf7d0">${esc(displayLabel)} &mdash; ${esc(todayLabel)}</a>`);
  }
  }
  if (cantonAnchors.length > 0) {
@@ -3290,10 +3398,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (nonTiCantonNavEntries.length > 0) {
  const navLocale = locale as NonTiNavLocale;
  const localePref = navLocale === 'it' ? '' : `${navLocale}/`;
- const pillBaseStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#f1f5f9;color:var(--color-heading);text-decoration:none;font-size:13px;line-height:1.4;border:1px solid #cbd5e1;min-height:44px;box-sizing:border-box';
- const pillEditorialStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:13px;line-height:1.4;border:1px solid #c7d2fe;min-height:44px;box-sizing:border-box';
- const pillSectorStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:13px;line-height:1.4;border:1px solid #bbf7d0;min-height:44px;box-sizing:border-box';
- const pillCompanyStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#fef3c7;color:#854d0e;text-decoration:none;font-size:13px;line-height:1.4;border:1px solid #fcd34d;min-height:44px;box-sizing:border-box';
+ const pillBaseStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#f1f5f9;color:var(--color-heading);text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #cbd5e1';
+ const pillEditorialStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #c7d2fe';
+ const pillSectorStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #bbf7d0';
+ const pillCompanyStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#fef3c7;color:#854d0e;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #fcd34d';
  const outerNavLabel = navLocale === 'it' ? 'Esplora i cantoni in dettaglio'
    : navLocale === 'en' ? 'Explore cantons in detail'
    : navLocale === 'de' ? 'Kantone im Detail erkunden'
@@ -3325,28 +3433,28 @@ export function staticPagesPlugin(rootDir: string): Plugin {
      const anchors = e.editorialSlots[navLocale]
        .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillEditorialStyle}">${esc(it.label)}</a>`)
        .join('');
-     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.875rem;color:#475569">${esc(editorialLabel)}:</strong> ${anchors}</div>`);
+     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(editorialLabel)}:</strong> ${anchors}</div>`);
    }
    // Sector hubs (≤10).
    if (e.sectorSlugs[navLocale].length > 0) {
      const anchors = e.sectorSlugs[navLocale]
        .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillSectorStyle}">${esc(it.label)}</a>`)
        .join('');
-     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.875rem;color:#475569">${esc(sectorLabel)}:</strong> ${anchors}</div>`);
+     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(sectorLabel)}:</strong> ${anchors}</div>`);
    }
    // Top company hubs (≤6).
    if (e.companyHubs[navLocale].length > 0) {
      const anchors = e.companyHubs[navLocale]
        .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillCompanyStyle}">${esc(it.label)}</a>`)
        .join('');
-     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.875rem;color:#475569">${esc(companyLabel)}:</strong> ${anchors}</div>`);
+     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(companyLabel)}:</strong> ${anchors}</div>`);
    }
    // City hubs (≤8) — slug is locale-agnostic (citySlug normalised).
    if (e.cityHubs.length > 0) {
      const anchors = e.cityHubs
        .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillBaseStyle}">${esc(it.label)}</a>`)
        .join('');
-     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.875rem;color:#475569">${esc(cityLabel)}:</strong> ${anchors}</div>`);
+     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(cityLabel)}:</strong> ${anchors}</div>`);
    }
    if (blocks.length === 0) continue;
    const totalCount = e.editorialSlots[navLocale].length + e.sectorSlugs[navLocale].length + e.companyHubs[navLocale].length + e.cityHubs.length;
@@ -3378,8 +3486,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
    const tiSection = resolveCantonSection(navLocale, 'TI');
    const localePref = navLocale === 'it' ? '' : `${navLocale}/`;
    const tiBase = `/${localePref}${tiSection}/`.replace(/\/+/g, '/');
-   const linkStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:14px;border:1px solid #c7d2fe;min-height:44px;line-height:1.4;box-sizing:border-box';
-   const secondaryLinkStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:13px;border:1px solid #bbf7d0;min-height:44px;line-height:1.4;box-sizing:border-box';
+   const linkStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:13px;border:1px solid #c7d2fe';
+   const secondaryLinkStyle = 'display:inline-block;padding:3px 8px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;border:1px solid #bbf7d0';
 
    // (a) Editorial slot pages — 7 per locale.
    const editorialSlotLabels: Record<TiNavLocale, { today: string; nurses: string; partTime: string; clinics: string; careHomes: string; oss: string; educators: string; nav: string }> = {
@@ -3521,7 +3629,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const pageAnchors: string[] = [];
  for (let p = 1; p <= articlesTotalPages; p++) {
  const href = paginatedPath(articlesArchiveBase, p);
- pageAnchors.push(`<a href="${href}" style="display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#f1f5f9;color:var(--color-heading);text-decoration:none;font-size:14px;border:1px solid #e2e8f0;min-height:44px;line-height:1.4;box-sizing:border-box">${pageWord}&nbsp;${p}</a>`);
+ pageAnchors.push(`<a href="${href}" style="display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#f1f5f9;color:var(--color-heading);text-decoration:none;font-size:13px;border:1px solid #e2e8f0">${pageWord}&nbsp;${p}</a>`);
  }
  editorialBlocks.push(
  `<nav aria-label="${esc(navLabel)}" style="margin:.75rem 0 1rem"><p style="margin:.25rem 0;font-size:.85rem;color:var(--color-subtle)">${esc(navLabel)}:</p>${pageAnchors.join('')}</nav>`,
