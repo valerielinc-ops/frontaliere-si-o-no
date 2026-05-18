@@ -226,6 +226,12 @@ interface LocaleStrings {
   readonly featuredJobsTitle: (city: string) => string;
   readonly featuredJobsCtaAll: (city: string, n: number) => string;
   readonly featuredJobsEmpty: (city: string) => string;
+  /**
+   * Inline badge text shown on featured-job cards that were borrowed from the
+   * wider cantonal pool (city had fewer than the target strict matches). Kept
+   * short — toponym variant per locale.
+   */
+  readonly featuredFallbackBadge: string;
   readonly employerGridTitle: (city: string) => string;
   readonly approfondisciHeading: string;
   readonly jobPostedLabel: (daysAgo: number) => string;
@@ -303,6 +309,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
       n > 0 ? `Vedi tutte le ${n} offerte a ${city} →` : `Vedi job board completo →`,
     featuredJobsEmpty: (city) =>
       `Nessuna offerta indicizzata per ${city} in questo momento — controlla il job board completo per la Svizzera italiana.`,
+    featuredFallbackBadge: 'Cantone Ticino',
     employerGridTitle: (city) => `Chi assume a ${city}`,
     approfondisciHeading: 'Approfondisci: costo vita, fonti, confronto',
     jobPostedLabel: (d) =>
@@ -380,6 +387,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
       n > 0 ? `See all ${n} openings in ${city} →` : `Browse the full job board →`,
     featuredJobsEmpty: (city) =>
       `No indexed openings in ${city} right now — check the full Swiss-Italian job board.`,
+    featuredFallbackBadge: 'Canton Ticino',
     employerGridTitle: (city) => `Who is hiring in ${city}`,
     approfondisciHeading: 'Dig deeper: cost of living, sources, comparison',
     jobPostedLabel: (d) =>
@@ -457,6 +465,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
       n > 0 ? `Alle ${n} Stellen in ${city} ansehen →` : `Vollständige Stellenbörse →`,
     featuredJobsEmpty: (city) =>
       `Derzeit keine indexierten Stellen in ${city} — siehe vollständige Stellenbörse für die italienische Schweiz.`,
+    featuredFallbackBadge: 'Kanton Tessin',
     employerGridTitle: (city) => `Wer in ${city} einstellt`,
     approfondisciHeading: 'Vertiefen: Lebenshaltungskosten, Quellen, Vergleich',
     jobPostedLabel: (d) =>
@@ -534,6 +543,7 @@ const LS: Record<ColLocale, LocaleStrings> = {
       n > 0 ? `Voir les ${n} offres à ${city} →` : `Voir la bourse complète →`,
     featuredJobsEmpty: (city) =>
       `Aucune offre indexée à ${city} actuellement — consultez la bourse complète pour la Suisse italienne.`,
+    featuredFallbackBadge: 'Canton du Tessin',
     employerGridTitle: (city) => `Qui recrute à ${city}`,
     approfondisciHeading: 'Aller plus loin : coût de la vie, sources, comparaison',
     jobPostedLabel: (d) =>
