@@ -495,6 +495,38 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  } catch { return isoStr.split('T')[0]; }
  };
 
+ // Date-only formatter for visible E-E-A-T byline (squirrelscan eeat/content-dates).
+ // Crawlers want a human "Pubblicato il 18 maggio 2026" near the H1.
+ const formatHumanDate = (isoStr: string, locale: string): string => {
+ try {
+ const d = new Date(isoStr);
+ if (isNaN(d.getTime())) return isoStr.split('T')[0];
+ const day = d.getDate();
+ const month = (MONTH_NAMES[locale] || MONTH_NAMES.it)[d.getMonth()];
+ const year = d.getFullYear();
+ return `${day} ${month} ${year}`;
+ } catch { return isoStr.split('T')[0]; }
+ };
+ const DATE_LABELS: Record<string, { published: string; updated: string }> = {
+ it: { published: 'Pubblicato il', updated: 'Aggiornato il' },
+ en: { published: 'Published on', updated: 'Updated on' },
+ de: { published: 'Veröffentlicht am', updated: 'Aktualisiert am' },
+ fr: { published: 'Publié le', updated: 'Mis à jour le' },
+ };
+ const buildDateByline = (datePubIso: string, dateModIso: string, locale: string): string => {
+ const labels = DATE_LABELS[locale] || DATE_LABELS.it;
+ const pubIso = normalizeDateTime(datePubIso);
+ const modIso = normalizeDateTime(dateModIso);
+ const pubDay = pubIso.split('T')[0];
+ const modDay = modIso.split('T')[0];
+ const pubHtml = `${labels.published} <time datetime="${esc(pubDay)}" itemprop="datePublished">${esc(formatHumanDate(pubIso, locale))}</time>`;
+ if (modDay && modDay !== pubDay) {
+ const modHtml = `${labels.updated} <time datetime="${esc(modDay)}" itemprop="dateModified">${esc(formatHumanDate(modIso, locale))}</time>`;
+ return `${pubHtml} · ${modHtml}`;
+ }
+ return pubHtml;
+ };
+
  /* ── 3. Write OG landing pages ──────────────────────────────── */
  const esc = (s: string) =>
  s.replace(/&/g, '&amp;').replace(/</g, '&lt;')
@@ -992,7 +1024,7 @@ ${headTags}
  ${ADSENSE_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- <div id="root"><main id="main-content"><article><h1>${esc(localizedTitle)}</h1><p class="article-byline" style="font-size:0.85rem;color:#64748b;margin:0.25rem 0 1rem">Di Valerie Linc · <time datetime="${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso))}">${esc(formatHumanDateTime(normalizeDateTime(en.datePub || en.dateMod || todayIso), locale))}</time></p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></main></div>
+ <div id="root"><main id="main-content"><article><h1>${esc(localizedTitle)}</h1><p class="article-byline" style="font-size:0.85rem;color:var(--color-body-muted,#64748b);margin:0.25rem 0 1rem">Di Valerie Linc · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></main></div>
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;

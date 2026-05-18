@@ -1896,12 +1896,16 @@ function BlogArticles({
  <span className="text-edge">|</span>
  <span className="flex items-center gap-1">
  <Calendar size={14} />
- {formatDate(article.date)}
+ <time dateTime={article.date.slice(0, 10)} itemProp="datePublished">
+ {t('blog.publishedOn')} {formatDate(article.date)}
+ </time>
  </span>
  {article.updatedAt && article.updatedAt !== article.date.slice(0, 10) && (
  <span className="flex items-center gap-1 text-success">
  <RefreshCw size={12} />
+ <time dateTime={article.updatedAt.slice(0, 10)} itemProp="dateModified">
  {t('blog.updatedOn')} {formatDate(article.updatedAt)}
+ </time>
  </span>
  )}
  <span className="flex items-center gap-1">

@@ -307,6 +307,7 @@ const enStats: Record<string, string> = {
  'blog.seoTitle': 'Everything a cross-border worker needs to know',
  'blog.seoContent': 'Up-to-date articles on net salary, taxes, 13th month, LAMal vs CMI, pillar 3a, and all practical aspects of cross-border working in Ticino.',
  'blog.copyLink': 'Copy link',
+ 'blog.publishedOn': 'Published on',
  'blog.updatedOn': 'Updated on',
  'blog.copied': 'Copied!',
  'blog.shareWhatsApp': 'Share on WhatsApp',
