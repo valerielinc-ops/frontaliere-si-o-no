@@ -914,7 +914,6 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
         "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
         "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
@@ -992,7 +991,6 @@
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
-        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
@@ -1975,8 +1973,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
+        "en": "dipl-care-specialist-hf-fh-universitatsspital-basel-basel",
+        "fr": "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2033,15 +2031,22 @@
       },
       "firstSeenAt": "2026-05-18T13:25:45.944Z",
       "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-4f1zbs",
         "dipl-nursing-specialist-hf-fh-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-2ficdk",
-        "dipl-care-specialist-hf-fh-universitatsspital-basel-basel",
-        "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel",
         "dipl-specialista-di-cura-hf-fh-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
         "assistente-di-pratica-medica-assistente-di-pratica-medica-mpa-anestesiologia-universitatsspital-basel-basel"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch"
+        ]
+      }
     },
     {
       "id": "unispital-basel-e287fdb78612",
@@ -3723,7 +3728,7 @@
       "id": "unispital-basel-b08993222c09",
       "slug": "amministrativo-r-staff-in-amministrazione-paziente-coordinamento-funzione-integrale-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "assistente-alla-salute-e-agli-affari-sociali-ags-assistente-alla-cura-pa-universitatsspital-basel-basel",
+        "it": "amministrativo-r-staff-in-amministrazione-paziente-coordinamento-funzione-integrale-universitatsspital-basel-basel",
         "en": "administrative-r-staff-in-patient-administration-coordination-allround-function-universitatsspital-basel-basel",
         "de": "administrative-r-mitarbeiter-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel-basel",
         "fr": "personnel-administratif-en-administration-et-coordination-des-patients-fonction-complete-universitatsspital-basel-basel"
@@ -3773,7 +3778,8 @@
         ],
         "it": [
           "administrative-r-mitarbeiter-in-patientenadministration-amp-koordination-allround-funktion",
-          "administrative-r-collaboratore-trice-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel"
+          "administrative-r-collaboratore-trice-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel",
+          "assistente-alla-salute-e-agli-affari-sociali-ags-assistente-alla-cura-pa-universitatsspital-basel-basel"
         ],
         "en": [
           "administrative-r-mitarbeiter-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel-basel"
@@ -3785,11 +3791,11 @@
       "previousSlugs": [
         "administrative-r-mitarbeiter-in-patientenadministration-amp-koordination-allround-funktion",
         "administrative-r-collaboratore-trice-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel",
+        "assistente-alla-salute-e-agli-affari-sociali-ags-assistente-alla-cura-pa-universitatsspital-basel-basel",
         "administrative-r-mitarbeiter-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel-basel",
         "assistentin-gesundheit-und-soziales-ags-pflegeassistentin-pa-unispital-basel-ch",
         "assistentin-gesundheit-und-soziales-ags-pflegeassistentin-pa-universitatsspital-basel-basel",
-        "assistentin-gesundheit-e-soziales-ags-pflegeassistentin-pa-universitatsspital-basel",
-        "amministrativo-r-staff-in-amministrazione-paziente-coordinamento-funzione-integrale-universitatsspital-basel-basel"
+        "assistentin-gesundheit-e-soziales-ags-pflegeassistentin-pa-universitatsspital-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.313Z",
       "salaryMin": 49500,
@@ -4059,7 +4065,7 @@
       "id": "unispital-basel-a732e1d3b54d",
       "slug": "biomedical-analyst-in-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "personale-amministrativo-in-segretario-universitatsspital-basel-basel",
+        "it": "biomedical-analyst-in-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-basel",
         "en": "biomedical-analyst-in-hf-laboratory-diagnostics-in-fh-molecular-diagnostic-hematology-universitatsspital-basel-basel",
         "de": "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba",
         "fr": "analyste-biomedical-en-hf-diagnostic-de-laboratoire-en-fh-hematologie-diagnostique-moleculaire-universitatsspital-basel-"
@@ -4107,17 +4113,18 @@
         "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatolog",
         "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba",
         "analista-biomedica-nella-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-bas",
+        "personale-amministrativo-in-segretario-universitatsspital-basel-basel",
         "logistikerin-logistiker-cfc-specializzazione-lagertechnik-lagerlogistik-apprendistato-universitatsspital-basel",
         "administrative-r-mitarbeiter-in-sekretar-in-unispital-basel-ch",
         "administrative-r-mitarbeiter-in-sekretar-in-universitatsspital-basel-basel",
-        "administrative-r-collaboratore-trice-in-sekretar-in-universitatsspital-basel",
-        "biomedical-analyst-in-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-basel"
+        "administrative-r-collaboratore-trice-in-sekretar-in-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatolog",
           "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba",
-          "analista-biomedica-nella-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-bas"
+          "analista-biomedica-nella-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-bas",
+          "personale-amministrativo-in-segretario-universitatsspital-basel-basel"
         ],
         "en": [
           "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba"
@@ -6052,7 +6059,7 @@
       "id": "unispital-basel-a058cdd33fda",
       "slug": "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
+        "it": "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
         "en": "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
         "de": "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-universitatsspital-basel-basel",
         "fr": "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
@@ -6102,7 +6109,8 @@
         ],
         "it": [
           "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
-          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
+          "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
+          "fisioterapista-fisioterapista-universitatsspital-basel-basel"
         ],
         "en": [
           "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch"
@@ -6114,13 +6122,13 @@
       "previousSlugs": [
         "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
         "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
+        "fisioterapista-fisioterapista-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
         "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel",
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
-        "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel"
+        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
       "salaryMin": 49500,
@@ -6459,7 +6467,7 @@
       "id": "unispital-basel-e94993893b1b",
       "slug": "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel",
+        "it": "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
         "en": "dipl-care-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-universitatsspital-basel-basel",
         "fr": "dipl-specialiste-des-soins-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel"
@@ -6509,7 +6517,8 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
         ],
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel"
         ],
         "en": [
           "dipl-care-specialist-hf-fh-medical-6-2-universitatsspital-basel-basel",
@@ -6523,13 +6532,10 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-unispital-basel-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel",
         "dipl-care-specialist-hf-fh-medical-6-2-universitatsspital-basel-basel",
         "dipl-specialiste-des-soins-hf-fh-medical-6-2-universitatsspital-basel-basel",
-        "dipl-specialista-di-cura-hf-fh-medico-6-2-universitatsspital-basel-basel",
-        "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
-        "dipl-care-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-universitatsspital-basel-basel",
-        "dipl-specialiste-des-soins-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel"
+        "dipl-specialista-di-cura-hf-fh-medico-6-2-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-12T12:15:55.438Z",
       "salaryMin": 49500,
@@ -7590,12 +7596,12 @@
     },
     {
       "id": "unispital-basel-c8d08ab0b3f2",
-      "slug": "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
+      "slug": "assistente-assistente-salute-e-affari-sociali-ags-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel",
-        "it": "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
-        "en": "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
-        "fr": "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch"
+        "it": "assistente-assistente-salute-e-affari-sociali-ags-universitatsspital-basel-basel",
+        "en": "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
+        "fr": "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -7641,11 +7647,11 @@
       "previousSlugsByLocale": {
         "it": [
           "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
-          "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel"
+          "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
+          "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel"
         ],
         "de": [
           "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
-          "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel",
           "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-universitatsspital-basel-basel"
         ],
         "en": [
@@ -7659,16 +7665,13 @@
       },
       "previousSlugs": [
         "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
-        "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel",
-        "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
-        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
-        "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
-        "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
-        "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
         "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
+        "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
         "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-universitatsspital-basel-basel",
         "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
-        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
+        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel",
+        "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
+        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

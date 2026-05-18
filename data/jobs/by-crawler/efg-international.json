@@ -4073,7 +4073,7 @@
     },
     {
       "id": "efg-6266",
-      "slug": "investment-risk-specialist-efg-zurich",
+      "slug": "specialista-del-rischio-di-investimento-efg-international-ag-zurich",
       "company": "EFG International AG",
       "title": "Investment Risk specialist",
       "location": "Zurich",
@@ -4154,7 +4154,7 @@
       },
       "crawledAt": "2026-05-18T12:15:53.907Z",
       "slugByLocale": {
-        "it": "investment-risk-specialist-efg-zurich",
+        "it": "specialista-del-rischio-di-investimento-efg-international-ag-zurich",
         "en": "investment-risk-specialist-efg-zurich",
         "de": "investment-risk-specialist-efg-zurich",
         "fr": "investment-risk-specialist-efg-zurich"
@@ -4178,7 +4178,15 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-18T12:15:53.907Z"
+      "firstSeenAt": "2026-05-18T12:15:53.907Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "investment-risk-specialist-efg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "investment-risk-specialist-efg-zurich"
+      ]
     },
     {
       "id": "efg-6151",
@@ -4433,7 +4441,7 @@
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
         "en": "afc-commercial-trainee-efg-international-ag-lugano",
-        "de": "afc-handelslehrling-efg-international-ag-lugano",
+        "de": "afc-bank-commercial-trainee-efg-international-ag-lugano",
         "fr": "stagiaire-commercial-afc-banque-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -4470,7 +4478,8 @@
           "bankkaufmann-frau-lehrstelle-afc-kaufmann-frau-im-bankgewerbe-efg-international-ag-lugano",
           "bankkaufmann-frau-efq-lehrling-efg-international-ag-lugano",
           "afc-banking-verkauferlehre-efg-international-ag-lugano",
-          "banklehrstelle-efg-international-ag-efg-international-ag-lugano"
+          "banklehrstelle-efg-international-ag-efg-international-ag-lugano",
+          "afc-handelslehrling-efg-international-ag-lugano"
         ],
         "fr": [
           "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano",
@@ -4517,12 +4526,12 @@
         "bankkaufmann-frau-efq-lehrling-efg-international-ag-lugano",
         "afc-banking-verkauferlehre-efg-international-ag-lugano",
         "banklehrstelle-efg-international-ag-efg-international-ag-lugano",
+        "afc-handelslehrling-efg-international-ag-lugano",
         "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano",
         "apprentissage-employe-e-de-commerce-cfc-efg-international-ag-efg-international-ag-lugano",
         "apprentissage-employe-e-de-commerce-cfc-banque-efg-international-ag-lugano",
         "apprenti-commercial-chez-afc-bank-efg-international-ag-lugano",
-        "apprenti-en-commerce-chez-afc-bank-efg-international-ag-lugano",
-        "apprentissage-commercial-chez-afc-banque-efg-international-ag-lugano"
+        "apprenti-en-commerce-chez-afc-bank-efg-international-ag-lugano"
       ],
       "firstSeenAt": "2026-04-13T21:36:50.620Z"
     },

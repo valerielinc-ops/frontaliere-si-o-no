@@ -8,7 +8,7 @@
       "slugByLocale": {
         "en": "director-nps-field-engagement-strategy-remote-multiple-positions-novartis-ch",
         "it": "director-nps-field-engagement-strategy-remote-multiple-positions-novartis-ch",
-        "de": "director-nps-field-engagement-strategy-remote-multiple-positions-novartis-ch",
+        "de": "direktor-nps-field-engagement-strategy-remote-mehrere-positionen-novartis-basel",
         "fr": "director-nps-field-engagement-strategy-remote-multiple-positions-novartis-ch"
       },
       "company": "Novartis",
@@ -900,12 +900,12 @@
     },
     {
       "id": "novartis-7fb36a520e78",
-      "slug": "senior-clinical-supply-project-lead-novartis-ch",
+      "slug": "piombo-del-progetto-di-alimentazione-clinica-senior-novartis-basel",
       "slugByLocale": {
         "en": "senior-clinical-supply-project-lead-novartis-ch",
-        "it": "senior-clinical-supply-project-lead-novartis-ch",
-        "de": "senior-clinical-supply-project-lead-novartis-ch",
-        "fr": "senior-clinical-supply-project-lead-novartis-ch"
+        "it": "piombo-del-progetto-di-alimentazione-clinica-senior-novartis-basel",
+        "de": "senior-klinisches-versorgungsprojekt-lead-novartis-basel",
+        "fr": "chef-de-projet-principal-d-approvisionnement-clinique-novartis-basel"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -959,7 +959,21 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-18T12:57:36.499Z"
+      "firstSeenAt": "2026-05-18T12:57:36.499Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-clinical-supply-project-lead-novartis-ch"
+        ],
+        "de": [
+          "senior-clinical-supply-project-lead-novartis-ch"
+        ],
+        "fr": [
+          "senior-clinical-supply-project-lead-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-clinical-supply-project-lead-novartis-ch"
+      ]
     },
     {
       "id": "novartis-d4506b164f26",
@@ -1288,7 +1302,7 @@
         "en": "vendor-start-up-manager-ecoa-translations-novartis-ch",
         "it": "vendor-start-up-manager-ecoa-translations-novartis-ch",
         "de": "vendor-start-up-manager-ecoa-translations-novartis-ch",
-        "fr": "vendor-start-up-manager-ecoa-translations-novartis-ch"
+        "fr": "gestionnaire-de-demarrage-des-fournisseurs-ecoa-translations-novartis-basel"
       },
       "company": "Novartis",
       "companyKey": "novartis",

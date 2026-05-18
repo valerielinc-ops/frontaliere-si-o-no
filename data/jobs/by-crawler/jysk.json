@@ -58,7 +58,7 @@
     },
     {
       "id": "company-ds4mvl",
-      "slug": "store-manager-apprendista-a-80-100-per-la-region-langenthal-burgdorf-jysk-langenthal-ds4mvl",
+      "slug": "store-manager-trainee-a-80-100-per-la-regione-langenthal-burgdorf-jysk-langenthal",
       "company": "JYSK",
       "title": "Store Manager Trainee (a) 80-100% für die Region Langenthal - Burgdorf",
       "location": "Langenthal",
@@ -90,7 +90,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "store-manager-apprendista-a-80-100-per-la-region-langenthal-burgdorf-jysk-langenthal-ds4mvl",
+        "it": "store-manager-trainee-a-80-100-per-la-regione-langenthal-burgdorf-jysk-langenthal",
         "en": "store-manager-trainee-a-80-100-fur-die-region-langenthal-burgdorf-jysk-langenthal-ds4mvl",
         "de": "store-manager-auszubildender-a-80-100-fur-die-region-langenthal-burgdorf-jysk-langenthal-ds4mvl",
         "fr": "store-manager-apprenti-a-80-100-fur-die-region-langenthal-burgdorf-jysk-langenthal-ds4mvl"
@@ -98,11 +98,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "store-manager-trainee-a-80-100-fur-die-region-langenthal-burgdorf-jysk-langenthal"
+          "store-manager-trainee-a-80-100-fur-die-region-langenthal-burgdorf-jysk-langenthal",
+          "store-manager-apprendista-a-80-100-per-la-region-langenthal-burgdorf-jysk-langenthal-ds4mvl"
         ]
       },
       "previousSlugs": [
-        "store-manager-trainee-a-80-100-fur-die-region-langenthal-burgdorf-jysk-langenthal"
+        "store-manager-trainee-a-80-100-fur-die-region-langenthal-burgdorf-jysk-langenthal",
+        "store-manager-apprendista-a-80-100-per-la-region-langenthal-burgdorf-jysk-langenthal-ds4mvl"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -1022,7 +1024,7 @@
     },
     {
       "id": "company-esp7om",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
+      "slug": "efz-a-nel-ramo-schattdorf-jysk-schattdorf",
       "company": "JYSK",
       "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
       "location": "Schattdorf",
@@ -1054,19 +1056,29 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
-        "en": "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
+        "it": "efz-a-nel-ramo-schattdorf-jysk-schattdorf",
+        "en": "learning-retailer-efz-a-in-the-schattdorf-branch-jysk-schattdorf",
         "de": "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
-        "fr": "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om"
+        "fr": "detaillant-d-apprentissage-efz-a-dans-la-succursale-de-schattdorf-jysk-schattdorf"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf"
+          "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf",
+          "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om"
+        ],
+        "en": [
+          "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om"
+        ],
+        "fr": [
+          "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om"
         ]
       },
       "previousSlugs": [
-        "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf"
+        "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf",
+        "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
+        "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
+        "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,

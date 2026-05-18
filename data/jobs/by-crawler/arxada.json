@@ -1719,12 +1719,12 @@
     },
     {
       "id": "arxada-c3459be4d769",
-      "slug": "teamleiter-betriebssupport-arxada-visp",
+      "slug": "supporto-operazione-leader-team-arxada-visp",
       "slugByLocale": {
         "de": "teamleiter-betriebssupport-arxada-visp",
-        "it": "teamleiter-betriebssupport-arxada-visp",
-        "en": "teamleiter-betriebssupport-arxada-visp",
-        "fr": "teamleiter-betriebssupport-arxada-visp"
+        "it": "supporto-operazione-leader-team-arxada-visp",
+        "en": "team-leader-operation-support-arxada-visp",
+        "fr": "chef-d-equipe-soutien-operationnel-arxada-visp"
       },
       "company": "Arxada",
       "companyKey": "arxada",
@@ -1768,14 +1768,22 @@
       "jobReqId": "R53639",
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-betriebssupport-arxada-ch"
+          "teamleiter-betriebssupport-arxada-ch",
+          "teamleiter-betriebssupport-arxada-visp"
         ],
         "de": [
           "teamleiter-betriebssupport-arxada-ch"
+        ],
+        "en": [
+          "teamleiter-betriebssupport-arxada-visp"
+        ],
+        "fr": [
+          "teamleiter-betriebssupport-arxada-visp"
         ]
       },
       "previousSlugs": [
-        "teamleiter-betriebssupport-arxada-ch"
+        "teamleiter-betriebssupport-arxada-ch",
+        "teamleiter-betriebssupport-arxada-visp"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

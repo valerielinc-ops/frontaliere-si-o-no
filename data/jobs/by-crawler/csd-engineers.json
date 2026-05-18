@@ -206,11 +206,11 @@
     },
     {
       "id": "csd-engineers-23aabcc7af6a",
-      "slug": "geologue-chef-de-projets-f-h-d-80-100-csd-engineers-ch",
+      "slug": "leader-del-progetto-geologo-e-h-d-80-100-csd-engineers-sion",
       "slugByLocale": {
         "fr": "geologue-chef-de-projets-f-h-d-80-100-csd-engineers-ch",
-        "it": "geologue-chef-de-projets-f-h-d-80-100-csd-engineers-ch",
-        "en": "geologue-chef-de-projets-f-h-d-80-100-csd-engineers-ch",
+        "it": "leader-del-progetto-geologo-e-h-d-80-100-csd-engineers-sion",
+        "en": "geologist-project-leader-e-h-d-80-100-csd-engineers-sion",
         "de": "geologue-chef-de-projets-f-h-d-80-100-csd-engineers-ch"
       },
       "company": "CSD ENGINEERS",
@@ -266,7 +266,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T12:11:52.666Z"
+      "firstSeenAt": "2026-05-18T12:11:52.666Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "geologue-chef-de-projets-f-h-d-80-100-csd-engineers-ch"
+        ],
+        "en": [
+          "geologue-chef-de-projets-f-h-d-80-100-csd-engineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "geologue-chef-de-projets-f-h-d-80-100-csd-engineers-ch"
+      ]
     }
   ]
 }

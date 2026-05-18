@@ -502,12 +502,12 @@
     },
     {
       "id": "mobiliar-8713325a075f",
-      "slug": "sachbearbeiter-beratung-e-schaden-m-w-d-die-mobiliar-bern",
+      "slug": "addetto-alla-consulenza-e-danni-f-m-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch",
-        "it": "sachbearbeiter-beratung-e-schaden-m-w-d-die-mobiliar-bern",
-        "en": "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch",
-        "fr": "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch"
+        "it": "addetto-alla-consulenza-e-danni-f-m-d-die-mobiliar-bern",
+        "en": "consultant-and-damage-f-m-d-die-mobiliar-bern",
+        "fr": "responsable-conseil-et-sinistres-w-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -568,11 +568,19 @@
       "sfJobId": "1164481355",
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch",
+          "sachbearbeiter-beratung-e-schaden-m-w-d-die-mobiliar-bern"
+        ],
+        "en": [
+          "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
           "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch"
+        "sachbearbeiter-beratung-und-schaden-w-m-d-mobiliar-ch",
+        "sachbearbeiter-beratung-e-schaden-m-w-d-die-mobiliar-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
