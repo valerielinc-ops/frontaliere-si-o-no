@@ -8126,32 +8126,28 @@ ${alternates}
          sales: { it: 'Vendita', en: 'Sales', de: 'Vertrieb', fr: 'Vente' },
          other: { it: 'Altro', en: 'Other', de: 'Andere', fr: 'Autre' },
        };
-       // Job `sector` field uses Italian labels in many feeds; the canonical
-       // category key is derived elsewhere via the same lowercase compare.
-       // sectorCounts keys are the raw display labels; resolve to category
-       // keys with the same lowercase Italian alias table used by the
-       // category-listing block (best-effort: only emit a link when we
-       // actually have ≥3 jobs in that bucket — the same threshold used by
-       // the category-listing emit at line 5768).
-       const sectorAlias: Record<string, string> = {
-         sanita: 'health', salute: 'health',
-         finanza: 'finance', banca: 'finance',
-         informatica: 'tech', it: 'tech', tech: 'tech',
-         ingegneria: 'engineering',
-         amministrazione: 'admin', uffici: 'admin',
-         ristorazione: 'hospitality', alberghiero: 'hospitality',
-         vendita: 'sales', commerciale: 'sales',
-       };
+       // Source-of-truth alignment: the per-canton category-listing emitter
+       // (~line 5921) keys buckets by `job.category` directly and only emits
+       // a page when that bucket has ≥3 jobs. The previous implementation of
+       // this link emitter classified by `job.sector` via a heuristic alias
+       // table — which silently funnelled unrecognised sectors into the
+       // `other` bucket and emitted /categoria-altro/ links pointing at
+       // pages the listing emitter had refused to generate (404 in same-tab
+       // navigation, reported 2026-05-18). Read the same field, apply the
+       // same gate, exclude the `other` catch-all (no SEO value + frequent
+       // misclassifications).
        const categoryCountAggregated = new Map<string, number>();
-       for (const [secRaw, count] of sectorCounts) {
-         const norm = String(secRaw).toLowerCase().trim();
-         const catKey = sectorAlias[norm] || (Object.keys(categorySlugMap).includes(norm) ? norm : 'other');
-         categoryCountAggregated.set(catKey, (categoryCountAggregated.get(catKey) ?? 0) + count);
+       for (const j of cantonJobsAll) {
+         const rawCat = String((j as { category?: string }).category || '').toLowerCase().trim();
+         if (!rawCat) continue;
+         if (!Object.prototype.hasOwnProperty.call(categorySlugMap, rawCat)) continue;
+         if (rawCat === 'other') continue;
+         categoryCountAggregated.set(rawCat, (categoryCountAggregated.get(rawCat) ?? 0) + 1);
        }
        const topCategoryHubs: Array<{ slug: string; label: string }> = [];
        for (const [catKey, count] of [...categoryCountAggregated.entries()].sort((a, b) => b[1] - a[1])) {
          if (topCategoryHubs.length >= 6) break;
-         if (count < 3) continue; // mirror the category-listing emit gate
+         if (count < 3) continue; // same gate as the page emitter
          const catSlug = categorySlugMap[catKey]?.[entry.locale];
          const catLabel = categoryLabelMap[catKey]?.[entry.locale];
          if (!catSlug || !catLabel) continue;

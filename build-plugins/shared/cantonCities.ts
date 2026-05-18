@@ -1,7 +1,26 @@
 import municipalitiesFile from '../../data/canton-municipalities.json';
+import cantonSlugFile from '../../data/canton-url-slugs.json';
 
 type CityFile = { cantons: Record<string, { municipalities: string[] }> };
 const data = municipalitiesFile as CityFile;
+
+// Half-canton URL groups (BL+BS → BASILEA, AI+AR → APPENZELLO, see
+// data/canton-url-slugs.json `cantonGroups`). Router parses URLs like
+// `/cerca-lavoro-basilea/basel/` with `jobBoardCanton: 'BASILEA'`, but
+// canton-municipalities.json keys jobs by real BFS codes (BS, BL, …).
+// Without expansion, `getCantonCities('BASILEA')` would return [] and
+// `isKnownCityHub('basel', 'BASILEA')` would falsely return false —
+// the bug where SPA clicks on canton-index city links land on the
+// "Annuncio non trovato" view while new-tab opens work (because the
+// static HTML for the city page exists in dist/).
+const GROUP_TO_MEMBERS: Record<string, readonly string[]> = (() => {
+  const out: Record<string, readonly string[]> = {};
+  const groups = (cantonSlugFile as { cantonGroups?: Record<string, { members?: readonly string[] }> }).cantonGroups ?? {};
+  for (const [group, info] of Object.entries(groups)) {
+    if (info?.members?.length) out[group.toUpperCase()] = info.members.map((m) => String(m).toUpperCase());
+  }
+  return out;
+})();
 
 // ASCII-fold city names so canton-aware helpers expose URL-safe, display-stable
 // strings. The source data preserves native spelling ("Zürich"), but cathedral
@@ -53,7 +72,15 @@ for (const [canton, cities] of Object.entries(CANTON_TO_CITIES)) {
 }
 
 export function getCantonCities(canton: string): string[] {
-  return CANTON_TO_CITIES[String(canton).toUpperCase()] ?? [];
+  const key = String(canton).toUpperCase();
+  const direct = CANTON_TO_CITIES[key];
+  if (direct) return direct;
+  // Virtual URL group (BASILEA, APPENZELLO): union of member-canton cities.
+  const members = GROUP_TO_MEMBERS[key];
+  if (members) {
+    return members.flatMap((m) => CANTON_TO_CITIES[m] ?? []);
+  }
+  return [];
 }
 
 export function getCityCanton(city: string): string | null {

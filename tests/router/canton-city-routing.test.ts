@@ -58,4 +58,32 @@ describe('Phase 2 — per-canton city routing', () => {
     expect(parsed.route.activeTab).toBe('job-board');
     expect(parsed.route.jobBoardCanton).toBe('_AGGREGATE_');
   });
+
+  // Half-canton URL groups (BL+BS → BASILEA, AI+AR → APPENZELLO). Router
+  // resolves the section to the virtual group code, but jobs are still
+  // keyed by real BFS codes (BS, BL, …) in canton-municipalities.json.
+  // `isKnownCityHub` must expand the group to its members before lookup,
+  // otherwise SPA clicks on canton-index city links land on
+  // "Annuncio non trovato" while new-tab opens work (the static city
+  // page exists in dist/). Regression for 2026-05-18.
+  it('/cerca-lavoro-basilea/basel/ → jobBoardCanton=BASILEA, jobBoardCity=basel (BS member)', () => {
+    const parsed = parsePath('/cerca-lavoro-basilea/basel/');
+    expect(parsed.route.jobBoardCanton).toBe('BASILEA');
+    expect(parsed.route.jobBoardCity).toBe('basel');
+    expect(parsed.route.jobSlug).toBeUndefined();
+  });
+
+  it('/cerca-lavoro-basilea/muttenz/ → jobBoardCanton=BASILEA, jobBoardCity=muttenz (BL member)', () => {
+    const parsed = parsePath('/cerca-lavoro-basilea/muttenz/');
+    expect(parsed.route.jobBoardCanton).toBe('BASILEA');
+    expect(parsed.route.jobBoardCity).toBe('muttenz');
+    expect(parsed.route.jobSlug).toBeUndefined();
+  });
+
+  it('/cerca-lavoro-appenzello/appenzell/ → jobBoardCanton=APPENZELLO, jobBoardCity=appenzell', () => {
+    const parsed = parsePath('/cerca-lavoro-appenzello/appenzell/');
+    expect(parsed.route.jobBoardCanton).toBe('APPENZELLO');
+    expect(parsed.route.jobBoardCity).toBe('appenzell');
+    expect(parsed.route.jobSlug).toBeUndefined();
+  });
 });
