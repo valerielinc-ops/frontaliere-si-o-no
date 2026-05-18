@@ -91,7 +91,14 @@
     <meta name="application-name" content="Frontaliere Ticino">
     <link rel="manifest" href="/manifest.webmanifest">
 
-    <!-- Security Headers (meta-based, GitHub Pages doesn't support HTTP headers) -->
+    <!-- Security Headers (meta-based, GitHub Pages doesn't support HTTP headers)
+         CSP: upgrade-insecure-requests auto-upgrades any stray http:// asset to
+         https://; frame-ancestors 'self' blocks clickjacking (modern X-Frame-Options).
+         Restrictive script-src/style-src deliberately omitted — would break
+         Firebase, AdSense, PostHog, Clarity, GTM and Vite inline styles.
+         NOTE: HSTS cannot be set via meta (requires a real HTTP header, not
+         supported by GitHub Pages). Future: Cloudflare proxy / edge worker. -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; frame-ancestors 'self';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">

@@ -10,11 +10,27 @@
 import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT } from './constants';
 
 /**
- * Common <head> prefix: charset + viewport + favicon.
+ * Common <head> prefix: charset + viewport + favicon + security meta.
  * Used as the opening of every static HTML page's <head>.
+ *
+ * Security meta rationale (GitHub Pages can't set HTTP response headers):
+ *  - X-Content-Type-Options: blocks MIME-sniffing attacks.
+ *  - Referrer-Policy: limits referrer info leaked to third parties.
+ *  - Permissions-Policy: disables sensor APIs we don't use.
+ *  - Content-Security-Policy: `upgrade-insecure-requests` auto-upgrades any
+ *    stray http:// asset to https:// + `frame-ancestors 'self'` blocks
+ *    clickjacking (modern replacement for X-Frame-Options).
+ *  NOTE: HSTS cannot be set via meta tag — requires a real HTTP header,
+ *  not supported by GitHub Pages. Future: Cloudflare proxy / edge worker.
+ *  Restrictive script-src/style-src deliberately omitted — would break
+ *  Firebase, AdSense, PostHog, Clarity, GTM and Vite inline styles.
  */
 export const HEAD_PREFIX = `<meta charset="utf-8">
  <meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; frame-ancestors 'self';">
+ <meta http-equiv="X-Content-Type-Options" content="nosniff">
+ <meta name="referrer" content="strict-origin-when-cross-origin">
+ <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
  ${FAVICON_LINKS}`;
 
 /**
