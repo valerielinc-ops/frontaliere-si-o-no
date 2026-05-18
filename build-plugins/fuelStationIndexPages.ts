@@ -882,11 +882,18 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   // CollectionPage + mainEntity ItemList — gives Google a structured view
   // of every station/city the page links to. Position is global (1..N)
   // across all groups so the list reads top-to-bottom on the rendered page.
+  //
+  // Cap at 50 to keep the inline JSON-LD ≤ ~10 KB. With 400+ Italian stations
+  // the un-capped list inflates the inline payload past the 200 KB
+  // `audit:page-weight` budget. Mirrors the PR #183 cap on the master jobs
+  // hub. The visible anchors below ARE the full set — only the structured
+  // ItemList is sampled.
+  const ITEM_LIST_CAP = 50;
   const flatListItems: Array<{ name: string; href: string }> = [];
   for (const g of groups) {
     for (const a of g.anchors) flatListItems.push({ name: a.label, href: a.href });
   }
-  const itemListElements = flatListItems.map((item, i) => ({
+  const itemListElements = flatListItems.slice(0, ITEM_LIST_CAP).map((item, i) => ({
     '@type': 'ListItem',
     position: i + 1,
     name: item.name,
@@ -910,7 +917,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     mainEntity: {
       '@type': 'ItemList',
       name: titles.h1,
-      numberOfItems: itemListElements.length,
+      numberOfItems: flatListItems.length,
       itemListOrder: 'https://schema.org/ItemListOrderAscending',
       itemListElement: itemListElements,
     },
