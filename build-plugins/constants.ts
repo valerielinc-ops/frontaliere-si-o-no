@@ -87,7 +87,7 @@ export function buildCanonicalBridgePage(options: {
  <body>
  <main class="card">
  <div class="logo">
- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b"/><rect x="22" y="22" width="56" height="20" rx="4" fill="#94a3b8"/><rect x="22" y="52" width="24" height="24" rx="6" fill="#dc2626"/><path d="M34 58v12M28 64h12" stroke="white" stroke-width="3" stroke-linecap="round"/><g><clipPath id="c"><rect x="54" y="52" width="24" height="24" rx="6"/></clipPath><g clip-path="url(#c)"><rect x="54" y="52" width="8" height="24" fill="#16a34a"/><rect x="62" y="52" width="8" height="24" fill="white"/><rect x="70" y="52" width="8" height="24" fill="#dc2626"/></g></g></svg>
+ <img src="/assets/logo.svg" width="28" height="28" alt="" loading="lazy" decoding="async">
  <span>Frontaliere Ticino</span>
  </div>
  <h1>${title}</h1>
@@ -146,7 +146,7 @@ export function buildFlatRedirect(
  <body>
  <main class="card">
  <div class="logo">
- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b"/><rect x="22" y="22" width="56" height="20" rx="4" fill="#94a3b8"/><rect x="22" y="52" width="24" height="24" rx="6" fill="#dc2626"/><path d="M34 58v12M28 64h12" stroke="white" stroke-width="3" stroke-linecap="round"/><g><clipPath id="c"><rect x="54" y="52" width="24" height="24" rx="6"/></clipPath><g clip-path="url(#c)"><rect x="54" y="52" width="8" height="24" fill="#16a34a"/><rect x="62" y="52" width="8" height="24" fill="white"/><rect x="70" y="52" width="8" height="24" fill="#dc2626"/></g></g></svg>
+ <img src="/assets/logo.svg" width="28" height="28" alt="" loading="lazy" decoding="async">
  <span>Frontaliere Ticino</span>
  </div>
  <h1>Versione canonica disponibile</h1>
