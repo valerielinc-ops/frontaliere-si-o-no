@@ -314,11 +314,11 @@ export default function SalaryQuiz() {
  {/* Result card */}
  <div className="bg-success rounded-2xl p-4 sm:p-6 text-on-accent shadow-xl">
  <div className="text-center mb-6">
- <p className="text-success text-sm mb-1">{t('salaryQuiz.resultSubtitle')}</p>
+ <p className="text-on-accent/80 text-sm mb-1">{t('salaryQuiz.resultSubtitle')}</p>
  <div className="text-4xl sm:text-5xl font-bold mb-1">
  CHF {result.medianGross.toLocaleString()}
  </div>
- <p className="text-success text-sm">{t('salaryQuiz.grossPerMonth')}</p>
+ <p className="text-on-accent/80 text-sm">{t('salaryQuiz.grossPerMonth')}</p>
  </div>
 
  <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-6">
@@ -328,7 +328,7 @@ export default function SalaryQuiz() {
 
  {/* Salary range bar */}
  <div className="bg-on-accent/15 rounded-xl p-4">
- <p className="text-success text-xs mb-3">{t('salaryQuiz.rangeLabel')}</p>
+ <p className="text-on-accent/80 text-xs mb-3">{t('salaryQuiz.rangeLabel')}</p>
  <div className="relative h-3 bg-on-accent/20 rounded-full">
  <div
  className="absolute h-full bg-on-accent/60 rounded-full"
@@ -339,12 +339,12 @@ export default function SalaryQuiz() {
  style={{ left: '50%', transform: 'translate(-50%, -50%)' }}
  />
  </div>
- <div className="flex justify-between mt-2 text-xs text-success">
+ <div className="flex justify-between mt-2 text-xs text-on-accent/80">
  <span>CHF {result.p25Gross.toLocaleString()}</span>
  <span className="font-bold text-on-accent">CHF {result.medianGross.toLocaleString()}</span>
  <span>CHF {result.p75Gross.toLocaleString()}</span>
  </div>
- <div className="flex justify-between text-xs text-success/70">
+ <div className="flex justify-between text-xs text-on-accent/60">
  <span>25°</span>
  <span>50° {t('salaryQuiz.median')}</span>
  <span>75°</span>

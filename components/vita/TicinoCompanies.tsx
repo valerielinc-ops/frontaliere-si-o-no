@@ -717,7 +717,7 @@ const TicinoCompanies: React.FC = () => {
  </div>
  <div className="min-w-0">
  <h1 className="text-xl sm:text-3xl font-extrabold font-display">{t('companies.title', getCantonI18nParams()) || 'Aziende in Ticino'}</h1>
- <p className="text-info mt-1 text-sm sm:text-base">{t('companies.subtitle') || 'Mappa interattiva delle principali società con filtri per settore e dimensione'}</p>
+ <p className="text-on-accent/80 mt-1 text-sm sm:text-base">{t('companies.subtitle') || 'Mappa interattiva delle principali società con filtri per settore e dimensione'}</p>
  </div>
  </div>
  <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-on-accent mt-4">
