@@ -307,6 +307,7 @@ const frStats: Record<string, string> = {
  'blog.seoTitle': 'Tout ce qu\'un frontalier doit savoir',
  'blog.seoContent': 'Articles à jour sur le salaire net, les impôts, le 13e mois, LAMal vs CMI, pilier 3a et tous les aspects pratiques de la vie de frontalier au Tessin.',
  'blog.copyLink': 'Copier le lien',
+ 'blog.publishedOn': 'Publié le',
  'blog.updatedOn': 'Mis à jour le',
  'blog.copied': 'Copié !',
  'blog.shareWhatsApp': 'Partager sur WhatsApp',

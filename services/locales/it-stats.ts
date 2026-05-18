@@ -318,6 +318,7 @@ const translations: Record<string, string> = {
  'blog.seoTitle': 'Tutto quello che un frontaliere deve sapere',
  'blog.seoContent': 'Articoli aggiornati su stipendio netto, tasse, tredicesima, LAMal vs CMI, terzo pilastro, e tutti gli aspetti pratici della vita da frontaliere in Ticino. Calcola il tuo stipendio netto con il nostro simulatore gratuito.',
  'blog.copyLink': 'Copia link',
+ 'blog.publishedOn': 'Pubblicato il',
  'blog.updatedOn': 'Aggiornato il',
  'blog.copied': 'Copiato!',
  'blog.shareWhatsApp': 'Condividi su WhatsApp',

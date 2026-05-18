@@ -307,6 +307,7 @@ const deStats: Record<string, string> = {
  'blog.seoTitle': 'Alles, was ein Grenzgänger wissen muss',
  'blog.seoContent': 'Aktuelle Artikel zu Nettogehalt, Steuern, 13. Monatsgehalt, KVG vs CMI, Säule 3a und allen praktischen Aspekten des Grenzgängerlebens im Tessin.',
  'blog.copyLink': 'Link kopieren',
+ 'blog.publishedOn': 'Veröffentlicht am',
  'blog.updatedOn': 'Aktualisiert am',
  'blog.copied': 'Kopiert!',
  'blog.shareWhatsApp': 'Auf WhatsApp teilen',
