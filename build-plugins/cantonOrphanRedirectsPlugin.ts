@@ -47,6 +47,7 @@ import {
  getJobNursesHubSlug,
  getJobPartTimeLandingSlug,
  getJobTodayLandingSlug,
+ LEGACY_SHORT_FORM_SLUGS_BY_SLOT,
  type JobCareClusterKey,
 } from './jobEditorialLanding';
 import { BASE_URL, buildCanonicalBridgePage } from './constants';
@@ -97,15 +98,24 @@ export function enumerateCantonOrphanRedirects(): OrphanRedirect[] {
  const prefix = LOCALE_PREFIX[locale];
  for (const slot of SLOT_KEYS) {
  const canonicalSlug = slugForSlot(slot, locale, canton);
- // Collect every other canton's canonical slug for this (slot, locale).
- // These are the "foreign" slugs that may appear under THIS canton's
- // section because of GSC discovery, external links, or historical
- // builds. Dedupe — multiple cantons share the short form ('oggi').
+ // Targeted orphan set — only the slug forms that actually leaked into
+ // production from historical code paths, NOT the full Cartesian
+ // product of 24 cantons (that exploded to ~16k files for ~672 real
+ // orphans). Sources covered:
+ //   1. TI/GR/VS canonical slugs: the original slug helpers defaulted
+ //      to `canton = 'TI'`, so internal navigators produced
+ //      /cerca-lavoro-basilea/offerte-di-lavoro-ticino-oggi/ etc.
+ //      GR/VS variants surfaced from the same default-arg bug for
+ //      pages that explicitly passed those cantons.
+ //   2. LEGACY_SHORT_FORM (`infermieri`, `oggi`, `cliniche`, …): the
+ //      pre-2026-05-18 Phase-8d canonical for every non-TI/GR/VS
+ //      canton. These are GSC-indexed and would 404 after the
+ //      long-form revert.
  const alternates = new Set<string>();
- for (const otherCanton of cantons) {
- if (otherCanton === canton) continue;
- alternates.add(slugForSlot(slot, locale, otherCanton));
+ for (const sourceCanton of ['TI', 'GR', 'VS']) {
+ alternates.add(slugForSlot(slot, locale, sourceCanton));
  }
+ alternates.add(LEGACY_SHORT_FORM_SLUGS_BY_SLOT[slot][locale]);
  alternates.delete(canonicalSlug);
  for (const orphanSlug of alternates) {
  const from = `${prefix}/${section}/${orphanSlug}/`.replace(/\/+/g, '/');

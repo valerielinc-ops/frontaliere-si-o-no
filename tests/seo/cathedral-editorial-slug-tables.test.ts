@@ -44,17 +44,20 @@ describe('editorial slug tables — all cantons covered', () => {
   expect(getJobTodayLandingSlug('fr', 'VS')).toBe('offres-emploi-valais-aujourdhui');
  });
 
- // Phase 8 sub-PR (d) — non-TI/GR/VS cantons collapse to a short slug.
- // The canton sits in the section segment, e.g. `/cerca-lavoro-zurigo/oggi/`.
- it('ZH today-landing slug uses the short Phase-8d form', () => {
-  expect(getJobTodayLandingSlug('it', 'ZH')).toBe('oggi');
-  expect(getJobTodayLandingSlug('en', 'ZH')).toBe('today');
-  expect(getJobTodayLandingSlug('de', 'ZH')).toBe('heute');
-  expect(getJobTodayLandingSlug('fr', 'ZH')).toBe('aujourdhui');
+ // 2026-05-18 Phase-8d revert — every canton uses a per-canton long-form
+ // slug so SEO keyword matching ("infermieri basilea", "offerte lavoro
+ // zurigo") is exact. URL becomes `/cerca-lavoro-zurigo/offerte-di-lavoro-
+ // zurigo-oggi/`. The old short form (`oggi`) remains reachable via the
+ // canton-orphan-redirects plugin emitting a 200 redirect HTML.
+ it('ZH today-landing slug uses the long-form per-canton pattern', () => {
+  expect(getJobTodayLandingSlug('it', 'ZH')).toBe('offerte-di-lavoro-zurigo-oggi');
+  expect(getJobTodayLandingSlug('en', 'ZH')).toBe('zurich-jobs-today');
+  expect(getJobTodayLandingSlug('de', 'ZH')).toBe('jobs-zurich-heute');
+  expect(getJobTodayLandingSlug('fr', 'ZH')).toBe('offres-emploi-zurich-aujourdhui');
  });
 
- it('AG today-landing slug uses the short Phase-8d form (no canton in slug)', () => {
-  expect(getJobTodayLandingSlug('it', 'AG')).toBe('oggi');
-  expect(getJobTodayLandingSlug('de', 'AG')).toBe('heute');
+ it('AG today-landing slug uses the long-form per-canton pattern', () => {
+  expect(getJobTodayLandingSlug('it', 'AG')).toBe('offerte-di-lavoro-argovia-oggi');
+  expect(getJobTodayLandingSlug('de', 'AG')).toBe('jobs-aargau-heute');
  });
 });

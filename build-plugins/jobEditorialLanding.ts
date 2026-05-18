@@ -95,12 +95,16 @@ export const EDITORIAL_CANTONS: readonly string[] = Object.freeze(
 // (Phase 5 P1-A — TI editorial URLs must stay invariant). Remaining cantons
 // auto-generated from CANTON_SLUG_LOCALE with locale-specific templates.
 
-// Phase 8 sub-PR (d): Non-TI/GR/VS cantons use a SHORT slug
-// (`oggi` / `today` / `heute` / `aujourdhui`) so the URL becomes
-// `/cerca-lavoro-{canton}/oggi/` instead of nesting a canton-named slug
-// under the TI section. TI/GR/VS legacy slugs are preserved byte-identical
-// (test suite locks these). Pair the short slug with the canton-aware
-// section produced by `buildCantonAwareSection(locale, canton)`.
+// Phase 8d revert (2026-05-18): every canton now uses a per-canton
+// long-form slug so the URL is `/cerca-lavoro-{canton}/{slug-with-canton-name}/`.
+// The earlier "short-form for non-TI/GR/VS" design saved a URL segment but
+// (a) made keyword matching weaker for SEO and (b) was inconsistent — TI
+// used `infermieri-in-ticino` while BASILEA used `infermieri`. The
+// long-form template is byte-identical to TI/GR/VS for the three legacy
+// cantons (CLAUDE.md non-negotiable preserves those URLs); the remaining
+// 21 cantons get the template `offerte-di-lavoro-{cantonSlug.locale}-oggi`
+// etc. Old short-form URLs (`infermieri`, `oggi`) remain reachable via
+// LEGACY_SHORT_FORM_SLUGS_BY_SLOT + cantonOrphanRedirectsPlugin.
 const JOB_TODAY_LANDING_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, string>> = (() => {
  const out: Record<string, Record<JobLandingLocale, string>> = {
   TI: { it: 'offerte-di-lavoro-ticino-oggi', en: 'ticino-jobs-today', de: 'jobs-tessin-heute', fr: 'offres-emploi-tessin-aujourdhui' },
@@ -109,18 +113,17 @@ const JOB_TODAY_LANDING_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale,
  };
  for (const code of Object.keys(CANTON_SLUG_LOCALE)) {
   if (out[code]) continue;
+  const slugs = CANTON_SLUG_LOCALE[code];
   out[code] = {
-   it: 'oggi',
-   en: 'today',
-   de: 'heute',
-   fr: 'aujourdhui',
+   it: `offerte-di-lavoro-${slugs.it}-oggi`,
+   en: `${slugs.en}-jobs-today`,
+   de: `jobs-${slugs.de}-heute`,
+   fr: `offres-emploi-${slugs.fr}-aujourdhui`,
   };
  }
  return out;
 })();
 
-// Phase 8 sub-PR (d): non-TI/GR/VS cantons collapse to a short slug; the
-// canton is encoded in the section segment (`/cerca-lavoro-{canton}/`).
 const JOB_NURSES_HUB_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, string>> = (() => {
  const out: Record<string, Record<JobLandingLocale, string>> = {
   TI: { it: 'infermieri-in-ticino', en: 'nurses-in-ticino', de: 'pflege-jobs-im-tessin', fr: 'infirmiers-au-tessin' },
@@ -129,18 +132,20 @@ const JOB_NURSES_HUB_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, st
  };
  for (const code of Object.keys(CANTON_SLUG_LOCALE)) {
   if (out[code]) continue;
+  const slugs = CANTON_SLUG_LOCALE[code];
+  // DE preposition "in" matches the GR legacy (`pflege-jobs-in-graubunden`).
+  // FR preposition "a" is a safe default — TI/GR/VS keep their idiomatic
+  // au/aux/en variants above; new cantons use the simplest preposition.
   out[code] = {
-   it: 'infermieri',
-   en: 'nurses',
-   de: 'pflege-jobs',
-   fr: 'infirmiers',
+   it: `infermieri-in-${slugs.it}`,
+   en: `nurses-in-${slugs.en}`,
+   de: `pflege-jobs-in-${slugs.de}`,
+   fr: `infirmiers-a-${slugs.fr}`,
   };
  }
  return out;
 })();
 
-// Phase 8 sub-PR (d): non-TI/GR/VS cantons collapse to a short slug; the
-// canton is encoded in the section segment (`/cerca-lavoro-{canton}/`).
 const JOB_PART_TIME_LANDING_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, string>> = (() => {
  const out: Record<string, Record<JobLandingLocale, string>> = {
   TI: { it: 'lavoro-part-time-ticino', en: 'part-time-jobs-ticino', de: 'teilzeit-jobs-tessin', fr: 'emploi-temps-partiel-tessin' },
@@ -149,11 +154,12 @@ const JOB_PART_TIME_LANDING_SLUGS_BY_CANTON: Record<string, Record<JobLandingLoc
  };
  for (const code of Object.keys(CANTON_SLUG_LOCALE)) {
   if (out[code]) continue;
+  const slugs = CANTON_SLUG_LOCALE[code];
   out[code] = {
-   it: 'lavoro-part-time',
-   en: 'part-time-jobs',
-   de: 'teilzeit-jobs',
-   fr: 'emploi-temps-partiel',
+   it: `lavoro-part-time-${slugs.it}`,
+   en: `part-time-jobs-${slugs.en}`,
+   de: `teilzeit-jobs-${slugs.de}`,
+   fr: `emploi-temps-partiel-${slugs.fr}`,
   };
  }
  return out;
@@ -893,9 +899,15 @@ const NURSES_HUB_COPY = makeNursesHubCopy('TI');
 // embedded in slug) for URL invariance — those URLs are locked by tests and
 // by the production index. For the other 21 cantons, the slug collapses to
 // the short form (e.g. `cliniche`) because the canton is already encoded in
-// the section segment via `buildCantonAwareSection(locale, canton)`. The
-// trailing `-jobs` suffix in EN/DE is preserved for TI/GR/VS only.
-const _LEGACY_CARE_CLUSTER_CANTONS = new Set(['TI', 'GR', 'VS']);
+// Phase 8d revert (2026-05-18): every canton now suffixes its display
+// slug onto the care-cluster base (e.g. `cliniche-basilea`,
+// `nurses-in-basel-jobs`) for keyword-rich URLs across the cathedral.
+// TI/GR/VS continue to use the legacy slugs (canton + `-jobs` suffix in
+// EN/DE) which are byte-identical because the template below resolves to
+// the same string for those three. The pre-revert short form (`cliniche`,
+// `clinics`, `kliniken`, `cliniques`) is kept as a legacy alias in
+// LEGACY_SHORT_FORM_SLUGS_BY_SLOT so previously-emitted URLs continue to
+// resolve via the canton-orphan-redirects plugin.
 export function careClusterSlug(key: JobCareClusterKey, cantonCode: string, locale: JobLandingLocale): string {
  const base: Record<JobCareClusterKey, Record<JobLandingLocale, string>> = {
  clinics: { it: 'cliniche', en: 'clinics', de: 'kliniken', fr: 'cliniques' },
@@ -903,11 +915,8 @@ export function careClusterSlug(key: JobCareClusterKey, cantonCode: string, loca
  oss: { it: 'oss', en: 'healthcare-assistants', de: 'pflegeassistenz', fr: 'oss' },
  educators: { it: 'educatori', en: 'educators', de: 'paedagogen', fr: 'educateurs' },
  };
- if (_LEGACY_CARE_CLUSTER_CANTONS.has(cantonCode)) {
-   const cantonSlug = CANTON_SLUG_LOCALE[cantonCode]?.[locale] || CANTON_SLUG_LOCALE['TI'][locale];
-   return `${base[key][locale]}-${cantonSlug}${locale === 'en' || locale === 'de' ? '-jobs' : ''}`;
- }
- return base[key][locale];
+ const cantonSlug = CANTON_SLUG_LOCALE[cantonCode]?.[locale] || CANTON_SLUG_LOCALE['TI'][locale];
+ return `${base[key][locale]}-${cantonSlug}${locale === 'en' || locale === 'de' ? '-jobs' : ''}`;
 }
 
 function careClusterLabel(key: JobCareClusterKey, cantonCode: string, locale: JobLandingLocale): string {
@@ -1423,10 +1432,23 @@ const CARE_CLUSTER_SHORT_SLUG_TO_KEY: Record<string, JobCareClusterKey> = {
 
 function findCareClusterKeyBySlug(slug: string): JobCareClusterKey | null {
  const clean = normalizeSpace(slug);
+ // CARE_CLUSTER_DEFS is built from TI slugs only; check first for the
+ // TI/GR/VS legacy long-form (kept byte-identical).
  const fromLegacy = (Object.keys(CARE_CLUSTER_DEFS) as JobCareClusterKey[]).find((key) =>
  Object.values(CARE_CLUSTER_DEFS[key].slug).includes(clean),
  );
  if (fromLegacy) return fromLegacy;
+ // 2026-05-18: scan all 24 cantons × 4 locales for long-form per-canton
+ // slugs (e.g. `cliniche-basilea`, `nurses-in-basel-jobs`). Without this
+ // the router would mis-route them to the job-detail view.
+ for (const key of Object.keys(CARE_CLUSTER_DEFS) as JobCareClusterKey[]) {
+ for (const canton of Object.keys(CANTON_SLUG_LOCALE)) {
+ for (const locale of ['it', 'en', 'de', 'fr'] as JobLandingLocale[]) {
+ if (careClusterSlug(key, canton, locale) === clean) return key;
+ }
+ }
+ }
+ // Pre-2026-05-18 short-form aliases (`cliniche`, `clinics`, …).
  return CARE_CLUSTER_SHORT_SLUG_TO_KEY[clean] || null;
 }
 
@@ -1590,11 +1612,32 @@ function resolveRecencyDescriptor(slug: string): { kind: 'recency'; variant: 'la
  return null;
 }
 
+/**
+ * Legacy short-form editorial slugs from the pre-2026-05-18 Phase-8d era,
+ * when non-TI/GR/VS cantons used canton-less slugs (`infermieri`, `oggi`,
+ * `cliniche`, …). These URLs were indexed by Google and may still appear
+ * as inbound traffic / GSC orphan reports. The descriptor matcher returns
+ * the same `kind` for them so the SPA router redirects to the canton's
+ * new long-form canonical, and the canton-orphan-redirects plugin emits
+ * a static HTML at the legacy path for the crawler.
+ */
+export const LEGACY_SHORT_FORM_SLUGS_BY_SLOT = {
+ today: { it: 'oggi', en: 'today', de: 'heute', fr: 'aujourdhui' },
+ nurses: { it: 'infermieri', en: 'nurses', de: 'pflege-jobs', fr: 'infirmiers' },
+ partTime: { it: 'lavoro-part-time', en: 'part-time-jobs', de: 'teilzeit-jobs', fr: 'emploi-temps-partiel' },
+ clinics: { it: 'cliniche', en: 'clinics', de: 'kliniken', fr: 'cliniques' },
+ careHomes: { it: 'case-anziani', en: 'care-homes', de: 'altersheime', fr: 'maisons-retraite' },
+ oss: { it: 'oss', en: 'healthcare-assistants', de: 'pflegeassistenz', fr: 'oss' },
+ educators: { it: 'educatori', en: 'educators', de: 'paedagogen', fr: 'educateurs' },
+} as const;
+
 export function isJobTodayLandingSlug(value: string): boolean {
  const slug = normalizeSpace(value);
  for (const cantonSlugs of Object.values(JOB_TODAY_LANDING_SLUGS_BY_CANTON)) {
  if (Object.values(cantonSlugs).includes(slug as JobLandingLocale)) return true;
  }
+ // Legacy short-form (pre-2026-05-18 Phase-8d-revert).
+ if (Object.values(LEGACY_SHORT_FORM_SLUGS_BY_SLOT.today).includes(slug as never)) return true;
  return false;
 }
 
@@ -1609,12 +1652,16 @@ export function resolveEditorialJobLandingDescriptor(value: string): EditorialLa
  if (Object.values(JOB_OFFICIAL_GAZETTE_LANDING_SLUGS).includes(slug as (typeof JOB_OFFICIAL_GAZETTE_LANDING_SLUGS)[JobLandingLocale])) {
  return { kind: 'official-gazette' };
  }
- // Phase 8 sub-PR (d): scan ALL canton variants for the nurses-hub and
- // part-time slugs (TI long-form + 21 short-form non-TI cantons).
+ // Scan ALL canton variants for the nurses-hub and part-time slugs
+ // (long-form per canton post-2026-05-18). The matcher also recognises
+ // legacy short-form aliases (`infermieri`, `lavoro-part-time`, …) so
+ // historical URLs continue to route through the SPA redirect → canton
+ // canonical → static page.
  const nursesSlugSet = new Set<string>();
  for (const cantonSlugs of Object.values(JOB_NURSES_HUB_SLUGS_BY_CANTON)) {
  for (const localeSlug of Object.values(cantonSlugs)) nursesSlugSet.add(localeSlug);
  }
+ for (const legacySlug of Object.values(LEGACY_SHORT_FORM_SLUGS_BY_SLOT.nurses)) nursesSlugSet.add(legacySlug);
  if (nursesSlugSet.has(slug) || slug === 'lavoro-infermieri') {
  return { kind: 'nurses-hub' };
  }
@@ -1622,6 +1669,7 @@ export function resolveEditorialJobLandingDescriptor(value: string): EditorialLa
  for (const cantonSlugs of Object.values(JOB_PART_TIME_LANDING_SLUGS_BY_CANTON)) {
  for (const localeSlug of Object.values(cantonSlugs)) partTimeSlugSet.add(localeSlug);
  }
+ for (const legacySlug of Object.values(LEGACY_SHORT_FORM_SLUGS_BY_SLOT.partTime)) partTimeSlugSet.add(legacySlug);
  if (partTimeSlugSet.has(slug)) {
  return { kind: 'part-time' };
  }
