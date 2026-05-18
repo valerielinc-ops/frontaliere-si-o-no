@@ -6782,6 +6782,17 @@ ${alternates}
  sectorOrType: _kwQuery || null,
  omitCommute: !_kwCity,
  }));
+ // BreadcrumbList JSON-LD — required by tests/seo/breadcrumb-coverage.test.ts
+ // (D.2 — every non-exempt dist/ HTML page must include a BreadcrumbList).
+ const kwBreadcrumbLd = JSON.stringify({
+ '@context': 'https://schema.org',
+ '@type': 'BreadcrumbList',
+ itemListElement: [
+ { '@type': 'ListItem', position: 1, name: homeLabel[locale], item: `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}` },
+ { '@type': 'ListItem', position: 2, name: localeCopy[locale].sectionName, item: kwSectionUrl },
+ { '@type': 'ListItem', position: 3, name: kwTitle, item: kwCanonicalUrl },
+ ],
+ });
  const kwHtml = buildSimplePage({
  locale,
  title: kwTitle,
@@ -6789,7 +6800,7 @@ ${alternates}
  canonicalUrl: kwCanonicalUrl,
  ogLocale: localeOg[locale],
  hreflangHtml: kwAlternates,
- jsonLdScripts: [kwCollLd],
+ jsonLdScripts: [kwBreadcrumbLd, kwCollLd],
  entryJs: hasSpaBundle ? entryJs : undefined,
  entryCss: hasSpaBundle ? entryCss : undefined,
  bodyHtml: `<h1>${esc(itCopy.heading)}</h1>\n <p>${esc(kwDesc)}</p>\n ${kwQueryIntro}\n ${kwIntro}\n <p>${esc(kwCta)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${kwListHtml}</ul>\n <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n ${kwMarketSection}\n ${kwCommuterBlock}`,
