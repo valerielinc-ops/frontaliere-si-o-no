@@ -7638,6 +7638,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giovani-assistenza-lugano-preoccupazione.title': 'Jugendliche und Sozialhilfe in Lugano: beunruhigende Daten',
     'blog.article.giovani-assistenza-lugano-preoccupazione.excerpt': 'Der Gemeinderat Omar Wicht äussert Bedenken zu jugendlichen Sozialhilfeempfängern in Lugano, mit alarmierenden Daten aus Locarno',
     'blog.article.giovani-assistenza-lugano-preoccupazione.imageAlt': 'Luftaufnahme von Lugano mit dem See und den umliegenden Bergen',
+    'blog.article.statuto-svizzera-centrale-permesso-b.title': 'Statut S: Nein der Zentralschweiz zu G-Bewilligung',
+    'blog.article.statuto-svizzera-centrale-permesso-b.excerpt': 'Geschäftsführer der Zentralschweiz lehnen Vorschlag ab, Statut S nach fünf Jahren in G-Bewilligung umzuwandeln.',
+    'blog.article.statuto-svizzera-centrale-permesso-b.imageAlt': 'Grenzübergang bei Brogeda in Tessin, Schweizer-italienische Grenze, mit Verkehr.',
 };
 
 export default blogMetaDe;

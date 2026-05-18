@@ -7639,6 +7639,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giovani-assistenza-lugano-preoccupazione.title': 'Young people and social assistance in Lugano: alarming data',
     'blog.article.giovani-assistenza-lugano-preoccupazione.excerpt': 'Councillor Omar Wicht raises concerns about young social assistance beneficiaries in Lugano, with alarming data from Locarno',
     'blog.article.giovani-assistenza-lugano-preoccupazione.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
+    'blog.article.statuto-svizzera-centrale-permesso-b.title': 'Switzerland Central: No to G Permit After 5 Years',
+    'blog.article.statuto-svizzera-centrale-permesso-b.excerpt': 'Social directors of Switzerland Central reject proposal to convert S protection status to G permit after five years.',
+    'blog.article.statuto-svizzera-centrale-permesso-b.imageAlt': 'Border crossing at Brogeda in Ticino, Swiss-Italian border, with traffic.',
 };
 
 export default blogMetaEn;

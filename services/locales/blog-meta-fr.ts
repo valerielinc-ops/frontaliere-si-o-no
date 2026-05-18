@@ -7640,6 +7640,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.giovani-assistenza-lugano-preoccupazione.title': 'Jeunes et aide sociale à Lugano: des chiffres inquiétants',
     'blog.article.giovani-assistenza-lugano-preoccupazione.excerpt': 'Le conseiller communal Omar Wicht exprime des inquiétudes concernant les jeunes bénéficiaires de l\'aide sociale à Lugano, avec des données alarmantes de Locarno',
     'blog.article.giovani-assistenza-lugano-preoccupazione.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
+    'blog.article.statuto-svizzera-centrale-permesso-b.title': 'Statut S : non de la Suisse centrale au permis B',
+    'blog.article.statuto-svizzera-centrale-permesso-b.excerpt': 'Directeurs sociaux de la Suisse centrale rejettent la proposition de transformer le statut de protection S en permis B après cinq ans.',
+    'blog.article.statuto-svizzera-centrale-permesso-b.imageAlt': 'Passage frontalier à Brogeda dans le Tessin, frontière Suisse-Italie, avec trafic.',
 };
 
 export default blogMetaFr;

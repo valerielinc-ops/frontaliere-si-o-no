@@ -3789,6 +3789,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-terapia-complementare-attestati-lugano': { name: 'Novità', path: '/articoli-frontaliere/terapia-complementare-attestati-lugano', parent: 'blog' },
     'blog-blocco-ristorni-ticino-de-rosa-aperto-a-valutare': { name: 'Blocco dei ristorni', path: '/articoli-frontaliere/blocco-ristorni-ticino-de-rosa-aperto-a-valutare', parent: 'blog' },
     'blog-giovani-assistenza-lugano-preoccupazione': { name: 'Assistenza sociale', path: '/articoli-frontaliere/giovani-assistenza-lugano-preoccupazione', parent: 'blog' },
+    'blog-statuto-svizzera-centrale-permesso-b': { name: 'Fiscale', path: '/articoli-frontaliere/statuto-svizzera-centrale-permesso-b', parent: 'blog' },
  };
 
  const info = sectionNames[section];

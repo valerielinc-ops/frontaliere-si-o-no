@@ -7640,6 +7640,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.giovani-assistenza-lugano-preoccupazione.title': 'Giovani e assistenza sociale a Lugano: i dati preoccupanti',
     'blog.article.giovani-assistenza-lugano-preoccupazione.excerpt': 'Il consigliere comunale Omar Wicht solleva preoccupazioni sui giovani beneficiari di assistenza sociale a Lugano, con dati allarmanti da Locarno',
     'blog.article.giovani-assistenza-lugano-preoccupazione.imageAlt': 'Veduta aerea di Lugano con il lago e le montagne circostanti',
+    'blog.article.statuto-svizzera-centrale-permesso-b.title': 'Statuto S: no della Svizzera centrale a permesso B',
+    'blog.article.statuto-svizzera-centrale-permesso-b.excerpt': 'Direttori sociali della Svizzera centrale respingono proposta di trasformare lo statuto di protezione S in permesso B dopo cinque anni.',
+    'blog.article.statuto-svizzera-centrale-permesso-b.imageAlt': 'Valico di Brogeda in Ticino, frontaliere svizzero-italiana, con traffico.',
 };
 
 export default blogMetaIt;

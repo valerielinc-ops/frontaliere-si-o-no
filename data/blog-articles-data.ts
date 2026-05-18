@@ -24293,4 +24293,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'statuto-svizzera-centrale-permesso-b',
+ category: 'fiscale',
+ date: '2026-05-18T21:43:46.419Z',
+ image: '/images/blog/statuto-svizzera-centrale-permesso-b.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
