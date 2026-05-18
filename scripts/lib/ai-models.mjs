@@ -263,6 +263,34 @@ export const AI_MODELS = Object.freeze({
 
   // ── Mistral Codestral (separate endpoint, separate quota: 2000 req/day) ──
   CDSTRL_LATEST:       'codestral/codestral-latest',
+
+  // ── Chutes.ai (OpenAI-compatible, generous free tier — added 2026-05-18) ──
+  // Free tier: ~200 req/day shared quota; high-quality reasoning models.
+  CH_DEEPSEEK_R1:      'chutes/deepseek-ai/DeepSeek-R1',
+  CH_DEEPSEEK_V3:      'chutes/deepseek-ai/DeepSeek-V3',
+  CH_KIMI_K2:          'chutes/moonshotai/Kimi-K2-Instruct',
+  CH_GLM_45:           'chutes/zai-org/GLM-4.5-Air',
+  CH_QWEN3_235B:       'chutes/Qwen/Qwen3-235B-A22B-Instruct-2507',
+  CH_LLAMA_4_MAVERICK: 'chutes/meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8',
+
+  // ── Z.AI (Zhipu, OpenAI-compatible, GLM free tier — added 2026-05-18) ──
+  ZAI_GLM_46:          'zai/glm-4.6',
+  ZAI_GLM_45_AIR:      'zai/glm-4.5-air',
+
+  // ── Extended OpenRouter free models (2026-05) ──
+  OR_QWEN3_CODER_PLUS: 'openrouter/qwen/qwen3-coder-plus:free',
+  OR_KIMI_K2_0905:     'openrouter/moonshotai/kimi-k2-0905:free',
+  OR_GLM_46:           'openrouter/z-ai/glm-4.6:free',
+  OR_DEEPSEEK_V32:     'openrouter/deepseek/deepseek-v3.2-exp:free',
+  OR_MERIDIAN_8B:      'openrouter/cognitivecomputations/meridian-8b:free',
+
+  // ── Extended Groq models (2026-05) ──
+  GROQ_LLAMA_4_MAV_INSTR: 'groq/meta-llama/llama-4-maverick-17b-128e-instruct-fp8',
+  GROQ_DEEPSEEK_R1_DIST:  'groq/deepseek-r1-distill-llama-70b',
+
+  // ── Extended Cerebras preview models (2026-05) ──
+  CB_QWEN3_CODER_480B: 'cerebras/qwen-3-coder-480b',
+  CB_GPT_OSS_20B_2:    'cerebras/gpt-oss-20b',
 });
 
 /**
@@ -430,6 +458,33 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.HF_QWEN_2_5_72B,     // 96. Qwen 2.5 72B              (HuggingFace)
   AI_MODELS.HF_GEMMA_3_27B,      // 97. Gemma 3 27B               (HuggingFace)
   // HF_MISTRAL_SM removed — HuggingFace HTTP 400 "not a chat model" (2026-04)
+
+  // ── Chutes.ai free tier (added 2026-05-18) ──
+  AI_MODELS.CH_DEEPSEEK_R1,      // 98. DeepSeek R1 reasoning     (Chutes free)
+  AI_MODELS.CH_KIMI_K2,          // 99. Kimi K2                    (Chutes free)
+  AI_MODELS.CH_GLM_45,           // 100. GLM 4.5 Air               (Chutes free)
+  AI_MODELS.CH_QWEN3_235B,       // 101. Qwen3 235B                (Chutes free)
+  AI_MODELS.CH_DEEPSEEK_V3,      // 102. DeepSeek V3               (Chutes free)
+  AI_MODELS.CH_LLAMA_4_MAVERICK, // 103. Llama 4 Maverick          (Chutes free)
+
+  // ── Z.AI GLM free tier (added 2026-05-18) ──
+  AI_MODELS.ZAI_GLM_46,          // 104. GLM 4.6                   (Z.AI free)
+  AI_MODELS.ZAI_GLM_45_AIR,      // 105. GLM 4.5 Air               (Z.AI free)
+
+  // ── Extended OpenRouter 2026-05 free additions ──
+  AI_MODELS.OR_QWEN3_CODER_PLUS, // 106. Qwen3 Coder Plus          (OpenRouter free)
+  AI_MODELS.OR_KIMI_K2_0905,     // 107. Kimi K2 0905              (OpenRouter free)
+  AI_MODELS.OR_GLM_46,           // 108. GLM 4.6                   (OpenRouter free)
+  AI_MODELS.OR_DEEPSEEK_V32,     // 109. DeepSeek V3.2 exp         (OpenRouter free)
+  AI_MODELS.OR_MERIDIAN_8B,      // 110. Meridian 8B               (OpenRouter free)
+
+  // ── Extended Groq 2026-05 additions ──
+  AI_MODELS.GROQ_LLAMA_4_MAV_INSTR,    // 111. Llama 4 Maverick fp8 (Groq)
+  AI_MODELS.GROQ_DEEPSEEK_R1_DIST,     // 112. DeepSeek R1 Distill Llama 70B (Groq)
+
+  // ── Extended Cerebras 2026-05 additions ──
+  AI_MODELS.CB_QWEN3_CODER_480B, // 113. Qwen3 Coder 480B         (Cerebras preview)
+  AI_MODELS.CB_GPT_OSS_20B_2,    // 114. GPT-OSS 20B               (Cerebras)
 ];
 
 // ── Provider constants ───────────────────────────────────────
@@ -448,6 +503,8 @@ const PROVIDER = Object.freeze({
   CLOUDFLARE:  'cloudflare',
   MISTRAL:     'mistral',
   CODESTRAL:   'codestral',
+  CHUTES:      'chutes',
+  ZAI:         'zai',
 });
 
 // ── Endpoints ────────────────────────────────────────────────
@@ -464,6 +521,8 @@ const SAMBANOVA_API_BASE   = 'https://api.sambanova.ai/v1/chat/completions';
 const COHERE_API_BASE      = 'https://api.cohere.ai/compatibility/v1/chat/completions';
 const MISTRAL_API_BASE     = 'https://api.mistral.ai/v1/chat/completions';
 const CODESTRAL_API_BASE   = 'https://codestral.mistral.ai/v1/chat/completions';
+const CHUTES_API_BASE      = 'https://llm.chutes.ai/v1/chat/completions';
+const ZAI_API_BASE         = 'https://api.z.ai/api/paas/v4/chat/completions';
 
 // ── API keys (lazy-loaded from environment) ──────────────────
 function getGhModelsPat()       { return (process.env.GH_MODELS_PAT || '').trim(); }
@@ -481,6 +540,8 @@ function getCloudflareApiToken() { return (process.env.CF_API_TOKEN || '').trim(
 function getCfAccountId()    { return (process.env.CF_ACCOUNT_ID || '').trim(); }
 function getMistralApiKey()  { return (process.env.MISTRAL_API_KEY || '').trim(); }
 function getCodestralApiKey() { return getMistralApiKey(); }  // Same key, separate endpoint
+function getChutesApiKey()   { return (process.env.CHUTES_API_KEY || '').trim(); }
+function getZaiApiKey()      { return (process.env.ZAI_API_KEY || process.env.ZHIPU_API_KEY || '').trim(); }
 
 // ── Provider detection ───────────────────────────────────────
 /**
@@ -514,6 +575,8 @@ function getProvider(model) {
   if (model.startsWith('cf/'))         return PROVIDER.CLOUDFLARE;
   if (model.startsWith('codestral/'))  return PROVIDER.CODESTRAL;
   if (model.startsWith('mistral/'))    return PROVIDER.MISTRAL;
+  if (model.startsWith('chutes/'))     return PROVIDER.CHUTES;
+  if (model.startsWith('zai/'))        return PROVIDER.ZAI;
   return PROVIDER.GITHUB;
 }
 
@@ -544,6 +607,8 @@ function getApiModelId(model) {
   if (model.startsWith('cf/'))         return model.slice(3);   // 3 chars: "cf/" → "@cf/..."
   if (model.startsWith('codestral/'))  return model.slice(10);  // 10 chars: "codestral/"
   if (model.startsWith('mistral/'))    return model.slice(8);   // 8 chars: "mistral/"
+  if (model.startsWith('chutes/'))     return model.slice(7);   // 7 chars: "chutes/"
+  if (model.startsWith('zai/'))        return model.slice(4);   // 4 chars: "zai/"
   return model;
 }
 
@@ -565,6 +630,8 @@ function getApiKeyForProvider(provider) {
     case PROVIDER.CLOUDFLARE:  return (getCloudflareApiToken() && getCfAccountId()) ? getCloudflareApiToken() : '';
     case PROVIDER.MISTRAL:     return getMistralApiKey();
     case PROVIDER.CODESTRAL:   return getCodestralApiKey();
+    case PROVIDER.CHUTES:      return getChutesApiKey();
+    case PROVIDER.ZAI:         return getZaiApiKey();
     default: return '';
   }
 }
@@ -679,6 +746,10 @@ function sanitizeSchemaForGemini(schema) {
 
 // ── Run-level state (reset only between process invocations) ─
 const _exhaustedModels = new Set();
+// Tracks which exhausted models have already been logged this run, so a model
+// that's been exhausted since startup doesn't produce a "Skipped — exhausted"
+// line every time the fallback chain ticks past it.
+const _exhaustedLogged = new Set();
 
 // FRO-325: Track consecutive 429s per model — exhaust after 2
 /** @type {Map<string, number>} model → consecutive 429 count */
@@ -1882,6 +1953,34 @@ function _callCodestral(model, messages, opts) {
 }
 
 /**
+ * Call a model on Chutes.ai (OpenAI-compatible, generous free tier — added 2026-05-18).
+ * Free tier ~200 req/day shared. Requires CHUTES_API_KEY.
+ */
+function _callChutes(model, messages, opts) {
+  const apiModel = getApiModelId(model);
+  return _callOpenAICompatible(apiModel, messages, opts, {
+    endpoint: CHUTES_API_BASE,
+    apiKey: getChutesApiKey(),
+    providerName: 'Chutes',
+    trackAs: model,
+  });
+}
+
+/**
+ * Call a model on Z.AI (Zhipu, OpenAI-compatible — added 2026-05-18).
+ * GLM-4.6 free tier. Requires ZAI_API_KEY (or ZHIPU_API_KEY).
+ */
+function _callZai(model, messages, opts) {
+  const apiModel = getApiModelId(model);
+  return _callOpenAICompatible(apiModel, messages, opts, {
+    endpoint: ZAI_API_BASE,
+    apiKey: getZaiApiKey(),
+    providerName: 'Z.AI',
+    trackAs: model,
+  });
+}
+
+/**
  * Call a single Gemini model with retry.
  * Returns the text content on success.
  */
@@ -2020,6 +2119,8 @@ function _callModel(model, messages, opts) {
     case PROVIDER.CLOUDFLARE:  return _callCloudflare(model, messages, opts);
     case PROVIDER.MISTRAL:     return _callMistral(model, messages, opts);
     case PROVIDER.CODESTRAL:   return _callCodestral(model, messages, opts);
+    case PROVIDER.CHUTES:      return _callChutes(model, messages, opts);
+    case PROVIDER.ZAI:         return _callZai(model, messages, opts);
     default: throw new Error(`[${model}] Unknown provider: ${provider}`);
   }
 }
@@ -2116,9 +2217,15 @@ export async function callLLM(messages, opts = {}) {
   for (let i = 0; i < chain.length; i++) {
     const model = chain[i];
 
-    // Skip exhausted models
+    // Skip exhausted models. Log each exhausted model at most once per process
+    // to avoid log floods like "[mistral/nemo] Skipped — exhausted" repeated
+    // 300+ times in a single run (one per fallback attempt × per fact-check
+    // retry × per generation retry).
     if (_exhaustedModels.has(model)) {
-      console.warn(`⏭️  [${model}] Skipped — exhausted (daily limit)`);
+      if (!_exhaustedLogged.has(model)) {
+        console.warn(`⏭️  [${model}] Skipped — exhausted (daily limit, future hits silenced)`);
+        _exhaustedLogged.add(model);
+      }
       continue;
     }
 
