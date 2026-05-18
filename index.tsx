@@ -77,8 +77,9 @@ const mountApp = async () => {
  const homeCritical = isHomeCriticalPath(window.location.pathname);
  const staticPage = hasStaticContent();
 
- const [{ default: App }, i18n] = await Promise.all([
+ const [{ default: App }, { ChunkLoadErrorBoundary }, i18n] = await Promise.all([
  import('./App'),
+ import('./components/ChunkLoadErrorBoundary'),
  homeCritical ? import('./services/i18n') : Promise.resolve(null),
  ]);
 
@@ -104,7 +105,9 @@ const mountApp = async () => {
 
  root.render(
  <React.StrictMode>
+ <ChunkLoadErrorBoundary>
  <App />
+ </ChunkLoadErrorBoundary>
  </React.StrictMode>
  );
 
