@@ -1,18 +1,79 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-05-18T13:22:13.409Z",
-  "total": 17,
-  "newCount": 0,
+  "generatedAt": "2026-05-18T22:54:46.657Z",
+  "total": 19,
+  "newCount": 2,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 22253,
-  "avgDurationMs": 22253,
+  "durationMs": 21766,
+  "avgDurationMs": 21766,
   "durationHistory": [
-    22253
+    21766
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-213iav",
+      "slug": "operaio-a-specialista-a-tempo-pieno-100-presso-l-ufficio-degli-automezzi-e-delle-macchine-dello-stato-uams-camorino-orario-di-lavoro-42-ore",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Operaio/a specialista a tempo pieno (100%), presso l’Ufficio degli automezzi e delle macchine dello Stato (UAMS), Camorino",
+      "location": "Camorino",
+      "canton": "TI",
+      "category": "other",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4180",
+      "source": "Company Careers Crawler",
+      "salaryMin": 52756,
+      "salaryMax": 81560,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-05-18T22:54:39.943Z",
+      "firstSeenAt": "2026-05-18T22:54:39.943Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-213iau",
+      "slug": "psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-50-incaricato-a-art-15-e-16-lord-presso-l-organizzazione-sociopsichiatrica-cantonale-os",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Psicologo/a I oppure Psicologo/a II, a tempo parziale (50%), incaricato/a (art. 15 e 16 LORD), presso l’Organizzazione sociopsichiatrica cantonale (OSC), Servizio di psicologia clinica e psicoterapia, Servizio di psichiatria e di psicologia medica (SPPM), Savosa",
+      "location": "Savosa",
+      "canton": "TI",
+      "category": "health",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4181",
+      "source": "Company Careers Crawler",
+      "salaryMin": 88633,
+      "salaryMax": 141990,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-05-18T22:54:39.943Z",
+      "firstSeenAt": "2026-05-18T22:54:39.943Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 19
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-213ibh",
