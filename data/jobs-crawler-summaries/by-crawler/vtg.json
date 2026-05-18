@@ -1,18 +1,47 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-05-18T13:30:20.004Z",
-  "total": 29,
-  "newCount": 0,
+  "generatedAt": "2026-05-18T23:02:22.730Z",
+  "total": 30,
+  "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 23,
-  "durationMs": 47810,
-  "avgDurationMs": 47810,
+  "durationMs": 34465,
+  "avgDurationMs": 34465,
   "durationHistory": [
-    47810
+    34465
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-3uv1w",
+      "slug": "diagnostiker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-03uv1w",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Diagnostiker/-in Nutzfahrzeuge",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "url": "https://jobs.admin.ch/offene-stellen/diagnostiker-in-nutzfahrzeuge/e66d8d78-9b62-4da9-86d9-764cd483d44d",
+      "source": "Company Careers Crawler",
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-05-18T23:02:21.570Z",
+      "firstSeenAt": "2026-05-18T23:02:21.570Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 18,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-3mzk6n",
