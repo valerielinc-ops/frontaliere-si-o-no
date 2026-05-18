@@ -5,6 +5,7 @@ export type JobCareClusterKey = 'clinics' | 'careHomes' | 'oss' | 'educators';
 
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import municipalitiesFile from '../data/canton-municipalities.json';
+import { resolveJobCanton } from './shared/cantonSection';
 
 type CantonSlugEntry = { it: string; en: string; de: string; fr: string; dePrefix?: string };
 type CantonMunicipalitiesFile = {
@@ -1257,9 +1258,15 @@ function isInLast3Days(jobDate: Date | null, now: Date): boolean {
  return calendarDiff >= 0 && calendarDiff <= 2;
 }
 
+// Canton scoping for per-canton editorial pages. Routes through
+// resolveJobCanton so URL groups (BASILEA = BS+BL, APPENZELLO = AI+AR)
+// match their member cantons, and jobs without an explicit `canton` field
+// fall back to the location-derived canton (defaulting to TI). The previous
+// `!canton || canton === cantonCode` check failed in two ways:
+//   1. BASILEA matched zero jobs (BS/BL never equal "BASILEA")
+//   2. Jobs with no canton field leaked into every canton's page
 function isCantonScoped(job: JobLike, cantonCode: string): boolean {
- const canton = normalizeSpace(job.canton || '').toUpperCase();
- return !canton || canton === cantonCode;
+ return resolveJobCanton(job) === cantonCode;
 }
 
 function isTicinoScoped(job: JobLike): boolean {
@@ -1750,17 +1757,26 @@ function buildCareVariantLinks(options: {
  localePrefix: string;
  sectionSlug: string;
  partition?: CareClusterPartition;
+ // Optional canton scope. When provided, sibling-variant counts are
+ // restricted to jobs in that canton so badges on /cerca-lavoro-{canton}/
+ // pages reflect that canton's supply, not Switzerland-wide totals.
+ canton?: string;
 }): CareVariantLink[] {
  const partition = options.partition;
- const nursing: readonly JobLike[] = partition
+ const nursingRaw: readonly JobLike[] = partition
  ? partition.nursing
  : options.jobs.filter((job) => isNursingHubJob(job));
+ const nursing = options.canton
+ ? nursingRaw.filter((job) => isCantonScoped(job, options.canton as string))
+ : nursingRaw;
  return (Object.keys(CARE_CLUSTER_DEFS) as JobCareClusterKey[])
  .map((key) => {
  const def = getCareClusterDef(key);
- const count = partition
- ? partition.byCluster[key].length
- : nursing.filter((job) => def.matcher(job)).length;
+ const count = options.canton
+ ? nursing.filter((job) => def.matcher(job)).length
+ : partition
+   ? partition.byCluster[key].length
+   : nursing.filter((job) => def.matcher(job)).length;
  return {
  key,
  label: def.label[options.locale],
@@ -1793,9 +1809,15 @@ export function buildJobNursesHubLandingModel(options: {
  const copy = makeNursesHubCopy(cantonCode)[locale];
  const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
  const baseUrl = options.baseUrl.replace(/\/+$/, '');
- const matches: JobLike[] = options.partition
+ // Per-canton scoping: nurses-hub previously bypassed the canton filter so
+ // every cathedral canton's `/cerca-lavoro-{canton}/infermieri/` page
+ // surfaced all Swiss nursing jobs (mostly TI). When the caller supplies a
+ // pre-computed partition we still need to narrow the nursing set to the
+ // requested canton — the partition is canton-agnostic.
+ const nursingPool: JobLike[] = options.partition
  ? [...options.partition.nursing]
  : options.jobs.filter((job) => isNursingHubJob(job));
+ const matches: JobLike[] = nursingPool.filter((job) => isCantonScoped(job, cantonCode));
  const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
  const feedJobs = toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18);
  const latestJobsLinked = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12), feedJobs);
@@ -1813,7 +1835,7 @@ export function buildJobNursesHubLandingModel(options: {
  latestLabel: copy.latestLabel,
  latestJobs: latestJobsLinked,
  variantTitle: copy.variantTitle,
- variants: buildCareVariantLinks({ jobs: options.jobs, locale, now, baseUrl, localePrefix: options.localePrefix, sectionSlug: options.sectionSlug, partition: options.partition }),
+ variants: buildCareVariantLinks({ jobs: options.jobs, locale, now, baseUrl, localePrefix: options.localePrefix, sectionSlug: options.sectionSlug, partition: options.partition, canton: cantonCode }),
  explainerCards: copy.explainerCards,
  faq: copy.faq,
  openAllLabel: copy.openAll,
@@ -1843,9 +1865,15 @@ export function buildJobCareVariantLandingModel(options: {
  const def = getCareClusterDef(clusterKey);
  const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
  const baseUrl = options.baseUrl.replace(/\/+$/, '');
- const matches: JobLike[] = options.partition
+ // Per-canton scoping: care-variant pages (clinics / care-homes / OSS /
+ // educators) previously bypassed the canton filter so per-canton URLs
+ // like /cerca-lavoro-basilea/cliniche/ listed clinic jobs from across
+ // Switzerland. Narrow to the requested canton — the partition is
+ // canton-agnostic, so the filter is applied in both branches.
+ const matchesPool: JobLike[] = options.partition
  ? [...options.partition.byCluster[clusterKey]]
  : options.jobs.filter((job) => isNursingHubJob(job) && def.matcher(job));
+ const matches: JobLike[] = matchesPool.filter((job) => isCantonScoped(job, cantonCode));
  const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
  const label = careClusterLabel(clusterKey, cantonCode, locale);
  const cd = CANTON_DISPLAY_LOCALE[cantonCode] || CANTON_DISPLAY_LOCALE['TI'];
@@ -1881,7 +1909,7 @@ export function buildJobCareVariantLandingModel(options: {
  : locale === 'de'
  ? `Diese Seite fokussiert den Gesundheits-Hub auf ${label.toLowerCase()}, damit Sie die relevantesten Stellen schneller sehen.`
  : `Cette page resserre le hub sante sur les roles ${label.toLowerCase()} pour aller directement aux offres les plus pertinentes.`;
- const siblingLinks = buildCareVariantLinks({ jobs: options.jobs, locale, now, baseUrl, localePrefix: options.localePrefix, sectionSlug: options.sectionSlug, partition: options.partition }).filter((entry) => entry.key !== clusterKey);
+ const siblingLinks = buildCareVariantLinks({ jobs: options.jobs, locale, now, baseUrl, localePrefix: options.localePrefix, sectionSlug: options.sectionSlug, partition: options.partition, canton: cantonCode }).filter((entry) => entry.key !== clusterKey);
  const feedJobs = toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18);
  const latestJobsLinked = dedupeAgainst(toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12), feedJobs);
  return {
@@ -1924,12 +1952,16 @@ export function buildJobTodayLandingModel(options: {
  const baseUrl = options.baseUrl.replace(/\/+$/, '');
  const todaySlugs = JOB_TODAY_LANDING_SLUGS_BY_CANTON[cantonCode] || JOB_TODAY_LANDING_SLUGS;
  const landingHref = ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${todaySlugs[locale]}`.replace(/\/+/g, '/')}`);
- const recent24h = options.jobs.filter((job) => isInLast24Hours(getJobFreshnessDate(job), now));
- const recent3d = options.jobs.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
- const partTime = options.jobs.filter((job) => isPartTime(job));
- const citySourceJobs = options.jobs.some((job) => normalizeSpace(job.canton || ''))
- ? options.jobs.filter((job) => isCantonScoped(job, cantonCode))
- : options.jobs;
+ // Per-canton scoping: the recent24h/recent3d/partTime feeds previously
+ // skipped any canton filter, so /cerca-lavoro-{canton}/{today-slug}/
+ // pages on every non-TI canton listed jobs from across Switzerland
+ // (mostly TI). Restrict to the canton — `isCantonScoped` routes through
+ // resolveJobCanton, so BASILEA matches BS+BL and APPENZELLO matches AI+AR.
+ const cantonJobs = options.jobs.filter((job) => isCantonScoped(job, cantonCode));
+ const recent24h = cantonJobs.filter((job) => isInLast24Hours(getJobFreshnessDate(job), now));
+ const recent3d = cantonJobs.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
+ const partTime = cantonJobs.filter((job) => isPartTime(job));
+ const citySourceJobs = cantonJobs;
  const cityLeaders = Array.from(
  citySourceJobs.reduce<Map<string, number>>((map, job) => {
  const location = normalizeSpace(job.location || '');
@@ -1960,7 +1992,7 @@ export function buildJobTodayLandingModel(options: {
  intro: copy.intro,
  updatedLabel: copy.updatedLabel,
  countsLabel: copy.countsLabel,
- totalJobs: options.jobs.length,
+ totalJobs: cantonJobs.length,
  sections: {
  last24Hours: { label: copy.fresh24h, jobs: toLinkedJobs(recent24h, now, locale, { ...options, baseUrl }) },
  last3Days: { label: copy.fresh3d, jobs: toLinkedJobs(recent3d, now, locale, { ...options, baseUrl }) },

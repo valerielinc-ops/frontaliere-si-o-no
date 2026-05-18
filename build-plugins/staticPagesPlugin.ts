@@ -3246,12 +3246,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
    .map((w: string) => w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w)
    .join(' ');
  cantonAnchors.push(`<a href="${cantonHubHref}" style="display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#eef2ff;color:#312e81;text-decoration:none;font-size:13px;font-weight:600;border:1px solid #c7d2fe">${esc(displayLabel)}</a>`);
- // Per-canton "today" landing lives under the legacy TI section path
- // (`/cerca-lavoro-ticino/offerte-di-lavoro-{slug}-oggi/`).
- // Use the canonical slug helper so it always matches the emitter.
+ // Per-canton "today" landing lives under that canton's own section path
+ // (`/cerca-lavoro-{canton}/{slug}/`), e.g. `/cerca-lavoro-basilea/oggi/`
+ // or `/cerca-lavoro-ticino/offerte-di-lavoro-ticino-oggi/`. The earlier
+ // implementation nested every canton's today slug under `tiSection`
+ // (`/cerca-lavoro-ticino/oggi/` etc.) which 404s for non-TI cantons
+ // because the actual emit target is `/cerca-lavoro-{canton}/oggi/`.
  if (code !== AGGREGATE_KEY) {
  const todaySlug = getJobTodayLandingSlug(cantonLocale, code);
- const todayHref = `/${(locale === 'it' ? '' : `${locale}/`)}${tiSection}/${todaySlug}/`.replace(/\/+/g, '/');
+ const cantonSectionForToday = resolveCantonSection(cantonLocale, code);
+ const todayHref = `/${(locale === 'it' ? '' : `${locale}/`)}${cantonSectionForToday}/${todaySlug}/`.replace(/\/+/g, '/');
  cantonAnchors.push(`<a href="${todayHref}" style="display:inline-block;padding:3px 8px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;border:1px solid #bbf7d0">${esc(displayLabel)} &mdash; ${esc(todayLabel)}</a>`);
  }
  }

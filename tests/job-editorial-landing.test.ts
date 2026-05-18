@@ -478,4 +478,91 @@ describe('jobEditorialLanding', () => {
     expect(model.siblingSectorLinks.every((l) => l.key !== 'health')).toBe(true);
     expect(model.siblingSectorLinks.find((l) => l.key === 'finance')).toBeTruthy();
   });
+
+  it('scopes the today landing to the requested canton (BASILEA = BS + BL)', () => {
+    // Regression: per-canton today pages used to surface jobs from every
+    // canton (recent24h/recent3d/partTime did not filter by canton). For
+    // BASILEA the URL-group key never matched any job's canton field, so
+    // naive equality would have produced 0 jobs.
+    const now = '2026-05-15T10:00:00.000+02:00';
+    const mixed = [
+      job({ slug: 'bs-1', title: 'Pflegefachperson Basel', location: 'Basel', canton: 'BS', postedDate: '2026-05-15' }),
+      job({ slug: 'bl-1', title: 'Sachbearbeiter Liestal', location: 'Liestal', canton: 'BL', postedDate: '2026-05-14' }),
+      job({ slug: 'bs-2', title: 'Disponent 60%', location: 'Allschwil', canton: 'BS', contract: 'Part-time', postedDate: '2026-05-13' }),
+      job({ slug: 'ti-1', title: 'Backend Developer', location: 'Lugano', canton: 'TI', postedDate: '2026-05-15' }),
+      job({ slug: 'zh-1', title: 'UX Designer', location: 'Zurich', canton: 'ZH', postedDate: '2026-05-15' }),
+    ];
+
+    const basilea = buildJobTodayLandingModel({
+      jobs: mixed,
+      locale: 'it',
+      now,
+      localizedSlug: (j) => String(j.slug),
+      baseUrl: 'https://frontaliereticino.ch',
+      sectionSlug: 'cerca-lavoro-basilea',
+      localePrefix: '',
+      canton: 'BASILEA',
+    });
+    expect(basilea.totalJobs).toBe(3);
+    const allFeedSlugs = [
+      ...basilea.sections.last24Hours.jobs,
+      ...basilea.sections.last3Days.jobs,
+      ...basilea.sections.partTime.jobs,
+    ].map((j) => j.href);
+    expect(allFeedSlugs.every((href) => !href.includes('/ti-1/'))).toBe(true);
+    expect(allFeedSlugs.every((href) => !href.includes('/zh-1/'))).toBe(true);
+    expect(basilea.sections.partTime.jobs.some((j) => j.href.includes('/bs-2/'))).toBe(true);
+    expect(basilea.sections.cities.length).toBeGreaterThan(0);
+    expect(basilea.sections.cities.every((c) => ['Basel', 'Liestal', 'Allschwil'].includes(c.name))).toBe(true);
+
+    const ti = buildJobTodayLandingModel({
+      jobs: mixed,
+      locale: 'it',
+      now,
+      localizedSlug: (j) => String(j.slug),
+      baseUrl: 'https://frontaliereticino.ch',
+      sectionSlug: 'cerca-lavoro-ticino',
+      localePrefix: '',
+      canton: 'TI',
+    });
+    expect(ti.totalJobs).toBe(1);
+  });
+
+  it('scopes nurses-hub and care-variant to the requested canton', () => {
+    // Job titles must match HEALTHCARE_TITLE_ROLE_REGEX inside
+    // `isNursingHubJob`; `Pflegefachperson` alone does not (the regex covers
+    // `nurse`, `infermier*`, `oss`, etc.). Use roles that the regex matches.
+    const now = '2026-05-15T10:00:00.000+02:00';
+    const nursing = [
+      job({ slug: 'bs-pflege-1', title: 'Nurse clinic Basel Universitätsspital', location: 'Basel', canton: 'BS', category: 'health', description: 'Hospital ward in Basel clinic', postedDate: '2026-05-15' }),
+      job({ slug: 'ti-infermiere-1', title: 'Infermiere reparto medicina ospedale Lugano', location: 'Lugano', canton: 'TI', category: 'health', description: 'Clinica e ospedale Lugano', postedDate: '2026-05-14' }),
+      job({ slug: 'ti-infermiere-2', title: 'Infermiera diplomata clinica Bellinzona', location: 'Bellinzona', canton: 'TI', category: 'health', description: 'Clinica e ospedale Bellinzona', postedDate: '2026-05-13' }),
+    ];
+
+    const basileaNurses = buildJobNursesHubLandingModel({
+      jobs: nursing,
+      locale: 'it',
+      now,
+      localizedSlug: (j) => String(j.slug),
+      baseUrl: 'https://frontaliereticino.ch',
+      sectionSlug: 'cerca-lavoro-basilea',
+      localePrefix: '',
+      canton: 'BASILEA',
+    });
+    expect(basileaNurses.totalJobs).toBe(1);
+    expect(basileaNurses.feed.jobs.every((j) => !j.href.includes('/ti-'))).toBe(true);
+
+    const basileaClinics = buildJobCareVariantLandingModel({
+      jobs: nursing,
+      locale: 'it',
+      clusterKey: 'clinics',
+      now,
+      localizedSlug: (j) => String(j.slug),
+      baseUrl: 'https://frontaliereticino.ch',
+      sectionSlug: 'cerca-lavoro-basilea',
+      localePrefix: '',
+      canton: 'BASILEA',
+    });
+    expect(basileaClinics.feed.jobs.every((j) => !j.href.includes('/ti-'))).toBe(true);
+  });
 });
