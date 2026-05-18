@@ -1,18 +1,49 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-05-17T21:22:43.292Z",
-  "total": 7,
-  "newCount": 0,
+  "generatedAt": "2026-05-18T12:05:58.235Z",
+  "total": 8,
+  "newCount": 1,
   "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1309,
-  "avgDurationMs": 1309,
+  "durationMs": 1682,
+  "avgDurationMs": 1682,
   "durationHistory": [
-    1309
+    1682
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Hochschulpraktikant/in Digitale Transformation",
+      "slug": "hochschulpraktikant-in-digitale-transformation-confederazione-bern",
+      "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-digitale-transformation/1dc8e7e3-6351-4592-b7f4-18fa82996125",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19090",
+      "company": "Confederazione Svizzera",
+      "companyKey": "confederazione-ticino",
+      "companyDomain": "admin.ch",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "internship",
+      "sector": "Pubblica amministrazione",
+      "source": "confederazione-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-18",
+      "validThrough": "2028-05-16",
+      "employmentType": "internship",
+      "contractType": "internship",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Polizeiliche/-r Fachspezialist/-in",
@@ -81,7 +112,7 @@
       "postalCode": "6501",
       "firstSeenAt": "2026-05-07T10:45:16.573Z",
       "needsRetranslation": true,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -187,19 +218,17 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "confederazione-ticino-4659fa29ce1c",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-17T09:57:57.728Z",
-      "retranslationAttempts": 1,
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 19,
         "completeness": 25
       }
     },
@@ -226,19 +255,17 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "confederazione-ticino-33ce87da08d2",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-17T09:57:57.728Z",
-      "retranslationAttempts": 1,
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 19,
         "completeness": 25
       }
     },
@@ -265,19 +292,17 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "confederazione-ticino-c6de3b68451e",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "firstSeenAt": "2026-05-17T09:57:57.728Z",
-      "retranslationAttempts": 1,
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 19,
         "completeness": 25
       }
     }
