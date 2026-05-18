@@ -180,13 +180,6 @@
         font-weight: 300 700;
         font-display: swap;
         src: url('/fonts/space-grotesk-latin.woff2') format('woff2');
-        /* CLS fix (Phase 6 — 2026-05-18): align fallback metrics with the real
-           font so the heading swap doesn't reflow body. Values tuned to bring
-           Space Grotesk's x-height + cap-height close to the system-ui fallback. */
-        size-adjust: 95%;
-        ascent-override: 92%;
-        descent-override: 25%;
-        line-gap-override: 0%;
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
       }
       body { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif; }
@@ -312,7 +305,7 @@
     </script>
 
 </head>
-  <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-x-hidden">
+  <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-x-hidden">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:text-blue-600 focus:rounded focus:shadow-lg focus:underline" style="position:absolute;top:0;left:0;width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Vai al contenuto principale</a>
     <!-- Loading shell: fixed overlay so it never participates in layout flow.
          React renders behind it inside #root; shell is removed after first paint.
@@ -598,7 +591,7 @@
         </nav>
 
       </div>
-    <div id="root"><main id="main-content"></main></div>
+    <div id="root"><main id="main-content"><h1 style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Frontaliere Ticino 2026 — Calcolatore Stipendio Netto Svizzera-Italia</h1></main></div>
     <div id="modal-root"></div>
     <!-- Chunk-load error recovery: detect stale SW cache serving old HTML
          that references JS chunks no longer on the server (404). Force-reload

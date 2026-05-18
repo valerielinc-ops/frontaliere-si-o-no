@@ -210,7 +210,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  <div className="p-2 bg-success-subtle rounded-xl">
  <ArrowLeftRight className="w-6 h-6 text-success" />
  </div>
- <h2 className="text-2xl font-bold font-display text-success">{t('ral.title')}</h2>
+ <h1 className="text-2xl font-bold font-display text-success">{t('ral.title')}</h1>
  </div>
  <p className="text-success text-sm">{t('ral.subtitle')}</p>
  </div>
