@@ -1687,13 +1687,11 @@ function renderLeafPage(inp: LeafInputs): string {
   ${adviceBannerHtml}
   ${currentCardHtml}
   ${webcamHtml}
-  <section style="margin:0 0 24px">
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
-  </section>
   ${hourlyHtml}
   ${weeklyHtml}
   ${infoHtml}
   ${alternativeRoutesHtml}
+  ${faqHtml}
   ${renderCommuterContextProse(locale, crossingDisplay, region, bestHour, worstHour)}
   ${renderLeafLivePlanningProse(
     locale,
@@ -1704,7 +1702,9 @@ function renderLeafPage(inp: LeafInputs): string {
       .map((s) => BORDER_CROSSING_DISPLAY[s])
       .filter(Boolean),
   )}
-  ${faqHtml}
+  <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-label="${esc(copy.faqTitle ?? 'Contesto')}">
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(paragraph)}</p>
+  </section>
   ${renderDiscoverMore(locale, BORDER_WAIT_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
   <section style="margin-top:32px" aria-label="advertisement">
