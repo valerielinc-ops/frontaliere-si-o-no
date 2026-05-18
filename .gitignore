@@ -54,6 +54,9 @@ data/pending-releases.json
 data/batch-faq-progress.json
 scratchpad.md
 
+# SEO moratorium gate artifact (refresh-gsc-position-rolling.mjs in CI)
+data/gsc-position-rolling.json
+
 # Aggregated data files — assembled at build/deploy time from per-crawler slices
 # (like dist/, these are generated artifacts, not source of truth)
 data/jobs.json

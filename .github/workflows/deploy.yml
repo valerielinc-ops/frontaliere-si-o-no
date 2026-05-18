@@ -186,6 +186,27 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      - name: SEO moratorium check (CLAUDE.md #19)
+        # Block new build-plugin-emitted SEO landings while the 7-day GSC
+        # avg position is > 7.5. Long-tail dilution from 50+ SEO PRs in
+        # 10 days drove avg position 5.7 → 8.62. Re-enable when ≤ 7.5.
+        # Only runs on pull_request events — main pushes have already passed
+        # the gate, and workflow_dispatch is exempt so we can manually deploy
+        # fixes/refactors that happen to add a file matching the pattern.
+        if: github.event_name == 'pull_request'
+        env:
+          # OAuth2 path (currently not set; SA fallback in
+          # refresh-gsc-position-rolling.mjs uses GOOGLE_APPLICATION_CREDENTIALS
+          # exported by the Prepare Firebase credentials step above — the
+          # Firebase SA also has GSC permissions per memory
+          # `reference_firebase_sa_doubles_as_gsc`).
+          GSC_CLIENT_ID:     ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+        run: |
+          node scripts/refresh-gsc-position-rolling.mjs
+          node scripts/check-seo-moratorium.mjs
+
       - name: Cache assemble-jobs output
         uses: actions/cache@v5
         with:
