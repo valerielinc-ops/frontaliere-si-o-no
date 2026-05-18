@@ -300,32 +300,6 @@
       "_lastObservedAssembledAt": "2026-05-16T21:03:45.836Z",
       "_lastObservedGeneratedAt": "2026-05-16T21:03:45.837Z"
     },
-    "bancastato": {
-      "lastSuccessfulRunAt": null,
-      "lastNonZeroJobs": 0,
-      "consecutiveEmptyRuns": 4,
-      "lastFailureReason": "4 consecutive runs returned 0 jobs",
-      "status": "broken",
-      "_lastObservedAt": "2026-05-17T08:40:14.415Z",
-      "_lastObservedJobs": 0,
-      "_lastObservedFreshnessAt": "2026-05-16T21:04:20.345Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": "2026-05-16T21:04:20.344Z",
-      "_lastObservedGeneratedAt": "2026-05-16T21:04:20.345Z"
-    },
-    "baronie": {
-      "lastSuccessfulRunAt": null,
-      "lastNonZeroJobs": 0,
-      "consecutiveEmptyRuns": 4,
-      "lastFailureReason": "4 consecutive runs returned 0 jobs",
-      "status": "broken",
-      "_lastObservedAt": "2026-05-17T08:40:14.415Z",
-      "_lastObservedJobs": 0,
-      "_lastObservedFreshnessAt": "2026-05-16T21:05:15.443Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": "2026-05-11T09:58:15.453Z",
-      "_lastObservedGeneratedAt": "2026-05-16T21:05:15.443Z"
-    },
     "bcvs": {
       "lastSuccessfulRunAt": "2026-05-16T21:05:38.083Z",
       "lastNonZeroJobs": 13,
@@ -403,19 +377,6 @@
       "_lastObservedFreshnessSource": "summary",
       "_lastObservedAssembledAt": "2026-05-16T21:07:39.177Z",
       "_lastObservedGeneratedAt": "2026-05-16T21:07:39.178Z"
-    },
-    "boggi-milano": {
-      "lastSuccessfulRunAt": null,
-      "lastNonZeroJobs": 0,
-      "consecutiveEmptyRuns": 4,
-      "lastFailureReason": "4 consecutive runs returned 0 jobs",
-      "status": "broken",
-      "_lastObservedAt": "2026-05-17T08:40:14.415Z",
-      "_lastObservedJobs": 0,
-      "_lastObservedFreshnessAt": "2026-05-16T21:08:16.163Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": "2026-05-16T21:08:16.163Z",
-      "_lastObservedGeneratedAt": "2026-05-16T21:08:16.163Z"
     },
     "bosch-thermotechnik-ag": {
       "lastSuccessfulRunAt": "2026-05-16T21:09:58.433Z",
@@ -754,19 +715,6 @@
       "_lastObservedFreshnessSource": "summary",
       "_lastObservedAssembledAt": "2026-05-16T21:27:05.922Z",
       "_lastObservedGeneratedAt": "2026-05-16T21:27:05.924Z"
-    },
-    "dot-life": {
-      "lastSuccessfulRunAt": null,
-      "lastNonZeroJobs": 0,
-      "consecutiveEmptyRuns": 4,
-      "lastFailureReason": "4 consecutive runs returned 0 jobs",
-      "status": "broken",
-      "_lastObservedAt": "2026-05-17T08:40:14.415Z",
-      "_lastObservedJobs": 0,
-      "_lastObservedFreshnessAt": "2026-05-16T21:28:10.743Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": "2026-04-07T09:26:26.138Z",
-      "_lastObservedGeneratedAt": "2026-05-16T21:28:10.743Z"
     },
     "dxt-commodities": {
       "lastSuccessfulRunAt": "2026-05-16T21:29:02.837Z",
@@ -1665,19 +1613,6 @@
       "_lastObservedAssembledAt": "2026-05-17T07:46:14.436Z",
       "_lastObservedGeneratedAt": "2026-05-16T22:03:44.183Z"
     },
-    "mcdonald-s-switzerland": {
-      "lastSuccessfulRunAt": null,
-      "lastNonZeroJobs": 0,
-      "consecutiveEmptyRuns": 4,
-      "lastFailureReason": "4 consecutive runs returned 0 jobs",
-      "status": "broken",
-      "_lastObservedAt": "2026-05-17T08:40:14.415Z",
-      "_lastObservedJobs": 0,
-      "_lastObservedFreshnessAt": "2026-05-16T22:03:42.779Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": "2026-05-16T22:03:42.779Z",
-      "_lastObservedGeneratedAt": "2026-05-16T22:03:42.779Z"
-    },
     "medacta-international": {
       "lastSuccessfulRunAt": "2026-05-14T22:25:53.008Z",
       "lastNonZeroJobs": 3,
@@ -1847,19 +1782,6 @@
       "_lastObservedAssembledAt": "2026-05-16T22:13:46.903Z",
       "_lastObservedGeneratedAt": "2026-05-16T22:13:46.905Z"
     },
-    "pkb-private-bank": {
-      "lastSuccessfulRunAt": null,
-      "lastNonZeroJobs": 0,
-      "consecutiveEmptyRuns": 4,
-      "lastFailureReason": "4 consecutive runs returned 0 jobs",
-      "status": "broken",
-      "_lastObservedAt": "2026-05-17T08:40:14.415Z",
-      "_lastObservedJobs": 0,
-      "_lastObservedFreshnessAt": "2026-05-16T22:13:55.396Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": "2026-04-06T19:20:29.418Z",
-      "_lastObservedGeneratedAt": "2026-05-16T22:13:55.396Z"
-    },
     "posta-svizzera-centro-regionale": {
       "lastSuccessfulRunAt": "2026-05-16T22:14:38.198Z",
       "lastNonZeroJobs": 8,
@@ -1989,19 +1911,6 @@
       "_lastObservedFreshnessSource": "summary",
       "_lastObservedAssembledAt": "2026-05-16T22:18:24.041Z",
       "_lastObservedGeneratedAt": "2026-05-16T22:18:24.042Z"
-    },
-    "rivopharm": {
-      "lastSuccessfulRunAt": null,
-      "lastNonZeroJobs": 0,
-      "consecutiveEmptyRuns": 4,
-      "lastFailureReason": "4 consecutive runs returned 0 jobs",
-      "status": "broken",
-      "_lastObservedAt": "2026-05-17T08:40:14.415Z",
-      "_lastObservedJobs": 0,
-      "_lastObservedFreshnessAt": "2026-05-16T22:18:50.355Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": "2026-05-16T22:18:50.355Z",
-      "_lastObservedGeneratedAt": "2026-05-16T22:18:50.355Z"
     },
     "rss-surselva": {
       "lastSuccessfulRunAt": "2026-05-15T22:32:18.844Z",
@@ -2484,31 +2393,16 @@
       "_lastObservedAssembledAt": "2026-05-16T22:43:20.392Z",
       "_lastObservedGeneratedAt": "2026-05-16T22:43:20.392Z"
     },
-    "zucchetti-switzerland": {
-      "lastSuccessfulRunAt": null,
-      "lastNonZeroJobs": 0,
-      "consecutiveEmptyRuns": 4,
-      "lastFailureReason": "4 consecutive runs returned 0 jobs",
-      "status": "broken",
-      "_lastObservedAt": "2026-05-17T08:40:14.415Z",
-      "_lastObservedJobs": 0,
-      "_lastObservedFreshnessAt": "2026-05-16T22:44:16.778Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": "2026-05-16T22:44:16.777Z",
-      "_lastObservedGeneratedAt": "2026-05-16T22:44:16.778Z"
-    },
     "zurich-insurance-sede-ticino": {
       "lastSuccessfulRunAt": null,
       "lastNonZeroJobs": 0,
-      "consecutiveEmptyRuns": 4,
-      "lastFailureReason": "4 consecutive runs returned 0 jobs",
-      "status": "broken",
-      "_lastObservedAt": "2026-05-17T08:40:14.415Z",
+      "consecutiveEmptyRuns": 0,
+      "lastFailureReason": null,
+      "status": "pending",
+      "_lastObservedAt": null,
       "_lastObservedJobs": 0,
-      "_lastObservedFreshnessAt": "2026-05-16T22:45:06.144Z",
-      "_lastObservedFreshnessSource": "summary",
-      "_lastObservedAssembledAt": "2026-05-01T08:36:38.225Z",
-      "_lastObservedGeneratedAt": "2026-05-16T22:45:06.144Z"
+      "_lastObservedFreshnessAt": null,
+      "_lastObservedFreshnessSource": "summary"
     }
   }
 }
