@@ -130,6 +130,13 @@ export const AI_MODELS = Object.freeze({
   GEMINI_3_PRO:     'gemini-3-pro-preview',
   GEMINI_31_FLASH_LITE: 'gemini-3.1-flash-lite-preview',
   GEMINI_31_PRO:    'gemini-3.1-pro-preview',
+  // Gemini "always latest stable" aliases (discovered 2026-05-18) — point at current
+  // production endpoint so we follow Google's promotions without code changes.
+  GEMINI_FLASH_LATEST:        'gemini-flash-latest',
+  GEMINI_FLASH_LITE_LATEST:   'gemini-flash-lite-latest',
+  GEMINI_PRO_LATEST:          'gemini-pro-latest',
+  GEMINI_2_FLASH_LITE:        'gemini-2.0-flash-lite',
+  GEMINI_31_FLASH_LITE_GA:    'gemini-3.1-flash-lite',
 
   // ── Groq (OpenAI-compatible, ultra-fast inference) ──
   // Each model: 1000 req/day (free tier)
@@ -140,6 +147,10 @@ export const AI_MODELS = Object.freeze({
   GROQ_KIMI_K2:     'groq/moonshotai/kimi-k2-instruct',
   GROQ_GPT_OSS_120B:'groq/openai/gpt-oss-120b',
   GROQ_GPT_OSS_20B: 'groq/openai/gpt-oss-20b',
+  // Discovered 2026-05-18: full compound family (non-mini variant of compound-beta).
+  // Note the double "groq/" — Groq's own catalog id is "groq/compound" and our wrapper
+  // strips one "groq/" prefix before sending to the API, so the stored id needs both.
+  GROQ_COMPOUND_FULL: 'groq/groq/compound',
   // GROQ_LLAMA_4_MAV removed — Groq HTTP 404 "model `meta-llama/llama-4-maverick-17b-128e-instruct` does not exist" (2026-05-18)
   // GROQ_QWQ_32B removed — Groq HTTP 404 "model `qwen/qwq-32b` does not exist" (2026-05-18)
   GROQ_COMPOUND:    'groq/compound-beta',
@@ -183,6 +194,9 @@ export const AI_MODELS = Object.freeze({
   OR_GPT_OSS_20B:      'openrouter/openai/gpt-oss-20b:free',
   OR_DOLPHIN_24B:      'openrouter/cognitivecomputations/dolphin-mistral-24b-venice-edition:free',
   OR_GEMMA_3N_E4B:     'openrouter/google/gemma-3n-e4b-it:free',
+  // ── OpenRouter free models discovered 2026-05-18 (replace removed Chutes/dead OR ids) ──
+  OR_DEEPSEEK_V4_FLASH: 'openrouter/deepseek/deepseek-v4-flash:free',
+  OR_LLAMA_3_2_3B:      'openrouter/meta-llama/llama-3.2-3b-instruct:free',
 
   // ── Groq additional models (OpenAI-compatible, ultra-fast inference) ──
   GROQ_GEMMA2_9B:      'groq/gemma2-9b-it',
@@ -255,6 +269,12 @@ export const AI_MODELS = Object.freeze({
   MISTRAL_CODESTRAL:   'mistral/codestral-latest',
   MISTRAL_8B:          'mistral/ministral-8b-latest',
   MISTRAL_NEMO:        'mistral/open-mistral-nemo',
+  // Mistral additions discovered 2026-05-18 — all share the 1B-token/month tier
+  // but add variety so a single model's quota dip doesn't stall the chain.
+  MISTRAL_MEDIUM:           'mistral/mistral-medium-latest',
+  MISTRAL_MAGISTRAL_SMALL:  'mistral/magistral-small-latest',
+  MISTRAL_DEVSTRAL_MEDIUM:  'mistral/devstral-medium-latest',
+  MISTRAL_3B:               'mistral/ministral-3b-latest',
 
   // ── Mistral Codestral (separate endpoint, separate quota: 2000 req/day) ──
   CDSTRL_LATEST:       'codestral/codestral-latest',
@@ -472,6 +492,24 @@ export const DEFAULT_CHAIN = [
   // ── Extended Cerebras 2026-05 additions ──
   // AI_MODELS.CB_QWEN3_CODER_480B removed — Cerebras HTTP 404 "Model qwen-3-coder-480b does not exist" (2026-05-18)
   // AI_MODELS.CB_GPT_OSS_20B_2 removed — Cerebras HTTP 404 "Model gpt-oss-20b does not exist" (2026-05-18)
+
+  // ── Replacements for the 33 models pruned 2026-05-18 (each smoke-tested live) ──
+  // Gemini "always latest stable" aliases — auto-follow Google's promotions.
+  AI_MODELS.GEMINI_FLASH_LATEST,        // alias → today's stable flash
+  AI_MODELS.GEMINI_FLASH_LITE_LATEST,   // alias → today's stable flash-lite
+  AI_MODELS.GEMINI_PRO_LATEST,          // alias → today's stable pro
+  AI_MODELS.GEMINI_2_FLASH_LITE,        // Gemini 2.0 flash lite (extra quota)
+  AI_MODELS.GEMINI_31_FLASH_LITE_GA,    // Gemini 3.1 flash lite GA (non-preview)
+  // Groq compound full (not just mini)
+  AI_MODELS.GROQ_COMPOUND_FULL,
+  // OpenRouter free additions
+  AI_MODELS.OR_DEEPSEEK_V4_FLASH,       // DeepSeek V4 flash on OR :free
+  AI_MODELS.OR_LLAMA_3_2_3B,            // Llama 3.2 3B small/fast on OR :free
+  // Mistral La Plateforme (shares 1B-token/month bucket — adds model variety)
+  AI_MODELS.MISTRAL_MEDIUM,             // mistral-medium-latest
+  AI_MODELS.MISTRAL_MAGISTRAL_SMALL,    // magistral-small (reasoning)
+  AI_MODELS.MISTRAL_DEVSTRAL_MEDIUM,    // devstral medium (code)
+  AI_MODELS.MISTRAL_3B,                 // ministral 3B (small/fast)
 ];
 
 // ── Provider constants ───────────────────────────────────────
