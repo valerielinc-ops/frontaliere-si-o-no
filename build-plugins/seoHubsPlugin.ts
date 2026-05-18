@@ -235,6 +235,18 @@ function readJobsData(
   return { counts, urlToKey, cantonJobCounts, cantonJobs, cantonEmployerCounts };
 }
 
+/**
+ * Per-hub-kind label for the headline stat tile shown on each global hub
+ * page-1 (rule #17). Italian copy aligned with the section title so the
+ * tile reads naturally next to the H1.
+ */
+const HUB_KEY_TILE_LABELS: Record<HubLocale, Record<'jobs' | 'sectors' | 'companies' | 'articles', string>> = {
+  it: { jobs: 'Offerte attive', sectors: 'Settori curati', companies: 'Datori in indice', articles: 'Guide pubblicate' },
+  en: { jobs: 'Active openings', sectors: 'Curated sectors', companies: 'Indexed employers', articles: 'Published guides' },
+  de: { jobs: 'Aktive Stellen', sectors: 'Kuratierte Branchen', companies: 'Indexierte Arbeitgeber', articles: 'Veröffentlichte Ratgeber' },
+  fr: { jobs: 'Offres actives', sectors: 'Secteurs curés', companies: 'Employeurs indexés', articles: 'Guides publiés' },
+};
+
 function jobsActiveLabel(locale: HubLocale, n: number): string {
   if (n === 1) {
     return { it: '1 offerta attiva', en: '1 active opening', de: '1 aktive Stelle', fr: '1 offre active' }[locale];
@@ -932,7 +944,15 @@ interface BuildHtmlArgs {
   basePath: string;
   page: number;
   totalPages: number;
-  pageItems: ReadonlyArray<{ href: string; label: string; logo?: string | null; jobCount?: number }>;
+  pageItems: ReadonlyArray<{
+    href: string;
+    label: string;
+    logo?: string | null;
+    /** Right-aligned subtitle for company items (active openings count). */
+    jobCount?: number;
+    /** Emoji prefix bubble for sector items (mirrors per-canton hubs). */
+    emoji?: string;
+  }>;
   totalItems: number;
   hasSpaBundle: boolean;
   entryJs: string;
@@ -1020,26 +1040,69 @@ function buildHtml(args: BuildHtmlArgs): string {
   // Pagination chrome: prev / page-numbers / next
   const pagination = totalPages > 1 ? renderPagination(locale, basePath, page, totalPages) : '';
 
-  // Items list — company items (logo !== undefined) use entity-card layout;
-  // jobs / sectors / articles keep the compact plain-link style.
+  // Items list — three layouts:
+  //   • company items (`logo` defined) → entity-card with logo + job count
+  //   • sector items (`emoji` defined) → emoji bubble card
+  //   • everything else (jobs, articles) → compact plain-link
+  const useFancyGrid = pageItems.some((it) => it.logo !== undefined || it.emoji !== undefined);
   const itemsHtml = pageItems.length === 0
     ? `<p style="color:var(--color-subtle);padding:16px 0">${esc(emptyLabel(locale))}</p>`
-    : `<ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">${pageItems
-        .map((it) => {
-          if (it.logo !== undefined) {
-            const card = renderEntityCard({
-              href: it.href,
-              logoUrl: it.logo ?? undefined,
-              iconSvg: it.logo ? undefined : ICON_BUILDING_SVG,
-              logoOnerror: it.logo ? LOGO_ONERROR : undefined,
-              title: it.label,
-              subtitle: it.jobCount ? jobsActiveLabel(locale, it.jobCount) : undefined,
-            });
-            return `<li>${card}</li>`;
-          }
-          return `<li><a href="${esc(it.href)}" style="display:block;padding:10px 12px;border-radius:8px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge);font-size:14px;line-height:1.4">${esc(it.label)}</a></li>`;
-        })
-        .join('')}</ul>`;
+    : useFancyGrid
+      ? `<ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px">${pageItems
+          .map((it) => {
+            if (it.logo !== undefined) {
+              const card = renderEntityCard({
+                href: it.href,
+                logoUrl: it.logo ?? undefined,
+                iconSvg: it.logo ? undefined : ICON_BUILDING_SVG,
+                logoOnerror: it.logo ? LOGO_ONERROR : undefined,
+                title: it.label,
+                subtitle: it.jobCount ? jobsActiveLabel(locale, it.jobCount) : undefined,
+                metric: it.jobCount ? String(it.jobCount) : undefined,
+                metricTone: 'accent',
+              });
+              return `<li>${card}</li>`;
+            }
+            if (it.emoji !== undefined) {
+              const subLabel = { it: 'Esplora →', en: 'Explore →', de: 'Erkunden →', fr: 'Explorer →' }[locale];
+              return `<li><a href="${esc(it.href)}" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge)"><span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--color-surface-alt);font-size:24px;line-height:1;flex-shrink:0">${it.emoji}</span><span style="flex:1;min-width:0"><span style="display:block;font-weight:700;font-size:15px;line-height:1.3;color:var(--color-heading)">${esc(it.label)}</span><span style="display:block;font-size:12.5px;color:var(--color-subtle);margin-top:2px;line-height:1.4">${subLabel}</span></span></a></li>`;
+            }
+            return `<li><a href="${esc(it.href)}" style="display:block;padding:10px 12px;border-radius:8px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge);font-size:14px;line-height:1.4">${esc(it.label)}</a></li>`;
+          })
+          .join('')}</ul>`
+      : `<ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">${pageItems
+          .map((it) => `<li><a href="${esc(it.href)}" style="display:block;padding:10px 12px;border-radius:8px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge);font-size:14px;line-height:1.4">${esc(it.label)}</a></li>`)
+          .join('')}</ul>`;
+
+  // Stat tiles + primary CTA — universal across hub kinds. Tiles surface the
+  // total, the current page position, and the last-updated date so users get
+  // immediate context above the data area (rule #17).
+  const tileLabelsGlobal = {
+    it: { count: HUB_KEY_TILE_LABELS.it[hubKey], pagina: 'Pagina', aggiornato: 'Aggiornato' },
+    en: { count: HUB_KEY_TILE_LABELS.en[hubKey], pagina: 'Page', aggiornato: 'Updated' },
+    de: { count: HUB_KEY_TILE_LABELS.de[hubKey], pagina: 'Seite', aggiornato: 'Aktualisiert' },
+    fr: { count: HUB_KEY_TILE_LABELS.fr[hubKey], pagina: 'Page', aggiornato: 'Mis à jour' },
+  }[locale];
+  const statTilesHtml = `<section aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}" style="margin:0 0 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px"><div style="${STAT_TILE_ACCENT}"><div style="${STAT_TILE_LABEL}">${esc(tileLabelsGlobal.count)}</div><div style="${STAT_TILE_VALUE}">${esc(totalItems.toLocaleString(locale))}</div></div><div style="${STAT_TILE_SUCCESS}"><div style="${STAT_TILE_LABEL}">${esc(tileLabelsGlobal.pagina)}</div><div style="${STAT_TILE_VALUE}">${esc(`${page} / ${totalPages}`)}</div></div><div style="${STAT_TILE_BASE}"><div style="${STAT_TILE_LABEL}">${esc(tileLabelsGlobal.aggiornato)}</div><div style="${STAT_TILE_VALUE};font-size:18px">${esc(dateStamp)}</div></div></section>`;
+
+  const ctaPathGlobal = locale === 'it' ? '/calcola-stipendio/'
+    : locale === 'de' ? '/de/gehalt-berechnen/'
+    : locale === 'fr' ? '/fr/calculer-salaire/'
+    : '/en/calculate-salary/';
+  const ctaLabelGlobal = { it: 'Calcola lo stipendio netto frontaliere →', en: 'Calculate your cross-border net salary →', de: 'Grenzgänger-Nettolohn berechnen →', fr: 'Calculer le salaire net frontalier →' }[locale];
+  const ctaHtmlGlobal = `<div style="margin:0 0 22px"><a href="${esc(ctaPathGlobal)}" style="${CTA_PRIMARY_STYLE}">${esc(ctaLabelGlobal)}</a></div>`;
+
+  // Long prose (methodology + footer + FAQ + closing) collapsed under a
+  // single details accordion: preserves text-to-HTML ratio + crawler depth
+  // (BFS reads inside <details>) while keeping the data above the mobile
+  // fold (rule #15/#16/#17).
+  const proseSummaryLabel = {
+    it: 'Approfondisci · metodologia, contesto frontaliere e FAQ',
+    en: 'Read more · methodology, cross-border context and FAQ',
+    de: 'Mehr erfahren · Methodik, Grenzgänger-Kontext und FAQ',
+    fr: 'En savoir plus · méthodologie, contexte frontalier et FAQ',
+  }[locale];
+  const proseAccordionHtml = `<details style="margin-top:32px;border:1px solid var(--color-edge);border-radius:14px;background:var(--color-surface);padding:14px 18px;max-width:980px"><summary style="cursor:pointer;font-weight:700;font-size:15px;color:var(--color-heading);list-style:none">${esc(proseSummaryLabel)} <span aria-hidden="true" style="color:var(--color-subtle);font-weight:500"> ▾</span></summary><div style="margin-top:14px;color:var(--color-body)">${buildHubMethodologyHtml(locale, hubKey)}${buildHubFooterHtml(locale, hubKey)}${buildHubFaqHtml(locale, hubKey)}${buildHubClosingHtml(locale)}</div></details>`;
 
   return `<!doctype html>
 <html lang="${locale}">
@@ -1071,19 +1134,18 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
         <span> / </span>
         <span>${esc(sectionLabel)}</span>
       </nav>
-      <header style="margin-bottom:24px">
-        <h1 style="font-size:32px;font-weight:800;line-height:1.2;color:var(--color-heading);margin:0 0 12px">${esc(buildHubH1(locale, hubKey, totalItems, page))}</h1>
+      <header style="margin-bottom:18px">
+        <h1 style="font-size:32px;font-weight:800;line-height:1.2;color:var(--color-heading);margin:0 0 10px">${esc(buildHubH1(locale, hubKey, totalItems, page))}</h1>
         <p style="font-size:16px;color:var(--color-body);max-width:780px;line-height:1.55;margin:0">${esc(description)}</p>
         <p style="margin-top:8px;color:var(--color-subtle);font-size:13px">${esc(countLabel(locale, totalItems))} · ${esc(updatedLabel(locale))} ${dateStamp}</p>
       </header>
-      ${buildHubMethodologyHtml(locale, hubKey)}
+      ${statTilesHtml}
+      ${ctaHtmlGlobal}
       <section>
         ${itemsHtml}
       </section>
       ${pagination}
-      ${buildHubFooterHtml(locale, hubKey)}
-      ${buildHubFaqHtml(locale, hubKey)}
-      ${buildHubClosingHtml(locale)}
+      ${proseAccordionHtml}
     </main>
     <div id="footer-root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
   </body>
@@ -1441,10 +1503,12 @@ function buildThinCantonHubHtml(args: {
   totalPages?: number;
   /** Optional stat tiles rendered above the data area (rule #17). */
   statTiles?: ReadonlyArray<ThinHubStatTile>;
-  /** Per-canton job-board href for the primary CTA (rule #17). */
-  jobBoardHref?: string;
+  /** Primary CTA rendered above the data area (rule #17). Callers supply
+   *  both href and label so the same primitive serves `tutti` (link to
+   *  calculator), `aziende` / `settori` (link to job-board), etc. */
+  cta?: { readonly href: string; readonly label: string };
 }): string {
-  const { locale, hub, cantonLabel, basePath, totalItems, items, hasSpaBundle, entryJs, entryCss, dateStamp, statTiles, jobBoardHref } = args;
+  const { locale, hub, cantonLabel, basePath, totalItems, items, hasSpaBundle, entryJs, entryCss, dateStamp, statTiles, cta } = args;
   const page = args.page ?? 1;
   const totalPages = args.totalPages ?? 1;
   const h1 = cantonHubH1(locale, hub, cantonLabel, totalItems);
@@ -1536,21 +1600,16 @@ function buildThinCantonHubHtml(args: {
     warning: STAT_TILE_BASE, // fall back to base to avoid pulling in unused styles
     danger: STAT_TILE_BASE,
   };
-  const statTilesHtml = (page === 1 && statTiles && statTiles.length > 0)
+  const statTilesHtml = (statTiles && statTiles.length > 0)
     ? `<section aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}" style="margin:0 0 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px">${statTiles
         .map((tile) => `<div style="${STAT_TILE_TONE[tile.tone ?? 'base']}"><div style="${STAT_TILE_LABEL}">${esc(tile.label)}</div><div style="${STAT_TILE_VALUE}">${esc(tile.value)}</div></div>`)
         .join('')}</section>`
     : '';
 
-  // Primary CTA — only on page 1, only when caller wired up a job-board path.
-  const ctaLabel = {
-    it: `Sfoglia tutte le offerte di ${cantonLabel} →`,
-    en: `Browse all openings in ${cantonLabel} →`,
-    de: `Alle Stellen in ${cantonLabel} ansehen →`,
-    fr: `Voir toutes les offres à ${cantonLabel} →`,
-  }[locale];
-  const ctaHtml = (page === 1 && jobBoardHref)
-    ? `<div style="margin:0 0 22px"><a href="${esc(jobBoardHref)}" style="${CTA_PRIMARY_STYLE}">${esc(ctaLabel)}</a></div>`
+  // Primary CTA — rendered on every page (including page-N>1) so the user
+  // always has a single dominant next step above the fold.
+  const ctaHtml = cta
+    ? `<div style="margin:0 0 22px"><a href="${esc(cta.href)}" style="${CTA_PRIMARY_STYLE}">${esc(cta.label)}</a></div>`
     : '';
 
   const homeLabel = { it: 'Home', en: 'Home', de: 'Start', fr: 'Accueil' }[locale];
@@ -1711,6 +1770,15 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
             locale, hub: 'tutti', canton, cantonLabel, basePath,
             totalItems: total, items, hasSpaBundle, entryJs, entryCss, dateStamp,
             page: pageNum, totalPages: tuttiTotalPages,
+            statTiles: [
+              { label: ({ it: 'Offerte attive', en: 'Active openings', de: 'Aktive Stellen', fr: 'Offres actives' }[locale]), value: total.toLocaleString(locale), tone: 'accent' },
+              { label: ({ it: 'Datori attivi', en: 'Active employers', de: 'Aktive Arbeitgeber', fr: 'Employeurs actifs' }[locale]), value: empCounts.size.toLocaleString(locale), tone: 'success' },
+              { label: ({ it: 'Pagina', en: 'Page', de: 'Seite', fr: 'Page' }[locale]), value: `${pageNum} / ${tuttiTotalPages}`, tone: 'base' },
+            ],
+            cta: {
+              href: { it: '/calcola-stipendio/', en: '/en/calculate-salary/', de: '/de/gehalt-berechnen/', fr: '/fr/calculer-salaire/' }[locale],
+              label: { it: 'Calcola lo stipendio netto frontaliere →', en: 'Calculate your cross-border net salary →', de: 'Grenzgänger-Nettolohn berechnen →', fr: 'Calculer le salaire net frontalier →' }[locale],
+            },
           });
           const pageCanonical = pageNum === 1 ? basePath : paginatedPath(basePath, pageNum);
           qw(np.join(distDir, pageCanonical.slice(1), 'index.html'), html);
@@ -1761,7 +1829,10 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
             { label: tileLabels.offerte, value: total.toLocaleString(locale), tone: 'success' },
             { label: tileLabels.topDatore, value: topEmployerLabel, tone: 'base' },
           ],
-          jobBoardHref: sectionRoot + '/',
+          cta: {
+            href: sectionRoot + '/',
+            label: { it: `Sfoglia tutte le offerte di ${cantonLabel} →`, en: `Browse all openings in ${cantonLabel} →`, de: `Alle Stellen in ${cantonLabel} ansehen →`, fr: `Voir toutes les offres à ${cantonLabel} →` }[locale],
+          },
         });
         qw(np.join(distDir, basePath.slice(1), 'index.html'), html);
         onPageEmitted();
@@ -1802,7 +1873,10 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
             { label: tileLabels.offerte, value: total.toLocaleString(locale), tone: 'success' },
             { label: tileLabels.topDatore, value: topEmployerLabel, tone: 'base' },
           ],
-          jobBoardHref: sectionRoot + '/',
+          cta: {
+            href: sectionRoot + '/',
+            label: { it: `Sfoglia tutte le offerte di ${cantonLabel} →`, en: `Browse all openings in ${cantonLabel} →`, de: `Alle Stellen in ${cantonLabel} ansehen →`, fr: `Voir toutes les offres à ${cantonLabel} →` }[locale],
+          },
         });
         qw(np.join(distDir, basePath.slice(1), 'index.html'), html);
         onPageEmitted();
@@ -1853,7 +1927,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       : HUB_SLUGS[locale].articlesAll
     );
 
-    let items: Array<{ href: string; label: string; logo?: string | null; jobCount?: number }> = [];
+    let items: Array<{ href: string; label: string; logo?: string | null; jobCount?: number; emoji?: string }> = [];
     let pageSize = 100;
 
     if (hubKey === 'jobs') {
@@ -1883,7 +1957,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
         const href = hasCuratedHub
           ? buildSectorHubPath(locale, sector.key as SectorHubKey)
           : `${sectionRoot}/?q=${encodeURIComponent(sector[locale])}`;
-        items.push({ href, label: sector[locale] });
+        items.push({ href, label: sector[locale], emoji: sectorEmojiFor(sector.key) });
       }
     } else if (hubKey === 'companies') {
       pageSize = COMPANIES_PAGE_SIZE;
