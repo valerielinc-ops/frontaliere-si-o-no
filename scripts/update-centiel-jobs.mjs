@@ -6,19 +6,28 @@
  * Cadro (Lugano), CH-6965, Via alla Stampa 15.
  *
  * The careers page at https://www.centiel.com/careers/ lists jobs inline
- * inside accordion items — there are no individual detail-page URLs.
- * Each listing links to a PDF job description.
+ * inside div.accordion-item blocks — there are no individual detail-page URLs.
+ * Each accordion shows a short summary and links to a PDF job description
+ * containing the full role details (responsibilities, requirements,
+ * qualifications). The PDF is the source of truth for description content.
  *
  * This crawler:
  *   1. Fetches the /careers/ page HTML.
- *   2. Parses accordion blocks to extract title, description, location, PDF URL.
- *   3. Builds job objects and merges them into jobs.json.
- *   4. Translates and validates locale coverage.
+ *   2. Parses div.accordion-item blocks via jsdom to extract title, summary,
+ *      PDF URL. Bounded extraction prevents form-chrome leak into the last
+ *      accordion's content.
+ *   3. Fetches each linked PDF and extracts the full text. PDF text is
+ *      preferred when richer than the inline summary; falls back to inline
+ *      on PDF fetch/parse failure.
+ *   4. Builds job objects and merges into jobs.json.
+ *   5. Translates and validates locale coverage.
  */
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { JSDOM } from 'jsdom';
+import { PDFParse } from 'pdf-parse';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import {
   snapshotJobSlugs,
@@ -149,66 +158,68 @@ async function fetchCareersHtml() {
 /**
  * Parse job listings from the Centiel careers page HTML.
  *
- * The page lists jobs under an "Current vacancies" h2.
- * Each job is an <h3> title followed by paragraphs containing the
- * description, metadata (<strong> labels), and a "Learn more" PDF link.
- * There are no wrapper divs or accordion classes — just sequential
- * h3 + p elements.
+ * Current layout: div.accordion-item wrappers, each containing
+ *   button > h3.block-title   (job title)
+ *   div.accordion-content > div.career-block > div.block-content
+ *     > <p> paragraphs with the summary, <strong>Workplace</strong>,
+ *       <strong>Reporting to</strong>, and a "Learn more" link to the PDF.
+ *
+ * Bounded extraction via DOM walk prevents the last accordion from
+ * sweeping the application form, footer, and contact chrome (the
+ * pre-2026 regex parser leaked all of that into the After-Sales
+ * Technician description).
  */
 function parseCareersPage(html) {
   const jobs = [];
+  const dom = new JSDOM(html);
+  const doc = dom.window.document;
 
-  // Isolate the vacancies section: everything after "Current vacancies" h2
-  const vacancyStart = html.search(/<h2[^>]*>[^<]*Current\s+vacancies[^<]*<\/h2>/i);
-  if (vacancyStart === -1) {
-    // Fallback: try to find the first h3 that looks like a job title
-    // (page may restructure again)
-  }
-  const sectionHtml = vacancyStart !== -1 ? html.slice(vacancyStart) : html;
-
-  // Split by <h3> tags to get one block per job.
-  // Each block starts right after the <h3> open tag.
-  const h3Parts = sectionHtml.split(/<h3[^>]*>/i).slice(1);
-
-  for (const part of h3Parts) {
-    // Extract title (text before closing </h3>)
-    const closingH3 = part.indexOf('</h3>');
-    if (closingH3 === -1) continue;
-    const rawTitle = part.slice(0, closingH3);
-    const title = decodeHtmlEntities(stripHtml(rawTitle)).trim();
+  const items = doc.querySelectorAll('div.accordion-item');
+  for (const item of items) {
+    const titleEl = item.querySelector('h3.block-title, .block-title');
+    const title = (titleEl?.textContent || '').trim();
     if (!title) continue;
 
-    // The content after </h3> until the end of this block
-    const contentHtml = part.slice(closingH3 + 5);
+    const block = item.querySelector('.block-content');
+    if (!block) continue;
 
-    // Extract PDF URL and resolve to absolute
-    const pdfMatch = contentHtml.match(/href="([^"]*\.pdf[^"]*)"/i);
-    const pdfUrl = pdfMatch
-      ? new URL(pdfMatch[1], CAREERS_URL).href
+    // PDF link (Learn more) — bounded to this accordion only.
+    const pdfAnchor = [...block.querySelectorAll('a[href]')]
+      .find((a) => /\.pdf(\?|$)/i.test(a.getAttribute('href') || ''));
+    const pdfUrl = pdfAnchor
+      ? new URL(pdfAnchor.getAttribute('href'), CAREERS_URL).href
       : '';
 
-    // Extract workplace/location
-    const workplaceMatch = contentHtml.match(/<strong>\s*Workplace\s*:?\s*<\/strong>\s*(.*?)(?:<br|<\/p|<strong)/i);
+    // Pull labelled metadata from the block content. The page mixes
+    // <strong>Workplace:</strong> and <strong>Reporting to:</strong>
+    // inside <p> elements without consistent closing tags.
+    const blockHtml = block.innerHTML || '';
+    const workplaceMatch = blockHtml.match(
+      /<strong[^>]*>\s*Workplace\s*:?\s*<\/?strong[^>]*>\s*([^<]+)/i,
+    );
     const workplace = workplaceMatch
       ? stripHtml(workplaceMatch[1]).trim()
       : 'Cadro (Lugano)';
-
-    // Extract reporting-to
-    const reportingMatch = contentHtml.match(/<strong>\s*Reporting\s+to\s*:?\s*<\/strong>\s*(.*?)(?:<br|<\/p|<strong)/i);
+    const reportingMatch = blockHtml.match(
+      /<strong[^>]*>\s*Reporting\s+to\s*:?\s*<\/?strong[^>]*>\s*([^<]+)/i,
+    );
     const reportingTo = reportingMatch ? stripHtml(reportingMatch[1]).trim() : '';
-
-    // Extract working rate
-    const rateMatch = contentHtml.match(/<strong>\s*Working\s+rate\s*:?\s*<\/strong>\s*(.*?)(?:<br|<\/p|<strong)/i);
+    const rateMatch = blockHtml.match(
+      /<strong[^>]*>\s*Working\s+rate\s*:?\s*<\/?strong[^>]*>\s*([^<]+)/i,
+    );
     const workingRate = rateMatch ? stripHtml(rateMatch[1]).trim() : '';
 
-    // Build clean description from the content paragraphs (exclude the "Learn more" link text)
-    const description = stripHtml(contentHtml)
-      .replace(/Learn more\s*$/, '')
-      .trim();
+    // Inline summary = block-content text minus the "Learn more" link text.
+    const inlineSummary = decodeHtmlEntities(
+      (block.textContent || '')
+        .replace(/\s+/g, ' ')
+        .replace(/\bLearn more\b/i, '')
+        .trim(),
+    );
 
     jobs.push({
       title,
-      description,
+      inlineSummary,
       workplace,
       reportingTo,
       workingRate,
@@ -217,6 +228,74 @@ function parseCareersPage(html) {
   }
 
   return jobs;
+}
+
+/**
+ * Fetch a PDF URL and extract its text. Returns the cleaned text or
+ * an empty string on any failure (network error, non-200, parse error).
+ * The crawler falls back to the inline summary when this returns empty.
+ */
+async function fetchPdfText(pdfUrl) {
+  if (!pdfUrl) return '';
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_PDF_TIMEOUT_MS) || 30000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(pdfUrl, {
+      signal: controller.signal,
+      headers: { Accept: 'application/pdf', 'User-Agent': UA },
+      redirect: 'follow',
+    });
+    if (!res.ok) {
+      console.warn(`  ⚠️ PDF ${pdfUrl} → HTTP ${res.status}`);
+      return '';
+    }
+    const buf = Buffer.from(await res.arrayBuffer());
+    const parser = new PDFParse({ data: buf });
+    const out = await parser.getText();
+    const raw = (out?.text || '').trim();
+    if (!raw) return '';
+    // Light cleanup: normalise line breaks, collapse whitespace, then
+    // drop the contact-instruction tail that every Centiel PDF ends with
+    // (e.g. "If you identify with this role ... please send your
+    // application ... to: hr@hq.centiel.com"). The role-relevant content
+    // ends before this paragraph; keeping it bloats the description and
+    // exposes a contact email on the public job page.
+    const normalised = raw
+      .replace(/\r\n?/g, '\n')
+      .replace(/[ \t]+\n/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .replace(/[ \t]{2,}/g, ' ')
+      .trim();
+    const contactCutMarkers = [
+      /\n[^\n]*If you (?:identify|are interested|recognise)[^\n]*\n[\s\S]*$/i,
+      /\nplease send your application[\s\S]*$/i,
+      /\n[^\n]*\b(?:hr|write|jobs)@(?:hq\.)?centiel\.com[\s\S]*$/i,
+    ];
+    let text = normalised;
+    for (const re of contactCutMarkers) text = text.replace(re, '').trim();
+    return text;
+  } catch (err) {
+    console.warn(`  ⚠️ PDF ${pdfUrl} failed: ${err?.message || err}`);
+    return '';
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * Decide which description body to use: PDF text when it's substantially
+ * richer than the inline summary, otherwise the inline summary. Both can
+ * be empty; downstream `buildJob` pads with company boilerplate to meet
+ * the 50-word non-negotiable.
+ */
+function selectDescriptionBody(pdfText, inlineSummary) {
+  const pdfWords = (pdfText || '').split(/\s+/).filter(Boolean).length;
+  const inlineWords = (inlineSummary || '').split(/\s+/).filter(Boolean).length;
+  // Prefer PDF when it's at least 1.5× longer than the inline summary
+  // (the inline tail typically only has summary + labels).
+  if (pdfWords >= 80 && pdfWords >= inlineWords * 1.5) return pdfText;
+  return inlineSummary || pdfText || '';
 }
 
 /* ── Category inference ────────────────────────────────────── */
@@ -236,8 +315,10 @@ function buildJob(row) {
   // Use the PDF URL as the canonical URL if available, otherwise careers page
   const url = row.pdfUrl || CAREERS_URL;
 
+  // Pick PDF text over inline summary when meaningfully richer.
+  let description = selectDescriptionBody(row.pdfText, row.inlineSummary);
+
   // Ensure description meets the 50-word minimum threshold
-  let description = row.description || '';
   const wordCount = description.split(/\s+/).filter(Boolean).length;
   if (wordCount < 50) {
     // Build a richer description with job-specific details
@@ -381,21 +462,30 @@ async function main() {
     return;
   }
 
-  // 2. Build job objects
+  // 2. Fetch each PDF for the full role description (sequential to be
+  //    polite to centiel.com — 5 PDFs typical).
+  console.log('\n📄 Fetching role PDFs for full descriptions...');
+  for (const l of listings) {
+    l.pdfText = await fetchPdfText(l.pdfUrl);
+    const pdfWords = (l.pdfText || '').split(/\s+/).filter(Boolean).length;
+    console.log(`  ${pdfWords > 0 ? '✓' : '∅'} ${l.title} → PDF ${pdfWords} words`);
+  }
+
+  // 3. Build job objects
   const jobs = listings.map(buildJob);
 
-  // 3. Merge into jobs.json
+  // 4. Merge into jobs.json
   const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
-  // 4. Translate missing locales
+  // 5. Translate missing locales
   console.log('\n🌐 Running locale fill for Centiel jobs...');
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,
     isTargetJob,
   });
 
-  // 5. Validate
+  // 6. Validate
   validateLocales();
 
   console.log('\n📊 === Centiel Job Stats ===');
