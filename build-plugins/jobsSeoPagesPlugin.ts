@@ -4198,7 +4198,14 @@ ${alternates}
  });
  const explainerCards = model.explainerCards.map((card) => `<div style="padding:18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)"><h3 style="margin:0 0 8px;font-size:18px;color:var(--color-heading)">${esc(card.title)}</h3><p style="margin:0;color:var(--color-subtle);line-height:1.7">${esc(card.body)}</p></div>`).join('');
  const internalLinks = model.internalLinks.map((item) => `<a href="${item.href}" style="display:inline-flex;padding:8px 12px;border-radius:999px;background:var(--color-accent-subtle);color:var(--color-accent);text-decoration:none;font-weight:700;font-size:13px">${esc(item.label)}</a>`).join('');
- const faqHtml = model.faq.map((entry) => `<details style="padding:16px 18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)"><summary style="cursor:pointer;font-weight:700;color:var(--color-heading)">${esc(entry.question)}</summary><p style="margin:12px 0 0;color:var(--color-subtle);line-height:1.7">${esc(entry.answer)}</p></details>`).join('');
+ // FAQ block: extract inline styles to a single <style>+3 classes (.jf/.js/.ja).
+ // On find-jobs locale variants (Zurich/Bern in DE/EN/FR — 6 pages) and per-
+ // canton aggregate landings, each FAQ entry inlined ~280 B of style × N
+ // questions per page, pushing text-to-HTML ratio into the 9.3-9.9% band
+ // (just under the Semrush 10% gate enforced by audit:text-html-ratio).
+ // Class-based variant costs ~250 B once + ~100 B per FAQ — saves 6-12 KB
+ // per page. No editorial / visual change (same OKLCH tokens).
+ const faqHtml = `<style>.jf{padding:16px 18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)}.js{cursor:pointer;font-weight:700;color:var(--color-heading)}.ja{margin:12px 0 0;color:var(--color-subtle);line-height:1.7}</style>` + model.faq.map((entry) => `<details class="jf"><summary class="js">${esc(entry.question)}</summary><p class="ja">${esc(entry.answer)}</p></details>`).join('');
  const html = `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -4362,7 +4369,14 @@ ${alternates}
  },
  })),
  });
- const faqHtml = model.faq.map((entry) => `<details style="padding:16px 18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)"><summary style="cursor:pointer;font-weight:700;color:var(--color-heading)">${esc(entry.question)}</summary><p style="margin:12px 0 0;color:var(--color-subtle);line-height:1.7">${esc(entry.answer)}</p></details>`).join('');
+ // FAQ block: extract inline styles to a single <style>+3 classes (.jf/.js/.ja).
+ // On find-jobs locale variants (Zurich/Bern in DE/EN/FR — 6 pages) and per-
+ // canton aggregate landings, each FAQ entry inlined ~280 B of style × N
+ // questions per page, pushing text-to-HTML ratio into the 9.3-9.9% band
+ // (just under the Semrush 10% gate enforced by audit:text-html-ratio).
+ // Class-based variant costs ~250 B once + ~100 B per FAQ — saves 6-12 KB
+ // per page. No editorial / visual change (same OKLCH tokens).
+ const faqHtml = `<style>.jf{padding:16px 18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)}.js{cursor:pointer;font-weight:700;color:var(--color-heading)}.ja{margin:12px 0 0;color:var(--color-subtle);line-height:1.7}</style>` + model.faq.map((entry) => `<details class="jf"><summary class="js">${esc(entry.question)}</summary><p class="ja">${esc(entry.answer)}</p></details>`).join('');
  const html = `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -4538,7 +4552,14 @@ ${alternates}
  },
  })),
  });
- const faqHtml = model.faq.map((entry) => `<details style="padding:16px 18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)"><summary style="cursor:pointer;font-weight:700;color:var(--color-heading)">${esc(entry.question)}</summary><p style="margin:12px 0 0;color:var(--color-subtle);line-height:1.7">${esc(entry.answer)}</p></details>`).join('');
+ // FAQ block: extract inline styles to a single <style>+3 classes (.jf/.js/.ja).
+ // On find-jobs locale variants (Zurich/Bern in DE/EN/FR — 6 pages) and per-
+ // canton aggregate landings, each FAQ entry inlined ~280 B of style × N
+ // questions per page, pushing text-to-HTML ratio into the 9.3-9.9% band
+ // (just under the Semrush 10% gate enforced by audit:text-html-ratio).
+ // Class-based variant costs ~250 B once + ~100 B per FAQ — saves 6-12 KB
+ // per page. No editorial / visual change (same OKLCH tokens).
+ const faqHtml = `<style>.jf{padding:16px 18px;border-radius:18px;border:1px solid var(--color-edge);background:var(--color-surface)}.js{cursor:pointer;font-weight:700;color:var(--color-heading)}.ja{margin:12px 0 0;color:var(--color-subtle);line-height:1.7}</style>` + model.faq.map((entry) => `<details class="jf"><summary class="js">${esc(entry.question)}</summary><p class="ja">${esc(entry.answer)}</p></details>`).join('');
  const html = `<!doctype html>
 <html lang="${locale}">
  <head>
