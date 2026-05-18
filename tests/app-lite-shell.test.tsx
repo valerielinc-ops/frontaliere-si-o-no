@@ -2,15 +2,20 @@
  * Regression test for lite-shell vs full-shell rendering.
  *
  * Lite-shell mode (staticOverlay === true): the URL matches a build-time
- * static SEO page (per-station fuel, per-canton health premiums, per-city
- * employer hubs, etc.). The SEO HTML lives in a sibling
- * `<main class="seo-static-content">` OUTSIDE `#root`, so the React SPA must
- * render ONLY minimal chrome (header/top-nav). It must NOT render:
- *  - the React `<main id="main-content">` (would replace the static page)
- *  - the per-tab `SubTabNav` (adds visual clutter + empty space below header)
+ * static SEO page with no SPA equivalent (per-station fuel, per-canton health
+ * premiums, per-city employer hubs, etc.). The SEO HTML lives in a sibling
+ * `<main class="seo-static-content">` OUTSIDE `#root`. The SPA hydrates the
+ * full chrome (top nav + SubTabNav + footer) on top so the page stays
+ * interactive, but the React `<main id="main-content">` is NOT rendered —
+ * the static SEO body owns the page body.
  *
- * Full-shell mode (staticOverlay === false): normal SPA pages (homepage,
- * calculator, etc.) render the full UI including SubTabNav below the top nav.
+ * Full-shell mode (staticOverlay === false): normal SPA routes (homepage,
+ * calculator) render the React `<main>`. If a `<main class="seo-static-content">`
+ * fallback was emitted at build time (because the URL is also a SEO landing
+ * whose slug matches a real SPA sub-tab, e.g. confronta-retribuzione-ral →
+ * ral), App.tsx hides it so the hydrated SPA view is what the user sees.
+ * Crawlers without JS continue to receive the original static HTML.
+ * See CLAUDE.md rule #14.
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
@@ -186,19 +191,55 @@ describe('App lite-shell (staticOverlay) rendering', () => {
     const reactMain = document.querySelector('main#main-content');
     expect(reactMain, 'lite-shell must not render React <main id="main-content">').toBeNull();
 
-    // The static SEO <main class="seo-static-content"> is preserved in DOM.
-    const staticSeoMain = document.querySelector('main.seo-static-content');
+    // The static SEO <main class="seo-static-content"> is preserved AND visible.
+    const staticSeoMain = document.querySelector<HTMLElement>('main.seo-static-content');
     expect(staticSeoMain, 'static SEO <main> must be preserved in DOM').not.toBeNull();
+    expect(
+      staticSeoMain?.style.display,
+      'static SEO <main> must stay visible in lite-shell mode'
+    ).not.toBe('none');
 
-    // In lite shell only the main top-nav tablist (aria-label="Navigazione principale")
-    // should be present — NO SubTabNav tablists.
+    // Chrome must be fully hydrated: top-nav tablist AND the relevant SubTabNav
+    // tablist render so the static SEO page is interactive (user can navigate
+    // sections without losing the SPA shell).
     const tablists = document.querySelectorAll('[role="tablist"]');
     const subTabNavs = Array.from(tablists).filter(
       (el) => el.getAttribute('aria-label') !== 'Navigazione principale'
     );
     expect(
       subTabNavs.length,
-      'lite-shell must suppress every SubTabNav (only top-nav tablist allowed)'
-    ).toBe(0);
+      'lite-shell must hydrate the SubTabNav so the SPA chrome stays interactive'
+    ).toBeGreaterThanOrEqual(1);
+  });
+
+  it('full-shell with static fallback: SPA renders <main> AND hides seo-static-content', () => {
+    // The build emits a static SEO body for some URLs that ALSO resolve to a
+    // real SPA route (e.g. /calcola-stipendio/confronta-retribuzione-ral →
+    // calcolatoreSubTab: 'ral'). The SPA must take over for end users while
+    // the static HTML stays in the source for crawlers without JS.
+    const staticMain = document.createElement('main');
+    staticMain.className = 'seo-static-content';
+    staticMain.innerHTML = '<h1>SEO landing — visible to crawlers only</h1>';
+    document.body.appendChild(staticMain);
+
+    mockParsePath.mockImplementation(() => ({
+      route: { activeTab: 'calculator' as const },
+      locale: 'it' as const,
+    }));
+
+    render(<App />);
+
+    // React <main> takes over.
+    const reactMain = document.querySelector('main#main-content');
+    expect(reactMain, 'SPA <main> must render when staticOverlay is falsy').not.toBeNull();
+
+    // Static fallback stays in the DOM (crawlers still see it) but is hidden
+    // from the user via inline display: none applied by the takeover useEffect.
+    const staticSeoMain = document.querySelector<HTMLElement>('main.seo-static-content');
+    expect(staticSeoMain, 'static fallback must remain in the DOM').not.toBeNull();
+    expect(
+      staticSeoMain?.style.display,
+      'static fallback must be hidden when SPA route takes over'
+    ).toBe('none');
   });
 });
