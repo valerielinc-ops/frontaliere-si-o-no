@@ -21,6 +21,7 @@ import {
   GTAG_INIT_CONTENT,
   ADSENSE_LOADER_CONTENT,
   SPA_ACTION_REDIRECT_SCRIPT_CONTENT,
+  POSTHOG_INIT_CONTENT,
 } from './constants';
 
 export function staticScriptsPlugin(rootDir: string): Plugin {
@@ -36,6 +37,7 @@ export function staticScriptsPlugin(rootDir: string): Plugin {
         ['gtag-init.js', GTAG_INIT_CONTENT],
         ['adsense-loader.js', ADSENSE_LOADER_CONTENT],
         ['spa-action-redirect.js', SPA_ACTION_REDIRECT_SCRIPT_CONTENT],
+        ['posthog-init.js', POSTHOG_INIT_CONTENT],
       ];
 
       let totalBytes = 0;
