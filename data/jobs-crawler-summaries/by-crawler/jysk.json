@@ -1,18 +1,73 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-05-17T21:55:50.539Z",
-  "total": 14,
-  "newCount": 0,
-  "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 9,
-  "durationMs": 34395,
-  "avgDurationMs": 34395,
+  "generatedAt": "2026-05-18T12:38:44.258Z",
+  "total": 15,
+  "newCount": 2,
+  "updatedCount": 3,
+  "removedCount": 1,
+  "unchangedCount": 10,
+  "durationMs": 31057,
+  "avgDurationMs": 31057,
   "durationHistory": [
-    34395
+    31057
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-esp7om",
+      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-esp7om",
+      "company": "JYSK",
+      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
+      "location": "Schattdorf",
+      "canton": "UR",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf-0",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-05-18T12:38:43.352Z",
+      "firstSeenAt": "2026-05-18T12:38:43.352Z",
+      "sourceLang": "de",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-ds4mvl",
+      "slug": "store-manager-apprendista-a-80-100-per-la-region-langenthal-burgdorf-jysk-langenthal-ds4mvl",
+      "company": "JYSK",
+      "title": "Store Manager Trainee (a) 80-100% für die Region Langenthal - Burgdorf",
+      "location": "Langenthal",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/store-manager-trainee-80-100-fuer-die-region-langenthal-burgdorf",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-05-18T12:38:43.352Z",
+      "firstSeenAt": "2026-05-18T12:38:43.352Z",
+      "sourceLang": "de",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 23,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-9yhx5d",
@@ -71,34 +126,6 @@
       }
     },
     {
-      "id": "company-qrsmyr",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf",
-      "company": "JYSK",
-      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
-      "location": "Schattdorf",
-      "canton": "UR",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-25",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-05-10T10:23:36.404Z",
-      "firstSeenAt": "2026-05-10T10:23:36.404Z",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
       "id": "company-gvoozi",
       "slug": "venditore-con-responsabilita-del-magazzino-a-80-nella-filiale-schlieren-jysk-schlieren",
       "company": "JYSK",
@@ -125,20 +152,22 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
-      "id": "company-v11lwi",
-      "slug": "venditore-con-responsabilita-del-magazzino-80-nella-filiale-baden-dattwil-jysk-baden",
+      "id": "company-qrsmyr",
+      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf",
       "company": "JYSK",
-      "title": "Verkäufer/in mit Lagerverantwortung 80% in der Filiale Baden Dättwil",
-      "location": "Baden",
-      "canton": "AG",
+      "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
+      "location": "Schattdorf",
+      "canton": "UR",
       "category": "admin",
-      "contract": "part-time",
+      "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-80-der-filiale-baden-daettwil",
+      "postedDate": "2026-04-25",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-schattdorf",
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
@@ -146,17 +175,17 @@
       "firstSeenAt": "2026-05-10T10:23:36.404Z",
       "sourceLang": "de",
       "employmentType": "FULL_TIME",
-      "postalCode": "5400",
-      "_qualityScore": 94,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 22
+        "completeness": 19
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "company-o6pzz5",
@@ -222,7 +251,7 @@
     },
     {
       "id": "company-dyd3i9",
-      "slug": "store-manager-trainee-a-80-100-per-la-regione-del-baden-jysk-baden",
+      "slug": "store-manager-apprendista-a-80-100-per-la-region-baden-jysk-baden",
       "company": "JYSK",
       "title": "Store Manager Trainee (a) 80-100% für die Region Baden",
       "location": "Baden",
@@ -400,6 +429,37 @@
         "richness": 22,
         "translation": 25,
         "completeness": 19
+      }
+    },
+    {
+      "id": "company-v11lwi",
+      "slug": "venditore-con-responsabilita-del-magazzino-80-nella-filiale-baden-dattwil-jysk-baden",
+      "company": "JYSK",
+      "title": "Verkäufer/in mit Lagerverantwortung 80% in der Filiale Baden Dättwil",
+      "location": "Baden",
+      "canton": "AG",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-80-der-filiale-baden-daettwil",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-05-10T10:23:36.404Z",
+      "firstSeenAt": "2026-05-10T10:23:36.404Z",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "postalCode": "5400",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
