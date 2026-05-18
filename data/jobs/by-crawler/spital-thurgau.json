@@ -73,7 +73,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b1f2f8f3c360",
@@ -146,7 +147,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-07c408c8f40c",
@@ -219,7 +221,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-39f64cefd83d",
@@ -235,17 +238,17 @@
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau Forensik",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachmann/-frau Forensik",
+        "de": "Dipl.-Ing. Pflegefachmann/-frau Forensik",
         "en": "Dipl. Pflegefachmann/-frau Forensik",
-        "it": "Dipl. Pflegefachmann/-frau Forensik",
-        "fr": "Dipl. Pflegefachmann/-frau Forensik"
+        "it": "Dipl. Specialista in allattamento Forensik",
+        "fr": "Dipl. Spécialiste des soins infirmiers Forensik"
       },
       "description": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026",
       "descriptionByLocale": {
         "de": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026",
-        "it": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026",
-        "en": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026",
-        "fr": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit, Teilzeit möglich\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026"
+        "it": "Dipl. Specialista infermieristico Forensik — Spital Thurgau (STGAG).\n\n• Posizione: Clinica Psichiatrica, Münsterlingen\n• Dipartimento: Cura (incl. levatrice)\n• Area: Servizi psichiatrici Thurgau\n• Pensum: tempo pieno, tempo parziale possibile\n• Occupazione: illimitato\n• Data di entrata: 01.06.2026",
+        "en": "Dipl. Nursing specialist Forensik — Spital Thurgau (STGAG).\n\n• Location: Psychiatric Clinic, Münsterlingen\n• Department: Care (incl. midwife)\n• Area: Psychiatric services Thurgau\n• Pensum: full time, part time possible\n• Employment: Unlimited\n• Date of entry: 01.06.2026",
+        "fr": "Dipl. Spécialiste des soins infirmiers Forensik — Spital Thurgau (STGAG).\n\n• Lieu: Clinique psychiatrique, Münsterlingen\n• Département: Soins (y compris sage-femme)\n• Région: Services psychiatriques Thurgau\n• Pensum: temps plein, temps partiel possible\n• Emploi illimité\n• Date d'entrée: 01.06.2026"
       },
       "location": "Münsterlingen",
       "canton": "TG",
@@ -273,7 +276,6 @@
       },
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -439,33 +441,34 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-422f0cc4c8e3",
       "slug": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
       "slugByLocale": {
-        "it": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+        "it": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen",
         "en": "dipl-pflegefachmann-frau-forensik-stgag-ch",
         "de": "dipl-pflegefachmann-frau-forensik-stgag-ch",
-        "fr": "dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen"
+        "fr": "infirmier-infirmiere-diplome-e-en-medecine-legale-spital-thurgau-stgag-munsterlingen"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
       "companyDomain": "stgag.ch",
       "title": "Dipl. Pflegefachmann/-frau Forensik",
       "titleByLocale": {
-        "it": "Dipl. Specialista di cura forense",
+        "it": "Infermiere/a Specializzato/a in Medicina Forense",
         "en": "Dipl. Pflegefachmann/-frau Forensik",
         "de": "Dipl. Pflegefachmann/-frau Forensik",
-        "fr": "Dipl. Spécialiste de la médecine légale"
+        "fr": "Infirmier/Infirmière Diplômé(e) en Médecine Légale"
       },
       "description": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026",
       "descriptionByLocale": {
-        "it": "Dipl. Specialista infermieristico Forensik — Spital Thurgau (STGAG).\n• Posizione: Clinica Psichiatrica, Münsterlingen\n• Dipartimento: Cura (incl. levatrice)\n• Area: Servizi psichiatrici Thurgau\n• Pensum: Tempo pieno\n• rapporto di lavoro: permanente\n• Data di entrata: 01.06.2026",
-        "en": "Dipl. Nursing specialist Forensik — Spital Thurgau (STGAG).\n• Location: Psychiatric Clinic, Münsterlingen\n• Department: Care (incl. midwife)\n• Area: Psychiatric services Thurgau\n• Pensum: Full time\n• employment relationship: permanent\n• Date of entry: 01.06.2026",
-        "de": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Vollzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026",
-        "fr": "Dipl. Spécialiste des soins infirmiers Forensik — Spital Thurgau (STGAG).\n• Lieu: Clinique psychiatrique, Münsterlingen\n• Département: Soins (y compris sage-femme)\n• Région: Services psychiatriques Thurgau\n• Pensum: Temps plein\n• relation de travail permanente\n• Date d'entrée: 01.06.2026"
+        "it": "Dettagli del lavoro - Ubicazione: Clinica Psichiatrica, Münsterlingen - Dipartimento: Cura (incl. levatrice) - Area: Servizi psichiatrici Thurgau - Pensum: parttime - rapporto di lavoro: permanente - Data di entrata: 01.06.2026 Titolo del lavoro Dipl. Specialista infermieristico Forensik — Spital Thurgau (STGAG).",
+        "en": "Job details - Location: Psychiatric Clinic, Münsterlingen - Department: Care (incl. midwife) - Area: Psychiatric services Thurgau - Pensum: parttime - employment relationship: permanent - Date of entry: 01.06.2026 Job Title Dipl. Nursing specialist Forensik — Spital Thurgau (STGAG).",
+        "de": "Dipl. Pflegefachmann/-frau Forensik — Spital Thurgau (STGAG).\n• Standort: Psychiatrische Klinik, Münsterlingen\n• Abteilung: Pflege (inkl. Hebamme)\n• Bereich: Psychiatrische Dienste Thurgau\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.06.2026",
+        "fr": "Détails du travail - Lieu: Clinique psychiatrique, Münsterlingen - Département: Soins (y compris sage-femme) - Région: Services psychiatriques Thurgau - Pensum: à temps partiel - relation de travail permanente - Date d'entrée: 01.06.2026 Titre du poste Dipl. Spécialiste des soins infirmiers Forensik — Spital Thurgau (STGAG)."
       },
       "location": "Münsterlingen",
       "canton": "TG",
@@ -494,15 +497,19 @@
       "previousSlugs": [
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
-        "dipl-pflegefachmann-frau-forensik-stgag-ch"
+        "dipl-pflegefachmann-frau-forensik-stgag-ch",
+        "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+        "dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-2",
-          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen"
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen",
+          "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen"
         ],
         "fr": [
-          "dipl-pflegefachmann-frau-forensik-stgag-ch"
+          "dipl-pflegefachmann-frau-forensik-stgag-ch",
+          "dipl-specialiste-de-la-medecine-legale-spital-thurgau-stgag-munsterlingen"
         ]
       },
       "firstSeenAt": "2026-05-17T11:05:42.133Z",
@@ -670,7 +677,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-c4d323746f78",
@@ -743,7 +751,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-284923941835",
@@ -816,7 +825,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-6e110a8e1bbe",
@@ -889,7 +899,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b98b145e5440",
@@ -962,7 +973,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-a0b287084e65",
@@ -1035,7 +1047,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-6f14aee1da15",
@@ -1188,7 +1201,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-bd9663d39ac4",
@@ -1261,7 +1275,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-408602d5a9b7",
@@ -1334,7 +1349,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-915084911655",
@@ -1409,7 +1425,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-17T22:30:20.841Z"
+      "firstSeenAt": "2026-05-17T22:30:20.841Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-8b4b50246dbe",
@@ -1474,7 +1491,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-898dd25d1efd",
@@ -1547,7 +1565,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-46997e17bd69",
@@ -1785,7 +1804,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-970f2e823f29",
@@ -1861,7 +1881,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-8bfbcb604e45",
@@ -2006,7 +2027,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-9a428b9fc92f",
@@ -2079,7 +2101,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-a64b11589827",
@@ -2152,7 +2175,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-0be06df4246d",
@@ -2225,7 +2249,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b18c5dd0c90a",
@@ -2298,7 +2323,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-174dd971ec1f",
@@ -2371,7 +2397,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-087d6ba0e3da",
@@ -2444,7 +2471,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-45c09f3cbba3",
@@ -2517,7 +2545,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-e956e2ca6a85",
@@ -2590,7 +2619,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-d0115a6d230b",
@@ -2741,7 +2771,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-9a92b0e0a0d6",
@@ -2814,7 +2845,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-6909168de45c",
@@ -2887,7 +2919,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-7910f90c7fa4",
@@ -2960,7 +2993,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-f1d90ab03a51",
@@ -3036,7 +3070,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b6184a6ad14a",
@@ -3264,7 +3299,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-4d5998f54b5a",
@@ -3337,7 +3373,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-4edbcb3d61ad",
@@ -3410,7 +3447,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-7b146e89eda2",
@@ -3483,7 +3521,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-691f1532b03c",
@@ -3639,7 +3678,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-28386f981468",
@@ -3712,7 +3752,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-dc710d762096",
@@ -3785,7 +3826,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-92ba82c15b1e",
@@ -3850,7 +3892,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-42a0b306d831",
@@ -4158,7 +4201,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-d079c88dda2d",
@@ -4231,7 +4275,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-40985ecffc2b",
@@ -4680,7 +4725,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-4f3d26191db1",
@@ -4745,7 +4791,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-5f2dd49d3c72",
@@ -4889,7 +4936,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-3bd8ea3e7c2f",
@@ -4954,7 +5002,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b9501cb1ba26",
@@ -5027,7 +5076,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-e841e8bba839",
@@ -5100,7 +5150,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-766f48b89005",
@@ -5248,7 +5299,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-e1c09221afa0",
@@ -5324,7 +5376,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-5f1d5d724783",
@@ -5389,7 +5442,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-5952f892f56a",
@@ -5462,7 +5516,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-c5ec283c0abf",
@@ -5535,7 +5590,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-e109d2db85a5",
@@ -5680,7 +5736,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-887f3ad124c9",
@@ -5753,7 +5810,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-755111568723",
@@ -5818,7 +5876,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-d312a0e05424",
@@ -5891,7 +5950,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-daae166861d1",
@@ -6128,7 +6188,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-a0208fe239d2",
@@ -6201,7 +6262,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-8da5a5b57ab9",
@@ -6358,7 +6420,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-490e297097d8",
@@ -6423,7 +6486,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-e90c8fc1483f",
@@ -6496,7 +6560,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-db315661a8c4",
@@ -6569,7 +6634,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-1923a02efd79",
@@ -6634,7 +6700,8 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-66dabb0ea1f1",
@@ -6699,7 +6766,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-5b36038498fb",
@@ -6764,7 +6832,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-a8c3080eb958",
@@ -6837,7 +6906,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-c89ee870610f",
@@ -6910,7 +6980,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-28213b816210",
@@ -7133,7 +7204,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-2f9c2ebe2e58",
@@ -7209,7 +7281,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-781835498ca1",
@@ -7435,7 +7508,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-f15fa868933f",
@@ -7587,7 +7661,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-63045915dc5f",
@@ -7730,7 +7805,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-6dcc5e35dbaa",
@@ -7955,7 +8031,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-044cb5d52cf5",
@@ -8094,7 +8171,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-70840f3772ad",
@@ -8159,7 +8237,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-1c0498ba0c32",
@@ -8312,7 +8391,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-fbdc4ffaa50e",
@@ -8388,7 +8468,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-950f13798dd6",
@@ -8461,7 +8542,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-49ac34bb8919",
@@ -8534,7 +8616,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-42e166a35401",
@@ -8607,7 +8690,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-282e5e0f2f26",
@@ -8680,7 +8764,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b1e262a9b3c2",
@@ -8745,7 +8830,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-e346da94b4c8",
@@ -8818,7 +8904,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-a18521b3e719",
@@ -8883,7 +8970,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b68bdf41073a",
@@ -8959,7 +9047,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-5de913d2d66d",
@@ -9032,7 +9121,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-1ff51c940980",
@@ -9097,7 +9187,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-8cc6f45c3a58",
@@ -9162,7 +9253,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-7edc20c676d1",
@@ -9235,7 +9327,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-0545fb9c58f1",
@@ -9300,7 +9393,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-98d20c00d378",
@@ -9373,7 +9467,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b2c53daa8601",
@@ -9438,7 +9533,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-0ad099d324da",
@@ -9511,7 +9607,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-880692d13db1",
@@ -9584,7 +9681,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-51b96b980c48",
@@ -9657,7 +9755,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-e7b2155748ea",
@@ -9722,7 +9821,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-7343ec7f2767",
@@ -10185,7 +10285,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b640e9328714",
@@ -10338,7 +10439,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b142ec84d3ee",
@@ -10403,7 +10505,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-43efe408e36f",
@@ -10543,7 +10646,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-ff670b2ffe4f",
@@ -11006,7 +11110,8 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-f9149e6e2d23",
@@ -11071,7 +11176,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-23636ae125ec",
@@ -11136,7 +11242,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-thurgau-b336e4297c7b",
