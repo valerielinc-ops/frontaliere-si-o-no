@@ -8,7 +8,7 @@
  */
 
 import type { Plugin } from 'vite';
-import { BASE_URL, ANALYTICS_SNIPPET } from './constants';
+import { BASE_URL, ANALYTICS_SNIPPET, DARK_MODE_SCRIPT } from './constants';
 import { WriteCollector } from './batchWrite';
 import { resolveSpaBundle } from './spaBundleResolver';
 import { resolveStaticPagesFlushed } from './shared/buildSignals';
@@ -4305,7 +4305,7 @@ ${hubChromeSplit.bodyHtml}
  <meta name="twitter:site" content="@frontaliereticino">
 ${hrefTags}
  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
- <script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark')</script>
+ ${DARK_MODE_SCRIPT}
  <style>${criticalCSS}</style>
  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
  ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale)}

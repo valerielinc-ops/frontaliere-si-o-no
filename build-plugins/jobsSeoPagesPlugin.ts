@@ -9,7 +9,7 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, BUILD_ID } from './constants';
+import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, BUILD_ID, DARK_MODE_SCRIPT } from './constants';
 import { buildSimplePage } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
@@ -9065,7 +9065,10 @@ ${alternates}
  // Pre-compute invariant HTML fragments for soft-landing pages (~69K pages).
  // Avoids re-building the same ~2KB of boilerplate for each page.
  const currentYear = new Date().getFullYear();
- const darkModeScript = `<script>(function(){if(localStorage.theme==='dark'||((!('theme' in localStorage))&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}})()</script>`;
+ // Was inline (~200 B per soft-landing page). Now references
+ // /assets/dark-mode-init.js via DARK_MODE_SCRIPT — emitted by
+ // staticScriptsPlugin at build, browser-cached globally.
+ const darkModeScript = DARK_MODE_SCRIPT;
  // darkModeStyles + nav/footer/article inline styles now live in
  // /assets/seo-static.css (loaded via <link> in the template head).
  // Deduplicates ~1 KB of identical CSS across ~98k soft-landing pages
