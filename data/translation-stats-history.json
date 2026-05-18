@@ -1,93 +1,5 @@
 [
   {
-    "timestamp": "2026-05-03T22:29:56.013Z",
-    "label": "before",
-    "total": 2584,
-    "needsRetranslation": 1001,
-    "incomplete": 30,
-    "complete": 2554,
-    "missingByLocale": {
-      "it": 10,
-      "en": 12,
-      "de": 17,
-      "fr": 20
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 7
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 4
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 2
-      },
-      {
-        "company": "Manor AG",
-        "pending": 2
-      },
-      {
-        "company": "PEMSA",
-        "pending": 2
-      },
-      {
-        "company": "Banca Raiffeisen Vedeggio Cassarate",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-03T23:17:37.524Z",
-    "label": "after",
-    "total": 2584,
-    "needsRetranslation": 58,
-    "incomplete": 9,
-    "complete": 2575,
-    "missingByLocale": {
-      "it": 8,
-      "en": 1,
-      "de": 7,
-      "fr": 9
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-04T02:56:10.454Z",
     "label": "before",
     "total": 2584,
@@ -10844,6 +10756,118 @@
       {
         "company": "Universitätsspital Zürich (USZ)",
         "pending": 66
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "UBS",
+        "pending": 34
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 29
+      },
+      {
+        "company": "IWC",
+        "pending": 26
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 22
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 21
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-18T10:42:06.166Z",
+    "label": "before",
+    "total": 4187,
+    "needsRetranslation": 940,
+    "incomplete": 724,
+    "complete": 3463,
+    "missingByLocale": {
+      "it": 246,
+      "en": 211,
+      "de": 97,
+      "fr": 232
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 80
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 78
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 62
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "UBS",
+        "pending": 34
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 29
+      },
+      {
+        "company": "IWC",
+        "pending": 26
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 22
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 21
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-18T10:47:34.367Z",
+    "label": "after",
+    "total": 4187,
+    "needsRetranslation": 935,
+    "incomplete": 717,
+    "complete": 3470,
+    "missingByLocale": {
+      "it": 242,
+      "en": 205,
+      "de": 94,
+      "fr": 226
+    },
+    "topPending": [
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 78
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 73
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 62
       },
       {
         "company": "Convit Holding GmbH",

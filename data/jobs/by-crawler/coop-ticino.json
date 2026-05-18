@@ -84,8 +84,11 @@
       },
       "previousSlugs": [
         "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-cprmen",
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb"
-      ]
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0i1ujb",
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden"
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-w2vgxm",
@@ -169,8 +172,11 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-w2vgxm",
-        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g"
-      ]
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden-trpl7g",
+        "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden"
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "id": "company-e66ikm",
@@ -247,10 +253,14 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-city-chur-graubunden-e66ikm"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+        "verkaufer-in-food-coop-city-chur-graubunden-e66ikm",
+        "venditore-in-food-coop-genossenschaft-felsberg",
+        "seller-in-food-coop-genossenschaft-felsberg",
+        "verkaufer-in-food-coop-genossenschaft-felsberg",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
+        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+        "verkaufer-in-food-coop-felsberg-graubunden"
+      ]
     },
     {
       "id": "company-y5hli0",
@@ -320,9 +330,7 @@
       "previousSlugs": [
         "additional-apprenticeship-als-detailhandelsfachfrau-mann-efz-jumbo-grigioni-y5hli0",
         "formation-complementaire-als-detailhandelsfachfrau-mann-efz-jumbo-grigioni-y5hli0"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      ]
     },
     {
       "id": "company-metayj",
@@ -392,21 +400,38 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-felsberg-graubunden-metayj"
+          "verkaufer-in-food-coop-felsberg-graubunden-metayj",
+          "venditore-in-food-coop-genossenschaft-felsberg",
+          "verkaufer-in-food-coop-city-chur-graubunden-e66ikm"
         ],
         "en": [
-          "verkaufer-in-food-coop-felsberg-graubunden-metayj"
+          "verkaufer-in-food-coop-felsberg-graubunden-metayj",
+          "seller-in-food-coop-genossenschaft-felsberg",
+          "seller-in-food-coop-genossenschaft-chur-ddc182"
         ],
         "de": [
-          "verkaufer-in-food-coop-felsberg-graubunden-metayj"
+          "verkaufer-in-food-coop-felsberg-graubunden-metayj",
+          "verkaufer-in-food-coop-genossenschaft-felsberg",
+          "verkaufer-in-food-coop-genossenschaft-chur-e66ikm"
         ],
         "fr": [
-          "verkaufer-in-food-coop-felsberg-graubunden-metayj"
+          "verkaufer-in-food-coop-felsberg-graubunden-metayj",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-chur-ddc182"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-felsberg-graubunden-metayj",
-        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3"
+        "venditore-in-food-coop-genossenschaft-felsberg",
+        "seller-in-food-coop-genossenschaft-felsberg",
+        "verkaufer-in-food-coop-genossenschaft-felsberg",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg",
+        "verkaufer-in-food-coop-felsberg-graubunden-lzsoh3",
+        "verkaufer-in-food-coop-city-chur-graubunden-e66ikm",
+        "verkaufer-in-food-coop-felsberg-graubunden",
+        "seller-in-food-coop-genossenschaft-chur-ddc182",
+        "verkaufer-in-food-coop-genossenschaft-chur-e66ikm",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-chur-ddc182"
       ]
     },
     {
@@ -545,9 +570,7 @@
         "quereinstieg-associate-fleisch-und-fisch-coop-grigioni-9yar0z",
         "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-9yar0z",
         "cambio-carriera-collaboratore-a-carne-e-pesce-coop-genossenschaft-muttenz"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      ]
     },
     {
       "id": "company-dmiw8r",
@@ -1796,7 +1819,10 @@
         "fr": "Impiegata / Employé del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\""
       },
       "descriptionByLocale": {
-        "it": "Le tue mansioni - Offri consulenza alla nostra clientela, la servi e conduci complessi colloqui di vendita. - Provvedi a rifornire la merce e la gestisci. - Crei situazioni che favoriscono le esperienze di acquisto orientate ai prodotti e ai servizi. - Ti specializzi in un settore di tua scelta. Cosa porti con te nell'azienda - Predisposizione al contatto con la gente e al lavoro di squadra - Capacità organizzativa e flessibilità - Volontà di lavorare autonomamente e di assumersi responsabilità - Voglia di perfezionarsi in un'azienda dinamica - Capacità comunicative - Talento per la vendita Cosa ti offriamo - Abbonamento annuale update Fitness - Fr. 500 per l'acquiesto di un notebook, tablet - 50% sull'abbonamento Start Coop Mobile - Abbonamento metà-prezzo / Partecipazione di fr. 650 per l'acquisto dell'abbonamento generale FFS - E tante altre agevolazioni per il personale Coop! Pamela Padovano RU Formazione professionale Choose Your Character - Create Your Future: Dai forma al tuo futuro con una formazione interessante. Da Coop trovi un'ampia offerta di posti di tirocinio e ulteriori possibilità di formazione continua."
+        "it": "Le tue mansioni - Offri consulenza alla nostra clientela, la servi e conduci complessi colloqui di vendita. - Provvedi a rifornire la merce e la gestisci. - Crei situazioni che favoriscono le esperienze di acquisto orientate ai prodotti e ai servizi. - Ti specializzi in un settore di tua scelta. Cosa porti con te nell'azienda - Predisposizione al contatto con la gente e al lavoro di squadra - Capacità organizzativa e flessibilità - Volontà di lavorare autonomamente e di assumersi responsabilità - Voglia di perfezionarsi in un'azienda dinamica - Capacità comunicative - Talento per la vendita Cosa ti offriamo - Abbonamento annuale update Fitness - Fr. 500 per l'acquiesto di un notebook, tablet - 50% sull'abbonamento Start Coop Mobile - Abbonamento metà-prezzo / Partecipazione di fr. 650 per l'acquisto dell'abbonamento generale FFS - E tante altre agevolazioni per il personale Coop! Pamela Padovano RU Formazione professionale Choose Your Character - Create Your Future: Dai forma al tuo futuro con una formazione interessante. Da Coop trovi un'ampia offerta di posti di tirocinio e ulteriori possibilità di formazione continua.",
+        "en": "Your duties\n\n- Learn to advise customers with expertise and to sell our products with pleasure.\n\n- Conduct challenging consulting and sales talks.\n\n- Get orders and repair orders from our customers.\n\n- Contribute to the processing of incoming goods and returns.\n\nHelp your colleagues make inventory and reorder the store and the warehouse.\n\nWhat you bring with you in the company\n\nNice to deal with clients.\n\n- communicative personality, reliable and available.\n\n- Enthusiasm for the latest technical trends.\n\n- Ability to assume responsibility.\n\n- School diploma with good grades.\n\nWhat we offer\n\n- Dynamic and entrepreneurial working environment\n\n- An open organizational culture and the giving of you\n\n- Possibility of graduation of professional maturity or additional apprenticeship\n\n- Support for professional learning\n\n- Opportunities to continue working and career\n\n- 6 weeks of holidays\n\n- Generous discounts for staff in different Coop formats\n\n- Contribution to public transport for general subscription\n\n- Good value of CHF 500.- valid for the purchase of a notebook, tablet or accessories\n\nLea Helena Bucher\nRU Vocational training\n\nWe at Interdiscount offer our customers the best shopping experience in Switzerland. We offer you an excellent career start in a dynamic working environment full of development opportunities.",
+        "de": "Ihre Aufgaben\n\n- Lernen Sie Kunden mit Know-how zu beraten und unsere Produkte mit Freude zu verkaufen.\n\n- Führen Sie anspruchsvolle Beratung und Verkaufsgespräche.\n\n- Bestellen und Reparaturaufträge von unseren Kunden.\n\n- Beitrag zur Verarbeitung von ankommenden Waren und Rücksendungen.\n\nHelfen Sie Ihren Kollegen, Inventar zu machen und den Laden und das Lager neu zu bestellen.\n\nWas Sie mitbringen in der Firma\n\nNett, mit Kunden umzugehen.\n\n- kommunikative Persönlichkeit, zuverlässig und verfügbar.\n\n- Enthusiasmus für die neuesten technischen Trends.\n\n- Fähigkeit, Verantwortung zu übernehmen.\n\n- Schulabschluß mit guten Noten.\n\nWas wir bieten\n\n- Dynamisches und unternehmerisches Arbeitsumfeld\n\n- Eine offene Organisationskultur und das Geben von Ihnen\n\n- Möglichkeit des Abschlusses der beruflichen Reife oder der zusätzlichen Ausbildung\n\n- Unterstützung für professionelles Lernen\n\n- Möglichkeiten, weiter zu arbeiten und Karriere\n\n- 6 Wochen Urlaub\n\n- Großartige Rabatte für Mitarbeiter in verschiedenen Coop-Formaten\n\n- Beitrag zu öffentlichen Verkehrsmitteln zum allgemeinen Abonnement\n\n- Guter Wert von CHF 500.- gültig für den Kauf eines Notebooks, Tablets oder Zubehör\n\nLea Helena Bucher\nRU Berufsbildung\n\nWir bei Interdiscount bieten unseren Kunden das beste Einkaufserlebnis in der Schweiz. Wir bieten Ihnen einen hervorragenden Karrierestart in einem dynamischen Arbeitsumfeld voller Entwicklungschancen.",
+        "fr": "Vos devoirs\n\n- Apprenez à conseiller les clients avec expertise et à vendre nos produits avec plaisir.\n\n- Mener des conférences de consultation et de vente difficiles.\n\n- Obtenez les commandes et les réparations de nos clients.\n\n- Contribuer au traitement des marchandises et des retours.\n\nAidez vos collègues à faire l'inventaire et à réorganiser le magasin et l'entrepôt.\n\nCe que vous apportez dans la compagnie\n\nSympa de traiter avec les clients.\n\n- personnalité communicative, fiable et disponible.\n\n- L'enthousiasme pour les dernières tendances techniques.\n\n- Capacité d'assumer la responsabilité.\n\n- Diplôme scolaire avec de bonnes notes.\n\nCe que nous offrons\n\n- Environnement de travail dynamique et entrepreneurial\n\n- Une culture d'organisation ouverte et le don de vous\n\n- Possibilité de diplôme de maturité professionnelle ou d'apprentissage supplémentaire\n\n- Soutien à l'apprentissage professionnel\n\n- Possibilités de poursuivre le travail et la carrière\n\n- 6 semaines de vacances\n\n- Des rabais généreux pour le personnel en différents formats Coop\n\n- Contribution aux transports publics pour abonnement général\n\n- Bonne valeur de CHF 500.- valable pour l'achat d'un carnet, d'une tablette ou d'accessoires\n\nLea Helena Bucher\nRU Formation professionnelle\n\nChez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. Nous vous offrons un excellent début de carrière dans un environnement de travail dynamique plein de possibilités de développement."
       },
       "requirementsByLocale": {},
       "addressLocality": "Lenzburg 1",
@@ -1813,7 +1839,8 @@
         }
       },
       "previousSlugs": [
-        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-n4f99v"
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-n4f99v",
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-c62qk9"
       ]
     },
     {
@@ -2089,7 +2116,10 @@
         "fr": "Impiegata / Employé del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\""
       },
       "descriptionByLocale": {
-        "it": "Le tue mansioni - Offri consulenza alla nostra clientela, la servi e conduci complessi colloqui di vendita. - Provvedi a rifornire la merce e la gestisci. - Crei situazioni che favoriscono le esperienze di acquisto orientate ai prodotti e ai servizi. - Ti specializzi in un settore di tua scelta. Cosa porti con te nell'azienda - Predisposizione al contatto con la gente e al lavoro di squadra - Capacità organizzativa e flessibilità - Volontà di lavorare autonomamente e di assumersi responsabilità - Voglia di perfezionarsi in un'azienda dinamica - Capacità comunicative - Talento per la vendita Cosa ti offriamo - Abbonamento annuale update Fitness - Fr. 500 per l'acquiesto di un notebook, tablet - 50% sull'abbonamento Start Coop Mobile - Abbonamento metà-prezzo / Partecipazione di fr. 650 per l'acquisto dell'abbonamento generale FFS - E tante altre agevolazioni per il personale Coop! Pamela Padovano RU Formazione professionale Choose Your Character - Create Your Future: Dai forma al tuo futuro con una formazione interessante. Da Coop trovi un'ampia offerta di posti di tirocinio e ulteriori possibilità di formazione continua."
+        "it": "Le tue mansioni - Offri consulenza alla nostra clientela, la servi e conduci complessi colloqui di vendita. - Provvedi a rifornire la merce e la gestisci. - Crei situazioni che favoriscono le esperienze di acquisto orientate ai prodotti e ai servizi. - Ti specializzi in un settore di tua scelta. Cosa porti con te nell'azienda - Predisposizione al contatto con la gente e al lavoro di squadra - Capacità organizzativa e flessibilità - Volontà di lavorare autonomamente e di assumersi responsabilità - Voglia di perfezionarsi in un'azienda dinamica - Capacità comunicative - Talento per la vendita Cosa ti offriamo - Abbonamento annuale update Fitness - Fr. 500 per l'acquiesto di un notebook, tablet - 50% sull'abbonamento Start Coop Mobile - Abbonamento metà-prezzo / Partecipazione di fr. 650 per l'acquisto dell'abbonamento generale FFS - E tante altre agevolazioni per il personale Coop! Pamela Padovano RU Formazione professionale Choose Your Character - Create Your Future: Dai forma al tuo futuro con una formazione interessante. Da Coop trovi un'ampia offerta di posti di tirocinio e ulteriori possibilità di formazione continua.",
+        "en": "Your duties\n\n- Learn to advise customers with expertise and to sell our products with pleasure.\n\n- Conduct challenging consulting and sales talks.\n\n- Get orders and repair orders from our customers.\n\n- Contribute to the processing of incoming goods and returns.\n\nHelp your colleagues make inventory and reorder the store and the warehouse.\n\nWhat you bring with you in the company\n\nNice to deal with clients.\n\n- communicative personality, reliable and available.\n\n- Enthusiasm for the latest technical trends.\n\n- Ability to assume responsibility.\n\n- School diploma with good grades.\n\nWhat we offer\n\n- Dynamic and entrepreneurial working environment\n\n- An open organizational culture and the giving of you\n\n- Possibility of graduation of professional maturity or additional apprenticeship\n\n- Support for professional learning\n\n- Opportunities to continue working and career\n\n- 6 weeks of holidays\n\n- Generous discounts for staff in different Coop formats\n\n- Contribution to public transport for general subscription\n\n- Good value of CHF 500.- valid for the purchase of a notebook, tablet or accessories\n\nLea Helena Bucher\nRU Vocational training\n\nWe at Interdiscount offer our customers the best shopping experience in Switzerland. We offer you an excellent career start in a dynamic working environment full of development opportunities.",
+        "de": "Ihre Aufgaben\n\n- Lernen Sie Kunden mit Know-how zu beraten und unsere Produkte mit Freude zu verkaufen.\n\n- Führen Sie anspruchsvolle Beratung und Verkaufsgespräche.\n\n- Bestellen und Reparaturaufträge von unseren Kunden.\n\n- Beitrag zur Verarbeitung von ankommenden Waren und Rücksendungen.\n\nHelfen Sie Ihren Kollegen, Inventar zu machen und den Laden und das Lager neu zu bestellen.\n\nWas Sie mitbringen in der Firma\n\nNett, mit Kunden umzugehen.\n\n- kommunikative Persönlichkeit, zuverlässig und verfügbar.\n\n- Enthusiasmus für die neuesten technischen Trends.\n\n- Fähigkeit, Verantwortung zu übernehmen.\n\n- Schulabschluß mit guten Noten.\n\nWas wir bieten\n\n- Dynamisches und unternehmerisches Arbeitsumfeld\n\n- Eine offene Organisationskultur und das Geben von Ihnen\n\n- Möglichkeit des Abschlusses der beruflichen Reife oder der zusätzlichen Ausbildung\n\n- Unterstützung für professionelles Lernen\n\n- Möglichkeiten, weiter zu arbeiten und Karriere\n\n- 6 Wochen Urlaub\n\n- Großartige Rabatte für Mitarbeiter in verschiedenen Coop-Formaten\n\n- Beitrag zu öffentlichen Verkehrsmitteln zum allgemeinen Abonnement\n\n- Guter Wert von CHF 500.- gültig für den Kauf eines Notebooks, Tablets oder Zubehör\n\nLea Helena Bucher\nRU Berufsbildung\n\nWir bei Interdiscount bieten unseren Kunden das beste Einkaufserlebnis in der Schweiz. Wir bieten Ihnen einen hervorragenden Karrierestart in einem dynamischen Arbeitsumfeld voller Entwicklungschancen.",
+        "fr": "Vos devoirs\n\n- Apprenez à conseiller les clients avec expertise et à vendre nos produits avec plaisir.\n\n- Mener des conférences de consultation et de vente difficiles.\n\n- Obtenez les commandes et les réparations de nos clients.\n\n- Contribuer au traitement des marchandises et des retours.\n\nAidez vos collègues à faire l'inventaire et à réorganiser le magasin et l'entrepôt.\n\nCe que vous apportez dans la compagnie\n\nSympa de traiter avec les clients.\n\n- personnalité communicative, fiable et disponible.\n\n- L'enthousiasme pour les dernières tendances techniques.\n\n- Capacité d'assumer la responsabilité.\n\n- Diplôme scolaire avec de bonnes notes.\n\nCe que nous offrons\n\n- Environnement de travail dynamique et entrepreneurial\n\n- Une culture d'organisation ouverte et le don de vous\n\n- Possibilité de diplôme de maturité professionnelle ou d'apprentissage supplémentaire\n\n- Soutien à l'apprentissage professionnel\n\n- Possibilités de poursuivre le travail et la carrière\n\n- 6 semaines de vacances\n\n- Des rabais généreux pour le personnel en différents formats Coop\n\n- Contribution aux transports publics pour abonnement général\n\n- Bonne valeur de CHF 500.- valable pour l'achat d'un carnet, d'une tablette ou d'accessoires\n\nLea Helena Bucher\nRU Formation professionnelle\n\nChez Interdiscount, nous offrons à nos clients la meilleure expérience d'achat en Suisse. Nous vous offrons un excellent début de carrière dans un environnement de travail dynamique plein de possibilités de développement."
       },
       "requirementsByLocale": {},
       "addressLocality": "Lenzburg 1",
@@ -2106,7 +2136,8 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-3"
+        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-3",
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-tu6208"
       ]
     },
     {
@@ -3316,10 +3347,15 @@
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\""
+        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
+        "en": "Retailer:man",
+        "fr": "Détaillant: homme"
       },
       "descriptionByLocale": {
-        "de": "Deine \n• Aufgaben - Du berätst, bedienst unsere Kundschaft und führst anspruchsvolle Verkaufsgespräche. - Du bestellst die Ware und bist für die Bewirtschaftung zuständig.​ - Du gestaltest produkt- und dienstleistungsorientierte Einkaufserlebnisse. - Du spezialisierst dich in einer von dir ausgewählten Fachrichtung. Das bringst du mit - Teamfähigkeit und Freude am Kontakt mit Menschen - Organisationsfähigkeit und Flexibilität​ - Wille, selbständig zu arbeiten und Verantwortung zu übernehmen​ - Freude daran, sich in einem dynamischen Unternehmen weiterzuentwickeln​ - Kommunikationsfähigkeit ​ - Flair für den Verkauf​ \n• Das bieten wir dir - Jahresabo \"update Fitness\" - CHF 500 für Laptop oder Tablet - 50% auf erstes Handy-Abo von Coop Mobile - SBB Halbtax oder Anteil GA CHF 650 - Viele Vergünstigungen für Mitarbeitende Anja Hollenstein HR Berufsbildung Choose Your Character - Create Your Future: Gestalte deine Zukunft mit einer passenden Lehre. Coop bietet ein grosses Angebot an Lehrstellen und Weiterbildungsmöglichkeiten."
+        "de": "Deine \n• Aufgaben - Du berätst, bedienst unsere Kundschaft und führst anspruchsvolle Verkaufsgespräche. - Du bestellst die Ware und bist für die Bewirtschaftung zuständig.​ - Du gestaltest produkt- und dienstleistungsorientierte Einkaufserlebnisse. - Du spezialisierst dich in einer von dir ausgewählten Fachrichtung. Das bringst du mit - Teamfähigkeit und Freude am Kontakt mit Menschen - Organisationsfähigkeit und Flexibilität​ - Wille, selbständig zu arbeiten und Verantwortung zu übernehmen​ - Freude daran, sich in einem dynamischen Unternehmen weiterzuentwickeln​ - Kommunikationsfähigkeit ​ - Flair für den Verkauf​ \n• Das bieten wir dir - Jahresabo \"update Fitness\" - CHF 500 für Laptop oder Tablet - 50% auf erstes Handy-Abo von Coop Mobile - SBB Halbtax oder Anteil GA CHF 650 - Viele Vergünstigungen für Mitarbeitende Anja Hollenstein HR Berufsbildung Choose Your Character - Create Your Future: Gestalte deine Zukunft mit einer passenden Lehre. Coop bietet ein grosses Angebot an Lehrstellen und Weiterbildungsmöglichkeiten.",
+        "it": "I tuoi compiti\n\n- Conoscerai il giorno delle vendite nel ramo.\n\n- Fai domande, sei motivato e curioso.\n\nEcco cosa porti.\n\n- Sei entusiasta delle ultime tendenze tecnologiche.\n\n- Ti interessa un insegnamento professionale con noi.\n\n- Hai almeno 13 anni.\n\nVi offriamo\n\n- Ambiente di lavoro dinamico e imprenditoriale\n\n- Du cultura e \"porte aperte\"\n\n- Possibilità di insegnamento professionale o complementare\n\n- Supporto attraverso la guida di apprendimento professionale\n\n- possibilità di ulteriore occupazione e carriera\n\n- 6 settimane di vacanza\n\n- Riduzioni generose del personale in diversi formati Coop\n\n- Contributo austriaco al GA\n\n- Coupon di CHF 500.- come parte di un notebook, tablet o accessori\n\nLea Helena Bucher\nFormazione professionale\n\nVuoi avere una prima visione del lavoro quotidiano? Scopri il mondo di Interdiscount nello Schnuppertag.",
+        "en": "Your tasks\n\n- You'll get to know the sales day in the branch.\n\n- You ask questions, are motivated and curious.\n\nThat's what you bring\n\n- You are thrilled with the latest technology trends.\n\n- You're interested in a professional teaching with us.\n\n- You're at least 13 years old.\n\nWe offer you\n\n- Dynamic and entrepreneurial work environment\n\n- Du culture and \"open doors\"\n\n- Possibility of professional or supplementary teaching\n\n- Support through professional learning guidance\n\n- chance of further employment and career\n\n- 6 weeks holiday\n\n- Generous personnel discounts in different Coop formats\n\n- Austrian contribution to GA\n\n- Coupon worth CHF 500.- as part of a notebook, tablet or accessories\n\nLea Helena Bucher\nHR Vocational training\n\nYou want to get a first insight into everyday work? Discover the world of Interdiscount in the Schnuppertag.",
+        "fr": "Vos tâches\n\n- Vous apprendrez à connaître le jour des ventes.\n\n- Vous posez des questions, vous êtes motivé et curieux.\n\nC'est ce que vous apportez.\n\n- Vous êtes ravis des dernières tendances technologiques.\n\n- Vous êtes intéressé par un enseignement professionnel.\n\n- Vous avez au moins 13 ans.\n\nNous vous offrons\n\n- Environnement de travail dynamique et entrepreneurial\n\n- Du culture et portes ouvertes\n\n- Possibilité d'enseignement professionnel ou complémentaire\n\n- Soutien par l'orientation professionnelle\n\n- les possibilités d'emploi et de carrière\n\n- 6 semaines de vacances\n\n- De généreuses réductions sur le personnel en différents formats Coop\n\n- Contribution autrichienne à l'AG\n\n- Coupon d'une valeur de CHF 500.- dans le cadre d'un carnet, tablette ou accessoires\n\nLea Helena Bucher\nRH Formation professionnelle\n\nVous voulez avoir un premier aperçu du travail quotidien ? Découvrez le monde de l'Interdiscount dans le Schnuppertag."
       },
       "requirementsByLocale": {},
       "addressLocality": "Gossau",
@@ -3336,7 +3372,9 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-14"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-14",
+        "detailhandelsfachfrau-mann-interdiscount-grigioni-d5xyy2",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-10"
       ]
     },
     {
@@ -3687,9 +3725,7 @@
       "previousSlugs": [
         "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-6"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      ]
     },
     {
       "id": "company-fgt457",
@@ -3724,10 +3760,15 @@
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\""
+        "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
+        "en": "Retailer:man",
+        "fr": "Détaillant: homme"
       },
       "descriptionByLocale": {
-        "de": "Deine \n• Aufgaben - Du berätst, bedienst unsere Kundschaft und führst anspruchsvolle Verkaufsgespräche. - Du bestellst die Ware und bist für die Bewirtschaftung zuständig.​ - Du gestaltest produkt- und dienstleistungsorientierte Einkaufserlebnisse. - Du spezialisierst dich in einer von dir ausgewählten Fachrichtung. Das bringst du mit - Teamfähigkeit und Freude am Kontakt mit Menschen - Organisationsfähigkeit und Flexibilität​ - Wille, selbständig zu arbeiten und Verantwortung zu übernehmen​ - Freude daran, sich in einem dynamischen Unternehmen weiterzuentwickeln​ - Kommunikationsfähigkeit ​ - Flair für den Verkauf​ \n• Das bieten wir dir - Jahresabo \"update Fitness\" - CHF 500 für Laptop oder Tablet - 50% auf erstes Handy-Abo von Coop Mobile - SBB Halbtax oder Anteil GA CHF 650 - Viele Vergünstigungen für Mitarbeitende Anja Hollenstein HR Berufsbildung Choose Your Character - Create Your Future: Gestalte deine Zukunft mit einer passenden Lehre. Coop bietet ein grosses Angebot an Lehrstellen und Weiterbildungsmöglichkeiten."
+        "de": "Deine \n• Aufgaben - Du berätst, bedienst unsere Kundschaft und führst anspruchsvolle Verkaufsgespräche. - Du bestellst die Ware und bist für die Bewirtschaftung zuständig.​ - Du gestaltest produkt- und dienstleistungsorientierte Einkaufserlebnisse. - Du spezialisierst dich in einer von dir ausgewählten Fachrichtung. Das bringst du mit - Teamfähigkeit und Freude am Kontakt mit Menschen - Organisationsfähigkeit und Flexibilität​ - Wille, selbständig zu arbeiten und Verantwortung zu übernehmen​ - Freude daran, sich in einem dynamischen Unternehmen weiterzuentwickeln​ - Kommunikationsfähigkeit ​ - Flair für den Verkauf​ \n• Das bieten wir dir - Jahresabo \"update Fitness\" - CHF 500 für Laptop oder Tablet - 50% auf erstes Handy-Abo von Coop Mobile - SBB Halbtax oder Anteil GA CHF 650 - Viele Vergünstigungen für Mitarbeitende Anja Hollenstein HR Berufsbildung Choose Your Character - Create Your Future: Gestalte deine Zukunft mit einer passenden Lehre. Coop bietet ein grosses Angebot an Lehrstellen und Weiterbildungsmöglichkeiten.",
+        "it": "I tuoi compiti\n\n- Conoscerai il giorno delle vendite nel ramo.\n\n- Fai domande, sei motivato e curioso.\n\nEcco cosa porti.\n\n- Sei entusiasta delle ultime tendenze tecnologiche.\n\n- Ti interessa un insegnamento professionale con noi.\n\n- Hai almeno 13 anni.\n\nVi offriamo\n\n- Ambiente di lavoro dinamico e imprenditoriale\n\n- Du cultura e \"porte aperte\"\n\n- Possibilità di insegnamento professionale o complementare\n\n- Supporto attraverso la guida di apprendimento professionale\n\n- possibilità di ulteriore occupazione e carriera\n\n- 6 settimane di vacanza\n\n- Riduzioni generose del personale in diversi formati Coop\n\n- Contributo austriaco al GA\n\n- Coupon di CHF 500.- come parte di un notebook, tablet o accessori\n\nLea Helena Bucher\nFormazione professionale\n\nVuoi avere una prima visione del lavoro quotidiano? Scopri il mondo di Interdiscount nello Schnuppertag.",
+        "en": "Your tasks\n\n- You'll get to know the sales day in the branch.\n\n- You ask questions, are motivated and curious.\n\nThat's what you bring\n\n- You are thrilled with the latest technology trends.\n\n- You're interested in a professional teaching with us.\n\n- You're at least 13 years old.\n\nWe offer you\n\n- Dynamic and entrepreneurial work environment\n\n- Du culture and \"open doors\"\n\n- Possibility of professional or supplementary teaching\n\n- Support through professional learning guidance\n\n- chance of further employment and career\n\n- 6 weeks holiday\n\n- Generous personnel discounts in different Coop formats\n\n- Austrian contribution to GA\n\n- Coupon worth CHF 500.- as part of a notebook, tablet or accessories\n\nLea Helena Bucher\nHR Vocational training\n\nYou want to get a first insight into everyday work? Discover the world of Interdiscount in the Schnuppertag.",
+        "fr": "Vos tâches\n\n- Vous apprendrez à connaître le jour des ventes.\n\n- Vous posez des questions, vous êtes motivé et curieux.\n\nC'est ce que vous apportez.\n\n- Vous êtes ravis des dernières tendances technologiques.\n\n- Vous êtes intéressé par un enseignement professionnel.\n\n- Vous avez au moins 13 ans.\n\nNous vous offrons\n\n- Environnement de travail dynamique et entrepreneurial\n\n- Du culture et portes ouvertes\n\n- Possibilité d'enseignement professionnel ou complémentaire\n\n- Soutien par l'orientation professionnelle\n\n- les possibilités d'emploi et de carrière\n\n- 6 semaines de vacances\n\n- De généreuses réductions sur le personnel en différents formats Coop\n\n- Contribution autrichienne à l'AG\n\n- Coupon d'une valeur de CHF 500.- dans le cadre d'un carnet, tablette ou accessoires\n\nLea Helena Bucher\nRH Formation professionnelle\n\nVous voulez avoir un premier aperçu du travail quotidien ? Découvrez le monde de l'Interdiscount dans le Schnuppertag."
       },
       "requirementsByLocale": {},
       "addressLocality": "Gossau",
@@ -3744,7 +3785,9 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-grigioni-9"
+        "detailhandelsassistent-in-eba-coop-grigioni-9",
+        "detailhandelsfachfrau-mann-interdiscount-jegensdorf-h9i811",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-6"
       ]
     },
     {
@@ -4432,9 +4475,7 @@
         "specialiste-de-vente-au-detail-efz-creer-des-experiences-d-achat-interdiscount-grigioni",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      ]
     },
     {
       "id": "company-9v6y1x",
@@ -4503,9 +4544,7 @@
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-9v6y1x"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      ]
     },
     {
       "id": "company-fnpbu7",
@@ -4575,9 +4614,7 @@
       "previousSlugs": [
         "detailhandelsfachfrau-mann-interdiscount-jegensdorf-fnpbu7",
         "commerciale-di-dettaglio-uomo-interdiscount-jegensdorf"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      ]
     },
     {
       "id": "company-k1bc5i",
@@ -4611,10 +4648,16 @@
         "fr": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i"
       },
       "titleByLocale": {
-        "de": "Detailhandelsfachfrau:mann / -assistent:in"
+        "de": "Detailhandelsfachfrau:mann / -assistent:in",
+        "it": "Specialista del commercio al dettaglio AFC \"Creazione di esperienze di acquisto\"",
+        "en": "Retailer:mann EFZ \"Creating shopping experiences\"",
+        "fr": "Détaillant:mann EFZ \"Créer des expériences d'achat\""
       },
       "descriptionByLocale": {
-        "de": "Deine \n• Aufgaben - Du erhältst an 2 Tagen einen abwechslungsreichen Einblick in den Beruf. - Du darfst aktiv mitarbeiten. - Du lernst das Unternehmen kennen. Das bringst du mit - Du bist interessiert den Lehrberuf kennen zu lernen. - Du bist neugierig und stellst Fragen. \n• Das bieten wir dir - Jahresabo \"update Fitness\" - CHF 500 für Laptop oder Tablet - 50% auf erstes Handy-Abo von Coop Mobile - SBB Halbtax oder Anteil GA CHF 650 - Viele Vergünstigungen für Mitarbeitende Nina Hautle HR Berufsbildung Choose Your Character - Create Your Future: Gestalte deine Zukunft mit einer passenden Lehre. Coop bietet ein grosses Angebot an Lehrstellen und Weiterbildungsmöglichkeiten."
+        "de": "Deine \n• Aufgaben - Du erhältst an 2 Tagen einen abwechslungsreichen Einblick in den Beruf. - Du darfst aktiv mitarbeiten. - Du lernst das Unternehmen kennen. Das bringst du mit - Du bist interessiert den Lehrberuf kennen zu lernen. - Du bist neugierig und stellst Fragen. \n• Das bieten wir dir - Jahresabo \"update Fitness\" - CHF 500 für Laptop oder Tablet - 50% auf erstes Handy-Abo von Coop Mobile - SBB Halbtax oder Anteil GA CHF 650 - Viele Vergünstigungen für Mitarbeitende Nina Hautle HR Berufsbildung Choose Your Character - Create Your Future: Gestalte deine Zukunft mit einer passenden Lehre. Coop bietet ein grosses Angebot an Lehrstellen und Weiterbildungsmöglichkeiten.",
+        "it": "I tuoi compiti\n\n- Si impara la consulenza clienti competente e vendere i nostri prodotti con un sacco di piacere.\n\n- Condurre colloqui di consulenza e vendita dedicati.\n\n- Riceverai ordini e riparazioni dai nostri clienti.\n\n- Lei aiuta con il trattamento della ricevuta e dei ritorni.\n\n- Supporti l'inventario e lo stoccaggio.\n\nEcco cosa porti.\n\n- Gioia nel trattare con i clienti.\n\n- Capacità di comunicazione, affidabilità e disponibilità.\n\n- Enthusiasm per le ultime tendenze tecnologiche.\n\n- Pronta ad assumersi la responsabilità.\n\n- Grado scolastico con buone prestazioni.\n\nVi offriamo\n\n- Ambiente di lavoro dinamico e imprenditoriale\n\n- Du cultura e \"porte aperte\"\n\n- Possibilità di insegnamento professionale o complementare\n\n- Supporto attraverso la guida di apprendimento professionale\n\n- possibilità di ulteriore occupazione e carriera\n\n- 6 settimane di vacanza\n\n- Riduzioni generose del personale in diversi formati Coop\n\n- Contributo austriaco al GA\n\n- Coupon di CHF 500.- come parte di un notebook, tablet o accessori\n\nLea Helena Bucher\nFormazione professionale\n\nOffriamo ai nostri clienti la migliore esperienza di shopping in Svizzera da Interdiscount. E hai un brillante ingresso di carriera in un ambiente di lavoro dinamico pieno di opportunità di sviluppo.",
+        "en": "Your tasks\n\n- You learn competent customer advice and sell our products with lots of pleasure.\n\n- You conduct dedicated consulting and sales talks.\n\n- You receive orders and repair orders from our customers.\n\n- You help with the processing of goods receipt and returns.\n\n- You support inventory and store and storage.\n\nThat's what you bring\n\n- Joy in dealing with customers.\n\n- Communication skills, reliability and helpfulness.\n\n- Enthusiasm for the latest technology trends.\n\n- Ready to take responsibility.\n\n- School degree with good performance.\n\nWe offer you\n\n- Dynamic and entrepreneurial work environment\n\n- Du culture and \"open doors\"\n\n- Possibility of professional or supplementary teaching\n\n- Support through professional learning guidance\n\n- chance of further employment and career\n\n- 6 weeks holiday\n\n- Generous personnel discounts in different Coop formats\n\n- Austrian contribution to GA\n\n- Coupon worth CHF 500.- as part of a notebook, tablet or accessories\n\nLea Helena Bucher\nHR Vocational training\n\nWe offer our customers the best shopping experience in Switzerland from Interdiscount. And you have a brilliant career entry into a dynamic working environment full of development opportunities.",
+        "fr": "Vos tâches\n\n- Vous apprenez des conseils clients compétents et vendez nos produits avec beaucoup de plaisir.\n\n- Vous dirigez des consultations et des discussions commerciales.\n\n- Vous recevez des commandes de nos clients.\n\n- Vous aidez au traitement des reçus et des retours de marchandises.\n\n- Vous soutenez l'inventaire et le stockage.\n\nC'est ce que vous apportez.\n\n- La joie de traiter avec les clients.\n\n- Compétences en communication, fiabilité et utilité.\n\n- L'enthousiasme pour les dernières tendances technologiques.\n\n- Prêt à prendre des responsabilités.\n\n- Diplôme scolaire avec de bonnes performances.\n\nNous vous offrons\n\n- Environnement de travail dynamique et entrepreneurial\n\n- Du culture et portes ouvertes\n\n- Possibilité d'enseignement professionnel ou complémentaire\n\n- Soutien par l'orientation professionnelle\n\n- les possibilités d'emploi et de carrière\n\n- 6 semaines de vacances\n\n- De généreuses réductions sur le personnel en différents formats Coop\n\n- Contribution autrichienne à l'AG\n\n- Coupon d'une valeur de CHF 500.- dans le cadre d'un carnet, tablette ou accessoires\n\nLea Helena Bucher\nRH Formation professionnelle\n\nNous offrons à nos clients la meilleure expérience d'achat en Suisse depuis Interdiscount. Et vous avez une brillante entrée de carrière dans un environnement de travail dynamique plein de possibilités de développement."
       },
       "requirementsByLocale": {},
       "addressLocality": "Gossau",
@@ -4631,7 +4674,10 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-11"
+        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-11",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
+        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-13"
       ]
     },
     {
@@ -4812,9 +4858,7 @@
       "previousSlugs": [
         "detailhandelsfachfrau-mann-interdiscount-jegensdorf-96xkec",
         "venditore-di-dettaglio-interdiscount-grigioni"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      ]
     },
     {
       "id": "company-6z6qsu",
@@ -4875,19 +4919,36 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "retail-salesperson-interdiscount-grigioni"
+          "retail-salesperson-interdiscount-grigioni",
+          "retailer-man-interdiscount-jegensdorf-0ecf66",
+          "retailer-man-interdiscount-jegensdorf-5e5998"
         ],
         "fr": [
-          "vendeur-e-en-detail-interdiscount-grigioni"
+          "vendeur-e-en-detail-interdiscount-grigioni",
+          "detaillant-homme-interdiscount-jegensdorf-0ecf66",
+          "detaillant-homme-interdiscount-jegensdorf-5e5998"
+        ],
+        "de": [
+          "detailhandelsfachfrau-mann-interdiscount-grigioni-6z6qsu",
+          "detailhandelsfachfrau-mann-interdiscount-jegensdorf-96xkec"
+        ],
+        "it": [
+          "detailhandelsfachfrau-mann-interdiscount-grigioni-96xkec"
         ]
       },
       "previousSlugs": [
         "retail-salesperson-interdiscount-grigioni",
+        "retailer-man-interdiscount-jegensdorf-0ecf66",
         "vendeur-e-en-detail-interdiscount-grigioni",
-        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-6"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+        "detaillant-homme-interdiscount-jegensdorf-0ecf66",
+        "detailhandelsfachfrau-mann-interdiscount-grigioni-6z6qsu",
+        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-6",
+        "detailhandelsfachfrau-mann-interdiscount-jegensdorf-96xkec",
+        "venditore-di-dettaglio-interdiscount-grigioni",
+        "retailer-man-interdiscount-jegensdorf-5e5998",
+        "detaillant-homme-interdiscount-jegensdorf-5e5998",
+        "detailhandelsfachfrau-mann-interdiscount-grigioni-96xkec"
+      ]
     },
     {
       "id": "company-6kplqg",
@@ -4957,9 +5018,7 @@
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-grigioni-6kplqg",
         "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-jumbo-grigioni"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      ]
     },
     {
       "id": "company-1ceqqh",
@@ -4993,10 +5052,16 @@
         "fr": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-1ceqqh"
       },
       "titleByLocale": {
-        "de": "Detailhandelsfachfrau:mann / -assistent:in"
+        "de": "Detailhandelsfachfrau:mann / -assistent:in",
+        "en": "Retailer:man",
+        "fr": "Détaillant: homme",
+        "it": "Rivenditore:man"
       },
       "descriptionByLocale": {
-        "de": "Deine \n• Aufgaben - Du erhältst an 2 Tagen einen abwechslungsreichen Einblick in den Beruf. - Du darfst aktiv mitarbeiten. - Du lernst das Unternehmen kennen. Das bringst du mit - Du bist interessiert den Lehrberuf kennen zu lernen. - Du bist neugierig und stellst Fragen. \n• Das bieten wir dir - Jahresabo \"update Fitness\" - CHF 500 für Laptop oder Tablet - 50% auf erstes Handy-Abo von Coop Mobile - SBB Halbtax oder Anteil GA CHF 650 - Viele Vergünstigungen für Mitarbeitende Nina Hautle HR Berufsbildung Choose Your Character - Create Your Future: Gestalte deine Zukunft mit einer passenden Lehre. Coop bietet ein grosses Angebot an Lehrstellen und Weiterbildungsmöglichkeiten."
+        "de": "Deine \n• Aufgaben - Du erhältst an 2 Tagen einen abwechslungsreichen Einblick in den Beruf. - Du darfst aktiv mitarbeiten. - Du lernst das Unternehmen kennen. Das bringst du mit - Du bist interessiert den Lehrberuf kennen zu lernen. - Du bist neugierig und stellst Fragen. \n• Das bieten wir dir - Jahresabo \"update Fitness\" - CHF 500 für Laptop oder Tablet - 50% auf erstes Handy-Abo von Coop Mobile - SBB Halbtax oder Anteil GA CHF 650 - Viele Vergünstigungen für Mitarbeitende Nina Hautle HR Berufsbildung Choose Your Character - Create Your Future: Gestalte deine Zukunft mit einer passenden Lehre. Coop bietet ein grosses Angebot an Lehrstellen und Weiterbildungsmöglichkeiten.",
+        "it": "I tuoi compiti\n\n- Conoscerai il giorno delle vendite nel ramo.\n\n- Fai domande, sei motivato e curioso.\n\nEcco cosa porti.\n\n- Sei entusiasta delle ultime tendenze tecnologiche.\n\n- Ti interessa un insegnamento professionale con noi.\n\n- Hai almeno 13 anni.\n\nVi offriamo\n\n- Ambiente di lavoro dinamico e imprenditoriale\n\n- Du cultura e \"porte aperte\"\n\n- Possibilità di insegnamento professionale o complementare\n\n- Supporto attraverso la guida di apprendimento professionale\n\n- possibilità di ulteriore occupazione e carriera\n\n- 6 settimane di vacanza\n\n- Riduzioni generose del personale in diversi formati Coop\n\n- Contributo austriaco al GA\n\n- Coupon di CHF 500.- come parte di un notebook, tablet o accessori\n\nLea Helena Bucher\nFormazione professionale\n\nVuoi avere una prima visione del lavoro quotidiano? Scopri il mondo di Interdiscount nello Schnuppertag.",
+        "en": "Your tasks\n\n- You'll get to know the sales day in the branch.\n\n- You ask questions, are motivated and curious.\n\nThat's what you bring\n\n- You are thrilled with the latest technology trends.\n\n- You're interested in a professional teaching with us.\n\n- You're at least 13 years old.\n\nWe offer you\n\n- Dynamic and entrepreneurial work environment\n\n- Du culture and \"open doors\"\n\n- Possibility of professional or supplementary teaching\n\n- Support through professional learning guidance\n\n- chance of further employment and career\n\n- 6 weeks holiday\n\n- Generous personnel discounts in different Coop formats\n\n- Austrian contribution to GA\n\n- Coupon worth CHF 500.- as part of a notebook, tablet or accessories\n\nLea Helena Bucher\nHR Vocational training\n\nYou want to get a first insight into everyday work? Discover the world of Interdiscount in the Schnuppertag.",
+        "fr": "Vos tâches\n\n- Vous apprendrez à connaître le jour des ventes.\n\n- Vous posez des questions, vous êtes motivé et curieux.\n\nC'est ce que vous apportez.\n\n- Vous êtes ravis des dernières tendances technologiques.\n\n- Vous êtes intéressé par un enseignement professionnel.\n\n- Vous avez au moins 13 ans.\n\nNous vous offrons\n\n- Environnement de travail dynamique et entrepreneurial\n\n- Du culture et portes ouvertes\n\n- Possibilité d'enseignement professionnel ou complémentaire\n\n- Soutien par l'orientation professionnelle\n\n- les possibilités d'emploi et de carrière\n\n- 6 semaines de vacances\n\n- De généreuses réductions sur le personnel en différents formats Coop\n\n- Contribution autrichienne à l'AG\n\n- Coupon d'une valeur de CHF 500.- dans le cadre d'un carnet, tablette ou accessoires\n\nLea Helena Bucher\nRH Formation professionnelle\n\nVous voulez avoir un premier aperçu du travail quotidien ? Découvrez le monde de l'Interdiscount dans le Schnuppertag."
       },
       "requirementsByLocale": {},
       "addressLocality": "Gossau",
@@ -5013,7 +5078,10 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-10"
+        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-10",
+        "retail-salesperson-interdiscount-grigioni",
+        "vendeur-e-en-detail-interdiscount-grigioni",
+        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-6"
       ]
     },
     {
@@ -6776,7 +6844,11 @@
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
-        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-13"
+        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-13",
+        "retail-sales-specialist-efz-shaping-shopping-experiences-interdiscount-grigioni",
+        "specialiste-de-vente-au-detail-efz-creer-des-experiences-d-achat-interdiscount-grigioni",
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni"
       ],
       "sourceLang": "de"
     },
@@ -6851,7 +6923,9 @@
       "previousSlugs": [
         "retail-specialist-efz-for-shaping-shopping-experiences-jumbo-grigioni",
         "specialiste-du-retail-efz-pour-la-creation-d-experiences-d-achat-jumbo-grigioni",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-grigioni-lc95ys"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-grigioni-lc95ys",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-grigioni-6kplqg",
+        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-jumbo-grigioni"
       ],
       "sourceLang": "de"
     },
@@ -8136,7 +8210,8 @@
         "collaborateur-trice-inventuren-coop-grigioni-4whh8x",
         "personnel-en-inventaire-coop-genossenschaft-basel",
         "mitarbeiter-in-inventuren-coop-grigioni-4whh8x",
-        "associate-inventuren-coop-genossenschaft-basel-arot84"
+        "associate-inventuren-coop-genossenschaft-basel-arot84",
+        "verkaufer-in-frischprodukte-brot-backwaren-coop-klosters-serneus-graubunden"
       ]
     },
     {
