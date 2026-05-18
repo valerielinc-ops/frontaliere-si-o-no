@@ -1,18 +1,87 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-05-17T22:18:32.173Z",
-  "total": 6,
-  "newCount": 0,
-  "updatedCount": 2,
+  "generatedAt": "2026-05-18T13:01:19.599Z",
+  "total": 8,
+  "newCount": 2,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 12217,
-  "avgDurationMs": 12217,
+  "unchangedCount": 0,
+  "durationMs": 14723,
+  "avgDurationMs": 14723,
   "durationHistory": [
-    12217
+    14723
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-en-placement%2C-Lausanne/1280550201/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-en-placement%2C-Lausanne/1280550201/",
+      "title": "Conseiller:ère clientèle en placement, Lausanne",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Lausanne",
+      "canton": "VD",
+      "country": "CH",
+      "slug": "conseiller-ere-clientele-en-placement-lausanne-postfinance",
+      "sourceLang": "fr",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-18",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "VD",
+        "location": "Lausanne"
+      },
+      "crawledAt": "",
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Solution-Architecture-Owner-Kundeninteraktion-%28wmd%29/1384005833/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Solution-Architecture-Owner-Kundeninteraktion-%28wmd%29/1384005833/",
+      "title": "Solution Architecture Owner Kundeninteraktion (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-18",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 6,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Architecture-Owner-Telefonie-und-KOP-%28wmd%29/1384004633/",
@@ -45,7 +114,6 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -85,7 +153,6 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -93,10 +160,7 @@
         "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "url": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Lausanne-Conseiller%C3%A8re-client%C3%A8le-priv%C3%A9e%2C-Lausanne/1280543401/",
@@ -128,7 +192,6 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -167,7 +230,6 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -207,7 +269,6 @@
       "currency": "CHF",
       "postalCode": "1630",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -247,7 +308,6 @@
       "currency": "CHF",
       "postalCode": "1227",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -256,5 +316,7 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
