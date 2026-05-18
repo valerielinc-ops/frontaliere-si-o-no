@@ -488,8 +488,8 @@ export function buildSectorHubSeo(
         }
         if (sector === 'infermieri') {
           return safeCount > 0
-            ? `Offerte lavoro infermieri Svizzera Canton Ticino: ${safeCount} posizioni in ospedali, cliniche e case anziani. Aggiornate ogni giorno, candidatura diretta da frontaliere.`
-            : `Offerte lavoro infermieri Svizzera Canton Ticino: posizioni in ospedali, cliniche e case anziani. Aggiornate ogni giorno, candidatura diretta da frontaliere.`;
+            ? `Lavoro infermieri Svizzera Canton Ticino: ${safeCount} posizioni in ospedali, cliniche e case anziani. Aggiornate ogni giorno, candidatura diretta.`
+            : `Lavoro infermieri Svizzera Canton Ticino: posizioni in ospedali, cliniche e case anziani. Aggiornate ogni giorno, candidatura diretta.`;
         }
         return safeCount > 0
           ? `Trova ${safeCount} offerte di lavoro per ${noun.toLowerCase()} in Ticino, aggiornate ogni giorno. Candidati come frontaliere direttamente online, senza registrazione.`

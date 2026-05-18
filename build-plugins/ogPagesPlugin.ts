@@ -618,22 +618,44 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const metaDesc = metaDescRaw.length > 155
  ? metaDescRaw.substring(0, 152) + '…'
  : metaDescRaw;
- // <title>: headline VERBATIM, brand suffix only when total ≤ 70 char.
+ // <title>: headline VERBATIM, brand suffix only when total <= TITLE_MAX_CHARS.
+ // Per build-plugins/shared/titleSuffix.ts, mid-headline ellipsis truncation
+ // tanks CTR (see /calcola-stipendio/ regression doc). We only force a
+ // truncation when there's a real disambiguator collision that MUST be
+ // preserved to satisfy audit:title-uniqueness -- and even then, we drop the
+ // brand first (it's "nice-to-have", not a ranking signal) before resorting
+ // to mid-headline truncation.
  const articleLocale: 'it' | 'en' | 'de' | 'fr' = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const baseTitleProbe = buildTitleWithBrand(localizedTitle);
  const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
  const articleSlugForLocale = String(urlPath || '').split('/').filter(Boolean).pop() || en.articleId;
  const disamb = collidesInLocale ? articleHashFromSlug(articleSlugForLocale, localizedTitle) : '';
- // Reserve room for disambiguator AND brand inside the 70-char cap so the
- // disambiguator survives the headline-budget truncate. Without this manual
- // pre-truncate, multi-article collisions (auto-generated articles sharing
- // a topical headline prefix) get the (#hash) lopped off downstream and
- // re-trip audit:title-uniqueness.
- const articleHeadlineBudget = TITLE_MAX_CHARS - disamb.length - TITLE_BRAND_SUFFIX.length;
- const cappedArticleTitle = localizedTitle.length <= articleHeadlineBudget
-  ? localizedTitle
-  : truncateHeadline(localizedTitle, Math.max(1, articleHeadlineBudget));
- const htmlPageTitle = buildTitleWithBrand(`${cappedArticleTitle}${disamb}`);
+ let htmlPageTitle: string;
+ if (!disamb) {
+  // No collision: trust buildTitleWithBrand to either keep brand or drop it.
+  // It never truncates -- long headlines emit verbatim and the audit baseline
+  // ratchets them down at source.
+  htmlPageTitle = buildTitleWithBrand(localizedTitle);
+ } else {
+  // Disambiguator MUST survive (collision-resolution for title-uniqueness).
+  // Try brand+disamb first; if it doesn't fit, drop brand and keep disamb;
+  // if even headline+disamb overflows, truncate headline (last resort -- the
+  // only path where ellipsis truncation is acceptable because the alternative
+  // is dropping the (#hash) and breaking the title-uniqueness audit).
+  const withBrandAndDisamb = `${localizedTitle}${disamb}${TITLE_BRAND_SUFFIX}`;
+  if (withBrandAndDisamb.length <= TITLE_MAX_CHARS) {
+   htmlPageTitle = withBrandAndDisamb;
+  } else {
+   const headlinePlusDisamb = `${localizedTitle}${disamb}`;
+   if (headlinePlusDisamb.length <= TITLE_MAX_CHARS) {
+    htmlPageTitle = headlinePlusDisamb;
+   } else {
+    const headlineBudget = TITLE_MAX_CHARS - disamb.length;
+    const truncated = truncateHeadline(localizedTitle, Math.max(1, headlineBudget));
+    htmlPageTitle = `${truncated}${disamb}`;
+   }
+  }
+ }
  const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
  const allBodyKeys = localizedBody ? Object.keys(localizedBody).sort((a, b) => {
