@@ -516,7 +516,7 @@ function buildHomepageCrossLocaleCantonNavHtml(): string {
  const codes = [...ALL_CANTON_CODES, AGGREGATE_KEY];
  const localesOrder: HpSeoLocale[] = ['en', 'de', 'fr']; // IT is already covered by buildHomepageCantonNavHtml
  const sections: string[] = [];
- const pillStyle = 'display:inline-block;padding:2px 7px;margin:1px;border-radius:5px;background:#f1f5f9;color:#475569;text-decoration:none;font-size:11px;border:1px solid #e2e8f0';
+ const pillStyle = 'display:inline-block;padding:8px 12px;margin:3px;border-radius:6px;background:#f1f5f9;color:#475569;text-decoration:none;font-size:13px;border:1px solid #e2e8f0;min-height:36px;line-height:1.4';
  for (const loc of localesOrder) {
    const langName = loc === 'en' ? 'English' : loc === 'de' ? 'Deutsch' : 'Français';
    const rows: string[] = [];
@@ -533,7 +533,7 @@ function buildHomepageCrossLocaleCantonNavHtml(): string {
        .join(' ');
      rows.push(`<a href="${cantonHubHref}" hreflang="${loc}" style="${pillStyle}">${displayLabel}</a>`);
    }
-   if (rows.length > 0) sections.push(`<div><strong style="font-size:11px;color:var(--color-subtle);font-weight:600">${langName}</strong> ${rows.join('')}</div>`);
+   if (rows.length > 0) sections.push(`<div style="margin:8px 0"><strong style="font-size:13px;color:var(--color-subtle);font-weight:600;display:block;margin-bottom:4px">${langName}</strong> ${rows.join('')}</div>`);
  }
  if (sections.length === 0) return '';
  return `<aside id="hp-xlocale-cantons" aria-label="Canton hubs in all languages" style="max-width:1100px;margin:8px auto 24px;padding:0 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.7"><details style="border:1px solid #e2e8f0;border-radius:6px;padding:.4rem .6rem;background:#f8fafc"><summary style="cursor:pointer;font-size:.85rem;color:var(--color-subtle);font-weight:600">Cantons in other languages (${sections.length * 25})</summary><div style="margin-top:.4rem">${sections.join('')}</div></details></aside>`;
@@ -570,8 +570,8 @@ function buildHomepageLangSwitchHtml(currentLocale: HpSeoLocale): string {
    : currentLocale === 'de' ? 'Sprachumschalter'
    : currentLocale === 'fr' ? 'Sélecteur de langue'
    : 'Cambia lingua';
- const pillStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#f8fafc;color:var(--color-heading);text-decoration:none;font-size:13px;font-weight:600;border:1px solid #cbd5e1';
- const activeStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#1e293b;color:#fff;font-size:13px;font-weight:600;border:1px solid #1e293b';
+ const pillStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#f8fafc;color:var(--color-heading);text-decoration:none;font-size:14px;font-weight:600;border:1px solid #cbd5e1;min-height:44px;line-height:1.4;box-sizing:border-box';
+ const activeStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#1e293b;color:#fff;font-size:14px;font-weight:600;border:1px solid #1e293b;min-height:44px;line-height:1.4;box-sizing:border-box';
  const items = langs
    .map(({ code, label, href }) => code === currentLocale
      ? `<span style="${activeStyle}" aria-current="page">${label}</span>`
@@ -3259,7 +3259,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
    .split('-')
    .map((w: string) => w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w)
    .join(' ');
- cantonAnchors.push(`<a href="${cantonHubHref}" style="display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:13px;font-weight:600;border:1px solid #c7d2fe">${esc(displayLabel)}</a>`);
+ cantonAnchors.push(`<a href="${cantonHubHref}" style="display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:14px;font-weight:600;border:1px solid #c7d2fe;min-height:44px;line-height:1.4;box-sizing:border-box">${esc(displayLabel)}</a>`);
  // Per-canton "today" landing lives under that canton's own section
  // with the canton's per-locale long-form slug, e.g.
  // `/cerca-lavoro-basilea/offerte-di-lavoro-basilea-oggi/` or
@@ -3270,7 +3270,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const todaySlug = getJobTodayLandingSlug(cantonLocale, code);
  const cantonSectionForToday = resolveCantonSection(cantonLocale, code);
  const todayHref = `/${(locale === 'it' ? '' : `${locale}/`)}${cantonSectionForToday}/${todaySlug}/`.replace(/\/+/g, '/');
- cantonAnchors.push(`<a href="${todayHref}" style="display:inline-block;padding:3px 8px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;border:1px solid #bbf7d0">${esc(displayLabel)} &mdash; ${esc(todayLabel)}</a>`);
+ cantonAnchors.push(`<a href="${todayHref}" style="display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:13px;border:1px solid #bbf7d0;min-height:44px;line-height:1.4;box-sizing:border-box">${esc(displayLabel)} &mdash; ${esc(todayLabel)}</a>`);
  }
  }
  if (cantonAnchors.length > 0) {
@@ -3290,10 +3290,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (nonTiCantonNavEntries.length > 0) {
  const navLocale = locale as NonTiNavLocale;
  const localePref = navLocale === 'it' ? '' : `${navLocale}/`;
- const pillBaseStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#f1f5f9;color:var(--color-heading);text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #cbd5e1';
- const pillEditorialStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #c7d2fe';
- const pillSectorStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #bbf7d0';
- const pillCompanyStyle = 'display:inline-block;padding:3px 9px;margin:2px;border-radius:6px;background:#fef3c7;color:#854d0e;text-decoration:none;font-size:12px;line-height:1.3;border:1px solid #fcd34d';
+ const pillBaseStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#f1f5f9;color:var(--color-heading);text-decoration:none;font-size:13px;line-height:1.4;border:1px solid #cbd5e1;min-height:44px;box-sizing:border-box';
+ const pillEditorialStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:13px;line-height:1.4;border:1px solid #c7d2fe;min-height:44px;box-sizing:border-box';
+ const pillSectorStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:13px;line-height:1.4;border:1px solid #bbf7d0;min-height:44px;box-sizing:border-box';
+ const pillCompanyStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#fef3c7;color:#854d0e;text-decoration:none;font-size:13px;line-height:1.4;border:1px solid #fcd34d;min-height:44px;box-sizing:border-box';
  const outerNavLabel = navLocale === 'it' ? 'Esplora i cantoni in dettaglio'
    : navLocale === 'en' ? 'Explore cantons in detail'
    : navLocale === 'de' ? 'Kantone im Detail erkunden'
@@ -3325,28 +3325,28 @@ export function staticPagesPlugin(rootDir: string): Plugin {
      const anchors = e.editorialSlots[navLocale]
        .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillEditorialStyle}">${esc(it.label)}</a>`)
        .join('');
-     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(editorialLabel)}:</strong> ${anchors}</div>`);
+     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.875rem;color:#475569">${esc(editorialLabel)}:</strong> ${anchors}</div>`);
    }
    // Sector hubs (≤10).
    if (e.sectorSlugs[navLocale].length > 0) {
      const anchors = e.sectorSlugs[navLocale]
        .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillSectorStyle}">${esc(it.label)}</a>`)
        .join('');
-     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(sectorLabel)}:</strong> ${anchors}</div>`);
+     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.875rem;color:#475569">${esc(sectorLabel)}:</strong> ${anchors}</div>`);
    }
    // Top company hubs (≤6).
    if (e.companyHubs[navLocale].length > 0) {
      const anchors = e.companyHubs[navLocale]
        .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillCompanyStyle}">${esc(it.label)}</a>`)
        .join('');
-     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(companyLabel)}:</strong> ${anchors}</div>`);
+     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.875rem;color:#475569">${esc(companyLabel)}:</strong> ${anchors}</div>`);
    }
    // City hubs (≤8) — slug is locale-agnostic (citySlug normalised).
    if (e.cityHubs.length > 0) {
      const anchors = e.cityHubs
        .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillBaseStyle}">${esc(it.label)}</a>`)
        .join('');
-     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(cityLabel)}:</strong> ${anchors}</div>`);
+     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.875rem;color:#475569">${esc(cityLabel)}:</strong> ${anchors}</div>`);
    }
    if (blocks.length === 0) continue;
    const totalCount = e.editorialSlots[navLocale].length + e.sectorSlugs[navLocale].length + e.companyHubs[navLocale].length + e.cityHubs.length;
@@ -3378,8 +3378,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
    const tiSection = resolveCantonSection(navLocale, 'TI');
    const localePref = navLocale === 'it' ? '' : `${navLocale}/`;
    const tiBase = `/${localePref}${tiSection}/`.replace(/\/+/g, '/');
-   const linkStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:13px;border:1px solid #c7d2fe';
-   const secondaryLinkStyle = 'display:inline-block;padding:3px 8px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;border:1px solid #bbf7d0';
+   const linkStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:14px;border:1px solid #c7d2fe;min-height:44px;line-height:1.4;box-sizing:border-box';
+   const secondaryLinkStyle = 'display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:13px;border:1px solid #bbf7d0;min-height:44px;line-height:1.4;box-sizing:border-box';
 
    // (a) Editorial slot pages — 7 per locale.
    const editorialSlotLabels: Record<TiNavLocale, { today: string; nurses: string; partTime: string; clinics: string; careHomes: string; oss: string; educators: string; nav: string }> = {
@@ -3521,7 +3521,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const pageAnchors: string[] = [];
  for (let p = 1; p <= articlesTotalPages; p++) {
  const href = paginatedPath(articlesArchiveBase, p);
- pageAnchors.push(`<a href="${href}" style="display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#f1f5f9;color:var(--color-heading);text-decoration:none;font-size:13px;border:1px solid #e2e8f0">${pageWord}&nbsp;${p}</a>`);
+ pageAnchors.push(`<a href="${href}" style="display:inline-block;padding:10px 14px;margin:3px;border-radius:6px;background:#f1f5f9;color:var(--color-heading);text-decoration:none;font-size:14px;border:1px solid #e2e8f0;min-height:44px;line-height:1.4;box-sizing:border-box">${pageWord}&nbsp;${p}</a>`);
  }
  editorialBlocks.push(
  `<nav aria-label="${esc(navLabel)}" style="margin:.75rem 0 1rem"><p style="margin:.25rem 0;font-size:.85rem;color:var(--color-subtle)">${esc(navLabel)}:</p>${pageAnchors.join('')}</nav>`,

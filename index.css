@@ -383,6 +383,22 @@ aside.seo-footer-block .seo-fb-disclaimer {
   color: var(--color-subtle);
   font-style: italic;
 }
+/* Underline inline prose links inside the SEO footer aside.
+   Squirrel a11y/link-in-text-block flags un-underlined links that share
+   color contrast with surrounding body text. Scope is limited to <p>/<dd>
+   bodies so structural pills/CTAs elsewhere keep their pill chrome. */
+aside.seo-footer-block p a,
+aside.seo-footer-block dd a,
+aside.seo-footer-block .seo-fb-section-body a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+aside.seo-footer-block p a:hover,
+aside.seo-footer-block dd a:hover,
+aside.seo-footer-block .seo-fb-section-body a:hover {
+  text-decoration-thickness: 2px;
+}
 
 /* Hide reCAPTCHA badge — required notice is in privacy policy */
 .grecaptcha-badge { visibility: hidden !important; }
