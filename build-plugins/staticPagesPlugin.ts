@@ -26,6 +26,7 @@ import {
 import { emitSeoHubs } from './seoHubsPlugin';
 import { ARTICLES_PAGE_SIZE, JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, type HubLocale as ArchiveHubLocale } from './seoHubsData';
 import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
+import { buildSalaryLandingBody } from './shared/salaryLandingShell';
 import { ALL_CANTON_CODES, AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { getJobTodayLandingSlug, getJobNursesHubSlug, getJobPartTimeLandingSlug, careClusterSlug } from './jobEditorialLanding';
@@ -3848,7 +3849,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  };
  const authorLine = AUTHOR_BYLINE[locale] ?? AUTHOR_BYLINE.it;
 
- const editorialHtml = `<div style="margin-top:.75rem;font-size:.95rem;line-height:1.6;color:#334155">${dateLine}${authorLine}${editorialBlocks.map((b) => /^<(h[1-6]|p|nav|div|details|section|ul|ol|table|figure|aside|blockquote)\b/.test(b) ? b : `<p style="margin:.5rem 0">${esc(b)}</p>`).join('')}${comparisonTableHtml}${faqHtml}${relatedHtml}</div>`;
+ // Treat a block as raw HTML when it starts with a block-level tag OR when it
+ // contains any HTML tag at all (e.g. paragraphs that begin with text but
+ // embed `<strong>` / `<a>` / `<em>`). Without the second check those tags
+ // were escaped to literal `&lt;strong&gt;` text on the rendered page.
+ const editorialHtml = `<div style="margin-top:.75rem;font-size:.95rem;line-height:1.6;color:#334155">${dateLine}${authorLine}${editorialBlocks.map((b) => {
+   if (/^<(h[1-6]|p|nav|div|details|section|ul|ol|table|figure|aside|blockquote)\b/.test(b)) return b;
+   if (/<[a-zA-Z][^>]*>/.test(b)) return `<p style="margin:.5rem 0">${b}</p>`;
+   return `<p style="margin:.5rem 0">${esc(b)}</p>`;
+ }).join('')}${comparisonTableHtml}${faqHtml}${relatedHtml}</div>`;
 
  // Detect page section from URL for skeleton-aligned static content
  const urlSegs = urlPath.split('/').filter(Boolean);
@@ -3987,6 +3996,21 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  rootHtml = `<div style="max-width:72rem;margin:0 auto;padding:1rem"><div style="${sp};height:6rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:14rem"></div><div style="${sp};height:14rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
  } else if (vitaSlugs.includes(firstSeg)) {
  rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:10rem"></div><div style="${sp};height:10rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
+ } else if (
+ // Mobile-first SEO-landing template (CLAUDE.md rule 17) for every
+ // /calcola-stipendio/* scenario page (and locale equivalents). The
+ // helper renders breadcrumb + eyebrow + H1 + lede + stat tiles +
+ // consiglio + CTA + comparative table + FAQ, with long prose pushed
+ // BELOW the data area so the meaty content stays above the mobile fold.
+ /^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/[^/]/.test(canonicalPath)
+ ) {
+ rootHtml = buildSalaryLandingBody({
+ canonicalPath,
+ h1Text,
+ seoDesc: seoData.desc,
+ editorialHtml,
+ navHtml,
+ });
  } else {
  // Default: calculator-like layout
  rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="${sp};height:38rem;margin-top:1.5rem"></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
