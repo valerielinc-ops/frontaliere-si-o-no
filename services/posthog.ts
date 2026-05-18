@@ -98,3 +98,46 @@ export function identifyUser(distinctId: string, properties?: Record<string, any
  if (ph) ph.identify(distinctId, properties);
  });
 }
+
+/**
+ * Synchronously read a feature flag's variant string. Returns null when PostHog
+ * has not loaded yet or the flag is undefined — callers must handle the null
+ * branch (typically by falling back to the control experience).
+ */
+export function getFeatureFlag(key: string): string | boolean | null {
+ if (!_posthog) return null;
+ const v = _posthog.getFeatureFlag(key);
+ return v === undefined ? null : v;
+}
+
+/**
+ * Register a callback that fires once feature flags are loaded (and on every
+ * subsequent reload). Returns an unsubscribe function. The callback fires
+ * immediately if flags are already loaded.
+ */
+export function onFeatureFlags(callback: () => void): () => void {
+ let unsubscribe: (() => void) | null = null;
+ let cancelled = false;
+ ensurePostHog().then(ph => {
+ if (cancelled || !ph) return;
+ unsubscribe = ph.onFeatureFlags(() => callback());
+ callback();
+ });
+ return () => {
+ cancelled = true;
+ if (unsubscribe) unsubscribe();
+ };
+}
+
+/**
+ * Attach a property to every subsequent PostHog event (super-property).
+ * Used to tag every event with the active A/B variant once it resolves.
+ */
+export function registerSuperProperty(key: string, value: string | number | boolean): void {
+ const apply = (ph: any) => ph.register({ [key]: value });
+ if (_posthog) {
+ apply(_posthog);
+ return;
+ }
+ ensurePostHog().then(ph => { if (ph) apply(ph); });
+}

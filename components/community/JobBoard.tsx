@@ -93,6 +93,7 @@ import JobOrphanView from '@/components/community/JobOrphanView';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
+import { useAuthGateHeadlineVariant } from '@/services/authGateExperiment';
 import {
  isMultiLocation,
  normalizeJobCategory,
@@ -2459,6 +2460,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 }) => {
  const { t } = useTranslation();
  const [locale] = useLocale();
+ const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const nav = useNavigation();
  const pageSize = 10;
  // Runtime kill-switches for the "Strumenti correlati" sidebar cross-links.
@@ -6005,7 +6007,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
  <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
  <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
- <span>{t('jobBoard.gate.title')}</span>
+ <span>{gateHeadline}</span>
  </h2>
 
  {/* Trust signals — 2 lines at text-sm. text-xs is reserved for metadata
