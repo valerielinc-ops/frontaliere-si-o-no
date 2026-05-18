@@ -879,6 +879,20 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     ],
   });
 
+  // CollectionPage + mainEntity ItemList — gives Google a structured view
+  // of every station/city the page links to. Position is global (1..N)
+  // across all groups so the list reads top-to-bottom on the rendered page.
+  const flatListItems: Array<{ name: string; href: string }> = [];
+  for (const g of groups) {
+    for (const a of g.anchors) flatListItems.push({ name: a.label, href: a.href });
+  }
+  const itemListElements = flatListItems.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.name,
+    url: `${BASE_URL}${item.href}`,
+  }));
+
   const webPageLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -892,6 +906,13 @@ function renderIndexPage(opts: RenderIndexOpts): string {
       '@type': 'WebSite',
       url: BASE_URL,
       name: 'Frontaliere Ticino',
+    },
+    mainEntity: {
+      '@type': 'ItemList',
+      name: titles.h1,
+      numberOfItems: itemListElements.length,
+      itemListOrder: 'https://schema.org/ItemListOrderAscending',
+      itemListElement: itemListElements,
     },
   });
 

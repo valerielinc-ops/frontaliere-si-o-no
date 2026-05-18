@@ -1833,12 +1833,12 @@ function renderPage(inp: PageInputs): string {
     ${trendTableHtml}
     ${periodAvgNoteHtml}
   </section>
-  <section style="margin:0 0 24px">
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
-  </section>
   ${faqHtml}
   ${renderFuelTodayFrontalierContext({ locale, fuelLabel, zoneLabel, priceFmt, deltaYestFmt, delta7Fmt, isZone: !!zone })}
+  <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-label="${esc(copy.faqTitle)}">
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(intro)}</p>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(paragraph)}</p>
+  </section>
   ${avg !== null
     ? renderFuelTodayMethodologyAndScenarios({
         locale,
@@ -3183,10 +3183,6 @@ function renderStationPage(opts: {
     <h2 id="stationReview" style="${H2_STYLE};margin:0 0 12px;font-size:20px">${esc(editorialAssessment.heading)}</h2>
     <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(editorialAssessment.body)}</p>
   </section>
-  <section style="margin:0 0 24px">
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
-  </section>
   <section style="margin:0 0 24px;${CARD_STYLE}" aria-labelledby="stationInfo">
     <h2 id="stationInfo" style="${H2_STYLE};margin:0 0 12px;font-size:20px">${esc(copy.infoHeading)}</h2>
     <dl style="margin:0;display:grid;grid-template-columns:max-content 1fr;column-gap:16px;row-gap:8px;font-size:14px;color:var(--color-body)">
@@ -3218,7 +3214,11 @@ function renderStationPage(opts: {
     )}</p>
   </section>
   ${renderFuelStationFrontalierContext({ locale, brand: ctx.brandDisplay, city: ctx.city, zone: zoneLabel, fuel, fuelLabel, priceFmt, zoneAvgFmt })}
-  <p style="margin:0 0 22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}" style="${LINK_ACCENT_STYLE};font-weight:600">← ${esc(copy.backToZone(zoneLabel))}</a></p>
+  <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-label="${esc(copy.contextHeading)}">
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(intro)}</p>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(paragraph)}</p>
+  </section>
+  <p style="margin:24px 0 22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, ctx.zone)}" style="${LINK_ACCENT_STYLE};font-weight:600">← ${esc(copy.backToZone(zoneLabel))}</a></p>
   ${generateRelatedLinksBlock(locale, 'fuel_station', {
     fuelType: fuel,
     fuelZone: ctx.zone,
@@ -3706,10 +3706,6 @@ function renderItalianCityPage(opts: {
     <h2 id="itCityTable" style="${H2_STYLE}">${esc(copy.tableTitle(entry.display))}</h2>
     ${stationListHtml}
   </section>
-  <section style="margin:0 0 24px">
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
-  </section>
   ${historyCard
     ? `<section style="margin:0 0 24px" aria-labelledby="itCityTrend">
         <h2 id="itCityTrend" style="${H2_STYLE}">${esc(IT_TREND_LABEL[locale])}</h2>
@@ -3733,7 +3729,11 @@ function renderItalianCityPage(opts: {
     </ul>
   </section>
   ${renderItalianCityFrontalierExtra({ locale, fuelLabel, cityDisplay: entry.display, nearestZoneLabel, minPriceFmt })}
-  <p style="margin:0 0 22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, entry.nearestZone)}" style="${LINK_ACCENT_STYLE};font-weight:600">→ ${esc(copy.backLink)} (${esc(nearestZoneLabel)})</a></p>
+  <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-label="${esc(copy.contextHeading)}">
+    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(intro)}</p>
+    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(paragraph)}</p>
+  </section>
+  <p style="margin:24px 0 22px"><a href="${BASE_URL}${buildFuelTodayPath(locale, fuel, entry.nearestZone)}" style="${LINK_ACCENT_STYLE};font-weight:600">→ ${esc(copy.backLink)} (${esc(nearestZoneLabel)})</a></p>
   ${generateRelatedLinksBlock(locale, 'fuel_italian_city', {
     fuelType: fuel,
     italianCitySlug: entry.slug,
