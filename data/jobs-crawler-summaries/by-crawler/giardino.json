@@ -1,56 +1,16 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-05-17T21:42:07.201Z",
-  "total": 1,
+  "generatedAt": "2026-05-18T12:24:40.877Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5273,
-  "avgDurationMs": 5273,
-  "durationHistory": [
-    5273
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "giardino-c0a1ee2b00de",
-      "slug": "demichef-de-partie-giardino-group-ascona",
-      "company": "Giardino Group",
-      "companyKey": "giardino",
-      "companyDomain": "giardinohotels.ch",
-      "title": "Demichef de partie",
-      "location": "Ascona",
-      "canton": "TI",
-      "url": "https://giardinohotels.ch/en/jobs/demichef-de-partie-m-w/",
-      "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-17T21:42:05.370Z",
-      "addressLocality": "Ascona",
-      "postalCode": "6612",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Cucina / Gastronomia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-21",
-      "applyUrl": "https://giardinohotels.ch/en/jobs/demichef-de-partie-m-w/",
-      "firstSeenAt": "2026-04-21T21:41:57.797Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }
