@@ -1,18 +1,19 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-05-18T12:17:08.100Z",
+  "generatedAt": "2026-05-18T21:50:40.835Z",
   "total": 9,
-  "newCount": 1,
-  "updatedCount": 8,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 9,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19025,
-  "avgDurationMs": 19025,
+  "durationMs": 19473,
+  "avgDurationMs": 19473,
   "durationHistory": [
-    19025
+    19473
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Immobilienberater (m/w/d) Zürich Nord 100%",
       "slug": "immobilienberater-m-w-d-zurich-nord-100-engel-voelkers-bulach",
@@ -35,16 +36,22 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "engel-voelkers-7e00857d2998",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "streetAddress": "Via Nassa 17",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-05-18T12:17:08.099Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 14
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Marketing & Communication Manager | Team support (Ascona/Lugano)",
       "slug": "marketing-communication-manager-team-support-ascona-lugano-engel-voelkers-ascona",
@@ -253,13 +260,13 @@
       "contractType": "full-time",
       "validThrough": "",
       "id": "engel-voelkers-d232f9faf3b7",
-      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
       "currency": "CHF",
       "streetAddress": "Via Nassa 17",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:10:03.976Z",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -343,45 +350,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Junior Immobilienmakler/in 50-100%",
-      "slug": "agente-immobiliare-junior-50-100-buutiq-immobilien-ag-st-gallen",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/557bf4f6-cce2-4bd1-92fd-7228c45dafb7",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/557bf4f6-cce2-4bd1-92fd-7228c45dafb7",
-      "company": "buutiq Immobilien AG",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "St. Gallen",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "canton": "AG",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-17",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "engel-voelkers-aa68475ac16c",
-      "needsRetranslation": true,
-      "salaryMin": 46500,
-      "salaryMax": 71500,
-      "currency": "CHF",
-      "streetAddress": "Via Nassa 17",
-      "postalCode": "6900",
-      "firstSeenAt": "2026-05-17T10:10:03.976Z",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 19,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
