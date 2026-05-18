@@ -135,6 +135,83 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
+/* ── HTML → text with bullet preservation ─────────────────── */
+
+/**
+ * Decode common HTML entities. The Phenom JobPosting JSON-LD ships the
+ * description HTML-entity-encoded (`&lt;ul&gt;&lt;li&gt;…`) so the static
+ * HTML stays well-formed JSON. We must decode before extracting `<li>`.
+ */
+function decodeHtmlEntities(value = '') {
+  return String(value || '')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&apos;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&#x2F;/g, '/')
+    .replace(/&#13;/g, '\n')
+    .replace(/&#10;/g, '\n')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)));
+}
+
+/**
+ * Convert HTML body → plain text while preserving `<li>` items as
+ * line-start "- " bullet markers. Mirrors the strategy used in
+ * `lidl-job-parser.mjs` and `postch-job-parser.mjs`: the parser-quality
+ * audit's `hasStructuredContent` gate requires either real `<li>` tags or
+ * line-start markdown bullets (`/^\s*[-•*]\s/m`). Collapsing list markup
+ * into flat prose is the root cause of the "no structured content"
+ * regression on this crawler.
+ */
+function htmlBodyToBulletedText(rawHtml = '') {
+  if (!rawHtml) return '';
+  const decoded = decodeHtmlEntities(String(rawHtml || ''));
+  const withBullets = decoded
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<\/?(p|div|ul|ol|h[1-6])[^>]*>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ');
+  return withBullets
+    .replace(/[ \t]+/g, ' ')
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+/**
+ * Extract the JobPosting JSON-LD block from a Phenom detail page and
+ * return the bullet-preserved description text. Returns '' when the page
+ * lacks JSON-LD or the description field is empty.
+ */
+function extractDetailDescription(html = '') {
+  if (!html) return '';
+  const re = /<script[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  let m;
+  while ((m = re.exec(html)) !== null) {
+    let data;
+    try {
+      data = JSON.parse(m[1]);
+    } catch {
+      continue;
+    }
+    const blocks = Array.isArray(data) ? data : [data];
+    for (const block of blocks) {
+      const type = block?.['@type'];
+      const isJobPosting = type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'));
+      if (!isJobPosting) continue;
+      const desc = block?.description || '';
+      if (!desc) continue;
+      return htmlBodyToBulletedText(desc);
+    }
+  }
+  return '';
+}
+
 /* ── Phenom embedded-JSON extraction ───────────────────────── */
 
 /**
@@ -305,8 +382,27 @@ export async function fetchAllMscCargoJobs() {
     const city = normalizeSpace(String(locationText).split(',')[0] || 'Geneva');
     const canton = inferSwissTargetCanton(locationText) || inferAnyCanton(locationText) || 'GE';
 
-    const description = normalizeSpace(raw?.descriptionTeaser || '');
+    const teaser = normalizeSpace(raw?.descriptionTeaser || '');
     const applyUrl = buildApplyUrl(raw);
+
+    // Fetch the detail page and pull the full JobPosting description with
+    // <li> bullets preserved. The listing JSON only ships a one-paragraph
+    // `descriptionTeaser` (flat prose, no structure) which fails the
+    // parser-quality audit's hasStructuredContent gate. Fall back to the
+    // teaser when the detail fetch fails or yields nothing.
+    let description = teaser;
+    try {
+      const detailHtml = await fetchHtml(applyUrl, { timeoutMs: 20000 });
+      const detailDesc = extractDetailDescription(detailHtml);
+      if (detailDesc && detailDesc.length >= 100) {
+        description = detailDesc;
+      }
+    } catch (err) {
+      console.warn(`  Detail fetch failed for ${applyUrl}: ${err?.message || err}`);
+    }
+    // Be polite to the Phenom origin — the listing pass already paginates
+    // at FETCH_DELAY_MS; per-detail pacing protects against burst-throttle.
+    await sleep(500);
     const sourceLang = detectLang(description || title, 'en');
     const jobSlug = slugify(`${title} msc ${city || 'geneva'}`);
     const urlHash = createHash('sha1').update(applyUrl).digest('hex').slice(0, 12);
