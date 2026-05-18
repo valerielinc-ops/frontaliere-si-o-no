@@ -167,8 +167,12 @@ function deriveStreetAddress(jobPosting = {}) {
 function deriveDescription(jobPosting = {}, html = '') {
   const desc = jobPosting.description || '';
   if (desc) {
-    // Strip HTML tags if present
-    return normalizeSpace(desc.replace(/<[^>]+>/g, ' '));
+    // Preserve <li> markup as "- " line-start bullets so the audit's
+    // hasStructuredContent gate (`/^\s*[-•*]\s/m`) still passes after
+    // HTML-to-text conversion. Upstream JobPosting JSON-LD on post.ch
+    // pages contains real <ul><li> blocks — collapsing them into plain
+    // prose was the root cause of the "no structured content" regression.
+    return htmlBlockToTextWithBullets(desc);
   }
   return extractMeta(html, 'description') || extractMeta(html, 'og:description') || '';
 }
@@ -194,6 +198,38 @@ function htmlBlockToText(value = '') {
       .replace(/<\/?(p|div|li|ul|ol|h[1-6])[^>]*>/gi, ' ')
       .replace(/<[^>]+>/g, ' ')
   );
+}
+
+/**
+ * Convert HTML to plain text WHILE preserving `<li>` items as line-start
+ * "- " bullet markers. The audit-parser-quality.mjs ratchet requires
+ * descriptions to contain structured content (`<li>` tag OR `^\s*[-•*]\s`
+ * line-start markers). Post.ch detail pages serve real `<ul><li>` blocks
+ * upstream — collapsing them into a single line of prose with the generic
+ * `htmlBlockToText` above produces "flat" descriptions that fail the gate.
+ *
+ * Strategy mirrors `innerTextWithBullets` in `lidl-job-parser.mjs`: replace
+ * `<li>` with "- " and `</li>` with newline, then strip every other tag.
+ * Resulting text contains line-start "- item" markers that satisfy both
+ * `hasStructuredContent` (audit gate) and the existing text-to-HTML ratio
+ * gate.
+ *
+ * Idempotent on bullet-free text.
+ */
+function htmlBlockToTextWithBullets(value = '') {
+  if (!value) return '';
+  const withBullets = String(value || '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<\/?(p|div|ul|ol|h[1-6])[^>]*>/gi, '\n')
+    .replace(/<[^>]+>/g, ' ');
+  // Collapse extra spaces but keep newlines so "- " stays line-start.
+  return withBullets
+    .replace(/[ \t]+/g, ' ')
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
 }
 
 /**
@@ -339,9 +375,9 @@ function buildJobPostingFromTokens(html = '', url = '') {
   if (jobLocation.length === 0) return null;
 
   const regularDescInner = tokens[18]?.inner || '';
-  const regularDesc = htmlBlockToText(regularDescInner);
+  const regularDesc = htmlBlockToTextWithBullets(regularDescInner);
   const apprenticeshipDescInner = tokens[11]?.inner || '';
-  const apprenticeshipDesc = htmlBlockToText(apprenticeshipDescInner);
+  const apprenticeshipDesc = htmlBlockToTextWithBullets(apprenticeshipDescInner);
 
   const isRegular = regularDesc.length > 40;
   const descriptionInner = isRegular ? regularDescInner : apprenticeshipDescInner;
