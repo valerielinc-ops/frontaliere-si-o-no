@@ -1,18 +1,19 @@
 {
   "key": "lombard-odier",
   "label": "Lombard Odier",
-  "generatedAt": "2026-05-18T12:47:36.132Z",
+  "generatedAt": "2026-05-18T22:20:41.401Z",
   "total": 34,
-  "newCount": 34,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 34,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 42232,
-  "avgDurationMs": 42232,
+  "durationMs": 33952,
+  "avgDurationMs": 33952,
   "durationHistory": [
-    42232
+    33952
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "lombard-odier-beb22f230355",
       "slug": "systems-engineer-automation-windows-vmware-lombard-odier-ch",
@@ -25,7 +26,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Luxembourg/Systems-Engineer---Automation--Windows-VMware-_R0006746",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:46:59.165Z",
+      "crawledAt": "2026-05-18T22:20:11.930Z",
       "addressLocality": "Luxembourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -38,11 +39,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Luxembourg/Systems-Engineer---Automation--Windows-VMware-_R0006746",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:46:59.165Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -58,7 +61,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/SAP-FI-Application-Expert--80-100--_R0006999",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:00.258Z",
+      "crawledAt": "2026-05-18T22:20:12.792Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -71,11 +74,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/SAP-FI-Application-Expert--80-100--_R0006999",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:00.258Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -91,7 +96,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Settlement-Specialist--80-100--_R0007055",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:01.180Z",
+      "crawledAt": "2026-05-18T22:20:13.693Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -104,11 +109,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Settlement-Specialist--80-100--_R0007055",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:01.180Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -124,7 +131,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/M-A-Intern---6-months_R0007056",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:02.073Z",
+      "crawledAt": "2026-05-18T22:20:14.497Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -137,11 +144,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/M-A-Intern---6-months_R0007056",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:02.073Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -157,7 +166,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Luxembourg/Integration-and-DevOps-Engineer--80-100--_R0006707",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:03.049Z",
+      "crawledAt": "2026-05-18T22:20:15.326Z",
       "addressLocality": "Luxembourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -170,11 +179,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Luxembourg/Integration-and-DevOps-Engineer--80-100--_R0006707",
-      "_qualityScore": 58,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:03.049Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -190,7 +201,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/IT-Production-Engineer---Scheduling---File-Transfer---Monitoring--80-100--_R0006621",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:04.040Z",
+      "crawledAt": "2026-05-18T22:20:16.135Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -203,11 +214,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/IT-Production-Engineer---Scheduling---File-Transfer---Monitoring--80-100--_R0006621",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:04.040Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -223,7 +236,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/HR-Finance-Specialist--80-100--_R0006995-1",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:05.011Z",
+      "crawledAt": "2026-05-18T22:20:16.934Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -236,11 +249,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/HR-Finance-Specialist--80-100--_R0006995-1",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:05.011Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -256,7 +271,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Corporate-Action-Specialist--80-100----12-month-contract-_R0007042",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:05.947Z",
+      "crawledAt": "2026-05-18T22:20:17.749Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -269,11 +284,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Corporate-Action-Specialist--80-100----12-month-contract-_R0007042",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:05.947Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -289,7 +306,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Operations-Support-Specialist---Houston-team--80-100--_R0006338",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:06.951Z",
+      "crawledAt": "2026-05-18T22:20:18.560Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -302,11 +319,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Operations-Support-Specialist---Houston-team--80-100--_R0006338",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:06.951Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -322,7 +341,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Junior-Business-Analyst---Client-Platform-Advisory--80-100--_R0006905",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:07.941Z",
+      "crawledAt": "2026-05-18T22:20:19.444Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -335,11 +354,12 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Junior-Business-Analyst---Client-Platform-Advisory--80-100--_R0006905",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-18T12:47:07.941Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -355,7 +375,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Business-Manager---Platform-Delivery---Client-Engagement--80-100--_R0006950",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:08.998Z",
+      "crawledAt": "2026-05-18T22:20:20.252Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -368,11 +388,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Business-Manager---Platform-Delivery---Client-Engagement--80-100--_R0006950",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:08.998Z",
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -388,7 +410,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/IT-Security-Engineer--80-100--_R0006904",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:10.008Z",
+      "crawledAt": "2026-05-18T22:20:21.048Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -401,11 +423,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/IT-Security-Engineer--80-100--_R0006904",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:10.008Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -421,7 +445,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Stagiaire---Database-Administration---Observability-Specialist--Foglight---Elastic-_R0007043",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-18T12:47:11.048Z",
+      "crawledAt": "2026-05-18T22:20:21.879Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -434,11 +458,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Stagiaire---Database-Administration---Observability-Specialist--Foglight---Elastic-_R0007043",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:11.048Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -454,7 +480,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Business-Risk-Manager---Technology---Operations--80-100--_R0007054",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:12.099Z",
+      "crawledAt": "2026-05-18T22:20:22.684Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -467,11 +493,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Business-Risk-Manager---Technology---Operations--80-100--_R0007054",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:12.099Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -487,7 +515,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Equities---Derivatives-Execution-Trader--80-100--_R0007039",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:13.154Z",
+      "crawledAt": "2026-05-18T22:20:23.501Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -500,17 +528,19 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Equities---Derivatives-Execution-Trader--80-100--_R0007039",
-      "_qualityScore": 63,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:13.154Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
     {
       "id": "lombard-odier-c7b976652646",
-      "slug": "account-und-relationship-manager-global-custody-und-private-label-funds-kunden-80-100",
+      "slug": "account-e-relationship-manager-global-custody-e-private-label-funds-kunden-80-100-lombard-odier-zurich",
       "company": "Lombard Odier",
       "companyKey": "lombard-odier",
       "companyDomain": "lombardodier.com",
@@ -520,7 +550,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Zrich/Account-und-Relationship-Manager---Global-Custody-und-Private-Label-Funds-Kunden--80-100--_R0006949",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T12:47:14.192Z",
+      "crawledAt": "2026-05-18T22:20:24.333Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -533,11 +563,12 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Zrich/Account-und-Relationship-Manager---Global-Custody-und-Private-Label-Funds-Kunden--80-100--_R0006949",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-18T12:47:14.192Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -553,7 +584,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Luxembourg/Business-Support-Intern_R0006871",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:15.203Z",
+      "crawledAt": "2026-05-18T22:20:25.162Z",
       "addressLocality": "Luxembourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -566,11 +597,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Luxembourg/Business-Support-Intern_R0006871",
-      "_qualityScore": 67,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:15.203Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -586,7 +619,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Business-Application-Support-Specialist---Finance--80-100--_R0006770",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:16.258Z",
+      "crawledAt": "2026-05-18T22:20:25.968Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -599,11 +632,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Business-Application-Support-Specialist---Finance--80-100--_R0006770",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:16.258Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -619,7 +654,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Application-Support-Specialist---Front-Office--80-100--_R0006590",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:17.316Z",
+      "crawledAt": "2026-05-18T22:20:26.790Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -632,11 +667,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Application-Support-Specialist---Front-Office--80-100--_R0006590",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:17.316Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -652,7 +689,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Product-Owner---Risk---Compliance--CRM-Platform-_R0006689",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:18.343Z",
+      "crawledAt": "2026-05-18T22:20:27.623Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -665,11 +702,12 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Product-Owner---Risk---Compliance--CRM-Platform-_R0006689",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-18T12:47:18.343Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -685,7 +723,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Junior-HRIS-Environment---Support-Specialist--80-100--_R0006542",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:19.725Z",
+      "crawledAt": "2026-05-18T22:20:28.464Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -698,11 +736,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Junior-HRIS-Environment---Support-Specialist--80-100--_R0006542",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:19.725Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -718,7 +758,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Head-of-IT-Security-Operations---Controls--80-100--_R0006771",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:20.794Z",
+      "crawledAt": "2026-05-18T22:20:29.290Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -731,11 +771,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Head-of-IT-Security-Operations---Controls--80-100--_R0006771",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:20.794Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -751,7 +793,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Compensation-and-Benefits-Specialist--9-month-contract-_R0006887",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:21.875Z",
+      "crawledAt": "2026-05-18T22:20:30.117Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -764,11 +806,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Compensation-and-Benefits-Specialist--9-month-contract-_R0006887",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:21.875Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -784,7 +828,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Senior-Accountant_R0006943-1",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:22.937Z",
+      "crawledAt": "2026-05-18T22:20:30.911Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -797,11 +841,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Senior-Accountant_R0006943-1",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:22.937Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -817,7 +863,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Dveloppeur-Full-stack-IA-ML---Reporting-Designer_R0006944",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-18T12:47:24.152Z",
+      "crawledAt": "2026-05-18T22:20:31.731Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -830,11 +876,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Dveloppeur-Full-stack-IA-ML---Reporting-Designer_R0006944",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:24.152Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -850,7 +898,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Corporate-Taxation-and-Transfer-Pricing-Intern--6-9-month-internship-_R0006953",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:25.267Z",
+      "crawledAt": "2026-05-18T22:20:32.543Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -863,11 +911,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Corporate-Taxation-and-Transfer-Pricing-Intern--6-9-month-internship-_R0006953",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:25.267Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -883,7 +933,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Private-Assets-Investment-Analyst_R0006952",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:26.343Z",
+      "crawledAt": "2026-05-18T22:20:33.345Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -896,11 +946,12 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Private-Assets-Investment-Analyst_R0006952",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-18T12:47:26.343Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -916,7 +967,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Junior-Change-Manager--80-100--_R0006948",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:27.475Z",
+      "crawledAt": "2026-05-18T22:20:34.150Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -929,11 +980,13 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Junior-Change-Manager--80-100--_R0006948",
-      "_qualityScore": 61,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:47:27.475Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -949,7 +1002,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Zrich/Senior-Executive-Assistant--70-100--_R0006886",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T12:47:28.520Z",
+      "crawledAt": "2026-05-18T22:20:34.963Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -962,11 +1015,12 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Zrich/Senior-Executive-Assistant--70-100--_R0006886",
-      "_qualityScore": 65,
+      "firstSeenAt": "2026-05-18T12:47:28.520Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
+        "translation": 23,
         "completeness": 14
       }
     },
@@ -982,7 +1036,7 @@
       "url": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Senior-Compliance-Assurance-Officer--80-100--_R0006915",
       "source": "Lombard Odier Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T12:47:29.594Z",
+      "crawledAt": "2026-05-18T22:20:35.783Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -995,16 +1049,16 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://lombardodier.wd3.myworkdayjobs.com/en/Lombard_Odier_Careers/job/Geneva/Senior-Compliance-Assurance-Officer--80-100--_R0006915",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-18T12:47:29.594Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
