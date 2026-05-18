@@ -6902,6 +6902,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return path.startsWith('http') ? path : `${window.location.origin}${path}`;
  }}
  canonicalUrl={typeof window !== 'undefined' ? window.location.href : ''}
+ emitStructuredData={false}
  />
  ) : (
  <div className="text-center space-y-3">
