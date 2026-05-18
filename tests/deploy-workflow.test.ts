@@ -64,12 +64,10 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
     // - `audit:title-uniqueness` runs on a separate weekly workflow because
     //   it OOM-killed the parallel block.
     // - `audit:dist-multi*` are aggregators that wrap other audits.
-    // - `audit:faqpage-validity` runs from post-build-tasks.sh on the build job.
     // - `audit:parser-quality` is a developer self-test, not gated in CI.
     const GATES_NOT_IN_DIST_PARALLEL = new Set([
       'audit:title-uniqueness',
       'audit:dist-multi',
-      'audit:faqpage-validity',
       'audit:parser-quality',
     ]);
     const allAuditScripts = Object.keys(PACKAGE_JSON.scripts || {}).filter((k) => {
