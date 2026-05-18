@@ -15,6 +15,11 @@ import { AD_CLIENT, AD_SLOTS } from '../services/adsenseSlots';
 import { BASE_URL } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
+import {
+  renderSalaryLandingShell,
+  type SalaryLandingData,
+  type SalaryLocale,
+} from './shared/salaryLandingShell';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -473,6 +478,106 @@ function resultsTableHtml(result: SimulationResult, l: Labels): string {
     </div>`;
 }
 
+// Per-locale strings the new mobile-first SEO-landing shell needs that aren't
+// already in `Labels`. Kept tight on purpose — only the bits that the shell
+// renders (eyebrow, 4 tile labels, advice template, secondary CTA copy).
+interface ShellPack {
+  readonly eyebrow: (scenario: SalaryHubScenario) => string;
+  readonly tileNetCh: string;
+  readonly tileNetIt: string;
+  readonly tileSavings: string;
+  readonly tileExchange: string;
+  readonly advice: (result: SimulationResult) => string;
+  readonly ctaSecondary: string;
+}
+
+const SHELL_PACK: Record<Locale, ShellPack> = {
+  it: {
+    eyebrow: (s) => `Simulazione netto · ${s.frontierType === 'NEW' ? 'Nuovo' : 'Vecchio'} frontaliere · ${s.distanceZone === 'WITHIN_20KM' ? 'Entro 20 km' : 'Oltre 20 km'}`,
+    tileNetCh: 'Netto Permesso B',
+    tileNetIt: 'Netto Permesso G',
+    tileSavings: 'Differenza',
+    tileExchange: 'Cambio CHF/EUR',
+    advice: (r) => r.savingsCHF > 0
+      ? `Il permesso B (residente CH) rende ~CHF ${fmtCHF(r.savingsCHF)} netti in più all'anno rispetto al permesso G (frontaliere). Valuta cambio residenza se l'affitto Lugano + LAMal non erodono la differenza.`
+      : `Il permesso G (frontaliere) resta più conveniente di ~CHF ${fmtCHF(Math.abs(r.savingsCHF))} netti/anno rispetto al permesso B. Mantieni la residenza italiana finché la soglia non si inverte.`,
+    ctaSecondary: 'Confronta scenari simili',
+  },
+  en: {
+    eyebrow: (s) => `Net simulation · ${s.frontierType === 'NEW' ? 'New' : 'Existing'} cross-border worker · ${s.distanceZone === 'WITHIN_20KM' ? 'Within 20 km' : 'Over 20 km'}`,
+    tileNetCh: 'Net Permit B',
+    tileNetIt: 'Net Permit G',
+    tileSavings: 'Difference',
+    tileExchange: 'CHF/EUR rate',
+    advice: (r) => r.savingsCHF > 0
+      ? `Permit B (Swiss resident) takes home ~CHF ${fmtCHF(r.savingsCHF)} more per year than Permit G (cross-border). Consider residence change if Lugano rent + LAMal do not erode the gap.`
+      : `Permit G (cross-border) stays more convenient by ~CHF ${fmtCHF(Math.abs(r.savingsCHF))} net/year vs Permit B. Keep Italian residence until the threshold inverts.`,
+    ctaSecondary: 'Compare similar scenarios',
+  },
+  de: {
+    eyebrow: (s) => `Netto-Simulation · ${s.frontierType === 'NEW' ? 'Neuer' : 'Alter'} Grenzgänger · ${s.distanceZone === 'WITHIN_20KM' ? 'Bis 20 km' : 'Über 20 km'}`,
+    tileNetCh: 'Netto B-Bewilligung',
+    tileNetIt: 'Netto G-Bewilligung',
+    tileSavings: 'Differenz',
+    tileExchange: 'CHF/EUR-Kurs',
+    advice: (r) => r.savingsCHF > 0
+      ? `B-Bewilligung (CH-Resident) erhält ~CHF ${fmtCHF(r.savingsCHF)} netto/Jahr mehr als G-Bewilligung. Wohnsitzwechsel erwägen, falls Lugano-Miete + LAMal die Differenz nicht aufzehren.`
+      : `G-Bewilligung (Grenzgänger) bleibt um ~CHF ${fmtCHF(Math.abs(r.savingsCHF))} netto/Jahr günstiger als B-Bewilligung. Italienischen Wohnsitz behalten, bis sich die Schwelle umkehrt.`,
+    ctaSecondary: 'Ähnliche Szenarien vergleichen',
+  },
+  fr: {
+    eyebrow: (s) => `Simulation net · ${s.frontierType === 'NEW' ? 'Nouveau' : 'Ancien'} frontalier · ${s.distanceZone === 'WITHIN_20KM' ? 'Moins 20 km' : 'Plus 20 km'}`,
+    tileNetCh: 'Net Permis B',
+    tileNetIt: 'Net Permis G',
+    tileSavings: 'Différence',
+    tileExchange: 'Taux CHF/EUR',
+    advice: (r) => r.savingsCHF > 0
+      ? `Le permis B (résident CH) touche ~CHF ${fmtCHF(r.savingsCHF)} nets/an de plus que le permis G (frontalier). Envisagez un changement de résidence si le loyer Lugano + LAMal n'érodent pas l'écart.`
+      : `Le permis G (frontalier) reste plus avantageux de ~CHF ${fmtCHF(Math.abs(r.savingsCHF))} nets/an vs le permis B. Gardez la résidence italienne jusqu'à inversion du seuil.`,
+    ctaSecondary: 'Comparer des scénarios similaires',
+  },
+};
+
+/**
+ * Map `SalaryLocale` (used by shared/salaryLandingShell) to our local
+ * `Locale` alias — they share members, just narrowed differently.
+ */
+function asShellLocale(l: Locale): SalaryLocale {
+  return l;
+}
+
+function buildHubSalaryLandingData(
+  scenario: SalaryHubScenario,
+  result: SimulationResult,
+  locale: Locale,
+  l: Labels,
+): SalaryLandingData {
+  const pack = SHELL_PACK[locale];
+  const ch = result.chResident.netIncomeAnnual;
+  const it = result.itResident.netIncomeAnnual;
+  return {
+    eyebrow: pack.eyebrow(scenario),
+    tagline: l.subtitle(scenario, result),
+    tiles: [
+      { label: pack.tileNetCh, value: `CHF ${fmtCHF(ch)}`, tone: 'accent' },
+      { label: pack.tileNetIt, value: `CHF ${fmtCHF(it)}`, tone: 'success' },
+      {
+        label: pack.tileSavings,
+        value: `${result.savingsCHF >= 0 ? '+' : '-'}CHF ${fmtCHF(Math.abs(result.savingsCHF))}/a`,
+        tone: result.savingsCHF >= 0 ? 'success' : 'warning',
+      },
+      { label: pack.tileExchange, value: result.exchangeRate.toFixed(4), tone: 'neutral' },
+    ],
+    advice: pack.advice(result),
+    ctaPrimary: {
+      label: l.personalizeBtn,
+      href: `${LOCALE_CALC_PREFIX[locale]}/?reddito=${scenario.salary}&tipo=${scenario.frontierType}&stato=${scenario.maritalStatus}&figli=${scenario.children}&zona=${scenario.distanceZone}`,
+    },
+    ctaSecondary: { label: pack.ctaSecondary, href: `${LOCALE_CALC_PREFIX[locale]}/` },
+    faqs: l.faqItems(scenario, result),
+  };
+}
+
 export function generatePageHtml(
   scenario: SalaryHubScenario,
   result: SimulationResult,
@@ -518,62 +623,36 @@ export function generatePageHtml(
     return `<a href="${path}" class="related-card"><strong>CHF ${fmtCHF(s.salary)}</strong><br>${scenarioDesc(s, l)}</a>`;
   }).join('\n');
 
-  const ctaUrl = `${LOCALE_CALC_PREFIX[locale]}/?reddito=${scenario.salary}&tipo=${scenario.frontierType}&stato=${scenario.maritalStatus}&figli=${scenario.children}&zona=${scenario.distanceZone}`;
-
   const title = l.metaTitle(scenario);
   const description = l.metaDesc(scenario, result);
 
-  const bodyHtml = `<article class="salary-hub-page">
-    <div class="hub-grid">
-      <div class="content">
-        <nav class="breadcrumb">
-          <a href="/">${l.home}</a> &rsaquo;
-          <a href="${LOCALE_CALC_PREFIX[locale]}/">${l.breadcrumbCalc}</a> &rsaquo;
-          ${l.h1(scenario)}
-        </nav>
+  // 1. The simulation results table (the meat) stays in the data-area slot
+  //    of the new SEO-landing shell — instead of below the H1 as before.
+  const dataAreaHtmlOverride = `<section class="salary-hub-page">${resultsTableHtml(result, l)}<div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div></section>`;
 
-        <h1>${l.h1(scenario)}</h1>
-        <p class="subtitle">${l.subtitle(scenario, result)}</p>
+  // 2. The 5 long-form explanations + related grid + tail AdSense slot
+  //    become the "long prose" block rendered at the bottom of the shell
+  //    (CLAUDE.md rule 16 — filler below the data area, never above the fold).
+  const editorialHtml = `<section class="salary-hub-page">
+    <h2>${l.howToCalcTitle}</h2><p>${l.howToCalc(scenario.salary, scenario, result)}</p>
+    <h2>${l.regimeTitle}</h2><p>${l.regimeExplain(scenario, result)}</p>
+    <h2>${l.familyTitle}</h2><p>${l.familyExplain(scenario, result)}</p>
+    <h2>${l.distanceTitle}</h2><p>${l.distanceExplain(scenario, result)}</p>
+    <h2>${l.budgetTitle}</h2><p>${l.budgetExplain(scenario, result)}</p>
+    <h2>${l.tipsTitle}</h2><p>${l.tipsExplain(scenario, result)}</p>
+    <h2>${l.relatedTitle}</h2><div class="related-grid">${relatedHtml}</div>
+    <div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>
+  </section>`;
 
-        ${resultsTableHtml(result, l)}
-
-        <div class="ad-unit">${adSlotHtml('ARTICLE_INLINE_MOBILE')}</div>
-
-        <h2>${l.howToCalcTitle}</h2>
-        <p>${l.howToCalc(scenario.salary, scenario, result)}</p>
-
-        <h2>${l.regimeTitle}</h2>
-        <p>${l.regimeExplain(scenario, result)}</p>
-
-        <h2>${l.familyTitle}</h2>
-        <p>${l.familyExplain(scenario, result)}</p>
-
-        <h2>${l.distanceTitle}</h2>
-        <p>${l.distanceExplain(scenario, result)}</p>
-
-        <h2>${l.budgetTitle}</h2>
-        <p>${l.budgetExplain(scenario, result)}</p>
-
-        <h2>${l.tipsTitle}</h2>
-        <p>${l.tipsExplain(scenario, result)}</p>
-
-        <div class="cta-box">
-          <p>${l.personalizeBtn}</p>
-          <a href="${ctaUrl}">${l.personalizeBtn} &rarr;</a>
-        </div>
-
-        <h2>${l.relatedTitle}</h2>
-        <div class="related-grid">${relatedHtml}</div>
-
-        <div class="faq-section">
-          <h2>${l.faqTitle}</h2>
-          ${faqs.map(f => `<div class="faq-item"><div class="faq-q">${f.q}</div><div class="faq-a">${f.a}</div></div>`).join('\n')}
-        </div>
-
-        <div class="ad-unit">${adSlotHtml('ARTICLE_END_MULTIPLEX')}</div>
-      </div>
-    </div>
-  </article>`;
+  // 3. Render the shell. H1 + tiles + advice + CTA + data table + FAQ (from
+  //    landingData) + editorial prose (above). Breadcrumb + navHtml left to
+  //    the shell defaults (`buildSeoPageHtml` wraps the body in the SPA shell).
+  const landingData = buildHubSalaryLandingData(scenario, result, locale, l);
+  const bodyHtml = renderSalaryLandingShell(landingData, asShellLocale(locale), {
+    h1Text: l.h1(scenario),
+    dataAreaHtmlOverride,
+    editorialHtml,
+  });
 
   return buildSeoPageHtml({
     locale,

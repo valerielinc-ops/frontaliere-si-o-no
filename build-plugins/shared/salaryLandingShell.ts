@@ -146,10 +146,19 @@ type HubKey =
   | 'simula-busta-paga'
   | 'cosa-cambia-se'
   | 'confronta-stipendi'
-  | 'quiz-stipendio'
-  | 'confronta-retribuzione-ral';
+  | 'quanto-guadagneresti-in-svizzera'
+  | 'confronta-retribuzione-ral'
+  | 'simula-cambio-residenza'
+  | 'stima-bonus-frontaliere'
+  | 'verifica-congedo-parentale';
 
-const HUB_SCENARIOS: Record<HubKey, Record<SalaryLocale, SalaryLandingData>> = {
+// Note: EN/DE/FR keys are kept for legacy `nuovi-frontalieri-oltre-20-km`,
+// `simula-busta-paga`, `cosa-cambia-se`, `quiz-stipendio` (now
+// `quanto-guadagneresti-in-svizzera`), `confronta-stipendi` and
+// `confronta-retribuzione-ral` — currently unreachable via HUB_PATH_TO_KEY
+// but preserved for future expansion. New hubs (`simula-cambio-residenza`,
+// `stima-bonus-frontaliere`, `verifica-congedo-parentale`) are IT-only.
+const HUB_SCENARIOS: Record<HubKey, Partial<Record<SalaryLocale, SalaryLandingData>>> = {
   'nuovi-frontalieri-oltre-20-km': {
     it: {
       eyebrow: 'Nuovo Accordo 2024 · Oltre 20 km',
@@ -634,7 +643,7 @@ const HUB_SCENARIOS: Record<HubKey, Record<SalaryLocale, SalaryLandingData>> = {
     },
   },
 
-  'quiz-stipendio': {
+  'quanto-guadagneresti-in-svizzera': {
     it: {
       eyebrow: 'Quiz fiscale settimanale',
       tagline: '5 domande, 8 minuti: testa quanto sai davvero su tasse, contributi e franchigia.',
@@ -871,6 +880,102 @@ const HUB_SCENARIOS: Record<HubKey, Record<SalaryLocale, SalaryLandingData>> = {
       ],
     },
   },
+
+  // ── IT-only orphan hubs (URL exists only in IT sitemap-pages.xml) ─────────
+
+  'simula-cambio-residenza': {
+    it: {
+      eyebrow: 'Simulatore residenza · Frontaliere',
+      tagline: 'Stima il delta netto annuo se ti trasferisci in Svizzera (permesso B) o resti in Italia (permesso G).',
+      tiles: [
+        { label: 'Permit G → B', value: '+CHF 3-7k/anno', tone: 'success' },
+        { label: 'Costo LAMal', value: '200-600 CHF/mese', tone: 'warning' },
+        { label: 'Soggiorno richiesto', value: '>183 gg/anno CH', tone: 'accent' },
+        { label: 'Cassa malati', value: 'LAMal obbligatoria', tone: 'danger' },
+      ],
+      advice: 'Il cambio residenza CH conviene sopra CHF 80k di RAL: il risparmio fiscale supera i costi extra (affitto Lugano, LAMal). Verifica disponibilità abitativa prima di firmare.',
+      ctaPrimary: { label: 'Apri il simulatore', href: '/calcola-stipendio/' },
+      ctaSecondary: { label: 'Confronto permesso G vs B', href: '/calcola-stipendio/confronto-permesso-g-vs-b-entro-20km/' },
+      table: {
+        caption: 'Delta netto annuo · trasferimento da Italia a Svizzera (single, A0N)',
+        headers: ['RAL CHF', 'Permit G (Italia)', 'Permit B (CH)', 'Δ a favore B'],
+        rows: [
+          { cells: ['60.000', '~CHF 44.000', '~CHF 45.500', '+CHF 1.500'] },
+          { cells: ['80.000', '~CHF 55.000', '~CHF 58.000', '+CHF 3.000'], emphasized: true },
+          { cells: ['100.000', '~CHF 67.000', '~CHF 71.000', '+CHF 4.000'] },
+        ],
+        footnote: 'Stime al netto di trasporto frontaliere (G) e LAMal CHF 4.800/anno (B). Considera anche costo affitto Lugano (~+CHF 1.200/mese vs Como).',
+      },
+      faqs: [
+        { q: 'Quali sono i requisiti per il permesso B?', a: 'Contratto di lavoro CH valido, alloggio a tuo nome, dimostrazione di mezzi sufficienti, iscrizione anagrafica al Comune CH (entro 14 giorni dall\'arrivo). Variabile per cantone.' },
+        { q: 'Cosa cambia nella mia tassazione cambiando residenza?', a: 'Passi dal regime frontaliere (tassazione concorrente CH+IT) a residente CH (solo tassazione svizzera). Risparmi tipicamente CHF 3-7k/anno ma assumi LAMal obbligatoria.' },
+        { q: 'Posso mantenere casa in Italia?', a: 'Sì, ma il fisco italiano potrebbe contestare la residenza fiscale: serve dimostrare che il centro vitale è in CH (>183 gg/anno, contratto, conti bancari, vita sociale).' },
+      ],
+    },
+  },
+
+  'stima-bonus-frontaliere': {
+    it: {
+      eyebrow: 'Bonus & 13ª · Frontaliere Ticino',
+      tagline: 'Stima il valore reale del bonus annuo + 13ª mensilità nel tuo netto, dopo tasse e contributi.',
+      tiles: [
+        { label: '13ª obbligatoria', value: 'Standard CCL', tone: 'success' },
+        { label: 'Tassazione bonus', value: 'Stessa fonte', tone: 'warning' },
+        { label: 'Trattenuta CH', value: '~25-30% del lordo', tone: 'danger' },
+        { label: 'Netto in tasca', value: '~70-75%', tone: 'accent' },
+      ],
+      advice: 'Un bonus lordo di CHF 10.000 vale ~CHF 7.200 netti in tasca (single A0). Il datore può ottimizzare versandolo come pilastro 3a se non hai ancora raggiunto il tetto annuo deducibile.',
+      ctaPrimary: { label: 'Calcola il netto con bonus', href: '/calcola-stipendio/' },
+      ctaSecondary: { label: 'Cosa cambia se… (what-if)', href: '/calcola-stipendio/cosa-cambia-se/' },
+      table: {
+        caption: 'Netto stimato di un bonus annuo CHF 10.000 (Lugano, A0N)',
+        headers: ['Voce', 'Importo lordo', 'Trattenute', 'Netto in tasca'],
+        rows: [
+          { cells: ['Bonus puro', 'CHF 10.000', '-CHF 2.800', 'CHF 7.200'], emphasized: true },
+          { cells: ['Bonus → pilastro 3a', 'CHF 10.000', '-CHF 0 (deducibile)', 'CHF 10.000 in pensione'] },
+          { cells: ['13ª su lordo 80k', 'CHF 6.150', '-CHF 1.720', 'CHF 4.430'] },
+        ],
+        footnote: 'Versare bonus al pilastro 3a azzera la tassazione immediata fino al massimo deducibile annuo (CHF 7.258 nel 2026 per affiliati LPP).',
+      },
+      faqs: [
+        { q: 'La 13ª è obbligatoria?', a: 'Dipende dal CCL settoriale. In Ticino la maggior parte dei settori la prevede (industria, banche, sanità, retail). Verifica sempre il contratto firmato.' },
+        { q: 'Posso versare il bonus al pilastro 3a?', a: 'Sì, se non hai ancora raggiunto il massimo deducibile annuo. Versando CHF 7.258 al pilastro 3a deduci l\'intero importo dal reddito imponibile.' },
+        { q: 'Bonus target e variable: come si tassano?', a: 'Esattamente come il salario fisso, all\'imposta alla fonte cantonale + contributi sociali. Non c\'è regime agevolato in Svizzera.' },
+      ],
+    },
+  },
+
+  'verifica-congedo-parentale': {
+    it: {
+      eyebrow: 'Congedo parentale · Frontaliere',
+      tagline: 'Diritti, durata e indennità del congedo parentale per frontaliere: cosa offre la Svizzera vs l\'Italia.',
+      tiles: [
+        { label: 'Maternità CH', value: '14 settimane (80%)', tone: 'accent' },
+        { label: 'Paternità CH', value: '2 settimane (80%)', tone: 'accent' },
+        { label: 'Maternità IT', value: '5 mesi (80%)', tone: 'success' },
+        { label: 'Frontaliere applica', value: 'Legge svizzera', tone: 'warning' },
+      ],
+      advice: 'Il frontaliere segue la legge svizzera: 14 settimane di maternità (80% salario) + 2 settimane di paternità. Per congedi più lunghi serve trattativa col datore o aspettare il rientro definitivo in IT.',
+      ctaPrimary: { label: 'Calcola impatto netto', href: '/calcola-stipendio/' },
+      ctaSecondary: { label: 'Cosa cambia se… (figli)', href: '/calcola-stipendio/cosa-cambia-se/' },
+      table: {
+        caption: 'Congedo parentale: Svizzera (frontaliere) vs Italia',
+        headers: ['Voce', 'Svizzera (frontaliere)', 'Italia (residente)'],
+        rows: [
+          { cells: ['Maternità', '14 settimane × 80%', '5 mesi × 80%'], emphasized: true },
+          { cells: ['Paternità', '2 settimane × 80%', '10 giorni × 100%'] },
+          { cells: ['Parentale aggiuntivo', 'No (solo trattativa)', '6 mesi × 30%'] },
+          { cells: ['Tetto giornaliero', 'CHF 220/giorno', '~EUR 100/giorno'] },
+        ],
+        footnote: 'Il frontaliere applica la legge svizzera (Loi sur les allocations pour perte de gain — LAPG). Verifica eventuali CCL settoriali per condizioni migliorative.',
+      },
+      faqs: [
+        { q: 'Posso usare il congedo parentale italiano se sono frontaliere?', a: 'No. Il frontaliere è assicurato in Svizzera (LAPG) e segue le regole svizzere: 14 settimane di maternità + 2 di paternità con tetto giornaliero CHF 220.' },
+        { q: 'Come cambia il netto durante il congedo?', a: 'Ricevi l\'80% del salario fino al tetto CHF 220/giorno. Per stipendi sopra CHF 88.000/anno c\'è un taglio: usa il simulatore per stimare il netto durante il periodo.' },
+        { q: 'Posso chiedere parental leave non retribuito?', a: 'Sì, ma dipende dal CCL e dal contratto. Senza obbligo legale, è una trattativa col datore. Alcune aziende offrono fino a 6 mesi non retribuiti su richiesta.' },
+      ],
+    },
+  },
 };
 
 // ── Salary-tier generator ───────────────────────────────────────────────────
@@ -1101,36 +1206,22 @@ function buildSalaryTierData(cfg: TierConfig, locale: SalaryLocale): SalaryLandi
 // paths return both a key and the parsed `ral` + `variant` so the caller
 // can hand them to the generator. Hub paths return only the key + locale.
 
+// Per live `sitemap-pages.xml`, all hub URLs under /calcola-stipendio/* are
+// IT-only. EN/DE/FR siblings are not emitted by the static-pages plugin
+// (the salaryHub plugin owns the salary-tier slugs in all 4 locales — see
+// `salaryHubContent.generatePageHtml` which already handles its own
+// localisation). Adding EN/DE/FR keys here is dead code.
 const HUB_PATH_TO_KEY: Record<string, { key: HubKey; locale: SalaryLocale }> = {
   '/calcola-stipendio/nuovi-frontalieri-oltre-20-km': { key: 'nuovi-frontalieri-oltre-20-km', locale: 'it' },
-  '/en/calculate-salary/new-cross-border-workers-over-20km': { key: 'nuovi-frontalieri-oltre-20-km', locale: 'en' },
-  '/de/gehalt-berechnen/neue-grenzgaenger-ueber-20-km': { key: 'nuovi-frontalieri-oltre-20-km', locale: 'de' },
-  '/fr/calculer-salaire/nouveaux-frontaliers-plus-20-km': { key: 'nuovi-frontalieri-oltre-20-km', locale: 'fr' },
-
   '/calcola-stipendio/simula-busta-paga': { key: 'simula-busta-paga', locale: 'it' },
-  '/en/calculate-salary/simulate-payslip': { key: 'simula-busta-paga', locale: 'en' },
-  '/de/gehalt-berechnen/lohnabrechnung-simulieren': { key: 'simula-busta-paga', locale: 'de' },
-  '/fr/calculer-salaire/simuler-fiche-paie': { key: 'simula-busta-paga', locale: 'fr' },
-
   '/calcola-stipendio/cosa-cambia-se': { key: 'cosa-cambia-se', locale: 'it' },
-  '/en/calculate-salary/what-if': { key: 'cosa-cambia-se', locale: 'en' },
-  '/de/gehalt-berechnen/was-waere-wenn': { key: 'cosa-cambia-se', locale: 'de' },
-  '/fr/calculer-salaire/et-si': { key: 'cosa-cambia-se', locale: 'fr' },
-
-  '/calcola-stipendio/confronta-stipendi': { key: 'confronta-stipendi', locale: 'it' },
-  '/en/calculate-salary/compare-salaries': { key: 'confronta-stipendi', locale: 'en' },
-  '/de/gehalt-berechnen/gehaelter-vergleichen': { key: 'confronta-stipendi', locale: 'de' },
-  '/fr/calculer-salaire/comparer-salaires': { key: 'confronta-stipendi', locale: 'fr' },
-
-  '/calcola-stipendio/quiz-stipendio': { key: 'quiz-stipendio', locale: 'it' },
-  '/en/calculate-salary/salary-quiz': { key: 'quiz-stipendio', locale: 'en' },
-  '/de/gehalt-berechnen/gehaltsquiz': { key: 'quiz-stipendio', locale: 'de' },
-  '/fr/calculer-salaire/quiz-salaire': { key: 'quiz-stipendio', locale: 'fr' },
-
   '/calcola-stipendio/confronta-retribuzione-ral': { key: 'confronta-retribuzione-ral', locale: 'it' },
-  '/en/calculate-salary/compare-gross-net': { key: 'confronta-retribuzione-ral', locale: 'en' },
-  '/de/gehalt-berechnen/brutto-netto-vergleich': { key: 'confronta-retribuzione-ral', locale: 'de' },
-  '/fr/calculer-salaire/comparer-brut-net': { key: 'confronta-retribuzione-ral', locale: 'fr' },
+  // Quiz: live slug is `quanto-guadagneresti-in-svizzera`, not `quiz-stipendio`.
+  '/calcola-stipendio/quanto-guadagneresti-in-svizzera': { key: 'quanto-guadagneresti-in-svizzera', locale: 'it' },
+  // 3 hubs missed by the previous round (all IT-only, all in sitemap-pages.xml).
+  '/calcola-stipendio/simula-cambio-residenza': { key: 'simula-cambio-residenza', locale: 'it' },
+  '/calcola-stipendio/stima-bonus-frontaliere': { key: 'stima-bonus-frontaliere', locale: 'it' },
+  '/calcola-stipendio/verifica-congedo-parentale': { key: 'verifica-congedo-parentale', locale: 'it' },
 };
 
 /**
@@ -1668,24 +1759,8 @@ function parseNetComparisonPath(canonicalPath: string): { key: NetComparisonKey;
   for (const { slug, key } of itSlugs) {
     if (stripped === slug) return { key, locale: 'it' };
   }
-  // EN / DE / FR variants (per services/router.ts SEO_LANDING_SLUGS lines 316-373)
-  const localeSlugs: Array<{ slug: string; key: NetComparisonKey; locale: SalaryLocale }> = [
-    { slug: '/en/calculate-salary/net-comparison-2025-2026-within-20km', key: 'confronto-netto-2025-2026-entro-20km', locale: 'en' },
-    { slug: '/en/calculate-salary/net-comparison-2025-2026-over-20km', key: 'confronto-netto-2025-2026-oltre-20km', locale: 'en' },
-    { slug: '/en/calculate-salary/permit-g-vs-b-comparison-within-20km', key: 'confronto-permesso-g-vs-b-entro-20km', locale: 'en' },
-    { slug: '/en/calculate-salary/permit-g-vs-b-comparison-over-20km', key: 'confronto-permesso-g-vs-b-oltre-20km', locale: 'en' },
-    { slug: '/de/gehalt-berechnen/nettovergleich-2025-2026-bis-20km', key: 'confronto-netto-2025-2026-entro-20km', locale: 'de' },
-    { slug: '/de/gehalt-berechnen/nettovergleich-2025-2026-ueber-20km', key: 'confronto-netto-2025-2026-oltre-20km', locale: 'de' },
-    { slug: '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-bis-20km', key: 'confronto-permesso-g-vs-b-entro-20km', locale: 'de' },
-    { slug: '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-ueber-20km', key: 'confronto-permesso-g-vs-b-oltre-20km', locale: 'de' },
-    { slug: '/fr/calculer-salaire/comparaison-net-2025-2026-moins-20km', key: 'confronto-netto-2025-2026-entro-20km', locale: 'fr' },
-    { slug: '/fr/calculer-salaire/comparaison-net-2025-2026-plus-20km', key: 'confronto-netto-2025-2026-oltre-20km', locale: 'fr' },
-    { slug: '/fr/calculer-salaire/comparaison-permis-g-vs-b-moins-20km', key: 'confronto-permesso-g-vs-b-entro-20km', locale: 'fr' },
-    { slug: '/fr/calculer-salaire/comparaison-permis-g-vs-b-plus-20km', key: 'confronto-permesso-g-vs-b-oltre-20km', locale: 'fr' },
-  ];
-  for (const { slug, key, locale } of localeSlugs) {
-    if (stripped === slug) return { key, locale };
-  }
+  // Per live sitemap-pages.xml the net-comparison URLs are IT-only.
+  // EN/DE/FR were never emitted as static landings — no mapping needed.
   return null;
 }
 
@@ -1694,7 +1769,10 @@ function resolveScenarioData(canonicalPath: string): { data: SalaryLandingData; 
   // 1. Hub lookup
   const hubHit = HUB_PATH_TO_KEY[stripped];
   if (hubHit) {
-    return { data: HUB_SCENARIOS[hubHit.key][hubHit.locale], locale: hubHit.locale };
+    // HUB_SCENARIOS[key][locale] may be undefined for hubs that only ship
+    // an IT dataset; fall back to IT when the requested locale is missing.
+    const localeData = HUB_SCENARIOS[hubHit.key][hubHit.locale] ?? HUB_SCENARIOS[hubHit.key].it;
+    if (localeData) return { data: localeData, locale: hubHit.locale };
   }
   // 2. Salary-tier pattern
   const tierHit = parseSalaryTierPath(canonicalPath);
@@ -1791,8 +1869,27 @@ export interface BuildSalaryLandingArgs {
   readonly navHtml: string;
 }
 
-export function buildSalaryLandingBody(args: BuildSalaryLandingArgs): string {
-  const { data, locale } = resolveScenarioData(args.canonicalPath);
+export interface RenderShellArgs {
+  readonly h1Text: string;
+  /** Optional rich HTML to render in the data-area slot (replaces auto-rendered table from data.table). */
+  readonly dataAreaHtmlOverride?: string;
+  /** Long prose block (5+ paragraph editorial, related-grid, AdSense) rendered at the bottom. */
+  readonly editorialHtml?: string;
+  /** Footer nav block (raw HTML). */
+  readonly navHtml?: string;
+}
+
+/**
+ * Render the mobile-first SEO-landing shell from explicit data + locale.
+ * Used directly by salaryHubPlugin (which computes per-scenario data from
+ * `SalaryHubScenario` + `SimulationResult`). `buildSalaryLandingBody` is
+ * a thin wrapper that first resolves data from a canonical path.
+ */
+export function renderSalaryLandingShell(
+  data: SalaryLandingData,
+  locale: SalaryLocale,
+  args: RenderShellArgs,
+): string {
   const pack = LOCALE_PACKS[locale];
 
   const breadcrumb = renderBreadcrumb([
@@ -1808,14 +1905,27 @@ export function buildSalaryLandingBody(args: BuildSalaryLandingArgs): string {
   const tilesHtml = renderStatGrid(data.tiles);
   const adviceHtml = data.advice ? renderAdvice(pack.adviceLabel, data.advice) : '';
   const ctaHtml = renderCtaBlock(data.ctaPrimary, data.ctaSecondary);
-  const tableHtml = data.table ? renderTable(data.table) : '';
+  const dataAreaHtml = args.dataAreaHtmlOverride ?? (data.table ? renderTable(data.table) : '');
   const faqsHtml = data.faqs ? renderFaqs(pack.faqsLabel, data.faqs) : '';
 
   const prose = args.editorialHtml
     ? `<section style="margin:32px 0 0;border-top:1px solid var(--color-edge);padding-top:24px">${args.editorialHtml}</section>`
     : '';
 
-  return `<div style="max-width:64rem;margin:0 auto;padding:16px 16px 32px;font-family:inherit">${breadcrumb}<header style="margin:0 0 20px">${eyebrow}${h1}${lede}</header>${tilesHtml}${adviceHtml}${ctaHtml}${tableHtml}${faqsHtml}${prose}<nav aria-label="${esc(pack.navLabel)}" style="margin-top:32px;padding-top:20px;border-top:1px solid var(--color-edge);font-size:13px;color:var(--color-subtle);line-height:1.9">${args.navHtml}</nav></div>`;
+  const navHtml = args.navHtml
+    ? `<nav aria-label="${esc(pack.navLabel)}" style="margin-top:32px;padding-top:20px;border-top:1px solid var(--color-edge);font-size:13px;color:var(--color-subtle);line-height:1.9">${args.navHtml}</nav>`
+    : '';
+
+  return `<div style="max-width:64rem;margin:0 auto;padding:16px 16px 32px;font-family:inherit">${breadcrumb}<header style="margin:0 0 20px">${eyebrow}${h1}${lede}</header>${tilesHtml}${adviceHtml}${ctaHtml}${dataAreaHtml}${faqsHtml}${prose}${navHtml}</div>`;
+}
+
+export function buildSalaryLandingBody(args: BuildSalaryLandingArgs): string {
+  const { data, locale } = resolveScenarioData(args.canonicalPath);
+  return renderSalaryLandingShell(data, locale, {
+    h1Text: args.h1Text,
+    editorialHtml: args.editorialHtml,
+    navHtml: args.navHtml,
+  });
 }
 
 // ── Test helpers (exported for unit tests) ──────────────────────────────────
