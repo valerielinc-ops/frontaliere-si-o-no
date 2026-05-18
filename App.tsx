@@ -495,6 +495,22 @@ const App: React.FC = () => {
  // Also pass job context saved before the OAuth redirect for personalized job recs.
  const email = getAuthEmail(user);
  const savedJobCtx = consumeAuthJobContext();
+
+ // Google/Email emit job_auth_funnel:auth_success inline; LinkedIn lands here
+ // after a full-page OAuth redirect so the success event must be emitted from
+ // the callback. Gated on savedJobCtx so LinkedIn auths from non-job CTAs
+ // (newsletter, calculator) don't pollute the job_auth funnel.
+ if (savedJobCtx) {
+ const emailDomain = email && email.includes('@') ? email.split('@')[1] : undefined;
+ Analytics.trackJobAuthFunnel('auth_success', {
+ method: 'linkedin',
+ emailDomain,
+ company: savedJobCtx.company || undefined,
+ location: savedJobCtx.location || undefined,
+ category: savedJobCtx.category || undefined,
+ });
+ }
+
  if (email) {
  try {
  await upsertNewsletterSubscriber(email, 'signup_linkedin', user.displayName || null, savedJobCtx);
