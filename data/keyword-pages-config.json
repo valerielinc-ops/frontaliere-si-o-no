@@ -1,7 +1,50 @@
 {
-  "generatedAt": "2026-05-11T06:54:38.685Z",
-  "totalQueriesAnalyzed": 318,
-  "qualifyingQueries": 2,
-  "clustersFound": 2,
-  "pages": []
+  "generatedAt": "2026-05-18T07:10:35.702Z",
+  "totalQueriesAnalyzed": 420,
+  "qualifyingQueries": 4,
+  "clustersFound": 4,
+  "pages": [
+    {
+      "slug": "offerte-di-lavoro-ticino-da-ieri",
+      "query": "offerte di lavoro ticino da ieri",
+      "filterKeywords": [
+        "ieri"
+      ],
+      "totalClicks": 0,
+      "totalImpressions": 44,
+      "queryCount": 1,
+      "allQueries": [
+        "offerte di lavoro ticino da ieri"
+      ],
+      "copy": {
+        "it": {
+          "title": "Offerte di Lavoro Ticino da Ieri | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"offerte di lavoro ticino da ieri\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Offerte di Lavoro Ticino da Ieri"
+        }
+      }
+    },
+    {
+      "slug": "offerte-di-lavoro-ticino-negli-ultimi-3-giorni",
+      "query": "offerte di lavoro ticino negli ultimi 3 giorni",
+      "filterKeywords": [
+        "negli",
+        "ultimi",
+        "giorni"
+      ],
+      "totalClicks": 0,
+      "totalImpressions": 33,
+      "queryCount": 1,
+      "allQueries": [
+        "offerte di lavoro ticino negli ultimi 3 giorni"
+      ],
+      "copy": {
+        "it": {
+          "title": "Offerte di Lavoro Ticino Negli Ultimi 3 Giorni | Frontaliere Ticino",
+          "description": "Offerte di lavoro per \"offerte di lavoro ticino negli ultimi 3 giorni\". Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.",
+          "heading": "Offerte di Lavoro Ticino Negli Ultimi 3 Giorni"
+        }
+      }
+    }
+  ]
 }
