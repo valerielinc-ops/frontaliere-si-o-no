@@ -127,16 +127,19 @@ export function useNavigationState(): NavigationState {
  const [showApiStatus, setShowApiStatus] = useState(false);
  const [notFoundPath, setNotFoundPath] = useState<string | undefined>(() => parsePath(window.location.pathname).notFoundPath);
  const [jobBoardFilterParams, setJobBoardFilterParams] = useState<{ location?: string; query?: string } | null>(null);
- // Lite-shell mode: starts true if the URL parses to a staticOverlay route
- // OR the DOM contains the static SEO marker `<main class="seo-static-content">`.
- // Goes back to false when the user navigates to any non-static route — at
- // which point we also remove the static SEO markup from the DOM so it doesn't
- // linger below the React shell.
- const [staticOverlay, setStaticOverlay] = useState<boolean>(() => {
- if (initialRoute.route.staticOverlay) return true;
- if (typeof document === 'undefined') return false;
- return !!document.querySelector('main.seo-static-content');
- });
+ // Lite-shell mode: driven by the router only. When the URL resolves to a
+ // staticOverlay route (SEO landing with no SPA equivalent: fuel-daily,
+ // weekly-employers, health-premiums, border-wait, jobs-observatory,
+ // cost-of-living, salary-hub long-tail) the React `<main>` is skipped and
+ // the static `<main class="seo-static-content">` owns the body. When the
+ // router returns a real SPA route — even for URLs that ALSO ship a static
+ // SEO fallback (e.g. /calcola-stipendio/confronta-retribuzione-ral resolves
+ // to calcolatoreSubTab: 'ral') — the SPA takes over and App.tsx hides the
+ // static fallback so the user gets the interactive view. See CLAUDE.md
+ // rule #14.
+ const [staticOverlay, setStaticOverlay] = useState<boolean>(
+ () => !!initialRoute.route.staticOverlay,
+ );
 
  // Refs
  const isInitialMount = useRef(true);

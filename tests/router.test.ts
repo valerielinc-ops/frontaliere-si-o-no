@@ -745,3 +745,47 @@ describe('Router — legacy bare English slugs', () => {
     expect(locale).toBe('fr');
   });
 });
+
+/* ─────────── SPA over static (CLAUDE.md rule #14) ─────────── */
+
+describe('Router — SPA equivalent wins over static landing', () => {
+  // /calcola-stipendio/<slug>/ has TWO emitters: build-plugins/staticPagesPlugin
+  // ships a SEO landing body (so crawlers see rich content) AND the slug is
+  // declared in CALCOLATORE_SLUGS so the router resolves it to a real SPA
+  // sub-tab. The router MUST return the sub-tab — App.tsx then hides the
+  // static fallback so end users get the interactive calculator.
+  it('confronta-retribuzione-ral routes to ral sub-tab without staticOverlay', () => {
+    const { route, locale } = parsePath('/calcola-stipendio/confronta-retribuzione-ral');
+    expect(route.activeTab).toBe('calculator');
+    expect(route.calcolatoreSubTab).toBe('ral');
+    expect(route.staticOverlay).toBeFalsy();
+    expect(locale).toBe('it');
+  });
+
+  it('verifica-congedo-parentale routes to parental-leave sub-tab without staticOverlay', () => {
+    const { route, locale } = parsePath('/calcola-stipendio/verifica-congedo-parentale');
+    expect(route.activeTab).toBe('calculator');
+    expect(route.calcolatoreSubTab).toBe('parental-leave');
+    expect(route.staticOverlay).toBeFalsy();
+    expect(locale).toBe('it');
+  });
+
+  // Negative: known SEO landings (e.g. salary-80000 → stipendio-netto-80000-chf)
+  // have no SPA equivalent — must keep staticOverlay so the static body owns
+  // the page.
+  it('stipendio-netto-80000-chf keeps staticOverlay (SEO landing, no SPA equivalent)', () => {
+    const { route } = parsePath('/calcola-stipendio/stipendio-netto-80000-chf');
+    expect(route.activeTab).toBe('calculator');
+    expect(route.staticOverlay).toBe(true);
+    expect(route.seoLanding).toBe('salary-80000');
+  });
+
+  // Programmatic salary-hub long-tail (no SEO_LANDING entry, numeric pattern
+  // match) — also stays staticOverlay.
+  it('stipendio-netto-77000-chf keeps staticOverlay via salaryHubSlug branch', () => {
+    const { route } = parsePath('/calcola-stipendio/stipendio-netto-77000-chf');
+    expect(route.activeTab).toBe('calculator');
+    expect(route.staticOverlay).toBe(true);
+    expect(route.salaryHubSlug).toBe('stipendio-netto-77000-chf');
+  });
+});

@@ -186,6 +186,23 @@ const App: React.FC = () => {
  // UI state: dark mode, translations, deferred widgets, analytics init
  const { isDarkMode, isFocusMode, showDeferredHomeWidgets, translationsReady, toggleTheme, setIsFocusMode } = useUIState(activeTab);
  useSeoPageTracking();
+
+ // SPA-over-static takeover: build-time SEO pages emit `<main class="seo-static-content">`
+ // OUTSIDE `#root` as the crawler-facing fallback. When the URL resolves to a real SPA
+ // route (i.e. NOT staticOverlay), the React `<main id="main-content">` mounts inside
+ // `#root` AND the static body still sits in the DOM — both visible at once. Hide the
+ // static fallback so the hydrated SPA view is what the user sees, while crawlers (no JS)
+ // continue to receive the original HTML. Restore on cleanup if the route flips back to
+ // a staticOverlay variant during client-side navigation. See CLAUDE.md rule #14.
+ useEffect(() => {
+   const staticMain = document.querySelector<HTMLElement>('main.seo-static-content');
+   if (!staticMain) return;
+   if (staticOverlay) {
+     staticMain.style.removeProperty('display');
+   } else {
+     staticMain.style.display = 'none';
+   }
+ }, [staticOverlay]);
  // Runtime kill-switches (Firebase Remote Config) for the 5 SEO feature link
  // surfaces. When a flag is flipped to true in the RC console, every SPA link
  // to that feature is hidden within ~1 minute (RC cache). Default-safe:
@@ -1947,11 +1964,13 @@ const App: React.FC = () => {
  </div>
  </nav>
 
- {/* Sub-navigation bars — suppressed in lite-shell mode so static SEO pages
-  * render only the top nav (logo + 6 top tabs) without secondary tab clutter.
-  * Static SEO content (<main class="seo-static-content">) becomes the page body.
+ {/* Sub-navigation bars — hydrated on every page (including staticOverlay
+  * SEO landings) so the chrome stays fully interactive even when the body
+  * is a build-time static page. The static `<main class="seo-static-content">`
+  * remains visible underneath; nav + sub-tab nav + footer give the user a
+  * working SPA shell on top. See CLAUDE.md rule #14.
   */}
- {!staticOverlay && (<>
+ {(<>
  {/* Sub-navigation for Calcolatore */}
  {activeTab === 'calculator' && (
  <SubTabNav

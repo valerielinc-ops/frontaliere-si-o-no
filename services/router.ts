@@ -649,20 +649,27 @@ export interface AppRoute {
  /** Author profile slug when activeTab === 'autore' (e.g. /autori/marco-ferrari/). */
  author?: string;
  /**
-  * When true, this route was matched against a build-time static SEO page
-  * (fuel-daily, weekly-employers, job-market-snapshot, health-premiums,
-  * border-wait, orphan-query, plus per-station / IT-city / sector /
-  * company-city extensions). The URL is already canonical and the page
-  * body is statically rendered as a sibling of `#root` (see
-  * `seoContentOutsideRoot` in build-plugins/htmlTemplate.ts).
+  * When true, this URL is a build-time static SEO page with NO equivalent
+  * SPA view (fuel-daily/{station}, weekly-employers/{city}, job-market
+  * snapshots, health-premiums/{canton}, border-wait/{crossing}, orphan-query
+  * landings, salary-hub long-tail, known `seoLanding` aliases, plus all the
+  * per-leaf extensions). The page body is statically rendered as a sibling
+  * of `#root` via `buildSeoPageHtml` (`seoContentOutsideRoot: true`).
   *
   * Effects:
-  *   - `pushRoute()` becomes a no-op (so the SPA doesn't rewrite the URL
-  *     to the generic comparator/tab path on initial render).
-  *   - App.tsx detects the static `<main class="seo-static-content">` and
-  *     renders only the header+footer chrome, never the route's full tab
-  *     content — preventing the bait-and-switch where the per-station/
-  *     per-canton page would visually flip to the generic comparator.
+  *   - `pushRoute()` becomes a no-op so the SPA doesn't rewrite the URL to
+  *     the generic comparator/tab path on initial render.
+  *   - App.tsx skips the React `<main id="main-content">`; the static
+  *     `<main class="seo-static-content">` owns the page body. Top nav +
+  *     sub-tab nav + footer still hydrate so the chrome stays interactive.
+  *
+  * IMPORTANT: leave `staticOverlay` FALSY when the URL also resolves to a
+  * real SPA sub-tab (e.g. /calcola-stipendio/confronta-retribuzione-ral
+  * → `calcolatoreSubTab: 'ral'`). The router's `REVERSE_*` slug maps already
+  * win over the SEO landing branch in that case; App.tsx then renders the
+  * SPA sub-tab AND hides the static fallback so end users get the
+  * interactive view while crawlers (no JS) keep receiving the rich static
+  * HTML. See CLAUDE.md rule #14.
   */
  staticOverlay?: boolean;
 }
