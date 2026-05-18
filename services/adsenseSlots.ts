@@ -107,26 +107,27 @@ export const AD_SLOTS = {
  placeholderMinHeight: 220,
  },
  /** Article: 3rd inline-mobile ad (position 3 in the scalable placer).
-  *  Slot ID prefixed `TBD-` until created in AdSense console — the
-  *  isPlaceholderAdSlot guard short-circuits rendering for placeholders. */
+  *  AdSense unit: FT_ARTICLE_INLINE_MOBILE_3_INARTICLE (created 2026-05-18). */
  ARTICLE_INLINE_MOBILE_3: {
- slot: 'TBD-CREATE-IN-CONSOLE',
+ slot: '1120754984',
  format: 'fluid',
  layout: 'in-article',
  fullWidthResponsive: false,
  placeholderMinHeight: 220,
  },
- /** Article: 4th inline-mobile ad (position 4 in the scalable placer). */
+ /** Article: 4th inline-mobile ad (position 4 in the scalable placer).
+  *  AdSense unit: FT_ARTICLE_INLINE_MOBILE_4_INARTICLE (created 2026-05-18). */
  ARTICLE_INLINE_MOBILE_4: {
- slot: 'TBD-CREATE-IN-CONSOLE',
+ slot: '3084573347',
  format: 'fluid',
  layout: 'in-article',
  fullWidthResponsive: false,
  placeholderMinHeight: 220,
  },
- /** Article: 5th inline-mobile ad (position 5 in the scalable placer). */
+ /** Article: 5th inline-mobile ad (position 5 in the scalable placer).
+  *  AdSense unit: FT_ARTICLE_INLINE_MOBILE_5_INARTICLE (created 2026-05-18). */
  ARTICLE_INLINE_MOBILE_5: {
- slot: 'TBD-CREATE-IN-CONSOLE',
+ slot: '4692185947',
  format: 'fluid',
  layout: 'in-article',
  fullWidthResponsive: false,
