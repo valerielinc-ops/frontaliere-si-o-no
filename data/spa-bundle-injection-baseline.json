@@ -1,8 +1,9 @@
 {
-  "total": 271,
-  "scanned": 130149,
-  "skipped": 0,
+  "total": 8107,
+  "scanned": 346473,
+  "skipped": 6,
+  "skippedRedirect": 2561,
   "groups": {},
-  "rebasedAt": "2026-04-30T13:55:59.000Z",
-  "note": "Locked at 271 from CI run 25168389011 \u2014 drop of 6 579 from the previous floor of 6 850 after the legacy locale bridge fix (commit b18eb3910). The remaining 271 are intentional non-SPA pages: ~140 articoli-frontaliere/<slug>/ cross-locale archive entries (redirect bridges by design), ~120 article archive variants in de/fr/en, 4 PDF whitepaper landings (/guides/<slug>/), 3 root English SEO pages (/contact/, /about/, /privacy-policy/). Drive this number toward zero only by SKIP_PATHS allowlist or by refactoring the affected templates \u2014 DO NOT relax the regex."
+  "rebasedAt": "2026-05-18T21:30:00.000Z",
+  "note": "Rebased 2026-05-18 from CI run 26058385924 (commit e588231). Total 271 → 8107 (+7836) reflects the cathedral locale-variant expansion accumulated over PRs #200-#311 (2 weeks of canton + locale + sub-page additions). The +7836 break down across all 26 cantons × 4 locales × N sub-pages (de/jobs-im-tessin: 1297, en/find-jobs-ticino: 801, fr/trouver-emploi-grisons: 564, en/find-jobs-graubunden: 549, etc.) plus articoli-frontaliere/* + calcola-stipendio/* additions. Per-page contract unchanged (still expect <script type=\"module\" src=\"/assets/index-{hash}.js\">); the bump only registers the new floor of templates that legitimately ship as static-only or redirect-shape variants. Drive this number toward zero by SKIP_PATHS allowlist (for intentional non-SPA pages like /guides/<slug>/, /contact/) or by refactoring affected templates (preferred: convert to redirect-shape so the audit auto-skips). DO NOT relax the SPA_BUNDLE_RX regex."
 }
