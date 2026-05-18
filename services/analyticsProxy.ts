@@ -27,3 +27,12 @@ export const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy(
 export const unlockAchievement = (id: string): void => {
  import('@/services/gamificationService').then(m => m.unlockAchievement(id)).catch(() => {});
 };
+
+/**
+ * Lazy `fireCalcEntryIfNeeded` — emits `funnel_step:entry` (funnel=calculator)
+ * once per session when the user is on any calc URL (canonical or SEO variant).
+ * Safe to call on every route change; the helper deduplicates via sessionStorage.
+ */
+export const fireCalcEntryIfNeeded = (path: string): void => {
+ import('@/services/analytics').then(m => m.fireCalcEntryIfNeeded(path)).catch(() => {});
+};

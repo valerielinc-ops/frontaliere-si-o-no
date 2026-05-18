@@ -508,11 +508,16 @@ export type StatTileTone = 'neutral' | 'accent' | 'success' | 'warning' | 'dange
  * @param label - Small-caps label above the value.
  * @param value - The prominent metric string.
  * @param tone  - Visual tone (accent = indigo default, neutral, success, warning, danger).
+ * @param href  - When provided, the tile is wrapped as an `<a>` so the entire
+ *                tile is a single tap target. Closes a $dead_click hotspot
+ *                where users tap visually prominent tiles (rounded corners,
+ *                colored background) expecting them to be interactive.
  */
 export function renderStatTile(
   label: string,
   value: string,
   tone: StatTileTone = 'accent',
+  href?: string,
 ): string {
   const tileStyle =
     tone === 'neutral'
@@ -525,19 +530,35 @@ export function renderStatTile(
       ? STAT_TILE_DANGER
       : STAT_TILE_ACCENT;
 
+  const inner = `<div style="${STAT_TILE_LABEL}">${esc(label)}</div>
+  <div style="${STAT_TILE_VALUE}">${esc(value)}</div>`;
+
+  if (href) {
+    // Wrap as anchor → entire tile becomes a tap target. `display:block` +
+    // `color:inherit` + `text-decoration:none` keep the visual identical to
+    // the non-link variant.
+    return `<a href="${esc(href)}" style="${tileStyle};display:block;color:inherit;text-decoration:none" data-tile-cta="1">
+  ${inner}
+</a>`;
+  }
   return `<div style="${tileStyle}">
-  <div style="${STAT_TILE_LABEL}">${esc(label)}</div>
-  <div style="${STAT_TILE_VALUE}">${esc(value)}</div>
+  ${inner}
 </div>`;
 }
 
 /**
  * Render a responsive grid of stat tiles.
+ *
+ * Each tile may carry an optional `href` — when present the tile is wrapped
+ * as `<a>` so the entire tile becomes a single tap target. SEO-landing pages
+ * typically only set `href` on the headline (accent) tile, pointing at the
+ * page's primary CTA, to absorb $dead_click events on the most visually
+ * prominent tile.
  */
 export function renderStatGrid(
-  tiles: ReadonlyArray<{ label: string; value: string; tone?: StatTileTone }>,
+  tiles: ReadonlyArray<{ label: string; value: string; tone?: StatTileTone; href?: string }>,
 ): string {
-  const items = tiles.map((t) => renderStatTile(t.label, t.value, t.tone)).join('');
+  const items = tiles.map((t) => renderStatTile(t.label, t.value, t.tone, t.href)).join('');
   return `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">${items}</div>`;
 }
 

@@ -15,7 +15,7 @@ import { onConsentChange, isAnalyticsGranted } from '@/services/consentService';
 import type { ActiveTab } from '@/services/router';
 import { enableRuntimeSeo } from '@/hooks/seoHelpers';
 
-import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
+import { Analytics, unlockAchievement, fireCalcEntryIfNeeded } from '@/services/analyticsProxy';
 
 export interface UIState {
  isDarkMode: boolean;
@@ -92,7 +92,17 @@ export function useUIState(activeTab: ActiveTab): UIState {
  const run = () => {
  Analytics.init();
  Analytics.trackPageView(`${window.location.pathname}${window.location.search}${window.location.hash}`);
- Analytics.trackFunnelStep('entry', { source: document.referrer ? 'referral' : 'direct' });
+ // Generic session-init marker (kept for session-level dashboards). The
+ // calculator funnel uses `funnel: 'calculator'` instead, emitted via
+ // fireCalcEntryIfNeeded — see Phase 4 of the May 18 recovery plan.
+ Analytics.trackFunnelStep('entry', { funnel: 'session', source: document.referrer ? 'referral' : 'direct' });
+ // Emit `funnel_step:entry` (funnel=calculator) once per session when the
+ // initial URL is any calc route — canonical /calcola-stipendio/ OR SEO
+ // variants (e.g. nuovi-frontalieri-oltre-20-km, stipendio-netto-80000-chf)
+ // OR sibling calc tools (verifica-congedo-parentale, calcola-previdenza,
+ // simula-busta-paga) — see CALC_ROUTE_REGEX in services/analytics.ts.
+ // Idempotent via sessionStorage so it never double-fires.
+ fireCalcEntryIfNeeded(window.location.pathname);
  Analytics.initGlobalErrorTracking();
  import('@/services/webVitals').then(m => m.initWebVitals()).catch(() => {});
  import('@/services/clarity').then(m => m.initClarity()).catch(() => {});
@@ -125,6 +135,10 @@ export function useUIState(activeTab: ActiveTab): UIState {
  useEffect(() => {
  const trackCurrentLocation = () => {
  Analytics.trackPageView(`${window.location.pathname}${window.location.search}${window.location.hash}`);
+ // Also emit calc-funnel entry if the new route is any calc URL and we
+ // haven't fired it yet this session (deduped via sessionStorage). This
+ // covers in-SPA navigation into the calculator from any other tab.
+ fireCalcEntryIfNeeded(window.location.pathname);
  };
 
  const originalPushState = history.pushState;

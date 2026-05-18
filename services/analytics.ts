@@ -418,6 +418,51 @@ export function parseBrowserInfo(ua: string): string {
  return 'other';
 }
 
+// ── Calculator funnel entry detection ────────────────────────────────────────
+//
+// Phase 1 diagnosis (data/recovery-2026-05-18/calc-funnel.md) showed the
+// "entry → input_start" funnel was tracking-broken: 51 entries vs 6 input_start
+// vs 183 calculate (more calcs than entries — impossible). Root cause: the
+// generic session-init `entry` emitter fired once per session regardless of
+// landing page, while users landing on SEO calc variants
+// (e.g. /calcola-stipendio/nuovi-frontalieri-oltre-20-km, /verifica-congedo-parentale,
+// /calcola-stipendio/stipendio-netto-80000-chf) emitted input_start/calculate
+// but never the calculator-scoped `entry`.
+//
+// `CALC_ROUTE_REGEX` matches every URL family that mounts the calculator
+// (root /calcola-stipendio* + locale variants + sibling calc tools).
+// `fireCalcEntryIfNeeded` emits `funnel_step:entry` with `funnel: 'calculator'`
+// once per session when the user first reaches any calc URL.
+export const CALC_ROUTE_REGEX =
+ /^\/(?:[a-z]{2}\/)?(?:calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire|verifica-congedo-parentale|estimate-parental-leave|elternzeit-simulieren|simuler-conge-parental|calcola-previdenza|calculate-retirement|rente-berechnen|calculer-pension|simula-busta-paga|estimate-payslip|lohnabrechnung-simulieren|simuler-fiche-de-paie)(?:\/|$)/;
+
+const CALC_ENTRY_SESSION_KEY = 'fr_calc_entry_fired';
+
+/**
+ * Emit `funnel_step:entry` with `funnel: 'calculator'` once per session when
+ * the user first lands on (or navigates to) any calculator URL — including
+ * SEO variants and static-overlay landings.
+ *
+ * Idempotent via `sessionStorage`. Safe to call on every route change.
+ */
+export function fireCalcEntryIfNeeded(path: string): void {
+ if (typeof path !== 'string' || !path) return;
+ // Strip query + hash so /calcola-stipendio/?tipo=NEW matches the regex.
+ const pathOnly = path.split('?')[0].split('#')[0];
+ if (!CALC_ROUTE_REGEX.test(pathOnly)) return;
+ try {
+ if (sessionStorage.getItem(CALC_ENTRY_SESSION_KEY) === '1') return;
+ sessionStorage.setItem(CALC_ENTRY_SESSION_KEY, '1');
+ } catch {
+ // Private mode / storage disabled — fire anyway, dedup gives best-effort.
+ }
+ Analytics.trackFunnelStep('entry', {
+ funnel: 'calculator',
+ landing_path: pathOnly,
+ source: typeof document !== 'undefined' && document.referrer ? 'referral' : 'direct',
+ });
+}
+
 /**
  * Get Microsoft Clarity session ID for cross-referencing with session replays.
  * Returns null if Clarity isn't loaded or the API isn't available.
