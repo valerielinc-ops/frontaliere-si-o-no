@@ -93,7 +93,18 @@ export interface NavigationState {
 }
 
 export function useNavigationState(): NavigationState {
- // Read initial route from URL path
+ // Read initial route from URL path. If parsePath flagged the URL as a
+ // non-canonical variant of a known canton editorial-landing page
+ // (e.g. `/cerca-lavoro-basilea/offerte-di-lavoro-ticino-oggi/` → the
+ // canton's own `/cerca-lavoro-basilea/oggi/`), replace the URL before
+ // any rendering so the browser lands on the real static HTML and Google
+ // eventually drops the orphan.
+ if (typeof window !== 'undefined') {
+ const initialParsed = parsePath(window.location.pathname);
+ if (initialParsed.redirectTo && initialParsed.redirectTo !== window.location.pathname) {
+ window.location.replace(initialParsed.redirectTo + window.location.search + window.location.hash);
+ }
+ }
  const [initialRoute] = useState(() => {
  const parsed = parsePath(window.location.pathname);
  return { route: parsed.route, locale: parsed.locale };
@@ -184,7 +195,14 @@ export function useNavigationState(): NavigationState {
  // Shared route application — used by popstate AND global click interceptor
  const applyRoute = useCallback((pathname: string) => {
  enableRuntimeSeo();
- const { route, locale: urlLocale, notFoundPath: parsedNotFoundPath } = parsePath(pathname);
+ const { route, locale: urlLocale, notFoundPath: parsedNotFoundPath, redirectTo } = parsePath(pathname);
+ // Non-canonical canton editorial-landing URLs (e.g. a TI-form slug
+ // nested under a non-TI canton section) parse to a redirectTo target.
+ // Replace the URL so the browser fetches the canonical static HTML.
+ if (redirectTo && redirectTo !== pathname) {
+   window.location.replace(redirectTo + window.location.search + window.location.hash);
+   return;
+ }
  // Static SEO routes own their full HTML (rendered outside `#root`). When
  // navigating BACK into one (popstate) from elsewhere in the SPA, the
  // static content is no longer in the DOM and we cannot reconstruct it

@@ -1,16 +1,16 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-05-15T21:50:55.798Z",
-  "total": 2,
+  "generatedAt": "2026-05-17T21:42:07.201Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4281,
-  "avgDurationMs": 4281,
+  "durationMs": 5273,
+  "avgDurationMs": 5273,
   "durationHistory": [
-    4281
+    5273
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://giardinohotels.ch/en/jobs/demichef-de-partie-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T21:50:54.078Z",
+      "crawledAt": "2026-05-17T21:42:05.370Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -47,43 +47,6 @@
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "giardino-e7f4937bce90",
-      "slug": "assistant-accounting-50-giardino-group-champfer",
-      "company": "Giardino Group",
-      "companyKey": "giardino",
-      "companyDomain": "giardinohotels.ch",
-      "title": "Assistant Accounting 50%",
-      "location": "Champfèr",
-      "canton": "GR",
-      "url": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
-      "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-15T21:50:54.079Z",
-      "addressLocality": "Champfèr",
-      "postalCode": "7512",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-14",
-      "applyUrl": "https://giardinohotels.ch/en/jobs/ga-assistant-accounting-50/",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:11:16.186Z",
-      "_qualityScore": 83,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 19,
         "completeness": 17
       }
     }

@@ -1,12 +1,12 @@
 {
   "crawlerKey": "somedia",
-  "assembledAt": "2026-05-15T22:38:16.952Z",
+  "assembledAt": "2026-05-17T22:29:07.113Z",
   "jobs": [
     {
       "id": "somedia-9a0ca8ab845a",
-      "slug": "amministratore-delegato-a-communicaziun-ch-100-somedia-ag-ilanz",
+      "slug": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
       "slugByLocale": {
-        "it": "amministratore-delegato-a-communicaziun-ch-100-somedia-ag-ilanz",
+        "it": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
         "en": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
         "de": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
         "fr": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
@@ -16,7 +16,7 @@
       "companyDomain": "somedia.ch",
       "title": "Geschäftsführer/in communicaziun.ch (100%)",
       "titleByLocale": {
-        "it": "Amministratore delegato/a communicaziun.ch (100%)",
+        "it": "Geschäftsführer/in communicaziun.ch (100%)",
         "en": "Geschäftsführer/in communicaziun.ch (100%)",
         "de": "Geschäftsführer/in communicaziun.ch (100%)",
         "fr": "Geschäftsführer/in communicaziun.ch (100%)"
@@ -33,7 +33,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:38:14.498Z",
+      "crawledAt": "2026-05-17T22:29:04.828Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -74,16 +74,8 @@
         "identifier": "",
         "hiringOrganization": "communicaziun.ch ag"
       },
-      "previousSlugs": [
-        "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T12:31:42.396Z",
+      "firstSeenAt": "2026-05-17T11:04:21.105Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -99,9 +91,9 @@
     },
     {
       "id": "somedia-b1a7615c5298",
-      "slug": "grafica-80-100-somedia-ag-ilanz",
+      "slug": "grafiker-in-80-100-somedia-ch",
       "slugByLocale": {
-        "it": "grafica-80-100-somedia-ag-ilanz",
+        "it": "grafiker-in-80-100-somedia-ch",
         "en": "grafiker-in-80-100-somedia-ch",
         "de": "grafiker-in-80-100-somedia-ag-ilanz",
         "fr": "grafiker-in-80-100-somedia-ch"
@@ -111,7 +103,7 @@
       "companyDomain": "somedia.ch",
       "title": "Grafiker/in (80-100%)",
       "titleByLocale": {
-        "it": "Grafica (80-100%)",
+        "it": "Grafiker/in (80-100%)",
         "en": "Grafiker/in (80-100%)",
         "de": "Grafiker/in (80-100%)",
         "fr": "Grafiker/in (80-100%)"
@@ -128,7 +120,7 @@
       "url": "https://jobs.somedia.ch/Grafikerin-80-100-de-j387.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:38:13.675Z",
+      "crawledAt": "2026-05-17T22:29:04.037Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -169,19 +161,8 @@
         "identifier": "",
         "hiringOrganization": "communicaziun.ch ag"
       },
-      "previousSlugsByLocale": {
-        "de": [
-          "grafiker-in-80-100-somedia-ch"
-        ],
-        "it": [
-          "grafiker-in-80-100-somedia-ch"
-        ]
-      },
-      "previousSlugs": [
-        "grafiker-in-80-100-somedia-ch"
-      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:51:51.476Z",
+      "firstSeenAt": "2026-05-17T11:04:20.271Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -226,7 +207,7 @@
       "url": "https://jobs.somedia.ch/Leiterin-People-Culture-Leiterin-HR-100-de-j371.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:38:12.680Z",
+      "crawledAt": "2026-05-17T22:29:03.118Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -321,7 +302,7 @@
       "url": "https://jobs.somedia.ch/Praktikantin-Multimediaproduktion-100-de-j374.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:38:11.532Z",
+      "crawledAt": "2026-05-17T22:29:02.114Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -422,7 +403,7 @@
       "url": "https://jobs.somedia.ch/Projektleiterin-Marketing-80100-de-j385.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:38:10.376Z",
+      "crawledAt": "2026-05-17T22:29:01.099Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -473,7 +454,7 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:51:48.580Z",
+      "firstSeenAt": "2026-05-17T11:04:17.030Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -518,7 +499,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-80-100-de-j380.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:38:09.212Z",
+      "crawledAt": "2026-05-17T22:29:00.094Z",
       "addressLocality": "Uznach",
       "addressCountry": "CH",
       "country": "CH",
@@ -638,7 +619,7 @@
       "url": "https://jobs.somedia.ch/Teamleiterin-Logistik-100-de-j384.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:38:08.217Z",
+      "crawledAt": "2026-05-17T22:28:59.195Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",

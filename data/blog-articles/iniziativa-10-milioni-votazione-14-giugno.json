@@ -1,0 +1,40 @@
+{
+  "id": "iniziativa-10-milioni-votazione-14-giugno",
+  "slug": "iniziativa-10-milioni-votazione-14-giugno",
+  "publishedAt": "2026-05-16T17:49:58.047Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.2271349497761115,
+    "confidence": 0.8,
+    "finalScore": 3.3817079598208895,
+    "topK": [
+      {
+        "slug": "primo-maggio-monito-svizzera-10-milioni",
+        "cosine": 0.8448210986657246
+      },
+      {
+        "slug": "pericoli-minori-iniziativa-10-milioni",
+        "cosine": 0.8434032288677695
+      },
+      {
+        "slug": "votazioni-svizzera-10-milioni-frontalieri",
+        "cosine": 0.8415275332411883
+      },
+      {
+        "slug": "udc-sostenibilita-lavoro-ticino-2026",
+        "cosine": 0.8388150934308676
+      },
+      {
+        "slug": "jans-udc-iniziativa-10-milioni",
+        "cosine": 0.8385152880657872
+      }
+    ],
+    "score": 0.8454269899552224,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

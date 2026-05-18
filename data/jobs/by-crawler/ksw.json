@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksw",
-  "assembledAt": "2026-05-16T08:22:35.765Z",
+  "assembledAt": "2026-05-17T07:45:27.204Z",
   "jobs": [
     {
       "id": "ksw-5c7f023db5a6",
@@ -562,90 +562,6 @@
       ]
     },
     {
-      "id": "ksw-5315115335ae",
-      "slug": "assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
-      "slugByLocale": {
-        "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
-        "it": "assistente-di-pratica-medica-kantonsspital-winterthur-ksw-winterthur",
-        "en": "medical-practice-assistant-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur"
-      },
-      "company": "Kantonsspital Winterthur (KSW)",
-      "companyKey": "ksw",
-      "companyDomain": "ksw.ch",
-      "title": "Medizinische Praxisassistentin / Medizinischer Praxisassistent",
-      "titleByLocale": {
-        "de": "Medizinische Praxisassistentin / Medizinischer Praxisassistent",
-        "it": "Assistente di pratica medica",
-        "en": "Medical Practice Assistant",
-        "fr": "Assistant de pratique médicale"
-      },
-      "description": "Medizinische Praxisassistentin / Medizinischer Praxisassistent — Kantonsspital Winterthur (KSW), Winterthur\n\nBerufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik für Urologie\n• Pensum: 80-100%",
-      "descriptionByLocale": {
-        "de": "Descrizione\nMedizinische Praxisassistentin / Medizinischer Praxisassistent — Kantonsspital Winterthur (KSW), Winterthur\n\n- Berufsfeld: MPA / Arztsekretariate\n- Bereich: Klinik für Urologie\n- Pensum: 80-100%",
-        "it": "Descrizione\nAssistente di pratica medica / Assistente di pratica medica — Ospedale cantonale Winterthur (KSW), Winterthur\n\n- Campo di professione: MPA / Segreteria del Dottore\n- Dipartimento di Urologia\n- Penso: 80-100 %",
-        "en": "Descrizione\nMedical practice assistant / Medical practice assistant — Cantonal Hospital Winterthur (KSW), Winterthur\n\n- Profession field: MPA / Doctor's Secretariat\n- Department: Department of Urology\n- Pensum: 80-100 %",
-        "fr": "Descrizione\nAssistant médical / Assistant médical — Hôpital cantonal Winterthur (KSW), Winterthur\n\n- Domaine professionnel : MPA / Secrétariat du Docteur\n- Département: Département d'urologie\n- Pensum: 80-100 %"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ksw/job/details/3987774",
-      "source": "KSW Dedicated Parser (Solique tenant ksw)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:55:26.417Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "postalCode": "8400",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://live.solique.ch/ksw/job/details/3987774",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "Klinik für Urologie",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-10T21:55:26.417Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-2"
-        ],
-        "en": [
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-2"
-        ],
-        "fr": [
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-2"
-        ]
-      },
-      "previousSlugs": [
-        "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch-2",
-        "assistente-di-pratica-medica-assistente-di-pratica-medica-nel-campo-della-poliambulanza-medica-kantonsspital-winterthur-",
-        "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische-poliklinik-kantonsspital-winterthur",
-        "medical-practice-assistant-medical-practice-assistant-in-the-field-of-medical-polyclinic-kantonsspital-winterthur-ksw-wi",
-        "assistant-de-pratique-medicale-assistant-de-pratique-medicale-dans-le-domaine-de-la-polyclinique-medicale-kantonsspital-",
-        "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische-polik"
-      ]
-    },
-    {
       "id": "ksw-835640d9e803",
       "slug": "collaboratore-trice-in-op-reinigung-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
@@ -1045,7 +961,7 @@
       "id": "ksw-b8ec3d362d3f",
       "slug": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
       "slugByLocale": {
-        "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
+        "de": "pflegefachkraft-akutgeriatrie-kantonsspital-winterthur-ksw-winterthur",
         "it": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
         "en": "nursing-specialist-in-acute-geriatrics-kantonsspital-winterthur-ksw-winterthur",
         "fr": "infirmier-ere-en-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur"
@@ -2595,10 +2511,10 @@
       "id": "ksw-f7d2cc19cc8e",
       "slug": "vitreoretinale-chirurgin-chirurge-ksw-ch",
       "slugByLocale": {
-        "de": "vitreoretinale-chirurgin-chirurge-ksw-ch",
+        "de": "vitreoretinale-chirurgin-chirurgin-kantonsspital-winterthur-ksw-winterthur",
         "it": "vitreoretinale-chirurgin-chirurge-ksw-ch",
         "en": "vitreoretinal-surgery-surgery-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "vitreoretinale-chirurgin-chirurge-ksw-ch"
+        "fr": "vitreoretinale-chirurgin-chirurgie-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2968,172 +2884,6 @@
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-im-medizinischen-bereich-ksw-ch"
       ]
-    },
-    {
-      "id": "ksw-da54f11b0c98",
-      "slug": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur",
-      "slugByLocale": {
-        "de": "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
-        "it": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur",
-        "en": "doctor-s-secretary-kantonsspital-winterthur-ksw-winterthur",
-        "fr": "secretaire-du-docteur-kantonsspital-winterthur-ksw-winterthur"
-      },
-      "company": "Kantonsspital Winterthur (KSW)",
-      "companyKey": "ksw",
-      "companyDomain": "ksw.ch",
-      "title": "Arztsekretärin / Arztsekretär",
-      "titleByLocale": {
-        "de": "Arztsekretärin / Arztsekretär",
-        "it": "Segretario del Dottore",
-        "en": "Doctor's Secretary",
-        "fr": "Secrétaire du docteur"
-      },
-      "description": "Arztsekretärin / Arztsekretär — Kantonsspital Winterthur (KSW), Winterthur\n\nBerufsfeld: MPA / Arztsekretariate\n• Bereich: Klinischer Bereich B\n• Pensum: 80-100%",
-      "descriptionByLocale": {
-        "de": "Arztsekretärin / Arztsekretär — Kantonsspital Winterthur (KSW), Winterthur\n\nBerufsfeld: MPA / Arztsekretariate\n• Bereich: Klinischer Bereich B\n• Pensum: 80-100%",
-        "it": "Segretario generale del Dottore — Ospedale cantonale Winterthur (KSW), Winterthur\n\n• Professione: MPA / Segreteria del Dottore\n• Area: Area clinica B\n• Penso: 80-100 %",
-        "en": "Doctor's Secretary/General — Cantonal Hospital Winterthur (KSW), Winterthur\n\n• Profession: MPA / Doctor's Secretariat\n• Area: Clinical area B\n• Pensum: 80-100 %",
-        "fr": "Secrétaire général du médecin — Hôpital cantonal Winterthur (KSW), Winterthur\n\n• Profession: MPA / Secrétariat du Docteur\n• Domaine: Domaine clinique B\n• Pensum: 80-100 %"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ksw/job/details/3990977",
-      "source": "KSW Dedicated Parser (Solique tenant ksw)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:55:26.415Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "postalCode": "8400",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://live.solique.ch/ksw/job/details/3990977",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "Klinischer Bereich B",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-10T21:55:26.415Z",
-      "previousSlugs": [
-        "arztsekretarin-arztsekretar-ksw-ch-3",
-        "arztsekretarin-arztsekretar-ksw-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "arztsekretarin-arztsekretar-ksw-ch-3",
-          "arztsekretarin-arztsekretar-ksw-ch"
-        ],
-        "en": [
-          "arztsekretarin-arztsekretar-ksw-ch-3",
-          "arztsekretarin-arztsekretar-ksw-ch"
-        ],
-        "fr": [
-          "arztsekretarin-arztsekretar-ksw-ch-3",
-          "arztsekretarin-arztsekretar-ksw-ch"
-        ]
-      }
-    },
-    {
-      "id": "ksw-491c8feebb0b",
-      "slug": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur-ef25c9",
-      "slugByLocale": {
-        "de": "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
-        "it": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur-ef25c9",
-        "en": "doctor-s-secretary-kantonsspital-winterthur-ksw-winterthur-ef25c9",
-        "fr": "secretaire-du-docteur-kantonsspital-winterthur-ksw-winterthur-ef25c9"
-      },
-      "company": "Kantonsspital Winterthur (KSW)",
-      "companyKey": "ksw",
-      "companyDomain": "ksw.ch",
-      "title": "Arztsekretärin / Arztsekretär",
-      "titleByLocale": {
-        "de": "Arztsekretärin / Arztsekretär",
-        "it": "Segretario del Dottore",
-        "en": "Doctor's Secretary",
-        "fr": "Secrétaire du docteur"
-      },
-      "description": "Arztsekretärin / Arztsekretär — Kantonsspital Winterthur (KSW), Winterthur\n\nBerufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik für Orthopädie und Traumatologie\n• Pensum: 80-100%",
-      "descriptionByLocale": {
-        "de": "Arztsekretärin / Arztsekretär — Kantonsspital Winterthur (KSW), Winterthur\n\nBerufsfeld: MPA / Arztsekretariate\n• Bereich: Klinik für Orthopädie und Traumatologie\n• Pensum: 80-100%",
-        "it": "Segretario generale del Dottore — Ospedale cantonale Winterthur (KSW), Winterthur\n\n• Professione: MPA / Segreteria del Dottore\n• Area: Clinica per Ortopedia e Traumatologia\n• Penso: 80-100 %",
-        "en": "Doctor's Secretary/General — Cantonal Hospital Winterthur (KSW), Winterthur\n\n• Profession: MPA / Doctor's Secretariat\n• Area: Clinic for Orthopedics and Traumatology\n• Pensum: 80-100 %",
-        "fr": "Secrétaire général du médecin — Hôpital cantonal Winterthur (KSW), Winterthur\n\n• Profession: MPA / Secrétariat du Docteur\n• Zone: Clinique d'orthopédie et de traumatologie\n• Pensum: 80-100 %"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ksw/job/details/3988396",
-      "source": "KSW Dedicated Parser (Solique tenant ksw)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:55:26.415Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "postalCode": "8400",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://live.solique.ch/ksw/job/details/3988396",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "Klinik für Orthopädie und Traumatologie",
-      "previousSlugsByLocale": {
-        "de": [
-          "arztsekretarin-arztsekretar-ksw-ch"
-        ],
-        "it": [
-          "arztsekretarin-arztsekretar-ksw-ch-2"
-        ],
-        "en": [
-          "arztsekretarin-arztsekretar-ksw-ch-2"
-        ],
-        "fr": [
-          "arztsekretarin-arztsekretar-ksw-ch-2"
-        ]
-      },
-      "previousSlugs": [
-        "arztsekretarin-arztsekretar-ksw-ch",
-        "arztsekretarin-arztsekretar-ksw-ch-2"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-10T21:55:26.415Z"
     },
     {
       "id": "ksw-ca5241ac2ac5",
@@ -3540,10 +3290,10 @@
       "id": "ksw-b1b5f5e4edbd",
       "slug": "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
       "slugByLocale": {
-        "de": "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
+        "de": "experten-experten-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur",
         "it": "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
-        "en": "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
-        "fr": "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch"
+        "en": "experts-experts-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "experts-experts-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3913,89 +3663,6 @@
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-notfall-erwachsene-ksw-ch"
       ]
-    },
-    {
-      "id": "ksw-fbc20f60b05e",
-      "slug": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur-51bce7",
-      "slugByLocale": {
-        "de": "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
-        "it": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur-51bce7",
-        "en": "doctor-s-secretary-kantonsspital-winterthur-ksw-winterthur-51bce7",
-        "fr": "secretaire-du-docteur-kantonsspital-winterthur-ksw-winterthur-51bce7"
-      },
-      "company": "Kantonsspital Winterthur (KSW)",
-      "companyKey": "ksw",
-      "companyDomain": "ksw.ch",
-      "title": "Arztsekretärin / Arztsekretär",
-      "titleByLocale": {
-        "de": "Arztsekretärin / Arztsekretär",
-        "it": "Segretario del Dottore",
-        "en": "Doctor's Secretary",
-        "fr": "Secrétaire du docteur"
-      },
-      "description": "Arztsekretärin / Arztsekretär — Kantonsspital Winterthur (KSW), Winterthur\n\nBerufsfeld: MPA / Arztsekretariate\n• Bereich: Klinischer Bereich A\n• Pensum: 60%",
-      "descriptionByLocale": {
-        "de": "Arztsekretärin / Arztsekretär — Kantonsspital Winterthur (KSW), Winterthur\n\nBerufsfeld: MPA / Arztsekretariate\n• Bereich: Klinischer Bereich A\n• Pensum: 60%",
-        "it": "Segretario generale del Dottore — Ospedale cantonale Winterthur (KSW), Winterthur\n\n• Professione: MPA / Segreteria del Dottore\n• Area: Area clinica A\n• Pensum: 60%",
-        "en": "Doctor's Secretary/General — Cantonal Hospital Winterthur (KSW), Winterthur\n\n• Profession: MPA / Doctor's Secretariat\n• Area: Clinical area A\n• Pensum: 60%",
-        "fr": "Secrétaire général du médecin — Hôpital cantonal Winterthur (KSW), Winterthur\n\n• Profession: MPA / Secrétariat du Docteur\n• Domaine: Domaine clinique A\n• Pensum: 60%"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ksw/job/details/3996747",
-      "source": "KSW Dedicated Parser (Solique tenant ksw)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-10T21:55:26.414Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "postalCode": "8400",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-10",
-      "applyUrl": "https://live.solique.ch/ksw/job/details/3996747",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "department": "Klinischer Bereich A",
-      "previousSlugsByLocale": {
-        "de": [
-          "arztsekretarin-arztsekretar-ksw-ch"
-        ],
-        "it": [
-          "arztsekretarin-arztsekretar-ksw-ch-4"
-        ],
-        "en": [
-          "arztsekretarin-arztsekretar-ksw-ch-4"
-        ],
-        "fr": [
-          "arztsekretarin-arztsekretar-ksw-ch-4"
-        ]
-      },
-      "previousSlugs": [
-        "arztsekretarin-arztsekretar-ksw-ch",
-        "arztsekretarin-arztsekretar-ksw-ch-4"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-05-10T21:55:26.414Z"
     }
   ]
 }

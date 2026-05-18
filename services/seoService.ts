@@ -3774,6 +3774,17 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mobilitazione-deposito-macchinisti-chiasso': { name: 'Mobilitazione Chiasso FFS', path: '/articoli-frontaliere/mobilitazione-deposito-macchinisti-chiasso', parent: 'blog' },
     'blog-frontaliere-documenti-necessari-inizio-lavoro-svizzera': { name: 'Documenti necessari per lavorare in', path: '/articoli-frontaliere/frontaliere-documenti-necessari-inizio-lavoro-svizzera', parent: 'blog' },
     'blog-petizione-usi-supsi-500-firme': { name: 'Petizione contro i tagli a USI e SUPSI', path: '/articoli-frontaliere/petizione-usi-supsi-500-firme', parent: 'blog' },
+    'blog-libera-circolazione-ue-svizzera-impatti': { name: 'Economia', path: '/articoli-frontaliere/libera-circolazione-ue-svizzera-impatti', parent: 'blog' },
+    'blog-iniziativa-10-milioni-votazione-14-giugno': { name: 'Iniziativa 10 milioni', path: '/articoli-frontaliere/iniziativa-10-milioni-votazione-14-giugno', parent: 'blog' },
+    'blog-svizzera-investimenti-ricerca-2026': { name: 'Novità', path: '/articoli-frontaliere/svizzera-investimenti-ricerca-2026', parent: 'blog' },
+    'blog-cantonale-interna-ascona-porto-ronco-lavori-disagi-vista': { name: 'Cantonale \'interna\' da Ascona a Porto', path: '/articoli-frontaliere/cantonale-interna-ascona-porto-ronco-lavori-disagi-vista', parent: 'blog' },
+    'blog-traffico-migranti-tra-varese-e-il-ticino': { name: 'Traffico di migranti', path: '/articoli-frontaliere/traffico-migranti-tra-varese-e-il-ticino', parent: 'blog' },
+    'blog-molestie-sul-lavoro-oltre-alle-segnalazioni': { name: 'Molestie sul lavoro', path: '/articoli-frontaliere/molestie-sul-lavoro-oltre-alle-segnalazioni', parent: 'blog' },
+    'blog-frontalieri-disoccupazione-ue-svizzera-2026': { name: 'Riforma sulla disoccupazione dei', path: '/articoli-frontaliere/frontalieri-disoccupazione-ue-svizzera-2026', parent: 'blog' },
+    'blog-frontalieri-assemblea-generale-2023': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-assemblea-generale-2023', parent: 'blog' },
+    'blog-pasta-svizzera-italia-2026': { name: 'Pasta Svizzera', path: '/articoli-frontaliere/pasta-svizzera-italia-2026', parent: 'blog' },
+    'blog-code-e-non-solo-in-autostrada': { name: 'Traffico', path: '/articoli-frontaliere/code-e-non-solo-in-autostrada', parent: 'blog' },
+    'blog-traffico-rientro-ascensione-ticino': { name: 'Ticino', path: '/articoli-frontaliere/traffico-rientro-ascensione-ticino', parent: 'blog' },
  };
 
  const info = sectionNames[section];

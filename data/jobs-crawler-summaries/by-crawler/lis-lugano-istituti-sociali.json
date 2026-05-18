@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-05-15T22:11:48.193Z",
+  "generatedAt": "2026-05-17T22:02:37.868Z",
   "total": 13,
   "newCount": 0,
-  "updatedCount": 13,
+  "updatedCount": 11,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 27047,
-  "avgDurationMs": 27047,
+  "unchangedCount": 2,
+  "durationMs": 26077,
+  "avgDurationMs": 26077,
   "durationHistory": [
-    27047
+    26077
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -77,7 +77,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 77526,
+      "salaryMin": 86928,
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
@@ -117,7 +117,7 @@
       "country": "CH",
       "postalCode": "6963",
       "streetAddress": "Via alla Bozzoreda 15",
-      "datePosted": "2026-01-25",
+      "datePosted": "2026-01-26",
       "validThrough": "2026-12-13",
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
@@ -142,52 +142,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-14T11:20:10.630Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "title": "Assistenti di cura",
-      "company": "LIS – Lugano Istituti Sociali",
-      "companyKey": "lis-lugano-istituti-sociali",
-      "companyDomain": "lugano-lis.ch",
-      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
-      "slug": "assistenti-di-cura",
-      "location": "Pregassona",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6963",
-      "streetAddress": "Via alla Bozzoreda 15",
-      "datePosted": "2026-01-26",
-      "validThrough": "2026-12-13",
-      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Salute",
-      "source": "arca24",
-      "salaryMin": 59808,
-      "salaryMax": 77502,
-      "salaryCurrency": "CHF",
-      "salaryClass": "10",
-      "crawledAt": "",
-      "sourceLang": "it",
-      "currency": "CHF",
-      "salaryExtraction": {
-        "strategyVersion": "lis_salary_v2",
-        "textHash": "0b47f4d84431a08262bb",
-        "source": "lis_regex_text",
-        "confidence": 0.98,
-        "extractedAt": "2026-05-15T22:11:48.106Z"
-      },
-      "id": "lis-lugano-istituti-sociali-3e5d8c322840",
-      "addressLocality": "Pregassona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -304,7 +258,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 77526,
+      "salaryMin": 86928,
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
@@ -440,7 +394,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 73140,
+      "salaryMin": 82372,
       "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
@@ -485,7 +439,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 65680,
+      "salaryMin": 73140,
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
@@ -530,7 +484,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 59808,
+      "salaryMin": 65680,
       "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
@@ -557,6 +511,55 @@
         "translation": 25,
         "completeness": 23
       }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "title": "Assistenti di cura",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
+      "slug": "assistenti-di-cura",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Salute",
+      "source": "arca24",
+      "salaryMin": 65680,
+      "salaryMax": 77502,
+      "salaryCurrency": "CHF",
+      "salaryClass": "10",
+      "crawledAt": "",
+      "sourceLang": "it",
+      "currency": "CHF",
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "0b47f4d84431a08262bb",
+        "source": "lis_regex_text",
+        "confidence": 0.98,
+        "extractedAt": "2026-05-15T22:11:48.106Z"
+      },
+      "id": "lis-lugano-istituti-sociali-3e5d8c322840",
+      "addressLocality": "Pregassona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 23
+      }
     },
     {
       "title": "Addetti servizi alla casa",
@@ -575,7 +578,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 53519,
+      "salaryMin": 57394,
       "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
@@ -603,7 +606,5 @@
         "completeness": 23
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

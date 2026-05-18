@@ -1,7 +1,20 @@
 /**
- * Career quick-win SEO landings — Vite build plugin (AE-2).
+ * Career quick-win SEO landings (AE-2) — Vite build plugin, template B.
  *
- * Emits 16 static HTML pages (4 IT canonicals × 4 locales):
+ * Emits 16 static HTML pages (4 IT canonicals × 4 locales). The 2026-05
+ * redesign inverts the previous layout to match the mobile-first contract in
+ * CLAUDE.md regola #17 (75% of traffic is mobile):
+ *
+ *   1. breadcrumb
+ *   2. header (eyebrow · H1 · 1-line denseLede ≤120 chars)
+ *   3. 3 stat tiles (per-id labels + snapshot-driven values)
+ *   4. primary CTA → calculator / job-board
+ *   5. featured live jobs (when applicable — concorsi + stage)
+ *   6. employer grid (when applicable — agenzie + concorsi)
+ *      OR curated editorial replacement (stage + contratti)
+ *   7. ─── "Approfondisci" divider ───
+ *   8. long-form lede + 7 H2 prose sections (existing copy)
+ *   9. sources · FAQ · related · final CTAs
  *
  *   IT canonical                        EN / DE / FR variants
  *   /agenzie-del-lavoro-lugano/         /en/staffing-agencies-lugano/ …
@@ -9,31 +22,18 @@
  *   /stage-lugano/                      /en/internships-lugano/ …
  *   /contratti-lavoro-frontalieri/      /en/cross-border-work-contracts/ …
  *
- * Each IT page is ≥800 words and covers the quick-win keyword cluster with
- * real cited data from concorsi.ti.ch (snapshot in `data/seo/concorsi-ti.json`)
- * and the SECO AVG agency registry (`data/seco-staffing-registry.json`).
- * EN/DE/FR variants are ≥400 words and follow the same structure with inline
- * citations to the primary sources.
+ * Live signal comes from `careerJobsAggregate` (build-time read of
+ * `data/jobs.json` + `data/seco-staffing-registry.json` +
+ * `data/seo/concorsi-ti.json`). The editorial copy in `careerLandingsCopy`
+ * stays unchanged — the long-form prose just moves below the divider.
  *
- * JSON-LD emitted: BreadcrumbList + FAQPage + Article (Article carries
- * `inLanguage` so Google indexes the correct locale variant).
+ * JSON-LD: BreadcrumbList + FAQPage + Article (locale-tagged).
+ * Hub chrome: `{ hubKey: 'job-board', activeSubTab: 'jobs' }`.
+ * Sitemap: writes `dist/sitemap-career-landings.xml`; `sitemapAliasPlugin`
+ * auto-discovers it.
  *
- * Routing: paths are registered as `staticOverlay` routes in
- * `services/router.ts` so the SPA doesn't replace the SEO content with a
- * NotFoundSuggestions UI on hydrate (content lives outside `#root` via
- * `seoContentOutsideRoot: true`, same trick used by nursing + F2-F8 plugins).
- *
- * Hub chrome: every page wraps its body in the canonical job-board sub-nav
- * via `hubChrome: { hubKey: 'job-board', activeSubTab: 'jobs' }`, so the
- * first-paint static HTML matches the SPA chrome of the rest of the site
- * (same contract enforced by BUG-2 / tests/e2e/hub-chrome-parity.spec.ts).
- *
- * Sitemap: writes `dist/sitemap-career-landings.xml` and patches
- * `sitemap.xml` index. `sitemapAliasPlugin` auto-discovers the file so no
- * extra wiring is needed in `sitemapAliasPlugin.ts`.
- *
- * Gate: SKIP_CAREER_LANDINGS=1 fast-exits the plugin for local builds only.
- * CI (`npm run build:ci`) always exercises it — exit 0 required.
+ * Gate: `SKIP_CAREER_LANDINGS=1` fast-exits for local builds only. CI
+ * (`npm run build:ci`) always exercises this plugin — exit 0 required.
  */
 
 import fs from 'node:fs';
@@ -52,8 +52,19 @@ import {
 } from './careerLandingsData';
 import {
   CAREER_LANDING_COPY,
+  buildCareerTemplateBCopy,
+  getCareerTemplateBShell,
+  getCareerCalculatorUrl,
   type CareerLandingCopy,
+  type CareerTemplateBCopy,
 } from './careerLandingsCopy';
+import {
+  aggregateCareerLandings,
+  buildCareerFeaturedJobUrl,
+  buildCareerJobBoardUrl,
+  type CareerJobsSnapshot,
+  type CareerFeaturedJob,
+} from './careerJobsAggregate';
 import {
   BREADCRUMB_STYLE,
   BREADCRUMB_LINK_STYLE,
@@ -62,9 +73,20 @@ import {
   BODY_STYLE,
   H2_STYLE,
   CARD_STYLE,
+  CARD_BODY_STYLE,
+  CARD_PADDING_STYLE,
   LINK_ACCENT_STYLE,
   CTA_PRIMARY_STYLE,
   HERO_EYEBROW_STYLE,
+  SMALL_HEADING_STYLE,
+  STAT_TILE_ACCENT,
+  STAT_TILE_SUCCESS,
+  STAT_TILE_WARNING,
+  STAT_TILE_DANGER,
+  STAT_TILE_BASE,
+  STAT_TILE_LABEL,
+  STAT_TILE_VALUE,
+  ICON_BUILDING_SVG,
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 
@@ -87,9 +109,9 @@ const OG_LOCALE: Record<CareerLocale, string> = {
 
 /**
  * Related internal links per locale. IT canonicals verified against
- * services/router.ts slug tables. Keeps every career landing connected to
- * the main job-board hub + salary calculator + existing nursing landings
- * (inter-vertical link equity).
+ * `services/router.ts` slug tables. Keeps every career landing connected to
+ * the main job-board hub + salary calculator + nursing landings (cross-
+ * vertical link equity).
  */
 const RELATED_LINKS: Record<
   CareerLocale,
@@ -137,7 +159,159 @@ const RELATED_LINKS: Record<
   ],
 };
 
-// ── Rendering ─────────────────────────────────────────────────────
+// ── Template B renderers ─────────────────────────────────────────────────────
+
+function toneToStyle(tone: CareerTemplateBCopy['statTile1']['tone']): string {
+  switch (tone) {
+    case 'success':
+      return STAT_TILE_SUCCESS;
+    case 'warning':
+      return STAT_TILE_WARNING;
+    case 'danger':
+      return STAT_TILE_DANGER;
+    case 'neutral':
+      return STAT_TILE_BASE;
+    case 'accent':
+    default:
+      return STAT_TILE_ACCENT;
+  }
+}
+
+function renderTile(label: string, value: string, tone: CareerTemplateBCopy['statTile1']['tone']): string {
+  return `<div style="${toneToStyle(tone)}">
+    <div style="${STAT_TILE_LABEL}">${esc(label)}</div>
+    <div style="${STAT_TILE_VALUE}">${esc(value)}</div>
+  </div>`;
+}
+
+function renderStatTiles(
+  id: CareerLandingId,
+  templateB: CareerTemplateBCopy,
+  snapshot: CareerJobsSnapshot,
+  agencyCount: number,
+  concorsiCount: number,
+): string {
+  // Tile 1 count source is id-deterministic — agenzie uses the SECO registry,
+  // concorsi uses the cantonal snapshot, the rest use the live jobs aggregate.
+  const tile1Count =
+    id === 'agenzie-lavoro-lugano'
+      ? agencyCount
+      : id === 'concorsi-pubblici-lugano'
+        ? concorsiCount
+        : snapshot.liveCount;
+
+  const tile2Value =
+    typeof templateB.statTile2.value === 'string'
+      ? templateB.statTile2.value
+      : templateB.statTile2.value({
+          medianSalary: snapshot.medianSalaryChf,
+          liveCount: snapshot.liveCount,
+        });
+
+  const tile1 = renderTile(
+    templateB.statTile1.label,
+    templateB.statTile1.valueFromCount(tile1Count),
+    templateB.statTile1.tone,
+  );
+  const tile2 = renderTile(templateB.statTile2.label, tile2Value, templateB.statTile2.tone);
+  const tile3 = renderTile(
+    templateB.statTile3.label,
+    templateB.statTile3.valueFromFresh(snapshot.fresh30Count),
+    templateB.statTile3.tone,
+  );
+
+  return `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">${tile1}${tile2}${tile3}</div>`;
+}
+
+function renderFeaturedJobCard(
+  job: CareerFeaturedJob,
+  locale: CareerLocale,
+  formatPosted: (d: number) => string,
+  formatSalary: (min: number | null, max: number | null) => string,
+): string {
+  const href = buildCareerFeaturedJobUrl(job, locale);
+  const title = job.titleByLocale[locale] ?? job.title;
+  const subtitleParts: string[] = [];
+  if (job.company) subtitleParts.push(job.company);
+  if (job.city) subtitleParts.push(job.city);
+  const subtitle = subtitleParts.join(' · ');
+  const salary = formatSalary(job.salaryMin, job.salaryMax);
+  const posted = formatPosted(job.daysAgo);
+  return `<a class="seo-card-link" href="${esc(href)}" style="${CARD_STYLE};text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:6px">
+    <div style="font-weight:700;font-size:16px;line-height:1.35;color:var(--color-heading)">${esc(title)}</div>
+    ${subtitle ? `<div style="font-size:14px;color:var(--color-body);line-height:1.4">${esc(subtitle)}</div>` : ''}
+    <div style="display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-top:4px;font-size:13px;color:var(--color-subtle)">
+      ${salary ? `<span style="color:var(--color-accent);font-weight:700">${esc(salary)}</span>` : ''}
+      <span>${esc(posted)}</span>
+    </div>
+  </a>`;
+}
+
+function renderFeaturedJobs(
+  locale: CareerLocale,
+  snapshot: CareerJobsSnapshot,
+  templateB: CareerTemplateBCopy,
+): string {
+  const shell = getCareerTemplateBShell(locale);
+  const title = templateB.featuredJobsTitle ?? shell.featuredJobsTitle;
+  if (snapshot.featured.length === 0) {
+    return `<section style="margin:0 0 28px">
+      <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(title)}</h2>
+      <p style="${CARD_STYLE};color:var(--color-subtle);font-size:14px;margin:0">${esc(shell.featuredJobsEmpty)}</p>
+    </section>`;
+  }
+  const cards = snapshot.featured
+    .map((j) => renderFeaturedJobCard(j, locale, shell.jobPostedLabel, shell.jobSalaryFmt))
+    .join('');
+  const ctaHref = buildCareerJobBoardUrl(locale);
+  return `<section style="margin:0 0 28px">
+    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(title)}</h2>
+    <div style="display:grid;gap:12px;margin-bottom:14px">${cards}</div>
+    <a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px">${esc(shell.featuredJobsCtaAll(snapshot.liveCount))}</a>
+  </section>`;
+}
+
+function renderEmployerGrid(
+  snapshot: CareerJobsSnapshot,
+  templateB: CareerTemplateBCopy,
+  locale: CareerLocale,
+): string {
+  const employers = snapshot.topEmployers;
+  if (employers.length === 0) return '';
+  const shell = getCareerTemplateBShell(locale);
+  const title = templateB.employerGridTitle ?? shell.employerGridTitle;
+  const cells = employers
+    .map(
+      (e) => `<div style="display:flex;align-items:center;gap:10px;${CARD_PADDING_STYLE};${CARD_BODY_STYLE}">
+        <span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:var(--color-surface-alt);color:var(--color-subtle);flex-shrink:0">${ICON_BUILDING_SVG}</span>
+        <div style="flex:1;min-width:0">
+          <div style="font-weight:700;font-size:14px;color:var(--color-heading);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(e.name)}</div>
+        </div>
+        ${e.count !== null ? `<div style="flex-shrink:0;font-weight:700;color:var(--color-accent);font-variant-numeric:tabular-nums">${e.count}</div>` : ''}
+      </div>`,
+    )
+    .join('');
+  return `<section style="margin:0 0 28px">
+    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(title)}</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">${cells}</div>
+  </section>`;
+}
+
+function renderEmployerGridReplacement(text: string): string {
+  return `<section style="margin:0 0 28px;${CARD_STYLE};max-width:860px">
+    <p style="margin:0;color:var(--color-body);line-height:1.65">${esc(text)}</p>
+  </section>`;
+}
+
+function renderApprofondisciDivider(label: string): string {
+  return `<div role="separator" aria-label="${esc(label)}" style="margin:36px 0 28px;display:flex;align-items:center;gap:14px;color:var(--color-subtle)">
+    <span aria-hidden="true" style="flex:1;height:1px;background:var(--color-edge)"></span>
+    <span style="${SMALL_HEADING_STYLE};margin:0">${esc(label)}</span>
+    <span aria-hidden="true" style="flex:1;height:1px;background:var(--color-edge)"></span>
+  </div>`;
+}
+
+// ── Long-form (below-the-fold) renderers ─────────────────────────────────────
 
 interface RenderResult {
   urlPath: string;
@@ -147,10 +321,7 @@ interface RenderResult {
 
 function renderSection(title: string, paragraphs: string[]): string {
   const ps = paragraphs
-    .map(
-      (p) =>
-        `<p style="${BODY_STYLE};max-width:860px">${esc(p)}</p>`,
-    )
+    .map((p) => `<p style="${BODY_STYLE}">${esc(p)}</p>`)
     .join('');
   return `<section style="margin:0 0 28px"><h2 style="${H2_STYLE}">${esc(title)}</h2>${ps}</section>`;
 }
@@ -187,18 +358,31 @@ function renderSources(sources: CareerLandingCopy['sources'], label: string): st
   return `<section style="margin:0 0 28px"><h2 style="${H2_STYLE}">${esc(label)}</h2><ul style="margin:0 0 0 20px;padding:0;color:var(--color-subtle);line-height:1.55;max-width:860px;font-size:14px">${items}</ul></section>`;
 }
 
+// ── Page assembly ────────────────────────────────────────────────────────────
+
 function renderPage(opts: {
   locale: CareerLocale;
   id: CareerLandingId;
   dateStamp: string;
   distDir?: string;
+  snapshot: CareerJobsSnapshot;
+  agencyCount: number;
+  concorsiCount: number;
 }): RenderResult {
-  const { locale, id, dateStamp, distDir } = opts;
+  const { locale, id, dateStamp, distDir, snapshot, agencyCount, concorsiCount } = opts;
   const copy = CAREER_LANDING_COPY[locale][id];
+  const shell = getCareerTemplateBShell(locale);
+  const templateB = buildCareerTemplateBCopy(locale, id, {
+    liveCount: snapshot.liveCount,
+    fresh30Count: snapshot.fresh30Count,
+    medianSalary: snapshot.medianSalaryChf,
+    agencyCount,
+    concorsiCount,
+  });
   const urlPath = buildCareerLandingPath(locale, id);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
 
-  // Hreflang — all 4 locales + x-default → IT canonical.
+  // Hreflang
   const hreflangLines = CAREER_LOCALES.map((alt) => {
     const altPath = buildCareerLandingPath(alt, id);
     return `    <link rel="alternate" hreflang="${alt}" href="${BASE_URL}${altPath}">`;
@@ -209,32 +393,18 @@ function renderPage(opts: {
   const alternates = hreflangLines.join('\n');
 
   const homeUrl = locale === 'it' ? `${BASE_URL}/` : `${BASE_URL}/${locale}/`;
-  const jobBoardUrl = `${BASE_URL}${
-    locale === 'it'
-      ? '/cerca-lavoro-ticino/'
-      : locale === 'en'
-        ? '/en/find-jobs-ticino/'
-        : locale === 'de'
-          ? '/de/jobs-im-tessin/'
-          : '/fr/trouver-emploi-tessin/'
-  }`;
+  const jobBoardUrl = `${BASE_URL}${buildCareerJobBoardUrl(locale)}`;
+  const primaryCtaUrl = `${BASE_URL}${templateB.primaryCtaHref}`;
+
+  // The simulator / calculator URL is also referenced by the bottom CTAs.
+  const calculatorUrl = `${BASE_URL}${getCareerCalculatorUrl(locale)}`;
 
   const breadcrumbLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: copy.breadcrumbHome,
-        item: homeUrl,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: copy.breadcrumbJobs,
-        item: jobBoardUrl,
-      },
+      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: homeUrl },
+      { '@type': 'ListItem', position: 2, name: copy.breadcrumbJobs, item: jobBoardUrl },
       { '@type': 'ListItem', position: 3, name: copy.h1, item: canonicalUrl },
     ],
   });
@@ -246,10 +416,7 @@ function renderPage(opts: {
     mainEntity: copy.faqs.map((f) => ({
       '@type': 'Question',
       name: f.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: f.answer,
-      },
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
     })),
   });
 
@@ -262,11 +429,7 @@ function renderPage(opts: {
     url: canonicalUrl,
     datePublished: dateStamp,
     dateModified: dateStamp,
-    author: {
-      '@type': 'Organization',
-      name: 'Frontaliere Ticino',
-      url: BASE_URL,
-    },
+    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE_URL },
     publisher: {
       '@type': 'Organization',
       name: 'Frontaliere Ticino',
@@ -280,7 +443,27 @@ function renderPage(opts: {
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   });
 
-  const sections = copy.sections.map((s) => renderSection(s.title, s.paragraphs)).join('');
+  // ── Template B header → above-the-fold ─────────────────────────────────
+  const statTilesHtml = renderStatTiles(id, templateB, snapshot, agencyCount, concorsiCount);
+
+  const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(primaryCtaUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(templateB.primaryCtaLabel)} →</a></div>`;
+
+  const featuredHtml = templateB.showFeaturedJobs
+    ? renderFeaturedJobs(locale, snapshot, templateB)
+    : '';
+
+  const employerHtml = templateB.showEmployerGrid
+    ? renderEmployerGrid(snapshot, templateB, locale)
+    : templateB.employerGridReplacement
+      ? renderEmployerGridReplacement(templateB.employerGridReplacement)
+      : '';
+
+  const dividerHtml = renderApprofondisciDivider(shell.approfondisciHeading);
+
+  // ── Below-the-fold prose (legacy) ──────────────────────────────────────
+  const sectionsHtml = copy.sections
+    .map((s) => renderSection(s.title, s.paragraphs))
+    .join('');
   const faqHtml = renderFaqBlock(copy.faqs);
   const relatedHtml = renderRelatedLinks(locale, copy.relatedLabel);
   const sourcesHtml = renderSources(copy.sources, copy.sourcesLabel);
@@ -293,12 +476,20 @@ function renderPage(opts: {
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
-    <header style="margin-bottom:24px">
-      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</p>
+    <header style="margin-bottom:20px">
+      <p style="${HERO_EYEBROW_STYLE}">${esc(templateB.eyebrow)} · ${esc(shell.updatedLabel)} ${esc(dateStamp)}</p>
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
-      <p style="${LEDE_STYLE};max-width:860px">${esc(copy.lede)}</p>
+      <p style="${LEDE_STYLE}">${esc(templateB.denseLede)}</p>
     </header>
-    ${sections}
+    ${statTilesHtml}
+    ${primaryCtaHtml}
+    ${featuredHtml}
+    ${employerHtml}
+    ${dividerHtml}
+    <section style="margin:0 0 28px">
+      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:62ch;font-size:17px;font-style:italic">${esc(copy.lede)}</p>
+    </section>
+    ${sectionsHtml}
     <section style="margin:0 0 28px">
       <h2 style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
       ${faqHtml}
@@ -307,7 +498,7 @@ function renderPage(opts: {
     ${relatedHtml}
     <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
       <a href="${esc(jobBoardUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
-      <a href="${esc(homeUrl)}" style="${CARD_STYLE};padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700">${esc(copy.ctaSimulator)}</a>
+      <a href="${esc(calculatorUrl)}" style="padding:10px 16px;border-radius:10px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:600">${esc(copy.ctaSimulator)}</a>
     </section>`;
 
   const bodyHtml = `<main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">${body}</main>`;
@@ -401,6 +592,11 @@ export function careerLandingsPlugin(rootDir: string): Plugin {
 
       const dateStamp = new Date().toISOString().slice(0, 10);
 
+      // Aggregate live signal once per build (module-level cached).
+      const snapshots = aggregateCareerLandings(rootDir);
+      const agencyCount = snapshots['agenzie-lavoro-lugano'].liveCount;
+      const concorsiCount = snapshots['concorsi-pubblici-lugano'].liveCount;
+
       const collector = new WriteCollector({
         distDir,
         pluginName: 'careerLandingsPlugin',
@@ -422,7 +618,15 @@ export function careerLandingsPlugin(rootDir: string): Plugin {
         );
 
         for (const locale of CAREER_LOCALES) {
-          const rendered = renderPage({ locale, id, dateStamp, distDir });
+          const rendered = renderPage({
+            locale,
+            id,
+            dateStamp,
+            distDir,
+            snapshot: snapshots[id],
+            agencyCount,
+            concorsiCount,
+          });
 
           if (rendered.wordCount < MIN_INDEXABLE_WORDS) {
             thinSkipped++;

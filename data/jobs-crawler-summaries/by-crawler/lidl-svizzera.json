@@ -1,19 +1,99 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-15T22:10:39.239Z",
-  "total": 10,
+  "generatedAt": "2026-05-17T22:01:28.397Z",
+  "total": 9,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 13444,
-  "avgDurationMs": 13444,
+  "unchangedCount": 0,
+  "durationMs": 10830,
+  "avgDurationMs": 10830,
   "durationHistory": [
-    13444
+    10830
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "company-alqha9",
+      "slug": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
+      "company": "Lidl Svizzera",
+      "title": "Verkäufer / Verkäuferin (m/w/d) 20-40%",
+      "location": "St. Moritz",
+      "canton": "gr",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-04",
+      "url": "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-st-moritz-685630",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "St. Moritz",
+        "canton": "GR"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-05-17T10:36:40.425Z",
+      "firstSeenAt": "2026-05-17T10:36:40.425Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "de",
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-jb4io9",
+      "slug": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jb4io9",
+      "company": "Lidl Svizzera",
+      "title": "Filialleiter / Filialleiterin (m/w/d) 80-100%",
+      "location": "St. Moritz",
+      "canton": "gr",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-moritz-673001",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "St. Moritz",
+        "canton": "GR"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-05-17T10:36:40.425Z",
+      "firstSeenAt": "2026-05-17T10:36:40.425Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "de",
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 25
+      }
+    },
     {
       "id": "company-ixk693",
       "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-gravesano-ixk693",
@@ -54,46 +134,6 @@
       }
     },
     {
-      "id": "company-jb4io9",
-      "slug": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jb4io9",
-      "company": "Lidl Svizzera",
-      "title": "Filialleiter / Filialleiterin (m/w/d) 80-100%",
-      "location": "St. Moritz",
-      "canton": "gr",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-02",
-      "url": "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-moritz-673001",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "St. Moritz",
-        "canton": "GR"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-05-10T10:28:23.604Z",
-      "firstSeenAt": "2026-05-10T10:28:23.604Z",
-      "country": "CH",
-      "sourceLang": "de",
-      "streetAddress": "Via Industria 7",
-      "postalCode": "6593",
-      "addressLocality": "St. Moritz",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 15,
-        "completeness": 25
-      }
-    },
-    {
       "id": "company-7p9uz6",
       "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-7p9uz6",
       "company": "Lidl Svizzera",
@@ -129,45 +169,6 @@
         "cleanliness": 25,
         "richness": 22,
         "translation": 23,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-alqha9",
-      "slug": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
-      "company": "Lidl Svizzera",
-      "title": "Verkäufer / Verkäuferin (m/w/d) 20-40%",
-      "location": "St. Moritz",
-      "canton": "gr",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-04",
-      "url": "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-st-moritz-685630",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "St. Moritz",
-        "canton": "GR"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-05-04T11:12:59.255Z",
-      "firstSeenAt": "2026-05-04T11:12:59.255Z",
-      "country": "CH",
-      "sourceLang": "de",
-      "postalCode": "7500",
-      "streetAddress": "Via Grevas 9b",
-      "addressLocality": "St. Moritz",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
         "completeness": 25
       }
     },
@@ -378,47 +379,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "company-y26v7p",
-      "slug": "ch-collaboratore-collaboratrice-pulizie-m-w-d-20-40-lidl-svizzera-biasca-y26v7p",
-      "company": "Lidl Svizzera",
-      "title": "CH_ Collaboratore / Collaboratrice pulizie (m/f/d) 20-40%",
-      "location": "Biasca",
-      "canton": "ti",
-      "category": "other",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-05",
-      "url": "https://team.lidl.ch/it/jobs/ch-collaboratore-collaboratrice-pulizie-m-f-d-20-40-biasca-685180",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Biasca",
-        "canton": "TI"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-05-13T11:25:24.820Z",
-      "firstSeenAt": "2026-05-13T11:25:24.820Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "streetAddress": "Via Industria 7",
-      "postalCode": "6593",
-      "addressLocality": "Biasca",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }

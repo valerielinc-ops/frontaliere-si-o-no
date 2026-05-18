@@ -37592,6 +37592,435 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-libera-circolazione-ue-svizzera-impatti': {
+    title: 'Libera circolazione UE-Svizzera: gli effetti sull\'economia elvetica',
+    description: 'Scopri gli effetti della libera circolazione UE-Svizzera sull\'economia elvetica e le implicazioni per i frontalieri. Leggi ora!. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, libera, circolazione, ue-svizzera, effetti',
+    ogTitle: 'Libera circolazione UE-Svizzera: effetti sull\'economia elvetica',
+    ogDescription: 'Scopri gli effetti della libera circolazione UE-Svizzera sull\'economia elvetica e le implicazioni per i frontalieri. Leggi ora!',
+    canonicalPath: '/articoli-frontaliere/libera-circolazione-ue-svizzera-impatti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Libera circolazione UE-Svizzera: gli effetti sull'economia elvetica",
+      "description": "Scopri gli effetti della libera circolazione UE-Svizzera sull'economia elvetica e le implicazioni per i frontalieri. Leggi ora!. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/libera-circolazione-ue-svizzera-impatti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in transito al valico di Brogeda"
+      },
+      "datePublished": "2026-05-16T10:11:00+00:00",
+      "dateModified": "2026-05-16T10:11:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/libera-circolazione-ue-svizzera-impatti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-iniziativa-10-milioni-votazione-14-giugno': {
+    title: 'Iniziativa 10 milioni: l\'UDC torna alla carica',
+    description: 'Traffico, penuria di alloggi, cementificazione e criminalità alle stelle. L\'iniziativa \'No a una Svizzera da 10 milioni!\' sarà votata il 14 giugno. Scopri di',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, milioni, torna, alla',
+    ogTitle: 'Iniziativa 10 milioni: la situazione è insostenibile o è la solita battaglia dell\'UDC?',
+    ogDescription: 'Traffico, penuria di alloggi, cementificazione e criminalità alle stelle. L\'iniziativa \'No a una Svizzera da 10 milioni!\' sarà votata il 14 giugno. Scopri di',
+    canonicalPath: '/articoli-frontaliere/iniziativa-10-milioni-votazione-14-giugno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa 10 milioni: l'UDC torna alla carica",
+      "description": "Traffico, penuria di alloggi, cementificazione e criminalità alle stelle. L'iniziativa 'No a una Svizzera da 10 milioni!' sarà votata il 14 giugno. Scopri di",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/iniziativa-10-milioni-votazione-14-giugno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Locarno, Ticino, Svizzera"
+      },
+      "datePublished": "2026-05-16T17:49:56+00:00",
+      "dateModified": "2026-05-16T17:49:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-10-milioni-votazione-14-giugno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-svizzera-investimenti-ricerca-2026': {
+    title: 'Svizzera terza al mondo negli investimenti aziendali nella ricerca',
+    description: 'La Svizzera si conferma ai vertici mondiali per l\'innovazione con il terzo posto per intensità di ricerca e sviluppo. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, terza, mondo, negli, investimenti',
+    ogTitle: 'Svizzera terza al mondo negli investimenti aziendali nella ricerca',
+    ogDescription: 'La Svizzera si conferma ai vertici mondiali per l\'innovazione con il terzo posto per intensità di ricerca e sviluppo.',
+    canonicalPath: '/articoli-frontaliere/svizzera-investimenti-ricerca-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera terza al mondo negli investimenti aziendali nella ricerca",
+      "description": "La Svizzera si conferma ai vertici mondiali per l'innovazione con il terzo posto per intensità di ricerca e sviluppo. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-investimenti-ricerca-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Squadra di ricercatori svizzeri al lavoro in un moderno laboratorio tecnologico"
+      },
+      "datePublished": "2026-05-16T23:10:44+00:00",
+      "dateModified": "2026-05-16T23:10:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-investimenti-ricerca-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cantonale-interna-ascona-porto-ronco-lavori-disagi-vista': {
+    title: 'Cantonale \'interna\' da Ascona a Porto Ronco, lavori (e disagi) in vista',
+    description: 'Iniziati i lavori per la nuova strada cantonale \'interna\' da Ascona a Porto Ronco. I frontalieri potrebbero riscontrare disagi nella viabilità. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, cantonale, interna, ascona, porto',
+    ogTitle: 'Cantonale \'interna\' da Ascona a Porto Ronco, lavori (e disagi) in vista | Frontaliere Ticino',
+    ogDescription: 'Iniziati i lavori per la nuova strada cantonale \'interna\' da Ascona a Porto Ronco. I frontalieri potrebbero riscontrare disagi nella viabilità.',
+    canonicalPath: '/articoli-frontaliere/cantonale-interna-ascona-porto-ronco-lavori-disagi-vista',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cantonale 'interna' da Ascona a Porto Ronco, lavori (e disagi) in vista",
+      "description": "Iniziati i lavori per la nuova strada cantonale 'interna' da Ascona a Porto Ronco. I frontalieri potrebbero riscontrare disagi nella viabilità. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cantonale-interna-ascona-porto-ronco-lavori-disagi-vista.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori in corso su una strada a Ascona, Ticino"
+      },
+      "datePublished": "2026-05-17T01:08:08+00:00",
+      "dateModified": "2026-05-17T01:08:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cantonale-interna-ascona-porto-ronco-lavori-disagi-vista`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-traffico-migranti-tra-varese-e-il-ticino': {
+    title: 'Traffico di migranti tra Varese e il Ticino | Frontaliere Ticino',
+    description: 'Operazione congiunta tra Italia e Svizzera porta all\'arresto di otto persone accusate di gestire un\'associazione criminale che favoriva l\'immigrazione',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, migranti, varese, operazione',
+    ogTitle: 'Traffico di migranti tra Varese e il Ticino | Frontaliere Ticino',
+    ogDescription: 'Operazione congiunta tra Italia e Svizzera porta all\'arresto di otto persone accusate di gestire un\'associazione criminale che favoriva l\'immigrazione',
+    canonicalPath: '/articoli-frontaliere/traffico-migranti-tra-varese-e-il-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico di migranti tra Varese e il Ticino",
+      "description": "Operazione congiunta tra Italia e Svizzera porta all'arresto di otto persone accusate di gestire un'associazione criminale che favoriva l'immigrazione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-migranti-tra-varese-e-il-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontiera tra la Svizzera e l'Italia"
+      },
+      "datePublished": "2026-05-17T04:03:29+00:00",
+      "dateModified": "2026-05-17T04:03:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-migranti-tra-varese-e-il-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-molestie-sul-lavoro-oltre-alle-segnalazioni': {
+    title: 'Molestie sul lavoro: oltre alle segnalazioni servono strumenti nelle aziende',
+    description: 'Il caso dell\'Ospedale Civico di Lugano ha evidenziato la necessità di canali sicuri e formazione regolare per prevenire e gestire le molestie sul lavoro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, molestie, lavoro, oltre, alle',
+    ogTitle: 'Molestie sul lavoro: oltre alle segnalazioni servono strumenti nelle aziende',
+    ogDescription: 'Il caso dell\'Ospedale Civico di Lugano ha evidenziato la necessità di canali sicuri e formazione regolare per prevenire e gestire le molestie sul lavoro.',
+    canonicalPath: '/articoli-frontaliere/molestie-sul-lavoro-oltre-alle-segnalazioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Molestie sul lavoro: oltre alle segnalazioni servono strumenti nelle aziende",
+      "description": "Il caso dell'Ospedale Civico di Lugano ha evidenziato la necessità di canali sicuri e formazione regolare per prevenire e gestire le molestie sul lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/molestie-sul-lavoro-oltre-alle-segnalazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ospedale Civico di Lugano"
+      },
+      "datePublished": "2026-05-17T12:53:22+00:00",
+      "dateModified": "2026-05-17T12:53:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/molestie-sul-lavoro-oltre-alle-segnalazioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-disoccupazione-ue-svizzera-2026': {
+    title: 'Riforma sulla disoccupazione dei frontalieri: Gobbi Stoppa derive pericolose',
+    description: 'Il consigliere di Stato Norman Gobbi ha invitato il Consiglio federale a tutelare gli interessi del nostro Paese per non pagare un conto salatissimo. La riforma',
+    keywords: 'frontalieri, ticino, svizzera, italia, riforma, sulla, disoccupazione, gobbi',
+    ogTitle: 'Riforma sulla disoccupazione dei frontalieri: Gobbi Stoppa derive pericolose',
+    ogDescription: 'Il consigliere di Stato Norman Gobbi ha invitato il Consiglio federale a tutelare gli interessi del nostro Paese per non pagare un conto salatissimo. La riforma',
+    canonicalPath: '/articoli-frontaliere/frontalieri-disoccupazione-ue-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riforma sulla disoccupazione dei frontalieri: Gobbi Stoppa derive pericolose",
+      "description": "Il consigliere di Stato Norman Gobbi ha invitato il Consiglio federale a tutelare gli interessi del nostro Paese per non pagare un conto salatissimo. La riforma",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-disoccupazione-ue-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri in attesa al valico di Brogeda"
+      },
+      "datePublished": "2026-05-17T13:49:00+00:00",
+      "dateModified": "2026-05-17T13:49:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupazione-ue-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontalieri-assemblea-generale-2023': {
+    title: 'Frontalieri: assemblea generale il 26 novembre - San Marino Rtv',
+    description: 'L\'assemblea generale dei frontalieri si terrà il 26 novembre, come annunciato da San Marino Rtv. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assemblea, generale, novembre, marino',
+    ogTitle: 'Frontalieri: assemblea generale il 26 novembre - San Marino Rtv',
+    ogDescription: 'L\'assemblea generale dei frontalieri si terrà il 26 novembre, come annunciato da San Marino Rtv.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-assemblea-generale-2023',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri: assemblea generale il 26 novembre - San Marino Rtv",
+      "description": "L'assemblea generale dei frontalieri si terrà il 26 novembre, come annunciato da San Marino Rtv. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-assemblea-generale-2023.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una conferenza di lavoro tra frontalieri in un ufficio di Lugano."
+      },
+      "datePublished": "2026-05-17T14:17:32+00:00",
+      "dateModified": "2026-05-17T14:17:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-assemblea-generale-2023`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pasta-svizzera-italia-2026': {
+    title: 'Pasta: l\'Italia al top, ma quanto pesa la Svizzera?',
+    description: 'Scopri quanto conta il mercato della pasta in Svizzera e le sfide per i produttori elvetici. La Svizzera produce circa 40\'000 tonnellate di pasta all\'anno, ma',
+    keywords: 'frontalieri, ticino, svizzera, italia, pasta, quanto, pesa, produce',
+    ogTitle: 'Pasta: l\'Italia al top, ma quanto pesa la Svizzera? | Frontaliere Ticino',
+    ogDescription: 'La Svizzera produce circa 40\'000 tonnellate di pasta all\'anno, ma rappresenta solo una piccola parte del mercato mondiale della pasta. Scopri le sfide per i',
+    canonicalPath: '/articoli-frontaliere/pasta-svizzera-italia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pasta: l'Italia al top, ma quanto pesa la Svizzera?",
+      "description": "Scopri quanto conta il mercato della pasta in Svizzera e le sfide per i produttori elvetici. La Svizzera produce circa 40'000 tonnellate di pasta all'anno, ma",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pasta-svizzera-italia-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piatto di spaghetti alla bolognese in un ristorante di Lugano"
+      },
+      "datePublished": "2026-05-17T15:28:40+00:00",
+      "dateModified": "2026-05-17T15:28:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pasta-svizzera-italia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-code-e-non-solo-in-autostrada': {
+    title: 'Code, e non solo in autostrada | Frontaliere Ticino',
+    description: 'Rientro difficile dopo il ponte dell\'Ascensione: disagi sull\'A2 in direzione nord e traffico intenso anche sulle strade cantonali. Scopri le cause e come',
+    keywords: 'frontalieri, ticino, svizzera, italia, code, solo, autostrada, rientro',
+    ogTitle: 'Code, e non solo in autostrada | Frontaliere Ticino',
+    ogDescription: 'Rientro difficile dopo il ponte dell\'Ascensione: disagi sull\'A2 in direzione nord e traffico intenso anche sulle strade cantonali. Scopri le cause e come',
+    canonicalPath: '/articoli-frontaliere/code-e-non-solo-in-autostrada',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Code, e non solo in autostrada",
+      "description": "Rientro difficile dopo il ponte dell'Ascensione: disagi sull'A2 in direzione nord e traffico intenso anche sulle strade cantonali. Scopri le cause e come",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/code-e-non-solo-in-autostrada.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Coda sull'autostrada in Ticino"
+      },
+      "datePublished": "2026-05-17T18:48:38+00:00",
+      "dateModified": "2026-05-17T18:48:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/code-e-non-solo-in-autostrada`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-traffico-rientro-ascensione-ticino': {
+    title: 'Ascensione, in aumento il traffico del rientro',
+    description: 'Il rientro dal lungo ponte dell\'Ascensione sta entrando nel vivo, soprattutto per quanto concerne il traffico sulla A2, direzione Nord. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, ascensione, aumento, traffico, rientro',
+    ogTitle: 'Ascensione, in aumento il traffico del rientro in Ticino',
+    ogDescription: 'Il rientro dal lungo ponte dell\'Ascensione sta entrando nel vivo, soprattutto per quanto concerne il traffico sulla A2, direzione Nord.',
+    canonicalPath: '/articoli-frontaliere/traffico-rientro-ascensione-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ascensione, in aumento il traffico del rientro",
+      "description": "Il rientro dal lungo ponte dell'Ascensione sta entrando nel vivo, soprattutto per quanto concerne il traffico sulla A2, direzione Nord. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-rientro-ascensione-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il traffico del rientro in Ticino è aumentato durante l'Ascensione."
+      },
+      "datePublished": "2026-05-17T23:22:16+00:00",
+      "dateModified": "2026-05-17T23:22:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-rientro-ascensione-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

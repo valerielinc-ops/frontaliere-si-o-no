@@ -20,6 +20,7 @@ import {
  renderJobCardHtml,
  renderJobCardListHtml,
  type JobCardJob,
+ type JobCardLocale,
 } from './shared/jobCardHtml';
 import { renderListingPaginationProse } from './shared/jobListingProse';
 import {
@@ -84,7 +85,6 @@ import {
 } from './jobSectorLanding';
 import { SEO_HUB_RESERVED_SLUGS, JOBS_PAGE_SIZE as HUB_JOBS_PAGE_SIZE, hubSlugFor } from './seoHubsData';
 import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
-import { renderJobCardHtml, type JobCardLocale } from './shared/jobCardHtml';
 // F3a — Job Page CTR Optimization: shared 50-60 char title templates and
 // 140-160 char meta-description templates that drive SERP CTR on the
 // top-20 job listing pages. See services/seo/job-board-titles.ts and

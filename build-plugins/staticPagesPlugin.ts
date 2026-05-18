@@ -26,6 +26,7 @@ import {
 import { emitSeoHubs } from './seoHubsPlugin';
 import { ARTICLES_PAGE_SIZE, JOBS_PAGE_SIZE, HUB_SLUGS, paginatedPath, type HubLocale as ArchiveHubLocale } from './seoHubsData';
 import { buildCantonHubEditorial } from './shared/cantonHubEditorial';
+import { buildSalaryLandingBody } from './shared/salaryLandingShell';
 import { ALL_CANTON_CODES, AGGREGATE_KEY, resolveCantonSection, type CantonLocale } from './shared/cantonSection';
 import cantonSlugFile from '../data/canton-url-slugs.json';
 import { getJobTodayLandingSlug, getJobNursesHubSlug, getJobPartTimeLandingSlug, careClusterSlug } from './jobEditorialLanding';
@@ -104,7 +105,15 @@ const STATIC_OVERLAY_HUB_CHROME: Record<string, StaticOverlayHubChrome> = {
 
 function lookupStaticOverlayHubChrome(canonicalPath: string): StaticOverlayHubChrome | null {
  const normalized = canonicalPath.endsWith('/') ? canonicalPath : `${canonicalPath}/`;
- return STATIC_OVERLAY_HUB_CHROME[normalized] ?? null;
+ const explicit = STATIC_OVERLAY_HUB_CHROME[normalized];
+ if (explicit) return explicit;
+ // Every /calcola-stipendio/* scenario page (and locale equivalents) renders
+ // through `buildSalaryLandingBody` as a staticOverlay route — emit the body
+ // OUTSIDE `#root` so React hydration keeps the SEO-landing template visible.
+ if (/^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/[^/]/.test(canonicalPath)) {
+   return { hubKey: 'calculator', activeSubTab: 'calculator' };
+ }
+ return null;
 }
 
 function toHubLocale(locale: string): HubLocale {
@@ -3246,12 +3255,16 @@ export function staticPagesPlugin(rootDir: string): Plugin {
    .map((w: string) => w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w)
    .join(' ');
  cantonAnchors.push(`<a href="${cantonHubHref}" style="display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#eef2ff;color:#312e81;text-decoration:none;font-size:13px;font-weight:600;border:1px solid #c7d2fe">${esc(displayLabel)}</a>`);
- // Per-canton "today" landing lives under the legacy TI section path
- // (`/cerca-lavoro-ticino/offerte-di-lavoro-{slug}-oggi/`).
- // Use the canonical slug helper so it always matches the emitter.
+ // Per-canton "today" landing lives under that canton's own section path
+ // (`/cerca-lavoro-{canton}/{slug}/`), e.g. `/cerca-lavoro-basilea/oggi/`
+ // or `/cerca-lavoro-ticino/offerte-di-lavoro-ticino-oggi/`. The earlier
+ // implementation nested every canton's today slug under `tiSection`
+ // (`/cerca-lavoro-ticino/oggi/` etc.) which 404s for non-TI cantons
+ // because the actual emit target is `/cerca-lavoro-{canton}/oggi/`.
  if (code !== AGGREGATE_KEY) {
  const todaySlug = getJobTodayLandingSlug(cantonLocale, code);
- const todayHref = `/${(locale === 'it' ? '' : `${locale}/`)}${tiSection}/${todaySlug}/`.replace(/\/+/g, '/');
+ const cantonSectionForToday = resolveCantonSection(cantonLocale, code);
+ const todayHref = `/${(locale === 'it' ? '' : `${locale}/`)}${cantonSectionForToday}/${todaySlug}/`.replace(/\/+/g, '/');
  cantonAnchors.push(`<a href="${todayHref}" style="display:inline-block;padding:3px 8px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;border:1px solid #bbf7d0">${esc(displayLabel)} &mdash; ${esc(todayLabel)}</a>`);
  }
  }
@@ -3848,7 +3861,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  };
  const authorLine = AUTHOR_BYLINE[locale] ?? AUTHOR_BYLINE.it;
 
- const editorialHtml = `<div style="margin-top:.75rem;font-size:.95rem;line-height:1.6;color:#334155">${dateLine}${authorLine}${editorialBlocks.map((b) => /^<(h[1-6]|p|nav|div|details|section|ul|ol|table|figure|aside|blockquote)\b/.test(b) ? b : `<p style="margin:.5rem 0">${esc(b)}</p>`).join('')}${comparisonTableHtml}${faqHtml}${relatedHtml}</div>`;
+ // Treat a block as raw HTML when it starts with a block-level tag OR when it
+ // contains any HTML tag at all (e.g. paragraphs that begin with text but
+ // embed `<strong>` / `<a>` / `<em>`). Without the second check those tags
+ // were escaped to literal `&lt;strong&gt;` text on the rendered page.
+ const editorialHtml = `<div style="margin-top:.75rem;font-size:.95rem;line-height:1.6;color:#334155">${dateLine}${authorLine}${editorialBlocks.map((b) => {
+   if (/^<(h[1-6]|p|nav|div|details|section|ul|ol|table|figure|aside|blockquote)\b/.test(b)) return b;
+   if (/<[a-zA-Z][^>]*>/.test(b)) return `<p style="margin:.5rem 0">${b}</p>`;
+   return `<p style="margin:.5rem 0">${esc(b)}</p>`;
+ }).join('')}${comparisonTableHtml}${faqHtml}${relatedHtml}</div>`;
 
  // Detect page section from URL for skeleton-aligned static content
  const urlSegs = urlPath.split('/').filter(Boolean);
@@ -3987,6 +4008,21 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  rootHtml = `<div style="max-width:72rem;margin:0 auto;padding:1rem"><div style="${sp};height:6rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:14rem"></div><div style="${sp};height:14rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
  } else if (vitaSlugs.includes(firstSeg)) {
  rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:10rem"></div><div style="${sp};height:10rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
+ } else if (
+ // Mobile-first SEO-landing template (CLAUDE.md rule 17) for every
+ // /calcola-stipendio/* scenario page (and locale equivalents). The
+ // helper renders breadcrumb + eyebrow + H1 + lede + stat tiles +
+ // consiglio + CTA + comparative table + FAQ, with long prose pushed
+ // BELOW the data area so the meaty content stays above the mobile fold.
+ /^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/[^/]/.test(canonicalPath)
+ ) {
+ rootHtml = buildSalaryLandingBody({
+ canonicalPath,
+ h1Text,
+ seoDesc: seoData.desc,
+ editorialHtml,
+ navHtml,
+ });
  } else {
  // Default: calculator-like layout
  rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="${sp};height:38rem;margin-top:1.5rem"></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;

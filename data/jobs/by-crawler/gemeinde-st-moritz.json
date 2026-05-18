@@ -1,12 +1,12 @@
 {
   "crawlerKey": "gemeinde-st-moritz",
-  "assembledAt": "2026-05-15T21:50:41.779Z",
+  "assembledAt": "2026-05-17T21:41:44.895Z",
   "jobs": [
     {
       "id": "gemeinde-st-moritz-26220aaafb72",
-      "slug": "contatti-importanti-gemeinde-st-moritz-st-moritz",
+      "slug": "wichtige-kontakte-gemeinde-st-moritz-ch",
       "slugByLocale": {
-        "it": "contatti-importanti-gemeinde-st-moritz-st-moritz",
+        "it": "wichtige-kontakte-gemeinde-st-moritz-ch",
         "en": "wichtige-kontakte-gemeinde-st-moritz-ch",
         "de": "wichtige-kontakte-gemeinde-st-moritz-ch",
         "fr": "wichtige-kontakte-gemeinde-st-moritz-ch"
@@ -16,7 +16,7 @@
       "companyDomain": "gemeinde-stmoritz.ch",
       "title": "Wichtige Kontakte",
       "titleByLocale": {
-        "it": "Contatti importanti",
+        "it": "Wichtige Kontakte",
         "en": "Wichtige Kontakte",
         "de": "Wichtige Kontakte",
         "fr": "Wichtige Kontakte"
@@ -33,7 +33,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T21:50:39.568Z",
+      "crawledAt": "2026-05-17T21:41:42.700Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -49,17 +49,8 @@
       "applyUrl": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "wichtige-kontakte-gemeinde-st-moritz-ch",
-        "poliziotto-comunale-100-gemeinde-st-moritz-st-moritz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "wichtige-kontakte-gemeinde-st-moritz-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:10:48.692Z",
+      "firstSeenAt": "2026-05-17T10:17:01.704Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {

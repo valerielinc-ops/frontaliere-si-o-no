@@ -1,186 +1,18 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-05-15T21:42:16.940Z",
+  "generatedAt": "2026-05-17T21:33:24.605Z",
   "total": 32,
-  "newCount": 2,
-  "updatedCount": 27,
+  "newCount": 0,
+  "updatedCount": 28,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 26919,
-  "avgDurationMs": 26919,
+  "unchangedCount": 4,
+  "durationMs": 26327,
+  "avgDurationMs": 26327,
   "durationHistory": [
-    26919
+    26327
   ],
-  "newJobs": [
-    {
-      "id": "efg-6280",
-      "slug": "regulatory-reporting-analyst-efg-geneve",
-      "company": "EFG International AG",
-      "title": "Regulatory Reporting Analyst",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6280",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">The role operates as a career-competent regulatory reporting analyst within the CFO function, with a solid understanding of prudential regulation and reporting processes, and primary accountability for the accurate and timely completion of assigned Swiss and international regulatory returns (e.g. Capital Adequacy, LCR, NSFR, statistical reports). </span></span></p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">The role works independently across the full reporting cycle for its scope, seeking guidance from more senior colleagues on complex or ambiguous issues, and adapts existing methods to non-standard situations to maintain data quality and compliance. It interacts frequently with colleagues in Accounting, Risk, Treasury, Front Office, IT and upstream data providers to clarify requirements, resolve data issues and explain regulatory impacts on their activities, enhancing relationships and building trust. The role contributes to short- to medium-term departmental objectives by implementing process improvements, supporting change initiatives and leading smaller projects or sub-workstreams that improve the sustainability and audit-readiness of regulatory reporting. The role does not hold formal budget ownership but supports resource planning and prioritisation for its projects and deliverables. </span></span></p><p style=\"line-height: normal;\"> </p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 13.5pt;\"><strong>Main duties & responsibilities </strong></span></span></p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Regulatory Production & Ownership</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Develops and delivers the end-to-end production of assigned Swiss and international regulatory returns (e.g. Capital Adequacy, LCR, NSFR, statistical reports), ensuring complete and accurate submissions within regulatory deadlines. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Implements and maintains the operational schedule for own reporting scope, identifying required inputs and coordinating with relevant stakeholders to meet concurrent monthly and quarterly deadlines. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Ensures that processes and documentation for assigned reports remain sustainable and audit-ready, and identifies opportunities to streamline steps in line with the department’s medium-term automation and operational excellence goals. </span></span></li></ul><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Regulatory Interpretation & Complex Analysis</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Analyses complex financial structures (e.g. derivatives, structured products) within own reporting perimeter to determine the correct regulatory treatment, and escalates particularly ambiguous cases to more senior specialists where needed. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Develops and applies robust proxy logic or manual workarounds for data gaps in defined areas, balancing regulatory expectations and operational constraints, and documents these approaches for review and approval. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Evaluates variances and trends in capital and liquidity metrics for assigned reports, and prepares clear explanations of the drivers behind fluctuations for senior stakeholders in Risk, Treasury and CFO management. </span></span></li></ul><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Change Management & Implementation</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Monitors upcoming regulatory changes (e.g. FINMA ordinances, EBA guidelines) relevant to own reporting scope, and evaluates their impact on data, systems and processes, providing input into adaptation plans. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Implements smaller regulatory or IT changes within the reporting area, or leads sub-workstreams in larger automation projects, by defining business requirements for tools such as Mercury and OneSumX and supporting testing activities. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Negotiates with IT and upstream data providers on specific data requirements and timelines for own deliverables, ensuring that regulatory needs are understood and appropriately prioritised. </span></span></li></ul><p style=\"line-height: normal;\"> </p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Advisory & Collaboration</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Advises colleagues in Accounting, Risk, Front Office and other functions on the regulatory implications of their activities within the scope of assigned reports, and persuades them to adopt necessary data quality and booking standards. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Provides technical guidance and support to junior analysts in the Regulatory Reporting team on defined topics, reviewing their work for accuracy and helping them navigate complex reporting scenarios. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Builds and maintains effective working relationships with senior internal colleagues across the CFO function and with external vendors where relevant, adapting communication style to different audiences. </span></span></li></ul><p style=\"line-height: normal;\"> </p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 18pt;\"><strong>Employee Profile</strong></span></span></p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 13.5pt;\"><strong>Professional Skills</strong></span></span></p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Education (minimum / preferred)</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Minimum: University degree in Finance, Accounting, Economics, Business Administration or a related quantitative discipline, or equivalent professional experience in financial services. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Preferred: Postgraduate qualification and/or professional certification in Accounting, Risk, or Regulatory Reporting is an advantage. </span></span></li></ul><p style=\"line-height: normal;\"> </p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Professional experience</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Typically 6–10 years of experience in private banking or financial services in Regulatory Reporting, Financial Accounting, Risk or Audit, with significant exposure to prudential regulation. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Demonstrated experience working independently on regulatory reporting deliverables, with guidance from more senior colleagues on complex issues. </span></span></li></ul><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Technical knowledge</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Advanced understanding of the regulatory landscape and tools relevant to the role (e.g. Basel III, FINMA Circulars, Mercury, OneSumX) and of how these requirements translate into data and reporting processes. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Broad knowledge of related departments (Risk, Treasury, Accounting, Private Banking) and their interrelationships, with the ability to use this understanding to provide appropriate solutions to problems. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">High proficiency in MS Excel and Mercury; practical experience with SQL; knowledge of VBA or data visualisation tools (e.g. Power BI) is a plus. </span></span></li></ul><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Languages</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">English: Full professional proficiency (spoken and written). </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">French: Fluency is a significant asset for interaction with local stakeholders in Geneva. </span></span></li></ul>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 6
-          }
-        }
-      },
-      "crawledAt": "2026-05-15T21:42:14.755Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "datePosted": "2026-05-15",
-      "_qualityScore": 67,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "efg-6151",
-      "slug": "senior-strategic-transformation-manager-efg-geneve",
-      "company": "EFG International AG",
-      "title": "Senior Strategic Transformation Manager",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-15",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6151",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<i>Enterprise & Strategic Transformation</i>"
-            ],
-            "responsibilities": [
-              "Drive bank-wide transformation initiatives aligned with the long-term strategy of EFG",
-              "Translate strategic priorities (growth, efficiency, client experience) into concrete transformation roadmaps.",
-              "Support Executive Committee members in strategy execution and transformation governance.",
-              "Prepare decision material for senior management and Board-level discussions",
-              "Design and implement target operating models adapted to a relationship-driven private banking environment.",
-              "Support optimization of front-to-back processes across:<ul><li> Client Relationship Management and Client Advisory",
-              "Investment Services and Portfolio Management",
-              "Operations and Middle Office",
-              "Lead cost-efficiency and productivity initiatives while preserving service quality and client experience",
-              "Lead business-driven digital initiatives including:<ul><li> CRM and client lifecycle management",
-              "Advisory and portfolio management tools",
-              "Process automation (workflow digitization, RPA, AI use cases)",
-              "Act as bridge between business, IT, and data teams to ensure adoption and value realization.",
-              "Promote data-driven management through dashboards, KPIs, and management information.",
-              "Manage transformation initiatives related to FINMA regulation, AML/KYC, suitability, cross-border rules.",
-              "Ensure regulatory changes are embedded pragmatically into business processes."
-            ],
-            "requirements": [
-              "Pure Private Banking Expertise, with hands-on understanding of:<ul><li>Relationship-based private banking business model",
-              "Investment products and services",
-              "UHNW/HNW client expectations",
-              "Strong sensitivity to confidentiality, risk culture, and reputational consideration<br>",
-              "Transformation & Execution<ul><li>Enterprise and functional transformation",
-              "Operating model design",
-              "Business case development and benefits tracking",
-              "Program and portfolio management",
-              "Digital & Analytical Skills<ul><li>Ability to translate technology into business value",
-              "CRM platforms, Front office / Investment applications and private banking core systems",
-              "Process automation and digitalisation / AI in banking",
-              "Data analytics and performance management",
-              "Leadership & Personal Skills<ul><li>Executive-level communication and presentation skills",
-              "Strong influencing skills without formal authority",
-              "Structured problem-solving and analytical rigor",
-              "High discretion, resilience, and ownership mindset"
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
-            ],
-            "process": [],
-            "highlights": [
-              "Drive bank-wide transformation initiatives aligned with the long-term strategy of EFG",
-              "Translate strategic priorities (growth, efficiency, client experience) into concrete transformation roadmaps.",
-              "Support Executive Committee members in strategy execution and transformation governance.",
-              "Pure Private Banking Expertise, with hands-on understanding of:<ul><li>Relationship-based private banking business model",
-              "Investment products and services",
-              "UHNW/HNW client expectations",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Pure Private Banking Expertise",
-              "Investment products and services",
-              "UHNW/HNW client expectations",
-              "Strong sensitivity to confidentiality",
-              "Transformation & Execution<ul><li>Enterprise and functional transformation",
-              "Drive bank-wide transformation initiatives aligned with the long-term strategy of EFG",
-              "Translate strategic priorities (growth",
-              "Support Executive Committee members in strategy execution and transformation governance.",
-              "Prepare decision material for senior management and Board-level discussions"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. <br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
-                  "<br><strong>Our Purpose and Mission</strong>",
-                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.",
-                  "<br><strong>Job Description</strong>",
-                  "We are looking to onboard a manager with 10–15 years of experience within private banking and wealth management institutions. The objective is for them to join the Transformation Office as a Senior member and to drive strategic, operational, and digital transformation initiatives tailored to the specific culture, risk profile, and client-centric model EFG. MBA-qualified would be a plus, with strong execution capabilities and deep understanding of front-to-back private banking operations."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 4
-          }
-        }
-      },
-      "crawledAt": "2026-05-15T21:42:14.752Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "datePosted": "2026-05-15",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "efg-6242",
@@ -216,7 +48,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.784Z",
+      "crawledAt": "2026-05-17T21:33:22.469Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-17",
@@ -355,7 +187,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.783Z",
+      "crawledAt": "2026-05-17T21:33:22.469Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-17",
@@ -472,7 +304,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.782Z",
+      "crawledAt": "2026-05-17T21:33:22.468Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-31",
@@ -587,7 +419,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.780Z",
+      "crawledAt": "2026-05-17T21:33:22.466Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-15",
@@ -604,61 +436,6 @@
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6177",
-      "slug": "client-support-officer-efg-st-moritz",
-      "company": "EFG International AG",
-      "title": "Client Support Officer",
-      "location": "St. Moritz",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-01",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6177",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\" lang=\"DE\">General Info</span></span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Work</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">time</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Percentage</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: 100%</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Location</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: St Moritz</span></span></p></li></ul><h1><span lang=\"IT-CH\">Our Company</span></h1><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\">Our Purpose and Mission</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></span></p><p> </p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></span></p><h1><span lang=\"EN-GB\">Job Description</span></h1><p style=\"text-align:justify;\"><span>To support our growing activities in St. Moritz, we are looking for a <strong>Client Service Officer</strong> who will provide high-quality administrative and client service support to our Client Relationship Officers (CROs), while also contributing to the smooth running of our front office reception and cashier operations.</span></p><p style=\"text-align:justify;\"><span>This role is ideal for a service-oriented, hands-on professional who enjoys working in a dynamic, international private banking environment and who is motivated to take ownership, act proactively and deliver an outstanding client experience.</span></p><h1><span style=\"color:#333C40;\"><span style=\"font-size:9.0pt;letter-spacing:0pt;\"><strong>Main Responsibilities</strong></span></span></h1><h1><span style=\"color:#333C40;\"><span style=\"font-size:9.0pt;letter-spacing:0pt;\"><strong>1. Client and CRO Support</strong></span></span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Support clients and CROs in their daily business activities.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Maintain active client contact in written and spoken German and English.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Provide top-quality service to clients through regular and prompt contact by phone and email.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Execute client account openings, closures and updates, including:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Conducting internet searches and basic due diligence checks.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Collecting and verifying corroborative documentation.</span></span></p></li></ul></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Prepare and follow up on client visits, including:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Preparing account documentation and reviewing documents.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Organising account statements and other supporting material.</span></span></p></li></ul></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Execute and control client instructions, such as:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Stock market transactions.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Payments and transfers.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Foreign currency trades.</span></span></p></li></ul></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Perform various administrative and organisational tasks, including:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Client reviews and periodic checks.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Follow-up on missing or pending documents.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Delivery and monitoring of hold mail.</span></span></p></li></ul></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Prepare marketing and client materials, such as:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Presentations and pitchbooks.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Investment proposals & portfolio reviews.</span></span></p></li></ul></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Actively promote paperless accounts and e-banking usage to clients.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Ensure full compliance with the Code of Conduct and all internal regulations (e.g. Cross Border, AML, Clear & Clean Desk Policy, Absence Management).</span></span></p></li></ul><h1><span style=\"color:#333C40;\"><span style=\"font-size:9.0pt;letter-spacing:0pt;\"><strong>2. Reception and Front Office Support</strong></span></span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Welcome and assist clients upon arrival, ensuring a professional and warm first impression.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Manage reception duties, including:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Answering and directing phone calls.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Handling appointments and coordinating meeting room bookings.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Prepare and serve beverages to clients and ensure a high standard of hospitality.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Ensure meeting rooms and client areas are tidy, well-presented and adequately equipped at all times.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Handle incoming and outgoing mail and deliveries, ensuring timely distribution and proper documentation.</span></span></p></li></ul></li></ul><h1><span style=\"color:#333C40;\"><span style=\"font-size:9.0pt;letter-spacing:0pt;\">3. <strong>Cashier and Branch Support</strong></span></span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Support daily cashier operations, including:</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Processing client deposits and withdrawals.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Handling basic cash and payment transactions in line with internal guidelines.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Collaborate closely with CROs and other team members to ensure smooth branch operations.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Support marketing and client events, including preparation, logistics and on-site assistance.</span></span></p></li></ul><h1><span lang=\"EN-GB\">Skills and experience</span></h1><ol><li><p class=\"Bulletlist\" style=\"tab-stops:.5in;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Education and Professional Background</strong></span></span></p></li></ol><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Commercial apprenticeship in a bank or similar banking-related education.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Further education in the financial sector is an advantage.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Minimum 3 years of experience in a private banking or intermediary environment.</span></span></p></li></ul><ol><li><p class=\"Bulletlist\" style=\"tab-stops:.5in;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Skills</strong></span></span></p></li></ol><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Good understanding of financial instruments, including: </span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Equities, bonds, structured products and derivatives.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Solid knowledge of Compliance and AML topics relevant to private banking.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Confident user of Microsoft Office (Excel, PowerPoint, Outlook, Word).</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Familiarity with banking systems and front-office tools is an asset.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong client service orientation with excellent interpersonal skills.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">High level of reliability, discretion and integrity.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Ability to cope with pressure and tight deadlines, with a flexible approach to working hours when required.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Comfortable working in a small branch environment, taking on a broad range of tasks (from client administration to reception and cashier support).</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Proficient in written and spoken German and English (essential).</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Italian is a strong plus; any additional languages are an advantage.</span></span></p></li></ul><h1><span lang=\"IT-CH\">Our Values</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Accountability</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Hands-on</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being proactive to rapidly deliver high-quality results</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Passionate</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being committed and striving for excellence</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Solution-driven</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Partnership-oriented</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span></p></li></ul><ol><li><p class=\"Bulletlist\" style=\"tab-stops:.5in;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></span></p></li></ol><h1><span lang=\"EN-GB\">Application</span></h1><ol><li><p class=\"Bulletlist\" style=\"tab-stops:.5in;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></span></p></li></ol>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-05-15T21:42:14.779Z",
-      "addressLocality": "St. Moritz",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-01",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T10:03:04.489Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 2,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 19,
         "completeness": 25
       }
     },
@@ -771,7 +548,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.777Z",
+      "crawledAt": "2026-05-17T21:33:22.463Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -903,7 +680,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.776Z",
+      "crawledAt": "2026-05-17T21:33:22.462Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -1003,7 +780,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.775Z",
+      "crawledAt": "2026-05-17T21:33:22.461Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1084,7 +861,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.774Z",
+      "crawledAt": "2026-05-17T21:33:22.460Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -1201,7 +978,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.773Z",
+      "crawledAt": "2026-05-17T21:33:22.459Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1315,7 +1092,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.772Z",
+      "crawledAt": "2026-05-17T21:33:22.458Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-03-25",
@@ -1368,7 +1145,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.770Z",
+      "crawledAt": "2026-05-17T21:33:22.456Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -1446,7 +1223,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.768Z",
+      "crawledAt": "2026-05-17T21:33:22.455Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -1500,7 +1277,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.767Z",
+      "crawledAt": "2026-05-17T21:33:22.453Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1553,7 +1330,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.766Z",
+      "crawledAt": "2026-05-17T21:33:22.452Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1675,7 +1452,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.765Z",
+      "crawledAt": "2026-05-17T21:33:22.451Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1803,7 +1580,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.763Z",
+      "crawledAt": "2026-05-17T21:33:22.449Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1858,7 +1635,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.762Z",
+      "crawledAt": "2026-05-17T21:33:22.448Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-10",
@@ -1911,7 +1688,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.761Z",
+      "crawledAt": "2026-05-17T21:33:22.447Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2024,7 +1801,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.761Z",
+      "crawledAt": "2026-05-17T21:33:22.447Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-02",
@@ -2146,7 +1923,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.760Z",
+      "crawledAt": "2026-05-17T21:33:22.446Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-14",
@@ -2294,7 +2071,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.759Z",
+      "crawledAt": "2026-05-17T21:33:22.445Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -2386,7 +2163,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.757Z",
+      "crawledAt": "2026-05-17T21:33:22.443Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-08",
@@ -2401,6 +2178,60 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6280",
+      "slug": "regulatory-reporting-analyst-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Regulatory Reporting Analyst",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-15",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6280",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">The role operates as a career-competent regulatory reporting analyst within the CFO function, with a solid understanding of prudential regulation and reporting processes, and primary accountability for the accurate and timely completion of assigned Swiss and international regulatory returns (e.g. Capital Adequacy, LCR, NSFR, statistical reports). </span></span></p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">The role works independently across the full reporting cycle for its scope, seeking guidance from more senior colleagues on complex or ambiguous issues, and adapts existing methods to non-standard situations to maintain data quality and compliance. It interacts frequently with colleagues in Accounting, Risk, Treasury, Front Office, IT and upstream data providers to clarify requirements, resolve data issues and explain regulatory impacts on their activities, enhancing relationships and building trust. The role contributes to short- to medium-term departmental objectives by implementing process improvements, supporting change initiatives and leading smaller projects or sub-workstreams that improve the sustainability and audit-readiness of regulatory reporting. The role does not hold formal budget ownership but supports resource planning and prioritisation for its projects and deliverables. </span></span></p><p style=\"line-height: normal;\"> </p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 13.5pt;\"><strong>Main duties & responsibilities </strong></span></span></p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Regulatory Production & Ownership</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Develops and delivers the end-to-end production of assigned Swiss and international regulatory returns (e.g. Capital Adequacy, LCR, NSFR, statistical reports), ensuring complete and accurate submissions within regulatory deadlines. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Implements and maintains the operational schedule for own reporting scope, identifying required inputs and coordinating with relevant stakeholders to meet concurrent monthly and quarterly deadlines. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Ensures that processes and documentation for assigned reports remain sustainable and audit-ready, and identifies opportunities to streamline steps in line with the department’s medium-term automation and operational excellence goals. </span></span></li></ul><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Regulatory Interpretation & Complex Analysis</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Analyses complex financial structures (e.g. derivatives, structured products) within own reporting perimeter to determine the correct regulatory treatment, and escalates particularly ambiguous cases to more senior specialists where needed. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Develops and applies robust proxy logic or manual workarounds for data gaps in defined areas, balancing regulatory expectations and operational constraints, and documents these approaches for review and approval. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Evaluates variances and trends in capital and liquidity metrics for assigned reports, and prepares clear explanations of the drivers behind fluctuations for senior stakeholders in Risk, Treasury and CFO management. </span></span></li></ul><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Change Management & Implementation</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Monitors upcoming regulatory changes (e.g. FINMA ordinances, EBA guidelines) relevant to own reporting scope, and evaluates their impact on data, systems and processes, providing input into adaptation plans. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Implements smaller regulatory or IT changes within the reporting area, or leads sub-workstreams in larger automation projects, by defining business requirements for tools such as Mercury and OneSumX and supporting testing activities. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Negotiates with IT and upstream data providers on specific data requirements and timelines for own deliverables, ensuring that regulatory needs are understood and appropriately prioritised. </span></span></li></ul><p style=\"line-height: normal;\"> </p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Advisory & Collaboration</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Advises colleagues in Accounting, Risk, Front Office and other functions on the regulatory implications of their activities within the scope of assigned reports, and persuades them to adopt necessary data quality and booking standards. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Provides technical guidance and support to junior analysts in the Regulatory Reporting team on defined topics, reviewing their work for accuracy and helping them navigate complex reporting scenarios. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Builds and maintains effective working relationships with senior internal colleagues across the CFO function and with external vendors where relevant, adapting communication style to different audiences. </span></span></li></ul><p style=\"line-height: normal;\"> </p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 18pt;\"><strong>Employee Profile</strong></span></span></p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 13.5pt;\"><strong>Professional Skills</strong></span></span></p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Education (minimum / preferred)</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Minimum: University degree in Finance, Accounting, Economics, Business Administration or a related quantitative discipline, or equivalent professional experience in financial services. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Preferred: Postgraduate qualification and/or professional certification in Accounting, Risk, or Regulatory Reporting is an advantage. </span></span></li></ul><p style=\"line-height: normal;\"> </p><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Professional experience</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Typically 6–10 years of experience in private banking or financial services in Regulatory Reporting, Financial Accounting, Risk or Audit, with significant exposure to prudential regulation. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Demonstrated experience working independently on regulatory reporting deliverables, with guidance from more senior colleagues on complex issues. </span></span></li></ul><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Technical knowledge</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Advanced understanding of the regulatory landscape and tools relevant to the role (e.g. Basel III, FINMA Circulars, Mercury, OneSumX) and of how these requirements translate into data and reporting processes. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">Broad knowledge of related departments (Risk, Treasury, Accounting, Private Banking) and their interrelationships, with the ability to use this understanding to provide appropriate solutions to problems. </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">High proficiency in MS Excel and Mercury; practical experience with SQL; knowledge of VBA or data visualisation tools (e.g. Power BI) is a plus. </span></span></li></ul><p style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\"><strong>Languages</strong></span></span></p><ul style=\"list-style-type: disc;\"><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">English: Full professional proficiency (spoken and written). </span></span></li><li style=\"line-height: normal;\"><span style=\"font-family: \"Times New Roman\", serif;\"><span style=\"font-size: 12pt;\">French: Fluency is a significant asset for interaction with local stakeholders in Geneva. </span></span></li></ul>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 6
+          }
+        }
+      },
+      "crawledAt": "2026-05-17T21:33:22.442Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-05-15",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-15T21:42:14.755Z",
+      "needsRetranslation": true,
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -2438,7 +2269,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.753Z",
+      "crawledAt": "2026-05-17T21:33:22.439Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -2455,6 +2286,133 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6151",
+      "slug": "senior-strategic-transformation-manager-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Senior Strategic Transformation Manager",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-15",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6151",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<i>Enterprise & Strategic Transformation</i>"
+            ],
+            "responsibilities": [
+              "Drive bank-wide transformation initiatives aligned with the long-term strategy of EFG",
+              "Translate strategic priorities (growth, efficiency, client experience) into concrete transformation roadmaps.",
+              "Support Executive Committee members in strategy execution and transformation governance.",
+              "Prepare decision material for senior management and Board-level discussions",
+              "Design and implement target operating models adapted to a relationship-driven private banking environment.",
+              "Support optimization of front-to-back processes across:<ul><li> Client Relationship Management and Client Advisory",
+              "Investment Services and Portfolio Management",
+              "Operations and Middle Office",
+              "Lead cost-efficiency and productivity initiatives while preserving service quality and client experience",
+              "Lead business-driven digital initiatives including:<ul><li> CRM and client lifecycle management",
+              "Advisory and portfolio management tools",
+              "Process automation (workflow digitization, RPA, AI use cases)",
+              "Act as bridge between business, IT, and data teams to ensure adoption and value realization.",
+              "Promote data-driven management through dashboards, KPIs, and management information.",
+              "Manage transformation initiatives related to FINMA regulation, AML/KYC, suitability, cross-border rules.",
+              "Ensure regulatory changes are embedded pragmatically into business processes."
+            ],
+            "requirements": [
+              "Pure Private Banking Expertise, with hands-on understanding of:<ul><li>Relationship-based private banking business model",
+              "Investment products and services",
+              "UHNW/HNW client expectations",
+              "Strong sensitivity to confidentiality, risk culture, and reputational consideration<br>",
+              "Transformation & Execution<ul><li>Enterprise and functional transformation",
+              "Operating model design",
+              "Business case development and benefits tracking",
+              "Program and portfolio management",
+              "Digital & Analytical Skills<ul><li>Ability to translate technology into business value",
+              "CRM platforms, Front office / Investment applications and private banking core systems",
+              "Process automation and digitalisation / AI in banking",
+              "Data analytics and performance management",
+              "Leadership & Personal Skills<ul><li>Executive-level communication and presentation skills",
+              "Strong influencing skills without formal authority",
+              "Structured problem-solving and analytical rigor",
+              "High discretion, resilience, and ownership mindset"
+            ],
+            "benefits": [
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
+            ],
+            "process": [],
+            "highlights": [
+              "Drive bank-wide transformation initiatives aligned with the long-term strategy of EFG",
+              "Translate strategic priorities (growth, efficiency, client experience) into concrete transformation roadmaps.",
+              "Support Executive Committee members in strategy execution and transformation governance.",
+              "Pure Private Banking Expertise, with hands-on understanding of:<ul><li>Relationship-based private banking business model",
+              "Investment products and services",
+              "UHNW/HNW client expectations",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Pure Private Banking Expertise",
+              "Investment products and services",
+              "UHNW/HNW client expectations",
+              "Strong sensitivity to confidentiality",
+              "Transformation & Execution<ul><li>Enterprise and functional transformation",
+              "Drive bank-wide transformation initiatives aligned with the long-term strategy of EFG",
+              "Translate strategic priorities (growth",
+              "Support Executive Committee members in strategy execution and transformation governance.",
+              "Prepare decision material for senior management and Board-level discussions"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. <br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<br><strong>Our Purpose and Mission</strong>",
+                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.",
+                  "<br><strong>Job Description</strong>",
+                  "We are looking to onboard a manager with 10–15 years of experience within private banking and wealth management institutions. The objective is for them to join the Transformation Office as a Senior member and to drive strategic, operational, and digital transformation initiatives tailored to the specific culture, risk profile, and client-centric model EFG. MBA-qualified would be a plus, with strong execution capabilities and deep understanding of front-to-back private banking operations."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 4
+          }
+        }
+      },
+      "crawledAt": "2026-05-17T21:33:22.438Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-05-15",
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-15T21:42:14.752Z",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
         "translation": 25,
         "completeness": 25
       }
@@ -2751,7 +2709,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.781Z",
+      "crawledAt": "2026-05-17T21:33:22.467Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -2767,6 +2725,61 @@
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6177",
+      "slug": "client-support-officer-efg-st-moritz",
+      "company": "EFG International AG",
+      "title": "Client Support Officer",
+      "location": "St. Moritz",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-01",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6177",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\" lang=\"DE\">General Info</span></span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Work</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">time</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Percentage</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: 100%</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Location</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: St Moritz</span></span></p></li></ul><h1><span lang=\"IT-CH\">Our Company</span></h1><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\">Our Purpose and Mission</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></span></p><p> </p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></span></p><h1><span lang=\"EN-GB\">Job Description</span></h1><p style=\"text-align:justify;\"><span>To support our growing activities in St. Moritz, we are looking for a <strong>Client Service Officer</strong> who will provide high-quality administrative and client service support to our Client Relationship Officers (CROs), while also contributing to the smooth running of our front office reception and cashier operations.</span></p><p style=\"text-align:justify;\"><span>This role is ideal for a service-oriented, hands-on professional who enjoys working in a dynamic, international private banking environment and who is motivated to take ownership, act proactively and deliver an outstanding client experience.</span></p><h1><span style=\"color:#333C40;\"><span style=\"font-size:9.0pt;letter-spacing:0pt;\"><strong>Main Responsibilities</strong></span></span></h1><h1><span style=\"color:#333C40;\"><span style=\"font-size:9.0pt;letter-spacing:0pt;\"><strong>1. Client and CRO Support</strong></span></span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Support clients and CROs in their daily business activities.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Maintain active client contact in written and spoken German and English.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Provide top-quality service to clients through regular and prompt contact by phone and email.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Execute client account openings, closures and updates, including:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Conducting internet searches and basic due diligence checks.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Collecting and verifying corroborative documentation.</span></span></p></li></ul></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Prepare and follow up on client visits, including:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Preparing account documentation and reviewing documents.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Organising account statements and other supporting material.</span></span></p></li></ul></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Execute and control client instructions, such as:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Stock market transactions.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Payments and transfers.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Foreign currency trades.</span></span></p></li></ul></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Perform various administrative and organisational tasks, including:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Client reviews and periodic checks.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Follow-up on missing or pending documents.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Delivery and monitoring of hold mail.</span></span></p></li></ul></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Prepare marketing and client materials, such as:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Presentations and pitchbooks.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Investment proposals & portfolio reviews.</span></span></p></li></ul></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Actively promote paperless accounts and e-banking usage to clients.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Ensure full compliance with the Code of Conduct and all internal regulations (e.g. Cross Border, AML, Clear & Clean Desk Policy, Absence Management).</span></span></p></li></ul><h1><span style=\"color:#333C40;\"><span style=\"font-size:9.0pt;letter-spacing:0pt;\"><strong>2. Reception and Front Office Support</strong></span></span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Welcome and assist clients upon arrival, ensuring a professional and warm first impression.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Manage reception duties, including:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Answering and directing phone calls.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Handling appointments and coordinating meeting room bookings.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Prepare and serve beverages to clients and ensure a high standard of hospitality.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Ensure meeting rooms and client areas are tidy, well-presented and adequately equipped at all times.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Handle incoming and outgoing mail and deliveries, ensuring timely distribution and proper documentation.</span></span></p></li></ul></li></ul><h1><span style=\"color:#333C40;\"><span style=\"font-size:9.0pt;letter-spacing:0pt;\">3. <strong>Cashier and Branch Support</strong></span></span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Support daily cashier operations, including:</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Processing client deposits and withdrawals.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Handling basic cash and payment transactions in line with internal guidelines.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Collaborate closely with CROs and other team members to ensure smooth branch operations.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Support marketing and client events, including preparation, logistics and on-site assistance.</span></span></p></li></ul><h1><span lang=\"EN-GB\">Skills and experience</span></h1><ol><li><p class=\"Bulletlist\" style=\"tab-stops:.5in;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Education and Professional Background</strong></span></span></p></li></ol><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Commercial apprenticeship in a bank or similar banking-related education.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Further education in the financial sector is an advantage.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Minimum 3 years of experience in a private banking or intermediary environment.</span></span></p></li></ul><ol><li><p class=\"Bulletlist\" style=\"tab-stops:.5in;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Skills</strong></span></span></p></li></ol><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Good understanding of financial instruments, including: </span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Equities, bonds, structured products and derivatives.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Solid knowledge of Compliance and AML topics relevant to private banking.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Confident user of Microsoft Office (Excel, PowerPoint, Outlook, Word).</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Familiarity with banking systems and front-office tools is an asset.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong client service orientation with excellent interpersonal skills.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">High level of reliability, discretion and integrity.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Ability to cope with pressure and tight deadlines, with a flexible approach to working hours when required.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Comfortable working in a small branch environment, taking on a broad range of tasks (from client administration to reception and cashier support).</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Proficient in written and spoken German and English (essential).</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Italian is a strong plus; any additional languages are an advantage.</span></span></p></li></ul><h1><span lang=\"IT-CH\">Our Values</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Accountability</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Hands-on</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being proactive to rapidly deliver high-quality results</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Passionate</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being committed and striving for excellence</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Solution-driven</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Partnership-oriented</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span></p></li></ul><ol><li><p class=\"Bulletlist\" style=\"tab-stops:.5in;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></span></p></li></ol><h1><span lang=\"EN-GB\">Application</span></h1><ol><li><p class=\"Bulletlist\" style=\"tab-stops:.5in;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></span></p></li></ol>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 5
+          }
+        }
+      },
+      "crawledAt": "2026-05-17T21:33:22.465Z",
+      "addressLocality": "St. Moritz",
+      "addressCountry": "CH",
+      "needsRetranslation": true,
+      "datePosted": "2026-04-01",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-17T10:08:35.143Z",
+      "retranslationAttempts": 1,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
         "completeness": 25
       }
     },
@@ -2874,7 +2887,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.771Z",
+      "crawledAt": "2026-05-17T21:33:22.457Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -2928,7 +2941,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-15T21:42:14.767Z",
+      "crawledAt": "2026-05-17T21:33:22.454Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-21",

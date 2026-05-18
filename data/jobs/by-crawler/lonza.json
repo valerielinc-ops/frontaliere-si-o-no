@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lonza",
-  "assembledAt": "2026-05-15T22:13:58.492Z",
+  "assembledAt": "2026-05-17T22:05:02.689Z",
   "jobs": [
     {
       "id": "lonza-a0c278de97e0",
@@ -47,11 +47,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/BIO-Operator-P1P2-4-Schicht--m-w-d-_R76304-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:13:55.653Z",
+      "crawledAt": "2026-05-17T22:05:00.032Z",
       "jobReqId": "R76304",
-      "previousSlugs": [
-        "bio-operator-p1p2-4-schicht-m-w-d-lonza-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:40:04.453Z",
       "previousSlugsByLocale": {
         "it": [
           "bio-operator-p1p2-4-schicht-m-w-d-lonza-ch"
@@ -60,8 +59,9 @@
           "bio-operator-p1p2-4-schicht-m-w-d-lonza-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:30:13.669Z",
+      "previousSlugs": [
+        "bio-operator-p1p2-4-schicht-m-w-d-lonza-ch"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -120,10 +120,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/CQV-Engineer---Qualification---Validation-Engineer-80-100---m-f-d-_R76279-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:54.796Z",
+      "crawledAt": "2026-05-17T22:04:59.164Z",
       "jobReqId": "R76279",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:30:12.912Z",
+      "firstSeenAt": "2026-05-17T10:40:03.829Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -139,9 +139,9 @@
     },
     {
       "id": "lonza-178e3d1a371f",
-      "slug": "qa-manager-strategia-di-controllo-della-contaminazione-80-100-f-m-d-lonza-ch",
+      "slug": "qa-manager-contamination-control-strategy-80-100-f-m-d-lonza-ch",
       "slugByLocale": {
-        "it": "qa-manager-strategia-di-controllo-della-contaminazione-80-100-f-m-d-lonza-ch",
+        "it": "qa-manager-contamination-control-strategy-80-100-f-m-d-lonza-ch",
         "en": "qa-manager-contamination-control-strategy-80-100-f-m-d-lonza-ch",
         "de": "qa-manager-contamination-control-strategy-80-100-f-m-d-lonza-ch",
         "fr": "qa-manager-contamination-control-strategy-80-100-f-m-d-lonza-ch"
@@ -151,7 +151,7 @@
       "companyDomain": "lonza.com",
       "title": "QA Manager – Contamination Control Strategy 80-100% (f/m/d)",
       "titleByLocale": {
-        "it": "QA Manager – Strategia di controllo della contaminazione 80-100% (f/m/d)",
+        "it": "QA Manager – Contamination Control Strategy 80-100% (f/m/d)",
         "en": "QA Manager – Contamination Control Strategy 80-100% (f/m/d)",
         "de": "QA Manager – Contamination Control Strategy 80-100% (f/m/d)",
         "fr": "QA Manager – Contamination Control Strategy 80-100% (f/m/d)"
@@ -182,19 +182,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Manager-QA--Contamination-Prevention---Control--f-m-d-_R75875",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:54.148Z",
+      "crawledAt": "2026-05-17T22:04:58.263Z",
       "jobReqId": "R75875",
-      "previousSlugs": [
-        "qa-manager-contamination-control-strategy-80-100-f-m-d-lonza-ch",
-        "manager-qa-contamination-prevention-control-f-m-d-lonza-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "qa-manager-contamination-control-strategy-80-100-f-m-d-lonza-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:30:11.957Z",
+      "firstSeenAt": "2026-05-17T10:40:03.222Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -253,11 +244,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Basel-HR/HR-Engagement---Communication-Intern-80-100-_R75991",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:53.494Z",
+      "crawledAt": "2026-05-17T22:04:57.453Z",
       "jobReqId": "R75991",
-      "previousSlugs": [
-        "hr-engagement-communication-intern-80-100-lonza-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:40:02.540Z",
       "previousSlugsByLocale": {
         "it": [
           "hr-engagement-communication-intern-80-100-lonza-ch"
@@ -269,8 +259,9 @@
           "hr-engagement-communication-intern-80-100-lonza-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:30:10.342Z",
+      "previousSlugs": [
+        "hr-engagement-communication-intern-80-100-lonza-ch"
+      ],
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -329,11 +320,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Bioprocess-Engineer_R76086",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:52.526Z",
+      "crawledAt": "2026-05-17T22:04:56.667Z",
       "jobReqId": "R76086",
-      "previousSlugs": [
-        "bioprocess-engineer-usp-80-100-m-f-d-lonza-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:40:01.865Z",
       "previousSlugsByLocale": {
         "it": [
           "bioprocess-engineer-usp-80-100-m-f-d-lonza-ch"
@@ -345,8 +335,9 @@
           "bioprocess-engineer-usp-80-100-m-f-d-lonza-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:30:09.532Z",
+      "previousSlugs": [
+        "bioprocess-engineer-usp-80-100-m-f-d-lonza-ch"
+      ],
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -405,10 +396,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Internship-Global-Master-Data-Analyst-80-100---m-f-d-_R75752-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:51.874Z",
+      "crawledAt": "2026-05-17T22:04:55.488Z",
       "jobReqId": "R75752",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:30:08.739Z",
+      "firstSeenAt": "2026-05-17T10:40:01.228Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -467,10 +458,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Equipment-Expert-Quality-Control-80-100---m-f-d-_R75749",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:13:51.040Z",
+      "crawledAt": "2026-05-17T22:04:54.683Z",
       "jobReqId": "R75749",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T12:06:38.699Z",
+      "firstSeenAt": "2026-05-17T10:40:00.625Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -529,10 +520,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Bioprocess-Engineer-in-USP---DSP---BioConjugates_R76167-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:50.234Z",
+      "crawledAt": "2026-05-17T22:04:53.804Z",
       "jobReqId": "R76167",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T12:06:38.073Z",
+      "firstSeenAt": "2026-05-17T10:40:00.002Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -591,11 +582,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Manufacturing-Specialist-Ibex--100---m-f-d-_R76166-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:49.598Z",
+      "crawledAt": "2026-05-17T22:04:52.913Z",
       "jobReqId": "R76166",
-      "previousSlugs": [
-        "manufacturing-specialist-ibex-100-m-f-d-lonza-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:39:59.393Z",
       "previousSlugsByLocale": {
         "it": [
           "manufacturing-specialist-ibex-100-m-f-d-lonza-ch"
@@ -607,8 +597,9 @@
           "manufacturing-specialist-ibex-100-m-f-d-lonza-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T12:06:37.401Z",
+      "previousSlugs": [
+        "manufacturing-specialist-ibex-100-m-f-d-lonza-ch"
+      ],
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -667,11 +658,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Manufacturing-Specialist-Mammalian-100---m-f-d-_R76164-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:48.946Z",
+      "crawledAt": "2026-05-17T22:04:52.056Z",
       "jobReqId": "R76164",
-      "previousSlugs": [
-        "manufacturing-specialist-mammalian-100-m-f-d-lonza-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:39:58.631Z",
       "previousSlugsByLocale": {
         "it": [
           "manufacturing-specialist-mammalian-100-m-f-d-lonza-ch"
@@ -683,8 +673,9 @@
           "manufacturing-specialist-mammalian-100-m-f-d-lonza-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T12:06:36.754Z",
+      "previousSlugs": [
+        "manufacturing-specialist-mammalian-100-m-f-d-lonza-ch"
+      ],
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -712,7 +703,7 @@
       "companyDomain": "lonza.com",
       "title": "Biotechnologist 100% (m/f/d)",
       "titleByLocale": {
-        "it": "Biotecnologo 100% (m/f/g)",
+        "it": "Biotechnologist 100% (m/f/d)",
         "en": "Biotechnologist 100% (m/f/d)",
         "de": "Biotechnologist 100% (m/f/d)",
         "fr": "Biotechnologist 100% (m/f/d)"
@@ -743,10 +734,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Biotechnologist-100---m-f-d-_R76163-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:48.101Z",
+      "crawledAt": "2026-05-17T22:04:51.250Z",
       "jobReqId": "R76163",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T12:06:36.085Z",
+      "firstSeenAt": "2026-05-17T10:39:57.997Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -774,7 +765,7 @@
       "companyDomain": "lonza.com",
       "title": "Biotechnologist 100% (m/w/d)",
       "titleByLocale": {
-        "it": "Biotecnologo 100% (m/p/g)",
+        "it": "Biotechnologist 100% (m/w/d)",
         "en": "Biotechnologist 100% (m/w/d)",
         "de": "Biotechnologist 100% (m/w/d)",
         "fr": "Biotechnologist 100% (m/w/d)"
@@ -805,10 +796,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Biotechnologist-100----m-w-d-_R76165-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:47.464Z",
+      "crawledAt": "2026-05-17T22:04:50.454Z",
       "jobReqId": "R76165",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T12:06:35.439Z",
+      "firstSeenAt": "2026-05-17T10:39:57.356Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -824,9 +815,9 @@
     },
     {
       "id": "lonza-557272462f9c",
-      "slug": "capo-progetto-phys-chem-qc-80-100-lonza-ch",
+      "slug": "project-lead-phys-chem-qc-80-100-lonza-ch",
       "slugByLocale": {
-        "it": "capo-progetto-phys-chem-qc-80-100-lonza-ch",
+        "it": "project-lead-phys-chem-qc-80-100-lonza-ch",
         "en": "project-lead-phys-chem-qc-80-100-lonza-ch",
         "de": "project-lead-phys-chem-qc-80-100-lonza-ch",
         "fr": "project-lead-phys-chem-qc-80-100-lonza-ch"
@@ -836,7 +827,7 @@
       "companyDomain": "lonza.com",
       "title": "Project Lead Phys-Chem QC 80-100%",
       "titleByLocale": {
-        "it": "Capo Progetto Phys-Chem QC 80-100%",
+        "it": "Project Lead Phys-Chem QC 80-100%",
         "en": "Project Lead Phys-Chem QC 80-100%",
         "de": "Project Lead Phys-Chem QC 80-100%",
         "fr": "Project Lead Phys-Chem QC 80-100%"
@@ -867,18 +858,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Basel/Project-Lead-Phys-Chem-QC-80-100-_R74650-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:46.679Z",
+      "crawledAt": "2026-05-17T22:04:49.660Z",
       "jobReqId": "R74650",
-      "previousSlugs": [
-        "project-lead-phys-chem-qc-80-100-lonza-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "project-lead-phys-chem-qc-80-100-lonza-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T12:06:34.768Z",
+      "firstSeenAt": "2026-05-17T10:39:56.741Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -894,9 +877,9 @@
     },
     {
       "id": "lonza-45ca71b2b8e4",
-      "slug": "msat-process-expert-mammifero-a-monte-su-larga-scala-m-f-d-lonza-ch",
+      "slug": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
       "slugByLocale": {
-        "it": "msat-process-expert-mammifero-a-monte-su-larga-scala-m-f-d-lonza-ch",
+        "it": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
         "en": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
         "de": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch",
         "fr": "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch"
@@ -906,7 +889,7 @@
       "companyDomain": "lonza.com",
       "title": "MSAT Process Expert Mammalian Upstream Large-Scale (m/f/d)",
       "titleByLocale": {
-        "it": "MSAT Process Expert Mammifero a monte su larga scala (m/f/d)",
+        "it": "MSAT Process Expert Mammalian Upstream Large-Scale (m/f/d)",
         "en": "MSAT Process Expert Mammalian Upstream Large-Scale (m/f/d)",
         "de": "MSAT Process Expert Mammalian Upstream Large-Scale (m/f/d)",
         "fr": "MSAT Process Expert Mammalian Upstream Large-Scale (m/f/d)"
@@ -937,18 +920,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/MSAT-Process-Expert-Mammalian-Upstream-Large-Scale--m-f-d-_R75954-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:46.037Z",
+      "crawledAt": "2026-05-17T22:04:49.026Z",
       "jobReqId": "R75954",
-      "previousSlugs": [
-        "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "msat-process-expert-mammalian-upstream-large-scale-m-f-d-lonza-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T12:06:32.838Z",
+      "firstSeenAt": "2026-05-17T10:39:56.149Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1007,10 +982,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Manufacturing-Line-Specialist---Anlagemeister--AM---m-w-d--80--100-_R76134-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:45.190Z",
+      "crawledAt": "2026-05-17T22:04:48.240Z",
       "jobReqId": "R76134",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T12:06:32.195Z",
+      "firstSeenAt": "2026-05-17T10:39:55.415Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1069,10 +1044,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Basel/Supply-Chain-Lead-DP-Development-Services--f-m-d-_R76104-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:44.419Z",
+      "crawledAt": "2026-05-17T22:04:47.428Z",
       "jobReqId": "R76104",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T12:06:31.525Z",
+      "firstSeenAt": "2026-05-17T10:39:54.801Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1107,10 +1082,10 @@
       },
       "description": "Der Standort dieser Position ist in Visp, Schweiz. Bei Bedarf steht für berechtigte Kandidaten und ihre Familien Unterstützung beim Umzug zur Verfügung.\n\nWas wir Ihnen bieten:\n\n• Eine agile Karriere und eine dynamische Arbeitskultur\n\n• Ein inklusiver und ethischer Arbeitsplatz\n\n• Vergütungsprogramme, die hohe Leistung anerkennen\n\nZusätzlich zu einem wettbewerbsfähigen Gehalt können Sie zahlreiche Vorteile für Lebensstil, Familie und Freizeit erwarten. Die vollständige Liste unserer lokal zugeschnittenen Benefits finden Sie unten.\n\n• Benefits in Visp: https://bit.ly/3wjkoFi\n\nIhre Aufgaben:\n\n• Selbstständiger Betrieb vertrauter Teile der Produktionsanlage gemäß Spezifikationsdokumenten (Herstellprotokolle, Arbeitsanweisungen, Betriebsanweisungen, SOPs)\n\n• Sichere und präzise Durchführung aller Arbeiten unter Einhaltung der Sicherheitsvorschriften und cGMP-Qualitätsanforderungen\n\n• Verantwortung für Sauberkeit und Ordnung am Arbeitsplatz sowie in den zugewiesenen Räumen und Lagerbereichen\n\n• Aktive Mitarbeit als gleichwertiges Teammitglied in kontinuierlichen Verbesserungsprozessen innerhalb der Ibex®-Operationen\n\nIhr Profil\n\n• Abgeschlossene Berufsausbildung (EFZ) oder Ausbildung im Bereich Chemie-, Biologie- oder Pharmatechnologie – oder nachweisbare relevante Berufserfahrung\n\n• Sorgfältige und genaue Arbeitsweise sowie starke Dokumentationsfähigkeiten\n\n• Hohes Sicherheitsbewusstsein im täglichen Arbeiten\n\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb sowie Flexibilität in der Arbeitsplanung\n\n• Kenntnisse in DeltaV oder MES sowie Erfahrung im GMP-Umfeld sind von Vorteil\n\n• Mindestens eine der folgenden Sprachen auf Niveau B2: Deutsch oder Englisch; die andere Sprache mindestens Niveau B1.\n\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb\n\nBei Lonza sind unsere Mitarbeitenden unsere grösste Stärke. Mit über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams jeden Tag zusammen, um die Medikamente von morgen herzustellen. Unsere Kernwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Jede Idee, ob gross oder klein, hat das Potenzial, Millionen von Leben zu verbessern – und genau an dieser Arbeit möchten wir Sie beteiligen.\n\nInnovation gedeiht, wenn Menschen aus unterschiedlichen Hintergründen ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein inklusives Umfeld für alle Mitarbeitenden ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in umsetzbare Therapien zu verwandeln, freuen wir uns darauf, Sie an Bord zu begrüssen.\n\nBereit, die Zukunft der Life Sciences mitzugestalten? Bewerben Sie sich jetzt.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
       "descriptionByLocale": {
-        "it": "Der Standort dieser Position ist in Visp, Schweiz. Bei Bedarf steht für berechtigte Kandidaten und ihre Familien Unterstützung beim Umzug zur Verfügung. Was wir Ihnen bieten:\n• Eine agile Karriere und eine dynamische Arbeitskultur\n• Ein inklusiver und ethischer Arbeitsplatz\n• Vergütungsprogramme, die hohe Leistung anerkennen Zusätzlich zu einem wettbewerbsfähigen Gehalt können Sie zahlreiche Vorteile für Lebensstil, Familie und Freizeit erwarten. Die vollständige Liste unserer lokal zugeschnittenen Benefits finden Sie unten.\n• Benefits in Visp: https://bit.ly/3wjkoFi Ihre Aufgaben:\n• Selbstständiger Betrieb vertrauter Teile der Produktionsanlage gemäß Spezifikationsdokumenten (Herstellprotokolle, Arbeitsanweisungen, Betriebsanweisungen, SOPs)\n• Sichere und präzise Durchführung aller Arbeiten unter Einhaltung der Sicherheitsvorschriften und cGMP-Qualitätsanforderungen\n• Verantwortung für Sauberkeit und Ordnung am Arbeitsplatz sowie in den zugewiesenen Räumen und Lagerbereichen\n• Aktive Mitarbeit als gleichwertiges Teammitglied in kontinuierlichen Verbesserungsprozessen innerhalb der Ibex®-Operationen Ihr Profil\n• Abgeschlossene Berufsausbildung (EFZ) oder Ausbildung im Bereich Chemie-, Biologie- oder Pharmatechnologie – oder nachweisbare relevante Berufserfahrung\n• Sorgfältige und genaue Arbeitsweise sowie starke Dokumentationsfähigkeiten\n• Hohes Sicherheitsbewusstsein im täglichen Arbeiten\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb sowie Flexibilität in der Arbeitsplanung\n• Kenntnisse in DeltaV oder MES sowie Erfahrung im GMP-Umfeld sind von Vorteil\n• Deutschkenntnisse (mindestens Niveau B2); Englischkentnisse sind ein Plus\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb Bei Lonza sind unsere Mitarbeitenden unsere grösste Stärke. Mit über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams jeden Tag zusammen, um die Medikamente von morgen herzustellen. Unsere Kernwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Jede Idee, ob gross oder klein, hat das Potenzial, Millionen von Leben zu verbessern – und genau an dieser Arbeit möchten wir Sie beteiligen. Innovation gedeiht, wenn Menschen aus unterschiedlichen Hintergründen ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein inklusives Umfeld für alle Mitarbeitenden ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in umsetzbare Therapien zu verwandeln, freuen wir uns darauf, Sie an Bord zu begrüssen. Bereit, die Zukunft der Life Sciences mitzugestalten? Bewerben Sie sich jetzt. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
-        "en": "Der Standort dieser Position ist in Visp, Schweiz. Bei Bedarf steht für berechtigte Kandidaten und ihre Familien Unterstützung beim Umzug zur Verfügung. Was wir Ihnen bieten:\n• Eine agile Karriere und eine dynamische Arbeitskultur\n• Ein inklusiver und ethischer Arbeitsplatz\n• Vergütungsprogramme, die hohe Leistung anerkennen Zusätzlich zu einem wettbewerbsfähigen Gehalt können Sie zahlreiche Vorteile für Lebensstil, Familie und Freizeit erwarten. Die vollständige Liste unserer lokal zugeschnittenen Benefits finden Sie unten.\n• Benefits in Visp: https://bit.ly/3wjkoFi Ihre Aufgaben:\n• Selbstständiger Betrieb vertrauter Teile der Produktionsanlage gemäß Spezifikationsdokumenten (Herstellprotokolle, Arbeitsanweisungen, Betriebsanweisungen, SOPs)\n• Sichere und präzise Durchführung aller Arbeiten unter Einhaltung der Sicherheitsvorschriften und cGMP-Qualitätsanforderungen\n• Verantwortung für Sauberkeit und Ordnung am Arbeitsplatz sowie in den zugewiesenen Räumen und Lagerbereichen\n• Aktive Mitarbeit als gleichwertiges Teammitglied in kontinuierlichen Verbesserungsprozessen innerhalb der Ibex®-Operationen Ihr Profil\n• Abgeschlossene Berufsausbildung (EFZ) oder Ausbildung im Bereich Chemie-, Biologie- oder Pharmatechnologie – oder nachweisbare relevante Berufserfahrung\n• Sorgfältige und genaue Arbeitsweise sowie starke Dokumentationsfähigkeiten\n• Hohes Sicherheitsbewusstsein im täglichen Arbeiten\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb sowie Flexibilität in der Arbeitsplanung\n• Kenntnisse in DeltaV oder MES sowie Erfahrung im GMP-Umfeld sind von Vorteil\n• Deutschkenntnisse (mindestens Niveau B2); Englischkentnisse sind ein Plus\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb Bei Lonza sind unsere Mitarbeitenden unsere grösste Stärke. Mit über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams jeden Tag zusammen, um die Medikamente von morgen herzustellen. Unsere Kernwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Jede Idee, ob gross oder klein, hat das Potenzial, Millionen von Leben zu verbessern – und genau an dieser Arbeit möchten wir Sie beteiligen. Innovation gedeiht, wenn Menschen aus unterschiedlichen Hintergründen ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein inklusives Umfeld für alle Mitarbeitenden ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in umsetzbare Therapien zu verwandeln, freuen wir uns darauf, Sie an Bord zu begrüssen. Bereit, die Zukunft der Life Sciences mitzugestalten? Bewerben Sie sich jetzt. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+        "it": "Der Standort dieser Position ist in Visp, Schweiz. Bei Bedarf steht für berechtigte Kandidaten und ihre Familien Unterstützung beim Umzug zur Verfügung. Was wir Ihnen bieten:\n• Eine agile Karriere und eine dynamische Arbeitskultur\n• Ein inklusiver und ethischer Arbeitsplatz\n• Vergütungsprogramme, die hohe Leistung anerkennen Zusätzlich zu einem wettbewerbsfähigen Gehalt können Sie zahlreiche Vorteile für Lebensstil, Familie und Freizeit erwarten. Die vollständige Liste unserer lokal zugeschnittenen Benefits finden Sie unten.\n• Benefits in Visp: https://bit.ly/3wjkoFi Ihre Aufgaben:\n• Selbstständiger Betrieb vertrauter Teile der Produktionsanlage gemäß Spezifikationsdokumenten (Herstellprotokolle, Arbeitsanweisungen, Betriebsanweisungen, SOPs)\n• Sichere und präzise Durchführung aller Arbeiten unter Einhaltung der Sicherheitsvorschriften und cGMP-Qualitätsanforderungen\n• Verantwortung für Sauberkeit und Ordnung am Arbeitsplatz sowie in den zugewiesenen Räumen und Lagerbereichen\n• Aktive Mitarbeit als gleichwertiges Teammitglied in kontinuierlichen Verbesserungsprozessen innerhalb der Ibex®-Operationen Ihr Profil\n• Abgeschlossene Berufsausbildung (EFZ) oder Ausbildung im Bereich Chemie-, Biologie- oder Pharmatechnologie – oder nachweisbare relevante Berufserfahrung\n• Sorgfältige und genaue Arbeitsweise sowie starke Dokumentationsfähigkeiten\n• Hohes Sicherheitsbewusstsein im täglichen Arbeiten\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb sowie Flexibilität in der Arbeitsplanung\n• Kenntnisse in DeltaV oder MES sowie Erfahrung im GMP-Umfeld sind von Vorteil\n• Mindestens eine der folgenden Sprachen auf Niveau B2: Deutsch oder Englisch; die andere Sprache mindestens Niveau B1.\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb Bei Lonza sind unsere Mitarbeitenden unsere grösste Stärke. Mit über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams jeden Tag zusammen, um die Medikamente von morgen herzustellen. Unsere Kernwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Jede Idee, ob gross oder klein, hat das Potenzial, Millionen von Leben zu verbessern – und genau an dieser Arbeit möchten wir Sie beteiligen. Innovation gedeiht, wenn Menschen aus unterschiedlichen Hintergründen ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein inklusives Umfeld für alle Mitarbeitenden ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in umsetzbare Therapien zu verwandeln, freuen wir uns darauf, Sie an Bord zu begrüssen. Bereit, die Zukunft der Life Sciences mitzugestalten? Bewerben Sie sich jetzt. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+        "en": "Der Standort dieser Position ist in Visp, Schweiz. Bei Bedarf steht für berechtigte Kandidaten und ihre Familien Unterstützung beim Umzug zur Verfügung. Was wir Ihnen bieten:\n• Eine agile Karriere und eine dynamische Arbeitskultur\n• Ein inklusiver und ethischer Arbeitsplatz\n• Vergütungsprogramme, die hohe Leistung anerkennen Zusätzlich zu einem wettbewerbsfähigen Gehalt können Sie zahlreiche Vorteile für Lebensstil, Familie und Freizeit erwarten. Die vollständige Liste unserer lokal zugeschnittenen Benefits finden Sie unten.\n• Benefits in Visp: https://bit.ly/3wjkoFi Ihre Aufgaben:\n• Selbstständiger Betrieb vertrauter Teile der Produktionsanlage gemäß Spezifikationsdokumenten (Herstellprotokolle, Arbeitsanweisungen, Betriebsanweisungen, SOPs)\n• Sichere und präzise Durchführung aller Arbeiten unter Einhaltung der Sicherheitsvorschriften und cGMP-Qualitätsanforderungen\n• Verantwortung für Sauberkeit und Ordnung am Arbeitsplatz sowie in den zugewiesenen Räumen und Lagerbereichen\n• Aktive Mitarbeit als gleichwertiges Teammitglied in kontinuierlichen Verbesserungsprozessen innerhalb der Ibex®-Operationen Ihr Profil\n• Abgeschlossene Berufsausbildung (EFZ) oder Ausbildung im Bereich Chemie-, Biologie- oder Pharmatechnologie – oder nachweisbare relevante Berufserfahrung\n• Sorgfältige und genaue Arbeitsweise sowie starke Dokumentationsfähigkeiten\n• Hohes Sicherheitsbewusstsein im täglichen Arbeiten\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb sowie Flexibilität in der Arbeitsplanung\n• Kenntnisse in DeltaV oder MES sowie Erfahrung im GMP-Umfeld sind von Vorteil\n• Mindestens eine der folgenden Sprachen auf Niveau B2: Deutsch oder Englisch; die andere Sprache mindestens Niveau B1.\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb Bei Lonza sind unsere Mitarbeitenden unsere grösste Stärke. Mit über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams jeden Tag zusammen, um die Medikamente von morgen herzustellen. Unsere Kernwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Jede Idee, ob gross oder klein, hat das Potenzial, Millionen von Leben zu verbessern – und genau an dieser Arbeit möchten wir Sie beteiligen. Innovation gedeiht, wenn Menschen aus unterschiedlichen Hintergründen ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein inklusives Umfeld für alle Mitarbeitenden ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in umsetzbare Therapien zu verwandeln, freuen wir uns darauf, Sie an Bord zu begrüssen. Bereit, die Zukunft der Life Sciences mitzugestalten? Bewerben Sie sich jetzt. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
         "de": "Der Standort dieser Position ist in Visp, Schweiz. Bei Bedarf steht für berechtigte Kandidaten und ihre Familien Unterstützung beim Umzug zur Verfügung. Was wir Ihnen bieten:\n• Eine agile Karriere und eine dynamische Arbeitskultur\n• Ein inklusiver und ethischer Arbeitsplatz\n• Vergütungsprogramme, die hohe Leistung anerkennen Zusätzlich zu einem wettbewerbsfähigen Gehalt können Sie zahlreiche Vorteile für Lebensstil, Familie und Freizeit erwarten. Die vollständige Liste unserer lokal zugeschnittenen Benefits finden Sie unten.\n• Benefits in Visp: https://bit.ly/3wjkoFi Ihre Aufgaben:\n• Selbstständiger Betrieb vertrauter Teile der Produktionsanlage gemäß Spezifikationsdokumenten (Herstellprotokolle, Arbeitsanweisungen, Betriebsanweisungen, SOPs)\n• Sichere und präzise Durchführung aller Arbeiten unter Einhaltung der Sicherheitsvorschriften und cGMP-Qualitätsanforderungen\n• Verantwortung für Sauberkeit und Ordnung am Arbeitsplatz sowie in den zugewiesenen Räumen und Lagerbereichen\n• Aktive Mitarbeit als gleichwertiges Teammitglied in kontinuierlichen Verbesserungsprozessen innerhalb der Ibex®-Operationen Ihr Profil\n• Abgeschlossene Berufsausbildung (EFZ) oder Ausbildung im Bereich Chemie-, Biologie- oder Pharmatechnologie – oder nachweisbare relevante Berufserfahrung\n• Sorgfältige und genaue Arbeitsweise sowie starke Dokumentationsfähigkeiten\n• Hohes Sicherheitsbewusstsein im täglichen Arbeiten\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb sowie Flexibilität in der Arbeitsplanung\n• Kenntnisse in DeltaV oder MES sowie Erfahrung im GMP-Umfeld sind von Vorteil\n• Mindestens eine der folgenden Sprachen auf Niveau B2: Deutsch oder Englisch; die andere Sprache mindestens Niveau B1.\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb Bei Lonza sind unsere Mitarbeitenden unsere grösste Stärke. Mit über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams jeden Tag zusammen, um die Medikamente von morgen herzustellen. Unsere Kernwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Jede Idee, ob gross oder klein, hat das Potenzial, Millionen von Leben zu verbessern – und genau an dieser Arbeit möchten wir Sie beteiligen. Innovation gedeiht, wenn Menschen aus unterschiedlichen Hintergründen ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein inklusives Umfeld für alle Mitarbeitenden ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in umsetzbare Therapien zu verwandeln, freuen wir uns darauf, Sie an Bord zu begrüssen. Bereit, die Zukunft der Life Sciences mitzugestalten? Bewerben Sie sich jetzt. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
-        "fr": "Der Standort dieser Position ist in Visp, Schweiz. Bei Bedarf steht für berechtigte Kandidaten und ihre Familien Unterstützung beim Umzug zur Verfügung. Was wir Ihnen bieten:\n• Eine agile Karriere und eine dynamische Arbeitskultur\n• Ein inklusiver und ethischer Arbeitsplatz\n• Vergütungsprogramme, die hohe Leistung anerkennen Zusätzlich zu einem wettbewerbsfähigen Gehalt können Sie zahlreiche Vorteile für Lebensstil, Familie und Freizeit erwarten. Die vollständige Liste unserer lokal zugeschnittenen Benefits finden Sie unten.\n• Benefits in Visp: https://bit.ly/3wjkoFi Ihre Aufgaben:\n• Selbstständiger Betrieb vertrauter Teile der Produktionsanlage gemäß Spezifikationsdokumenten (Herstellprotokolle, Arbeitsanweisungen, Betriebsanweisungen, SOPs)\n• Sichere und präzise Durchführung aller Arbeiten unter Einhaltung der Sicherheitsvorschriften und cGMP-Qualitätsanforderungen\n• Verantwortung für Sauberkeit und Ordnung am Arbeitsplatz sowie in den zugewiesenen Räumen und Lagerbereichen\n• Aktive Mitarbeit als gleichwertiges Teammitglied in kontinuierlichen Verbesserungsprozessen innerhalb der Ibex®-Operationen Ihr Profil\n• Abgeschlossene Berufsausbildung (EFZ) oder Ausbildung im Bereich Chemie-, Biologie- oder Pharmatechnologie – oder nachweisbare relevante Berufserfahrung\n• Sorgfältige und genaue Arbeitsweise sowie starke Dokumentationsfähigkeiten\n• Hohes Sicherheitsbewusstsein im täglichen Arbeiten\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb sowie Flexibilität in der Arbeitsplanung\n• Kenntnisse in DeltaV oder MES sowie Erfahrung im GMP-Umfeld sind von Vorteil\n• Deutschkenntnisse (mindestens Niveau B2); Englischkentnisse sind ein Plus\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb Bei Lonza sind unsere Mitarbeitenden unsere grösste Stärke. Mit über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams jeden Tag zusammen, um die Medikamente von morgen herzustellen. Unsere Kernwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Jede Idee, ob gross oder klein, hat das Potenzial, Millionen von Leben zu verbessern – und genau an dieser Arbeit möchten wir Sie beteiligen. Innovation gedeiht, wenn Menschen aus unterschiedlichen Hintergründen ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein inklusives Umfeld für alle Mitarbeitenden ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in umsetzbare Therapien zu verwandeln, freuen wir uns darauf, Sie an Bord zu begrüssen. Bereit, die Zukunft der Life Sciences mitzugestalten? Bewerben Sie sich jetzt. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland."
+        "fr": "Der Standort dieser Position ist in Visp, Schweiz. Bei Bedarf steht für berechtigte Kandidaten und ihre Familien Unterstützung beim Umzug zur Verfügung. Was wir Ihnen bieten:\n• Eine agile Karriere und eine dynamische Arbeitskultur\n• Ein inklusiver und ethischer Arbeitsplatz\n• Vergütungsprogramme, die hohe Leistung anerkennen Zusätzlich zu einem wettbewerbsfähigen Gehalt können Sie zahlreiche Vorteile für Lebensstil, Familie und Freizeit erwarten. Die vollständige Liste unserer lokal zugeschnittenen Benefits finden Sie unten.\n• Benefits in Visp: https://bit.ly/3wjkoFi Ihre Aufgaben:\n• Selbstständiger Betrieb vertrauter Teile der Produktionsanlage gemäß Spezifikationsdokumenten (Herstellprotokolle, Arbeitsanweisungen, Betriebsanweisungen, SOPs)\n• Sichere und präzise Durchführung aller Arbeiten unter Einhaltung der Sicherheitsvorschriften und cGMP-Qualitätsanforderungen\n• Verantwortung für Sauberkeit und Ordnung am Arbeitsplatz sowie in den zugewiesenen Räumen und Lagerbereichen\n• Aktive Mitarbeit als gleichwertiges Teammitglied in kontinuierlichen Verbesserungsprozessen innerhalb der Ibex®-Operationen Ihr Profil\n• Abgeschlossene Berufsausbildung (EFZ) oder Ausbildung im Bereich Chemie-, Biologie- oder Pharmatechnologie – oder nachweisbare relevante Berufserfahrung\n• Sorgfältige und genaue Arbeitsweise sowie starke Dokumentationsfähigkeiten\n• Hohes Sicherheitsbewusstsein im täglichen Arbeiten\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb sowie Flexibilität in der Arbeitsplanung\n• Kenntnisse in DeltaV oder MES sowie Erfahrung im GMP-Umfeld sind von Vorteil\n• Mindestens eine der folgenden Sprachen auf Niveau B2: Deutsch oder Englisch; die andere Sprache mindestens Niveau B1.\n• Bereitschaft zur Arbeit im 4-Schichtbetrieb Bei Lonza sind unsere Mitarbeitenden unsere grösste Stärke. Mit über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams jeden Tag zusammen, um die Medikamente von morgen herzustellen. Unsere Kernwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Jede Idee, ob gross oder klein, hat das Potenzial, Millionen von Leben zu verbessern – und genau an dieser Arbeit möchten wir Sie beteiligen. Innovation gedeiht, wenn Menschen aus unterschiedlichen Hintergründen ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein inklusives Umfeld für alle Mitarbeitenden ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in umsetzbare Therapien zu verwandeln, freuen wir uns darauf, Sie an Bord zu begrüssen. Bereit, die Zukunft der Life Sciences mitzugestalten? Bewerben Sie sich jetzt. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland."
       },
       "requirements": [],
       "requirementsByLocale": {},
@@ -1126,15 +1101,15 @@
       "sector": "Farmaceutica / Biotecnologia",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-05",
+      "postedDate": "2026-05-11",
       "url": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Operator-Bioconjugates--m-w-d-_R74565",
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Operator-Bioconjugates--m-w-d-_R74565",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:13:43.649Z",
+      "crawledAt": "2026-05-17T22:04:46.687Z",
       "jobReqId": "R74565",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-10T10:30:33.559Z",
+      "firstSeenAt": "2026-05-17T10:39:54.095Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1150,9 +1125,9 @@
     },
     {
       "id": "lonza-65553d5c3a1c",
-      "slug": "biotecnologo-m-f-d-lonza-ch",
+      "slug": "biotechnologist-m-f-d-lonza-ch",
       "slugByLocale": {
-        "it": "biotecnologo-m-f-d-lonza-ch",
+        "it": "biotechnologist-m-f-d-lonza-ch",
         "en": "biotechnologist-m-f-d-lonza-ch",
         "de": "biotechnologist-m-f-d-lonza-ch",
         "fr": "biotechnologist-m-f-d-lonza-ch"
@@ -1162,7 +1137,7 @@
       "companyDomain": "lonza.com",
       "title": "Biotechnologist (m/f/d)",
       "titleByLocale": {
-        "it": "Biotecnologo (m/f/d)",
+        "it": "Biotechnologist (m/f/d)",
         "en": "Biotechnologist (m/f/d)",
         "de": "Biotechnologist (m/f/d)",
         "fr": "Biotechnologist (m/f/d)"
@@ -1193,18 +1168,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Biotechnologist--m-f-d-_R73688",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:13:42.836Z",
+      "crawledAt": "2026-05-17T22:04:45.874Z",
       "jobReqId": "R73688",
-      "previousSlugs": [
-        "biotechnologist-m-f-d-lonza-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "biotechnologist-m-f-d-lonza-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T22:29:30.856Z",
+      "firstSeenAt": "2026-05-17T10:39:53.478Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1220,9 +1187,9 @@
     },
     {
       "id": "lonza-3c2064421417",
-      "slug": "scienziato-m-f-g-80-100-lonza-ch",
+      "slug": "scientist-m-f-d-80-100-lonza-ch",
       "slugByLocale": {
-        "it": "scienziato-m-f-g-80-100-lonza-ch",
+        "it": "scientist-m-f-d-80-100-lonza-ch",
         "en": "scientist-m-f-d-80-100-lonza-ch",
         "de": "scientist-m-f-d-80-100-lonza-ch",
         "fr": "scientist-m-f-d-80-100-lonza-ch"
@@ -1232,7 +1199,7 @@
       "companyDomain": "lonza.com",
       "title": "Scientist (m/f/d) 80-100%",
       "titleByLocale": {
-        "it": "Scienziato (m/f/g) 80-100%",
+        "it": "Scientist (m/f/d) 80-100%",
         "en": "Scientist (m/f/d) 80-100%",
         "de": "Scientist (m/f/d) 80-100%",
         "fr": "Scientist (m/f/d) 80-100%"
@@ -1263,18 +1230,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Scientist--m-f-d--80-100-_R76010",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:42.191Z",
+      "crawledAt": "2026-05-17T22:04:44.973Z",
       "jobReqId": "R76010",
-      "previousSlugs": [
-        "scientist-m-f-d-80-100-lonza-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "scientist-m-f-d-80-100-lonza-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T22:29:30.138Z",
+      "firstSeenAt": "2026-05-17T10:39:52.866Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1333,11 +1292,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Stein/Project-Support-Intern-80-100-_R76195",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:41.533Z",
+      "crawledAt": "2026-05-17T22:04:44.129Z",
       "jobReqId": "R76195",
-      "previousSlugs": [
-        "project-support-intern-80-100-lonza-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:39:52.261Z",
       "previousSlugsByLocale": {
         "it": [
           "project-support-intern-80-100-lonza-ch"
@@ -1349,8 +1307,9 @@
           "project-support-intern-80-100-lonza-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T22:29:27.006Z",
+      "previousSlugs": [
+        "project-support-intern-80-100-lonza-ch"
+      ],
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -1378,7 +1337,7 @@
       "companyDomain": "lonza.com",
       "title": "Senior Scientist Pilot Lab – USP mammalian (m/f/d)",
       "titleByLocale": {
-        "it": "Senior Scientist Pilot Lab – USP mammiferi (m/f/g)",
+        "it": "Senior Scientist Pilot Lab – USP mammalian (m/f/d)",
         "en": "Senior Scientist Pilot Lab – USP mammalian (m/f/d)",
         "de": "Senior Scientist Pilot Lab – USP mammalian (m/f/d)",
         "fr": "Senior Scientist Pilot Lab – USP mammalian (m/f/d)"
@@ -1409,10 +1368,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Senior-Scientist-Pilot-Lab---USP-mammalian---m-f-d-_R75978-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:40.751Z",
+      "crawledAt": "2026-05-17T22:04:43.353Z",
       "jobReqId": "R75978",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T22:29:26.098Z",
+      "firstSeenAt": "2026-05-17T10:39:51.661Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1471,10 +1430,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Bioprocess-Engineer-Mammalian--USP-DSP-_R76162-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:40.118Z",
+      "crawledAt": "2026-05-17T22:04:42.548Z",
       "jobReqId": "R76162",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T22:29:25.293Z",
+      "firstSeenAt": "2026-05-17T10:39:51.055Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1502,7 +1461,7 @@
       "companyDomain": "lonza.com",
       "title": "BioConjugates Ausbildner (w/m/d)",
       "titleByLocale": {
-        "it": "Istruttore BioConjugates (f/m/d)",
+        "it": "BioConjugates Ausbildner (w/m/d)",
         "en": "BioConjugates Ausbildner (w/m/d)",
         "de": "BioConjugates Ausbildner (w/m/d)",
         "fr": "BioConjugates Ausbildner (w/m/d)"
@@ -1533,10 +1492,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/BioConjugates-Ausbildner--w-m-d-_R75236-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:13:39.454Z",
+      "crawledAt": "2026-05-17T22:04:41.678Z",
       "jobReqId": "R75236",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-12T11:37:11.140Z",
+      "firstSeenAt": "2026-05-17T10:39:50.296Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1552,12 +1511,12 @@
     },
     {
       "id": "lonza-e7a11433b07a",
-      "slug": "praxisintegriertes-bachelorstudium-pibs-praktikum-im-sustainability-team-visp-80-100-m-w-d-lonza-ch",
+      "slug": "praxisintegriertes-bachelorstudium-pibs-praktikum-im-sustainability-team-40-100-m-w-d-lonza-ch",
       "slugByLocale": {
-        "it": "praxisintegriertes-bachelorstudium-pibs-praktikum-im-sustainability-team-visp-80-100-m-w-d-lonza-ch",
-        "en": "praxisintegriertes-bachelorstudium-pibs-praktikum-im-sustainability-team-visp-80-100-m-w-d-lonza-ch",
+        "it": "praxisintegriertes-bachelorstudium-pibs-praktikum-im-sustainability-team-40-100-m-w-d-lonza-ch",
+        "en": "praktikant-m-w-d-im-sustainability-team-visp-80-100-lonza-ch",
         "de": "praxisintegriertes-bachelorstudium-pibs-praktikum-im-sustainability-team-40-100-m-w-d-lonza-ch",
-        "fr": "praxisintegriertes-bachelorstudium-pibs-praktikum-im-sustainability-team-visp-80-100-m-w-d-lonza-ch"
+        "fr": "praktikant-m-w-d-im-sustainability-team-visp-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -1565,16 +1524,16 @@
       "title": "Praxisintegriertes Bachelorstudium (PiBS): Praktikum im Sustainability Team 40–100% (m/w/d)",
       "titleByLocale": {
         "it": "Praxisintegriertes Bachelorstudium (PiBS): Praktikum im Sustainability Team 40–100% (m/w/d)",
-        "en": "Praxisintegriertes Bachelorstudium (PiBS): Praktikum im Sustainability Team, Visp (80–100 %, m/w/d)",
+        "en": "Praxisintegriertes Bachelorstudium (PiBS): Praktikum im Sustainability Team 40–100% (m/w/d)",
         "de": "Praxisintegriertes Bachelorstudium (PiBS): Praktikum im Sustainability Team 40–100% (m/w/d)",
-        "fr": "Praxisintegriertes Bachelorstudium (PiBS): Praktikum im Sustainability Team, Visp (80–100 %, m/w/d)"
+        "fr": "Praxisintegriertes Bachelorstudium (PiBS): Praktikum im Sustainability Team 40–100% (m/w/d)"
       },
       "description": "Am Standort Visp bietet Lonza im Sustainability Team einen Praktikumsplatz im Rahmen des praxisintegrierten Bachelorstudiums (PiBS) in Zusammenarbeit mit der Hochschule Luzern (HSLU) an.\n\nDas PiBS-Modell ermöglicht Maturandinnen und Maturanden den direkten Einstieg in ein Bachelorstudium im MINT-Bereich, ohne vorgängiges Praxisjahr. Während des Studiums arbeiten die Studierenden 40 – 100% im Unternehmen (je nach Studiumsmodell) und besuchen parallel die Lehrveranstaltungen an der HSLU. So verbinden sie Theorie und Praxis von Anfang an.\n\nAls PiBS-Studierende/r bei Lonza sammeln Sie wertvolle Praxiserfahrung in einem internationalen Life-Science-Umfeld und arbeiten aktiv an Projekten im Bereich Nachhaltigkeit und Ressourceneffizienz mit, während Sie ihr Bachelorstudium an der Hochschule Luzern – Technik & Architektur absolvieren.\n\nWas auf Sie wartet:\n\n• Eine agile Karriere und eine dynamische Arbeitskultur.\n\n• Ein integratives und ethisches Arbeitsumfeld.\n\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort.\n\nIhre Aufgaben:\n\n• Allgemeine Tätigkeiten im Bereit Nachhaltigkeit und Ressourcenschonung mit Fokus auf Abwasserminimierung und CO2-Emissionen\n\n• Mitwirken im Site Sustainability Team Visp zur Projekt Identifizierung und Umsetzung\n\n• Bearbeitung von Nachhaltigkeitsprojekt, um Energien und Abwasserströme zu minimieren\n\n• Technische Anlagenoptimierung mit Fokus auf Verbrennungs- und Verwertungsanalgen sowie Abwasserreinigungsanlagen\n\n• Evaluierung von technisch und ökonomischen Machbarkeiten am Standort, um mittel- und langfristige Nachhaltigkeitsziele zu erreichen\n\nWas wir suchen\n\n• Maturant/in mit Studienplatz an der Hochschule Luzern (HSLU) im PiBS (Praxisintegriertes Bachelorstudium) in den Studienrichtungen Energie- und Umwelttechnik sowie Maschinentechnik\n\n• Interesse an den Themen Nachhaltigkeit, CO2-Reduktion und allgemeiner Ressourcenschonung\n\n• Proaktive, selbständige und flexible Arbeitsweise\n\n• Gute Deutschkenntnisse in Schrift und Sprache. Englischkenntnisse vorteilhaft\n\nÜber Lonza:\nBei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Die Ideen jedes Einzelnen, ob groß oder klein, haben das Potenzial, Millionen von Leben zu verbessern, und genau daran möchten wir Sie teilhaben lassen.\n\nInnovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen.\n \nBereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
       "descriptionByLocale": {
-        "it": "Am Standort Visp bietet Lonza im Sustainability Team einen Praktikumsplatz im Rahmen des praxisintegrierten Bachelorstudiums (PiBS) in Zusammenarbeit mit der Hochschule Luzern (HSLU) an. Das PiBS-Modell ermöglicht Maturandinnen und Maturanden den direkten Einstieg in ein Bachelorstudium im MINT-Bereich, ohne vorgängiges Praxisjahr. Während des Studiums arbeiten die Studierenden 40 – 60% im Unternehmen (Montag bis Mittwoch) und besuchen parallel die Lehrveranstaltungen an der HSLU (Donnerstag bis Samstagvormittag). So verbinden sie Theorie und Praxis von Anfang an. Als PiBS-Studierende/r bei Lonza sammeln Sie wertvolle Praxiserfahrung in einem internationalen Life-Science-Umfeld und arbeiten aktiv an Projekten im Bereich Nachhaltigkeit und Ressourceneffizienz mit, während Sie ihr Bachelorstudium an der Hochschule Luzern – Technik & Architektur absolvieren. Was auf Sie wartet:\n• Eine agile Karriere und eine dynamische Arbeitskultur.\n• Ein integratives und ethisches Arbeitsumfeld.\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort. Ihre Aufgaben:\n• Allgemeine Tätigkeiten im Bereit Nachhaltigkeit und Ressourcenschonung mit Fokus auf Abwasserminimierung und CO2-Emissionen\n• Mitwirken im Site Sustainability Team Visp zur Projekt Identifizierung und Umsetzung\n• Bearbeitung von Nachhaltigkeitsprojekt, um Energien und Abwasserströme zu minimieren\n• Technische Anlagenoptimierung mit Fokus auf Verbrennungs- und Verwertungsanalgen sowie Abwasserreinigungsanlagen\n• Evaluierung von technisch und ökonomischen Machbarkeiten am Standort, um mittel- und langfristige Nachhaltigkeitsziele zu erreichen Was wir suchen\n• Maturant/in mit Studienplatz an der Hochschule Luzern (HSLU) im PiBS (Praxisintegriertes Bachelorstudium) in den Studienrichtungen Energie- und Umwelttechnik sowie Maschinentechnik\n• Interesse an den Themen Nachhaltigkeit, CO2-Reduktion und allgemeiner Ressourcenschonung\n• Proaktive, selbständige und flexible Arbeitsweise\n• Gute Deutschkenntnisse in Schrift und Sprache. Englischkenntnisse vorteilhaft Über Lonza: Bei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Die Ideen jedes Einzelnen, ob groß oder klein, haben das Potenzial, Millionen von Leben zu verbessern, und genau daran möchten wir Sie teilhaben lassen. Innovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen. Bereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
-        "en": "Am Standort Visp bietet Lonza im Sustainability Team einen Praktikumsplatz im Rahmen des praxisintegrierten Bachelorstudiums (PiBS) in Zusammenarbeit mit der Hochschule Luzern (HSLU) an. Das PiBS-Modell ermöglicht Maturandinnen und Maturanden den direkten Einstieg in ein Bachelorstudium im MINT-Bereich, ohne vorgängiges Praxisjahr. Während des Studiums arbeiten die Studierenden 40 – 60% im Unternehmen (Montag bis Mittwoch) und besuchen parallel die Lehrveranstaltungen an der HSLU (Donnerstag bis Samstagvormittag). So verbinden sie Theorie und Praxis von Anfang an. Als PiBS-Studierende/r bei Lonza sammeln Sie wertvolle Praxiserfahrung in einem internationalen Life-Science-Umfeld und arbeiten aktiv an Projekten im Bereich Nachhaltigkeit und Ressourceneffizienz mit, während Sie ihr Bachelorstudium an der Hochschule Luzern – Technik & Architektur absolvieren. Was auf Sie wartet:\n• Eine agile Karriere und eine dynamische Arbeitskultur.\n• Ein integratives und ethisches Arbeitsumfeld.\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort. Ihre Aufgaben:\n• Allgemeine Tätigkeiten im Bereit Nachhaltigkeit und Ressourcenschonung mit Fokus auf Abwasserminimierung und CO2-Emissionen\n• Mitwirken im Site Sustainability Team Visp zur Projekt Identifizierung und Umsetzung\n• Bearbeitung von Nachhaltigkeitsprojekt, um Energien und Abwasserströme zu minimieren\n• Technische Anlagenoptimierung mit Fokus auf Verbrennungs- und Verwertungsanalgen sowie Abwasserreinigungsanlagen\n• Evaluierung von technisch und ökonomischen Machbarkeiten am Standort, um mittel- und langfristige Nachhaltigkeitsziele zu erreichen Was wir suchen\n• Maturant/in mit Studienplatz an der Hochschule Luzern (HSLU) im PiBS (Praxisintegriertes Bachelorstudium) in den Studienrichtungen Energie- und Umwelttechnik sowie Maschinentechnik\n• Interesse an den Themen Nachhaltigkeit, CO2-Reduktion und allgemeiner Ressourcenschonung\n• Proaktive, selbständige und flexible Arbeitsweise\n• Gute Deutschkenntnisse in Schrift und Sprache. Englischkenntnisse vorteilhaft Über Lonza: Bei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Die Ideen jedes Einzelnen, ob groß oder klein, haben das Potenzial, Millionen von Leben zu verbessern, und genau daran möchten wir Sie teilhaben lassen. Innovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen. Bereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+        "it": "Am Standort Visp bietet Lonza im Sustainability Team einen Praktikumsplatz im Rahmen des praxisintegrierten Bachelorstudiums (PiBS) in Zusammenarbeit mit der Hochschule Luzern (HSLU) an. Das PiBS-Modell ermöglicht Maturandinnen und Maturanden den direkten Einstieg in ein Bachelorstudium im MINT-Bereich, ohne vorgängiges Praxisjahr. Während des Studiums arbeiten die Studierenden 40 – 100% im Unternehmen (je nach Studiumsmodell) und besuchen parallel die Lehrveranstaltungen an der HSLU. So verbinden sie Theorie und Praxis von Anfang an. Als PiBS-Studierende/r bei Lonza sammeln Sie wertvolle Praxiserfahrung in einem internationalen Life-Science-Umfeld und arbeiten aktiv an Projekten im Bereich Nachhaltigkeit und Ressourceneffizienz mit, während Sie ihr Bachelorstudium an der Hochschule Luzern – Technik & Architektur absolvieren. Was auf Sie wartet:\n• Eine agile Karriere und eine dynamische Arbeitskultur.\n• Ein integratives und ethisches Arbeitsumfeld.\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort. Ihre Aufgaben:\n• Allgemeine Tätigkeiten im Bereit Nachhaltigkeit und Ressourcenschonung mit Fokus auf Abwasserminimierung und CO2-Emissionen\n• Mitwirken im Site Sustainability Team Visp zur Projekt Identifizierung und Umsetzung\n• Bearbeitung von Nachhaltigkeitsprojekt, um Energien und Abwasserströme zu minimieren\n• Technische Anlagenoptimierung mit Fokus auf Verbrennungs- und Verwertungsanalgen sowie Abwasserreinigungsanlagen\n• Evaluierung von technisch und ökonomischen Machbarkeiten am Standort, um mittel- und langfristige Nachhaltigkeitsziele zu erreichen Was wir suchen\n• Maturant/in mit Studienplatz an der Hochschule Luzern (HSLU) im PiBS (Praxisintegriertes Bachelorstudium) in den Studienrichtungen Energie- und Umwelttechnik sowie Maschinentechnik\n• Interesse an den Themen Nachhaltigkeit, CO2-Reduktion und allgemeiner Ressourcenschonung\n• Proaktive, selbständige und flexible Arbeitsweise\n• Gute Deutschkenntnisse in Schrift und Sprache. Englischkenntnisse vorteilhaft Über Lonza: Bei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Die Ideen jedes Einzelnen, ob groß oder klein, haben das Potenzial, Millionen von Leben zu verbessern, und genau daran möchten wir Sie teilhaben lassen. Innovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen. Bereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+        "en": "Am Standort Visp bietet Lonza im Sustainability Team einen Praktikumsplatz im Rahmen des praxisintegrierten Bachelorstudiums (PiBS) in Zusammenarbeit mit der Hochschule Luzern (HSLU) an. Das PiBS-Modell ermöglicht Maturandinnen und Maturanden den direkten Einstieg in ein Bachelorstudium im MINT-Bereich, ohne vorgängiges Praxisjahr. Während des Studiums arbeiten die Studierenden 40 – 100% im Unternehmen (je nach Studiumsmodell) und besuchen parallel die Lehrveranstaltungen an der HSLU. So verbinden sie Theorie und Praxis von Anfang an. Als PiBS-Studierende/r bei Lonza sammeln Sie wertvolle Praxiserfahrung in einem internationalen Life-Science-Umfeld und arbeiten aktiv an Projekten im Bereich Nachhaltigkeit und Ressourceneffizienz mit, während Sie ihr Bachelorstudium an der Hochschule Luzern – Technik & Architektur absolvieren. Was auf Sie wartet:\n• Eine agile Karriere und eine dynamische Arbeitskultur.\n• Ein integratives und ethisches Arbeitsumfeld.\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort. Ihre Aufgaben:\n• Allgemeine Tätigkeiten im Bereit Nachhaltigkeit und Ressourcenschonung mit Fokus auf Abwasserminimierung und CO2-Emissionen\n• Mitwirken im Site Sustainability Team Visp zur Projekt Identifizierung und Umsetzung\n• Bearbeitung von Nachhaltigkeitsprojekt, um Energien und Abwasserströme zu minimieren\n• Technische Anlagenoptimierung mit Fokus auf Verbrennungs- und Verwertungsanalgen sowie Abwasserreinigungsanlagen\n• Evaluierung von technisch und ökonomischen Machbarkeiten am Standort, um mittel- und langfristige Nachhaltigkeitsziele zu erreichen Was wir suchen\n• Maturant/in mit Studienplatz an der Hochschule Luzern (HSLU) im PiBS (Praxisintegriertes Bachelorstudium) in den Studienrichtungen Energie- und Umwelttechnik sowie Maschinentechnik\n• Interesse an den Themen Nachhaltigkeit, CO2-Reduktion und allgemeiner Ressourcenschonung\n• Proaktive, selbständige und flexible Arbeitsweise\n• Gute Deutschkenntnisse in Schrift und Sprache. Englischkenntnisse vorteilhaft Über Lonza: Bei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Die Ideen jedes Einzelnen, ob groß oder klein, haben das Potenzial, Millionen von Leben zu verbessern, und genau daran möchten wir Sie teilhaben lassen. Innovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen. Bereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
         "de": "Am Standort Visp bietet Lonza im Sustainability Team einen Praktikumsplatz im Rahmen des praxisintegrierten Bachelorstudiums (PiBS) in Zusammenarbeit mit der Hochschule Luzern (HSLU) an. Das PiBS-Modell ermöglicht Maturandinnen und Maturanden den direkten Einstieg in ein Bachelorstudium im MINT-Bereich, ohne vorgängiges Praxisjahr. Während des Studiums arbeiten die Studierenden 40 – 100% im Unternehmen (je nach Studiumsmodell) und besuchen parallel die Lehrveranstaltungen an der HSLU. So verbinden sie Theorie und Praxis von Anfang an. Als PiBS-Studierende/r bei Lonza sammeln Sie wertvolle Praxiserfahrung in einem internationalen Life-Science-Umfeld und arbeiten aktiv an Projekten im Bereich Nachhaltigkeit und Ressourceneffizienz mit, während Sie ihr Bachelorstudium an der Hochschule Luzern – Technik & Architektur absolvieren. Was auf Sie wartet:\n• Eine agile Karriere und eine dynamische Arbeitskultur.\n• Ein integratives und ethisches Arbeitsumfeld.\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort. Ihre Aufgaben:\n• Allgemeine Tätigkeiten im Bereit Nachhaltigkeit und Ressourcenschonung mit Fokus auf Abwasserminimierung und CO2-Emissionen\n• Mitwirken im Site Sustainability Team Visp zur Projekt Identifizierung und Umsetzung\n• Bearbeitung von Nachhaltigkeitsprojekt, um Energien und Abwasserströme zu minimieren\n• Technische Anlagenoptimierung mit Fokus auf Verbrennungs- und Verwertungsanalgen sowie Abwasserreinigungsanlagen\n• Evaluierung von technisch und ökonomischen Machbarkeiten am Standort, um mittel- und langfristige Nachhaltigkeitsziele zu erreichen Was wir suchen\n• Maturant/in mit Studienplatz an der Hochschule Luzern (HSLU) im PiBS (Praxisintegriertes Bachelorstudium) in den Studienrichtungen Energie- und Umwelttechnik sowie Maschinentechnik\n• Interesse an den Themen Nachhaltigkeit, CO2-Reduktion und allgemeiner Ressourcenschonung\n• Proaktive, selbständige und flexible Arbeitsweise\n• Gute Deutschkenntnisse in Schrift und Sprache. Englischkenntnisse vorteilhaft Über Lonza: Bei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Die Ideen jedes Einzelnen, ob groß oder klein, haben das Potenzial, Millionen von Leben zu verbessern, und genau daran möchten wir Sie teilhaben lassen. Innovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen. Bereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
-        "fr": "Am Standort Visp bietet Lonza im Sustainability Team einen Praktikumsplatz im Rahmen des praxisintegrierten Bachelorstudiums (PiBS) in Zusammenarbeit mit der Hochschule Luzern (HSLU) an. Das PiBS-Modell ermöglicht Maturandinnen und Maturanden den direkten Einstieg in ein Bachelorstudium im MINT-Bereich, ohne vorgängiges Praxisjahr. Während des Studiums arbeiten die Studierenden 40 – 60% im Unternehmen (Montag bis Mittwoch) und besuchen parallel die Lehrveranstaltungen an der HSLU (Donnerstag bis Samstagvormittag). So verbinden sie Theorie und Praxis von Anfang an. Als PiBS-Studierende/r bei Lonza sammeln Sie wertvolle Praxiserfahrung in einem internationalen Life-Science-Umfeld und arbeiten aktiv an Projekten im Bereich Nachhaltigkeit und Ressourceneffizienz mit, während Sie ihr Bachelorstudium an der Hochschule Luzern – Technik & Architektur absolvieren. Was auf Sie wartet:\n• Eine agile Karriere und eine dynamische Arbeitskultur.\n• Ein integratives und ethisches Arbeitsumfeld.\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort. Ihre Aufgaben:\n• Allgemeine Tätigkeiten im Bereit Nachhaltigkeit und Ressourcenschonung mit Fokus auf Abwasserminimierung und CO2-Emissionen\n• Mitwirken im Site Sustainability Team Visp zur Projekt Identifizierung und Umsetzung\n• Bearbeitung von Nachhaltigkeitsprojekt, um Energien und Abwasserströme zu minimieren\n• Technische Anlagenoptimierung mit Fokus auf Verbrennungs- und Verwertungsanalgen sowie Abwasserreinigungsanlagen\n• Evaluierung von technisch und ökonomischen Machbarkeiten am Standort, um mittel- und langfristige Nachhaltigkeitsziele zu erreichen Was wir suchen\n• Maturant/in mit Studienplatz an der Hochschule Luzern (HSLU) im PiBS (Praxisintegriertes Bachelorstudium) in den Studienrichtungen Energie- und Umwelttechnik sowie Maschinentechnik\n• Interesse an den Themen Nachhaltigkeit, CO2-Reduktion und allgemeiner Ressourcenschonung\n• Proaktive, selbständige und flexible Arbeitsweise\n• Gute Deutschkenntnisse in Schrift und Sprache. Englischkenntnisse vorteilhaft Über Lonza: Bei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Die Ideen jedes Einzelnen, ob groß oder klein, haben das Potenzial, Millionen von Leben zu verbessern, und genau daran möchten wir Sie teilhaben lassen. Innovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen. Bereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland."
+        "fr": "Am Standort Visp bietet Lonza im Sustainability Team einen Praktikumsplatz im Rahmen des praxisintegrierten Bachelorstudiums (PiBS) in Zusammenarbeit mit der Hochschule Luzern (HSLU) an. Das PiBS-Modell ermöglicht Maturandinnen und Maturanden den direkten Einstieg in ein Bachelorstudium im MINT-Bereich, ohne vorgängiges Praxisjahr. Während des Studiums arbeiten die Studierenden 40 – 100% im Unternehmen (je nach Studiumsmodell) und besuchen parallel die Lehrveranstaltungen an der HSLU. So verbinden sie Theorie und Praxis von Anfang an. Als PiBS-Studierende/r bei Lonza sammeln Sie wertvolle Praxiserfahrung in einem internationalen Life-Science-Umfeld und arbeiten aktiv an Projekten im Bereich Nachhaltigkeit und Ressourceneffizienz mit, während Sie ihr Bachelorstudium an der Hochschule Luzern – Technik & Architektur absolvieren. Was auf Sie wartet:\n• Eine agile Karriere und eine dynamische Arbeitskultur.\n• Ein integratives und ethisches Arbeitsumfeld.\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort. Ihre Aufgaben:\n• Allgemeine Tätigkeiten im Bereit Nachhaltigkeit und Ressourcenschonung mit Fokus auf Abwasserminimierung und CO2-Emissionen\n• Mitwirken im Site Sustainability Team Visp zur Projekt Identifizierung und Umsetzung\n• Bearbeitung von Nachhaltigkeitsprojekt, um Energien und Abwasserströme zu minimieren\n• Technische Anlagenoptimierung mit Fokus auf Verbrennungs- und Verwertungsanalgen sowie Abwasserreinigungsanlagen\n• Evaluierung von technisch und ökonomischen Machbarkeiten am Standort, um mittel- und langfristige Nachhaltigkeitsziele zu erreichen Was wir suchen\n• Maturant/in mit Studienplatz an der Hochschule Luzern (HSLU) im PiBS (Praxisintegriertes Bachelorstudium) in den Studienrichtungen Energie- und Umwelttechnik sowie Maschinentechnik\n• Interesse an den Themen Nachhaltigkeit, CO2-Reduktion und allgemeiner Ressourcenschonung\n• Proaktive, selbständige und flexible Arbeitsweise\n• Gute Deutschkenntnisse in Schrift und Sprache. Englischkenntnisse vorteilhaft Über Lonza: Bei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Die Ideen jedes Einzelnen, ob groß oder klein, haben das Potenzial, Millionen von Leben zu verbessern, und genau daran möchten wir Sie teilhaben lassen. Innovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen. Bereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland."
       },
       "requirements": [],
       "requirementsByLocale": {},
@@ -1590,33 +1549,23 @@
       "sector": "Farmaceutica / Biotecnologia",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-11",
+      "postedDate": "2026-05-12",
       "url": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Praktikant--m-w-d--im-Sustainability-Team-Visp--80-100--_R75093-1",
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Praktikant--m-w-d--im-Sustainability-Team-Visp--80-100--_R75093-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:13:38.784Z",
+      "crawledAt": "2026-05-17T22:04:40.880Z",
       "jobReqId": "R75093",
       "previousSlugs": [
-        "praktikant-m-w-d-im-sustainability-team-visp-80-100-lonza-ch",
-        "praxisintegriertes-bachelorstudium-pibs-praktikum-im-sustainability-team-visp-80-100-m-w-d"
+        "praktikant-m-w-d-im-sustainability-team-visp-80-100-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-m-w-d-im-sustainability-team-visp-80-100-lonza-ch"
-        ],
-        "en": [
-          "praktikant-m-w-d-im-sustainability-team-visp-80-100-lonza-ch"
-        ],
-        "de": [
-          "praxisintegriertes-bachelorstudium-pibs-praktikum-im-sustainability-team-visp-80-100-m-w-d"
-        ],
-        "fr": [
-          "praktikant-m-w-d-im-sustainability-team-visp-80-100-lonza-ch"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T12:06:34.137Z",
+      "firstSeenAt": "2026-05-17T10:39:49.674Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1632,9 +1581,9 @@
     },
     {
       "id": "lonza-ce7f0d00e680",
-      "slug": "installatore-di-tubi-metalmeccanico-80-100-m-f-d-lonza-ch",
+      "slug": "pipe-fitter-metalworker-80-100-m-f-d-lonza-ch",
       "slugByLocale": {
-        "it": "installatore-di-tubi-metalmeccanico-80-100-m-f-d-lonza-ch",
+        "it": "pipe-fitter-metalworker-80-100-m-f-d-lonza-ch",
         "en": "pipe-fitter-metalworker-80-100-m-f-d-lonza-ch",
         "de": "anlagen-und-apparatebauer-rohrleitungsbau-efz-schlosser-80-100-m-w-d-lonza-ch",
         "fr": "pipe-fitter-metalworker-80-100-m-f-d-lonza-ch"
@@ -1644,7 +1593,7 @@
       "companyDomain": "lonza.com",
       "title": "Pipe Fitter / Metalworker 80-100% (m/f/d)",
       "titleByLocale": {
-        "it": "Installatore di tubi/ Metalmeccanico 80-100% (m/f/d)",
+        "it": "Pipe Fitter / Metalworker 80-100% (m/f/d)",
         "en": "Pipe Fitter / Metalworker 80-100% (m/f/d)",
         "de": "Pipe Fitter / Metalworker 80-100% (m/f/d)",
         "fr": "Pipe Fitter / Metalworker 80-100% (m/f/d)"
@@ -1675,24 +1624,22 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/ANAP-in-Rohrbautechnik---Maschinist--m-w-d-_R63763-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:37.982Z",
+      "crawledAt": "2026-05-17T22:04:40.207Z",
       "jobReqId": "R63763",
       "previousSlugs": [
         "anlagen-e-apparatebauer-rohrleitungsbau-cfc-schlosser-80-100-m-w-d-lonza-ch",
-        "pipe-fitter-metalworker-80-100-m-f-d-lonza-ch",
         "anlagen-und-apparatebauer-rohrleitungsbau-efz-schlosser-80-100-m-w-d-lonza-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-e-apparatebauer-rohrleitungsbau-cfc-schlosser-80-100-m-w-d-lonza-ch",
-          "pipe-fitter-metalworker-80-100-m-f-d-lonza-ch"
+          "anlagen-e-apparatebauer-rohrleitungsbau-cfc-schlosser-80-100-m-w-d-lonza-ch"
         ],
         "fr": [
           "anlagen-und-apparatebauer-rohrleitungsbau-efz-schlosser-80-100-m-w-d-lonza-ch"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-12T11:37:09.592Z",
+      "firstSeenAt": "2026-05-17T10:39:49.064Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1746,15 +1693,15 @@
       "sector": "Farmaceutica / Biotecnologia",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-11",
+      "postedDate": "2026-05-12",
       "url": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Laboratory-Analyst---Laborant--m-f-d--Quality-Control-4-Schichtbetrieb_R76313",
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Laboratory-Analyst---Laborant--m-f-d--Quality-Control-4-Schichtbetrieb_R76313",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:13:37.218Z",
+      "crawledAt": "2026-05-17T22:04:39.449Z",
       "jobReqId": "R76313",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T12:06:33.476Z",
+      "firstSeenAt": "2026-05-17T10:39:48.470Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1808,12 +1755,12 @@
       "sector": "Farmaceutica / Biotecnologia",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-11",
+      "postedDate": "2026-05-12",
       "url": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/CQV-Ingenieur---Qualifizierungs--und-Validierungsspezialist-80-100---m-w-d-_R76238-1",
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/CQV-Ingenieur---Qualifizierungs--und-Validierungsspezialist-80-100---m-w-d-_R76238-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:13:36.410Z",
+      "crawledAt": "2026-05-17T22:04:38.664Z",
       "jobReqId": "R76238",
       "previousSlugs": [
         "cqv-ingenieur-qualifizierungs-und-validierungsspezialist-80-100-m-w-d-lonza-ch"
@@ -1824,7 +1771,7 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-11T22:29:29.335Z",
+      "firstSeenAt": "2026-05-17T10:39:47.855Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1840,9 +1787,9 @@
     },
     {
       "id": "lonza-079fb3a24ce5",
-      "slug": "esperto-di-convalida-della-pulizia-lonza-ch",
+      "slug": "cleaning-validation-expert-lonza-ch",
       "slugByLocale": {
-        "it": "esperto-di-convalida-della-pulizia-lonza-ch",
+        "it": "cleaning-validation-expert-lonza-ch",
         "en": "cleaning-validation-expert-lonza-ch",
         "de": "cleaning-validation-expert-lonza-ch",
         "fr": "cleaning-validation-expert-lonza-ch"
@@ -1852,7 +1799,7 @@
       "companyDomain": "lonza.com",
       "title": "Cleaning Validation Expert",
       "titleByLocale": {
-        "it": "Esperto di convalida della pulizia",
+        "it": "Cleaning Validation Expert",
         "en": "Cleaning Validation Expert",
         "de": "Cleaning Validation Expert",
         "fr": "Cleaning Validation Expert"
@@ -1883,18 +1830,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Cleaning-Validation-Expert_R76363-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:35.757Z",
+      "crawledAt": "2026-05-17T22:04:37.866Z",
       "jobReqId": "R76363",
-      "previousSlugs": [
-        "cleaning-validation-expert-lonza-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "cleaning-validation-expert-lonza-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-12T22:32:28.926Z",
+      "firstSeenAt": "2026-05-17T10:39:47.236Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1953,11 +1892,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Stein/Operator-pharmaceutical-manufacturing-80-100-_R76150-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:35.121Z",
+      "crawledAt": "2026-05-17T22:04:37.060Z",
       "jobReqId": "R76150",
-      "previousSlugs": [
-        "operator-pharmaceutical-manufacturing-80-100-lonza-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:39:46.602Z",
       "previousSlugsByLocale": {
         "it": [
           "operator-pharmaceutical-manufacturing-80-100-lonza-ch"
@@ -1966,8 +1904,9 @@
           "operator-pharmaceutical-manufacturing-80-100-lonza-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-12T22:32:28.290Z",
+      "previousSlugs": [
+        "operator-pharmaceutical-manufacturing-80-100-lonza-ch"
+      ],
       "salaryMin": 66500,
       "salaryMax": 110500,
       "baseSalary": {
@@ -1983,9 +1922,9 @@
     },
     {
       "id": "lonza-4a6781c68358",
-      "slug": "supporto-di-produzione-teamlead-lonza-ch",
+      "slug": "teamlead-production-support-lonza-ch",
       "slugByLocale": {
-        "it": "supporto-di-produzione-teamlead-lonza-ch",
+        "it": "teamlead-production-support-lonza-ch",
         "en": "teamlead-production-support-lonza-ch",
         "de": "teamlead-production-support-lonza-ch",
         "fr": "teamlead-production-support-lonza-ch"
@@ -1995,7 +1934,7 @@
       "companyDomain": "lonza.com",
       "title": "Teamlead Production Support",
       "titleByLocale": {
-        "it": "Supporto di produzione Teamlead",
+        "it": "Teamlead Production Support",
         "en": "Teamlead Production Support",
         "de": "Teamlead Production Support",
         "fr": "Teamlead Production Support"
@@ -2026,18 +1965,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Teamlead-Production-Support_R76353",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:34.473Z",
+      "crawledAt": "2026-05-17T22:04:36.215Z",
       "jobReqId": "R76353",
-      "previousSlugs": [
-        "teamlead-production-support-lonza-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "teamlead-production-support-lonza-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-13T11:28:27.640Z",
+      "firstSeenAt": "2026-05-17T10:39:46.018Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2053,9 +1984,9 @@
     },
     {
       "id": "lonza-3f89e1b403ac",
-      "slug": "centro-di-formazione-di-stage-80-100-lonza-ch",
+      "slug": "praktikant-training-center-80-100-m-w-d-lonza-ch",
       "slugByLocale": {
-        "it": "centro-di-formazione-di-stage-80-100-lonza-ch",
+        "it": "praktikant-training-center-80-100-m-w-d-lonza-ch",
         "en": "internship-training-center-80-100-lonza-ch",
         "de": "internship-training-center-80-100-lonza-ch",
         "fr": "praktikant-training-center-80-100-m-w-d-lonza-ch"
@@ -2065,7 +1996,7 @@
       "companyDomain": "lonza.com",
       "title": "Internship Training Center 80-100%",
       "titleByLocale": {
-        "it": "Centro di formazione di stage 80-100 %",
+        "it": "Internship Training Center 80-100%",
         "en": "Internship Training Center 80-100%",
         "de": "Internship Training Center 80-100%",
         "fr": "Internship Training Center 80-100%"
@@ -2096,27 +2027,19 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Praktikant-Training-Center-80-100----m-w-d-_R74491",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:13:33.798Z",
+      "crawledAt": "2026-05-17T22:04:35.423Z",
       "jobReqId": "R74491",
-      "previousSlugs": [
-        "praktikant-training-center-80-100-m-w-d-lonza-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-training-center-80-100-m-w-d-lonza-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-13T11:28:26.892Z",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
+      "firstSeenAt": "2026-05-17T10:39:45.417Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 63000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -2135,7 +2058,7 @@
       "companyDomain": "lonza.com",
       "title": "MSAT Data Manager (f/m/d) - 80% -100%",
       "titleByLocale": {
-        "it": "MSAT Data Manager (f/m/d) - 80% - 100%",
+        "it": "MSAT Data Manager (f/m/d) - 80% -100%",
         "en": "MSAT Data Manager (f/m/d) - 80% -100%",
         "de": "MSAT Data Manager (f/m/d) - 80% -100%",
         "fr": "MSAT Data Manager (f/m/d) - 80% -100%"
@@ -2166,10 +2089,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/MSAT-Data-Manager--f-m-d----80---100-_R76084",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:32.965Z",
+      "crawledAt": "2026-05-17T22:04:34.585Z",
       "jobReqId": "R76084",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-13T11:28:26.238Z",
+      "firstSeenAt": "2026-05-17T10:39:44.797Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2185,9 +2108,9 @@
     },
     {
       "id": "lonza-0b031a885753",
-      "slug": "esperto-di-processo-prodotto-farmaceutico-80-100-lonza-ch",
+      "slug": "process-expert-drug-product-80-100-lonza-ch",
       "slugByLocale": {
-        "it": "esperto-di-processo-prodotto-farmaceutico-80-100-lonza-ch",
+        "it": "process-expert-drug-product-80-100-lonza-ch",
         "en": "process-expert-drug-product-80-100-lonza-ch",
         "de": "process-expert-drug-product-80-100-lonza-ch",
         "fr": "process-expert-drug-product-80-100-lonza-ch"
@@ -2197,7 +2120,7 @@
       "companyDomain": "lonza.com",
       "title": "Process Expert, Drug Product 80-100%",
       "titleByLocale": {
-        "it": "Esperto di processo, prodotto farmaceutico 80-100%",
+        "it": "Process Expert, Drug Product 80-100%",
         "en": "Process Expert, Drug Product 80-100%",
         "de": "Process Expert, Drug Product 80-100%",
         "fr": "Process Expert, Drug Product 80-100%"
@@ -2228,18 +2151,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Stein/Process-Expert--Drug-Product-80-100-_R74767-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:32.313Z",
+      "crawledAt": "2026-05-17T22:04:33.791Z",
       "jobReqId": "R74767",
-      "previousSlugs": [
-        "process-expert-drug-product-80-100-lonza-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "process-expert-drug-product-80-100-lonza-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-13T11:28:25.611Z",
+      "firstSeenAt": "2026-05-17T10:39:44.186Z",
       "salaryMin": 66500,
       "salaryMax": 110500,
       "baseSalary": {
@@ -2255,9 +2170,9 @@
     },
     {
       "id": "lonza-b5644bacc539",
-      "slug": "laboratore-qc-microbiologia-lonza-ch",
+      "slug": "laborant-qc-mikrobiologie-lonza-ch",
       "slugByLocale": {
-        "it": "laboratore-qc-microbiologia-lonza-ch",
+        "it": "laborant-qc-mikrobiologie-lonza-ch",
         "en": "laborant-qc-mikrobiologie-lonza-ch",
         "de": "laborant-qc-mikrobiologie-lonza-ch",
         "fr": "laborant-qc-mikrobiologie-lonza-ch"
@@ -2267,7 +2182,7 @@
       "companyDomain": "lonza.com",
       "title": "Laborant QC Mikrobiologie",
       "titleByLocale": {
-        "it": "Laboratore QC Microbiologia",
+        "it": "Laborant QC Mikrobiologie",
         "en": "Laborant QC Mikrobiologie",
         "de": "Laborant QC Mikrobiologie",
         "fr": "Laborant QC Mikrobiologie"
@@ -2298,18 +2213,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Laborant-QC-Mikrobiologie_R75952",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:13:31.569Z",
+      "crawledAt": "2026-05-17T22:04:33.021Z",
       "jobReqId": "R75952",
-      "previousSlugs": [
-        "laborant-qc-mikrobiologie-lonza-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "laborant-qc-mikrobiologie-lonza-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-13T22:36:55.361Z",
+      "firstSeenAt": "2026-05-17T10:39:43.589Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2325,9 +2232,9 @@
     },
     {
       "id": "lonza-affd34c02adb",
-      "slug": "tecnico-di-laboratorio-operatore-automatico-80-100-m-f-d-lonza-ch",
+      "slug": "laborant-in-automatiker-80-100-m-w-d-lonza-ch",
       "slugByLocale": {
-        "it": "tecnico-di-laboratorio-operatore-automatico-80-100-m-f-d-lonza-ch",
+        "it": "laborant-in-automatiker-80-100-m-w-d-lonza-ch",
         "en": "laborant-in-automatiker-80-100-m-w-d-lonza-ch",
         "de": "laborant-in-automatiker-80-100-m-w-d-lonza-ch",
         "fr": "laborant-in-automatiker-80-100-m-w-d-lonza-ch"
@@ -2337,7 +2244,7 @@
       "companyDomain": "lonza.com",
       "title": "Laborant(in) / Automatiker 80-100% (m/w/d)",
       "titleByLocale": {
-        "it": "Tecnico di laboratorio/ operatore automatico 80-100% (m/f/d)",
+        "it": "Laborant(in) / Automatiker 80-100% (m/w/d)",
         "en": "Laborant(in) / Automatiker 80-100% (m/w/d)",
         "de": "Laborant(in) / Automatiker 80-100% (m/w/d)",
         "fr": "Laborant(in) / Automatiker 80-100% (m/w/d)"
@@ -2368,18 +2275,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Laborant-in----Automatiker-80-100---m-w-d-_R75992",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:13:30.764Z",
+      "crawledAt": "2026-05-17T22:04:32.224Z",
       "jobReqId": "R75992",
-      "previousSlugs": [
-        "laborant-in-automatiker-80-100-m-w-d-lonza-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "laborant-in-automatiker-80-100-m-w-d-lonza-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-13T11:28:24.848Z",
+      "firstSeenAt": "2026-05-17T10:39:42.975Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2407,7 +2306,7 @@
       "companyDomain": "lonza.com",
       "title": "Senior QA Expert – Clean Utilities & Facilities (m/f/d) 80-100%",
       "titleByLocale": {
-        "it": "Expert di QA senior (M/f/d) 80-100%",
+        "it": "Senior QA Expert – Clean Utilities & Facilities (m/f/d) 80-100%",
         "en": "Senior QA Expert – Clean Utilities & Facilities (m/f/d) 80-100%",
         "de": "Senior QA Expert – Clean Utilities & Facilities (m/f/d) 80-100%",
         "fr": "Senior QA Expert – Clean Utilities & Facilities (m/f/d) 80-100%"
@@ -2438,10 +2337,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Stein/Senior-QA-Expert---Critical-Utilities---Facilities--m-f-d--80-100-_R73826",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:29.906Z",
+      "crawledAt": "2026-05-17T22:04:31.410Z",
       "jobReqId": "R73826",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-13T22:36:53.813Z",
+      "firstSeenAt": "2026-05-17T10:39:42.369Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2500,11 +2399,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Plant-Engineer-or-Plant-Technician-80-100---m-w-d-_R76227",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:13:29.130Z",
+      "crawledAt": "2026-05-17T22:04:30.630Z",
       "jobReqId": "R76227",
-      "previousSlugs": [
-        "plant-engineer-or-plant-technician-80-100-m-w-d-lonza-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:39:41.769Z",
       "previousSlugsByLocale": {
         "it": [
           "plant-engineer-or-plant-technician-80-100-m-w-d-lonza-ch"
@@ -2513,8 +2411,9 @@
           "plant-engineer-or-plant-technician-80-100-m-w-d-lonza-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-13T22:36:52.948Z",
+      "previousSlugs": [
+        "plant-engineer-or-plant-technician-80-100-m-w-d-lonza-ch"
+      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2530,9 +2429,9 @@
     },
     {
       "id": "lonza-6f727427f866",
-      "slug": "esperto-qa-senior-80-100-lonza-ch",
+      "slug": "senior-qa-expert-80-100-lonza-ch",
       "slugByLocale": {
-        "it": "esperto-qa-senior-80-100-lonza-ch",
+        "it": "senior-qa-expert-80-100-lonza-ch",
         "en": "senior-qa-expert-80-100-lonza-ch",
         "de": "senior-qa-expert-80-100-lonza-ch",
         "fr": "senior-qa-expert-80-100-lonza-ch"
@@ -2542,7 +2441,7 @@
       "companyDomain": "lonza.com",
       "title": "Senior QA Expert 80-100%",
       "titleByLocale": {
-        "it": "Esperto QA senior 80-100%",
+        "it": "Senior QA Expert 80-100%",
         "en": "Senior QA Expert 80-100%",
         "de": "Senior QA Expert 80-100%",
         "fr": "Senior QA Expert 80-100%"
@@ -2573,18 +2472,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Stein/Senior-QA-Expert--m-f-d--80-100-_R72966",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:28.488Z",
+      "crawledAt": "2026-05-17T22:04:29.975Z",
       "jobReqId": "R72966",
-      "previousSlugs": [
-        "senior-qa-expert-80-100-lonza-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-qa-expert-80-100-lonza-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-14T22:22:12.066Z",
+      "firstSeenAt": "2026-05-17T10:39:41.150Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2643,10 +2534,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Basel---REMOTE/EMEA-Associate-Director--Business-Development_R76442",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-15T22:13:27.752Z",
+      "crawledAt": "2026-05-17T22:04:29.134Z",
       "jobReqId": "R76442",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-14T22:22:11.425Z",
+      "firstSeenAt": "2026-05-17T10:39:40.530Z",
       "salaryMin": 82500,
       "salaryMax": 127000,
       "baseSalary": {
@@ -2664,9 +2555,9 @@
       "id": "lonza-a9942c8f3bd1",
       "slug": "anlagenmeister-in-senior-manufacturing-line-specialist-lonza-ch",
       "slugByLocale": {
-        "de": "anlagenmeister-in-senior-manufacturing-line-specialist-lonza-ch",
         "it": "anlagenmeister-in-senior-manufacturing-line-specialist-lonza-ch",
         "en": "anlagenmeister-in-senior-manufacturing-line-specialist-lonza-ch",
+        "de": "anlagenmeister-in-senior-manufacturing-line-specialist-lonza-ch",
         "fr": "anlagenmeister-in-senior-manufacturing-line-specialist-lonza-ch"
       },
       "company": "Lonza",
@@ -2674,22 +2565,20 @@
       "companyDomain": "lonza.com",
       "title": "Anlagenmeister/In - Senior Manufacturing Line Specialist",
       "titleByLocale": {
-        "de": "Anlagenmeister/In - Senior Manufacturing Line Spezialist",
-        "en": "Anlagenmeister/In - Senior Manufacturing Line Specialist",
         "it": "Anlagenmeister/In - Senior Manufacturing Line Specialista",
+        "en": "Anlagenmeister/In - Senior Manufacturing Line Specialist",
+        "de": "Anlagenmeister/In - Senior Manufacturing Line Spezialist",
         "fr": "Anlagenmeister/In - Senior Manufacturing Line Spécialiste"
       },
       "description": "Der tatsächliche Ort dieser Stelle befindet sich in Visp Schweiz. Berechtigten Bewerbern und ihren Familien steht bei Bedarf Unterstützung beim Umzug zur Verfügung.\n\nWas auf Sie wartet\n\n• Eine agile Karriere und eine dynamische Arbeitskultur\n\n• Ein integratives und ethisches Arbeitsumfeld\n\n• Vergütungsprogramme, die hohe Leistung anerkennen\n\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort\n\n• Die vollständige Liste unserer globalen Vorteile finden Sie hier:\nhttps://www.lonza.com/careers/benefits\n\nIhre Aufgaben\n\n• Sicherstellung des reibungslosen und sicheren Anlagenbetriebs während Pilotierungs‑ und Produktionskampagnen, inklusive Betreuung ausserhalb der regulären Arbeitszeiten (Pikettdienst)\n\n• Erstellung, Pflege und Änderung cGMP‑konformer Dokumentation (HSP, SOPs, Checklisten) in enger Zusammenarbeit mit MSAT/Betriebsbiotechnologie\n\n• Frühe Einbringung betrieblicher und technischer Anforderungen in der Planungs‑ und Engineeringphase von Projekten\n\n• Koordination und Unterstützung von Engineering und Werkstatt bei technischen Vorbereitungen, Anlagenmodifikationen und Investitionen\n\n• Überwachung der Produktionsdurchführung, inkl. sofortigem korrigierendem Eingreifen bei Abweichungen\n\n• Anlagentechnische Schulung und Instruktion von Mitarbeitenden während der Produktionsphase\n\n• Kontinuierliche Verbesserung von Anlagen, Prozessen und Abläufen unter Anwendung von 6S, Lean Six Sigma, KAIZEN oder EPS\n\nWas wir suchen\n\n• Erfahrung in der technischen Betreuung von Produktionsanlagen in einem regulierten Umfeld (z. B. Pharma, Biotech, Chemie)\n\n• Fundierte Kenntnisse in cGMP, technischer Dokumentation und qualifizierten Anlagen\n\n• Fähigkeit, interdisziplinär mit Produktion, MSAT, Engineering und technischem Dienst zusammenzuarbeiten\n\n• Strukturierte und lösungsorientierte Arbeitsweise, mit der Fähigkeit, bei Abweichungen schnell und verantwortungsvoll zu handeln\n\n• Erfahrung in der Planung, Umsetzung oder Begleitung technischer Änderungen und Investitionen\n\n• Bereitschaft zur Übernahme von Pikettdiensten und Verantwortung ausserhalb regulärer Arbeitszeiten\n\n• Technische oder naturwissenschaftliche Ausbildung (z. B. Verfahrenstechnik, Maschinenbau, Biotechnologie) oder gleichwertige, übertragbare Erfahrung\n\nÜber Lonza\nBei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten.\nInnovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen.\nBereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
       "descriptionByLocale": {
-        "de": "Der tatsächliche Ort dieser Stelle befindet sich in Visp Schweiz. Berechtigten Bewerbern und ihren Familien steht bei Bedarf Unterstützung beim Umzug zur Verfügung.\n\nWas auf Sie wartet\n\n• Eine agile Karriere und eine dynamische Arbeitskultur\n\n• Ein integratives und ethisches Arbeitsumfeld\n\n• Vergütungsprogramme, die hohe Leistung anerkennen\n\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort\n\n• Die vollständige Liste unserer globalen Vorteile finden Sie hier:\nhttps://www.lonza.com/careers/benefits\n\nIhre Aufgaben\n\n• Sicherstellung des reibungslosen und sicheren Anlagenbetriebs während Pilotierungs‑ und Produktionskampagnen, inklusive Betreuung ausserhalb der regulären Arbeitszeiten (Pikettdienst)\n\n• Erstellung, Pflege und Änderung cGMP‑konformer Dokumentation (HSP, SOPs, Checklisten) in enger Zusammenarbeit mit MSAT/Betriebsbiotechnologie\n\n• Frühe Einbringung betrieblicher und technischer Anforderungen in der Planungs‑ und Engineeringphase von Projekten\n\n• Koordination und Unterstützung von Engineering und Werkstatt bei technischen Vorbereitungen, Anlagenmodifikationen und Investitionen\n\n• Überwachung der Produktionsdurchführung, inkl. sofortigem korrigierendem Eingreifen bei Abweichungen\n\n• Anlagentechnische Schulung und Instruktion von Mitarbeitenden während der Produktionsphase\n\n• Kontinuierliche Verbesserung von Anlagen, Prozessen und Abläufen unter Anwendung von 6S, Lean Six Sigma, KAIZEN oder EPS\n\nWas wir suchen\n\n• Erfahrung in der technischen Betreuung von Produktionsanlagen in einem regulierten Umfeld (z. B. Pharma, Biotech, Chemie)\n\n• Fundierte Kenntnisse in cGMP, technischer Dokumentation und qualifizierten Anlagen\n\n• Fähigkeit, interdisziplinär mit Produktion, MSAT, Engineering und technischem Dienst zusammenzuarbeiten\n\n• Strukturierte und lösungsorientierte Arbeitsweise, mit der Fähigkeit, bei Abweichungen schnell und verantwortungsvoll zu handeln\n\n• Erfahrung in der Planung, Umsetzung oder Begleitung technischer Änderungen und Investitionen\n\n• Bereitschaft zur Übernahme von Pikettdiensten und Verantwortung ausserhalb regulärer Arbeitszeiten\n\n• Technische oder naturwissenschaftliche Ausbildung (z. B. Verfahrenstechnik, Maschinenbau, Biotechnologie) oder gleichwertige, übertragbare Erfahrung\n\nÜber Lonza\nBei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten.\nInnovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen.\nBereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
-        "it": "Der tatsächliche Ort dieser Stelle befindet sich in Visp Schweiz. Berechtigten Bewerbern und ihren Familien steht bei Bedarf Unterstützung beim Umzug zur Verfügung.\n\nWas auf Sie wartet\n\n• Eine agile Karriere und eine dynamische Arbeitskultur\n\n• Ein integratives und ethisches Arbeitsumfeld\n\n• Vergütungsprogramme, die hohe Leistung anerkennen\n\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort\n\n• Die vollständige Liste unserer globalen Vorteile finden Sie hier:\nhttps://www.lonza.com/careers/benefits\n\nIhre Aufgaben\n\n• Sicherstellung des reibungslosen und sicheren Anlagenbetriebs während Pilotierungs‑ und Produktionskampagnen, inklusive Betreuung ausserhalb der regulären Arbeitszeiten (Pikettdienst)\n\n• Erstellung, Pflege und Änderung cGMP‑konformer Dokumentation (HSP, SOPs, Checklisten) in enger Zusammenarbeit mit MSAT/Betriebsbiotechnologie\n\n• Frühe Einbringung betrieblicher und technischer Anforderungen in der Planungs‑ und Engineeringphase von Projekten\n\n• Koordination und Unterstützung von Engineering und Werkstatt bei technischen Vorbereitungen, Anlagenmodifikationen und Investitionen\n\n• Überwachung der Produktionsdurchführung, inkl. sofortigem korrigierendem Eingreifen bei Abweichungen\n\n• Anlagentechnische Schulung und Instruktion von Mitarbeitenden während der Produktionsphase\n\n• Kontinuierliche Verbesserung von Anlagen, Prozessen und Abläufen unter Anwendung von 6S, Lean Six Sigma, KAIZEN oder EPS\n\nWas wir suchen\n\n• Erfahrung in der technischen Betreuung von Produktionsanlagen in einem regulierten Umfeld (z. B. Pharma, Biotech, Chemie)\n\n• Fundierte Kenntnisse in cGMP, technischer Dokumentation und qualifizierten Anlagen\n\n• Fähigkeit, interdisziplinär mit Produktion, MSAT, Engineering und technischem Dienst zusammenzuarbeiten\n\n• Strukturierte und lösungsorientierte Arbeitsweise, mit der Fähigkeit, bei Abweichungen schnell und verantwortungsvoll zu handeln\n\n• Erfahrung in der Planung, Umsetzung oder Begleitung technischer Änderungen und Investitionen\n\n• Bereitschaft zur Übernahme von Pikettdiensten und Verantwortung ausserhalb regulärer Arbeitszeiten\n\n• Technische oder naturwissenschaftliche Ausbildung (z. B. Verfahrenstechnik, Maschinenbau, Biotechnologie) oder gleichwertige, übertragbare Erfahrung\n\nÜber Lonza\nBei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten.\nInnovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen.\nBereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
-        "en": "Der tatsächliche Ort dieser Stelle befindet sich in Visp Schweiz. Berechtigten Bewerbern und ihren Familien steht bei Bedarf Unterstützung beim Umzug zur Verfügung.\n\nWas auf Sie wartet\n\n• Eine agile Karriere und eine dynamische Arbeitskultur\n\n• Ein integratives und ethisches Arbeitsumfeld\n\n• Vergütungsprogramme, die hohe Leistung anerkennen\n\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort\n\n• Die vollständige Liste unserer globalen Vorteile finden Sie hier:\nhttps://www.lonza.com/careers/benefits\n\nIhre Aufgaben\n\n• Sicherstellung des reibungslosen und sicheren Anlagenbetriebs während Pilotierungs‑ und Produktionskampagnen, inklusive Betreuung ausserhalb der regulären Arbeitszeiten (Pikettdienst)\n\n• Erstellung, Pflege und Änderung cGMP‑konformer Dokumentation (HSP, SOPs, Checklisten) in enger Zusammenarbeit mit MSAT/Betriebsbiotechnologie\n\n• Frühe Einbringung betrieblicher und technischer Anforderungen in der Planungs‑ und Engineeringphase von Projekten\n\n• Koordination und Unterstützung von Engineering und Werkstatt bei technischen Vorbereitungen, Anlagenmodifikationen und Investitionen\n\n• Überwachung der Produktionsdurchführung, inkl. sofortigem korrigierendem Eingreifen bei Abweichungen\n\n• Anlagentechnische Schulung und Instruktion von Mitarbeitenden während der Produktionsphase\n\n• Kontinuierliche Verbesserung von Anlagen, Prozessen und Abläufen unter Anwendung von 6S, Lean Six Sigma, KAIZEN oder EPS\n\nWas wir suchen\n\n• Erfahrung in der technischen Betreuung von Produktionsanlagen in einem regulierten Umfeld (z. B. Pharma, Biotech, Chemie)\n\n• Fundierte Kenntnisse in cGMP, technischer Dokumentation und qualifizierten Anlagen\n\n• Fähigkeit, interdisziplinär mit Produktion, MSAT, Engineering und technischem Dienst zusammenzuarbeiten\n\n• Strukturierte und lösungsorientierte Arbeitsweise, mit der Fähigkeit, bei Abweichungen schnell und verantwortungsvoll zu handeln\n\n• Erfahrung in der Planung, Umsetzung oder Begleitung technischer Änderungen und Investitionen\n\n• Bereitschaft zur Übernahme von Pikettdiensten und Verantwortung ausserhalb regulärer Arbeitszeiten\n\n• Technische oder naturwissenschaftliche Ausbildung (z. B. Verfahrenstechnik, Maschinenbau, Biotechnologie) oder gleichwertige, übertragbare Erfahrung\n\nÜber Lonza\nBei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten.\nInnovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen.\nBereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
-        "fr": "Der tatsächliche Ort dieser Stelle befindet sich in Visp Schweiz. Berechtigten Bewerbern und ihren Familien steht bei Bedarf Unterstützung beim Umzug zur Verfügung.\n\nWas auf Sie wartet\n\n• Eine agile Karriere und eine dynamische Arbeitskultur\n\n• Ein integratives und ethisches Arbeitsumfeld\n\n• Vergütungsprogramme, die hohe Leistung anerkennen\n\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort\n\n• Die vollständige Liste unserer globalen Vorteile finden Sie hier:\nhttps://www.lonza.com/careers/benefits\n\nIhre Aufgaben\n\n• Sicherstellung des reibungslosen und sicheren Anlagenbetriebs während Pilotierungs‑ und Produktionskampagnen, inklusive Betreuung ausserhalb der regulären Arbeitszeiten (Pikettdienst)\n\n• Erstellung, Pflege und Änderung cGMP‑konformer Dokumentation (HSP, SOPs, Checklisten) in enger Zusammenarbeit mit MSAT/Betriebsbiotechnologie\n\n• Frühe Einbringung betrieblicher und technischer Anforderungen in der Planungs‑ und Engineeringphase von Projekten\n\n• Koordination und Unterstützung von Engineering und Werkstatt bei technischen Vorbereitungen, Anlagenmodifikationen und Investitionen\n\n• Überwachung der Produktionsdurchführung, inkl. sofortigem korrigierendem Eingreifen bei Abweichungen\n\n• Anlagentechnische Schulung und Instruktion von Mitarbeitenden während der Produktionsphase\n\n• Kontinuierliche Verbesserung von Anlagen, Prozessen und Abläufen unter Anwendung von 6S, Lean Six Sigma, KAIZEN oder EPS\n\nWas wir suchen\n\n• Erfahrung in der technischen Betreuung von Produktionsanlagen in einem regulierten Umfeld (z. B. Pharma, Biotech, Chemie)\n\n• Fundierte Kenntnisse in cGMP, technischer Dokumentation und qualifizierten Anlagen\n\n• Fähigkeit, interdisziplinär mit Produktion, MSAT, Engineering und technischem Dienst zusammenzuarbeiten\n\n• Strukturierte und lösungsorientierte Arbeitsweise, mit der Fähigkeit, bei Abweichungen schnell und verantwortungsvoll zu handeln\n\n• Erfahrung in der Planung, Umsetzung oder Begleitung technischer Änderungen und Investitionen\n\n• Bereitschaft zur Übernahme von Pikettdiensten und Verantwortung ausserhalb regulärer Arbeitszeiten\n\n• Technische oder naturwissenschaftliche Ausbildung (z. B. Verfahrenstechnik, Maschinenbau, Biotechnologie) oder gleichwertige, übertragbare Erfahrung\n\nÜber Lonza\nBei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten.\nInnovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen.\nBereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben.\n\nLonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland."
+        "it": "Der tatsächliche Ort dieser Stelle befindet sich in Visp Schweiz. Berechtigten Bewerbern und ihren Familien steht bei Bedarf Unterstützung beim Umzug zur Verfügung. Was auf Sie wartet\n• Eine agile Karriere und eine dynamische Arbeitskultur\n• Ein integratives und ethisches Arbeitsumfeld\n• Vergütungsprogramme, die hohe Leistung anerkennen\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort\n• Die vollständige Liste unserer globalen Vorteile finden Sie hier: https://www.lonza.com/careers/benefits Ihre Aufgaben\n• Sicherstellung des reibungslosen und sicheren Anlagenbetriebs während Pilotierungs‑ und Produktionskampagnen, inklusive Betreuung ausserhalb der regulären Arbeitszeiten (Pikettdienst)\n• Erstellung, Pflege und Änderung cGMP‑konformer Dokumentation (HSP, SOPs, Checklisten) in enger Zusammenarbeit mit MSAT/Betriebsbiotechnologie\n• Frühe Einbringung betrieblicher und technischer Anforderungen in der Planungs‑ und Engineeringphase von Projekten\n• Koordination und Unterstützung von Engineering und Werkstatt bei technischen Vorbereitungen, Anlagenmodifikationen und Investitionen\n• Überwachung der Produktionsdurchführung, inkl. sofortigem korrigierendem Eingreifen bei Abweichungen\n• Anlagentechnische Schulung und Instruktion von Mitarbeitenden während der Produktionsphase\n• Kontinuierliche Verbesserung von Anlagen, Prozessen und Abläufen unter Anwendung von 6S, Lean Six Sigma, KAIZEN oder EPS Was wir suchen\n• Erfahrung in der technischen Betreuung von Produktionsanlagen in einem regulierten Umfeld (z. B. Pharma, Biotech, Chemie)\n• Fundierte Kenntnisse in cGMP, technischer Dokumentation und qualifizierten Anlagen\n• Fähigkeit, interdisziplinär mit Produktion, MSAT, Engineering und technischem Dienst zusammenzuarbeiten\n• Strukturierte und lösungsorientierte Arbeitsweise, mit der Fähigkeit, bei Abweichungen schnell und verantwortungsvoll zu handeln\n• Erfahrung in der Planung, Umsetzung oder Begleitung technischer Änderungen und Investitionen\n• Bereitschaft zur Übernahme von Pikettdiensten und Verantwortung ausserhalb regulärer Arbeitszeiten\n• Technische oder naturwissenschaftliche Ausbildung (z. B. Verfahrenstechnik, Maschinenbau, Biotechnologie) oder gleichwertige, übertragbare Erfahrung Über Lonza Bei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Innovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen. Bereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+        "en": "Der tatsächliche Ort dieser Stelle befindet sich in Visp Schweiz. Berechtigten Bewerbern und ihren Familien steht bei Bedarf Unterstützung beim Umzug zur Verfügung. Was auf Sie wartet\n• Eine agile Karriere und eine dynamische Arbeitskultur\n• Ein integratives und ethisches Arbeitsumfeld\n• Vergütungsprogramme, die hohe Leistung anerkennen\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort\n• Die vollständige Liste unserer globalen Vorteile finden Sie hier: https://www.lonza.com/careers/benefits Ihre Aufgaben\n• Sicherstellung des reibungslosen und sicheren Anlagenbetriebs während Pilotierungs‑ und Produktionskampagnen, inklusive Betreuung ausserhalb der regulären Arbeitszeiten (Pikettdienst)\n• Erstellung, Pflege und Änderung cGMP‑konformer Dokumentation (HSP, SOPs, Checklisten) in enger Zusammenarbeit mit MSAT/Betriebsbiotechnologie\n• Frühe Einbringung betrieblicher und technischer Anforderungen in der Planungs‑ und Engineeringphase von Projekten\n• Koordination und Unterstützung von Engineering und Werkstatt bei technischen Vorbereitungen, Anlagenmodifikationen und Investitionen\n• Überwachung der Produktionsdurchführung, inkl. sofortigem korrigierendem Eingreifen bei Abweichungen\n• Anlagentechnische Schulung und Instruktion von Mitarbeitenden während der Produktionsphase\n• Kontinuierliche Verbesserung von Anlagen, Prozessen und Abläufen unter Anwendung von 6S, Lean Six Sigma, KAIZEN oder EPS Was wir suchen\n• Erfahrung in der technischen Betreuung von Produktionsanlagen in einem regulierten Umfeld (z. B. Pharma, Biotech, Chemie)\n• Fundierte Kenntnisse in cGMP, technischer Dokumentation und qualifizierten Anlagen\n• Fähigkeit, interdisziplinär mit Produktion, MSAT, Engineering und technischem Dienst zusammenzuarbeiten\n• Strukturierte und lösungsorientierte Arbeitsweise, mit der Fähigkeit, bei Abweichungen schnell und verantwortungsvoll zu handeln\n• Erfahrung in der Planung, Umsetzung oder Begleitung technischer Änderungen und Investitionen\n• Bereitschaft zur Übernahme von Pikettdiensten und Verantwortung ausserhalb regulärer Arbeitszeiten\n• Technische oder naturwissenschaftliche Ausbildung (z. B. Verfahrenstechnik, Maschinenbau, Biotechnologie) oder gleichwertige, übertragbare Erfahrung Über Lonza Bei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Innovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen. Bereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+        "de": "Der tatsächliche Ort dieser Stelle befindet sich in Visp Schweiz. Berechtigten Bewerbern und ihren Familien steht bei Bedarf Unterstützung beim Umzug zur Verfügung. Was auf Sie wartet\n• Eine agile Karriere und eine dynamische Arbeitskultur\n• Ein integratives und ethisches Arbeitsumfeld\n• Vergütungsprogramme, die hohe Leistung anerkennen\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort\n• Die vollständige Liste unserer globalen Vorteile finden Sie hier: https://www.lonza.com/careers/benefits Ihre Aufgaben\n• Sicherstellung des reibungslosen und sicheren Anlagenbetriebs während Pilotierungs‑ und Produktionskampagnen, inklusive Betreuung ausserhalb der regulären Arbeitszeiten (Pikettdienst)\n• Erstellung, Pflege und Änderung cGMP‑konformer Dokumentation (HSP, SOPs, Checklisten) in enger Zusammenarbeit mit MSAT/Betriebsbiotechnologie\n• Frühe Einbringung betrieblicher und technischer Anforderungen in der Planungs‑ und Engineeringphase von Projekten\n• Koordination und Unterstützung von Engineering und Werkstatt bei technischen Vorbereitungen, Anlagenmodifikationen und Investitionen\n• Überwachung der Produktionsdurchführung, inkl. sofortigem korrigierendem Eingreifen bei Abweichungen\n• Anlagentechnische Schulung und Instruktion von Mitarbeitenden während der Produktionsphase\n• Kontinuierliche Verbesserung von Anlagen, Prozessen und Abläufen unter Anwendung von 6S, Lean Six Sigma, KAIZEN oder EPS Was wir suchen\n• Erfahrung in der technischen Betreuung von Produktionsanlagen in einem regulierten Umfeld (z. B. Pharma, Biotech, Chemie)\n• Fundierte Kenntnisse in cGMP, technischer Dokumentation und qualifizierten Anlagen\n• Fähigkeit, interdisziplinär mit Produktion, MSAT, Engineering und technischem Dienst zusammenzuarbeiten\n• Strukturierte und lösungsorientierte Arbeitsweise, mit der Fähigkeit, bei Abweichungen schnell und verantwortungsvoll zu handeln\n• Erfahrung in der Planung, Umsetzung oder Begleitung technischer Änderungen und Investitionen\n• Bereitschaft zur Übernahme von Pikettdiensten und Verantwortung ausserhalb regulärer Arbeitszeiten\n• Technische oder naturwissenschaftliche Ausbildung (z. B. Verfahrenstechnik, Maschinenbau, Biotechnologie) oder gleichwertige, übertragbare Erfahrung Über Lonza Bei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Innovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen. Bereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland.",
+        "fr": "Der tatsächliche Ort dieser Stelle befindet sich in Visp Schweiz. Berechtigten Bewerbern und ihren Familien steht bei Bedarf Unterstützung beim Umzug zur Verfügung. Was auf Sie wartet\n• Eine agile Karriere und eine dynamische Arbeitskultur\n• Ein integratives und ethisches Arbeitsumfeld\n• Vergütungsprogramme, die hohe Leistung anerkennen\n• Eine Vielzahl von Vorteilen, abhängig von Funktion und Standort\n• Die vollständige Liste unserer globalen Vorteile finden Sie hier: https://www.lonza.com/careers/benefits Ihre Aufgaben\n• Sicherstellung des reibungslosen und sicheren Anlagenbetriebs während Pilotierungs‑ und Produktionskampagnen, inklusive Betreuung ausserhalb der regulären Arbeitszeiten (Pikettdienst)\n• Erstellung, Pflege und Änderung cGMP‑konformer Dokumentation (HSP, SOPs, Checklisten) in enger Zusammenarbeit mit MSAT/Betriebsbiotechnologie\n• Frühe Einbringung betrieblicher und technischer Anforderungen in der Planungs‑ und Engineeringphase von Projekten\n• Koordination und Unterstützung von Engineering und Werkstatt bei technischen Vorbereitungen, Anlagenmodifikationen und Investitionen\n• Überwachung der Produktionsdurchführung, inkl. sofortigem korrigierendem Eingreifen bei Abweichungen\n• Anlagentechnische Schulung und Instruktion von Mitarbeitenden während der Produktionsphase\n• Kontinuierliche Verbesserung von Anlagen, Prozessen und Abläufen unter Anwendung von 6S, Lean Six Sigma, KAIZEN oder EPS Was wir suchen\n• Erfahrung in der technischen Betreuung von Produktionsanlagen in einem regulierten Umfeld (z. B. Pharma, Biotech, Chemie)\n• Fundierte Kenntnisse in cGMP, technischer Dokumentation und qualifizierten Anlagen\n• Fähigkeit, interdisziplinär mit Produktion, MSAT, Engineering und technischem Dienst zusammenzuarbeiten\n• Strukturierte und lösungsorientierte Arbeitsweise, mit der Fähigkeit, bei Abweichungen schnell und verantwortungsvoll zu handeln\n• Erfahrung in der Planung, Umsetzung oder Begleitung technischer Änderungen und Investitionen\n• Bereitschaft zur Übernahme von Pikettdiensten und Verantwortung ausserhalb regulärer Arbeitszeiten\n• Technische oder naturwissenschaftliche Ausbildung (z. B. Verfahrenstechnik, Maschinenbau, Biotechnologie) oder gleichwertige, übertragbare Erfahrung Über Lonza Bei Lonza sind unsere Mitarbeiter unsere größte Stärke. An über 30 Standorten auf fünf Kontinenten arbeiten unsere global vernetzten Teams täglich zusammen, um die Medikamente von morgen herzustellen. Unsere Grundwerte – Zusammenarbeit, Verantwortlichkeit, Exzellenz, Leidenschaft und Integrität – spiegeln wider, wer wir sind und wie wir zusammenarbeiten. Innovation gedeiht, wenn Menschen unterschiedlichster Herkunft ihre einzigartigen Perspektiven einbringen. Bei Lonza schätzen wir Vielfalt und setzen uns für ein integratives Umfeld für alle Mitarbeiter ein. Wenn Sie bereit sind, die bahnbrechenden Ideen unserer Kunden in praktikable Therapien umzusetzen, freuen wir uns, Sie an Bord begrüßen zu dürfen. Bereit, die Zukunft der Life Sciences zu gestalten? Jetzt bewerben. Lonza is a global leader in pharma and biotech manufacturing. The company operates major production facilities in Visp (Valais), Basel, and Stein (Aargau), Switzerland."
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "location": "CH",
       "canton": "",
       "addressLocality": "CH",
@@ -2707,9 +2596,10 @@
       "applyUrl": "https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Anlagenmeister-In---Senior-Manufacturing-Line-Specialist_R75667-1",
       "source": "Lonza Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-15T22:13:27.098Z",
+      "crawledAt": "2026-05-17T22:04:28.272Z",
       "jobReqId": "R75667",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T10:39:39.884Z",
       "salaryMin": 98000,
       "salaryMax": 132000,
       "baseSalary": {
@@ -2721,8 +2611,7 @@
           "maxValue": 132000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-05-15T22:13:27.098Z"
+      }
     }
   ]
 }

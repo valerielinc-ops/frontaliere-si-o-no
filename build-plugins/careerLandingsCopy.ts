@@ -32,6 +32,7 @@ export interface CareerLandingCopy {
   title: string;
   description: string;
   h1: string;
+  /** Long-form intro paragraph — pushed below the divider under template B. */
   lede: string;
   updatedLabel: string;
   breadcrumbHome: string;
@@ -45,6 +46,62 @@ export interface CareerLandingCopy {
   sources: Array<{ label: string; href: string }>;
   sections: CareerLandingSection[];
   faqs: CareerLandingFaq[];
+}
+
+/**
+ * Template B labels — shared across all 4 career landings in a given locale.
+ * Per-id divergence (e.g. "Concorsi aperti" vs "Agenzie SECO") is handled by
+ * the `buildCareerTemplateBCopy` helper that splices a per-id label set on
+ * top of the locale shell.
+ */
+export interface CareerTemplateBShell {
+  eyebrow: string;
+  updatedLabel: string;
+  approfondisciHeading: string;
+  featuredJobsTitle: string;
+  featuredJobsEmpty: string;
+  /** Builds the "see all N openings" CTA when featured.length > 0. */
+  featuredJobsCtaAll: (n: number) => string;
+  employerGridTitle: string;
+  jobPostedLabel: (daysAgo: number) => string;
+  jobSalaryFmt: (min: number | null, max: number | null) => string;
+  /** "Nessuna offerta indicizzata" — used when featured + jobs are 0. */
+  noSalaryLabel: string;
+}
+
+/**
+ * Per-id template-B copy. `denseLede` is the 1-line tagline (≤120 chars),
+ * `statTile*` are the 3 stat-tile triplets the renderer feeds into
+ * `renderStatGrid`. `primaryCtaLabel` + `primaryCtaHref` describe the killer
+ * CTA above the fold; the renderer wraps them in `CTA_PRIMARY_STYLE`.
+ *
+ * Tiles are `null` when the underlying data is not meaningful for the id
+ * (e.g. stage doesn't ship an employer grid; agenzie doesn't ship featured
+ * jobs; contratti doesn't ship either).
+ */
+export interface CareerTemplateBCopy {
+  /** Per-id eyebrow (overrides shell when set, defaults to shell). */
+  eyebrow: string;
+  /** ≤120-char tagline shown directly under the H1. */
+  denseLede: string;
+  /** 3 stat tiles — labels are static copy, values come from the snapshot. */
+  statTile1: { label: string; valueFromCount: (count: number) => string; tone: 'success' | 'accent' | 'warning' | 'danger' | 'neutral' };
+  statTile2: { label: string; value: string | ((snapshot: { medianSalary: number | null; liveCount: number }) => string); tone: 'success' | 'accent' | 'warning' | 'danger' | 'neutral' };
+  statTile3: { label: string; valueFromFresh: (fresh: number) => string; tone: 'success' | 'accent' | 'warning' | 'danger' | 'neutral' };
+  /** Primary CTA copy — links to the calculator or job-board. */
+  primaryCtaLabel: string;
+  /** Path-relative href for the primary CTA. */
+  primaryCtaHref: string;
+  /** When false the renderer skips the featured-jobs section entirely. */
+  showFeaturedJobs: boolean;
+  /** When false the renderer skips the employer grid; some pages show curated copy instead. */
+  showEmployerGrid: boolean;
+  /** Optional editorial replacement when the employer grid is suppressed (stage / contratti). */
+  employerGridReplacement?: string;
+  /** Section title for the featured jobs (defaults to shell). */
+  featuredJobsTitle?: string;
+  /** Section title for the employer grid (defaults to shell). */
+  employerGridTitle?: string;
 }
 
 // ─────────────────────────────────────────────────────────────────
@@ -1227,3 +1284,472 @@ export const CAREER_LANDING_COPY: Record<
     'contratti-lavoro-frontalieri': condenseFor('fr', 'contratti-lavoro-frontalieri'),
   },
 };
+
+// ─────────────────────────────────────────────────────────────────
+// Template B — per-locale shell + per-id copy.
+// ─────────────────────────────────────────────────────────────────
+
+const TEMPLATE_B_SHELL: Record<CareerLocale, CareerTemplateBShell> = {
+  it: {
+    eyebrow: 'Lavoro · Lugano · 2026',
+    updatedLabel: 'Aggiornato',
+    approfondisciHeading: 'Approfondisci',
+    featuredJobsTitle: 'Offerte in evidenza',
+    featuredJobsEmpty:
+      'Nessuna offerta indicizzata in questo momento — controlla il job board completo.',
+    featuredJobsCtaAll: (n) => `Vedi tutte le ${n} offerte →`,
+    employerGridTitle: 'Chi assume',
+    jobPostedLabel: (d) =>
+      d <= 0 ? 'Pubblicata oggi' : d === 1 ? 'Pubblicata ieri' : `Pubblicata ${d} giorni fa`,
+    jobSalaryFmt: (min, max) => {
+      if (min && max) return `CHF ${min.toLocaleString('it-CH')}–${max.toLocaleString('it-CH')}/anno`;
+      if (min) return `Da CHF ${min.toLocaleString('it-CH')}/anno`;
+      if (max) return `Fino a CHF ${max.toLocaleString('it-CH')}/anno`;
+      return '';
+    },
+    noSalaryLabel: 'salario non dichiarato',
+  },
+  en: {
+    eyebrow: 'Jobs · Lugano · 2026',
+    updatedLabel: 'Updated',
+    approfondisciHeading: 'Read more',
+    featuredJobsTitle: 'Featured openings',
+    featuredJobsEmpty: 'No indexed openings right now — check the full job board.',
+    featuredJobsCtaAll: (n) => `See all ${n} openings →`,
+    employerGridTitle: 'Who is hiring',
+    jobPostedLabel: (d) =>
+      d <= 0 ? 'Posted today' : d === 1 ? 'Posted yesterday' : `Posted ${d} days ago`,
+    jobSalaryFmt: (min, max) => {
+      if (min && max) return `CHF ${min.toLocaleString('en-CH')}–${max.toLocaleString('en-CH')}/year`;
+      if (min) return `From CHF ${min.toLocaleString('en-CH')}/year`;
+      if (max) return `Up to CHF ${max.toLocaleString('en-CH')}/year`;
+      return '';
+    },
+    noSalaryLabel: 'salary not disclosed',
+  },
+  de: {
+    eyebrow: 'Jobs · Lugano · 2026',
+    updatedLabel: 'Aktualisiert',
+    approfondisciHeading: 'Mehr erfahren',
+    featuredJobsTitle: 'Empfohlene Stellen',
+    featuredJobsEmpty: 'Derzeit keine indexierten Stellen — siehe vollständige Stellenbörse.',
+    featuredJobsCtaAll: (n) => `Alle ${n} Stellen ansehen →`,
+    employerGridTitle: 'Wer einstellt',
+    jobPostedLabel: (d) =>
+      d <= 0 ? 'Heute veröffentlicht' : d === 1 ? 'Gestern veröffentlicht' : `Vor ${d} Tagen veröffentlicht`,
+    jobSalaryFmt: (min, max) => {
+      if (min && max) return `CHF ${min.toLocaleString('de-CH')}–${max.toLocaleString('de-CH')}/Jahr`;
+      if (min) return `Ab CHF ${min.toLocaleString('de-CH')}/Jahr`;
+      if (max) return `Bis CHF ${max.toLocaleString('de-CH')}/Jahr`;
+      return '';
+    },
+    noSalaryLabel: 'Lohn nicht angegeben',
+  },
+  fr: {
+    eyebrow: 'Emploi · Lugano · 2026',
+    updatedLabel: 'Mis à jour',
+    approfondisciHeading: 'Pour aller plus loin',
+    featuredJobsTitle: 'Offres mises en avant',
+    featuredJobsEmpty: 'Aucune offre indexée actuellement — consultez la bourse complète.',
+    featuredJobsCtaAll: (n) => `Voir les ${n} offres →`,
+    employerGridTitle: 'Qui recrute',
+    jobPostedLabel: (d) =>
+      d <= 0 ? "Publié aujourd'hui" : d === 1 ? 'Publié hier' : `Publié il y a ${d} jours`,
+    jobSalaryFmt: (min, max) => {
+      if (min && max) return `CHF ${min.toLocaleString('fr-CH')}–${max.toLocaleString('fr-CH')}/an`;
+      if (min) return `Dès CHF ${min.toLocaleString('fr-CH')}/an`;
+      if (max) return `Jusqu'à CHF ${max.toLocaleString('fr-CH')}/an`;
+      return '';
+    },
+    noSalaryLabel: 'salaire non communiqué',
+  },
+};
+
+// Salary-calculator URL per locale (template-B primary CTA target — pages
+// without a calculator hook (agenzie) fall back to the job-board).
+const CALCULATOR_URL: Record<CareerLocale, string> = {
+  it: '/calcola-stipendio/',
+  en: '/en/calculate-salary/',
+  de: '/de/gehalt-berechnen/',
+  fr: '/fr/calculer-salaire/',
+};
+
+const JOB_BOARD_URL: Record<CareerLocale, string> = {
+  it: '/cerca-lavoro-ticino/',
+  en: '/en/find-jobs-ticino/',
+  de: '/de/jobs-im-tessin/',
+  fr: '/fr/trouver-emploi-tessin/',
+};
+
+function fmtIntLocale(n: number, locale: CareerLocale): string {
+  const tag = { it: 'it-CH', en: 'en-CH', de: 'de-CH', fr: 'fr-CH' }[locale];
+  return n.toLocaleString(tag);
+}
+
+function fmtChfLocale(n: number, locale: CareerLocale): string {
+  return `CHF ${fmtIntLocale(n, locale)}`;
+}
+
+// ── Per-id × per-locale dense lede ───────────────────────────────────────────
+
+interface DenseLedeInputs {
+  liveCount: number;
+  fresh30Count: number;
+  medianSalary: number | null;
+  agencyCount: number;
+  concorsiCount: number;
+}
+
+const DENSE_LEDE: Record<CareerLandingId, Record<CareerLocale, (i: DenseLedeInputs) => string>> = {
+  'agenzie-lavoro-lugano': {
+    it: (i) =>
+      `${i.agencyCount} agenzie SECO autorizzate a Lugano · interinale coperto da CCL · permesso G full rights.`,
+    en: (i) =>
+      `${i.agencyCount} SECO-licensed staffing agencies in Lugano · CLA-covered interim work · full G-permit rights.`,
+    de: (i) =>
+      `${i.agencyCount} SECO-bewilligte Personalvermittler in Lugano · GAV-geregelte Temporärarbeit · volle G-Bewilligungs-Rechte.`,
+    fr: (i) =>
+      `${i.agencyCount} agences agréées SECO à Lugano · intérim couvert par CCT · droits complets du permis G.`,
+  },
+  'concorsi-pubblici-lugano': {
+    it: (i) =>
+      `${i.concorsiCount} concorsi pubblici aperti in Ticino · ${i.fresh30Count} nuove offerte pubbliche negli ultimi 30 giorni · stipendi cantonali su tabella ufficiale.`,
+    en: (i) =>
+      `${i.concorsiCount} open public-sector competitions in Ticino · ${i.fresh30Count} new public jobs in the last 30 days · cantonal pay scale.`,
+    de: (i) =>
+      `${i.concorsiCount} offene öffentliche Wettbewerbe im Tessin · ${i.fresh30Count} neue öffentliche Stellen in 30 Tagen · kantonaler Lohnraster.`,
+    fr: (i) =>
+      `${i.concorsiCount} concours publics ouverts au Tessin · ${i.fresh30Count} nouveaux postes publics ces 30 derniers jours · grille salariale cantonale.`,
+  },
+  'stage-lugano': {
+    it: (i) =>
+      `${i.liveCount} stage attivi a Lugano · ${i.fresh30Count} nuovi negli ultimi 30 giorni · CCL e copertura LAINF garantite anche per stagisti frontalieri.`,
+    en: (i) =>
+      `${i.liveCount} active internships in Lugano · ${i.fresh30Count} new in the last 30 days · CLA and accident insurance covered for cross-border interns.`,
+    de: (i) =>
+      `${i.liveCount} aktive Praktika in Lugano · ${i.fresh30Count} neu in 30 Tagen · GAV und UVG-Deckung auch für Grenzgänger-Praktikanten.`,
+    fr: (i) =>
+      `${i.liveCount} stages actifs à Lugano · ${i.fresh30Count} nouveaux ces 30 derniers jours · CCT et LAA garanties pour les stagiaires frontaliers.`,
+  },
+  'contratti-lavoro-frontalieri': {
+    it: (i) =>
+      `${fmtIntLocale(i.liveCount, 'it')} offerte aperte in Svizzera per permesso G · ${i.fresh30Count} nuove in 30 giorni · stipendio mediano CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'it') : '—'}/anno.`,
+    en: (i) =>
+      `${fmtIntLocale(i.liveCount, 'en')} G-permit openings across Switzerland · ${i.fresh30Count} new in 30 days · median gross salary CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'en') : '—'}/year.`,
+    de: (i) =>
+      `${fmtIntLocale(i.liveCount, 'de')} offene Stellen für G-Bewilligung in der Schweiz · ${i.fresh30Count} neu in 30 Tagen · Medianlohn CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'de') : '—'}/Jahr.`,
+    fr: (i) =>
+      `${fmtIntLocale(i.liveCount, 'fr')} offres ouvertes en Suisse pour permis G · ${i.fresh30Count} nouveaux en 30 jours · salaire médian CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'fr') : '—'}/an.`,
+  },
+};
+
+// ── Per-id × per-locale stat-tile + CTA copy ────────────────────────────────
+
+interface CareerStatLabels {
+  tile1Label: string;
+  tile2Label: string;
+  tile3Label: string;
+  primaryCtaLabel: string;
+  employerGridTitle?: string;
+  featuredJobsTitle?: string;
+  employerGridReplacement?: string;
+}
+
+const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels>> = {
+  'agenzie-lavoro-lugano': {
+    it: {
+      tile1Label: 'Agenzie SECO a Lugano',
+      tile2Label: 'Autorizzazione SECO',
+      tile3Label: 'Diritto frontalieri',
+      primaryCtaLabel: 'Calcola il netto da interinale',
+      employerGridTitle: 'Agenzie SECO autorizzate a Lugano',
+    },
+    en: {
+      tile1Label: 'SECO agencies in Lugano',
+      tile2Label: 'SECO licence required',
+      tile3Label: 'Cross-border rights',
+      primaryCtaLabel: 'Calculate net interim salary',
+      employerGridTitle: 'SECO-licensed staffing agencies in Lugano',
+    },
+    de: {
+      tile1Label: 'SECO-Agenturen in Lugano',
+      tile2Label: 'SECO-Bewilligung Pflicht',
+      tile3Label: 'Grenzgänger-Rechte',
+      primaryCtaLabel: 'Temporär-Nettolohn berechnen',
+      employerGridTitle: 'SECO-bewilligte Personalvermittler in Lugano',
+    },
+    fr: {
+      tile1Label: 'Agences SECO à Lugano',
+      tile2Label: 'Autorisation SECO',
+      tile3Label: 'Droits frontaliers',
+      primaryCtaLabel: 'Calculer le net en intérim',
+      employerGridTitle: 'Agences agréées SECO à Lugano',
+    },
+  },
+  'concorsi-pubblici-lugano': {
+    it: {
+      tile1Label: 'Concorsi aperti (TI)',
+      tile2Label: 'Offerte settore pubblico',
+      tile3Label: 'Nuovi negli ultimi 30 gg',
+      primaryCtaLabel: 'Calcola il netto cantonale',
+      employerGridTitle: 'Principali enti pubblici che assumono',
+      featuredJobsTitle: 'Offerte settore pubblico Lugano',
+    },
+    en: {
+      tile1Label: 'Open competitions (TI)',
+      tile2Label: 'Public-sector openings',
+      tile3Label: 'New in last 30 days',
+      primaryCtaLabel: 'Calculate cantonal net salary',
+      employerGridTitle: 'Main public employers',
+      featuredJobsTitle: 'Public-sector openings — Lugano',
+    },
+    de: {
+      tile1Label: 'Offene Wettbewerbe (TI)',
+      tile2Label: 'Stellen öffentl. Sektor',
+      tile3Label: 'Neu in 30 Tagen',
+      primaryCtaLabel: 'Kantonalen Nettolohn berechnen',
+      employerGridTitle: 'Wichtigste öffentliche Arbeitgeber',
+      featuredJobsTitle: 'Öffentliche Stellen — Lugano',
+    },
+    fr: {
+      tile1Label: 'Concours ouverts (TI)',
+      tile2Label: 'Offres secteur public',
+      tile3Label: 'Nouveaux en 30 j',
+      primaryCtaLabel: 'Calculer le net cantonal',
+      employerGridTitle: 'Principaux employeurs publics',
+      featuredJobsTitle: 'Offres secteur public — Lugano',
+    },
+  },
+  'stage-lugano': {
+    it: {
+      tile1Label: 'Stage attivi a Lugano',
+      tile2Label: 'Indennità mediana',
+      tile3Label: 'Nuovi negli ultimi 30 gg',
+      primaryCtaLabel: 'Calcola netto da stagista frontaliere',
+      featuredJobsTitle: 'Stage in evidenza a Lugano',
+      employerGridReplacement:
+        'I principali sbocchi per stage a Lugano sono USI, SUPSI, EOC, Tether/Lugano crypto-valley, gruppo BancaStato e fondazioni cantonali. Lo stage frontaliere richiede permesso G ridotto (durata pari al contratto) ed è coperto dal CCL del settore di riferimento.',
+    },
+    en: {
+      tile1Label: 'Active internships in Lugano',
+      tile2Label: 'Median allowance',
+      tile3Label: 'New in last 30 days',
+      primaryCtaLabel: 'Calculate cross-border intern net pay',
+      featuredJobsTitle: 'Featured internships — Lugano',
+      employerGridReplacement:
+        'Main destinations for internships in Lugano: USI, SUPSI, EOC, Tether / Lugano crypto-valley, BancaStato group and cantonal foundations. Cross-border internships use a short-term G-permit (term-matched) and are covered by the sector CLA.',
+    },
+    de: {
+      tile1Label: 'Aktive Praktika in Lugano',
+      tile2Label: 'Median-Entschädigung',
+      tile3Label: 'Neu in 30 Tagen',
+      primaryCtaLabel: 'Grenzgänger-Praktikum-Nettolohn berechnen',
+      featuredJobsTitle: 'Empfohlene Praktika — Lugano',
+      employerGridReplacement:
+        'Hauptanbieter für Praktika in Lugano: USI, SUPSI, EOC, Tether / Lugano crypto-valley, BancaStato-Gruppe und kantonale Stiftungen. Grenzgänger-Praktika nutzen eine kurze G-Bewilligung (vertragslänge-gebunden) und sind durch den Sektor-GAV gedeckt.',
+    },
+    fr: {
+      tile1Label: 'Stages actifs à Lugano',
+      tile2Label: 'Indemnité médiane',
+      tile3Label: 'Nouveaux en 30 j',
+      primaryCtaLabel: 'Calculer net stagiaire frontalier',
+      featuredJobsTitle: 'Stages mis en avant — Lugano',
+      employerGridReplacement:
+        'Principaux débouchés pour les stages à Lugano : USI, SUPSI, EOC, Tether / Lugano crypto-valley, groupe BancaStato et fondations cantonales. Le stage frontalier utilise un permis G court (durée du contrat) et est couvert par la CCT sectorielle.',
+    },
+  },
+  'contratti-lavoro-frontalieri': {
+    it: {
+      tile1Label: 'Offerte CH per permesso G',
+      tile2Label: 'Stipendio mediano',
+      tile3Label: 'Nuove negli ultimi 30 gg',
+      primaryCtaLabel: 'Simula il tuo netto frontaliere',
+      employerGridReplacement:
+        'Il contratto del frontaliere ricalca il diritto svizzero: CCL applicabile per settore, periodo di prova 1-3 mesi (art. 335b CO), 5 settimane di vacanza minime (6 dopo i 50 anni), assicurazioni sociali svizzere (AVS/AI/IPG, LAINF, LPP) trattenute alla fonte. Per l\'imposizione vale l\'Accordo 2020 (nuovi frontalieri ≥ 17/07/2023: 80 % imposta CH + dichiarazione IT).',
+    },
+    en: {
+      tile1Label: 'Swiss openings (G-permit)',
+      tile2Label: 'Median salary',
+      tile3Label: 'New in last 30 days',
+      primaryCtaLabel: 'Simulate your cross-border net',
+      employerGridReplacement:
+        'A cross-border employment contract follows Swiss law: sector CLA applies, 1-3 month probation (art. 335b CO), minimum 5 weeks of paid leave (6 after age 50), Swiss social insurance (AVS/AI/IPG, LAINF, LPP) withheld at source. Taxation follows the 2020 bilateral accord (new cross-borderers ≥ 17/07/2023: 80 % CH source tax + Italian declaration).',
+    },
+    de: {
+      tile1Label: 'CH-Stellen (G-Bewilligung)',
+      tile2Label: 'Medianlohn',
+      tile3Label: 'Neu in 30 Tagen',
+      primaryCtaLabel: 'Grenzgänger-Nettolohn simulieren',
+      employerGridReplacement:
+        'Der Grenzgänger-Vertrag folgt dem Schweizer Recht: GAV nach Branche, Probezeit 1-3 Monate (Art. 335b OR), mindestens 5 Wochen Ferien (6 ab 50), Schweizer Sozialversicherungen (AHV/IV/EO, UVG, BVG) an der Quelle einbehalten. Besteuerung nach Abkommen 2020 (neue Grenzgänger ≥ 17.07.2023: 80 % CH-Quellensteuer + italienische Deklaration).',
+    },
+    fr: {
+      tile1Label: 'Offres CH (permis G)',
+      tile2Label: 'Salaire médian',
+      tile3Label: 'Nouveaux en 30 j',
+      primaryCtaLabel: 'Simuler votre net frontalier',
+      employerGridReplacement:
+        'Le contrat frontalier suit le droit suisse : CCT sectorielle, période d\'essai 1-3 mois (art. 335b CO), 5 semaines de vacances minimum (6 après 50 ans), assurances sociales suisses (AVS/AI/APG, LAA, LPP) prélevées à la source. Fiscalité selon l\'accord 2020 (nouveaux frontaliers ≥ 17/07/2023 : 80 % impôt source CH + déclaration italienne).',
+    },
+  },
+};
+
+// ── Public API: build per-(locale, id) template B copy ──────────────────────
+
+export interface CareerTemplateBSnapshotInputs {
+  /** Live count from aggregateCareerLandings (jobs or curated registry). */
+  liveCount: number;
+  /** Jobs first-seen/posted in the last 30 days. */
+  fresh30Count: number;
+  /** Median annual gross CHF salary — null when the topic doesn't ship one. */
+  medianSalary: number | null;
+  /** Curated counts that override `liveCount` for the headline tile. */
+  agencyCount: number;
+  concorsiCount: number;
+}
+
+export function buildCareerTemplateBCopy(
+  locale: CareerLocale,
+  id: CareerLandingId,
+  snapshot: CareerTemplateBSnapshotInputs,
+): CareerTemplateBCopy {
+  const shell = TEMPLATE_B_SHELL[locale];
+  const labels = STAT_LABELS[id][locale];
+  const denseLede = DENSE_LEDE[id][locale](snapshot);
+
+  // Per-id stat-tile composition: each id binds the 3 tiles to the snapshot
+  // fields that make sense for the topic.
+  if (id === 'agenzie-lavoro-lugano') {
+    return {
+      eyebrow: shell.eyebrow,
+      denseLede,
+      statTile1: {
+        label: labels.tile1Label,
+        valueFromCount: (c) => fmtIntLocale(c, locale),
+        tone: 'accent',
+      },
+      statTile2: {
+        label: labels.tile2Label,
+        value: { it: 'Obbligatoria', en: 'Mandatory', de: 'Pflicht', fr: 'Obligatoire' }[locale],
+        tone: 'warning',
+      },
+      statTile3: {
+        label: labels.tile3Label,
+        valueFromFresh: () =>
+          ({ it: 'CCL pieno', en: 'Full CLA', de: 'Voller GAV', fr: 'CCT complète' }[locale]),
+        tone: 'success',
+      },
+      primaryCtaLabel: labels.primaryCtaLabel,
+      primaryCtaHref: CALCULATOR_URL[locale],
+      showFeaturedJobs: false,
+      showEmployerGrid: true,
+      employerGridTitle: labels.employerGridTitle,
+    };
+  }
+
+  if (id === 'concorsi-pubblici-lugano') {
+    return {
+      eyebrow: shell.eyebrow,
+      denseLede,
+      statTile1: {
+        label: labels.tile1Label,
+        valueFromCount: (c) => fmtIntLocale(c, locale),
+        tone: 'accent',
+      },
+      statTile2: {
+        label: labels.tile2Label,
+        value: (snap) => fmtIntLocale(snap.liveCount, locale),
+        tone: 'success',
+      },
+      statTile3: {
+        label: labels.tile3Label,
+        valueFromFresh: (f) => `+${fmtIntLocale(f, locale)}`,
+        tone: 'warning',
+      },
+      primaryCtaLabel: labels.primaryCtaLabel,
+      primaryCtaHref: CALCULATOR_URL[locale],
+      showFeaturedJobs: true,
+      showEmployerGrid: true,
+      featuredJobsTitle: labels.featuredJobsTitle,
+      employerGridTitle: labels.employerGridTitle,
+    };
+  }
+
+  if (id === 'stage-lugano') {
+    const indemnitaLabel: Record<CareerLocale, string> = {
+      it: 'Stage non pagato / variabile',
+      en: 'Unpaid / variable',
+      de: 'Unbezahlt / variabel',
+      fr: 'Non rémunéré / variable',
+    };
+    return {
+      eyebrow: shell.eyebrow,
+      denseLede,
+      statTile1: {
+        label: labels.tile1Label,
+        valueFromCount: (c) => fmtIntLocale(c, locale),
+        tone: 'accent',
+      },
+      statTile2: {
+        label: labels.tile2Label,
+        value: (snap) =>
+          snap.medianSalary && snap.medianSalary > 0
+            ? `${fmtChfLocale(snap.medianSalary, locale)}/${{ it: 'anno', en: 'year', de: 'Jahr', fr: 'an' }[locale]}`
+            : indemnitaLabel[locale],
+        tone: 'warning',
+      },
+      statTile3: {
+        label: labels.tile3Label,
+        valueFromFresh: (f) => `+${fmtIntLocale(f, locale)}`,
+        tone: 'success',
+      },
+      primaryCtaLabel: labels.primaryCtaLabel,
+      primaryCtaHref: CALCULATOR_URL[locale],
+      showFeaturedJobs: true,
+      showEmployerGrid: false,
+      employerGridReplacement: labels.employerGridReplacement,
+      featuredJobsTitle: labels.featuredJobsTitle,
+    };
+  }
+
+  // contratti-lavoro-frontalieri (editorial)
+  return {
+    eyebrow: shell.eyebrow,
+    denseLede,
+    statTile1: {
+      label: labels.tile1Label,
+      valueFromCount: (c) => fmtIntLocale(c, locale),
+      tone: 'accent',
+    },
+    statTile2: {
+      label: labels.tile2Label,
+      value: (snap) =>
+        snap.medianSalary && snap.medianSalary > 0
+          ? `${fmtChfLocale(snap.medianSalary, locale)}/${{ it: 'anno', en: 'year', de: 'Jahr', fr: 'an' }[locale]}`
+          : '—',
+      tone: 'success',
+    },
+    statTile3: {
+      label: labels.tile3Label,
+      valueFromFresh: (f) => `+${fmtIntLocale(f, locale)}`,
+      tone: 'warning',
+    },
+    primaryCtaLabel: labels.primaryCtaLabel,
+    primaryCtaHref: CALCULATOR_URL[locale],
+    showFeaturedJobs: false,
+    showEmployerGrid: false,
+    employerGridReplacement: labels.employerGridReplacement,
+  };
+}
+
+export function getCareerTemplateBShell(locale: CareerLocale): CareerTemplateBShell {
+  return TEMPLATE_B_SHELL[locale];
+}
+
+export function getCareerJobBoardUrl(locale: CareerLocale): string {
+  return JOB_BOARD_URL[locale];
+}
+
+export function getCareerCalculatorUrl(locale: CareerLocale): string {
+  return CALCULATOR_URL[locale];
+}

@@ -1,56 +1,18 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-05-15T21:24:52.303Z",
+  "generatedAt": "2026-05-17T21:16:01.200Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14689,
-  "avgDurationMs": 14689,
+  "durationMs": 14253,
+  "avgDurationMs": 14253,
   "durationHistory": [
-    14689
+    14253
   ],
-  "newJobs": [
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Versace/job/Zrich/Senior-Sales-Associate_R_784351",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Versace/job/Zrich/Senior-Sales-Associate_R_784351",
-      "title": "Senior Sales Associate",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Zürich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
-      "slug": "senior-sales-associate-capri-holdings",
-      "category": "retail",
-      "datePosted": "2026-05-15",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "SENIOR",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Versace",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 66,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 8,
-        "completeness": 15
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-Time-20h--Fixed-Term---Landquart_R_784293",
@@ -126,6 +88,47 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-05-13T10:39:13.858Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Versace/job/Zrich/Senior-Sales-Associate_R_784351",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Versace/job/Zrich/Senior-Sales-Associate_R_784351",
+      "title": "Senior Sales Associate",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Zürich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate",
+      "slug": "senior-sales-associate-capri-holdings",
+      "category": "retail",
+      "datePosted": "2026-05-15",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "SENIOR",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Versace",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "crawledAt": "",
+      "id": "capri-holdings-c682e23e7176",
+      "salaryMin": 82500,
+      "salaryMax": 127000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-15T21:24:52.303Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
