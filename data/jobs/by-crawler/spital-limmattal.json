@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-limmattal",
-  "assembledAt": "2026-05-18T13:13:00.924Z",
+  "assembledAt": "2026-05-18T22:45:51.234Z",
   "jobs": [
     {
       "id": "spital-limmattal-99dc82dcb950",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/486538/0769/pub/1/index.html",
       "source": "Spital Limmattal Dedicated Parser (Refline)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T13:12:50.165Z",
+      "crawledAt": "2026-05-18T22:45:45.052Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,13 +53,28 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
+      "previousSlugs": [
+        "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-spital-limmattal-ch",
+        "apprendistato-persona-specializzata-moglie-hotel-industria-efz-spital-limmattal-schlieren",
+        "apprendistato-fachmann-frau-hotellerie-hauswirtschaft-cfc-spital-limmattal-schlieren",
+        "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumato",
+        "mitarbeiter-in-patientenservice-60-spital-limmattal-ch",
+        "apprenticeship-person-skilled-wife-hotel-industry-efz-spital-limmattal-schlieren",
+        "lehrstelle-k-u00f6chin-koch-efz-spital-limmattal-ch",
+        "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die",
+        "stv-leitende-u00c4rztin-stv-leitender-arzt-orthop-u00e4die-und-traumatologie-u2013",
+        "apprentissage-personne-qualifiee-femme-hotellerie-efz-spital-limmattal-schlieren",
+        "student-in-pharmazeutische-wissenschaften-o-pharmazie-spital-limmattal-schlieren",
+        "pflegexperte-in-cas-mas-apn-con-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-schlieren",
+        "stationsleiter-in-im-pflegezentrum-f-u00fcr-la-demenzabteilung-spital-limmattal-schlieren",
+        "mpa-adipositaszentrum-60-montag-mittwoch-e-donnerstag-spital-limmattal-schlieren",
+        "collaboratore-trice-in-reinigung-40-50-zun-u00e4chst-befristet-come-vertretung-im-stundenlohn-spital-limmattal-schlieren",
+        "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-chirurgie-o-notfall-befristet-f-u00fcr-1-jahr-spital-limmattal-schlieren",
+        "med-praxisassistentin-o-fachperson-gesundheit-f-u00fcr-la-fachbereiche-onkologie-h-u00e4matologie-e-rheumatologie-60-80-spital-limmattal-schlieren",
+        "med-praxisangestellte-o-fachangestellte-gesundheit-im-zentralen-belegungsmanagement-60-100-spital-limmattal-schlieren",
+        "fachfrau-mann-gesundheit-cfc-notfallstation-spital-limmattal-schlieren"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-spital-limmattal-ch",
-          "lehrstelle-k-u00f6chin-koch-efz-spital-limmattal-ch",
-          "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die",
-          "stv-leitende-u00c4rztin-stv-leitender-arzt-orthop-u00e4die-und-traumatologie-u2013"
-        ],
         "it": [
           "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-spital-limmattal-ch",
           "apprendistato-persona-specializzata-moglie-hotel-industria-efz-spital-limmattal-schlieren",
@@ -71,33 +86,17 @@
           "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-spital-limmattal-ch",
           "apprenticeship-person-skilled-wife-hotel-industry-efz-spital-limmattal-schlieren"
         ],
+        "de": [
+          "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-spital-limmattal-ch",
+          "lehrstelle-k-u00f6chin-koch-efz-spital-limmattal-ch",
+          "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die",
+          "stv-leitende-u00c4rztin-stv-leitender-arzt-orthop-u00e4die-und-traumatologie-u2013"
+        ],
         "fr": [
           "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-spital-limmattal-ch",
           "apprentissage-personne-qualifiee-femme-hotellerie-efz-spital-limmattal-schlieren"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-spital-limmattal-ch",
-        "lehrstelle-k-u00f6chin-koch-efz-spital-limmattal-ch",
-        "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die",
-        "stv-leitende-u00c4rztin-stv-leitender-arzt-orthop-u00e4die-und-traumatologie-u2013",
-        "apprendistato-persona-specializzata-moglie-hotel-industria-efz-spital-limmattal-schlieren",
-        "apprendistato-fachmann-frau-hotellerie-hauswirtschaft-cfc-spital-limmattal-schlieren",
-        "stv-leitende-u00c4rztin-stv-leitender-arzt-in-der-klinik-f-u00fcr-orthop-u00e4die-traumato",
-        "mitarbeiter-in-patientenservice-60-spital-limmattal-ch",
-        "apprenticeship-person-skilled-wife-hotel-industry-efz-spital-limmattal-schlieren",
-        "apprentissage-personne-qualifiee-femme-hotellerie-efz-spital-limmattal-schlieren",
-        "student-in-pharmazeutische-wissenschaften-o-pharmazie-spital-limmattal-schlieren",
-        "pflegexperte-in-cas-mas-apn-con-schwerpunkt-langzeitpflege-geriatrie-spital-limmattal-schlieren",
-        "stationsleiter-in-im-pflegezentrum-f-u00fcr-la-demenzabteilung-spital-limmattal-schlieren",
-        "mpa-adipositaszentrum-60-montag-mittwoch-e-donnerstag-spital-limmattal-schlieren",
-        "collaboratore-trice-in-reinigung-40-50-zun-u00e4chst-befristet-come-vertretung-im-stundenlohn-spital-limmattal-schlieren",
-        "pflegehilfe-srk-assistent-in-gesundheit-e-soziales-chirurgie-o-notfall-befristet-f-u00fcr-1-jahr-spital-limmattal-schlieren",
-        "med-praxisassistentin-o-fachperson-gesundheit-f-u00fcr-la-fachbereiche-onkologie-h-u00e4matologie-e-rheumatologie-60-80-spital-limmattal-schlieren",
-        "med-praxisangestellte-o-fachangestellte-gesundheit-im-zentralen-belegungsmanagement-60-100-spital-limmattal-schlieren",
-        "fachfrau-mann-gesundheit-cfc-notfallstation-spital-limmattal-schlieren",
-        "fachfrau-mann-gesundheit-cfc-f-u00fcr-eine-medizinische-o-chirurgische-bettenstation-spital-limmattal-schlieren"
-      ],
       "firstSeenAt": "2026-05-10T22:26:08.275Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
