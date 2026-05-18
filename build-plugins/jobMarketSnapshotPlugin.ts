@@ -1741,13 +1741,13 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     ${topEmployersList}
     ${cityBreakdown}
     ${trendSection}
-    <section style="margin:24px 0 0">
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
-      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(paragraph)}</p>
-    </section>
     ${frontalierContextHtml}
     ${methodology}
     ${faqHtml}
+    <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-label="${esc(copy.seriesKicker)}">
+      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(intro)}</p>
+      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(paragraph)}</p>
+    </section>
     ${relatedHtml}
     ${renderDiscoverMore(locale, JOB_MARKET_DISCOVER_MORE_CTAS[locale])}
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
@@ -2017,15 +2017,15 @@ function renderHubPage(inp: HubPageInputs): string {
     ${degradedNote}
     ${heroStatsHtml}
     ${ctaHtml}
-    <section style="margin:0 0 22px">
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.hubIntro)}</p>
-      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.hubParagraph)}</p>
-    </section>
     ${latestWeeksHtml}
     ${archiveHtml}
     ${sectorsHtml}
     ${methodology}
     ${faqHtml}
+    <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-label="${esc(copy.seriesKicker)}">
+      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(copy.hubIntro)}</p>
+      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(copy.hubParagraph)}</p>
+    </section>
     ${relatedHtml}
     ${renderDiscoverMore(locale, JOB_MARKET_DISCOVER_MORE_CTAS[locale])}
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
@@ -2986,16 +2986,16 @@ function renderSectorPage(inp: SectorPageInputs): string {
     </header>
     ${statTiles}
     ${ctaHtml}
-    <section style="margin:0 0 22px">
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.intro(sectorLabel, stats.activeJobs))}</p>
-      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.paragraph1(sectorLabel, stats))}</p>
-      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(copy.paragraph2(sectorLabel))}</p>
-    </section>
     ${topEmployersList}
     ${trendSection}
     ${frontalierContextHtml}
     ${methodology}
     ${faqHtml}
+    <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-label="${esc(copy.kicker)}">
+      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(copy.intro(sectorLabel, stats.activeJobs))}</p>
+      <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(copy.paragraph1(sectorLabel, stats))}</p>
+      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(copy.paragraph2(sectorLabel))}</p>
+    </section>
     ${renderDiscoverMore(locale, JOB_MARKET_DISCOVER_MORE_CTAS[locale])}
     ${generateRelatedLinksBlock(locale, 'job_market_snapshot')}
     <section style="margin-top:32px" aria-label="advertisement">

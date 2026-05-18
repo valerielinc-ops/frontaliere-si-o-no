@@ -2939,13 +2939,13 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
     <h2 id="roles" style="${H2_STYLE}">${esc(copy.rolesTitle)}</h2>
     ${rolesHtml}
   </section>
-  <section style="margin:0 0 28px" aria-labelledby="editorial">
-    <h2 id="editorial" style="${H2_STYLE}">${esc(cityDisplay)}</h2>
-    <p style="margin:0 0 10px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(heroSummary)}</p>
-    <p style="margin:0 0 10px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(editorial)}</p>
-    <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:860px;font-size:14px">${esc(methodology)}</p>
-  </section>
   ${renderWeeklyEmployersFrontalierContext({ locale, cityDisplay, isRegional, jobsCount, companiesCount })}
+  <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-labelledby="editorial">
+    <h2 id="editorial" style="${H2_STYLE};margin:0 0 12px;font-size:18px">${esc(cityDisplay)}</h2>
+    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(heroSummary)}</p>
+    <p style="margin:0 0 12px;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(editorial)}</p>
+    <p style="margin:0;color:var(--color-subtle);line-height:1.7;max-width:72ch;font-size:14px">${esc(methodology)}</p>
+  </section>
   ${renderCompanyLeavesForCityBlock(locale, city, cityLeaves ?? [])}
   ${renderCityHubsListBlock(locale, city)}
   ${renderWeeklyArchiveListBlock(
