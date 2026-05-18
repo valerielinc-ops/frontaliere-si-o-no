@@ -309,6 +309,116 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
   }
 }
 
+/* ── Detail fetch ──────────────────────────────────────────────────────── */
+
+/**
+ * Fetch a single Workday job's detail payload (`jobPostingInfo`) from the CXS
+ * API.
+ *
+ * The listing endpoint (`POST /jobs`) returns only summary fields
+ * (`title`, `externalPath`, `locationsText`, `postedOn`, `bulletFields`) —
+ * it never carries the job body. The body lives at
+ * `GET {apiBase}{externalPath}` under `jobPostingInfo.jobDescription` (HTML).
+ *
+ * Returns the parsed JSON on success. Returns `null` on any failure (4xx, 5xx,
+ * timeout, abort, network error) so the caller can fall back to a structured
+ * stub built from listing metadata without aborting the whole crawler run.
+ *
+ * NOTE: this helper deliberately swallows errors. Workday occasionally serves
+ * 403 on individual listings (anti-bot heuristics) or 404 when a posting was
+ * pulled between the listing and detail fetch. Either case should not poison
+ * the rest of the run — the caller's thin-source guard catches widespread
+ * failures.
+ *
+ * @param {string} apiBase Output of `buildWorkdayApiBase`.
+ * @param {string} externalPath The `externalPath` field returned for each
+ *   posting by the listing endpoint (already starts with `/job/...`).
+ * @param {Object} [options]
+ * @param {number} [options.timeoutMs] Per-request timeout. Default 15000ms.
+ * @param {string} [options.userAgent] Override User-Agent header.
+ * @returns {Promise<any|null>} The detail JSON, or `null` on failure.
+ *
+ * @example
+ *   const apiBase = buildWorkdayApiBase('roche.wd3.myworkdayjobs.com', 'roche-ext');
+ *   const detail = await fetchWorkdayJobDetail(apiBase, posting.externalPath);
+ *   const html = detail?.jobPostingInfo?.jobDescription || '';
+ */
+export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {}) {
+  if (!apiBase || !externalPath) return null;
+  const {
+    timeoutMs = 15_000,
+    userAgent = DEFAULT_USER_AGENT,
+  } = options;
+
+  const url = `${String(apiBase).replace(/\/+$/, '')}${externalPath}`;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const res = await fetch(url, {
+      method: 'GET',
+      signal: controller.signal,
+      redirect: 'follow',
+      headers: {
+        Accept: 'application/json',
+        'Accept-Language': 'en,de-CH;q=0.9,it-CH;q=0.8,fr-CH;q=0.7',
+        'User-Agent': userAgent,
+      },
+    });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * Convenience: fetch the job detail and return the description body as
+ * bullet-preserving plain text. Returns '' on any failure.
+ *
+ * Pipeline:
+ *   GET {apiBase}{externalPath} → jobPostingInfo.jobDescription (HTML)
+ *   → stripHtml (caller-supplied) → newline-preserving compaction → 4000-char cap
+ *
+ * The caller passes `stripHtml` (typically from `crawler-template.mjs`) so this
+ * client module has no dependency on the project's stripper. The 4000-char cap
+ * keeps downstream AI translation costs predictable.
+ *
+ * @param {string} apiBase
+ * @param {string} externalPath
+ * @param {(html: string) => string} stripHtml HTML→text stripper.
+ * @param {Object} [options]
+ * @param {number} [options.timeoutMs]
+ * @param {string} [options.userAgent]
+ * @param {number} [options.maxChars] Hard cap on returned text. Default 4000.
+ * @returns {Promise<string>} Plain-text description, or '' on failure.
+ */
+export async function fetchWorkdayJobDescriptionText(
+  apiBase,
+  externalPath,
+  stripHtml,
+  options = {},
+) {
+  if (typeof stripHtml !== 'function') {
+    throw new TypeError('fetchWorkdayJobDescriptionText: stripHtml function is required');
+  }
+  const { maxChars = 4000, ...fetchOptions } = options;
+
+  const detail = await fetchWorkdayJobDetail(apiBase, externalPath, fetchOptions);
+  const html = String(detail?.jobPostingInfo?.jobDescription || '').trim();
+  if (!html) return '';
+
+  const text = stripHtml(html);
+  return String(text || '')
+    .replace(/[ \t]+/g, ' ')
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim()
+    .slice(0, maxChars);
+}
+
 /* ── Date parsing ──────────────────────────────────────────────────────── */
 
 function dateOnlyIso(ms) {

@@ -17,6 +17,7 @@ import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
+  fetchWorkdayJobDescriptionText,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
@@ -185,9 +186,25 @@ export async function fetchAllNovartisJobs() {
 
     const location = listing.location || 'Basel';
     const canton = inferSwissTargetCanton(location) || 'BS';
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
+
+    // Workday listing endpoint NEVER returns the job body — see workday-client.mjs.
+    const detailDescription = await fetchWorkdayJobDescriptionText(
+      WORKDAY_API_BASE,
+      listing.externalPath,
+      stripHtml,
+    );
+    await new Promise((r) => setTimeout(r, 400));
+
+    const fallbackDescription = [
+      `${title} — ${NOVARTIS_COMPANY_NAME}, ${location}.`,
+      '',
+      'Key details:',
+      `• Location: ${location}${canton ? `, ${canton} canton` : ''}, Switzerland`,
+      '• Employer: Novartis — global pharmaceuticals leader',
+      '• Apply on: Novartis careers portal',
+    ].join('\n');
+    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'it');
     const jobSlug = slugify(`${title} novartis ch`);
@@ -203,8 +220,8 @@ export async function fetchAllNovartisJobs() {
       companyDomain: NOVARTIS_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Novartis`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Novartis` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
@@ -230,7 +247,6 @@ export async function fetchAllNovartisJobs() {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total Novartis jobs discovered: ${jobs.length}`);

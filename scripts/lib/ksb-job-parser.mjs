@@ -31,6 +31,7 @@ import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
+  fetchWorkdayJobDescriptionText,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
@@ -181,9 +182,25 @@ export async function fetchAllKsbJobs() {
 
     const location = listing.location || 'Baden';
     const canton = inferSwissTargetCanton(location) || 'AG';
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
+
+    // Workday listing endpoint NEVER returns the job body — see workday-client.mjs.
+    const detailDescription = await fetchWorkdayJobDescriptionText(
+      WORKDAY_API_BASE,
+      listing.externalPath,
+      stripHtml,
+    );
+    await new Promise((r) => setTimeout(r, 400));
+
+    const fallbackDescription = [
+      `${title} — ${KSB_COMPANY_NAME}, ${location}.`,
+      '',
+      'Key details:',
+      `• Location: ${location}${canton ? `, Kanton ${canton}` : ''}, Schweiz`,
+      '• Arbeitgeber: Kantonsspital Baden — Akutspital im Kanton Aargau',
+      '• Bewerbung über: KSB-Karriereportal',
+    ].join('\n');
+    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} ${KSB_KEY} ch`);
@@ -198,8 +215,8 @@ export async function fetchAllKsbJobs() {
       companyDomain: KSB_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — ${KSB_COMPANY_NAME}`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — ${KSB_COMPANY_NAME}` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,

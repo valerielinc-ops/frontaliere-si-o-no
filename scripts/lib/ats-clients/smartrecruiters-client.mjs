@@ -89,7 +89,6 @@
 /* ── Constants ───────────────────────────────────────────────── */
 
 const SR_API_BASE = 'https://api.smartrecruiters.com/v1/companies';
-const SR_DETAIL_BASE = 'https://api.smartrecruiters.com/v1/postings';
 const SR_PUBLIC_JOBS_BASE = 'https://jobs.smartrecruiters.com';
 const POLITE_UA = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 const DEFAULT_TIMEOUT_MS = 20_000;
@@ -272,7 +271,12 @@ async function fetchListPage(url, { timeoutMs, userAgent }) {
 async function fetchPostingDetail(tenant, listingPosting, { timeoutMs, userAgent }) {
   const id = String(listingPosting?.id || '').trim();
   if (!id) return listingPosting;
-  const url = `${SR_DETAIL_BASE}/${encodeURIComponent(id)}`;
+  // SmartRecruiters detail endpoint REQUIRES the company prefix —
+  // `/v1/postings/{id}` returns 404. The full payload (jobAd.sections) lives
+  // at `/v1/companies/{tenant}/postings/{id}`. Using the tenant-less path was
+  // a regression that left every detail fetch returning the listing summary,
+  // which trips the thin-source guard for crawlers like Avaloq + HUG.
+  const url = `${SR_API_BASE}/${encodeURIComponent(tenant)}/postings/${encodeURIComponent(id)}`;
   try {
     const res = await timedFetch(url, {
       timeoutMs,
