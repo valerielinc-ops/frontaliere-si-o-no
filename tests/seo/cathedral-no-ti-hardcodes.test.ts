@@ -129,8 +129,8 @@ const ALLOWLIST = [
   // appear as inline fallbacks on these 2 lines (sectors hub + companies
   // hub, mirroring the 1674/1675/1690/1691 pattern but in the new emit
   // block ~275 lines below the existing one).
-  'build-plugins/seoHubsPlugin.ts:1949',
-  'build-plugins/seoHubsPlugin.ts:1965',
+  'build-plugins/seoHubsPlugin.ts:2043',
+  'build-plugins/seoHubsPlugin.ts:2059',
 
   // ── professionLandingsLinksPlugin: TI hub injection targets (intentional —
   //    the prose explicitly references "10 most-searched roles in Ticino"). ──
@@ -158,16 +158,16 @@ const ALLOWLIST = [
   // a single line was added above the JobBoard category map in
   // buildSectionToCategoryMap, propagating +1 down to every subsequent
   // TI-section entry inside the same file.
-  'build-plugins/staticPagesPlugin.ts:1311',
-  'build-plugins/staticPagesPlugin.ts:1312',
-  'build-plugins/staticPagesPlugin.ts:1313',
-  'build-plugins/staticPagesPlugin.ts:1314',
-  'build-plugins/staticPagesPlugin.ts:1333',
-  'build-plugins/staticPagesPlugin.ts:1334',
-  'build-plugins/staticPagesPlugin.ts:1868',
-  'build-plugins/staticPagesPlugin.ts:1893',
-  'build-plugins/staticPagesPlugin.ts:1918',
-  'build-plugins/staticPagesPlugin.ts:2186',
+  'build-plugins/staticPagesPlugin.ts:1315',
+  'build-plugins/staticPagesPlugin.ts:1316',
+  'build-plugins/staticPagesPlugin.ts:1317',
+  'build-plugins/staticPagesPlugin.ts:1318',
+  'build-plugins/staticPagesPlugin.ts:1337',
+  'build-plugins/staticPagesPlugin.ts:1338',
+  'build-plugins/staticPagesPlugin.ts:1872',
+  'build-plugins/staticPagesPlugin.ts:1897',
+  'build-plugins/staticPagesPlugin.ts:1922',
+  'build-plugins/staticPagesPlugin.ts:2190',
   // ── Cross-section hub anchors emitted inside buildHomepageCantonNavHtml
   //    (2026-05-13 BFS-depth fix for sitemap-jobs.xml azienda-* leaves).
   //    Per-locale URL constants reference the TI section slug; the audit
@@ -183,17 +183,17 @@ const ALLOWLIST = [
   'build-plugins/staticPagesPlugin.ts:585',
 
   // ── shared/hubChrome.ts: per-locale hub-chrome registry keyed on TI section name ──
-  'build-plugins/shared/hubChrome.ts:106',
-  'build-plugins/shared/hubChrome.ts:139',
-  'build-plugins/shared/hubChrome.ts:172',
-  'build-plugins/shared/hubChrome.ts:205',
+  'build-plugins/shared/hubChrome.ts:115',
+  'build-plugins/shared/hubChrome.ts:156',
+  'build-plugins/shared/hubChrome.ts:197',
+  'build-plugins/shared/hubChrome.ts:238',
 
   // ── services/router.ts: TI legacy slug entries in the per-locale ROUTER
   //    slug table. These are the URLs the SPA recognises as the TI hub. ──
-  'services/router.ts:1041',
-  'services/router.ts:1142',
-  'services/router.ts:1243',
-  'services/router.ts:1344',
+  'services/router.ts:1048',
+  'services/router.ts:1149',
+  'services/router.ts:1250',
+  'services/router.ts:1351',
 
   // ── services/relatedSearchClusters.ts: TI default section in resolveSectionSlug. ──
   'services/relatedSearchClusters.ts:64',
