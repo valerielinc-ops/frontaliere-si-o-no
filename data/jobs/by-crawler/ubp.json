@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ubp",
-  "assembledAt": "2026-05-17T22:42:27.569Z",
+  "assembledAt": "2026-05-18T13:25:39.756Z",
   "jobs": [
     {
       "id": "ubp-5622be80e37a",
@@ -33,7 +33,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/297",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:24.651Z",
+      "crawledAt": "2026-05-18T13:25:36.802Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -50,28 +50,31 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/297",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-17T11:17:36.670Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
+      "previousSlugsByLocale": {
+        "en": [
+          "banking-operations-officer-ubp-ch"
+        ],
+        "it": [
+          "banking-operations-officer-ubp-ch"
+        ]
       },
       "previousSlugs": [
         "banking-operations-officer-ubp-ch",
         "agente-delle-operazioni-bancarie-union-bancaire-privee-london-united-kingdom"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "banking-operations-officer-ubp-ch"
-        ]
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T11:17:36.670Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
       }
     },
     {
@@ -105,7 +108,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/265",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:24.106Z",
+      "crawledAt": "2026-05-18T13:25:36.264Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -182,7 +185,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/383",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:23.578Z",
+      "crawledAt": "2026-05-18T13:25:35.727Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -259,7 +262,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/514",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:23.038Z",
+      "crawledAt": "2026-05-18T13:25:35.195Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -333,7 +336,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/519",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:22.512Z",
+      "crawledAt": "2026-05-18T13:25:34.664Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -350,6 +353,17 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/519",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "middle-officer-ubp-ch"
+        ],
+        "it": [
+          "middle-officer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "middle-officer-ubp-ch"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:34.495Z",
       "salaryMin": 49500,
@@ -363,14 +377,6 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "middle-officer-ubp-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "middle-officer-ubp-ch"
-        ]
       }
     },
     {
@@ -404,7 +410,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/542",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:21.978Z",
+      "crawledAt": "2026-05-18T13:25:34.126Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -484,7 +490,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/575",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:21.447Z",
+      "crawledAt": "2026-05-18T13:25:33.590Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -564,7 +570,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/605",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:20.919Z",
+      "crawledAt": "2026-05-18T13:25:33.000Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -627,7 +633,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/627",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:20.382Z",
+      "crawledAt": "2026-05-18T13:25:32.458Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -707,7 +713,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/654",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:19.848Z",
+      "crawledAt": "2026-05-18T13:25:31.923Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -787,7 +793,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/657",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:19.315Z",
+      "crawledAt": "2026-05-18T13:25:31.383Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -804,6 +810,18 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/657",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "team-head-cash-services-ubp-ch"
+        ],
+        "it": [
+          "team-head-cash-services-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "team-head-cash-services-ubp-ch",
+        "servizi-di-cassa-a-capo-squadra-union-bancaire-privee-geneva-switzerland"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:31.285Z",
       "salaryMin": 68000,
@@ -817,15 +835,6 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "team-head-cash-services-ubp-ch",
-        "servizi-di-cassa-a-capo-squadra-union-bancaire-privee-geneva-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "team-head-cash-services-ubp-ch"
-        ]
       }
     },
     {
@@ -859,7 +868,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/661",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:18.778Z",
+      "crawledAt": "2026-05-18T13:25:30.840Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -940,7 +949,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/673",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:18.245Z",
+      "crawledAt": "2026-05-18T13:25:30.281Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -957,6 +966,17 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/673",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "help-desk-officer-1st-level-of-support-ubp-ch"
+        ],
+        "it": [
+          "help-desk-officer-1st-level-of-support-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "help-desk-officer-1st-level-of-support-ubp-ch"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:30.119Z",
       "salaryMin": 49500,
@@ -970,14 +990,6 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "help-desk-officer-1st-level-of-support-ubp-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "help-desk-officer-1st-level-of-support-ubp-ch"
-        ]
       }
     },
     {
@@ -1011,7 +1023,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/733",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:17.712Z",
+      "crawledAt": "2026-05-18T13:25:29.747Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1091,7 +1103,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/408",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-17T22:42:17.179Z",
+      "crawledAt": "2026-05-18T13:25:29.203Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1108,6 +1120,14 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/408",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "facilities-officer-temporary-ubp-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "facilities-officer-temporary-ubp-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:29.040Z",
       "salaryMin": 49500,
@@ -1121,14 +1141,6 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "facilities-officer-temporary-ubp-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facilities-officer-temporary-ubp-ch"
-        ]
       }
     },
     {
@@ -1162,7 +1174,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/753",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:16.649Z",
+      "crawledAt": "2026-05-18T13:25:28.656Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1179,6 +1191,18 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/753",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "graduate-programme-operations-office-team-ubp-ch"
+        ],
+        "it": [
+          "graduate-programme-operations-office-team-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "graduate-programme-operations-office-team-ubp-ch",
+        "programma-di-laurea-squadra-operativa-union-bancaire-privee-geneva-switzerland"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:28.504Z",
       "salaryMin": 49500,
@@ -1192,15 +1216,6 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "graduate-programme-operations-office-team-ubp-ch",
-        "programma-di-laurea-squadra-operativa-union-bancaire-privee-geneva-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "graduate-programme-operations-office-team-ubp-ch"
-        ]
       }
     },
     {
@@ -1234,7 +1249,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/687",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:16.101Z",
+      "crawledAt": "2026-05-18T13:25:28.103Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1251,6 +1266,15 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/687",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "graduate-programme-group-risk-management-team-ubp-ch",
+        "programma-di-laurea-gruppo-risk-management-team-union-bancaire-privee-geneva-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "graduate-programme-group-risk-management-team-ubp-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:27.961Z",
       "salaryMin": 51500,
@@ -1264,15 +1288,6 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "graduate-programme-group-risk-management-team-ubp-ch",
-        "programma-di-laurea-gruppo-risk-management-team-union-bancaire-privee-geneva-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "graduate-programme-group-risk-management-team-ubp-ch"
-        ]
       }
     },
     {
@@ -1306,7 +1321,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/766",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:15.554Z",
+      "crawledAt": "2026-05-18T13:25:27.567Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1323,6 +1338,18 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/766",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "stock-exchange-settlement-officer-ubp-ch"
+        ],
+        "it": [
+          "stock-exchange-settlement-officer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stock-exchange-settlement-officer-ubp-ch",
+        "scambio-di-azioni-settlement-officer-union-bancaire-privee-geneva-switzerland"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:27.423Z",
       "salaryMin": 49500,
@@ -1336,15 +1363,6 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "stock-exchange-settlement-officer-ubp-ch",
-        "scambio-di-azioni-settlement-officer-union-bancaire-privee-geneva-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stock-exchange-settlement-officer-ubp-ch"
-        ]
       }
     },
     {
@@ -1378,7 +1396,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/758",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:15.017Z",
+      "crawledAt": "2026-05-18T13:25:26.999Z",
       "addressLocality": "Frankfurt am Main, Germany",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1395,6 +1413,15 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/758",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "institutional-client-service-officer-m-f-12-months-temporary-contract-ubp-ch",
+        "responsabile-del-servizio-clienti-istituzionale-m-f-contratto-temporaneo-di-12-mesi-union-bancaire-privee-frankfurt-am-m"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "institutional-client-service-officer-m-f-12-months-temporary-contract-ubp-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:26.889Z",
       "salaryMin": 49500,
@@ -1408,15 +1435,6 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "institutional-client-service-officer-m-f-12-months-temporary-contract-ubp-ch",
-        "responsabile-del-servizio-clienti-istituzionale-m-f-contratto-temporaneo-di-12-mesi-union-bancaire-privee-frankfurt-am-m"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "institutional-client-service-officer-m-f-12-months-temporary-contract-ubp-ch"
-        ]
       }
     },
     {
@@ -1450,7 +1468,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/229",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:14.486Z",
+      "crawledAt": "2026-05-18T13:25:26.458Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1530,7 +1548,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/767",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:13.950Z",
+      "crawledAt": "2026-05-18T13:25:25.904Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1610,7 +1628,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/763",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:13.418Z",
+      "crawledAt": "2026-05-18T13:25:25.356Z",
       "addressLocality": "Jersey",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -1627,6 +1645,15 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/763",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "graduate-programme-jersey-2026-wealth-management-ubp-ch",
+        "programma-di-laurea-jersey-2026-gestione-della-ricchezza-union-bancaire-privee-jersey"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "graduate-programme-jersey-2026-wealth-management-ubp-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:25.262Z",
       "salaryMin": 51500,
@@ -1640,15 +1667,6 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "graduate-programme-jersey-2026-wealth-management-ubp-ch",
-        "programma-di-laurea-jersey-2026-gestione-della-ricchezza-union-bancaire-privee-jersey"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "graduate-programme-jersey-2026-wealth-management-ubp-ch"
-        ]
       }
     },
     {
@@ -1682,7 +1700,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/713",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:12.871Z",
+      "crawledAt": "2026-05-18T13:25:24.756Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1699,6 +1717,18 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/713",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "accounts-payable-officer-ubp-ch"
+        ],
+        "it": [
+          "accounts-payable-officer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "accounts-payable-officer-ubp-ch",
+        "accounts-agente-passivo-union-bancaire-privee-geneva-switzerland"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:24.718Z",
       "salaryMin": 49500,
@@ -1712,15 +1742,6 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "accounts-payable-officer-ubp-ch",
-        "accounts-agente-passivo-union-bancaire-privee-geneva-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "accounts-payable-officer-ubp-ch"
-        ]
       }
     },
     {
@@ -1754,7 +1775,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/823",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:12.337Z",
+      "crawledAt": "2026-05-18T13:25:24.114Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1771,28 +1792,31 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/823",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-17T11:17:24.182Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
+      "previousSlugsByLocale": {
+        "en": [
+          "process-transformation-officer-ubp-ch"
+        ],
+        "it": [
+          "process-transformation-officer-ubp-ch"
+        ]
       },
       "previousSlugs": [
         "process-transformation-officer-ubp-ch",
         "responsabile-della-trasformazione-di-processo-union-bancaire-privee-geneva-switzerland"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "process-transformation-officer-ubp-ch"
-        ]
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T11:17:24.182Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
       }
     },
     {
@@ -1826,7 +1850,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/821",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:11.801Z",
+      "crawledAt": "2026-05-18T13:25:23.578Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1897,7 +1921,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/831",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:11.265Z",
+      "crawledAt": "2026-05-18T13:25:23.040Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1914,27 +1938,30 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/831",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "funds-execution-officer-ubp-ch"
+        ],
+        "it": [
+          "funds-execution-officer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "funds-execution-officer-ubp-ch"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:23.100Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "funds-execution-officer-ubp-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "funds-execution-officer-ubp-ch"
-        ]
       }
     },
     {
@@ -1968,7 +1995,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/865",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:10.734Z",
+      "crawledAt": "2026-05-18T13:25:22.507Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2048,7 +2075,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/849",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:10.201Z",
+      "crawledAt": "2026-05-18T13:25:21.965Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2128,7 +2155,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/867",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:09.664Z",
+      "crawledAt": "2026-05-18T13:25:21.427Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2145,28 +2172,31 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/867",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-17T11:17:21.491Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
+      "previousSlugsByLocale": {
+        "en": [
+          "business-monitoring-officer-ubp-ch"
+        ],
+        "it": [
+          "business-monitoring-officer-ubp-ch"
+        ]
       },
       "previousSlugs": [
         "business-monitoring-officer-ubp-ch",
         "responsabile-del-monitoraggio-delle-imprese-union-bancaire-privee-london-united-kingdom"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-monitoring-officer-ubp-ch"
-        ]
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T11:17:21.491Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
       }
     },
     {
@@ -2200,7 +2230,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/840",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:09.111Z",
+      "crawledAt": "2026-05-18T13:25:20.871Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2217,28 +2247,31 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/840",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-17T11:17:20.953Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
+      "previousSlugsByLocale": {
+        "en": [
+          "compliance-officer-transaction-monitoring-temporary-6-months-ubp-ch"
+        ],
+        "it": [
+          "compliance-officer-transaction-monitoring-temporary-6-months-ubp-ch"
+        ]
       },
       "previousSlugs": [
         "compliance-officer-transaction-monitoring-temporary-6-months-ubp-ch",
         "compliance-officer-transaction-monitoring-temporary-6-mesi-union-bancaire-privee-geneva-switzerland"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "compliance-officer-transaction-monitoring-temporary-6-months-ubp-ch"
-        ]
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T11:17:20.953Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
       }
     },
     {
@@ -2272,7 +2305,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/886",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:08.563Z",
+      "crawledAt": "2026-05-18T13:25:20.337Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2352,7 +2385,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/916",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:08.033Z",
+      "crawledAt": "2026-05-18T13:25:19.803Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2429,7 +2462,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/826",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:07.487Z",
+      "crawledAt": "2026-05-18T13:25:19.210Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2446,6 +2479,18 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/826",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "central-vault-operations-manager-ubp-ch"
+        ],
+        "it": [
+          "central-vault-operations-manager-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "central-vault-operations-manager-ubp-ch",
+        "responsabile-operazioni-della-centrale-vault-union-bancaire-privee-geneva-switzerland"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:19.347Z",
       "salaryMin": 68000,
@@ -2459,15 +2504,6 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "central-vault-operations-manager-ubp-ch",
-        "responsabile-operazioni-della-centrale-vault-union-bancaire-privee-geneva-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "central-vault-operations-manager-ubp-ch"
-        ]
       }
     },
     {
@@ -2501,7 +2537,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/974",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:06.945Z",
+      "crawledAt": "2026-05-18T13:25:18.618Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2518,6 +2554,15 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/974",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "fixed-income-execution-trader-ubp-ch",
+        "trader-di-esecuzione-a-reddito-fisso-union-bancaire-privee-geneva-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fixed-income-execution-trader-ubp-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:18.811Z",
       "salaryMin": 49500,
@@ -2531,15 +2576,6 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "fixed-income-execution-trader-ubp-ch",
-        "trader-di-esecuzione-a-reddito-fisso-union-bancaire-privee-geneva-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fixed-income-execution-trader-ubp-ch"
-        ]
       }
     },
     {
@@ -2573,7 +2609,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/986",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:06.407Z",
+      "crawledAt": "2026-05-18T13:25:18.077Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2590,6 +2626,17 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/986",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "wm-business-risk-manager-ubp-ch"
+        ],
+        "it": [
+          "wm-business-risk-manager-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "wm-business-risk-manager-ubp-ch"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:18.265Z",
       "salaryMin": 68000,
@@ -2603,21 +2650,13 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "wm-business-risk-manager-ubp-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "wm-business-risk-manager-ubp-ch"
-        ]
       }
     },
     {
       "id": "ubp-40eb10282cdf",
-      "slug": "graduate-programme-hong-kong-2026-wealth-management-ubp-ch",
+      "slug": "corso-di-laurea-hong-kong-2026-wealth-management-union-bancaire-privee-hong-kong-hong-kong",
       "slugByLocale": {
-        "it": "graduate-programme-hong-kong-2026-wealth-management-ubp-ch",
+        "it": "corso-di-laurea-hong-kong-2026-wealth-management-union-bancaire-privee-hong-kong-hong-kong",
         "en": "graduate-programme-hong-kong-2026-wealth-management-ubp-ch",
         "de": "graduate-programme-hong-kong-2026-wealth-management-ubp-ch",
         "fr": "graduate-programme-hong-kong-2026-wealth-management-union-bancaire-privee-hong-kong-hong-kong"
@@ -2644,7 +2683,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/982",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:05.857Z",
+      "crawledAt": "2026-05-18T13:25:17.543Z",
       "addressLocality": "Hong Kong, Hong Kong",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -2661,8 +2700,17 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/982",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "graduate-programme-hong-kong-2026-wealth-management-ubp-ch",
+        "programma-di-laurea-hong-kong-2026-gestione-della-ricchezza-union-bancaire-privee-hong-kong-hong-kong"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:17.733Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "graduate-programme-hong-kong-2026-wealth-management-ubp-ch"
+        ]
+      },
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2674,10 +2722,7 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "programma-di-laurea-hong-kong-2026-gestione-della-ricchezza-union-bancaire-privee-hong-kong-hong-kong"
-      ]
+      }
     },
     {
       "id": "ubp-fb02149a8a49",
@@ -2710,7 +2755,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/948",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:05.315Z",
+      "crawledAt": "2026-05-18T13:25:16.998Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2727,6 +2772,17 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/948",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "cyber-risk-manager-second-line-controls-ubp-ch"
+        ],
+        "it": [
+          "cyber-risk-manager-second-line-controls-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cyber-risk-manager-second-line-controls-ubp-ch"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:17.192Z",
       "salaryMin": 68000,
@@ -2740,14 +2796,6 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "cyber-risk-manager-second-line-controls-ubp-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "cyber-risk-manager-second-line-controls-ubp-ch"
-        ]
       }
     },
     {
@@ -2781,7 +2829,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/946",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:04.784Z",
+      "crawledAt": "2026-05-18T13:25:16.467Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2862,7 +2910,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1027",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:04.238Z",
+      "crawledAt": "2026-05-18T13:25:15.934Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2925,7 +2973,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1028",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:03.667Z",
+      "crawledAt": "2026-05-18T13:25:15.387Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2942,28 +2990,31 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1028",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-17T11:17:15.584Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
+      "previousSlugsByLocale": {
+        "en": [
+          "wm-business-monitoring-officer-eam-controls-ubp-ch"
+        ],
+        "it": [
+          "wm-business-monitoring-officer-eam-controls-ubp-ch"
+        ]
       },
       "previousSlugs": [
         "wm-business-monitoring-officer-eam-controls-ubp-ch",
         "wm-business-monitoring-officer-controlli-eam-union-bancaire-privee-geneva-switzerland"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "wm-business-monitoring-officer-eam-controls-ubp-ch"
-        ]
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T11:17:15.584Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
       }
     },
     {
@@ -2997,7 +3048,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/991",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:03.133Z",
+      "crawledAt": "2026-05-18T13:25:14.855Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3071,7 +3122,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/572",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:02.570Z",
+      "crawledAt": "2026-05-18T13:25:14.328Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3147,7 +3198,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1015",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:02.033Z",
+      "crawledAt": "2026-05-18T13:25:13.774Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3198,9 +3249,9 @@
     },
     {
       "id": "ubp-3ce9a3123100",
-      "slug": "wm-data-scientist-zurich-100-ubp-ch",
+      "slug": "wm-data-scientist-zurigo-100-union-bancaire-privee-zurich-switzerland",
       "slugByLocale": {
-        "it": "wm-data-scientist-zurich-100-ubp-ch",
+        "it": "wm-data-scientist-zurigo-100-union-bancaire-privee-zurich-switzerland",
         "en": "wm-data-scientist-zurich-100-union-bancaire-privee-zurich-switzerland",
         "de": "wm-data-scientist-zurich-100-ubp-ch",
         "fr": "wm-data-scientist-zurich-100-ubp-ch"
@@ -3227,7 +3278,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1050",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:01.496Z",
+      "crawledAt": "2026-05-18T13:25:13.239Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3244,6 +3295,17 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1050",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "wm-data-scientist-zurich-100-ubp-ch"
+        ],
+        "it": [
+          "wm-data-scientist-zurich-100-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "wm-data-scientist-zurich-100-ubp-ch"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:13.423Z",
       "salaryMin": 49500,
@@ -3257,10 +3319,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "wm-data-scientist-zurigo-100-union-bancaire-privee-zurich-switzerland"
-      ]
+      }
     },
     {
       "id": "ubp-967b0831912c",
@@ -3293,7 +3352,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/603",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:00.953Z",
+      "crawledAt": "2026-05-18T13:25:12.700Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3374,7 +3433,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1061",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:42:00.419Z",
+      "crawledAt": "2026-05-18T13:25:12.156Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3454,7 +3513,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1060",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:41:59.884Z",
+      "crawledAt": "2026-05-18T13:25:11.619Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3471,6 +3530,15 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1060",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "financial-controller-transfer-pricing-analytics-ubp-ch",
+        "controllore-finanziario-transfer-pricing-analytics-union-bancaire-privee-geneva-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-controller-transfer-pricing-analytics-ubp-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:11.792Z",
       "salaryMin": 49500,
@@ -3484,15 +3552,6 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "financial-controller-transfer-pricing-analytics-ubp-ch",
-        "controllore-finanziario-transfer-pricing-analytics-union-bancaire-privee-geneva-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "financial-controller-transfer-pricing-analytics-ubp-ch"
-        ]
       }
     },
     {
@@ -3509,7 +3568,7 @@
       "companyDomain": "ubp.com",
       "title": "Database administrator",
       "titleByLocale": {
-        "it": "Amministratore del database",
+        "it": "Database administrator",
         "en": "Database administrator",
         "de": "Database administrator",
         "fr": "Database administrator"
@@ -3526,7 +3585,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1011",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:41:59.347Z",
+      "crawledAt": "2026-05-18T13:25:10.702Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3599,7 +3658,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/910",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:41:58.805Z",
+      "crawledAt": "2026-05-18T13:25:10.162Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3616,6 +3675,14 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/910",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-compliance-officer-special-investigations-unit-ubp-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-compliance-officer-special-investigations-unit-ubp-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:10.713Z",
       "salaryMin": 68000,
@@ -3629,14 +3696,6 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "senior-compliance-officer-special-investigations-unit-ubp-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-compliance-officer-special-investigations-unit-ubp-ch"
-        ]
       }
     },
     {
@@ -3670,7 +3729,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1076",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:41:58.269Z",
+      "crawledAt": "2026-05-18T13:25:09.629Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3687,6 +3746,18 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1076",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "junior-transformation-officer-ubp-ch"
+        ],
+        "it": [
+          "junior-transformation-officer-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "junior-transformation-officer-ubp-ch",
+        "responsabile-della-trasformazione-junior-union-bancaire-privee-geneva-switzerland"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:10.175Z",
       "salaryMin": 41600,
@@ -3700,15 +3771,6 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "junior-transformation-officer-ubp-ch",
-        "responsabile-della-trasformazione-junior-union-bancaire-privee-geneva-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "junior-transformation-officer-ubp-ch"
-        ]
       }
     },
     {
@@ -3742,7 +3804,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1072",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:41:57.729Z",
+      "crawledAt": "2026-05-18T13:25:09.043Z",
       "addressLocality": "Hong Kong, Hong Kong",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3759,6 +3821,14 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1072",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "client-documentation-contractor-ubp-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "client-documentation-contractor-ubp-ch"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:09.633Z",
       "salaryMin": 49500,
@@ -3772,14 +3842,6 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "client-documentation-contractor-ubp-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "client-documentation-contractor-ubp-ch"
-        ]
       }
     },
     {
@@ -3813,7 +3875,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/47",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-05-17T22:41:57.136Z",
+      "crawledAt": "2026-05-18T13:25:08.491Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3830,6 +3892,17 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/47",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "en": [
+          "change-incident-problem-vulnerability-management-ubp-ch"
+        ],
+        "it": [
+          "change-incident-problem-vulnerability-management-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "change-incident-problem-vulnerability-management-ubp-ch"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T11:17:09.040Z",
       "salaryMin": 49500,
@@ -3843,15 +3916,72 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "change-incident-problem-vulnerability-management-ubp-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "change-incident-problem-vulnerability-management-ubp-ch"
-        ]
       }
+    },
+    {
+      "id": "ubp-dbffa7e27876",
+      "slug": "wealth-management-assistant-m-f-ubp-ch",
+      "slugByLocale": {
+        "en": "wealth-management-assistant-m-f-ubp-ch",
+        "it": "wealth-management-assistant-m-f-ubp-ch",
+        "de": "wealth-management-assistant-m-f-ubp-ch",
+        "fr": "wealth-management-assistant-m-f-union-bancaire-privee-luxembourg"
+      },
+      "company": "Union Bancaire Privée",
+      "companyKey": "ubp",
+      "companyDomain": "ubp.com",
+      "title": "Wealth Management Assistant (M/F)",
+      "titleByLocale": {
+        "en": "Wealth Management Assistant (M/F)",
+        "fr": "Wealth Management Assistant (M/F)",
+        "it": "Wealth Management Assistant (M/F)",
+        "de": "Wealth Management Assistent (M/F)"
+      },
+      "description": "Mission \n By joining Union Bancaire Privée (Europe) S.A. wealth management division as an Assistant you will provide administrative and operational support the Senior Relationship Managers and customers according to our quality standards and banking regulations.\n Main responsibilities \n \n• Administrative support to Relationship Managers:\n \n• Prepare and organize client‑meeting packs, presentations, and briefing notes.\n\n• Monitor account‑opening processes end‑to‑end, coordinating outstanding items and approvals.\n\n• Collect, validate, and maintain KYC/CDD documentation; track renewals and trigger periodic reviews.\n\n• Update CRM/client records and ensure documentation is audit‑ready.\n\n \n\n• Transaction and operations execution:\n \n• Follow up and process client cash movements, deposits, and loan instructions accurately and promptly.\n\n• Coordinate with Operations, Compliance, and Front Office to ensure timely settlement and issue resolution.\n\n• Apply regulatory requirements and internal procedures; escalate exceptions and maintain proper controls.\n\n• Reconcile transactions and maintain logs/SOPs for audit and MI reporting.\n\n \n\n• Client service and inquiry management:\n \n• Serve as a primary contact for day‑to‑day queries; provide quick, clear updates on requests and cases.\n\n• Proactively communicate status on onboarding, KYC, and transaction execution.\n\n• Identify and address service gaps; contribute to continuous improvement of client experience.\n\n• Uphold high service levels (SLAs, TATs, and quality metrics).\n \n \n\n \n Your profile \n \n• Higher education in Banking, Finance or Wealth Management.\n\n• A previous experience, of 3-5 years, in WM (front-office and facing clients) is required.\n\n• Committed team player with good capacities of working autonomously.\n\n• Client focused with a deep sense of discretion/confidentiality and problem-solving attitude.\n\n• Excellent communication capabilities.\n\n• Being bilingual in English and French is a must. Knowledge of German is a considered asset. \n\n• Good knowledge of Administrative IT tools [MS Office].\n \n By joining Union Bancaire Privée (Europe), S.A in Luxembourg you will embrace a team of supportive high qualified professionals in Private Banking that will lead you to develop your career to the top level. We encourage continuous learning, development and knowledge sharing. We foster a culture of Agility, Conviction, Dedication and high degree of Responsibility. \n Union Bancaire Privée (Europe), S.A. encourages all suitable qualified and eligible candidates to apply regardless of their gender identity or expression, age, racial, ethnic and cultural background, religion and beliefs, sexual orientation, disability or neuro diversity. \n In accordance with the provisions of the Luxembourg law of 23 July 2016 amending the law of 29 March 2013, retained candidate will be required to provide an extract from their criminal record as a part of UBP screening process.",
+      "descriptionByLocale": {
+        "en": "Mission \n By joining Union Bancaire Privée (Europe) S.A. wealth management division as an Assistant you will provide administrative and operational support the Senior Relationship Managers and customers according to our quality standards and banking regulations.\n Main responsibilities \n \n• Administrative support to Relationship Managers:\n \n• Prepare and organize client‑meeting packs, presentations, and briefing notes.\n\n• Monitor account‑opening processes end‑to‑end, coordinating outstanding items and approvals.\n\n• Collect, validate, and maintain KYC/CDD documentation; track renewals and trigger periodic reviews.\n\n• Update CRM/client records and ensure documentation is audit‑ready.\n\n \n\n• Transaction and operations execution:\n \n• Follow up and process client cash movements, deposits, and loan instructions accurately and promptly.\n\n• Coordinate with Operations, Compliance, and Front Office to ensure timely settlement and issue resolution.\n\n• Apply regulatory requirements and internal procedures; escalate exceptions and maintain proper controls.\n\n• Reconcile transactions and maintain logs/SOPs for audit and MI reporting.\n\n \n\n• Client service and inquiry management:\n \n• Serve as a primary contact for day‑to‑day queries; provide quick, clear updates on requests and cases.\n\n• Proactively communicate status on onboarding, KYC, and transaction execution.\n\n• Identify and address service gaps; contribute to continuous improvement of client experience.\n\n• Uphold high service levels (SLAs, TATs, and quality metrics).\n \n \n\n \n Your profile \n \n• Higher education in Banking, Finance or Wealth Management.\n\n• A previous experience, of 3-5 years, in WM (front-office and facing clients) is required.\n\n• Committed team player with good capacities of working autonomously.\n\n• Client focused with a deep sense of discretion/confidentiality and problem-solving attitude.\n\n• Excellent communication capabilities.\n\n• Being bilingual in English and French is a must. Knowledge of German is a considered asset. \n\n• Good knowledge of Administrative IT tools [MS Office].\n \n By joining Union Bancaire Privée (Europe), S.A in Luxembourg you will embrace a team of supportive high qualified professionals in Private Banking that will lead you to develop your career to the top level. We encourage continuous learning, development and knowledge sharing. We foster a culture of Agility, Conviction, Dedication and high degree of Responsibility. \n Union Bancaire Privée (Europe), S.A. encourages all suitable qualified and eligible candidates to apply regardless of their gender identity or expression, age, racial, ethnic and cultural background, religion and beliefs, sexual orientation, disability or neuro diversity. \n In accordance with the provisions of the Luxembourg law of 23 July 2016 amending the law of 29 March 2013, retained candidate will be required to provide an extract from their criminal record as a part of UBP screening process.",
+        "it": "Mission \n By joining Union Bancaire Privée (Europe) S.A. wealth management division as an Assistant you will provide administrative and operational support the Senior Relationship Managers and customers according to our quality standards and banking regulations.\n Main responsibilities \n \n• Administrative support to Relationship Managers:\n \n• Prepare and organize client‑meeting packs, presentations, and briefing notes.\n\n• Monitor account‑opening processes end‑to‑end, coordinating outstanding items and approvals.\n\n• Collect, validate, and maintain KYC/CDD documentation; track renewals and trigger periodic reviews.\n\n• Update CRM/client records and ensure documentation is audit‑ready.\n\n \n\n• Transaction and operations execution:\n \n• Follow up and process client cash movements, deposits, and loan instructions accurately and promptly.\n\n• Coordinate with Operations, Compliance, and Front Office to ensure timely settlement and issue resolution.\n\n• Apply regulatory requirements and internal procedures; escalate exceptions and maintain proper controls.\n\n• Reconcile transactions and maintain logs/SOPs for audit and MI reporting.\n\n \n\n• Client service and inquiry management:\n \n• Serve as a primary contact for day‑to‑day queries; provide quick, clear updates on requests and cases.\n\n• Proactively communicate status on onboarding, KYC, and transaction execution.\n\n• Identify and address service gaps; contribute to continuous improvement of client experience.\n\n• Uphold high service levels (SLAs, TATs, and quality metrics).\n \n \n\n \n Your profile \n \n• Higher education in Banking, Finance or Wealth Management.\n\n• A previous experience, of 3-5 years, in WM (front-office and facing clients) is required.\n\n• Committed team player with good capacities of working autonomously.\n\n• Client focused with a deep sense of discretion/confidentiality and problem-solving attitude.\n\n• Excellent communication capabilities.\n\n• Being bilingual in English and French is a must. Knowledge of German is a considered asset. \n\n• Good knowledge of Administrative IT tools [MS Office].\n \n By joining Union Bancaire Privée (Europe), S.A in Luxembourg you will embrace a team of supportive high qualified professionals in Private Banking that will lead you to develop your career to the top level. We encourage continuous learning, development and knowledge sharing. We foster a culture of Agility, Conviction, Dedication and high degree of Responsibility. \n Union Bancaire Privée (Europe), S.A. encourages all suitable qualified and eligible candidates to apply regardless of their gender identity or expression, age, racial, ethnic and cultural background, religion and beliefs, sexual orientation, disability or neuro diversity. \n In accordance with the provisions of the Luxembourg law of 23 July 2016 amending the law of 29 March 2013, retained candidate will be required to provide an extract from their criminal record as a part of UBP screening process.",
+        "de": "Mission \n By joining Union Bancaire Privée (Europe) S.A. wealth management division as an Assistant you will provide administrative and operational support the Senior Relationship Managers and customers according to our quality standards and banking regulations.\n Main responsibilities \n \n• Administrative support to Relationship Managers:\n \n• Prepare and organize client‑meeting packs, presentations, and briefing notes.\n\n• Monitor account‑opening processes end‑to‑end, coordinating outstanding items and approvals.\n\n• Collect, validate, and maintain KYC/CDD documentation; track renewals and trigger periodic reviews.\n\n• Update CRM/client records and ensure documentation is audit‑ready.\n\n \n\n• Transaction and operations execution:\n \n• Follow up and process client cash movements, deposits, and loan instructions accurately and promptly.\n\n• Coordinate with Operations, Compliance, and Front Office to ensure timely settlement and issue resolution.\n\n• Apply regulatory requirements and internal procedures; escalate exceptions and maintain proper controls.\n\n• Reconcile transactions and maintain logs/SOPs for audit and MI reporting.\n\n \n\n• Client service and inquiry management:\n \n• Serve as a primary contact for day‑to‑day queries; provide quick, clear updates on requests and cases.\n\n• Proactively communicate status on onboarding, KYC, and transaction execution.\n\n• Identify and address service gaps; contribute to continuous improvement of client experience.\n\n• Uphold high service levels (SLAs, TATs, and quality metrics).\n \n \n\n \n Your profile \n \n• Higher education in Banking, Finance or Wealth Management.\n\n• A previous experience, of 3-5 years, in WM (front-office and facing clients) is required.\n\n• Committed team player with good capacities of working autonomously.\n\n• Client focused with a deep sense of discretion/confidentiality and problem-solving attitude.\n\n• Excellent communication capabilities.\n\n• Being bilingual in English and French is a must. Knowledge of German is a considered asset. \n\n• Good knowledge of Administrative IT tools [MS Office].\n \n By joining Union Bancaire Privée (Europe), S.A in Luxembourg you will embrace a team of supportive high qualified professionals in Private Banking that will lead you to develop your career to the top level. We encourage continuous learning, development and knowledge sharing. We foster a culture of Agility, Conviction, Dedication and high degree of Responsibility. \n Union Bancaire Privée (Europe), S.A. encourages all suitable qualified and eligible candidates to apply regardless of their gender identity or expression, age, racial, ethnic and cultural background, religion and beliefs, sexual orientation, disability or neuro diversity. \n In accordance with the provisions of the Luxembourg law of 23 July 2016 amending the law of 29 March 2013, retained candidate will be required to provide an extract from their criminal record as a part of UBP screening process.",
+        "fr": "Mission \n By joining Union Bancaire Privée (Europe) S.A. wealth management division as an Assistant you will provide administrative and operational support the Senior Relationship Managers and customers according to our quality standards and banking regulations.\n Main responsibilities \n \n• Administrative support to Relationship Managers:\n \n• Prepare and organize client‑meeting packs, presentations, and briefing notes.\n\n• Monitor account‑opening processes end‑to‑end, coordinating outstanding items and approvals.\n\n• Collect, validate, and maintain KYC/CDD documentation; track renewals and trigger periodic reviews.\n\n• Update CRM/client records and ensure documentation is audit‑ready.\n\n \n\n• Transaction and operations execution:\n \n• Follow up and process client cash movements, deposits, and loan instructions accurately and promptly.\n\n• Coordinate with Operations, Compliance, and Front Office to ensure timely settlement and issue resolution.\n\n• Apply regulatory requirements and internal procedures; escalate exceptions and maintain proper controls.\n\n• Reconcile transactions and maintain logs/SOPs for audit and MI reporting.\n\n \n\n• Client service and inquiry management:\n \n• Serve as a primary contact for day‑to‑day queries; provide quick, clear updates on requests and cases.\n\n• Proactively communicate status on onboarding, KYC, and transaction execution.\n\n• Identify and address service gaps; contribute to continuous improvement of client experience.\n\n• Uphold high service levels (SLAs, TATs, and quality metrics).\n \n \n\n \n Your profile \n \n• Higher education in Banking, Finance or Wealth Management.\n\n• A previous experience, of 3-5 years, in WM (front-office and facing clients) is required.\n\n• Committed team player with good capacities of working autonomously.\n\n• Client focused with a deep sense of discretion/confidentiality and problem-solving attitude.\n\n• Excellent communication capabilities.\n\n• Being bilingual in English and French is a must. Knowledge of German is a considered asset. \n\n• Good knowledge of Administrative IT tools [MS Office].\n \n By joining Union Bancaire Privée (Europe), S.A in Luxembourg you will embrace a team of supportive high qualified professionals in Private Banking that will lead you to develop your career to the top level. We encourage continuous learning, development and knowledge sharing. We foster a culture of Agility, Conviction, Dedication and high degree of Responsibility. \n Union Bancaire Privée (Europe), S.A. encourages all suitable qualified and eligible candidates to apply regardless of their gender identity or expression, age, racial, ethnic and cultural background, religion and beliefs, sexual orientation, disability or neuro diversity. \n In accordance with the provisions of the Luxembourg law of 23 July 2016 amending the law of 29 March 2013, retained candidate will be required to provide an extract from their criminal record as a part of UBP screening process."
+      },
+      "location": "Luxembourg",
+      "canton": "TI",
+      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/998",
+      "source": "Union Bancaire Privée Oracle HCM API",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-18T13:25:07.937Z",
+      "addressLocality": "Luxembourg",
+      "addressRegion": "TI",
+      "addressCountry": "",
+      "country": "",
+      "postalCode": "",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Banca / Gestione patrimoniale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/998",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-18T13:25:07.937Z"
     }
   ]
 }
