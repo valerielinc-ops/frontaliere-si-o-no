@@ -14,6 +14,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { buildStationSlug } from './lib/fuel-station-slug.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -217,6 +218,31 @@ function main() {
 
   // Italian per-city averages (benzina only — see comment on computeItalianCityAverages)
   snapshot.italianCities = computeItalianCityAverages(dataset);
+
+  // Per-station prices (added 2026-05-18). Keyed by the same slug the SEO
+  // renderer computes via build-plugins/fuelDailyData.ts → buildStationSlug.
+  // Going forward, this populates the per-station price-history chart on
+  // /prezzi-{fuel}/{zone}/stazioni/{slug}/ pages. Older snapshots (pre this
+  // commit) only carry zone averages; the renderer falls back to zone with a
+  // disclaimer when station-level points are <3.
+  //
+  // Collision handling: when two stations resolve to the same slug (rare —
+  // same brand + same street prefix across cities), the LAST one wins. The
+  // renderer side adds `-2`/`-3` suffixes for uniqueness; those suffixed
+  // slugs won't match here and will fall back to zone, which is acceptable.
+  const stationsByslug = {};
+  for (const s of stations) {
+    const slug = buildStationSlug({ brand: s.brand, name: s.name, address: s.address });
+    if (!slug) continue;
+    const diesel = stationPriceForFuel(s, 'diesel');
+    const benzina = stationPriceForFuel(s, 'benzina');
+    if (diesel === null && benzina === null) continue;
+    const entry = {};
+    if (diesel !== null) entry.diesel = diesel;
+    if (benzina !== null) entry.benzina = benzina;
+    stationsByslug[slug] = entry;
+  }
+  snapshot.stations = stationsByslug;
 
   const out = path.join(HISTORY_DIR, `${today}.json`);
   fs.writeFileSync(out, JSON.stringify(snapshot, null, 2), 'utf-8');
