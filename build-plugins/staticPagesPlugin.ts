@@ -1562,7 +1562,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  };
 
  // Critical CSS (same as asyncCssPlugin) for non-render-blocking loading
- const criticalCSS = '@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading)}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}';
+ const criticalCSS = '@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");size-adjust:100%;ascent-override:90%;descent-override:22%;line-gap-override:0%;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:var(--color-heading)}.dark .dark\\:text-heading{color:#f1f5f9}#root{min-height:100vh}';
 
  /* ── 1. Parse sitemap sub-files for all URLs with hreflang ── */
  let sitemapSrc: string;
@@ -2395,6 +2395,157 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  { href: '/prezzi-diesel/oggi/', label: 'Prezzi diesel oggi' },
  { href: '/prezzi-benzina/oggi/', label: 'Prezzi benzina oggi' },
  );
+ } else {
+ // ── Root SPA-page outbound links (dead-end fix, 2026-05-18) ──
+ // Pages like /buongiorno-frontaliere/, /calcolo-tredicesima-frontaliere/,
+ // /benvenuto-frontaliere/, /community/, /quiz-permesso-b-o-g/, ... are
+ // emitted with only chrome (footer-style) <a>s inside <main>. Squirrel
+ // flags them as `links/dead-end-pages` (no outgoing internal links in
+ // body). Curated map below gives every known root SPA page 3-5 contextually
+ // relevant outbound links. Pages not in the map fall through to a
+ // GENERIC_ROOT_LINKS catch-all so no top-level page stays dead-end.
+ const ROOT_CONTEXTUAL_LINKS: Record<string, { href: string; label: string }[]> = {
+   '/buongiorno-frontaliere/': [
+     { href: '/traffico-dogane/', label: 'Tempi attesa dogane' },
+     { href: '/allerte-meteo/', label: 'Allerte meteo' },
+     { href: '/compara-servizi/cambio-franco-euro/', label: 'Cambio CHF/EUR' },
+     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio' },
+     { href: '/cerca-lavoro-ticino/', label: 'Offerte di lavoro Ticino' },
+   ],
+   '/benvenuto-frontaliere/': [
+     { href: '/guida-frontaliere/primo-giorno-lavoro/', label: 'Primo giorno di lavoro' },
+     { href: '/guida-frontaliere/permessi-di-lavoro/', label: 'Permessi B vs G' },
+     { href: '/calcola-stipendio/', label: 'Calcola lo stipendio netto' },
+     { href: '/compara-servizi/confronta-casse-malati/', label: 'Casse malati' },
+     { href: '/tasse-e-pensione/', label: 'Tasse e previdenza' },
+   ],
+   '/calcolo-tredicesima-frontaliere/': [
+     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio netto' },
+     { href: '/tasse-e-pensione/', label: 'Tasse e previdenza' },
+     { href: '/tfr-liquidazione-frontaliere/', label: 'TFR e liquidazione' },
+     { href: '/cerca-lavoro-ticino/', label: 'Offerte di lavoro Ticino' },
+     { href: '/contratti-lavoro-svizzera/', label: 'Contratti lavoro CH' },
+   ],
+   '/tfr-liquidazione-frontaliere/': [
+     { href: '/calcolo-tredicesima-frontaliere/', label: 'Tredicesima' },
+     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio' },
+     { href: '/tasse-e-pensione/calcola-previdenza/', label: 'Pensioni' },
+     { href: '/contratti-lavoro-svizzera/', label: 'Contratti lavoro' },
+   ],
+   '/contratti-lavoro-svizzera/': [
+     { href: '/guida-frontaliere/permessi-di-lavoro/', label: 'Permessi di lavoro' },
+     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio' },
+     { href: '/cerca-lavoro-ticino/', label: 'Offerte di lavoro' },
+     { href: '/sindacati-frontalieri/', label: 'Sindacati frontalieri' },
+     { href: '/tfr-liquidazione-frontaliere/', label: 'TFR e liquidazione' },
+   ],
+   '/sindacati-frontalieri/': [
+     { href: '/contratti-lavoro-svizzera/', label: 'Contratti di lavoro' },
+     { href: '/guida-frontaliere/permessi-di-lavoro/', label: 'Permessi lavoro' },
+     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio' },
+     { href: '/cerca-lavoro-ticino/', label: 'Lavoro Ticino' },
+   ],
+   '/dialetto-ticinese/': [
+     { href: '/vivere-in-ticino/', label: 'Vivere in Ticino' },
+     { href: '/guida-frontaliere/', label: 'Guida frontaliere' },
+     { href: '/articoli-frontaliere/', label: 'Articoli e attualità' },
+     { href: '/cerca-lavoro-ticino/', label: 'Lavoro in Ticino' },
+   ],
+   '/vivere-in-ticino/': [
+     { href: '/costo-della-vita/', label: 'Costo della vita' },
+     { href: '/dialetto-ticinese/', label: 'Dialetto ticinese' },
+     { href: '/guida-frontaliere/', label: 'Guida frontaliere' },
+     { href: '/cerca-lavoro-ticino/', label: 'Offerte di lavoro' },
+     { href: '/compara-servizi/confronta-casse-malati/', label: 'Casse malati' },
+   ],
+   '/quiz-permesso-b-o-g/': [
+     { href: '/guida-frontaliere/permessi-di-lavoro/', label: 'Permessi B vs G' },
+     { href: '/calcola-stipendio/', label: 'Calcola lo stipendio' },
+     { href: '/tasse-e-pensione/', label: 'Tasse e previdenza' },
+     { href: '/benvenuto-frontaliere/', label: 'Benvenuto frontaliere' },
+   ],
+   '/community/': [
+     { href: '/articoli-frontaliere/', label: 'Articoli e attualità' },
+     { href: '/digest-settimanale/', label: 'Newsletter settimanale' },
+     { href: '/strumento-della-settimana/', label: 'Strumento della settimana' },
+     { href: '/contattaci/', label: 'Contattaci' },
+   ],
+   '/digest-settimanale/': [
+     { href: '/articoli-frontaliere/', label: 'Tutti gli articoli' },
+     { href: '/strumento-della-settimana/', label: 'Strumento della settimana' },
+     { href: '/community/', label: 'Community' },
+     { href: '/buongiorno-frontaliere/', label: 'Buongiorno frontaliere' },
+   ],
+   '/strumento-della-settimana/': [
+     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio' },
+     { href: '/compara-servizi/', label: 'Confronti' },
+     { href: '/articoli-frontaliere/', label: 'Articoli' },
+     { href: '/digest-settimanale/', label: 'Newsletter' },
+   ],
+   '/gamificazione/': [
+     { href: '/quiz-permesso-b-o-g/', label: 'Quiz permessi B vs G' },
+     { href: '/community/', label: 'Community' },
+     { href: '/profilo/', label: 'Profilo' },
+     { href: '/articoli-frontaliere/', label: 'Articoli' },
+   ],
+   '/profilo/': [
+     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio' },
+     { href: '/community/', label: 'Community' },
+     { href: '/digest-settimanale/', label: 'Newsletter' },
+     { href: '/cerca-lavoro-ticino/', label: 'Offerte di lavoro' },
+   ],
+   '/statistiche/': [
+     { href: '/cerca-lavoro-ticino/', label: 'Offerte di lavoro' },
+     { href: '/costo-della-vita/', label: 'Costo della vita' },
+     { href: '/compara-servizi/', label: 'Confronti' },
+     { href: '/articoli-frontaliere/', label: 'Articoli e analisi' },
+   ],
+   '/supporto/': [
+     { href: '/contattaci/', label: 'Contattaci' },
+     { href: '/domande-frequenti-frontalieri/', label: 'FAQ' },
+     { href: '/correzioni/', label: 'Correzioni' },
+     { href: '/metodologia/', label: 'Metodologia' },
+   ],
+   '/contattaci/': [
+     { href: '/supporto/', label: 'Supporto' },
+     { href: '/domande-frequenti-frontalieri/', label: 'FAQ' },
+     { href: '/chi-siamo/', label: 'Chi siamo' },
+     { href: '/correzioni/', label: 'Correzioni' },
+   ],
+   '/privacy/': [
+     { href: '/termini-di-servizio/', label: 'Termini di servizio' },
+     { href: '/eliminazione-dati/', label: 'Eliminazione dati' },
+     { href: '/chi-siamo/', label: 'Chi siamo' },
+     { href: '/contattaci/', label: 'Contattaci' },
+   ],
+   '/termini-di-servizio/': [
+     { href: '/privacy/', label: 'Privacy' },
+     { href: '/eliminazione-dati/', label: 'Eliminazione dati' },
+     { href: '/chi-siamo/', label: 'Chi siamo' },
+     { href: '/contattaci/', label: 'Contattaci' },
+   ],
+   '/eliminazione-dati/': [
+     { href: '/privacy/', label: 'Privacy' },
+     { href: '/termini-di-servizio/', label: 'Termini di servizio' },
+     { href: '/contattaci/', label: 'Contattaci' },
+     { href: '/supporto/', label: 'Supporto' },
+   ],
+ };
+ const rootLinks = ROOT_CONTEXTUAL_LINKS[canonicalPath];
+ if (rootLinks) {
+   contextualLinks.push(...rootLinks);
+ } else if (segments.length === 1) {
+   // Generic fallback: any uncovered root page gets a 4-link cross-funnel
+   // block so it never stays dead-end. Skip multi-segment paths — those
+   // already get section-specific links above or are owned by other plugins.
+   contextualLinks.push(
+     { href: '/calcola-stipendio/', label: 'Calcolatore stipendio' },
+     { href: '/cerca-lavoro-ticino/', label: 'Offerte di lavoro' },
+     { href: '/compara-servizi/', label: 'Confronti servizi' },
+     { href: '/articoli-frontaliere/', label: 'Articoli e attualità' },
+     { href: '/guida-frontaliere/', label: 'Guida frontaliere' },
+   );
+ }
  }
  // Deduplicate (don't repeat links already in main nav or pointing to self)
  const allHrefs = new Set(navLinks.map(l => l.href));
