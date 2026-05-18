@@ -19,7 +19,7 @@
 
 import type fsT from 'node:fs';
 import type npT from 'node:path';
-import { ADSENSE_SNIPPET, BASE_URL } from './constants';
+import { ADSENSE_SNIPPET, BASE_URL, BUILD_ID } from './constants';
 import {
   ARTICLES_PAGE_SIZE,
   COMPANIES_PAGE_SIZE,
@@ -1718,7 +1718,7 @@ function buildThinCantonHubHtml(args: {
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="${canonicalUrl}">
-    <style>.thp,.thc{display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;font-size:13px}.thp{background:var(--color-surface);color:var(--color-link);text-decoration:none;border:1px solid var(--color-edge)}.thc{background:var(--color-accent);color:var(--color-on-accent)}.thi{display:block;padding:10px 12px;border-radius:8px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge);font-size:14px;line-height:1.4}.thi-s{display:block;font-size:12px;color:var(--color-subtle);margin-top:2px}</style>
+    <link rel="stylesheet" href="/assets/seo-static.css?v=${BUILD_ID}">
     <script type="application/ld+json">${breadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
     ${ADSENSE_SNIPPET}
   </head>
