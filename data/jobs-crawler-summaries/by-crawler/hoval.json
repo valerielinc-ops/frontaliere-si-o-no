@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-05-17T21:50:59.311Z",
+  "generatedAt": "2026-05-18T12:33:48.134Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 12986,
-  "avgDurationMs": 12986,
+  "unchangedCount": 0,
+  "durationMs": 11459,
+  "avgDurationMs": 11459,
   "durationHistory": [
-    12986
+    11459
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-17",
+      "postedDate": "2026-05-18",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -69,7 +69,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-17",
+      "postedDate": "2026-05-18",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -106,7 +106,7 @@
       "sector": "IT & Digital",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-05-17",
+      "postedDate": "2026-05-18",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -124,10 +124,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Servicetechniker Wärmepumpen Region Zürich (m/w/d)",
       "slug": "servicetechniker-warmepumpen-region-zurich-m-w-d-hoval-region-zurich",
@@ -146,7 +143,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-17",
+      "postedDate": "2026-05-18",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -158,11 +155,11 @@
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:26:05.869Z",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 19,
         "completeness": 25
       }
     },
@@ -184,7 +181,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-05-17",
+      "postedDate": "2026-05-18",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -196,11 +193,11 @@
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:26:05.869Z",
-      "_qualityScore": 84,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 19,
         "completeness": 25
       }
     },
@@ -222,7 +219,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-17",
+      "postedDate": "2026-05-18",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -259,7 +256,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-05-17",
+      "postedDate": "2026-05-18",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -278,5 +275,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
