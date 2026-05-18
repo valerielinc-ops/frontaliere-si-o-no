@@ -1048,8 +1048,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
   *
   * The cathedral expansion to 26 cantons emits per-canton sector hubs
   * (`/cerca-lavoro-argovia/ingegneri/`), editorial slot pages
-  * (`/cerca-lavoro-giura/oggi/`), city hubs (`/cerca-lavoro-appenzello/herisau/`),
-  * and company-canton hubs (`/cerca-lavoro-basilea/azienda-tally-weijl-basel/`).
+  * (`/cerca-lavoro-giura/offerte-di-lavoro-giura-oggi/`), city hubs
+  * (`/cerca-lavoro-appenzello/herisau/`), and company-canton hubs
+  * (`/cerca-lavoro-basilea/azienda-tally-weijl-basel/`).
   * The non-TI canton hub already links its own leaves via the `data-canton-explore`
   * navigator in `jobsSeoPagesPlugin.ts`, BUT pages with `cantonCount <
   * MIN_JOBS_FOR_CANTON_PAGE` (5) are emitted as `noindex,follow`. The
@@ -3255,12 +3256,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
    .map((w: string) => w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w)
    .join(' ');
  cantonAnchors.push(`<a href="${cantonHubHref}" style="display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#eef2ff;color:#312e81;text-decoration:none;font-size:13px;font-weight:600;border:1px solid #c7d2fe">${esc(displayLabel)}</a>`);
- // Per-canton "today" landing lives under that canton's own section path
- // (`/cerca-lavoro-{canton}/{slug}/`), e.g. `/cerca-lavoro-basilea/oggi/`
- // or `/cerca-lavoro-ticino/offerte-di-lavoro-ticino-oggi/`. The earlier
+ // Per-canton "today" landing lives under that canton's own section
+ // with the canton's per-locale long-form slug, e.g.
+ // `/cerca-lavoro-basilea/offerte-di-lavoro-basilea-oggi/` or
+ // `/cerca-lavoro-ticino/offerte-di-lavoro-ticino-oggi/`. The earlier
  // implementation nested every canton's today slug under `tiSection`
- // (`/cerca-lavoro-ticino/oggi/` etc.) which 404s for non-TI cantons
- // because the actual emit target is `/cerca-lavoro-{canton}/oggi/`.
+ // (`/cerca-lavoro-ticino/<slug>/`) which 404s for non-TI cantons.
  if (code !== AGGREGATE_KEY) {
  const todaySlug = getJobTodayLandingSlug(cantonLocale, code);
  const cantonSectionForToday = resolveCantonSection(cantonLocale, code);

@@ -76,7 +76,7 @@ function slugForSlot(slot: SlotKey, locale: Locale, canton: string): string {
 export interface OrphanRedirect {
  /** Absolute path to emit, e.g. `/cerca-lavoro-basilea/offerte-di-lavoro-ticino-oggi/` */
  from: string;
- /** Absolute canonical path, e.g. `/cerca-lavoro-basilea/oggi/` */
+ /** Absolute canonical path, e.g. `/cerca-lavoro-basilea/offerte-di-lavoro-basilea-oggi/` */
  to: string;
  locale: Locale;
  canton: string;
