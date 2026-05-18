@@ -535,7 +535,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  ].filter(Boolean).join('');
  const preloadTag = corePreloads ? '\n ' + corePreloads : '';
 
- const criticalCSS = '@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:#0f172a}.dark .dark\\:text-heading{color:#f1f5f9}body{min-height:100vh}';
+ const criticalCSS = '@font-face{font-family:Inter;font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/inter-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}*,::after,::before{box-sizing:border-box;border:0 solid #e5e7eb}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}.bg-surface-alt{background-color:#f8fafc}.dark .dark\\:bg-surface-inverted,.dark.bg-surface-inverted{background-color:#020617}.text-heading{color:#0f172a}.dark .dark\\:text-heading{color:#f1f5f9}#root{min-height:100vh}';
 
  // ── Build related articles helper for cross-linking (SEO: inter-article links) ──
  const relatedArticlesLabel: Record<string, string> = {
@@ -618,12 +618,13 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  const metaDesc = metaDescRaw.length > 155
  ? metaDescRaw.substring(0, 152) + '…'
  : metaDescRaw;
- // <title>: headline VERBATIM, brand suffix only when total ≤ TITLE_MAX_CHARS.
- // Per build-plugins/shared/titleSuffix.ts, mid-headline `…` truncation tanks
- // CTR (see /calcola-stipendio/ regression doc). We only force a truncation
- // when there's a real disambiguator collision that MUST be preserved to
- // satisfy audit:title-uniqueness — and even then, we drop the brand first
- // (it's "nice-to-have", not a ranking signal) before resorting to `…`.
+ // <title>: headline VERBATIM, brand suffix only when total <= TITLE_MAX_CHARS.
+ // Per build-plugins/shared/titleSuffix.ts, mid-headline ellipsis truncation
+ // tanks CTR (see /calcola-stipendio/ regression doc). We only force a
+ // truncation when there's a real disambiguator collision that MUST be
+ // preserved to satisfy audit:title-uniqueness -- and even then, we drop the
+ // brand first (it's "nice-to-have", not a ranking signal) before resorting
+ // to mid-headline truncation.
  const articleLocale: 'it' | 'en' | 'de' | 'fr' = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const baseTitleProbe = buildTitleWithBrand(localizedTitle);
  const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
@@ -632,15 +633,15 @@ export function ogPagesPlugin(rootDir: string): Plugin {
  let htmlPageTitle: string;
  if (!disamb) {
   // No collision: trust buildTitleWithBrand to either keep brand or drop it.
-  // It never truncates — long headlines emit verbatim and the audit baseline
+  // It never truncates -- long headlines emit verbatim and the audit baseline
   // ratchets them down at source.
   htmlPageTitle = buildTitleWithBrand(localizedTitle);
  } else {
   // Disambiguator MUST survive (collision-resolution for title-uniqueness).
   // Try brand+disamb first; if it doesn't fit, drop brand and keep disamb;
-  // if even headline+disamb overflows, truncate headline (last resort, the
-  // only path where `…` is acceptable because the alternative is dropping
-  // the (#hash) and breaking the title-uniqueness audit).
+  // if even headline+disamb overflows, truncate headline (last resort -- the
+  // only path where ellipsis truncation is acceptable because the alternative
+  // is dropping the (#hash) and breaking the title-uniqueness audit).
   const withBrandAndDisamb = `${localizedTitle}${disamb}${TITLE_BRAND_SUFFIX}`;
   if (withBrandAndDisamb.length <= TITLE_MAX_CHARS) {
    htmlPageTitle = withBrandAndDisamb;
@@ -1006,7 +1007,7 @@ ${headTags}
  ${ADSENSE_SNIPPET}
  </head>
  <body>
- <div id="root"><main id="main-content"><article><h1>${esc(localizedTitle)}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi">Confronta Servizi</a> | <a href="/tasse-e-pensione">Tasse e Pensione</a> | <a href="/guida-frontaliere">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri">FAQ</a> | <a href="/glossario-frontaliere">Glossario</a> | <a href="/articoli-frontaliere">Articoli</a></nav></article></main></div>
+ <div id="root"><main id="main-content"><article><h1>${esc(localizedTitle)}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></main></div>
  </body>
 </html>`;
  };
