@@ -13,6 +13,7 @@ import { BASE_URL, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS } from './consta
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { WriteCollector } from './batchWrite';
 import { buildTitleWithBrand, truncateHeadline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS } from './shared/titleSuffix';
+import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
@@ -1025,7 +1026,7 @@ ${headTags}
  ${ADSENSE_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- <div id="root"><main id="main-content"><article><h1>${esc(localizedTitle)}</h1><p class="article-byline" style="font-size:0.85rem;color:var(--color-body-muted,#64748b);margin:0.25rem 0 1rem">Di Valerie Linc · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></main></div>
+ <div id="root"><main id="main-content"><article><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline" style="font-size:0.85rem;color:var(--color-body-muted,#64748b);margin:0.25rem 0 1rem">Di Valerie Linc · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></main></div>
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
@@ -1040,7 +1041,7 @@ ${headTags}
  ${ADSENSE_SNIPPET}
  </head>
  <body>
- <div id="root"><main id="main-content"><article><h1>${esc(localizedTitle)}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></main></div>
+ <div id="root"><main id="main-content"><article><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></main></div>
  </body>
 </html>`;
  };
