@@ -899,6 +899,35 @@ function readArticleSlugs(
 }
 
 /**
+ * Read per-article excerpts from `services/locales/blog-meta-{locale}.ts`.
+ * Used to render the articles hub items as cards (rule #17 step 6 — actual
+ * data area carries 1-line previews instead of plain anchors).
+ */
+function readArticleExcerpts(
+  fs: typeof fsT,
+  np: typeof npT,
+  rootDir: string,
+  locale: HubLocale,
+): Map<string, string> {
+  const file = np.resolve(rootDir, 'services/locales', `blog-meta-${locale}.ts`);
+  const out = new Map<string, string>();
+  try {
+    if (!fs.existsSync(file)) return out;
+    const src = fs.readFileSync(file, 'utf-8');
+    const rx = /'blog\.article\.([^']+?)\.excerpt':\s*'((?:[^'\\]|\\.)*)'/g;
+    let m: RegExpExecArray | null;
+    while ((m = rx.exec(src)) !== null) {
+      const slug = m[1];
+      const excerpt = m[2].replace(/\\'/g, "'").replace(/\\"/g, '"');
+      out.set(slug, excerpt);
+    }
+  } catch (err) {
+    console.warn(`[seo-hubs] failed to read excerpts from blog-meta-${locale}.ts`, err);
+  }
+  return out;
+}
+
+/**
  * Read the {@link BlogArticleId} → per-locale URL-slug map from
  * `services/routerBlogData.ts` (the `BLOG_SLUGS` constant). Mirrors the
  * parser in {@link ogPagesPlugin}.
@@ -952,6 +981,8 @@ interface BuildHtmlArgs {
     jobCount?: number;
     /** Emoji prefix bubble for sector items (mirrors per-canton hubs). */
     emoji?: string;
+    /** 1-line preview text for article items (truncated to ~140 chars). */
+    excerpt?: string;
   }>;
   totalItems: number;
   hasSpaBundle: boolean;
@@ -1040,11 +1071,12 @@ function buildHtml(args: BuildHtmlArgs): string {
   // Pagination chrome: prev / page-numbers / next
   const pagination = totalPages > 1 ? renderPagination(locale, basePath, page, totalPages) : '';
 
-  // Items list — three layouts:
+  // Items list — four layouts:
   //   • company items (`logo` defined) → entity-card with logo + job count
   //   • sector items (`emoji` defined) → emoji bubble card
-  //   • everything else (jobs, articles) → compact plain-link
-  const useFancyGrid = pageItems.some((it) => it.logo !== undefined || it.emoji !== undefined);
+  //   • article items (`excerpt` defined) → title + 1-line preview card
+  //   • everything else (jobs) → compact plain-link
+  const useFancyGrid = pageItems.some((it) => it.logo !== undefined || it.emoji !== undefined || it.excerpt !== undefined);
   const itemsHtml = pageItems.length === 0
     ? `<p style="color:var(--color-subtle);padding:16px 0">${esc(emptyLabel(locale))}</p>`
     : useFancyGrid
@@ -1066,6 +1098,9 @@ function buildHtml(args: BuildHtmlArgs): string {
             if (it.emoji !== undefined) {
               const subLabel = { it: 'Esplora →', en: 'Explore →', de: 'Erkunden →', fr: 'Explorer →' }[locale];
               return `<li><a href="${esc(it.href)}" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge)"><span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--color-surface-alt);font-size:24px;line-height:1;flex-shrink:0">${it.emoji}</span><span style="flex:1;min-width:0"><span style="display:block;font-weight:700;font-size:15px;line-height:1.3;color:var(--color-heading)">${esc(it.label)}</span><span style="display:block;font-size:12.5px;color:var(--color-subtle);margin-top:2px;line-height:1.4">${subLabel}</span></span></a></li>`;
+            }
+            if (it.excerpt !== undefined) {
+              return `<li><a href="${esc(it.href)}" style="display:block;padding:14px 16px;border-radius:14px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge)"><span style="display:block;font-weight:700;font-size:15px;line-height:1.35;color:var(--color-heading);margin-bottom:6px">${esc(it.label)}</span><span style="display:block;font-size:13px;color:var(--color-subtle);line-height:1.5">${esc(it.excerpt)}</span></a></li>`;
             }
             return `<li><a href="${esc(it.href)}" style="display:block;padding:10px 12px;border-radius:8px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge);font-size:14px;line-height:1.4">${esc(it.label)}</a></li>`;
           })
@@ -1507,8 +1542,13 @@ function buildThinCantonHubHtml(args: {
    *  both href and label so the same primitive serves `tutti` (link to
    *  calculator), `aziende` / `settori` (link to job-board), etc. */
   cta?: { readonly href: string; readonly label: string };
+  /** 1–2 sentence "Consiglio" / interpretation banner (rule #17 step 4).
+   *  Rendered as `<aside data-canton-advice>` between stat tiles and CTA,
+   *  styled with STAT_TILE_ACCENT — gives crawlers + users an at-a-glance
+   *  takeaway from the numbers above. */
+  advice?: string;
 }): string {
-  const { locale, hub, cantonLabel, basePath, totalItems, items, hasSpaBundle, entryJs, entryCss, dateStamp, statTiles, cta } = args;
+  const { locale, hub, cantonLabel, basePath, totalItems, items, hasSpaBundle, entryJs, entryCss, dateStamp, statTiles, cta, advice } = args;
   const page = args.page ?? 1;
   const totalPages = args.totalPages ?? 1;
   const h1 = cantonHubH1(locale, hub, cantonLabel, totalItems);
@@ -1606,6 +1646,13 @@ function buildThinCantonHubHtml(args: {
         .join('')}</section>`
     : '';
 
+  // "Consiglio" / interpretation banner (rule #17 step 4). Same accent
+  // tone as the headline stat tile so it visually links to the numbers
+  // above. Uses an `<aside>` so screen-readers can skip it.
+  const adviceHtml = advice
+    ? `<aside data-canton-advice="${esc(hub)}" style="${STAT_TILE_ACCENT};margin:0 0 18px;font-size:14.5px;line-height:1.55">${esc(advice)}</aside>`
+    : '';
+
   // Primary CTA — rendered on every page (including page-N>1) so the user
   // always has a single dominant next step above the fold.
   const ctaHtml = cta
@@ -1657,6 +1704,7 @@ function buildThinCantonHubHtml(args: {
         <p style="margin-top:8px;color:var(--color-subtle);font-size:13px">${esc(countLabel(locale, totalItems))} · ${esc(updatedLabel(locale))} ${dateStamp}</p>
       </header>
       ${statTilesHtml}
+      ${adviceHtml}
       ${ctaHtml}
       <section>
         ${itemsHtml}
@@ -1701,6 +1749,49 @@ function cantonDisplayLabel(canton: string, locale: HubLocale): string {
     .filter((w) => w.length > 0)
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(' ');
+}
+
+/**
+ * Build a 1–2 sentence "Consiglio" / interpretation that goes into the
+ * `<aside data-canton-advice>` banner (rule #17 step 4). Each variant
+ * reads the numbers from the stat tiles immediately above and surfaces
+ * a concrete frontaliere-focused takeaway.
+ */
+function cantonHubAdvice(
+  locale: HubLocale,
+  hub: CantonHubKind,
+  cantonLabel: string,
+  total: number,
+  empCount: number,
+  topEmployerName: string | null,
+  topEmployerJobs: number,
+): string {
+  if (hub === 'tutti') {
+    return {
+      it: `${total} offerte attive oggi a ${cantonLabel} su ${empCount} datori. Apri il calcolatore stipendio per convertire il lordo CHF in netto reale (Permesso G + Nuovo Accordo 2024) prima di candidarti.`,
+      en: `${total} active openings in ${cantonLabel} today across ${empCount} employers. Use the salary calculator to convert the gross CHF into a real net (G permit + 2024 agreement) before you apply.`,
+      de: `Heute ${total} aktive Stellen in ${cantonLabel} bei ${empCount} Arbeitgebern. Vor der Bewerbung den Lohnrechner nutzen, um den Brutto in echten Netto (Grenzgängerbewilligung G + Abkommen 2024) umzurechnen.`,
+      fr: `${total} offres actives aujourd'hui à ${cantonLabel} chez ${empCount} employeurs. Utilisez le calculateur de salaire pour convertir le brut CHF en net réel (permis G + accord 2024) avant de postuler.`,
+    }[locale];
+  }
+  if (hub === 'settori') {
+    return {
+      it: `I settori a maggior domanda frontaliere in Svizzera sono sanità (~22 %), commercio e ristorazione (~18 %) ed edilizia (~12 %). A ${cantonLabel} ci sono oggi ${total} offerte aperte distribuite su questi rami.`,
+      en: `The top cross-border-demand sectors in Switzerland are healthcare (~22 %), retail and hospitality (~18 %) and construction (~12 %). ${cantonLabel} has ${total} active openings today across these branches.`,
+      de: `Die nachfragestärksten Grenzgänger-Branchen in der Schweiz sind Gesundheit (~22 %), Handel und Gastronomie (~18 %) und Bau (~12 %). In ${cantonLabel} gibt es heute ${total} offene Stellen in diesen Bereichen.`,
+      fr: `Les secteurs à plus forte demande frontalière en Suisse sont la santé (~22 %), le commerce et la restauration (~18 %) et la construction (~12 %). ${cantonLabel} compte aujourd'hui ${total} offres actives dans ces branches.`,
+    }[locale];
+  }
+  // aziende
+  const top = topEmployerName && topEmployerJobs > 0
+    ? ` Top datore: ${topEmployerName} con ${topEmployerJobs} offerte.`
+    : '';
+  return {
+    it: `${empCount} datori attivi oggi a ${cantonLabel}.${top} La candidatura spontanea verso aziende che pubblicano regolarmente apre un colloquio esplorativo entro 6 settimane in molti casi.`,
+    en: `${empCount} employers hiring in ${cantonLabel} today.${topEmployerName ? ` Top employer: ${topEmployerName} with ${topEmployerJobs} openings.` : ''} Speculative applications to companies that post regularly often open an exploratory interview within 6 weeks.`,
+    de: `${empCount} aktive Arbeitgeber in ${cantonLabel}.${topEmployerName ? ` Top-Arbeitgeber: ${topEmployerName} mit ${topEmployerJobs} Stellen.` : ''} Initiativbewerbungen an Firmen, die regelmässig publizieren, führen oft innerhalb von 6 Wochen zu einem Sondierungsgespräch.`,
+    fr: `${empCount} employeurs actifs à ${cantonLabel}.${topEmployerName ? ` Top employeur : ${topEmployerName} avec ${topEmployerJobs} offres.` : ''} Les candidatures spontanées aux entreprises qui publient régulièrement ouvrent souvent un entretien exploratoire en moins de 6 semaines.`,
+  }[locale];
 }
 
 function emitThinCantonHubs(args: ThinCantonHubArgs): void {
@@ -1779,6 +1870,7 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
               href: { it: '/calcola-stipendio/', en: '/en/calculate-salary/', de: '/de/gehalt-berechnen/', fr: '/fr/calculer-salaire/' }[locale],
               label: { it: 'Calcola lo stipendio netto frontaliere →', en: 'Calculate your cross-border net salary →', de: 'Grenzgänger-Nettolohn berechnen →', fr: 'Calculer le salaire net frontalier →' }[locale],
             },
+            advice: cantonHubAdvice(locale, 'tutti', cantonLabel, total, empCounts.size, null, 0),
           });
           const pageCanonical = pageNum === 1 ? basePath : paginatedPath(basePath, pageNum);
           qw(np.join(distDir, pageCanonical.slice(1), 'index.html'), html);
@@ -1833,6 +1925,7 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
             href: sectionRoot + '/',
             label: { it: `Sfoglia tutte le offerte di ${cantonLabel} →`, en: `Browse all openings in ${cantonLabel} →`, de: `Alle Stellen in ${cantonLabel} ansehen →`, fr: `Voir toutes les offres à ${cantonLabel} →` }[locale],
           },
+          advice: cantonHubAdvice(locale, 'settori', cantonLabel, total, empCounts.size, null, 0),
         });
         qw(np.join(distDir, basePath.slice(1), 'index.html'), html);
         onPageEmitted();
@@ -1877,6 +1970,7 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
             href: sectionRoot + '/',
             label: { it: `Sfoglia tutte le offerte di ${cantonLabel} →`, en: `Browse all openings in ${cantonLabel} →`, de: `Alle Stellen in ${cantonLabel} ansehen →`, fr: `Voir toutes les offres à ${cantonLabel} →` }[locale],
           },
+          advice: cantonHubAdvice(locale, 'aziende', cantonLabel, total, empCounts.size, topEmployer ? humanizeSlug(topEmployer[0]) : null, topEmployer ? topEmployer[1] : 0),
         });
         qw(np.join(distDir, basePath.slice(1), 'index.html'), html);
         onPageEmitted();
@@ -1927,7 +2021,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       : HUB_SLUGS[locale].articlesAll
     );
 
-    let items: Array<{ href: string; label: string; logo?: string | null; jobCount?: number; emoji?: string }> = [];
+    let items: Array<{ href: string; label: string; logo?: string | null; jobCount?: number; emoji?: string; excerpt?: string }> = [];
     let pageSize = 100;
 
     if (hubKey === 'jobs') {
@@ -1999,6 +2093,8 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const localeArticles = locale === 'it' ? itArticles : readArticleSlugs(fs, np, rootDir, locale);
       const localeBySlug = new Map(localeArticles.map((a) => [a.slug, a.title]));
       const itBySlug = new Map(itArticles.map((a) => [a.slug, a.title]));
+      const localeExcerpts = readArticleExcerpts(fs, np, rootDir, locale);
+      const itExcerpts = readArticleExcerpts(fs, np, rootDir, 'it');
       const blogUrlSlugs = readBlogUrlSlugs(fs, np, rootDir);
       const blogSection = locale === 'it' ? 'articoli-frontaliere'
         : locale === 'en' ? 'cross-border-articles'
@@ -2024,7 +2120,14 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
         // BlogArticleId itself when the article is missing from BLOG_SLUGS
         // (older articles or auto-generated entries can lag the slug map).
         const urlSlug = blogUrlSlugs[slug]?.[locale] ?? slug;
-        items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label });
+        // Excerpt: 1-line preview surfaced as the card subtitle. Locale
+        // → IT fallback so non-IT cards aren't blank when the translation
+        // is missing the excerpt key.
+        const rawExcerpt = localeExcerpts.get(slug) ?? itExcerpts.get(slug);
+        const excerpt = rawExcerpt && rawExcerpt.length > 140
+          ? rawExcerpt.slice(0, 137).trimEnd() + '…'
+          : rawExcerpt;
+        items.push({ href: `${prefix}/${blogSection}/${urlSlug}/`, label, excerpt });
       }
     }
 
