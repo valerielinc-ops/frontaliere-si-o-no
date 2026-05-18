@@ -2483,6 +2483,8 @@ interface StationRedesignLabels {
   readonly locationCaption: (brand: string, city: string) => string;
   readonly mapAria: (brand: string, city: string) => string;
   readonly coordinatesLabel: string;
+  readonly openInOsm: string;
+  readonly externalLinkSuffix: string;
   readonly historyHeading: (zone: string) => string;
   readonly historyHeadingStation: (brand: string) => string;
   readonly historyDisclaimer: string;
@@ -2490,6 +2492,7 @@ interface StationRedesignLabels {
   readonly historyAriaLabel: (zone: string, fuel: string, avgFmt: string) => string;
   readonly historyAriaLabelStation: (brand: string, fuel: string, avgFmt: string) => string;
   readonly historyTrendLabel: string;
+  readonly historyLastUpdated: (dateStamp: string) => string;
   readonly adviceCheaper: (delta: string, zone: string) => string;
   readonly adviceMedian: (zone: string) => string;
   readonly advicePremium: (delta: string, zone: string) => string;
@@ -2506,6 +2509,8 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     locationCaption: (b, c) => `Posizione della stazione ${b} a ${c}. Tocca la mappa per zoom o usa i pulsanti per la navigazione.`,
     mapAria: (b, c) => `Mappa OpenStreetMap che mostra la posizione della stazione ${b} a ${c}`,
     coordinatesLabel: 'Coordinate',
+    openInOsm: 'Apri su OpenStreetMap',
+    externalLinkSuffix: 'apre in una nuova scheda',
     historyHeading: (z) => `Andamento prezzo nella zona ${z}`,
     historyHeadingStation: (b) => `Andamento prezzo di ${b}`,
     historyDisclaimer: 'Cronologia per singola stazione non ancora disponibile: mostriamo l\'andamento medio della zona, che questa stazione segue da vicino.',
@@ -2513,6 +2518,7 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     historyAriaLabel: (z, f, avg) => `Andamento storico del prezzo ${f.toLowerCase()} nella zona ${z}, media ${avg} CHF/litro nell'intervallo selezionato.`,
     historyAriaLabelStation: (b, f, avg) => `Andamento storico del prezzo ${f.toLowerCase()} alla stazione ${b}, media ${avg} CHF/litro nell'intervallo selezionato.`,
     historyTrendLabel: 'Andamento prezzo',
+    historyLastUpdated: (d) => `Ultimo aggiornamento: ${d}`,
     adviceCheaper: (delta, z) => `Buona scelta: oggi questa stazione è ${delta} CHF/litro più economica della media zona ${z}.`,
     adviceMedian: (z) => `Prezzo in linea con la media della zona ${z}: scegli in base alla comodità del percorso.`,
     advicePremium: (delta, z) => `Attenzione: oggi questa stazione è ${delta} CHF/litro più cara della media zona ${z}. Valuta una stazione più economica nella classifica.`,
@@ -2527,6 +2533,8 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     locationCaption: (b, c) => `Location of the ${b} station in ${c}. Tap the map to zoom, or use the buttons for navigation.`,
     mapAria: (b, c) => `OpenStreetMap showing the location of the ${b} station in ${c}`,
     coordinatesLabel: 'Coordinates',
+    openInOsm: 'Open in OpenStreetMap',
+    externalLinkSuffix: 'opens in a new tab',
     historyHeading: (z) => `Price trend in the ${z} zone`,
     historyHeadingStation: (b) => `Price trend at ${b}`,
     historyDisclaimer: 'Per-station history not yet available: showing the zone average, which this station closely tracks.',
@@ -2534,6 +2542,7 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     historyAriaLabel: (z, f, avg) => `Historical ${f.toLowerCase()} price trend in the ${z} zone, average ${avg} CHF/litre over the selected range.`,
     historyAriaLabelStation: (b, f, avg) => `Historical ${f.toLowerCase()} price trend at ${b}, average ${avg} CHF/litre over the selected range.`,
     historyTrendLabel: 'Price trend',
+    historyLastUpdated: (d) => `Last updated: ${d}`,
     adviceCheaper: (delta, z) => `Good pick: today this station is ${delta} CHF/litre cheaper than the ${z}-zone average.`,
     adviceMedian: (z) => `Price in line with the ${z}-zone average: pick by route convenience.`,
     advicePremium: (delta, z) => `Heads up: today this station is ${delta} CHF/litre above the ${z}-zone average. Consider a cheaper one from the ranking.`,
@@ -2548,6 +2557,8 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     locationCaption: (b, c) => `Standort der Tankstelle ${b} in ${c}. Tippe die Karte für Zoom oder nutze die Buttons für Navigation.`,
     mapAria: (b, c) => `OpenStreetMap mit Standort der Tankstelle ${b} in ${c}`,
     coordinatesLabel: 'Koordinaten',
+    openInOsm: 'In OpenStreetMap öffnen',
+    externalLinkSuffix: 'öffnet in einem neuen Tab',
     historyHeading: (z) => `Preisverlauf in der Zone ${z}`,
     historyHeadingStation: (b) => `Preisverlauf bei ${b}`,
     historyDisclaimer: 'Stations-Historie noch nicht verfügbar: gezeigt wird der Zonen-Durchschnitt, dem diese Tankstelle folgt.',
@@ -2555,6 +2566,7 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     historyAriaLabel: (z, f, avg) => `Historischer ${f}-Preisverlauf in der Zone ${z}, Durchschnitt ${avg} CHF/Liter im ausgewählten Zeitraum.`,
     historyAriaLabelStation: (b, f, avg) => `Historischer ${f}-Preisverlauf bei ${b}, Durchschnitt ${avg} CHF/Liter im ausgewählten Zeitraum.`,
     historyTrendLabel: 'Preisverlauf',
+    historyLastUpdated: (d) => `Zuletzt aktualisiert: ${d}`,
     adviceCheaper: (delta, z) => `Gute Wahl: heute ist diese Tankstelle ${delta} CHF/Liter günstiger als der Zonen-${z}-Schnitt.`,
     adviceMedian: (z) => `Preis im Schnitt der Zone ${z}: wähle nach Route.`,
     advicePremium: (delta, z) => `Achtung: heute ist diese Tankstelle ${delta} CHF/Liter teurer als der Zonen-${z}-Schnitt. Eine günstigere findest du in der Rangliste.`,
@@ -2569,6 +2581,8 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     locationCaption: (b, c) => `Emplacement de la station ${b} à ${c}. Touchez la carte pour zoomer ou utilisez les boutons pour la navigation.`,
     mapAria: (b, c) => `OpenStreetMap montrant l'emplacement de la station ${b} à ${c}`,
     coordinatesLabel: 'Coordonnées',
+    openInOsm: 'Ouvrir dans OpenStreetMap',
+    externalLinkSuffix: 's\'ouvre dans un nouvel onglet',
     historyHeading: (z) => `Tendance du prix dans la zone ${z}`,
     historyHeadingStation: (b) => `Tendance du prix chez ${b}`,
     historyDisclaimer: 'Historique par station pas encore disponible : la moyenne de la zone est affichée, cette station la suit de près.',
@@ -2576,6 +2590,7 @@ const STATION_REDESIGN: Record<FuelDailyLocale, StationRedesignLabels> = {
     historyAriaLabel: (z, f, avg) => `Tendance historique du prix ${f.toLowerCase()} dans la zone ${z}, moyenne ${avg} CHF/litre sur la période sélectionnée.`,
     historyAriaLabelStation: (b, f, avg) => `Tendance historique du prix ${f.toLowerCase()} chez ${b}, moyenne ${avg} CHF/litre sur la période sélectionnée.`,
     historyTrendLabel: 'Tendance du prix',
+    historyLastUpdated: (d) => `Dernière mise à jour : ${d}`,
     adviceCheaper: (delta, z) => `Bon choix : aujourd'hui cette station est ${delta} CHF/litre moins chère que la moyenne de la zone ${z}.`,
     adviceMedian: (z) => `Prix conforme à la moyenne de la zone ${z} : choisissez selon votre itinéraire.`,
     advicePremium: (delta, z) => `Attention : aujourd'hui cette station est ${delta} CHF/litre plus chère que la moyenne de la zone ${z}. Voyez le classement pour une option moins chère.`,
@@ -2736,14 +2751,20 @@ function renderStationLocationCard(inp: StationLocationInput): string {
   const gmapsHref = `https://www.google.com/maps/search/?api=1&query=${marker}`;
   const wazeHref = `https://www.waze.com/ul?ll=${marker.replace(',', '%2C')}&navigate=yes`;
 
+  const osmHref = `https://www.openstreetmap.org/?mlat=${lat.toFixed(6)}&mlon=${lng.toFixed(6)}#map=17/${lat.toFixed(6)}/${lng.toFixed(6)}`;
+  const ext = labels.externalLinkSuffix;
+  const labelGmaps = `${labels.openInMaps} (${ext})`;
+  const labelWaze = `${labels.openInWaze} (${ext})`;
+  const labelOsm = `${labels.openInOsm} (${ext})`;
+
   return `<section style="${CARD_BODY_STYLE};padding:0;margin:0 0 22px;overflow:hidden" aria-labelledby="stationLocation">
-  <div style="display:grid;grid-template-columns:minmax(0,1fr);gap:0">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:0">
     <div style="position:relative;background:var(--color-surface-alt);min-height:240px">
       <iframe
         src="${iframeSrc}"
         width="100%"
         height="240"
-        style="border:0;display:block;width:100%;height:240px"
+        style="border:0;display:block;width:100%;height:100%;min-height:240px"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         title="${esc(labels.mapAria(inp.brand, inp.city))}"
@@ -2757,9 +2778,10 @@ function renderStationLocationCard(inp: StationLocationInput): string {
         <dt style="display:flex;align-items:center;color:var(--color-subtle)" aria-hidden="true">${ICON_NAVIGATION_SVG}</dt><dd style="margin:0;font-variant-numeric:tabular-nums">${esc(labels.coordinatesLabel)}: ${lat.toFixed(5)}, ${lng.toFixed(5)}</dd>
       </dl>
       <div style="display:flex;flex-wrap:wrap;gap:8px">
-        <a href="${esc(gmapsHref)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;background:var(--color-accent);color:var(--color-on-accent);text-decoration:none;font-weight:600;font-size:14px">${ICON_MAP_PIN_SVG} ${esc(labels.openInMaps)}</a>
-        <a href="${esc(wazeHref)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;background:var(--color-surface-alt);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-edge)">${ICON_NAVIGATION_SVG} ${esc(labels.openInWaze)}</a>
+        <a href="${esc(gmapsHref)}" target="_blank" rel="noopener" aria-label="${esc(labelGmaps)}" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;background:var(--color-accent);color:var(--color-on-accent);text-decoration:none;font-weight:600;font-size:14px">${ICON_MAP_PIN_SVG} ${esc(labels.openInMaps)}<span aria-hidden="true" style="font-size:11px;opacity:0.85;margin-left:2px">↗</span></a>
+        <a href="${esc(wazeHref)}" target="_blank" rel="noopener" aria-label="${esc(labelWaze)}" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;background:var(--color-surface-alt);color:var(--color-heading);text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--color-edge)">${ICON_NAVIGATION_SVG} ${esc(labels.openInWaze)}<span aria-hidden="true" style="font-size:11px;opacity:0.7;margin-left:2px">↗</span></a>
       </div>
+      <p style="margin:12px 0 0;font-size:13px;line-height:1.4"><a href="${esc(osmHref)}" target="_blank" rel="noopener" aria-label="${esc(labelOsm)}" style="color:var(--color-link);text-decoration:underline;text-underline-offset:2px">${esc(labels.openInOsm)} <span aria-hidden="true">↗</span></a></p>
     </div>
   </div>
 </section>`;
@@ -2825,10 +2847,12 @@ function renderStationHistoryCard(inp: StationHistoryInput): string {
       seriesByRange: stationSeriesByRange,
       currency: 'CHF',
     });
+    const lastUpdatedLine = `<p style="margin:8px 0 0;color:var(--color-subtle);font-size:12px;text-align:right;font-variant-numeric:tabular-nums">${esc(labels.historyLastUpdated(inp.today.toISOString().slice(0, 10)))}</p>`;
     return `<section style="margin:0 0 24px" aria-labelledby="stationHistory">
   <h2 id="stationHistory" style="${H2_STYLE};margin:0 0 8px;font-size:20px">${esc(labels.historyHeadingStation(inp.brand))}</h2>
   <p style="margin:0 0 14px;color:var(--color-subtle);font-size:13px;line-height:1.5">${esc(labels.historyCaptionStation)}</p>
   ${chartCard}
+  ${lastUpdatedLine}
 </section>`;
   }
 
@@ -2856,10 +2880,12 @@ function renderStationHistoryCard(inp: StationHistoryInput): string {
     seriesByRange: zoneSeriesByRange,
     currency: 'CHF',
   });
+  const lastUpdatedLine = `<p style="margin:8px 0 0;color:var(--color-subtle);font-size:12px;text-align:right;font-variant-numeric:tabular-nums">${esc(labels.historyLastUpdated(inp.today.toISOString().slice(0, 10)))}</p>`;
   return `<section style="margin:0 0 24px" aria-labelledby="stationHistory">
   <h2 id="stationHistory" style="${H2_STYLE};margin:0 0 8px;font-size:20px">${esc(labels.historyHeading(inp.zoneLabel))}</h2>
   <p style="margin:0 0 14px;color:var(--color-subtle);font-size:13px;line-height:1.5;font-style:italic">${esc(labels.historyDisclaimer)}</p>
   ${chartCard}
+  ${lastUpdatedLine}
 </section>`;
 }
 
