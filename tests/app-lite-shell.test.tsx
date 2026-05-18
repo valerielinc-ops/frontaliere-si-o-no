@@ -212,6 +212,57 @@ describe('App lite-shell (staticOverlay) rendering', () => {
     ).toBeGreaterThanOrEqual(1);
   });
 
+  it('static hub-subnav DOM-deduplication: SPA removes the build-time nav.seo-hub-subnav that sits outside #root', () => {
+    // Build plugins (staticPagesPlugin via renderHubChromeSplit) ship a
+    // server-rendered `<nav class="seo-hub-subnav">` as a sibling of
+    // `<main class="seo-static-content">` so the sub-nav is on screen during
+    // first paint. After hydration the SPA renders its OWN interactive
+    // SubTabNav inside `#root` — without cleanup the user sees two sub-nav
+    // bars (one static, one hydrated). Regression for "due nav bar" bug on
+    // /calcola-stipendio/* pages reported 2026-05-18 after PR #250.
+    const staticSubnav = document.createElement('nav');
+    staticSubnav.className = 'seo-hub-subnav border-t border-edge bg-surface';
+    staticSubnav.setAttribute('aria-label', 'Hub navigation');
+    staticSubnav.setAttribute('data-hub', 'calculator');
+    staticSubnav.innerHTML = '<a data-static-marker="true" href="/calcola-stipendio/">tab</a>';
+    document.body.appendChild(staticSubnav);
+
+    const staticMain = document.createElement('main');
+    staticMain.className = 'seo-static-content';
+    staticMain.innerHTML = '<h1>Static SEO Content</h1>';
+    document.body.appendChild(staticMain);
+
+    mockParsePath.mockImplementation(() => ({
+      route: { activeTab: 'calculator' as const, staticOverlay: true },
+      locale: 'it' as const,
+    }));
+
+    render(<App />);
+
+    // The build-time nav (marked with data-static-marker) must be gone after
+    // hydration — its anchor was a body-direct sibling of <main>.
+    const staleMarker = document.querySelector('[data-static-marker]');
+    expect(
+      staleMarker,
+      'static seo-hub-subnav outside #root must be removed on SPA hydration'
+    ).toBeNull();
+
+    // The SPA's own hydrated SubTabNav must remain — it lives nested inside
+    // the App wrapper (not as a body-direct child), so the deduplication
+    // sweep leaves it untouched.
+    const liveSubnavs = Array.from(
+      document.querySelectorAll<HTMLElement>('nav.seo-hub-subnav')
+    );
+    expect(
+      liveSubnavs.length,
+      'hydrated SubTabNav must survive the deduplication'
+    ).toBeGreaterThanOrEqual(1);
+    expect(
+      liveSubnavs.every((nav) => nav.parentElement !== document.body),
+      'every remaining nav.seo-hub-subnav must be nested inside the App tree, not a body-direct sibling'
+    ).toBe(true);
+  });
+
   it('full-shell with static fallback: SPA renders <main> AND hides seo-static-content', () => {
     // The build emits a static SEO body for some URLs that ALSO resolve to a
     // real SPA route (e.g. /calcola-stipendio/confronta-retribuzione-ral →

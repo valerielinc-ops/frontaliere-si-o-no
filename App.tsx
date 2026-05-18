@@ -203,6 +203,26 @@ const App: React.FC = () => {
      staticMain.style.display = 'none';
    }
  }, [staticOverlay]);
+
+ // Static sub-nav deduplication: build plugins (staticPagesPlugin via
+ // `renderHubChromeSplit`) ship a server-rendered `<nav class="seo-hub-subnav">`
+ // as a BODY-DIRECT sibling of `main.seo-static-content` so the sub-nav is on
+ // screen during first paint (before the JS bundle hydrates). After hydration,
+ // the SPA always renders its own interactive `<SubTabNav>` nested inside the
+ // App tree (App.tsx:1976+), so the build-time copy becomes a visible duplicate
+ // — one bar at top, one mid-page. Remove every `nav.seo-hub-subnav` that is a
+ // direct child of `<body>` once React has mounted; the SPA's own copy lives
+ // inside the App wrapper (deeper than body) and is untouched.
+ // See CLAUDE.md rule #14.
+ useEffect(() => {
+   const body = document.body;
+   if (!body) return;
+   for (const nav of Array.from(body.children)) {
+     if (nav.tagName === 'NAV' && (nav as HTMLElement).classList.contains('seo-hub-subnav')) {
+       nav.remove();
+     }
+   }
+ }, []);
  // Runtime kill-switches (Firebase Remote Config) for the 5 SEO feature link
  // surfaces. When a flag is flipped to true in the RC console, every SPA link
  // to that feature is hidden within ~1 minute (RC cache). Default-safe:
