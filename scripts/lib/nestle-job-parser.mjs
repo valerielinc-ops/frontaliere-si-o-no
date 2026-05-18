@@ -17,6 +17,7 @@ import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
+  fetchWorkdayJobDescriptionText,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
@@ -191,9 +192,25 @@ export async function fetchAllNestleJobs() {
 
     const location = listing.location || 'Vevey';
     const canton = inferSwissTargetCanton(location) || 'VD';
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
+
+    // Workday listing endpoint NEVER returns the job body — see workday-client.mjs.
+    const detailDescription = await fetchWorkdayJobDescriptionText(
+      WORKDAY_API_BASE,
+      listing.externalPath,
+      stripHtml,
+    );
+    await new Promise((r) => setTimeout(r, 400));
+
+    const fallbackDescription = [
+      `${title} — ${NESTLE_COMPANY_NAME}, ${location}.`,
+      '',
+      'Key details:',
+      `• Location: ${location}${canton ? `, ${canton} canton` : ''}, Switzerland`,
+      '• Employer: Nestlé — world\'s largest food and beverage company',
+      '• Apply on: Nestlé careers portal',
+    ].join('\n');
+    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} nestle ch`);
@@ -209,8 +226,8 @@ export async function fetchAllNestleJobs() {
       companyDomain: NESTLE_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Nestlé`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Nestlé` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
@@ -236,7 +253,6 @@ export async function fetchAllNestleJobs() {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total Nestlé jobs discovered: ${jobs.length}`);

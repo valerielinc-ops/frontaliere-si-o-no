@@ -17,6 +17,7 @@ import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
+  fetchWorkdayJobDescriptionText,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
@@ -124,9 +125,10 @@ const _WORKDAY_URL = new URL(CAREER_URL);
 const WORKDAY_TENANT_HOST = _WORKDAY_URL.hostname;
 const WORKDAY_SITE_PATH = (_WORKDAY_URL.pathname.replace(/^\/+|\/+$/g, '').split('/').pop()) || 'External';
 const WORKDAY_LOCATION_FILTERS = []; // TODO: e.g. ['187134fccb084a0ea9b4b95f23890dbe'] for CH on most tenants
+const WORKDAY_API_BASE = buildWorkdayApiBase(WORKDAY_TENANT_HOST, WORKDAY_SITE_PATH);
 
 async function fetchJobListings() {
-  const apiBase = buildWorkdayApiBase(WORKDAY_TENANT_HOST, WORKDAY_SITE_PATH);
+  const apiBase = WORKDAY_API_BASE;
   const out = [];
   try {
     for await (const posting of fetchWorkdayJobs(apiBase, {
@@ -181,9 +183,25 @@ export async function fetchAllLombardOdierJobs() {
 
     const location = listing.location || 'Geneva'; // HQ: Geneva
     const canton = inferSwissTargetCanton(location) || 'GE';
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
+
+    // Workday listing endpoint NEVER returns the job body — see workday-client.mjs.
+    const detailDescription = await fetchWorkdayJobDescriptionText(
+      WORKDAY_API_BASE,
+      listing.externalPath,
+      stripHtml,
+    );
+    await new Promise((r) => setTimeout(r, 400));
+
+    const fallbackDescription = [
+      `${title} — ${LOMBARD_ODIER_COMPANY_NAME}, ${location}.`,
+      '',
+      'Key details:',
+      `• Location: ${location}${canton ? `, ${canton} canton` : ''}, Switzerland`,
+      '• Employer: Lombard Odier — Swiss private bank and wealth manager',
+      '• Apply on: Lombard Odier careers portal',
+    ].join('\n');
+    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} lombard-odier ch`);
@@ -199,8 +217,8 @@ export async function fetchAllLombardOdierJobs() {
       companyDomain: LOMBARD_ODIER_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Lombard Odier`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Lombard Odier` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
@@ -226,7 +244,6 @@ export async function fetchAllLombardOdierJobs() {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total Lombard Odier jobs discovered: ${jobs.length}`);

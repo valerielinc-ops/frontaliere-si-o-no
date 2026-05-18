@@ -17,6 +17,7 @@ import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
+  fetchWorkdayJobDescriptionText,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
@@ -185,9 +186,28 @@ export async function fetchAllRocheJobs() {
     // Roche HQ is Basel (BS); fall back there if Workday omits the location.
     const location = listing.location || 'Basel';
     const canton = inferSwissTargetCanton(location) || 'BS';
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || CAREER_URL;
+
+    // Workday listing endpoint NEVER returns the job body — it must be fetched
+    // from the per-job detail endpoint (jobPostingInfo.jobDescription). The
+    // shared helper handles timeout + 4xx and returns '' on failure so we can
+    // fall back to a structured stub built from listing metadata.
+    const detailDescription = await fetchWorkdayJobDescriptionText(
+      WORKDAY_API_BASE,
+      listing.externalPath,
+      stripHtml,
+    );
+    await new Promise((r) => setTimeout(r, 400)); // Polite rate limit between detail calls
+
+    const fallbackDescription = [
+      `${title} — ${ROCHE_COMPANY_NAME}, ${location}.`,
+      '',
+      'Key details:',
+      `• Location: ${location}${canton ? `, ${canton} canton` : ''}, Switzerland`,
+      '• Employer: Roche — global pharma and diagnostics leader',
+      '• Apply on: Roche careers portal',
+    ].join('\n');
+    const descriptionText = detailDescription.length >= 100 ? detailDescription : fallbackDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'it');
     const jobSlug = slugify(`${title} roche ch`);
@@ -203,8 +223,8 @@ export async function fetchAllRocheJobs() {
       companyDomain: ROCHE_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — Roche`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Roche` },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: publicUrl,
@@ -230,7 +250,6 @@ export async function fetchAllRocheJobs() {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total Roche jobs discovered: ${jobs.length}`);
