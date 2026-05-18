@@ -109,6 +109,27 @@ const PUBLIC_SECTOR_COMPANY_REGEX =
 const INTERN_TITLE_REGEX =
   /\b(stage(?:\s|$|s)|stagiaire|stagista|tirocini|tirocinio|praktikum|praktikant|internship|intern(?:\s|$)|trainee|tirocinant)/i;
 
+/**
+ * SECO-staffing brand matcher — kept for forward compatibility. If any crawler
+ * starts ingesting jobs hosted by these aggregator brands, the staffing
+ * snapshot uses them as the primary featured source. Today this matches 0
+ * jobs in `data/jobs.json` (vendors post under the end-client brand), so the
+ * snapshot falls back to a category-based proxy (see buildStaffingSnapshot).
+ */
+const SECO_STAFFING_COMPANY_REGEX =
+  /\b(adecco|manpower|randstad|kelly\s*services|interiman|sintex|axxon|trenkwalder|hays|michael\s*page|robert\s*half|page\s*personnel|gi\s*group)\b/i;
+
+/**
+ * Staffing-typical category proxy — roles agencies most frequently place.
+ * Matched against `category` first (canonical taxonomy), then `title` as a
+ * broader catch-all (covers free-text job titles where category is empty).
+ */
+const STAFFING_CATEGORY_REGEX =
+  /^(admin|finance|audit|consulting|tech|technology|engineering|sales|commerciale|vendita|sachbearbeiter|impiegat|it|staff)/i;
+
+const STAFFING_TITLE_REGEX =
+  /(admin|sachbearbeiter|impiegat|finance|audit|consultant|consulente|sales|commerciale|vendita|engineer|developer|sviluppatore|analyst|analista|specialist|specialista|operator|operatore|technician|tecnico|accountant|controller|hr\b|risorse\s+umane|recruiter|customer\s*service|back\s*office|reception)/i;
+
 // ── Cache + load ─────────────────────────────────────────────────────────────
 
 let _cache: {
@@ -309,24 +330,69 @@ function topCitiesFromJobs(matches: readonly JobRecord[], limit = 5): string[] {
 /**
  * Agenzie del lavoro (staffing agencies) — Lugano.
  *
- * Vendor crawlers don't ingest staffing-agency jobs as such (Adecco etc. post
- * their assignments under client brands), so `data/jobs.json` returns ~0
- * matches by company. The aggregator therefore sources the live signal from
- * the SECO registry snapshot (`data/seco-staffing-registry.json`) — that's
- * the authoritative count of AVG-authorised agencies the page is built around.
- * Featured is intentionally empty; the employer grid uses the SECO list.
+ * Vendor crawlers don't ingest staffing-agency jobs under the agency brand
+ * (Adecco/Manpower/Randstad/Kelly etc. post each assignment under the end
+ * client's name), so a SECO-company match against `data/jobs.json` returns ~0
+ * results today. Strategy:
+ *
+ *   1. Primary — attempt a brand match (SECO_STAFFING_COMPANY_REGEX). Kept
+ *      live so the snapshot upgrades automatically when a future crawler
+ *      ingests aggregator-hosted offers.
+ *   2. Fallback (when primary yields <3) — show "roles typically placed by
+ *      staffing agencies in Lugano": Lugano-area jobs whose category or title
+ *      matches the staffing-typical set (admin/finance/audit/IT/engineering/
+ *      sales/sachbearbeiter/impiegat). These are NOT hosted by agencies, but
+ *      they are the kind of role one approaches an agency to find — the
+ *      renderer reframes the section title accordingly to keep that honest.
+ *
+ * `liveCount` keeps reflecting the authoritative SECO-registry agency count
+ * (used by the stat tile); featured cards now have a real source.
  */
-function buildStaffingSnapshot(rootDir: string): CareerJobsSnapshot {
+function buildStaffingSnapshot(
+  rootDir: string,
+  jobs: readonly JobRecord[],
+  now: number,
+): CareerJobsSnapshot {
   const registry = loadSecoRegistry(rootDir);
   const agencies = registry?.agencies ?? [];
   const topEmployers: CareerEmployer[] = agencies
     .slice(0, 6)
     .map((a) => ({ name: a.name, count: null }));
+
+  // Primary: jobs hosted by a SECO staffing brand (today: 0; future-proof).
+  const primaryMatches: JobRecord[] = [];
+  for (const job of jobs) {
+    const company = `${job.company ?? ''} ${job.companyKey ?? ''}`;
+    if (SECO_STAFFING_COMPANY_REGEX.test(company)) primaryMatches.push(job);
+  }
+
+  let featured: CareerFeaturedJob[] = pickFeatured(primaryMatches, now, 3);
+
+  // Fallback: staffing-typical roles in Lugano area, when primary is thin.
+  if (featured.length < 3) {
+    const fallbackMatches: JobRecord[] = [];
+    for (const job of jobs) {
+      const city = jobCityString(job);
+      if (!LUGANO_AREA_REGEX.test(city)) continue;
+      const category = job.category ?? '';
+      const title = jobTitleHaystack(job);
+      const isStaffingTypical =
+        STAFFING_CATEGORY_REGEX.test(category) ||
+        STAFFING_TITLE_REGEX.test(title);
+      if (!isStaffingTypical) continue;
+      // Avoid double-counting primary matches in the fallback bucket.
+      if (job.id && primaryMatches.some((p) => p.id === job.id)) continue;
+      fallbackMatches.push(job);
+    }
+    const fallbackFeatured = pickFeatured(fallbackMatches, now, 3 - featured.length);
+    featured = [...featured, ...fallbackFeatured];
+  }
+
   return {
     liveCount: agencies.length,
     fresh30Count: 0,
     medianSalaryChf: null,
-    featured: [],
+    featured,
     topEmployers,
     topCities: ['Lugano'],
   };
@@ -468,7 +534,7 @@ export function aggregateCareerLandings(
   }
 
   const jobs = loadJobs(rootDir);
-  const staffing = buildStaffingSnapshot(rootDir);
+  const staffing = buildStaffingSnapshot(rootDir, jobs, now);
   const publicSector = buildPublicSectorSnapshot(rootDir, jobs, now);
   const internship = buildInternshipSnapshot(jobs, now);
   const frontaliereContract = buildFrontaliereContractSnapshot(jobs, now);

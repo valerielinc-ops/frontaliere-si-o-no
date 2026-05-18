@@ -100,6 +100,14 @@ export interface CareerTemplateBCopy {
   employerGridReplacement?: string;
   /** Section title for the featured jobs (defaults to shell). */
   featuredJobsTitle?: string;
+  /**
+   * Optional one-line subtitle rendered under the featured-jobs section title.
+   * Used for honesty disclaimers on pages where the listed roles are proxies
+   * (e.g. agenzie-lavoro-lugano shows Lugano-area staffing-typical roles, not
+   * jobs actually hosted by SECO agencies — the subtitle says so). Not
+   * rendered when empty.
+   */
+  featuredJobsSubtitle?: string;
   /** Section title for the employer grid (defaults to shell). */
   employerGridTitle?: string;
 }
@@ -1452,6 +1460,7 @@ interface CareerStatLabels {
   primaryCtaLabel: string;
   employerGridTitle?: string;
   featuredJobsTitle?: string;
+  featuredJobsSubtitle?: string;
   employerGridReplacement?: string;
 }
 
@@ -1463,6 +1472,9 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
       tile3Label: 'Diritto frontalieri',
       primaryCtaLabel: 'Calcola il netto da interinale',
       employerGridTitle: 'Agenzie SECO autorizzate a Lugano',
+      featuredJobsTitle: 'Posizioni tipiche reclutate dalle agenzie a Lugano',
+      featuredJobsSubtitle:
+        "Esempi di ruoli per cui le agenzie SECO di Lugano reclutano. Per candidarti, contatta direttamente l'agenzia.",
     },
     en: {
       tile1Label: 'SECO agencies in Lugano',
@@ -1470,6 +1482,9 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
       tile3Label: 'Cross-border rights',
       primaryCtaLabel: 'Calculate net interim salary',
       employerGridTitle: 'SECO-licensed staffing agencies in Lugano',
+      featuredJobsTitle: 'Roles typically placed by staffing agencies in Lugano',
+      featuredJobsSubtitle:
+        'Examples of roles SECO-licensed staffing agencies in Lugano recruit for. To apply, contact the agency directly.',
     },
     de: {
       tile1Label: 'SECO-Agenturen in Lugano',
@@ -1477,6 +1492,9 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
       tile3Label: 'Grenzgänger-Rechte',
       primaryCtaLabel: 'Temporär-Nettolohn berechnen',
       employerGridTitle: 'SECO-bewilligte Personalvermittler in Lugano',
+      featuredJobsTitle: 'Typische Stellen von Vermittlungsagenturen in Lugano',
+      featuredJobsSubtitle:
+        'Beispiele für Rollen, die SECO-bewilligte Agenturen in Lugano besetzen. Zur Bewerbung wenden Sie sich direkt an die Agentur.',
     },
     fr: {
       tile1Label: 'Agences SECO à Lugano',
@@ -1484,6 +1502,9 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
       tile3Label: 'Droits frontaliers',
       primaryCtaLabel: 'Calculer le net en intérim',
       employerGridTitle: 'Agences agréées SECO à Lugano',
+      featuredJobsTitle: 'Postes typiquement placés par les agences à Lugano',
+      featuredJobsSubtitle:
+        'Exemples de postes pour lesquels les agences SECO de Lugano recrutent. Pour postuler, contactez directement l’agence.',
     },
   },
   'concorsi-pubblici-lugano': {
@@ -1641,8 +1662,14 @@ export function buildCareerTemplateBCopy(
       },
       primaryCtaLabel: labels.primaryCtaLabel,
       primaryCtaHref: CALCULATOR_URL[locale],
-      showFeaturedJobs: false,
+      // Featured cards source: Lugano-area staffing-typical roles (proxy —
+      // see buildStaffingSnapshot). Reframed honestly via per-id title +
+      // subtitle so visitors aren't misled that these jobs are hosted by the
+      // agencies themselves.
+      showFeaturedJobs: true,
       showEmployerGrid: true,
+      featuredJobsTitle: labels.featuredJobsTitle,
+      featuredJobsSubtitle: labels.featuredJobsSubtitle,
       employerGridTitle: labels.employerGridTitle,
     };
   }

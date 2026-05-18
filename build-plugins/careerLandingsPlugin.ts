@@ -254,9 +254,14 @@ function renderFeaturedJobs(
 ): string {
   const shell = getCareerTemplateBShell(locale);
   const title = templateB.featuredJobsTitle ?? shell.featuredJobsTitle;
+  const subtitle = templateB.featuredJobsSubtitle?.trim();
+  const subtitleHtml = subtitle
+    ? `<p style="margin:0 0 14px;color:var(--color-body);font-size:14px;line-height:1.55;max-width:62ch">${esc(subtitle)}</p>`
+    : '';
   if (snapshot.featured.length === 0) {
     return `<section style="margin:0 0 28px">
       <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(title)}</h2>
+      ${subtitleHtml}
       <p style="${CARD_STYLE};color:var(--color-subtle);font-size:14px;margin:0">${esc(shell.featuredJobsEmpty)}</p>
     </section>`;
   }
@@ -266,6 +271,7 @@ function renderFeaturedJobs(
   const ctaHref = buildCareerJobBoardUrl(locale);
   return `<section style="margin:0 0 28px">
     <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(title)}</h2>
+    ${subtitleHtml}
     <div style="display:grid;gap:12px;margin-bottom:14px">${cards}</div>
     <a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px">${esc(shell.featuredJobsCtaAll(snapshot.liveCount))}</a>
   </section>`;
