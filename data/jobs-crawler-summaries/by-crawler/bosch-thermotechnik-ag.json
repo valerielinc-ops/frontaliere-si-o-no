@@ -1,18 +1,49 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-17T21:13:41.866Z",
+  "generatedAt": "2026-05-18T11:56:46.105Z",
   "total": 8,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 17254,
-  "avgDurationMs": 17254,
+  "removedCount": 1,
+  "unchangedCount": 3,
+  "durationMs": 18737,
+  "avgDurationMs": 18737,
   "durationHistory": [
-    17254
+    18737
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Sachbearbeiter Kreditorenbuchhaltung 60%-100% (w/m/div.) REF286433O",
+      "slug": "sachbearbeiter-kreditorenbuchhaltung-60-100-w-m-div-ref286433o-bosch-frauenfeld",
+      "url": "https://jobs.bosch.com/en/job/REF286433O-sachbearbeiter-kreditorenbuchhaltung-60-100-w-m-div-ref286433o",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000126924109-sachbearbeiter-kreditorenbuchhaltung-60-100-w-m-div-ref286433o?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "category": "sales",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-18",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Praktikum in der Prozessoptimierung (w/m/div.) REF286038O",
@@ -51,6 +82,44 @@
       }
     },
     {
+      "title": "Entwicklungsingenieur - Bereich Oszillierende Multifunktionswerkzeuge & Säbelsägeblätter 100% (w/m/div.) REF281021P",
+      "slug": "entwicklungsingenieur-bereich-oszillierende-multifunktionswerkzeuge-sabelsageblatter-100-w-m-div-ref281021p-bosch-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF281021P-entwicklungsingenieur-bereich-oszillierende-multifunktionswerkzeuge-saebelsaegeblaetter-100-w-m-div-ref281021p",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000125766230-entwicklungsingenieur-bereich-oszillierende-multifunktionswerkzeuge-sabelsageblatter-100-w-m-div-ref281021p?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "category": "engineering",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-11",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-f398ac133165",
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "postalCode": "4500",
+      "firstSeenAt": "2026-05-17T09:49:02.274Z",
+      "retranslationAttempts": 1,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 19,
+        "completeness": 22
+      }
+    },
+    {
       "title": "Werkstudententätigkeit im Bereich Finance und Accounting Schweiz (w.m.div) REF285688G",
       "slug": "werkstudententatigkeit-im-bereich-finance-und-accounting-schweiz-w-m-div-ref285688g-bosch-solothurn-zuchwil",
       "url": "https://jobs.bosch.com/en/job/REF285688G-werkstudententaetigkeit-im-bereich-finance-und-accounting-schweiz-w-m-div-ref285688g",
@@ -77,9 +146,9 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "postalCode": "4500",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T09:49:02.274Z",
       "retranslationAttempts": 1,
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -123,10 +192,12 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Servicetechniker Öl / Gas Region Bern (w/m/div.) REF285265T",
-      "slug": "servicetechniker-ol-gas-region-bern-w-m-div-ref285265t-bosch-steinhausen",
+      "slug": "servicetechniker-ol-gas-region-bern-w-m-div-ref285265-bosch-thermotechnik-ag-steinhausen",
       "url": "https://jobs.bosch.com/en/job/REF285265T-servicetechniker-oel-gas-region-bern-w-m-div-ref285265t",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124561544-servicetechniker-ol-gas-region-bern-w-m-div-ref285265t?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
       "company": "Bosch Thermotechnik AG",
@@ -161,46 +232,7 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
-    {
-      "title": "Entwicklungsingenieur - Bereich Oszillierende Multifunktionswerkzeuge & Säbelsägeblätter 100% (w/m/div.) REF281021P",
-      "slug": "entwicklungsingenieur-bereich-oszillierende-multifunktionswerkzeuge-sabelsageblatter-100-w-m-div-ref281021p-bosch-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF281021P-entwicklungsingenieur-bereich-oszillierende-multifunktionswerkzeuge-saebelsaegeblaetter-100-w-m-div-ref281021p",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000125766230-entwicklungsingenieur-bereich-oszillierende-multifunktionswerkzeuge-sabelsageblatter-100-w-m-div-ref281021p?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "category": "engineering",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-11",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-f398ac133165",
-      "needsRetranslation": true,
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "postalCode": "4500",
-      "firstSeenAt": "2026-05-17T09:49:02.274Z",
-      "retranslationAttempts": 1,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 16,
-        "completeness": 22
-      }
-    },
     {
       "title": "Instandhaltung (w/m/div.) - REF285547A",
       "slug": "instandhaltung-w-m-div-ref285547a-bosch-st-niklaus",
@@ -231,11 +263,11 @@
       "postalCode": "1950",
       "firstSeenAt": "2026-05-17T09:49:02.274Z",
       "retranslationAttempts": 1,
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 19,
         "completeness": 22
       }
     },
@@ -269,11 +301,11 @@
       "postalCode": "1950",
       "firstSeenAt": "2026-05-17T09:49:02.274Z",
       "retranslationAttempts": 1,
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 19,
         "completeness": 22
       }
     },
@@ -307,11 +339,11 @@
       "postalCode": "4500",
       "firstSeenAt": "2026-05-17T09:49:02.274Z",
       "retranslationAttempts": 1,
-      "_qualityScore": 85,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 19,
         "completeness": 22
       }
     }
