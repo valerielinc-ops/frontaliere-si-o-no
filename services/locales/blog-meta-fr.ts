@@ -7637,6 +7637,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.title': 'Blocage des réductions. De Rosa est ouvert à l\'évaluation',
     'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.excerpt': 'Le directeur du DSS Raffaele De Rosa déclare être ouvert à l\'évaluation de l\'option d\'un blocage ou d\'une réduction des réductions.',
     'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.imageAlt': 'Le directeur du DSS Raffaele De Rosa en premier plan, avec le profil de Bellinzona en arrière-plan.',
+    'blog.article.giovani-assistenza-lugano-preoccupazione.title': 'Jeunes et aide sociale à Lugano: des chiffres inquiétants',
+    'blog.article.giovani-assistenza-lugano-preoccupazione.excerpt': 'Le conseiller communal Omar Wicht exprime des inquiétudes concernant les jeunes bénéficiaires de l\'aide sociale à Lugano, avec des données alarmantes de Locarno',
+    'blog.article.giovani-assistenza-lugano-preoccupazione.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes environnantes',
 };
 
 export default blogMetaFr;

@@ -7637,6 +7637,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.title': 'Blocco dei ristorni. De Rosa si dice aperto a valutare',
     'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.excerpt': 'Il direttore del DSS Raffaele De Rosa si dice aperto a valutare l\'opzione di un blocco o di una decurtazione dei ristorni.',
     'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.imageAlt': 'Il direttore del DSS Raffaele De Rosa in primo piano, con il profilo di Bellinzona sullo sfondo.',
+    'blog.article.giovani-assistenza-lugano-preoccupazione.title': 'Giovani e assistenza sociale a Lugano: i dati preoccupanti',
+    'blog.article.giovani-assistenza-lugano-preoccupazione.excerpt': 'Il consigliere comunale Omar Wicht solleva preoccupazioni sui giovani beneficiari di assistenza sociale a Lugano, con dati allarmanti da Locarno',
+    'blog.article.giovani-assistenza-lugano-preoccupazione.imageAlt': 'Veduta aerea di Lugano con il lago e le montagne circostanti',
 };
 
 export default blogMetaIt;

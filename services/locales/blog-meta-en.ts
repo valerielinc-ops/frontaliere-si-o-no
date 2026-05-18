@@ -7636,6 +7636,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.title': 'De Rosa Considers Ristorni Block or Reduction',
     'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.excerpt': 'The DSS director Raffaele De Rosa says he is open to evaluating the option of a block or reduction of ristorni. 💡',
     'blog.article.blocco-ristorni-ticino-de-rosa-aperto-a-valutare.imageAlt': 'The director of the DSS Raffaele De Rosa in the foreground, with the profile of Bellinzona in the background.',
+    'blog.article.giovani-assistenza-lugano-preoccupazione.title': 'Young people and social assistance in Lugano: alarming data',
+    'blog.article.giovani-assistenza-lugano-preoccupazione.excerpt': 'Councillor Omar Wicht raises concerns about young social assistance beneficiaries in Lugano, with alarming data from Locarno',
+    'blog.article.giovani-assistenza-lugano-preoccupazione.imageAlt': 'Aerial view of Lugano with the lake and surrounding mountains',
 };
 
 export default blogMetaEn;

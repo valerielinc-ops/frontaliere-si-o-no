@@ -3788,6 +3788,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ffs-tagli-ticino-frontalieri-2026': { name: 'Novità', path: '/articoli-frontaliere/ffs-tagli-ticino-frontalieri-2026', parent: 'blog' },
     'blog-terapia-complementare-attestati-lugano': { name: 'Novità', path: '/articoli-frontaliere/terapia-complementare-attestati-lugano', parent: 'blog' },
     'blog-blocco-ristorni-ticino-de-rosa-aperto-a-valutare': { name: 'Blocco dei ristorni', path: '/articoli-frontaliere/blocco-ristorni-ticino-de-rosa-aperto-a-valutare', parent: 'blog' },
+    'blog-giovani-assistenza-lugano-preoccupazione': { name: 'Assistenza sociale', path: '/articoli-frontaliere/giovani-assistenza-lugano-preoccupazione', parent: 'blog' },
  };
 
  const info = sectionNames[section];

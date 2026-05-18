@@ -24284,4 +24284,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'giovani-assistenza-lugano-preoccupazione',
+ category: 'pratico',
+ date: '2026-05-18T10:51:27.692Z',
+ image: '/images/blog/giovani-assistenza-lugano-preoccupazione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
