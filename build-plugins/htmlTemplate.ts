@@ -212,6 +212,12 @@ ${skipMainWrap ? bodyHtml : ` <main class="static-job-page">\n ${bodyHtml}\n </m
  <meta property="og:title" content="${esc(title)}">
  <meta property="og:description" content="${esc(description)}">
  <meta property="og:url" content="${canonicalUrl}">
+ <meta property="og:image" content="${BASE_URL}/og-image.png">
+ <meta property="og:image:width" content="1200">
+ <meta property="og:image:height" content="630">
+ <meta property="og:image:type" content="image/png">
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:image" content="${BASE_URL}/og-image.png">
  <link rel="canonical" href="${canonicalUrl}">
 ${hreflangHtml}${extraHead}
 ${ldTags}${cssLink}
