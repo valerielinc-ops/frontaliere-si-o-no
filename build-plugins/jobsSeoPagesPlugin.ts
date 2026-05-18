@@ -2130,8 +2130,14 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const max = r.salaryMax ? (r.salaryMax / 1000).toFixed(0) : null;
  return max ? `${r.currency || 'CHF'} ${min}k – ${max}k` : `${r.currency || 'CHF'} ${min}k+`;
  })();
+ // CSS classes `.rj` / `.rja` / `.rjw` / `.rjt` / `.rjs` / `.rjp`
+ // replace ~390 B of inline styles per related-job item with ~50 B of
+ // class refs. With Math.min(6, relatedPool.length) related items per
+ // job page × ~641k per-job HTML files emitted across all cantons +
+ // 4 locales, this saves ~1.5 KB per page ≈ ~900 MB dist. Class
+ // bodies live in the shared per-job `<style>` block (see lines ~2350+).
  const rLogoImg = renderLogoImg(rLogo, `Logo ${r.company}`, 40, 40, 'width:40px;height:40px;object-fit:contain;border-radius:8px;border:1px solid var(--color-edge);flex-shrink:0');
- return `<li style="margin:0 0 8px 0"><a href="${href}" aria-label="${esc(relatedTitle)} — ${esc(r.company)}" style="display:flex;align-items:flex-start;gap:12px;text-decoration:none;padding:12px;border:1px solid var(--color-edge);border-radius:12px">${rLogoImg}<div style="min-width:0;flex:1"><div style="font-size:14px;font-weight:700;color:var(--color-heading);line-height:1.3">${esc(relatedTitle)}</div><div style="font-size:12px;color:var(--color-subtle);margin-top:2px">${esc(r.company)} · ${esc(r.location)}${r.canton ? ` (${esc(r.canton)})` : ''}</div>${rSalary ? `<div style="font-size:12px;font-weight:600;color:var(--color-success);margin-top:4px">${esc(rSalary)}</div>` : ''}</div></a></li>`;
+ return `<li class="rj"><a href="${href}" aria-label="${esc(relatedTitle)} — ${esc(r.company)}" class="rja">${rLogoImg}<div class="rjw"><div class="rjt">${esc(relatedTitle)}</div><div class="rjs">${esc(r.company)} · ${esc(r.location)}${r.canton ? ` (${esc(r.canton)})` : ''}</div>${rSalary ? `<div class="rjp">${esc(rSalary)}</div>` : ''}</div></a></li>`;
  })
  .join('');
  const summaryHtml = summaryParagraphs
@@ -2486,6 +2492,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  margin: 0 0 10px 0;
  font-size: 18px;
  }
+ /* Related-jobs list (.rj/.rja/.rjw/.rjt/.rjs/.rjp): one-shot CSS for what
+    used to be ~390 B of inline styles per `<li>`. With 6 items/page × 641k
+    job HTML files this saves ~900 MB across dist. */
+ .rj { margin: 0 0 8px 0; }
+ .rja { display: flex; align-items: flex-start; gap: 12px; text-decoration: none; padding: 12px; border: 1px solid var(--color-edge); border-radius: 12px; }
+ .rjw { min-width: 0; flex: 1; }
+ .rjt { font-size: 14px; font-weight: 700; color: var(--color-heading); line-height: 1.3; }
+ .rjs { font-size: 12px; color: var(--color-subtle); margin-top: 2px; }
+ .rjp { font-size: 12px; font-weight: 600; color: var(--color-success); margin-top: 4px; }
  @media (max-width: 980px) {
  body > #root > main.static-job-page { padding: 14px; }
  .hero-title { font-size: 22px; }

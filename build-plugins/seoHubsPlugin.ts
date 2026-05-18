@@ -1597,6 +1597,13 @@ function buildThinCantonHubHtml(args: {
   // every page in totalPages MUST be linked so the BFS audit can find
   // it. Pages are wrapped in <details> when the ladder grows past 10
   // entries so the mobile fold stays clear (CLAUDE.md #15/#16).
+  //
+  // CSS classes `.thp` (page link) / `.thc` (current page) replace what was
+  // ~250 B of inline styles per anchor with ~12 B class refs. On a 400-page
+  // hub this saves ~90 KB per emitted page (× 4 locales × ~30 paginated
+  // cantons ≈ 200 MB dist). Same pattern as the `.hp/.hc` fix landed in
+  // `renderPagination` on 2026-05-18 for the master-hub regression on
+  // `/cerca-lavoro-ticino/tutti/page-387/`.
   let paginationHtml = '';
   if (totalPages > 1) {
     const paginationLabel = locale === 'en' ? 'Browse all pages'
@@ -1608,9 +1615,9 @@ function buildThinCantonHubHtml(args: {
     for (let p = 1; p <= totalPages; p++) {
       const href = p === 1 ? basePath : paginatedPath(basePath, p);
       if (p === page) {
-        anchors.push(`<strong style="display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:var(--color-accent);color:var(--color-on-accent);font-size:13px">${pageWord}&nbsp;${p}</strong>`);
+        anchors.push(`<strong class="thc">${pageWord}&nbsp;${p}</strong>`);
       } else {
-        anchors.push(`<a href="${href}" style="display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:var(--color-surface);color:var(--color-link);text-decoration:none;font-size:13px;border:1px solid var(--color-edge)">${pageWord}&nbsp;${p}</a>`);
+        anchors.push(`<a href="${href}" class="thp">${pageWord}&nbsp;${p}</a>`);
       }
     }
     // Always-open <details> so the BFS walker (and crawlers) see every <a>
@@ -1648,8 +1655,12 @@ function buildThinCantonHubHtml(args: {
             return `<li><a href="${esc(it.href)}" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge)"><span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--color-surface-alt);font-size:24px;line-height:1;flex-shrink:0">${emoji}</span><span style="flex:1;min-width:0"><span style="display:block;font-weight:700;font-size:15px;line-height:1.3;color:var(--color-heading)">${esc(it.label)}</span>${it.sub ? `<span style="display:block;font-size:12.5px;color:var(--color-subtle);margin-top:2px;line-height:1.4">${esc(it.sub)}</span>` : ''}</span></a></li>`;
           })
           .join('')}</ul>`
+      // CSS classes `.thi` / `.thi-s` replace ~200 B of inline styles per
+      // anchor with ~10 B class refs. With JOBS_PAGE_SIZE = 100 items per
+      // `/tutti/page-N/`, this saves ~19 KB per page × ~2.8k paginated
+      // pages across all cantons and locales ≈ 50 MB dist.
       : `<ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">${items
-          .map((it) => `<li><a href="${esc(it.href)}" style="display:block;padding:10px 12px;border-radius:8px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge);font-size:14px;line-height:1.4">${esc(it.label)}${it.sub ? `<span style="display:block;font-size:12px;color:var(--color-subtle);margin-top:2px">${esc(it.sub)}</span>` : ''}</a></li>`)
+          .map((it) => `<li><a href="${esc(it.href)}" class="thi">${esc(it.label)}${it.sub ? `<span class="thi-s">${esc(it.sub)}</span>` : ''}</a></li>`)
           .join('')}</ul>`;
 
   // Stat tiles (rule #17) — only on page 1, only when caller supplied them.
@@ -1707,6 +1718,7 @@ function buildThinCantonHubHtml(args: {
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="${canonicalUrl}">
+    <style>.thp,.thc{display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;font-size:13px}.thp{background:var(--color-surface);color:var(--color-link);text-decoration:none;border:1px solid var(--color-edge)}.thc{background:var(--color-accent);color:var(--color-on-accent)}.thi{display:block;padding:10px 12px;border-radius:8px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge);font-size:14px;line-height:1.4}.thi-s{display:block;font-size:12px;color:var(--color-subtle);margin-top:2px}</style>
     <script type="application/ld+json">${breadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
     ${ADSENSE_SNIPPET}
   </head>
