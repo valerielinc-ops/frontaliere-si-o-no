@@ -41,6 +41,26 @@ describe('salaryLandingShell · resolver', () => {
     }
   });
 
+  it('resolves all 4 net-comparison scenarios in IT/EN/DE/FR', () => {
+    const cases: Array<{ path: string; locale: SalaryLocale; eyebrowSubstr: string }> = [
+      { path: '/calcola-stipendio/confronto-netto-2025-2026-entro-20km', locale: 'it', eyebrowSubstr: 'Entro 20 km' },
+      { path: '/calcola-stipendio/confronto-netto-2025-2026-oltre-20km', locale: 'it', eyebrowSubstr: 'Oltre 20 km' },
+      { path: '/calcola-stipendio/confronto-permesso-g-vs-b-entro-20km', locale: 'it', eyebrowSubstr: 'Permesso G vs B' },
+      { path: '/calcola-stipendio/confronto-permesso-g-vs-b-oltre-20km', locale: 'it', eyebrowSubstr: 'Permesso G vs B' },
+      { path: '/en/calculate-salary/net-comparison-2025-2026-within-20km', locale: 'en', eyebrowSubstr: 'Within 20 km' },
+      { path: '/de/gehalt-berechnen/nettovergleich-2025-2026-ueber-20km', locale: 'de', eyebrowSubstr: 'Über 20 km' },
+      { path: '/fr/calculer-salaire/comparaison-permis-g-vs-b-plus-20km', locale: 'fr', eyebrowSubstr: 'Plus 20 km' },
+    ];
+    for (const c of cases) {
+      const r = _internal.resolveScenarioData(c.path);
+      expect(r.locale).toBe(c.locale);
+      expect(r.data.eyebrow).toContain(c.eyebrowSubstr);
+      expect(r.data.table?.headers.length).toBe(4);
+      expect(r.data.tiles.length).toBe(4);
+      expect(r.data.faqs?.length).toBe(3);
+    }
+  });
+
   it('falls back to a localised generic default for unknown calcola-stipendio paths', () => {
     const r = _internal.resolveScenarioData('/calcola-stipendio/nonexistent');
     expect(r.locale).toBe('it');

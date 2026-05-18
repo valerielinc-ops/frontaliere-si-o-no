@@ -1181,6 +1181,514 @@ function detectLocale(canonicalPath: string): SalaryLocale {
   return 'it';
 }
 
+// ── Net-comparison scenarios (4 paths × 4 locales) ──────────────────────────
+//
+// These pages compare two regimes side-by-side: 2025 (old / grandfathered)
+// vs 2026 (new agreement) for both 20km distance bands, OR Permit G vs
+// Permit B for both bands. Table layout is "voce | A | B | Δ" rather than
+// the salary-tier decomposition.
+
+type NetComparisonKey =
+  | 'confronto-netto-2025-2026-entro-20km'
+  | 'confronto-netto-2025-2026-oltre-20km'
+  | 'confronto-permesso-g-vs-b-entro-20km'
+  | 'confronto-permesso-g-vs-b-oltre-20km';
+
+const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, SalaryLandingData>> = {
+  'confronto-netto-2025-2026-entro-20km': {
+    it: {
+      eyebrow: 'Confronto regime · Entro 20 km',
+      tagline: 'Vecchio regime (pre-2024) vs Nuovo Accordo 2026 a parità di lordo, residenza entro 20 km.',
+      tiles: [
+        { label: 'Vecchio regime', value: '100% CH + rimborso 40%', tone: 'success' },
+        { label: 'Nuovo regime', value: '80% CH / 20% IT', tone: 'accent' },
+        { label: 'Delta netto', value: '€0 - 1.500/anno', tone: 'warning' },
+        { label: 'Transizione', value: 'fino al 2033', tone: 'neutral' },
+      ],
+      advice: 'Se sei vecchio frontaliere ed entro 20 km, il delta è minimo (~€500/anno). Se sei nuovo, il netto può scendere di €1.000-1.500/anno per l\'IRPEF residua.',
+      ctaPrimary: { label: 'Calcola il tuo netto 2026', href: '/calcola-stipendio/' },
+      ctaSecondary: { label: 'Vedi scenari what-if', href: '/calcola-stipendio/cosa-cambia-se/' },
+      table: {
+        caption: 'Netto annuo entro 20 km · vecchio vs nuovo regime (A0N, Lugano)',
+        headers: ['Voce', 'Vecchio regime 2025', 'Nuovo regime 2026', 'Δ EUR/anno'],
+        rows: [
+          { cells: ['RAL CHF 60.000', '~EUR 47.000', '~EUR 46.500', '-500'] },
+          { cells: ['RAL CHF 80.000', '~EUR 59.500', '~EUR 58.000', '-1.500'], emphasized: true },
+          { cells: ['RAL CHF 100.000', '~EUR 71.500', '~EUR 70.000', '-1.500'] },
+        ],
+        footnote: 'Stime indicative. I "vecchi frontalieri" (assunti ante 17.07.2023) mantengono il regime 2025 fino al pensionamento.',
+      },
+      faqs: [
+        { q: 'Chi resta nel vecchio regime?', a: 'Chi era già frontaliere assunto prima del 17.07.2023. Il vecchio regime è grandfathered fino al pensionamento (massimo 2033 per la fase transitoria).' },
+        { q: 'Devo fare la dichiarazione in Italia con il nuovo regime?', a: 'Sì: i nuovi frontalieri (anche entro 20 km) devono dichiarare il reddito svizzero in Italia con il quadro CE e ottenere il credito per l\'imposta CH già pagata.' },
+        { q: 'Conviene chiedere di essere "vecchio frontaliere"?', a: 'Non è una scelta: lo status dipende dalla data di assunzione. Se sei stato assunto ante 17.07.2023, lo sei automaticamente.' },
+      ],
+    },
+    en: {
+      eyebrow: 'Regime comparison · Within 20 km',
+      tagline: 'Old regime (pre-2024) vs New Agreement 2026 at the same gross, residence within 20 km.',
+      tiles: [
+        { label: 'Old regime', value: '100% CH + 40% rebate', tone: 'success' },
+        { label: 'New regime', value: '80% CH / 20% IT', tone: 'accent' },
+        { label: 'Net delta', value: '€0 - 1,500/year', tone: 'warning' },
+        { label: 'Transition until', value: '2033', tone: 'neutral' },
+      ],
+      advice: 'If you are a grandfathered cross-border worker within 20 km, the delta is minimal (~€500/year). For new workers, net can drop by €1,000-1,500/year due to residual IRPEF.',
+      ctaPrimary: { label: 'Calculate your 2026 net', href: '/en/calculate-salary/' },
+      ctaSecondary: { label: 'See what-if scenarios', href: '/en/calculate-salary/what-if/' },
+      table: {
+        caption: 'Annual net within 20 km · old vs new regime (A0N, Lugano)',
+        headers: ['Line', 'Old regime 2025', 'New regime 2026', 'Δ EUR/year'],
+        rows: [
+          { cells: ['Gross CHF 60,000', '~EUR 47,000', '~EUR 46,500', '-500'] },
+          { cells: ['Gross CHF 80,000', '~EUR 59,500', '~EUR 58,000', '-1,500'], emphasized: true },
+          { cells: ['Gross CHF 100,000', '~EUR 71,500', '~EUR 70,000', '-1,500'] },
+        ],
+        footnote: 'Indicative estimates. Grandfathered cross-border workers (hired before 17 Jul 2023) keep the 2025 regime until retirement.',
+      },
+      faqs: [
+        { q: 'Who stays under the old regime?', a: 'Anyone hired as a cross-border worker before 17 Jul 2023. The old regime is grandfathered until retirement (transitional phase up to 2033).' },
+        { q: 'Do I need an Italian tax return under the new regime?', a: 'Yes: new workers (even within 20 km) must declare Swiss income in Italy via the CE schedule and claim credit for Swiss tax already paid.' },
+        { q: 'Can I ask to be grandfathered?', a: 'No, status depends on hire date. If hired before 17 Jul 2023 you are grandfathered automatically.' },
+      ],
+    },
+    de: {
+      eyebrow: 'Regime-Vergleich · Bis 20 km',
+      tagline: 'Altes Regime (vor 2024) vs. Neues Abkommen 2026 bei gleichem Brutto, Wohnsitz bis 20 km.',
+      tiles: [
+        { label: 'Altes Regime', value: '100% CH + 40% Rückerstattung', tone: 'success' },
+        { label: 'Neues Regime', value: '80% CH / 20% IT', tone: 'accent' },
+        { label: 'Netto-Differenz', value: '€0 - 1.500/Jahr', tone: 'warning' },
+        { label: 'Übergangsphase bis', value: '2033', tone: 'neutral' },
+      ],
+      advice: 'Alte Grenzgänger bis 20 km haben eine minimale Differenz (~€500/Jahr). Neue Grenzgänger sehen das Netto um €1.000-1.500/Jahr sinken wegen IRPEF-Rest.',
+      ctaPrimary: { label: 'Netto 2026 berechnen', href: '/de/gehalt-berechnen/' },
+      ctaSecondary: { label: 'Was-wäre-wenn-Szenarien', href: '/de/gehalt-berechnen/was-waere-wenn/' },
+      table: {
+        caption: 'Jahresnetto bis 20 km · altes vs. neues Regime (A0N, Lugano)',
+        headers: ['Position', 'Altes Regime 2025', 'Neues Regime 2026', 'Δ EUR/Jahr'],
+        rows: [
+          { cells: ['Brutto CHF 60.000', '~EUR 47.000', '~EUR 46.500', '-500'] },
+          { cells: ['Brutto CHF 80.000', '~EUR 59.500', '~EUR 58.000', '-1.500'], emphasized: true },
+          { cells: ['Brutto CHF 100.000', '~EUR 71.500', '~EUR 70.000', '-1.500'] },
+        ],
+        footnote: 'Richtwerte. Alte Grenzgänger (vor 17.07.2023 angestellt) behalten das Regime 2025 bis zur Pension.',
+      },
+      faqs: [
+        { q: 'Wer fällt unter das alte Regime?', a: 'Wer vor dem 17.07.2023 als Grenzgänger angestellt wurde. Grandfathering bis zur Pension (Übergangsphase bis 2033).' },
+        { q: 'Italienische Steuererklärung im neuen Regime?', a: 'Ja: Neue Grenzgänger (auch bis 20 km) müssen das Schweizer Einkommen in Italien via CE-Vordruck erklären und das Guthaben für die Schweizer Quellensteuer anrechnen.' },
+        { q: 'Kann ich um Grandfathering bitten?', a: 'Nein, der Status hängt vom Einstellungsdatum ab. Bei Anstellung vor 17.07.2023 automatisch.' },
+      ],
+    },
+    fr: {
+      eyebrow: 'Comparaison régimes · Moins 20 km',
+      tagline: 'Ancien régime (pré-2024) vs Nouvel Accord 2026 à brut égal, résidence à moins de 20 km.',
+      tiles: [
+        { label: 'Ancien régime', value: '100% CH + ristourne 40%', tone: 'success' },
+        { label: 'Nouveau régime', value: '80% CH / 20% IT', tone: 'accent' },
+        { label: 'Delta net', value: '€0 - 1 500/an', tone: 'warning' },
+        { label: 'Transition jusqu\'à', value: '2033', tone: 'neutral' },
+      ],
+      advice: 'Si vous êtes ancien frontalier à moins de 20 km, le delta est minime (~€500/an). Pour les nouveaux, le net peut baisser de €1 000-1 500/an à cause de l\'IRPEF résiduel.',
+      ctaPrimary: { label: 'Calculer votre net 2026', href: '/fr/calculer-salaire/' },
+      ctaSecondary: { label: 'Voir scénarios et-si', href: '/fr/calculer-salaire/et-si/' },
+      table: {
+        caption: 'Net annuel moins 20 km · ancien vs nouveau régime (A0N, Lugano)',
+        headers: ['Poste', 'Ancien régime 2025', 'Nouveau régime 2026', 'Δ EUR/an'],
+        rows: [
+          { cells: ['Brut CHF 60 000', '~EUR 47 000', '~EUR 46 500', '-500'] },
+          { cells: ['Brut CHF 80 000', '~EUR 59 500', '~EUR 58 000', '-1 500'], emphasized: true },
+          { cells: ['Brut CHF 100 000', '~EUR 71 500', '~EUR 70 000', '-1 500'] },
+        ],
+        footnote: 'Estimations indicatives. Les anciens frontaliers (embauchés avant le 17.07.2023) gardent le régime 2025 jusqu\'à la retraite.',
+      },
+      faqs: [
+        { q: 'Qui reste dans l\'ancien régime ?', a: 'Toute personne embauchée comme frontalier avant le 17 juillet 2023. Maintien jusqu\'à la retraite (phase transitoire jusqu\'en 2033).' },
+        { q: 'Faut-il déclarer en Italie sous le nouveau régime ?', a: 'Oui : les nouveaux frontaliers (même à moins de 20 km) doivent déclarer le revenu suisse en Italie via le quadro CE et obtenir le crédit pour l\'impôt CH déjà payé.' },
+        { q: 'Puis-je demander à rester dans l\'ancien régime ?', a: 'Non, le statut dépend de la date d\'embauche. Avant le 17 juillet 2023 = ancien frontalier automatiquement.' },
+      ],
+    },
+  },
+
+  'confronto-netto-2025-2026-oltre-20km': {
+    it: {
+      eyebrow: 'Confronto regime · Oltre 20 km',
+      tagline: 'Vecchio regime vs Nuovo Accordo 2026: per chi vive oltre 20 km, il delta è significativo.',
+      tiles: [
+        { label: 'Vecchio regime', value: 'Raramente applicabile', tone: 'neutral' },
+        { label: 'Nuovo regime', value: '100% CH + IRPEF IT', tone: 'danger' },
+        { label: 'Delta netto', value: '-€2.000 - 4.000/anno', tone: 'danger' },
+        { label: 'Da quando', value: 'dal 17.07.2023', tone: 'accent' },
+      ],
+      advice: 'I nuovi frontalieri oltre 20 km pagano molto più tasse del vecchio regime. Se non hai ancora firmato, valuta la residenza entro 20 km per risparmiare €2.000-4.000/anno.',
+      ctaPrimary: { label: 'Calcola il tuo netto 2026', href: '/calcola-stipendio/' },
+      ctaSecondary: { label: 'Confronta entro vs oltre 20 km', href: '/calcola-stipendio/nuovi-frontalieri-oltre-20-km/' },
+      table: {
+        caption: 'Netto annuo oltre 20 km · vecchio vs nuovo regime (A0N, Milano)',
+        headers: ['Voce', 'Vecchio regime 2025', 'Nuovo regime 2026', 'Δ EUR/anno'],
+        rows: [
+          { cells: ['RAL CHF 60.000', '~EUR 46.500', '~EUR 44.500', '-2.000'] },
+          { cells: ['RAL CHF 80.000', '~EUR 58.500', '~EUR 55.000', '-3.500'], emphasized: true },
+          { cells: ['RAL CHF 100.000', '~EUR 70.500', '~EUR 66.000', '-4.500'] },
+        ],
+        footnote: 'Stime indicative. Oltre 20 km la tassazione concorrente è particolarmente gravosa: l\'IRPEF italiana piena si somma all\'imposta alla fonte CH.',
+      },
+      faqs: [
+        { q: 'Il vecchio regime si applica oltre 20 km?', a: 'Solo per i frontalieri assunti ante 17.07.2023 che già lavoravano oltre i 20 km — caso raro. La grande maggioranza dei frontalieri "storici" risiede entro 20 km.' },
+        { q: 'Posso optare per la residenza fiscale CH?', a: 'Sì, se ti trasferisci in Svizzera con permesso B. Devi però rispettare i requisiti di soggiorno (>183 gg/anno in CH).' },
+        { q: 'Conviene comunque accettare un\'offerta oltre 20 km?', a: 'Dipende dallo stipendio e dai costi di trasporto/vita. Sopra CHF 90k il vantaggio CH compensa anche oltre 20 km. Usa il simulatore per il tuo caso esatto.' },
+      ],
+    },
+    en: {
+      eyebrow: 'Regime comparison · Over 20 km',
+      tagline: 'Old regime vs New Agreement 2026: for residents over 20 km, the delta is significant.',
+      tiles: [
+        { label: 'Old regime', value: 'Rarely applicable', tone: 'neutral' },
+        { label: 'New regime', value: '100% CH + Italian IRPEF', tone: 'danger' },
+        { label: 'Net delta', value: '-€2,000 - 4,000/year', tone: 'danger' },
+        { label: 'Effective since', value: '17 Jul 2023', tone: 'accent' },
+      ],
+      advice: 'New cross-border workers over 20 km pay significantly more tax than under the old regime. If you have not signed yet, consider residing within 20 km to save €2,000-4,000/year.',
+      ctaPrimary: { label: 'Calculate your 2026 net', href: '/en/calculate-salary/' },
+      ctaSecondary: { label: 'Compare within vs over 20 km', href: '/en/calculate-salary/new-cross-border-workers-over-20km/' },
+      table: {
+        caption: 'Annual net over 20 km · old vs new regime (A0N, Milan)',
+        headers: ['Line', 'Old regime 2025', 'New regime 2026', 'Δ EUR/year'],
+        rows: [
+          { cells: ['Gross CHF 60,000', '~EUR 46,500', '~EUR 44,500', '-2,000'] },
+          { cells: ['Gross CHF 80,000', '~EUR 58,500', '~EUR 55,000', '-3,500'], emphasized: true },
+          { cells: ['Gross CHF 100,000', '~EUR 70,500', '~EUR 66,000', '-4,500'] },
+        ],
+        footnote: 'Indicative estimates. Beyond 20 km, concurrent taxation is particularly heavy: full Italian IRPEF stacks on top of Swiss source tax.',
+      },
+      faqs: [
+        { q: 'Does the old regime apply over 20 km?', a: 'Only for grandfathered workers (hired before 17 Jul 2023) who already lived over 20 km — rare. Most historical cross-border workers reside within 20 km.' },
+        { q: 'Can I opt for Swiss tax residence?', a: 'Yes, if you move to Switzerland with a B permit. You must meet residency requirements (>183 days/year in CH).' },
+        { q: 'Is an over-20 km offer still worth it?', a: 'Depends on salary and travel/living costs. Above CHF 90k the Swiss advantage compensates even over 20 km. Use the simulator for your exact case.' },
+      ],
+    },
+    de: {
+      eyebrow: 'Regime-Vergleich · Über 20 km',
+      tagline: 'Altes Regime vs. Neues Abkommen 2026: über 20 km ist die Differenz erheblich.',
+      tiles: [
+        { label: 'Altes Regime', value: 'Selten anwendbar', tone: 'neutral' },
+        { label: 'Neues Regime', value: '100% CH + IT-IRPEF', tone: 'danger' },
+        { label: 'Netto-Differenz', value: '-€2.000 - 4.000/Jahr', tone: 'danger' },
+        { label: 'Gilt seit', value: '17.07.2023', tone: 'accent' },
+      ],
+      advice: 'Neue Grenzgänger über 20 km zahlen deutlich mehr Steuern als im alten Regime. Falls noch nicht unterschrieben: Wohnsitz bis 20 km erwägen, um €2.000-4.000/Jahr zu sparen.',
+      ctaPrimary: { label: 'Netto 2026 berechnen', href: '/de/gehalt-berechnen/' },
+      ctaSecondary: { label: 'Bis vs. über 20 km vergleichen', href: '/de/gehalt-berechnen/neue-grenzgaenger-ueber-20-km/' },
+      table: {
+        caption: 'Jahresnetto über 20 km · altes vs. neues Regime (A0N, Mailand)',
+        headers: ['Position', 'Altes Regime 2025', 'Neues Regime 2026', 'Δ EUR/Jahr'],
+        rows: [
+          { cells: ['Brutto CHF 60.000', '~EUR 46.500', '~EUR 44.500', '-2.000'] },
+          { cells: ['Brutto CHF 80.000', '~EUR 58.500', '~EUR 55.000', '-3.500'], emphasized: true },
+          { cells: ['Brutto CHF 100.000', '~EUR 70.500', '~EUR 66.000', '-4.500'] },
+        ],
+        footnote: 'Richtwerte. Über 20 km ist die konkurrierende Besteuerung besonders hoch: volle italienische IRPEF zusätzlich zur CH-Quellensteuer.',
+      },
+      faqs: [
+        { q: 'Gilt das alte Regime über 20 km?', a: 'Nur für alte Grenzgänger (vor 17.07.2023 angestellt), die schon über 20 km wohnten — selten. Die meisten historischen Grenzgänger wohnen bis 20 km.' },
+        { q: 'Kann ich Schweizer Steuerwohnsitz wählen?', a: 'Ja, mit Umzug in die Schweiz und B-Bewilligung. Wohnsitzanforderungen beachten (>183 Tage/Jahr in CH).' },
+        { q: 'Lohnt sich ein Angebot über 20 km trotzdem?', a: 'Abhängig von Gehalt und Pendelkosten. Ab CHF 90k kompensiert der CH-Vorteil auch über 20 km. Simulator für den konkreten Fall verwenden.' },
+      ],
+    },
+    fr: {
+      eyebrow: 'Comparaison régimes · Plus 20 km',
+      tagline: 'Ancien régime vs Nouvel Accord 2026 : au-delà de 20 km, l\'écart est significatif.',
+      tiles: [
+        { label: 'Ancien régime', value: 'Rarement applicable', tone: 'neutral' },
+        { label: 'Nouveau régime', value: '100% CH + IRPEF IT', tone: 'danger' },
+        { label: 'Delta net', value: '-€2 000 - 4 000/an', tone: 'danger' },
+        { label: 'En vigueur depuis', value: '17.07.2023', tone: 'accent' },
+      ],
+      advice: 'Les nouveaux frontaliers au-delà de 20 km paient bien plus d\'impôts qu\'avec l\'ancien régime. Si pas encore signé, envisagez une résidence à moins de 20 km pour économiser €2 000-4 000/an.',
+      ctaPrimary: { label: 'Calculer votre net 2026', href: '/fr/calculer-salaire/' },
+      ctaSecondary: { label: 'Comparer moins/plus 20 km', href: '/fr/calculer-salaire/nouveaux-frontaliers-plus-20-km/' },
+      table: {
+        caption: 'Net annuel plus 20 km · ancien vs nouveau régime (A0N, Milan)',
+        headers: ['Poste', 'Ancien régime 2025', 'Nouveau régime 2026', 'Δ EUR/an'],
+        rows: [
+          { cells: ['Brut CHF 60 000', '~EUR 46 500', '~EUR 44 500', '-2 000'] },
+          { cells: ['Brut CHF 80 000', '~EUR 58 500', '~EUR 55 000', '-3 500'], emphasized: true },
+          { cells: ['Brut CHF 100 000', '~EUR 70 500', '~EUR 66 000', '-4 500'] },
+        ],
+        footnote: 'Estimations indicatives. Au-delà de 20 km, l\'imposition concurrente est particulièrement lourde : IRPEF italien plein cumulé avec l\'impôt source CH.',
+      },
+      faqs: [
+        { q: 'L\'ancien régime s\'applique-t-il au-delà de 20 km ?', a: 'Uniquement pour les anciens frontaliers (embauchés avant le 17.07.2023) qui résidaient déjà au-delà de 20 km — cas rare. La majorité des frontaliers historiques résident à moins de 20 km.' },
+        { q: 'Puis-je opter pour la résidence fiscale CH ?', a: 'Oui, si vous déménagez en Suisse avec un permis B. Respectez les exigences de résidence (>183 jours/an en CH).' },
+        { q: 'Une offre au-delà de 20 km en vaut-elle quand même la peine ?', a: 'Selon le salaire et les coûts trajet/vie. Au-dessus de CHF 90k l\'avantage CH compense même au-delà de 20 km. Utilisez le simulateur pour votre cas précis.' },
+      ],
+    },
+  },
+
+  'confronto-permesso-g-vs-b-entro-20km': {
+    it: {
+      eyebrow: 'Permesso G vs B · Entro 20 km',
+      tagline: 'Frontaliere (G) vs residente CH (B) a parità di stipendio: chi prende più netto?',
+      tiles: [
+        { label: 'Permit G', value: 'Tassazione concorrente', tone: 'warning' },
+        { label: 'Permit B', value: 'Solo tasse CH', tone: 'success' },
+        { label: 'Cassa malati', value: 'LAMal obbligatoria (B)', tone: 'accent' },
+        { label: 'Break-even', value: 'CHF 80k+', tone: 'neutral' },
+      ],
+      advice: 'Sopra CHF 80.000 di RAL il permesso B paga ~CHF 3.000/anno in meno di tasse. Sotto, il G mantiene il vantaggio per flessibilità + SSN italiano opzionale.',
+      ctaPrimary: { label: 'Calcola scenari G vs B', href: '/calcola-stipendio/' },
+      ctaSecondary: { label: 'Confronto LAMal vs SSN', href: '/compara-servizi/confronta-casse-malati/' },
+      table: {
+        caption: 'Netto annuo Permit G vs B · entro 20 km (single, A0N, Lugano)',
+        headers: ['Voce', 'Permit G (Italia)', 'Permit B (CH)', 'Δ a favore B'],
+        rows: [
+          { cells: ['RAL CHF 60.000', '~CHF 44.000', '~CHF 45.500', '+CHF 1.500'] },
+          { cells: ['RAL CHF 80.000', '~CHF 55.000', '~CHF 58.000', '+CHF 3.000'], emphasized: true },
+          { cells: ['RAL CHF 100.000', '~CHF 67.000', '~CHF 71.000', '+CHF 4.000'] },
+        ],
+        footnote: 'Stime al netto di trasporto frontaliere (G) e LAMal CHF 4.800/anno (B). LAMal obbligatoria con B; G può scegliere SSN o LAMal.',
+      },
+      faqs: [
+        { q: 'Quanto serve di stipendio per giustificare il permesso B?', a: 'Tipicamente da CHF 80.000+: sopra questa soglia il risparmio fiscale CH copre i costi extra (LAMal, affitto Lugano).' },
+        { q: 'Posso passare da G a B mantenendo lo stesso lavoro?', a: 'Sì, ma serve trasferimento di residenza in Svizzera (>183 gg/anno) + permesso B (richiesta al Comune CH).' },
+        { q: 'LAMal o SSN: cosa scelgo con permesso G?', a: 'Hai diritto d\'opzione: scegli una volta sola, scelta irrevocabile. LAMal copre meglio in CH, SSN è gratuito ma copre solo IT. Vedi il comparatore.' },
+      ],
+    },
+    en: {
+      eyebrow: 'Permit G vs B · Within 20 km',
+      tagline: 'Cross-border worker (G) vs Swiss resident (B) at the same gross: who takes home more?',
+      tiles: [
+        { label: 'Permit G', value: 'Concurrent taxation', tone: 'warning' },
+        { label: 'Permit B', value: 'Swiss tax only', tone: 'success' },
+        { label: 'Health insurance', value: 'LAMal mandatory (B)', tone: 'accent' },
+        { label: 'Break-even', value: 'CHF 80k+', tone: 'neutral' },
+      ],
+      advice: 'Above CHF 80,000 gross, Permit B pays ~CHF 3,000/year less tax. Below that, Permit G keeps its edge thanks to flexibility + optional Italian SSN.',
+      ctaPrimary: { label: 'Calculate G vs B scenarios', href: '/en/calculate-salary/' },
+      ctaSecondary: { label: 'LAMal vs SSN comparison', href: '/en/comparators/compare-health-insurance/' },
+      table: {
+        caption: 'Annual net Permit G vs B · within 20 km (single, A0N, Lugano)',
+        headers: ['Line', 'Permit G (Italy)', 'Permit B (CH)', 'Δ favour B'],
+        rows: [
+          { cells: ['Gross CHF 60,000', '~CHF 44,000', '~CHF 45,500', '+CHF 1,500'] },
+          { cells: ['Gross CHF 80,000', '~CHF 55,000', '~CHF 58,000', '+CHF 3,000'], emphasized: true },
+          { cells: ['Gross CHF 100,000', '~CHF 67,000', '~CHF 71,000', '+CHF 4,000'] },
+        ],
+        footnote: 'Net of cross-border travel (G) and LAMal CHF 4,800/year (B). LAMal mandatory with B; G can choose SSN or LAMal.',
+      },
+      faqs: [
+        { q: 'How much salary justifies Permit B?', a: 'Typically from CHF 80,000+: above this threshold the Swiss tax saving covers extra costs (LAMal, Lugano rent).' },
+        { q: 'Can I switch from G to B keeping the same job?', a: 'Yes, but you must move your residence to Switzerland (>183 days/year) and apply for a B permit at your Swiss municipality.' },
+        { q: 'LAMal or SSN with Permit G?', a: 'You have an opt-in right: one-shot choice, irrevocable. LAMal covers better in CH, SSN is free but covers only Italy. See the comparator.' },
+      ],
+    },
+    de: {
+      eyebrow: 'G vs B · Bis 20 km',
+      tagline: 'Grenzgänger (G) vs Schweizer Resident (B) bei gleichem Brutto: wer behält mehr netto?',
+      tiles: [
+        { label: 'G-Bewilligung', value: 'Konkurrierende Besteuerung', tone: 'warning' },
+        { label: 'B-Bewilligung', value: 'Nur Schweizer Steuern', tone: 'success' },
+        { label: 'Krankenkasse', value: 'LAMal Pflicht (B)', tone: 'accent' },
+        { label: 'Break-even', value: 'CHF 80k+', tone: 'neutral' },
+      ],
+      advice: 'Ab CHF 80.000 brutto zahlt die B-Bewilligung ~CHF 3.000/Jahr weniger Steuern. Darunter behält die G-Bewilligung den Vorteil dank Flexibilität + optionalem italienischem SSN.',
+      ctaPrimary: { label: 'G vs B Szenarien berechnen', href: '/de/gehalt-berechnen/' },
+      ctaSecondary: { label: 'LAMal vs SSN Vergleich', href: '/de/comparators/krankenkassen-vergleichen/' },
+      table: {
+        caption: 'Jahresnetto G vs B · bis 20 km (ledig, A0N, Lugano)',
+        headers: ['Position', 'G (Italien)', 'B (CH)', 'Δ zugunsten B'],
+        rows: [
+          { cells: ['Brutto CHF 60.000', '~CHF 44.000', '~CHF 45.500', '+CHF 1.500'] },
+          { cells: ['Brutto CHF 80.000', '~CHF 55.000', '~CHF 58.000', '+CHF 3.000'], emphasized: true },
+          { cells: ['Brutto CHF 100.000', '~CHF 67.000', '~CHF 71.000', '+CHF 4.000'] },
+        ],
+        footnote: 'Netto nach Grenzgänger-Pendel (G) und LAMal CHF 4.800/Jahr (B). LAMal Pflicht mit B; G hat Wahl SSN/LAMal.',
+      },
+      faqs: [
+        { q: 'Welches Gehalt rechtfertigt eine B-Bewilligung?', a: 'Typischerweise ab CHF 80.000+: oberhalb dieser Schwelle decken die CH-Steuerersparnisse die Mehrkosten (LAMal, Miete Lugano).' },
+        { q: 'Kann ich von G zu B wechseln und denselben Job behalten?', a: 'Ja, aber Wohnsitz muss in die Schweiz (>183 Tage/Jahr) und B-Bewilligung beim Schweizer Wohnort beantragen.' },
+        { q: 'LAMal oder SSN mit G-Bewilligung?', a: 'Optionsrecht: einmalige, unwiderrufliche Wahl. LAMal deckt besser in CH, SSN ist gratis aber nur IT. Siehe Vergleich.' },
+      ],
+    },
+    fr: {
+      eyebrow: 'Permis G vs B · Moins 20 km',
+      tagline: 'Frontalier (G) vs résident CH (B) à brut égal : qui touche le plus de net ?',
+      tiles: [
+        { label: 'Permis G', value: 'Imposition concurrente', tone: 'warning' },
+        { label: 'Permis B', value: 'Impôts CH seulement', tone: 'success' },
+        { label: 'Caisse maladie', value: 'LAMal obligatoire (B)', tone: 'accent' },
+        { label: 'Break-even', value: 'CHF 80k+', tone: 'neutral' },
+      ],
+      advice: 'Au-dessus de CHF 80 000 brut, le permis B paie ~CHF 3 000/an d\'impôts en moins. En-dessous, le G garde l\'avantage grâce à flexibilité + SSN italien optionnel.',
+      ctaPrimary: { label: 'Calculer scénarios G vs B', href: '/fr/calculer-salaire/' },
+      ctaSecondary: { label: 'Comparer LAMal vs SSN', href: '/fr/comparators/comparer-caisses-maladie/' },
+      table: {
+        caption: 'Net annuel Permis G vs B · moins 20 km (célibataire, A0N, Lugano)',
+        headers: ['Poste', 'Permis G (Italie)', 'Permis B (CH)', 'Δ en faveur B'],
+        rows: [
+          { cells: ['Brut CHF 60 000', '~CHF 44 000', '~CHF 45 500', '+CHF 1 500'] },
+          { cells: ['Brut CHF 80 000', '~CHF 55 000', '~CHF 58 000', '+CHF 3 000'], emphasized: true },
+          { cells: ['Brut CHF 100 000', '~CHF 67 000', '~CHF 71 000', '+CHF 4 000'] },
+        ],
+        footnote: 'Net après transport frontalier (G) et LAMal CHF 4 800/an (B). LAMal obligatoire avec B ; G peut choisir SSN ou LAMal.',
+      },
+      faqs: [
+        { q: 'Quel salaire justifie le permis B ?', a: 'Typiquement dès CHF 80 000+ : au-dessus de ce seuil l\'économie fiscale CH couvre les coûts supplémentaires (LAMal, loyer Lugano).' },
+        { q: 'Puis-je passer de G à B en gardant le même travail ?', a: 'Oui, mais transfert de résidence en Suisse (>183 jours/an) et demande de permis B à la commune CH.' },
+        { q: 'LAMal ou SSN avec permis G ?', a: 'Droit d\'option : choix unique, irrévocable. LAMal couvre mieux en CH, SSN est gratuit mais ne couvre que l\'Italie. Voir le comparateur.' },
+      ],
+    },
+  },
+
+  'confronto-permesso-g-vs-b-oltre-20km': {
+    it: {
+      eyebrow: 'Permesso G vs B · Oltre 20 km',
+      tagline: 'Frontaliere oltre 20 km (G) vs residente CH (B): per i nuovi frontalieri il permesso B è quasi sempre più conveniente.',
+      tiles: [
+        { label: 'Permit G oltre 20 km', value: '100% fonte + IRPEF IT', tone: 'danger' },
+        { label: 'Permit B', value: 'Solo tasse CH', tone: 'success' },
+        { label: 'Delta a favore B', value: '+CHF 4.000-6.000/anno', tone: 'accent' },
+        { label: 'Break-even', value: 'CHF 60k', tone: 'warning' },
+      ],
+      advice: 'Per i nuovi frontalieri oltre 20 km, il permesso B è quasi sempre più conveniente. Verifica fattibilità: residenza CH, lingua, contratto stabile, requisiti permesso B.',
+      ctaPrimary: { label: 'Calcola G oltre 20 km vs B', href: '/calcola-stipendio/' },
+      ctaSecondary: { label: 'Confronto LAMal vs SSN', href: '/compara-servizi/confronta-casse-malati/' },
+      table: {
+        caption: 'Netto annuo G (oltre 20 km) vs B · 2026 (single, A0N)',
+        headers: ['Voce', 'Permit G (>20 km)', 'Permit B (CH)', 'Δ a favore B'],
+        rows: [
+          { cells: ['RAL CHF 60.000', '~CHF 42.000', '~CHF 45.500', '+CHF 3.500'] },
+          { cells: ['RAL CHF 80.000', '~CHF 52.500', '~CHF 58.000', '+CHF 5.500'], emphasized: true },
+          { cells: ['RAL CHF 100.000', '~CHF 64.000', '~CHF 71.000', '+CHF 7.000'] },
+        ],
+        footnote: 'Stime al netto di trasporto (G) e LAMal (B). Il permesso B vince quasi sempre per i nuovi frontalieri oltre 20 km.',
+      },
+      faqs: [
+        { q: 'Perché il delta è così alto oltre 20 km?', a: 'Perché il nuovo regime tassa il 100% in CH + l\'IRPEF italiana piena (no split 80/20). Il permesso B paga solo la fonte CH, evitando la doppia imposta.' },
+        { q: 'Quali requisiti per il permesso B?', a: 'Contratto di lavoro CH valido, alloggio a tuo nome, dimostrazione mezzi sufficienti, dichiarazione iscrizione anagrafica al Comune CH. Variabile per cantone.' },
+        { q: 'Conviene anche se ho famiglia in Italia?', a: 'Più complesso: trasferimento famiglia comporta cambio scuole, lavoro coniuge, sanità. Spesso conviene se entrambi possono trasferirsi.' },
+      ],
+    },
+    en: {
+      eyebrow: 'Permit G vs B · Over 20 km',
+      tagline: 'Cross-border worker over 20 km (G) vs Swiss resident (B): for new workers, Permit B is almost always better.',
+      tiles: [
+        { label: 'Permit G over 20 km', value: '100% source + IT IRPEF', tone: 'danger' },
+        { label: 'Permit B', value: 'Swiss tax only', tone: 'success' },
+        { label: 'Δ favour B', value: '+CHF 4,000-6,000/year', tone: 'accent' },
+        { label: 'Break-even', value: 'CHF 60k', tone: 'warning' },
+      ],
+      advice: 'For new cross-border workers over 20 km, Permit B is almost always more convenient. Check feasibility: Swiss residence, language, stable contract, B-permit requirements.',
+      ctaPrimary: { label: 'Calculate G over 20 km vs B', href: '/en/calculate-salary/' },
+      ctaSecondary: { label: 'LAMal vs SSN comparison', href: '/en/comparators/compare-health-insurance/' },
+      table: {
+        caption: 'Annual net G (over 20 km) vs B · 2026 (single, A0N)',
+        headers: ['Line', 'Permit G (>20 km)', 'Permit B (CH)', 'Δ favour B'],
+        rows: [
+          { cells: ['Gross CHF 60,000', '~CHF 42,000', '~CHF 45,500', '+CHF 3,500'] },
+          { cells: ['Gross CHF 80,000', '~CHF 52,500', '~CHF 58,000', '+CHF 5,500'], emphasized: true },
+          { cells: ['Gross CHF 100,000', '~CHF 64,000', '~CHF 71,000', '+CHF 7,000'] },
+        ],
+        footnote: 'Net of travel (G) and LAMal (B). Permit B almost always wins for new cross-border workers over 20 km.',
+      },
+      faqs: [
+        { q: 'Why is the delta so large over 20 km?', a: 'Because the new regime taxes 100% in CH plus full Italian IRPEF (no 80/20 split). Permit B pays only Swiss source tax, avoiding double taxation.' },
+        { q: 'What are B-permit requirements?', a: 'Valid Swiss employment contract, accommodation in your name, sufficient means, registration at the Swiss municipality. Varies by canton.' },
+        { q: 'Worth it if my family lives in Italy?', a: 'More complex: family move means new schools, partner job, healthcare. Often worth it if both can relocate.' },
+      ],
+    },
+    de: {
+      eyebrow: 'G vs B · Über 20 km',
+      tagline: 'Grenzgänger über 20 km (G) vs Schweizer Resident (B): für neue Grenzgänger ist B fast immer günstiger.',
+      tiles: [
+        { label: 'G über 20 km', value: '100% Quelle + IT-IRPEF', tone: 'danger' },
+        { label: 'B-Bewilligung', value: 'Nur Schweizer Steuern', tone: 'success' },
+        { label: 'Δ zugunsten B', value: '+CHF 4.000-6.000/Jahr', tone: 'accent' },
+        { label: 'Break-even', value: 'CHF 60k', tone: 'warning' },
+      ],
+      advice: 'Für neue Grenzgänger über 20 km ist die B-Bewilligung fast immer günstiger. Machbarkeit prüfen: CH-Wohnsitz, Sprache, stabiler Vertrag, B-Bewilligungsanforderungen.',
+      ctaPrimary: { label: 'G über 20 km vs B berechnen', href: '/de/gehalt-berechnen/' },
+      ctaSecondary: { label: 'LAMal vs SSN Vergleich', href: '/de/comparators/krankenkassen-vergleichen/' },
+      table: {
+        caption: 'Jahresnetto G (über 20 km) vs B · 2026 (ledig, A0N)',
+        headers: ['Position', 'G (>20 km)', 'B (CH)', 'Δ zugunsten B'],
+        rows: [
+          { cells: ['Brutto CHF 60.000', '~CHF 42.000', '~CHF 45.500', '+CHF 3.500'] },
+          { cells: ['Brutto CHF 80.000', '~CHF 52.500', '~CHF 58.000', '+CHF 5.500'], emphasized: true },
+          { cells: ['Brutto CHF 100.000', '~CHF 64.000', '~CHF 71.000', '+CHF 7.000'] },
+        ],
+        footnote: 'Netto nach Pendel (G) und LAMal (B). B-Bewilligung gewinnt fast immer für neue Grenzgänger über 20 km.',
+      },
+      faqs: [
+        { q: 'Warum ist die Differenz über 20 km so gross?', a: 'Weil das neue Regime 100 % in CH + volle italienische IRPEF besteuert (kein 80/20-Split). B zahlt nur CH-Quellensteuer und vermeidet die Doppelbesteuerung.' },
+        { q: 'Was braucht eine B-Bewilligung?', a: 'Gültiger CH-Arbeitsvertrag, Wohnung auf eigenen Namen, ausreichende Mittel, Anmeldung bei der CH-Wohngemeinde. Kanton-abhängig.' },
+        { q: 'Lohnt es sich auch mit Familie in Italien?', a: 'Komplexer: Familienumzug bedeutet Schulwechsel, Partnerarbeit, Gesundheit. Oft lohnend, wenn beide umziehen können.' },
+      ],
+    },
+    fr: {
+      eyebrow: 'Permis G vs B · Plus 20 km',
+      tagline: 'Frontalier plus 20 km (G) vs résident CH (B) : pour les nouveaux frontaliers, le permis B est presque toujours plus avantageux.',
+      tiles: [
+        { label: 'Permis G plus 20 km', value: '100% source + IRPEF IT', tone: 'danger' },
+        { label: 'Permis B', value: 'Impôts CH seulement', tone: 'success' },
+        { label: 'Δ en faveur B', value: '+CHF 4 000-6 000/an', tone: 'accent' },
+        { label: 'Break-even', value: 'CHF 60k', tone: 'warning' },
+      ],
+      advice: 'Pour les nouveaux frontaliers au-delà de 20 km, le permis B est presque toujours plus avantageux. Vérifiez faisabilité : résidence CH, langue, contrat stable, exigences permis B.',
+      ctaPrimary: { label: 'Calculer G plus 20 km vs B', href: '/fr/calculer-salaire/' },
+      ctaSecondary: { label: 'Comparer LAMal vs SSN', href: '/fr/comparators/comparer-caisses-maladie/' },
+      table: {
+        caption: 'Net annuel G (plus 20 km) vs B · 2026 (célibataire, A0N)',
+        headers: ['Poste', 'Permis G (>20 km)', 'Permis B (CH)', 'Δ en faveur B'],
+        rows: [
+          { cells: ['Brut CHF 60 000', '~CHF 42 000', '~CHF 45 500', '+CHF 3 500'] },
+          { cells: ['Brut CHF 80 000', '~CHF 52 500', '~CHF 58 000', '+CHF 5 500'], emphasized: true },
+          { cells: ['Brut CHF 100 000', '~CHF 64 000', '~CHF 71 000', '+CHF 7 000'] },
+        ],
+        footnote: 'Net après transport (G) et LAMal (B). Le permis B gagne presque toujours pour les nouveaux frontaliers au-delà de 20 km.',
+      },
+      faqs: [
+        { q: 'Pourquoi un delta si grand au-delà de 20 km ?', a: 'Parce que le nouveau régime impose 100 % en CH + IRPEF italien plein (pas de split 80/20). Le permis B ne paie que l\'impôt source CH, évitant la double imposition.' },
+        { q: 'Quelles sont les exigences du permis B ?', a: 'Contrat de travail CH valide, logement à votre nom, ressources suffisantes, déclaration d\'inscription à la commune CH. Variable selon canton.' },
+        { q: 'Vaut-il le coup avec famille en Italie ?', a: 'Plus complexe : déménagement familial = nouvelles écoles, emploi conjoint, santé. Souvent intéressant si les deux peuvent déménager.' },
+      ],
+    },
+  },
+};
+
+function parseNetComparisonPath(canonicalPath: string): { key: NetComparisonKey; locale: SalaryLocale } | null {
+  const stripped = canonicalPath.replace(/\/+$/, '');
+  // IT canonical paths
+  const itSlugs: Array<{ slug: string; key: NetComparisonKey }> = [
+    { slug: '/calcola-stipendio/confronto-netto-2025-2026-entro-20km', key: 'confronto-netto-2025-2026-entro-20km' },
+    { slug: '/calcola-stipendio/confronto-netto-2025-2026-oltre-20km', key: 'confronto-netto-2025-2026-oltre-20km' },
+    { slug: '/calcola-stipendio/confronto-permesso-g-vs-b-entro-20km', key: 'confronto-permesso-g-vs-b-entro-20km' },
+    { slug: '/calcola-stipendio/confronto-permesso-g-vs-b-oltre-20km', key: 'confronto-permesso-g-vs-b-oltre-20km' },
+  ];
+  for (const { slug, key } of itSlugs) {
+    if (stripped === slug) return { key, locale: 'it' };
+  }
+  // EN / DE / FR variants (per services/router.ts SEO_LANDING_SLUGS lines 316-373)
+  const localeSlugs: Array<{ slug: string; key: NetComparisonKey; locale: SalaryLocale }> = [
+    { slug: '/en/calculate-salary/net-comparison-2025-2026-within-20km', key: 'confronto-netto-2025-2026-entro-20km', locale: 'en' },
+    { slug: '/en/calculate-salary/net-comparison-2025-2026-over-20km', key: 'confronto-netto-2025-2026-oltre-20km', locale: 'en' },
+    { slug: '/en/calculate-salary/permit-g-vs-b-comparison-within-20km', key: 'confronto-permesso-g-vs-b-entro-20km', locale: 'en' },
+    { slug: '/en/calculate-salary/permit-g-vs-b-comparison-over-20km', key: 'confronto-permesso-g-vs-b-oltre-20km', locale: 'en' },
+    { slug: '/de/gehalt-berechnen/nettovergleich-2025-2026-bis-20km', key: 'confronto-netto-2025-2026-entro-20km', locale: 'de' },
+    { slug: '/de/gehalt-berechnen/nettovergleich-2025-2026-ueber-20km', key: 'confronto-netto-2025-2026-oltre-20km', locale: 'de' },
+    { slug: '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-bis-20km', key: 'confronto-permesso-g-vs-b-entro-20km', locale: 'de' },
+    { slug: '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-ueber-20km', key: 'confronto-permesso-g-vs-b-oltre-20km', locale: 'de' },
+    { slug: '/fr/calculer-salaire/comparaison-net-2025-2026-moins-20km', key: 'confronto-netto-2025-2026-entro-20km', locale: 'fr' },
+    { slug: '/fr/calculer-salaire/comparaison-net-2025-2026-plus-20km', key: 'confronto-netto-2025-2026-oltre-20km', locale: 'fr' },
+    { slug: '/fr/calculer-salaire/comparaison-permis-g-vs-b-moins-20km', key: 'confronto-permesso-g-vs-b-entro-20km', locale: 'fr' },
+    { slug: '/fr/calculer-salaire/comparaison-permis-g-vs-b-plus-20km', key: 'confronto-permesso-g-vs-b-oltre-20km', locale: 'fr' },
+  ];
+  for (const { slug, key, locale } of localeSlugs) {
+    if (stripped === slug) return { key, locale };
+  }
+  return null;
+}
+
 function resolveScenarioData(canonicalPath: string): { data: SalaryLandingData; locale: SalaryLocale } {
   const stripped = canonicalPath.replace(/\/+$/, '');
   // 1. Hub lookup
@@ -1196,7 +1704,15 @@ function resolveScenarioData(canonicalPath: string): { data: SalaryLandingData; 
       locale: tierHit.locale,
     };
   }
-  // 3. Generic default — anything else under /calcola-stipendio/*
+  // 3. Net-comparison pattern (regime 2025 vs 2026, permit G vs B)
+  const compHit = parseNetComparisonPath(canonicalPath);
+  if (compHit) {
+    return {
+      data: NET_COMPARISON_SCENARIOS[compHit.key][compHit.locale],
+      locale: compHit.locale,
+    };
+  }
+  // 4. Generic default — anything else under /calcola-stipendio/*
   const locale = detectLocale(canonicalPath);
   const pack = LOCALE_PACKS[locale];
   return {
@@ -1306,6 +1822,7 @@ export function buildSalaryLandingBody(args: BuildSalaryLandingArgs): string {
 
 export const _internal = {
   parseSalaryTierPath,
+  parseNetComparisonPath,
   resolveScenarioData,
   HUB_PATH_TO_KEY,
 };
