@@ -7630,6 +7630,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ffs-tagli-ticino-frontalieri-2026.title': 'SBB plans job cuts in Ticino: impact on cross-border workers',
     'blog.article.ffs-tagli-ticino-frontalieri-2026.excerpt': 'The Swiss Federal Railways announce new job cuts in Ticino, raising concerns among workers and local authorities',
     'blog.article.ffs-tagli-ticino-frontalieri-2026.imageAlt': 'Aerial view of Lake Lugano with modern train station and city skyline',
+    'blog.article.terapia-complementare-attestati-lugano.title': 'Complementary Therapy: 16 Ticino Canton Certificates Issued in Lugano',
+    'blog.article.terapia-complementare-attestati-lugano.excerpt': '16 participants have obtained the Ticino Canton Tronco comune OmL Complementary Therapy certificate at the CPS in Lugano',
+    'blog.article.terapia-complementare-attestati-lugano.imageAlt': 'Certificate awarding ceremony at CPS in Lugano',
 };
 
 export default blogMetaEn;

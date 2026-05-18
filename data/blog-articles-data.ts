@@ -24266,4 +24266,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'terapia-complementare-attestati-lugano',
+ category: 'novita',
+ date: '2026-05-18T07:27:57.369Z',
+ image: '/images/blog/terapia-complementare-attestati-lugano.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

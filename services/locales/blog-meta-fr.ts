@@ -7631,6 +7631,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ffs-tagli-ticino-frontalieri-2026.title': 'CFF: nouveaux licenciements au Tessin, qu\'est-ce qui change pour les frontaliers',
     'blog.article.ffs-tagli-ticino-frontalieri-2026.excerpt': 'Les Chemins de fer fédéraux suisses annoncent de nouvelles suppressions d\'emplois au Tessin, suscitant des inquiétudes parmi les travailleurs et les autorités locales',
     'blog.article.ffs-tagli-ticino-frontalieri-2026.imageAlt': 'Vue aérienne du lac de Lugano avec gare moderne et skyline urbain',
+    'blog.article.terapia-complementare-attestati-lugano.title': 'Thérapie complémentaire : 16 permis frontaliers délivrés à Lugano',
+    'blog.article.terapia-complementare-attestati-lugano.excerpt': '16 participants ont obtenu le permis frontalier Tronco commun OmL Thérapie complémentaire au CPS de Lugano',
+    'blog.article.terapia-complementare-attestati-lugano.imageAlt': 'Cérémonie de remise des certificats au CPS de Lugano',
 };
 
 export default blogMetaFr;

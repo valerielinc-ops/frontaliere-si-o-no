@@ -7629,6 +7629,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ffs-tagli-ticino-frontalieri-2026.title': 'SBB plant Stellenstreichungen im Tessin: Was ändert sich für Grenzgänger?',
     'blog.article.ffs-tagli-ticino-frontalieri-2026.excerpt': 'Die Schweizerischen Bundesbahnen kündigen neue Stellenstreichungen im Tessin an, was bei den Arbeitnehmern und den lokalen Behörden für Besorgnis sorgt.',
     'blog.article.ffs-tagli-ticino-frontalieri-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit modernem Bahnhof und Stadtpanorama',
+    'blog.article.terapia-complementare-attestati-lugano.title': 'Komplementärtherapie: 16 Kantonszeugnisse in Lugano ausgehändigt',
+    'blog.article.terapia-complementare-attestati-lugano.excerpt': '16 Teilnehmer haben das Kantonszeugnis Tronco comune OmL Komplementärtherapie am CPS in Lugano erhalten',
+    'blog.article.terapia-complementare-attestati-lugano.imageAlt': 'Zertifikatsverleihung am CPS in Lugano',
 };
 
 export default blogMetaDe;
