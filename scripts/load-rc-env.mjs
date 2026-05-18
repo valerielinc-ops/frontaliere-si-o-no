@@ -113,6 +113,8 @@ const RC_TO_ENV = {
   CF_API_TOKEN:                   ['CF_API_TOKEN'],
   CF_ACCOUNT_ID:                  ['CF_ACCOUNT_ID'],
   MISTRAL_API_KEY:                ['MISTRAL_API_KEY'],
+  CHUTES_API_KEY:                 ['CHUTES_API_KEY'],
+  ZAI_API_KEY:                    ['ZAI_API_KEY', 'ZHIPU_API_KEY'],
 
   // Image generation providers
   TOGETHER_API_KEY:               ['TOGETHER_API_KEY'],

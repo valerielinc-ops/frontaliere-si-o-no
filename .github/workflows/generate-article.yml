@@ -18,6 +18,11 @@ on:
         required: false
         type: string
         default: '0'
+      no_changes_streak:
+        description: 'Internal: consecutive no_changes counter for back-off (do not set manually)'
+        required: false
+        type: string
+        default: '0'
 
 concurrency:
   # Shared group: only 1 run active at a time, next run queues (not skipped).
@@ -435,35 +440,56 @@ jobs:
           GENERATE_OUTCOME: ${{ steps.generate.outcome }}
           # Retry counter passed via workflow_dispatch input (default 0 for cron-triggered runs)
           RETRY_COUNT: ${{ github.event.inputs.retry_count || '0' }}
+          NO_CHANGES_STREAK: ${{ github.event.inputs.no_changes_streak || '0' }}
         run: |
           # Outcome decision tree:
-          # ✅ verified=true → self-trigger immediately, retry_count=0
-          # ⚪ has_changes=false (no source / all duplicates) → self-trigger immediately, retry_count=0
+          # ✅ verified=true → self-trigger immediately, retry_count=0, streak=0
+          # ⚪ has_changes=false (no source / all duplicates) → back-off based on streak length
           # 🟠 committed=false (rebase/push race) → self-trigger after 60s, retry_count=0
           # 🟠 verified=false (committed but not in dist) → RETRY with backoff
           # 🔴 generate step failure → RETRY with backoff
-          # Backoff schedule: 60s → 300s → 1800s, max 3 retries, then give up (cron resumes)
+          # Backoff schedule (failures): 60s → 300s → 1800s, max 3 retries
+          # Back-off schedule (no_changes streak): 0,1,2 → 0s ; 3-5 → 600s ; 6-9 → 1800s ; 10+ → stop, cron resumes
 
           SHOULD_TRIGGER="false"
           DELAY="0"
           REASON="unknown"
           NEXT_RETRY="0"
+          NEXT_STREAK="0"
 
           if [ "$VERIFIED" = "true" ]; then
             SHOULD_TRIGGER="true"
             DELAY="0"
             REASON="success"
             NEXT_RETRY="0"
+            NEXT_STREAK="0"
           elif [ "$HAS_CHANGES" = "false" ]; then
-            SHOULD_TRIGGER="true"
-            DELAY="0"
-            REASON="no_changes"
+            CUR_STREAK="${NO_CHANGES_STREAK:-0}"
+            NEXT_STREAK=$((CUR_STREAK + 1))
+            if [ "$NEXT_STREAK" -le 2 ]; then
+              SHOULD_TRIGGER="true"
+              DELAY="0"
+              REASON="no_changes_streak_${NEXT_STREAK}"
+            elif [ "$NEXT_STREAK" -le 5 ]; then
+              SHOULD_TRIGGER="true"
+              DELAY="600"
+              REASON="no_changes_streak_${NEXT_STREAK}_backoff_600s"
+            elif [ "$NEXT_STREAK" -le 9 ]; then
+              SHOULD_TRIGGER="true"
+              DELAY="1800"
+              REASON="no_changes_streak_${NEXT_STREAK}_backoff_1800s"
+            else
+              SHOULD_TRIGGER="false"
+              REASON="no_changes_streak_exhausted_${NEXT_STREAK}_cron_takes_over"
+              NEXT_STREAK="0"
+            fi
             NEXT_RETRY="0"
           elif [ "$COMMITTED" = "false" ] && [ "$HAS_CHANGES" = "true" ]; then
             SHOULD_TRIGGER="true"
             DELAY="60"
             REASON="rebase_failed"
             NEXT_RETRY="0"
+            NEXT_STREAK="0"
           else
             # Failure path: verify_failed OR generate_failed OR build_failed
             CUR_RETRY="${RETRY_COUNT:-0}"
@@ -480,12 +506,14 @@ jobs:
               SHOULD_TRIGGER="false"
               REASON="retry_exhausted"
             fi
+            NEXT_STREAK="0"
           fi
 
           echo "should_trigger=$SHOULD_TRIGGER" >> "$GITHUB_OUTPUT"
           echo "delay=$DELAY" >> "$GITHUB_OUTPUT"
           echo "reason=$REASON" >> "$GITHUB_OUTPUT"
           echo "next_retry=$NEXT_RETRY" >> "$GITHUB_OUTPUT"
+          echo "next_streak=$NEXT_STREAK" >> "$GITHUB_OUTPUT"
 
           {
             echo "## 🔁 Self-trigger decision"
@@ -496,6 +524,7 @@ jobs:
             echo "| Reason | \`$REASON\` |"
             echo "| Delay (s) | \`$DELAY\` |"
             echo "| Retry count (next) | \`$NEXT_RETRY\` |"
+            echo "| no_changes streak (next) | \`$NEXT_STREAK\` |"
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Self-trigger next run
@@ -509,4 +538,5 @@ jobs:
           DELAY_SECONDS: ${{ steps.decide_trigger.outputs.delay }}
           SELF_TRIGGER_REASON: ${{ steps.decide_trigger.outputs.reason }}
           RETRY_COUNT: ${{ steps.decide_trigger.outputs.next_retry }}
+          NO_CHANGES_STREAK: ${{ steps.decide_trigger.outputs.next_streak }}
         run: bash scripts/lib/trigger-self.sh

@@ -114,6 +114,7 @@ import {
 import { buildDiscoveryPool as _buildDiscoveryPool } from './lib/discovery/discoveryPool.mjs';
 import { isNearDuplicate as _isNearDuplicateHeadline } from './lib/scheduler/slugSimilarity.mjs';
 import { fetchWordpressSearchHeadlines } from './lib/topic-sources/wordpressSearch.mjs';
+import { extractArticleText } from './lib/extract-article-text.mjs';
 import { hasDomainAnchor } from './lib/discovery/domainAnchor.mjs';
 import { matchesFrontaliereAnchor } from './lib/discovery/frontaliereAnchor.mjs';
 
@@ -795,9 +796,31 @@ const SOURCE_WEEKLY_QUOTA = Math.max(
   Number.parseInt(process.env.SOURCE_WEEKLY_QUOTA || '3', 10) || 3,
 );
 const CREATE_ARTICLE_MIN_IT_WORDS = Math.max(
-  600,
+  400,
   Number.parseInt(process.env.CREATE_ARTICLE_MIN_IT_WORDS || '900', 10) || 900,
 );
+// Floor used when the source content is too thin to support 900 words without
+// inviting hallucination. Per-run adjustment in computeAdaptiveMinWords below.
+const CREATE_ARTICLE_MIN_IT_WORDS_FLOOR = Math.max(
+  300,
+  Number.parseInt(process.env.CREATE_ARTICLE_MIN_IT_WORDS_FLOOR || '400', 10) || 400,
+);
+/**
+ * Lower the IT-words target when the source body is short. Asking for 900 words
+ * from a 400-char news brief structurally forces the model to invent facts,
+ * which then trips the fact-check critical gate. Scale rules:
+ *   - source ≥ 4000 chars → full 900-word target
+ *   - source 2000-3999    → 700 words
+ *   - source 1000-1999    → 550 words
+ *   - source < 1000       → 400 words (floor)
+ */
+function computeAdaptiveMinWords(sourceText) {
+  const len = (sourceText || '').length;
+  if (len >= 4000) return CREATE_ARTICLE_MIN_IT_WORDS;
+  if (len >= 2000) return Math.max(CREATE_ARTICLE_MIN_IT_WORDS_FLOOR, 700);
+  if (len >= 1000) return Math.max(CREATE_ARTICLE_MIN_IT_WORDS_FLOOR, 550);
+  return CREATE_ARTICLE_MIN_IT_WORDS_FLOOR;
+}
 // Hard cap per body field — prevents LLM overshoot during expansion from
 // producing fields too large for free-tier translation models (output cap ~2048-4096 tokens).
 // 1000 words ≈ 1500 tokens output → well within model caps. Fields >700 words
@@ -2037,6 +2060,31 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
   // of majors in statistiche/coerenza. Under the weighted scheme those
   // pass with warning (numbers are noise, not falsehoods). Genuine
   // 3+ majors in high-trust categories still block.
+  // Track per-model critical fingerprints BEFORE dedup so we can apply
+  // consensus rules (true consensus = 2 models flag same fingerprint).
+  // Pre-2026-05-18 the rule was "any single critical from any model → block"
+  // which produced massive false positives: each model nitpicks 1 different
+  // thing → 6 retries × 6 models all blocked by 1 isolated critical each.
+  // New rule:
+  //   - critical seen by ≥2 models (true consensus) → ALWAYS block
+  //   - ≥2 critical from a single model in high-trust categories → block
+  //   - single isolated critical → downgrade to major+warning (not blocking)
+  // Quality bar preserved for genuine falsehoods (which both fact-checkers
+  // tend to agree on) while letting through contextual enrichments that
+  // only one model flagged as inventato.
+  const HIGH_TRUST_CRITICAL_CATEGORIES = new Set([
+    'leggi', 'persone', 'istituzioni', 'fatti_inventati',
+    'date', 'aliquote', 'eu_svizzera', 'geografia',
+  ]);
+
+  const perModelCriticalFingerprints = modelResults.map(r => {
+    const fps = new Set();
+    for (const issue of r.issues) {
+      if (issue.severity === 'critical') fps.add(factCheckFingerprint(issue));
+    }
+    return fps;
+  });
+
   const allCritical = [];
   const allMajor = [];
   const seenFingerprints = new Set();
@@ -2047,7 +2095,7 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
       if (seenFingerprints.has(fp)) continue;
       seenFingerprints.add(fp);
 
-      if (issue.severity === 'critical') allCritical.push(issue);
+      if (issue.severity === 'critical') allCritical.push({ ...issue, _fingerprint: fp });
       else if (issue.severity === 'major') allMajor.push(issue);
     }
   }
@@ -2060,10 +2108,31 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
     }
   }
 
-  // BLOCKING: ANY model found critical issues → block (unchanged — quality bar)
+  // BLOCKING rule 1: true cross-model consensus on a critical → always block.
+  const consensusCriticals = allCritical.filter(issue =>
+    perModelCriticalFingerprints.filter(fps => fps.has(issue._fingerprint)).length >= 2,
+  );
+  if (consensusCriticals.length > 0) {
+    console.error(`  🚨 Consensus criticals (≥2 modelli): ${consensusCriticals.length} — BLOCCATO`);
+    return { passed: false, issues: consensusCriticals };
+  }
+
+  // BLOCKING rule 2: 2+ critical from any single model in HIGH-TRUST categories.
+  for (const r of modelResults) {
+    const highTrustCritsFromThisModel = r.issues.filter(i =>
+      i.severity === 'critical' && HIGH_TRUST_CRITICAL_CATEGORIES.has((i.category || '').toLowerCase()),
+    );
+    if (highTrustCritsFromThisModel.length >= 2) {
+      console.error(`  🚨 ${highTrustCritsFromThisModel.length} critical high-trust da ${r.model} — BLOCCATO`);
+      return { passed: false, issues: highTrustCritsFromThisModel };
+    }
+  }
+
+  // Isolated single critical → demote to major+warning. Article passes the
+  // critical gate; the weighted-major rule below still catches accumulations.
   if (allCritical.length > 0) {
-    console.error(`  🚨 Consensus: ${allCritical.length} critical issues trovati — BLOCCATO`);
-    return { passed: false, issues: allCritical };
+    console.error(`  ⚠️  ${allCritical.length} critical isolato (1 modello, non consenso) — declassato a warning, articolo procede`);
+    for (const issue of allCritical) allMajor.push({ ...issue, severity: 'major' });
   }
 
   // BLOCKING: weighted major score >= MAJOR_BLOCK_WEIGHT_THRESHOLD
@@ -2284,14 +2353,11 @@ async function fetchPageContent(url) {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const html = await res.text();
-    // Strip tags, keep text, truncate to ~8000 chars to fit Gemini context
-    const text = html
-      .replace(/<script[\s\S]*?<\/script>/gi, '')
-      .replace(/<style[\s\S]*?<\/style>/gi, '')
-      .replace(/<[^>]+>/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim()
-      .slice(0, 8000);
+    // Use structured extractor (JSON-LD → article → main → og + paragraphs → naive)
+    // to feed the generator and fact-checker the actual article body instead of
+    // 70%+ nav/footer/ads noise. See scripts/lib/extract-article-text.mjs.
+    const { text, method, paragraphCount } = extractArticleText(html, { maxChars: 8000 });
+    console.error(`   📄 Estratto via ${method}: ${text.length} chars, ${paragraphCount} blocchi`);
     return text;
   } catch (e) {
     console.error(`⚠️  Impossibile scaricare la pagina: ${e.message}`);
@@ -6749,6 +6815,14 @@ async function generateAndValidateArticle(url, sourceContext = null) {
   /** @type {string|null} */
   let lastHeadlineErrors = null;
 
+  // Adaptive min-words: scale target down when source is thin to prevent
+  // hallucination cascade (was 900 fixed → forced model to invent facts
+  // on short news briefs, blocked by fact-check on every retry).
+  const adaptiveMinWords = computeAdaptiveMinWords(pageContent);
+  if (adaptiveMinWords < CREATE_ARTICLE_MIN_IT_WORDS) {
+    console.error(`  📏 Source thin (${pageContent.length} chars) → min IT words target: ${adaptiveMinWords} (was ${CREATE_ARTICLE_MIN_IT_WORDS})`);
+  }
+
   for (let attempt = 1; attempt <= CREATE_ARTICLE_MIN_WORDS_RETRIES; attempt++) {
     const modelSlot = MIN_WORDS_MODEL_ROTATION[Math.min(attempt - 1, MIN_WORDS_MODEL_ROTATION.length - 1)];
     const useGeminiDirect = modelSlot === 'gemini';
@@ -6763,7 +6837,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       ...(sourceContext || {}),
       _generationAttempt: attempt,
       _generationAttemptMax: CREATE_ARTICLE_MIN_WORDS_RETRIES,
-      _minItalianWords: CREATE_ARTICLE_MIN_IT_WORDS,
+      _minItalianWords: adaptiveMinWords,
       _previousWordCount: lastWordCount || undefined,
       _forceModel: useGeminiDirect ? 'gemini' : modelSlot,
       _temperature: tempBoost,
@@ -6951,7 +7025,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
 
     const itWords = italianBodyWordCount(data);
     lastWordCount = itWords;
-    if (itWords >= CREATE_ARTICLE_MIN_IT_WORDS) {
+    if (itWords >= adaptiveMinWords) {
       // ── Repetition check INSIDE the loop — triggers retry if AI looped ──
       const itContentLoop = data.content.it || data.content;
       const allBodiesLoop = ['body1', 'body2', 'body3'].map(k => itContentLoop?.[k] || '');
@@ -7035,32 +7109,32 @@ async function generateAndValidateArticle(url, sourceContext = null) {
         }
       }
 
-      console.error(`  ✅ Soglia parole IT raggiunta: ${itWords} (min ${CREATE_ARTICLE_MIN_IT_WORDS}), nessun loop AI`);
+      console.error(`  ✅ Soglia parole IT raggiunta: ${itWords} (min ${adaptiveMinWords}), nessun loop AI`);
       break;
     }
     if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
-      console.error(`  ⚠️  Contenuto IT troppo corto: ${itWords} parole (min ${CREATE_ARTICLE_MIN_IT_WORDS}) — rigenero (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
+      console.error(`  ⚠️  Contenuto IT troppo corto: ${itWords} parole (min ${adaptiveMinWords}) — rigenero (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
       continue;
     }
     // ── Last resort: expand existing short content instead of failing ──
-    console.error(`  🔧 Ultimo tentativo: espansione contenuto esistente (${itWords} → min ${CREATE_ARTICLE_MIN_IT_WORDS})...`);
+    console.error(`  🔧 Ultimo tentativo: espansione contenuto esistente (${itWords} → min ${adaptiveMinWords})...`);
     try {
-      data = await expandShortItalianContent(data, CREATE_ARTICLE_MIN_IT_WORDS);
+      data = await expandShortItalianContent(data, adaptiveMinWords);
       const expandedWords = italianBodyWordCount(data);
-      if (expandedWords >= CREATE_ARTICLE_MIN_IT_WORDS) {
-        console.error(`  ✅ Espansione riuscita: ${expandedWords} parole (min ${CREATE_ARTICLE_MIN_IT_WORDS})`);
+      if (expandedWords >= adaptiveMinWords) {
+        console.error(`  ✅ Espansione riuscita: ${expandedWords} parole (min ${adaptiveMinWords})`);
         break;
       }
       console.error(`  ⚠️  Espansione insufficiente: ${expandedWords} parole — fallback accettato`);
       // Accept the expanded content even if still slightly short (better than failing)
-      if (expandedWords >= CREATE_ARTICLE_MIN_IT_WORDS * 0.85) {
+      if (expandedWords >= adaptiveMinWords * 0.85) {
         console.error(`  ✅ Contenuto accettato (≥85% soglia): ${expandedWords} parole`);
         break;
       }
     } catch (expandErr) {
       console.error(`  ⚠️  Espansione fallita: ${expandErr.message}`);
     }
-    throw new Error(`Contenuto IT troppo corto dopo ${CREATE_ARTICLE_MIN_WORDS_RETRIES} tentativi + espansione (${italianBodyWordCount(data)}/${CREATE_ARTICLE_MIN_IT_WORDS} parole).`);
+    throw new Error(`Contenuto IT troppo corto dopo ${CREATE_ARTICLE_MIN_WORDS_RETRIES} tentativi + espansione (${italianBodyWordCount(data)}/${adaptiveMinWords} parole).`);
   }
 
   // Final thin content guard (after retry/expand attempts)
