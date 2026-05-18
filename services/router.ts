@@ -2566,6 +2566,15 @@ export function parsePath(pathname: string): ParseResult {
  return { route: { activeTab: 'guida', guidaSubTab: 'permit-compare' }, locale };
  }
  if (sub === 'calculator' && second) {
+ // Salary-hub scenario index: `/calcola-stipendio/scenari/` (locale variants).
+ // Emitted by build-plugins/salaryHubIndex.ts as a rich curated landing
+ // (~100KB body, 425 scenarios, locale switcher). Without staticOverlay
+ // the SPA mounts the default calculator over the index. SCENARIO_INDEX_PATH
+ // is the source of truth in salaryHubIndex.ts; the slugs are stable.
+ const SCENARIO_INDEX_SLUG: Record<Locale, string> = { it: 'scenari', en: 'scenarios', de: 'szenarien', fr: 'scenarios' };
+ if (second === SCENARIO_INDEX_SLUG[locale]) {
+ return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator', staticOverlay: true }, locale };
+ }
  const landing = SEO_LANDING_REVERSE[locale][second];
  if (landing) {
  // staticOverlay: true keeps the SSG body (rendered by
@@ -2731,6 +2740,18 @@ export function parsePath(pathname: string): ParseResult {
  // over them. staticOverlay tells App.tsx to skip the React main render
  // so the build-time SEO HTML stays visible (lite-shell mode).
  if (rawSecond && resolveEditorialJobLandingDescriptor(rawSecond)) {
+ return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true }, locale };
+ }
+ // Related-search cluster landings (build-plugins/relatedSearchClustersPlugin.ts):
+ // emit `/cerca-lavoro-ticino/ricerca-{slug}/` (locale variants) with rich
+ // curated job-list HTML. Cluster slugs are generated dynamically from
+ // `data/related-search-enriched.json` — listing every one in the router
+ // would be unmaintainable, so we detect by the locale-specific search
+ // prefix. Without staticOverlay the SPA would mount a generic JobBoard
+ // view (or "Annuncio non trovato") on top of the static body. Stale
+ // client-side navigation is handled by the reload guard in useNavigationState.
+ const SEARCH_CLUSTER_PREFIX: Record<Locale, string> = { it: 'ricerca-', en: 'search-', de: 'suche-', fr: 'recherche-' };
+ if (rawSecond && rawSecond.startsWith(SEARCH_CLUSTER_PREFIX[locale])) {
  return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true }, locale };
  }
  const jobSlug = rawSecond;

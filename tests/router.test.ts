@@ -788,4 +788,58 @@ describe('Router — SPA equivalent wins over static landing', () => {
     expect(route.staticOverlay).toBe(true);
     expect(route.salaryHubSlug).toBe('stipendio-netto-77000-chf');
   });
+
+  // Related-search-clusters landings (build-plugins/relatedSearchClustersPlugin.ts):
+  // emit /cerca-lavoro-ticino/ricerca-{slug}/ with rich curated job lists.
+  // Must keep staticOverlay so SPA does not overlay with empty/generic view.
+  it('ricerca-data-center-technician keeps staticOverlay (cluster page)', () => {
+    const { route } = parsePath('/cerca-lavoro-ticino/ricerca-data-center-technician');
+    expect(route.activeTab).toBe('job-board');
+    expect(route.staticOverlay).toBe(true);
+  });
+
+  it('EN search-data-center-technician keeps staticOverlay', () => {
+    const { route } = parsePath('/en/find-jobs-ticino/search-data-center-technician');
+    expect(route.activeTab).toBe('job-board');
+    expect(route.staticOverlay).toBe(true);
+  });
+
+  it('DE suche-pflegefachperson keeps staticOverlay', () => {
+    const { route } = parsePath('/de/jobs-im-tessin/suche-pflegefachperson');
+    expect(route.activeTab).toBe('job-board');
+    expect(route.staticOverlay).toBe(true);
+  });
+
+  it('FR recherche-soignant keeps staticOverlay', () => {
+    const { route } = parsePath('/fr/trouver-emploi-tessin/recherche-soignant');
+    expect(route.activeTab).toBe('job-board');
+    expect(route.staticOverlay).toBe(true);
+  });
+
+  // Salary-hub scenario index (build-plugins/salaryHubIndex.ts): emits the
+  // curated index of all salary scenarios. Must keep staticOverlay so the
+  // SPA does not replace it with the default calculator view.
+  it('/calcola-stipendio/scenari/ keeps staticOverlay (scenario index)', () => {
+    const { route } = parsePath('/calcola-stipendio/scenari');
+    expect(route.activeTab).toBe('calculator');
+    expect(route.staticOverlay).toBe(true);
+  });
+
+  it('/en/calculate-salary/scenarios/ keeps staticOverlay', () => {
+    const { route } = parsePath('/en/calculate-salary/scenarios');
+    expect(route.activeTab).toBe('calculator');
+    expect(route.staticOverlay).toBe(true);
+  });
+
+  it('/de/gehalt-berechnen/szenarien/ keeps staticOverlay', () => {
+    const { route } = parsePath('/de/gehalt-berechnen/szenarien');
+    expect(route.activeTab).toBe('calculator');
+    expect(route.staticOverlay).toBe(true);
+  });
+
+  it('/fr/calculer-salaire/scenarios/ keeps staticOverlay', () => {
+    const { route } = parsePath('/fr/calculer-salaire/scenarios');
+    expect(route.activeTab).toBe('calculator');
+    expect(route.staticOverlay).toBe(true);
+  });
 });
