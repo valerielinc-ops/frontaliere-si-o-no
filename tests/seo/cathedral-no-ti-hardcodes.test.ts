@@ -48,6 +48,11 @@ const ALLOWLIST = [
   'build-plugins/cityJobsHub.ts:112',
   'build-plugins/cityJobsHub.ts:113',
   'build-plugins/cityJobsHub.ts:114',
+  // cityJobsAggregate: JOB_BOARD_SECTION fallback table (TI default per locale).
+  'build-plugins/cityJobsAggregate.ts:308',
+  'build-plugins/cityJobsAggregate.ts:309',
+  'build-plugins/cityJobsAggregate.ts:310',
+  'build-plugins/cityJobsAggregate.ts:311',
   // Lines shifted +1 by the cantonSeoProse helper import added at the top
   // of the file (May 2026 — text-to-html-ratio gate fix).
   'build-plugins/companyHubBridgePlugin.ts:41',
@@ -137,16 +142,16 @@ const ALLOWLIST = [
   //    for sitemap-jobs.xml — pulls per-company azienda-* leaves from BFS
   //    depth 5 to depth 4 by anchoring /aziende-che-assumono/tutte/ + the
   //    locale variants directly off `/`).
-  'build-plugins/staticPagesPlugin.ts:1301',
-  'build-plugins/staticPagesPlugin.ts:1302',
-  'build-plugins/staticPagesPlugin.ts:1303',
-  'build-plugins/staticPagesPlugin.ts:1304',
-  'build-plugins/staticPagesPlugin.ts:1323',
-  'build-plugins/staticPagesPlugin.ts:1324',
-  'build-plugins/staticPagesPlugin.ts:1858',
-  'build-plugins/staticPagesPlugin.ts:1883',
-  'build-plugins/staticPagesPlugin.ts:1908',
-  'build-plugins/staticPagesPlugin.ts:2176',
+  'build-plugins/staticPagesPlugin.ts:1310',
+  'build-plugins/staticPagesPlugin.ts:1311',
+  'build-plugins/staticPagesPlugin.ts:1312',
+  'build-plugins/staticPagesPlugin.ts:1313',
+  'build-plugins/staticPagesPlugin.ts:1332',
+  'build-plugins/staticPagesPlugin.ts:1333',
+  'build-plugins/staticPagesPlugin.ts:1867',
+  'build-plugins/staticPagesPlugin.ts:1892',
+  'build-plugins/staticPagesPlugin.ts:1917',
+  'build-plugins/staticPagesPlugin.ts:2185',
   // ── Cross-section hub anchors emitted inside buildHomepageCantonNavHtml
   //    (2026-05-13 BFS-depth fix for sitemap-jobs.xml azienda-* leaves).
   //    Per-locale URL constants reference the TI section slug; the audit
@@ -169,10 +174,10 @@ const ALLOWLIST = [
 
   // ── services/router.ts: TI legacy slug entries in the per-locale ROUTER
   //    slug table. These are the URLs the SPA recognises as the TI hub. ──
-  'services/router.ts:1037',
-  'services/router.ts:1138',
-  'services/router.ts:1239',
-  'services/router.ts:1340',
+  'services/router.ts:1041',
+  'services/router.ts:1142',
+  'services/router.ts:1243',
+  'services/router.ts:1344',
 
   // ── services/relatedSearchClusters.ts: TI default section in resolveSectionSlug. ──
   'services/relatedSearchClusters.ts:64',
