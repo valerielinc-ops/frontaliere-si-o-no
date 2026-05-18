@@ -1455,9 +1455,9 @@
         "de": "Candidature Spontanée",
         "fr": "Candidature Spontanée"
       },
-      "slug": "candidature-spontanee-groupe-mutuel",
+      "slug": "candidatura-spontanee-groupe-mutuel-suisse",
       "slugByLocale": {
-        "it": "candidature-spontanee-groupe-mutuel",
+        "it": "candidatura-spontanee-groupe-mutuel-suisse",
         "en": "candidature-spontanee-groupe-mutuel",
         "de": "candidature-spontanee-groupe-mutuel",
         "fr": "candidature-spontanee-groupe-mutuel"
@@ -1492,8 +1492,13 @@
       },
       "firstSeenAt": "2026-05-17T10:20:11.015Z",
       "previousSlugs": [
-        "candidatura-spontanee-groupe-mutuel-suisse"
-      ]
+        "candidature-spontanee-groupe-mutuel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "candidature-spontanee-groupe-mutuel"
+        ]
+      }
     }
   ]
 }

@@ -33,7 +33,7 @@
       },
       "slugByLocale": {
         "it": "supplenti-nell-area-abitativa-a-fonte-3-e-fonte-6-la-fonte-neggio-agno",
-        "en": "supplenti-nell-area-abitativa-a-fonte-3-e-fonte-6-la-fonte-neggio-agno",
+        "en": "substitutes-in-the-residential-area-at-source-3-and-source-6-fondazione-la-fonte-neggio-agno",
         "de": "supplenti-nell-area-abitativa-a-fonte-3-e-fonte-6-la-fonte-neggio-agno",
         "fr": "supplenti-nell-area-abitativa-a-fonte-3-e-fonte-6-la-fonte-neggio-agno"
       },
@@ -99,7 +99,7 @@
       },
       "slugByLocale": {
         "it": "stagiaire-la-fonte-luganese-malcantone",
-        "en": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
+        "en": "intern-fondazione-la-fonte-luganese-malcantone",
         "de": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
         "fr": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
       },
@@ -114,10 +114,14 @@
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-fondazione-la-fonte-luganese-malcantone"
+        ],
+        "en": [
+          "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
         ]
       },
       "previousSlugs": [
         "apprendistato-fondazione-la-fonte-luganese-malcantone",
+        "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
         "apprendistato-fondazione-la-fonte-lugano"
       ],
       "salaryMin": 41600,
@@ -171,7 +175,7 @@
       },
       "slugByLocale": {
         "it": "apprendisti-e-operatori-trici-socioassistenziali-afc-la-fonte-lugano-neggio",
-        "en": "apprentice-socio-assistential-worker-afc-fondazione-la-fonte-lugano-neggio",
+        "en": "afc-social-assistance-apprentices-operators-fondazione-la-fonte-lugano-neggio",
         "de": "ausbildung-zum-zur-sozialassistenzfachmann-frau-afc-fondazione-la-fonte-lugano-neggio",
         "fr": "apprenti-e-operateur-trice-socio-assistanciale-afc-fondazione-la-fonte-lugano-neggio"
       },
@@ -203,8 +207,14 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-17T10:35:50.358Z",
       "previousSlugs": [
+        "apprentice-socio-assistential-worker-afc-fondazione-la-fonte-lugano-neggio",
         "apprendisti-e-operatori-trici-socioassistenziali-afc-fondazione-la-fonte-lugano"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "apprentice-socio-assistential-worker-afc-fondazione-la-fonte-lugano-neggio"
+        ]
+      }
     },
     {
       "title": "Un/a educatore/trice diplomato/a 80% al Fornaio Fonte 7",

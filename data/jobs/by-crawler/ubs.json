@@ -87,10 +87,10 @@
     },
     {
       "id": "ubs-8e724c68089e",
-      "slug": "registered-client-associate-client-experience-marketing-ubs",
+      "slug": "associato-cliente-registrato-esperienza-cliente-e-marketing-ubs",
       "slugByLocale": {
         "en": "registered-client-associate-client-experience-marketing-ubs",
-        "it": "registered-client-associate-client-experience-marketing-ubs",
+        "it": "associato-cliente-registrato-esperienza-cliente-e-marketing-ubs",
         "de": "registered-client-associate-client-experience-marketing-ubs",
         "fr": "registered-client-associate-client-experience-marketing-ubs"
       },
@@ -155,7 +155,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-17T22:42:18.958Z"
+      "firstSeenAt": "2026-05-17T22:42:18.958Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "registered-client-associate-client-experience-marketing-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "registered-client-associate-client-experience-marketing-ubs"
+      ]
     },
     {
       "id": "ubs-f410605fa4c6",
@@ -447,9 +455,9 @@
     },
     {
       "id": "ubs-83c7b79199f2",
-      "slug": "ib-business-control-unit-bcu-client-risk-manager-ubs",
+      "slug": "responsabile-del-rischio-del-cliente-dell-unita-di-controllo-aziendale-bcu-ib-ubs",
       "slugByLocale": {
-        "it": "ib-business-control-unit-bcu-client-risk-manager-ubs",
+        "it": "responsabile-del-rischio-del-cliente-dell-unita-di-controllo-aziendale-bcu-ib-ubs",
         "en": "ib-business-control-unit-bcu-client-risk-manager-ubs",
         "de": "ib-business-control-unit-bcu-client-risk-manager-ubs",
         "fr": "ib-business-control-unit-bcu-client-risk-manager-ubs"
@@ -515,8 +523,13 @@
         }
       },
       "previousSlugs": [
-        "responsabile-del-rischio-del-cliente-dell-unita-di-controllo-aziendale-bcu-ib-ubs"
-      ]
+        "ib-business-control-unit-bcu-client-risk-manager-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ib-business-control-unit-bcu-client-risk-manager-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-9905299f464f",
@@ -685,9 +698,9 @@
     },
     {
       "id": "ubs-a8d67fd032e7",
-      "slug": "global-banking-hong-kong-rell-ubs",
+      "slug": "banca-globale-hong-kong-rell-ubs",
       "slugByLocale": {
-        "it": "global-banking-hong-kong-rell-ubs",
+        "it": "banca-globale-hong-kong-rell-ubs",
         "en": "global-banking-hong-kong-rell-ubs",
         "de": "global-banking-hong-kong-rell-ubs",
         "fr": "global-banking-hong-kong-rell-ubs"
@@ -753,14 +766,19 @@
         }
       },
       "previousSlugs": [
-        "banca-globale-hong-kong-rell-ubs"
-      ]
+        "global-banking-hong-kong-rell-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "global-banking-hong-kong-rell-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-4bcf7c8d363a",
-      "slug": "audit-expert-financial-crime-prevention-ubs",
+      "slug": "esperto-di-audit-prevenzione-della-criminalita-finanziaria-ubs",
       "slugByLocale": {
-        "it": "audit-expert-financial-crime-prevention-ubs",
+        "it": "esperto-di-audit-prevenzione-della-criminalita-finanziaria-ubs",
         "en": "audit-expert-financial-crime-prevention-ubs",
         "de": "audit-expert-financial-crime-prevention-ubs",
         "fr": "audit-expert-financial-crime-prevention-ubs"
@@ -826,14 +844,19 @@
         }
       },
       "previousSlugs": [
-        "esperto-di-audit-prevenzione-della-criminalita-finanziaria-ubs"
-      ]
+        "audit-expert-financial-crime-prevention-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "audit-expert-financial-crime-prevention-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-f7d1182db8cb",
-      "slug": "americas-compliance-audit-manager-ubs",
+      "slug": "responsabile-del-controllo-di-conformita-delle-amer-ubs",
       "slugByLocale": {
-        "it": "americas-compliance-audit-manager-ubs",
+        "it": "responsabile-del-controllo-di-conformita-delle-amer-ubs",
         "en": "americas-compliance-audit-manager-ubs",
         "de": "americas-compliance-audit-manager-ubs",
         "fr": "americas-compliance-audit-manager-ubs"
@@ -899,8 +922,13 @@
         }
       },
       "previousSlugs": [
-        "responsabile-del-controllo-di-conformita-delle-amer-ubs"
-      ]
+        "americas-compliance-audit-manager-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "americas-compliance-audit-manager-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-1d86fb59c6ab",
@@ -988,9 +1016,9 @@
     },
     {
       "id": "ubs-6f16f7b912d6",
-      "slug": "registered-client-associate-ubs",
+      "slug": "associato-cliente-registrato-ubs",
       "slugByLocale": {
-        "it": "registered-client-associate-ubs",
+        "it": "associato-cliente-registrato-ubs",
         "en": "registered-client-associate-ubs",
         "de": "registered-client-associate-ubs",
         "fr": "registered-client-associate-ubs"
@@ -1056,14 +1084,19 @@
         }
       },
       "previousSlugs": [
-        "associato-cliente-registrato-ubs"
-      ]
+        "registered-client-associate-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "registered-client-associate-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-24136ed3b637",
-      "slug": "market-administrative-officer-ubs",
+      "slug": "addetto-amministrativo-mercato-ubs",
       "slugByLocale": {
-        "it": "market-administrative-officer-ubs",
+        "it": "addetto-amministrativo-mercato-ubs",
         "en": "market-administrative-officer-ubs",
         "de": "market-administrative-officer-ubs",
         "fr": "market-administrative-officer-ubs"
@@ -1129,8 +1162,13 @@
         }
       },
       "previousSlugs": [
-        "addetto-amministrativo-mercato-ubs"
-      ]
+        "market-administrative-officer-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "market-administrative-officer-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-5cc94323a6fe",
@@ -1288,9 +1326,9 @@
     },
     {
       "id": "ubs-5bf382bfc2f3",
-      "slug": "etd-optimization-ubs",
+      "slug": "ottimizzazione-etd-ubs",
       "slugByLocale": {
-        "it": "etd-optimization-ubs",
+        "it": "ottimizzazione-etd-ubs",
         "en": "etd-optimization-ubs",
         "de": "etd-optimization-ubs",
         "fr": "etd-optimization-ubs"
@@ -1356,14 +1394,19 @@
         }
       },
       "previousSlugs": [
-        "ottimizzazione-etd-ubs"
-      ]
+        "etd-optimization-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "etd-optimization-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-6b41d9f93f69",
-      "slug": "internship-in-funds-management-team-ubs",
+      "slug": "tirocinio-nel-team-di-gestione-dei-fondi-ubs",
       "slugByLocale": {
-        "it": "internship-in-funds-management-team-ubs",
+        "it": "tirocinio-nel-team-di-gestione-dei-fondi-ubs",
         "en": "internship-in-funds-management-team-ubs",
         "de": "internship-in-funds-management-team-ubs",
         "fr": "internship-in-funds-management-team-ubs"
@@ -1429,8 +1472,13 @@
         }
       },
       "previousSlugs": [
-        "tirocinio-nel-team-di-gestione-dei-fondi-ubs"
-      ]
+        "internship-in-funds-management-team-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-in-funds-management-team-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-700a5e693db6",
@@ -1821,9 +1869,9 @@
     },
     {
       "id": "ubs-3a16c8af9105",
-      "slug": "client-associate-ubs",
+      "slug": "cliente-associato-ubs",
       "slugByLocale": {
-        "it": "client-associate-ubs",
+        "it": "cliente-associato-ubs",
         "en": "client-associate-ubs",
         "de": "client-associate-ubs",
         "fr": "client-associate-ubs"
@@ -1889,14 +1937,19 @@
         }
       },
       "previousSlugs": [
-        "cliente-associato-ubs"
-      ]
+        "client-associate-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "client-associate-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-905405ad88ce",
-      "slug": "business-strategist-ubs-chief-strategy-office-gwm-ubs",
+      "slug": "business-strategist-ufficio-strategia-capo-ubs-gwm-ubs",
       "slugByLocale": {
-        "it": "business-strategist-ubs-chief-strategy-office-gwm-ubs",
+        "it": "business-strategist-ufficio-strategia-capo-ubs-gwm-ubs",
         "en": "business-strategist-ubs-chief-strategy-office-gwm-ubs",
         "de": "business-strategist-ubs-chief-strategy-office-gwm-ubs",
         "fr": "business-strategist-ubs-chief-strategy-office-gwm-ubs"
@@ -1960,13 +2013,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "business-strategist-ubs-chief-strategy-office-gwm-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "business-strategist-ubs-chief-strategy-office-gwm-ubs"
+      ]
     },
     {
       "id": "ubs-37fc8bd0b90c",
-      "slug": "product-manager-for-investment-funds-with-german-ubs",
+      "slug": "product-manager-per-fondi-di-investimento-con-sede-in-germania-ubs",
       "slugByLocale": {
-        "it": "product-manager-for-investment-funds-with-german-ubs",
+        "it": "product-manager-per-fondi-di-investimento-con-sede-in-germania-ubs",
         "en": "product-manager-for-investment-funds-with-german-ubs",
         "de": "product-manager-for-investment-funds-with-german-ubs",
         "fr": "product-manager-for-investment-funds-with-german-ubs"
@@ -2032,14 +2093,19 @@
         }
       },
       "previousSlugs": [
-        "product-manager-per-fondi-di-investimento-con-sede-in-germania-ubs"
-      ]
+        "product-manager-for-investment-funds-with-german-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-for-investment-funds-with-german-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-3c02e95ef8cd",
-      "slug": "product-manager-for-investment-funds-with-german-ubs-2",
+      "slug": "product-manager-per-fondi-di-investimento-con-sede-in-germania-ubs-f4b987",
       "slugByLocale": {
-        "it": "product-manager-for-investment-funds-with-german-ubs-2",
+        "it": "product-manager-per-fondi-di-investimento-con-sede-in-germania-ubs-f4b987",
         "en": "product-manager-for-investment-funds-with-german-ubs",
         "de": "product-manager-for-investment-funds-with-german-ubs-2",
         "fr": "product-manager-for-investment-funds-with-german-ubs-2"
@@ -2105,8 +2171,13 @@
         }
       },
       "previousSlugs": [
-        "product-manager-per-fondi-di-investimento-con-sede-in-germania-ubs-f4b987"
-      ]
+        "product-manager-for-investment-funds-with-german-ubs-2"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-for-investment-funds-with-german-ubs-2"
+        ]
+      }
     },
     {
       "id": "ubs-5379063e7a98",
@@ -2412,9 +2483,9 @@
     },
     {
       "id": "ubs-8b39640fcbbe",
-      "slug": "risk-expert-ib-derivatives-solutions-ubs",
+      "slug": "risk-expert-derivati-e-soluzioni-ib-ubs",
       "slugByLocale": {
-        "it": "risk-expert-ib-derivatives-solutions-ubs",
+        "it": "risk-expert-derivati-e-soluzioni-ib-ubs",
         "en": "risk-expert-ib-derivatives-solutions-ubs",
         "de": "risk-expert-ib-derivatives-solutions-ubs",
         "fr": "risk-expert-ib-derivatives-solutions-ubs"
@@ -2480,8 +2551,13 @@
         }
       },
       "previousSlugs": [
-        "risk-expert-derivati-e-soluzioni-ib-ubs"
-      ]
+        "risk-expert-ib-derivatives-solutions-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "risk-expert-ib-derivatives-solutions-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-089cebbc4230",
@@ -2773,9 +2849,9 @@
     },
     {
       "id": "ubs-c2f8538ba881",
-      "slug": "global-markets-business-manager-ubs",
+      "slug": "mercati-globali-business-manager-ubs",
       "slugByLocale": {
-        "it": "global-markets-business-manager-ubs",
+        "it": "mercati-globali-business-manager-ubs",
         "en": "global-markets-business-manager-ubs",
         "de": "global-markets-business-manager-ubs",
         "fr": "global-markets-business-manager-ubs"
@@ -2841,8 +2917,13 @@
         }
       },
       "previousSlugs": [
-        "mercati-globali-business-manager-ubs"
-      ]
+        "global-markets-business-manager-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "global-markets-business-manager-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-9ac838b2f2f5",
@@ -2997,9 +3078,9 @@
     },
     {
       "id": "ubs-8eb54fd6bc91",
-      "slug": "conseiller-ere-clientele-privee-affluent-sion-80-100-ubs",
+      "slug": "consulente-clientela-privata-affluente-sion-80-100-ubs",
       "slugByLocale": {
-        "it": "conseiller-ere-clientele-privee-affluent-sion-80-100-ubs",
+        "it": "consulente-clientela-privata-affluente-sion-80-100-ubs",
         "en": "conseiller-ere-clientele-privee-affluent-sion-80-100-ubs",
         "de": "conseiller-ere-clientele-privee-affluent-sion-80-100-ubs",
         "fr": "conseiller-ere-clientele-privee-affluent-sion-80-100-ubs"
@@ -3065,8 +3146,13 @@
         }
       },
       "previousSlugs": [
-        "consulente-clientela-privata-affluente-sion-80-100-ubs"
-      ]
+        "conseiller-ere-clientele-privee-affluent-sion-80-100-ubs"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-clientele-privee-affluent-sion-80-100-ubs"
+        ]
+      }
     },
     {
       "id": "ubs-3fa379b56f74",
@@ -3454,10 +3540,10 @@
     },
     {
       "id": "ubs-3547c598f134",
-      "slug": "investment-banker-equity-capital-markets-ecm-ubs",
+      "slug": "banchiere-d-investimento-mercati-dei-capitali-azionari-ecm-ubs",
       "slugByLocale": {
         "en": "investment-banker-equity-capital-markets-ecm-ubs",
-        "it": "investment-banker-equity-capital-markets-ecm-ubs",
+        "it": "banchiere-d-investimento-mercati-dei-capitali-azionari-ecm-ubs",
         "de": "investment-banker-equity-capital-markets-ecm-ubs",
         "fr": "investment-banker-equity-capital-markets-ecm-ubs"
       },
@@ -3522,13 +3608,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-17T22:42:18.907Z"
+      "firstSeenAt": "2026-05-17T22:42:18.907Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "investment-banker-equity-capital-markets-ecm-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "investment-banker-equity-capital-markets-ecm-ubs"
+      ]
     },
     {
       "id": "ubs-8075372d22e2",
-      "slug": "client-account-manager-ubs",
+      "slug": "gestione-account-cliente-ubs",
       "slugByLocale": {
-        "it": "client-account-manager-ubs",
+        "it": "gestione-account-cliente-ubs",
         "en": "client-account-manager-ubs",
         "de": "client-account-manager-ubs",
         "fr": "client-account-manager-ubs"
@@ -3592,13 +3686,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-account-manager-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "client-account-manager-ubs"
+      ]
     },
     {
       "id": "ubs-b8fee1d3b008",
-      "slug": "client-account-manager-global-family-and-institutional-wealth-ubs",
+      "slug": "client-account-manager-famiglia-globale-e-ricchezza-istituzionale-ubs",
       "slugByLocale": {
-        "it": "client-account-manager-global-family-and-institutional-wealth-ubs",
+        "it": "client-account-manager-famiglia-globale-e-ricchezza-istituzionale-ubs",
         "en": "client-account-manager-global-family-and-institutional-wealth-ubs",
         "de": "client-account-manager-global-family-and-institutional-wealth-ubs",
         "fr": "client-account-manager-global-family-and-institutional-wealth-ubs"
@@ -3662,7 +3764,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-account-manager-global-family-and-institutional-wealth-ubs"
+        ]
+      },
+      "previousSlugs": [
+        "client-account-manager-global-family-and-institutional-wealth-ubs"
+      ]
     }
   ]
 }

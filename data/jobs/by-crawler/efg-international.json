@@ -742,7 +742,7 @@
     },
     {
       "id": "efg-6177",
-      "slug": "client-support-officer-efg-st-moritz",
+      "slug": "funzionario-dell-assistenza-clienti-efg-international-ag-st-moritz",
       "company": "EFG International AG",
       "title": "Client Support Officer",
       "location": "St. Moritz",
@@ -791,7 +791,7 @@
       },
       "crawledAt": "2026-05-17T21:33:22.465Z",
       "slugByLocale": {
-        "it": "client-support-officer-efg-st-moritz",
+        "it": "funzionario-dell-assistenza-clienti-efg-international-ag-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
         "de": "client-support-officer-efg-st-moritz",
         "fr": "client-support-officer-efg-st-moritz"
@@ -819,8 +819,14 @@
       "firstSeenAt": "2026-05-17T10:08:35.143Z",
       "retranslationAttempts": 2,
       "previousSlugs": [
+        "client-support-officer-efg-st-moritz",
         "responsabile-del-servizio-clienti-efg-international-ag-st-moritz"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "client-support-officer-efg-st-moritz"
+        ]
+      }
     },
     {
       "id": "efg-6175",

@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-alqha9",
-      "slug": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
+      "slug": "venditore-m-f-d-20-40-lidl-svizzera-st-moritz",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin (m/w/d) 20-40%",
       "location": "St. Moritz",
@@ -28,7 +28,7 @@
       "crawledAt": "2026-05-17T10:36:40.425Z",
       "firstSeenAt": "2026-05-17T10:36:40.425Z",
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
+        "it": "venditore-m-f-d-20-40-lidl-svizzera-st-moritz",
         "en": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
         "fr": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9"
@@ -68,12 +68,18 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "previousSlugs": [
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9",
         "vendita-m-w-d-lidl-svizzera-st-moritz"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-alqha9"
+        ]
+      }
     },
     {
       "id": "company-jb4io9",
-      "slug": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jb4io9",
+      "slug": "direttore-di-filiale-m-f-d-80-100-lidl-svizzera-st-moritz",
       "company": "Lidl Svizzera",
       "title": "Filialleiter / Filialleiterin (m/w/d) 80-100%",
       "location": "St. Moritz",
@@ -97,7 +103,7 @@
       "crawledAt": "2026-05-17T10:36:40.425Z",
       "firstSeenAt": "2026-05-17T10:36:40.425Z",
       "slugByLocale": {
-        "it": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jb4io9",
+        "it": "direttore-di-filiale-m-f-d-80-100-lidl-svizzera-st-moritz",
         "en": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jb4io9",
         "de": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz",
         "fr": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jb4io9"
@@ -137,8 +143,14 @@
       "salaryMin": 49500,
       "salaryMax": 75000,
       "previousSlugs": [
+        "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jb4io9",
         "consulente-senior-m-w-d-80-100-lidl-svizzera-st-moritz"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jb4io9"
+        ]
+      }
     },
     {
       "id": "company-ixk693",

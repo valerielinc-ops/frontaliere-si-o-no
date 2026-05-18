@@ -998,9 +998,9 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-0f412224b7c0",
-      "slug": "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch",
+      "slug": "verniciatore-specialista-carrozziere-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund",
       "slugByLocale": {
-        "it": "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch",
+        "it": "verniciatore-specialista-carrozziere-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund",
         "en": "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch",
         "de": "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch"
@@ -1078,8 +1078,14 @@
         }
       },
       "previousSlugs": [
+        "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch",
         "pittore-di-carrozzeria-specialista-m-f-d-matterhorn-gotthard-bahn-glis-glisergrund"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "carrosserielackierer-fachmann-m-w-d-matterhorn-gotthard-bahn-ch"
+        ]
+      }
     }
   ]
 }

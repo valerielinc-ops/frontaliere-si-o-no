@@ -296,9 +296,9 @@
     },
     {
       "id": "denner-64dfa3f2be81",
-      "slug": "verkaufer-in-denner-butschwil",
+      "slug": "venditore-denner-butschwil",
       "slugByLocale": {
-        "it": "verkaufer-in-denner-butschwil",
+        "it": "venditore-denner-butschwil",
         "en": "verkaufer-in-denner-butschwil",
         "de": "verkaufer-in-denner-butschwil",
         "fr": "verkaufer-in-denner-butschwil"
@@ -359,12 +359,13 @@
       "crawledAt": "2026-05-17T21:30:49.272Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-rubigen",
-        "venditore-denner-butschwil"
+        "verkaufer-in-denner-butschwil",
+        "verkaufer-in-denner-rubigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner"
+          "verkaufer-in-denner",
+          "verkaufer-in-denner-butschwil"
         ],
         "en": [
           "verkaufer-in-denner"

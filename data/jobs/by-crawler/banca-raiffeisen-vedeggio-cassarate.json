@@ -29,7 +29,7 @@
       "firstSeenAt": "2026-05-17T10:54:51.136Z",
       "slugByLocale": {
         "it": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino-yifl2t",
-        "en": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino-yifl2t",
+        "en": "individual-private-client-consultant-banca-raiffeisen-vedeggio-cassarate-rivera-ticino",
         "de": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino-yifl2t",
         "fr": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino-yifl2t"
       },
@@ -99,7 +99,7 @@
       "firstSeenAt": "2026-05-17T10:54:51.136Z",
       "slugByLocale": {
         "it": "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino",
-        "en": "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-m99b74",
+        "en": "affluent-client-advisor-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino",
         "de": "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-m99b74",
         "fr": "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-m99b74"
       },
@@ -142,7 +142,15 @@
       "addressLocality": "Gravesano, Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "en": [
+          "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-m99b74"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-m99b74"
+      ]
     },
     {
       "id": "company-q14jnx",
@@ -171,7 +179,7 @@
       "firstSeenAt": "2026-05-17T10:54:51.136Z",
       "slugByLocale": {
         "it": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-q14jnx",
-        "en": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-q14jnx",
+        "en": "individual-private-client-consultant-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino",
         "de": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-q14jnx",
         "fr": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-q14jnx"
       },

@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "somedia-9a0ca8ab845a",
-      "slug": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
+      "slug": "amministratore-delegato-a-communicaziun-ch-100-somedia-ag-ilanz",
       "slugByLocale": {
-        "it": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
+        "it": "amministratore-delegato-a-communicaziun-ch-100-somedia-ag-ilanz",
         "en": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
         "de": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
         "fr": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
@@ -89,14 +89,19 @@
         }
       },
       "previousSlugs": [
-        "amministratore-delegato-a-communicaziun-ch-100-somedia-ag-ilanz"
-      ]
+        "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch"
+        ]
+      }
     },
     {
       "id": "somedia-b1a7615c5298",
-      "slug": "grafiker-in-80-100-somedia-ch",
+      "slug": "grafico-a-80-100-somedia-ag-ilanz",
       "slugByLocale": {
-        "it": "grafiker-in-80-100-somedia-ch",
+        "it": "grafico-a-80-100-somedia-ag-ilanz",
         "en": "grafiker-in-80-100-somedia-ch",
         "de": "grafiker-in-80-100-somedia-ag-ilanz",
         "fr": "grafiker-in-80-100-somedia-ch"
@@ -179,8 +184,14 @@
         }
       },
       "previousSlugs": [
+        "grafiker-in-80-100-somedia-ch",
         "grafica-80-100-somedia-ag-ilanz"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "grafiker-in-80-100-somedia-ch"
+        ]
+      }
     },
     {
       "id": "somedia-bac9018286e2",

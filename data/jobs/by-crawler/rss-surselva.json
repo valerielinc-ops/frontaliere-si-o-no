@@ -149,9 +149,9 @@
     },
     {
       "id": "rss-surselva-af84b0e1fdc0",
-      "slug": "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz",
+      "slug": "infermiere-diplomato-hf-nds-anestesia-80-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz",
+        "it": "infermiere-diplomato-hf-nds-anestesia-80-100-regionalspital-surselva-ilanz",
         "en": "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz",
         "de": "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz",
         "fr": "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz"
@@ -202,10 +202,14 @@
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachperson-hf-nds-anasthesie-80-100-rss-surselva-ch"
+        ],
+        "it": [
+          "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-nds-anasthesie-80-100-rss-surselva-ch",
+        "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz",
         "dipl-carriera-hf-nds-anestesia-80-100-regionalspital-surselva-ilanz"
       ],
       "needsRetranslation": true,
@@ -595,9 +599,9 @@
     },
     {
       "id": "rss-surselva-609a7aff3056",
-      "slug": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
+      "slug": "dipl-expert-expert-sss-emergency-care-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
-        "it": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
+        "it": "dipl-expert-expert-sss-emergency-care-100-regionalspital-surselva-ilanz",
         "en": "dipl-experten-expertin-hf-notfallpflege-100-regionalspital-surselva-ilanz",
         "de": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
         "fr": "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch"
@@ -660,14 +664,20 @@
         }
       },
       "previousSlugs": [
+        "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
         "dipl-expert-expert-hf-emergency-care-100-regionalspital-surselva-ilanz"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch"
+        ]
+      }
     },
     {
       "id": "rss-surselva-9b4c791a3514",
-      "slug": "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
+      "slug": "specialista-in-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
-        "it": "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
+        "it": "specialista-in-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz",
         "en": "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
         "de": "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
         "fr": "radiologie-fachperson-mtr-hf-80-100-regionalspital-surselva-ilanz"
@@ -730,14 +740,20 @@
         }
       },
       "previousSlugs": [
+        "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
         "specialista-di-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch"
+        ]
+      }
     },
     {
       "id": "rss-surselva-603a52cbba5a",
-      "slug": "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-regionalspital-surselva-ilanz",
+      "slug": "responsabile-emergenza-lips-day-hospital-laboratorio-funzionale-80-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
-        "it": "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-regionalspital-surselva-ilanz",
+        "it": "responsabile-emergenza-lips-day-hospital-laboratorio-funzionale-80-100-regionalspital-surselva-ilanz",
         "en": "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-rss-surselva-ch",
         "de": "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-regionalspital-surselva-ilanz",
         "fr": "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-rss-surselva-ch"
@@ -788,10 +804,14 @@
       "previousSlugsByLocale": {
         "de": [
           "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-rss-surselva-ch"
+        ],
+        "it": [
+          "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-regionalspital-surselva-ilanz"
         ]
       },
       "previousSlugs": [
         "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-rss-surselva-ch",
+        "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-regionalspital-surselva-ilanz",
         "testa-in-emergenza-labbra-ospedale-giornaliero-laboratorio-funzionale-80-100-regionalspital-surselva-ilanz"
       ],
       "needsRetranslation": true,
@@ -886,9 +906,9 @@
     },
     {
       "id": "rss-surselva-bdaa5477cbaa",
-      "slug": "chefarzt-arztin-innere-medizin-rss-surselva-ch",
+      "slug": "primario-a-medicina-interna-regionalspital-surselva-ilanz",
       "slugByLocale": {
-        "it": "chefarzt-arztin-innere-medizin-rss-surselva-ch",
+        "it": "primario-a-medicina-interna-regionalspital-surselva-ilanz",
         "en": "chefarzt-arztin-innere-medizin-rss-surselva-ch",
         "de": "chefarzt-arztin-innere-medizin-regionalspital-surselva-ilanz",
         "fr": "chefarzt-arztin-innere-medizin-rss-surselva-ch"
@@ -948,8 +968,14 @@
         }
       },
       "previousSlugs": [
+        "chefarzt-arztin-innere-medizin-rss-surselva-ch",
         "medicina-interna-regionalspital-surselva-ilanz"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chefarzt-arztin-innere-medizin-rss-surselva-ch"
+        ]
+      }
     },
     {
       "id": "rss-surselva-23abde2079d7",
@@ -1025,9 +1051,9 @@
     },
     {
       "id": "rss-surselva-bfb4df327092",
-      "slug": "hausarztin-hausarzt-50-100-rss-surselva-ch",
+      "slug": "medico-di-famiglia-50-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
-        "it": "hausarztin-hausarzt-50-100-rss-surselva-ch",
+        "it": "medico-di-famiglia-50-100-regionalspital-surselva-ilanz",
         "en": "hausarztin-hausarzt-50-100-rss-surselva-ch",
         "de": "hausarztin-hausarzt-50-100-regionalspital-surselva-ilanz",
         "fr": "hausarztin-hausarzt-50-100-rss-surselva-ch"
@@ -1090,8 +1116,14 @@
         }
       },
       "previousSlugs": [
+        "hausarztin-hausarzt-50-100-rss-surselva-ch",
         "home-medico-50-100-regionalspital-surselva-ilanz"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarztin-hausarzt-50-100-rss-surselva-ch"
+        ]
+      }
     }
   ]
 }

@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "badrutts-palace-6040a72347b5",
-      "slug": "estetista-badrutt-s-palace-hotel-st-moritz",
+      "slug": "terapista-di-bellezza-m-p-g-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
-        "it": "estetista-badrutt-s-palace-hotel-st-moritz",
+        "it": "terapista-di-bellezza-m-p-g-badrutt-s-palace-hotel-st-moritz",
         "en": "beauty-therapist-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "de": "kosmetiker-in-badrutt-s-palace-hotel-st-moritz",
         "fr": "estheticienne-badrutt-s-palace-hotel-st-moritz"
@@ -52,10 +52,14 @@
       "previousSlugsByLocale": {
         "en": [
           "beauty-therapist-m-w-d-badrutts-palace-ch"
+        ],
+        "it": [
+          "estetista-badrutt-s-palace-hotel-st-moritz"
         ]
       },
       "previousSlugs": [
         "beauty-therapist-m-w-d-badrutts-palace-ch",
+        "estetista-badrutt-s-palace-hotel-st-moritz",
         "terapista-di-bellezza-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "needsRetranslation": true,
@@ -137,9 +141,9 @@
     },
     {
       "id": "badrutts-palace-70d2302fa501",
-      "slug": "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch",
+      "slug": "guest-experience-executive-m-f-d-part-time-50-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
-        "it": "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch",
+        "it": "guest-experience-executive-m-f-d-part-time-50-badrutt-s-palace-hotel-st-moritz",
         "en": "guest-experience-executive-m-w-d-teilzeit-50-badrutt-s-palace-hotel-st-moritz",
         "de": "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch",
         "fr": "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch"
@@ -197,8 +201,14 @@
         }
       },
       "previousSlugs": [
+        "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch",
         "guest-experience-executive-m-w-d-teil-50-badrutt-s-palace-hotel-st-moritz"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch"
+        ]
+      }
     },
     {
       "id": "badrutts-palace-13c05d3d6048",

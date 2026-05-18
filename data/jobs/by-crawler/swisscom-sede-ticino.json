@@ -2483,9 +2483,9 @@
         "de": "ICT Supporter",
         "fr": "ICT Supporter"
       },
-      "slug": "ict-supporter-swisscom-geneva-geneve-12cy45",
+      "slug": "supporto-per-le-tic-swisscom-sede-ticino-geneva-geneve",
       "slugByLocale": {
-        "it": "ict-supporter-swisscom-geneva-geneve-12cy45",
+        "it": "supporto-per-le-tic-swisscom-sede-ticino-geneva-geneve",
         "en": "ict-supporter-swisscom-geneva-geneve-12cy45",
         "de": "ict-supporter-swisscom-sede-ticino-geneva-geneve",
         "fr": "ict-supporter-swisscom-geneva-geneve-12cy45"
@@ -2524,8 +2524,13 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-05-17T11:13:08.028Z",
       "previousSlugs": [
-        "supporto-per-le-tic-swisscom-sede-ticino-geneva-geneve"
-      ]
+        "ict-supporter-swisscom-geneva-geneve-12cy45"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-supporter-swisscom-geneva-geneve-12cy45"
+        ]
+      }
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Head-Container-Application-Operations_R-0003803-1",

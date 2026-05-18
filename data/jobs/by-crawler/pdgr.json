@@ -436,9 +436,9 @@
     },
     {
       "id": "pdgr-3e30d3c7f59d",
-      "slug": "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-cazis-chur",
+      "slug": "infermiere-dipl-sss-psychiatrische-dienste-graubunden-cazis-chur",
       "slugByLocale": {
-        "it": "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-cazis-chur",
+        "it": "infermiere-dipl-sss-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "dipl-pflegefachperson-hf-pdgr-ch",
         "fr": "dipl-auxiliaire-de-sante-hf-psychiatrische-dienste-graubunden-cazis-chur"
@@ -501,8 +501,14 @@
         }
       },
       "previousSlugs": [
+        "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-cazis-chur",
         "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis-chur"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-cazis-chur"
+        ]
+      }
     },
     {
       "id": "pdgr-6bea78edbd79",
@@ -1116,9 +1122,9 @@
     },
     {
       "id": "pdgr-0e801e3124af",
-      "slug": "psicologo-clinico-psychiatrische-dienste-graubunden-ilanz",
+      "slug": "psicologo-a-specialista-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
-        "it": "psicologo-clinico-psychiatrische-dienste-graubunden-ilanz",
+        "it": "psicologo-a-specialista-psychiatrische-dienste-graubunden-ilanz",
         "en": "clinical-psychologist-psychiatrische-dienste-graubunden-ilanz",
         "de": "fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz",
         "fr": "psychologue-clinicien-psychiatrische-dienste-graubunden-ilanz"
@@ -1169,10 +1175,14 @@
       "previousSlugsByLocale": {
         "de": [
           "fachpsychologe-in-pdgr-ch"
+        ],
+        "it": [
+          "psicologo-clinico-psychiatrische-dienste-graubunden-ilanz"
         ]
       },
       "previousSlugs": [
-        "fachpsychologe-in-pdgr-ch"
+        "fachpsychologe-in-pdgr-ch",
+        "psicologo-clinico-psychiatrische-dienste-graubunden-ilanz"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:51:57.235Z",
