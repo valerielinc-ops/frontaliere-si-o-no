@@ -88,7 +88,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:19.132Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -189,7 +188,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:18.129Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -290,7 +288,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:16.719Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -391,7 +388,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:15.782Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -492,7 +488,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:14.891Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -590,7 +585,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:13.170Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -834,7 +828,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:07.844Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -934,7 +927,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:03.826Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1034,7 +1026,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:02.889Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1135,7 +1126,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:00.973Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1234,7 +1224,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:55:00.086Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1334,7 +1323,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:59.193Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1434,7 +1422,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:56.002Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1535,7 +1522,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:54.880Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1711,7 +1697,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:47.599Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1810,7 +1795,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:54:43.923Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1883,7 +1867,6 @@
         ]
       },
       "firstSeenAt": "2026-04-15T21:57:39.187Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1954,7 +1937,6 @@
         ]
       },
       "firstSeenAt": "2026-04-27T11:14:18.246Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2016,7 +1998,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-04-27T11:14:17.258Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2228,7 +2209,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-05-04T11:13:12.721Z",
-      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "baseSalary": {
@@ -2316,7 +2296,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000"
+      "postalCode": "5000",
+      "retranslationAttempts": 1
     },
     {
       "id": "localsearch-4fe13b918f05",
@@ -2392,7 +2373,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "retranslationAttempts": 1
     },
     {
       "id": "localsearch-90cc2bda49a8",
@@ -2549,7 +2531,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "retranslationAttempts": 1
     },
     {
       "id": "localsearch-36f721160a26",
@@ -2606,7 +2589,6 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:35:32.758Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2679,7 +2661,6 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:35:32.019Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2752,7 +2733,6 @@
         ]
       },
       "firstSeenAt": "2026-05-13T22:35:31.265Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2781,17 +2761,17 @@
       "companyDomain": "localsearch.ch",
       "title": "Senior Product Manager — Platform & Business Development (80–100%)",
       "titleByLocale": {
-        "de": "Senior Product Manager — Platform & Business Development (80–100%)",
+        "de": "Senior Product Manager – Platform & Business Development (80–100 %)",
         "en": "Senior Product Manager — Platform & Business Development (80–100%)",
-        "it": "Senior Product Manager — Platform & Business Development (80–100%)",
-        "fr": "Senior Product Manager — Platform & Business Development (80–100%)"
+        "it": "Senior Product Manager — Piattaforma & Sviluppo Business (80-100%)",
+        "fr": "Gestionnaire principal de produits — Plateforme et développement des affaires (80–100%)"
       },
       "description": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\n Unser Bereich Marketing, Audience & Communication sucht ein neues Teammitglied für unsere beiden Plattformen local.ch und search.ch.\n\n Bist du bereit, eine der reichweitenstärksten Plattformen der Schweiz als Mini-CEO zu führen? search.ch hat 39 Millionen Pageviews pro Monat und eine ikonische Marke — aber auch ungenutztes Potenzial. Du übernimmst Produkt- und Business-Verantwortung, treibst Partnerschaften, setzt Vorgaben und lieferst Ergebnisse.\n\n Wir bieten dir folgende spannende Aufgaben: \n\n \n• Gesamtverantwortung für Produkt und Business Development auf search.ch und LocalCities\n\n• Definition und Durchsetzung der Produkt-Roadmap in enger Abstimmung mit Engineering (5 FTE) und Business\n\n• Identifikation, Aufbau und Pflege von Partnerschaften und neuen Geschäftsmodellen für die Plattform\n\n• Datengetriebene Priorisierung: KPIs definieren, messen, reporten und daraus Entscheidungen ableiten\n\n• Enge Zusammenarbeit mit Performance Marketing, SEO und Analytics zur Optimierung der Plattform-Performance\n\n• Stakeholder-Management auf C-Level: klare Kommunikation von Fortschritt, Risiken und Opportunitäten\n\n• Aktive Suche nach neuen Revenue-Streams und Monetarisierungsmöglichkeiten über das klassische Werbegeschäft hinaus\n\n• Koordination mit dem Innovation-Team zur Integration neuer Features und AI-gestützter Produkte\n \n \n\n Skills und Anforderungen \n\n Was du mitbringst: \n\n \n• Design-Sensibilität: Du hast ein Auge für Detail — Animationen, Spacing, Typografie. Du baust Interfaces, die sich richtig anfühlen\n\n• Product Leadership : 5+ Jahre Erfahrung als Product Manager in einer digitalen Plattform- oder Marketplace-Umgebung. Du hast Roadmaps nicht nur geschrieben, sondern durchgesetzt\n\n• Business Development: Nachweisbare Erfahrung im Aufbau von Partnerschaften, Geschäftsmodellen oder Revenue-Streams. Du bist outgoing und baust Beziehungen auf\n\n• Datengetrieben: Du argumentierst mit Daten, nicht mit Meinungen. Google Analytics, Amplitude oder vergleichbare Tools sind dein Tagesgeschäft\n\n• Technisches Verständnis : Du musst nicht coden, aber du verstehst APIs, Datenbanken und Systemarchitekturen gut genug, um technische Diskussionen zu führen und Tradeoffs zu bewerten\n\n• Durchsetzungsvermögen: Du setzt klare Vorgaben, reportest transparent und scheust dich nicht vor schwierigen Gesprächen\n\n• AI-affin: Du nutzt AI-Tools produktiv (ChatGPT, Claude, Copilot) und hast idealerweise bereits Prototypen oder Demos mit AI-Unterstützung gebaut\n \n von Vorteil: \n\n \n• Erfahrung mit dem Schweizer KMU-Markt oder lokalen Plattformen / Verzeichnisdiensten\n\n• Kenntnisse in SEO, GEO und der Entwicklung von Content-Strategien\n\n• Erfahrung in der Zusammenarbeit mit legacy-geprägten Engineering-Teams\n\n• Eigene GitHub-Projekte oder nachweisbare Prototypen mit AI-Tools\n\n• Unternehmerische Erfahrung oder Startup-Hintergrund\n \n \n\n Das bist du nicht: \n\n \n• Ein reiner Scrum-PO, der Backlog-Tickets pflegt und Sprints plant\n\n• Jemand, der sich hinter Prozessen versteckt statt Ergebnisse zu liefern\n\n• Ein Strategie-Berater ohne Umsetzungskompetenz\n\n• Jemand, der Konflikte vermeidet — du löst sie\n \n \n\n Kontakt & Bewerbung \n\n Weitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\n Stan Rudnitskiy und das ganze Team freuen sich auf deine Online-Bewerbung!",
       "descriptionByLocale": {
-        "de": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\n Unser Bereich Marketing, Audience & Communication sucht ein neues Teammitglied für unsere beiden Plattformen local.ch und search.ch.\n\n Bist du bereit, eine der reichweitenstärksten Plattformen der Schweiz als Mini-CEO zu führen? search.ch hat 39 Millionen Pageviews pro Monat und eine ikonische Marke — aber auch ungenutztes Potenzial. Du übernimmst Produkt- und Business-Verantwortung, treibst Partnerschaften, setzt Vorgaben und lieferst Ergebnisse.\n\n Wir bieten dir folgende spannende Aufgaben: \n\n \n• Gesamtverantwortung für Produkt und Business Development auf search.ch und LocalCities\n\n• Definition und Durchsetzung der Produkt-Roadmap in enger Abstimmung mit Engineering (5 FTE) und Business\n\n• Identifikation, Aufbau und Pflege von Partnerschaften und neuen Geschäftsmodellen für die Plattform\n\n• Datengetriebene Priorisierung: KPIs definieren, messen, reporten und daraus Entscheidungen ableiten\n\n• Enge Zusammenarbeit mit Performance Marketing, SEO und Analytics zur Optimierung der Plattform-Performance\n\n• Stakeholder-Management auf C-Level: klare Kommunikation von Fortschritt, Risiken und Opportunitäten\n\n• Aktive Suche nach neuen Revenue-Streams und Monetarisierungsmöglichkeiten über das klassische Werbegeschäft hinaus\n\n• Koordination mit dem Innovation-Team zur Integration neuer Features und AI-gestützter Produkte\n \n \n\n Skills und Anforderungen \n\n Was du mitbringst: \n\n \n• Design-Sensibilität: Du hast ein Auge für Detail — Animationen, Spacing, Typografie. Du baust Interfaces, die sich richtig anfühlen\n\n• Product Leadership : 5+ Jahre Erfahrung als Product Manager in einer digitalen Plattform- oder Marketplace-Umgebung. Du hast Roadmaps nicht nur geschrieben, sondern durchgesetzt\n\n• Business Development: Nachweisbare Erfahrung im Aufbau von Partnerschaften, Geschäftsmodellen oder Revenue-Streams. Du bist outgoing und baust Beziehungen auf\n\n• Datengetrieben: Du argumentierst mit Daten, nicht mit Meinungen. Google Analytics, Amplitude oder vergleichbare Tools sind dein Tagesgeschäft\n\n• Technisches Verständnis : Du musst nicht coden, aber du verstehst APIs, Datenbanken und Systemarchitekturen gut genug, um technische Diskussionen zu führen und Tradeoffs zu bewerten\n\n• Durchsetzungsvermögen: Du setzt klare Vorgaben, reportest transparent und scheust dich nicht vor schwierigen Gesprächen\n\n• AI-affin: Du nutzt AI-Tools produktiv (ChatGPT, Claude, Copilot) und hast idealerweise bereits Prototypen oder Demos mit AI-Unterstützung gebaut\n \n von Vorteil: \n\n \n• Erfahrung mit dem Schweizer KMU-Markt oder lokalen Plattformen / Verzeichnisdiensten\n\n• Kenntnisse in SEO, GEO und der Entwicklung von Content-Strategien\n\n• Erfahrung in der Zusammenarbeit mit legacy-geprägten Engineering-Teams\n\n• Eigene GitHub-Projekte oder nachweisbare Prototypen mit AI-Tools\n\n• Unternehmerische Erfahrung oder Startup-Hintergrund\n \n \n\n Das bist du nicht: \n\n \n• Ein reiner Scrum-PO, der Backlog-Tickets pflegt und Sprints plant\n\n• Jemand, der sich hinter Prozessen versteckt statt Ergebnisse zu liefern\n\n• Ein Strategie-Berater ohne Umsetzungskompetenz\n\n• Jemand, der Konflikte vermeidet — du löst sie\n \n \n\n Kontakt & Bewerbung \n\n Weitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\n Stan Rudnitskiy und das ganze Team freuen sich auf deine Online-Bewerbung!",
-        "it": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\n Unser Bereich Marketing, Audience & Communication sucht ein neues Teammitglied für unsere beiden Plattformen local.ch und search.ch.\n\n Bist du bereit, eine der reichweitenstärksten Plattformen der Schweiz als Mini-CEO zu führen? search.ch hat 39 Millionen Pageviews pro Monat und eine ikonische Marke — aber auch ungenutztes Potenzial. Du übernimmst Produkt- und Business-Verantwortung, treibst Partnerschaften, setzt Vorgaben und lieferst Ergebnisse.\n\n Wir bieten dir folgende spannende Aufgaben: \n\n \n• Gesamtverantwortung für Produkt und Business Development auf search.ch und LocalCities\n\n• Definition und Durchsetzung der Produkt-Roadmap in enger Abstimmung mit Engineering (5 FTE) und Business\n\n• Identifikation, Aufbau und Pflege von Partnerschaften und neuen Geschäftsmodellen für die Plattform\n\n• Datengetriebene Priorisierung: KPIs definieren, messen, reporten und daraus Entscheidungen ableiten\n\n• Enge Zusammenarbeit mit Performance Marketing, SEO und Analytics zur Optimierung der Plattform-Performance\n\n• Stakeholder-Management auf C-Level: klare Kommunikation von Fortschritt, Risiken und Opportunitäten\n\n• Aktive Suche nach neuen Revenue-Streams und Monetarisierungsmöglichkeiten über das klassische Werbegeschäft hinaus\n\n• Koordination mit dem Innovation-Team zur Integration neuer Features und AI-gestützter Produkte\n \n \n\n Skills und Anforderungen \n\n Was du mitbringst: \n\n \n• Design-Sensibilität: Du hast ein Auge für Detail — Animationen, Spacing, Typografie. Du baust Interfaces, die sich richtig anfühlen\n\n• Product Leadership : 5+ Jahre Erfahrung als Product Manager in einer digitalen Plattform- oder Marketplace-Umgebung. Du hast Roadmaps nicht nur geschrieben, sondern durchgesetzt\n\n• Business Development: Nachweisbare Erfahrung im Aufbau von Partnerschaften, Geschäftsmodellen oder Revenue-Streams. Du bist outgoing und baust Beziehungen auf\n\n• Datengetrieben: Du argumentierst mit Daten, nicht mit Meinungen. Google Analytics, Amplitude oder vergleichbare Tools sind dein Tagesgeschäft\n\n• Technisches Verständnis : Du musst nicht coden, aber du verstehst APIs, Datenbanken und Systemarchitekturen gut genug, um technische Diskussionen zu führen und Tradeoffs zu bewerten\n\n• Durchsetzungsvermögen: Du setzt klare Vorgaben, reportest transparent und scheust dich nicht vor schwierigen Gesprächen\n\n• AI-affin: Du nutzt AI-Tools produktiv (ChatGPT, Claude, Copilot) und hast idealerweise bereits Prototypen oder Demos mit AI-Unterstützung gebaut\n \n von Vorteil: \n\n \n• Erfahrung mit dem Schweizer KMU-Markt oder lokalen Plattformen / Verzeichnisdiensten\n\n• Kenntnisse in SEO, GEO und der Entwicklung von Content-Strategien\n\n• Erfahrung in der Zusammenarbeit mit legacy-geprägten Engineering-Teams\n\n• Eigene GitHub-Projekte oder nachweisbare Prototypen mit AI-Tools\n\n• Unternehmerische Erfahrung oder Startup-Hintergrund\n \n \n\n Das bist du nicht: \n\n \n• Ein reiner Scrum-PO, der Backlog-Tickets pflegt und Sprints plant\n\n• Jemand, der sich hinter Prozessen versteckt statt Ergebnisse zu liefern\n\n• Ein Strategie-Berater ohne Umsetzungskompetenz\n\n• Jemand, der Konflikte vermeidet — du löst sie\n \n \n\n Kontakt & Bewerbung \n\n Weitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\n Stan Rudnitskiy und das ganze Team freuen sich auf deine Online-Bewerbung!",
-        "en": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\n Unser Bereich Marketing, Audience & Communication sucht ein neues Teammitglied für unsere beiden Plattformen local.ch und search.ch.\n\n Bist du bereit, eine der reichweitenstärksten Plattformen der Schweiz als Mini-CEO zu führen? search.ch hat 39 Millionen Pageviews pro Monat und eine ikonische Marke — aber auch ungenutztes Potenzial. Du übernimmst Produkt- und Business-Verantwortung, treibst Partnerschaften, setzt Vorgaben und lieferst Ergebnisse.\n\n Wir bieten dir folgende spannende Aufgaben: \n\n \n• Gesamtverantwortung für Produkt und Business Development auf search.ch und LocalCities\n\n• Definition und Durchsetzung der Produkt-Roadmap in enger Abstimmung mit Engineering (5 FTE) und Business\n\n• Identifikation, Aufbau und Pflege von Partnerschaften und neuen Geschäftsmodellen für die Plattform\n\n• Datengetriebene Priorisierung: KPIs definieren, messen, reporten und daraus Entscheidungen ableiten\n\n• Enge Zusammenarbeit mit Performance Marketing, SEO und Analytics zur Optimierung der Plattform-Performance\n\n• Stakeholder-Management auf C-Level: klare Kommunikation von Fortschritt, Risiken und Opportunitäten\n\n• Aktive Suche nach neuen Revenue-Streams und Monetarisierungsmöglichkeiten über das klassische Werbegeschäft hinaus\n\n• Koordination mit dem Innovation-Team zur Integration neuer Features und AI-gestützter Produkte\n \n \n\n Skills und Anforderungen \n\n Was du mitbringst: \n\n \n• Design-Sensibilität: Du hast ein Auge für Detail — Animationen, Spacing, Typografie. Du baust Interfaces, die sich richtig anfühlen\n\n• Product Leadership : 5+ Jahre Erfahrung als Product Manager in einer digitalen Plattform- oder Marketplace-Umgebung. Du hast Roadmaps nicht nur geschrieben, sondern durchgesetzt\n\n• Business Development: Nachweisbare Erfahrung im Aufbau von Partnerschaften, Geschäftsmodellen oder Revenue-Streams. Du bist outgoing und baust Beziehungen auf\n\n• Datengetrieben: Du argumentierst mit Daten, nicht mit Meinungen. Google Analytics, Amplitude oder vergleichbare Tools sind dein Tagesgeschäft\n\n• Technisches Verständnis : Du musst nicht coden, aber du verstehst APIs, Datenbanken und Systemarchitekturen gut genug, um technische Diskussionen zu führen und Tradeoffs zu bewerten\n\n• Durchsetzungsvermögen: Du setzt klare Vorgaben, reportest transparent und scheust dich nicht vor schwierigen Gesprächen\n\n• AI-affin: Du nutzt AI-Tools produktiv (ChatGPT, Claude, Copilot) und hast idealerweise bereits Prototypen oder Demos mit AI-Unterstützung gebaut\n \n von Vorteil: \n\n \n• Erfahrung mit dem Schweizer KMU-Markt oder lokalen Plattformen / Verzeichnisdiensten\n\n• Kenntnisse in SEO, GEO und der Entwicklung von Content-Strategien\n\n• Erfahrung in der Zusammenarbeit mit legacy-geprägten Engineering-Teams\n\n• Eigene GitHub-Projekte oder nachweisbare Prototypen mit AI-Tools\n\n• Unternehmerische Erfahrung oder Startup-Hintergrund\n \n \n\n Das bist du nicht: \n\n \n• Ein reiner Scrum-PO, der Backlog-Tickets pflegt und Sprints plant\n\n• Jemand, der sich hinter Prozessen versteckt statt Ergebnisse zu liefern\n\n• Ein Strategie-Berater ohne Umsetzungskompetenz\n\n• Jemand, der Konflikte vermeidet — du löst sie\n \n \n\n Kontakt & Bewerbung \n\n Weitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\n Stan Rudnitskiy und das ganze Team freuen sich auf deine Online-Bewerbung!",
-        "fr": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\n Unser Bereich Marketing, Audience & Communication sucht ein neues Teammitglied für unsere beiden Plattformen local.ch und search.ch.\n\n Bist du bereit, eine der reichweitenstärksten Plattformen der Schweiz als Mini-CEO zu führen? search.ch hat 39 Millionen Pageviews pro Monat und eine ikonische Marke — aber auch ungenutztes Potenzial. Du übernimmst Produkt- und Business-Verantwortung, treibst Partnerschaften, setzt Vorgaben und lieferst Ergebnisse.\n\n Wir bieten dir folgende spannende Aufgaben: \n\n \n• Gesamtverantwortung für Produkt und Business Development auf search.ch und LocalCities\n\n• Definition und Durchsetzung der Produkt-Roadmap in enger Abstimmung mit Engineering (5 FTE) und Business\n\n• Identifikation, Aufbau und Pflege von Partnerschaften und neuen Geschäftsmodellen für die Plattform\n\n• Datengetriebene Priorisierung: KPIs definieren, messen, reporten und daraus Entscheidungen ableiten\n\n• Enge Zusammenarbeit mit Performance Marketing, SEO und Analytics zur Optimierung der Plattform-Performance\n\n• Stakeholder-Management auf C-Level: klare Kommunikation von Fortschritt, Risiken und Opportunitäten\n\n• Aktive Suche nach neuen Revenue-Streams und Monetarisierungsmöglichkeiten über das klassische Werbegeschäft hinaus\n\n• Koordination mit dem Innovation-Team zur Integration neuer Features und AI-gestützter Produkte\n \n \n\n Skills und Anforderungen \n\n Was du mitbringst: \n\n \n• Design-Sensibilität: Du hast ein Auge für Detail — Animationen, Spacing, Typografie. Du baust Interfaces, die sich richtig anfühlen\n\n• Product Leadership : 5+ Jahre Erfahrung als Product Manager in einer digitalen Plattform- oder Marketplace-Umgebung. Du hast Roadmaps nicht nur geschrieben, sondern durchgesetzt\n\n• Business Development: Nachweisbare Erfahrung im Aufbau von Partnerschaften, Geschäftsmodellen oder Revenue-Streams. Du bist outgoing und baust Beziehungen auf\n\n• Datengetrieben: Du argumentierst mit Daten, nicht mit Meinungen. Google Analytics, Amplitude oder vergleichbare Tools sind dein Tagesgeschäft\n\n• Technisches Verständnis : Du musst nicht coden, aber du verstehst APIs, Datenbanken und Systemarchitekturen gut genug, um technische Diskussionen zu führen und Tradeoffs zu bewerten\n\n• Durchsetzungsvermögen: Du setzt klare Vorgaben, reportest transparent und scheust dich nicht vor schwierigen Gesprächen\n\n• AI-affin: Du nutzt AI-Tools produktiv (ChatGPT, Claude, Copilot) und hast idealerweise bereits Prototypen oder Demos mit AI-Unterstützung gebaut\n \n von Vorteil: \n\n \n• Erfahrung mit dem Schweizer KMU-Markt oder lokalen Plattformen / Verzeichnisdiensten\n\n• Kenntnisse in SEO, GEO und der Entwicklung von Content-Strategien\n\n• Erfahrung in der Zusammenarbeit mit legacy-geprägten Engineering-Teams\n\n• Eigene GitHub-Projekte oder nachweisbare Prototypen mit AI-Tools\n\n• Unternehmerische Erfahrung oder Startup-Hintergrund\n \n \n\n Das bist du nicht: \n\n \n• Ein reiner Scrum-PO, der Backlog-Tickets pflegt und Sprints plant\n\n• Jemand, der sich hinter Prozessen versteckt statt Ergebnisse zu liefern\n\n• Ein Strategie-Berater ohne Umsetzungskompetenz\n\n• Jemand, der Konflikte vermeidet — du löst sie\n \n \n\n Kontakt & Bewerbung \n\n Weitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\n Stan Rudnitskiy und das ganze Team freuen sich auf deine Online-Bewerbung!"
+        "de": "## Descrizione\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\nUnser Bereich Marketing, Audience & Communication sucht ein neues Teammitglied für unsere beiden Plattformen local.ch und search.ch.\n\nBist du bereit, eine der reichweitenstärksten Plattformen der Schweiz als Mini-CEO zu führen? search.ch hat 39 Millionen Pageviews pro Monat und eine ikonische Marke — aber auch ungenutztes Potenzial. Du übernimmst Produkt- und Business-Verantwortung, treibst Partnerschaften, setzt Vorgaben und lieferst Ergebnisse.\n\n## Wir bieten dir folgende spannende Aufgaben:\n\n- Gesamtverantwortung für Produkt und Business Development auf search.ch und LocalCities\n- Definition und Durchsetzung der Produkt-Roadmap in enger Abstimmung mit Engineering (5 FTE) und Business\n- Identifikation, Aufbau und Pflege von Partnerschaften und neuen Geschäftsmodellen für die Plattform\n- Datengetriebene Priorisierung: KPIs definieren, messen, reporten und daraus Entscheidungen ableiten\n- Enge Zusammenarbeit mit Performance Marketing, SEO und Analytics zur Optimierung der Plattform-Performance\n- Stakeholder-Management auf C-Level: klare Kommunikation von Fortschritt, Risiken und Opportunitäten\n- Aktive Suche nach neuen Revenue-Streams und Monetarisierungsmöglichkeiten über das klassische Werbegeschäft hinaus\n- Koordination mit dem Innovation-Team zur Integration neuer Features und AI-gestützter Produkte\n\n## Skills und Anforderungen\n\nWas du mitbringst:\n\n- Design-Sensibilität: Du hast ein Auge für Detail — Animationen, Spacing, Typografie. Du baust Interfaces, die sich richtig anfühlen\n- Product Leadership: 5+ Jahre Erfahrung als Product Manager in einer digitalen Plattform- oder Marketplace-Umgebung. Du hast Roadmaps nicht nur geschrieben, sondern durchgesetzt\n- Business Development: Nachweisbare Erfahrung im Aufbau von Partnerschaften, Geschäftsmodellen oder Revenue-Streams. Du bist outgoing und baust Beziehungen auf\n- Datengetrieben: Du argumentierst mit Daten, nicht mit Meinungen. Google Analytics, Amplitude oder vergleichbare Tools sind dein Tagesgeschäft\n- Technisches Verständnis: Du musst nicht coden, aber du verstehst APIs, Datenbanken und Systemarchitekturen gut genug, um technische Diskussionen zu führen und Tradeoffs zu bewerten\n- Durchsetzungsvermögen: Du setzt klare Vorgaben, reportest transparent und scheust dich nicht vor schwierigen Gesprächen\n- AI-affin: Du nutzt AI-Tools produktiv (ChatGPT, Claude, Copilot) und hast idealerweise bereits Prototypen oder Demos mit AI-Unterstützung gebaut\n\nVon Vorteil:\n\n- Erfahrung mit dem Schweizer KMU-Markt oder lokalen Plattformen / Verzeichnisdiensten\n- Kenntnisse in SEO, GEO und der Entwicklung von Content-Strategien\n- Erfahrung in der Zusammenarbeit mit legacy-geprägten Engineering-Teams\n- Eigene GitHub-Projekte oder nachweisbare Prototypen mit AI-Tools\n- Unternehmerische Erfahrung oder Startup-Hintergrund\n\n## Das bist du nicht:\n\n- Ein reiner Scrum-PO, der Backlog-Tickets pflegt und Sprints plant\n- Jemand, der sich hinter Prozessen versteckt statt Ergebnisse zu liefern\n- Ein Strategie-Berater ohne Umsetzungskompetenz\n- Jemand, der Konflikte vermeidet — du löst sie\n\n## Kontakt & Bewerbung\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier.\n\nStan Rudnitskiy und das ganze Team freuen sich auf deine Online-Bewerbung!",
+        "it": "Descrizione\n\nlocalsearch è il principale partner commerciale e pubblicitario per le PMI svizzere. Facciamo i clienti di successo nel mondo digitale.\n\nLa nostra area Marketing, Audience & Communication sta cercando un nuovo membro del team per le nostre due piattaforme local.ch e search.ch.\n\nSei pronto a gestire una delle piattaforme più ricche della Svizzera come mini-EO? search.ch ha 39 milioni di pagine viste al mese e un marchio iconico — ma anche potenziale inutilizzato. Si assume la responsabilità del prodotto e del business, le partnership di unità, le specifiche impostate e fornire risultati.\n\nVi offriamo i seguenti compiti interessanti:\n\n- Totale responsabilità per lo sviluppo di prodotti e imprese su search.ch e Località\n- Definizione e applicazione della roadmap del prodotto in stretto coordinamento con Engineering (5 RTD) e Business\n- Identificazione, sviluppo e manutenzione di partnership e nuovi modelli di business per la piattaforma\n- Priorizzazione basata sui dati: definire, misurare, segnalare e derivare le decisioni dei KPI\n- Una stretta collaborazione con il marketing delle prestazioni, SEO e analytics per ottimizzare le prestazioni della piattaforma\n- Gestione degli stakeholder a livello C: comunicazione chiara dei progressi, dei rischi e delle opportunità\n- Ricerca attiva per nuovi stream Revenue e opzioni di monetizzazione oltre il classico business pubblicitario\n- Coordinamento con il team di innovazione per integrare nuove funzionalità e prodotti basati su AI\n\nCompetenze e requisiti\n\nCosa porti:\n\n- Sensibilità di progettazione: Hai un occhio per i dettagli — animazioni, spaziatura, tipografia. Si costruisce interfacce che si sentono a destra\n- Leadership del prodotto: 5+ anni di esperienza come product manager in una piattaforma digitale o in un ambiente di mercato. Non hai solo scritto roadmap, hai passato tutto\n- Sviluppo aziendale: esperienza rilevabile nella costruzione di partnership, modelli di business o flussi di pentimento. Stai uscendo e costruendo relazioni\n- Trasmissioni di dati: Lei discute con i dati, non con le opinioni. Google Analytics, ampiezza o strumenti comparabili sono la vostra attività quotidiana\n- Comprensione tecnica: Non è necessario codificare, ma si comprende API, database e architetture di sistema abbastanza bene da condurre discussioni tecniche e valutare i tradeoff\n- Esecuzione: Hai impostato obiettivi chiari, reportest trasparente e non avere paura di conversazioni difficili\n- AI-affin: si utilizzano strumenti AI in modo produttivo (ChatGPT, Claude, Copilot) e hanno prototipi o demo perfettamente costruiti con il supporto AI\n\nVantaggio:\n\n- Esperienza con il mercato svizzero delle PMI o piattaforme locali / Servizi di Directory\n- Conoscenza di SEO, GEO e sviluppo di strategie di contenuto\n- Esperienza in collaborazione con i team di ingegnere legacy\n- Progetti propri GitHub o prototipi rilevabili con strumenti AI\n- Esperienza imprenditoriale o background di avvio\n\nNon sei...\n\n- Un puro Scrum-PO che mantiene biglietti backlog e piani sprint\n- Qualcuno che si nasconde dietro i processi invece di dare risultati\n- Un consulente di strategia senza competenze di attuazione\n- Qualcuno che evita il conflitto - si risolve\n\nContatto e applicazione\n\nUlteriori informazioni su localsearch come datore di lavoro possono essere trovate qui.\n\nStan Rudnitskiy e l'intero team sono impazienti per la vostra applicazione online!",
+        "en": "Descrizione\n\nlocalsearch is the leading marketing and advertising partner for Swiss SMEs. We make customers successful in the digital world.\n\nOur area Marketing, Audience & Communication is looking for a new team member for our two platforms local.ch and search.ch.\n\nAre you ready to run one of Switzerland's richest platforms as a mini-EO? search.ch has 39 million pageviews per month and an iconic brand — but also unused potential. You take product and business responsibility, drive partnerships, set specifications and deliver results.\n\nWe offer you the following exciting tasks:\n\n- Total responsibility for product and business development on search.ch and LocalCities\n- Definition and enforcement of product roadmap in close coordination with Engineering (5 RTD) and Business\n- Identification, development and maintenance of partnerships and new business models for the platform\n- Data-driven prioritization: define, measure, report and derive decisions from KPIs\n- Close cooperation with performance marketing, SEO and analytics to optimize platform performance\n- C-level stakeholder management: clear communication of progress, risks and opportunities\n- Active search for new Revenue streams and monetization options beyond the classic advertising business\n- Coordination with the innovation team to integrate new features and AI-based products\n\nSkills and requirements\n\nWhat you bring:\n\n- Design sensitivity: You have an eye for detail — animations, spacing, typography. You build interfaces that feel right\n- Product Leadership: 5+ years of experience as a product manager in a digital platform or marketplace environment. You've not only written roadmaps, you've been through\n- Business Development: Detectable experience in building partnerships, business models or repentance streams. You are outgoing and building relationships\n- Data transmissions: You argue with data, not with opinions. Google Analytics, amplitude or comparable tools are your daily business\n- Technical understanding: You don't have to code, but you understand APIs, databases and system architectures well enough to conduct technical discussions and evaluate tradeoffs\n- Enforcement: You set clear targets, reportest transparent and don't be afraid of difficult conversations\n- AI-affin: You use AI tools productively (ChatGPT, Claude, Copilot) and have ideally built prototypes or demos with AI support\n\nAdvantage:\n\n- Experience with the Swiss SME market or local platforms / Directory services\n- Knowledge of SEO, GEO and the development of content strategies\n- Experience in cooperation with legacy engineer teams\n- Own GitHub projects or detectable prototypes with AI tools\n- Entrepreneurial experience or startup background\n\nYou're not:\n\n- A pure Scrum-PO that maintains backlog tickets and plans sprints\n- Someone hiding behind processes instead of delivering results\n- A strategy consultant without implementation competence\n- Someone who avoids conflict — you solve it\n\nContact & Application\n\nMore information about localsearch as an employer can be found here.\n\nStan Rudnitskiy and the whole team are looking forward to your online application!",
+        "fr": "Descrizione\n\nlocalsearch est le principal partenaire commercial et publicitaire des PME suisses. Nous faisons des clients un succès dans le monde numérique.\n\nNotre domaine Marketing, Public & Communication est à la recherche d'un nouveau membre de l'équipe pour nos deux plateformes local.ch et search.ch.\n\nÊtes-vous prêt à gérer l'une des plates-formes les plus riches de Suisse comme un mini-EO? search.ch a 39 millions de pages vues par mois et une marque emblématique — mais aussi un potentiel inutilisé. Vous assumez la responsabilité des produits et des entreprises, dirigez des partenariats, définissez des spécifications et produisez des résultats.\n\nNous vous proposons les tâches passionnantes suivantes:\n\n- Responsabilité totale pour le développement des produits et des entreprises sur search.ch et LocalCities\n- Définition et application de la feuille de route des produits en étroite coordination avec l'ingénierie (5 RDT) et les entreprises\n- Identification, développement et maintenance de partenariats et de nouveaux modèles d'affaires pour la plateforme\n- Priorisation axée sur les données: définir, mesurer, rendre compte et tirer des décisions des ICR\n- Coopération étroite avec le marketing de performance, le référencement et l'analyse pour optimiser les performances de la plateforme\n- Gestion des parties prenantes au niveau C : communication claire des progrès, des risques et des opportunités\n- Recherche active de nouveaux flux de revenus et options de monétisation au-delà de la publicité classique\n- Coordination avec l'équipe innovation pour intégrer de nouvelles fonctionnalités et des produits basés sur l'IA\n\nCompétences et exigences\n\nCe que vous apportez:\n\n- Sensibilité au design: Vous avez un œil pour le détail — animations, espacement, typographie. Vous construisez des interfaces qui se sentent bien\n- Leadership des produits : 5 ans d'expérience en tant que gestionnaire de produits dans une plateforme numérique ou un environnement de marché. Vous n'avez pas seulement écrit des feuilles de route, vous avez traversé\n- Développement des affaires : expérience détectable dans la construction de partenariats, de modèles d'affaires ou de courants de repentance. Vous êtes sortants et vous construisez des relations\n- Transmissions de données : Vous discutez avec les données, pas avec les opinions. Google Analytics, l'amplitude ou des outils comparables sont vos affaires quotidiennes\n- Compréhension technique: Vous n'avez pas à coder, mais vous comprenez les API, les bases de données et les architectures système assez bien pour mener des discussions techniques et évaluer les compromis\n- Application de la loi: Vous définissez des objectifs clairs, signalez les plus transparents et n'ayez pas peur des conversations difficiles\n- AI-affin: Vous utilisez des outils AI de manière productive (ChatGPT, Claude, Copilot) et avez idéalement construit des prototypes ou des démos avec support AI\n\nAvantages:\n\n- Expérience du marché suisse des PME ou des plateformes locales / Services d'annuaire\n- Connaissance du SEO, GEO et élaboration de stratégies de contenu\n- Expérience en collaboration avec les équipes d'ingénieurs\n- Projets GitHub ou prototypes détectables avec des outils AI\n- Expérience entrepreneuriale ou formation au démarrage\n\nVous n'êtes pas :\n\n- Un Scrum-PO pur qui maintient les billets en souffrance et les plans sprints\n- Quelqu'un se cache derrière les processus au lieu de donner des résultats\n- Un consultant en stratégie sans compétence de mise en œuvre\n- Quelqu'un qui évite les conflits — vous le résolvez\n\nDemande de contact &\n\nVous trouverez plus d'informations sur la recherche locale en tant qu'employeur ici.\n\nStan Rudnitskiy et toute l'équipe attendent avec impatience votre candidature en ligne!"
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -2815,7 +2795,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {

@@ -65,7 +65,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.346Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -298,7 +297,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.343Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -614,7 +612,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.340Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -697,7 +694,6 @@
         "medizinproduktetechnologin-medizinproduktetechnolog-cfc-apprendistato-universitatsspital-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.341Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -853,7 +849,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -917,18 +912,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
-        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel"
+        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
+        "nds-experte-expertin-notfallpflege-nfz-unispital-basel-ch",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
+        "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
+          "nds-expert-expert-emergency-care-nfz-universitatsspital-basel-basel"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.339Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -993,8 +991,9 @@
       "previousSlugs": [
         "med-praxisassistent-in-radiologie-unispital-basel-ch",
         "med-praxisassistent-in-radiologie-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-unispital-basel-ch",
+        "med-assistente-pratico-in-radiologia-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-imc-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1007,7 +1006,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.338Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1170,7 +1168,6 @@
         "fachleitung-pflege-gynakologisch-onkologisches-ambulatorium-amp-brustklinik-unispital"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.337Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1324,7 +1321,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.336Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1482,7 +1478,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.335Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1558,7 +1553,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.333Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1989,17 +1983,17 @@
       "companyDomain": "unispital-basel.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann (HF/FH)",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann (HF/FH)",
+        "de": "Pflegefachfrau / Pflegefachmann (HF/FH)",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann (HF/FH)",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann (HF/FH)",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann (HF/FH)"
+        "en": "Dipl. Care specialist (HF/FH)",
+        "fr": "Dipl. Spécialiste des soins (HF/FH)"
       },
       "description": "Aufgaben:\n• Verantwortungsvolle und fachgerechte Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten sowie deren Angehörigen\n\n• Selbstständige Organisation des eigenen Arbeitsbereichs und Sicherstellung eines reibungslosen Pflegeprozesses\n\n• Zielorientierte und kooperative Zusammenarbeit im interdisziplinären Behandlungsteam\n\n• Einsätze auf verschiedenen Bettenstationen des Universitätsspitals Basel\n\nAnforderungen:\n• Abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH/DN II\n\n• Ausgeprägte Kommunikations- und Sozialkompetenz\n\n• Freude an der Arbeit auf wechselnden Stationen\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie deren Angehörigen\n\n• Hohe Flexibilität und Belastbarkeit in einem dynamischen Arbeitsumfeld\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Verantwortungsvolle und fachgerechte Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten sowie deren Angehörigen\n\n• Selbstständige Organisation des eigenen Arbeitsbereichs und Sicherstellung eines reibungslosen Pflegeprozesses\n\n• Zielorientierte und kooperative Zusammenarbeit im interdisziplinären Behandlungsteam\n\n• Einsätze auf verschiedenen Bettenstationen des Universitätsspitals Basel\n\nAnforderungen:\n• Abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH/DN II\n\n• Ausgeprägte Kommunikations- und Sozialkompetenz\n\n• Freude an der Arbeit auf wechselnden Stationen\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie deren Angehörigen\n\n• Hohe Flexibilität und Belastbarkeit in einem dynamischen Arbeitsumfeld\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Verantwortungsvolle und fachgerechte Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten sowie deren Angehörigen\n\n• Selbstständige Organisation des eigenen Arbeitsbereichs und Sicherstellung eines reibungslosen Pflegeprozesses\n\n• Zielorientierte und kooperative Zusammenarbeit im interdisziplinären Behandlungsteam\n\n• Einsätze auf verschiedenen Bettenstationen des Universitätsspitals Basel\n\nAnforderungen:\n• Abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH/DN II\n\n• Ausgeprägte Kommunikations- und Sozialkompetenz\n\n• Freude an der Arbeit auf wechselnden Stationen\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie deren Angehörigen\n\n• Hohe Flexibilität und Belastbarkeit in einem dynamischen Arbeitsumfeld\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Verantwortungsvolle und fachgerechte Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten sowie deren Angehörigen\n\n• Selbstständige Organisation des eigenen Arbeitsbereichs und Sicherstellung eines reibungslosen Pflegeprozesses\n\n• Zielorientierte und kooperative Zusammenarbeit im interdisziplinären Behandlungsteam\n\n• Einsätze auf verschiedenen Bettenstationen des Universitätsspitals Basel\n\nAnforderungen:\n• Abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH/DN II\n\n• Ausgeprägte Kommunikations- und Sozialkompetenz\n\n• Freude an der Arbeit auf wechselnden Stationen\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie deren Angehörigen\n\n• Hohe Flexibilität und Belastbarkeit in einem dynamischen Arbeitsumfeld\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Verantwortungsvolle und fachgerechte Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten sowie deren Angehörigen\n\n• Selbstständige Organisation des eigenen Arbeitsbereichs und Sicherstellung eines reibungslosen Pflegeprozesses\n\n• Zielorientierte und kooperative Zusammenarbeit im interdisziplinären Behandlungsteam\n\n• Einsätze auf verschiedenen Bettenstationen des Universitätsspitals Basel\n\nAnforderungen:\n• Abgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH/DN II\n\n• Ausgeprägte Kommunikations- und Sozialkompetenz\n\n• Freude an der Arbeit auf wechselnden Stationen\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie deren Angehörigen\n\n• Hohe Flexibilität und Belastbarkeit in einem dynamischen Arbeitsumfeld\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Cura, supporto e supporto professionale dei nostri pazienti e dei loro parenti\n\n• Auto-organizzazione della propria area di lavoro e garantire un processo di cura fluido\n\n• Cooperazione mirata e cooperativa nel team di trattamento interdisciplinare\n\n• Inserti in diverse stazioni letto dell'Ospedale Universitario di Basilea\n\nRequisiti:\n• Formazione completa come infermiera qualificata HF/FH/DN II\n\n• Comunicazione rappresentativa e competenza sociale\n\n• Gioia nel lavoro a turni\n\n• Gestione sensibile e stimata dei pazienti e dei loro parenti\n\n• Alta flessibilità e capacità di carico in un ambiente di lavoro dinamico\n\nOffriamo:\n• Politica salariale attraente e vantaggi sociali eccellenti\n\n• Vantaggi nello shopping, nello sport e nel tempo libero\n\n• Supporto per spostamento e alloggiamento\n\n• 25 giorni di vacanza\n\n• Sostegno alla formazione continua e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e il Dreiländereck\n\n• Servizi per l'infanzia completi\n\n• Programma di sport e di esercizio gratuito",
+        "en": "Tasks:\n• Responsive and professional care, support and support of our patients and their relatives\n\n• Self-organizing your own work area and ensuring a smooth care process\n\n• Target-oriented and cooperative cooperation in the interdisciplinary treatment team\n\n• Inserts at different bed stations of the University Hospital Basel\n\nRequirements:\n• Completed training as a qualified nurse HF/FH/DN II\n\n• Representative communication and social competence\n\n• Joy in working on changing stations\n\n• Sensitive and value-estimating handling of patients and their relatives\n\n• High flexibility and loadability in a dynamic working environment\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Benefits in shopping, sports and leisure\n\n• Support for moving and housing\n\n• 25 holiday days\n\n• Support for continuing and continuing training and career planning\n\n• Campus in the heart of Basel and the Dreiländereck\n\n• Comprehensive childcare facilities\n\n• Free sports and exercise program",
+        "fr": "Tâches :\n• Soins adaptés et professionnels, soutien et soutien de nos patients et de leurs proches\n\n• Auto-organisation de votre propre zone de travail et d'assurer un processus de soins en douceur\n\n• Coopération ciblée et coopérative dans l'équipe de traitement interdisciplinaire\n\n• Inserts dans différentes stations de lit de l'hôpital universitaire de Bâle\n\nExigences:\n• Formation complète en tant qu'infirmière qualifiée HF/FH/DN II\n\n• Communication représentative et compétence sociale\n\n• La joie de travailler sur des postes de changement\n\n• Traitement sensible et valorisant des patients et de leurs proches\n\n• Une flexibilité et une charge élevées dans un environnement de travail dynamique\n\nNous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n\n• Avantages dans le shopping, le sport et les loisirs\n\n• Appui au déménagement et au logement\n\n• 25 jours fériés\n\n• Soutien à la formation continue et à la planification des carrières\n\n• Campus au cœur de Bâle et de la Dreiländereck\n\n• Établissements de garde d'enfants complets\n\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -2025,7 +2019,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2038,7 +2031,17 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T13:25:45.944Z"
+      "firstSeenAt": "2026-05-18T13:25:45.944Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-4f1zbs",
+        "dipl-nursing-specialist-hf-fh-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-2ficdk",
+        "dipl-care-specialist-hf-fh-universitatsspital-basel-basel",
+        "dipl-specialiste-des-soins-hf-fh-universitatsspital-basel-basel",
+        "dipl-specialista-di-cura-hf-fh-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-2",
+        "assistente-di-pratica-medica-assistente-di-pratica-medica-mpa-anestesiologia-universitatsspital-basel-basel"
+      ]
     },
     {
       "id": "unispital-basel-e287fdb78612",
@@ -2595,7 +2598,6 @@
         "radiologa-radiologo-hf-fh-radioterapia-e-radio-oncologia-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.323Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2675,7 +2677,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.322Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3072,7 +3073,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.318Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3145,7 +3145,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.317Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3308,7 +3307,6 @@
         "amministrativo-r-dipendente-in-gestione-di-casi-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.316Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3546,7 +3544,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.314Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3726,7 +3723,7 @@
       "id": "unispital-basel-b08993222c09",
       "slug": "amministrativo-r-staff-in-amministrazione-paziente-coordinamento-funzione-integrale-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "amministrativo-r-staff-in-amministrazione-paziente-coordinamento-funzione-integrale-universitatsspital-basel-basel",
+        "it": "assistente-alla-salute-e-agli-affari-sociali-ags-assistente-alla-cura-pa-universitatsspital-basel-basel",
         "en": "administrative-r-staff-in-patient-administration-coordination-allround-function-universitatsspital-basel-basel",
         "de": "administrative-r-mitarbeiter-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel-basel",
         "fr": "personnel-administratif-en-administration-et-coordination-des-patients-fonction-complete-universitatsspital-basel-basel"
@@ -3787,8 +3784,12 @@
       },
       "previousSlugs": [
         "administrative-r-mitarbeiter-in-patientenadministration-amp-koordination-allround-funktion",
+        "administrative-r-collaboratore-trice-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel",
         "administrative-r-mitarbeiter-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel-basel",
-        "administrative-r-collaboratore-trice-in-patientenadministration-koordination-allround-funktion-universitatsspital-basel"
+        "assistentin-gesundheit-und-soziales-ags-pflegeassistentin-pa-unispital-basel-ch",
+        "assistentin-gesundheit-und-soziales-ags-pflegeassistentin-pa-universitatsspital-basel-basel",
+        "assistentin-gesundheit-e-soziales-ags-pflegeassistentin-pa-universitatsspital-basel",
+        "amministrativo-r-staff-in-amministrazione-paziente-coordinamento-funzione-integrale-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.313Z",
       "salaryMin": 49500,
@@ -3961,7 +3962,6 @@
         "medico-senior-kardiopsychosomatik-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.307Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -4042,7 +4042,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.304Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4060,7 +4059,7 @@
       "id": "unispital-basel-a732e1d3b54d",
       "slug": "biomedical-analyst-in-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "biomedical-analyst-in-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-basel",
+        "it": "personale-amministrativo-in-segretario-universitatsspital-basel-basel",
         "en": "biomedical-analyst-in-hf-laboratory-diagnostics-in-fh-molecular-diagnostic-hematology-universitatsspital-basel-basel",
         "de": "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba",
         "fr": "analyste-biomedical-en-hf-diagnostic-de-laboratoire-en-fh-hematologie-diagnostique-moleculaire-universitatsspital-basel-"
@@ -4108,7 +4107,11 @@
         "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatolog",
         "biomedizinische-r-analytiker-in-hf-labordiagnostiker-in-fh-molekulare-diagnostik-hamatologie-universitatsspital-basel-ba",
         "analista-biomedica-nella-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-bas",
-        "logistikerin-logistiker-cfc-specializzazione-lagertechnik-lagerlogistik-apprendistato-universitatsspital-basel"
+        "logistikerin-logistiker-cfc-specializzazione-lagertechnik-lagerlogistik-apprendistato-universitatsspital-basel",
+        "administrative-r-mitarbeiter-in-sekretar-in-unispital-basel-ch",
+        "administrative-r-mitarbeiter-in-sekretar-in-universitatsspital-basel-basel",
+        "administrative-r-collaboratore-trice-in-sekretar-in-universitatsspital-basel",
+        "biomedical-analyst-in-diagnostica-hf-laboratorio-in-fh-ematologia-diagnostica-molecolare-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4127,7 +4130,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.306Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4146,9 +4148,9 @@
       "slug": "arztsekretar-in-universitatsspital-basel-basel",
       "slugByLocale": {
         "de": "arztsekretar-in-universitatsspital-basel-basel",
-        "it": "arztsekretar-in-universitatsspital-basel-basel",
-        "en": "arztsekretar-in-unispital-basel-ch-2",
-        "fr": "arztsekretar-in-unispital-basel-ch-2"
+        "it": "assistente-di-medico-universitatsspital-basel-basel",
+        "en": "medical-secretary-universitatsspital-basel-basel",
+        "fr": "secretaire-medical-e-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -4156,16 +4158,16 @@
       "title": "Arztsekretär*in",
       "titleByLocale": {
         "de": "Arztsekretär*in",
-        "it": "Arztsekretär*in",
-        "en": "Arztsekretär*in",
-        "fr": "Arztsekretär*in"
+        "it": "Assistente di medico",
+        "en": "Medical Secretary",
+        "fr": "Secrétaire médical*e"
       },
       "description": "Aufgaben:\n• Selbständige administrative und organisatorische Unterstützung der Ärzteschaft im Fachbereich Endokrinologie, Diabetologie & Metabolismus\n\n• Effiziente Organisation und Planung von Sprechstunden, Terminen und medizinischen Dienstleistungen\n\n• Verantwortung für ein professionelles Patientenmanagement inkl. Kommunikation, Korrespondenz und Stammdatenpflege\n\n• Erstellung und Bearbeitung medizinischer Schriftstücke\n\n• Sicherstellung einer professionellen internen und externen Kommunikation sowie Wahrnehmung repräsentativer Aufgaben\n\nAnforderungen:\n• Abgeschlossene als Arztsekretär*in oder eine abgeschlossene Ausbildung im Gesundheitswesen mit kaufmännischer Weiterbildung\n\n• Mehrjährige Erfahrung in einer Assistenz , Support oder Sekretariatsfunktion, idealerweise im Spital oder Klinikumfeld\n\n• Strukturierte, proaktive und dienstleistungsorientierte Arbeitsweise sowie hohe Teamfähigkeit\n\n• Stilsichere Deutschkenntnisse sowie gute Französisch und Englischkenntnisse, insbesondere in medizinischer Terminologie\n\n• Sehr gute EDV Anwenderkenntnisse und hoher Qualitäts- und Verantwortungsanspruch\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Selbständige administrative und organisatorische Unterstützung der Ärzteschaft im Fachbereich Endokrinologie, Diabetologie & Metabolismus\n\n• Effiziente Organisation und Planung von Sprechstunden, Terminen und medizinischen Dienstleistungen\n\n• Verantwortung für ein professionelles Patientenmanagement inkl. Kommunikation, Korrespondenz und Stammdatenpflege\n\n• Erstellung und Bearbeitung medizinischer Schriftstücke\n\n• Sicherstellung einer professionellen internen und externen Kommunikation sowie Wahrnehmung repräsentativer Aufgaben\n\nAnforderungen:\n• Abgeschlossene als Arztsekretär*in oder eine abgeschlossene Ausbildung im Gesundheitswesen mit kaufmännischer Weiterbildung\n\n• Mehrjährige Erfahrung in einer Assistenz , Support oder Sekretariatsfunktion, idealerweise im Spital oder Klinikumfeld\n\n• Strukturierte, proaktive und dienstleistungsorientierte Arbeitsweise sowie hohe Teamfähigkeit\n\n• Stilsichere Deutschkenntnisse sowie gute Französisch und Englischkenntnisse, insbesondere in medizinischer Terminologie\n\n• Sehr gute EDV Anwenderkenntnisse und hoher Qualitäts- und Verantwortungsanspruch\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Selbständige administrative und organisatorische Unterstützung der Ärzteschaft im Fachbereich Endokrinologie, Diabetologie & Metabolismus\n\n• Effiziente Organisation und Planung von Sprechstunden, Terminen und medizinischen Dienstleistungen\n\n• Verantwortung für ein professionelles Patientenmanagement inkl. Kommunikation, Korrespondenz und Stammdatenpflege\n\n• Erstellung und Bearbeitung medizinischer Schriftstücke\n\n• Sicherstellung einer professionellen internen und externen Kommunikation sowie Wahrnehmung repräsentativer Aufgaben\n\nAnforderungen:\n• Abgeschlossene als Arztsekretär*in oder eine abgeschlossene Ausbildung im Gesundheitswesen mit kaufmännischer Weiterbildung\n\n• Mehrjährige Erfahrung in einer Assistenz , Support oder Sekretariatsfunktion, idealerweise im Spital oder Klinikumfeld\n\n• Strukturierte, proaktive und dienstleistungsorientierte Arbeitsweise sowie hohe Teamfähigkeit\n\n• Stilsichere Deutschkenntnisse sowie gute Französisch und Englischkenntnisse, insbesondere in medizinischer Terminologie\n\n• Sehr gute EDV Anwenderkenntnisse und hoher Qualitäts- und Verantwortungsanspruch\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Selbständige administrative und organisatorische Unterstützung der Ärzteschaft im Fachbereich Endokrinologie, Diabetologie & Metabolismus\n\n• Effiziente Organisation und Planung von Sprechstunden, Terminen und medizinischen Dienstleistungen\n\n• Verantwortung für ein professionelles Patientenmanagement inkl. Kommunikation, Korrespondenz und Stammdatenpflege\n\n• Erstellung und Bearbeitung medizinischer Schriftstücke\n\n• Sicherstellung einer professionellen internen und externen Kommunikation sowie Wahrnehmung repräsentativer Aufgaben\n\nAnforderungen:\n• Abgeschlossene als Arztsekretär*in oder eine abgeschlossene Ausbildung im Gesundheitswesen mit kaufmännischer Weiterbildung\n\n• Mehrjährige Erfahrung in einer Assistenz , Support oder Sekretariatsfunktion, idealerweise im Spital oder Klinikumfeld\n\n• Strukturierte, proaktive und dienstleistungsorientierte Arbeitsweise sowie hohe Teamfähigkeit\n\n• Stilsichere Deutschkenntnisse sowie gute Französisch und Englischkenntnisse, insbesondere in medizinischer Terminologie\n\n• Sehr gute EDV Anwenderkenntnisse und hoher Qualitäts- und Verantwortungsanspruch\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Selbständige administrative und organisatorische Unterstützung der Ärzteschaft im Fachbereich Endokrinologie, Diabetologie & Metabolismus\n\n• Effiziente Organisation und Planung von Sprechstunden, Terminen und medizinischen Dienstleistungen\n\n• Verantwortung für ein professionelles Patientenmanagement inkl. Kommunikation, Korrespondenz und Stammdatenpflege\n\n• Erstellung und Bearbeitung medizinischer Schriftstücke\n\n• Sicherstellung einer professionellen internen und externen Kommunikation sowie Wahrnehmung repräsentativer Aufgaben\n\nAnforderungen:\n• Abgeschlossene als Arztsekretär*in oder eine abgeschlossene Ausbildung im Gesundheitswesen mit kaufmännischer Weiterbildung\n\n• Mehrjährige Erfahrung in einer Assistenz , Support oder Sekretariatsfunktion, idealerweise im Spital oder Klinikumfeld\n\n• Strukturierte, proaktive und dienstleistungsorientierte Arbeitsweise sowie hohe Teamfähigkeit\n\n• Stilsichere Deutschkenntnisse sowie gute Französisch und Englischkenntnisse, insbesondere in medizinischer Terminologie\n\n• Sehr gute EDV Anwenderkenntnisse und hoher Qualitäts- und Verantwortungsanspruch\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "de": "Aufgaben:\n• Selbständige administrative und organisatorische Assistenz der Ärzteschaft\n• Verfassen von Schriftstücken, z. B. (Arzt-)Berichten, Gutachten und Protokollen\n• Organisation und Planung der Sprechstunden und Operationen sowie weiterer medizinischer Dienstleistungen, Veranstaltungen und Termine, z. B. Kongresse\n• Verantwortung für das Patientenmanagement (Kommunikation/Korrespondenz, Empfang, elektronische Stammdatenpflege)\n• Sicherstellung einer professionellen Kommunikation (intern und extern), inkl. Repräsentationsaufgaben Anforderungen:\n• Abgeschlossene kaufmännische Ausbildung oder Ausbildung im Gesundheitswesen mit kaufmännischer Weiterbildung\n• Erfahrung in einer Support-, Assistenz- oder Sekretariatsfunktion, vorzugsweise im Spitalumfeld\n• Teamorientierte Persönlichkeit mit strukturierter, proaktiver und pragmatischer Arbeitsweise\n• Stilsicheres Deutsch sowie gute Französisch- und Englischkenntnisse in Wort und Schrift, insbesondere in der medizinischen Terminologie\n• Gute EDV-Anwenderkenntnisse Wir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n• Unterstützung bei Umzug und Wohnungssuche\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n• Campus im Herzen Basels und im Dreiländereck\n• Umfassende Kinderbetreuungsmöglichkeiten\n• Kostenloses Sport- und Bewegungsprogramm",
+        "it": "Compiti:\n• Assistenza amministrativa e organizzativa autonoma dei medici\n• documenti di scrittura, ad es. relazioni, relazioni e protocolli (articolo)\n• organizzazione e pianificazione delle ore di ufficio e delle operazioni, nonché altri servizi medici, eventi e appuntamenti, ad esempio congressi\n• Responsabilità per la gestione del paziente (comunicazione/corrispondenza, ricezione, manutenzione elettronica dei dati master)\n• Assicurare la comunicazione professionale (interna ed esterna), comprese le attività di rappresentanza Requisiti:\n• Formazione commerciale chiusa o formazione nel settore sanitario con formazione commerciale\n• Esperienza in una funzione di supporto, assistenza o segreteria, preferibilmente nell'ambiente ospedaliero\n• Personalità orientata al team con lavoro strutturato, proattivo e pragmatico\n• Elegante tedesco e buona conoscenza francese e inglese in parola e scrittura, soprattutto in terminologia medica\n• Buone competenze informatiche Offriamo:\n• Politica salariale attraente e vantaggi sociali eccellenti\n• Vantaggi nello shopping, nello sport e nel tempo libero\n• Supporto per spostamento e alloggiamento\n• 25 giorni festivi più 5 anche free flexitage\n• Sostegno alla formazione continua e alla pianificazione della carriera\n• Campus nel cuore di Basilea e il Dreiländereck\n• Servizi per l'infanzia completi\n• Programma di sport e di esercizio gratuito",
+        "en": "Tasks:\n• Self-employed administrative and organizational assistance of doctors\n• writing documents, e.g. (article) reports, reports and protocols\n• organisation and planning of the office hours and operations as well as other medical services, events and appointments, e.g. congresses\n• Responsibility for patient management (communication/correspondence, reception, electronic master data maintenance)\n• Ensuring professional communication (internal and external), including representation tasks Requirements:\n• Closed commercial training or training in health care with commercial training\n• Experience in a support, assistance or secretariat function, preferably in the hospital environment\n• Team-oriented personality with structured, proactive and pragmatic work\n• Stylish German as well as good French and English knowledge in word and writing, especially in medical terminology\n• Good computer skills We offer:\n• Attractive wage policy and excellent social benefits\n• Benefits in shopping, sports and leisure\n• Support for moving and housing\n• 25 Holiday days plus 5 also free flexitage\n• Support for continuing and continuing training and career planning\n• Campus in the heart of Basel and the Dreiländereck\n• Comprehensive childcare facilities\n• Free sports and exercise program",
+        "fr": "Tâches :\n• Aide administrative et organisationnelle aux travailleurs indépendants\n• rédaction de documents, par exemple rapports (articles), rapports et protocoles\n• organisation et planification des heures de bureau et des opérations ainsi que d'autres services médicaux, événements et nominations, par exemple congrès\n• Responsabilité de la gestion des patients (communication/correspondance, réception, maintenance électronique des données maîtresses)\n• Assurer la communication professionnelle (interne et externe), y compris les tâches de représentation Exigences:\n• Formation commerciale fermée ou formation en soins de santé avec formation commerciale\n• Expérience dans une fonction d'appui, d'assistance ou de secrétariat, de préférence en milieu hospitalier\n• Personnalité axée sur l'équipe avec un travail structuré, proactif et pragmatique\n• L'allemand élégant ainsi que la bonne connaissance du français et de l'anglais dans la parole et l'écriture, en particulier dans la terminologie médicale\n• Bonnes compétences en informatique Nous offrons:\n• Une politique salariale attrayante et d'excellentes prestations sociales\n• Avantages dans le shopping, le sport et les loisirs\n• Appui au déménagement et au logement\n• 25 jours fériés plus 5 flexitage gratuit\n• Soutien à la formation continue et à la planification des carrières\n• Campus au cœur de Bâle et de la Dreiländereck\n• Établissements de garde d'enfants complets\n• Programme de sports et d'exercices gratuits"
       },
       "location": "Basel",
       "canton": "BS",
@@ -4191,18 +4193,25 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1"
         ],
         "de": [
           "arztsekretar-in-unispital-basel-ch"
+        ],
+        "en": [
+          "arztsekretar-in-unispital-basel-ch-2"
+        ],
+        "fr": [
+          "arztsekretar-in-unispital-basel-ch-2"
         ]
       },
       "previousSlugs": [
         "segretario-del-dottore-in-universitatsspital-basel-basel-1122f1",
-        "arztsekretar-in-unispital-basel-ch"
+        "arztsekretar-in-unispital-basel-ch",
+        "arztsekretar-in-unispital-basel-ch-2",
+        "segretario-del-dottore-in-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4278,7 +4287,6 @@
         "chefarztsekretar-in-mit-fachlicher-koordinationsverantwortung-unispital-basel-ch"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.303Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -4354,7 +4362,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.302Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4515,7 +4522,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.302Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4672,7 +4678,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.299Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4835,7 +4840,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.297Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5074,7 +5078,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.296Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5232,7 +5235,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.294Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5385,7 +5387,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.292Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5876,7 +5877,6 @@
         "fisioterapista-fisioterapista-universitatsspital-basel-basel-f01c67"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.285Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -5951,7 +5951,6 @@
         ]
       },
       "firstSeenAt": "2026-05-13T12:07:01.913Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6053,7 +6052,7 @@
       "id": "unispital-basel-a058cdd33fda",
       "slug": "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
+        "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
         "en": "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
         "de": "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-universitatsspital-basel-basel",
         "fr": "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
@@ -6119,10 +6118,11 @@
         "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
         "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel",
         "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
-        "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch"
+        "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
+        "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
+        "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-10T22:38:59.282Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6280,7 +6280,6 @@
         ]
       },
       "firstSeenAt": "2026-05-10T22:38:59.279Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -6460,7 +6459,7 @@
       "id": "unispital-basel-e94993893b1b",
       "slug": "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel",
         "en": "dipl-care-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-universitatsspital-basel-basel",
         "fr": "dipl-specialiste-des-soins-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel"
@@ -6510,8 +6509,7 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
         ],
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch"
         ],
         "en": [
           "dipl-care-specialist-hf-fh-medical-6-2-universitatsspital-basel-basel",
@@ -6525,10 +6523,13 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-unispital-basel-ch",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-unispital-basel-ch",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-6-2-universitatsspital-basel-basel",
         "dipl-care-specialist-hf-fh-medical-6-2-universitatsspital-basel-basel",
         "dipl-specialiste-des-soins-hf-fh-medical-6-2-universitatsspital-basel-basel",
-        "dipl-specialista-di-cura-hf-fh-medico-6-2-universitatsspital-basel-basel"
+        "dipl-specialista-di-cura-hf-fh-medico-6-2-universitatsspital-basel-basel",
+        "dipl-specialista-di-cura-hf-fh-medicina-interna-5-1-universitatsspital-basel-basel",
+        "dipl-care-specialist-hf-fh-internal-medicine-5-1-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-innere-medizin-5-1-universitatsspital-basel-basel",
+        "dipl-specialiste-des-soins-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-12T12:15:55.438Z",
       "salaryMin": 49500,
@@ -6847,7 +6848,6 @@
         "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopadie-traumatologie-unispital-basel-ch"
       ],
       "firstSeenAt": "2026-05-13T12:07:01.899Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -7603,16 +7603,16 @@
       "title": "Assistentin / Assistent Gesundheit und Soziales (AGS)",
       "titleByLocale": {
         "de": "Assistentin / Assistent Gesundheit und Soziales (AGS)",
-        "it": "Assistentin / Assistent Gesundheit e Soziales (AGS)",
-        "en": "Assistentin / Assistent Gesundheit und Soziales (AGS)",
-        "fr": "Assistentin / Assistent Gesundheit und Soziales (AGS)"
+        "it": "Assistente / Assistente Salute e Affari Sociali (AGS)",
+        "en": "Assistant / Assistant Health and Social Affairs (AGS)",
+        "fr": "Assistant/adjoint à la santé et aux affaires sociales (AGS)"
       },
       "description": "Aufgaben:\n• Mithilfe bei der Pflege in Absprache mit der zuständigen Pflegefachperson\n\n• Transport von Patientinnen und Patienten\n\n• Selbständige Übernahme hauswirtschaftlicher Tätigkeiten\n\n• Materialbeschaffung, Aufbereitung und Bewirtschaftung von Geräten\n\n• Ordnung halten in den Räumen\n\n• Einsatz als Sitzwache auf Station\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Assistent*in Gesundheit und Soziales, Pflegeassistent*in oder Gesundheits- und Krankenpflegehelfer*in oder \"diplôme d'État d'aide-soignant (DEAS)\"\n\n• Erfahrung im Akutbereich wünschenswert\n\n• Gute Deutschkenntnisse\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie deren Angehörigen\n\n• Ausgeprägte Dienstleistungsorientierung und Teamfähigkeit\n\n• Bereitschaft zum Einsatz im Früh-, Spät- und Nachtdienst sowie an Wochenenden und Feiertagen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Mithilfe bei der Pflege in Absprache mit der zuständigen Pflegefachperson\n\n• Transport von Patientinnen und Patienten\n\n• Selbständige Übernahme hauswirtschaftlicher Tätigkeiten\n\n• Materialbeschaffung, Aufbereitung und Bewirtschaftung von Geräten\n\n• Ordnung halten in den Räumen\n\n• Einsatz als Sitzwache auf Station\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Assistent*in Gesundheit und Soziales, Pflegeassistent*in oder Gesundheits- und Krankenpflegehelfer*in oder \"diplôme d'État d'aide-soignant (DEAS)\"\n\n• Erfahrung im Akutbereich wünschenswert\n\n• Gute Deutschkenntnisse\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie deren Angehörigen\n\n• Ausgeprägte Dienstleistungsorientierung und Teamfähigkeit\n\n• Bereitschaft zum Einsatz im Früh-, Spät- und Nachtdienst sowie an Wochenenden und Feiertagen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "it": "Aufgaben:\n• Mithilfe bei der Pflege in Absprache mit der zuständigen Pflegefachperson\n\n• Transport von Patientinnen und Patienten\n\n• Selbständige Übernahme hauswirtschaftlicher Tätigkeiten\n\n• Materialbeschaffung, Aufbereitung und Bewirtschaftung von Geräten\n\n• Ordnung halten in den Räumen\n\n• Einsatz als Sitzwache auf Station\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Assistent*in Gesundheit und Soziales, Pflegeassistent*in oder Gesundheits- und Krankenpflegehelfer*in oder \"diplôme d'État d'aide-soignant (DEAS)\"\n\n• Erfahrung im Akutbereich wünschenswert\n\n• Gute Deutschkenntnisse\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie deren Angehörigen\n\n• Ausgeprägte Dienstleistungsorientierung und Teamfähigkeit\n\n• Bereitschaft zum Einsatz im Früh-, Spät- und Nachtdienst sowie an Wochenenden und Feiertagen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "en": "Aufgaben:\n• Mithilfe bei der Pflege in Absprache mit der zuständigen Pflegefachperson\n\n• Transport von Patientinnen und Patienten\n\n• Selbständige Übernahme hauswirtschaftlicher Tätigkeiten\n\n• Materialbeschaffung, Aufbereitung und Bewirtschaftung von Geräten\n\n• Ordnung halten in den Räumen\n\n• Einsatz als Sitzwache auf Station\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Assistent*in Gesundheit und Soziales, Pflegeassistent*in oder Gesundheits- und Krankenpflegehelfer*in oder \"diplôme d'État d'aide-soignant (DEAS)\"\n\n• Erfahrung im Akutbereich wünschenswert\n\n• Gute Deutschkenntnisse\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie deren Angehörigen\n\n• Ausgeprägte Dienstleistungsorientierung und Teamfähigkeit\n\n• Bereitschaft zum Einsatz im Früh-, Spät- und Nachtdienst sowie an Wochenenden und Feiertagen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
-        "fr": "Aufgaben:\n• Mithilfe bei der Pflege in Absprache mit der zuständigen Pflegefachperson\n\n• Transport von Patientinnen und Patienten\n\n• Selbständige Übernahme hauswirtschaftlicher Tätigkeiten\n\n• Materialbeschaffung, Aufbereitung und Bewirtschaftung von Geräten\n\n• Ordnung halten in den Räumen\n\n• Einsatz als Sitzwache auf Station\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Assistent*in Gesundheit und Soziales, Pflegeassistent*in oder Gesundheits- und Krankenpflegehelfer*in oder \"diplôme d'État d'aide-soignant (DEAS)\"\n\n• Erfahrung im Akutbereich wünschenswert\n\n• Gute Deutschkenntnisse\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie deren Angehörigen\n\n• Ausgeprägte Dienstleistungsorientierung und Teamfähigkeit\n\n• Bereitschaft zum Einsatz im Früh-, Spät- und Nachtdienst sowie an Wochenenden und Feiertagen\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm"
+        "it": "Compiti:\n• Aiutare con cura in consultazione con lo specialista di assistenza competente\n\n• Trasporto di pazienti\n\n• Assunzione autonoma delle attività economiche\n\n• Acquisti, trasformazione e gestione dei materiali\n\n• Mantenere l'ordine nelle camere\n\n• Utilizzare come guardia di sicurezza in stazione\n\nRequisiti:\n• Formazione completa come assistente per la salute e l'assistenza sociale, infermieristica*in o assistente sanitaria e infermieristica*in o \"diplôme d'État d'aide-soignant (DEAS)\"\n\n• Esperienza nella zona acuta auspicabile\n\n• Buona conoscenza tedesca\n\n• Gestione sensibile e stimata dei pazienti e dei loro parenti\n\n• orientamento del servizio goffrato e capacità del team\n\n• pronto per l'uso nei servizi di prima, tarda e notte, nonché nei fine settimana e nelle vacanze\n\nOffriamo:\n• Politica salariale attraente e vantaggi sociali eccellenti\n\n• Vantaggi nello shopping, nello sport e nel tempo libero\n\n• Supporto per spostamento e alloggiamento\n\n• 25 giorni festivi più 5 anche free flexitage\n\n• Sostegno alla formazione continua e alla pianificazione della carriera\n\n• Campus nel cuore di Basilea e il Dreiländereck\n\n• Servizi per l'infanzia completi\n\n• Programma di sport e di esercizio gratuito",
+        "en": "Tasks:\n• Help with care in consultation with the competent care specialist\n\n• Transport of patients\n\n• Self-employed takeover of economic activities\n\n• Material procurement, processing and management of equipment\n\n• Keep order in the rooms\n\n• Use as seat guard on station\n\nRequirements:\n• Complete training as an assistant to health and social, nursing assistant*in or health and nursing assistant*in or \"diplôme d'État d'aide-soignant (DEAS)\"\n\n• Experience in the acute area desirable\n\n• Good German knowledge\n\n• Sensitive and value-estimating handling of patients and their relatives\n\n• Embossed service orientation and team capacity\n\n• ready for use in early, late and night services as well as weekends and holidays\n\nWe offer:\n• Attractive wage policy and excellent social benefits\n\n• Benefits in shopping, sports and leisure\n\n• Support for moving and housing\n\n• 25 Holiday days plus 5 also free flexitage\n\n• Support for continuing and continuing training and career planning\n\n• Campus in the heart of Basel and the Dreiländereck\n\n• Comprehensive childcare facilities\n\n• Free sports and exercise program",
+        "fr": "Tâches: • Aide aux soins en consultation avec le spécialiste compétent des soins • Transport des patients • Prise en charge par des travailleurs indépendants des activités domestiques • Acquisition, traitement et gestion du matériel • Maintien de l'ordre dans les chambres • Utilisation comme garde de siège sur la station Exigences: • Formation complète en tant qu'assistant de santé et sociale, assistant infirmier* dans ou assistant infirmier* dans ou \"diplôme d'État d'aide-soignant (DEAS)\" • Expérience sur le terrain souhaitable • • Traitement récréatif et valorisant des patients et de leurs proches • Orientation impressionnante des services et compétences d'équipe • Prêt à utiliser les services tôt, tard et nuit ainsi que les week-ends et les vacances Nous offrons: • Attractive politique salariale et d'excellents avantages sociaux • Avantages dans le shopping, les sports et les loisirs • Soutien dans le déménagement et la recherche d'un logement • 25 jours de vacances plus 5 flexi gratuit"
       },
       "location": "Basel",
       "canton": "BS",
@@ -7638,17 +7638,37 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch"
+          "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
+          "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel"
         ],
         "de": [
-          "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch"
+          "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
+          "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel",
+          "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
+          "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
+          "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch"
+        "assistentin-assistent-gesundheit-und-soziales-ags-unispital-basel-ch",
+        "assistentin-assistent-gesundheit-und-soziales-ags-universitatsspital-basel-basel",
+        "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-unispital-basel-ch",
+        "assistentin-assistent-per-gesundheit-e-soziales-ags-imc-universitatsspital-basel",
+        "assistentin-assistent-gesundheit-e-soziales-ags-universitatsspital-basel",
+        "assistant-assistant-health-and-social-affairs-ags-universitatsspital-basel-basel",
+        "assistant-adjoint-a-la-sante-et-aux-affaires-sociales-ags-universitatsspital-basel-basel",
+        "assistente-in-salute-e-servizi-sociali-ags-imc-universitatsspital-basel-basel",
+        "assistentin-assistent-fur-gesundheit-und-soziales-ags-imc-universitatsspital-basel-basel",
+        "health-and-social-care-assistant-ags-imc-universitatsspital-basel-basel",
+        "assistant-en-sante-et-services-sociaux-ags-imc-universitatsspital-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
