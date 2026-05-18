@@ -84,6 +84,7 @@ import {
   STAT_TILE_VALUE,
   clampSiteSuffix,
   renderEntityCard,
+  resolveBrandLogoUrl,
 } from './shared/seoContentTokens';
 
 // ── Visual style constants (local to the index pages) ─────────────
@@ -213,9 +214,50 @@ export interface ItalianStationLeaf {
 /** Inputs for the index generator. */
 export interface FuelIndexInputs {
   readonly distDir?: string;
+  /**
+   * Project root (Vite `config.root`). When provided the index pages render
+   * real brand logos for each station via `resolveBrandLogoUrl`; when
+   * omitted the entity-card falls back to the inline fuel-pump icon — keeps
+   * the test suite logo-free without extra fixtures.
+   */
+  readonly rootDir?: string;
   readonly today: Date;
   readonly swissStations: readonly SwissStationLeaf[];
   readonly italianStations: readonly ItalianStationLeaf[];
+}
+
+/**
+ * Common Italian-spelling aliases so brand strings from the TCS / MIMIT
+ * feeds map to the logo slugs we actually have on disk. Keys are the
+ * normalised brand (lowercased, non-[a-z0-9-] stripped); values are the
+ * logo-manifest slug.
+ */
+const BRAND_LOGO_ALIASES: Record<string, string> = {
+  eni: 'agipeni',
+  agip: 'agipeni',
+  coop: 'cooppronto',
+  cooppronto: 'cooppronto',
+  ruedirussel: 'ruedirussel',
+  ruedirüssel: 'ruedirussel',
+  migrolino: 'migrol',
+  total: 'totalenergies',
+  totalenergies: 'totalenergies',
+};
+
+/**
+ * Resolve a brand string to a public logo URL (PNG/SVG under
+ * `/images/brands/...`). Falls back to `null` when the brand has no logo
+ * on disk, so callers can render the neutral fuel-pump icon instead.
+ */
+function resolveStationLogoUrl(
+  rootDir: string | undefined,
+  brand: string | undefined,
+): string | null {
+  if (!rootDir || !brand) return null;
+  const normalised = String(brand).toLowerCase().replace(/[^a-z0-9-]/g, '');
+  if (!normalised) return null;
+  const aliased = BRAND_LOGO_ALIASES[normalised] ?? normalised;
+  return resolveBrandLogoUrl(rootDir, aliased);
 }
 
 // ── Locale-aware index slugs ──────────────────────────────────────
@@ -636,7 +678,15 @@ function esc(s: unknown): string {
 
 interface GroupedAnchors {
   readonly heading: string;
-  readonly anchors: ReadonlyArray<{ readonly href: string; readonly label: string; readonly subtitle: string }>;
+  readonly anchors: ReadonlyArray<{
+    readonly href: string;
+    readonly label: string;
+    readonly subtitle: string;
+    /** Resolved brand logo URL, or null when the entity-card should fall back to the icon. */
+    readonly logoUrl?: string | null;
+    /** Alt text for the logo `<img>` (typically the brand or station name). */
+    readonly logoAlt?: string;
+  }>;
   /** Stable id for the zone-chip jump nav and the H3 anchor target. */
   readonly slug: string;
   /** When set, FUEL_ZONE_BORDER_HINT is rendered as a 2nd line under the zone header. */
@@ -664,6 +714,8 @@ function renderGroup(
     .map((a) =>
       renderEntityCard({
         href: a.href,
+        logoUrl: a.logoUrl ?? undefined,
+        logoAlt: a.logoAlt ?? a.label,
         iconSvg,
         title: a.label,
         subtitle: a.subtitle,
@@ -958,7 +1010,7 @@ function groupItalianByCity(stations: readonly ItalianStationLeaf[]): Map<string
  * Returns Record<canonicalPath, html> ready to be written to dist/.
  */
 export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, string> {
-  const { swissStations, italianStations, today, distDir } = inp;
+  const { swissStations, italianStations, today, distDir, rootDir } = inp;
   const out: Record<string, string> = {};
 
   const swissByZone = groupSwissByZone(swissStations);
@@ -1018,6 +1070,8 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
               href: buildFuelStationPath(locale, fuel, zone, s.slug),
               label: s.brand ? `${s.brand}${s.name && s.name !== s.brand ? ` — ${s.name}` : ''}` : s.name,
               subtitle: s.address,
+              logoUrl: resolveStationLogoUrl(rootDir, s.brand),
+              logoAlt: s.brand || s.name,
             })),
           });
         }
@@ -1087,6 +1141,8 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
               href: buildFuelItalianStationPath(locale, fuel, s.citySlug, s.stationSlug),
               label: s.brand ? `${s.brand}${s.name && s.name !== s.brand ? ` — ${s.name}` : ''}` : s.name,
               subtitle: s.address || c.display,
+              logoUrl: resolveStationLogoUrl(rootDir, s.brand),
+              logoAlt: s.brand || s.name,
             })),
           });
         }
@@ -1112,10 +1168,16 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
 // ── Helpers exposed for tests + plugin reuse ─────────────────────
 
 /**
- * Compact "see also" link tile: links the daily hub to the 3 indexes.
- * Returns a bare HTML <aside> string ready to be concatenated into the
- * daily-fuel page body. Includes a self-locale link to each sibling locale's
- * daily hub (closes the F6 daily-fuel orphan gap for DE + FR).
+ * "See also" hub-links block appended to each daily-fuel page.
+ *
+ * Renders the 3 (or 2, for diesel) browseable indexes plus the matching
+ * daily-hub of every sibling locale. Uses the same entity-card visual
+ * language as the index pages themselves (lucide icon + label + subtitle
+ * in a responsive grid) so the daily page and its hub-links read as one
+ * design system instead of a stray bulleted aside.
+ *
+ * The output keeps every original anchor so the orphan-elimination contract
+ * (tests/seo/fuel-station-orphans-eliminated.test.ts) stays green.
  */
 export function renderFuelIndexHubLinks(opts: {
   readonly locale: FuelDailyLocale;
@@ -1123,20 +1185,38 @@ export function renderFuelIndexHubLinks(opts: {
 }): string {
   const { locale, fuel } = opts;
   const copy = COPY[locale];
-  const items: Array<{ href: string; label: string }> = [
+  const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
+
+  type HubItem = {
+    readonly href: string;
+    readonly title: string;
+    readonly subtitle: string;
+    readonly iconSvg: string;
+  };
+
+  const indexSubtitle = INDEX_HUB_SUBTITLE[locale];
+  const localeSubtitle = LOCALE_HUB_SUBTITLE[locale];
+
+  const items: HubItem[] = [
     {
       href: buildFuelIndexPath(locale, fuel, 'swissStations'),
-      label: copy.relatedLinkLabels.swissStations,
+      title: copy.relatedLinkLabels.swissStations,
+      subtitle: indexSubtitle.swiss,
+      iconSvg: ICON_FUEL_SVG,
     },
     {
       href: buildFuelIndexPath(locale, fuel, 'italianCities'),
-      label: copy.relatedLinkLabels.italianCities,
+      title: copy.relatedLinkLabels.italianCities,
+      subtitle: indexSubtitle.cities,
+      iconSvg: ICON_MAP_PIN_SVG,
     },
   ];
   if (fuel === 'benzina') {
     items.splice(1, 0, {
       href: buildFuelIndexPath(locale, fuel, 'italianStations'),
-      label: copy.relatedLinkLabels.italianStations,
+      title: copy.relatedLinkLabels.italianStations,
+      subtitle: indexSubtitle.italian,
+      iconSvg: ICON_FUEL_SVG,
     });
   }
   // Cross-locale links to sibling daily hubs (DE/FR previously orphan).
@@ -1144,16 +1224,60 @@ export function renderFuelIndexHubLinks(opts: {
   for (const alt of otherLocales) {
     items.push({
       href: buildFuelTodayPath(alt, fuel),
-      label: `${alt.toUpperCase()} · ${labelForLocale(alt, fuel)}`,
+      title: `${alt.toUpperCase()} · ${labelForLocale(alt, fuel)}`,
+      subtitle: localeSubtitle(alt),
+      iconSvg: ICON_NAVIGATION_SVG,
     });
   }
-  const lis = items
-    .map(
-      (it) => `<li style="margin:0"><a href="${esc(it.href)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(it.label)} →</a></li>`,
+
+  const cards = items
+    .map((it) =>
+      renderEntityCard({
+        href: it.href,
+        iconSvg: it.iconSvg,
+        title: it.title,
+        subtitle: it.subtitle,
+      }),
     )
     .join('');
-  return `<aside style="${CARD_STYLE};margin:24px 0;padding:18px 20px" aria-labelledby="fuelIndexHub"><h2 id="fuelIndexHub" style="${H2_STYLE};margin:0 0 12px;font-size:18px">${esc(copy.relatedHeading)}</h2><ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px">${lis}</ul></aside>`;
+
+  const headingId = `fuelIndexHub-${fuel}`;
+  return `<aside style="margin:24px 0" aria-labelledby="${headingId}" data-fuel="${esc(fuelLabel)}">
+    <h2 id="${headingId}" style="${H2_STYLE};margin:0 0 12px;font-size:18px">${esc(copy.relatedHeading)}</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px">${cards}</div>
+  </aside>`;
 }
+
+/** Locale-aware one-line descriptors used as entity-card subtitles. */
+const INDEX_HUB_SUBTITLE: Record<FuelDailyLocale, { swiss: string; italian: string; cities: string }> = {
+  it: {
+    swiss: 'Per zona di confine, aggiornato ogni giorno',
+    italian: 'Stazioni MIMIT nelle città di confine',
+    cities: 'Prezzo medio per città italiana di confine',
+  },
+  en: {
+    swiss: 'Grouped by border zone, refreshed daily',
+    italian: 'MIMIT stations in the border-zone cities',
+    cities: 'Average price per Italian border city',
+  },
+  de: {
+    swiss: 'Nach Grenzregion gruppiert, täglich aktualisiert',
+    italian: 'MIMIT-Tankstellen in den Grenzstädten',
+    cities: 'Durchschnittspreis pro italienischer Grenzstadt',
+  },
+  fr: {
+    swiss: 'Groupé par zone frontalière, mise à jour quotidienne',
+    italian: 'Stations MIMIT dans les villes frontalières',
+    cities: 'Prix moyen par ville italienne frontalière',
+  },
+};
+
+const LOCALE_HUB_SUBTITLE: Record<FuelDailyLocale, (alt: FuelDailyLocale) => string> = {
+  it: (alt) => `Versione ${alt.toUpperCase()} della pagina di oggi`,
+  en: (alt) => `${alt.toUpperCase()} version of today's page`,
+  de: (alt) => `${alt.toUpperCase()}-Version der heutigen Seite`,
+  fr: (alt) => `Version ${alt.toUpperCase()} de la page du jour`,
+};
 
 function labelForLocale(loc: FuelDailyLocale, fuel: FuelType): string {
   const fuelLabel = FUEL_TYPE_LABEL[loc][fuel];
