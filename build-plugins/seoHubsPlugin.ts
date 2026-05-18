@@ -32,7 +32,17 @@ import {
   type HubLocale,
 } from './seoHubsData';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
-import { resolveBrandLogoUrl, renderEntityCard, ICON_BUILDING_SVG } from './shared/seoContentTokens';
+import {
+  resolveBrandLogoUrl,
+  renderEntityCard,
+  ICON_BUILDING_SVG,
+  STAT_TILE_ACCENT,
+  STAT_TILE_SUCCESS,
+  STAT_TILE_BASE,
+  STAT_TILE_LABEL,
+  STAT_TILE_VALUE,
+  CTA_PRIMARY_STYLE,
+} from './shared/seoContentTokens';
 import { ALL_CANTON_CODES, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
@@ -1192,6 +1202,69 @@ const CANTON_HUB_LABELS: Record<HubLocale, Record<CantonHubKind, string>> = {
   fr: { tutti: 'Toutes les offres', settori: 'Secteurs', aziende: 'Entreprises qui recrutent' },
 };
 
+/**
+ * Per-sector emoji used as the visual prefix on the canton `settori` hub
+ * cards. Picked to read clearly at 28px and to be visually distinct from
+ * neighbours in the grid. Falls back to a generic "🧭" if a sector key is
+ * unmapped (so we never render an empty bubble).
+ */
+const SECTOR_EMOJI: Record<string, string> = {
+  'infermieri': '🩺',
+  'case-anziani': '🏡',
+  'educatori': '👶',
+  'medici': '⚕️',
+  'oss': '🤝',
+  'fisioterapisti': '🦴',
+  'farmacisti': '💊',
+  'ingegneri': '📐',
+  'sviluppatori': '💻',
+  'data-scientist': '📊',
+  'cybersecurity': '🛡️',
+  'project-manager': '📋',
+  'contabili': '🧮',
+  'banca': '🏦',
+  'assicurazioni': '🛟',
+  'consulenza': '💼',
+  'avvocati': '⚖️',
+  'risorse-umane': '👥',
+  'marketing': '📣',
+  'vendite': '💰',
+  'commercio': '🛍️',
+  'logistica': '📦',
+  'trasporti': '🚛',
+  'autisti': '🚐',
+  'magazzino': '🗃️',
+  'meccanici': '🔧',
+  'elettricisti': '💡',
+  'idraulici': '🚿',
+  'edilizia': '🏗️',
+  'muratori': '🧱',
+  'falegnami': '🪚',
+  'industria': '🏭',
+  'orologeria': '⌚',
+  'farmaceutica': '🧪',
+  'chimica': '⚗️',
+  'food': '🍞',
+  'ristorazione': '🍝',
+  'cuochi': '👨‍🍳',
+  'camerieri': '🍽️',
+  'hotel': '🏨',
+  'pulizie': '🧹',
+  'sicurezza': '🚨',
+  'pubblica-amministrazione': '🏛️',
+  'scuola': '🎓',
+  'designer': '🎨',
+  'architetti': '📏',
+  'agricoltura': '🌾',
+  'energia': '⚡',
+  'media': '📰',
+  'tecnici': '🛠️',
+};
+
+function sectorEmojiFor(key: string): string {
+  return SECTOR_EMOJI[key] ?? '🧭';
+}
+
 function cantonHubH1(locale: HubLocale, hub: CantonHubKind, cantonLabel: string, n: number): string {
   // Per-canton headline, e.g. "127 offerte di lavoro a Zurigo" / "Settori con offerte a Zurigo"
   if (hub === 'tutti') {
@@ -1301,6 +1374,7 @@ function cantonHubBody(locale: HubLocale, hub: CantonHubKind, cantonLabel: strin
 interface ThinCantonHubArgs {
   fs: typeof fsT;
   np: typeof npT;
+  rootDir: string;
   distDir: string;
   qw: (filePath: string, content: string) => void;
   sitemapEntries: string[];
@@ -1308,6 +1382,10 @@ interface ThinCantonHubArgs {
   cantonJobCounts: Map<string, number>;
   cantonJobs: Map<string, CantonJobEntry[]>;
   cantonEmployerCounts: Map<string, Map<string, number>>;
+  /** Reverse map: company URL slug → short employer key (for logo lookup). */
+  companyUrlToKey: Map<string, string>;
+  /** Crawled logos keyed by short employer key (used as fallback after manifest). */
+  crawledLogos: Record<string, string>;
   /**
    * Master IT slug → per-locale absolute URL map from
    * `data/all-known-job-slugs.json`. Used by the `tutti/page-N/` archive
@@ -1322,6 +1400,29 @@ interface ThinCantonHubArgs {
   onPageEmitted: () => void;
 }
 
+/** Optional stat tile (semantic tone → STAT_TILE_*). */
+type ThinHubStatTile = {
+  readonly label: string;
+  readonly value: string;
+  readonly tone?: 'base' | 'accent' | 'success' | 'warning' | 'danger';
+};
+
+/** Rich item passed by callers — enables the engaging card UI. */
+type ThinHubItem = {
+  readonly href: string;
+  readonly label: string;
+  /** Single line of supporting text shown below the title. */
+  readonly sub?: string;
+  /** Absolute logo URL — turns the card into a logo card (used for `aziende`). */
+  readonly logo?: string | null;
+  /** Emoji prefix for the visual bubble (used for `settori`). */
+  readonly emoji?: string;
+  /** Right-aligned metric (e.g. "11 offerte"). */
+  readonly metric?: string;
+  /** Tone for `metric`. */
+  readonly metricTone?: 'default' | 'accent' | 'success' | 'warning' | 'danger';
+};
+
 function buildThinCantonHubHtml(args: {
   locale: HubLocale;
   hub: CantonHubKind;
@@ -1329,7 +1430,7 @@ function buildThinCantonHubHtml(args: {
   cantonLabel: string;
   basePath: string;
   totalItems: number;
-  items: ReadonlyArray<{ href: string; label: string; sub?: string }>;
+  items: ReadonlyArray<ThinHubItem>;
   hasSpaBundle: boolean;
   entryJs: string;
   entryCss: string;
@@ -1338,18 +1439,22 @@ function buildThinCantonHubHtml(args: {
   page?: number;
   /** Total page count for the hub. Defaults to 1 (no pagination block). */
   totalPages?: number;
+  /** Optional stat tiles rendered above the data area (rule #17). */
+  statTiles?: ReadonlyArray<ThinHubStatTile>;
+  /** Per-canton job-board href for the primary CTA (rule #17). */
+  jobBoardHref?: string;
 }): string {
-  const { locale, hub, cantonLabel, basePath, totalItems, items, hasSpaBundle, entryJs, entryCss, dateStamp } = args;
+  const { locale, hub, cantonLabel, basePath, totalItems, items, hasSpaBundle, entryJs, entryCss, dateStamp, statTiles, jobBoardHref } = args;
   const page = args.page ?? 1;
   const totalPages = args.totalPages ?? 1;
   const h1 = cantonHubH1(locale, hub, cantonLabel, totalItems);
   const intro = cantonHubIntro(locale, hub, cantonLabel, totalItems);
   const bodyCopy = cantonHubBody(locale, hub, cantonLabel);
-  const bodyHeadingLabel = {
-    it: 'Come usare questa pagina',
-    en: 'How to use this page',
-    de: 'So nutzen Sie diese Seite',
-    fr: 'Comment utiliser cette page',
+  const proseDetailsLabel = {
+    it: `Approfondisci · mercato del lavoro frontaliere a ${cantonLabel}`,
+    en: `Read more · cross-border job market in ${cantonLabel}`,
+    de: `Mehr erfahren · Grenzgänger-Arbeitsmarkt in ${cantonLabel}`,
+    fr: `En savoir plus · marché de l'emploi frontalier à ${cantonLabel}`,
   }[locale];
   // For paginated pages (page > 1) the canonical URL adds `/page-N/` and the
   // page title carries the page number so Search Console keeps each page
@@ -1392,11 +1497,61 @@ function buildThinCantonHubHtml(args: {
     paginationHtml = `<nav aria-label="${esc(paginationLabel)}" style="margin-top:24px;max-width:1080px"><details open style="border:1px solid var(--color-edge);border-radius:8px;padding:.5rem .75rem;background:var(--color-surface-alt)"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--color-heading);padding:.25rem 0">${esc(paginationLabel)} (${totalPages})</summary><div style="margin-top:.5rem;line-height:1.9">${anchors.join('')}</div></details></nav>`;
   }
 
+  // Engaging card layout: aziende → entity card with logo, settori → emoji
+  // bubble, tutti → compact plain link (unchanged — already dense by design).
   const itemsHtml = items.length === 0
     ? `<p style="color:var(--color-subtle);padding:16px 0">${esc(emptyLabel(locale))}</p>`
-    : `<ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">${items
-        .map((it) => `<li><a href="${esc(it.href)}" style="display:block;padding:10px 12px;border-radius:8px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge);font-size:14px;line-height:1.4">${esc(it.label)}${it.sub ? `<span style="display:block;font-size:12px;color:var(--color-subtle);margin-top:2px">${esc(it.sub)}</span>` : ''}</a></li>`)
-        .join('')}</ul>`;
+    : (hub === 'aziende' || hub === 'settori')
+      ? `<ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px">${items
+          .map((it) => {
+            if (hub === 'aziende') {
+              const card = renderEntityCard({
+                href: it.href,
+                logoUrl: it.logo ?? undefined,
+                iconSvg: it.logo ? undefined : ICON_BUILDING_SVG,
+                logoOnerror: it.logo ? LOGO_ONERROR : undefined,
+                title: it.label,
+                subtitle: it.sub,
+                metric: it.metric,
+                metricTone: it.metricTone ?? 'accent',
+              });
+              return `<li>${card}</li>`;
+            }
+            // settori — emoji-prefixed friendly card; we use a hand-rolled
+            // wrapper instead of renderEntityCard so the emoji renders at a
+            // larger size than the 24×24 SVG icon bubble.
+            const emoji = it.emoji ?? '🧭';
+            return `<li><a href="${esc(it.href)}" style="display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge)"><span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--color-surface-alt);font-size:24px;line-height:1;flex-shrink:0">${emoji}</span><span style="flex:1;min-width:0"><span style="display:block;font-weight:700;font-size:15px;line-height:1.3;color:var(--color-heading)">${esc(it.label)}</span>${it.sub ? `<span style="display:block;font-size:12.5px;color:var(--color-subtle);margin-top:2px;line-height:1.4">${esc(it.sub)}</span>` : ''}</span></a></li>`;
+          })
+          .join('')}</ul>`
+      : `<ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">${items
+          .map((it) => `<li><a href="${esc(it.href)}" style="display:block;padding:10px 12px;border-radius:8px;color:var(--color-heading);background:var(--color-surface);text-decoration:none;border:1px solid var(--color-edge);font-size:14px;line-height:1.4">${esc(it.label)}${it.sub ? `<span style="display:block;font-size:12px;color:var(--color-subtle);margin-top:2px">${esc(it.sub)}</span>` : ''}</a></li>`)
+          .join('')}</ul>`;
+
+  // Stat tiles (rule #17) — only on page 1, only when caller supplied them.
+  const STAT_TILE_TONE: Record<NonNullable<ThinHubStatTile['tone']>, string> = {
+    base: STAT_TILE_BASE,
+    accent: STAT_TILE_ACCENT,
+    success: STAT_TILE_SUCCESS,
+    warning: STAT_TILE_BASE, // fall back to base to avoid pulling in unused styles
+    danger: STAT_TILE_BASE,
+  };
+  const statTilesHtml = (page === 1 && statTiles && statTiles.length > 0)
+    ? `<section aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}" style="margin:0 0 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px">${statTiles
+        .map((tile) => `<div style="${STAT_TILE_TONE[tile.tone ?? 'base']}"><div style="${STAT_TILE_LABEL}">${esc(tile.label)}</div><div style="${STAT_TILE_VALUE}">${esc(tile.value)}</div></div>`)
+        .join('')}</section>`
+    : '';
+
+  // Primary CTA — only on page 1, only when caller wired up a job-board path.
+  const ctaLabel = {
+    it: `Sfoglia tutte le offerte di ${cantonLabel} →`,
+    en: `Browse all openings in ${cantonLabel} →`,
+    de: `Alle Stellen in ${cantonLabel} ansehen →`,
+    fr: `Voir toutes les offres à ${cantonLabel} →`,
+  }[locale];
+  const ctaHtml = (page === 1 && jobBoardHref)
+    ? `<div style="margin:0 0 22px"><a href="${esc(jobBoardHref)}" style="${CTA_PRIMARY_STYLE}">${esc(ctaLabel)}</a></div>`
+    : '';
 
   const homeLabel = { it: 'Home', en: 'Home', de: 'Start', fr: 'Accueil' }[locale];
 
@@ -1437,27 +1592,31 @@ function buildThinCantonHubHtml(args: {
         <span> / </span>
         <span>${esc(cantonLabel)} · ${esc(CANTON_HUB_LABELS[locale][hub])}</span>
       </nav>
-      <header style="margin-bottom:24px">
-        <h1 style="font-size:32px;font-weight:800;line-height:1.2;color:var(--color-heading);margin:0 0 12px">${esc(h1)}</h1>
+      <header style="margin-bottom:18px">
+        <h1 style="font-size:32px;font-weight:800;line-height:1.2;color:var(--color-heading);margin:0 0 10px">${esc(h1)}</h1>
         <p style="font-size:16px;color:var(--color-body);max-width:780px;line-height:1.55;margin:0">${esc(intro)}</p>
         <p style="margin-top:8px;color:var(--color-subtle);font-size:13px">${esc(countLabel(locale, totalItems))} · ${esc(updatedLabel(locale))} ${dateStamp}</p>
       </header>
+      ${statTilesHtml}
+      ${ctaHtml}
       <section>
         ${itemsHtml}
       </section>
       ${paginationHtml}
-      ${page === 1 ? `<section style="margin-top:32px;padding-top:24px;border-top:1px solid var(--color-edge);max-width:780px">
-        <h2 style="font-size:18px;font-weight:700;color:var(--color-heading);margin:0 0 12px">${esc(bodyHeadingLabel)}</h2>
-        <p style="font-size:15px;line-height:1.6;color:var(--color-body);margin:0">${esc(bodyCopy)}</p>
-      </section>
-      ${renderCantonSeoProse({
-        locale: locale as CantonSeoLocale,
-        cantonDisplay: cantonLabel,
-        slot: (hub === 'settori' ? 'sectors-hub' : hub === 'aziende' ? 'companies-hub' : 'canton-hub') as CantonSeoSlot,
-        countHint: totalItems,
-        ctaHref: basePath,
-        ctaLabel: null,
-      })}` : `<section style="margin-top:24px;padding-top:18px;border-top:1px solid var(--color-edge);max-width:780px">
+      ${page === 1 ? `<details style="margin-top:32px;border:1px solid var(--color-edge);border-radius:14px;background:var(--color-surface);padding:14px 18px;max-width:860px">
+        <summary style="cursor:pointer;font-weight:700;font-size:15px;color:var(--color-heading);list-style:none">${esc(proseDetailsLabel)} <span aria-hidden="true" style="color:var(--color-subtle);font-weight:500"> ▾</span></summary>
+        <div style="margin-top:14px;color:var(--color-body)">
+          <p style="font-size:15px;line-height:1.65;color:var(--color-body);margin:0 0 14px">${esc(bodyCopy)}</p>
+          ${renderCantonSeoProse({
+            locale: locale as CantonSeoLocale,
+            cantonDisplay: cantonLabel,
+            slot: (hub === 'settori' ? 'sectors-hub' : hub === 'aziende' ? 'companies-hub' : 'canton-hub') as CantonSeoSlot,
+            countHint: totalItems,
+            ctaHref: basePath,
+            ctaLabel: null,
+          })}
+        </div>
+      </details>` : `<section style="margin-top:24px;padding-top:18px;border-top:1px solid var(--color-edge);max-width:780px">
         <p style="font-size:14px;line-height:1.6;color:var(--color-body);margin:0">${esc(buildPageNCompactProse(locale, cantonLabel, hub, page, totalPages, totalItems))}</p>
       </section>`}
     </main>
@@ -1486,7 +1645,8 @@ function cantonDisplayLabel(canton: string, locale: HubLocale): string {
 }
 
 function emitThinCantonHubs(args: ThinCantonHubArgs): void {
-  const { np, distDir, qw, sitemapEntries, dateStamp, cantonJobCounts, cantonJobs, cantonEmployerCounts,
+  const { np, rootDir, distDir, qw, sitemapEntries, dateStamp, cantonJobCounts, cantonJobs, cantonEmployerCounts,
+          companyUrlToKey, crawledLogos,
           jobPerLocale, entryJs, entryCss, hasSpaBundle, onPageEmitted } = args;
 
   for (const canton of ALL_CANTON_CODES) {
@@ -1564,6 +1724,22 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
         }
       }
 
+      // Shared tile copy + top-employer derivations for both `settori` and
+      // `aziende` hubs (page-1 stat-tile grid above the data area).
+      const empArraySorted = Array.from(empCounts.entries())
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 100);
+      const topEmployer = empArraySorted[0];
+      const topEmployerLabel = topEmployer
+        ? `${humanizeSlug(topEmployer[0])} · ${topEmployer[1]}`
+        : '—';
+      const tileLabels = {
+        it: { datori: 'Datori attivi', offerte: 'Offerte aperte', topDatore: 'Top datore', settori: 'Settori esplorabili' },
+        en: { datori: 'Active employers', offerte: 'Open positions', topDatore: 'Top employer', settori: 'Sectors to explore' },
+        de: { datori: 'Aktive Arbeitgeber', offerte: 'Offene Stellen', topDatore: 'Top-Arbeitgeber', settori: 'Branchen' },
+        fr: { datori: 'Employeurs actifs', offerte: 'Postes ouverts', topDatore: 'Top employeur', settori: 'Secteurs' },
+      }[locale];
+
       // ── settori (sectors) — reuse curated HUB_SECTORS list, link to TI hub ──
       // For non-TI cantons we don't yet have per-canton sector landings, so the
       // sector hub lists the curated sectors with anchors that route to the
@@ -1574,10 +1750,18 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
         const items = HUB_SECTORS.map((s) => ({
           href: `${sectionRoot}/?q=${encodeURIComponent(s[locale])}`,
           label: s[locale],
+          emoji: sectorEmojiFor(s.key),
+          sub: { it: 'Esplora →', en: 'Explore →', de: 'Erkunden →', fr: 'Explorer →' }[locale],
         }));
         const html = buildThinCantonHubHtml({
           locale, hub: 'settori', canton, cantonLabel, basePath,
           totalItems: items.length, items, hasSpaBundle, entryJs, entryCss, dateStamp,
+          statTiles: [
+            { label: tileLabels.settori, value: items.length.toString(), tone: 'accent' },
+            { label: tileLabels.offerte, value: total.toLocaleString(locale), tone: 'success' },
+            { label: tileLabels.topDatore, value: topEmployerLabel, tone: 'base' },
+          ],
+          jobBoardHref: sectionRoot + '/',
         });
         qw(np.join(distDir, basePath.slice(1), 'index.html'), html);
         onPageEmitted();
@@ -1592,17 +1776,33 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
       // ── aziende (companies) — list employers with ≥1 active opening in this canton ──
       {
         const basePath = hubSlugFor(canton, locale, 'aziende');
-        const empArray = Array.from(empCounts.entries())
-          .sort((a, b) => b[1] - a[1])
-          .slice(0, 100);
-        const items = empArray.map(([empKey, n]) => ({
-          href: `${sectionRoot}/azienda-${empKey}/`,
-          label: humanizeSlug(empKey),
-          sub: jobsActiveLabel(locale, n),
-        }));
+        const items = empArraySorted.map(([empKey, n]) => {
+          // Resolve a logo: try the (manifest|crawled) keyed lookup. Keys are
+          // short employer keys (e.g. "unispital-basel"); the same key is used
+          // for the URL slug here, so no separate lookup is needed.
+          const logoUrl = resolveBrandLogoUrl(rootDir, empKey)
+            ?? crawledLogos[empKey]
+            ?? null;
+          return {
+            href: `${sectionRoot}/azienda-${empKey}/`,
+            label: humanizeSlug(empKey),
+            sub: jobsActiveLabel(locale, n),
+            logo: logoUrl,
+            metric: n.toString(),
+            metricTone: 'accent' as const,
+          };
+        });
+        // Suppress unused warning when the caller doesn't need urlToKey.
+        void companyUrlToKey;
         const html = buildThinCantonHubHtml({
           locale, hub: 'aziende', canton, cantonLabel, basePath,
           totalItems: empCounts.size, items, hasSpaBundle, entryJs, entryCss, dateStamp,
+          statTiles: [
+            { label: tileLabels.datori, value: empCounts.size.toLocaleString(locale), tone: 'accent' },
+            { label: tileLabels.offerte, value: total.toLocaleString(locale), tone: 'success' },
+            { label: tileLabels.topDatore, value: topEmployerLabel, tone: 'base' },
+          ],
+          jobBoardHref: sectionRoot + '/',
         });
         qw(np.join(distDir, basePath.slice(1), 'index.html'), html);
         onPageEmitted();
@@ -1825,6 +2025,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
   emitThinCantonHubs({
     fs,
     np,
+    rootDir,
     distDir,
     qw,
     sitemapEntries,
@@ -1832,6 +2033,8 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     cantonJobCounts,
     cantonJobs,
     cantonEmployerCounts,
+    companyUrlToKey,
+    crawledLogos,
     jobPerLocale,
     entryJs,
     entryCss,
