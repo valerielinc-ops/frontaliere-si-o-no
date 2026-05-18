@@ -7628,6 +7628,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.traffico-rientro-ascensione-ticino.title': 'Ascension: augmentation de la circulation de retour',
     'blog.article.traffico-rientro-ascensione-ticino.excerpt': 'Le retour du long pont de l\'Ascension bat son plein, en particulier pour la circulation sur l\'A2, en direction du nord.',
     'blog.article.traffico-rientro-ascensione-ticino.imageAlt': 'Le trafic de retour en Tessin a augmenté pendant l\'Ascension.',
+    'blog.article.ffs-tagli-ticino-frontalieri-2026.title': 'CFF: nouveaux licenciements au Tessin, qu\'est-ce qui change pour les frontaliers',
+    'blog.article.ffs-tagli-ticino-frontalieri-2026.excerpt': 'Les Chemins de fer fédéraux suisses annoncent de nouvelles suppressions d\'emplois au Tessin, suscitant des inquiétudes parmi les travailleurs et les autorités locales',
+    'blog.article.ffs-tagli-ticino-frontalieri-2026.imageAlt': 'Vue aérienne du lac de Lugano avec gare moderne et skyline urbain',
 };
 
 export default blogMetaFr;

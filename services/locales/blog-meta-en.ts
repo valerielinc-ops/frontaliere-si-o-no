@@ -7627,6 +7627,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traffico-rientro-ascensione-ticino.title': 'Ascension: Return Traffic Increases',
     'blog.article.traffico-rientro-ascensione-ticino.excerpt': 'Return traffic from the Ascension long weekend is picking up, particularly on the A2 heading north.',
     'blog.article.traffico-rientro-ascensione-ticino.imageAlt': 'The return traffic in Ticino has increased during Ascension.',
+    'blog.article.ffs-tagli-ticino-frontalieri-2026.title': 'SBB plans job cuts in Ticino: impact on cross-border workers',
+    'blog.article.ffs-tagli-ticino-frontalieri-2026.excerpt': 'The Swiss Federal Railways announce new job cuts in Ticino, raising concerns among workers and local authorities',
+    'blog.article.ffs-tagli-ticino-frontalieri-2026.imageAlt': 'Aerial view of Lake Lugano with modern train station and city skyline',
 };
 
 export default blogMetaEn;

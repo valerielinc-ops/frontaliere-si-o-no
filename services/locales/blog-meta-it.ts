@@ -7628,6 +7628,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.traffico-rientro-ascensione-ticino.title': 'Ascensione, in aumento il traffico del rientro',
     'blog.article.traffico-rientro-ascensione-ticino.excerpt': 'Il rientro dal lungo ponte dell\'Ascensione sta entrando nel vivo, soprattutto per quanto concerne il traffico sulla A2, direzione Nord.',
     'blog.article.traffico-rientro-ascensione-ticino.imageAlt': 'Il traffico del rientro in Ticino è aumentato durante l\'Ascensione.',
+    'blog.article.ffs-tagli-ticino-frontalieri-2026.title': 'FFS verso nuovi tagli in Ticino: cosa cambia per i frontalieri',
+    'blog.article.ffs-tagli-ticino-frontalieri-2026.excerpt': 'Le Ferrovie federali svizzere annunciano nuovi tagli di posti di lavoro in Ticino, sollevando preoccupazioni tra i lavoratori e le autorità locali',
+    'blog.article.ffs-tagli-ticino-frontalieri-2026.imageAlt': 'Vista aerea del Lago di Lugano con stazione ferroviaria moderna e skyline cittadino',
 };
 
 export default blogMetaIt;
