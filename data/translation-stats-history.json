@@ -1,105 +1,5 @@
 [
   {
-    "timestamp": "2026-05-03T11:02:18.787Z",
-    "label": "before",
-    "total": 2582,
-    "needsRetranslation": 1085,
-    "incomplete": 77,
-    "complete": 2505,
-    "missingByLocale": {
-      "it": 15,
-      "en": 61,
-      "de": 62,
-      "fr": 70
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 48
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 7
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 4
-      },
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 2
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 2
-      },
-      {
-        "company": "Manor AG",
-        "pending": 2
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 1
-      },
-      {
-        "company": "Banca del Sempione",
-        "pending": 1
-      },
-      {
-        "company": "Bosch Thermotechnik AG",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-03T11:48:31.748Z",
-    "label": "after",
-    "total": 2582,
-    "needsRetranslation": 70,
-    "incomplete": 16,
-    "complete": 2566,
-    "missingByLocale": {
-      "it": 10,
-      "en": 7,
-      "de": 12,
-      "fr": 16
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "CHRIST Uhren & Schmuck AG",
-        "pending": 2
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "International School of Ticino",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-03T13:42:28.227Z",
     "label": "before",
     "total": 2582,
@@ -10768,6 +10668,118 @@
     "label": "after",
     "total": 4235,
     "needsRetranslation": 1035,
+    "incomplete": 728,
+    "complete": 3507,
+    "missingByLocale": {
+      "it": 253,
+      "en": 213,
+      "de": 110,
+      "fr": 247
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 80
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 78
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 66
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "UBS",
+        "pending": 34
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 29
+      },
+      {
+        "company": "IWC",
+        "pending": 26
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 22
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 21
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-18T04:48:27.864Z",
+    "label": "before",
+    "total": 4235,
+    "needsRetranslation": 1035,
+    "incomplete": 728,
+    "complete": 3507,
+    "missingByLocale": {
+      "it": 253,
+      "en": 213,
+      "de": 110,
+      "fr": 247
+    },
+    "topPending": [
+      {
+        "company": "CHRIST Uhren & Schmuck AG",
+        "pending": 80
+      },
+      {
+        "company": "Spital Thurgau (STGAG)",
+        "pending": 78
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 75
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 66
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 52
+      },
+      {
+        "company": "UBS",
+        "pending": 34
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 29
+      },
+      {
+        "company": "IWC",
+        "pending": 26
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 22
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 21
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-18T04:54:55.071Z",
+    "label": "after",
+    "total": 4235,
+    "needsRetranslation": 953,
     "incomplete": 728,
     "complete": 3507,
     "missingByLocale": {
