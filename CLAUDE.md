@@ -62,6 +62,8 @@ These directives have the highest priority. No exceptions, workarounds, or "temp
     - Truncate slug-output through `truncateSlugAtWordBoundary` from `scripts/lib/slug-truncate.mjs`, never `.slice(0, MAX)` raw — chopping mid-token produces unrouted slugs (e.g. `...switzerland-genev` from `...switzerland-geneve`).
     - Reference fix: PR #161 (2026-05-13) + follow-up — `scripts/lib/job-match-key.mjs`, `scripts/lib/slug-truncate.mjs`, `scripts/backfill-renamed-slugs-from-history.mjs`. Backfill repaired 358 historical rename-drift cases across 56 crawler slices. Incident: 2.591 slugs dropped in 7 days, 1.987 still live on source side. Full context: `project_seo_rename_drift_may13.md` memory.
 
+19. **SEO automation moratorium until 7-day GSC avg position ≤ 7.5.** No new build-plugin-emitted SEO landings (new files matching `build-plugins/*Landing*.ts`, `*Pages.ts`, `*Hub.ts`, or expansion of existing emitters to new keywords/cantons/categories) may be merged while `data/gsc-position-rolling.json` shows 7-day avg position > 7.5. **Exempt — even during moratorium:** (a) bug fixes to existing landings (no new files added), (b) consolidation refactors that NET-REDUCE page count, (c) redirect/bridge emitters (e.g. `*Bridge*.ts`, `*Redirect*.ts`), (d) `JobOrphanBridgePlugin` variants. Rationale: 50+ SEO PRs in the last 10 days diluted long-tail rankings; avg position drifted 5.7 → 8.62 in 4 weeks. CI gate: `scripts/refresh-gsc-position-rolling.mjs` + `scripts/check-seo-moratorium.mjs` in `deploy.yml` (PR events only). Threshold is intentional — do NOT lower it as a workaround (CLAUDE.md non-negotiable #1).
+
 ---
 
 # Project Overview
