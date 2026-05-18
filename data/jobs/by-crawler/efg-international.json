@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-05-18T12:15:56.431Z",
+  "assembledAt": "2026-05-18T21:49:23.571Z",
   "jobs": [
     {
       "id": "efg-6242",
@@ -51,7 +51,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.937Z",
+      "crawledAt": "2026-05-18T21:49:21.420Z",
       "slugByLocale": {
         "it": "corporate-tax-tirocinante-finanza-department-geneva-efg-international-ag-geneve",
         "en": "corporate-tax-intern-finance-department-geneva-efg-geneve",
@@ -93,7 +93,8 @@
       "previousSlugs": [
         "corporate-tax-intern-finance-department-geneva-efg-geneve",
         "corporate-tax-intern-dipartimento-finanze-geneva-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6212",
@@ -243,7 +244,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.936Z",
+      "crawledAt": "2026-05-18T21:49:21.419Z",
       "slugByLocale": {
         "it": "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve",
         "en": "finance-data-analytics-power-bi-internship-efg-geneve",
@@ -282,7 +283,8 @@
       "previousSlugs": [
         "finance-data-analytics-power-bi-internship-efg-geneve",
         "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6209",
@@ -416,7 +418,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.935Z",
+      "crawledAt": "2026-05-18T21:49:21.418Z",
       "slugByLocale": {
         "it": "rischio-operativo-e-specialista-di-sicurezza-informatica-e-informatica-efg-international-ag-zurich",
         "en": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich",
@@ -450,7 +452,8 @@
       },
       "previousSlugs": [
         "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6197",
@@ -542,7 +545,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.934Z",
+      "crawledAt": "2026-05-18T21:49:21.417Z",
       "slugByLocale": {
         "it": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
         "en": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
@@ -696,7 +699,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.933Z",
+      "crawledAt": "2026-05-18T21:49:21.416Z",
       "slugByLocale": {
         "it": "pb-specialist-americas-ginevra-efg-international-ag-geneve",
         "en": "pb-support-specialist-americas-geneva-efg-geneve",
@@ -738,7 +741,8 @@
       "previousSlugs": [
         "pb-support-specialist-americas-geneva-efg-geneve",
         "pb-support-specialista-americas-geneva-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -789,7 +793,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.932Z",
+      "crawledAt": "2026-05-18T21:49:21.415Z",
       "slugByLocale": {
         "it": "funzionario-dell-assistenza-clienti-efg-international-ag-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
@@ -824,7 +828,8 @@
         "it": [
           "client-support-officer-efg-st-moritz"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -950,7 +955,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.931Z",
+      "crawledAt": "2026-05-18T21:49:21.413Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -992,7 +997,8 @@
       "previousSlugs": [
         "pb-support-specialist-middle-east-ch-efg-geneve",
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6168",
@@ -1153,7 +1159,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.930Z",
+      "crawledAt": "2026-05-18T21:49:21.412Z",
       "slugByLocale": {
         "it": "stage-in-talent-acquisition-efg-international-ag-lugano",
         "en": "talent-acquisition-internship-efg-international-ag-geneve",
@@ -1196,141 +1202,8 @@
       "previousSlugs": [
         "talent-acquisition-internship-efg-lugano"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
-    },
-    {
-      "id": "efg-6150",
-      "slug": "bi-solution-specialista-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "BI Solution Specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "## Main responsibilities\n\n- Designing, building and maintaining business and management information data infrastructure\n\n- Developing reporting and analytics solutions to turn data into actionable business insights\n\n- Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis\n\n- Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape\n\n## Skills and experience\n\n- University degree in Business, Data Science, Computer Science or Engineering\n\n- Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar\n\n- Advanced knowledge of SQL and Python for database querying and data extraction\n\n- Analytical and structured mindset with strong communication skills\n\n- Practical, hands‑on and problem‑solving aptitude\n\n- Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment\n   Our Values\n\n  Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n  Hands-on : Being proactive to rapidly deliver high-quality results\n\n  Passionate : Being committed and striving for excellence\n\n  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [
-        "University degree in Business, Data Science, Computer Science or Engineering",
-        "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-        "Advanced knowledge of SQL and Python for database querying and data extraction",
-        "Analytical and structured mindset with strong communication skills",
-        "Practical, hands‑on and problem‑solving aptitude",
-        "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
-      ],
-      "featured": false,
-      "postedDate": "2026-04-02",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6150",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "BI Solution Specialist",
-        "it": "BI Solution Specialista",
-        "de": "BI Solution Spezialist",
-        "fr": "BI Solution Spécialiste"
-      },
-      "descriptionByLocale": {
-        "en": "## Main responsibilities\n\n- Designing, building and maintaining business and management information data infrastructure\n\n- Developing reporting and analytics solutions to turn data into actionable business insights\n\n- Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis\n\n- Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape\n\n## Skills and experience\n\n- University degree in Business, Data Science, Computer Science or Engineering\n\n- Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar\n\n- Advanced knowledge of SQL and Python for database querying and data extraction\n\n- Analytical and structured mindset with strong communication skills\n\n- Practical, hands‑on and problem‑solving aptitude\n\n- Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment\n   Our Values\n\n  Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n  Hands-on : Being proactive to rapidly deliver high-quality results\n\n  Passionate : Being committed and striving for excellence\n\n  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "Principali responsabilità\n- Progettazione, costruzione e mantenimento dell'infrastruttura dei dati aziendali e gestionali\n- Sviluppare soluzioni di reporting e analisi per trasformare i dati in insight aziendali attuabili\n\n- giocare un ruolo chiave nel migliorare le capacità di data mining del team e agire come esperto di dati, fornendo indicazioni sul trattamento e l'analisi dei dati\n- Rimanere al passo con i principali sviluppi tecnici e tendenze (ad esempio AI, tecnologie cloud) e valutare la loro rilevanza per il panorama dei dati e delle analisi del Gruppo\n\nCompetenze ed esperienza\n- Laurea in Business, Data Science, Informatica o Ingegneria\n- Livello avanzato negli strumenti di visualizzazione dei dati come Power Query, Power BI, Tableau o simili\n- Conoscenza avanzata di SQL e Python per l'interrogazione di database e l'estrazione dei dati\n\n- mentalità analitica e strutturata con forti capacità di comunicazione\n- Aptitude pratica, pratica e problem solving\n\n- mentalità orientata al futuro e approccio proattivo agli sviluppi tecnici e alle tendenze in un ambiente dinamico\nI nostri valori\n\nResponsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n\nHands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n\nPassionato: Impegnarsi e lottare per l'eccellenza\n\nSoluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n\nPartenariato: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "Hauptaufgaben\n- Planung, Bau und Aufrechterhaltung der Dateninfrastruktur für Geschäfts- und Managementdaten\n- Entwicklung von Reporting- und Analyselösungen, um Daten zu handlungsfähigen Unternehmenseinsichten zu machen\n- Eine wichtige Rolle bei der Verbesserung der Datengewinnungsfähigkeit des Teams spielen und als Datenexperte fungieren, um die Datenverarbeitung und -analyse zu beraten\n- Bleiben Sie am Besten der wichtigsten technischen Entwicklungen und Trends (z.B. KI, Cloud-Technologien) und bewerten Sie ihre Relevanz für die Daten- und Analyselandschaft der Gruppe\n\nFähigkeiten und Erfahrung\n- Hochschulabschluss in Wirtschaft, Informatik, Informatik oder Ingenieurwesen\n- Erweiterte Ebene in Datenvisualisierungstools wie Power Query, Power BI, Tableau oder dergleichen\n- Erweiterte Kenntnisse von SQL und Python zur Datenbankabfrage und Datenextraktion\n- Analytische und strukturierte Denkweise mit starken Kommunikationsfähigkeiten\n- Praktische, praktische und problematische Eignung\n\n- zukunftsorientierter Denkansatz und proaktiver Ansatz für technische Entwicklungen und Trends in einem dynamischen Umfeld\nUnsere Werte\n\nRechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n\nHands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse liefern\n\nLeidenschaftlich: Engagement und Streben nach Exzellenz\n\nLösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Clients ziemlich mit einem risikobewussten Mindset\n\nPartnerschaftsorientiert : Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.",
-        "fr": "Principales responsabilités\n- Conception, construction et entretien d'une infrastructure de données sur les entreprises et la gestion\n- Développer des solutions de reporting et d'analyse pour transformer les données en informations opérationnelles exploitables\n- Jouer un rôle clé dans le renforcement des capacités de l'équipe en matière d'extraction de données et agir en tant qu'expert en données, en fournissant des conseils sur le traitement et l'analyse des données\n- Se tenir au courant des principaux développements et tendances techniques (par exemple l'IA, les technologies du cloud) et évaluer leur pertinence pour le paysage de données et d'analyses du Groupe\n\nCompétences et expérience\n- Diplôme universitaire en commerce, informatique, informatique ou ingénierie\n- Niveau avancé dans les outils de visualisation des données tels que Power Query, Power BI, Tableau ou similaire\n- Connaissance avancée de SQL et Python pour la recherche de bases de données et l'extraction de données\n- Un état d'esprit analytique et structuré avec de solides compétences en communication\n- Aptitude pratique, pratique et résolution de problèmes\n- Un état d'esprit orienté vers l'avenir et une approche proactive des développements techniques et des tendances dans un environnement dynamique\nNos valeurs\n\nResponsabilité : Prise en charge des tâches et des défis, et recherche d'amélioration continue\n\nHands-on : Être proactif pour obtenir rapidement des résultats de haute qualité\n\nPassionné : Être engagé et chercher l'excellence\n\nSolution : Se concentrer sur les résultats des clients et traiter les clients équitablement avec un état d'esprit conscient des risques\n\nPartenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
-      },
-      "requirementsByLocale": {
-        "en": [
-          "University degree in Business, Data Science, Computer Science or Engineering",
-          "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-          "Advanced knowledge of SQL and Python for database querying and data extraction",
-          "Analytical and structured mindset with strong communication skills",
-          "Practical, hands‑on and problem‑solving aptitude",
-          "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
-        ]
-      },
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "Designing, building and maintaining business and management information data infrastructure",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
-              "Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape"
-            ],
-            "requirements": [
-              "University degree in Business, Data Science, Computer Science or Engineering",
-              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-              "Advanced knowledge of SQL and Python for database querying and data extraction",
-              "Analytical and structured mindset with strong communication skills",
-              "Practical, hands‑on and problem‑solving aptitude",
-              "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
-            ],
-            "benefits": [],
-            "process": [],
-            "highlights": [
-              "Designing, building and maintaining business and management information data infrastructure",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
-              "University degree in Business, Data Science, Computer Science or Engineering",
-              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
-              "Advanced knowledge of SQL and Python for database querying and data extraction"
-            ],
-            "keywords": [
-              "University degree in Business",
-              "Advanced level in data visualisation tools such as Power Query",
-              "Advanced knowledge of SQL and Python for database querying and data extraction",
-              "Analytical and structured mindset with strong communication skills",
-              "Practical",
-              "Designing",
-              "Developing reporting and analytics solutions to turn data into actionable business insights",
-              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert",
-              "Staying abreast of key technical developments and trends (e.g. AI"
-            ],
-            "sections": [],
-            "readingMinutes": 1
-          }
-        }
-      },
-      "crawledAt": "2026-05-18T12:15:53.928Z",
-      "slugByLocale": {
-        "it": "bi-solution-specialista-efg-international-ag-geneve",
-        "en": "bi-solution-specialist-efg-international-ag-geneve",
-        "de": "bi-solution-spezialist-efg-international-ag-geneve",
-        "fr": "bi-solution-specialiste-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-02",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.898Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "bi-solution-specialist-efg-geneve"
-        ],
-        "de": [
-          "bi-solution-specialist-efg-geneve"
-        ],
-        "fr": [
-          "bi-solution-specialist-efg-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "bi-solution-specialist-efg-geneve"
-      ]
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1483,7 +1356,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.928Z",
+      "crawledAt": "2026-05-18T21:49:21.411Z",
       "slugByLocale": {
         "it": "specialista-sviluppo-e-formazione-efg-international-ag-lugano",
         "en": "learning-development-specialist-efg-international-ag-lugano",
@@ -1555,6 +1428,141 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:28:21.959Z"
+    },
+    {
+      "id": "efg-6150",
+      "slug": "bi-solution-specialista-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "BI Solution Specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "## Main responsibilities\n\n- Designing, building and maintaining business and management information data infrastructure\n\n- Developing reporting and analytics solutions to turn data into actionable business insights\n\n- Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis\n\n- Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape\n\n## Skills and experience\n\n- University degree in Business, Data Science, Computer Science or Engineering\n\n- Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar\n\n- Advanced knowledge of SQL and Python for database querying and data extraction\n\n- Analytical and structured mindset with strong communication skills\n\n- Practical, hands‑on and problem‑solving aptitude\n\n- Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment\n   Our Values\n\n  Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n  Hands-on : Being proactive to rapidly deliver high-quality results\n\n  Passionate : Being committed and striving for excellence\n\n  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+      "requirements": [
+        "University degree in Business, Data Science, Computer Science or Engineering",
+        "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+        "Advanced knowledge of SQL and Python for database querying and data extraction",
+        "Analytical and structured mindset with strong communication skills",
+        "Practical, hands‑on and problem‑solving aptitude",
+        "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
+      ],
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6150",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "BI Solution Specialist",
+        "it": "BI Solution Specialista",
+        "de": "BI Solution Spezialist",
+        "fr": "BI Solution Spécialiste"
+      },
+      "descriptionByLocale": {
+        "en": "## Main responsibilities\n\n- Designing, building and maintaining business and management information data infrastructure\n\n- Developing reporting and analytics solutions to turn data into actionable business insights\n\n- Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis\n\n- Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape\n\n## Skills and experience\n\n- University degree in Business, Data Science, Computer Science or Engineering\n\n- Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar\n\n- Advanced knowledge of SQL and Python for database querying and data extraction\n\n- Analytical and structured mindset with strong communication skills\n\n- Practical, hands‑on and problem‑solving aptitude\n\n- Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment\n   Our Values\n\n  Accountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n  Hands-on : Being proactive to rapidly deliver high-quality results\n\n  Passionate : Being committed and striving for excellence\n\n  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "Principali responsabilità\n- Progettazione, costruzione e mantenimento dell'infrastruttura dei dati aziendali e gestionali\n- Sviluppare soluzioni di reporting e analisi per trasformare i dati in insight aziendali attuabili\n\n- giocare un ruolo chiave nel migliorare le capacità di data mining del team e agire come esperto di dati, fornendo indicazioni sul trattamento e l'analisi dei dati\n- Rimanere al passo con i principali sviluppi tecnici e tendenze (ad esempio AI, tecnologie cloud) e valutare la loro rilevanza per il panorama dei dati e delle analisi del Gruppo\n\nCompetenze ed esperienza\n- Laurea in Business, Data Science, Informatica o Ingegneria\n- Livello avanzato negli strumenti di visualizzazione dei dati come Power Query, Power BI, Tableau o simili\n- Conoscenza avanzata di SQL e Python per l'interrogazione di database e l'estrazione dei dati\n\n- mentalità analitica e strutturata con forti capacità di comunicazione\n- Aptitude pratica, pratica e problem solving\n\n- mentalità orientata al futuro e approccio proattivo agli sviluppi tecnici e alle tendenze in un ambiente dinamico\nI nostri valori\n\nResponsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n\nHands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n\nPassionato: Impegnarsi e lottare per l'eccellenza\n\nSoluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n\nPartenariato: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
+        "de": "Hauptaufgaben\n- Planung, Bau und Aufrechterhaltung der Dateninfrastruktur für Geschäfts- und Managementdaten\n- Entwicklung von Reporting- und Analyselösungen, um Daten zu handlungsfähigen Unternehmenseinsichten zu machen\n- Eine wichtige Rolle bei der Verbesserung der Datengewinnungsfähigkeit des Teams spielen und als Datenexperte fungieren, um die Datenverarbeitung und -analyse zu beraten\n- Bleiben Sie am Besten der wichtigsten technischen Entwicklungen und Trends (z.B. KI, Cloud-Technologien) und bewerten Sie ihre Relevanz für die Daten- und Analyselandschaft der Gruppe\n\nFähigkeiten und Erfahrung\n- Hochschulabschluss in Wirtschaft, Informatik, Informatik oder Ingenieurwesen\n- Erweiterte Ebene in Datenvisualisierungstools wie Power Query, Power BI, Tableau oder dergleichen\n- Erweiterte Kenntnisse von SQL und Python zur Datenbankabfrage und Datenextraktion\n- Analytische und strukturierte Denkweise mit starken Kommunikationsfähigkeiten\n- Praktische, praktische und problematische Eignung\n\n- zukunftsorientierter Denkansatz und proaktiver Ansatz für technische Entwicklungen und Trends in einem dynamischen Umfeld\nUnsere Werte\n\nRechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n\nHands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse liefern\n\nLeidenschaftlich: Engagement und Streben nach Exzellenz\n\nLösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Clients ziemlich mit einem risikobewussten Mindset\n\nPartnerschaftsorientiert : Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.",
+        "fr": "Principales responsabilités\n- Conception, construction et entretien d'une infrastructure de données sur les entreprises et la gestion\n- Développer des solutions de reporting et d'analyse pour transformer les données en informations opérationnelles exploitables\n- Jouer un rôle clé dans le renforcement des capacités de l'équipe en matière d'extraction de données et agir en tant qu'expert en données, en fournissant des conseils sur le traitement et l'analyse des données\n- Se tenir au courant des principaux développements et tendances techniques (par exemple l'IA, les technologies du cloud) et évaluer leur pertinence pour le paysage de données et d'analyses du Groupe\n\nCompétences et expérience\n- Diplôme universitaire en commerce, informatique, informatique ou ingénierie\n- Niveau avancé dans les outils de visualisation des données tels que Power Query, Power BI, Tableau ou similaire\n- Connaissance avancée de SQL et Python pour la recherche de bases de données et l'extraction de données\n- Un état d'esprit analytique et structuré avec de solides compétences en communication\n- Aptitude pratique, pratique et résolution de problèmes\n- Un état d'esprit orienté vers l'avenir et une approche proactive des développements techniques et des tendances dans un environnement dynamique\nNos valeurs\n\nResponsabilité : Prise en charge des tâches et des défis, et recherche d'amélioration continue\n\nHands-on : Être proactif pour obtenir rapidement des résultats de haute qualité\n\nPassionné : Être engagé et chercher l'excellence\n\nSolution : Se concentrer sur les résultats des clients et traiter les clients équitablement avec un état d'esprit conscient des risques\n\nPartenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
+      },
+      "requirementsByLocale": {
+        "en": [
+          "University degree in Business, Data Science, Computer Science or Engineering",
+          "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+          "Advanced knowledge of SQL and Python for database querying and data extraction",
+          "Analytical and structured mindset with strong communication skills",
+          "Practical, hands‑on and problem‑solving aptitude",
+          "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
+        ]
+      },
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "Designing, building and maintaining business and management information data infrastructure",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
+              "Staying abreast of key technical developments and trends (e.g. AI, cloud technologies) and assessing their relevance for the Group’s data and analytics landscape"
+            ],
+            "requirements": [
+              "University degree in Business, Data Science, Computer Science or Engineering",
+              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+              "Advanced knowledge of SQL and Python for database querying and data extraction",
+              "Analytical and structured mindset with strong communication skills",
+              "Practical, hands‑on and problem‑solving aptitude",
+              "Future‑oriented mindset and proactive approach to technical developments and trends in a dynamic environment"
+            ],
+            "benefits": [],
+            "process": [],
+            "highlights": [
+              "Designing, building and maintaining business and management information data infrastructure",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert, providing guidance on data processing and analysis",
+              "University degree in Business, Data Science, Computer Science or Engineering",
+              "Advanced level in data visualisation tools such as Power Query, Power BI, Tableau or similar",
+              "Advanced knowledge of SQL and Python for database querying and data extraction"
+            ],
+            "keywords": [
+              "University degree in Business",
+              "Advanced level in data visualisation tools such as Power Query",
+              "Advanced knowledge of SQL and Python for database querying and data extraction",
+              "Analytical and structured mindset with strong communication skills",
+              "Practical",
+              "Designing",
+              "Developing reporting and analytics solutions to turn data into actionable business insights",
+              "Playing a key role in enhancing the team’s data mining capabilities and acting as a data expert",
+              "Staying abreast of key technical developments and trends (e.g. AI"
+            ],
+            "sections": [],
+            "readingMinutes": 1
+          }
+        }
+      },
+      "crawledAt": "2026-05-18T21:49:21.410Z",
+      "slugByLocale": {
+        "it": "bi-solution-specialista-efg-international-ag-geneve",
+        "en": "bi-solution-specialist-efg-international-ag-geneve",
+        "de": "bi-solution-spezialist-efg-international-ag-geneve",
+        "fr": "bi-solution-specialiste-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-02",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.898Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bi-solution-specialist-efg-geneve"
+        ],
+        "de": [
+          "bi-solution-specialist-efg-geneve"
+        ],
+        "fr": [
+          "bi-solution-specialist-efg-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "bi-solution-specialist-efg-geneve"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6137",
@@ -1708,7 +1716,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.927Z",
+      "crawledAt": "2026-05-18T21:49:21.409Z",
       "slugByLocale": {
         "it": "specialista-internazionale-della-retribuzione-efg-international-ag-lugano",
         "en": "international-payroll-specialist-efg-international-ag-lugano",
@@ -1885,7 +1893,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.926Z",
+      "crawledAt": "2026-05-18T21:49:21.408Z",
       "slugByLocale": {
         "it": "senior-cloud-ingegnere-efg-international-ag-geneve",
         "en": "senior-cloud-engineer-efg-international-ag-geneve",
@@ -2066,7 +2074,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.924Z",
+      "crawledAt": "2026-05-18T21:49:21.407Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -2092,7 +2100,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.895Z"
+      "firstSeenAt": "2026-05-10T21:30:00.895Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6064",
@@ -2143,7 +2152,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.923Z",
+      "crawledAt": "2026-05-18T21:49:21.405Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -2184,7 +2193,8 @@
       "previousSlugs": [
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6056",
@@ -2259,7 +2269,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.922Z",
+      "crawledAt": "2026-05-18T21:49:21.404Z",
       "slugByLocale": {
         "it": "analista-del-rischio-efg-international-ag-lugano",
         "en": "operational-risk-analyst-efg-international-ag-lugano",
@@ -2371,7 +2381,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.921Z",
+      "crawledAt": "2026-05-18T21:49:21.403Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -2413,7 +2423,8 @@
       "previousSlugs": [
         "senior-private-markets-product-specialist-efg-zurich",
         "senior-private-markets-product-specialiste-efg-international-ag-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -2464,7 +2475,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.920Z",
+      "crawledAt": "2026-05-18T21:49:21.403Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -2552,7 +2563,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.920Z",
+      "crawledAt": "2026-05-18T21:49:21.402Z",
       "slugByLocale": {
         "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -2594,7 +2605,8 @@
       "previousSlugs": [
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -2757,7 +2769,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.919Z",
+      "crawledAt": "2026-05-18T21:49:21.401Z",
       "slugByLocale": {
         "it": "specialista-in-soluzioni-it-di-trading-e-tesoreria-efg-international-ag-lugano",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2824,7 +2836,8 @@
           "it-trading-treasury-solutions-specialiste-efg-international-ag-lugano-n93k12"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -2971,7 +2984,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.918Z",
+      "crawledAt": "2026-05-18T21:49:21.400Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-lugano",
         "en": "pension-fund-manager-efg-international-ag-zurich",
@@ -3027,7 +3040,8 @@
           "foundation-manager-efg-international-ag-lugano-n93k14"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5869",
@@ -3078,7 +3092,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.916Z",
+      "crawledAt": "2026-05-18T21:49:21.398Z",
       "slugByLocale": {
         "it": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
         "en": "strategic-planning-officer-efg-lugano",
@@ -3169,7 +3183,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.916Z",
+      "crawledAt": "2026-05-18T21:49:21.398Z",
       "slugByLocale": {
         "it": "back-office-cash-reconciliation-specialista-efg-international-ag-geneve",
         "en": "back-office-cash-reconciliation-specialist-efg-geneve",
@@ -3320,7 +3334,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.915Z",
+      "crawledAt": "2026-05-18T21:49:21.397Z",
       "slugByLocale": {
         "it": "rischio-e-conformita-applicazione-tecnica-proprietario-efg-international-ag-geneve",
         "en": "risk-compliance-technical-application-owner-efg-geneve",
@@ -3502,7 +3516,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.914Z",
+      "crawledAt": "2026-05-18T21:49:21.396Z",
       "slugByLocale": {
         "it": "business-analista-legal-compliance-efg-international-ag-geneve",
         "en": "business-analyst-legal-compliance-efg-geneve",
@@ -3542,7 +3556,8 @@
       },
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-4543",
@@ -3709,7 +3724,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.913Z",
+      "crawledAt": "2026-05-18T21:49:21.395Z",
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -3746,7 +3761,8 @@
       },
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6235",
@@ -3835,7 +3851,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.912Z",
+      "crawledAt": "2026-05-18T21:49:21.394Z",
       "slugByLocale": {
         "it": "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve",
         "en": "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
@@ -3919,7 +3935,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.911Z",
+      "crawledAt": "2026-05-18T21:49:21.392Z",
       "slugByLocale": {
         "it": "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano",
         "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
@@ -3978,7 +3994,8 @@
           "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6280",
@@ -4029,7 +4046,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.910Z",
+      "crawledAt": "2026-05-18T21:49:21.391Z",
       "slugByLocale": {
         "it": "analista-di-reporting-regolamentare-efg-international-ag-geneve",
         "en": "regulatory-reporting-analyst-efg-geneve",
@@ -4069,7 +4086,8 @@
       },
       "previousSlugs": [
         "regulatory-reporting-analyst-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6266",
@@ -4092,15 +4110,15 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Investment Risk specialist",
-        "it": "Specialista del rischio di investimento",
+        "it": "Investment Risk Specialista",
         "de": "Investment Risk Spezialist",
         "fr": "Investment Risk Spécialiste"
       },
       "descriptionByLocale": {
         "en": "## Job Description\n\nTo act as a strategic partner across all service lines, providing the discipline that secures EFG’s growth ambitions. The role owns the group‑wide investment risk and analytics agenda, transforming complex market data into actionable conviction and embedding institutional‑grade oversight across Advisory, New Capital, and Discretionary Portfolio Management (DPM).\n\nCombining deep technical expertise with a broad strategic remit, this position sets direction for investment risk frameworks, leads cross‑functional initiatives, and ensures that risk‑intelligent growth is consistently delivered across the franchise\n\nKey Responsibilities\n\n- Strategic Leadership & Framework Ownership :\n- Define and own the investment risk and analytics framework for Advisory, ensuring consistency, robustness, and alignment with EFG’s risk appetite and investment philosophy.\n\n- Translate the global investment strategy into concrete risk and analytics standards, methodologies, and processes across Advisory, New Capital, and DPM.\n\n- Act as the recognised senior authority on investment risk and analytics, providing guidance to senior management and key governance bodies\n\n- Ownership of Portfolio Risk Measurement for Advisory\n- Own the end ‑ to ‑ end Product and Portfolio Risk Measurement for Advisory, including: the Product Risk Classification (PRC) and the related quality controls and the aggregation to a portfolio risk measurement\n\n- Lead the Globalization of the Product and Portfolio Risk Measurement for Advisory into Asia with the result that around the globe EFG uses consistent and aligned risk measurements\n\n- Define and lead the evolution from todays Prodcut risk Score to a more sophisticated, Aladdin ‑ enabled measures (e.g. factor ‑ based risk, scenario analysis, stress testing, liquidity and concentration metrics).\n\n- Ensure that Portfolio Risk Measurement for Advisory is fully embedded in advisory processes, portfolio construction, and client communication.\n\n- Risk‑Driven Culture & Franchise Leadership:\n- Lead a cultural shift in the first line of defence by positioning risk management as a core part across all our solutions.\n\n- Drive the adoption of independent, high‑quality risk analytics on funds and portfolios, and embed portfolio risk measurement into everyday practices.\n\n- Lead and deliver multiple cross‑functional projects to enhance investment risk and analytics frameworks, using these initiatives to strengthen each franchise, improve transparency, and demonstrate that disciplined risk management supports better, faster, and more confident investment decisions.\n\n-\n\n- CIO Investment Framework\n- Play a key role in shaping the bank’s long‑term investment stance by contributing to the quantitative process and qualitative overlay for 7–10 year Capital Market Assumptions and their translation into strategic asset allocation.\n\n- Actively engage in the Global Investment Committee to challenge risk‑taking, ensure portfolios remain aligned with the house view, and bring a disciplined risk and analytics perspective into core investment governance.\n\n-\nInnovation and Automation: Actively seek to introduce new ideas—including Power BI dashboards, intranet enhancements, and process automation—to improve transparency and efficiency.\n\nSkills and Qualifications\n\n- Education: Master’s degree in Banking and Finance.\n\n- Certification: CFA Level III, demonstrating a commitment to professional development and technical excellence.\n\n- Experience: at least 8-10 years of experience within the bank, with a proven track record of delivering analytical and project-based value across investment areas.\n\n- Technical Proficiency: Advanced proficiency in Excel, Python Bloomberg, and Power BI, alongside experience with risk engines like Aladdin is a plus.\n\n- Domain Knowledge: Strong understanding of investment products, risk concepts, and cross-asset correlations .\n\n- Driven by Accountability: Focuses on driving results and building trust to power growth.\n\n- Powered by Insight: Utilizes data-driven insights for continuous improvement and smart decision-making.\n\n- Safety and Agility: Maintains the balance between institutional safety and the agility required to create unrivalled client value.\n\nOur Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "Descrizione del lavoro\n\nAgire come partner strategico in tutte le linee di servizio, fornendo la disciplina che assicura le ambizioni di crescita di EFG. Il ruolo possiede l'agenda dei rischi di investimento a livello di gruppo e dell'analisi, trasformando i dati di mercato complessi in convinzione attuabile e integrando la supervisione di livello istituzionale attraverso Advisory, New Capital e Discretionary Portfolio Management (DPM).\n\nCombinando competenze tecniche profonde con un ampio remit strategico, questa posizione imposta la direzione per i framework di rischio di investimento, conduce iniziative interfunzionali e assicura che la crescita intelligente del rischio sia costantemente consegnata attraverso il franchising\n\nPrincipali responsabilità\n\n- Leadership strategica e proprietà quadro:\n- Definire e possedere il quadro di rischio di investimento e analisi per Advisory, assicurando coerenza, robustezza e allineamento con l’appetito di rischio di EFG e la filosofia di investimento.\n\n- Traduci la strategia di investimento globale in standard di rischio e analisi concrete, metodologie e processi in Advisory, New Capital e DPM.\n\n- Atto come l'autorità senior riconosciuta sul rischio di investimento e analisi, fornendo indicazioni agli enti di gestione senior e di governance chiave\n\n- ProprietÃ della misura del rischio Portfolio per Advisory\n- Misurazione del rischio di prodotto e del portafoglio per i consulenti, compresa: la classificazione del rischio di prodotto (PRC) e i relativi controlli di qualità e l'aggregazione a una misurazione del rischio di portafoglio\n\n- Condurre la Globalizzazione del Misuratore di rischio prodotto e portafoglio per Advisory in Asia con il risultato che in tutto il mondo EFG utilizza misure di rischio coerenti e allineate\n\n- Definire e condurre l'evoluzione da oggi Prodcut rischio Punteggio ad una più sofisticata, Aladdin ‐ abilitato misure (ad esempio rischio basato fattore, analisi scenari, test di stress, liquidità e metriche di concentrazione).\n\n- Assicurarsi che Portfolio Risk Measurement for Advisory sia completamente integrato in processi di consulenza, costruzione di portafoglio e comunicazione client.\n\n- Risk-Driven Culture & Leadership:\n- Condurre un cambiamento culturale nella prima linea di difesa posizionando la gestione del rischio come parte integrante di tutte le nostre soluzioni.\n\n- Guidare l'adozione di analisi di rischio indipendenti e di alta qualità su fondi e portafogli, e incorporare la misurazione del rischio portafoglio nelle pratiche quotidiane.\n\n- Condurre e fornire progetti multifunzionali per migliorare il rischio di investimento e i framework di analisi, utilizzando queste iniziative per rafforzare ogni franchising, migliorare la trasparenza e dimostrare che la gestione del rischio disciplinata supporta decisioni di investimento migliori, più veloci e più sicure.\n\n- No.\n\n- CIO Investment Framework\n- Svolgere un ruolo chiave nella definizione della posizione di investimento a lungo termine della banca contribuendo al processo quantitativo e alla sovrapposizione qualitativa per 7-10 anni Capital Market Assunzioni e alla loro traduzione in assetto strategico.\n\n- Impegnarsi attivamente nel Global Investment Committee per sfidare l'assunzione del rischio, garantire che i portafogli rimangano allineati con la vista della casa, e portare una prospettiva di rischio disciplinata e di analisi nel core governance degli investimenti.\n\n- No.\nInnovazione e Automazione: cercare attivamente di introdurre nuove idee, tra cui cruscotti Power BI, miglioramenti intranet e automazione dei processi, per migliorare la trasparenza e l'efficienza.\n\nCompetenze e qualifiche\n\n- Istruzione: Master in Banca e Finanza.\n\n- Certificazione: CFA Livello III, dimostrando un impegno per lo sviluppo professionale e l'eccellenza tecnica.\n\n- Esperienza: almeno 8-10 anni di esperienza all'interno della banca, con un comprovato track record di fornitura di valore analitico e basato sul progetto in aree di investimento.\n\n- Proficienza tecnica: competenza avanzata in Excel, Python Bloomberg e Power BI, insieme all'esperienza con motori a rischio come Aladdin è un plus.\n\n- Conoscenza del dominio: Forte comprensione dei prodotti di investimento, concetti di rischio e correlazioni cross-asset .\n\n- Guidato dalla Responsabilità: si concentra sui risultati della guida e sulla fiducia nella crescita del potere.\n\n- Powered by Insight: Utilizza le informazioni basate sui dati per il miglioramento continuo e il processo decisionale intelligente.\n\n- Sicurezza e Agility: Mantiene l'equilibrio tra sicurezza istituzionale e l'agilità necessaria per creare valore cliente senza rivalità.\n\nI nostri valori\n\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n\n- Passionato: Impegnarsi e lottare per l'eccellenza\n\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "Job Description\n\nAls strategischer Partner in allen Servicelinien zu fungieren und die Disziplin zu schaffen, die die Wachstumsambitionen der EFG sichert. Die Rolle besitzt die konzernweite Investitionsrisiko- und Analytik-Agenda, die komplexe Marktdaten in eine handlungsfähige Überzeugung umwandelt und institutionelle Aufsicht über das Advisory, New Capital und Diskretion Portfolio Management (DPM) einbettet.\n\nDiese Position kombiniert tiefes technisches Know-how mit einem breiten strategischen Remit, setzt Richtung für Investment-Risiko-Frameworks, führt funktionsübergreifende Initiativen und stellt sicher, dass risikointelligentes Wachstum im gesamten Franchise-Bereich konsequent ausgeliefert wird\n\nHauptverantwortlichkeiten\n\n- Strategische Führung und Rahmenbesitz :\n- Definieren und besitzen Sie den Rahmen für das Investitionsrisiko und die Analytik für die Beratung, die Gewährleistung von Konsistenz, Robustheit und die Ausrichtung auf die Risikobereitschaft und Investitionsphilosophie der EFG.\n\n- Übersetzen Sie die globale Investitionsstrategie in konkrete Risiko- und Analysestandards, Methoden und Prozesse über Advisory, New Capital und DPM.\n\n- Gesetz als anerkannte leitende Behörde für Investitionsrisiko und Analytik, die Leitlinien für leitende Management- und Schlüsselverwaltungsgremien\n\n- Eigentum an Portfolio-Risikomessung für Beratung\n- Besitzen Sie das Ende ‐ bis ‐ end Product and Portfolio Risk Measurement for Advisory, einschließlich: die Product Risk Classification (PRC) und die damit verbundenen Qualitätskontrollen und die Aggregation einer Portfolio-Risikomessung\n\n- Führen Sie die Globalisierung der Produkt- und Portfolio-Risikomessung für das Beraten in Asien mit dem Ergebnis, dass EFG weltweit konsequente und ausgerichtete Risikomessungen verwendet\n\n- Definieren und führen Sie die Entwicklung aus dem heutigen Staatsrisiko Ergebnis zu einer anspruchsvolleren, Aladdin ‐fähigen Maßnahmen (z.B. faktorbasiertes Risiko, Szenarioanalyse, Stresstests, Liquiditäts- und Konzentrationsmetriken).\n\n- Stellen Sie sicher, dass Portfolio Risk Measurement for Advisory vollständig in Beratungsprozesse, Portfoliobau und Kundenkommunikation eingebettet ist.\n\n- Risikoorientierte Kultur & Franchise Leadership:\n- Führen Sie eine kulturelle Verschiebung in der ersten Verteidigungslinie durch die Positionierung von Risikomanagement als Kernteil über alle unsere Lösungen.\n\n- Führen Sie die Einführung unabhängiger, qualitativ hochwertiger Risikoanalysen auf Fonds und Portfolios sowie die Einbindung von Portfolio-Risikomessungen in alltägliche Praktiken.\n\n- Führen und liefern Sie mehrere funktionsübergreifende Projekte, um das Investitionsrisiko und die analytischen Rahmenbedingungen zu verbessern, indem Sie diese Initiativen nutzen, um jeden Franchise zu stärken, Transparenz zu verbessern und zu zeigen, dass diszipliniertes Risikomanagement bessere, schnellere und sicherere Investitionsentscheidungen unterstützt.\n\n- Ja.\n\n- CIO Investitionsrahmen\n- Spielen Sie eine Schlüsselrolle bei der Gestaltung der langfristigen Anlagehaltung der Bank, indem Sie zum quantitativen Prozess und qualitativen Overlay für die 7–10-Jahre Capital Market Assumptions und ihre Übersetzung in die strategische Asset Allocation beitragen.\n\n- Aktiv in das Global Investment Committee eingebunden, um Risiken zu bewältigen, Portfolios mit Blick auf das Haus zu vereinbaren und eine disziplinierte Risiko- und Analyseperspektive in die zentrale Investment Governance zu bringen.\n\n- Ja.\nInnovation und Automatisierung: Aktiv wollen neue Ideen einführen – darunter Power BI Dashboards, Intranet-Erweiterungen und Prozessautomatisierung – um Transparenz und Effizienz zu verbessern.\n\nFähigkeiten und Qualifikationen\n\n- Ausbildung: Masterstudium Banking und Finanzen.\n\n- Zertifizierung: CFA Level III, die ein Engagement für professionelle Entwicklung und technische Exzellenz zeigen.\n\n- Erfahrung: mindestens 8-10 Jahre Erfahrung innerhalb der Bank, mit einem nachgewiesenen Erfolgsrekord, analytischen und projektbasierten Wert in Investitionsbereichen zu liefern.\n\n- Technische Effizienz: Fortgeschrittene Kenntnisse in Excel, Python Bloomberg und Power BI, zusammen mit der Erfahrung mit Risikomotoren wie Aladdin ist ein Plus.\n\n- Domain Knowledge: Ein starkes Verständnis von Investitionsprodukten, Risikokonzepten und Cross-Asset-Korrelationen .\n\n- Angetrieben durch Rechenschaftspflicht: Fokussiert auf das Fahren von Ergebnissen und das Vertrauen auf das Stromwachstum.\n\n- Powered by Insight: Nutzen Sie datengesteuerte Erkenntnisse für kontinuierliche Verbesserung und intelligente Entscheidungsfindung.\n\n- Sicherheit und Agilität: Bewahrt das Gleichgewicht zwischen der institutionellen Sicherheit und der Agilität, die erforderlich ist, um unübertroffenen Kundenwert zu schaffen.\n\nUnsere Werte\n\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n\n- Hands-on: Als proaktiv, um schnell qualitativ hochwertige Ergebnisse zu liefern\n\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n\n- Lösungsgetrieben: Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeit mit einem Unternehmergeist.",
-        "fr": "Description de l'emploi\n\nAgir en tant que partenaire stratégique dans toutes les lignes de service, en fournissant la discipline qui garantit les ambitions de croissance de l'EFG. Ce rôle est le propriétaire du programme de gestion des risques d'investissement et d'analyse à l'échelle du groupe, transformant des données de marché complexes en conviction concrète et intégrant la surveillance de niveau institutionnel dans la gestion de portefeuille discrétionnaire (DGP) des services consultatifs et des nouveaux capitaux.\n\nCombinant une expertise technique approfondie à un vaste mandat stratégique, ce poste définit l'orientation des cadres de risque d'investissement, dirige des initiatives interfonctionnelles et veille à ce que la croissance axée sur l'intelligence des risques soit constamment assurée dans l'ensemble de la franchise.\n\nPrincipales responsabilités\n\n- Leadership stratégique et propriété du cadre :\n- Définir et posséder le cadre de risque d'investissement et d'analyse pour la consultation, en assurant la cohérence, la robustesse et l'alignement avec la philosophie de risque et d'investissement de l'EFG.\n\n- Traduire la stratégie globale d'investissement en normes, méthodologies et processus concrets de risque et d'analyse dans l'ensemble des secteurs de la consultation, du nouveau capital et du DPM.\n\n- Agir en tant qu'autorité supérieure reconnue en matière de risques d'investissement et d'analyse, en fournissant des conseils aux cadres supérieurs et aux principaux organes de gouvernance\n\n- Propriété de la mesure des risques du portefeuille pour consultation\n- Posséder la mesure finale des risques pour les produits et les portefeuilles à des fins de consultation, y compris : la classification des risques pour les produits (CPR) et les contrôles de qualité connexes et l'agrégation à une mesure des risques pour les portefeuilles\n\n- Diriger la mondialisation de la mesure des risques liés aux produits et aux portefeuilles en Asie, avec pour résultat que partout dans le monde EFG utilise des mesures des risques cohérentes et alignées\n\n- Définir et diriger l'évolution du risque Prodcut d'aujourd'hui Score vers des mesures plus sophistiquées, rendues possibles par Aladdin (p. ex. risque fondé sur les facteurs, analyse de scénarios, tests de stress, mesures de liquidité et de concentration).\n\n- Veiller à ce que la mesure du risque du portefeuille pour les avis soit entièrement intégrée aux processus consultatifs, à la construction du portefeuille et à la communication avec les clients.\n\n- Culture axée sur le risque et leadership en franchise :\n- Diriger un changement culturel dans la première ligne de défense en plaçant la gestion des risques au cœur de toutes nos solutions.\n\n- Favoriser l'adoption d'analyses de risque indépendantes et de haute qualité sur les fonds et les portefeuilles, et intégrer la mesure des risques de portefeuille dans les pratiques quotidiennes.\n\n- Diriger et exécuter de multiples projets interfonctionnels afin d'améliorer les cadres de risque et d'analyse en matière d'investissement, en utilisant ces initiatives pour renforcer chaque franchise, améliorer la transparence et démontrer que la gestion des risques disciplinée favorise de meilleures décisions d'investissement, plus rapides et plus confiantes.\n\n- Oui.\n\n- Cadre d'investissement des DPI\n- Jouer un rôle clé dans l'orientation à long terme de la banque en contribuant au processus quantitatif et au recouvrement qualitatif pour les hypothèses du marché des capitaux de 7 à 10 ans et leur traduction en répartition stratégique des actifs.\n\n- S'engager activement au sein du Comité mondial de l'investissement pour remettre en question la prise de risques, veiller à ce que les portefeuilles restent alignés sur le point de vue de la maison et intégrer une perspective de risque et d'analyse disciplinée dans la gouvernance de l'investissement de base.\n\n- Oui.\nInnovation et automatisation : s'efforcer activement d'introduire de nouvelles idées – y compris des tableaux de bord Power BI, des améliorations intranet et l'automatisation des processus – pour améliorer la transparence et l'efficacité.\n\nCompétences et qualifications\n\n- Études : Maîtrise en Banque et Finance.\n\n- Certification : CFA Niveau III, démontrant un engagement en faveur du perfectionnement professionnel et de l'excellence technique.\n\n- Expérience : au moins 8 à 10 ans d'expérience au sein de la banque, avec une expérience éprouvée de la fourniture d'une valeur analytique et d'un projet dans tous les domaines d'investissement.\n\n- Compétences techniques : Compétences avancées en Excel, Python Bloomberg et Power BI, ainsi que l'expérience avec les moteurs à risque comme Aladdin est un plus.\n\n- Connaissance du domaine : Une bonne compréhension des produits d'investissement, des concepts de risque et des corrélations entre les actifs.\n\n- Inspiré par la responsabilisation : met l'accent sur les résultats et le renforcement de la confiance dans la croissance du pouvoir.\n\n- Powered by Insight: Utilise des informations basées sur les données pour une amélioration continue et une prise de décision intelligente.\n\n- Sécurité et agilité : maintient l'équilibre entre la sécurité institutionnelle et l'agilité nécessaire pour créer une valeur client inégalée.\n\nNos valeurs\n\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'améliorations continues\n\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n\n- Passionné : être engagé et viser l'excellence\n\n- Déterminé par la solution : se concentrer sur les résultats des clients et traiter les clients de façon équitable en tenant compte des risques\n\n- Objectif partenariat : promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
+        "it": "Descrizione del lavoro\n\nAgire come partner strategico in tutte le linee di servizio, fornendo la disciplina che assicura le ambizioni di crescita di EFG. Il ruolo possiede l'agenda dei rischi di investimento a livello di gruppo e dell'analisi, trasformando i dati di mercato complessi in convinzione attuabile e integrando la supervisione di livello istituzionale attraverso Advisory, New Capital e Discretionary Portfolio Management (DPM).\n\nCombinando competenze tecniche profonde con un ampio remit strategico, questa posizione imposta la direzione per i framework di rischio di investimento, conduce iniziative interfunzionali e assicura che la crescita intelligente del rischio sia costantemente consegnata attraverso il franchising\n\nPrincipali responsabilità\n- Leadership strategica e proprietà quadro:\n- Definire e possedere il quadro di rischio di investimento e analisi per Advisory, assicurando coerenza, robustezza e allineamento con l’appetito di rischio di EFG e la filosofia di investimento.\n- Traduci la strategia di investimento globale in standard di rischio e analisi concrete, metodologie e processi in Advisory, New Capital e DPM.\n- Atto come l'autorità senior riconosciuta sul rischio di investimento e analisi, fornendo indicazioni agli enti di gestione senior e di governance chiave\n- ProprietÃ della misura del rischio Portfolio per Advisory\n- Misurazione del rischio di prodotto e del portafoglio per i consulenti, compresa: la classificazione del rischio di prodotto (PRC) e i relativi controlli di qualità e l'aggregazione a una misurazione del rischio di portafoglio\n- Condurre la Globalizzazione del Misuratore di rischio prodotto e portafoglio per Advisory in Asia con il risultato che in tutto il mondo EFG utilizza misure di rischio coerenti e allineate\n- Definire e condurre l'evoluzione da oggi Prodcut rischio Punteggio ad una più sofisticata, Aladdin ‐ abilitato misure (ad esempio rischio basato fattore, analisi scenari, test di stress, liquidità e metriche di concentrazione).\n- Assicurarsi che Portfolio Risk Measurement for Advisory sia completamente integrato in processi di consulenza, costruzione di portafoglio e comunicazione client.\n- Risk-Driven Culture & Leadership:\n- Condurre un cambiamento culturale nella prima linea di difesa posizionando la gestione del rischio come parte integrante di tutte le nostre soluzioni.\n- Guidare l'adozione di analisi di rischio indipendenti e di alta qualità su fondi e portafogli, e incorporare la misurazione del rischio portafoglio nelle pratiche quotidiane.\n- Condurre e fornire progetti multifunzionali per migliorare il rischio di investimento e i framework di analisi, utilizzando queste iniziative per rafforzare ogni franchising, migliorare la trasparenza e dimostrare che la gestione del rischio disciplinata supporta decisioni di investimento migliori, più veloci e più sicure.\n- No.\n- CIO Investment Framework\n- Svolgere un ruolo chiave nella definizione della posizione di investimento a lungo termine della banca contribuendo al processo quantitativo e alla sovrapposizione qualitativa per 7-10 anni Capital Market Assunzioni e alla loro traduzione in assetto strategico.\n- Impegnarsi attivamente nel Global Investment Committee per sfidare l'assunzione del rischio, garantire che i portafogli rimangano allineati con la vista della casa, e portare una prospettiva di rischio disciplinata e di analisi nel core governance degli investimenti.\n- No.\nInnovazione e Automazione: cercare attivamente di introdurre nuove idee, tra cui cruscotti Power BI, miglioramenti intranet e automazione dei processi, per migliorare la trasparenza e l'efficienza.\n\nCompetenze e qualifiche\n- Istruzione: Master in Banca e Finanza.\n- Certificazione: CFA Livello III, dimostrando un impegno per lo sviluppo professionale e l'eccellenza tecnica.\n- Esperienza: almeno 8-10 anni di esperienza all'interno della banca, con un comprovato track record di fornitura di valore analitico e basato sul progetto in aree di investimento.\n- Proficienza tecnica: competenza avanzata in Excel, Python Bloomberg e Power BI, insieme all'esperienza con motori a rischio come Aladdin è un plus.\n- Conoscenza del dominio: Forte comprensione dei prodotti di investimento, concetti di rischio e correlazioni cross-asset .\n- Guidato dalla Responsabilità: si concentra sui risultati della guida e sulla fiducia nella crescita del potere.\n- Powered by Insight: Utilizza le informazioni basate sui dati per il miglioramento continuo e il processo decisionale intelligente.\n- Sicurezza e Agility: Mantiene l'equilibrio tra sicurezza istituzionale e l'agilità necessaria per creare valore cliente senza rivalità.\n\nI nostri valori\n- Responsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- Passionato: Impegnarsi e lottare per l'eccellenza\n- Soluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio-consapevole\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
+        "de": "Job Description\n\nAls strategischer Partner in allen Servicelinien zu fungieren und die Disziplin zu schaffen, die die Wachstumsambitionen der EFG sichert. Die Rolle besitzt die konzernweite Investitionsrisiko- und Analytik-Agenda, die komplexe Marktdaten in eine handlungsfähige Überzeugung umwandelt und institutionelle Aufsicht über das Advisory, New Capital und Diskretion Portfolio Management (DPM) einbettet.\n\nDiese Position kombiniert tiefes technisches Know-how mit einem breiten strategischen Remit, setzt Richtung für Investment-Risiko-Frameworks, führt funktionsübergreifende Initiativen und stellt sicher, dass risikointelligentes Wachstum im gesamten Franchise-Bereich konsequent ausgeliefert wird\n\nHauptverantwortlichkeiten\n- Strategische Führung und Rahmenbesitz :\n- Definieren und besitzen Sie den Rahmen für das Investitionsrisiko und die Analytik für die Beratung, die Gewährleistung von Konsistenz, Robustheit und die Ausrichtung auf die Risikobereitschaft und Investitionsphilosophie der EFG.\n- Übersetzen Sie die globale Investitionsstrategie in konkrete Risiko- und Analysestandards, Methoden und Prozesse über Advisory, New Capital und DPM.\n- Gesetz als anerkannte leitende Behörde für Investitionsrisiko und Analytik, die Leitlinien für leitende Management- und Schlüsselverwaltungsgremien\n- Eigentum an Portfolio-Risikomessung für Beratung\n- Besitzen Sie das Ende ‐ bis ‐ end Product and Portfolio Risk Measurement for Advisory, einschließlich: die Product Risk Classification (PRC) und die damit verbundenen Qualitätskontrollen und die Aggregation einer Portfolio-Risikomessung\n- Führen Sie die Globalisierung der Produkt- und Portfolio-Risikomessung für das Beraten in Asien mit dem Ergebnis, dass EFG weltweit konsequente und ausgerichtete Risikomessungen verwendet\n- Definieren und führen Sie die Entwicklung aus dem heutigen Staatsrisiko Ergebnis zu einer anspruchsvolleren, Aladdin ‐fähigen Maßnahmen (z.B. faktorbasiertes Risiko, Szenarioanalyse, Stresstests, Liquiditäts- und Konzentrationsmetriken).\n- Stellen Sie sicher, dass Portfolio Risk Measurement for Advisory vollständig in Beratungsprozesse, Portfoliobau und Kundenkommunikation eingebettet ist.\n- Risikoorientierte Kultur & Franchise Leadership:\n- Führen Sie eine kulturelle Verschiebung in der ersten Verteidigungslinie durch die Positionierung von Risikomanagement als Kernteil über alle unsere Lösungen.\n- Führen Sie die Einführung unabhängiger, qualitativ hochwertiger Risikoanalysen auf Fonds und Portfolios sowie die Einbindung von Portfolio-Risikomessungen in alltägliche Praktiken.\n- Führen und liefern Sie mehrere funktionsübergreifende Projekte, um das Investitionsrisiko und die analytischen Rahmenbedingungen zu verbessern, indem Sie diese Initiativen nutzen, um jeden Franchise zu stärken, Transparenz zu verbessern und zu zeigen, dass diszipliniertes Risikomanagement bessere, schnellere und sicherere Investitionsentscheidungen unterstützt.\n- Ja.\n- CIO Investitionsrahmen\n- Spielen Sie eine Schlüsselrolle bei der Gestaltung der langfristigen Anlagehaltung der Bank, indem Sie zum quantitativen Prozess und qualitativen Overlay für die 7–10-Jahre Capital Market Assumptions und ihre Übersetzung in die strategische Asset Allocation beitragen.\n- Aktiv in das Global Investment Committee eingebunden, um Risiken zu bewältigen, Portfolios mit Blick auf das Haus zu vereinbaren und eine disziplinierte Risiko- und Analyseperspektive in die zentrale Investment Governance zu bringen.\n- Ja.\nInnovation und Automatisierung: Aktiv wollen neue Ideen einführen – darunter Power BI Dashboards, Intranet-Erweiterungen und Prozessautomatisierung – um Transparenz und Effizienz zu verbessern.\n\nFähigkeiten und Qualifikationen\n- Ausbildung: Masterstudium Banking und Finanzen.\n- Zertifizierung: CFA Level III, die ein Engagement für professionelle Entwicklung und technische Exzellenz zeigen.\n- Erfahrung: mindestens 8-10 Jahre Erfahrung innerhalb der Bank, mit einem nachgewiesenen Erfolgsrekord, analytischen und projektbasierten Wert in Investitionsbereichen zu liefern.\n- Technische Effizienz: Fortgeschrittene Kenntnisse in Excel, Python Bloomberg und Power BI, zusammen mit der Erfahrung mit Risikomotoren wie Aladdin ist ein Plus.\n- Domain Knowledge: Ein starkes Verständnis von Investitionsprodukten, Risikokonzepten und Cross-Asset-Korrelationen .\n- Angetrieben durch Rechenschaftspflicht: Fokussiert auf das Fahren von Ergebnissen und das Vertrauen auf das Stromwachstum.\n- Powered by Insight: Nutzen Sie datengesteuerte Erkenntnisse für kontinuierliche Verbesserung und intelligente Entscheidungsfindung.\n- Sicherheit und Agilität: Bewahrt das Gleichgewicht zwischen der institutionellen Sicherheit und der Agilität, die erforderlich ist, um unübertroffenen Kundenwert zu schaffen.\n\nUnsere Werte\n- Rechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: Als proaktiv, um schnell qualitativ hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagement und Streben nach Exzellenz\n- Lösungsgetrieben: Konzentrieren Sie sich auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeit mit einem Unternehmergeist.",
+        "fr": "Description de l'emploi\n\nAgir en tant que partenaire stratégique dans toutes les lignes de service, en fournissant la discipline qui garantit les ambitions de croissance de l'EFG. Ce rôle est le propriétaire du programme de gestion des risques d'investissement et d'analyse à l'échelle du groupe, transformant des données de marché complexes en conviction concrète et intégrant la surveillance de niveau institutionnel dans la gestion de portefeuille discrétionnaire (DGP) des services consultatifs et des nouveaux capitaux.\n\nCombinant une expertise technique approfondie à un vaste mandat stratégique, ce poste définit l'orientation des cadres de risque d'investissement, dirige des initiatives interfonctionnelles et veille à ce que la croissance axée sur l'intelligence des risques soit constamment assurée dans l'ensemble de la franchise.\n\nPrincipales responsabilités\n- Leadership stratégique et propriété du cadre :\n- Définir et posséder le cadre de risque d'investissement et d'analyse pour la consultation, en assurant la cohérence, la robustesse et l'alignement avec la philosophie de risque et d'investissement de l'EFG.\n- Traduire la stratégie globale d'investissement en normes, méthodologies et processus concrets de risque et d'analyse dans l'ensemble des secteurs de la consultation, du nouveau capital et du DPM.\n- Agir en tant qu'autorité supérieure reconnue en matière de risques d'investissement et d'analyse, en fournissant des conseils aux cadres supérieurs et aux principaux organes de gouvernance\n- Propriété de la mesure des risques du portefeuille pour consultation\n- Posséder la mesure finale des risques pour les produits et les portefeuilles à des fins de consultation, y compris : la classification des risques pour les produits (CPR) et les contrôles de qualité connexes et l'agrégation à une mesure des risques pour les portefeuilles\n- Diriger la mondialisation de la mesure des risques liés aux produits et aux portefeuilles en Asie, avec pour résultat que partout dans le monde EFG utilise des mesures des risques cohérentes et alignées\n- Définir et diriger l'évolution du risque Prodcut d'aujourd'hui Score vers des mesures plus sophistiquées, rendues possibles par Aladdin (p. ex. risque fondé sur les facteurs, analyse de scénarios, tests de stress, mesures de liquidité et de concentration).\n- Veiller à ce que la mesure du risque du portefeuille pour les avis soit entièrement intégrée aux processus consultatifs, à la construction du portefeuille et à la communication avec les clients.\n- Culture axée sur le risque et leadership en franchise :\n- Diriger un changement culturel dans la première ligne de défense en plaçant la gestion des risques au cœur de toutes nos solutions.\n- Favoriser l'adoption d'analyses de risque indépendantes et de haute qualité sur les fonds et les portefeuilles, et intégrer la mesure des risques de portefeuille dans les pratiques quotidiennes.\n- Diriger et exécuter de multiples projets interfonctionnels afin d'améliorer les cadres de risque et d'analyse en matière d'investissement, en utilisant ces initiatives pour renforcer chaque franchise, améliorer la transparence et démontrer que la gestion des risques disciplinée favorise de meilleures décisions d'investissement, plus rapides et plus confiantes.\n- Oui.\n- Cadre d'investissement des DPI\n- Jouer un rôle clé dans l'orientation à long terme de la banque en contribuant au processus quantitatif et au recouvrement qualitatif pour les hypothèses du marché des capitaux de 7 à 10 ans et leur traduction en répartition stratégique des actifs.\n- S'engager activement au sein du Comité mondial de l'investissement pour remettre en question la prise de risques, veiller à ce que les portefeuilles restent alignés sur le point de vue de la maison et intégrer une perspective de risque et d'analyse disciplinée dans la gouvernance de l'investissement de base.\n- Oui.\nInnovation et automatisation : s'efforcer activement d'introduire de nouvelles idées – y compris des tableaux de bord Power BI, des améliorations intranet et l'automatisation des processus – pour améliorer la transparence et l'efficacité.\n\nCompétences et qualifications\n- Études : Maîtrise en Banque et Finance.\n- Certification : CFA Niveau III, démontrant un engagement en faveur du perfectionnement professionnel et de l'excellence technique.\n- Expérience : au moins 8 à 10 ans d'expérience au sein de la banque, avec une expérience éprouvée de la fourniture d'une valeur analytique et d'un projet dans tous les domaines d'investissement.\n- Compétences techniques : Compétences avancées en Excel, Python Bloomberg et Power BI, ainsi que l'expérience avec les moteurs à risque comme Aladdin est un plus.\n- Connaissance du domaine : Une bonne compréhension des produits d'investissement, des concepts de risque et des corrélations entre les actifs.\n- Inspiré par la responsabilisation : met l'accent sur les résultats et le renforcement de la confiance dans la croissance du pouvoir.\n- Powered by Insight: Utilise des informations basées sur les données pour une amélioration continue et une prise de décision intelligente.\n- Sécurité et agilité : maintient l'équilibre entre la sécurité institutionnelle et l'agilité nécessaire pour créer une valeur client inégalée.\n\nNos valeurs\n- Responsabilité : prise en charge des tâches et des défis, et recherche d'améliorations continues\n- Hands-on: être proactif pour obtenir rapidement des résultats de haute qualité\n- Passionné : être engagé et viser l'excellence\n- Déterminé par la solution : se concentrer sur les résultats des clients et traiter les clients de façon équitable en tenant compte des risques\n- Objectif partenariat : promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
       },
       "requirementsByLocale": {},
       "canonicalContent": {
@@ -4152,12 +4170,12 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.907Z",
+      "crawledAt": "2026-05-18T21:49:21.389Z",
       "slugByLocale": {
         "it": "specialista-del-rischio-di-investimento-efg-international-ag-zurich",
         "en": "investment-risk-specialist-efg-zurich",
-        "de": "investment-risk-specialist-efg-zurich",
-        "fr": "investment-risk-specialist-efg-zurich"
+        "de": "investment-risk-spezialist-efg-international-ag-zurich",
+        "fr": "investment-risk-specialiste-efg-international-ag-zurich"
       },
       "addressLocality": "Zurich",
       "addressCountry": "CH",
@@ -4182,11 +4200,18 @@
       "previousSlugsByLocale": {
         "it": [
           "investment-risk-specialist-efg-zurich"
+        ],
+        "de": [
+          "investment-risk-specialist-efg-zurich"
+        ],
+        "fr": [
+          "investment-risk-specialist-efg-zurich"
         ]
       },
       "previousSlugs": [
         "investment-risk-specialist-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6151",
@@ -4346,7 +4371,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-18T12:15:53.905Z",
+      "crawledAt": "2026-05-18T21:49:21.386Z",
       "slugByLocale": {
         "it": "responsabile-senior-della-trasformazione-strategica-efg-international-ag-geneve",
         "en": "senior-strategic-transformation-manager-efg-geneve",
@@ -4386,7 +4411,8 @@
       },
       "previousSlugs": [
         "senior-strategic-transformation-manager-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6237",
@@ -4408,16 +4434,16 @@
       "companyKey": "efg-international",
       "companyDomain": "efginternational.com",
       "titleByLocale": {
-        "en": "Banking Apprentice (AFC Commercial Clerk)",
+        "en": "Apprendistato Employee di commercio AFC Banca",
         "it": "Apprendistato Impiegato/a di commercio AFC Banca",
         "de": "Bankkaufmann/-frau EFZ Ausbildung",
         "fr": "Apprenti(e) Commercial AFC Banque"
       },
       "descriptionByLocale": {
-        "en": "Are you finishing middle school and interested in becoming a professional in the bank?\n\nIf this is your wish the AFC Trade Apprentice Bank of EFG Bank is what it does for you.\n\nYou will be working at the main Swiss offices of EFG Bank in central Lugano from August 2026 until August 2029 when you get the Federal Certificate of Capacity.\n\nDuring the three years you will experience different working teams working at national and international level, for example Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nIn addition to training in the company, in which you will be followed by a tutor dedicated to you in each team, you will attend the commercial professional school (CPC) of your interest and the courses at the banking competence center (CYP) along with all the business apprentices branch bank of the Canton.\n\nEFG Bank supports and encourages the development of integrated vocational training to ensure training as complete as possible at the end of the apprenticeship.\n\nDuring the course you can develop different professional skills, including:\n\n- analysis of the financial and credit market\n\n- knowledge of banking products\n\n- processing and verification of documents\n\n- deadline planning and priority management\n\n- use of financial IT systems\n\nRequirements\n\n- Passion for the economy and banking world\n\n- High school license with excellent results\n\n- Explain relational capabilities and ease to adapt to different working scenarios\n\n- Good computer knowledge\n\n- Knowledge of English\n\nIf you are motivated, thanks to attach to the online application: a letter of motivation, CV, the three most recent school reports and the middle school license.",
-        "it": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\nRequisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
-        "de": "Sind Sie mit der Mittelschule fertig und daran interessiert, Profi in der Bank zu werden?\n\nWenn dies Ihr Wunsch ist, ist die AFC Trade Apprentice Bank of EFG Bank das, was sie für Sie tut.\n\nSie werden von August 2026 bis August 2029 an den Hauptbüros der EFG Bank im Zentrum von Lugano arbeiten, wenn Sie das Bundeszertifikat für Kapazität erhalten.\n\nWährend der drei Jahre werden Sie verschiedene Arbeitsgruppen auf nationaler und internationaler Ebene erleben, zum Beispiel Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nNeben der Ausbildung in der Firma, in der Sie von einem Tutor für Sie in jedem Team, Sie werden die kommerzielle professionelle Schule (CPC) Ihres Interesses und die Kurse im Bank-Kompetenzzentrum (CYP) zusammen mit allen Business-Auszubildenden Zweigbank des Kantons folgen.\n\nDie EFG Bank unterstützt und fördert die Entwicklung einer integrierten Berufsbildung, um eine möglichst vollständige Ausbildung am Ende der Lehrlingsausbildung zu gewährleisten.\n\nWährend des Kurses können Sie verschiedene berufliche Fähigkeiten entwickeln, darunter:\n\n- Analyse des Finanz- und Kreditmarktes\n\n- Kenntnis der Bankprodukte\n\n- Verarbeitung und Überprüfung von Dokumenten\n\n- Terminplanung und Prioritätsmanagement\n\n- Einsatz von IT-Systemen\n\nAnforderungen\n\n- Leidenschaft für die Wirtschaft und Bankwelt\n\n- Highschool-Lizenz mit hervorragenden Ergebnissen\n\n- Erklären Sie relationale Fähigkeiten und einfache Anpassung an verschiedene Arbeitsszenarien\n\n- Gute Computerkenntnisse\n\n- Englischkenntnisse\n\nWenn Sie motiviert sind, dank der Anbindung an die Online-Anwendung: ein Schreiben der Motivation, CV, die drei neuesten Schulberichte und die Mittelschule Lizenz.",
-        "fr": "Est-ce que vous terminez le collège et que vous voulez devenir un professionnel à la banque?\n\nSi c'est votre souhait, l'AFC Trade Apprentice Bank of EFG Bank est ce qu'elle fait pour vous.\n\nVous travaillerez dans les principaux bureaux suisses de la Banque EFG au centre de Lugano à partir d'août 2026 jusqu'à août 2029 lorsque vous obtiendrez le certificat fédéral de capacité.\n\nAu cours des trois années, vous vivrez différentes équipes de travail travaillant aux niveaux national et international, par exemple banque privée, conformité, cartes de crédit, dépôt central, crédit, gestion des risques d'entreprise, gestion d'actifs, etc.\n\nEn plus de la formation dans l'entreprise, dans laquelle vous serez suivi par un tuteur qui vous sera dédié dans chaque équipe, vous assisterez à l'école professionnelle commerciale (CPC) de votre intérêt et les cours au centre de compétence bancaire (CYP) avec tous les apprentis d'affaires de la succursale du canton.\n\nEFG Bank soutient et encourage le développement d'une formation professionnelle intégrée pour assurer une formation aussi complète que possible à la fin de l'apprentissage.\n\nPendant le cours, vous pouvez développer différentes compétences professionnelles, notamment:\n\n- analyse du marché financier et du crédit\n\n- connaissance des produits bancaires\n\n- traitement et vérification des documents\n\n- planification des échéances et gestion des priorités\n\n- utilisation des systèmes informatiques financiers\n\nExigences\n\n- Passion pour l'économie et le monde bancaire\n\n- Licence d'études secondaires avec d'excellents résultats\n\n- Expliquer les capacités relationnelles et la facilité d'adaptation aux différents scénarios de travail\n\n- Bonne connaissance informatique\n\n- Connaissance de l'anglais\n\nSi vous êtes motivé, merci de joindre à l'application en ligne: une lettre de motivation, CV, les trois derniers rapports scolaires et la licence du collège."
+        "en": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
+        "it": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\nRequisiti\n- Passione per l’economia e il mondo bancario\n- Licenza di scuola media con ottimi risultati\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n- Buone conoscenze informatiche\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
+        "de": "Sind Sie mit der Mittelschule fertig und daran interessiert, Profi in der Bank zu werden?\n\nWenn dies Ihr Wunsch ist, ist die AFC Trade Apprentice Bank of EFG Bank das, was sie für Sie tut.\n\nSie werden von August 2026 bis August 2029 an den Hauptbüros der EFG Bank im Zentrum von Lugano arbeiten, wenn Sie das Bundeszertifikat für Kapazität erhalten.\n\nWährend der drei Jahre werden Sie verschiedene Arbeitsgruppen auf nationaler und internationaler Ebene erleben, zum Beispiel Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nNeben der Ausbildung in der Firma, in der Sie von einem Tutor für Sie in jedem Team, Sie werden die kommerzielle professionelle Schule (CPC) Ihres Interesses und die Kurse im Bank-Kompetenzzentrum (CYP) zusammen mit allen Business-Auszubildenden Zweigbank des Kantons folgen.\n\nDie EFG Bank unterstützt und fördert die Entwicklung einer integrierten Berufsbildung, um eine möglichst vollständige Ausbildung am Ende der Lehrlingsausbildung zu gewährleisten.\n\nWährend des Kurses können Sie verschiedene berufliche Fähigkeiten entwickeln, darunter:\n- Analyse des Finanz- und Kreditmarktes\n- Kenntnis der Bankprodukte\n- Verarbeitung und Überprüfung von Dokumenten\n- Terminplanung und Prioritätsmanagement\n- Einsatz von IT-Systemen\n\nAnforderungen\n- Leidenschaft für die Wirtschaft und Bankwelt\n- Highschool-Lizenz mit hervorragenden Ergebnissen\n- Erklären Sie relationale Fähigkeiten und einfache Anpassung an verschiedene Arbeitsszenarien\n- Gute Computerkenntnisse\n- Englischkenntnisse\n\nWenn Sie motiviert sind, dank der Anbindung an die Online-Anwendung: ein Schreiben der Motivation, CV, die drei neuesten Schulberichte und die Mittelschule Lizenz.",
+        "fr": "Est-ce que vous terminez le collège et que vous voulez devenir un professionnel à la banque?\n\nSi c'est votre souhait, l'AFC Trade Apprentice Bank of EFG Bank est ce qu'elle fait pour vous.\n\nVous travaillerez dans les principaux bureaux suisses de la Banque EFG au centre de Lugano à partir d'août 2026 jusqu'à août 2029 lorsque vous obtiendrez le certificat fédéral de capacité.\n\nAu cours des trois années, vous vivrez différentes équipes de travail travaillant aux niveaux national et international, par exemple banque privée, conformité, cartes de crédit, dépôt central, crédit, gestion des risques d'entreprise, gestion d'actifs, etc.\n\nEn plus de la formation dans l'entreprise, dans laquelle vous serez suivi par un tuteur qui vous sera dédié dans chaque équipe, vous assisterez à l'école professionnelle commerciale (CPC) de votre intérêt et les cours au centre de compétence bancaire (CYP) avec tous les apprentis d'affaires de la succursale du canton.\n\nEFG Bank soutient et encourage le développement d'une formation professionnelle intégrée pour assurer une formation aussi complète que possible à la fin de l'apprentissage.\n\nPendant le cours, vous pouvez développer différentes compétences professionnelles, notamment:\n\n- analyse du marché financier et du crédit\n\n- connaissance des produits bancaires\n\n- traitement et vérification des documents\n\n- planification des échéances et gestion des priorités\n\n- utilisation des systèmes informatiques financiers\n\nExigences\n- Passion pour l'économie et le monde bancaire\n- Licence d'études secondaires avec d'excellents résultats\n- Expliquer les capacités relationnelles et la facilité d'adaptation aux différents scénarios de travail\n- Bonne connaissance informatique\n- Connaissance de l'anglais\n\nSi vous êtes motivé, merci de joindre à l'application en ligne: une lettre de motivation, CV, les trois derniers rapports scolaires et la licence du collège."
       },
       "requirementsByLocale": {},
       "canonicalContent": {
@@ -4533,7 +4559,8 @@
         "apprenti-commercial-chez-afc-bank-efg-international-ag-lugano",
         "apprenti-en-commerce-chez-afc-bank-efg-international-ag-lugano"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6103",
