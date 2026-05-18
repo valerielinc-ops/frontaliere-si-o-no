@@ -23,6 +23,15 @@ export const BENIGN_MESSAGES: readonly RegExp[] = [
   /InvalidStateError.*IDBDatabase/i,
   /Failed to execute 'transaction' on 'IDBDatabase'/i,
   /AbortError.*signal is aborted/i,
+  // Safari emits a generic `TypeError: Load failed` for every fetch/resource
+  // failure (network blip, CORS, image 404, cancelled XHR) without ever
+  // populating `$exception_source` — no actionable signal in the payload.
+  // The chunk-load slice that DOES matter is caught upstream by
+  // `components/ChunkLoadErrorBoundary.tsx` via explicit "Failed to fetch
+  // dynamically imported module" / "Importing a module script failed" patterns.
+  // 30d ad-hoc audit (2026-05-18 follow-up): 49 events / 13 sessions, all
+  // with empty source, scattered across 15 distinct URLs — pure transport noise.
+  /^TypeError: Load failed$/i,
 ];
 
 /**

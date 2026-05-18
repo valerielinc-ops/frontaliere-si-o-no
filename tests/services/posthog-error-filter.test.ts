@@ -50,6 +50,17 @@ describe('createExceptionFilter()', () => {
     expect(filter(event)).toBeNull();
   });
 
+  it('drops Safari generic "TypeError: Load failed" (transport noise — no actionable source)', () => {
+    const event = makeExceptionEvent('TypeError: Load failed');
+    expect(filter(event)).toBeNull();
+  });
+
+  it('keeps real Load-failed errors that carry extra context', () => {
+    // Only the bare canonical Safari message is benign; anything richer should pass.
+    const event = makeExceptionEvent('TypeError: Load failed for https://api.example.com/v1/data');
+    expect(filter(event)).toBe(event);
+  });
+
   it('lets real errors through (ChunkLoadError)', () => {
     const event = makeExceptionEvent('TypeError: Importing a module script failed.');
     expect(filter(event)).toBe(event);
