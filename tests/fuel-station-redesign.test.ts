@@ -207,6 +207,28 @@ describe('Per-station page redesign — location card', () => {
     expect(html).toContain('https://www.waze.com/ul?ll=45.836000%2C9.033000&amp;navigate=yes');
   });
 
+  it('uses a responsive 2-col grid (auto-fit minmax 320px) so desktop gets map | info side-by-side', () => {
+    const pages = render();
+    const html = pages['/prezzi-diesel/chiasso/stazioni/migrol-via-cantonale/'];
+    // Old behavior used `minmax(0,1fr)` (always 1 col); new behavior uses
+    // `repeat(auto-fit, minmax(320px, 1fr))` so containers >640px wrap to 2.
+    expect(html).toContain('grid-template-columns:repeat(auto-fit,minmax(320px,1fr))');
+    expect(html).not.toContain('grid-template-columns:minmax(0,1fr)');
+  });
+
+  it('flags external links with aria-label, ↗ marker, and an OSM fallback text link', () => {
+    const pages = render();
+    const html = pages['/prezzi-diesel/chiasso/stazioni/migrol-via-cantonale/'];
+    // aria-label includes the "(apre in una nuova scheda)" suffix
+    expect(html).toMatch(/aria-label="Apri in Google Maps \(apre in una nuova scheda\)"/);
+    expect(html).toMatch(/aria-label="Apri in Waze \(apre in una nuova scheda\)"/);
+    expect(html).toMatch(/aria-label="Apri su OpenStreetMap \(apre in una nuova scheda\)"/);
+    // Visible ↗ marker (decorative, aria-hidden) appears next to each external CTA
+    expect(html).toMatch(/aria-hidden="true"[^>]*>↗/);
+    // OSM text fallback link points to the full openstreetmap.org marker URL
+    expect(html).toMatch(/href="https:\/\/www\.openstreetmap\.org\/\?mlat=45\.836000&amp;mlon=9\.033000#map=17\/45\.836000\/9\.033000"/);
+  });
+
   it('omits the location card entirely when the station has no lat/lng', () => {
     const noGeo: SyntheticStation = {
       ...STATIONS[0],
@@ -273,6 +295,21 @@ describe('Per-station page redesign — history chart', () => {
     const html = pages[`/prezzi-diesel/chiasso/stazioni/${slug}/`];
     expect(html).toContain('Andamento prezzo di Migrol');
     expect(html).not.toMatch(/non ancora disponibile/);
+  });
+
+  it('appends a localized "Ultimo aggiornamento: {date}" line under the chart card', () => {
+    const history = [
+      { date: '2026-05-15', zones: { chiasso: { diesel: 2.05 }, mendrisio: {}, lugano: {}, bellinzona: {}, locarno: {} } } as never,
+      { date: '2026-05-16', zones: { chiasso: { diesel: 2.04 }, mendrisio: {}, lugano: {}, bellinzona: {}, locarno: {} } } as never,
+      { date: '2026-05-17', zones: { chiasso: { diesel: 2.03 }, mendrisio: {}, lugano: {}, bellinzona: {}, locarno: {} } } as never,
+    ];
+    const pages = generateFuelStationPages({
+      dataset: buildDataset(STATIONS),
+      today: TODAY,
+      history,
+    });
+    const html = pages['/prezzi-diesel/chiasso/stazioni/migrol-via-cantonale/'];
+    expect(html).toContain('Ultimo aggiornamento: 2026-05-18');
   });
 });
 
