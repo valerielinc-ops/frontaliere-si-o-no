@@ -1274,18 +1274,24 @@ function renderPagination(locale: HubLocale, basePath: string, current: number, 
     fr: 'Parcourir toutes les archives par page',
   }[locale];
   const pageWord = locale === 'de' ? 'Seite' : locale === 'fr' || locale === 'en' ? 'Page' : 'Pagina';
-  const flatPillStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:var(--color-surface);color:var(--color-link);text-decoration:none;font-size:13px;border:1px solid var(--color-edge)';
-  const flatActiveStyle = 'display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:var(--color-accent);color:var(--color-on-accent);font-size:13px;font-weight:700';
+  // Use CSS classes instead of per-anchor inline styles. With totalPages
+  // ≥ 100 (master jobs hub) the inline-style variant ballooned to ~250 B
+  // per anchor × ~400 anchors = ~100 KB, pushing the last-page HTML past
+  // the 200 KB `audit:page-weight` budget (2026-05-18 regression on
+  // /cerca-lavoro-ticino/tutti/page-387/). The shared <style> block costs
+  // ~300 B once and saves ~190 B per anchor — ~70 KB net on a 400-page
+  // hub. Class names are short (.hp, .hc) to keep the inline cost minimal.
+  const flatStyleBlock = `<style>.hp,.hc{display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;font-size:13px}.hp{background:var(--color-surface);color:var(--color-link);text-decoration:none;border:1px solid var(--color-edge)}.hc{background:var(--color-accent);color:var(--color-on-accent);font-weight:700}</style>`;
   const flatAnchors: string[] = [];
   for (let p = 1; p <= total; p++) {
     const href = `${BASE_URL}${paginatedPath(basePath, p)}`;
     if (p === current) {
-      flatAnchors.push(`<strong style="${flatActiveStyle}" aria-current="page">${pageWord}&nbsp;${p}</strong>`);
+      flatAnchors.push(`<strong class="hc" aria-current="page">${pageWord}&nbsp;${p}</strong>`);
     } else {
-      flatAnchors.push(`<a href="${href}" style="${flatPillStyle}">${pageWord}&nbsp;${p}</a>`);
+      flatAnchors.push(`<a href="${href}" class="hp">${pageWord}&nbsp;${p}</a>`);
     }
   }
-  const flatNav = `<nav aria-label="${flatLabel}" style="margin-top:16px;max-width:1080px"><details style="border:1px solid var(--color-edge);border-radius:8px;padding:.5rem .75rem;background:var(--color-surface-alt)"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--color-heading);padding:.25rem 0">${flatLabel} (${total})</summary><div style="margin-top:.5rem;line-height:1.9">${flatAnchors.join('')}</div></details></nav>`;
+  const flatNav = `${flatStyleBlock}<nav aria-label="${flatLabel}" style="margin-top:16px;max-width:1080px"><details style="border:1px solid var(--color-edge);border-radius:8px;padding:.5rem .75rem;background:var(--color-surface-alt)"><summary style="cursor:pointer;font-weight:600;font-size:14px;color:var(--color-heading);padding:.25rem 0">${flatLabel} (${total})</summary><div style="margin-top:.5rem;line-height:1.9">${flatAnchors.join('')}</div></details></nav>`;
 
   return `${compactNav}${flatNav}`;
 }
@@ -1819,6 +1825,17 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
     if (total < MIN_JOBS_FOR_CANTON_PAGE) continue;
 
     const jobs = cantonJobs.get(canton) ?? [];
+    // Tighter gate: cantonJobCounts increments on every job (line 212), but
+    // cantonJobs only appends when `job.slug` is present (line 217). When
+    // counts ≥ MIN but jobs array is empty (rare — usually the smallest
+    // cantons whose snapshot has slug-less rows), the hub HTML emits with an
+    // empty items list AND the sitemap entry below gets pushed, producing
+    // unreachable URLs (no inbound link from BFS-reachable nav). Bumped the
+    // gate to require ≥ MIN actual slug-bearing jobs to avoid that. Audit:
+    // `sitemap-seo-hubs.xml` BFS regression 2026-05-18 (cerca-lavoro-
+    // appenzello/{tutti,settori,aziende}/ +3 unreachable).
+    if (jobs.length < MIN_JOBS_FOR_CANTON_PAGE) continue;
+
     const empCounts = cantonEmployerCounts.get(canton) ?? new Map<string, number>();
 
     for (const locale of HUB_LOCALES) {

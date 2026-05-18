@@ -238,8 +238,31 @@ Every PR must pass these per-feature ratchet audits. Each gate has a baseline (`
 | BFS depth ≤ 4 from `/` | `npm run audit:max-bfs-depth` | `post-deploy-validation.yml` | `data/bfs-depth-baseline.json` |
 | `<title>` length ≤ 66 (60 + 10 % tolerance) | `npm run audit:title-length` | `post-build-tasks.sh` shard 3 | `data/title-length-baseline.json` |
 | `(#hash)` disambiguator visible in `<title>` | `npm run audit:title-no-disambig-hash` | `post-build-tasks.sh` shard 3 | `data/title-no-disambig-hash-baseline.json` |
+| `<div id="footer-root">` present on every `<main class="seo-static-content">` page (zero tolerance) | `npm run audit:footer-root-presence` | `post-deploy-validate-dist.yml` shard 3 | none — must be 0 |
+| `<title>` ≠ `<h1>` (case+ws insensitive, zero tolerance) | `npm run audit:h1-title-duplicates` | `post-deploy-validate-dist.yml` shard 3 | `data/h1-title-duplicates-baseline.json` |
 
 Each audit has a matching `:rebaseline` script (e.g. `npm run audit:title-length:rebaseline`). After a deliberate improvement, run rebaseline and commit the new baseline together with the fix in the same PR.
+
+## Verifying audit fixes without a local build
+
+**Never run `FAST_BUILD= npx vite build` locally** to verify audit fixes — it OOMs (>8 GB), and the FAST_BUILD trap silently skips SEO plugins (see `## ⚠️ FAST_BUILD trap` section above).
+
+Instead, use the audit-replay workflow (PR #295):
+
+```bash
+gh workflow run audit-dist-from-run.yml \
+  -f deploy_run_id=<a_completed_deploy_run_id> \
+  -f audits=text-html-ratio,page-weight   # optional, defaults to currently-failing
+```
+
+It pulls the `github-pages` artifact (~1.8 GB) from the given deploy run, restores it to `dist/`, runs the selected audits via `npm run audit:<name>`, and uploads `dist/audit-reports/` + per-audit logs as `audit-replay-<run-id>`. Use it for:
+
+- Verifying a baseline rebaseline didn't introduce a regression
+- Testing a new audit gate against historical dist (e.g. `audit:footer-root-presence` added in PR #294)
+- Bisecting audit regressions across deploys
+- Validating audit-only code paths after merging a fix (run against a fresh deploy)
+
+Limit: only works for audits that READ from `dist/`. Source-only audits (`gate:seo-source`) need a real build.
 
 **Critical context for `<title>`:** never reintroduce mid-`…` truncation — it tanked CTR on `/calcola-stipendio/` 4.8 % → 0.99 % during the cap=70 era. The `buildTitleWithBrand()` helper (`build-plugins/shared/titleSuffix.ts`) drops the brand suffix instead. Job-board exception: `composeJobPageTitle` uses `JOB_TITLE_MAX = 70` for city + (#hash) disambiguator structure.
 
