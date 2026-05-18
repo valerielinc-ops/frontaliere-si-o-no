@@ -2495,7 +2495,7 @@ ${hreflangHtml}
  <script type="application/ld+json">${jobLd}</script>
  <script type="application/ld+json">${breadcrumbLd}</script>
  <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,inLanguage:locale,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
- <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".section"]})}</script>${hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'" data-clarity-unmask="true"><noscript><link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true"></noscript>` : ''}
+ <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".section"]})}</script>${hasSpaBundle ? `\n <link rel="preload" as="style" crossorigin href="/assets/${entryCss}" data-clarity-unmask="true">\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'" data-clarity-unmask="true"><noscript><link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true"></noscript>` : ''}
  ${SPA_ACTION_REDIRECT_SCRIPT}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
