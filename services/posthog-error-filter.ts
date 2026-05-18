@@ -32,6 +32,29 @@ export const BENIGN_MESSAGES: readonly RegExp[] = [
   // 30d ad-hoc audit (2026-05-18 follow-up): 49 events / 13 sessions, all
   // with empty source, scattered across 15 distinct URLs — pure transport noise.
   /^TypeError: Load failed$/i,
+  // ── 2026-05-18 triage additions ──
+  // Microsoft Office / Outlook in-app browser injects a postMessage handler
+  // that posts to a non-existent native listener. ~363 events / 30d across
+  // 5 separate fingerprint buckets (Id:1..7). Pure host-app noise.
+  // https://stackoverflow.com/q/72396527 — confirmed Office "Web Add-in" bridge.
+  /Object Not Found Matching Id:\d+, MethodName:update, ParamCount:4/i,
+  // Firebase Installations/RemoteConfig SDKs go offline on flaky networks
+  // and during iOS tab suspension. The SDK retries automatically; reporting
+  // is pure noise. 30d: 34 (Installations app-offline) + 10 (RC storage-open)
+  // + 5 (RC storage-get).
+  /Installations:.*Application offline\b/i,
+  /Remote Config:.*Original error:.*(Failed to fetch|Load failed|aborted|Database deleted|client is offline)/i,
+  // User clears site data mid-session — IndexedDB then reports it can't
+  // continue. Not actionable for us; 33 events / 30d.
+  /Database deleted by request of the user/i,
+  // Cross-origin iframe access blocked by browser SOP — typically a browser
+  // extension probing our DOM. 9 events / 30d.
+  /SecurityError.*Blocked a frame.*cross-origin/i,
+  // Generic AbortError variants (user pressed back / nav cancelled fetch) —
+  // 15+8 events / 30d. The existing `signal is aborted` regex already covers
+  // a subset; widen to catch "The user aborted a request" + "The operation
+  // was aborted." emitted by older WebKit.
+  /AbortError:\s+The (user aborted a request|operation was aborted)/i,
 ];
 
 /**

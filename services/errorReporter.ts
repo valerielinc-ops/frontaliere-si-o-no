@@ -63,6 +63,30 @@ const NOISE_PATTERNS: ReadonlyArray<RegExp> = [
  // (sw_cache_stale) handles the visible cases; bare rejections without
  // a recovery hook are noise. (16+ in audit.)
  /Importing a module script failed/i,
+ // ── 2026-05-18 PostHog triage additions ──
+ // Microsoft Office in-app browser bridge postMessage noise. 363 events /
+ // 30d across 5 Id buckets — pure host-app noise.
+ /Object Not Found Matching Id:\d+, MethodName:update, ParamCount:4/i,
+ // Firebase Installations/RemoteConfig offline — SDK retries automatically.
+ // 65+53+32+29+21+25 = ~225 events / 30d, all environmental.
+ /Installations:.*Application offline\b/i,
+ /Remote Config:.*Original error:.*(Failed to fetch|Load failed|aborted|Database deleted|client is offline)/i,
+ // IndexedDB lifecycle noise from iOS tab suspension / user clearing site
+ // data. Already auto-recovered by `recoverFromIndexedDbLoss()`; reporting
+ // is duplicate noise. 252+128+33+25 = ~440 events / 30d.
+ /Connection to Indexed Database server lost/i,
+ /Failed to execute 'transaction' on 'IDBDatabase'/i,
+ /UnknownError.*IDBDatabase/i,
+ /Database deleted by request of the user/i,
+ // Safari generic transport failure with no actionable source. 69+18 events
+ // / 30d in unhandled_rejection bucket alone.
+ /^TypeError: Load failed$/i,
+ // Twelve Data CHF/EUR exchange-rate fetch flakes ~140 events / 30d. Caller
+ // has full Firebase RC fallback, so this is recoverable noise.
+ // TODO(2026-05-18): if Firestore fallback also fails we lose CHF/EUR
+ // display — add a sentinel event for double-failure instead of dropping
+ // both. Tracked via `endpoint=config/exchange_rate` slice.
+ /\[exchangeRate\.twelveDataFetch\]/i,
 ];
 
 function isNoise(message: string): boolean {

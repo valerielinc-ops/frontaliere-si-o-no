@@ -62,11 +62,14 @@ export type NewsletterSourceChannel =
 export type NewsletterGeoSource = 'profile_municipality' | 'ip_lookup' | 'manual' | 'none';
 
 export type NewsletterUtm = {
- source?: string;
- medium?: string;
- campaign?: string;
- content?: string;
- term?: string;
+ // Fields must be string | null (never undefined) — Firestore rejects
+ // undefined values inside nested maps with "Unsupported field value:
+ // undefined (found in field source_utm.medium ...)".
+ source?: string | null;
+ medium?: string | null;
+ campaign?: string | null;
+ content?: string | null;
+ term?: string | null;
 };
 
 export type NewsletterJobContext = {
@@ -257,7 +260,21 @@ function parseUtmFromWindow(): NewsletterUtm | null {
  const content = sanitizeString(params.get('utm_content'));
  const term = sanitizeString(params.get('utm_term'));
  if (!source && !medium && !campaign && !content && !term) return null;
- return { source: source || undefined, medium: medium || undefined, campaign: campaign || undefined, content: content || undefined, term: term || undefined };
+ // Firestore rejects `undefined` field values inside nested maps with
+ // `setDoc() called with invalid data. Unsupported field value: undefined
+ // (found in field source_utm.medium ...)`. When a URL ships only a subset
+ // of UTM parameters (common — e.g. perplexity referrals send just
+ // `?utm_source=perplexity`), the missing dimensions MUST be `null`, not
+ // `undefined`, or every One Tap subscriber write fails after sign-in.
+ // 2026-05-18 PostHog triage: ranked as the highest-volume actionable error
+ // in `auth.persistOneTapSubscriber`.
+ return {
+ source: source ?? null,
+ medium: medium ?? null,
+ campaign: campaign ?? null,
+ content: content ?? null,
+ term: term ?? null,
+ };
  } catch {
  return null;
  }
