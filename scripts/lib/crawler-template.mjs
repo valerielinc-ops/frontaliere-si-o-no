@@ -304,9 +304,10 @@ export function normalizeDescriptionBullets(text) {
  * Strip HTML tags and decode common entities. Use for description fields.
  */
 export function stripHtml(html = '') {
-  return String(html || '')
+  const stripped = String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/(?:p|div|li|tr|h[1-6])>/gi, '\n')
@@ -321,6 +322,14 @@ export function stripHtml(html = '') {
     .replace(/\n{3,}/g, '\n\n')
     .replace(/ {2,}/g, ' ')
     .trim();
+  // Truncate at first inline JS widget signature — SAP SF / Freeform widgets
+  // embed `function NAME(...)` blocks at the end that aren't wrapped in
+  // <script> tags and survive the strip.
+  const fnMatch = stripped.match(/\n\s*function\s+\w+\s*\([^)]*\)\s*\{/);
+  if (fnMatch && fnMatch.index > 0) return stripped.slice(0, fnMatch.index).trimEnd();
+  const varMatch = stripped.match(/\n\s*var\s+\w+\s*=\s*(?:window|document)\./);
+  if (varMatch && varMatch.index > 0) return stripped.slice(0, varMatch.index).trimEnd();
+  return stripped;
 }
 
 const DEFAULT_UA = process.env.JOBS_CRAWLER_USER_AGENT ||

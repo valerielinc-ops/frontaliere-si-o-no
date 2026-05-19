@@ -113,11 +113,18 @@ function extractDetailBody(html) {
     const inner = m[2];
     // Strip nested wrappers, keep text + bullet markers from <li>
     const cleaned = inner
+      .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+      .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+      .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
       .replace(/<li[^>]*>/g, '\n• ')
       .replace(/<\/li>/g, '')
       .replace(/<br\s*\/?\s*>/g, '\n')
       .replace(/<[^>]+>/g, ' ');
-    const text = normalizeSpace(decodeEntities(cleaned).replace(/\s*\n\s*/g, '\n')).trim();
+    let text = normalizeSpace(decodeEntities(cleaned).replace(/\s*\n\s*/g, '\n')).trim();
+    // Freeform Stripe widget injects an inline `function NAME(...) {...}` block
+    // at the bottom of the application section that is NOT in a <script> tag.
+    const fnIdx = text.search(/\n\s*function\s+\w+\s*\([^)]*\)\s*\{/);
+    if (fnIdx > 0) text = text.slice(0, fnIdx).trimEnd();
     if (!text || text.length < 6) continue;
     parts.push(text);
   }

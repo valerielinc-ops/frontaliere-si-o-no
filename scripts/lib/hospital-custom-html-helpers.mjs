@@ -44,16 +44,43 @@ export function normalizeSpace(s = '') {
 }
 
 export function htmlToText(html = '') {
-  return decodeEntities(
+  const stripped = decodeEntities(
     String(html || '')
       .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
       .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+      .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
       .replace(/<br\s*\/?>/gi, '\n')
       .replace(/<\/(p|div|li|h[1-6]|tr)>/gi, '\n')
       .replace(/<[^>]+>/g, ' ')
       .replace(/\n{3,}/g, '\n\n')
       .replace(/ {2,}/g, ' '),
   ).trim();
+  return stripInlineJsCode(stripped);
+}
+
+/**
+ * Some ATS pages (SAP SF, Stripe Freeform forms) inline JavaScript widget
+ * code right inside the description container, NOT wrapped in `<script>`
+ * tags — typically a job-share/email widget. The HTML stripper above
+ * removes script tags but cannot reach JS that was already plain-text in
+ * the source. Truncate at the first inline `function NAME(...)` signature
+ * (these widgets always appear at the bottom, after real content).
+ */
+export function stripInlineJsCode(text = '') {
+  if (!text) return text;
+  // Match: optional leading whitespace + `function NAME(...)`, with at least
+  // one alphanumeric name. Anchored against a newline to avoid mid-sentence
+  // false positives like "the function `lookupX(...)` returns".
+  const m = text.match(/\n\s*function\s+\w+\s*\([^)]*\)\s*\{/);
+  if (m && m.index > 0) {
+    return text.slice(0, m.index).trimEnd();
+  }
+  // Fallback: orphan `var X = window.` / `var X = document.` declarations
+  const m2 = text.match(/\n\s*var\s+\w+\s*=\s*(?:window|document)\./);
+  if (m2 && m2.index > 0) {
+    return text.slice(0, m2.index).trimEnd();
+  }
+  return text;
 }
 
 export async function fetchHtml(url, { timeoutMs } = {}) {
