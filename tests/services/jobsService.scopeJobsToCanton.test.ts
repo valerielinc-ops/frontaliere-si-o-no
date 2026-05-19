@@ -63,4 +63,28 @@ describe('scopeJobsToCanton', () => {
     const scoped = scopeJobsToCanton(FIXTURE, 'TI');
     expect(scoped.map((j) => j.id).sort()).toEqual(['a', 'b']);
   });
+
+  // Regression 2026-05-19: BASILEA and APPENZELLO are URL group codes that
+  // expand to multiple BFS members. Jobs always carry the BFS code
+  // (BL/BS/AI/AR) — never the group key. Without expansion the filter
+  // returned 0 rows on /cerca-lavoro-basilea/ and /cerca-lavoro-appenzello/.
+  it('BASILEA group code expands to BL+BS members', () => {
+    const scoped = scopeJobsToCanton(FIXTURE, 'BASILEA');
+    expect(scoped.map((j) => j.id).sort()).toEqual(['c', 'd']);
+  });
+
+  it('APPENZELLO group expansion: jobs in AI/AR surface when none in fixture exists', () => {
+    const fixture: Fixture[] = [
+      { id: '1', canton: 'AI' },
+      { id: '2', canton: 'AR' },
+      { id: '3', canton: 'TI' },
+    ];
+    const scoped = scopeJobsToCanton(fixture, 'APPENZELLO');
+    expect(scoped.map((j) => j.id).sort()).toEqual(['1', '2']);
+  });
+
+  it('case-insensitive group code resolution', () => {
+    const scoped = scopeJobsToCanton(FIXTURE, 'basilea');
+    expect(scoped.map((j) => j.id).sort()).toEqual(['c', 'd']);
+  });
 });

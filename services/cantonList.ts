@@ -67,6 +67,27 @@ const HALF_CANTON_LABELS: Record<string, Record<CantonLocale, string>> = {
 };
 
 /**
+ * Expand a URL canton code to its member BFS codes. For real cantons the
+ * input is returned as a single-element array unchanged. For group codes
+ * (`BASILEA` → `['BL','BS']`, `APPENZELLO` → `['AI','AR']`) the members
+ * are returned.
+ *
+ * Used wherever a downstream filter compares against `job.canton` (the
+ * BFS code on the data side) but the URL-driven canton may be a group
+ * code. Without this expansion, `scopeJobsToCanton(jobs, 'BASILEA')`
+ * silently yields zero rows because no job has `canton === 'BASILEA'`.
+ */
+export function expandCantonGroup(code: string): string[] {
+  const upper = String(code || '').toUpperCase().trim();
+  if (!upper) return [];
+  const groupDef = RAW.cantonGroups?.[upper];
+  if (groupDef?.members && groupDef.members.length > 0) {
+    return groupDef.members.map((m) => String(m).toUpperCase());
+  }
+  return [upper];
+}
+
+/**
  * 2-letter ISO canton codes (uppercase) — sorted alphabetically for stable
  * UI ordering. Frozen at module load. Always 26 entries (expands AI/AR/BL/BS
  * even though the URL slugs collapse them onto APPENZELLO/BASILEA).
