@@ -38411,6 +38411,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino': {
+    title: 'Tensioni su tassa lombarda e ipotesi blocco ristorni, Cassis in Ticino',
+    description: 'Il Consiglio di Stato del Ticino esprime preoccupazione per le tensioni sulla tassa lombarda e l\'ipotesi di blocco dei ristorni. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, tensioni, tassa, lombarda, ipotesi',
+    ogTitle: 'Tensioni su tassa lombarda e ipotesi blocco ristorni, Cassis in Ticino',
+    ogDescription: 'Il Consiglio di Stato del Ticino esprime preoccupazione per le tensioni sulla tassa lombarda e l\'ipotesi di blocco dei ristorni',
+    canonicalPath: '/articoli-frontaliere/tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tensioni su tassa lombarda e ipotesi blocco ristorni, Cassis in Ticino",
+      "description": "Il Consiglio di Stato del Ticino esprime preoccupazione per le tensioni sulla tassa lombarda e l'ipotesi di blocco dei ristorni. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ascona e il lago di Lugano con il Monte Brè"
+      },
+      "datePublished": "2026-05-19T07:28:43+00:00",
+      "dateModified": "2026-05-19T07:28:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

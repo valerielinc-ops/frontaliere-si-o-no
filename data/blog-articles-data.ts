@@ -24347,4 +24347,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino',
+ category: 'fiscale',
+ date: '2026-05-19T07:28:43.475Z',
+ image: '/images/blog/tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];

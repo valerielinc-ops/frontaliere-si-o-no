@@ -7658,6 +7658,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.title': 'Emploi et discriminations, un sondage pour les personnes LGBTQIA+',
     'blog.article.lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.excerpt': 'UNIA et Imbarco Immediato lancent un sondage pour explorer les discriminations sur le lieu de travail envers les personnes LGBTQIA+. Publié en ligne dimanche, le questionnaire vise à éclairer une réalité qui touche au moins la moitié des travailleurs non hétérosexuels en Suisse.',
     'blog.article.lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.imageAlt': 'Personnes remplissant le questionnaire en ligne',
+    'blog.article.tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.title': 'Tension sur la tasse lombarde, Cassis en Ticino',
+    'blog.article.tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.excerpt': 'Le Conseil d\'État du Tessin a exprimé sa préoccupation quant aux tensions sur la taxe lombarde et à l\'hypothèse de blocage des rétrocessions',
+    'blog.article.tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.imageAlt': 'Ascona et le lac de Lugano avec le Monte Brè',
 };
 
 export default blogMetaFr;

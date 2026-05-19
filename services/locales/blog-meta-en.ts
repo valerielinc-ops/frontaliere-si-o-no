@@ -7657,6 +7657,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.title': 'Workplace Discrimination: A Survey for LGBTQIA+ People',
     'blog.article.lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.excerpt': 'UNIA and Immediate Boarding launch a survey to investigate workplace discrimination against LGBTQIA+ people. Published online on Sunday, the questionnaire aims to shed light on a reality that affects at least half of non-heterosexual workers in Switzerland.',
     'blog.article.lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.imageAlt': 'People filling out the online survey',
+    'blog.article.tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.title': 'Tensions over Lombardy tax and potential revenue block, Cassis in Ticino',
+    'blog.article.tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.excerpt': 'The Ticino State Council has expressed concern over tensions regarding the Lombardy tax and the potential block of revenues',
+    'blog.article.tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.imageAlt': 'Ascona and Lake Lugano with Monte Brè',
 };
 
 export default blogMetaEn;
