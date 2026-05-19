@@ -107,6 +107,52 @@ more audits to the unified runner barely increases total time (each audit's
 regex is microseconds per file in memory, dominated by file I/O which is
 already done once).
 
+## L2 — production measurement (1000-file random sample)
+
+`scripts/measure-l2-distribution.mjs` applies the minifier to a random
+sample of the production dist artifact and prints the byte-reduction
+distribution. Run against the 650.257-file production artifact:
+
+| Metric | Value |
+|---|---|
+| Sample size | 1.000 files |
+| Total original | 9.5 MB |
+| Total minified | 9.4 MB |
+| Total saved | 85 KB |
+| Mean reduction | **0.87 %** |
+| Median reduction | 0.76 % |
+| p90 reduction | 1.16 % |
+| Max reduction | 4.43 % |
+| Min reduction | 0.20 % |
+
+Per feature:
+
+| Feature | Files in sample | Mean reduction |
+|---|---|---|
+| spa-locale | 47 | 1.69 % |
+| salary-hub | 3 | 1.68 % |
+| spa-other | 1 | 1.04 % |
+| job-board | 938 | 0.80 % |
+| blog | 11 | 0.59 % |
+
+**Extrapolated artifact saving** (assuming sample is representative of
+the full 650.257 files): ~54.2 MB on 8.2 GB total dist = -0.66 %.
+
+This is the honest production headroom. The original 9.5 % "measurement"
+in this doc's first revision counted ALL whitespace in the HTML, including
+semantic whitespace inside text content (which the minifier never touches).
+The template literals emitted by the SEO plugins are dense by construction
+(single-line `<section>` blocks, minimal head indentation), so the safe
+whitespace headroom is small.
+
+Where the L2 minifier still earns its place:
+- foundation for future more-aggressive minification (attribute quote
+  strip, inter-block `\n` removal) once visual-regression coverage exists
+- validate-dist parsing slightly faster (regex scans smaller files)
+- network/CDN egress slightly smaller per page
+- zero risk: DOM-equivalent + content-equivalent on every sampled file
+  (verified via scripts/verify-l2-equivalence.mjs over 1.000 samples)
+
 ## Extrapolated win (full 6-audit migration)
 
 Linear projection: with 6 audits in the unified runner, wall time stays ≈
