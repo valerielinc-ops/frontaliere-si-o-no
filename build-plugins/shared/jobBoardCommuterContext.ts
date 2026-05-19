@@ -450,52 +450,19 @@ function getCantonProseBlock(
  * the same HTML. It uses semantic colour tokens from index.css so the prose
  * works in light + dark mode without `dark:` class prefixes (CLAUDE.md rule).
  */
-// Memo cache keyed by the full opts tuple. The output is a deterministic
-// function of opts (no module-level mutable state, no Date.now() calls),
-// so caching the full HTML is safe.
-//
-// Observed cardinality (memory: project_cluster_render_optimization_may9):
-// ~560 unique outputs across ~52k invocations in a full build. Per-call
-// cost ~3-5 ms (paragraph composition + 1-2 KB string concat). Memoization
-// saves ~3-5 min off related-search-clusters (305 s) + jobs-seo-pages (288 s)
-// closeBundle hooks where this helper is called dozens of times per page.
-//
-// maxSize = 5000 matches build-plugins/shared/precomputeCache.ts default —
-// generous headroom over the observed 560 distinct keys. Exceeding the cap
-// throws (fail-loud) so a high-cardinality key (e.g. per-slug parameter
-// slipping into opts) surfaces as a build error, not a silent memory leak.
-const COMMUTER_CONTEXT_CACHE = new Map<string, string>();
-const COMMUTER_CONTEXT_CACHE_MAX = 5000;
-
-function commuterContextCacheKey(opts: JobBoardCommuterContextOpts): string {
-  // Stable concatenation in field order — cheaper than JSON.stringify on a
-  // hot path that runs ~52k times per build. Null/undefined → empty string.
-  return (
-    opts.locale + '\x00' +
-    opts.location + '\x00' +
-    (opts.sectorOrType ?? '') + '\x00' +
-    (opts.omitCommute ? '1' : '0') + '\x00' +
-    (opts.cantonDisplay ?? '') + '\x00' +
-    (opts.cantonSlot ?? '') + '\x00' +
-    (opts.cantonEntityName ?? '')
-  );
-}
+// NOTE: memoization removed 2026-05-19 (PR #368 → revert).
+// The pre-PR-#368 cardinality estimate of ~560 unique outputs was wrong:
+// the cathedral CH-wide expansion combined with sector-specific FAQ + canton
+// prose dimensions blew past the 5000-key cap in the related-search-clusters
+// plugin (build aborted at deploy run 26093264841 with "memo cache exceeded
+// maxSize=5000"). The function is now called per-page without caching; any
+// future optimisation must measure actual cardinality first (e.g. via a
+// throw-away `console.log(Object.keys(opts).join(','))` counter on a real
+// build) before reintroducing memoization.
 
 export function renderJobBoardCommuterContext(
   opts: JobBoardCommuterContextOpts,
 ): string {
-  const cacheKey = commuterContextCacheKey(opts);
-  const cached = COMMUTER_CONTEXT_CACHE.get(cacheKey);
-  if (cached !== undefined) return cached;
-  if (COMMUTER_CONTEXT_CACHE.size >= COMMUTER_CONTEXT_CACHE_MAX) {
-    throw new Error(
-      `renderJobBoardCommuterContext memo cache exceeded maxSize=${COMMUTER_CONTEXT_CACHE_MAX}. ` +
-      `Last key: ${JSON.stringify(opts)}. ` +
-      `Either raise the cap (if cardinality is genuinely bounded) or remove the offending ` +
-      `per-page parameter from opts so the cache key space stays bounded.`,
-    );
-  }
-
   const {
     locale,
     location,
@@ -564,7 +531,6 @@ export function renderJobBoardCommuterContext(
   <p style="margin:0 0 14px">${crossLinks}</p>
 ${cantonBlock}
 </section>`;
-  COMMUTER_CONTEXT_CACHE.set(cacheKey, html);
   return html;
 }
 
