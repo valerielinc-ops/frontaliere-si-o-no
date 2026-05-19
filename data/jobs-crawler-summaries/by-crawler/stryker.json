@@ -1,18 +1,19 @@
 {
   "key": "stryker",
   "label": "Stryker",
-  "generatedAt": "2026-05-19T16:51:12.400Z",
+  "generatedAt": "2026-05-19T23:39:03.130Z",
   "total": 8,
-  "newCount": 8,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 187103,
-  "avgDurationMs": 187103,
+  "durationMs": 7989,
+  "avgDurationMs": 7989,
   "durationHistory": [
-    187103
+    7989
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "stryker-033b78e8983f",
       "slug": "regulatory-affairs-specialist-stryker-ch",
@@ -26,7 +27,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Biberist-Switzerland/Regulatory-Affairs-Specialist_R561546-1",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T16:48:06.855Z",
+      "crawledAt": "2026-05-19T23:38:56.457Z",
       "addressLocality": "Biberist",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "postedDate": "2026-05-18",
       "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Biberist-Switzerland/Regulatory-Affairs-Specialist_R561546-1",
       "jobReqId": "R561546",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-05-19T16:48:06.855Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Biberist-Switzerland/XMLNAME--Junior--Sales-Representative--m-w-d--Foot---Ankle-West--Zentralschweiz_R564801",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T16:48:07.654Z",
+      "crawledAt": "2026-05-19T23:38:57.154Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "postedDate": "2026-05-07",
       "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Biberist-Switzerland/XMLNAME--Junior--Sales-Representative--m-w-d--Foot---Ankle-West--Zentralschweiz_R564801",
       "jobReqId": "R564801",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T16:48:07.654Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Mahwah-New-Jersey/Field-Clinical-Specialist---Northern-New-Jersey-Area---Peripheral-Vascular_R563824",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T16:48:08.394Z",
+      "crawledAt": "2026-05-19T23:38:57.826Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "postedDate": "2026-04-22",
       "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Mahwah-New-Jersey/Field-Clinical-Specialist---Northern-New-Jersey-Area---Peripheral-Vascular_R563824",
       "jobReqId": "R563824",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-05-19T16:48:08.394Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Senior-Manufacturing-Engineer--m-w-d--fr-Projekte---Produktion--Medizintechnik_R556435",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T16:48:09.153Z",
+      "crawledAt": "2026-05-19T23:38:58.496Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "postedDate": "2026-04-20",
       "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Senior-Manufacturing-Engineer--m-w-d--fr-Projekte---Produktion--Medizintechnik_R556435",
       "jobReqId": "R556435",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-19T16:48:09.153Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/XMLNAME--Senior--Produktionsingenieur--m-w-d---Medizintechnik_R559490",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T16:48:10.075Z",
+      "crawledAt": "2026-05-19T23:38:59.190Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "postedDate": "2026-04-20",
       "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/XMLNAME--Senior--Produktionsingenieur--m-w-d---Medizintechnik_R559490",
       "jobReqId": "R559490",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T16:48:10.075Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Ausbildung-Produktionsmechaniker--m-w-d-_R562903",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T16:48:11.241Z",
+      "crawledAt": "2026-05-19T23:38:59.903Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Ausbildung-Produktionsmechaniker--m-w-d-_R562903",
       "jobReqId": "R562903",
-      "_qualityScore": 53,
+      "firstSeenAt": "2026-05-19T16:48:11.241Z",
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lehrstelle-als-Produktionsmechaniker--m-w-d--EFZ---Medizintechnik_R546466",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T16:48:12.006Z",
+      "crawledAt": "2026-05-19T23:39:00.616Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -257,11 +264,12 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lehrstelle-als-Produktionsmechaniker--m-w-d--EFZ---Medizintechnik_R546466",
       "jobReqId": "R546466",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-05-19T16:48:12.006Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -278,7 +286,7 @@
       "url": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lehrstelle-als-Polymechaniker--m-w-d--EFZ---Medizintechnik_R546468",
       "source": "Stryker Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T16:48:12.774Z",
+      "crawledAt": "2026-05-19T23:39:01.298Z",
       "addressLocality": "Selzach",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -293,16 +301,16 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://stryker.wd1.myworkdayjobs.com/en-US/StrykerCareers/job/Selzach-Switzerland/Lehrstelle-als-Polymechaniker--m-w-d--EFZ---Medizintechnik_R546468",
       "jobReqId": "R546468",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-05-19T16:48:12.774Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
