@@ -1,6 +1,6 @@
 {
   "crawlerKey": "amministrazione-cantonale-ti",
-  "assembledAt": "2026-05-19T12:46:56.454Z",
+  "assembledAt": "2026-05-19T23:46:32.464Z",
   "jobs": [
     {
       "id": "company-213iav",
@@ -134,7 +134,8 @@
       "addressLocality": "Savosa",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213ibh",
@@ -689,7 +690,8 @@
       "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213icl",
@@ -769,7 +771,8 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213ick",
@@ -1132,8 +1135,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "stagiste-i-per-il-conseguimento-della-maturita-professionale-commerciale-52-settimane-presso-l-amministrazione-cantonale-amministrazione-can-213zbx",
-        "stage-pour-l-obtention-de-la-maturite-professionnelle-commerciale-52-semaines-au-sein-de-l",
-        "stagiste-i-per-il-conseguimento-della-maturita-professionale-commerciale-52-settimane-presso-l-amministrazione-cantonale-amministrazione-cantonale-ticino-bellinzona"
+        "stagiste-i-per-il-conseguimento-della-maturita-professionale-commerciale-52-settimane-presso-l-amministrazione-cantonale-amministrazione-cantonale-ticino-bellinzona",
+        "stage-pour-l-obtention-de-la-maturite-professionnelle-commerciale-52-semaines-au-sein-de-l"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -1212,8 +1215,8 @@
       "previousSlugs": [
         "concorso-generale-2026-medico-capo-clinica-in-psichiatria-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione--213j0o",
         "concorso-generale-2026-medico-capo-clinica-in-psichiatria-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-sociopsichiatric-213j0o",
-        "concorso-generale-2026-medico-capo-clinica-in-psichiatria-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino-bellinzona",
-        "concorso-generale-2026-medico-capo-clinica-in-psichiatria-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino-mendrisio"
+        "concorso-generale-2026-medico-capo-clinica-in-psichiatria-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino-mendrisio",
+        "concorso-generale-2026-medico-capo-clinica-in-psichiatria-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino-bellinzona"
       ],
       "salaryMin": 80000,
       "salaryMax": 108000,
@@ -1294,14 +1297,14 @@
         "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino--213j0g",
         "general-physician-assistant-competition-2026-amministrazione-cantonale-ticino-mendrisio",
         "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-sociopsichiatrica-cantonale-osc-m-213j0g",
+        "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino-",
         "general-physician-assistant-competition-2026-amministrazione-cantonale-ticino-bellinzona",
         "concours-pour-le-poste-d-assistant-medical-general-2026-amministrazione-cantonale-ticino-bellinzona",
         "wettbewerb-fur-die-stelle-eines-allgemeinen-assistenzarztes-2026-amministrazione-cantonale",
         "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-sociopsichiatrica-cantonale-osc-m",
         "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino-mendrisio",
         "allgemeine-ausschreibung-2026-assistenzarzte-bei-der-kantonalen-sozialpsychiatrischen-organisation-osc-mendrisio-sociopsichiatrica-cantonale",
-        "concours-general-2026-medecins-assistants-a-l-organisation-socio-psychiatrique-cantonale-osc-mendrisio-sociopsichiatrica-cantonale-osc-mendr",
-        "concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazione-cantonale-ticino-"
+        "concours-general-2026-medecins-assistants-a-l-organisation-socio-psychiatrique-cantonale-osc-mendrisio-sociopsichiatrica-cantonale-osc-mendr"
       ],
       "salaryMin": 80000,
       "salaryMax": 108000,
@@ -1426,7 +1429,8 @@
           "concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-iii-consulenti-telef-213zbv"
         ]
       },
-      "firstSeenAt": "2026-03-31T21:48:48.088Z"
+      "firstSeenAt": "2026-03-31T21:48:48.088Z",
+      "needsRetranslation": true
     }
   ]
 }
