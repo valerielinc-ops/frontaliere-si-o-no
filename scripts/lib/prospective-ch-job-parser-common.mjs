@@ -169,9 +169,16 @@ export function createProspectiveChParser(config) {
   ].filter(Boolean));
 
   function isCompanyJob(job) {
+    if (!job) return false;
     const key = normalize(job?.companyKey || '');
+    const company = normalize(job?.company || '');
     const url = normalize(job?.url || '');
     if (key === companyKey) return true;
+    // Match on display name verbatim or on the corporate-host basename
+    // appearing inside the company string (same fuzzy rule the sibling
+    // factories use, so `{ company: 'X' }` shapes are recognised).
+    if (company && companyName && company === normalize(companyName)) return true;
+    if (corporateHost && company && company.includes(corporateHost.split('.')[0])) return true;
     if (corporateHost && url.includes(corporateHost)) return true;
     if (url.includes(`/medium/${mediumId}/`)) return true;
     return false;
