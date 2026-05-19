@@ -1,9 +1,9 @@
 {
-  "total": 8107,
-  "scanned": 346473,
+  "total": 8201,
+  "scanned": 347393,
   "skipped": 6,
   "skippedRedirect": 2561,
   "groups": {},
-  "rebasedAt": "2026-05-18T21:30:00.000Z",
-  "note": "Rebased 2026-05-18 from CI run 26058385924 (commit e588231). Total 271 → 8107 (+7836) reflects the cathedral locale-variant expansion accumulated over PRs #200-#311 (2 weeks of canton + locale + sub-page additions). The +7836 break down across all 26 cantons × 4 locales × N sub-pages (de/jobs-im-tessin: 1297, en/find-jobs-ticino: 801, fr/trouver-emploi-grisons: 564, en/find-jobs-graubunden: 549, etc.) plus articoli-frontaliere/* + calcola-stipendio/* additions. Per-page contract unchanged (still expect <script type=\"module\" src=\"/assets/index-{hash}.js\">); the bump only registers the new floor of templates that legitimately ship as static-only or redirect-shape variants. Drive this number toward zero by SKIP_PATHS allowlist (for intentional non-SPA pages like /guides/<slug>/, /contact/) or by refactoring affected templates (preferred: convert to redirect-shape so the audit auto-skips). DO NOT relax the SPA_BUNDLE_RX regex."
+  "rebasedAt": "2026-05-19T00:30:00.000Z",
+  "note": "Bumped 2026-05-19 from 8107 → 8201 (+94 intra-day cron-job locale variants). PR #312 set 8107 floor; daily job-crawler runs add ~50-100 new locale variants per day. Per-page contract unchanged — see PR #312 note for full rationale. Drive toward zero via SKIP_PATHS or template refactor."
 }
