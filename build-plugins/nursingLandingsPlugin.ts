@@ -55,15 +55,12 @@ import {
   BREADCRUMB_STYLE,
   CTA_PRIMARY_STYLE,
   CARD_STYLE,
-  CARD_BODY_STYLE,
-  CARD_PADDING_STYLE,
   LINK_ACCENT_STYLE,
   HERO_EYEBROW_STYLE,
   H1_STYLE,
   LEDE_STYLE,
   SMALL_HEADING_STYLE,
   renderStatGrid,
-  ICON_BUILDING_SVG,
 } from './shared/seoContentTokens';
 import {
   NURSING_LOCALES,
@@ -92,6 +89,10 @@ import {
   pickEmptyState,
   pickCtaAllJobs,
 } from './shared/landingMicroCopy';
+import {
+  renderEmployerCardListHtml,
+  type EmployerCardEmployer,
+} from './shared/employerCardHtml';
 
 // CTA target sector for each landing id — null means "fall back to the
 // unfiltered job-board hub" (used by `healthcare-ticino`, whose CTA copy
@@ -263,23 +264,41 @@ function renderFeaturedJobs(
 function renderEmployerGrid(
   snapshot: NursingJobsSnapshot,
   copy: NursingLandingComposedCopy,
+  locale: NursingLocale,
 ): string {
   if (snapshot.topEmployers.length === 0) return '';
-  const cells = snapshot.topEmployers
-    .map(
-      (e) => `<div style="display:flex;align-items:center;gap:10px;${CARD_PADDING_STYLE};${CARD_BODY_STYLE}">
-        <span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:var(--color-surface-alt);color:var(--color-subtle);flex-shrink:0">${ICON_BUILDING_SVG}</span>
-        <div style="flex:1;min-width:0">
-          <div style="font-weight:700;font-size:14px;color:var(--color-heading);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(e.name)}</div>
-        </div>
-        <div style="flex-shrink:0;font-weight:700;color:var(--color-accent);font-variant-numeric:tabular-nums">${e.count}</div>
-      </div>`,
-    )
-    .join('');
+
+  const items = snapshot.topEmployers.map((e) => ({
+    employer: {
+      name: e.name,
+      openings: e.count ?? undefined,
+    } satisfies EmployerCardEmployer,
+    href: `${buildJobBoardUrl(locale)}?q=${encodeURIComponent(e.name)}`,
+  }));
+
+  const listHtml = renderEmployerCardListHtml(items, {
+    locale,
+    variant: 'compact',
+  });
+
   return `<section style="margin:0 0 28px">
     <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(copy.shell.employerGridTitle)}</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">${cells}</div>
+    ${listHtml}
   </section>`;
+}
+
+/** Exported for unit tests — builds minimal copy and delegates to renderEmployerGrid. */
+export function renderNursingEmployerGridForTest(
+  id: NursingLandingId,
+  locale: NursingLocale,
+  snapshot: { topEmployers: ReadonlyArray<{ name: string; count: number }> },
+): string {
+  const copy = buildNursingLandingCopy(locale, id, {
+    liveCount: snapshot.topEmployers.length,
+    fresh30Count: 0,
+    medianSalaryChf: null,
+  });
+  return renderEmployerGrid(snapshot as NursingJobsSnapshot, copy, locale);
 }
 
 // ── Page assembly ────────────────────────────────────────────────────────────
@@ -393,7 +412,7 @@ function renderPage(opts: {
   const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.shell.primaryCtaLabel)} →</a></div>`;
 
   const featuredHtml = renderFeaturedJobs(id, locale, snapshot, copy);
-  const employerGridHtml = renderEmployerGrid(snapshot, copy);
+  const employerGridHtml = renderEmployerGrid(snapshot, copy, locale);
   const dividerHtml = renderApprofondisciDivider(copy.shell.approfondisciHeading);
 
   const sectionsHtml = copy.sections.map((s) => renderSection(s.title, s.paragraphs)).join('');
