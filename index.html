@@ -264,7 +264,11 @@
           if (!document.querySelector('script[data-fc-loader]')) {
             var s = document.createElement('script');
             s.async = true;
-            s.crossOrigin = 'anonymous';
+            // NOTE: do NOT set crossOrigin. Google FC `/i/pub-XXX` does not serve
+            // ACAO headers; setting crossOrigin='anonymous' turns this into a CORS
+            // request that the endpoint rejects, killing the CMP + TCF v2.2 string
+            // and capping EEA RPM to non-personalized rates. See regression test
+            // tests/index-html-fc-loader.test.ts.
             s.src = 'https://fundingchoicesmessages.google.com/i/pub-8628054934855353?ers=1';
             s.setAttribute('data-fc-loader','1');
             document.head.appendChild(s);
