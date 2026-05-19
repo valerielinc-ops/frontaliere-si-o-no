@@ -1,6 +1,6 @@
 {
   "crawlerKey": "axpo-group",
-  "assembledAt": "2026-05-19T11:09:35.270Z",
+  "assembledAt": "2026-05-19T21:34:38.502Z",
   "jobs": [
     {
       "title": "Praktikum Externe Kommunikation - befristet auf 6 Monate (w/m/d)",
@@ -44,7 +44,7 @@
         "de": "praktikum-externe-kommunikation-fach-auf-6-monate-m-d-axpo-group-baden",
         "fr": "praktikum-externe-kommunikation-befristet-auf-6-monate-w-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.404Z",
+      "crawledAt": "2026-05-19T21:34:37.597Z",
       "id": "axpo-group-a4a3e6139278",
       "previousSlugsByLocale": {
         "it": [
@@ -123,7 +123,7 @@
         "de": "abteilungsleiter-w-m-d-axpo-group-baden",
         "fr": "chef-de-la-categorie-gestion-directe-m-j-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.427Z",
+      "crawledAt": "2026-05-19T21:34:37.623Z",
       "id": "axpo-group-4c83e829b7e5",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -198,7 +198,7 @@
         "de": "betriebsmechaniker-in-instandhaltung-w-m-d-axpo-group-glarus-sud",
         "fr": "ingenieur-des-affaires-m-j-axpo-group-glarus-sud"
       },
-      "crawledAt": "2026-05-19T11:09:34.450Z",
+      "crawledAt": "2026-05-19T21:34:37.645Z",
       "id": "axpo-group-47d7ceee9fa6",
       "previousSlugsByLocale": {
         "it": [
@@ -275,7 +275,7 @@
         "de": "leiter-in-elektro-sud-w-m-d-ckw-luzern",
         "fr": "directeur-m-d-ckw-luzern"
       },
-      "crawledAt": "2026-05-19T11:09:34.465Z",
+      "crawledAt": "2026-05-19T21:34:37.659Z",
       "id": "axpo-group-bb6528dd4751",
       "previousSlugsByLocale": {
         "it": [
@@ -354,7 +354,7 @@
         "de": "werkstudent-in-group-applications-w-m-d-axpo-group-baden",
         "fr": "demandes-d-admission-a-l-ecole-de-werkstudent-en-groupe-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.481Z",
+      "crawledAt": "2026-05-19T21:34:37.675Z",
       "id": "axpo-group-88e5a7e12243",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -429,7 +429,7 @@
         "de": "projekt-und-prozessmanager-in-luzern-w-m-d-ckw-luzern",
         "fr": "projekt-und-prozessmanager-m-d-ckw-luzern"
       },
-      "crawledAt": "2026-05-19T11:09:34.491Z",
+      "crawledAt": "2026-05-19T21:34:37.690Z",
       "id": "axpo-group-195fec608ecc",
       "previousSlugsByLocale": {
         "it": [
@@ -504,7 +504,7 @@
         "de": "datenanalyse-w-m-d-axpo-group-baden",
         "fr": "sustainability-data-analyste-w-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.507Z",
+      "crawledAt": "2026-05-19T21:34:37.703Z",
       "id": "axpo-group-cd34324ce74e",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -585,7 +585,7 @@
         "de": "genai-product-management-praktikant-f-m-d-axpo-group-baden",
         "fr": "genai-product-management-stagiaire-f-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.521Z",
+      "crawledAt": "2026-05-19T21:34:37.717Z",
       "id": "axpo-group-2f276eea8bb5",
       "salaryMin": 46000,
       "salaryMax": 78500,
@@ -660,7 +660,7 @@
         "de": "berater-in-kundensupport-w-m-d-ckw-emmen",
         "fr": "consultant-m-j-ckw-emmen"
       },
-      "crawledAt": "2026-05-19T11:09:34.540Z",
+      "crawledAt": "2026-05-19T21:34:37.731Z",
       "id": "axpo-group-abba995d825e",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -735,7 +735,7 @@
         "de": "lpg-commercial-operator-f-m-d-170ab2b1-f605-424c-89f0-9a66d6e98c53",
         "fr": "lpg-commercial-operateur-f-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.556Z",
+      "crawledAt": "2026-05-19T21:34:37.752Z",
       "id": "axpo-group-1bfc13375935",
       "previousSlugsByLocale": {
         "it": [
@@ -763,7 +763,8 @@
       },
       "streetAddress": "Viale Stazione 31",
       "postalCode": "6500",
-      "firstSeenAt": "2026-05-10T21:02:07.029Z"
+      "firstSeenAt": "2026-05-10T21:02:07.029Z",
+      "needsRetranslation": true
     },
     {
       "title": "Fachhandwerker/-in Mechanik  (w/m/d)",
@@ -807,7 +808,7 @@
         "de": "fachhandwerker-in-mechanik-w-m-d-axpo-group-dottingen",
         "fr": "gestion-du-projet-m-d-axpo-group-dottingen"
       },
-      "crawledAt": "2026-05-19T11:09:34.571Z",
+      "crawledAt": "2026-05-19T21:34:37.762Z",
       "id": "axpo-group-0f91c9dd8fbd",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -885,7 +886,7 @@
         "de": "naturdungerberater-in-biomasse-w-m-d-axpo-group-baden",
         "fr": "biotechnologie-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.582Z",
+      "crawledAt": "2026-05-19T21:34:37.773Z",
       "id": "axpo-group-b3ba67a7b6a1",
       "previousSlugsByLocale": {
         "it": [
@@ -962,7 +963,7 @@
         "de": "junior-projektleiter-in-immobilien-w-m-d-ckw-emmen",
         "fr": "junior-chef-de-projet-immobilien-w-m-d-ckw-emmen"
       },
-      "crawledAt": "2026-05-19T11:09:34.591Z",
+      "crawledAt": "2026-05-19T21:34:37.782Z",
       "id": "axpo-group-5a55dd579199",
       "previousSlugsByLocale": {
         "it": [
@@ -1041,7 +1042,7 @@
         "de": "leiter-in-geschaftseinheit-biomasse-w-m-d-axpo-group-baden",
         "fr": "gestionnaire-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.600Z",
+      "crawledAt": "2026-05-19T21:34:37.794Z",
       "id": "axpo-group-174613927f34",
       "previousSlugsByLocale": {
         "it": [
@@ -1121,7 +1122,7 @@
         "de": "schnupperlehre-als-automatik-w-m-d-axpo-group-dottingen",
         "fr": "m-schnupperlehre-als-automatiker-in-m-d-axpo-group-dottingen"
       },
-      "crawledAt": "2026-05-19T11:09:34.603Z",
+      "crawledAt": "2026-05-19T21:34:37.798Z",
       "id": "axpo-group-ee9f0ff1a0b7",
       "previousSlugsByLocale": {
         "it": [
@@ -1196,7 +1197,7 @@
         "de": "elektroinstallateur-in-luzern-grossbaustellen-team-4-w-m-d-ckw-luzern",
         "fr": "elektroinstallateur-a-luzern-grossbaustellen-team-4-w-m-d-ckw-luzern"
       },
-      "crawledAt": "2026-05-19T11:09:34.619Z",
+      "crawledAt": "2026-05-19T21:34:37.810Z",
       "id": "axpo-group-a6daaf0a3a7d",
       "previousSlugsByLocale": {
         "it": [
@@ -1274,7 +1275,7 @@
         "de": "auszubildender-digital-engineering-axpo-group-baden",
         "fr": "stagiaire-genie-numerique-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.630Z",
+      "crawledAt": "2026-05-19T21:34:37.821Z",
       "id": "axpo-group-0b31cbd8de0b",
       "previousSlugsByLocale": {
         "it": [
@@ -1354,7 +1355,7 @@
         "de": "betriebsassistent-in-w-m-d-axpo-group-baden",
         "fr": "assistant-aux-affaires-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.641Z",
+      "crawledAt": "2026-05-19T21:34:37.837Z",
       "id": "axpo-group-3944ee2dab88",
       "previousSlugsByLocale": {
         "it": [
@@ -1431,7 +1432,7 @@
         "de": "monteur-in-solar-w-m-d-ckw-domat-ems",
         "fr": "m-j-ckw-domat-ems"
       },
-      "crawledAt": "2026-05-19T11:09:34.647Z",
+      "crawledAt": "2026-05-19T21:34:37.844Z",
       "id": "axpo-group-398e3c105b36",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -1506,7 +1507,7 @@
         "de": "personalwesen-transformation-senior-project-manager-f-m-d-axpo-group-baden",
         "fr": "ressources-humaines-transformation-senior-project-manager-f-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.663Z",
+      "crawledAt": "2026-05-19T21:34:37.856Z",
       "id": "axpo-group-5eed90759737",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -1581,7 +1582,7 @@
         "de": "elektroinstallateur-in-stans-w-m-d-ckw-stans",
         "fr": "installateur-electrique-stans-h-f-d-ckw-stans"
       },
-      "crawledAt": "2026-05-19T11:09:34.674Z",
+      "crawledAt": "2026-05-19T21:34:37.867Z",
       "id": "axpo-group-0da6cac2ab79",
       "previousSlugsByLocale": {
         "it": [
@@ -1659,7 +1660,7 @@
         "de": "stv-leiter-in-geschaftsstelle-elektro-horw-w-m-d-ckw-horw",
         "fr": "chef-de-l-administration-des-entreprises-m-j-ckw-horw"
       },
-      "crawledAt": "2026-05-19T11:09:34.692Z",
+      "crawledAt": "2026-05-19T21:34:37.888Z",
       "id": "axpo-group-381ba1dc054d",
       "previousSlugsByLocale": {
         "it": [
@@ -1737,7 +1738,7 @@
         "de": "vertriebsportfoliomanager-in-w-m-d-ckw-emmen",
         "fr": "directeur-du-marketing-m-d-ckw-emmen"
       },
-      "crawledAt": "2026-05-19T11:09:34.700Z",
+      "crawledAt": "2026-05-19T21:34:37.897Z",
       "id": "axpo-group-0e3241c46cb2",
       "previousSlugsByLocale": {
         "it": [
@@ -1814,7 +1815,7 @@
         "de": "projektleiter-in-verteilnetz-w-m-d-ckw-luzern",
         "fr": "gestionnaire-de-projet-m-d-ckw-luzern"
       },
-      "crawledAt": "2026-05-19T11:09:34.711Z",
+      "crawledAt": "2026-05-19T21:34:37.907Z",
       "id": "axpo-group-67b1184512e3",
       "previousSlugsByLocale": {
         "it": [
@@ -1895,7 +1896,7 @@
         "de": "trainee-environmental-engineering-axpo-group-baden",
         "fr": "stagiaire-genie-environnemental-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.720Z",
+      "crawledAt": "2026-05-19T21:34:37.915Z",
       "id": "axpo-group-14c600f0b11b",
       "salaryMin": 42640,
       "salaryMax": 61000,
@@ -1974,7 +1975,7 @@
         "de": "senior-support-agent-ch-f-m-d-880d4c70-38a1-43cb-87c5-18e98f4b8e30",
         "fr": "senior-support-agent-ch-f-m-d-880d4c70-38a1-43cb-87c5-18e98f4b8e30"
       },
-      "crawledAt": "2026-05-19T11:09:34.731Z",
+      "crawledAt": "2026-05-19T21:34:37.937Z",
       "id": "axpo-group-da2ccb4a49ed",
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -1999,7 +2000,8 @@
       },
       "previousSlugs": [
         "senior-support-agent-ch-f-m-d-880d4c70-38a1-43cb-87c5-18e98f4b8e30"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Stakeholder & Asset Manager Hydroenergie & Biomasse Graubünden  (w/m/d)",
@@ -2043,7 +2045,7 @@
         "de": "stakeholder-asset-manager-hydroenergie-biomasse-graubunden-w-m-d-axpo-group-domat-ems",
         "fr": "responsable-des-parties-prenantes-et-des-actifs-hydroenergie-et-biotechnologie-graubunden-m-d-axpo-group-domat-ems"
       },
-      "crawledAt": "2026-05-19T11:09:34.740Z",
+      "crawledAt": "2026-05-19T21:34:37.946Z",
       "id": "axpo-group-e14223a1a63c",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -2118,7 +2120,7 @@
         "de": "elektroinstallateur-in-fur-instandhaltung-w-m-d-axpo-group-st-gallen",
         "fr": "installateur-trice-electricien-ne-fur-instandhaltung-w-m-d-axpo-group-st-gallen"
       },
-      "crawledAt": "2026-05-19T11:09:34.753Z",
+      "crawledAt": "2026-05-19T21:34:37.956Z",
       "id": "axpo-group-33a8eedd4765",
       "previousSlugsByLocale": {
         "it": [
@@ -2194,7 +2196,7 @@
         "de": "strategische-r-einkaufer-in-fur-bauleistungen-w-m-d-axpo-group-baden",
         "fr": "projektleiter-m-j-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.763Z",
+      "crawledAt": "2026-05-19T21:34:37.967Z",
       "id": "axpo-group-4a032fc28ee5",
       "previousSlugsByLocale": {
         "it": [
@@ -2273,7 +2275,7 @@
         "de": "ressortleiter-technik-uberwachung-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt",
         "fr": "gestion-du-projet-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt"
       },
-      "crawledAt": "2026-05-19T11:09:34.769Z",
+      "crawledAt": "2026-05-19T21:34:37.977Z",
       "id": "axpo-group-782b2255cbea",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -2348,7 +2350,7 @@
         "de": "platform-ingenieur-f-m-d-axpo-group-baden",
         "fr": "platform-ingenieur-f-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.778Z",
+      "crawledAt": "2026-05-19T21:34:37.987Z",
       "id": "axpo-group-b98f7e15650f",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -2423,7 +2425,7 @@
         "de": "auszubildender-software-engineering-axpo-group-baden",
         "fr": "ingenierie-des-logiciels-pour-stagiaires-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.790Z",
+      "crawledAt": "2026-05-19T21:34:37.994Z",
       "id": "axpo-group-c425f4a97df2",
       "salaryMin": 42640,
       "salaryMax": 61000,
@@ -2500,7 +2502,7 @@
         "de": "leiter-in-kundengeschaft-netze-w-m-d-ckw-emmen",
         "fr": "gestionnaire-m-d-ckw-emmen"
       },
-      "crawledAt": "2026-05-19T11:09:34.797Z",
+      "crawledAt": "2026-05-19T21:34:38.002Z",
       "id": "axpo-group-1f38a3272a45",
       "previousSlugsByLocale": {
         "it": [
@@ -2583,7 +2585,7 @@
         "de": "ikt-administrator-w-m-d-ckw-emmen",
         "fr": "administrateur-des-tic-m-d-ckw-emmen"
       },
-      "crawledAt": "2026-05-19T11:09:34.805Z",
+      "crawledAt": "2026-05-19T21:34:38.014Z",
       "id": "axpo-group-2a9a6c2ae37e",
       "previousSlugsByLocale": {
         "it": [
@@ -2661,7 +2663,7 @@
         "de": "praktikant-in-talsperrenuberwachung-w-m-d-axpo-group-baden",
         "fr": "praktikant-in-talsperrenuberwachung-w-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.814Z",
+      "crawledAt": "2026-05-19T21:34:38.024Z",
       "id": "axpo-group-587c04d43c43",
       "previousSlugsByLocale": {
         "it": [
@@ -2730,7 +2732,7 @@
         "de": "mitarbeiter-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt",
         "fr": "gestionnaire-de-la-demande-informatique-m-w-d-kernkraftwerk-leibstadt-ag-leibstadt"
       },
-      "crawledAt": "2026-05-19T11:09:34.825Z",
+      "crawledAt": "2026-05-19T21:34:38.030Z",
       "id": "axpo-group-b16db3a9513c",
       "salaryMin": 79500,
       "salaryMax": 120500,
@@ -2805,7 +2807,7 @@
         "de": "leiter-in-technik-meldewesen-w-m-d-ckw-winterthur",
         "fr": "gestionnaire-m-d-ckw-winterthur"
       },
-      "crawledAt": "2026-05-19T11:09:34.834Z",
+      "crawledAt": "2026-05-19T21:34:38.040Z",
       "id": "axpo-group-de65f4dda055",
       "previousSlugsByLocale": {
         "it": [
@@ -2884,7 +2886,7 @@
         "de": "prozessverantwortliche-r-biomasse-w-m-d-axpo-group-baden",
         "fr": "gestionnaire-de-processus-m-d-axpo-group-baden"
       },
-      "crawledAt": "2026-05-19T11:09:34.842Z",
+      "crawledAt": "2026-05-19T21:34:38.048Z",
       "id": "axpo-group-8defc880d1c0",
       "previousSlugsByLocale": {
         "it": [
@@ -2963,7 +2965,7 @@
         "de": "lernende-r-elektroinstallateur-in-efz-w-m-d-2027-grosswangen-ckw-grosswangen",
         "fr": "apprenti-e-installateur-trice-electricien-ne-efz-w-m-d-2027-grosswangen-ckw-grosswangen"
       },
-      "crawledAt": "2026-05-19T11:09:34.850Z",
+      "crawledAt": "2026-05-19T21:34:38.060Z",
       "id": "axpo-group-554249b619a9",
       "previousSlugsByLocale": {
         "it": [
@@ -3041,7 +3043,7 @@
         "de": "lernende-r-montage-elektriker-in-efz-w-m-d-2027-grosswangen-ckw-grosswangen",
         "fr": "apprenti-e-montage-elektriker-in-efz-w-m-d-2027-grosswangen-ckw-grosswangen"
       },
-      "crawledAt": "2026-05-19T11:09:34.861Z",
+      "crawledAt": "2026-05-19T21:34:38.068Z",
       "id": "axpo-group-6ffab9deaeec",
       "salaryMin": 42640,
       "salaryMax": 61000,
@@ -3124,7 +3126,7 @@
         "de": "lernende-r-elektroinstallateur-in-efz-w-m-d-2027-buttisholz-ckw-buttisholz",
         "fr": "apprenti-e-installateur-trice-electricien-ne-efz-w-m-d-2027-buttisholz-ckw-buttisholz"
       },
-      "crawledAt": "2026-05-19T11:09:34.868Z",
+      "crawledAt": "2026-05-19T21:34:38.076Z",
       "id": "axpo-group-ab3adde793a0",
       "previousSlugsByLocale": {
         "it": [
@@ -3202,7 +3204,7 @@
         "de": "lernende-r-montage-elektriker-in-efz-w-m-d-2027-buttisholz-ckw-buttisholz",
         "fr": "apprenti-e-montage-elektriker-in-efz-w-m-d-2027-buttisholz-ckw-buttisholz"
       },
-      "crawledAt": "2026-05-19T11:09:34.875Z",
+      "crawledAt": "2026-05-19T21:34:38.083Z",
       "id": "axpo-group-1afff3ad9f3e",
       "salaryMin": 42640,
       "salaryMax": 61000,
@@ -3281,7 +3283,7 @@
         "de": "lernende-r-montage-elektriker-in-efz-w-m-d-2027-suhr-ckw-suhr",
         "fr": "apprenti-electricien-installateur-m-f-d-2027-suhr-ckw-suhr"
       },
-      "crawledAt": "2026-05-19T11:09:34.882Z",
+      "crawledAt": "2026-05-19T21:34:38.090Z",
       "id": "axpo-group-cf9934252a3f",
       "salaryMin": 42640,
       "salaryMax": 61000,
@@ -3362,7 +3364,7 @@
         "de": "lernende-r-montage-elektriker-in-efz-w-m-d-2027-niederlenz-ckw-niederlenz",
         "fr": "apprenti-e-montage-elektriker-in-efz-w-m-d-2027-niederlenz-ckw-niederlenz"
       },
-      "crawledAt": "2026-05-19T11:09:34.891Z",
+      "crawledAt": "2026-05-19T21:34:38.107Z",
       "id": "axpo-group-1c931b94c98f",
       "salaryMin": 42640,
       "salaryMax": 61000,
@@ -3441,7 +3443,7 @@
         "de": "lernende-r-montage-elektriker-in-efz-w-m-d-2027-berikon-ckw-berikon",
         "fr": "apprenti-e-montage-elektriker-in-efz-w-m-d-2027-berikon-ckw-berikon"
       },
-      "crawledAt": "2026-05-19T11:09:34.901Z",
+      "crawledAt": "2026-05-19T21:34:38.114Z",
       "id": "axpo-group-391235144c2e",
       "salaryMin": 42640,
       "salaryMax": 61000,
@@ -3518,7 +3520,7 @@
         "de": "lernende-r-montage-elektriker-in-efz-w-m-d-2027-ept4-ckw-luzern",
         "fr": "apprenti-e-montage-elektriker-in-efz-w-m-d-2027-ept4-ckw-luzern"
       },
-      "crawledAt": "2026-05-19T11:09:34.908Z",
+      "crawledAt": "2026-05-19T21:34:38.121Z",
       "id": "axpo-group-b2d8b919409f",
       "salaryMin": 42640,
       "salaryMax": 61000,
@@ -3584,10 +3586,10 @@
         "fr": "Apprenti/e Montage-Elektriker/in EFZ (w/m/d) - 2027 - EPT3"
       },
       "descriptionByLocale": {
-        "it": "Puoi - È possibile installare reti di linea elettrica e impianti di costruzione di fili precisamente e professionalmente. - Si montano connessioni e dispositivi come prese, interruttori o illuminazione secondo il piano. - Lavori in vari tipi di edifici utilizzando disegni tecnici. - Porti le tue competenze in servizio, riparazione o manutenzione. - Hai contatto con il cliente quando consegna le piante. Questo ti rende - Sei interessato a tecnologia, artigianato e processi elettrotecnici. - Hai una buona sensazione di punta delle dita e puoi distinguere i colori in modo sicuro. - Ti piace lavorare nella squadra e prenderti la responsabilità dei tuoi compiti. - Sei flessibile, come lavorare in luoghi diversi e all'aperto. - Porti buoni risultati scolastici in matematica, geometria, scienze naturali e forme tecniche. Questo ci rende Un lavoro emozionante. Un lavoro significativo. E poi molti altri vantaggi che CKW offre. 🎉 Varie occasioni per gli studenti: Inizia la tua formazione con un'emozionante settimana di introduzione e aspetta un programma vario con escursioni ed eventi che trasmettono conoscenze, si divertono e promuovono lo scambio con i tuoi compagni di studio. 🚌 Vantaggi interessanti: beneficia di sei settimane di vacanza, acquisto di vacanza, denaro reka e partecipazione alla mobilità. 💻 Sempre aggiornato: Hai bisogno di supporto a scuola? \n• Offriamo corsi di supporto e ti permettono di partecipare a corsi interni ed esterni per mantenere le tue conoscenze aggiornate e ampliate ulteriormente. 📚 Riconosciamo il tuo talento: il tuo impegno e il tuo talento sono importanti per noi – ti promuoviamo sia durante il periodo di insegnamento che in una possibile presentazione al CKW. Per saperne di più",
-        "en": "You can - You install electrical line networks and wires building installations precisely and professionally. - You mount connections and devices such as sockets, switches or lighting according to plan. - You work in various types of buildings using technical drawings. - You bring your skills into service, repair or maintenance work. - You have contact with the customer when you hand over plants. That makes you - You are interested in technology, crafts and electrotechnical processes. - You have a good fingertip feeling and can distinguish colors safely. - You like to work in the team and take responsibility for your tasks. - You are flexible, like working in different places and outdoors. - You bring good school achievements in mathematics, geometry, natural science and technical forms. That makes us An exciting job. A meaningful work. And then many more benefits that CKW offers you. 🎉 Various occasions for learners: Start your training with an exciting introduction week and look forward to a varied program with excursions and events that convey knowledge, make fun and promote exchange with your fellow learners. 🚌 Attractive benefits: You benefit from six weeks of vacation, holiday purchase, reka money and participation in mobility. 💻 Always up to date: Do you need support at school? \n• We offer support courses and allow you to participate in internal and external courses to keep your knowledge up-to-date and further expand. 📚 We recognize your talent: your commitment and talent are important to us – we promote you both during the teaching period and in a possible presentation at CKW. Learn more",
-        "de": "Das kannst du gestalten - Du installierst elektrische Leitungsnetze und verdrahtest Gebäudeinstallationen präzise und fachgerecht. - Du montierst Anschlüsse und Geräte wie Steckdosen, Schalter oder Beleuchtung nach Plan. - Du arbeitest anhand technischer Zeichnungen in verschiedensten Gebäudetypen. - Du bringst deine Fähigkeiten bei Service-, Reparatur- oder Wartungsarbeiten ein. - Du hast bei der Übergabe von Anlagen Kontakt mit der Kundschaft. Das macht dich aus - Du interessierst dich für Technik, Handwerk und elektrotechnische Vorgänge. - Du hast ein gutes Fingerspitzengefühl und kannst Farben sicher unterscheiden. - Du arbeitest gerne im Team und übernimmst Verantwortung für deine \n• Aufgaben. - Du bist flexibel, gerne an verschiedenen Orten und auch im Freien tätig. - Du bringst gute Schulleistungen in Mathematik, Geometrie, Naturlehre und Technischem Gestalten mit. Das macht uns aus Ein spannender Job. Eine sinnstiftende Arbeit. Und dann noch zahlreiche weitere Vorteile, die dir CKW bietet. 🎉 Vielfältige Anlässe für Lernende: Starte deine Ausbildung mit einer spannenden Einführungswoche und freue dich auf ein abwechslungsreiches Programm mit Ausflügen und Events, die Wissen vermitteln, Spass machen und den Austausch mit deinen Mitlernenden fördern. 🚌 Attraktive Zusatzleistungen: Du profitierst von sechs Wochen Ferien, Ferienkauf, Reka-Geld und einer Beteiligung an die Mobilität. 💻 Immer auf dem neusten Stand: Brauchst du Unterstützung in der Schule? \n• Wir bieten dir Stützkurse an und ermöglichen dir die Teilnahme an internen sowie externen Fachkursen, um deine Kenntnisse aktuell zu halten und weiter auszubauen. 📚 Wir erkennen dein Talent: Dein Engagement und dein Talent sind uns wichtig – wir fördern dich sowohl während der Lehrzeit als auch in einer möglichen Festanstellung bei CKW. Mehr erfahren",
-        "fr": "Vous pouvez - Vous installez des réseaux électriques et des installations de construction de fils avec précision et professionnalisme. - Vous montez des connexions et des dispositifs tels que des prises, des interrupteurs ou un éclairage selon le plan. - Vous travaillez dans différents types de bâtiments en utilisant des dessins techniques. - Vous mettez vos compétences en service, en réparation ou en entretien. - Vous avez le contact avec le client quand vous remettez des usines. Ça te fait - Vous êtes intéressé par la technologie, l'artisanat et les processus électrotechniques. - Vous avez une bonne sensation et pouvez distinguer les couleurs en toute sécurité. - Vous aimez travailler dans l'équipe et prendre la responsabilité de vos tâches. - Vous êtes flexible, comme travailler dans différents endroits et à l'extérieur. - Vous apportez de bonnes réalisations scolaires en mathématiques, géométrie, sciences naturelles et formes techniques. Ça nous fait Un travail passionnant. Un travail significatif. Et puis beaucoup d'autres avantages que CKW vous offre. Plusieurs occasions pour les apprenants : Commencez votre formation avec une semaine d'introduction passionnante et attendez avec impatience un programme varié avec des excursions et des événements qui transmettent les connaissances, se moquent et favorisent l'échange avec vos collègues apprenants. Avantages attractifs: Vous bénéficiez de six semaines de vacances, d'achat de vacances, d'argent de reka et de participation à la mobilité. Toujours à jour : Avez-vous besoin de soutien à l'école ? \n• Nous offrons des cours de soutien et vous permettons de participer à des cours internes et externes afin de maintenir vos connaissances à jour et d'élargir davantage. Nous reconnaissons votre talent : votre engagement et votre talent sont importants pour nous – nous vous encourageons à la fois pendant la période d'enseignement et dans une présentation possible au CKW. En savoir plus"
+        "it": "Puoi - È possibile installare reti di linea elettrica e impianti di costruzione di fili precisamente e professionalmente. - Si montano connessioni e dispositivi come prese, interruttori o illuminazione secondo il piano. - Lavori in vari tipi di edifici utilizzando disegni tecnici. - Porti le tue competenze in servizio, riparazione o manutenzione. - Hai contatto con il cliente quando consegna le piante. Questo ti rende - Sei interessato a tecnologia, artigianato e processi elettrotecnici. - Hai una buona sensazione di punta delle dita e puoi distinguere i colori in modo sicuro. - Ti piace lavorare nella squadra e prenderti la responsabilità dei tuoi compiti. - Sei flessibile, come lavorare in luoghi diversi e all'aperto. - Porti buoni risultati scolastici in matematica, geometria, scienze naturali e forme tecniche. Questo ci rende Un lavoro emozionante. Un lavoro significativo. E poi molti altri vantaggi che CKW offre. 🎉 Varie occasioni per gli studenti: Inizia la tua formazione con un'emozionante settimana di introduzione e aspetta un programma vario con escursioni ed eventi che trasmettono conoscenze, si divertono e promuovono lo scambio con i tuoi compagni di studio. 🚌 Vantaggi interessanti: beneficia di sei settimane di vacanza, acquisto di vacanza, denaro reka e partecipazione alla mobilità. 💻 Sempre aggiornato: Hai bisogno di supporto a scuola?\n• Offriamo corsi di supporto e ti permettono di partecipare a corsi interni ed esterni per mantenere le tue conoscenze aggiornate e ampliate ulteriormente. 📚 Riconosciamo il tuo talento: il tuo impegno e il tuo talento sono importanti per noi – ti promuoviamo sia durante il periodo di insegnamento che in una possibile presentazione al CKW. Per saperne di più",
+        "en": "You can - You install electrical line networks and wires building installations precisely and professionally. - You mount connections and devices such as sockets, switches or lighting according to plan. - You work in various types of buildings using technical drawings. - You bring your skills into service, repair or maintenance work. - You have contact with the customer when you hand over plants. That makes you - You are interested in technology, crafts and electrotechnical processes. - You have a good fingertip feeling and can distinguish colors safely. - You like to work in the team and take responsibility for your tasks. - You are flexible, like working in different places and outdoors. - You bring good school achievements in mathematics, geometry, natural science and technical forms. That makes us An exciting job. A meaningful work. And then many more benefits that CKW offers you. 🎉 Various occasions for learners: Start your training with an exciting introduction week and look forward to a varied program with excursions and events that convey knowledge, make fun and promote exchange with your fellow learners. 🚌 Attractive benefits: You benefit from six weeks of vacation, holiday purchase, reka money and participation in mobility. 💻 Always up to date: Do you need support at school?\n• We offer support courses and allow you to participate in internal and external courses to keep your knowledge up-to-date and further expand. 📚 We recognize your talent: your commitment and talent are important to us – we promote you both during the teaching period and in a possible presentation at CKW. Learn more",
+        "de": "Das kannst du gestalten - Du installierst elektrische Leitungsnetze und verdrahtest Gebäudeinstallationen präzise und fachgerecht. - Du montierst Anschlüsse und Geräte wie Steckdosen, Schalter oder Beleuchtung nach Plan. - Du arbeitest anhand technischer Zeichnungen in verschiedensten Gebäudetypen. - Du bringst deine Fähigkeiten bei Service-, Reparatur- oder Wartungsarbeiten ein. - Du hast bei der Übergabe von Anlagen Kontakt mit der Kundschaft. Das macht dich aus - Du interessierst dich für Technik, Handwerk und elektrotechnische Vorgänge. - Du hast ein gutes Fingerspitzengefühl und kannst Farben sicher unterscheiden. - Du arbeitest gerne im Team und übernimmst Verantwortung für deine\n• Aufgaben. - Du bist flexibel, gerne an verschiedenen Orten und auch im Freien tätig. - Du bringst gute Schulleistungen in Mathematik, Geometrie, Naturlehre und Technischem Gestalten mit. Das macht uns aus Ein spannender Job. Eine sinnstiftende Arbeit. Und dann noch zahlreiche weitere Vorteile, die dir CKW bietet. 🎉 Vielfältige Anlässe für Lernende: Starte deine Ausbildung mit einer spannenden Einführungswoche und freue dich auf ein abwechslungsreiches Programm mit Ausflügen und Events, die Wissen vermitteln, Spass machen und den Austausch mit deinen Mitlernenden fördern. 🚌 Attraktive Zusatzleistungen: Du profitierst von sechs Wochen Ferien, Ferienkauf, Reka-Geld und einer Beteiligung an die Mobilität. 💻 Immer auf dem neusten Stand: Brauchst du Unterstützung in der Schule?\n• Wir bieten dir Stützkurse an und ermöglichen dir die Teilnahme an internen sowie externen Fachkursen, um deine Kenntnisse aktuell zu halten und weiter auszubauen. 📚 Wir erkennen dein Talent: Dein Engagement und dein Talent sind uns wichtig – wir fördern dich sowohl während der Lehrzeit als auch in einer möglichen Festanstellung bei CKW. Mehr erfahren",
+        "fr": "Vous pouvez - Vous installez des réseaux électriques et des installations de construction de fils avec précision et professionnalisme. - Vous montez des connexions et des dispositifs tels que des prises, des interrupteurs ou un éclairage selon le plan. - Vous travaillez dans différents types de bâtiments en utilisant des dessins techniques. - Vous mettez vos compétences en service, en réparation ou en entretien. - Vous avez le contact avec le client quand vous remettez des usines. Ça te fait - Vous êtes intéressé par la technologie, l'artisanat et les processus électrotechniques. - Vous avez une bonne sensation et pouvez distinguer les couleurs en toute sécurité. - Vous aimez travailler dans l'équipe et prendre la responsabilité de vos tâches. - Vous êtes flexible, comme travailler dans différents endroits et à l'extérieur. - Vous apportez de bonnes réalisations scolaires en mathématiques, géométrie, sciences naturelles et formes techniques. Ça nous fait Un travail passionnant. Un travail significatif. Et puis beaucoup d'autres avantages que CKW vous offre. Plusieurs occasions pour les apprenants : Commencez votre formation avec une semaine d'introduction passionnante et attendez avec impatience un programme varié avec des excursions et des événements qui transmettent les connaissances, se moquent et favorisent l'échange avec vos collègues apprenants. Avantages attractifs: Vous bénéficiez de six semaines de vacances, d'achat de vacances, d'argent de reka et de participation à la mobilité. Toujours à jour : Avez-vous besoin de soutien à l'école ?\n• Nous offrons des cours de soutien et vous permettons de participer à des cours internes et externes afin de maintenir vos connaissances à jour et d'élargir davantage. Nous reconnaissons votre talent : votre engagement et votre talent sont importants pour nous – nous vous encourageons à la fois pendant la période d'enseignement et dans une présentation possible au CKW. En savoir plus"
       },
       "slugByLocale": {
         "it": "apprendista-elettricista-di-costruzione-efz-u-m-d-2027-ept3-ckw-luzern",
@@ -3595,7 +3597,7 @@
         "de": "lernende-r-montage-elektriker-in-efz-w-m-d-2027-ept3-ckw-luzern",
         "fr": "apprenti-e-montage-elektriker-in-efz-w-m-d-2027-ept3-ckw-luzern"
       },
-      "crawledAt": "2026-05-19T11:09:34.916Z",
+      "crawledAt": "2026-05-19T21:34:38.128Z",
       "id": "axpo-group-45d4fe3bfd36",
       "salaryMin": 42640,
       "salaryMax": 61000,
@@ -3663,10 +3665,10 @@
         "fr": "Apprenti/e Montage-Elektriker/in EFZ (w/m/d) - 2027 - Hochdorf"
       },
       "descriptionByLocale": {
-        "it": "Puoi - È possibile installare reti di linea elettrica e impianti di costruzione di fili precisamente e professionalmente. - Si montano connessioni e dispositivi come prese, interruttori o illuminazione secondo il piano. - Lavori in vari tipi di edifici utilizzando disegni tecnici. - Porti le tue competenze in servizio, riparazione o manutenzione. - Hai contatto con il cliente quando consegna le piante. Questo ti rende - Sei interessato a tecnologia, artigianato e processi elettrotecnici. - Hai una buona sensazione di punta delle dita e puoi distinguere i colori in modo sicuro. - Ti piace lavorare nella squadra e prenderti la responsabilità dei tuoi compiti. - Sei flessibile, come lavorare in luoghi diversi e all'aperto. - Porti buoni risultati scolastici in matematica, geometria, scienze naturali e forme tecniche. Questo ci rende Un lavoro emozionante. Un lavoro significativo. E poi molti altri vantaggi che CKW offre. 🎉 Varie occasioni per gli studenti: Inizia la tua formazione con un'emozionante settimana di introduzione e aspetta un programma vario con escursioni ed eventi che trasmettono conoscenze, si divertono e promuovono lo scambio con i tuoi compagni di studio. 🚌 Vantaggi interessanti: beneficia di sei settimane di vacanza, acquisto di vacanza, denaro reka e partecipazione alla mobilità. 💻 Sempre aggiornato: Hai bisogno di supporto a scuola? \n• Offriamo corsi di supporto e ti permettono di partecipare a corsi interni ed esterni per mantenere le tue conoscenze aggiornate e ampliate ulteriormente. 📚 Riconosciamo il tuo talento: il tuo impegno e il tuo talento sono importanti per noi – ti promuoviamo sia durante il periodo di insegnamento che in una possibile presentazione al CKW. Per saperne di più",
-        "en": "You can - You install electrical line networks and wires building installations precisely and professionally. - You mount connections and devices such as sockets, switches or lighting according to plan. - You work in various types of buildings using technical drawings. - You bring your skills into service, repair or maintenance work. - You have contact with the customer when you hand over plants. That makes you - You are interested in technology, crafts and electrotechnical processes. - You have a good fingertip feeling and can distinguish colors safely. - You like to work in the team and take responsibility for your tasks. - You are flexible, like working in different places and outdoors. - You bring good school achievements in mathematics, geometry, natural science and technical forms. That makes us An exciting job. A meaningful work. And then many more benefits that CKW offers you. 🎉 Various occasions for learners: Start your training with an exciting introduction week and look forward to a varied program with excursions and events that convey knowledge, make fun and promote exchange with your fellow learners. 🚌 Attractive benefits: You benefit from six weeks of vacation, holiday purchase, reka money and participation in mobility. 💻 Always up to date: Do you need support at school? \n• We offer support courses and allow you to participate in internal and external courses to keep your knowledge up-to-date and further expand. 📚 We recognize your talent: your commitment and talent are important to us – we promote you both during the teaching period and in a possible presentation at CKW. Learn more",
-        "de": "Das kannst du gestalten - Du installierst elektrische Leitungsnetze und verdrahtest Gebäudeinstallationen präzise und fachgerecht. - Du montierst Anschlüsse und Geräte wie Steckdosen, Schalter oder Beleuchtung nach Plan. - Du arbeitest anhand technischer Zeichnungen in verschiedensten Gebäudetypen. - Du bringst deine Fähigkeiten bei Service-, Reparatur- oder Wartungsarbeiten ein. - Du hast bei der Übergabe von Anlagen Kontakt mit der Kundschaft. Das macht dich aus - Du interessierst dich für Technik, Handwerk und elektrotechnische Vorgänge. - Du hast ein gutes Fingerspitzengefühl und kannst Farben sicher unterscheiden. - Du arbeitest gerne im Team und übernimmst Verantwortung für deine \n• Aufgaben. - Du bist flexibel, gerne an verschiedenen Orten und auch im Freien tätig. - Du bringst gute Schulleistungen in Mathematik, Geometrie, Naturlehre und Technischem Gestalten mit. Das macht uns aus Ein spannender Job. Eine sinnstiftende Arbeit. Und dann noch zahlreiche weitere Vorteile, die dir CKW bietet. 🎉 Vielfältige Anlässe für Lernende: Starte deine Ausbildung mit einer spannenden Einführungswoche und freue dich auf ein abwechslungsreiches Programm mit Ausflügen und Events, die Wissen vermitteln, Spass machen und den Austausch mit deinen Mitlernenden fördern. 🚌 Attraktive Zusatzleistungen: Du profitierst von sechs Wochen Ferien, Ferienkauf, Reka-Geld und einer Beteiligung an die Mobilität. 💻 Immer auf dem neusten Stand: Brauchst du Unterstützung in der Schule? \n• Wir bieten dir Stützkurse an und ermöglichen dir die Teilnahme an internen sowie externen Fachkursen, um deine Kenntnisse aktuell zu halten und weiter auszubauen. 📚 Wir erkennen dein Talent: Dein Engagement und dein Talent sind uns wichtig – wir fördern dich sowohl während der Lehrzeit als auch in einer möglichen Festanstellung bei CKW. Mehr erfahren",
-        "fr": "Vous pouvez - Vous installez des réseaux électriques et des installations de construction de fils avec précision et professionnalisme. - Vous montez des connexions et des dispositifs tels que des prises, des interrupteurs ou un éclairage selon le plan. - Vous travaillez dans différents types de bâtiments en utilisant des dessins techniques. - Vous mettez vos compétences en service, en réparation ou en entretien. - Vous avez le contact avec le client quand vous remettez des usines. Ça te fait - Vous êtes intéressé par la technologie, l'artisanat et les processus électrotechniques. - Vous avez une bonne sensation et pouvez distinguer les couleurs en toute sécurité. - Vous aimez travailler dans l'équipe et prendre la responsabilité de vos tâches. - Vous êtes flexible, comme travailler dans différents endroits et à l'extérieur. - Vous apportez de bonnes réalisations scolaires en mathématiques, géométrie, sciences naturelles et formes techniques. Ça nous fait Un travail passionnant. Un travail significatif. Et puis beaucoup d'autres avantages que CKW vous offre. Plusieurs occasions pour les apprenants : Commencez votre formation avec une semaine d'introduction passionnante et attendez avec impatience un programme varié avec des excursions et des événements qui transmettent les connaissances, se moquent et favorisent l'échange avec vos collègues apprenants. Avantages attractifs: Vous bénéficiez de six semaines de vacances, d'achat de vacances, d'argent de reka et de participation à la mobilité. Toujours à jour : Avez-vous besoin de soutien à l'école ? \n• Nous offrons des cours de soutien et vous permettons de participer à des cours internes et externes afin de maintenir vos connaissances à jour et d'élargir davantage. Nous reconnaissons votre talent : votre engagement et votre talent sont importants pour nous – nous vous encourageons à la fois pendant la période d'enseignement et dans une présentation possible au CKW. En savoir plus"
+        "it": "Puoi - È possibile installare reti di linea elettrica e impianti di costruzione di fili precisamente e professionalmente. - Si montano connessioni e dispositivi come prese, interruttori o illuminazione secondo il piano. - Lavori in vari tipi di edifici utilizzando disegni tecnici. - Porti le tue competenze in servizio, riparazione o manutenzione. - Hai contatto con il cliente quando consegna le piante. Questo ti rende - Sei interessato a tecnologia, artigianato e processi elettrotecnici. - Hai una buona sensazione di punta delle dita e puoi distinguere i colori in modo sicuro. - Ti piace lavorare nella squadra e prenderti la responsabilità dei tuoi compiti. - Sei flessibile, come lavorare in luoghi diversi e all'aperto. - Porti buoni risultati scolastici in matematica, geometria, scienze naturali e forme tecniche. Questo ci rende Un lavoro emozionante. Un lavoro significativo. E poi molti altri vantaggi che CKW offre. 🎉 Varie occasioni per gli studenti: Inizia la tua formazione con un'emozionante settimana di introduzione e aspetta un programma vario con escursioni ed eventi che trasmettono conoscenze, si divertono e promuovono lo scambio con i tuoi compagni di studio. 🚌 Vantaggi interessanti: beneficia di sei settimane di vacanza, acquisto di vacanza, denaro reka e partecipazione alla mobilità. 💻 Sempre aggiornato: Hai bisogno di supporto a scuola?\n• Offriamo corsi di supporto e ti permettono di partecipare a corsi interni ed esterni per mantenere le tue conoscenze aggiornate e ampliate ulteriormente. 📚 Riconosciamo il tuo talento: il tuo impegno e il tuo talento sono importanti per noi – ti promuoviamo sia durante il periodo di insegnamento che in una possibile presentazione al CKW. Per saperne di più",
+        "en": "You can - You install electrical line networks and wires building installations precisely and professionally. - You mount connections and devices such as sockets, switches or lighting according to plan. - You work in various types of buildings using technical drawings. - You bring your skills into service, repair or maintenance work. - You have contact with the customer when you hand over plants. That makes you - You are interested in technology, crafts and electrotechnical processes. - You have a good fingertip feeling and can distinguish colors safely. - You like to work in the team and take responsibility for your tasks. - You are flexible, like working in different places and outdoors. - You bring good school achievements in mathematics, geometry, natural science and technical forms. That makes us An exciting job. A meaningful work. And then many more benefits that CKW offers you. 🎉 Various occasions for learners: Start your training with an exciting introduction week and look forward to a varied program with excursions and events that convey knowledge, make fun and promote exchange with your fellow learners. 🚌 Attractive benefits: You benefit from six weeks of vacation, holiday purchase, reka money and participation in mobility. 💻 Always up to date: Do you need support at school?\n• We offer support courses and allow you to participate in internal and external courses to keep your knowledge up-to-date and further expand. 📚 We recognize your talent: your commitment and talent are important to us – we promote you both during the teaching period and in a possible presentation at CKW. Learn more",
+        "de": "Das kannst du gestalten - Du installierst elektrische Leitungsnetze und verdrahtest Gebäudeinstallationen präzise und fachgerecht. - Du montierst Anschlüsse und Geräte wie Steckdosen, Schalter oder Beleuchtung nach Plan. - Du arbeitest anhand technischer Zeichnungen in verschiedensten Gebäudetypen. - Du bringst deine Fähigkeiten bei Service-, Reparatur- oder Wartungsarbeiten ein. - Du hast bei der Übergabe von Anlagen Kontakt mit der Kundschaft. Das macht dich aus - Du interessierst dich für Technik, Handwerk und elektrotechnische Vorgänge. - Du hast ein gutes Fingerspitzengefühl und kannst Farben sicher unterscheiden. - Du arbeitest gerne im Team und übernimmst Verantwortung für deine\n• Aufgaben. - Du bist flexibel, gerne an verschiedenen Orten und auch im Freien tätig. - Du bringst gute Schulleistungen in Mathematik, Geometrie, Naturlehre und Technischem Gestalten mit. Das macht uns aus Ein spannender Job. Eine sinnstiftende Arbeit. Und dann noch zahlreiche weitere Vorteile, die dir CKW bietet. 🎉 Vielfältige Anlässe für Lernende: Starte deine Ausbildung mit einer spannenden Einführungswoche und freue dich auf ein abwechslungsreiches Programm mit Ausflügen und Events, die Wissen vermitteln, Spass machen und den Austausch mit deinen Mitlernenden fördern. 🚌 Attraktive Zusatzleistungen: Du profitierst von sechs Wochen Ferien, Ferienkauf, Reka-Geld und einer Beteiligung an die Mobilität. 💻 Immer auf dem neusten Stand: Brauchst du Unterstützung in der Schule?\n• Wir bieten dir Stützkurse an und ermöglichen dir die Teilnahme an internen sowie externen Fachkursen, um deine Kenntnisse aktuell zu halten und weiter auszubauen. 📚 Wir erkennen dein Talent: Dein Engagement und dein Talent sind uns wichtig – wir fördern dich sowohl während der Lehrzeit als auch in einer möglichen Festanstellung bei CKW. Mehr erfahren",
+        "fr": "Vous pouvez - Vous installez des réseaux électriques et des installations de construction de fils avec précision et professionnalisme. - Vous montez des connexions et des dispositifs tels que des prises, des interrupteurs ou un éclairage selon le plan. - Vous travaillez dans différents types de bâtiments en utilisant des dessins techniques. - Vous mettez vos compétences en service, en réparation ou en entretien. - Vous avez le contact avec le client quand vous remettez des usines. Ça te fait - Vous êtes intéressé par la technologie, l'artisanat et les processus électrotechniques. - Vous avez une bonne sensation et pouvez distinguer les couleurs en toute sécurité. - Vous aimez travailler dans l'équipe et prendre la responsabilité de vos tâches. - Vous êtes flexible, comme travailler dans différents endroits et à l'extérieur. - Vous apportez de bonnes réalisations scolaires en mathématiques, géométrie, sciences naturelles et formes techniques. Ça nous fait Un travail passionnant. Un travail significatif. Et puis beaucoup d'autres avantages que CKW vous offre. Plusieurs occasions pour les apprenants : Commencez votre formation avec une semaine d'introduction passionnante et attendez avec impatience un programme varié avec des excursions et des événements qui transmettent les connaissances, se moquent et favorisent l'échange avec vos collègues apprenants. Avantages attractifs: Vous bénéficiez de six semaines de vacances, d'achat de vacances, d'argent de reka et de participation à la mobilité. Toujours à jour : Avez-vous besoin de soutien à l'école ?\n• Nous offrons des cours de soutien et vous permettons de participer à des cours internes et externes afin de maintenir vos connaissances à jour et d'élargir davantage. Nous reconnaissons votre talent : votre engagement et votre talent sont importants pour nous – nous vous encourageons à la fois pendant la période d'enseignement et dans une présentation possible au CKW. En savoir plus"
       },
       "slugByLocale": {
         "it": "apprendista-montatore-elettricista-efz-u-m-d-2027-hochdorf-ckw-hochdorf",
@@ -3674,7 +3676,7 @@
         "de": "lernende-r-montage-elektriker-in-efz-w-m-d-2027-hochdorf-ckw-hochdorf",
         "fr": "apprenti-electricien-efz-h-f-2027-hochdorf-ckw-hochdorf"
       },
-      "crawledAt": "2026-05-19T11:09:34.925Z",
+      "crawledAt": "2026-05-19T21:34:38.134Z",
       "id": "axpo-group-6767ae854638",
       "salaryMin": 42640,
       "salaryMax": 61000,
@@ -3740,10 +3742,10 @@
         "fr": "Apprenti/e Montage-Elektriker/in EFZ (w/m/d) - 2027 - Hitzkirch"
       },
       "descriptionByLocale": {
-        "it": "Puoi - È possibile installare reti di linea elettrica e impianti di costruzione di fili precisamente e professionalmente. - Si montano connessioni e dispositivi come prese, interruttori o illuminazione secondo il piano. - Lavori in vari tipi di edifici utilizzando disegni tecnici. - Porti le tue competenze in servizio, riparazione o manutenzione. - Hai contatto con il cliente quando consegna le piante. Questo ti rende - Sei interessato a tecnologia, artigianato e processi elettrotecnici. - Hai una buona sensazione di punta delle dita e puoi distinguere i colori in modo sicuro. - Ti piace lavorare nella squadra e prenderti la responsabilità dei tuoi compiti. - Sei flessibile, come lavorare in luoghi diversi e all'aperto. - Porti buoni risultati scolastici in matematica, geometria, scienze naturali e forme tecniche. Questo ci rende Un lavoro emozionante. Un lavoro significativo. E poi molti altri vantaggi che CKW offre. 🎉 Varie occasioni per gli studenti: Inizia la tua formazione con un'emozionante settimana di introduzione e aspetta un programma vario con escursioni ed eventi che trasmettono conoscenze, si divertono e promuovono lo scambio con i tuoi compagni di studio. 🚌 Vantaggi interessanti: beneficia di sei settimane di vacanza, acquisto di vacanza, denaro reka e partecipazione alla mobilità. 💻 Sempre aggiornato: Hai bisogno di supporto a scuola? \n• Offriamo corsi di supporto e ti permettono di partecipare a corsi interni ed esterni per mantenere le tue conoscenze aggiornate e ampliate ulteriormente. 📚 Riconosciamo il tuo talento: il tuo impegno e il tuo talento sono importanti per noi – ti promuoviamo sia durante il periodo di insegnamento che in una possibile presentazione al CKW. Per saperne di più",
-        "en": "You can - You install electrical line networks and wires building installations precisely and professionally. - You mount connections and devices such as sockets, switches or lighting according to plan. - You work in various types of buildings using technical drawings. - You bring your skills into service, repair or maintenance work. - You have contact with the customer when you hand over plants. That makes you - You are interested in technology, crafts and electrotechnical processes. - You have a good fingertip feeling and can distinguish colors safely. - You like to work in the team and take responsibility for your tasks. - You are flexible, like working in different places and outdoors. - You bring good school achievements in mathematics, geometry, natural science and technical forms. That makes us An exciting job. A meaningful work. And then many more benefits that CKW offers you. 🎉 Various occasions for learners: Start your training with an exciting introduction week and look forward to a varied program with excursions and events that convey knowledge, make fun and promote exchange with your fellow learners. 🚌 Attractive benefits: You benefit from six weeks of vacation, holiday purchase, reka money and participation in mobility. 💻 Always up to date: Do you need support at school? \n• We offer support courses and allow you to participate in internal and external courses to keep your knowledge up-to-date and further expand. 📚 We recognize your talent: your commitment and talent are important to us – we promote you both during the teaching period and in a possible presentation at CKW. Learn more",
-        "de": "Das kannst du gestalten - Du installierst elektrische Leitungsnetze und verdrahtest Gebäudeinstallationen präzise und fachgerecht. - Du montierst Anschlüsse und Geräte wie Steckdosen, Schalter oder Beleuchtung nach Plan. - Du arbeitest anhand technischer Zeichnungen in verschiedensten Gebäudetypen. - Du bringst deine Fähigkeiten bei Service-, Reparatur- oder Wartungsarbeiten ein. - Du hast bei der Übergabe von Anlagen Kontakt mit der Kundschaft. Das macht dich aus - Du interessierst dich für Technik, Handwerk und elektrotechnische Vorgänge. - Du hast ein gutes Fingerspitzengefühl und kannst Farben sicher unterscheiden. - Du arbeitest gerne im Team und übernimmst Verantwortung für deine \n• Aufgaben. - Du bist flexibel, gerne an verschiedenen Orten und auch im Freien tätig. - Du bringst gute Schulleistungen in Mathematik, Geometrie, Naturlehre und Technischem Gestalten mit. Das macht uns aus Ein spannender Job. Eine sinnstiftende Arbeit. Und dann noch zahlreiche weitere Vorteile, die dir CKW bietet. 🎉 Vielfältige Anlässe für Lernende: Starte deine Ausbildung mit einer spannenden Einführungswoche und freue dich auf ein abwechslungsreiches Programm mit Ausflügen und Events, die Wissen vermitteln, Spass machen und den Austausch mit deinen Mitlernenden fördern. 🚌 Attraktive Zusatzleistungen: Du profitierst von sechs Wochen Ferien, Ferienkauf, Reka-Geld und einer Beteiligung an die Mobilität. 💻 Immer auf dem neusten Stand: Brauchst du Unterstützung in der Schule? \n• Wir bieten dir Stützkurse an und ermöglichen dir die Teilnahme an internen sowie externen Fachkursen, um deine Kenntnisse aktuell zu halten und weiter auszubauen. 📚 Wir erkennen dein Talent: Dein Engagement und dein Talent sind uns wichtig – wir fördern dich sowohl während der Lehrzeit als auch in einer möglichen Festanstellung bei CKW. Mehr erfahren",
-        "fr": "Vous pouvez - Vous installez des réseaux électriques et des installations de construction de fils avec précision et professionnalisme. - Vous montez des connexions et des dispositifs tels que des prises, des interrupteurs ou un éclairage selon le plan. - Vous travaillez dans différents types de bâtiments en utilisant des dessins techniques. - Vous mettez vos compétences en service, en réparation ou en entretien. - Vous avez le contact avec le client quand vous remettez des usines. Ça te fait - Vous êtes intéressé par la technologie, l'artisanat et les processus électrotechniques. - Vous avez une bonne sensation et pouvez distinguer les couleurs en toute sécurité. - Vous aimez travailler dans l'équipe et prendre la responsabilité de vos tâches. - Vous êtes flexible, comme travailler dans différents endroits et à l'extérieur. - Vous apportez de bonnes réalisations scolaires en mathématiques, géométrie, sciences naturelles et formes techniques. Ça nous fait Un travail passionnant. Un travail significatif. Et puis beaucoup d'autres avantages que CKW vous offre. Plusieurs occasions pour les apprenants : Commencez votre formation avec une semaine d'introduction passionnante et attendez avec impatience un programme varié avec des excursions et des événements qui transmettent les connaissances, se moquent et favorisent l'échange avec vos collègues apprenants. Avantages attractifs: Vous bénéficiez de six semaines de vacances, d'achat de vacances, d'argent de reka et de participation à la mobilité. Toujours à jour : Avez-vous besoin de soutien à l'école ? \n• Nous offrons des cours de soutien et vous permettons de participer à des cours internes et externes afin de maintenir vos connaissances à jour et d'élargir davantage. Nous reconnaissons votre talent : votre engagement et votre talent sont importants pour nous – nous vous encourageons à la fois pendant la période d'enseignement et dans une présentation possible au CKW. En savoir plus"
+        "it": "Puoi - È possibile installare reti di linea elettrica e impianti di costruzione di fili precisamente e professionalmente. - Si montano connessioni e dispositivi come prese, interruttori o illuminazione secondo il piano. - Lavori in vari tipi di edifici utilizzando disegni tecnici. - Porti le tue competenze in servizio, riparazione o manutenzione. - Hai contatto con il cliente quando consegna le piante. Questo ti rende - Sei interessato a tecnologia, artigianato e processi elettrotecnici. - Hai una buona sensazione di punta delle dita e puoi distinguere i colori in modo sicuro. - Ti piace lavorare nella squadra e prenderti la responsabilità dei tuoi compiti. - Sei flessibile, come lavorare in luoghi diversi e all'aperto. - Porti buoni risultati scolastici in matematica, geometria, scienze naturali e forme tecniche. Questo ci rende Un lavoro emozionante. Un lavoro significativo. E poi molti altri vantaggi che CKW offre. 🎉 Varie occasioni per gli studenti: Inizia la tua formazione con un'emozionante settimana di introduzione e aspetta un programma vario con escursioni ed eventi che trasmettono conoscenze, si divertono e promuovono lo scambio con i tuoi compagni di studio. 🚌 Vantaggi interessanti: beneficia di sei settimane di vacanza, acquisto di vacanza, denaro reka e partecipazione alla mobilità. 💻 Sempre aggiornato: Hai bisogno di supporto a scuola?\n• Offriamo corsi di supporto e ti permettono di partecipare a corsi interni ed esterni per mantenere le tue conoscenze aggiornate e ampliate ulteriormente. 📚 Riconosciamo il tuo talento: il tuo impegno e il tuo talento sono importanti per noi – ti promuoviamo sia durante il periodo di insegnamento che in una possibile presentazione al CKW. Per saperne di più",
+        "en": "You can - You install electrical line networks and wires building installations precisely and professionally. - You mount connections and devices such as sockets, switches or lighting according to plan. - You work in various types of buildings using technical drawings. - You bring your skills into service, repair or maintenance work. - You have contact with the customer when you hand over plants. That makes you - You are interested in technology, crafts and electrotechnical processes. - You have a good fingertip feeling and can distinguish colors safely. - You like to work in the team and take responsibility for your tasks. - You are flexible, like working in different places and outdoors. - You bring good school achievements in mathematics, geometry, natural science and technical forms. That makes us An exciting job. A meaningful work. And then many more benefits that CKW offers you. 🎉 Various occasions for learners: Start your training with an exciting introduction week and look forward to a varied program with excursions and events that convey knowledge, make fun and promote exchange with your fellow learners. 🚌 Attractive benefits: You benefit from six weeks of vacation, holiday purchase, reka money and participation in mobility. 💻 Always up to date: Do you need support at school?\n• We offer support courses and allow you to participate in internal and external courses to keep your knowledge up-to-date and further expand. 📚 We recognize your talent: your commitment and talent are important to us – we promote you both during the teaching period and in a possible presentation at CKW. Learn more",
+        "de": "Das kannst du gestalten - Du installierst elektrische Leitungsnetze und verdrahtest Gebäudeinstallationen präzise und fachgerecht. - Du montierst Anschlüsse und Geräte wie Steckdosen, Schalter oder Beleuchtung nach Plan. - Du arbeitest anhand technischer Zeichnungen in verschiedensten Gebäudetypen. - Du bringst deine Fähigkeiten bei Service-, Reparatur- oder Wartungsarbeiten ein. - Du hast bei der Übergabe von Anlagen Kontakt mit der Kundschaft. Das macht dich aus - Du interessierst dich für Technik, Handwerk und elektrotechnische Vorgänge. - Du hast ein gutes Fingerspitzengefühl und kannst Farben sicher unterscheiden. - Du arbeitest gerne im Team und übernimmst Verantwortung für deine\n• Aufgaben. - Du bist flexibel, gerne an verschiedenen Orten und auch im Freien tätig. - Du bringst gute Schulleistungen in Mathematik, Geometrie, Naturlehre und Technischem Gestalten mit. Das macht uns aus Ein spannender Job. Eine sinnstiftende Arbeit. Und dann noch zahlreiche weitere Vorteile, die dir CKW bietet. 🎉 Vielfältige Anlässe für Lernende: Starte deine Ausbildung mit einer spannenden Einführungswoche und freue dich auf ein abwechslungsreiches Programm mit Ausflügen und Events, die Wissen vermitteln, Spass machen und den Austausch mit deinen Mitlernenden fördern. 🚌 Attraktive Zusatzleistungen: Du profitierst von sechs Wochen Ferien, Ferienkauf, Reka-Geld und einer Beteiligung an die Mobilität. 💻 Immer auf dem neusten Stand: Brauchst du Unterstützung in der Schule?\n• Wir bieten dir Stützkurse an und ermöglichen dir die Teilnahme an internen sowie externen Fachkursen, um deine Kenntnisse aktuell zu halten und weiter auszubauen. 📚 Wir erkennen dein Talent: Dein Engagement und dein Talent sind uns wichtig – wir fördern dich sowohl während der Lehrzeit als auch in einer möglichen Festanstellung bei CKW. Mehr erfahren",
+        "fr": "Vous pouvez - Vous installez des réseaux électriques et des installations de construction de fils avec précision et professionnalisme. - Vous montez des connexions et des dispositifs tels que des prises, des interrupteurs ou un éclairage selon le plan. - Vous travaillez dans différents types de bâtiments en utilisant des dessins techniques. - Vous mettez vos compétences en service, en réparation ou en entretien. - Vous avez le contact avec le client quand vous remettez des usines. Ça te fait - Vous êtes intéressé par la technologie, l'artisanat et les processus électrotechniques. - Vous avez une bonne sensation et pouvez distinguer les couleurs en toute sécurité. - Vous aimez travailler dans l'équipe et prendre la responsabilité de vos tâches. - Vous êtes flexible, comme travailler dans différents endroits et à l'extérieur. - Vous apportez de bonnes réalisations scolaires en mathématiques, géométrie, sciences naturelles et formes techniques. Ça nous fait Un travail passionnant. Un travail significatif. Et puis beaucoup d'autres avantages que CKW vous offre. Plusieurs occasions pour les apprenants : Commencez votre formation avec une semaine d'introduction passionnante et attendez avec impatience un programme varié avec des excursions et des événements qui transmettent les connaissances, se moquent et favorisent l'échange avec vos collègues apprenants. Avantages attractifs: Vous bénéficiez de six semaines de vacances, d'achat de vacances, d'argent de reka et de participation à la mobilité. Toujours à jour : Avez-vous besoin de soutien à l'école ?\n• Nous offrons des cours de soutien et vous permettons de participer à des cours internes et externes afin de maintenir vos connaissances à jour et d'élargir davantage. Nous reconnaissons votre talent : votre engagement et votre talent sont importants pour nous – nous vous encourageons à la fois pendant la période d'enseignement et dans une présentation possible au CKW. En savoir plus"
       },
       "slugByLocale": {
         "it": "apprendista-montatore-elettricista-efz-uomo-donna-2027-hitzkirch-ckw-hitzkirch",
@@ -3751,7 +3753,7 @@
         "de": "lernende-r-montage-elektriker-in-efz-w-m-d-2027-hitzkirch-ckw-hitzkirch",
         "fr": "apprenti-electricien-efz-homme-femme-2027-hitzkirch-ckw-hitzkirch"
       },
-      "crawledAt": "2026-05-19T11:09:34.933Z",
+      "crawledAt": "2026-05-19T21:34:38.147Z",
       "id": "axpo-group-f72315920e1f",
       "salaryMin": 42640,
       "salaryMax": 61000,
@@ -3785,6 +3787,67 @@
         "lernende-r-montage-elektriker-in-efz-w-m-d-2027-hitzkirch-9c5823e2-99d8-4cce-aa9b-2f87fd8d600d",
         "apprendista-montage-elektriker-in-cfc-w-m-d-2027-hitzkirch-ckw-hitzkirch"
       ]
+    },
+    {
+      "title": "Lernende/r Montage-Elektriker/in EFZ (w/m/d) - 2027 - Beromünster",
+      "slug": "lernende-r-montage-elektriker-in-efz-w-m-d-2027-beromunster-49e7dba4-2bde-4e08-8352-6fab9338aee9",
+      "url": "https://ckw.teamtailor.com/jobs/7505947-lernende-r-montage-elektriker-in-efz-w-m-d-2027-beromuenster",
+      "applyUrl": "https://ckw.teamtailor.com/jobs/7505947-lernende-r-montage-elektriker-in-efz-w-m-d-2027-beromuenster",
+      "company": "CKW",
+      "companyKey": "axpo-group",
+      "companyDomain": "axpo.com",
+      "location": "Beromünster",
+      "addressLocality": "Beromünster",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "canton": "LU",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Utilities",
+      "department": "Elektroinstallation",
+      "source": "axpo-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-02",
+      "validThrough": "",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "description": "## Das kannst du gestalten\n\n- Du installierst elektrische Leitungsnetze und verdrahtest Gebäudeinstallationen präzise und fachgerecht.\n- Du montierst Anschlüsse und Geräte wie Steckdosen, Schalter oder Beleuchtung nach Plan.\n- Du arbeitest anhand technischer Zeichnungen in verschiedensten Gebäudetypen.\n- Du bringst deine Fähigkeiten bei Service-, Reparatur- oder Wartungsarbeiten ein.\n- Du hast bei der Übergabe von Anlagen Kontakt mit der Kundschaft.\n\n## Das macht dich aus\n\n- Du interessierst dich für Technik, Handwerk und elektrotechnische Vorgänge.\n- Du hast ein gutes Fingerspitzengefühl und kannst Farben sicher unterscheiden.\n- Du arbeitest gerne im Team und übernimmst Verantwortung für deine Aufgaben.\n- Du bist flexibel, gerne an verschiedenen Orten und auch im Freien tätig.\n- Du bringst gute Schulleistungen in Mathematik, Geometrie, Naturlehre und Technischem Gestalten mit.\n\n## Das macht uns aus\n\nEin spannender Job. Eine sinnstiftende Arbeit. Und dann noch zahlreiche weitere Vorteile, die dir CKW bietet.\n\n🎉 Vielfältige Anlässe für Lernende: Starte deine Ausbildung mit einer spannenden Einführungswoche und freue dich auf ein abwechslungsreiches Programm mit Ausflügen und Events, die Wissen vermitteln, Spass machen und den Austausch mit deinen Mitlernenden fördern.\n\n🚌 Attraktive Zusatzleistungen: Du profitierst von sechs Wochen Ferien, Ferienkauf, Reka-Geld und einer Beteiligung an die Mobilität.\n\n💻 Immer auf dem neusten Stand: Brauchst du Unterstützung in der Schule? Wir bieten dir Stützkurse an und ermöglichen dir die Teilnahme an internen sowie externen Fachkursen, um deine Kenntnisse aktuell zu halten und weiter auszubauen.\n\n📚 Wir erkennen dein Talent: Dein Engagement und dein Talent sind uns wichtig – wir fördern dich sowohl während der Lehrzeit als auch in einer möglichen Festanstellung bei CKW. [Mehr erfahren](https://www.ckw.ch/ueber-ckw/karriere/lehre-schnuppern)",
+      "titleByLocale": {
+        "de": "Lernende/r Montage-Elektriker/in EFZ (w/m/d) - 2027 - Beromünster",
+        "it": "Apprendista Montage-Elektriker/in CFC (w/m/d) - 2027 - Beromünster",
+        "en": "Apprentice Montage-Elektriker/in EFZ (w/m/d) - 2027 - Beromünster",
+        "fr": "Apprenti/e Montage-Elektriker/in EFZ (w/m/d) - 2027 - Beromünster"
+      },
+      "descriptionByLocale": {
+        "de": "## Das kannst du gestalten\n\n- Du installierst elektrische Leitungsnetze und verdrahtest Gebäudeinstallationen präzise und fachgerecht.\n- Du montierst Anschlüsse und Geräte wie Steckdosen, Schalter oder Beleuchtung nach Plan.\n- Du arbeitest anhand technischer Zeichnungen in verschiedensten Gebäudetypen.\n- Du bringst deine Fähigkeiten bei Service-, Reparatur- oder Wartungsarbeiten ein.\n- Du hast bei der Übergabe von Anlagen Kontakt mit der Kundschaft.\n\n## Das macht dich aus\n\n- Du interessierst dich für Technik, Handwerk und elektrotechnische Vorgänge.\n- Du hast ein gutes Fingerspitzengefühl und kannst Farben sicher unterscheiden.\n- Du arbeitest gerne im Team und übernimmst Verantwortung für deine Aufgaben.\n- Du bist flexibel, gerne an verschiedenen Orten und auch im Freien tätig.\n- Du bringst gute Schulleistungen in Mathematik, Geometrie, Naturlehre und Technischem Gestalten mit.\n\n## Das macht uns aus\n\nEin spannender Job. Eine sinnstiftende Arbeit. Und dann noch zahlreiche weitere Vorteile, die dir CKW bietet.\n\n🎉 Vielfältige Anlässe für Lernende: Starte deine Ausbildung mit einer spannenden Einführungswoche und freue dich auf ein abwechslungsreiches Programm mit Ausflügen und Events, die Wissen vermitteln, Spass machen und den Austausch mit deinen Mitlernenden fördern.\n\n🚌 Attraktive Zusatzleistungen: Du profitierst von sechs Wochen Ferien, Ferienkauf, Reka-Geld und einer Beteiligung an die Mobilität.\n\n💻 Immer auf dem neusten Stand: Brauchst du Unterstützung in der Schule? Wir bieten dir Stützkurse an und ermöglichen dir die Teilnahme an internen sowie externen Fachkursen, um deine Kenntnisse aktuell zu halten und weiter auszubauen.\n\n📚 Wir erkennen dein Talent: Dein Engagement und dein Talent sind uns wichtig – wir fördern dich sowohl während der Lehrzeit als auch in einer möglichen Festanstellung bei CKW. [Mehr erfahren](https://www.ckw.ch/ueber-ckw/karriere/lehre-schnuppern)",
+        "it": "## Das kannst du gestalten\n\n- Du installierst elektrische Leitungsnetze und verdrahtest Gebäudeinstallationen präzise und fachgerecht.\n- Du montierst Anschlüsse und Geräte wie Steckdosen, Schalter oder Beleuchtung nach Plan.\n- Du arbeitest anhand technischer Zeichnungen in verschiedensten Gebäudetypen.\n- Du bringst deine Fähigkeiten bei Service-, Reparatur- oder Wartungsarbeiten ein.\n- Du hast bei der Übergabe von Anlagen Kontakt mit der Kundschaft.\n\n## Das macht dich aus\n\n- Du interessierst dich für Technik, Handwerk und elektrotechnische Vorgänge.\n- Du hast ein gutes Fingerspitzengefühl und kannst Farben sicher unterscheiden.\n- Du arbeitest gerne im Team und übernimmst Verantwortung für deine Aufgaben.\n- Du bist flexibel, gerne an verschiedenen Orten und auch im Freien tätig.\n- Du bringst gute Schulleistungen in Mathematik, Geometrie, Naturlehre und Technischem Gestalten mit.\n\n## Das macht uns aus\n\nEin spannender Job. Eine sinnstiftende Arbeit. Und dann noch zahlreiche weitere Vorteile, die dir CKW bietet.\n\n🎉 Vielfältige Anlässe für Lernende: Starte deine Ausbildung mit einer spannenden Einführungswoche und freue dich auf ein abwechslungsreiches Programm mit Ausflügen und Events, die Wissen vermitteln, Spass machen und den Austausch mit deinen Mitlernenden fördern.\n\n🚌 Attraktive Zusatzleistungen: Du profitierst von sechs Wochen Ferien, Ferienkauf, Reka-Geld und einer Beteiligung an die Mobilität.\n\n💻 Immer auf dem neusten Stand: Brauchst du Unterstützung in der Schule? Wir bieten dir Stützkurse an und ermöglichen dir die Teilnahme an internen sowie externen Fachkursen, um deine Kenntnisse aktuell zu halten und weiter auszubauen.\n\n📚 Wir erkennen dein Talent: Dein Engagement und dein Talent sind uns wichtig – wir fördern dich sowohl während der Lehrzeit als auch in einer möglichen Festanstellung bei CKW. [Mehr erfahren](https://www.ckw.ch/ueber-ckw/karriere/lehre-schnuppern)",
+        "en": "## Das kannst du gestalten\n\n- Du installierst elektrische Leitungsnetze und verdrahtest Gebäudeinstallationen präzise und fachgerecht.\n- Du montierst Anschlüsse und Geräte wie Steckdosen, Schalter oder Beleuchtung nach Plan.\n- Du arbeitest anhand technischer Zeichnungen in verschiedensten Gebäudetypen.\n- Du bringst deine Fähigkeiten bei Service-, Reparatur- oder Wartungsarbeiten ein.\n- Du hast bei der Übergabe von Anlagen Kontakt mit der Kundschaft.\n\n## Das macht dich aus\n\n- Du interessierst dich für Technik, Handwerk und elektrotechnische Vorgänge.\n- Du hast ein gutes Fingerspitzengefühl und kannst Farben sicher unterscheiden.\n- Du arbeitest gerne im Team und übernimmst Verantwortung für deine Aufgaben.\n- Du bist flexibel, gerne an verschiedenen Orten und auch im Freien tätig.\n- Du bringst gute Schulleistungen in Mathematik, Geometrie, Naturlehre und Technischem Gestalten mit.\n\n## Das macht uns aus\n\nEin spannender Job. Eine sinnstiftende Arbeit. Und dann noch zahlreiche weitere Vorteile, die dir CKW bietet.\n\n🎉 Vielfältige Anlässe für Lernende: Starte deine Ausbildung mit einer spannenden Einführungswoche und freue dich auf ein abwechslungsreiches Programm mit Ausflügen und Events, die Wissen vermitteln, Spass machen und den Austausch mit deinen Mitlernenden fördern.\n\n🚌 Attraktive Zusatzleistungen: Du profitierst von sechs Wochen Ferien, Ferienkauf, Reka-Geld und einer Beteiligung an die Mobilität.\n\n💻 Immer auf dem neusten Stand: Brauchst du Unterstützung in der Schule? Wir bieten dir Stützkurse an und ermöglichen dir die Teilnahme an internen sowie externen Fachkursen, um deine Kenntnisse aktuell zu halten und weiter auszubauen.\n\n📚 Wir erkennen dein Talent: Dein Engagement und dein Talent sind uns wichtig – wir fördern dich sowohl während der Lehrzeit als auch in einer möglichen Festanstellung bei CKW. [Mehr erfahren](https://www.ckw.ch/ueber-ckw/karriere/lehre-schnuppern)",
+        "fr": "## Das kannst du gestalten\n\n- Du installierst elektrische Leitungsnetze und verdrahtest Gebäudeinstallationen präzise und fachgerecht.\n- Du montierst Anschlüsse und Geräte wie Steckdosen, Schalter oder Beleuchtung nach Plan.\n- Du arbeitest anhand technischer Zeichnungen in verschiedensten Gebäudetypen.\n- Du bringst deine Fähigkeiten bei Service-, Reparatur- oder Wartungsarbeiten ein.\n- Du hast bei der Übergabe von Anlagen Kontakt mit der Kundschaft.\n\n## Das macht dich aus\n\n- Du interessierst dich für Technik, Handwerk und elektrotechnische Vorgänge.\n- Du hast ein gutes Fingerspitzengefühl und kannst Farben sicher unterscheiden.\n- Du arbeitest gerne im Team und übernimmst Verantwortung für deine Aufgaben.\n- Du bist flexibel, gerne an verschiedenen Orten und auch im Freien tätig.\n- Du bringst gute Schulleistungen in Mathematik, Geometrie, Naturlehre und Technischem Gestalten mit.\n\n## Das macht uns aus\n\nEin spannender Job. Eine sinnstiftende Arbeit. Und dann noch zahlreiche weitere Vorteile, die dir CKW bietet.\n\n🎉 Vielfältige Anlässe für Lernende: Starte deine Ausbildung mit einer spannenden Einführungswoche und freue dich auf ein abwechslungsreiches Programm mit Ausflügen und Events, die Wissen vermitteln, Spass machen und den Austausch mit deinen Mitlernenden fördern.\n\n🚌 Attraktive Zusatzleistungen: Du profitierst von sechs Wochen Ferien, Ferienkauf, Reka-Geld und einer Beteiligung an die Mobilität.\n\n💻 Immer auf dem neusten Stand: Brauchst du Unterstützung in der Schule? Wir bieten dir Stützkurse an und ermöglichen dir die Teilnahme an internen sowie externen Fachkursen, um deine Kenntnisse aktuell zu halten und weiter auszubauen.\n\n📚 Wir erkennen dein Talent: Dein Engagement und dein Talent sind uns wichtig – wir fördern dich sowohl während der Lehrzeit als auch in einer möglichen Festanstellung bei CKW. [Mehr erfahren](https://www.ckw.ch/ueber-ckw/karriere/lehre-schnuppern)"
+      },
+      "slugByLocale": {
+        "it": "lernende-r-montage-elektriker-in-efz-w-m-d-2027-beromunster-49e7dba4-2bde-4e08-8352-6fab9338aee9",
+        "en": "lernende-r-montage-elektriker-in-efz-w-m-d-2027-beromunster-49e7dba4-2bde-4e08-8352-6fab9338aee9",
+        "de": "lernende-r-montage-elektriker-in-efz-w-m-d-2027-beromunster-ckw-beromunster",
+        "fr": "lernende-r-montage-elektriker-in-efz-w-m-d-2027-beromunster-49e7dba4-2bde-4e08-8352-6fab9338aee9"
+      },
+      "crawledAt": "2026-05-19T21:34:38.158Z",
+      "id": "axpo-group-fd29a5b5961e",
+      "salaryMin": 42640,
+      "salaryMax": 61000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 42640,
+          "maxValue": 61000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Viale Stazione 31",
+      "postalCode": "6500",
+      "firstSeenAt": "2026-05-19T21:34:38.158Z"
     }
   ]
 }
