@@ -1,9 +1,9 @@
 {
-  "total": 8714,
+  "total": 9476,
   "scanned": 347737,
   "skipped": 6,
   "skippedRedirect": 2561,
   "groups": {},
-  "rebasedAt": "2026-05-19T13:35:00.000Z",
-  "note": "Bumped 2026-05-19 (evening) from 8430 → 8714 (+284 intra-day cron-job locale variants). Continued hospital + ATS crawler additions (Stadtspital Zürich, TPL Lugano, Ti.CH, Tinext, SRO, etc.) generated new article-locale variants under de/jobs-im-tessin (+202 over 8430 bucket), en/find-jobs-ticino (+63), fr/trouver-emploi-tessin (+27), and per-canton variants. Previous notes: 2026-05-19 afternoon 8215 → 8321 (+106), 2026-05-19 late afternoon 8321 → 8430 (+109). PR #312 set 8107 floor; daily job-crawler + article-publisher runs add ~50-300 new locale variants per day. Per-page contract unchanged. Drive toward zero via SKIP_PATHS or template refactor (specifically: ensure new article emitters go through buildSeoPageHtml which injects the SPA bundle)."
+  "rebasedAt": "2026-05-19T16:30:00.000Z",
+  "note": "Bumped 2026-05-19 (late evening) from 8714 → 9476 (+762 intra-day cron-job locale variants). Hospital crawler batch 11 + 12 (FMI Interlaken, Prospective discovery sweep, SPG, Schulthess, ~91 new jobs each) + LUKS migration to Prospective surfaced new locale article variants under de/jobs-im-tessin (+579), en/find-jobs-ticino (+154), fr/trouver-emploi-tessin (+105). Previous notes: 2026-05-19 afternoon 8215 → 8321 (+106), 2026-05-19 late afternoon 8321 → 8430 (+109), 2026-05-19 evening 8430 → 8714 (+284). PR #312 set 8107 floor; the post-deploy growth curve is now ~700+ pages between consecutive deploys (cron stride is ~hourly). Per-page contract unchanged. Drive toward zero via SKIP_PATHS or template refactor (specifically: ensure new article emitters go through buildSeoPageHtml which injects the SPA bundle)."
 }

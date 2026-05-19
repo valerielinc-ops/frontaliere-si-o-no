@@ -178,26 +178,32 @@ describe('Luzerner Kantonsspital (LUKS) crawler parser', () => {
       expect(jobs).toEqual([]);
     });
 
-    it('parses adverts when Path A page-data.json has a populated advertCollection', async () => {
+    // ── 2026-05-19: migrated to Prospective.ch (medium=1003280) ──────────
+    // The previous Path A (`page-data.json`) / Path B (`sitemap.xml`) fallbacks
+    // were removed by `scripts/lib/luks-job-parser.mjs` when it switched to
+    // the shared Prospective factory. These 2 tests assert the NEW Prospective
+    // contract: parses jobs from the `{total, jobs[]}` response shape and
+    // returns [] gracefully when the Prospective endpoint is unreachable
+    // (after the `prospective-ch-job-parser-common.mjs` graceful-degradation
+    // wrapper added in the same PR).
+    it('parses adverts when Prospective API returns jobs', async () => {
       globalThis.fetch = vi.fn(async (url: any) => {
         const u = String(url);
-        if (u === PAGE_DATA_URL) {
+        if (u.startsWith('https://ohws.prospective.ch/public/v1/medium/1003280/jobs')) {
           return new Response(
             JSON.stringify({
-              result: {
-                data: {
-                  page: {
-                    advertCollection: [
-                      {
-                        title: 'Diplomierte Pflegefachperson HF',
-                        location: 'Luzern',
-                        path: '/stellen-und-karriere/offene-stellen/pflege-hf-001',
-                        description: 'Wir suchen eine engagierte Pflegefachperson…',
-                      },
-                    ],
+              total: 1,
+              jobs: [
+                {
+                  szas: {
+                    sza_title: 'Diplomierte Pflegefachperson HF',
+                    'sza_location.city': '6000 Luzern',
+                  },
+                  links: {
+                    directlink: 'https://jobs.luks.ch/stellen-und-karriere/offene-stellen/pflege-hf-001',
                   },
                 },
-              },
+              ],
             }),
             { status: 200, headers: { 'content-type': 'application/json' } },
           );
@@ -214,50 +220,20 @@ describe('Luzerner Kantonsspital (LUKS) crawler parser', () => {
         country: 'CH',
       });
       expect(jobs[0].url).toBe(
-        'https://www.luks.ch/stellen-und-karriere/offene-stellen/pflege-hf-001',
+        'https://jobs.luks.ch/stellen-und-karriere/offene-stellen/pflege-hf-001',
       );
       expect(jobs[0].id).toMatch(/^luks-/);
     });
 
-    it('falls back to Path B (sitemap) when page-data is unreachable', async () => {
-      globalThis.fetch = vi.fn(async (url: any) => {
-        const u = String(url);
-        if (u === PAGE_DATA_URL) {
-          return new Response('', { status: 503 });
-        }
-        if (u === SITEMAP_URL) {
-          return new Response(
-            `<?xml version="1.0"?>
-            <urlset>
-              <url><loc>https://www.luks.ch/stellen-und-karriere/offene-stellen/role-a</loc></url>
-              <url><loc>https://www.luks.ch/about</loc></url>
-            </urlset>`,
-            { status: 200, headers: { 'content-type': 'text/xml' } },
-          );
-        }
-        if (u.endsWith('/role-a/page-data.json')) {
-          return new Response(
-            JSON.stringify({
-              result: {
-                data: {
-                  advert: {
-                    title: 'Fachperson Operationstechnik HF',
-                    location: 'Luzern',
-                    path: '/stellen-und-karriere/offene-stellen/role-a',
-                  },
-                },
-              },
-            }),
-            { status: 200, headers: { 'content-type': 'application/json' } },
-          );
-        }
-        return new Response('', { status: 404 });
+    it('returns [] (no throw) when the Prospective API errors mid-pagination', async () => {
+      globalThis.fetch = vi.fn(async () => {
+        // Every call returns 503 — the graceful-degradation wrapper should
+        // break out of pagination and return whatever was collected (empty).
+        return new Response('', { status: 503 });
       }) as any;
 
       const jobs = await fetchAllLuksJobs();
-      expect(jobs.length).toBeGreaterThanOrEqual(1);
-      expect(jobs[0].title).toBe('Fachperson Operationstechnik HF');
-      expect(jobs[0].companyKey).toBe('luks');
+      expect(jobs).toEqual([]);
     });
   });
 });
