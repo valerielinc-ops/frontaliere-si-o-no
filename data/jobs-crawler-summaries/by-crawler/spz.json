@@ -1,18 +1,19 @@
 {
   "key": "spz",
   "label": "Schweizer Paraplegiker-Zentrum (SPZ)",
-  "generatedAt": "2026-05-19T14:48:48.563Z",
+  "generatedAt": "2026-05-19T23:36:10.608Z",
   "total": 30,
-  "newCount": 30,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 30,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 714870,
-  "avgDurationMs": 714870,
+  "durationMs": 42440,
+  "avgDurationMs": 42440,
   "durationHistory": [
-    714870
+    42440
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "spz-c1fa4beebec6",
       "slug": "fachverantwortliche-r-grafik-design-spz-nottwil",
@@ -26,7 +27,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/fachverantwortliche-r-grafik-design/83cc2fbe-7417-4948-ab3c-438b1c5a1b2c",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:57.218Z",
+      "crawledAt": "2026-05-19T23:35:38.122Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-16",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/fachverantwortliche-r-grafik-design/83cc2fbe-7417-4948-ab3c-438b1c5a1b2c",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:36:57.218Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/postdoctoral-researcher/a199715f-f54f-4657-b9a2-8c123e86864a",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T14:36:58.062Z",
+      "crawledAt": "2026-05-19T23:35:39.156Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-05-15",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/postdoctoral-researcher/a199715f-f54f-4657-b9a2-8c123e86864a",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:36:58.062Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/mitarbeiter-in-peer-beratung/e0b6dfa2-af55-4e90-bce0-8fc965b6bd0f",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:59.187Z",
+      "crawledAt": "2026-05-19T23:35:40.156Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/mitarbeiter-in-peer-beratung/e0b6dfa2-af55-4e90-bce0-8fc965b6bd0f",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:36:59.187Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/lehrstelle-gaertner-in-eba/2fae92ce-3f74-439c-960e-823beac3146d",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:00.168Z",
+      "crawledAt": "2026-05-19T23:35:41.019Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/lehrstelle-gaertner-in-eba/2fae92ce-3f74-439c-960e-823beac3146d",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:00.168Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/dipl-sozialarbeiter-in-fh/b92282e3-cba2-47e0-989b-8307a64db6e6",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:01.117Z",
+      "crawledAt": "2026-05-19T23:35:42.149Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-12",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/dipl-sozialarbeiter-in-fh/b92282e3-cba2-47e0-989b-8307a64db6e6",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:01.117Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/drogist-in-oder-fachfrau-mann-gesundheit-in-beratender-funktion-fuer-kontinenz-und-alltagshilfen/e6ed0207-f395-40b1-ad70-a00b250b4eca",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:02.098Z",
+      "crawledAt": "2026-05-19T23:35:42.926Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "featured": false,
       "postedDate": "2026-05-12",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/drogist-in-oder-fachfrau-mann-gesundheit-in-beratender-funktion-fuer-kontinenz-und-alltagshilfen/e6ed0207-f395-40b1-ad70-a00b250b4eca",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:02.098Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/feldenkrais-practitioner/5427f89f-5679-4188-876e-fff333a2fb92",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:04.639Z",
+      "crawledAt": "2026-05-19T23:35:43.914Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -257,11 +264,12 @@
       "featured": false,
       "postedDate": "2026-05-12",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/feldenkrais-practitioner/5427f89f-5679-4188-876e-fff333a2fb92",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:04.639Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -278,7 +286,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/gruppenleiter-in-pflege-akutrehabilitation/26998f77-8616-4ea9-9c66-5ae50890653c",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:06.015Z",
+      "crawledAt": "2026-05-19T23:35:45.040Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -293,17 +301,18 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/gruppenleiter-in-pflege-akutrehabilitation/26998f77-8616-4ea9-9c66-5ae50890653c",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:06.015Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "id": "spz-708b3b5fa5d7",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-spz-nottwil",
+      "slug": "dipl-pflegefachfrau-mann-hf-fh-schweizer-paraplegiker-zentrum-spz-nottwil",
       "company": "Schweizer Paraplegiker-Zentrum (SPZ)",
       "companyKey": "spz",
       "companyDomain": "paraplegie.ch",
@@ -314,7 +323,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh/d3694807-2181-462a-aa63-a54fd8630bf6",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:07.186Z",
+      "crawledAt": "2026-05-19T23:35:46.246Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -329,11 +338,12 @@
       "featured": false,
       "postedDate": "2026-05-08",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh/d3694807-2181-462a-aa63-a54fd8630bf6",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:07.186Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -350,7 +360,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/flex-pool-pflege/5b197566-ecf2-4719-8d06-a245244a30ba",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:08.170Z",
+      "crawledAt": "2026-05-19T23:35:47.509Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -365,11 +375,12 @@
       "featured": false,
       "postedDate": "2026-05-08",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/flex-pool-pflege/5b197566-ecf2-4719-8d06-a245244a30ba",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:08.170Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -386,7 +397,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/azure-platform-engineer-security/e2602716-1ae8-4889-b92e-26b3cd893ba6",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:09.287Z",
+      "crawledAt": "2026-05-19T23:35:48.560Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -401,11 +412,12 @@
       "featured": false,
       "postedDate": "2026-05-08",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/azure-platform-engineer-security/e2602716-1ae8-4889-b92e-26b3cd893ba6",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:09.287Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -422,7 +434,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/bildungsverantwortliche-r-pflege/57135bc0-4dda-4109-912a-cd7625627d20",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:10.329Z",
+      "crawledAt": "2026-05-19T23:35:49.726Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -437,11 +449,12 @@
       "featured": false,
       "postedDate": "2026-05-07",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/bildungsverantwortliche-r-pflege/57135bc0-4dda-4109-912a-cd7625627d20",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:10.329Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -458,7 +471,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/co-stationsleiter-in-pflege/a99c3344-51ae-43dc-8d08-da91df6d2722",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:12.959Z",
+      "crawledAt": "2026-05-19T23:35:51.094Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -473,11 +486,12 @@
       "featured": false,
       "postedDate": "2026-05-07",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/co-stationsleiter-in-pflege/a99c3344-51ae-43dc-8d08-da91df6d2722",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:12.959Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -494,7 +508,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-als-nachtfalter/fbd161a0-742a-4aa1-9892-0cc7df6caba7",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:14.075Z",
+      "crawledAt": "2026-05-19T23:35:52.154Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -509,11 +523,12 @@
       "featured": false,
       "postedDate": "2026-05-07",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-fh-als-nachtfalter/fbd161a0-742a-4aa1-9892-0cc7df6caba7",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:14.075Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -530,7 +545,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/gruppenleiter-in-pflege-chirurgische-internistische-station/81a765c4-7109-44d2-a647-95f4cb39c426",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:14.914Z",
+      "crawledAt": "2026-05-19T23:35:53.155Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -545,11 +560,12 @@
       "featured": false,
       "postedDate": "2026-05-07",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/gruppenleiter-in-pflege-chirurgische-internistische-station/81a765c4-7109-44d2-a647-95f4cb39c426",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:14.914Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -566,7 +582,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/applikationsmanager-in/432305d2-aca5-4557-9060-318048d8f6df",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:16.618Z",
+      "crawledAt": "2026-05-19T23:35:53.816Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -581,11 +597,12 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/applikationsmanager-in/432305d2-aca5-4557-9060-318048d8f6df",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:16.618Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -602,7 +619,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/mitarbeiter-in-gastronomie/f6f51d48-f149-49e0-bf17-cec964cddbb0",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:18.095Z",
+      "crawledAt": "2026-05-19T23:35:54.716Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -617,11 +634,12 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/mitarbeiter-in-gastronomie/f6f51d48-f149-49e0-bf17-cec964cddbb0",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:18.095Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -638,7 +656,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-mit-ndk-ueberwachungspflege/5bb9b822-44b6-405e-af01-b301de77e701",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:18.852Z",
+      "crawledAt": "2026-05-19T23:35:55.809Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -653,11 +671,12 @@
       "featured": false,
       "postedDate": "2026-04-29",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/dipl-pflegefachfrau-mann-hf-mit-ndk-ueberwachungspflege/5bb9b822-44b6-405e-af01-b301de77e701",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:18.852Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -674,7 +693,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/studierende-r-fuer-expert-in-in-intensivpflege-nds-hf/dbec2505-ab2a-46cd-943f-5cc4a95654b8",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:20.065Z",
+      "crawledAt": "2026-05-19T23:35:56.867Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -689,11 +708,12 @@
       "featured": false,
       "postedDate": "2026-04-29",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/studierende-r-fuer-expert-in-in-intensivpflege-nds-hf/dbec2505-ab2a-46cd-943f-5cc4a95654b8",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:20.065Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -710,7 +730,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/dipl-expert-in-intensivpflege-nds-hf/db70e195-53fa-4f44-b35e-f4e307985c20",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:20.974Z",
+      "crawledAt": "2026-05-19T23:35:57.895Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -725,11 +745,12 @@
       "featured": false,
       "postedDate": "2026-04-29",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/dipl-expert-in-intensivpflege-nds-hf/db70e195-53fa-4f44-b35e-f4e307985c20",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:20.974Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -746,7 +767,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/studierende-r-expert-in-in-anaesthesiepflege-nds-hf/78c68ffd-0fe9-4d3c-a92f-7ae7b4b52cce",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:21.840Z",
+      "crawledAt": "2026-05-19T23:35:58.874Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -761,11 +782,12 @@
       "featured": false,
       "postedDate": "2026-04-29",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/studierende-r-expert-in-in-anaesthesiepflege-nds-hf/78c68ffd-0fe9-4d3c-a92f-7ae7b4b52cce",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:21.840Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -782,7 +804,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/leitende-aerztin-leitender-arzt-intensivmedizin/c89fbd85-dbca-416f-82d6-d4a5e5d21ecc",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:22.943Z",
+      "crawledAt": "2026-05-19T23:35:59.834Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -797,11 +819,12 @@
       "featured": false,
       "postedDate": "2026-04-27",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/leitende-aerztin-leitender-arzt-intensivmedizin/c89fbd85-dbca-416f-82d6-d4a5e5d21ecc",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:22.943Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -818,7 +841,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/ferienaushilfe-hauswirtschaft/6894cef2-3e7f-43c8-a9c9-251937c330c5",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:23.914Z",
+      "crawledAt": "2026-05-19T23:36:00.891Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -833,11 +856,12 @@
       "featured": false,
       "postedDate": "2026-04-27",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/ferienaushilfe-hauswirtschaft/6894cef2-3e7f-43c8-a9c9-251937c330c5",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:23.914Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -854,7 +878,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/praktikum-administration/f9e037c7-4956-46e3-887a-0a25fa266966",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:24.904Z",
+      "crawledAt": "2026-05-19T23:36:01.934Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -869,11 +893,12 @@
       "featured": false,
       "postedDate": "2026-04-24",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/praktikum-administration/f9e037c7-4956-46e3-887a-0a25fa266966",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:24.904Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -890,7 +915,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/assistenzarzt-aerztin-neurochirurgie-orthopaedie/36808559-7f5b-4b34-9655-198ec15d3711",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:26.007Z",
+      "crawledAt": "2026-05-19T23:36:02.984Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -905,11 +930,12 @@
       "featured": false,
       "postedDate": "2026-04-22",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/assistenzarzt-aerztin-neurochirurgie-orthopaedie/36808559-7f5b-4b34-9655-198ec15d3711",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:26.007Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -926,7 +952,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/studierende-r-fuer-die-ausbildung-zur-dipl-pflegefachfrau-mann-hf/1fb55198-50a6-4520-b5f5-8274e0b59bb2",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:27.774Z",
+      "crawledAt": "2026-05-19T23:36:04.251Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -941,11 +967,12 @@
       "featured": false,
       "postedDate": "2026-03-23",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/studierende-r-fuer-die-ausbildung-zur-dipl-pflegefachfrau-mann-hf/1fb55198-50a6-4520-b5f5-8274e0b59bb2",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:27.774Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -962,7 +989,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/assistenzarzt-aerztin-intensivmedizin/6b65e952-467f-4343-8d23-694128373670",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:28.619Z",
+      "crawledAt": "2026-05-19T23:36:05.334Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -977,11 +1004,12 @@
       "featured": false,
       "postedDate": "2026-03-17",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/assistenzarzt-aerztin-intensivmedizin/6b65e952-467f-4343-8d23-694128373670",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:28.619Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -998,7 +1026,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/praktikant-in-sporttherapie/d9fe4dc8-aa8e-4161-ba6b-5b1633796749",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:29.703Z",
+      "crawledAt": "2026-05-19T23:36:06.275Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1013,11 +1041,12 @@
       "featured": false,
       "postedDate": "2026-03-11",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/praktikant-in-sporttherapie/d9fe4dc8-aa8e-4161-ba6b-5b1633796749",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:29.703Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1034,7 +1063,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/unterassistent-in-allgemeine-innere-medizin/31451f22-9085-42b1-9607-dd5fd73007fa",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:30.641Z",
+      "crawledAt": "2026-05-19T23:36:07.483Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1049,11 +1078,12 @@
       "featured": false,
       "postedDate": "2025-03-24",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/unterassistent-in-allgemeine-innere-medizin/31451f22-9085-42b1-9607-dd5fd73007fa",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:30.641Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1070,7 +1100,7 @@
       "url": "https://jobs.paraplegie.ch/offene-stellen/praktikum-pflege/8c812c9b-8723-4901-b57d-e89975acdd98",
       "source": "Schweizer Paraplegiker-Zentrum (SPZ) Dedicated Parser (Prospective careercenter 1001777)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:31.379Z",
+      "crawledAt": "2026-05-19T23:36:08.567Z",
       "addressLocality": "Nottwil",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1085,16 +1115,16 @@
       "featured": false,
       "postedDate": "2025-03-23",
       "applyUrl": "https://jobs.paraplegie.ch/offene-stellen/praktikum-pflege/8c812c9b-8723-4901-b57d-e89975acdd98",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:37:31.379Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
