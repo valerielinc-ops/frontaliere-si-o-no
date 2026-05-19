@@ -1,18 +1,19 @@
 {
   "key": "rsbj",
   "label": "Réseau Santé Balcon du Jura Vaudois (RSBJ)",
-  "generatedAt": "2026-05-19T10:25:13.471Z",
+  "generatedAt": "2026-05-19T12:30:58.618Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 114726,
-  "avgDurationMs": 114726,
+  "durationMs": 7804,
+  "avgDurationMs": 7804,
   "durationHistory": [
-    114726
+    7804
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "rsbj-eb567f86bbdd",
       "slug": "un-e-medecin-generaliste-medecin-de-famille-independant-ou-depend-rsbj-sainte-croix",
@@ -20,12 +21,13 @@
       "companyKey": "rsbj",
       "companyDomain": "rsbj.ch",
       "title": "Un(e) médecin généraliste / médecin de famille Indépendant ou dépend...",
+      "needsRetranslation": true,
       "location": "Sainte-Croix",
       "canton": "VD",
       "url": "https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T10:23:20.302Z",
+      "crawledAt": "2026-05-19T12:30:52.433Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -40,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T10:23:20.302Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -55,12 +58,13 @@
       "companyKey": "rsbj",
       "companyDomain": "rsbj.ch",
       "title": "Des médecins porteurs du titre fédéral postgradué de Médecine Intern...",
+      "needsRetranslation": true,
       "location": "Sainte-Croix",
       "canton": "VD",
       "url": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T10:23:20.991Z",
+      "crawledAt": "2026-05-19T12:30:53.118Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -75,16 +79,16 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T10:23:20.991Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
