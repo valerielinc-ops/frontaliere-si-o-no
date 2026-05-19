@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-05-18T22:34:22.189Z",
+  "generatedAt": "2026-05-19T12:29:02.603Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 1,
-  "unchangedCount": 5,
-  "durationMs": 13516,
-  "avgDurationMs": 13516,
+  "updatedCount": 7,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 11894,
+  "avgDurationMs": 11894,
   "durationHistory": [
-    13516
+    11894
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -55,90 +55,6 @@
       }
     },
     {
-      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Solution-Architecture-Owner-Kundeninteraktion-%28wmd%29/1384005833/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Solution-Architecture-Owner-Kundeninteraktion-%28wmd%29/1384005833/",
-      "title": "Solution Architecture Owner Kundeninteraktion (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-18",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "",
-      "id": "postfinance-1862a5a6b76b",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-05-18T13:01:19.599Z",
-      "_qualityScore": 78,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 16,
-        "completeness": 17
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
-      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Mitarbeiterin-Chargebacks/1370178433/",
-      "title": "Mitarbeiter:in Chargebacks",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "collaboratore-trice-chargebacks-postfinance-bern",
-      "sourceLang": "de",
-      "department": "",
-      "category": "servizi-finanziari",
-      "datePosted": "2026-05-16",
-      "validThrough": "",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "crawledAt": "",
-      "id": "postfinance-c5dd413c8462",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "postalCode": "3001",
-      "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
       "url": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Herisau-Kundenberaterin-Privatkunden%2C-Herisau/1375640133/",
       "title": "Kundenberater:in Privatkunden, Herisau",
@@ -168,7 +84,6 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -197,7 +112,6 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "VD",
         "location": "Lausanne"
@@ -209,11 +123,11 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-18T13:01:19.599Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -248,7 +162,6 @@
       "currency": "CHF",
       "postalCode": "1630",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -288,7 +201,6 @@
       "currency": "CHF",
       "postalCode": "1227",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -328,7 +240,6 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-16T10:49:06.770Z",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -336,6 +247,48 @@
         "translation": 25,
         "completeness": 17
       }
+    },
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Solution-Architecture-Owner-Kundeninteraktion-%28wmd%29/1384005833/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bern-Homeoffice-Solution-Architecture-Owner-Kundeninteraktion-%28wmd%29/1384005833/",
+      "title": "Solution Architecture Owner Kundeninteraktion (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "solution-architecture-owner-kundeninteraktion-w-m-d-postfinance",
+      "sourceLang": "de",
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-05-18",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "id": "postfinance-1862a5a6b76b",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "3001",
+      "firstSeenAt": "2026-05-18T13:01:19.599Z",
+      "needsRetranslation": true,
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 17
+      }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
