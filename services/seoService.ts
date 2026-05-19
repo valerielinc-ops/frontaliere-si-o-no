@@ -3791,6 +3791,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-giovani-assistenza-lugano-preoccupazione': { name: 'Assistenza sociale', path: '/articoli-frontaliere/giovani-assistenza-lugano-preoccupazione', parent: 'blog' },
     'blog-statuto-svizzera-centrale-permesso-b': { name: 'Fiscale', path: '/articoli-frontaliere/statuto-svizzera-centrale-permesso-b', parent: 'blog' },
     'blog-cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna': { name: 'Cassis, Blocco ristorni, Ticino', path: '/articoli-frontaliere/cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna', parent: 'blog' },
+    'blog-aumento-premi-lamal-assicuratore-deve-mostrare-contabilita': { name: 'Aumento premi LAMal', path: '/articoli-frontaliere/aumento-premi-lamal-assicuratore-deve-mostrare-contabilita', parent: 'blog' },
  };
 
  const info = sectionNames[section];

@@ -7646,6 +7646,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.title': 'Cassis: ‘Blocco ristorni dal Ticino? La reazione più pesante sarebbe con Berna’',
     'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.excerpt': 'Il Consiglio di Stato del Cantone Ticino si riunisce per discutere la proposta di bloccare i ristorni dal Ticino',
     'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.imageAlt': 'Il Consiglio di Stato del Cantone Ticino in una riunione',
+    'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.title': 'Aumento premi LAMal: assicuratore deve mostrare contabilità',
+    'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.excerpt': 'L\'aumento dei premi LAMal richiede agli assicuratori di dimostrare la loro contabilità.',
+    'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.imageAlt': 'Lago Maggiore con montagne',
 };
 
 export default blogMetaIt;

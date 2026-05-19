@@ -7646,6 +7646,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.title': 'Cassis: Blocus du Ticino?',
     'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.excerpt': 'Le Conseil d\'État du canton du Tessin se réunit pour discuter de la proposition de bloquer les revenus du Tessin',
     'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.imageAlt': 'Le Conseil d\'État du canton du Tessin en réunion',
+    'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.title': 'Hausse des primes LAMal : les assureurs doivent justifier leur comptabilité',
+    'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.excerpt': 'La hausse des primes LAMal oblige les assureurs à justifier leur comptabilité.',
+    'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.imageAlt': 'Lac Majeur avec montagnes',
 };
 
 export default blogMetaFr;

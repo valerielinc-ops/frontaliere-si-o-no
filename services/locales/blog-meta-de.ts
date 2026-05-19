@@ -7644,6 +7644,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.title': 'Cassis: Rückerstattungen aus Ticino? Bern reagiert heftig',
     'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.excerpt': 'Der Staatsrat des Kantons Tessin trifft sich, um den Vorschlag zu diskutieren, die Rückerstattungen aus dem Tessin zu sperren',
     'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.imageAlt': 'Der Staatsrat des Kantons Tessin in einer Sitzung',
+    'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.title': 'ErhÃ¶hte LAMal-PrÃ¤mien: Versicherer muss BuchfÃ¼hrung nachweisen',
+    'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.excerpt': 'Die erhÃ¶hten LAMal-PrÃ¤mien erfordern von den Versicherern, ihre BuchfÃ¼hrung nachzuweisen.',
+    'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.imageAlt': 'Lago Maggiore mit Bergen',
 };
 
 export default blogMetaDe;

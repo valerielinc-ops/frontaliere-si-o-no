@@ -24311,4 +24311,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'aumento-premi-lamal-assicuratore-deve-mostrare-contabilita',
+ category: 'fiscale',
+ date: '2026-05-19T02:33:27.650Z',
+ image: '/images/blog/aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
