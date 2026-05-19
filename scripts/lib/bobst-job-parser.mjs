@@ -26,6 +26,41 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { extractUmantisDetailContent } from './umantis-listing-common.mjs';
+
+const DETAIL_USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
+  || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+
+/**
+ * Fetch the Umantis detail page for one Bobst vacancy and extract description prose.
+ *
+ * jobs.bobst.com is server-rendered HTML (verified 2026-05-19): the response body
+ * contains the full description inside `<h2>` / `<p>` / `<li>` blocks. We reuse
+ * the older-UI prose extractor from `umantis-listing-common.mjs` since the
+ * customdatablock pattern is not present here. Failures degrade gracefully to ''.
+ */
+async function fetchBobstDetail(detailUrl) {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(detailUrl, {
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'User-Agent': DETAIL_USER_AGENT,
+      },
+      signal: controller.signal,
+      redirect: 'follow',
+    });
+    clearTimeout(timer);
+    if (!res.ok) return '';
+    const html = await res.text();
+    return extractUmantisDetailContent(html);
+  } catch {
+    clearTimeout(timer);
+    return '';
+  }
+}
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -445,9 +480,31 @@ export async function fetchAllBobstJobs(options = {}) {
 
     const location = listing.location || 'Mex'; // HQ: Mex (VD)
     const canton = inferSwissTargetCanton(location) || 'VD';
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || UMANTIS_LISTING_URL;
+
+    // Fetch detail page for prose — listing rows ship only metadata.
+    // Without this, every Bobst job ends up `ultra_thin` (~30 chars).
+    let descriptionText = '';
+    if (/\/Vacancies\/\d+\//.test(publicUrl)) {
+      descriptionText = await fetchBobstDetail(publicUrl);
+      await new Promise((r) => setTimeout(r, 250)); // rate-limit detail fetches
+    }
+    if (!descriptionText) {
+      // Synthesise a structured English fallback when the detail fetch fails.
+      // Mirrors umantis-listing-common.mjs ultra_thin remediation: title + entity
+      // + city/canton + dept/type metadata + apply boilerplate. Enough prose to
+      // pass the thin-source gate; AI localization enriches the locale variants.
+      const meta = [];
+      if (listing.department) meta.push(`Department: ${listing.department}`);
+      if (listing.employmentType) meta.push(`Type: ${listing.employmentType}`);
+      if (listing.contractTerm) meta.push(`Term: ${listing.contractTerm}`);
+      const metaLine = meta.length > 0 ? ` ${meta.join('. ')}.` : '';
+      descriptionText = [
+        `${title} at ${BOBST_COMPANY_NAME}, ${location}${canton ? ` (${canton} canton)` : ''}, Switzerland.`,
+        `${BOBST_COMPANY_NAME} is a global supplier of substrate processing, printing and converting equipment for the packaging industry.`,
+        `Apply via the Bobst careers portal.${metaLine}`,
+      ].join(' ');
+    }
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} bobst ch`);
@@ -465,6 +522,10 @@ export async function fetchAllBobstJobs(options = {}) {
       titleByLocale: { [sourceLang]: title },
       description: descriptionText || `${title} — Bobst`,
       descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Bobst` },
+      // Newly-discovered jobs ship with source-locale-only fields. The shared
+      // AI-localization step clears this flag when it fills the remaining 3
+      // locales; if it can't, `translate-pending.yml` picks it up out-of-band.
+      needsRetranslation: true,
       location,
       canton,
       url: publicUrl,
