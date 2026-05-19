@@ -1,0 +1,57 @@
+{
+  "key": "h-ju-hopital-du-jura",
+  "label": "Hôpital du Jura (H-JU)",
+  "generatedAt": "2026-05-19T13:03:38.921Z",
+  "total": 1,
+  "newCount": 1,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 31125,
+  "avgDurationMs": 31125,
+  "durationHistory": [
+    31125
+  ],
+  "newJobs": [
+    {
+      "id": "h-ju-hopital-du-jura-56751ff50756",
+      "slug": "medecin-pediatre-en-cabinet-h-ju-hopital-du-jura-delemont",
+      "company": "Hôpital du Jura (H-JU)",
+      "companyKey": "h-ju-hopital-du-jura",
+      "companyDomain": "h-ju.ch",
+      "title": "Médecin Pédiatre en cabinet",
+      "needsRetranslation": true,
+      "location": "Delémont",
+      "canton": "JU",
+      "url": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/3512/medecin-pediatre-en-cabinet",
+      "source": "H-JU Hôpital du Jura Dedicated Parser (Johdi Suite)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-19T13:03:11.923Z",
+      "addressLocality": "Delémont",
+      "addressRegion": "JU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "2800",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-12",
+      "applyUrl": "https://www.h-ju.ch/fr/Carrieres/Emploi/Emploi.html#offer/3512/medecin-pediatre-en-cabinet",
+      "externalId": "3512",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": []
+}
