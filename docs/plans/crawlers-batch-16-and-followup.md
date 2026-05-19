@@ -41,6 +41,122 @@ Repo: `valerielinc-ops/frontaliere-si-o-no` (frontaliere job-board, IT/DE/FR/EN 
 | 13 | #388 | Umantis sweep + Refline factory + Spitex Zürich (~53 jobs) |
 | 14 | #390 | Workday Stryker + Prospective discovery (PZM Münsingen 86, asana 35, GZ Dielsdorf, Pro Senectute TI) — ~153 jobs |
 | 15 | #392 | Refline PUK Zürich 90 + CSL Behring 40 + Workday medtech (Abbott/Medtronic/Alcon) — ~200 jobs |
+| fix-394 | #394 | Prospective shared-tenant filter (`acceptDirectlinkHosts`) + job-direct URL trust |
+| fix-396 | #396 | 5 healthcare crawlers fixed (spital-sts SSR rewrite, ipw synthetic fallback, kliniken-valens trusted host, soH `needsRetranslation`, viva-luzern trusted host) |
+| fix-397 | #397 | Sulzer Workday migration + Bobst detail-page enrichment |
+
+### Post-fix validation (live workflow re-trigger, 2026-05-19 EOD)
+
+All 9 broken crawlers re-triggered after merges; final job counts:
+
+| Crawler | Bug fixed | Final jobs | Status |
+|---|---|---|---|
+| **spital-sts** | API tenant dead → SSR rewrite | 10 | ✅ |
+| **ipw** | Cloudflare blocks Umantis detail → synthetic fallback (factory) | 10 | ✅ |
+| **kliniken-valens** | `jobs.valens.ch` sibling not trusted | **105** | ✅ |
+| **solothurner-spitaeler** | missing `needsRetranslation: true` | **128** | ✅ |
+| **viva-luzern** | sibling domain `jobs.vivaluzern.ch` not trusted | 14 | ✅ |
+| **sulzer** | Workday migration `sulzer.wd502.myworkdayjobs.com` not trusted | 40 | ✅ |
+| **bobst** | parser never fetched detail page | **42** | ✅ |
+| **benteler** | SAP SuccessFactors JS-rendered portal — needs Playwright | — | ⏸️ deferred |
+| **nestle** | Workday tenant retired — needs ATS re-discovery | — | ⏸️ deferred |
+
+**Net unlock from fix-396/397:** 349 jobs that were silently failing every cron cycle now flow into the dataset.
+
+## Cumulative numbers (2026-05-19 EOD)
+
+- **118 parser files added in single day** (`scripts/lib/*-job-parser.mjs`)
+- **109 dedicated workflows** (`update-jobs-{key}.yml`) — each parser has its own
+- **14 shared ATS factories** added today (`*-common.mjs`)
+- **3'360+ jobs** verified end-to-end across all crawlers
+- 4 crawlers still failing — 2 fixable (Benteler/Nestle SAP SF / Workday-retired) deferred as >1h rework
+
+## Lessons learned (2026-05-19) — REQUIRED READING before changes
+
+These are repeatable failure modes we hit today. Pre-check parsers against them:
+
+### L1 — `needsRetranslation: true` is non-negotiable
+Every new ParsedJob MUST set `needsRetranslation: true`. Factory-based parsers
+(Prospective/Umantis/Refline/Workday-client) inherit it; custom parsers (anything
+NOT calling `create*Parser`) must set it explicitly. Without it:
+- AI localization step doesn't fill IT/EN/FR locales
+- `translate-pending.yml` skips the job (it filters by the flag)
+- Boilerplate guard sees source-locale-only descriptions and may trip
+- A SINGLE locale-incomplete job → entire crawl fails with `localization validation failed`
+
+Real cases: Fielmann (PR #374), Solothurner Spitäler (#396), Sulzer (#397), Bobst (#397).
+
+### L2 — `trustedHosts` is exact-match; subdomain mismatches break ALL jobs
+`isTrustedDomain` uses `Set.has(host)` (exact match) plus `endsWith('.${corporateHost}')`.
+A `valens.ch` apex does NOT trust `jobs.valens.ch` if corporateHost is
+`kliniken-valens.ch`. Common breakage:
+- ATS lives on sibling domain (`jobs.{brand}.ch` vs `{brand}.ch`)
+- Hyphenated vs non-hyphenated (`viva-luzern.ch` vs `vivaluzern.ch`)
+- Workday migrations (`{brand}.wd{N}.myworkdayjobs.com` sibling host)
+
+**Always probe live URLs:** before assuming, run:
+```bash
+node -e "import('./scripts/lib/{key}-job-parser.mjs').then(async m => {
+  const j = await m[Object.keys(m).find(k => k.startsWith('fetchAll'))]();
+  console.log('hosts:', [...new Set(j.map(x => new URL(x.url).hostname))]);
+});"
+```
+
+Real cases (today): Kliniken Valens (jobs.valens.ch missing), Viva Luzern (sibling
+domain), Sulzer (Workday migration).
+
+### L3 — Prospective tenants can be SHARED across multiple employers
+Tenant 1008606 (PZM Münsingen) actually serves 86 jobs: 25 PZM + 61 UPD Bern.
+Tenant 1003280 (LUKS) serves 4 sites. Tenant 122706 (KSA) is a single employer.
+
+**Detection:** check `links.directlink` hostnames. If multiple distinct corporate
+domains appear, the tenant is shared.
+
+**Fix:** use `acceptDirectlinkHosts: ['jobs.{my-domain}.ch']` in
+`createProspectiveChParser` config. New feature added in PR #394.
+
+### L4 — Prospective sometimes returns `/public/v1/jobs/{viewkey}` (NOT `/medium/{ID}/`)
+When a tenant has NO custom job-page URL configured, the API returns
+`links.directlink` as `https://ohws.prospective.ch/public/v1/jobs/{viewkey}`.
+The original `isTrustedDomain` only accepted `/medium/{mediumId}/` URLs.
+
+**Fixed in factory (PR #394):** `isTrustedDomain` now accepts both formats. No
+per-tenant config change needed.
+
+### L5 — Umantis detail pages can be Cloudflare-blocked
+Tenant `recruitingapp-2906.umantis.com` (IPW) issues 302 → `www.ipw.ch` which has
+Cloudflare JS challenge. ALL UA values (Chrome, bot, full Sec-Fetch-*) return the
+22.5KB challenge page. Detail enrichment yields empty → "ultra_thin".
+
+**Fix in factory (PR #396):** when both detail AND listing snippet produce
+<80 chars, synthesise structured German fallback from
+`title + company + location + dept/art/befristung + boilerplate`. Pattern from
+`diakoniewerk-neumuenster-job-parser.mjs:199`. Benefits all future Umantis tenants.
+
+### L6 — Prospective API tenant IDs can be deprecated
+Spital STS tenant 1000717 returns HTTP 400 (deprecated). Career page still alive
+with SSR rendered jobs.
+
+**Fix:** abandon API, scrape `<div class="job job-N">` from career HTML +
+fetch `/public/v1/jobs/{viewkey}` (job-direct endpoint) for rich descriptions.
+Pattern reusable for any tenant where `/medium/{ID}/jobs` returns 400.
+
+### L7 — Workday tenants get retired
+Nestle's `nestle.wd{1,3,5,501,502,103}.myworkdayjobs.com/` all redirect to a
+maintenance page. The employer migrated to another ATS. Workday tenants are NOT
+permanent — periodic re-validation needed.
+
+### L8 — `acceptDirectlinkHosts` filter applied AFTER fetch, not before
+Reduces job count visibly but doesn't reduce API load. Acceptable for now since
+even 86-job tenants page in ~1s.
+
+### L9 — Discovery sweep results (exhausted, don't re-do)
+- **Umantis 1000-30000** range fully swept → only KZU (1251) added beyond known set
+- **Prospective 1009000-1012000** → zero healthcare hits
+- **Workday medtech** 14 tenants probed → 4 with ≥5 CH jobs (Abbott/CSL/Medtronic/Alcon)
+- Sandoz `wd103`, BD `bdx`, Sonova/J&J/BostonScientific → tenant blocked OR site_path missing
+- Most large employers in CH have moved to SAP SuccessFactors, SmartRecruiters, or
+  niche ATS (Recruitee, Personio, Teamtailor) — **batch 16 should sweep these**
 
 ## Memory anchors (`~/.claude/projects/.../memory/`)
 
