@@ -316,3 +316,61 @@ describe('all 4 locales covered for every page type', () => {
     }
   });
 });
+
+// ──────────────────────────────────────────────────────────────────────
+// Regression: non-TI city hubs must NOT leak "Ticino"/"Tessin" into title
+// (PR #318 — buildCityHubTitle gained optional cantonDisplay)
+// ──────────────────────────────────────────────────────────────────────
+describe('buildCityHubTitle — non-TI cantonDisplay (no Ticino/Tessin leak)', () => {
+  it('IT non-TI city omits "in Ticino" pad and substitutes the actual canton', () => {
+    // Pratteln (BS) is a short city name that historically triggered pad-to-min
+    // with "in Ticino", producing a misleading title on the per-canton city hub.
+    const t = buildCityHubTitle({
+      locale: 'it',
+      cityDisplay: 'Pratteln',
+      count: 3,
+      year: YEAR,
+      cantonDisplay: 'Basilea Città',
+    });
+    expect(t).not.toContain('Ticino');
+    expect(t).not.toContain('Tessin');
+    expect(t).toContain('Pratteln');
+    // When the title is short enough to trigger pad-to-min, the canton fills in.
+    if (t.length < 60) expect(t).toContain('Basilea Città');
+  });
+
+  it('EN/DE/FR non-TI: base title uses the canton, not Ticino/Tessin', () => {
+    const cantonByLocale = {
+      en: 'Basel-City',
+      de: 'Basel-Stadt',
+      fr: 'Bâle-Ville',
+    } as const;
+    for (const locale of ['en', 'de', 'fr'] as const) {
+      const t = buildCityHubTitle({
+        locale,
+        cityDisplay: 'Pratteln',
+        count: 3,
+        year: YEAR,
+        cantonDisplay: cantonByLocale[locale],
+      });
+      expect(t, `${locale}`).not.toContain('Ticino');
+      expect(t, `${locale}`).not.toContain('Tessin');
+      expect(t, `${locale}`).toContain(cantonByLocale[locale]);
+      expect(t, `${locale}`).toContain('Pratteln');
+    }
+  });
+
+  it('TI callers (cantonDisplay undefined) keep legacy Ticino/Tessin copy', () => {
+    // Backward-compat: existing TI city hubs must be byte-identical pre/post-fix.
+    const it = buildCityHubTitle({ locale: 'it', cityDisplay: 'Lugano', count: 123, year: YEAR });
+    const en = buildCityHubTitle({ locale: 'en', cityDisplay: 'Lugano', count: 123, year: YEAR });
+    const de = buildCityHubTitle({ locale: 'de', cityDisplay: 'Bellinzona', count: 123, year: YEAR });
+    const fr = buildCityHubTitle({ locale: 'fr', cityDisplay: 'Mendrisio', count: 123, year: YEAR });
+    // Italian title doesn't contain "Ticino" in its base form, so just verify the
+    // shape stays the same (no canton word injected).
+    expect(it).toContain('Lugano');
+    expect(en).toContain('Ticino');
+    expect(de).toContain('Tessin');
+    expect(fr).toContain('Tessin');
+  });
+});
