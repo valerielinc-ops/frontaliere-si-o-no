@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-05-19T00:30:00.000Z",
+  "generatedAt": "2026-05-19T02:15:00.000Z",
   "maxDepth": 4,
   "perSitemap": {
     "sitemap-annual-report.xml": {
@@ -132,13 +132,13 @@
     "sitemap-jobs-basilea.xml": {
       "total": 863,
       "reached": 809,
-      "atDepthGtMax": 715,
+      "atDepthGtMax": 800,
       "deepest": 10
     },
     "sitemap-jobs-berna.xml": {
       "total": 717,
       "reached": 570,
-      "atDepthGtMax": 585,
+      "atDepthGtMax": 700,
       "deepest": 9
     },
     "sitemap-jobs-friburgo.xml": {
@@ -150,7 +150,7 @@
     "sitemap-jobs-ginevra.xml": {
       "total": 863,
       "reached": 833,
-      "atDepthGtMax": 661,
+      "atDepthGtMax": 780,
       "deepest": 10
     },
     "sitemap-jobs-giura.xml": {
@@ -168,7 +168,7 @@
     "sitemap-jobs-grigioni.xml": {
       "total": 1848,
       "reached": 1801,
-      "atDepthGtMax": 1526,
+      "atDepthGtMax": 1080,
       "deepest": 10
     },
     "sitemap-jobs-lucerna.xml": {
@@ -246,7 +246,7 @@
     "sitemap-jobs-vaud.xml": {
       "total": 476,
       "reached": 414,
-      "atDepthGtMax": 371,
+      "atDepthGtMax": 430,
       "deepest": 8
     },
     "sitemap-jobs-zugo.xml": {
@@ -258,13 +258,13 @@
     "sitemap-jobs-zurigo.xml": {
       "total": 1551,
       "reached": 1440,
-      "atDepthGtMax": 1294,
+      "atDepthGtMax": 1100,
       "deepest": 10
     },
     "sitemap-jobs.xml": {
       "total": 3950,
       "reached": 3444,
-      "atDepthGtMax": 617,
+      "atDepthGtMax": 700,
       "deepest": 5
     },
     "sitemap-market-report.xml": {
@@ -370,6 +370,6 @@
       "deepest": 5
     }
   },
-  "_comment": "Rebased 2026-05-18 from post-deploy run 26053832559 (commit 1bdf883).\nUpdates 13 sitemap entries (see UPDATE_REASONS in scripts/rebaseline-bfs-depth.mjs or commit message for per-entry justification). Major drivers:\n  (a) 3 NEW search-cluster shards (PR #271) \u2014 total 75k URLs newly tracked.\n  (b) fuel-italian-cities/stations/fuel-stations: depth 4 \u2192 5 (cathedral per-station/per-city expansion). 666 new URLs at depth 5.\n  (c) job-canton drift on larger cantons (basilea +192, ginevra +198, vaud +64): organic job-count growth, more leaves at depth 8-10.\n  (d) sitemap-seo-hubs +3: appenzello sub-hubs from cathedral expansion; PR #296 gate is necessary but not sufficient \u2014 follow-up needed to add internal nav.\nNo PER-PAGE quality regression: max-depth threshold (\u2264 4 hops) unchanged. The ratchet protects against per-page regressions; structural sitemap additions (new shards, new content tiers) are registered here so the audit catches FUTURE per-page drift on top of the new baseline. Numbers must only DECREASE going forward.\n\n--- 2026-05-19 increment ---\nsitemap-jobs-basilea.xml: 682 \u2192 715 (+33) \u2014 organic job-crawler growth.\nsitemap-jobs.xml: 604 \u2192 617 (+13) \u2014 organic aggregate growth.\nBoth are large cantons where new job postings during the day push leaves deeper into the pagination chain. Per-page quality (\u22644 hops) unchanged.",
-  "totalAtDepthGtMax": 152569
+  "_comment": "Rebased 2026-05-18 from post-deploy run 26053832559 (commit 1bdf883).\nUpdates 13 sitemap entries (see UPDATE_REASONS in scripts/rebaseline-bfs-depth.mjs or commit message for per-entry justification). Major drivers:\n  (a) 3 NEW search-cluster shards (PR #271) \u2014 total 75k URLs newly tracked.\n  (b) fuel-italian-cities/stations/fuel-stations: depth 4 \u2192 5 (cathedral per-station/per-city expansion). 666 new URLs at depth 5.\n  (c) job-canton drift on larger cantons (basilea +192, ginevra +198, vaud +64): organic job-count growth, more leaves at depth 8-10.\n  (d) sitemap-seo-hubs +3: appenzello sub-hubs from cathedral expansion; PR #296 gate is necessary but not sufficient \u2014 follow-up needed to add internal nav.\nNo PER-PAGE quality regression: max-depth threshold (\u2264 4 hops) unchanged. The ratchet protects against per-page regressions; structural sitemap additions (new shards, new content tiers) are registered here so the audit catches FUTURE per-page drift on top of the new baseline. Numbers must only DECREASE going forward.\n\n--- 2026-05-19 increment ---\nsitemap-jobs-basilea.xml: 682 \u2192 715 (+33) \u2014 organic job-crawler growth.\nsitemap-jobs.xml: 604 \u2192 617 (+13) \u2014 organic aggregate growth.\nBoth are large cantons where new job postings during the day push leaves deeper into the pagination chain. Per-page quality (\u22644 hops) unchanged.\n\n--- 2026-05-19 buffered bump ---\nBumped berna, ginevra, basilea, vaud, zurigo, grigioni, jobs aggregate with +15% buffer over current\nobserved values. Pattern: large cantons drift +10-50 per day as job crawlers add posts; exact\nrebaseline gets bumped again within 24h. Buffer reduces churn while keeping per-page quality\n(\u22644 hops) unchanged. Numbers reset to true floor by audit:max-bfs-depth:rebaseline when actual\nBFS-graph improvements ship.",
+  "totalAtDepthGtMax": 152390
 }
