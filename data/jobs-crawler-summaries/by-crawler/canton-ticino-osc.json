@@ -1,18 +1,19 @@
 {
   "key": "canton-ticino-osc",
   "label": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
-  "generatedAt": "2026-05-19T21:21:16.567Z",
+  "generatedAt": "2026-05-19T21:43:50.570Z",
   "total": 9,
-  "newCount": 9,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 245243,
-  "avgDurationMs": 245243,
+  "durationMs": 11174,
+  "avgDurationMs": 11174,
   "durationHistory": [
-    245243
+    11174
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "canton-ticino-osc-4091-db22a8a58db8",
       "slug": "concorso-generale-2026-medico-capo-clinica-in-psichiatria-presso-l-organizzazione",
@@ -26,7 +27,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4091",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-19T21:17:13.210Z",
+      "crawledAt": "2026-05-19T21:43:41.604Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4091",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T21:17:13.210Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4094",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-19T21:17:13.811Z",
+      "crawledAt": "2026-05-19T21:43:42.251Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4094",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T21:17:13.811Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4099",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-19T21:17:14.402Z",
+      "crawledAt": "2026-05-19T21:43:42.880Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4099",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T21:17:14.402Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4160",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-19T21:17:14.991Z",
+      "crawledAt": "2026-05-19T21:43:43.511Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4160",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T21:17:14.991Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4161",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-19T21:17:15.582Z",
+      "crawledAt": "2026-05-19T21:43:44.143Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4161",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T21:17:15.582Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4165",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-19T21:17:16.171Z",
+      "crawledAt": "2026-05-19T21:43:44.774Z",
       "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4165",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T21:17:16.171Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4167",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-19T21:17:16.761Z",
+      "crawledAt": "2026-05-19T21:43:45.405Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -257,11 +264,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4167",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T21:17:16.761Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -278,7 +286,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4179",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-19T21:17:18.289Z",
+      "crawledAt": "2026-05-19T21:43:47.135Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -293,11 +301,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4179",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T21:17:18.289Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -314,7 +323,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4181",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-19T21:17:19.111Z",
+      "crawledAt": "2026-05-19T21:43:48.048Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -329,16 +338,16 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4181",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T21:17:19.111Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
