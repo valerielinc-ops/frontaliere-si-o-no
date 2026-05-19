@@ -111,6 +111,18 @@ export function parseCsbSearchResults(html) {
     const title = decodeEntities(normalizeSpace(stripHtml(linkMatch[3])));
     if (!title || title.length < 3) continue;
 
+    // Preferred: dedicated `<td class="colLocation hidden-phone">` cell or
+    // `<span class="jobLocation">…</span>` directly. This avoids picking up
+    // the title cell on layouts where mobile + desktop variants concatenate
+    // title + location + department text into a single `<td>`.
+    let location = '';
+    const colLocationMatch = rowHtml.match(
+      /<td[^>]*class="[^"]*colLocation[^"]*hidden-phone[^"]*"[^>]*>([\s\S]*?)<\/td>/i,
+    ) || rowHtml.match(/<td[^>]*headers="hdrLocation"[^>]*>([\s\S]*?)<\/td>/i);
+    if (colLocationMatch) {
+      location = decodeEntities(normalizeSpace(stripHtml(colLocationMatch[1])));
+    }
+
     const cells = [];
     const cellRe = /<td[^>]*>([\s\S]*?)<\/td>/gi;
     let cellMatch;
@@ -118,12 +130,12 @@ export function parseCsbSearchResults(html) {
       cells.push(decodeEntities(normalizeSpace(stripHtml(cellMatch[1]))));
     }
 
-    // Find the cell that looks like a location: contains "CH" / a 4-digit
-    // postal code / a canton code, OR matches a known city pattern.
-    let location = '';
+    // Fallback: heuristic — find the cell that looks like a location ("City,
+    // CC[,…]"). We skip cells that contain the job title to avoid the
+    // dual-layout issue described above.
     let postedDate = '';
     for (const cell of cells) {
-      if (!location && /,\s*[A-Z]{2}(?:,|$)/.test(cell)) {
+      if (!location && /,\s*[A-Z]{2}(?:,|$)/.test(cell) && !cell.includes(title)) {
         location = cell;
         continue;
       }
@@ -150,11 +162,15 @@ function parseLooseDate(raw = '') {
 
 /**
  * Extract total result count from CSB `/search/` HTML.
- *   "Ergebnisse 1 – 25 von 78"  /  "Results 1 – 25 of 78"
+ *   "Ergebnisse 1 – 25 von 78"      /  "Results 1 – 25 of 78"
+ *   "Ergebnisse 1 bis 25 von 78"    /  "Results 1 to 25 of 78"   (Sonova etc.)
  */
 export function extractCsbTotal(html) {
   if (!html) return 0;
-  const m = html.match(/(?:Ergebnisse|Results|R[ée]sultats|Risultati)\s+\d+\s*[–\-‑]\s*\d+\s+(?:von|of|de|di)\s+(\d+)/i);
+  // Separator: en-dash, hyphen, non-breaking hyphen, OR "bis"/"to"/"a"/"à" word.
+  const m = html.match(
+    /(?:Ergebnisse|Results|R[ée]sultats|Risultati)\s+\d+\s*(?:[–\-‑]|bis|to|à|a)\s*\d+\s+(?:von|of|de|di)\s+(\d+)/i,
+  );
   return m ? parseInt(m[1], 10) : 0;
 }
 
@@ -173,6 +189,14 @@ function readPropertyBlock(html, propId) {
   if (!m) return '';
   const start = m.index + m[0].length;
   const rest = html.slice(start);
+  // Short fields (title, location, customfield5) live inside ONE span/element
+  // and close immediately. For those we cut at the matching `</span>` to avoid
+  // bleeding into the next sibling block (e.g. on Bachem, the title `<span>`
+  // closes right after the title text, then unrelated brand copy follows
+  // inside the layout div before the `description` propertyid). Long fields
+  // (description) keep the original heuristic that looks for the next
+  // propertyid / layout marker.
+  const isShortField = /^(?:title|location|customfield5|customfield2|customfield1|city|country|department|shifttype|jobtype|adcode)$/i.test(propId);
   const candidates = [
     rest.indexOf('data-careersite-propertyid'),
     rest.indexOf('<!-- WIDGET BUTTON -->'),
@@ -181,6 +205,12 @@ function readPropertyBlock(html, propId) {
     rest.indexOf('id="applyButton'),
     rest.indexOf('<!-- end of'),
   ].filter((x) => x > 0);
+  if (isShortField) {
+    // Prefer the first close-span as the boundary (the propertyid attribute
+    // sits on the inner span). Look in the first 4 KB to keep this cheap.
+    const closeSpan = rest.slice(0, 4096).search(/<\/span\b/i);
+    if (closeSpan > 0) candidates.unshift(closeSpan);
+  }
   let cut = candidates.length ? Math.min(...candidates) : 8000;
   // The propertyid attribute lives inside an HTML tag opener (`<span ... data-careersite-propertyid="..."...>`).
   // If we cut at the attribute position, we leave an unclosed `<span` in the
@@ -301,6 +331,14 @@ export function parseCsbDetailPage(html) {
  * @param {string} config.defaultPostalCode  Fallback postal code (e.g. '5330').
  * @param {string} [config.defaultSourceLang='de']
  * @param {string} [config.sourceLabel]      Optional source label override.
+ * @param {Object<string,string>} [config.searchParams] Extra query params for
+ *   the `/search/?...` listing endpoint (e.g. `{ locationsearch: 'Switzerland' }`
+ *   to restrict a multi-country SF tenant to CH jobs). The factory always sets
+ *   `startrow` itself; do not include it here.
+ * @param {(job: any) => boolean} [config.acceptJob] Optional final-stage filter.
+ *   When the listing endpoint cannot restrict to CH (or the filter is fuzzy),
+ *   return `false` to drop a parsed job. Receives the same shape as the final
+ *   ParsedJob (location, canton, addressLocality, addressCountry resolved).
  * @returns {{
  *   fetchAllJobs: () => Promise<ParsedJob[]>,
  *   isCompanyJob: (job: any) => boolean,
@@ -319,6 +357,8 @@ export function createSuccessFactorsParser(config) {
     defaultPostalCode,
     defaultSourceLang = 'de',
     sourceLabel,
+    searchParams = null,
+    acceptJob = null,
   } = config;
 
   if (!companyKey || !companyName || !sfCompanyId || !publicCareerUrl || !defaultCanton) {
@@ -369,7 +409,14 @@ export function createSuccessFactorsParser(config) {
     while (true) {
       pages += 1;
       if (pages > 200) break; // hard stop safety
-      const url = `${baseUrl}/search/?startrow=${startrow}`;
+      // Build URL with optional extra search params (e.g. locationsearch=Switzerland)
+      let url = `${baseUrl}/search/?startrow=${startrow}`;
+      if (searchParams && typeof searchParams === 'object') {
+        for (const [k, v] of Object.entries(searchParams)) {
+          if (k === 'startrow' || v == null) continue;
+          url += `&${encodeURIComponent(k)}=${encodeURIComponent(String(v))}`;
+        }
+      }
       let html;
       try {
         html = await fetchHtml(url);
@@ -425,9 +472,18 @@ export function createSuccessFactorsParser(config) {
       const title = (detail?.title || listing.title || '').trim();
       if (!title) continue;
 
-      const city = detail?.city
-        || (listing.location ? listing.location.split(',')[0].trim() : '')
-        || defaultCity;
+      // Resolve city: prefer detail.city, then first comma-segment of the
+      // listing location, then defaultCity. Drop country-name fallbacks like
+      // "Switzerland" / "Schweiz" / "Suisse" that some SF tenants emit when
+      // a job has no specific city (e.g. Tecan remote / global roles).
+      const COUNTRY_TOKEN = /^(?:switzerland|schweiz|suisse|svizzera|ch)$/i;
+      const detailCity = detail?.city && !COUNTRY_TOKEN.test(detail.city) ? detail.city : '';
+      const listingCity = (() => {
+        if (!listing.location) return '';
+        const first = listing.location.split(',')[0].trim();
+        return COUNTRY_TOKEN.test(first) ? '' : first;
+      })();
+      const city = detailCity || listingCity || defaultCity;
       const region = detail?.region || defaultCanton;
       const canton = inferSwissTargetCanton(city) || region || defaultCanton;
       const postalCode = detail?.postalCode || defaultPostalCode;
@@ -498,6 +554,16 @@ export function createSuccessFactorsParser(config) {
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
       };
+
+      // Optional caller-supplied filter: drop jobs that don't pass an
+      // employer-specific predicate (e.g. multi-country SF tenant restricted
+      // to CH). Applied AFTER detail fetch so the predicate can see the
+      // resolved city / location / language.
+      if (typeof acceptJob === 'function' && !acceptJob(job)) {
+        await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
+        continue;
+      }
+
       jobs.push(job);
 
       await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
