@@ -43,8 +43,6 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
-import { Worker } from 'node:worker_threads';
-import { availableParallelism, cpus } from 'node:os';
 import type { Plugin } from 'vite';
 
 import { WriteCollector } from './batchWrite';
@@ -1479,150 +1477,6 @@ function patchMasterSitemap(distDir: string, dateStamp: string, shardFiles: Read
   // that inspects it between our write and the alias plugin's overwrite.
 }
 
-// ── Parallel-render helper (opt-in via CLUSTER_PARALLEL_RENDER=1) ───────
-
-interface ChunkContext {
-  slug: string;
-  locale: Locale;
-  keyword: string;
-  city: string | null;
-  matchingJobLocations: string[];
-  topCompanies: string[];
-  enrichedKey: string;
-  hreflang: ReadonlyArray<{ locale: Locale; url: string }>;
-  related: ReadonlyArray<{ keyword: string; url: string }>;
-}
-
-interface WorkerOutcome {
-  count: number;
-  locs: string[];
-  emittedFiles: string[];
-  workerCount: number;
-  wallSeconds: number;
-}
-
-/**
- * Worker-pool dispatcher for cluster-page rendering.
- *
- * Builds slim ChunkContext records (no full Job objects — only the
- * locations renderClusterPage actually reads), splits them round-robin
- * across N workers, and waits for all to finish. Workers write index.html
- * + flat-bridge .html files directly to dist/.
- *
- * Worker count: min(availableParallelism, 4). The GitHub Actions
- * `ubuntu-latest` runner free tier reports 4 vCPU; spawning more workers
- * here would oversubscribe + thrash. The 4-worker cap mirrors the
- * postWalkCoordinator default.
- *
- * Memo cache caveat: each worker has its own V8 context, so the
- * renderJobBoardCommuterContext / buildJobBoardCommuterFaqItems / local
- * commuterCtxCache caches are NOT shared. Per-worker cardinality stays
- * within the upstream 30000 cap (each worker handles ~25k clusters with
- * ~5-7k unique commuter-ctx keys). Cache hit ratio per worker is
- * comparable to the single-threaded case.
- */
-async function renderClustersInParallel(opts: {
-  contexts: ReadonlyArray<ClusterContext>;
-  enriched: Record<string, EnrichedEntry>;
-  byKeywordCity: ReadonlyMap<string, Map<Locale, ClusterContext>>;
-  byLocaleCity: ReadonlyMap<Locale, Map<string, ClusterContext[]>>;
-  distDir: string;
-  dateStamp: string;
-}): Promise<WorkerOutcome> {
-  const t0 = Date.now();
-  const { contexts, enriched, byKeywordCity, byLocaleCity, distDir, dateStamp } = opts;
-
-  // Pre-compute per-cluster hreflang + related arrays in the main thread.
-  // These depend on byKeywordCity / byLocaleCity which we DON'T want to
-  // postMessage to workers (they hold transitive RawJob references).
-  const slimContexts: ChunkContext[] = contexts.map((ctx) => {
-    const locale = ctx.candidate.locale;
-    const altKey = `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
-    const altMap = byKeywordCity.get(altKey);
-    const hreflang = altMap
-      ? Array.from(altMap.entries()).map(([loc, otherCtx]) => ({
-          locale: loc,
-          url: `${BASE_URL}${buildClusterPath(loc, otherCtx.candidate.slug)}`,
-        }))
-      : [];
-
-    const cityIdx = byLocaleCity.get(locale);
-    const sameCityList = (ctx.city && cityIdx?.get(ctx.city)) || [];
-    const related = sameCityList
-      .filter((other) => other.candidate.slug !== ctx.candidate.slug)
-      .slice(0, 8)
-      .map((other) => ({
-        keyword: other.city ? `${capitalize(other.keyword)} — ${other.city}` : capitalize(other.keyword),
-        url: `${BASE_URL}${buildClusterPath(locale, other.candidate.slug)}`,
-      }));
-
-    return {
-      slug: ctx.candidate.slug,
-      locale,
-      keyword: ctx.keyword,
-      city: ctx.city,
-      // Slim down matchingJobs to just `.location` (the only field
-      // renderClusterPage reads). Empty/missing locations are preserved
-      // so the topCities computation in renderClusterPage stays byte-
-      // identical to the main-thread path.
-      matchingJobLocations: ctx.matchingJobs.map((j) => (j as { location?: string }).location || ''),
-      topCompanies: ctx.topCompanies,
-      enrichedKey: `${locale}::${ctx.candidate.slug}`,
-      hreflang,
-      related,
-    };
-  });
-
-  const detectedParallelism = (() => {
-    try {
-      return availableParallelism();
-    } catch {
-      return cpus().length || 4;
-    }
-  })();
-  const workerCount = Math.max(1, Math.min(detectedParallelism, 4));
-
-  // Round-robin chunking so each worker gets a balanced mix of locales/sizes.
-  // Same pattern as postWalkCoordinator's chunkRoundRobin.
-  const chunks: ChunkContext[][] = Array.from({ length: workerCount }, () => []);
-  for (let i = 0; i < slimContexts.length; i++) {
-    chunks[i % workerCount].push(slimContexts[i]);
-  }
-
-  const workerUrl = new URL('./relatedSearchClustersRenderWorker.mjs', import.meta.url);
-
-  const workerResults = await Promise.all(
-    chunks.map((chunkContexts) =>
-      new Promise<{ count: number; locs: string[]; emittedFiles: string[] }>((resolve, reject) => {
-        const worker = new Worker(workerUrl, {
-          workerData: { distDir, dateStamp, enriched, chunkContexts },
-          execArgv: ['--import', 'tsx'],
-        });
-        worker.once('message', (msg) => resolve(msg));
-        worker.once('error', reject);
-        worker.once('exit', (code) => {
-          if (code !== 0) reject(new Error(`relatedSearchClustersRenderWorker exited with code ${code}`));
-        });
-      }),
-    ),
-  );
-
-  const combined: WorkerOutcome = {
-    count: 0,
-    locs: [],
-    emittedFiles: [],
-    workerCount,
-    wallSeconds: 0,
-  };
-  for (const r of workerResults) {
-    combined.count += r.count;
-    combined.locs.push(...r.locs);
-    combined.emittedFiles.push(...r.emittedFiles);
-  }
-  combined.wallSeconds = (Date.now() - t0) / 1000;
-  return combined;
-}
-
 // ── Plugin entry ────────────────────────────────────────────────────────
 
 export function relatedSearchClustersPlugin(rootDir: string): Plugin {
@@ -1750,84 +1604,61 @@ export function relatedSearchClustersPlugin(rootDir: string): Plugin {
 
       // ── Per-cluster pages ─────────────────────────────────────────────
       //
-      // Parallel-render path (CLUSTER_PARALLEL_RENDER=1): dispatch the
-      // 102k × renderClusterPage CPU work across N worker_threads. Workers
-      // write index.html + flat-bridge directly to dist (bypassing the
-      // collector — workers already give us 4-way parallel I/O). The
-      // sequential path keeps the legacy collector flow for safety.
-      //
-      // Byte-identicality is guaranteed by calling THE SAME renderClusterPage
-      // function (imported via tsx dynamic import in the worker) with the
-      // same logical inputs. The only divergence point is `ctx.matchingJobs`
-      // being slimmed to objects with `.location` only on the worker side —
-      // OK because renderClusterPage reads `.length` + `.location` and
-      // nothing else from matchingJobs (verified via grep at refactor time).
-      //
-      // Default OFF until byte-equivalence is verified on a live deploy via
-      // `gh workflow run deploy.yml -f cluster_parallel=true`. Once
-      // verified, flip default in a follow-up PR.
-      const parallelRender = process.env.CLUSTER_PARALLEL_RENDER === '1';
-      if (parallelRender) {
-        const workerOutcome = await renderClustersInParallel({
-          contexts,
-          enriched,
-          byKeywordCity,
-          byLocaleCity,
+      // NOTE: PR #382 attempted a worker_threads parallel path (see helper
+      // `renderClustersInParallel` below + sibling `*RenderWorker.mjs`).
+      // It failed in CI with ERR_MODULE_NOT_FOUND because tsx in
+      // `--import` mode can't resolve extension-less relative imports
+      // (`./batchWrite`, `./constants`, etc.) when the worker dynamic-
+      // imports this plugin file. postWalkWorker works because
+      // flatHtmlRedirectPlugin.ts has zero relative imports — this plugin
+      // has ~15 transitive .ts deps. Proper fix requires extracting
+      // renderClusterPage into a standalone module with explicit `.ts`
+      // imports (deferred). For now we keep the sequential loop.
+      for (const ctx of contexts) {
+        const locale = ctx.candidate.locale;
+        const altKey = `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
+        const altMap = byKeywordCity.get(altKey);
+        const hreflang = altMap
+          ? Array.from(altMap.entries()).map(([loc, otherCtx]) => ({
+              locale: loc,
+              url: `${BASE_URL}${buildClusterPath(loc, otherCtx.candidate.slug)}`,
+            }))
+          : [];
+
+        const cityIdx = byLocaleCity.get(locale);
+        const sameCityList = (ctx.city && cityIdx?.get(ctx.city)) || [];
+        const related = sameCityList
+          .filter((other) => other.candidate.slug !== ctx.candidate.slug)
+          .slice(0, 8)
+          .map((other) => ({
+            keyword: other.city ? `${capitalize(other.keyword)} — ${other.city}` : capitalize(other.keyword),
+            url: `${BASE_URL}${buildClusterPath(locale, other.candidate.slug)}`,
+          }));
+
+        const enrichedKey = `${locale}::${ctx.candidate.slug}`;
+        const out = renderClusterPage({
+          ctx,
+          enriched: enriched[enrichedKey],
+          hreflang,
+          related,
           distDir,
           dateStamp,
         });
-        sitemapLocs.push(...workerOutcome.locs);
-        emittedFiles.push(...workerOutcome.emittedFiles);
-        console.log(
-          `\x1b[36m[related-search-clusters]\x1b[0m parallel-render emitted ${workerOutcome.count} cluster pages across ${workerOutcome.workerCount} worker(s) in ${workerOutcome.wallSeconds.toFixed(1)}s`,
-        );
-      } else {
-        for (const ctx of contexts) {
-          const locale = ctx.candidate.locale;
-          const altKey = `${normalizeText(ctx.keyword)}|${normalizeText(ctx.city || '')}`;
-          const altMap = byKeywordCity.get(altKey);
-          const hreflang = altMap
-            ? Array.from(altMap.entries()).map(([loc, otherCtx]) => ({
-                locale: loc,
-                url: `${BASE_URL}${buildClusterPath(loc, otherCtx.candidate.slug)}`,
-              }))
-            : [];
 
-          const cityIdx = byLocaleCity.get(locale);
-          const sameCityList = (ctx.city && cityIdx?.get(ctx.city)) || [];
-          const related = sameCityList
-            .filter((other) => other.candidate.slug !== ctx.candidate.slug)
-            .slice(0, 8)
-            .map((other) => ({
-              keyword: other.city ? `${capitalize(other.keyword)} — ${other.city}` : capitalize(other.keyword),
-              url: `${BASE_URL}${buildClusterPath(locale, other.candidate.slug)}`,
-            }));
-
-          const enrichedKey = `${locale}::${ctx.candidate.slug}`;
-          const out = renderClusterPage({
-            ctx,
-            enriched: enriched[enrichedKey],
-            hreflang,
-            related,
-            distDir,
-            dateStamp,
-          });
-
-          const indexPath = path.join(distDir, out.urlPath, 'index.html');
-          const flatPath = path.join(distDir, out.urlPath.replace(/\/+$/, '') + '.html');
-          collector.add(indexPath, out.html);
-          // Emit the flat .html as a redirect bridge directly: postWalkCoordinator
-          // would otherwise read this file (~30 KB), build the same bridge from
-          // the sibling, and rewrite (~500 B). Pre-emitting the bridge cuts
-          // ~52k × 30 KB writes here AND post-walk's `html === original` guard
-          // skips the rewrite. Trims ~30-50 s off closeBundle.
-          const slashUrl = `${BASE_URL}${out.urlPath.replace(/\/+$/, '')}/`;
-          const flatBridge = buildFlatBridgeFromSibling(out.html, slashUrl);
-          collector.add(flatPath, flatBridge);
-          emittedFiles.push(path.relative(distDir, indexPath));
-          emittedFiles.push(path.relative(distDir, flatPath));
-          sitemapLocs.push(out.loc);
-        }
+        const indexPath = path.join(distDir, out.urlPath, 'index.html');
+        const flatPath = path.join(distDir, out.urlPath.replace(/\/+$/, '') + '.html');
+        collector.add(indexPath, out.html);
+        // Emit the flat .html as a redirect bridge directly: postWalkCoordinator
+        // would otherwise read this file (~30 KB), build the same bridge from
+        // the sibling, and rewrite (~500 B). Pre-emitting the bridge cuts
+        // ~52k × 30 KB writes here AND post-walk's `html === original` guard
+        // skips the rewrite. Trims ~30-50 s off closeBundle.
+        const slashUrl = `${BASE_URL}${out.urlPath.replace(/\/+$/, '')}/`;
+        const flatBridge = buildFlatBridgeFromSibling(out.html, slashUrl);
+        collector.add(flatPath, flatBridge);
+        emittedFiles.push(path.relative(distDir, indexPath));
+        emittedFiles.push(path.relative(distDir, flatPath));
+        sitemapLocs.push(out.loc);
       }
 
       // ── Per-locale hub pages ──────────────────────────────────────────
