@@ -1288,17 +1288,26 @@ export function staticPagesPlugin(rootDir: string): Plugin {
          );
        }
        // ── company hubs: mirror MIN_JOBS_PER_CANTON_COMPANY=3 + top 6 (line 8156-8175).
-       //    Slug match is the canonical company id; for the local compute we
-       //    use the same lower-kebab fallback as the TI nav data-prep above.
+       //    Slug match MUST mirror the emitter's `canonicalCompanySlugBuild`
+       //    (jobsSeoPagesPlugin.ts:1893) and the runtime `canonicalCompanyRouteSlug`
+       //    (components/community/JobBoard.tsx:2147), both of which slugify the
+       //    DISPLAY NAME and ignore companyKey. Using companyKey here caused
+       //    the nav to roll up subsidiaries under a group key (e.g. all
+       //    Burkhalter Group subsidiaries → "burkhalter-group") that the
+       //    emitter never produced because it splits per display name. The
+       //    "burkhalter-group" link then 404'd → blank page under staticOverlay routing.
        const companyCounts = new Map<string, { name: string; count: number }>();
        for (const j of jobs) {
          const co = String((j as { company?: string }).company || '').trim();
+         if (!co) continue;
          const coKey = String((j as { companyKey?: string }).companyKey || '').trim();
-         const slug = coKey || co.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+         const slug = (co.toLowerCase().includes('lidl') || coKey.toLowerCase().includes('lidl'))
+           ? 'lidl'
+           : co.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
          if (!slug || slug.length < 2) continue;
          const cur = companyCounts.get(slug);
          if (cur) cur.count++;
-         else companyCounts.set(slug, { name: co || slug, count: 1 });
+         else companyCounts.set(slug, { name: co, count: 1 });
        }
        const topCompanies = [...companyCounts.entries()]
          .filter(([, v]) => v.count >= 3)

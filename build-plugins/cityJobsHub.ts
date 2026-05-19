@@ -195,6 +195,7 @@ export function buildCityHubSeo(
   city: CityHubKey,
   count: number,
   year: number,
+  cantonDisplay?: string,
 ): CityHubSeoEntry {
   const safeCount = Number.isFinite(count) && count > 0 ? Math.floor(count) : 0;
   const useFire = safeCount >= CITY_HUB_FIRE_THRESHOLD;
@@ -202,14 +203,17 @@ export function buildCityHubSeo(
   const name = CITY_HUB_DISPLAY_NAME[city] ?? cityHubDisplayName(city);
   // F3a — short <title> comes from the shared module (50-60 visible chars).
   // OG title + H1 keep the verbose legacy copy (unconstrained length).
+  // cantonDisplay is forwarded only when the caller is in a non-TI canton city
+  // hub — TI callers pass undefined and keep the legacy Ticino/Tessin copy.
   const title = buildCityHubTitle({
     locale,
     cityDisplay: name,
     count: safeCount,
     year,
     fireThreshold: CITY_HUB_FIRE_THRESHOLD,
+    cantonDisplay,
   });
-  const desc = buildCityHubMeta({ locale, cityDisplay: name, count: safeCount });
+  const desc = buildCityHubMeta({ locale, cityDisplay: name, count: safeCount, cantonDisplay });
 
   switch (locale) {
     case 'it': {
