@@ -1,0 +1,71 @@
+{
+  "crawlerKey": "spital-muri",
+  "assembledAt": "2026-05-19T11:37:47.920Z",
+  "jobs": [
+    {
+      "id": "spital-muri-f630033e83b2",
+      "slug": "teststelle-rav-schnittstelle-spital-muri-muri",
+      "slugByLocale": {
+        "de": "teststelle-rav-schnittstelle-spital-muri-muri",
+        "it": "teststelle-rav-schnittstelle-spital-muri-muri",
+        "en": "test-rav-interface-position-spital-muri-muri",
+        "fr": "poste-de-test-rav-interface-spital-muri-muri"
+      },
+      "company": "Spital Muri",
+      "companyKey": "spital-muri",
+      "companyDomain": "spital-muri.ch",
+      "title": "Teststelle RAV Schnittstelle",
+      "titleByLocale": {
+        "de": "Teststelle RAV Schnittstelle",
+        "it": "Teststelle RAV Schnittstelle",
+        "en": "Test RAV Interface Position",
+        "fr": "Poste de Test RAV Interface"
+      },
+      "description": "## Descrizione\n\n**Spital Muri | online dal: 19.02.2021**\n\n- **titolo 1**\n\n  text 1\n\n- **titolo 2**\n\n  text 2\n\n- **titolo 3**\n\n  text 3\n\n- **titolo 4**\n\n  text 4\n\n**HR Campus Best Practice AG**\n\nMelanie Wernli\nUnterstrasse 11\n9000 St. Gallen\nD: +41 79 888 88 88\nmelanie.wernli@hr-campus.ch\n\n[www.spital-muri.ch](http://www.spital-muri.ch/)\n\n**Sono interessato e vorrei candidarmi**",
+      "descriptionByLocale": {
+        "de": "Descrizione\n\nSpital Muri | online dal: 19.02.2021\n\n- titolo 1\n\ntext 1\n\n- titolo 2\n\ntext 2\n\n- titolo 3\n\ntext 3\n\n- titolo 4\n\ntext 4\n\nHR Campus Best Practice AG\n\nMelanie Wernli\nUnterstrasse 11\n9000 St. Gallen\nD: +41 79 888 88 88\nmelanie.wernli@hr-campus.ch\n\nwww.spital-muri.ch\n\nSono interessato e vorrei candidarmi",
+        "it": "## Descrizione\n\n**Spital Muri | online dal: 19.02.2021**\n\n- **titolo 1**\n\n  text 1\n\n- **titolo 2**\n\n  text 2\n\n- **titolo 3**\n\n  text 3\n\n- **titolo 4**\n\n  text 4\n\n**HR Campus Best Practice AG**\n\nMelanie Wernli\nUnterstrasse 11\n9000 St. Gallen\nD: +41 79 888 88 88\nmelanie.wernli@hr-campus.ch\n\n[www.spital-muri.ch](http://www.spital-muri.ch/)\n\n**Sono interessato e vorrei candidarmi**",
+        "en": "Description\n\nSpital Muri | online since: 19.02.2021\n\n- title 1\ntext 1\n- title 2\ntext 2\n- title 3\ntext 3\n- title 4\ntext 4\n\nHR Campus Best Practice AG\nMelanie Wernli\nUnterstrasse 11\n9000 St. Gallen\nD: +41 79 888 88 88\nmelanie.wernli@hr-campus.ch\n\nwww.spital-muri.ch\n\nI am interested and would like to apply",
+        "fr": "Description\n\nSpital Muri | en ligne depuis le: 19.02.2021\n\n- titre 1\ntext 1\n- titre 2\ntext 2\n- titre 3\ntext 3\n- titre 4\ntext 4\n\nHR Campus Best Practice AG\nMelanie Wernli\nUnterstrasse 11\n9000 St. Gallen\nD: +41 79 888 88 88\nmelanie.wernli@hr-campus.ch\n\nwww.spital-muri.ch\n\nJe suis intéressé et je voudrais postuler"
+      },
+      "location": "Muri",
+      "canton": "AG",
+      "url": "https://recruitingapp-2997.umantis.com/Vacancies/239/Description/1",
+      "source": "Spital Muri Dedicated Parser (Umantis listing tenant 2997)",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-19T11:37:39.059Z",
+      "addressLocality": "Muri",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5630",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-2997.umantis.com/Vacancies/239/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T11:37:39.059Z"
+    }
+  ]
+}
