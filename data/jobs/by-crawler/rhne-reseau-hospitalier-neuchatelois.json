@@ -459,7 +459,7 @@
       "slugByLocale": {
         "fr": "secretaire-de-consultation-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel",
         "it": "segretario-di-consultazione-all-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "en": "secretaire-de-consultation-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+        "en": "consultation-secretary-at-80-reseau-hospitalier-neuchatelois-rhne-neuchatel",
         "de": "sekretar-in-fur-konsultationen-zu-80-reseau-hospitalier-neuchatelois-rhne-neuchatel"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
@@ -507,6 +507,9 @@
       "externalId": "2552429",
       "previousSlugsByLocale": {
         "it": [
+          "secretaire-de-consultation-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "en": [
           "secretaire-de-consultation-a-80-rhne-reseau-hospitalier-neuchatelois-neuchatel"
         ]
       },

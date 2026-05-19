@@ -2931,10 +2931,10 @@
     },
     {
       "id": "luks-e769f4960712",
-      "slug": "zivildienstleistende-come-membro-del-team-informatik-progetto-101160-luzerner-kantonsspital-luks-luzern",
+      "slug": "zivildienstleistende-come-collaboratore-trice-informatik-pflichtenheft-101160-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "zivildienstleistende-als-mitarbeiter-informatik-pflichtenheft-101160-luks-luzern",
-        "it": "zivildienstleistende-come-membro-del-team-informatik-progetto-101160-luzerner-kantonsspital-luks-luzern",
+        "it": "zivildienstleistende-come-collaboratore-trice-informatik-pflichtenheft-101160-luzerner-kantonsspital-luks-luzern",
         "en": "civilian-service-employees-as-it-team-member-project-101160-luzerner-kantonsspital-luks-luzern",
         "fr": "employe-de-service-civil-comme-membre-de-l-equipe-informatique-projet-101160-luzerner-kantonsspital-luks-luzern"
       },
@@ -2991,11 +2991,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "zivildienstleistende-als-mitarbeiter-informatik-pflichtenheft-101160-luks-luzern"
+          "zivildienstleistende-als-mitarbeiter-informatik-pflichtenheft-101160-luks-luzern",
+          "zivildienstleistende-come-membro-del-team-informatik-progetto-101160-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "previousSlugs": [
-        "zivildienstleistende-als-mitarbeiter-informatik-pflichtenheft-101160-luks-luzern"
+        "zivildienstleistende-als-mitarbeiter-informatik-pflichtenheft-101160-luks-luzern",
+        "zivildienstleistende-come-membro-del-team-informatik-progetto-101160-luzerner-kantonsspital-luks-luzern"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -19222,10 +19224,10 @@
     },
     {
       "id": "luks-12ff780ab9e6",
-      "slug": "mpa-efz-per-la-pratica-di-emergenza-20-luzerner-kantonsspital-luks-stans",
+      "slug": "mpa-cfc-per-la-notfallpraxis-20-luzerner-kantonsspital-luks-stans",
       "slugByLocale": {
         "de": "mpa-efz-fur-die-notfallpraxis-20-luks-stans",
-        "it": "mpa-efz-per-la-pratica-di-emergenza-20-luzerner-kantonsspital-luks-stans",
+        "it": "mpa-cfc-per-la-notfallpraxis-20-luzerner-kantonsspital-luks-stans",
         "en": "mpa-efz-for-emergency-practice-20-luzerner-kantonsspital-luks-stans",
         "fr": "mpa-efz-pour-la-pratique-d-urgence-20-luzerner-kantonsspital-luks-stans"
       },
@@ -19292,11 +19294,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mpa-efz-fur-die-notfallpraxis-20-luks-stans"
+          "mpa-efz-fur-die-notfallpraxis-20-luks-stans",
+          "mpa-efz-per-la-pratica-di-emergenza-20-luzerner-kantonsspital-luks-stans"
         ]
       },
       "previousSlugs": [
-        "mpa-efz-fur-die-notfallpraxis-20-luks-stans"
+        "mpa-efz-fur-die-notfallpraxis-20-luks-stans",
+        "mpa-efz-per-la-pratica-di-emergenza-20-luzerner-kantonsspital-luks-stans"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

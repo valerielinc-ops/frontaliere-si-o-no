@@ -8,7 +8,7 @@
       "slugByLocale": {
         "de": "lernende-n-als-kochin-koch-efz-klinik-adelheid-unterageri",
         "it": "apprendista-cuoco-a-efz-klinik-adelheid-unterageri",
-        "en": "cooking-apprentice-efz-klinik-adelheid-unterageri",
+        "en": "apprentice-n-als-kochin-koch-efz-klinik-adelheid-unterageri",
         "fr": "apprenti-cuisinier-ere-cfc-klinik-adelheid-unterageri"
       },
       "company": "Klinik Adelheid",
@@ -77,10 +77,14 @@
         ],
         "de": [
           "lernende-n-als-kochin-koch-efz-klinik-adelheid-unteraegeri"
+        ],
+        "en": [
+          "cooking-apprentice-efz-klinik-adelheid-unterageri"
         ]
       },
       "previousSlugs": [
-        "lernende-n-als-kochin-koch-efz-klinik-adelheid-unteraegeri"
+        "lernende-n-als-kochin-koch-efz-klinik-adelheid-unteraegeri",
+        "cooking-apprentice-efz-klinik-adelheid-unterageri"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,

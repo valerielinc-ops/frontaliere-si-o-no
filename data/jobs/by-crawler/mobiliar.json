@@ -8,8 +8,8 @@
       "slugByLocale": {
         "de": "kv-lehrstelle-efz-2027-generalagentur-bern-west-mobiliar-ch",
         "it": "kv-apprendistato-cfc-2027-agenzia-generale-bern-west-die-mobiliar-bern",
-        "en": "kv-lehrstelle-efz-2027-generalagentur-bern-west-mobiliar-ch",
-        "fr": "kv-lehrstelle-efz-2027-generalagentur-bern-west-mobiliar-ch"
+        "en": "kv-apprenticeship-efz-2027-general-agency-bern-west-die-mobiliar-bern",
+        "fr": "cc-place-d-apprentissage-cfc-2027-agence-generale-berne-ouest-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -55,6 +55,12 @@
       "previousSlugsByLocale": {
         "it": [
           "kv-lehrstelle-efz-2027-generalagentur-bern-west-mobiliar-ch"
+        ],
+        "en": [
+          "kv-lehrstelle-efz-2027-generalagentur-bern-west-mobiliar-ch"
+        ],
+        "fr": [
+          "kv-lehrstelle-efz-2027-generalagentur-bern-west-mobiliar-ch"
         ]
       },
       "previousSlugs": [
@@ -81,8 +87,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-wil-mobiliar-ch",
         "it": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-wil-die-mobiliar-wil",
-        "en": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-wil-mobiliar-ch",
-        "fr": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-wil-mobiliar-ch"
+        "en": "praktikant-m-d-projektmanagement-die-mobiliar-wil",
+        "fr": "praktikan-m-d-gestion-du-projet-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -146,6 +152,12 @@
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-wil-mobiliar-ch",
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-uster-mobiliar-ch",
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-belp-mobiliar-ch"
+        ],
+        "en": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-wil-mobiliar-ch"
+        ],
+        "fr": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-wil-mobiliar-ch"
         ]
       },
       "previousSlugs": [
@@ -352,7 +364,7 @@
         "de": "data-scientist-im-bereich-conversational-ai-w-m-d-mobiliar-ch",
         "it": "data-scientist-im-bereich-conversational-ai-w-m-d-mobiliar-ch",
         "en": "data-scientist-im-bereich-conversational-ai-w-m-d-mobiliar-ch",
-        "fr": "data-scientist-im-bereich-conversational-ai-w-m-d-mobiliar-ch"
+        "fr": "scientifique-des-donnees-dans-l-ia-conversationnelle-w-m-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -884,9 +896,9 @@
     },
     {
       "id": "mobiliar-225b1dbbeaef",
-      "slug": "consulente-senior-m-d-projektmanagement-die-mobiliar-dielsdorf",
+      "slug": "collaboratore-trice-verkaufssupport-w-m-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf",
       "slugByLocale": {
-        "it": "consulente-senior-m-d-projektmanagement-die-mobiliar-dielsdorf",
+        "it": "collaboratore-trice-verkaufssupport-w-m-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf",
         "en": "senior-consultant-m-d-projektmanagement-die-mobiliar-dielsdorf",
         "de": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-dielsdorf-mobiliar-ch",
         "fr": "consultant-principal-m-d-die-mobiliar-dielsdorf"
@@ -932,12 +944,14 @@
       "sfJobId": "1164751955",
       "previousSlugs": [
         "mitarbeiter-verkaufssupport-w-m-d-generalagentur-dielsdorf-mobiliar-ch",
-        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf"
+        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf",
+        "consulente-senior-m-d-projektmanagement-die-mobiliar-dielsdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-dielsdorf-mobiliar-ch",
-          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf"
+          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf",
+          "consulente-senior-m-d-projektmanagement-die-mobiliar-dielsdorf"
         ],
         "en": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-dielsdorf-mobiliar-ch"

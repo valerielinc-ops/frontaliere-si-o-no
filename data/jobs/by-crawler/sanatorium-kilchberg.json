@@ -1500,8 +1500,8 @@
       "slugByLocale": {
         "de": "hr-bereichsverantwortliche-r-sanatorium-kilchberg-kilchberg",
         "it": "responsabile-hr-sanatorium-kilchberg-kilchberg",
-        "en": "emergency-medical-technician-summer-season-2026-50-100-spital-davos-davos",
-        "fr": "technicien-de-secours-medical-saison-estivale-2026-50-100-spital-davos-davos"
+        "en": "hr-manager-sanatorium-kilchberg-kilchberg",
+        "fr": "responsable-rh-sanatorium-kilchberg-kilchberg"
       },
       "company": "Sanatorium Kilchberg",
       "companyKey": "sanatorium-kilchberg",
@@ -1548,10 +1548,18 @@
       "previousSlugsByLocale": {
         "it": [
           "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos"
+        ],
+        "en": [
+          "emergency-medical-technician-summer-season-2026-50-100-spital-davos-davos"
+        ],
+        "fr": [
+          "technicien-de-secours-medical-saison-estivale-2026-50-100-spital-davos-davos"
         ]
       },
       "previousSlugs": [
-        "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos"
+        "sanitario-di-soccorso-estivo-2026-50-100-spital-davos-davos",
+        "emergency-medical-technician-summer-season-2026-50-100-spital-davos-davos",
+        "technicien-de-secours-medical-saison-estivale-2026-50-100-spital-davos-davos"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,

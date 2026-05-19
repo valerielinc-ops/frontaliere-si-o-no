@@ -591,8 +591,8 @@
       "slugByLocale": {
         "de": "lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2026-fmi-frutigen",
         "it": "apprendista-professionista-sanitario-fage-efz-casa-di-riposo-frutigen-2026-spitaler-fmi-ag-frutigen",
-        "en": "healthcare-professional-apprentice-fage-efz-senior-park-frutigen-2026-spitaler-fmi-ag-frutigen",
-        "fr": "apprenti-en-soins-de-sante-fage-efz-parc-senior-frutigen-2026-spitaler-fmi-ag-frutigen"
+        "en": "apprentice-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen",
+        "fr": "apprenti-e-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -657,10 +657,18 @@
       "previousSlugsByLocale": {
         "it": [
           "lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2026-fmi-frutigen"
+        ],
+        "en": [
+          "healthcare-professional-apprentice-fage-efz-senior-park-frutigen-2026-spitaler-fmi-ag-frutigen"
+        ],
+        "fr": [
+          "apprenti-en-soins-de-sante-fage-efz-parc-senior-frutigen-2026-spitaler-fmi-ag-frutigen"
         ]
       },
       "previousSlugs": [
-        "lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2026-fmi-frutigen"
+        "lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2026-fmi-frutigen",
+        "healthcare-professional-apprentice-fage-efz-senior-park-frutigen-2026-spitaler-fmi-ag-frutigen",
+        "apprenti-en-soins-de-sante-fage-efz-parc-senior-frutigen-2026-spitaler-fmi-ag-frutigen"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -682,7 +690,7 @@
       "slugByLocale": {
         "de": "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026-fmi",
         "it": "apprendista-assistente-alla-salute-e-sociale-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen",
-        "en": "apprentice-health-and-social-care-assistant-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen",
+        "en": "apprentice-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen",
         "fr": "apprenti-assistant-e-en-sante-et-social-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen"
       },
       "company": "Spitäler fmi AG",
@@ -748,10 +756,14 @@
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026-fmi"
+        ],
+        "en": [
+          "apprentice-health-and-social-care-assistant-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen"
         ]
       },
       "previousSlugs": [
-        "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026-fmi"
+        "lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2026-fmi",
+        "apprentice-health-and-social-care-assistant-eba-seniorenpark-frutigen-2026-spitaler-fmi-ag-frutigen"
       ],
       "salaryMin": 46000,
       "salaryMax": 78500,
@@ -4407,7 +4419,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-raumpflege-wascheversorgung-70-fmi-unterseen",
         "it": "addetto-a-alle-pulizie-fornitura-di-biancheria-70-spitaler-fmi-ag-unterseen",
-        "en": "housekeeping-laundry-assistant-70-spitaler-fmi-ag-unterseen",
+        "en": "associate-raumpflege-wascheversorgung-70-spitaler-fmi-ag-unterseen",
         "fr": "employe-e-de-nettoyage-approvisionnement-en-linge-70-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
@@ -4459,10 +4471,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-raumpflege-wascheversorgung-70-fmi-unterseen"
+        ],
+        "en": [
+          "housekeeping-laundry-assistant-70-spitaler-fmi-ag-unterseen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-raumpflege-wascheversorgung-70-fmi-unterseen"
+        "mitarbeiter-in-raumpflege-wascheversorgung-70-fmi-unterseen",
+        "housekeeping-laundry-assistant-70-spitaler-fmi-ag-unterseen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

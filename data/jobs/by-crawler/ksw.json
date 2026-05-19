@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ksw-5081f74594fa",
-      "slug": "projekt-e-teamassistenz-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "assistenza-per-progetti-e-team-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "projekt-und-teamassistenz-kantonsspital-winterthur-ksw-winterthur",
-        "it": "projekt-e-teamassistenz-kantonsspital-winterthur-ksw-winterthur",
-        "en": "projekt-und-teamassistenz-ksw-ch",
-        "fr": "projekt-und-teamassistenz-ksw-ch"
+        "it": "assistenza-per-progetti-e-team-kantonsspital-winterthur-ksw-winterthur",
+        "en": "project-and-team-assistance-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "assistance-aux-projets-et-aux-equipes-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -55,14 +55,22 @@
       "department": "Management Support Betrieb",
       "previousSlugsByLocale": {
         "it": [
-          "projekt-und-teamassistenz-ksw-ch"
+          "projekt-und-teamassistenz-ksw-ch",
+          "projekt-e-teamassistenz-kantonsspital-winterthur-ksw-winterthur"
         ],
         "de": [
+          "projekt-und-teamassistenz-ksw-ch"
+        ],
+        "en": [
+          "projekt-und-teamassistenz-ksw-ch"
+        ],
+        "fr": [
           "projekt-und-teamassistenz-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "projekt-und-teamassistenz-ksw-ch"
+        "projekt-und-teamassistenz-ksw-ch",
+        "projekt-e-teamassistenz-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -80,12 +88,12 @@
     },
     {
       "id": "ksw-e5c8dda209ec",
-      "slug": "teamleiterin-teamleiter-intensivmedizin-ksw-ch",
+      "slug": "capo-team-capo-team-intensivmedicina-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-intensivmedizin-ksw-ch",
-        "it": "teamleiterin-teamleiter-intensivmedizin-ksw-ch",
-        "en": "teamleiterin-teamleiter-intensivmedizin-ksw-ch",
-        "fr": "teamleiterin-teamleiter-intensivmedizin-ksw-ch"
+        "it": "capo-team-capo-team-intensivmedicina-kantonsspital-winterthur-ksw-winterthur",
+        "en": "head-of-intensive-care-team-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "chef-d-equipe-en-soins-intensifs-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -141,7 +149,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:05:42.044Z"
+      "firstSeenAt": "2026-05-19T12:05:42.044Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-intensivmedizin-ksw-ch"
+        ],
+        "en": [
+          "teamleiterin-teamleiter-intensivmedizin-ksw-ch"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-intensivmedizin-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-intensivmedizin-ksw-ch"
+      ]
     },
     {
       "id": "ksw-32dec51bb108",
@@ -519,9 +541,9 @@
       "slug": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "radiologiefachfrau-radiologiefachmann-hf-kantonsspital-winterthur-ksw-winterthur",
-        "en": "radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "en": "nuclear-medicine-and-pet-ct-technologist-hf-kantonsspital-winterthur-ksw-winterthur",
         "de": "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
-        "fr": "specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "technicien-ne-en-imagerie-moleculaire-et-therapie-hf-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -564,11 +586,19 @@
       "requirementsByLocale": {},
       "department": "Klinik für Radiologie und Nuklearmedizin",
       "previousSlugs": [
-        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch"
+        "radiologiefachfrau-radiologiefachmann-hf-ksw-ch",
+        "radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
+        "specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "radiologiefachfrau-radiologiefachmann-hf-ksw-ch"
+        ],
+        "en": [
+          "radiology-specialist-hf-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "fr": [
+          "specialiste-en-radiologie-hf-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
@@ -1362,9 +1392,9 @@
       "slug": "vitreoretinale-chirurgin-chirurge-ksw-ch",
       "slugByLocale": {
         "it": "vitreoretinale-chirurgin-chirurge-ksw-ch",
-        "en": "vitreoretinal-surgery-surgery-kantonsspital-winterthur-ksw-winterthur",
+        "en": "vitreoretinal-surgeon-kantonsspital-winterthur-ksw-winterthur",
         "de": "vitreoretinale-chirurgin-chirurge-ksw-ch",
-        "fr": "vitreoretinale-chirurgin-chirurgie-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "chirurgien-vitreo-retinien-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1409,10 +1439,18 @@
       "previousSlugsByLocale": {
         "de": [
           "vitreoretinale-chirurgin-chirurgin-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "vitreoretinal-surgery-surgery-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "fr": [
+          "vitreoretinale-chirurgin-chirurgie-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "previousSlugs": [
-        "vitreoretinale-chirurgin-chirurgin-kantonsspital-winterthur-ksw-winterthur"
+        "vitreoretinale-chirurgin-chirurgin-kantonsspital-winterthur-ksw-winterthur",
+        "vitreoretinal-surgery-surgery-kantonsspital-winterthur-ksw-winterthur",
+        "vitreoretinale-chirurgin-chirurgie-kantonsspital-winterthur-ksw-winterthur"
       ],
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
       "salaryMin": 49500,
@@ -1585,8 +1623,8 @@
       "slugByLocale": {
         "de": "ernahrungsberaterin-ernahrungsberater-mit-spezialisierung-im-fachgebiet-adipositastherapie",
         "it": "ernahrungsberaterin-ernahrungsberater-mit-spezialisierung-im-fachgebiet-adipositastherapie",
-        "en": "ernahrungsberaterin-ernahrungsberater-mit-spezialisierung-im-fachgebiet-adipositastherapie",
-        "fr": "ernahrungsberaterin-ernahrungsberater-mit-spezialisierung-im-fachgebiet-adipositastherapie"
+        "en": "nutritionist-nutritionist-with-specialization-in-the-field-of-obesity-therapy-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "nutritionniste-nutritionniste-specialisee-dans-la-therapie-contre-l-obesite-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1646,12 +1684,12 @@
     },
     {
       "id": "ksw-217e1751233b",
-      "slug": "fachfrau-fachmann-operationslagerung-ksw-ch",
+      "slug": "specialista-donna-stoccaggio-delle-operazioni-professionali-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationslagerung-ksw-ch",
-        "it": "fachfrau-fachmann-operationslagerung-ksw-ch",
-        "en": "fachfrau-fachmann-operationslagerung-ksw-ch",
-        "fr": "fachfrau-fachmann-operationslagerung-ksw-ch"
+        "it": "specialista-donna-stoccaggio-delle-operazioni-professionali-kantonsspital-winterthur-ksw-winterthur",
+        "en": "specialist-woman-professional-operations-storage-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "specialiste-femme-entreposage-des-operations-professionnelles-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1707,16 +1745,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:05:42.043Z"
+      "firstSeenAt": "2026-05-19T12:05:42.043Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-operationslagerung-ksw-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-operationslagerung-ksw-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-operationslagerung-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-operationslagerung-ksw-ch"
+      ]
     },
     {
       "id": "ksw-be693b9f095a",
-      "slug": "fachfrau-fachmann-operationstechnik-ksw-ch",
+      "slug": "specialista-in-tecnologia-chirurgica-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "fachfrau-fachmann-operationstechnik-ksw-ch",
-        "it": "fachfrau-fachmann-operationstechnik-ksw-ch",
-        "en": "fachfrau-fachmann-operationstechnik-ksw-ch",
-        "fr": "fachfrau-fachmann-operationstechnik-ksw-ch"
+        "it": "specialista-in-tecnologia-chirurgica-kantonsspital-winterthur-ksw-winterthur",
+        "en": "specialist-in-surgical-technology-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "specialiste-en-technologie-chirurgicale-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1772,16 +1824,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:05:42.043Z"
+      "firstSeenAt": "2026-05-19T12:05:42.043Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-operationstechnik-ksw-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-operationstechnik-ksw-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-operationstechnik-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-operationstechnik-ksw-ch"
+      ]
     },
     {
       "id": "ksw-0915751e2521",
-      "slug": "leitende-arztin-leitender-arzt-facharzt-dermatologie-ksw-ch",
+      "slug": "medico-specialista-in-dermatologia-responsabile-di-area-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-facharzt-dermatologie-ksw-ch",
-        "it": "leitende-arztin-leitender-arzt-facharzt-dermatologie-ksw-ch",
-        "en": "leitende-arztin-leitender-arzt-facharzt-dermatologie-ksw-ch",
-        "fr": "leitende-arztin-leitender-arzt-facharzt-dermatologie-ksw-ch"
+        "it": "medico-specialista-in-dermatologia-responsabile-di-area-kantonsspital-winterthur-ksw-winterthur",
+        "en": "lead-physician-in-dermatology-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "medecin-specialiste-en-dermatologie-responsable-de-secteur-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1837,16 +1903,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:05:42.043Z"
+      "firstSeenAt": "2026-05-19T12:05:42.043Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-facharzt-dermatologie-ksw-ch"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-facharzt-dermatologie-ksw-ch"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-facharzt-dermatologie-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-facharzt-dermatologie-ksw-ch"
+      ]
     },
     {
       "id": "ksw-a5ca52225ee6",
-      "slug": "med-praxisassistentin-praxisassistent-o-fachperson-gesundheit-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "assistente-medico-di-pratica-assistente-di-pratica-o-specialista-sanitario-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-ksw-ch",
-        "it": "med-praxisassistentin-praxisassistent-o-fachperson-gesundheit-kantonsspital-winterthur-ksw-winterthur",
-        "en": "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-ksw-ch",
-        "fr": "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-ksw-ch"
+        "it": "assistente-medico-di-pratica-assistente-di-pratica-o-specialista-sanitario-kantonsspital-winterthur-ksw-winterthur",
+        "en": "medical-practice-assistant-practice-assistant-or-health-care-professional-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "assistant-e-medical-e-de-pratique-assistant-e-de-pratique-ou-professionnel-le-de-sante-kantonsspital-winterthur-ksw"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1892,11 +1972,19 @@
       "department": "Fachärztezentrum Glatt",
       "previousSlugsByLocale": {
         "it": [
+          "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-ksw-ch",
+          "med-praxisassistentin-praxisassistent-o-fachperson-gesundheit-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-ksw-ch"
+        ],
+        "fr": [
           "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-ksw-ch"
+        "med-praxisassistentin-praxisassistent-oder-fachperson-gesundheit-ksw-ch",
+        "med-praxisassistentin-praxisassistent-o-fachperson-gesundheit-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1914,12 +2002,12 @@
     },
     {
       "id": "ksw-c1bf44289365",
-      "slug": "medizinische-masseurin-medizinischer-masseur-ksw-ch",
+      "slug": "massaggiatore-trice-medico-a-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "medizinische-masseurin-medizinischer-masseur-ksw-ch",
-        "it": "medizinische-masseurin-medizinischer-masseur-ksw-ch",
-        "en": "medizinische-masseurin-medizinischer-masseur-ksw-ch",
-        "fr": "medizinische-masseurin-medizinischer-masseur-ksw-ch"
+        "it": "massaggiatore-trice-medico-a-kantonsspital-winterthur-ksw-winterthur",
+        "en": "medical-massage-therapist-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "therapeute-en-massage-medical-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1975,14 +2063,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:05:42.043Z"
+      "firstSeenAt": "2026-05-19T12:05:42.043Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-masseurin-medizinischer-masseur-ksw-ch"
+        ],
+        "en": [
+          "medizinische-masseurin-medizinischer-masseur-ksw-ch"
+        ],
+        "fr": [
+          "medizinische-masseurin-medizinischer-masseur-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-masseurin-medizinischer-masseur-ksw-ch"
+      ]
     },
     {
       "id": "ksw-7b72b8163b86",
-      "slug": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
+      "slug": "assistente-di-medicina-di-pratica-assistente-di-medicina-di-pratica-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
-        "it": "assistente-di-pratica-medica-assistente-medico-kantonsspital-winterthur-ksw-winterthur",
+        "it": "assistente-di-medicina-di-pratica-assistente-di-medicina-di-pratica-kantonsspital-winterthur-ksw-winterthur",
         "en": "medical-practice-assistant-medical-practice-assistant-kantonsspital-winterthur-ksw-winterthur",
         "fr": "assistant-de-pratique-medicale-assistant-de-pratique-medicale-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -2043,7 +2145,8 @@
       "firstSeenAt": "2026-05-19T12:05:42.043Z",
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
+          "assistente-di-pratica-medica-assistente-medico-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
@@ -2053,17 +2156,18 @@
         ]
       },
       "previousSlugs": [
-        "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch"
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-ksw-ch",
+        "assistente-di-pratica-medica-assistente-medico-kantonsspital-winterthur-ksw-winterthur"
       ]
     },
     {
       "id": "ksw-02d72127a120",
-      "slug": "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische",
+      "slug": "assistente-a-medico-di-poloclincia-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische",
-        "it": "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische",
-        "en": "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische",
-        "fr": "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische"
+        "it": "assistente-a-medico-di-poloclincia-kantonsspital-winterthur-ksw-winterthur",
+        "en": "medical-practice-assistant-in-the-medical-outpatient-clinic-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "assistant-e-medical-e-en-medecine-ambulatoire-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2119,16 +2223,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:05:42.043Z"
+      "firstSeenAt": "2026-05-19T12:05:42.043Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische"
+        ],
+        "fr": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-im-bereich-medizinische"
+      ]
     },
     {
       "id": "ksw-bf4d9836ea00",
-      "slug": "mitarbeiterin-collaboratore-trice-patientenaufnahme-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "impiegato-a-amministrazione-pazienti-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-patientenaufnahme-ksw-ch",
-        "it": "mitarbeiterin-collaboratore-trice-patientenaufnahme-kantonsspital-winterthur-ksw-winterthur",
-        "en": "mitarbeiterin-mitarbeiter-patientenaufnahme-ksw-ch",
-        "fr": "mitarbeiterin-mitarbeiter-patientenaufnahme-ksw-ch"
+        "it": "impiegato-a-amministrazione-pazienti-kantonsspital-winterthur-ksw-winterthur",
+        "en": "patient-admission-administrator-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "adjoint-e-admission-des-patients-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2174,11 +2292,19 @@
       "department": "Patientenadministration",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-patientenaufnahme-ksw-ch",
+          "mitarbeiterin-collaboratore-trice-patientenaufnahme-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-patientenaufnahme-ksw-ch"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-patientenaufnahme-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-patientenaufnahme-ksw-ch"
+        "mitarbeiterin-mitarbeiter-patientenaufnahme-ksw-ch",
+        "mitarbeiterin-collaboratore-trice-patientenaufnahme-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2196,12 +2322,12 @@
     },
     {
       "id": "ksw-0ed6b79a87d0",
-      "slug": "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch",
+      "slug": "primario-a-di-endocrinologia-e-diabetologia-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch",
-        "it": "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch",
-        "en": "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch",
-        "fr": "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch"
+        "it": "primario-a-di-endocrinologia-e-diabetologia-kantonsspital-winterthur-ksw-winterthur",
+        "en": "senior-physician-in-endocrinology-diabetology-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "medecin-specialiste-en-endocrinologie-et-diabetologie-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2257,16 +2383,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:05:42.043Z"
+      "firstSeenAt": "2026-05-19T12:05:42.043Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-endokrinologie-diabetologie-ksw-ch"
+      ]
     },
     {
       "id": "ksw-625b18e6083e",
-      "slug": "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch",
+      "slug": "infermiere-infermiere-di-sala-risveglio-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch",
-        "it": "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch",
-        "en": "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch",
-        "fr": "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch"
+        "it": "infermiere-infermiere-di-sala-risveglio-kantonsspital-winterthur-ksw-winterthur",
+        "en": "waking-room-nurse-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "infirmier-infirmier-de-salle-de-reveil-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2322,16 +2462,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:05:42.043Z"
+      "firstSeenAt": "2026-05-19T12:05:42.043Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-aufwachraum-ksw-ch"
+      ]
     },
     {
       "id": "ksw-b1b5f5e4edbd",
       "slug": "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
       "slugByLocale": {
         "it": "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
-        "en": "experts-experts-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur",
+        "en": "expert-in-intensive-care-nursing-nds-intensive-medicine-kantonsspital-winterthur-ksw-winterthur",
         "de": "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch",
-        "fr": "experts-experts-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur"
+        "fr": "expert-en-soins-intensifs-nds-medecine-intensive-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -2376,10 +2530,17 @@
       "previousSlugsByLocale": {
         "de": [
           "experten-experten-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "experts-experts-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "fr": [
+          "experts-experts-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "previousSlugs": [
-        "experten-experten-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur"
+        "experten-experten-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur",
+        "experts-experts-intensivpflege-nds-intensivmedizin-kantonsspital-winterthur-ksw-winterthur"
       ],
       "firstSeenAt": "2026-05-10T21:55:26.415Z",
       "salaryMin": 49500,
@@ -3646,7 +3807,7 @@
       "slug": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
       "slugByLocale": {
         "it": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
-        "en": "nursing-specialist-in-acute-geriatrics-kantonsspital-winterthur-ksw-winterthur",
+        "en": "acute-geriatrics-nurse-kantonsspital-winterthur-ksw-winterthur",
         "de": "pflegefachfrau-pflegefachmann-akutgeriatrie-ksw-ch",
         "fr": "infirmier-ere-en-geriatrie-aigue-kantonsspital-winterthur-ksw-winterthur"
       },
@@ -3693,10 +3854,14 @@
       "previousSlugsByLocale": {
         "de": [
           "pflegefachkraft-akutgeriatrie-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "nursing-specialist-in-acute-geriatrics-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
       "previousSlugs": [
         "pflegefachkraft-akutgeriatrie-kantonsspital-winterthur-ksw-winterthur",
+        "nursing-specialist-in-acute-geriatrics-kantonsspital-winterthur-ksw-winterthur",
         "pflegefachfrau-pflegefachmann-imc-ksw-ch"
       ],
       "firstSeenAt": "2026-05-10T21:55:26.417Z",
@@ -3946,12 +4111,12 @@
     },
     {
       "id": "ksw-491c8feebb0b",
-      "slug": "arztsekretarin-arztsekretar-ksw-ch-2",
+      "slug": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
-        "it": "arztsekretarin-arztsekretar-ksw-ch-2",
-        "en": "arztsekretarin-arztsekretar-ksw-ch-2",
-        "fr": "arztsekretarin-arztsekretar-ksw-ch-2"
+        "it": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur",
+        "en": "doctor-s-secretary-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "secretaire-du-docteur-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -3998,10 +4163,20 @@
       "previousSlugsByLocale": {
         "de": [
           "arztsekretarin-arztsekretar-ksw-ch"
+        ],
+        "it": [
+          "arztsekretarin-arztsekretar-ksw-ch-2"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-ksw-ch-2"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-ksw-ch-2"
         ]
       },
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-ksw-ch"
+        "arztsekretarin-arztsekretar-ksw-ch",
+        "arztsekretarin-arztsekretar-ksw-ch-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4023,8 +4198,8 @@
       "slugByLocale": {
         "de": "berufsbildnerin-berufsbildner-pflege-akutgeriatrie-und-palliativ-care-ksw-ch",
         "it": "berufsbildnerin-berufsbildner-pflege-akutgeriatrie-e-palliativ-care-kantonsspital-winterthur-ksw-winterthur",
-        "en": "berufsbildnerin-berufsbildner-pflege-akutgeriatrie-und-palliativ-care-ksw-ch",
-        "fr": "berufsbildnerin-berufsbildner-pflege-akutgeriatrie-und-palliativ-care-ksw-ch"
+        "en": "career-akutgeriatrie-and-palliative-care-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "carriere-akutgeriatrie-et-soins-palliatifs-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -4071,6 +4246,12 @@
       "previousSlugsByLocale": {
         "it": [
           "berufsbildnerin-berufsbildner-pflege-akutgeriatrie-und-palliativ-care-ksw-ch"
+        ],
+        "en": [
+          "berufsbildnerin-berufsbildner-pflege-akutgeriatrie-und-palliativ-care-ksw-ch"
+        ],
+        "fr": [
+          "berufsbildnerin-berufsbildner-pflege-akutgeriatrie-und-palliativ-care-ksw-ch"
         ]
       },
       "previousSlugs": [
@@ -4097,7 +4278,7 @@
         "de": "dipl-orthoptistin-orthoptist-hf-ksw-ch",
         "it": "dipl-orthoptistin-orthoptist-hf-ksw-ch",
         "en": "dipl-orthoptistin-orthoptist-hf-ksw-ch",
-        "fr": "dipl-orthoptistin-orthoptist-hf-ksw-ch"
+        "fr": "orthoptiste-diplome-e-orthoptiste-hf-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -4548,12 +4729,12 @@
     },
     {
       "id": "ksw-fbc20f60b05e",
-      "slug": "arztsekretarin-arztsekretar-ksw-ch-4",
+      "slug": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur-51bce7",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
-        "it": "arztsekretarin-arztsekretar-ksw-ch-4",
-        "en": "arztsekretarin-arztsekretar-ksw-ch-4",
-        "fr": "arztsekretarin-arztsekretar-ksw-ch-4"
+        "it": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur-51bce7",
+        "en": "doctor-s-secretary-kantonsspital-winterthur-ksw-winterthur-51bce7",
+        "fr": "secretaire-du-docteur-kantonsspital-winterthur-ksw-winterthur-51bce7"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -4600,10 +4781,20 @@
       "previousSlugsByLocale": {
         "de": [
           "arztsekretarin-arztsekretar-ksw-ch"
+        ],
+        "it": [
+          "arztsekretarin-arztsekretar-ksw-ch-4"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-ksw-ch-4"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-ksw-ch-4"
         ]
       },
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-ksw-ch"
+        "arztsekretarin-arztsekretar-ksw-ch",
+        "arztsekretarin-arztsekretar-ksw-ch-4"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4621,12 +4812,12 @@
     },
     {
       "id": "ksw-da54f11b0c98",
-      "slug": "arztsekretarin-arztsekretar-ksw-ch",
+      "slug": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur-193910",
       "slugByLocale": {
         "de": "arztsekretarin-arztsekretar-kantonsspital-winterthur-ksw-winterthur",
-        "it": "arztsekretarin-arztsekretar-ksw-ch",
-        "en": "arztsekretarin-arztsekretar-ksw-ch",
-        "fr": "arztsekretarin-arztsekretar-ksw-ch"
+        "it": "segretario-del-dottore-kantonsspital-winterthur-ksw-winterthur-193910",
+        "en": "doctor-s-secretary-kantonsspital-winterthur-ksw-winterthur-193910",
+        "fr": "secretaire-du-docteur-kantonsspital-winterthur-ksw-winterthur-193910"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -4684,18 +4875,21 @@
       },
       "firstSeenAt": "2026-05-19T12:05:42.041Z",
       "previousSlugs": [
-        "arztsekretarin-arztsekretar-ksw-ch",
-        "arztsekretarin-arztsekretar-ksw-ch-2"
+        "arztsekretarin-arztsekretar-ksw-ch-2",
+        "arztsekretarin-arztsekretar-ksw-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretarin-arztsekretar-ksw-ch-2"
+          "arztsekretarin-arztsekretar-ksw-ch-2",
+          "arztsekretarin-arztsekretar-ksw-ch"
         ],
         "en": [
-          "arztsekretarin-arztsekretar-ksw-ch-2"
+          "arztsekretarin-arztsekretar-ksw-ch-2",
+          "arztsekretarin-arztsekretar-ksw-ch"
         ],
         "fr": [
-          "arztsekretarin-arztsekretar-ksw-ch-2"
+          "arztsekretarin-arztsekretar-ksw-ch-2",
+          "arztsekretarin-arztsekretar-ksw-ch"
         ]
       }
     }

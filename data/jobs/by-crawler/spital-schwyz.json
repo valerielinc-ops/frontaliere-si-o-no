@@ -955,7 +955,7 @@
         "de": "hr-generalist-in-100-spital-schwyz-schwyz",
         "it": "hr-generalist-in-100-spital-schwyz-schwyz",
         "en": "hr-generalist-in-100-spital-schwyz-schwyz",
-        "fr": "hr-generaliste-100-spital-schwyz-schwyz"
+        "fr": "ressources-humaines-generalist-in-100-spital-schwyz-schwyz"
       },
       "company": "Spital Schwyz",
       "companyKey": "spital-schwyz",
@@ -1036,7 +1036,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T13:03:27.358Z"
+      "firstSeenAt": "2026-05-19T13:03:27.358Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "hr-generaliste-100-spital-schwyz-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "hr-generaliste-100-spital-schwyz-schwyz"
+      ]
     },
     {
       "id": "spital-schwyz-8dd73fe4d1c0",

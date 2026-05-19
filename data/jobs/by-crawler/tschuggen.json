@@ -570,12 +570,12 @@
     },
     {
       "id": "tschuggen-f50e3b0b4f33",
-      "slug": "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch",
+      "slug": "spa-receptionist-m-w-d-stagione-estiva-2026-tschuggen-collection-arosa",
       "slugByLocale": {
         "de": "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch",
-        "it": "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch",
+        "it": "spa-receptionist-m-w-d-stagione-estiva-2026-tschuggen-collection-arosa",
         "en": "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch",
-        "fr": "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch"
+        "fr": "receptionniste-du-spa-m-m-j-saison-estivale-2026-tschuggen-collection-arosa"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -633,7 +633,18 @@
         }
       },
       "firstSeenAt": "2026-05-19T12:49:09.335Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch"
+        ],
+        "fr": [
+          "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "spa-rezeptionist-in-m-w-d-sommersaison-2026-tschuggen-ch"
+      ]
     },
     {
       "id": "tschuggen-9d2cf0abe326",

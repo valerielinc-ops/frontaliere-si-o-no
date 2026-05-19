@@ -1391,7 +1391,7 @@
         "de": "hr-mitarbeiter-70-senevita-pratteln-bl",
         "it": "collaboratore-hr-al-70-senevita-pratteln-bl",
         "en": "hr-employee-70-senevita-pratteln-bl",
-        "fr": "collaborateur-rh-70-senevita-pratteln-bl"
+        "fr": "ressources-humaines-mitarbeiter-70-senevita-pratteln-bl"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -1438,10 +1438,14 @@
       "previousSlugsByLocale": {
         "it": [
           "hr-mitarbeiter-70-senevita-pratteln-bl"
+        ],
+        "fr": [
+          "collaborateur-rh-70-senevita-pratteln-bl"
         ]
       },
       "previousSlugs": [
-        "hr-mitarbeiter-70-senevita-pratteln-bl"
+        "hr-mitarbeiter-70-senevita-pratteln-bl",
+        "collaborateur-rh-70-senevita-pratteln-bl"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1459,10 +1463,10 @@
     },
     {
       "id": "senevita-17d727727d19",
-      "slug": "consulente-hr-80-100-uomo-donna-senevita-muri-be",
+      "slug": "risorse-umane-berater-in-80-100-m-w-d-senevita-muri-be",
       "slugByLocale": {
         "de": "hr-berater-in-80-100-m-w-d-senevita-muri-be",
-        "it": "consulente-hr-80-100-uomo-donna-senevita-muri-be",
+        "it": "risorse-umane-berater-in-80-100-m-w-d-senevita-muri-be",
         "en": "hr-consultant-80-100-m-f-senevita-muri-be",
         "fr": "conseiller-ere-en-rh-80-100-h-f-senevita-muri-be"
       },
@@ -1538,11 +1542,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "hr-berater-in-80-100-m-w-d-senevita-muri-be"
+          "hr-berater-in-80-100-m-w-d-senevita-muri-be",
+          "consulente-hr-80-100-uomo-donna-senevita-muri-be"
         ]
       },
       "previousSlugs": [
-        "hr-berater-in-80-100-m-w-d-senevita-muri-be"
+        "hr-berater-in-80-100-m-w-d-senevita-muri-be",
+        "consulente-hr-80-100-uomo-donna-senevita-muri-be"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

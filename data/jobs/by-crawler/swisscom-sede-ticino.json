@@ -263,9 +263,9 @@
         "de": "DevOps Ingenieur - Ansible",
         "fr": "DevOps Ingénieur - Ansible"
       },
-      "slug": "devops-engineer-ansible-swisscom-bern-a47l1o",
+      "slug": "devops-ingegnere-ansible-swisscom-sede-ticino-bern",
       "slugByLocale": {
-        "it": "devops-engineer-ansible-swisscom-bern-a47l1o",
+        "it": "devops-ingegnere-ansible-swisscom-sede-ticino-bern",
         "en": "devops-engineer-ansible-swisscom-sede-ticino-bern",
         "de": "devops-engineer-ansible-swisscom-bern-a47l1o",
         "fr": "devops-engineer-ansible-swisscom-bern-a47l1o"
@@ -302,7 +302,15 @@
       "postalCode": "6500",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-19T12:45:49.142Z"
+      "firstSeenAt": "2026-05-19T12:45:49.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-ansible-swisscom-bern-a47l1o"
+        ]
+      },
+      "previousSlugs": [
+        "devops-engineer-ansible-swisscom-bern-a47l1o"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Olten/DevOps-Engineer_R-0005409",
@@ -331,9 +339,9 @@
         "de": "DevOps Ingenieur",
         "fr": "DevOps Ingénieur"
       },
-      "slug": "devops-engineer-swisscom-olten-manvy0",
+      "slug": "devops-ingegnere-swisscom-sede-ticino-olten",
       "slugByLocale": {
-        "it": "devops-engineer-swisscom-olten-manvy0",
+        "it": "devops-ingegnere-swisscom-sede-ticino-olten",
         "en": "devops-engineer-swisscom-sede-ticino-olten",
         "de": "devops-engineer-swisscom-olten-manvy0",
         "fr": "devops-engineer-swisscom-olten-manvy0"
@@ -355,11 +363,11 @@
       "id": "swisscom-sede-ticino-171083c60d03",
       "previousSlugsByLocale": {
         "it": [
-          "devops-ingegnere-swisscom-sede-ticino-olten"
+          "devops-engineer-swisscom-olten-manvy0"
         ]
       },
       "previousSlugs": [
-        "devops-ingegnere-swisscom-sede-ticino-olten"
+        "devops-engineer-swisscom-olten-manvy0"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -407,11 +415,11 @@
         "de": "DevOps Ingenieur",
         "fr": "DevOps Ingénieur"
       },
-      "slug": "devops-engineer-swisscom-bern-on9t50",
+      "slug": "devops-ingegnere-swisscom-sede-ticino-bern-d524ff",
       "slugByLocale": {
-        "it": "devops-engineer-swisscom-bern-on9t50",
+        "it": "devops-ingegnere-swisscom-sede-ticino-bern-d524ff",
         "en": "devops-engineer-swisscom-sede-ticino-bern",
-        "de": "devops-engineer-swisscom-bern-on9t50",
+        "de": "devops-ingenieur-swisscom-sede-ticino-bern",
         "fr": "devops-engineer-swisscom-bern-on9t50"
       },
       "category": "technology",
@@ -446,7 +454,18 @@
       "postalCode": "6500",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-19T12:45:49.142Z"
+      "firstSeenAt": "2026-05-19T12:45:49.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-engineer-swisscom-bern-on9t50"
+        ],
+        "de": [
+          "devops-engineer-swisscom-bern-on9t50"
+        ]
+      },
+      "previousSlugs": [
+        "devops-engineer-swisscom-bern-on9t50"
+      ]
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Lausanne/Social-Services-Specialist_R-0005396-1",

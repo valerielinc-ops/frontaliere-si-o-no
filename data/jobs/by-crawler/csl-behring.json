@@ -823,7 +823,7 @@
       "slugByLocale": {
         "en": "associate-director-biostatistics-csl-behring-ch",
         "it": "direttore-associato-biostatistica-csl-behring-bern",
-        "de": "associate-director-biostatistik-csl-behring-bern",
+        "de": "associate-direktor-biostatistics-csl-behring-bern",
         "fr": "directeur-associe-biostatistiques-csl-behring-bern"
       },
       "company": "CSL Behring",
@@ -896,10 +896,14 @@
       "previousSlugsByLocale": {
         "it": [
           "associate-director-biostatistics-csl-behring-ch"
+        ],
+        "de": [
+          "associate-director-biostatistik-csl-behring-bern"
         ]
       },
       "previousSlugs": [
-        "associate-director-biostatistics-csl-behring-ch"
+        "associate-director-biostatistics-csl-behring-ch",
+        "associate-director-biostatistik-csl-behring-bern"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -2238,7 +2242,7 @@
       "slugByLocale": {
         "en": "director-process-development-csl-behring-ch",
         "it": "direttore-sviluppo-dei-processi-csl-behring-bern",
-        "de": "direktor-prozessentwicklung-csl-behring-bern",
+        "de": "direktor-process-development-csl-behring-bern",
         "fr": "directeur-developpement-des-processus-csl-behring-bern"
       },
       "company": "CSL Behring",
@@ -2316,10 +2320,14 @@
       "previousSlugsByLocale": {
         "it": [
           "director-process-development-csl-behring-ch"
+        ],
+        "de": [
+          "direktor-prozessentwicklung-csl-behring-bern"
         ]
       },
       "previousSlugs": [
-        "director-process-development-csl-behring-ch"
+        "director-process-development-csl-behring-ch",
+        "direktor-prozessentwicklung-csl-behring-bern"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -2416,7 +2424,7 @@
       "slugByLocale": {
         "en": "director-analytical-strategy-csl-behring-ch",
         "it": "direttore-strategia-analitica-csl-behring-bern",
-        "de": "direktor-analytische-strategie-csl-behring-bern",
+        "de": "direktor-analytical-strategy-csl-behring-bern",
         "fr": "director-analytical-strategy-csl-behring-ch"
       },
       "company": "CSL Behring",
@@ -2494,10 +2502,14 @@
       "previousSlugsByLocale": {
         "it": [
           "director-analytical-strategy-csl-behring-ch"
+        ],
+        "de": [
+          "direktor-analytische-strategie-csl-behring-bern"
         ]
       },
       "previousSlugs": [
-        "director-analytical-strategy-csl-behring-ch"
+        "director-analytical-strategy-csl-behring-ch",
+        "direktor-analytische-strategie-csl-behring-bern"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,

@@ -1241,7 +1241,7 @@
         "de": "mitarbeiter-in-betreuung-und-pflege-50-100-concara-bern",
         "it": "collaboratore-trice-assistenza-e-cure-50-100-concara-domicil-spitex-bern-bern",
         "en": "care-and-support-staff-50-100-concara-domicil-spitex-bern-bern",
-        "fr": "collaborateur-trice-soins-et-assistance-50-100-concara-domicil-spitex-bern-bern"
+        "fr": "collaborateur-trice-betreuung-und-pflege-50-100-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -1299,10 +1299,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-betreuung-und-pflege-50-100-concara-bern-2"
+        ],
+        "fr": [
+          "collaborateur-trice-soins-et-assistance-50-100-concara-domicil-spitex-bern-bern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-betreuung-und-pflege-50-100-concara-bern-2"
+        "mitarbeiter-in-betreuung-und-pflege-50-100-concara-bern-2",
+        "collaborateur-trice-soins-et-assistance-50-100-concara-domicil-spitex-bern-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1691,7 +1695,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-betreuung-und-pflege-50-100-concara-bern",
         "it": "assistente-di-cura-e-assistenza-50-100-concara-domicil-spitex-bern-bern",
-        "en": "care-assistant-50-100-concara-domicil-spitex-bern-bern",
+        "en": "associate-betreuung-und-pflege-50-100-concara-domicil-spitex-bern-bern",
         "fr": "assistant-e-en-soins-et-assistance-50-100-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
@@ -1760,10 +1764,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-betreuung-und-pflege-50-100-concara-bern-4"
+        ],
+        "en": [
+          "care-assistant-50-100-concara-domicil-spitex-bern-bern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-betreuung-und-pflege-50-100-concara-bern-4"
+        "mitarbeiter-in-betreuung-und-pflege-50-100-concara-bern-4",
+        "care-assistant-50-100-concara-domicil-spitex-bern-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

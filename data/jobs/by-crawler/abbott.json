@@ -202,7 +202,7 @@
       "slugByLocale": {
         "en": "finance-it-expert-abbott-basel",
         "it": "esperto-it-finanza-abbott-basel",
-        "de": "finance-it-experte-abbott-basel",
+        "de": "finanzen-it-expert-abbott-basel",
         "fr": "expert-it-finance-abbott-basel"
       },
       "company": "Abbott",
@@ -283,10 +283,14 @@
         ],
         "en": [
           "finance-it-expert-abbott-ch"
+        ],
+        "de": [
+          "finance-it-experte-abbott-basel"
         ]
       },
       "previousSlugs": [
-        "finance-it-expert-abbott-ch"
+        "finance-it-expert-abbott-ch",
+        "finance-it-experte-abbott-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -869,7 +873,7 @@
       "slugByLocale": {
         "en": "manager-quality-system-regulatory-compliance-abbott-ch",
         "it": "manager-sistemi-di-qualita-e-conformita-regolamentare-abbott-zurich",
-        "de": "manager-qualitatsmanagement-und-regulatorische-compliance-abbott-zurich",
+        "de": "manager-qualitat-system-regulatory-compliance-abbott-zurich",
         "fr": "directeur-systeme-de-qualite-et-conformite-reglementaire-abbott-zurich"
       },
       "company": "Abbott",
@@ -935,10 +939,14 @@
       "previousSlugsByLocale": {
         "it": [
           "manager-quality-system-regulatory-compliance-abbott-ch"
+        ],
+        "de": [
+          "manager-qualitatsmanagement-und-regulatorische-compliance-abbott-zurich"
         ]
       },
       "previousSlugs": [
-        "manager-quality-system-regulatory-compliance-abbott-ch"
+        "manager-quality-system-regulatory-compliance-abbott-ch",
+        "manager-qualitatsmanagement-und-regulatorische-compliance-abbott-zurich"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -961,7 +969,7 @@
       "slugByLocale": {
         "en": "field-service-engineer-laboratory-diagnostics-m-f-d-abbott-ch",
         "it": "ingegnere-di-servizio-campo-diagnostica-di-laboratorio-m-f-d-abbott-baar",
-        "de": "field-service-engineer-labor-diagnostik-m-w-d-abbott-baar",
+        "de": "field-service-ingenieur-laboratory-diagnostics-m-f-d-abbott-baar",
         "fr": "ingenieur-de-service-sur-site-diagnostics-de-laboratoire-h-f-abbott-baar"
       },
       "company": "Abbott",
@@ -1033,10 +1041,14 @@
       "previousSlugsByLocale": {
         "it": [
           "field-service-engineer-laboratory-diagnostics-m-f-d-abbott-ch"
+        ],
+        "de": [
+          "field-service-engineer-labor-diagnostik-m-w-d-abbott-baar"
         ]
       },
       "previousSlugs": [
-        "field-service-engineer-laboratory-diagnostics-m-f-d-abbott-ch"
+        "field-service-engineer-laboratory-diagnostics-m-f-d-abbott-ch",
+        "field-service-engineer-labor-diagnostik-m-w-d-abbott-baar"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1457,7 +1469,7 @@
       "slugByLocale": {
         "en": "global-medical-director-gastroenterolog-gastroenter-abbott-basel",
         "it": "global-medical-director-gastroenterology-abbott-ch",
-        "de": "globaler-medizinischer-direktor-gastroenterologie-abbott-basel",
+        "de": "global-medical-direktor-gastroenterology-abbott-basel",
         "fr": "directeur-medical-global-gastro-enterologie-abbott-basel"
       },
       "company": "Abbott",
@@ -1515,14 +1527,22 @@
         }
       },
       "postalCode": "4001",
-      "firstSeenAt": "2026-05-19T17:18:33.243Z"
+      "firstSeenAt": "2026-05-19T17:18:33.243Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "globaler-medizinischer-direktor-gastroenterologie-abbott-basel"
+        ]
+      },
+      "previousSlugs": [
+        "globaler-medizinischer-direktor-gastroenterologie-abbott-basel"
+      ]
     },
     {
       "id": "abbott-76eeff91de05",
-      "slug": "supervisore-rilascio-qualita-abbott-zurich",
+      "slug": "supervisore-quality-release-abbott-zurich",
       "slugByLocale": {
         "en": "supervisor-quality-release-abbott-ch",
-        "it": "supervisore-rilascio-qualita-abbott-zurich",
+        "it": "supervisore-quality-release-abbott-zurich",
         "de": "supervisor-qualitatsfreigabe-abbott-zurich",
         "fr": "superviseur-liberation-qualite-abbott-zurich"
       },
@@ -1600,11 +1620,13 @@
       "jobReqId": "31149238",
       "previousSlugsByLocale": {
         "it": [
-          "supervisor-quality-release-abbott-ch"
+          "supervisor-quality-release-abbott-ch",
+          "supervisore-rilascio-qualita-abbott-zurich"
         ]
       },
       "previousSlugs": [
-        "supervisor-quality-release-abbott-ch"
+        "supervisor-quality-release-abbott-ch",
+        "supervisore-rilascio-qualita-abbott-zurich"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

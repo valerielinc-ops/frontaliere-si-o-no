@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "spital-affoltern-8d1c306b007c",
-      "slug": "apprendistato-di-commerciante-commerciante-efz-spital-affoltern-ag-affoltern-am-albis",
+      "slug": "apprendistato-kaufmann-kauffrau-cfc-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
         "de": "lehrstelle-kaufmann-kauffrau-efz-spital-affoltern-affoltern-am-albis",
-        "it": "apprendistato-di-commerciante-commerciante-efz-spital-affoltern-ag-affoltern-am-albis",
+        "it": "apprendistato-kaufmann-kauffrau-cfc-spital-affoltern-ag-affoltern-am-albis",
         "en": "apprenticeship-commercial-clerk-commercial-clerk-efz-spital-affoltern-ag-affoltern-am-albis",
         "fr": "apprentissage-employe-e-de-commerce-employe-e-de-commerce-cfc-spital-affoltern-ag-affoltern-am-albis"
       },
@@ -84,11 +84,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kaufmann-kauffrau-efz-spital-affoltern-affoltern-am-albis"
+          "lehrstelle-kaufmann-kauffrau-efz-spital-affoltern-affoltern-am-albis",
+          "apprendistato-di-commerciante-commerciante-efz-spital-affoltern-ag-affoltern-am-albis"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-kaufmann-kauffrau-efz-spital-affoltern-affoltern-am-albis"
+        "lehrstelle-kaufmann-kauffrau-efz-spital-affoltern-affoltern-am-albis",
+        "apprendistato-di-commerciante-commerciante-efz-spital-affoltern-ag-affoltern-am-albis"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -106,10 +108,10 @@
     },
     {
       "id": "spital-affoltern-a742f022f5ee",
-      "slug": "apprendistato-logista-logista-efz-specializzazione-magazzino-spital-affoltern-ag-affoltern-am-albis",
+      "slug": "apprendistato-apprendistato-impiegato-a-in-logistica-cfc-specializzazione-magazzino-spital-affoltern-ag-affoltern-am",
       "slugByLocale": {
         "de": "lehrstelle-lehrstelle-logistiker-in-efz-fachrichtung-lager-spital-affoltern-affoltern-am",
-        "it": "apprendistato-logista-logista-efz-specializzazione-magazzino-spital-affoltern-ag-affoltern-am-albis",
+        "it": "apprendistato-apprendistato-impiegato-a-in-logistica-cfc-specializzazione-magazzino-spital-affoltern-ag-affoltern-am",
         "en": "apprenticeship-logistics-specialist-logistics-specialist-efz-specialization-warehouse-spital-affoltern-ag-affoltern-am",
         "fr": "apprentissage-logistics-specialist-logistics-specialist-efz-specialisation-magasin-spital-affoltern-ag-affoltern-am"
       },
@@ -186,11 +188,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-lehrstelle-logistiker-in-efz-fachrichtung-lager-spital-affoltern-affoltern-am"
+          "lehrstelle-lehrstelle-logistiker-in-efz-fachrichtung-lager-spital-affoltern-affoltern-am",
+          "apprendistato-logista-logista-efz-specializzazione-magazzino-spital-affoltern-ag-affoltern-am-albis"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-lehrstelle-logistiker-in-efz-fachrichtung-lager-spital-affoltern-affoltern-am"
+        "lehrstelle-lehrstelle-logistiker-in-efz-fachrichtung-lager-spital-affoltern-affoltern-am",
+        "apprendistato-logista-logista-efz-specializzazione-magazzino-spital-affoltern-ag-affoltern-am-albis"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,

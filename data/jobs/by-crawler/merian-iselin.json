@@ -74,12 +74,12 @@
     },
     {
       "id": "merian-iselin-624a932e145a",
-      "slug": "stage-di-prova-merian-iselin-klinik-basel",
+      "slug": "stage-di-orientamento-merian-iselin-klinik-basel",
       "slugByLocale": {
-        "it": "stage-di-prova-merian-iselin-klinik-basel",
-        "en": "trial-internship-merian-iselin-klinik-basel",
+        "it": "stage-di-orientamento-merian-iselin-klinik-basel",
+        "en": "taster-internship-merian-iselin-klinik-basel",
         "de": "schnupperpraktikum-merian-iselin-basel",
-        "fr": "stage-d-essai-merian-iselin-klinik-basel"
+        "fr": "stage-de-decouverte-merian-iselin-klinik-basel"
       },
       "company": "Merian Iselin Klinik",
       "companyKey": "merian-iselin",
@@ -131,11 +131,21 @@
         ]
       },
       "previousSlugs": [
-        "schnupperpraktikum-merian-iselin-basel"
+        "schnupperpraktikum-merian-iselin-basel",
+        "stage-di-prova-merian-iselin-klinik-basel",
+        "trial-internship-merian-iselin-klinik-basel",
+        "stage-d-essai-merian-iselin-klinik-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schnupperpraktikum-merian-iselin-basel"
+          "schnupperpraktikum-merian-iselin-basel",
+          "stage-di-prova-merian-iselin-klinik-basel"
+        ],
+        "en": [
+          "trial-internship-merian-iselin-klinik-basel"
+        ],
+        "fr": [
+          "stage-d-essai-merian-iselin-klinik-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T10:44:17.726Z",
@@ -154,9 +164,9 @@
     },
     {
       "id": "merian-iselin-6b3821b07ce3",
-      "slug": "modulo-pratico-scegliere-merian-iselin-klinik-basel",
+      "slug": "modulo-di-pratica-obbligatorio-merian-iselin-klinik-basel",
       "slugByLocale": {
-        "it": "modulo-pratico-scegliere-merian-iselin-klinik-basel",
+        "it": "modulo-di-pratica-obbligatorio-merian-iselin-klinik-basel",
         "en": "mandatory-practice-module-merian-iselin-klinik-basel",
         "de": "praxismodul-wahl-pflicht-merian-iselin-basel",
         "fr": "module-de-pratique-obligatoire-merian-iselin-klinik-basel"
@@ -206,11 +216,13 @@
         ]
       },
       "previousSlugs": [
-        "praxismodul-wahl-pflicht-merian-iselin-basel"
+        "praxismodul-wahl-pflicht-merian-iselin-basel",
+        "modulo-pratico-scegliere-merian-iselin-klinik-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praxismodul-wahl-pflicht-merian-iselin-basel"
+          "praxismodul-wahl-pflicht-merian-iselin-basel",
+          "modulo-pratico-scegliere-merian-iselin-klinik-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T10:44:17.151Z",
@@ -234,7 +246,7 @@
         "it": "stage-infermieristico-fh-modulo-aggiuntivo-b-merian-iselin-klinik-basel",
         "en": "fh-nursing-practice-module-b-merian-iselin-klinik-basel",
         "de": "praktikum-pflege-fh-zusatzmodul-b-merian-iselin-basel",
-        "fr": "stage-en-soins-infirmiers-hes-module-supplementaire-b-merian-iselin-klinik-basel"
+        "fr": "stage-infirmier-fh-module-supplementaire-b-merian-iselin-klinik-basel"
       },
       "company": "Merian Iselin Klinik",
       "companyKey": "merian-iselin",
@@ -276,11 +288,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-pflege-fh-zusatzmodul-b-merian-iselin-basel"
+        "praktikum-pflege-fh-zusatzmodul-b-merian-iselin-basel",
+        "stage-en-soins-infirmiers-hes-module-supplementaire-b-merian-iselin-klinik-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikum-pflege-fh-zusatzmodul-b-merian-iselin-basel"
+        ],
+        "fr": [
+          "stage-en-soins-infirmiers-hes-module-supplementaire-b-merian-iselin-klinik-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T10:44:16.575Z",
@@ -480,9 +496,9 @@
     },
     {
       "id": "merian-iselin-d39caf6f7d8e",
-      "slug": "tecnologa-o-di-prodotti-medicali-efz-merian-iselin-klinik-basel",
+      "slug": "medizinproduktetechnologin-medizinproduktetechnologe-cfc-merian-iselin-klinik-basel",
       "slugByLocale": {
-        "it": "tecnologa-o-di-prodotti-medicali-efz-merian-iselin-klinik-basel",
+        "it": "medizinproduktetechnologin-medizinproduktetechnologe-cfc-merian-iselin-klinik-basel",
         "en": "medical-product-technologist-efz-merian-iselin-klinik-basel",
         "de": "medizinproduktetechnologin-medizinproduktetechnologe-efz-merian-iselin-basel",
         "fr": "technologue-en-produits-medicaux-efz-merian-iselin-klinik-basel"
@@ -558,11 +574,13 @@
         ]
       },
       "previousSlugs": [
-        "medizinproduktetechnologin-medizinproduktetechnologe-efz-merian-iselin-basel"
+        "medizinproduktetechnologin-medizinproduktetechnologe-efz-merian-iselin-basel",
+        "tecnologa-o-di-prodotti-medicali-efz-merian-iselin-klinik-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinproduktetechnologin-medizinproduktetechnologe-efz-merian-iselin-basel"
+          "medizinproduktetechnologin-medizinproduktetechnologe-efz-merian-iselin-basel",
+          "tecnologa-o-di-prodotti-medicali-efz-merian-iselin-klinik-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T10:44:14.852Z",

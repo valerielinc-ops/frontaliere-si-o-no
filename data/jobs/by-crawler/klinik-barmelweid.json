@@ -1646,11 +1646,11 @@
     },
     {
       "id": "klinik-barmelweid-012c73422f06",
-      "slug": "apprendista-specialista-in-salute-lernende-fachfrau-gesundheit-a-klinik-barmelweid-barmelweid",
+      "slug": "apprendista-fachfrau-gesundheit-apprendista-fachmann-gesundheit-a-klinik-barmelweid-barmelweid",
       "slugByLocale": {
         "de": "lernende-fachfrau-gesundheit-lernender-fachmann-gesundheit-a-klinik-barmelweid-barmelweid",
-        "it": "apprendista-specialista-in-salute-lernende-fachfrau-gesundheit-a-klinik-barmelweid-barmelweid",
-        "en": "health-care-apprentice-a-klinik-barmelweid-barmelweid",
+        "it": "apprendista-fachfrau-gesundheit-apprendista-fachmann-gesundheit-a-klinik-barmelweid-barmelweid",
+        "en": "apprentice-fachfrau-gesundheit-apprentice-fachmann-gesundheit-a-klinik-barmelweid-barmelweid",
         "fr": "apprenti-en-soins-de-sante-a-klinik-barmelweid-barmelweid"
       },
       "company": "Klinik Barmelweid",
@@ -1718,11 +1718,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "lernende-fachfrau-gesundheit-lernender-fachmann-gesundheit-a-klinik-barmelweid-barmelweid"
+          "lernende-fachfrau-gesundheit-lernender-fachmann-gesundheit-a-klinik-barmelweid-barmelweid",
+          "apprendista-specialista-in-salute-lernende-fachfrau-gesundheit-a-klinik-barmelweid-barmelweid"
+        ],
+        "en": [
+          "health-care-apprentice-a-klinik-barmelweid-barmelweid"
         ]
       },
       "previousSlugs": [
-        "lernende-fachfrau-gesundheit-lernender-fachmann-gesundheit-a-klinik-barmelweid-barmelweid"
+        "lernende-fachfrau-gesundheit-lernender-fachmann-gesundheit-a-klinik-barmelweid-barmelweid",
+        "apprendista-specialista-in-salute-lernende-fachfrau-gesundheit-a-klinik-barmelweid-barmelweid",
+        "health-care-apprentice-a-klinik-barmelweid-barmelweid"
       ],
       "salaryMin": 46000,
       "salaryMax": 78500,
@@ -3402,7 +3408,7 @@
       "slugByLocale": {
         "de": "lernende-kochin-lernender-koch-a-klinik-barmelweid-barmelweid",
         "it": "apprendista-cuoco-a-m-f-klinik-barmelweid-barmelweid",
-        "en": "apprentice-chef-m-f-klinik-barmelweid-barmelweid",
+        "en": "apprentice-kochin-apprentice-koch-a-klinik-barmelweid-barmelweid",
         "fr": "apprenti-cuisinier-e-h-f-klinik-barmelweid-barmelweid"
       },
       "company": "Klinik Barmelweid",
@@ -3474,10 +3480,14 @@
       "previousSlugsByLocale": {
         "it": [
           "lernende-kochin-lernender-koch-a-klinik-barmelweid-barmelweid"
+        ],
+        "en": [
+          "apprentice-chef-m-f-klinik-barmelweid-barmelweid"
         ]
       },
       "previousSlugs": [
-        "lernende-kochin-lernender-koch-a-klinik-barmelweid-barmelweid"
+        "lernende-kochin-lernender-koch-a-klinik-barmelweid-barmelweid",
+        "apprentice-chef-m-f-klinik-barmelweid-barmelweid"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -3499,7 +3509,7 @@
       "slugByLocale": {
         "de": "lernende-kauffrau-lernender-kaufmann-e-m-profil-a-klinik-barmelweid-barmelweid",
         "it": "apprendista-commerciale-e-m-profil-a-klinik-barmelweid-barmelweid",
-        "en": "apprentice-commercial-e-m-profile-a-klinik-barmelweid-barmelweid",
+        "en": "apprentice-kauffrau-apprentice-kaufmann-e-m-profil-a-klinik-barmelweid-barmelweid",
         "fr": "apprenti-e-commercial-e-m-profil-a-klinik-barmelweid-barmelweid"
       },
       "company": "Klinik Barmelweid",
@@ -3567,10 +3577,14 @@
       "previousSlugsByLocale": {
         "it": [
           "lernende-kauffrau-lernender-kaufmann-e-m-profil-a-klinik-barmelweid-barmelweid"
+        ],
+        "en": [
+          "apprentice-commercial-e-m-profile-a-klinik-barmelweid-barmelweid"
         ]
       },
       "previousSlugs": [
-        "lernende-kauffrau-lernender-kaufmann-e-m-profil-a-klinik-barmelweid-barmelweid"
+        "lernende-kauffrau-lernender-kaufmann-e-m-profil-a-klinik-barmelweid-barmelweid",
+        "apprentice-commercial-e-m-profile-a-klinik-barmelweid-barmelweid"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-emmental-5107b5025499",
-      "slug": "specialista-di-tecnologia-operativa-a-spital-emmental-burgdorf",
+      "slug": "dipl-tecnico-di-sala-operatoria-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "specialista-di-tecnologia-operativa-a-spital-emmental-burgdorf",
+        "it": "dipl-tecnico-di-sala-operatoria-a-spital-emmental-burgdorf",
         "en": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
         "de": "dipl-ing-fachkraft-betriebstechnik-a-spital-emmental-burgdorf",
-        "fr": "specialiste-en-technologie-operatoire-a-spital-emmental-burgdorf"
+        "fr": "dipl-technicien-ne-en-salle-d-operation-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -93,11 +93,17 @@
           "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
         ],
         "it": [
-          "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+          "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
+          "specialista-di-tecnologia-operativa-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "specialiste-en-technologie-operatoire-a-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
-        "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+        "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
+        "specialista-di-tecnologia-operativa-a-spital-emmental-burgdorf",
+        "specialiste-en-technologie-operatoire-a-spital-emmental-burgdorf"
       ],
       "firstSeenAt": "2026-05-19T13:47:39.226Z",
       "salaryMin": 49500,
@@ -115,9 +121,9 @@
     },
     {
       "id": "spital-emmental-0710f12d6260",
-      "slug": "direttore-di-reparto-e-capo-istituto-di-radiologia-a-spital-emmental-burgdorf",
+      "slug": "primario-a-e-direttore-trice-dell-istituto-di-radiologia-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "direttore-di-reparto-e-capo-istituto-di-radiologia-a-spital-emmental-burgdorf",
+        "it": "primario-a-e-direttore-trice-dell-istituto-di-radiologia-spital-emmental-burgdorf-langnau",
         "en": "chief-physician-and-institute-director-radiology-a-spital-emmental-burgdorf",
         "de": "chefarztin-chefarzt-und-institutsleiter-in-radiologie-a-spital-emmental-burgdorf",
         "fr": "medecin-chef-et-directeur-d-institut-de-radiologie-a-spital-emmental-burgdorf"
@@ -200,11 +206,13 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "chefarztin-chefarzt-und-institutsleiter-in-radiologie-a-spital-emmental-burgdorf"
+        "chefarztin-chefarzt-und-institutsleiter-in-radiologie-a-spital-emmental-burgdorf",
+        "direttore-di-reparto-e-capo-istituto-di-radiologia-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chefarztin-chefarzt-und-institutsleiter-in-radiologie-a-spital-emmental-burgdorf"
+          "chefarztin-chefarzt-und-institutsleiter-in-radiologie-a-spital-emmental-burgdorf",
+          "direttore-di-reparto-e-capo-istituto-di-radiologia-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:38.727Z",
@@ -228,7 +236,7 @@
         "it": "ingegnere-di-reti-ict-a-spital-emmental-burgdorf",
         "en": "ict-system-engineer-network-a-spital-emmental-burgdorf",
         "de": "ict-systemingenieur-netzwerk-a-spital-emmental-burgdorf",
-        "fr": "ingenieur-systemes-ict-reseau-a-spital-emmental-burgdorf"
+        "fr": "reseau-d-ingenieurs-systemes-tic-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -297,10 +305,14 @@
         ],
         "it": [
           "ict-system-engineer-network-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "ingenieur-systemes-ict-reseau-a-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
-        "ict-system-engineer-network-a-spital-emmental-burgdorf"
+        "ict-system-engineer-network-a-spital-emmental-burgdorf",
+        "ingenieur-systemes-ict-reseau-a-spital-emmental-burgdorf"
       ],
       "firstSeenAt": "2026-05-19T13:47:38.146Z",
       "salaryMin": 51500,
@@ -318,12 +330,12 @@
     },
     {
       "id": "spital-emmental-50ac70db06ea",
-      "slug": "fachista-radiologia-hf-a-spital-emmental-burgdorf",
+      "slug": "diplomata-in-radiologia-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "fachista-radiologia-hf-a-spital-emmental-burgdorf",
+        "it": "diplomata-in-radiologia-spital-emmental-burgdorf-langnau",
         "en": "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf",
         "de": "dipl-ing-facharzt-fur-radiologie-hf-a-spital-emmental-burgdorf",
-        "fr": "professionnel-en-radiologie-hf-a-spital-emmental-burgdorf"
+        "fr": "diplome-en-radiologie-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -406,11 +418,17 @@
           "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf"
         ],
         "it": [
-          "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf"
+          "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf",
+          "fachista-radiologia-hf-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "professionnel-en-radiologie-hf-a-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
-        "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf"
+        "dipl-radiologiefachperson-hf-a-spital-emmental-burgdorf",
+        "fachista-radiologia-hf-a-spital-emmental-burgdorf",
+        "professionnel-en-radiologie-hf-a-spital-emmental-burgdorf"
       ],
       "firstSeenAt": "2026-05-19T13:47:37.645Z",
       "salaryMin": 49500,
@@ -433,7 +451,7 @@
         "it": "infermiere-a-specializzato-a-endoscopia-a-spital-emmental-burgdorf",
         "en": "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf",
         "de": "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf",
-        "fr": "infirmier-ere-specialise-e-endoscopie-a-spital-emmental-burgdorf"
+        "fr": "dipl-infirmier-en-endoscopie-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -493,11 +511,15 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf"
+        "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf",
+        "infirmier-ere-specialise-e-endoscopie-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-endoskopie-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "infirmier-ere-specialise-e-endoscopie-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:37.149Z",
@@ -516,12 +538,12 @@
     },
     {
       "id": "spital-emmental-9aa0d4cf0fba",
-      "slug": "infermiera-professionale-dipl-a-spital-emmental-burgdorf",
+      "slug": "diplomato-a-della-cura-infermieristica-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "infermiera-professionale-dipl-a-spital-emmental-burgdorf",
+        "it": "diplomato-a-della-cura-infermieristica-a-spital-emmental-burgdorf",
         "en": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
         "de": "dipl-pflegefachperson-a-spital-emmental-burgdorf",
-        "fr": "infirmier-diplome-e-spital-emmental-burgdorf"
+        "fr": "diplome-e-en-soins-infirmiers-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -587,11 +609,17 @@
       "pensum": "60 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-a-spital-emmental-burgdorf"
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf",
+        "infermiera-professionale-dipl-a-spital-emmental-burgdorf",
+        "infirmier-diplome-e-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf"
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf",
+          "infermiera-professionale-dipl-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "infirmier-diplome-e-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:36.650Z",
@@ -615,7 +643,7 @@
         "it": "medico-specialista-medico-specialista-palliative-care-a-spital-emmental-burgdorf",
         "en": "senior-physician-palliative-care-a-spital-emmental-burgdorf",
         "de": "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf",
-        "fr": "medecin-chef-medecin-chef-palliative-care-a-spital-emmental-burgdorf"
+        "fr": "medicin-specialiste-en-soins-palliatifs-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -677,11 +705,15 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf"
+        "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf",
+        "medecin-chef-medecin-chef-palliative-care-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "medecin-chef-medecin-chef-palliative-care-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:36.155Z",
@@ -700,9 +732,9 @@
     },
     {
       "id": "spital-emmental-38b290dcf231",
-      "slug": "medico-senior-cardiologia-a-spital-emmental-burgdorf",
+      "slug": "primario-a-di-cardiologia-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "medico-senior-cardiologia-a-spital-emmental-burgdorf",
+        "it": "primario-a-di-cardiologia-spital-emmental-burgdorf",
         "en": "senior-cardiologist-m-f-spital-emmental-burgdorf",
         "de": "oberarztin-oberarzt-kardiologie-a-spital-emmental-burgdorf",
         "fr": "cardiologue-senior-h-f-spital-emmental-burgdorf"
@@ -775,11 +807,13 @@
       "pensum": "50 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "oberarztin-oberarzt-kardiologie-a-spital-emmental-burgdorf"
+        "oberarztin-oberarzt-kardiologie-a-spital-emmental-burgdorf",
+        "medico-senior-cardiologia-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-kardiologie-a-spital-emmental-burgdorf"
+          "oberarztin-oberarzt-kardiologie-a-spital-emmental-burgdorf",
+          "medico-senior-cardiologia-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:35.652Z",
@@ -803,7 +837,7 @@
         "it": "primario-primaria-ambulatorio-di-psichiatria-dell-invecchiamento-e-servizio-di-consultazione-spital-emmental-burgdorf",
         "en": "senior-physician-senior-psychiatrist-in-geriatric-outpatient-consultation-service-spital-emmental-burgdorf",
         "de": "oberarzt-oberarztin-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental",
-        "fr": "chef-cheffe-de-service-en-psychiatrie-geriatrique-ambulatoire-et-service-de-consultations-spital-emmental-burgdorf"
+        "fr": "medecin-senior-medecin-psychiatre-en-psychiatrie-geriatrique-consultation-externe-et-service-de-consultation-a-spital"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -879,11 +913,15 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "oberarzt-oberarztin-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
+        "oberarzt-oberarztin-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental",
+        "chef-cheffe-de-service-en-psychiatrie-geriatrique-ambulatoire-et-service-de-consultations-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarzt-oberarztin-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
+        ],
+        "fr": [
+          "chef-cheffe-de-service-en-psychiatrie-geriatrique-ambulatoire-et-service-de-consultations-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:35.152Z",
@@ -1070,9 +1108,9 @@
     },
     {
       "id": "spital-emmental-0a9ae3dcd4e5",
-      "slug": "operatore-socio-sanitario-a-spital-emmental-burgdorf",
+      "slug": "specialista-della-salute-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "operatore-socio-sanitario-a-spital-emmental-burgdorf",
+        "it": "specialista-della-salute-a-spital-emmental-burgdorf",
         "en": "healthcare-professional-a-spital-emmental-burgdorf",
         "de": "fachperson-gesundheit-a-spital-emmental-burgdorf",
         "fr": "professionnel-de-la-sante-a-spital-emmental-burgdorf"
@@ -1150,11 +1188,13 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "fachperson-gesundheit-a-spital-emmental-burgdorf"
+        "fachperson-gesundheit-a-spital-emmental-burgdorf",
+        "operatore-socio-sanitario-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-a-spital-emmental-burgdorf"
+          "fachperson-gesundheit-a-spital-emmental-burgdorf",
+          "operatore-socio-sanitario-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:33.650Z",
@@ -1286,7 +1326,7 @@
         "it": "responsabile-del-reparto-infermieristico-a-spital-emmental-burgdorf",
         "en": "head-of-nursing-a-spital-emmental-burgdorf",
         "de": "abteilungsleitung-pflege-a-spital-emmental-burgdorf",
-        "fr": "responsable-de-departement-soins-a-spital-emmental-burgdorf"
+        "fr": "responsable-de-service-infirmier-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -1366,11 +1406,15 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "abteilungsleitung-pflege-a-spital-emmental-burgdorf"
+        "abteilungsleitung-pflege-a-spital-emmental-burgdorf",
+        "responsable-de-departement-soins-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleitung-pflege-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "responsable-de-departement-soins-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:32.544Z",
@@ -1473,9 +1517,9 @@
     },
     {
       "id": "spital-emmental-23f27efa2fec",
-      "slug": "responsabile-dipartimento-di-geriatria-psichiatrica-a-spital-emmental-burgdorf",
+      "slug": "capo-reparto-infermieri-psichiatria-dell-eta-avanzata-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "responsabile-dipartimento-di-geriatria-psichiatrica-a-spital-emmental-burgdorf",
+        "it": "capo-reparto-infermieri-psichiatria-dell-eta-avanzata-spital-emmental-burgdorf",
         "en": "head-of-geriatric-psychiatry-nursing-department-spital-emmental-burgdorf",
         "de": "abteilungsleitung-pflege-alterspsychiatrie-a-spital-emmental-burgdorf",
         "fr": "responsable-du-departement-de-soins-en-psychiatrie-geriatrique-spital-emmental-burgdorf"
@@ -1558,11 +1602,13 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "abteilungsleitung-pflege-alterspsychiatrie-a-spital-emmental-burgdorf"
+        "abteilungsleitung-pflege-alterspsychiatrie-a-spital-emmental-burgdorf",
+        "responsabile-dipartimento-di-geriatria-psichiatrica-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleitung-pflege-alterspsychiatrie-a-spital-emmental-burgdorf"
+          "abteilungsleitung-pflege-alterspsychiatrie-a-spital-emmental-burgdorf",
+          "responsabile-dipartimento-di-geriatria-psichiatrica-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:31.548Z",
@@ -1581,12 +1627,12 @@
     },
     {
       "id": "spital-emmental-fef84dc0039b",
-      "slug": "responsabile-dipartimento-di-pronto-soccorso-a-spital-emmental-langnau",
+      "slug": "capo-del-reparto-di-pronto-soccorso-a-spital-emmental-langnau",
       "slugByLocale": {
-        "it": "responsabile-dipartimento-di-pronto-soccorso-a-spital-emmental-langnau",
+        "it": "capo-del-reparto-di-pronto-soccorso-a-spital-emmental-langnau",
         "en": "emergency-department-manager-a-spital-emmental-langnau",
         "de": "abteilungsleitung-notfallstation-a-spital-emmental-langnau",
-        "fr": "chef-de-service-urgences-a-spital-emmental-langnau"
+        "fr": "direction-de-la-station-d-urgence-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -1664,11 +1710,17 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "abteilungsleitung-notfallstation-a-spital-emmental-langnau"
+        "abteilungsleitung-notfallstation-a-spital-emmental-langnau",
+        "responsabile-dipartimento-di-pronto-soccorso-a-spital-emmental-langnau",
+        "chef-de-service-urgences-a-spital-emmental-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleitung-notfallstation-a-spital-emmental-langnau"
+          "abteilungsleitung-notfallstation-a-spital-emmental-langnau",
+          "responsabile-dipartimento-di-pronto-soccorso-a-spital-emmental-langnau"
+        ],
+        "fr": [
+          "chef-de-service-urgences-a-spital-emmental-langnau"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:31.045Z",
@@ -1687,10 +1739,10 @@
     },
     {
       "id": "spital-emmental-93bfe8e34c4b",
-      "slug": "infermiere-a-specializzato-a-con-responsabilita-professionale-spital-emmental-burgdorf",
+      "slug": "diplomato-infermiere-specializzato-con-responsabilita-in-campo-infermieristico-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "infermiere-a-specializzato-a-con-responsabilita-professionale-spital-emmental-burgdorf",
-        "en": "registered-nurse-with-professional-responsibility-spital-emmental-burgdorf",
+        "it": "diplomato-infermiere-specializzato-con-responsabilita-in-campo-infermieristico-a-spital-emmental-burgdorf",
+        "en": "diploma-in-nursing-with-special-responsibilities-in-nursing-a-spital-emmental-burgdorf",
         "de": "dipl-pflegefachperson-mit-fachverantwortung-pflege-a-spital-emmental-burgdorf",
         "fr": "diplome-en-soins-infirmiers-avec-responsabilites-speciales-en-soins-infirmiers-a-spital-emmental-burgdorf"
       },
@@ -1771,14 +1823,20 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-pflegefachperson-mit-fachverantwortung-pflege-a-spital-emmental-burgdorf",
-        "infirmier-infirmiere-diplome-e-avec-responsabilite-professionnelle-spital-emmental-burgdorf"
+        "infermiere-a-specializzato-a-con-responsabilita-professionale-spital-emmental-burgdorf",
+        "infirmier-infirmiere-diplome-e-avec-responsabilite-professionnelle-spital-emmental-burgdorf",
+        "registered-nurse-with-professional-responsibility-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-mit-fachverantwortung-pflege-a-spital-emmental-burgdorf"
+          "dipl-pflegefachperson-mit-fachverantwortung-pflege-a-spital-emmental-burgdorf",
+          "infermiere-a-specializzato-a-con-responsabilita-professionale-spital-emmental-burgdorf"
         ],
         "fr": [
           "infirmier-infirmiere-diplome-e-avec-responsabilite-professionnelle-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "registered-nurse-with-professional-responsibility-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:30.525Z",
@@ -1902,12 +1960,12 @@
     },
     {
       "id": "spital-emmental-e9f56d8ee682",
-      "slug": "cuoca-cuoco-dietista-o-cuoca-cuoco-a-spital-emmental-langnau",
+      "slug": "diettologo-a-o-cuoco-a-a-spital-emmental-langnau",
       "slugByLocale": {
-        "it": "cuoca-cuoco-dietista-o-cuoca-cuoco-a-spital-emmental-langnau",
-        "en": "dietitian-cook-dietitian-chef-or-cook-chef-a-spital-emmental-langnau",
+        "it": "diettologo-a-o-cuoco-a-a-spital-emmental-langnau",
+        "en": "dietician-chef-or-chef-a-spital-emmental-langnau",
         "de": "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-langnau",
-        "fr": "cuisinier-cuisiniere-dietetiste-ou-cuisinier-cuisiniere-a-spital-emmental-langnau"
+        "fr": "dieteticien-ne-ou-cuisinier-ere-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -1987,11 +2045,21 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-langnau"
+        "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-langnau",
+        "cuoca-cuoco-dietista-o-cuoca-cuoco-a-spital-emmental-langnau",
+        "dietitian-cook-dietitian-chef-or-cook-chef-a-spital-emmental-langnau",
+        "cuisinier-cuisiniere-dietetiste-ou-cuisinier-cuisiniere-a-spital-emmental-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-langnau"
+          "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-langnau",
+          "cuoca-cuoco-dietista-o-cuoca-cuoco-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "dietitian-cook-dietitian-chef-or-cook-chef-a-spital-emmental-langnau"
+        ],
+        "fr": [
+          "cuisinier-cuisiniere-dietetiste-ou-cuisinier-cuisiniere-a-spital-emmental-langnau"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:29.509Z",
@@ -2437,9 +2505,9 @@
     },
     {
       "id": "spital-emmental-a28d266f5a2e",
-      "slug": "apprendistato-come-operatore-socio-sanitario-efz-spital-emmental-burgdorf",
+      "slug": "lehrstellen-come-fachperson-gesundheit-cfc-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
-        "it": "apprendistato-come-operatore-socio-sanitario-efz-spital-emmental-burgdorf",
+        "it": "lehrstellen-come-fachperson-gesundheit-cfc-spital-emmental-burgdorf-langnau",
         "en": "apprenticeship-as-healthcare-professional-efz-spital-emmental-burgdorf",
         "de": "lehrstellen-als-fachperson-gesundheit-efz-spital-emmental-burgdorf",
         "fr": "apprentissage-en-tant-que-professionnel-de-la-sante-efz-spital-emmental-burgdorf"
@@ -2522,11 +2590,13 @@
       "pensum": "100%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lehrstellen-als-fachperson-gesundheit-efz-spital-emmental-burgdorf"
+        "lehrstellen-als-fachperson-gesundheit-efz-spital-emmental-burgdorf",
+        "apprendistato-come-operatore-socio-sanitario-efz-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstellen-als-fachperson-gesundheit-efz-spital-emmental-burgdorf"
+          "lehrstellen-als-fachperson-gesundheit-efz-spital-emmental-burgdorf",
+          "apprendistato-come-operatore-socio-sanitario-efz-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:26.657Z",
@@ -2653,9 +2723,9 @@
     },
     {
       "id": "spital-emmental-1641b7f94512",
-      "slug": "professionista-sanitario-a-spital-emmental-burgdorf",
+      "slug": "professionista-della-salute-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "professionista-sanitario-a-spital-emmental-burgdorf",
+        "it": "professionista-della-salute-a-spital-emmental-burgdorf",
         "en": "healthcare-professional-a-spital-emmental-burgdorf",
         "de": "fachperson-gesundheit-a-spital-emmental-burgdorf",
         "fr": "professionnel-de-la-sante-a-spital-emmental-burgdorf"
@@ -2738,11 +2808,13 @@
       "pensum": "70%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "fachperson-gesundheit-a-spital-emmental-burgdorf-2"
+        "fachperson-gesundheit-a-spital-emmental-burgdorf-2",
+        "professionista-sanitario-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-a-spital-emmental-burgdorf-2"
+          "fachperson-gesundheit-a-spital-emmental-burgdorf-2",
+          "professionista-sanitario-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:25.579Z",
@@ -2872,7 +2944,7 @@
       "slug": "dipl-infermiere-a-con-responsabilita-specialistica-per-l-assistenza-a-spital-emmental-langnau",
       "slugByLocale": {
         "it": "dipl-infermiere-a-con-responsabilita-specialistica-per-l-assistenza-a-spital-emmental-langnau",
-        "en": "registered-nurse-with-specialized-care-responsibility-a-spital-emmental-langnau",
+        "en": "certified-nurse-with-specialist-responsibility-for-care-a-spital-emmental-langnau",
         "de": "dipl-pflegefachperson-mit-fachverantwortung-pflege-a-spital-emmental-langnau",
         "fr": "infirmier-ere-diplome-e-avec-responsabilite-specialisee-en-soins-a-spital-emmental-langnau"
       },
@@ -2954,11 +3026,15 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-mit-fachverantwortung-pflege-a-spital-emmental-langnau"
+        "dipl-pflegefachperson-mit-fachverantwortung-pflege-a-spital-emmental-langnau",
+        "registered-nurse-with-specialized-care-responsibility-a-spital-emmental-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-mit-fachverantwortung-pflege-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "registered-nurse-with-specialized-care-responsibility-a-spital-emmental-langnau"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:24.567Z",
@@ -3625,9 +3701,9 @@
     },
     {
       "id": "spital-emmental-d1144534d190",
-      "slug": "apprendistato-come-specialista-ict-efz-spital-emmental-burgdorf",
+      "slug": "apprendistato-come-ict-fachfrau-cfc-ict-fachmann-cfc-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "apprendistato-come-specialista-ict-efz-spital-emmental-burgdorf",
+        "it": "apprendistato-come-ict-fachfrau-cfc-ict-fachmann-cfc-spital-emmental-burgdorf",
         "en": "apprenticeship-as-ict-specialist-efz-spital-emmental-burgdorf",
         "de": "lehrstelle-als-ict-fachfrau-efz-ict-fachmann-efz-spital-emmental-burgdorf",
         "fr": "apprentissage-en-tant-que-specialiste-ict-cfc-spital-emmental-burgdorf"
@@ -3710,11 +3786,13 @@
       "pensum": "100%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "lehrstelle-als-ict-fachfrau-efz-ict-fachmann-efz-spital-emmental-burgdorf"
+        "lehrstelle-als-ict-fachfrau-efz-ict-fachmann-efz-spital-emmental-burgdorf",
+        "apprendistato-come-specialista-ict-efz-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-ict-fachfrau-efz-ict-fachmann-efz-spital-emmental-burgdorf"
+          "lehrstelle-als-ict-fachfrau-efz-ict-fachmann-efz-spital-emmental-burgdorf",
+          "apprendistato-come-specialista-ict-efz-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:20.886Z",
@@ -3844,7 +3922,7 @@
       "slug": "consulente-nutrizionale-bsc-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "it": "consulente-nutrizionale-bsc-a-spital-emmental-burgdorf",
-        "en": "nutrition-consultant-bsc-a-spital-emmental-burgdorf",
+        "en": "nutritionist-bsc-a-spital-emmental-burgdorf-langnau",
         "de": "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf",
         "fr": "conseiller-ere-en-nutrition-bsc-a-spital-emmental-burgdorf"
       },
@@ -3926,11 +4004,15 @@
       "pensum": "90%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf"
+        "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf",
+        "nutrition-consultant-bsc-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "nutrition-consultant-bsc-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:19.724Z",
@@ -4168,7 +4250,7 @@
       "slug": "assistente-di-studio-medico-infermiere-qualificato-operatore-sociosanitario-a-spital-emmental-langnau",
       "slugByLocale": {
         "it": "assistente-di-studio-medico-infermiere-qualificato-operatore-sociosanitario-a-spital-emmental-langnau",
-        "en": "medical-practice-assistant-qualified-nurse-health-specialist-a-spital-emmental-langnau",
+        "en": "medical-assistant-qualified-nurse-healthcare-professional-a-spital-emmental-langnau",
         "de": "mpa-pflegefachperson-fachperson-gesundheit-a-spital-emmental-langnau",
         "fr": "assistant-medical-infirmier-diplome-professionnel-de-sante-a-spital-emmental-langnau"
       },
@@ -4250,11 +4332,15 @@
       "pensum": "80 - 100%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "mpa-pflegefachperson-fachperson-gesundheit-a-spital-emmental-langnau"
+        "mpa-pflegefachperson-fachperson-gesundheit-a-spital-emmental-langnau",
+        "medical-practice-assistant-qualified-nurse-health-specialist-a-spital-emmental-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mpa-pflegefachperson-fachperson-gesundheit-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "medical-practice-assistant-qualified-nurse-health-specialist-a-spital-emmental-langnau"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:18.212Z",
@@ -4276,7 +4362,7 @@
       "slug": "dietista-bsc-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "it": "dietista-bsc-a-spital-emmental-burgdorf",
-        "en": "nutritionist-bsc-a-spital-emmental-burgdorf",
+        "en": "dietitian-bsc-a-spital-emmental-burgdorf",
         "de": "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf",
         "fr": "dieteticien-ne-bsc-a-spital-emmental-burgdorf"
       },
@@ -4358,11 +4444,15 @@
       "pensum": "50%",
       "contractDuration": "temporary",
       "previousSlugs": [
-        "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf-2"
+        "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf-2",
+        "nutritionist-bsc-a-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ernahrungsberater-in-bsc-a-spital-emmental-burgdorf-2"
+        ],
+        "en": [
+          "nutritionist-bsc-a-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:17.699Z",
@@ -4911,7 +5001,7 @@
         "it": "medico-n-assistente-pratico-assistente-pratico-a-spital-emmental-langnau",
         "en": "medical-n-practical-assistant-practical-assistant-a-spital-emmental-langnau",
         "de": "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-langnau",
-        "fr": "assistant-en-pratique-medicale-a-spital-emmental-langnau"
+        "fr": "assistant-e-medical-e-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4984,11 +5074,15 @@
       "pensum": "40 - 70%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-langnau"
+        "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-langnau",
+        "assistant-en-pratique-medicale-a-spital-emmental-langnau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-n-praxisassistentin-praxisassistenten-a-spital-emmental-langnau"
+        ],
+        "fr": [
+          "assistant-en-pratique-medicale-a-spital-emmental-langnau"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:15.702Z",

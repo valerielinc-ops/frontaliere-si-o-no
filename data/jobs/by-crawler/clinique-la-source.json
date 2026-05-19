@@ -8,7 +8,7 @@
       "slugByLocale": {
         "fr": "electricien-ne-au-service-technique-clinique-la-source-lausanne",
         "it": "elettricista-servizio-tecnico-clinique-de-la-source-lausanne",
-        "en": "electrical-technician-clinique-de-la-source-lausanne",
+        "en": "electrician-in-the-technical-service-clinique-de-la-source-lausanne",
         "de": "elektriker-in-im-technischen-dienst-clinique-de-la-source-lausanne"
       },
       "company": "Clinique de La Source",
@@ -86,10 +86,14 @@
       "previousSlugsByLocale": {
         "it": [
           "electricien-ne-au-service-technique-clinique-la-source-lausanne"
+        ],
+        "en": [
+          "electrical-technician-clinique-de-la-source-lausanne"
         ]
       },
       "previousSlugs": [
-        "electricien-ne-au-service-technique-clinique-la-source-lausanne"
+        "electricien-ne-au-service-technique-clinique-la-source-lausanne",
+        "electrical-technician-clinique-de-la-source-lausanne"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -1107,8 +1107,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-oder-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh",
         "it": "diplomata-o-infermiere-a-o-tecnico-a-della-salute-con-esperienza-in-reparto-acuto-solothurner-spitaler-ag-soh-dornach",
-        "en": "dipl-pflegefachfrau-pflegefachmann-oder-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-oder-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-"
+        "en": "diploma-in-nursing-or-health-care-with-experience-in-acute-ward-solothurner-spitaler-ag-soh-dornach",
+        "fr": "diplome-e-en-soins-infirmiers-ou-en-sante-avec-experience-en-service-d-urgence-solothurner-spitaler-ag-soh-dornach"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -1173,10 +1173,17 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-o-fachfrau-fachmann-gesundheit-pflegepool-m-w-d-solothurner-spitaler-soh-dornach"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-oder-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-oder-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-o-fachfrau-fachmann-gesundheit-pflegepool-m-w-d-solothurner-spitaler-soh-dornach"
+        "dipl-pflegefachfrau-pflegefachmann-o-fachfrau-fachmann-gesundheit-pflegepool-m-w-d-solothurner-spitaler-soh-dornach",
+        "dipl-pflegefachfrau-pflegefachmann-oder-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1570,8 +1577,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-und-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh",
         "it": "diplomata-della-cura-infermieristica-diplomati-della-cura-infermieristica-e-specialisti-della-salute-u-m-d-solothurner",
-        "en": "dipl-pflegefachfrau-pflegefachmann-und-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-c",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-und-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-c"
+        "en": "diploma-in-nursing-health-care-specialist-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "diplome-e-en-soins-infirmiers-specialiste-en-sante-h-f-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -1634,10 +1641,17 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-e-fachfrau-fachmann-gesundheit-pflegepool-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-und-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-c"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-und-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-c"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-e-fachfrau-fachmann-gesundheit-pflegepool-m-w-d-solothurner-spitaler-soh-solothurn"
+        "dipl-pflegefachfrau-pflegefachmann-e-fachfrau-fachmann-gesundheit-pflegepool-m-w-d-solothurner-spitaler-soh-solothurn",
+        "dipl-pflegefachfrau-pflegefachmann-und-fachfrau-fachmann-gesundheit-pflegepool-w-m-d-soh-c"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2345,8 +2359,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-solothurner-spitaler-ag-soh-dornach",
         "it": "medico-specialista-in-medicina-interna-e-endocrinologia-uomo-donna-solothurner-spitaler-ag-soh-dornach",
-        "en": "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-ch",
-        "fr": "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-ch"
+        "en": "senior-physician-in-internal-medicine-and-endocrinology-m-f-d-solothurner-spitaler-ag-soh-dornach",
+        "fr": "medecin-specialiste-en-medecine-interne-et-endocrinologie-h-f-solothurner-spitaler-ag-soh-dornach"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -2412,11 +2426,18 @@
         ],
         "de": [
           "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-solothurner-spitaeler"
+        ],
+        "en": [
+          "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-innere-medizin-e-endokrinologie-m-w-d-solothurner-spitaler-soh-dornach",
-        "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-solothurner-spitaeler"
+        "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-solothurner-spitaeler",
+        "oberarztin-oberarzt-innere-medizin-und-endokrinologie-w-m-d-soh-ch"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -3972,8 +3993,8 @@
       "slugByLocale": {
         "de": "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-w-m-d-soh-solothurner",
         "it": "medico-specialista-responsabile-di-reparto-angiologia-u-m-d-solothurner-spitaler-ag-soh-olten",
-        "en": "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-w-m-d-soh-ch",
-        "fr": "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-w-m-d-soh-ch"
+        "en": "senior-physician-head-of-department-angiology-m-f-d-solothurner-spitaler-ag-soh-olten",
+        "fr": "medecin-specialiste-chef-de-service-angiologie-h-f-solothurner-spitaler-ag-soh-olten"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -4041,10 +4062,17 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-o-leitende-arztin-leitender-arzt-angiologie-m-w-d-solothurner-spitaler-soh-olten"
+        ],
+        "en": [
+          "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-o-leitende-arztin-leitender-arzt-angiologie-m-w-d-solothurner-spitaler-soh-olten"
+        "oberarztin-oberarzt-o-leitende-arztin-leitender-arzt-angiologie-m-w-d-solothurner-spitaler-soh-olten",
+        "oberarztin-oberarzt-oder-leitende-arztin-leitender-arzt-angiologie-w-m-d-soh-ch"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -4066,8 +4094,8 @@
       "slugByLocale": {
         "de": "mpa-poliklinik-orthopadie-m-w-d-soh-solothurner-spitaeler-solothurn",
         "it": "mpa-poliklinik-orthopala-m-w-d-solothurner-spitaler-soh-solothurn",
-        "en": "mpa-poliklinik-orthopadie-m-w-d-soh-ch",
-        "fr": "mpa-poliklinik-orthopadie-m-w-d-soh-ch"
+        "en": "orthopedics-polyclinic-mpa-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "polyclinique-d-orthopedie-mpa-h-f-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -4144,7 +4172,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T13:04:03.053Z"
+      "firstSeenAt": "2026-05-19T13:04:03.053Z",
+      "previousSlugsByLocale": {
+        "en": [
+          "mpa-poliklinik-orthopadie-m-w-d-soh-ch"
+        ],
+        "fr": [
+          "mpa-poliklinik-orthopadie-m-w-d-soh-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-poliklinik-orthopadie-m-w-d-soh-ch"
+      ]
     },
     {
       "id": "soh-solothurner-spitaeler-be32772eb97f",
@@ -8419,8 +8458,8 @@
       "slugByLocale": {
         "de": "stv-leiterin-leiter-restaurant-w-m-d-soh-solothurner-spitaeler-solothrun",
         "it": "direttore-direttrice-ristorante-uomo-donna-solothurner-spitaler-ag-soh-solothrun",
-        "en": "stv-leiterin-leiter-restaurant-w-m-d-soh-ch",
-        "fr": "stv-leiterin-leiter-restaurant-w-m-d-soh-ch"
+        "en": "head-of-restaurant-m-f-d-solothurner-spitaler-ag-soh-solothrun",
+        "fr": "directeur-directrice-de-restaurant-h-f-solothurner-spitaler-ag-soh-solothrun"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -8480,10 +8519,17 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-leiterin-leiter-restaurant-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "stv-leiterin-leiter-restaurant-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "stv-leiterin-leiter-restaurant-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "stv-leiterin-leiter-restaurant-m-w-d-solothurner-spitaler-soh-solothurn"
+        "stv-leiterin-leiter-restaurant-m-w-d-solothurner-spitaler-soh-solothurn",
+        "stv-leiterin-leiter-restaurant-w-m-d-soh-ch"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -8946,8 +8992,8 @@
       "slugByLocale": {
         "de": "sekretarin-sekretar-chefarzt-und-teamleiterin-teamleiter-ambi-chirurgie-w-m-d-soh",
         "it": "segretaria-o-del-direttore-e-responsabile-del-team-chirurgia-ambulatoriale-m-f-d-solothurner-spitaler-ag-soh-solothurn",
-        "en": "sekretarin-sekretar-chefarzt-und-teamleiter-teamleiterin-ambi-chirurgie-w-m-d-soh-ch",
-        "fr": "sekretarin-sekretar-chefarzt-und-teamleiter-teamleiterin-ambi-chirurgie-w-m-d-soh-ch"
+        "en": "secretary-secretary-to-chief-surgeon-and-team-leader-ambulatory-surgery-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "secretaire-trice-de-chef-de-chirurgie-et-responsable-d-equipe-en-chirurgie-ambulatoire-h-f-d-solothurner-spitaler-ag-soh"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -9024,10 +9070,17 @@
       "previousSlugsByLocale": {
         "it": [
           "sekretarin-sekretar-chefarzt-e-teamleiter-teamleiterin-ambi-chirurgie-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "sekretarin-sekretar-chefarzt-und-teamleiter-teamleiterin-ambi-chirurgie-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "sekretarin-sekretar-chefarzt-und-teamleiter-teamleiterin-ambi-chirurgie-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "sekretarin-sekretar-chefarzt-e-teamleiter-teamleiterin-ambi-chirurgie-m-w-d-solothurner-spitaler-soh-solothurn"
+        "sekretarin-sekretar-chefarzt-e-teamleiter-teamleiterin-ambi-chirurgie-m-w-d-solothurner-spitaler-soh-solothurn",
+        "sekretarin-sekretar-chefarzt-und-teamleiter-teamleiterin-ambi-chirurgie-w-m-d-soh-ch"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -10406,8 +10459,8 @@
       "slugByLocale": {
         "de": "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-solothurner-spitaler-ag-soh-solothurn",
         "it": "mpa-o-tecnico-a-della-salute-vascolare-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
-        "en": "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-ch",
-        "fr": "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-ch"
+        "en": "mpa-or-health-care-assistant-vascular-center-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "mpa-ou-assistant-e-en-soins-de-sante-vasculaire-h-f-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -10457,11 +10510,18 @@
         ],
         "de": [
           "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-solothurner-spitaeler"
+        ],
+        "en": [
+          "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
         "mpa-o-fachfrau-fachmann-gesundheit-gefasszentrum-m-w-d-solothurner-spitaler-soh-solothurn",
-        "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-solothurner-spitaeler"
+        "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-solothurner-spitaeler",
+        "mpa-oder-fachfrau-fachmann-gesundheit-gefasszentrum-w-m-d-soh-ch"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -10483,8 +10543,8 @@
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-oder-mpa-radiologie-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "specialista-di-salute-specialista-di-radiologia-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
-        "en": "fachfrau-fachmann-gesundheit-oder-mpa-radiologie-w-m-d-soh-ch",
-        "fr": "fachfrau-fachmann-gesundheit-oder-mpa-radiologie-w-m-d-soh-ch"
+        "en": "healthcare-specialist-radiology-mpa-male-female-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "specialiste-en-sante-radiologie-mpa-homme-femme-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -10531,10 +10591,17 @@
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-o-mpa-radiologie-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-oder-mpa-radiologie-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-oder-mpa-radiologie-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-o-mpa-radiologie-m-w-d-solothurner-spitaler-soh-solothurn"
+        "fachfrau-fachmann-gesundheit-o-mpa-radiologie-m-w-d-solothurner-spitaler-soh-solothurn",
+        "fachfrau-fachmann-gesundheit-oder-mpa-radiologie-w-m-d-soh-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -10840,8 +10907,8 @@
       "slugByLocale": {
         "de": "leiterin-leiter-berufsbildung-pflege-soh-w-m-d-soh-solothurner-spitaeler-solothurn",
         "it": "responsabile-della-formazione-professionale-infermieristica-soh-uomo-donna-solothurner-spitaler-ag-soh-solothurn",
-        "en": "leiterin-leiter-berufsbildung-pflege-soh-w-m-d-soh-ch",
-        "fr": "leiterin-leiter-berufsbildung-pflege-soh-w-m-d-soh-ch"
+        "en": "head-of-nursing-education-soh-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "responsable-de-la-formation-infirmiere-soh-h-f-solothurner-spitaler-ag-soh-solothurn"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -10906,10 +10973,17 @@
       "previousSlugsByLocale": {
         "it": [
           "leiterin-leiter-berufsbildung-pflege-soh-m-w-d-solothurner-spitaler-soh-solothurn"
+        ],
+        "en": [
+          "leiterin-leiter-berufsbildung-pflege-soh-w-m-d-soh-ch"
+        ],
+        "fr": [
+          "leiterin-leiter-berufsbildung-pflege-soh-w-m-d-soh-ch"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-berufsbildung-pflege-soh-m-w-d-solothurner-spitaler-soh-solothurn"
+        "leiterin-leiter-berufsbildung-pflege-soh-m-w-d-solothurner-spitaler-soh-solothurn",
+        "leiterin-leiter-berufsbildung-pflege-soh-w-m-d-soh-ch"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,

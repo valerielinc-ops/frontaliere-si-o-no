@@ -4436,12 +4436,12 @@
     },
     {
       "id": "hilcona-74506971d233",
-      "slug": "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen",
+      "slug": "professional-designer-logistica-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen",
-        "it": "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen",
-        "en": "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen",
-        "fr": "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen"
+        "it": "professional-designer-logistica-bell-schweiz-ag-oensingen",
+        "en": "professional-designer-logistics-bell-schweiz-ag-oensingen",
+        "fr": "designer-professionnel-logistique-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -4481,10 +4481,20 @@
       "previousSlugsByLocale": {
         "de": [
           "berufsbildner-berufsbildnerin-logistik-hilcona-oensingen"
+        ],
+        "it": [
+          "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen"
+        ],
+        "en": [
+          "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "berufsbildner-berufsbildnerin-logistik-hilcona-oensingen"
+        "berufsbildner-berufsbildnerin-logistik-hilcona-oensingen",
+        "berufsbildner-berufsbildnerin-logistik-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
