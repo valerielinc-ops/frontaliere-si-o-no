@@ -1,18 +1,21 @@
 {
   "key": "debiopharm",
   "label": "Debiopharm",
-  "generatedAt": "2026-05-19T19:56:19.285Z",
+  "generatedAt": "2026-05-19T22:03:57.095Z",
   "total": 16,
-  "newCount": 16,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 181345,
-  "avgDurationMs": 181345,
+  "unchangedCount": 16,
+  "durationMs": 3996,
+  "avgDurationMs": 3996,
   "durationHistory": [
-    181345
+    3996
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "P2609 - Senior Trial Master File (TMF) Specialist",
       "slug": "p2609-senior-trial-master-file-tmf-specialist-debiopharm-lausanne-vd-switzerland",
@@ -44,12 +47,17 @@
       ],
       "needsRetranslation": true,
       "id": "debiopharm-4dd8c500fab9",
-      "_qualityScore": 89,
+      "salaryMin": 95000,
+      "salaryMax": 132500,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -81,12 +89,17 @@
       ],
       "id": "debiopharm-ddb8abaf8771",
       "needsRetranslation": true,
-      "_qualityScore": 89,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -114,12 +127,17 @@
       "benefits": [],
       "id": "debiopharm-f4dea8950da0",
       "needsRetranslation": true,
-      "_qualityScore": 82,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -147,12 +165,17 @@
       "benefits": [],
       "id": "debiopharm-da23c8b1f25f",
       "needsRetranslation": true,
-      "_qualityScore": 84,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -180,12 +203,17 @@
       "benefits": [],
       "id": "debiopharm-888b2bcce0b7",
       "needsRetranslation": true,
-      "_qualityScore": 82,
+      "salaryMin": 79500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -213,12 +241,17 @@
       "benefits": [],
       "needsRetranslation": true,
       "id": "debiopharm-6fd401feae27",
-      "_qualityScore": 82,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -246,12 +279,17 @@
       "benefits": [],
       "id": "debiopharm-f7268723db80",
       "needsRetranslation": true,
-      "_qualityScore": 82,
+      "salaryMin": 95000,
+      "salaryMax": 132500,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -279,12 +317,17 @@
       "benefits": [],
       "needsRetranslation": true,
       "id": "debiopharm-7bd42c0e2b1f",
-      "_qualityScore": 82,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -318,12 +361,17 @@
       ],
       "needsRetranslation": true,
       "id": "debiopharm-0e9be85605da",
-      "_qualityScore": 89,
+      "salaryMin": 63000,
+      "salaryMax": 87500,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -357,12 +405,17 @@
       ],
       "id": "debiopharm-a0cab5a687f9",
       "needsRetranslation": true,
-      "_qualityScore": 89,
+      "salaryMin": 95000,
+      "salaryMax": 132500,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -396,12 +449,17 @@
       ],
       "id": "debiopharm-9c135cd25460",
       "needsRetranslation": true,
-      "_qualityScore": 89,
+      "salaryMin": 79500,
+      "salaryMax": 120500,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -429,12 +487,17 @@
       "benefits": [],
       "needsRetranslation": true,
       "id": "debiopharm-2ce4447adc1a",
-      "_qualityScore": 82,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -462,12 +525,17 @@
       "benefits": [],
       "id": "debiopharm-bf238be302fb",
       "needsRetranslation": true,
-      "_qualityScore": 89,
+      "salaryMin": 82500,
+      "salaryMax": 127000,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -495,12 +563,17 @@
       "benefits": [],
       "needsRetranslation": true,
       "id": "debiopharm-da6fd2b8d8c1",
-      "_qualityScore": 82,
+      "salaryMin": 95000,
+      "salaryMax": 132500,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -528,12 +601,17 @@
       "benefits": [],
       "needsRetranslation": true,
       "id": "debiopharm-1d60289cfcf0",
-      "_qualityScore": 82,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     },
     {
@@ -567,16 +645,18 @@
       ],
       "id": "debiopharm-1b8783b7c1c3",
       "needsRetranslation": true,
-      "_qualityScore": 89,
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "currency": "CHF",
+      "postalCode": "1003",
+      "firstSeenAt": "2026-05-19T19:56:19.283Z",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
