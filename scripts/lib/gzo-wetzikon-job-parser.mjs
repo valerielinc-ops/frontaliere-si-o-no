@@ -44,6 +44,7 @@
  */
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { fetchHtml, htmlToText } from './hospital-custom-html-helpers.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -263,6 +264,37 @@ function parseSwissDate(raw = '') {
 
 /* ── Main Fetch Function ──────────────────────────────────── */
 
+/**
+ * Pull the longest plain-text block from a publicjobs.ch detail page.
+ * Returns at most ~6'000 chars of cleaned description.
+ */
+async function fetchGzoDetailDescription(detailUrl) {
+  try {
+    const html = await fetchHtml(detailUrl);
+    if (!html) return '';
+    const noScripts = String(html)
+      .replace(/<script[\s\S]*?<\/script>/gi, '')
+      .replace(/<style[\s\S]*?<\/style>/gi, '');
+    const candidateBlocks = [];
+    const blockRe = /<(?:article|main|section|div)[^>]*(?:id|class)="[^"]*(?:job|content|main|description|inserat|stellen)[^"]*"[^>]*>([\s\S]*?)<\/(?:article|main|section|div)>/gi;
+    let m;
+    while ((m = blockRe.exec(noScripts)) !== null && candidateBlocks.length < 12) {
+      candidateBlocks.push(m[1]);
+    }
+    candidateBlocks.push(noScripts);
+    let best = '';
+    for (const blk of candidateBlocks) {
+      const text = htmlToText(blk);
+      if (text.length > best.length) best = text;
+      if (best.length > 1200) break;
+    }
+    return normalizeSpace(best).slice(0, 6000);
+  } catch (err) {
+    console.warn(`  ⚠️ GZO detail fetch failed (${detailUrl}): ${err?.message || err}`);
+    return '';
+  }
+}
+
 export async function fetchAllGzoWetzikonJobs() {
   console.log(`🏥 Fetching ${GZO_WETZIKON_COMPANY_NAME} jobs`);
   console.log(`   Source:        ${PASTAHR_ENDPOINT} (channel ${PASTAHR_SEARCH_HASH})`);
@@ -309,6 +341,13 @@ export async function fetchAllGzoWetzikonJobs() {
       || new Date().toISOString().split('T')[0];
 
     const fallbackDesc = `${title} — ${GZO_WETZIKON_COMPANY_NAME}, ${location}`;
+    // publicjobs.ch listings ship only title+city — fetch the public detail
+    // page to recover the actual job description. Polite delay 250 ms.
+    const detailDescription = await fetchGzoDetailDescription(detailUrl);
+    const description = detailDescription && detailDescription.split(/\s+/).length >= 30
+      ? detailDescription
+      : fallbackDesc;
+    if (jobs.length > 0) await new Promise((r) => setTimeout(r, 250));
 
     const job = {
       // ── Required fields ──
@@ -320,8 +359,14 @@ export async function fetchAllGzoWetzikonJobs() {
       companyDomain: GZO_WETZIKON_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: fallbackDesc,
-      descriptionByLocale: { [sourceLang]: fallbackDesc },
+      description,
+      descriptionByLocale: { [sourceLang]: description },
+      // Newly-discovered jobs ship with source-locale-only fields. The shared
+      // AI-localization step clears this flag when it fills the remaining 3
+      // locales; if it can't (cache miss + AI quota), the flag stays and
+      // `translate-pending.yml` picks the job up out-of-band. Without this
+      // flag the locale-completeness gate trips before translation can run.
+      needsRetranslation: true,
       location,
       canton,
       url: detailUrl,
