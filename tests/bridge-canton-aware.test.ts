@@ -33,13 +33,43 @@ describe('Bridge page canton-aware UX', () => {
 
     it('uses the helper in the static job-detail breadcrumb (not the hardcoded "in Ticino" string)', () => {
       // The job-detail breadcrumb nav must invoke allJobsLinkLabel with the
-      // job's canton display, not the hardcoded localeCopy.allJobsLink.
+      // job's canton display name, looked up via getCantonDisplayLabel per
+      // locale (NOT the IT-only `dc` var, which is incomplete: the
+      // canton-url-slugs registry consolidates AI+AR as "APPENZELLO" and
+      // BS+BL as "BASILEA", so CANTON_DISPLAY['AI']/['AR']/['BS']/['BL'] are
+      // undefined and the page renders "in AI" instead of "in Appenzello
+      // Interno"). Locale must be threaded through so EN/DE/FR pages get
+      // their own translation.
       const breadcrumbLine = jobsSeoSrc.split('\n').find((l) =>
         l.includes('class="bn"') && l.includes('jobCanton'),
       );
       expect(breadcrumbLine).toBeDefined();
-      expect(breadcrumbLine).toContain('allJobsLinkLabel(locale, dc)');
+      expect(breadcrumbLine).toContain('allJobsLinkLabel(locale, getCantonDisplayLabel(jobCanton, locale))');
+      expect(breadcrumbLine).not.toContain('allJobsLinkLabel(locale, dc)');
       expect(breadcrumbLine).not.toContain('localeCopy[locale].allJobsLink');
+    });
+
+    it('getCantonDisplayLabel returns localized names for AI/AR/BS/BL (4 canton codes missing from canton-url-slugs registry)', () => {
+      // Inline parse of the localised table inside getCantonDisplayLabel to
+      // assert the 4 missing-from-registry cantons resolve correctly in all
+      // locales. Without these, the breadcrumb falls back to the raw 2-letter
+      // code (bug reproduced on prod 2026-05-19 — see PR #380 follow-up).
+      const expectations: Array<[string, string, string, string, string]> = [
+        // [code, it, en, de, fr]
+        ['AI', 'Appenzello Interno', 'Appenzell Innerrhoden', 'Appenzell Innerrhoden', 'Appenzell Rhodes-Intérieures'],
+        ['AR', 'Appenzello Esterno', 'Appenzell Ausserrhoden', 'Appenzell Ausserrhoden', 'Appenzell Rhodes-Extérieures'],
+        ['BS', 'Basilea Città', 'Basel-City', 'Basel-Stadt', 'Bâle-Ville'],
+        ['BL', 'Basilea Campagna', 'Basel-Country', 'Baselland', 'Bâle-Campagne'],
+      ];
+      // Verify the table inside getCantonDisplayLabel contains all expected mappings.
+      for (const [code, it, en, de, fr] of expectations) {
+        const tableRegex = new RegExp(`${code}:\\s*\\{\\s*it:\\s*'${it.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')}'`);
+        expect(jobsSeoSrc).toMatch(tableRegex);
+        // Cross-check each locale's value exists in the file (loose match — table is dense).
+        for (const [loc, expected] of [['en', en], ['de', de], ['fr', fr]] as const) {
+          expect(jobsSeoSrc).toContain(`${loc}: '${expected}'`);
+        }
+      }
     });
   });
 
