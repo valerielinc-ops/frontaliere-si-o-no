@@ -1,21 +1,22 @@
 {
   "key": "kispi-zurich",
   "label": "Universitäts-Kinderspital Zürich (Kispi)",
-  "generatedAt": "2026-05-19T14:38:14.047Z",
+  "generatedAt": "2026-05-19T22:38:45.731Z",
   "total": 10,
-  "newCount": 10,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 80878,
-  "avgDurationMs": 80878,
+  "durationMs": 12819,
+  "avgDurationMs": 12819,
   "durationHistory": [
-    80878
+    12819
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kispi-zurich-0c19b1269ab9",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
+      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
       "companyDomain": "kispi.uzh.ch",
@@ -26,7 +27,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3599/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:55.986Z",
+      "crawledAt": "2026-05-19T22:38:35.908Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3599/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T14:36:55.986Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3665/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:57.021Z",
+      "crawledAt": "2026-05-19T22:38:36.805Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3665/Application/CheckLogin/1",
-      "_qualityScore": 60,
+      "firstSeenAt": "2026-05-19T14:36:57.021Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3340/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:58.040Z",
+      "crawledAt": "2026-05-19T22:38:37.720Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3340/Application/CheckLogin/1",
-      "_qualityScore": 52,
+      "firstSeenAt": "2026-05-19T14:36:58.040Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 6,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3576/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:59.052Z",
+      "crawledAt": "2026-05-19T22:38:38.614Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3576/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T14:36:59.052Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3446/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:00.069Z",
+      "crawledAt": "2026-05-19T22:38:39.484Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3446/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T14:37:00.069Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3669/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:01.087Z",
+      "crawledAt": "2026-05-19T22:38:40.355Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3669/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T14:37:01.087Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3383/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:02.139Z",
+      "crawledAt": "2026-05-19T22:38:41.256Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -257,11 +264,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3383/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T14:37:02.139Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -278,7 +286,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3666/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:03.134Z",
+      "crawledAt": "2026-05-19T22:38:42.122Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -293,11 +301,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3666/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T14:37:03.134Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -314,7 +323,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3652/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:04.145Z",
+      "crawledAt": "2026-05-19T22:38:43.007Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -329,11 +338,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3652/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T14:37:04.145Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -350,7 +360,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3387/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:05.185Z",
+      "crawledAt": "2026-05-19T22:38:43.949Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -365,16 +375,16 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3387/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T14:37:05.185Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
