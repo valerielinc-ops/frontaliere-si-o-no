@@ -155,6 +155,10 @@ function detectExperienceLevel(title = '') {
  * @param {string} [config.publicCareerUrl]
  * @param {string} [config.defaultSourceLang='de']
  * @param {string[]} [config.extraTrustedHosts]  Additional hosts to mark as trusted
+ * @param {string[]} [config.acceptDirectlinkHosts]  Only ingest listings whose
+ *   `links.directlink` hostname matches one of these. Use for shared Prospective
+ *   tenants that mix multiple employers (e.g. medium 1008606 serves both PZM
+ *   Münsingen and UPD Bern). Default: no filtering.
  */
 export function createProspectiveChParser(config) {
   const {
@@ -169,6 +173,7 @@ export function createProspectiveChParser(config) {
     publicCareerUrl,
     defaultSourceLang = 'de',
     extraTrustedHosts = [],
+    acceptDirectlinkHosts = [],
   } = config;
 
   if (!companyKey || !companyName || !mediumId || !defaultCanton) {
@@ -181,6 +186,9 @@ export function createProspectiveChParser(config) {
     corporateHost,
     ...extraTrustedHosts.map((h) => String(h).toLowerCase()),
   ].filter(Boolean));
+  const directlinkHostAllowlist = new Set(
+    (acceptDirectlinkHosts || []).map((h) => String(h).toLowerCase().replace(/^www\./, '')),
+  );
 
   function isCompanyJob(job) {
     if (!job) return false;
@@ -203,7 +211,13 @@ export function createProspectiveChParser(config) {
       const host = new URL(rawUrl).hostname.toLowerCase();
       if (trustedHosts.has(host)) return true;
       if (corporateHost && host.endsWith(`.${corporateHost}`)) return true;
-      if (host === 'ohws.prospective.ch' && rawUrl.includes(`/medium/${mediumId}/`)) return true;
+      if (host === 'ohws.prospective.ch') {
+        // Accept both tenant-scoped (/medium/{ID}/) and job-direct (/public/v1/jobs/{viewkey})
+        // formats. The API returns the job-direct shape when a tenant has no
+        // custom job-page URL configured (e.g. GZ Dielsdorf medium 1005824).
+        if (rawUrl.includes(`/medium/${mediumId}/`)) return true;
+        if (rawUrl.includes('/public/v1/jobs/')) return true;
+      }
       return false;
     } catch {
       return false;
@@ -247,10 +261,31 @@ export function createProspectiveChParser(config) {
     if (!all.length) return [];
 
     const jobs = [];
+    let directlinkSkipped = 0;
     for (const listing of all) {
       const szas = listing?.szas || {};
       const title = normalizeSpace(szas.sza_title || listing.title || '');
       if (!title || title.length < 3) continue;
+
+      // Multi-employer Prospective tenant filter: when configured, drop
+      // listings whose directlink hostname doesn't match the allowlist.
+      // This is for shared tenants like 1008606 (PZM Münsingen + UPD Bern).
+      if (directlinkHostAllowlist.size > 0) {
+        const dl = normalizeSpace(listing?.links?.directlink || '');
+        if (dl) {
+          try {
+            const dlHost = new URL(dl).hostname.toLowerCase().replace(/^www\./, '');
+            if (!directlinkHostAllowlist.has(dlHost)) {
+              directlinkSkipped += 1;
+              continue;
+            }
+          } catch {
+            // Malformed URL — treat as not matching, skip.
+            directlinkSkipped += 1;
+            continue;
+          }
+        }
+      }
 
       const directLink = normalizeSpace(listing?.links?.directlink || '');
       const applyLink = normalizeSpace(szas.sza_apply_link || '');
@@ -318,6 +353,9 @@ export function createProspectiveChParser(config) {
       });
     }
 
+    if (directlinkSkipped > 0) {
+      console.log(`  ⏭️  Filtered out ${directlinkSkipped} listings (directlink host not in allowlist)`);
+    }
     console.log(`📋 Total ${companyName} jobs discovered: ${jobs.length}`);
     return jobs;
   }
