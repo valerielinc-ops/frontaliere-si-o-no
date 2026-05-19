@@ -224,6 +224,8 @@ export const COMPANY_HQ = {
   'bethesda-spital':              { city: 'Basel',              canton: 'BS', postalCode: '4052', addressRegion: 'BS' },
   'adullam':                      { city: 'Basel',              canton: 'BS', postalCode: '4054', addressRegion: 'BS' },
   'klinik-sonnenhalde':           { city: 'Riehen',             canton: 'BS', postalCode: '4125', addressRegion: 'BS' },
+  'pole-sante-pays-enhaut':       { city: 'Château-d\'Oex',     canton: 'VD', postalCode: '1660', addressRegion: 'VD' },
+  'ehnv':                         { city: 'Yverdon-les-Bains',  canton: 'VD', postalCode: '1400', addressRegion: 'VD' },
   'spital-limmattal':             { city: 'Schlieren',          canton: 'ZH', postalCode: '8952', addressRegion: 'ZH' },
   'huntsman':                     { city: 'Monthey',            canton: 'VS', postalCode: '1870', addressRegion: 'VS' },
   'fielmann':                     { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
