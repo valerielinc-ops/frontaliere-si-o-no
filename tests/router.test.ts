@@ -791,29 +791,36 @@ describe('Router — SPA equivalent wins over static landing', () => {
 
   // Related-search-clusters landings (build-plugins/relatedSearchClustersPlugin.ts):
   // emit /cerca-lavoro-ticino/ricerca-{slug}/ with rich curated job lists.
-  // Must keep staticOverlay so SPA does not overlay with empty/generic view.
-  it('ricerca-data-center-technician keeps staticOverlay (cluster page)', () => {
+  // The slug passes through as `jobSlug`; JobBoard's parseSearchSlugFilter
+  // (services/relatedSearchClusters.ts) detects the prefix and populates the
+  // search bar + result grid. NOT staticOverlay — the static body is sr-only
+  // (crawler-only) and the SPA must hydrate the interactive search view.
+  it('ricerca-data-center-technician routes to JobBoard with jobSlug', () => {
     const { route } = parsePath('/cerca-lavoro-ticino/ricerca-data-center-technician');
     expect(route.activeTab).toBe('job-board');
-    expect(route.staticOverlay).toBe(true);
+    expect(route.jobSlug).toBe('ricerca-data-center-technician');
+    expect(route.staticOverlay).toBeFalsy();
   });
 
-  it('EN search-data-center-technician keeps staticOverlay', () => {
+  it('EN search-data-center-technician routes to JobBoard with jobSlug', () => {
     const { route } = parsePath('/en/find-jobs-ticino/search-data-center-technician');
     expect(route.activeTab).toBe('job-board');
-    expect(route.staticOverlay).toBe(true);
+    expect(route.jobSlug).toBe('search-data-center-technician');
+    expect(route.staticOverlay).toBeFalsy();
   });
 
-  it('DE suche-pflegefachperson keeps staticOverlay', () => {
+  it('DE suche-pflegefachperson routes to JobBoard with jobSlug', () => {
     const { route } = parsePath('/de/jobs-im-tessin/suche-pflegefachperson');
     expect(route.activeTab).toBe('job-board');
-    expect(route.staticOverlay).toBe(true);
+    expect(route.jobSlug).toBe('suche-pflegefachperson');
+    expect(route.staticOverlay).toBeFalsy();
   });
 
-  it('FR recherche-soignant keeps staticOverlay', () => {
+  it('FR recherche-soignant routes to JobBoard with jobSlug', () => {
     const { route } = parsePath('/fr/trouver-emploi-tessin/recherche-soignant');
     expect(route.activeTab).toBe('job-board');
-    expect(route.staticOverlay).toBe(true);
+    expect(route.jobSlug).toBe('recherche-soignant');
+    expect(route.staticOverlay).toBeFalsy();
   });
 
   // Salary-hub scenario index (build-plugins/salaryHubIndex.ts): emits the
