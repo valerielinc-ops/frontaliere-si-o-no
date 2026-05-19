@@ -7654,6 +7654,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.autostrada-chiusure-maggio-2026.title': 'Nighttime Closures and Diversions Ahead for Roadwork on A8 Noise Barriers',
     'blog.article.autostrada-chiusure-maggio-2026.excerpt': 'Upcoming closures and detours planned on A8 for refurbishment of noise barriers.',
     'blog.article.autostrada-chiusure-maggio-2026.imageAlt': 'Nighttime construction on the A8 motorway in Ticino',
+    'blog.article.lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.title': 'Workplace Discrimination: A Survey for LGBTQIA+ People',
+    'blog.article.lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.excerpt': 'UNIA and Immediate Boarding launch a survey to investigate workplace discrimination against LGBTQIA+ people. Published online on Sunday, the questionnaire aims to shed light on a reality that affects at least half of non-heterosexual workers in Switzerland.',
+    'blog.article.lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.imageAlt': 'People filling out the online survey',
 };
 
 export default blogMetaEn;

@@ -24338,4 +24338,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lgbtqia-lavoro-sondaggio-unia-imbarco-immediato',
+ category: 'novita',
+ date: '2026-05-19T06:53:44.159Z',
+ image: '/images/blog/lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

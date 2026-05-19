@@ -7653,6 +7653,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.autostrada-chiusure-maggio-2026.title': 'Störungen bei Arbeiten an der Lärmschutzwand auf der Autolaghi-Autobahn',
     'blog.article.autostrada-chiusure-maggio-2026.excerpt': 'Nächtliche Sperrungen und Umleitungen auf der A8 für Arbeiten zur Renovierung der Lärmschutzwände.',
     'blog.article.autostrada-chiusure-maggio-2026.imageAlt': 'Nachtarbeit auf der A8 Autobahn in Ticino',
+    'blog.article.lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.title': 'Arbeit und Diskriminierung: Umfrage für LGBTQIA+-Personen',
+    'blog.article.lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.excerpt': 'UNIA und Imbarco Immediato starten eine Umfrage, um Diskriminierungen am Arbeitsplatz gegenüber LGBTQIA+-Personen in der Schweiz zu untersuchen. Die Umfrage wurde am Sonntag online veröffentlicht und soll Licht ins Dunkle bringen, da mindestens die Hälfte der nicht-heterosexuellen Arbeitnehmer in der Schweiz betroffen ist.',
+    'blog.article.lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.imageAlt': 'Personen füllen den Online-Fragebogen aus',
 };
 
 export default blogMetaDe;

@@ -4666,7 +4666,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 2606,
+ "numberOfItems": 2607,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -7246,7 +7246,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 2603, "name": "Cassis: ‘Blocco ristorni dal Ticino? La reazion...", "url": `${BASE_URL}/articoli-frontaliere/cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna` },
           { "@type": "ListItem", "position": 2604, "name": "Aumento premi LAMal: assicuratore deve mostrare...", "url": `${BASE_URL}/articoli-frontaliere/aumento-premi-lamal-assicuratore-deve-mostrare-contabilita` },
           { "@type": "ListItem", "position": 2605, "name": "L'economia svizzera ha registrato un buon inizi...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-economia-2026` },
-          { "@type": "ListItem", "position": 2606, "name": "Disagi in arrivo per lavori autostradali alle b...", "url": `${BASE_URL}/articoli-frontaliere/autostrada-chiusure-maggio-2026` }
+          { "@type": "ListItem", "position": 2606, "name": "Disagi in arrivo per lavori autostradali alle b...", "url": `${BASE_URL}/articoli-frontaliere/autostrada-chiusure-maggio-2026` },
+          { "@type": "ListItem", "position": 2607, "name": "Lavoro e discriminazioni, un sondaggio per le p...", "url": `${BASE_URL}/articoli-frontaliere/lgbtqia-lavoro-sondaggio-unia-imbarco-immediato` }
  ]
  },
  {

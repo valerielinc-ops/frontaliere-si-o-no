@@ -7655,6 +7655,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.autostrada-chiusure-maggio-2026.title': 'Disagi in arrivo per lavori autostradali alle barriere antirumore sull\'Autolaghi',
     'blog.article.autostrada-chiusure-maggio-2026.excerpt': 'Chiusure notturne e diversioni in programma sulla A8 per lavori di riqualifica delle barriere antirumore.',
     'blog.article.autostrada-chiusure-maggio-2026.imageAlt': 'Cantiere notturno sull\'autostrada A8 in Ticino',
+    'blog.article.lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.title': 'Lavoro e discriminazioni, un sondaggio per le persone LGBTQIA+',
+    'blog.article.lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.excerpt': 'UNIA e Imbarco Immediato lanciano un sondaggio per indagare le discriminazioni sul posto di lavoro verso le persone LGBTQIA+. Pubblicato online domenica, il questionario vuole far luce su una realtà che in Svizzera colpisce almeno la metà dei lavoratori non eterosessuali.',
+    'blog.article.lgbtqia-lavoro-sondaggio-unia-imbarco-immediato.imageAlt': 'Persone che compilano il questionaggio online',
 };
 
 export default blogMetaIt;

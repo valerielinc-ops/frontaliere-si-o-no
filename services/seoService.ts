@@ -3794,6 +3794,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aumento-premi-lamal-assicuratore-deve-mostrare-contabilita': { name: 'Aumento premi LAMal', path: '/articoli-frontaliere/aumento-premi-lamal-assicuratore-deve-mostrare-contabilita', parent: 'blog' },
     'blog-svizzera-economia-2026': { name: 'Economia svizzera', path: '/articoli-frontaliere/svizzera-economia-2026', parent: 'blog' },
     'blog-autostrada-chiusure-maggio-2026': { name: 'Lavori autostradali in Ticino', path: '/articoli-frontaliere/autostrada-chiusure-maggio-2026', parent: 'blog' },
+    'blog-lgbtqia-lavoro-sondaggio-unia-imbarco-immediato': { name: 'Lavoro e discriminazioni', path: '/articoli-frontaliere/lgbtqia-lavoro-sondaggio-unia-imbarco-immediato', parent: 'blog' },
  };
 
  const info = sectionNames[section];
