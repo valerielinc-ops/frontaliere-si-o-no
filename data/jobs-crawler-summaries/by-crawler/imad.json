@@ -1,18 +1,19 @@
 {
   "key": "imad",
   "label": "imad",
-  "generatedAt": "2026-05-19T19:58:59.483Z",
+  "generatedAt": "2026-05-19T22:32:47.935Z",
   "total": 12,
-  "newCount": 12,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 333555,
-  "avgDurationMs": 333555,
+  "durationMs": 4849,
+  "avgDurationMs": 4849,
   "durationHistory": [
-    333555
+    4849
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "imad-325c53ef299b",
       "slug": "responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-social-souhaite-imad",
@@ -26,7 +27,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000127222178-responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-social-souhaite-?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T19:53:28.548Z",
+      "crawledAt": "2026-05-19T22:32:45.701Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.smartrecruiters.com/imad/744000127222178-responsable-d-equipe-pluridisciplinaire-iepa-a-100-en-cdi-parcours-social-souhaite-?oga=true",
       "jobReqId": "744000127222178",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T19:53:28.548Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000126912359-aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T19:53:28.549Z",
+      "crawledAt": "2026-05-19T22:32:45.714Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "postedDate": "2026-05-18",
       "applyUrl": "https://jobs.smartrecruiters.com/imad/744000126912359-aide-soignant-e-emd-de-nuit-a-50-en-cdm-de-11-ou-12-mois-?oga=true",
       "jobReqId": "744000126912359",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T19:53:28.549Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000126653083-dieteticien-ne-a-80-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T19:53:28.536Z",
+      "crawledAt": "2026-05-19T22:32:45.717Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "postedDate": "2026-05-15",
       "applyUrl": "https://jobs.smartrecruiters.com/imad/744000126653083-dieteticien-ne-a-80-en-cdi?oga=true",
       "jobReqId": "744000126653083",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T19:53:28.536Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000126642328-dieteticien-ne-a-60-en-cdi-avec-interet-pour-la-promotion-et-prevention-de-la-sante-?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T19:53:28.552Z",
+      "crawledAt": "2026-05-19T22:32:45.719Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "postedDate": "2026-05-15",
       "applyUrl": "https://jobs.smartrecruiters.com/imad/744000126642328-dieteticien-ne-a-60-en-cdi-avec-interet-pour-la-promotion-et-prevention-de-la-sante-?oga=true",
       "jobReqId": "744000126642328",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T19:53:28.552Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000126319537-infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T19:53:28.546Z",
+      "crawledAt": "2026-05-19T22:32:45.721Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "postedDate": "2026-05-13",
       "applyUrl": "https://jobs.smartrecruiters.com/imad/744000126319537-infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi?oga=true",
       "jobReqId": "744000126319537",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T19:53:28.546Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000126013708-ergotherapeute-diplome-e-a-80-postes-en-cdm-de-8-mois?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T19:53:28.555Z",
+      "crawledAt": "2026-05-19T22:32:45.727Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "postedDate": "2026-05-12",
       "applyUrl": "https://jobs.smartrecruiters.com/imad/744000126013708-ergotherapeute-diplome-e-a-80-postes-en-cdm-de-8-mois?oga=true",
       "jobReqId": "744000126013708",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T19:53:28.555Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000125157078-infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T19:53:28.553Z",
+      "crawledAt": "2026-05-19T22:32:45.723Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -257,47 +264,12 @@
       "postedDate": "2026-05-07",
       "applyUrl": "https://jobs.smartrecruiters.com/imad/744000125157078-infirmier-ere-de-liaison-a-100-en-cdm-de-9-mois?oga=true",
       "jobReqId": "744000125157078",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T19:53:28.553Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "imad-8f0c16216a99",
-      "slug": "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva",
-      "company": "imad",
-      "companyKey": "imad",
-      "companyDomain": "imad-ge.ch",
-      "title": "ASSC / Pool Centralisé Longue Durée (PCLD) / à 80-100% / en CDI",
-      "needsRetranslation": true,
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000102116510-assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi?oga=true",
-      "source": "imad Dedicated Parser (SmartRecruiters API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-19T19:53:28.554Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Cure a domicilio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-07",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000102116510-assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi?oga=true",
-      "jobReqId": "744000102116510",
-      "_qualityScore": 56,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -314,7 +286,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000102119095-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T19:53:28.558Z",
+      "crawledAt": "2026-05-19T22:32:45.725Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -329,11 +301,49 @@
       "postedDate": "2026-01-07",
       "applyUrl": "https://jobs.smartrecruiters.com/imad/744000102119095-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients?oga=true",
       "jobReqId": "744000102119095",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T19:53:28.558Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "imad-8f0c16216a99",
+      "slug": "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva",
+      "company": "imad",
+      "companyKey": "imad",
+      "companyDomain": "imad-ge.ch",
+      "title": "ASSC / Pool Centralisé Longue Durée (PCLD) / à 80-100% / en CDI",
+      "needsRetranslation": true,
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/imad/744000102116510-assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi?oga=true",
+      "source": "imad Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-19T22:32:45.728Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Cure a domicilio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-01-07",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000102116510-assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi?oga=true",
+      "jobReqId": "744000102116510",
+      "firstSeenAt": "2026-05-19T19:53:28.554Z",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -350,7 +360,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000100087147-infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T19:53:28.557Z",
+      "crawledAt": "2026-05-19T22:32:45.726Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -365,11 +375,12 @@
       "postedDate": "2025-12-22",
       "applyUrl": "https://jobs.smartrecruiters.com/imad/744000100087147-infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi?oga=true",
       "jobReqId": "744000100087147",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T19:53:28.557Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -386,7 +397,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T19:53:28.560Z",
+      "crawledAt": "2026-05-19T22:32:45.729Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -401,11 +412,12 @@
       "postedDate": "2025-09-01",
       "applyUrl": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
       "jobReqId": "744000079253489",
-      "_qualityScore": 41,
+      "firstSeenAt": "2026-05-19T19:53:28.560Z",
+      "_qualityScore": 62,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 3,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -422,7 +434,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000078405860-assc-en-soins-a-domicile-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T19:53:28.560Z",
+      "crawledAt": "2026-05-19T22:32:45.730Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -437,16 +449,16 @@
       "postedDate": "2025-08-27",
       "applyUrl": "https://jobs.smartrecruiters.com/imad/744000078405860-assc-en-soins-a-domicile-80-100-en-cdi?oga=true",
       "jobReqId": "744000078405860",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T19:53:28.560Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
