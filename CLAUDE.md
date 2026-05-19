@@ -265,6 +265,24 @@ Every PR must pass these per-feature ratchet audits. Each gate has a baseline (`
 
 Each audit has a matching `:rebaseline` script (e.g. `npm run audit:title-length:rebaseline`). After a deliberate improvement, run rebaseline and commit the new baseline together with the fix in the same PR.
 
+## Unified audit runner (`npm run audit:all`)
+
+The 10 dist-walking audits below run through a **single Node process** via `npm run audit:all` (entry point: `scripts/audit-all.mjs`, runner core: `scripts/lib/audit-runner.mjs`). The runner walks `dist/` ONCE and dispatches every file to every registered Auditor. Replaces the previous fan-out pattern where each `npm run audit:<name>` spawned its own Node process and walked dist/ from scratch — which forced `post-deploy-validate-dist.yml` MAX_PARALLEL=1 to avoid OOM on the 7 GB ubuntu-latest free runner.
+
+Wrapped audits (registered in `scripts/audit-all.mjs` REGISTRY):
+- `footer-root-presence`, `jsonld-no-nested-scripts`, `title-length`, `title-no-disambig-hash`, `h1-title-duplicates`, `text-html-ratio`, `salary-landing-template`, `page-weight`, `content-duplicates`, `faqpage-validity`
+
+Standalone CLI of each migrated audit is preserved (same args, same exit codes) for local debugging via `npm run audit:<name>`. `AUDIT_STRICT=1` env in CI detects accidental html-mutation between auditors. Measured speedup (local dist 82k files, warm cache): 209.32 s sequential → 53.98 s unified (≈ 3.87× / -74 % wall time).
+
+## Verification harnesses (`scripts/verify-*.mjs`)
+
+- **`verify-l1-equivalence.mjs --baseline=<dist> --candidate=<dist>`** — byte-diff harness for L1 precompute-cache changes. Bar: byte-identical. Used to validate that hoisting `esc()` calls / cached strings into a `precomputeCache.ts` Map produces the same HTML byte-for-byte.
+- **`verify-l2-equivalence.mjs --baseline=<dist> --candidate=<dist>`** — DOM + visible-text + JSON-LD diff harness for L2 minifier changes. Bar: DOM-equivalent + content-equivalent (whitespace differences are expected and acceptable; semantic changes are not).
+- **`verify-l3-report-equivalence.mjs --legacy=<reports-dir>`** — compares per-audit JSON reports between legacy `npm run audit:<name>` runs and the unified `npm run audit:all` output. Bar: passed flag + offendersTotal + byFeature + topOffenders path-set + baselineDelta.regression all identical.
+- **`measure-l2-distribution.mjs --dist=<path> --sample=N`** — random-samples production HTML pages, applies `minifyHtml()`, reports per-feature byte-reduction distribution (mean / median / p90 / max). Used to predict CI-wide artifact savings without a full build.
+
+Use these harnesses before merging changes to the corresponding utility modules: `build-plugins/shared/precomputeCache.ts`, `build-plugins/shared/htmlMinify.ts`, `scripts/lib/audit-runner.mjs`.
+
 ## Verifying audit fixes without a local build
 
 **Never run `FAST_BUILD= npx vite build` locally** to verify audit fixes — it OOMs (>8 GB), and the FAST_BUILD trap silently skips SEO plugins (see `## ⚠️ FAST_BUILD trap` section above).
