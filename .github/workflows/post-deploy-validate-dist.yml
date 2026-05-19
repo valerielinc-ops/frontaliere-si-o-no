@@ -250,20 +250,29 @@ jobs:
           # capping it forces aggressive GC and prevents single-process
           # blow-ups when walking ~132k HTML files.
           NODE_OPTIONS: '--max-old-space-size=4096'
+          # AUDIT_STRICT=1 enables the unified runner's AST mutation
+          # detection: every audit's collect() runs against a frozen html
+          # string; any mutation triggers a fail loud with the auditor's
+          # name. Cheap (single equality check per file per audit) and
+          # catches accidental side-effects during future audit migrations.
+          AUDIT_STRICT: '1'
         run: |
-          # MAX_PARALLEL=1 — fully serialise the pool. After 5 iterations
+          # MAX_PARALLEL=2 — restored after the L3 unification.
+          # The previous MAX_PARALLEL=1 was forced by historical OOM kills
           # (runs 25400905401, 25402597503, 25404549152, 25406916097,
-          # 25408263066) post-deploy still OOM-killed audit:title-uniqueness
-          # at rc=134 with chain isolated, dist-multi removed, and
-          # NODE_OPTIONS=--max-old-space-size=4096. The 7 GB ubuntu-latest
-          # free runner can't reliably host TWO Node processes that each
-          # walk 132k HTML files, even with heap cap. With MAX_PARALLEL=1
-          # only the chain audit + at most one pool audit run at any
-          # moment; two 4 GB-cap Node processes plus OS overhead = ~5-6 GB
-          # peak, comfortably under the 7 GB ceiling. Wall-time penalty:
-          # pool tail = sum of pool durations ≈ 200 s vs. ~100 s parallel,
-          # but reliability wins.
-          MAX_PARALLEL=1
+          # 25408263066): the old chain spawned 7 separate Node processes
+          # each walking 132k HTML files at 1-3 GB RSS, so two concurrent
+          # walkers blew past the 7 GB ceiling.
+          #
+          # The new chain is 4 entries (audit:all + page-weight +
+          # content-duplicates + faqpage-validity), but with `audit:all`
+          # covering 10 audits in a SINGLE V8 process (~1 GB peak instead
+          # of 10× ~1-3 GB), the cumulative RSS profile is much lower.
+          # MAX_PARALLEL=2 lets the pool tail overlap with the chain's
+          # remaining serial steps; cumulative peak ≈ chain (~1 GB) +
+          # 2× pool (~1-1.5 GB each) ≈ 3-4 GB, comfortably under 7 GB.
+          # If a regression OOMs the runner, drop back to 1 in a hotfix.
+          MAX_PARALLEL=2
           : > /tmp/post-build-timings.txt
           : > /tmp/post-build-failures.txt
 
@@ -316,13 +325,17 @@ jobs:
           # walk dist/ from scratch — they stay serialized here until they
           # migrate too. audit:title-uniqueness lives in a weekly workflow
           # (memory-bound on the 7 GB runner; documented in run history).
+          # audit:all now covers ALL heavy dist-walking audits in a single
+          # Node process (text-html-ratio, h1-title-duplicates, title-length,
+          # title-no-disambig-hash, footer-root-presence, jsonld-no-nested-
+          # scripts, salary-landing-template, page-weight, content-duplicates,
+          # faqpage-validity). The "chain" is now one step. We keep the
+          # subshell wrapper + timing dump so the workflow summary still
+          # has a structured row per logical audit.
           (
             set +e
             for chain_step in \
               "audit:all|/tmp/g10.log|npm run audit:all" \
-              "audit:page-weight|/tmp/g12.log|npm run audit:page-weight" \
-              "audit:content-duplicates|/tmp/g8.log|npm run audit:content-duplicates" \
-              "audit:faqpage-validity|/tmp/g20.log|npm run audit:faqpage-validity" \
             ; do
               IFS='|' read -r step_name step_log step_cmd <<<"$chain_step"
               start=$(date +%s.%N)
