@@ -9271,6 +9271,19 @@ ${hreflangLinks}
  // only the most-recent (per the sort above) lands on disk.
  const emittedSoftLandingPaths = new Set<string>();
 
+ // L1 — precompute the per-locale "Mercato del lavoro in Ticino" fallback
+ // block. The original 4-branch `if/else if/else if/else` inside the
+ // soft-landing loop allocated the same constant string per iteration
+ // (~280k iterations × 4 locales triaged). Hoisting to a literal Map
+ // collapses the choice to a single Map.get() lookup. Output is
+ // byte-identical to the original branches.
+ const MERCATO_DEL_LAVORO_HTML: Record<'it' | 'en' | 'de' | 'fr', string> = {
+   it: `<section><h2>Mercato del lavoro in Ticino</h2><p>Il Canton Ticino offre numerose opportunità per i lavoratori frontalieri provenienti dall'Italia. Con oltre 70.000 frontalieri attivi, il Ticino rappresenta una delle principali destinazioni per chi cerca lavoro in Svizzera dalla regione insubrica. I settori più attivi includono industria, servizi finanziari, sanità, commercio e tecnologia. Lo stipendio medio in Ticino è significativamente più alto rispetto alle regioni italiane di confine, rendendo il lavoro transfrontaliero un'opzione molto attraente per i residenti di Lombardia, Piemonte e altre province vicine.</p></section>`,
+   en: `<section><h2>Job market in Ticino</h2><p>The Canton of Ticino offers numerous opportunities for cross-border workers from Italy. With over 70,000 active cross-border commuters, Ticino is one of the main destinations for those seeking employment in Switzerland from the Insubria region. The most active sectors include industry, financial services, healthcare, retail and technology. The average salary in Ticino is significantly higher than in Italian border regions, making cross-border work a very attractive option for residents of Lombardy, Piedmont and other nearby provinces.</p></section>`,
+   de: `<section><h2>Arbeitsmarkt im Tessin</h2><p>Der Kanton Tessin bietet zahlreiche Möglichkeiten für Grenzgänger aus Italien. Mit über 70.000 aktiven Grenzpendlern ist das Tessin eines der wichtigsten Ziele für Arbeitssuchende in der Schweiz aus der Region Insubrien. Die aktivsten Branchen sind Industrie, Finanzdienstleistungen, Gesundheitswesen, Handel und Technologie. Das Durchschnittsgehalt im Tessin liegt deutlich höher als in den italienischen Grenzregionen, was die Grenzgängerarbeit zu einer sehr attraktiven Option für Bewohner der Lombardei, des Piemonts und anderer naher Provinzen macht.</p></section>`,
+   fr: `<section><h2>Marché du travail au Tessin</h2><p>Le Canton du Tessin offre de nombreuses opportunités pour les travailleurs frontaliers venant d'Italie. Avec plus de 70 000 frontaliers actifs, le Tessin est l'une des principales destinations pour ceux qui cherchent un emploi en Suisse depuis la région insubrienne. Les secteurs les plus actifs comprennent l'industrie, les services financiers, la santé, le commerce et la technologie. Le salaire moyen au Tessin est nettement plus élevé que dans les régions frontalières italiennes, ce qui fait du travail transfrontalier une option très attractive pour les résidents de Lombardie, du Piémont et d'autres provinces voisines.</p></section>`,
+ };
+
  for (const slug of expiredSlugs) {
  const paths = tracking[slug];
  const ejData = expiredBySlug.get(slug);
@@ -9598,16 +9611,10 @@ ${hreflangLinks}
  // --- Fallback enrichment for pages without expired-jobs.json data ---
  // Ensures pages without rich ejData still have enough content (>= 50 words)
  // by adding general info about the Ticino cross-border job market.
+ // L1: lookup precomputed per-locale string instead of re-evaluating
+ // the 4-branch ternary on every iteration. Output byte-identical.
  if (!ejData?.title && !gscInfo?.title) {
- if (locale === 'it') {
- staticBodyParts.push(`<section><h2>Mercato del lavoro in Ticino</h2><p>Il Canton Ticino offre numerose opportunit\u00e0 per i lavoratori frontalieri provenienti dall'Italia. Con oltre 70.000 frontalieri attivi, il Ticino rappresenta una delle principali destinazioni per chi cerca lavoro in Svizzera dalla regione insubrica. I settori pi\u00f9 attivi includono industria, servizi finanziari, sanit\u00e0, commercio e tecnologia. Lo stipendio medio in Ticino \u00e8 significativamente pi\u00f9 alto rispetto alle regioni italiane di confine, rendendo il lavoro transfrontaliero un'opzione molto attraente per i residenti di Lombardia, Piemonte e altre province vicine.</p></section>`);
- } else if (locale === 'en') {
- staticBodyParts.push(`<section><h2>Job market in Ticino</h2><p>The Canton of Ticino offers numerous opportunities for cross-border workers from Italy. With over 70,000 active cross-border commuters, Ticino is one of the main destinations for those seeking employment in Switzerland from the Insubria region. The most active sectors include industry, financial services, healthcare, retail and technology. The average salary in Ticino is significantly higher than in Italian border regions, making cross-border work a very attractive option for residents of Lombardy, Piedmont and other nearby provinces.</p></section>`);
- } else if (locale === 'de') {
- staticBodyParts.push(`<section><h2>Arbeitsmarkt im Tessin</h2><p>Der Kanton Tessin bietet zahlreiche M\u00f6glichkeiten f\u00fcr Grenzg\u00e4nger aus Italien. Mit \u00fcber 70.000 aktiven Grenzpendlern ist das Tessin eines der wichtigsten Ziele f\u00fcr Arbeitssuchende in der Schweiz aus der Region Insubrien. Die aktivsten Branchen sind Industrie, Finanzdienstleistungen, Gesundheitswesen, Handel und Technologie. Das Durchschnittsgehalt im Tessin liegt deutlich h\u00f6her als in den italienischen Grenzregionen, was die Grenzg\u00e4ngerarbeit zu einer sehr attraktiven Option f\u00fcr Bewohner der Lombardei, des Piemonts und anderer naher Provinzen macht.</p></section>`);
- } else {
- staticBodyParts.push(`<section><h2>March\u00e9 du travail au Tessin</h2><p>Le Canton du Tessin offre de nombreuses opportunit\u00e9s pour les travailleurs frontaliers venant d'Italie. Avec plus de 70 000 frontaliers actifs, le Tessin est l'une des principales destinations pour ceux qui cherchent un emploi en Suisse depuis la r\u00e9gion insubrienne. Les secteurs les plus actifs comprennent l'industrie, les services financiers, la sant\u00e9, le commerce et la technologie. Le salaire moyen au Tessin est nettement plus \u00e9lev\u00e9 que dans les r\u00e9gions frontali\u00e8res italiennes, ce qui fait du travail transfrontalier une option tr\u00e8s attractive pour les r\u00e9sidents de Lombardie, du Pi\u00e9mont et d'autres provinces voisines.</p></section>`);
- }
+ staticBodyParts.push(MERCATO_DEL_LAVORO_HTML[locale]);
  }
 
  // --- GSC related searches section (only for orphan slugs with query data) ---
