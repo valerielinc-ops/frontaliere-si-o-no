@@ -1,18 +1,19 @@
 {
   "key": "csvm-mustair",
   "label": "Center da Sanda Val Müstair (CSVM)",
-  "generatedAt": "2026-05-19T10:25:46.243Z",
+  "generatedAt": "2026-05-19T11:32:05.344Z",
   "total": 5,
-  "newCount": 5,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 142190,
-  "avgDurationMs": 142190,
+  "durationMs": 2639,
+  "avgDurationMs": 2639,
   "durationHistory": [
-    142190
+    2639
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "csvm-mustair-75f8de8fd36e",
       "slug": "dipl-pflegefachperson-hf-teilzeit-csvm-mustair-mustair",
@@ -25,7 +26,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf-teilzeit.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-19T10:23:25.012Z",
+      "crawledAt": "2026-05-19T11:32:03.657Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -40,17 +41,18 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf-teilzeit.html",
-      "_qualityScore": 52,
+      "firstSeenAt": "2026-05-19T10:23:25.012Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 6,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "id": "csvm-mustair-310ef65db1f1",
-      "slug": "pflegehelfer-in-srk-80-100-befristet-csvm-mustair-mustair",
+      "slug": "pflegehelfer-in-srk-80-100-befristet-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
       "company": "Center da Sanda Val Müstair (CSVM)",
       "companyKey": "csvm-mustair",
       "companyDomain": "csvm.ch",
@@ -60,7 +62,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/eine-n-pflegehelfer-in-srk-80-100-befristet.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-19T10:23:25.013Z",
+      "crawledAt": "2026-05-19T11:32:03.658Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -75,11 +77,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.csvm.ch/de/aktuelles/eine-n-pflegehelfer-in-srk-80-100-befristet.html",
-      "_qualityScore": 52,
+      "firstSeenAt": "2026-05-19T10:23:25.013Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 6,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -95,7 +98,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:25.014Z",
+      "crawledAt": "2026-05-19T11:32:03.659Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -110,11 +113,13 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex.html",
-      "_qualityScore": 49,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T10:23:25.014Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -130,7 +135,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:25.014Z",
+      "crawledAt": "2026-05-19T11:32:03.659Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -145,11 +150,13 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
-      "_qualityScore": 52,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T10:23:25.014Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 6,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -165,7 +172,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-19T10:23:25.014Z",
+      "crawledAt": "2026-05-19T11:32:03.659Z",
       "addressLocality": "Sta. Maria Val Müstair",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -180,16 +187,17 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.csvm.ch/de/aktuelles/lehrstellen-2026.html",
-      "_qualityScore": 49,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T10:23:25.014Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
