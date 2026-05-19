@@ -450,9 +450,52 @@ function getCantonProseBlock(
  * the same HTML. It uses semantic colour tokens from index.css so the prose
  * works in light + dark mode without `dark:` class prefixes (CLAUDE.md rule).
  */
+// Memo cache keyed by the full opts tuple. The output is a deterministic
+// function of opts (no module-level mutable state, no Date.now() calls),
+// so caching the full HTML is safe.
+//
+// Observed cardinality (memory: project_cluster_render_optimization_may9):
+// ~560 unique outputs across ~52k invocations in a full build. Per-call
+// cost ~3-5 ms (paragraph composition + 1-2 KB string concat). Memoization
+// saves ~3-5 min off related-search-clusters (305 s) + jobs-seo-pages (288 s)
+// closeBundle hooks where this helper is called dozens of times per page.
+//
+// maxSize = 5000 matches build-plugins/shared/precomputeCache.ts default —
+// generous headroom over the observed 560 distinct keys. Exceeding the cap
+// throws (fail-loud) so a high-cardinality key (e.g. per-slug parameter
+// slipping into opts) surfaces as a build error, not a silent memory leak.
+const COMMUTER_CONTEXT_CACHE = new Map<string, string>();
+const COMMUTER_CONTEXT_CACHE_MAX = 5000;
+
+function commuterContextCacheKey(opts: JobBoardCommuterContextOpts): string {
+  // Stable concatenation in field order — cheaper than JSON.stringify on a
+  // hot path that runs ~52k times per build. Null/undefined → empty string.
+  return (
+    opts.locale + '\x00' +
+    opts.location + '\x00' +
+    (opts.sectorOrType ?? '') + '\x00' +
+    (opts.omitCommute ? '1' : '0') + '\x00' +
+    (opts.cantonDisplay ?? '') + '\x00' +
+    (opts.cantonSlot ?? '') + '\x00' +
+    (opts.cantonEntityName ?? '')
+  );
+}
+
 export function renderJobBoardCommuterContext(
   opts: JobBoardCommuterContextOpts,
 ): string {
+  const cacheKey = commuterContextCacheKey(opts);
+  const cached = COMMUTER_CONTEXT_CACHE.get(cacheKey);
+  if (cached !== undefined) return cached;
+  if (COMMUTER_CONTEXT_CACHE.size >= COMMUTER_CONTEXT_CACHE_MAX) {
+    throw new Error(
+      `renderJobBoardCommuterContext memo cache exceeded maxSize=${COMMUTER_CONTEXT_CACHE_MAX}. ` +
+      `Last key: ${JSON.stringify(opts)}. ` +
+      `Either raise the cap (if cardinality is genuinely bounded) or remove the offending ` +
+      `per-page parameter from opts so the cache key space stays bounded.`,
+    );
+  }
+
   const {
     locale,
     location,
@@ -507,7 +550,7 @@ export function renderJobBoardCommuterContext(
     }
   }
 
-  return `<section class="job-board-commuter-context" style="max-width:860px;margin:32px auto 0;color:var(--color-body);line-height:1.65;font-size:15px">
+  const html = `<section class="job-board-commuter-context" style="max-width:860px;margin:32px auto 0;color:var(--color-body);line-height:1.65;font-size:15px">
   <h2 style="font-size:22px;font-weight:700;color:var(--color-heading);margin:24px 0 12px">${escAttr(copy.methodologyH)}</h2>
   <p style="margin:0 0 14px">${copy.methodology}</p>
   <h2 style="font-size:22px;font-weight:700;color:var(--color-heading);margin:24px 0 12px">${escAttr(copy.commuterH)}</h2>
@@ -521,6 +564,8 @@ export function renderJobBoardCommuterContext(
   <p style="margin:0 0 14px">${crossLinks}</p>
 ${cantonBlock}
 </section>`;
+  COMMUTER_CONTEXT_CACHE.set(cacheKey, html);
+  return html;
 }
 
 /**
