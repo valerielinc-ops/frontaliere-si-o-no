@@ -1,18 +1,19 @@
 {
   "key": "klinik-susenberg",
   "label": "Klinik Susenberg",
-  "generatedAt": "2026-05-19T21:03:43.918Z",
+  "generatedAt": "2026-05-19T22:42:58.804Z",
   "total": 5,
-  "newCount": 5,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 97091,
-  "avgDurationMs": 97091,
+  "durationMs": 3602,
+  "avgDurationMs": 3602,
   "durationHistory": [
-    97091
+    3602
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "klinik-susenberg-d7505bcad230",
       "slug": "dipl-ergotherapeut-in-fh-60-klinik-susenberg-zurich",
@@ -26,7 +27,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/dipl._Ergotherapeut-60_2026-04-23.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T21:02:08.486Z",
+      "crawledAt": "2026-05-19T22:42:56.615Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -43,11 +44,12 @@
       "postedDate": "2026-04-23",
       "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
       "department": "Therapien",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-19T21:02:08.486Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -64,7 +66,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/03-Unterassistent_Mai_2026-04-02.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T21:02:08.487Z",
+      "crawledAt": "2026-05-19T22:42:56.616Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -81,11 +83,12 @@
       "postedDate": "2026-04-02",
       "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
       "department": "Ärztlicher Dienst",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T21:02:08.487Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -102,7 +105,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/13-dipl._Pflegefachperson-HF-FH_BB_80-100_per_sofort_2026-03-28.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T21:02:08.483Z",
+      "crawledAt": "2026-05-19T22:42:56.614Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -119,11 +122,12 @@
       "postedDate": "2026-03-28",
       "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
       "department": "Pflege",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T21:02:08.483Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -140,7 +144,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/14-dipl._Pflegefachperson_HF-FH_PC_80-100_per_sofort_2026-03-28.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T21:02:08.485Z",
+      "crawledAt": "2026-05-19T22:42:56.615Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -157,11 +161,12 @@
       "postedDate": "2026-03-28",
       "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
       "department": "Pflege",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T21:02:08.485Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -178,7 +183,7 @@
       "url": "https://www.susenbergklinik.ch/fileadmin/user_upload/Stellen/02-Unterassistent_Oktobr-Dezember2026_2026-02-17.pdf",
       "source": "Klinik Susenberg Dedicated Parser (TYPO3 PDF listing)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T21:02:08.486Z",
+      "crawledAt": "2026-05-19T22:42:56.616Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -195,16 +200,16 @@
       "postedDate": "2026-02-17",
       "applyUrl": "https://www.susenbergklinik.ch/jobs/offene-stellen",
       "department": "Ärztlicher Dienst",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T21:02:08.486Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
