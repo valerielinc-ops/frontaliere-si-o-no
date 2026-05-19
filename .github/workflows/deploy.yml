@@ -59,11 +59,6 @@ on:
         required: false
         type: boolean
         default: false
-      cluster_parallel_render:
-        description: 'Enable worker_threads-based parallel rendering of the 102k related-search-clusters pages (renderClusterPage dispatched across 4 workers). Opt-in until byte-equivalence is verified on a live deploy. Sets CLUSTER_PARALLEL_RENDER=1 for the build step.'
-        required: false
-        type: boolean
-        default: false
 
 permissions:
   # This workflow only needs repository read access: the previous-slug winners
@@ -460,11 +455,6 @@ jobs:
           # when triaging a specific collision and you need the rendered
           # HTML. Saves ~100-200s/build on push events.
           WRITE_COLLISION_DUMP: ${{ github.event.inputs.write_collision_dump == 'true' && '1' || '' }}
-          # Opt-in worker_threads parallel rendering of the 102k related-search
-          # cluster pages. Default off until byte-equivalence verified on a
-          # live deploy. Once verified, flip to default-on in a follow-up PR.
-          # See build-plugins/relatedSearchClustersRenderWorker.mjs.
-          CLUSTER_PARALLEL_RENDER: ${{ github.event.inputs.cluster_parallel_render == 'true' && '1' || '' }}
         shell: bash
         run: |
           set -o pipefail
