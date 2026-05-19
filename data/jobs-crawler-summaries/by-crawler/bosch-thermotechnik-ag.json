@@ -1,18 +1,49 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-05-18T21:30:31.277Z",
+  "generatedAt": "2026-05-19T11:15:54.393Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 7,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 6,
+  "removedCount": 1,
   "unchangedCount": 1,
-  "durationMs": 14408,
-  "avgDurationMs": 14408,
+  "durationMs": 17316,
+  "avgDurationMs": 17316,
   "durationHistory": [
-    14408
+    17316
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "PreMaster Human Resources (w/m/div.) REF286482A",
+      "slug": "premaster-human-resources-w-m-div-ref286482a-bosch-frauenfeld",
+      "url": "https://jobs.bosch.com/en/job/REF286482A-premaster-human-resources-w-m-div-ref286482a",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000127129329-premaster-human-resources-w-m-div-ref286482a?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "canton": "TG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-19",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Sachbearbeiter Kreditorenbuchhaltung 60%-100% (w/m/div.) REF286433O",
@@ -234,10 +265,12 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Key Account Manager Schweiz - Power Tools Zubehör Fachhandel 100% (w/m/div.) REF285400K",
-      "slug": "key-account-manager-schweiz-power-tools-zubehor-fachhandel-100-w-m-div-ref285400k-bosch-solothurn-zuchwil",
+      "slug": "key-account-manager-svizzera-power-tools-accessori-rivenditori-specializzati-100-f-m-div-ref285400k-bosch-thermotechnik",
       "url": "https://jobs.bosch.com/en/job/REF285400K-key-account-manager-schweiz-power-tools-zubehoer-fachhandel-100-w-m-div-ref285400k",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000124819540-key-account-manager-schweiz-power-tools-zubehor-fachhandel-100-w-m-div-ref285400k?oga=true&trid=3e439658-2a75-4ae1-8885-0fd195fb6ee0",
       "company": "Bosch Thermotechnik AG",
@@ -274,7 +307,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Teamleader Production 100% (w/m/div.) - REF284854K",
