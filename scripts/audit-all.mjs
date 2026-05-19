@@ -36,6 +36,7 @@ import { factory as titleLength } from './audit-title-length.mjs';
 import { factory as titleNoDisambigHash } from './audit-title-no-disambig-hash.mjs';
 import { factory as h1TitleDuplicates } from './audit-h1-title-duplicates.mjs';
 import { factory as textHtmlRatio } from './audit-text-html-ratio.mjs';
+import { factory as salaryLandingTemplate } from './audit-salary-landing-template.mjs';
 
 const REGISTRY = [
   { factory: footerRootPresence, name: 'footer-root-presence' },
@@ -44,6 +45,7 @@ const REGISTRY = [
   { factory: titleNoDisambigHash, name: 'title-no-disambig-hash' },
   { factory: h1TitleDuplicates, name: 'h1-title-duplicates' },
   { factory: textHtmlRatio, name: 'text-html-ratio' },
+  { factory: salaryLandingTemplate, name: 'salary-landing-template' },
 ];
 
 // ─── CLI parsing ─────────────────────────────────────────────────────────────

@@ -360,9 +360,10 @@ jobs:
             npm run audit:image-object-license
           spawn_capped audit:max-bfs-depth           /tmp/g19.log \
             npm run audit:max-bfs-depth
-          # audit:footer-root-presence + audit:jsonld-no-nested-scripts
-          # migrated into `npm run audit:all` above (single Node process,
-          # single dist walk). Removed from the spawn pool.
+          # audit:footer-root-presence + audit:jsonld-no-nested-scripts +
+          # audit:salary-landing-template all migrated into `npm run audit:all`
+          # above (single Node process, single dist walk). Removed from the
+          # spawn pool.
           # NOTE: live:post-deploy-smoke moved to validate-live workflow.
           # This validate-dist job runs in parallel with `deploy`, before
           # the new dist is published — there's nothing live to smoke
