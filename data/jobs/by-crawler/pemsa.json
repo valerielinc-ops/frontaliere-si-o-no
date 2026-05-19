@@ -1,7 +1,247 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-05-19T12:27:07.499Z",
+  "assembledAt": "2026-05-19T23:12:33.521Z",
   "jobs": [
+    {
+      "title": "FABBRO/SALDATORE/METALCOSTRUTTORE",
+      "slug": "fabbro-saldatore-metalcostruttore-pemsa-bellinzona",
+      "url": "https://www.pemsa.ch/it/job/fabbro-saldatore-metalcostruttore-2675601/",
+      "applyUrl": "https://www.pemsa.ch/it/job/fabbro-saldatore-metalcostruttore-2675601/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "metallo",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-19",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-03",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di FABBRO/SALDATORE/METALCOSTRUTTORE\n\n## Missione :\n• Incarico temporaneo di circa 2 mesi tramite agenzia.\n• Preparazione/assemblaggio/saldatura di carpenteria leggera e medio/pesante.\n\n## Profilo :\n• Esperienza di almeno 2 anni come fabbro/saldatore/metalcostruttore.\n• Comprovate capacità nella costruzione/sviluppo/assemblaggio di carpenterie metalliche.\n• Ottima capacità di saldare a MAG in piena penetrazione (TIG costituirà titolo preferenziale).\n• Conoscenza del disegno tecnico.\n• Completa autonomia nel lavoro da svolgere.\n• Disponibilità IMMEDIATA (inizio lavoro il 26.05.2026).\n• Residenza in Ticino o nella fascia di confine.",
+      "titleByLocale": {
+        "it": "FABBRO/SALDATORE/METALCOSTRUTTORE",
+        "en": "FABBRO/SALDATORE/METALCOSTRUTTORE",
+        "de": "FABBRO/SALDATORE/METALCOSTRUTTORE",
+        "fr": "FABBRO/SALDATORE/METALCOSTRUTTORE"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di FABBRO/SALDATORE/METALCOSTRUTTORE\n\n## Missione :\n• Incarico temporaneo di circa 2 mesi tramite agenzia.\n• Preparazione/assemblaggio/saldatura di carpenteria leggera e medio/pesante.\n\n## Profilo :\n• Esperienza di almeno 2 anni come fabbro/saldatore/metalcostruttore.\n• Comprovate capacità nella costruzione/sviluppo/assemblaggio di carpenterie metalliche.\n• Ottima capacità di saldare a MAG in piena penetrazione (TIG costituirà titolo preferenziale).\n• Conoscenza del disegno tecnico.\n• Completa autonomia nel lavoro da svolgere.\n• Disponibilità IMMEDIATA (inizio lavoro il 26.05.2026).\n• Residenza in Ticino o nella fascia di confine.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a FABBRO/SALDATORE/METALCOSTRUTTORE in Bellinzona. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als FABBRO/SALDATORE/METALCOSTRUTTORE in Bellinzona. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil FABBRO/SALDATORE/METALCOSTRUTTORE à Bellinzona. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "fabbro-saldatore-metalcostruttore-pemsa-bellinzona",
+        "en": "fabbro-saldatore-metalcostruttore-pemsa-bellinzona",
+        "de": "fabbro-saldatore-metalcostruttore-pemsa-bellinzona",
+        "fr": "fabbro-saldatore-metalcostruttore-pemsa-bellinzona"
+      },
+      "id": "pemsa-0968a19dbc2e",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-05-19T23:12:33.521Z"
+    },
+    {
+      "title": "Saldatore / Tubista",
+      "slug": "saldatore-tubista-pemsa-torricella",
+      "url": "https://www.pemsa.ch/it/job/saldatore-tubista-2675577/",
+      "applyUrl": "https://www.pemsa.ch/it/job/saldatore-tubista-2675577/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Torricella",
+      "addressLocality": "Torricella",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "metallo",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-19",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-19",
+      "description": "Pemsa si posiziona come leader nel settore del collocamento specializzato in Svizzera, offrendo soluzioni su misura nei campi della costruzione, del genio civile, dell'elettricità, della tecnica dell'edificio e dell'industria. Vantando un’esperienza pluridecennale, Pemsa si distingue per l’eccellenza nel matchmaking tra candidati altamente qualificati e aziende di primo piano. La nostra competenza tecnica approfondita e la conoscenza approfondita del mercato svizzero ci consentono di fornire un supporto personalizzato e efficiente, valorizzando le competenze dei nostri collaboratori e contribuendo allo sviluppo professionale e alla soddisfazione del nostro network. Scegliere Pemsa significa affidarsi a un partner che comprende le sfide specifiche del settore e agisce come catalizzatore di opportunità di carriera di alto livello.\n\n## Missione:\n• Eseguire operazioni di saldatura TIG con standard qualitativi elevati, garantendo la precisione e la sicurezza durante tutte le fasi di lavorazione.\n• Interpretare e applicare correttamente i disegni tecnici (se disponibili) per la preparazione e l’esecuzione dei lavori di saldatura.\n• Collaborare efficacemente con il team tecnico e di cantiere, assicurando il rispetto delle tempistiche e della qualità delle commesse.\n• Mantenere l’area di lavoro ordinata e conformemente alle normative di sicurezza vigenti in Svizzera.\n• Gestire in autonomia il materiale e gli strumenti necessari per le lavorazioni TIG, garantendo un uso efficiente e responsabile.\n• Contribuire al miglioramento continuo dei processi di saldatura attraverso feedback tecnici e proposte di ottimizzazione.\n\n## Profilo:\n• Residenza: entro 20 km dal luogo di lavoro, per favorire una presenza costante e puntuale.\n• Lingua: eccellente conoscenza dell’italiano a livello madrelingua, indispensabile per una comunicazione efficace e coordinata.\n• Patente di guida: possesso valido della patente auto svizzera, condizione imprescindibile per la mobilità e gli spostamenti in cantieri diversi.\n• Certificazione: patentino di saldatura TIG riconosciuto, a garanzia della competenza tecnica e della sicurezza operativa.\n• Competenze tecniche utili: capacità di lettura e interpretazione dei disegni tecnici, strumento fondamentale per l’esecuzione precisa e conforme delle saldature.\n\n## Ton interlocuteur/trice :\nDa Pemsa, crediamo fermamente nell’importanza di un contatto diretto e personale. Avrai a disposizione un consulente dedicato che ti accompagnerà durante tutto il processo di selezione, offrendoti consigli mirati per valorizzare il tuo profilo e supportarti nella tua crescita professionale. Il nostro approccio empatico e professionale garantisce una comunicazione trasparente e un ascolto attento delle tue esigenze, favorendo un inserimento ottimale nel mondo del lavoro svizzero.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
+      "titleByLocale": {
+        "it": "Saldatore / Tubista",
+        "en": "Saldatore / Tubista",
+        "de": "Saldatore / Tubista",
+        "fr": "Saldatore / Tubista"
+      },
+      "descriptionByLocale": {
+        "it": "Pemsa si posiziona come leader nel settore del collocamento specializzato in Svizzera, offrendo soluzioni su misura nei campi della costruzione, del genio civile, dell'elettricità, della tecnica dell'edificio e dell'industria. Vantando un’esperienza pluridecennale, Pemsa si distingue per l’eccellenza nel matchmaking tra candidati altamente qualificati e aziende di primo piano. La nostra competenza tecnica approfondita e la conoscenza approfondita del mercato svizzero ci consentono di fornire un supporto personalizzato e efficiente, valorizzando le competenze dei nostri collaboratori e contribuendo allo sviluppo professionale e alla soddisfazione del nostro network. Scegliere Pemsa significa affidarsi a un partner che comprende le sfide specifiche del settore e agisce come catalizzatore di opportunità di carriera di alto livello.\n\n## Missione:\n• Eseguire operazioni di saldatura TIG con standard qualitativi elevati, garantendo la precisione e la sicurezza durante tutte le fasi di lavorazione.\n• Interpretare e applicare correttamente i disegni tecnici (se disponibili) per la preparazione e l’esecuzione dei lavori di saldatura.\n• Collaborare efficacemente con il team tecnico e di cantiere, assicurando il rispetto delle tempistiche e della qualità delle commesse.\n• Mantenere l’area di lavoro ordinata e conformemente alle normative di sicurezza vigenti in Svizzera.\n• Gestire in autonomia il materiale e gli strumenti necessari per le lavorazioni TIG, garantendo un uso efficiente e responsabile.\n• Contribuire al miglioramento continuo dei processi di saldatura attraverso feedback tecnici e proposte di ottimizzazione.\n\n## Profilo:\n• Residenza: entro 20 km dal luogo di lavoro, per favorire una presenza costante e puntuale.\n• Lingua: eccellente conoscenza dell’italiano a livello madrelingua, indispensabile per una comunicazione efficace e coordinata.\n• Patente di guida: possesso valido della patente auto svizzera, condizione imprescindibile per la mobilità e gli spostamenti in cantieri diversi.\n• Certificazione: patentino di saldatura TIG riconosciuto, a garanzia della competenza tecnica e della sicurezza operativa.\n• Competenze tecniche utili: capacità di lettura e interpretazione dei disegni tecnici, strumento fondamentale per l’esecuzione precisa e conforme delle saldature.\n\n## Ton interlocuteur/trice :\nDa Pemsa, crediamo fermamente nell’importanza di un contatto diretto e personale. Avrai a disposizione un consulente dedicato che ti accompagnerà durante tutto il processo di selezione, offrendoti consigli mirati per valorizzare il tuo profilo e supportarti nella tua crescita professionale. Il nostro approccio empatico e professionale garantisce una comunicazione trasparente e un ascolto attento delle tue esigenze, favorendo un inserimento ottimale nel mondo del lavoro svizzero.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Saldatore / Tubista in Torricella. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Saldatore / Tubista in Torricella. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Saldatore / Tubista à Torricella. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "saldatore-tubista-pemsa-torricella",
+        "en": "saldatore-tubista-pemsa-torricella",
+        "de": "saldatore-tubista-pemsa-torricella",
+        "fr": "saldatore-tubista-pemsa-torricella"
+      },
+      "id": "pemsa-b13ee2fe413c",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-05-19T23:12:33.521Z"
+    },
+    {
+      "title": "INSTALLATORE IDRAULICO",
+      "slug": "installatore-idraulico-pemsa-paradiso",
+      "url": "https://www.pemsa.ch/it/job/installatore-idraulico-2675574/",
+      "applyUrl": "https://www.pemsa.ch/it/job/installatore-idraulico-2675574/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Paradiso",
+      "addressLocality": "Paradiso",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "impiantistica",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-19",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-03",
+      "description": "Pemsa rappresenta un partner di riferimento nel mercato svizzero per il reclutamento e la collocazione di professionisti specializzati nei settori della costruzione, del genio civile, dell’elettricità, della tecnica degli edifici e dell’industria. Forte di una esperienza consolidata e di una rete capillare, Pemsa assicura ai propri clienti e candidati un servizio di alta qualità supportato da competenze tecniche approfondite e dalla conoscenza specifica del contesto e delle normative locali. La nostra missione è valorizzare il capitale umano attraverso un approccio orientato all’eccellenza e all’innovazione, promuovendo ambienti di lavoro sicuri, stimolanti e inclusivi. Collaborando con Pemsa, professionisti e aziende accedono a soluzioni di placement mirate che rispondono alle esigenze concrete del mercato elvetico, con una particolare attenzione alla sostenibilità e allo sviluppo continuo delle competenze.\n\n## Missione:\n• Gestire e coordinare attività operative in cantiere nel settore costruzione o ingegneria civile, garantendo il rispetto degli standard qualitativi e di sicurezza svizzeri.\n• Interpretare con precisione i disegni tecnici e le specifiche di progetto per assicurare la corretta esecuzione dei lavori.\n• Collaborare attivamente con i team multidisciplinari proponendo soluzioni ottimali in ottica di efficienza e innovazione.\n• Assicurare la conformità alle normative vigenti e alle direttive aziendali Pemsa, valorizzando un approccio sostenibile e responsabile.\n\n## Profilo:\n• Esperienza minima in Svizzera di almeno 4 anni nel settore edile, impiegando competenze tecniche specifiche e operative di alto livello.\n• Residenza a una distanza massima di 20 km dal luogo di lavoro, per garantire puntualità e flessibilità negli spostamenti nei cantieri locali.\n• Possesso di patente di guida categoria B (automobile), utile per la mobilità tra cantieri e sedi di lavoro.\n\n## Ton interlocuteur/trice :\nIn Pemsa, troverai un team di consulenti dedicati, specialisti nel settore costruzione e industria, pronti ad accompagnarti con competenza e attenzione personalizzata nel tuo percorso professionale. La nostra esperienza svizzera garantisce una gestione efficiente e trasparente delle candidature, con un forte orientamento alla valorizzazione delle tue capacità tecniche e personali. Siamo al tuo fianco per individuare opportunità in linea con i tuoi obiettivi e per costruire insieme un futuro professionale di successo.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
+      "titleByLocale": {
+        "it": "INSTALLATORE IDRAULICO",
+        "en": "INSTALLATORE IDRAULICO",
+        "de": "INSTALLATORE IDRAULICO",
+        "fr": "INSTALLATORE IDRAULICO"
+      },
+      "descriptionByLocale": {
+        "it": "Pemsa rappresenta un partner di riferimento nel mercato svizzero per il reclutamento e la collocazione di professionisti specializzati nei settori della costruzione, del genio civile, dell’elettricità, della tecnica degli edifici e dell’industria. Forte di una esperienza consolidata e di una rete capillare, Pemsa assicura ai propri clienti e candidati un servizio di alta qualità supportato da competenze tecniche approfondite e dalla conoscenza specifica del contesto e delle normative locali. La nostra missione è valorizzare il capitale umano attraverso un approccio orientato all’eccellenza e all’innovazione, promuovendo ambienti di lavoro sicuri, stimolanti e inclusivi. Collaborando con Pemsa, professionisti e aziende accedono a soluzioni di placement mirate che rispondono alle esigenze concrete del mercato elvetico, con una particolare attenzione alla sostenibilità e allo sviluppo continuo delle competenze.\n\n## Missione:\n• Gestire e coordinare attività operative in cantiere nel settore costruzione o ingegneria civile, garantendo il rispetto degli standard qualitativi e di sicurezza svizzeri.\n• Interpretare con precisione i disegni tecnici e le specifiche di progetto per assicurare la corretta esecuzione dei lavori.\n• Collaborare attivamente con i team multidisciplinari proponendo soluzioni ottimali in ottica di efficienza e innovazione.\n• Assicurare la conformità alle normative vigenti e alle direttive aziendali Pemsa, valorizzando un approccio sostenibile e responsabile.\n\n## Profilo:\n• Esperienza minima in Svizzera di almeno 4 anni nel settore edile, impiegando competenze tecniche specifiche e operative di alto livello.\n• Residenza a una distanza massima di 20 km dal luogo di lavoro, per garantire puntualità e flessibilità negli spostamenti nei cantieri locali.\n• Possesso di patente di guida categoria B (automobile), utile per la mobilità tra cantieri e sedi di lavoro.\n\n## Ton interlocuteur/trice :\nIn Pemsa, troverai un team di consulenti dedicati, specialisti nel settore costruzione e industria, pronti ad accompagnarti con competenza e attenzione personalizzata nel tuo percorso professionale. La nostra esperienza svizzera garantisce una gestione efficiente e trasparente delle candidature, con un forte orientamento alla valorizzazione delle tue capacità tecniche e personali. Siamo al tuo fianco per individuare opportunità in linea con i tuoi obiettivi e per costruire insieme un futuro professionale di successo.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a INSTALLATORE IDRAULICO in Paradiso. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als INSTALLATORE IDRAULICO in Paradiso. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil INSTALLATORE IDRAULICO à Paradiso. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "installatore-idraulico-pemsa-paradiso",
+        "en": "installatore-idraulico-pemsa-paradiso",
+        "de": "installatore-idraulico-pemsa-paradiso",
+        "fr": "installatore-idraulico-pemsa-paradiso"
+      },
+      "id": "pemsa-bb33fc7bd5bf",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-05-19T23:12:33.521Z"
+    },
+    {
+      "title": "Installatore Idraulico Esperto",
+      "slug": "installatore-idraulico-esperto-pemsa-lugano",
+      "url": "https://www.pemsa.ch/it/job/installatore-idraulico-esperto-2675571/",
+      "applyUrl": "https://www.pemsa.ch/it/job/installatore-idraulico-esperto-2675571/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "impiantistica",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-05-19",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-20",
+      "description": "Pemsa rappresenta un punto di riferimento consolidato nel mercato svizzero per la fornitura di servizi di collocamento specialistico nei settori dell’edilizia, ingegneria civile, elettricità, tecnica degli edifici e industria. Con una presenza capillare sul territorio nazionale, Pemsa garantisce una profonda conoscenza delle esigenze del mercato del lavoro svizzero, affiancando professionisti e aziende con soluzioni di reclutamento personalizzate e di alto livello tecnico. Il nostro approccio si basa su criteri rigorosi di selezione e su un’assistenza dedicata, finalizzata a valorizzare le competenze tecniche e promuovere la crescita professionale di ogni candidato. Scegliere Pemsa significa affidarsi a un partner leader, capace di coniugare expertise settoriale e vicinanza al cliente, offrendo opportunità di carriera stimolanti e durature nel tempo.\n\n## Missione:\n• Installazione professionale di tubazioni sottomuro con precisione e nel rispetto degli standard qualitativi svizzeri.\n• Posa e manutenzione di impianti sanitari e riscaldamenti, garantendo efficienza e sicurezza funzionale degli impianti.\n• Gestione accurata e selezione ottimale dei materiali idonei, in linea con le normative tecniche e ambientali vigenti in Svizzera.\n• Assunzione immediata di incarichi operativi presso cantieri nelle immediate vicinanze del domicilio del candidato (entro 20 km), per assicurare rapidità e flessibilità nelle attività.\n\n## Profilo:\n• Esperienza comprovata nel settore idraulico e riscaldamenti, con un minimo di 5 anni di attività svolta in Svizzera, requisito imprescindibile per garantire autonomia e competenza tecnica.\n• Padronanza eccellente della lingua italiana a livello madrelingua, necessaria per la comunicazione efficace all’interno del team e con la clientela svizzera.\n• Possesso obbligatorio della patente di guida svizzera (categoria B), fondamentale per la mobilità e il raggiungimento puntuale dei cantieri.\n• Disponibilità immediata al lavoro, con flessibilità negli orari e predisposizione a gestire interventi urgenti nel rispetto dei tempi previsti dal progetto.\n• Eccellente conoscenza approfondita dei materiali tecnici utilizzati nel settore idrico e termoidraulico, per garantire la qualità e la durabilità degli impianti installati.\n• Competenze tecniche specifiche nella posa di tubazioni sottomuro, capacità di intervento preciso e conforme ai regolamenti cantonali e federali.\n• Abilità consolidata nella posa e manutenzione di impianti sanitari e riscaldamenti, comprendente la lettura e interpretazione pratica dei progetti.\n• Titolo AFC nel settore tecnico, considerato un forte valore aggiunto per l’attività quotidiana e la comprensione delle normative di settore (preferibile ma non obbligatorio).\n• Capacità di lettura del disegno tecnico, vantaggio rilevante per una migliore organizzazione dei lavori e rispetto delle specifiche progettuali.\n\n## Ton interlocuteur/trice :\nIl nostro team specializzato della divisione idraulica di Pemsa è a tua disposizione per accompagnarti in ogni fase della candidatura e per fornirti il supporto tecnico e professionale necessario affinché tu possa esprimere appieno il tuo potenziale nel mercato svizzero. Colloqui rapidi, feedback trasparenti e una consulenza personalizzata sono i nostri punti di forza per instaurare un rapporto di fiducia e collaborazione duraturo.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
+      "titleByLocale": {
+        "it": "Installatore Idraulico Esperto",
+        "en": "Installatore Idraulico Esperto",
+        "de": "Installatore Idraulico Esperto",
+        "fr": "Installatore Idraulico Esperto"
+      },
+      "descriptionByLocale": {
+        "it": "Pemsa rappresenta un punto di riferimento consolidato nel mercato svizzero per la fornitura di servizi di collocamento specialistico nei settori dell’edilizia, ingegneria civile, elettricità, tecnica degli edifici e industria. Con una presenza capillare sul territorio nazionale, Pemsa garantisce una profonda conoscenza delle esigenze del mercato del lavoro svizzero, affiancando professionisti e aziende con soluzioni di reclutamento personalizzate e di alto livello tecnico. Il nostro approccio si basa su criteri rigorosi di selezione e su un’assistenza dedicata, finalizzata a valorizzare le competenze tecniche e promuovere la crescita professionale di ogni candidato. Scegliere Pemsa significa affidarsi a un partner leader, capace di coniugare expertise settoriale e vicinanza al cliente, offrendo opportunità di carriera stimolanti e durature nel tempo.\n\n## Missione:\n• Installazione professionale di tubazioni sottomuro con precisione e nel rispetto degli standard qualitativi svizzeri.\n• Posa e manutenzione di impianti sanitari e riscaldamenti, garantendo efficienza e sicurezza funzionale degli impianti.\n• Gestione accurata e selezione ottimale dei materiali idonei, in linea con le normative tecniche e ambientali vigenti in Svizzera.\n• Assunzione immediata di incarichi operativi presso cantieri nelle immediate vicinanze del domicilio del candidato (entro 20 km), per assicurare rapidità e flessibilità nelle attività.\n\n## Profilo:\n• Esperienza comprovata nel settore idraulico e riscaldamenti, con un minimo di 5 anni di attività svolta in Svizzera, requisito imprescindibile per garantire autonomia e competenza tecnica.\n• Padronanza eccellente della lingua italiana a livello madrelingua, necessaria per la comunicazione efficace all’interno del team e con la clientela svizzera.\n• Possesso obbligatorio della patente di guida svizzera (categoria B), fondamentale per la mobilità e il raggiungimento puntuale dei cantieri.\n• Disponibilità immediata al lavoro, con flessibilità negli orari e predisposizione a gestire interventi urgenti nel rispetto dei tempi previsti dal progetto.\n• Eccellente conoscenza approfondita dei materiali tecnici utilizzati nel settore idrico e termoidraulico, per garantire la qualità e la durabilità degli impianti installati.\n• Competenze tecniche specifiche nella posa di tubazioni sottomuro, capacità di intervento preciso e conforme ai regolamenti cantonali e federali.\n• Abilità consolidata nella posa e manutenzione di impianti sanitari e riscaldamenti, comprendente la lettura e interpretazione pratica dei progetti.\n• Titolo AFC nel settore tecnico, considerato un forte valore aggiunto per l’attività quotidiana e la comprensione delle normative di settore (preferibile ma non obbligatorio).\n• Capacità di lettura del disegno tecnico, vantaggio rilevante per una migliore organizzazione dei lavori e rispetto delle specifiche progettuali.\n\n## Ton interlocuteur/trice :\nIl nostro team specializzato della divisione idraulica di Pemsa è a tua disposizione per accompagnarti in ogni fase della candidatura e per fornirti il supporto tecnico e professionale necessario affinché tu possa esprimere appieno il tuo potenziale nel mercato svizzero. Colloqui rapidi, feedback trasparenti e una consulenza personalizzata sono i nostri punti di forza per instaurare un rapporto di fiducia e collaborazione duraturo.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Installatore Idraulico Esperto in Lugano. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Installatore Idraulico Esperto in Lugano. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Installatore Idraulico Esperto à Lugano. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "installatore-idraulico-esperto-pemsa-lugano",
+        "en": "installatore-idraulico-esperto-pemsa-lugano",
+        "de": "installatore-idraulico-esperto-pemsa-lugano",
+        "fr": "installatore-idraulico-esperto-pemsa-lugano"
+      },
+      "id": "pemsa-441b3c20f47c",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "firstSeenAt": "2026-05-19T23:12:33.521Z"
+    },
     {
       "title": "Idraulico",
       "slug": "idraulico-pemsa-agno",
@@ -1690,7 +1930,7 @@
       "employmentType": "full-time",
       "contractType": "temporary",
       "validThrough": "2026-05-26",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di QUADRISTA CABALTORE\n\n## Missione :\n• ncarico tramite agenzia di breve/media durata.\n• Assemblaggio, cablaggio e verifica quadri elettrici.\n• Utilizzo di strumenti di misura per esecuzione controlli impianto, secondo normative vigenti.\n\n## Profilo :\n• Esperienza di almeno 5 anni in medesima funzione.\n• Diploma in ambito elettrico o affine.\n• Capacità nell’assemblaggio, cablaggio e verifica di quadri elettrici per macchinari/impianti industriali.\n• Conoscenza ed interpretazione del disegno tecnico elettrico.\n• Completa autonomia nel lavoro da svolgere.\n• Residenza in Ticino o fascia di confine.\n• Patente B.\n• Disponibilità IMMEDIATA.",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di QUADRISTA CABALTORE\n\n## Missione :\n• Incarico tramite agenzia di circa 1 mese.\n• Assemblaggio, cablaggio e verifica quadri elettrici.\n• Utilizzo di strumenti di misura per esecuzione controlli impianto, secondo normative vigenti.\n\n## Profilo :\n• Esperienza di almeno 5 anni in medesima funzione.\n• Diploma in ambito elettrico o affine.\n• Capacità nell’assemblaggio, cablaggio e verifica di quadri elettrici per macchinari/impianti industriali.\n• Conoscenza ed interpretazione del disegno tecnico elettrico.\n• Completa autonomia nel lavoro da svolgere.\n• Residenza in Ticino o fascia di confine.\n• Patente B.\n• Disponibilità IMMEDIATA.",
       "titleByLocale": {
         "it": "QUADRISTA CABALTORE",
         "en": "CABALTOR QUADRIST",
@@ -1795,7 +2035,8 @@
       },
       "previousSlugs": [
         "giardiniere-aiuto-giardiniere-pemsa-rivera"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Installatore Idraulico AFC Riscaldamenti",
@@ -3112,131 +3353,6 @@
       "firstSeenAt": "2026-05-05T11:15:07.559Z"
     },
     {
-      "title": "Idraulico Impianti Sanitari e Riscaldamento",
-      "slug": "idraulico-impianti-sanitari-e-riscaldamento-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-e-riscaldamento-2672855/",
-      "applyUrl": "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-e-riscaldamento-2672855/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "impiantistica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-04",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-19",
-      "description": "Pemsa è un'agenzia di collocamento leader in Svizzera, specializzata nei settori della costruzione, del genio civile, dell'elettricità, della tecnica degli edifici e dell'industria. Con una profonda conoscenza del mercato locale e un network ampio e qualificato, Pemsa supporta attivamente aziende e professionisti offrendo soluzioni di reclutamento su misura e servizi di consulenza di alta qualità. La nostra missione è valorizzare il capitale umano, promuovendo posti di lavoro di eccellenza e candidati motivati, per costruire insieme un futuro professionale solido e sostenibile.\n\n## Missione:\n• Installazione e posa di impianti sanitari con precisione e conformità alle normative svizzere vigenti;\n• Realizzazione di impianti di riscaldamento, assicurando l’efficienza energetica e l’affidabilità delle soluzioni impiantistiche;\n• Gestione e ottimizzazione dell’utilizzo dei materiali, garantendo un approccio sostenibile e privo di sprechi durante tutte le fasi di lavoro;\n• Collaborazione attiva con il team tecnico per l’esecuzione puntuale dei progetti, mantenendo standard qualitativi elevati;\n• Interventi presso cantieri localizzati a massimo 20 km dalla residenza del candidato, assicurando puntualità e efficienza nei trasferimenti.\n\n## Profilo:\n• Esperienza minima di 5 anni in Svizzera nel settore della posa di impianti sanitari e di riscaldamento, dimostrando padronanza tecnica e conoscenza delle normative locali;\n• Residenza entro un raggio massimo di 20 km dal luogo di lavoro , per garantire presenza e flessibilità operativa;\n• Lingua materna italiana , necessaria per comunicare efficacemente con il team e i clienti;\n• Patente di guida categoria B , indispensabile per gli spostamenti con automezzi aziendali;\n• Ottima conoscenza dei materiali utilizzati in impiantistica sanitaria e di riscaldamento, con capacità di gestire correttamente l’approvvigionamento e l’utilizzo;\n• Capacità comprovata nella posa di impianti sanitari e riscaldamento , nel rispetto delle procedure di sicurezza e qualità.\n• Requisiti utili: Lettura e interpretazione di disegno tecnico per garantire precisione nell’esecuzione delle installazioni;\n• Preferibile esperienza in lavori su soletta , per una migliore integrazione nei cantieri specializzati;\n• Bonus: Possesso del titolo professionale AFC (Attestato Federale di Capacità) nel settore, come attestazione di formazione qualificata.\n\n## Ton interlocuteur/trice :\nPresso Pemsa, il nostro interlocutore dedicato sarà un consulente del reclutamento esperto nel settore tecnico e di costruzione, capace di accompagnarti lungo tutto il percorso di selezione e inserimento. Offriamo un supporto personalizzato, basato sulla conoscenza approfondita delle esigenze specifiche dei nostri clienti e sulla valorizzazione delle competenze dei candidati. Lavoriamo per assicurarti trasparenza, professionalità e opportunità concrete di sviluppo professionale.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-      "titleByLocale": {
-        "it": "Idraulico Impianti Sanitari e Riscaldamento",
-        "en": "Hydraulic Health and Heating Systems",
-        "de": "Hydraulische Gesundheits- und Heizsysteme",
-        "fr": "Systèmes hydrauliques de santé et de chauffage"
-      },
-      "descriptionByLocale": {
-        "it": "Pemsa è un'agenzia di collocamento leader in Svizzera, specializzata nei settori della costruzione, del genio civile, dell'elettricità, della tecnica degli edifici e dell'industria. Con una profonda conoscenza del mercato locale e un network ampio e qualificato, Pemsa supporta attivamente aziende e professionisti offrendo soluzioni di reclutamento su misura e servizi di consulenza di alta qualità. La nostra missione è valorizzare il capitale umano, promuovendo posti di lavoro di eccellenza e candidati motivati, per costruire insieme un futuro professionale solido e sostenibile. ## Missione:\n• Installazione e posa di impianti sanitari con precisione e conformità alle normative svizzere vigenti;\n• Realizzazione di impianti di riscaldamento, assicurando l’efficienza energetica e l’affidabilità delle soluzioni impiantistiche;\n• Gestione e ottimizzazione dell’utilizzo dei materiali, garantendo un approccio sostenibile e privo di sprechi durante tutte le fasi di lavoro;\n• Collaborazione attiva con il team tecnico per l’esecuzione puntuale dei progetti, mantenendo standard qualitativi elevati;\n• Interventi presso cantieri localizzati a massimo 20 km dalla residenza del candidato, assicurando puntualità e efficienza nei trasferimenti. ## Profilo:\n• Esperienza minima di 5 anni in Svizzera nel settore della posa di impianti sanitari e di riscaldamento, dimostrando padronanza tecnica e conoscenza delle normative locali;\n• Residenza entro un raggio massimo di 20 km dal luogo di lavoro , per garantire presenza e flessibilità operativa;\n• Lingua materna italiana , necessaria per comunicare efficacemente con il team e i clienti;\n• Patente di guida categoria B , indispensabile per gli spostamenti con automezzi aziendali;\n• Ottima conoscenza dei materiali utilizzati in impiantistica sanitaria e di riscaldamento, con capacità di gestire correttamente l’approvvigionamento e l’utilizzo;\n• Capacità comprovata nella posa di impianti sanitari e riscaldamento , nel rispetto delle procedure di sicurezza e qualità.\n• Requisiti utili: Lettura e interpretazione di disegno tecnico per garantire precisione nell’esecuzione delle installazioni;\n• Preferibile esperienza in lavori su soletta , per una migliore integrazione nei cantieri specializzati;\n• Bonus: Possesso del titolo professionale AFC (Attestato Federale di Capacità) nel settore, come attestazione di formazione qualificata. ## Ton interlocuteur/trice : Presso Pemsa, il nostro interlocutore dedicato sarà un consulente del reclutamento esperto nel settore tecnico e di costruzione, capace di accompagnarti lungo tutto il percorso di selezione e inserimento. Offriamo un supporto personalizzato, basato sulla conoscenza approfondita delle esigenze specifiche dei nostri clienti e sulla valorizzazione delle competenze dei candidati. Lavoriamo per assicurarti trasparenza, professionalità e opportunità concrete di sviluppo professionale. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "en": "Pemsa is a leading employment agency in Switzerland, specialized in construction, civil engineering, electricity, building technology and industry. With a deep knowledge of the local market and a broad and qualified network, Pemsa actively supports companies and professionals by offering tailor-made recruitment solutions and high quality consulting services. Our mission is to enhance human capital by promoting jobs of excellence and motivated candidates, to build together a solid and sustainable professional future. ## Mission:\n• Installation and installation of sanitary facilities with precision and compliance with Swiss regulations in force;\n• Construction of heating systems, ensuring energy efficiency and reliability of plant solutions;\n• Management and optimization of the use of materials, ensuring a sustainable approach and devoid of waste during all stages of work;\n• Active collaboration with the technical team for the execution of projects, maintaining high quality standards;\n• Interventions at localized yards up to 20 km from the candidate's residence, ensuring punctuality and efficiency in transfers. ## Profile:\n• Minimum experience of 5 years in Switzerland in the field of laying sanitary and heating systems, demonstrating technical mastery and knowledge of local regulations;\n• Residence within a maximum radius of 20 km from the workplace, to ensure presence and operational flexibility;\n• Italian mother tongue, necessary to communicate effectively with the team and customers;\n• Driving license category B, indispensable for travel with company vehicles;\n• Excellent knowledge of the materials used in sanitary and heating systems, with the ability to properly manage supply and use;\n• Proven capacity for laying sanitary and heating systems, in compliance with safety and quality procedures.\n• Useful requirements: Reading and interpretation of technical design to ensure accuracy in the performance of installations;\n• Preferable experience in in insole works, for better integration in specialized yards;\n• Bonus: Possession of the AFC (Federal Capacity Certificate) professional qualification in the field, as a certificate of qualified training. ## Ton interlocuteur/trice : At Pemsa, our dedicated interlocutor will be an expert recruitment consultant in the technical and construction sector, able to accompany you along the entire selection and insertion path. We offer customized support, based on in-depth knowledge of the specific needs of our customers and the enhancement of the skills of candidates. We work to ensure transparency, professionalism and concrete opportunities for professional development. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "de": "Pemsa ist eine führende Arbeitsagentur in der Schweiz, spezialisiert auf Bauwesen, Bauingenieurwesen, Strom, Bautechnik und Industrie. Mit einer tiefen Kenntnis des lokalen Marktes und einem breiten und qualifizierten Netzwerk unterstützt Pemsa Unternehmen und Fachleute aktiv, indem sie maßgeschneiderte Rekrutierungslösungen und hochwertige Beratungsleistungen anbieten. Unsere Mission ist es, Humankapital durch die Förderung von Arbeitsplätzen von Exzellenz und motivierten Kandidaten zu verbessern, um eine solide und nachhaltige berufliche Zukunft aufzubauen.\n• Installation und Installation von Sanitäranlagen mit Präzision und Einhaltung der geltenden Schweizer Vorschriften;\n• Bau von Heizungsanlagen, Sicherstellung der Energieeffizienz und Zuverlässigkeit von Anlagenlösungen;\n• Management und Optimierung des Einsatzes von Materialien, Gewährleistung eines nachhaltigen Ansatzes und Abfallentsorgung während aller Arbeitsphasen;\n• aktive Zusammenarbeit mit dem technischen Team für die Durchführung von Projekten, Einhaltung hoher Qualitätsstandards;\n• Interventionen an lokalisierten Werften bis zu 20 km von der Wohnortübergabe des Kandidaten, Sicherstellungs.\n• Mindesterfahrung von 5 Jahren in der Schweiz auf dem Gebiet der Verlegung von Sanitär- und Heizsystemen, demonstrieren technische Beherrschung und Kenntnisse der lokalen Vorschriften;\n• Aufenthalt innerhalb eines maximalen Radius von 20 km vom Arbeitsplatz, um Präsenz und Betriebsflexibilität zu gewährleisten;\n• italienische Muttersprache, notwendig, um effektiv mit dem Team und den Kunden zu kommunizieren;\n• Führerscheinkategorie B, unverzichtbar für Reisen mit Prov-Fahrzeugen;\n• Ausgezeichnete Kenntnisse der Materialien in Sanitär- und Heizungssysteme, Versorgung, mit der Versorgung\n• Nützliche Anforderungen: Lesen und Dolmetschen von technischem Design, um die Genauigkeit bei der Durchführung von Installationen zu gewährleisten;\n• Vorzügliche Erfahrung in den Insole-Werken, für eine bessere Integration in spezialisierte Werften;\n• Bonus: Belegung der AFC (Federal Capacity Certificate) Berufsqualifikation auf dem Gebiet, als Zertifikat für qualifizierte Ausbildung. Ton interlocuteur/trice: Bei Pemsa ist unser engagierter Gesprächspartner ein kompetenter Rekrutierungsberater im Bereich Technik und Bau, der Sie entlang des gesamten Auswahl- und Insertionspfades begleiten kann. Wir bieten maßgeschneiderte Unterstützung, basierend auf eingehenden Kenntnissen über die spezifischen Bedürfnisse unserer Kunden und die Verbesserung der Fähigkeiten der Kandidaten. Wir arbeiten daran, Transparenz, Professionalität und konkrete Möglichkeiten für die berufliche Entwicklung zu gewährleisten. Nous ne répondrons qu’aux candidatures dont le profil has au descriptif demandé.",
-        "fr": "Pemsa est une agence d'emploi de premier plan en Suisse, spécialisée dans la construction, le génie civil, l'électricité, la technologie du bâtiment et l'industrie. Fort d'une connaissance approfondie du marché local et d'un vaste réseau qualifié, Pemsa soutient activement les entreprises et les professionnels en proposant des solutions de recrutement sur mesure et des services de conseil de haute qualité. Notre mission est d'améliorer le capital humain en promouvant les emplois d'excellence et les candidats motivés, de construire ensemble un avenir professionnel solide et durable. ## Mission:\n• Installation et installation d'installations sanitaires avec précision et conformité avec la réglementation suisse en vigueur;\n• Construction de systèmes de chauffage, assurant l'efficacité énergétique et la fiabilité des solutions de l'usine;\n• Gestion et optimisation de l'utilisation des matériaux, assurant une approche durable et dépourvue de déchets à toutes les étapes du travail;\n• Collaboration active avec l'équipe technique pour l'exécution des projets, en maintenant des normes de qualité élevées;\n• Interventions dans des chantiers localisés jusqu'à 20 km de la résidence du candidat, assurant ponctualité et efficacité dans les transferts. ## Profil:\n• Expérience minimale de 5 ans en Suisse dans le domaine de la pose de systèmes sanitaires et de chauffage, démontrant la maîtrise technique et la connaissance de la réglementation locale;\n• Résidence dans un rayon maximal de 20 km du lieu de travail, pour assurer la présence et la flexibilité opérationnelle;\n• Langue maternelle italienne, nécessaire pour communiquer efficacement avec l'équipe et les clients;\n• Catégorie de permis de conduire B, indispensable pour voyager avec des véhicules d'entreprise;\n• Excellente connaissance des matériaux utilisés dans les systèmes sanitaires et de chauffage, avec la capacité de gérer correctement l'approvisionnement et l'utilisation;\n• Capacité éprouvée de poser des systèmes sanitaires et de chauffage, conformément aux procédures de sécurité et de qualité.\n• Exigences utiles: lecture et interprétation de la conception technique pour assurer l'exactitude des performances des installations;\n• expérience préférentielle dans les travaux d'intérieur, pour une meilleure intégration dans les chantiers spécialisés;\n• Bonus: possession de la qualification professionnelle AFC (Federal Capacity Certificate) dans le domaine, en tant que certificat de formation qualifiée. ## Ton interlocuteur/trice : Chez Pemsa, notre interlocuteur dédié sera un expert en recrutement dans le secteur technique et de la construction, capable de vous accompagner tout au long de la sélection et de l'insertion. Nous offrons un soutien personnalisé, basé sur une connaissance approfondie des besoins spécifiques de nos clients et l'amélioration des compétences des candidats. Nous travaillons pour assurer la transparence, le professionnalisme et des opportunités concrètes de développement professionnel. Nous ne répondrons qu'aux candidatures dont le profil correspond au descriptif demandé."
-      },
-      "slugByLocale": {
-        "it": "idraulico-impianti-sanitari-e-riscaldamento-pemsa-lugano",
-        "en": "hydraulic-health-and-heating-systems-pemsa-lugano",
-        "de": "hydraulische-gesundheits-und-heizsysteme-pemsa-lugano",
-        "fr": "systemes-hydrauliques-de-sante-et-de-chauffage-pemsa-lugano"
-      },
-      "id": "pemsa-3d9a28d8fd91",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-04T11:26:22.291Z",
-      "previousSlugs": [
-        "idraulico-impianti-sanitari-pemsa-lugano",
-        "idraulico-impianti-sanitari-pemsa-lugano",
-        "idraulico-impianti-riscaldamento-pemsa-mendrisio",
-        "impianti-idraulici-riscaldamento-pemsa-mendrisio",
-        "idraulico-impianti-riscaldamento-pemsa-mendrisio"
-      ]
-    },
-    {
-      "title": "SALDATORE TUBISTA",
-      "slug": "saldatore-tubista-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/saldatore-tubista-2672851/",
-      "applyUrl": "https://www.pemsa.ch/it/job/saldatore-tubista-2672851/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "metallo",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-04",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-19",
-      "description": "Pemsa rappresenta un punto di riferimento di eccellenza nel mercato svizzero del reclutamento specializzato nei settori costruzione, ingegneria civile, elettricità, tecnica degli edifici e industria. Con un’esperienza pluriennale e una forte specializzazione tecnica, Pemsa si distingue per la capacità di offrire soluzioni di staffing su misura, valorizzando le competenze professionali dei candidati e le esigenze specifiche delle aziende partner. La nostra rete consolidata sul territorio nazionale e l’attenzione costante ai trend di mercato ci permettono di garantire un matching preciso tra domanda e offerta, contribuendo così allo sviluppo sostenibile delle imprese e alla crescita professionale dei talenti inseriti.\n\n## Missione:\n• Realizzare lavori di saldatura TIG di alta precisione, garantendo standard qualitativi conformi alle normative svizzere e alle specifiche tecniche del progetto.\n• Eseguire interventi di saldatura in opera, mantenendo un elevato livello di sicurezza e cura nell’ambiente di lavoro.\n• Collaborare attivamente con il team di produzione e il reparto tecnico per ottimizzare i processi di saldatura e assicurare il rispetto dei tempi di consegna.\n• Applicare le procedure di controllo qualità e i protocolli aziendali durante tutte le fasi delle lavorazioni saldanti.\n• Partecipare a corsi di aggiornamento e formazione continua per mantenere e migliorare le competenze tecniche.\n\n## Profilo:\n• Esperienza minima di 4 anni nel settore della saldatura in Svizzera , con comprovata capacità di esecuzione di saldature TIG di precisione.\n• Residenza a massimo 25 km dal luogo di lavoro, per garantire puntualità ed efficienza negli interventi quotidiani.\n• Padronanza della lingua italiana a livello madrelingua, essenziale per la comunicazione tecnica e la documentazione interna.\n• Patente di guida valida per la Svizzera, indispensabile per gli spostamenti sul territorio.\n• Attestato valido di saldatura TIG, conforme alle normative dell’Associazione Svizzera per la Tecnica della Saldatura.\n• Competenze aggiuntive preferenziali: esperienza in saldatura MAG e lavori in opera per affrontare varie tipologie di lavorazione.\n• Certificazioni rilasciate dall’Associazione Svizzera per la Tecnica della Saldatura saranno considerate un importante valore aggiunto.\n• Costituirà titolo preferenziale il possesso del patentino IPAF per operare con piattaforme aeree.\n\n## Ton interlocuteur/trice :\nIl nostro team dedicato di consulenti esperti Pemsa ti accompagnerà con professionalità e attenzione in ogni fase del processo di selezione, assicurandoti un supporto personalizzato e trasparente. Scegliere Pemsa significa affidarsi a una realtà leader nel settore con una profonda conoscenza tecnica, dove il rispetto del candidato e la valorizzazione delle competenze sono al centro del nostro impegno quotidiano.\nNous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-      "titleByLocale": {
-        "it": "SALDATORE TUBISTA",
-        "en": "PIPE WELDER",
-        "de": "PFEIFENSCHWEIẞER",
-        "fr": "SOUDEUR DE TUYAUX"
-      },
-      "descriptionByLocale": {
-        "it": "Pemsa rappresenta un punto di riferimento di eccellenza nel mercato svizzero del reclutamento specializzato nei settori costruzione, ingegneria civile, elettricità, tecnica degli edifici e industria. Con un’esperienza pluriennale e una forte specializzazione tecnica, Pemsa si distingue per la capacità di offrire soluzioni di staffing su misura, valorizzando le competenze professionali dei candidati e le esigenze specifiche delle aziende partner. La nostra rete consolidata sul territorio nazionale e l’attenzione costante ai trend di mercato ci permettono di garantire un matching preciso tra domanda e offerta, contribuendo così allo sviluppo sostenibile delle imprese e alla crescita professionale dei talenti inseriti. ## Missione:\n• Realizzare lavori di saldatura TIG di alta precisione, garantendo standard qualitativi conformi alle normative svizzere e alle specifiche tecniche del progetto.\n• Eseguire interventi di saldatura in opera, mantenendo un elevato livello di sicurezza e cura nell’ambiente di lavoro.\n• Collaborare attivamente con il team di produzione e il reparto tecnico per ottimizzare i processi di saldatura e assicurare il rispetto dei tempi di consegna.\n• Applicare le procedure di controllo qualità e i protocolli aziendali durante tutte le fasi delle lavorazioni saldanti.\n• Partecipare a corsi di aggiornamento e formazione continua per mantenere e migliorare le competenze tecniche. ## Profilo:\n• Esperienza minima di 4 anni nel settore della saldatura in Svizzera , con comprovata capacità di esecuzione di saldature TIG di precisione.\n• Residenza a massimo 25 km dal luogo di lavoro, per garantire puntualità ed efficienza negli interventi quotidiani.\n• Padronanza della lingua italiana a livello madrelingua, essenziale per la comunicazione tecnica e la documentazione interna.\n• Patente di guida valida per la Svizzera, indispensabile per gli spostamenti sul territorio.\n• Attestato valido di saldatura TIG, conforme alle normative dell’Associazione Svizzera per la Tecnica della Saldatura.\n• Competenze aggiuntive preferenziali: esperienza in saldatura MAG e lavori in opera per affrontare varie tipologie di lavorazione.\n• Certificazioni rilasciate dall’Associazione Svizzera per la Tecnica della Saldatura saranno considerate un importante valore aggiunto.\n• Costituirà titolo preferenziale il possesso del patentino IPAF per operare con piattaforme aeree. ## Ton interlocuteur/trice : Il nostro team dedicato di consulenti esperti Pemsa ti accompagnerà con professionalità e attenzione in ogni fase del processo di selezione, assicurandoti un supporto personalizzato e trasparente. Scegliere Pemsa significa affidarsi a una realtà leader nel settore con una profonda conoscenza tecnica, dove il rispetto del candidato e la valorizzazione delle competenze sono al centro del nostro impegno quotidiano. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "en": "Pemsa represents a benchmark of excellence in the Swiss recruitment market specialized in construction, civil engineering, electricity, building technology and industry. With a multi-year experience and a strong technical specialization, Pemsa stands out for the ability to offer tailor-made staffing solutions, enhancing the professional skills of candidates and the specific needs of partner companies. Our consolidated network on the national territory and the constant attention to market trends allow us to guarantee a precise matching between demand and supply, thus contributing to the sustainable development of enterprises and the professional growth of the talents inserted. ## Mission:\n• Realize high-precision TIG welding jobs, ensuring quality standards complying with Swiss regulations and technical specifications of the project.\n• Perform welding operations in operation, maintaining a high level of safety and care in the working environment.\n• actively collaborate with the production team and technical department to optimize welding processes and ensure compliance with delivery times.\n• Apply quality control procedures and company protocols during all phases of welding processes.\n• Participate in continuous updating and training courses to maintain and improve technical skills. ## Profile:\n• Minimum experience of 4 years in the welding industry in Switzerland with proven precision TIG welding capability.\n• Residence at a maximum of 25 km from the workplace, to ensure punctuality and efficiency in everyday interventions.\n• Master of the Italian language at the native level, essential for technical communication and internal documentation.\n• Driving licence valid for Switzerland, indispensable for travel on the territory.\n• Valid TIG welding certificate, in accordance with the regulations of the Swiss Association for Welding Technique.\n• Preferential additional skills: MAG welding experience and work in operation to address various types of processing.\n• Certifications issued by the Swiss Association for Welding Technique will be considered an important added value.\n• It will provide preferential title to hold the IPAF driver's license to operate with aerial platforms. ## Ton interlocuteur/trice : Our dedicated team of expert consultants Pemsa will accompany you with professionalism and attention at every stage of the selection process, ensuring a personalized and transparent support. Choosing Pemsa means relying on a leading reality in the field with deep technical knowledge, where the respect of the candidate and the valorisation of skills are at the heart of our daily commitment. Nous ne répondrons qu’aux candidatures dont le profil correspond au descriptif demandé.",
-        "de": "Pemsa stellt einen Exzellenz-Benchmark im Schweizer Rekrutierungsmarkt dar, der auf Bau, Bauingenieurwesen, Strom, Bautechnik und Industrie spezialisiert ist. Mit einer mehrjährigen Erfahrung und einer starken technischen Spezialisierung steht Pemsa für die Möglichkeit, maßgeschneiderte Personallösungen anzubieten, die fachlichen Fähigkeiten von Kandidaten und die spezifischen Bedürfnisse von Partnerunternehmen zu verbessern. Unser konsolidiertes Netzwerk auf dem nationalen Gebiet und die ständige Aufmerksamkeit auf die Markttrends ermöglichen es uns, eine präzise Abstimmung zwischen Nachfrage und Angebot zu gewährleisten und so zur nachhaltigen Entwicklung von Unternehmen und dem professionellen Wachstum der eingesetzten Talente beizutragen. Mission:\n• Erzielen Sie hochpräzise TIG-Schweißaufträge, um Qualitätsstandards zu gewährleisten, die den Schweizer Vorschriften und technischen Vorgaben des Projekts entsprechen.\n• Durchführung von Schweißvorgängen im Betrieb, wobei ein hohes Maß an Sicherheit und Pflege im Arbeitsumfeld erhalten wird.\n• aktiv mit dem Produktionsteam und der technischen Abteilung zusammenarbeiten, um Schweißprozesse zu optimieren und die Einhaltung der Lieferzeiten sicherzustellen.\n• Anwendung von Qualitätskontrollverfahren und Unternehmensprotokollen in allen Phasen der Schweißprozesse.\n• Erwarten Sie eine kontinuierliche Aktualisierung und Schulung, um technische Fähigkeiten zu erhalten und zu verbessern. Profil:\n• Mindesterfahrung von 4 Jahren in der Schweißindustrie in der Schweiz mit bewährter Präzision TIG Schweißfähigkeit.\n• Wohnraum maximal 25 km vom Arbeitsplatz entfernt, um die Pünktlichkeit und Effizienz bei alltäglichen Eingriffen zu gewährleisten.\n• Master der italienischen Sprache auf der nativen Ebene, wesentlich für die technische Kommunikation und interne Dokumentation.\n• Führerschein gültig für die Schweiz, unverzichtbar für Reisen auf dem Gebiet.\n• Gültiges TIG-Schweißzertifikat gemäß den Vorschriften des Schweizerischen Verbandes für Schweißtechnik.\n• Vorzugsfähige zusätzliche Fähigkeiten: MAG-Schweißerfahrung und Arbeit im Betrieb, um verschiedene Arten der Verarbeitung zu behandeln.\n• Die vom Schweizerischen Verband für Schweißtechnik ausgestellten Zertifikate gelten als wichtiger Mehrwert.\n• Es wird den Vorzug geben, die IPAF-Treiberlizenz für den Betrieb mit Luftplattformen zu halten. Ton interlocuteur/trice: Unser engagiertes Team von Expertenberatern Pemsa begleitet Sie mit Professionalität und Aufmerksamkeit in jeder Phase des Auswahlprozesses und sorgt für eine personalisierte und transparente Unterstützung. Die Wahl von Pemsa bedeutet, sich auf eine führende Realität auf dem Gebiet mit tiefem technischem Wissen zu verlassen, wo der Respekt des Kandidaten und die Wertschätzung der Fähigkeiten im Mittelpunkt unseres täglichen Engagements stehen. Nous ne répondrons qu’aux candidatures dont le profil has au descriptif demandé.",
-        "fr": "Pemsa représente une référence d'excellence sur le marché suisse du recrutement spécialisé dans la construction, le génie civil, l'électricité, la technologie du bâtiment et l'industrie. Forte d'une expérience pluriannuelle et d'une forte spécialisation technique, Pemsa se distingue par sa capacité à proposer des solutions de recrutement sur mesure, à améliorer les compétences professionnelles des candidats et les besoins spécifiques des entreprises partenaires. Notre réseau consolidé sur le territoire national et l'attention constante aux tendances du marché nous permettent de garantir une correspondance précise entre demande et offre, contribuant ainsi au développement durable des entreprises et à la croissance professionnelle des talents insérés. ## Mission:\n• Réaliser des travaux de soudage TIG de haute précision, garantissant des normes de qualité conformes aux réglementations suisses et aux spécifications techniques du projet.\n• Effectuer des opérations de soudage en fonctionnement, en maintenant un haut niveau de sécurité et de soin dans l'environnement de travail.\n• collaborer activement avec l'équipe de production et le service technique pour optimiser les procédés de soudage et assurer le respect des délais de livraison.\n• Appliquer les procédures de contrôle de qualité et les protocoles de l'entreprise pendant toutes les phases des processus de soudage.\n• Participer à des cours de mise à jour et de formation continus pour maintenir et améliorer les compétences techniques. ## Profil:\n• Expérience minimum de 4 ans dans l'industrie du soudage en Suisse avec une capacité de soudage TIG de précision éprouvée.\n• Résidence à un maximum de 25 km du lieu de travail, pour assurer la ponctualité et l'efficacité des interventions quotidiennes.\n• Master de langue italienne au niveau natif, essentiel pour la communication technique et la documentation interne.\n• Permis de conduire valable pour la Suisse, indispensable pour voyager sur le territoire.\n• Certificat de soudage TIG valide, conformément aux règlements de l'Association suisse des techniques de soudage.\n• Compétences supplémentaires préférentielles: expérience de soudage MAG et travail en fonctionnement pour traiter différents types de traitement.\n• Les certifications délivrées par l'Association suisse des techniques de soudage seront considérées comme une valeur ajoutée importante.\n• Il fournira un titre préférentiel pour détenir le permis de conduire IPAF pour fonctionner avec des plates-formes aériennes. ## Ton interlocuteur/trice : Notre équipe dédiée de consultants experts Pemsa vous accompagnera avec professionnalisme et attention à toutes les étapes du processus de sélection, en assurant un support personnalisé et transparent. Choisir Pemsa, c'est s'appuyer sur une réalité de premier plan sur le terrain avec des connaissances techniques profondes, où le respect du candidat et la valorisation des compétences sont au cœur de notre engagement quotidien. Nous ne répondrons qu'aux candidatures dont le profil correspond au descriptif demandé."
-      },
-      "slugByLocale": {
-        "it": "saldatore-tubista-pemsa-lugano",
-        "en": "pipe-welder-pemsa-lugano",
-        "de": "pfeifenschwei-er-pemsa-lugano",
-        "fr": "soudeur-de-tuyaux-pemsa-lugano"
-      },
-      "id": "pemsa-670f9f9ea393",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "firstSeenAt": "2026-05-04T11:26:22.291Z"
-    },
-    {
       "title": "Autista Veicoli Pesanti",
       "slug": "autista-veicoli-pesanti-pemsa-bellinzona",
       "url": "https://www.pemsa.ch/it/job/autista-veicoli-pesanti-2672145/",
@@ -4099,7 +4215,8 @@
           "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
+      "firstSeenAt": "2026-04-13T22:15:31.704Z",
+      "needsRetranslation": true
     },
     {
       "title": "Lattoniere",
@@ -4327,7 +4444,8 @@
           "garten-pemsa-bellinzona"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:15:31.704Z"
+      "firstSeenAt": "2026-04-13T22:15:31.704Z",
+      "needsRetranslation": true
     },
     {
       "title": "Elettricista",
