@@ -6316,7 +6316,17 @@ ${alternates}
  })();
  const openAllLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
  const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: companyName }))}`;
- const html = buildSimplePage({
+ // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
+ // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
+ // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
+ // skipMainWrap=false + seoContentOutsideRoot=false) wraps the static body
+ // in `<main class="static-job-page">` INSIDE `#root`, and React hydration
+ // wipes that <main> when no SPA route matches the URL — leaving the page
+ // visibly blank for end users. (Bug surfaced as validate-live failure
+ // 2026-05-19 on /cerca-lavoro-zurigo/azienda-kantonsspital-winterthur-ksw/.)
+ // The TI sibling emitter at line ~3419 already uses buildSeoPageHtml; this
+ // aligns the non-TI per-canton hubs to the same hydration-safe shell.
+ const html = buildSeoPageHtml({
  locale,
  title: pageTitle,
  description: pageDesc,
@@ -6324,9 +6334,8 @@ ${alternates}
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
  jsonLdScripts: [breadcrumbLd, collectionLd, itemListLd, organizationLd],
- entryJs: hasSpaBundle ? entryJs : undefined,
- entryCss: hasSpaBundle ? entryCss : undefined,
  bodyHtml,
+ distDir,
  });
  const COMPANY_CANTON_HARD_BUDGET = 195 * 1024;
  const htmlBytes = Buffer.byteLength(html, 'utf-8');
