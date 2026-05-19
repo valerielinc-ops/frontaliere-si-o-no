@@ -62,7 +62,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T11:37:51.164Z"
+      "firstSeenAt": "2026-05-19T11:37:51.164Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "spital-zofingen-31337739a8b6",
@@ -131,7 +132,9 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T11:37:50.460Z"
+      "firstSeenAt": "2026-05-19T11:37:50.460Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     }
   ]
 }
