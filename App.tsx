@@ -1600,22 +1600,22 @@ const App: React.FC = () => {
  <ErrorBoundary>
  <TabContentContext.Provider value={tabContentValue}>
  <NavigationContext.Provider value={navContextValue}>
- {/* AUTO ADS POLICY (CLS fix — FRO-CLS).
-  * Google AdSense Auto Ads is enabled at the account level. In-page auto ads
-  * inject content into the DOM AFTER first paint, which causes severe CLS
-  * (measured mobile p75 0.51, target <0.1). We opt the ENTIRE app out of
-  * in-page auto ads by setting `data-no-auto-ads="inside"` on the root
-  * layout container. This still allows:
-  *   - Anchor / overlay auto ads (position:fixed, no CLS — `data-overlays=bottom`
-  *     is set on the AdSense script in AdSenseBanner.tsx).
-  *   - Manual AdSenseBanner slots (explicit `<ins class="adsbygoogle">` with
-  *     reserved placeholder height in components/shared/AdSenseBanner.tsx —
-  *     these are honored regardless of the no-auto-ads directive).
-  * Revenue impact: loses in-page auto-ads (~€10/day RPM per adsenseSlots.ts
-  * header comment). Anchor auto ads (~€16/day) remain. Manual slots remain.
-  * SEO impact: removes the biggest CLS contributor, unblocking ranking
-  * improvements on job/blog pages. */}
- <div data-no-auto-ads="inside" className={`${staticOverlay ? '' : 'min-h-screen'} relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-hidden`}>
+ {/* AUTO ADS POLICY (2026-05-19 reversal — RPM > CLS, see project_adsense_may19).
+  * Previously the whole app opted out of in-page Auto Ads via
+  * `data-no-auto-ads="inside"` to fix mobile p75 CLS 0.51. AdSense console
+  * audit on 2026-05-19 showed "0 in-page ads" in the site preview, with
+  * coverage stuck at 42-49% (was 65.7% pre-Apr 26). In-page Auto Ads are
+  * the single biggest unused revenue lever.
+  *
+  * The blanket opt-out is removed. CLS is bounded by:
+  *  - Manual AdSenseBanner slots reserve placeholderMinHeight 220-400px
+  *    (services/adsenseSlots.ts) before fill.
+  *  - Anchor + Vignette overlays are position:fixed (zero CLS).
+  *  - `data-ad-frequency-hint=120s` on the AdSense loader caps interstitial
+  *    churn during SPA navigation (AdSenseBanner.tsx:141).
+  *  - Per-page `disableAutoAds` in build-plugins/htmlTemplate.ts is preserved
+  *    for "drive-by" SEO landings where bounce ≥97% (F8/F6/F2). */}
+ <div className={`${staticOverlay ? '' : 'min-h-screen'} relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-hidden`}>
  <div className="absolute inset-0 bg-surface-alt -z-20" style={{ contain: 'strict' }}></div>
 
  {/* LinkedIn OAuth2 callback processing overlay */}
@@ -2158,7 +2158,7 @@ const App: React.FC = () => {
   * sitemap links, weekly employers teaser) regardless of overlay mode.
   */}
  {!staticOverlay && (
- <main id="main-content" data-no-auto-ads="inside" className={`flex-grow mx-auto py-4 lg:py-8 transition-[max-width,padding] duration-300 ease-out relative z-10 ${
+ <main id="main-content" className={`flex-grow mx-auto py-4 lg:py-8 transition-[max-width,padding] duration-300 ease-out relative z-10 ${
  activeTab === 'admin' ? 'w-full px-3 sm:px-6' : '!max-w-[2400px] !w-[95%] px-3 sm:px-4'
  }`}>
  <Suspense fallback={<LazyFallback />}>
