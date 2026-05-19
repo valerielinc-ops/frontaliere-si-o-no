@@ -7659,6 +7659,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.title': 'Spannungen um lombardische Steuer und Blockierungsgerüchte, Cassis im Tessin',
     'blog.article.tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.excerpt': 'Der Staatsrat des Kantons Tessin hat Bedenken wegen der Spannungen um die lombardische Steuer und der Gerüchte über eine Blockierung der Rückflüsse geäußert',
     'blog.article.tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.imageAlt': 'Ascona und der Luganersee mit dem Monte Brè',
+    'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.title': 'SBB reorganisiert den Einzelwagenverkehr, 40 Mitarbeiter im Tessin betroffen',
+    'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.excerpt': 'Die SBB reorganisieren den Einzelwagenverkehr, was für 40 Mitarbeiter im Tessin Konsequenzen hat',
+    'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.imageAlt': 'Isolierte Güterwagen der FFS in Chiasso, Tessin',
 };
 
 export default blogMetaDe;

@@ -7660,6 +7660,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.title': 'Tensions over Lombardy tax and potential revenue block, Cassis in Ticino',
     'blog.article.tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.excerpt': 'The Ticino State Council has expressed concern over tensions regarding the Lombardy tax and the potential block of revenues',
     'blog.article.tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.imageAlt': 'Ascona and Lake Lugano with Monte Brè',
+    'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.title': 'SBB reorganizes single-car traffic, 40 jobs affected in Ticino',
+    'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.excerpt': 'SBB is reorganizing single-car traffic, affecting 40 jobs in Ticino',
+    'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.imageAlt': 'Isolated freight cars of FFS in Chiasso, Ticino',
 };
 
 export default blogMetaEn;

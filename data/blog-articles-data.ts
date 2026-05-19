@@ -24356,4 +24356,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino',
+ category: 'novita',
+ date: '2026-05-19T08:08:13.886Z',
+ image: '/images/blog/ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.webp',
+ hasCalculator: false,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

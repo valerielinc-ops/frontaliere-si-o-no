@@ -7661,6 +7661,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.title': 'Tensioni su tassa lombarda e ipotesi blocco ristorni, Cassis in Ticino',
     'blog.article.tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.excerpt': 'Il Consiglio di Stato del Ticino ha espresso preoccupazione per le tensioni sulla tassa lombarda e l\'ipotesi di blocco dei ristorni',
     'blog.article.tensioni-tassa-lombarda-ipotesi-blocco-ristorni-cassis-ticino.imageAlt': 'Ascona e il lago di Lugano con il Monte Brè',
+    'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.title': 'FFS riorganizza il traffico a carri isolati, 40 collaboratori toccati in Ticino',
+    'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.excerpt': 'Le FFS riorganizzano il traffico a carri isolati, con conseguenze per 40 collaboratori in Ticino',
+    'blog.article.ffs-riorganizza-traffico-a-carri-isolati-40-collaboratori-toccati-in-ticino.imageAlt': 'Carri isolati delle FFS a Chiasso, Ticino',
 };
 
 export default blogMetaIt;
