@@ -58,6 +58,12 @@ const SECTORS = [
 export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword = '' }: JobAlertFormProps) {
  const { t, locale } = useTranslation();
  const [expanded, setExpanded] = useState(false);
+ // 2026-05-19 simplification: open→accept funnel was 0/29 across all surfaces
+ // because the form asked for 6 filters before submission. Default to
+ // "keyword-only" with everything else behind an opt-in "Filtri avanzati"
+ // toggle. Power users can still customize via the toggle or the
+ // preferences controller; the average user just types and submits.
+ const [showAdvanced, setShowAdvanced] = useState(false);
  const [keyword, setKeyword] = useState(initialKeyword);
  const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
  const [selectedContracts, setSelectedContracts] = useState<string[]>([]);
@@ -90,8 +96,11 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  if (distinctSearchesRef.current.size >= 2) {
  autoExpandedRef.current = true;
  setExpanded(true);
+ // Impression, not intent — kept out of `cta_click` so the funnel
+ // ratio open→accept stays meaningful (auto_expand was 380 vs 33
+ // real opens in 14 days, fully drowning the "open" signal).
  import('@/services/analytics')
- .then(({ Analytics }) => Analytics.trackJobAlertCtaClick('inline_card', 'auto_expand', k))
+ .then(({ Analytics }) => Analytics.trackJobAlertCtaShown('inline_card', k))
  .catch(() => {});
  }
  }, 800);
@@ -171,6 +180,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  keywords: config.keywords.join(', '),
  location: config.locations.join(', '),
  frequency: config.frequency,
+ surface: 'inline_card',
  });
  }).catch(() => {});
  showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
@@ -319,6 +329,41 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  className="w-full px-3 py-2 text-sm rounded-lg border border-edge bg-surface focus-visible:ring-2 focus-visible:ring-accent outline-none"
  />
  </div>
+
+ {/* Primary submit: 1 click away from creating the alert. Advanced
+ filters live behind the toggle below so the form stays at "type a
+ word, hit submit" on mobile. */}
+ <button
+ onClick={handleCreate}
+ disabled={saving}
+ className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-accent-strong text-on-accent text-sm font-medium hover:bg-accent-strong-hover disabled:opacity-50 transition-colors"
+ >
+ {saving ? (
+ <Loader2 className="w-4 h-4 animate-spin" />
+ ) : (
+ <Bell className="w-4 h-4" />
+ )}
+ {authUser
+ ? (t('jobAlert.create') || 'Crea alert')
+ : (t('jobAlert.loginRequired') || 'Accedi per creare un alert')}
+ </button>
+
+ {/* Advanced filters toggle */}
+ <button
+ type="button"
+ onClick={() => setShowAdvanced((v) => !v)}
+ aria-expanded={showAdvanced}
+ aria-controls="job-alert-advanced"
+ className="w-full flex items-center justify-center gap-1 px-3 py-2 text-xs font-medium text-subtle hover:text-strong transition-colors"
+ >
+ {showAdvanced
+ ? (t('jobAlert.advancedHide') || 'Nascondi filtri avanzati')
+ : (t('jobAlert.advancedShow') || 'Filtri avanzati (opzionali)')}
+ {showAdvanced ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+ </button>
+
+ {showAdvanced && (
+ <div id="job-alert-advanced" className="space-y-3 pt-1 border-t border-accent-border">
 
  {/* Locations */}
  <fieldset>
@@ -498,21 +543,8 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  </select>
  </div>
 
- {/* Submit button */}
- <button
- onClick={handleCreate}
- disabled={saving}
- className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-accent-strong text-on-accent text-sm font-medium hover:bg-accent-strong-hover disabled:opacity-50 transition-colors"
- >
- {saving ? (
- <Loader2 className="w-4 h-4 animate-spin" />
- ) : (
- <Bell className="w-4 h-4" />
+ </div>
  )}
- {authUser
- ? (t('jobAlert.create') || 'Crea alert')
- : (t('jobAlert.loginRequired') || 'Accedi per creare un alert')}
- </button>
 
  {/* Existing alerts */}
  {alerts.length > 0 && (

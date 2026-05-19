@@ -10,7 +10,6 @@ import { lazyRetry } from '@/services/lazyRetry';
 const JobAlertForm = lazyRetry(() => import('@/components/community/JobAlertForm'));
 const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobAlertStickyBanner'));
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
-const JobAlertPostAuthPrompt = lazyRetry(() => import('@/components/community/JobAlertPostAuthPrompt'));
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
 import { reportCaughtError } from '@/services/errorReporter';
 import { trackJobView } from '@/services/jobViewsService';
@@ -114,7 +113,6 @@ import {
  extractRelatedTopicTokens,
  isValidRelatedSearchTerm,
  buildRelatedSearches,
- pickBestRelatedSearchForPrompt,
 } from '@/services/relatedSearchClusters';
 export { buildSearchSlug } from '@/services/relatedSearchClusters';
 import { handleCompanyLogoError } from '@/services/logoService';
@@ -2478,17 +2476,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  getConfigValue('ENABLE_JOB_ALERTS').then((v) => setEnableJobAlerts(v === 'true'))
  ).catch(() => {});
  }, []);
- // Post-auth prompt: when the user goes from unauthenticated → authenticated
- // and they were actively searching, invite them to also create an alert.
- // Session-scoped dismissal to avoid nagging.
- const [postAuthPromptVisible, setPostAuthPromptVisible] = useState(false);
- const [postAuthPromptKeyword, setPostAuthPromptKeyword] = useState('');
- const [postAuthPromptSource, setPostAuthPromptSource] = useState<'search' | 'detail'>('search');
  // Job-detail alert prompt: gentle 1-tap subscription when a logged-in user
- // opens a single job detail. Independent from postAuthPromptVisible.
+ // opens a single job detail. Post-auth prompts were removed 2026-05-19
+ // (88% dismiss rate · 0 conversions in 30 days → dead weight); the
+ // job-detail surface is now the only conversion path beyond the inline form.
  const [jobDetailPromptVisible, setJobDetailPromptVisible] = useState(false);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
- const prevAuthUserRef = useRef<typeof authUser>(authUser);
  useEffect(() => {
  isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
  }, []);
@@ -2939,7 +2932,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  let timerId: number | null = null;
 
  (async () => {
- const [{ loadGatingState, markShownThisSession, shouldShowPrompt }, { getUserAlerts, findMatchingAlertForCategory, normalizeKeyword }] = await Promise.all([
+ const [{ loadGatingState, shouldShowPrompt }, { getUserAlerts, findMatchingAlertForCategory, normalizeKeyword, MAX_ALERTS_PER_USER }] = await Promise.all([
  import('@/services/jobDetailAlertGating'),
  import('@/services/jobAlertService'),
  ]);
@@ -2958,13 +2951,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  if (cancelled) return;
  if (findMatchingAlertForCategory(existing, localizedCategory)) return;
+ // P2: don't prompt when the user is already at their alert quota — the
+ // one-tap subscribe path would throw inside createAlert and surface as
+ // a silent `error` event (3 such events on 2026-05-13 traced to this).
+ if (existing.length >= MAX_ALERTS_PER_USER) return;
 
  timerId = window.setTimeout(() => {
  if (cancelled) return;
- markShownThisSession();
  setJobDetailPromptCategory(localizedCategory);
  setJobDetailPromptVisible(true);
- Analytics.trackJobAlertCtaClick('job_detail_prompt', 'shown', localizedCategory);
+ Analytics.trackJobAlertCtaShown('job_detail_prompt', localizedCategory);
  }, 4000);
  })();
 
@@ -3211,47 +3207,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  [searchIndex],
  );
 
- // Highest-result related-search candidate for the currently open job
- // detail. Powers the post-login alert prompt fallback when the user has
- // no active text query but is reading a single job. Pure template-only
- // candidates (no async canonical content) so it resolves synchronously.
- const bestRelatedSearchKeyword = useMemo(() => {
- if (!selectedJob) return null;
- return pickBestRelatedSearchForPrompt({
- job: selectedJob,
- locale,
- jobs: sortedJobs,
- matches: indexedQueryMatch,
- });
- }, [selectedJob, locale, sortedJobs, indexedQueryMatch]);
-
- // Post-auth prompt trigger: fires once per session when the user transitions
- // null → authUser. Keyword resolution priority:
- //   1. Active search query (≥2 chars)
- //   2. Top related-search keyword for the open job detail
- //   3. None → don't fire
- useEffect(() => {
- const prev = prevAuthUserRef.current;
- prevAuthUserRef.current = authUser;
- if (prev || !authUser || !enableJobAlerts) return;
- // Need email + uid to call subscribeJobAlertOneTap from the prompt itself.
- if (!userEmail || !userId) return;
- if (sessionStorage.getItem('jobAlertPostAuthPromptDismissed') === '1') return;
- const trimmed = (searchQuery || '').trim();
- let keyword = '';
- let source: 'search' | 'detail' = 'search';
- if (trimmed.length >= 2) {
- keyword = trimmed;
- source = 'search';
- } else if (bestRelatedSearchKeyword) {
- keyword = bestRelatedSearchKeyword;
- source = 'detail';
- }
- if (!keyword) return;
- setPostAuthPromptKeyword(keyword);
- setPostAuthPromptSource(source);
- setPostAuthPromptVisible(true);
- }, [authUser, enableJobAlerts, searchQuery, bestRelatedSearchKeyword, userEmail, userId]);
+ // Post-auth prompt removed 2026-05-19: PostHog 30-day data showed 88%
+ // dismiss rate · 3 open · 0 accepts · 3 silent errors on
+ // `post_auth_prompt_search`. Users only click 1 job per session so a
+ // "second-job" trigger has no audience either — the job-detail prompt
+ // (relaxed gating, max 2/day) carries conversions instead.
 
  // Helper: apply ALL non-search filters (company, location, category,
  // contract, sector, date, newOnly). Reused by both the strict AND-match
@@ -7396,33 +7356,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  )}
 
- {postAuthPromptVisible && userEmail && userId && (
- <Suspense fallback={null}>
- <JobAlertPostAuthPrompt
- keyword={postAuthPromptKeyword}
- userId={userId}
- email={userEmail}
- locale={locale}
- onAccepted={() => {
- Analytics.trackJobAlertCtaClick(`post_auth_prompt_${postAuthPromptSource}`, 'accept', postAuthPromptKeyword);
- sessionStorage.setItem('jobAlertPostAuthPromptDismissed', '1');
- }}
- onDismissed={() => {
- Analytics.trackJobAlertCtaClick(`post_auth_prompt_${postAuthPromptSource}`, 'dismiss', postAuthPromptKeyword);
- sessionStorage.setItem('jobAlertPostAuthPromptDismissed', '1');
- }}
- onErrored={() => {
- Analytics.trackJobAlertCtaClick(`post_auth_prompt_${postAuthPromptSource}`, 'error', postAuthPromptKeyword);
- }}
- onPersonalize={() => {
- Analytics.trackJobAlertCtaClick(`post_auth_prompt_${postAuthPromptSource}`, 'open', postAuthPromptKeyword);
- window.dispatchEvent(new CustomEvent('openJobAlert', { detail: { keyword: postAuthPromptKeyword } }));
- }}
- onClose={() => setPostAuthPromptVisible(false)}
- />
- </Suspense>
- )}
-
  {jobDetailPromptVisible && jobDetailPromptCategory && userEmail && userId && (
  <Suspense fallback={null}>
  <JobDetailAlertPrompt
@@ -7437,7 +7370,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onAccepted={() => {
  const category = jobDetailPromptCategory;
  Analytics.trackJobAlertCtaClick('job_detail_prompt', 'accept', category);
- Analytics.trackJobAlertCtaClick('job_detail_prompt', 'success', category);
+ // Mirror inline-form behaviour: fire job_alert_created on successful
+ // one-tap subscribe so Firestore writes and PostHog counts reconcile.
+ // Pre-fix, only the inline form fired this event → 17 PostHog
+ // job_alert_created events vs 8 Firestore alerts (telemetry mismatch).
+ Analytics.trackJobAlertCreated({
+ keywords: category || '',
+ location: '',
+ frequency: 'weekly',
+ surface: 'job_detail_prompt',
+ });
  import('@/services/jobDetailAlertGating').then(({ loadGatingState, saveGatingState, recordAccept, normalizeKeyword }) => {
  const next = recordAccept(loadGatingState(), new Date(), normalizeKeyword(category));
  saveGatingState(next);

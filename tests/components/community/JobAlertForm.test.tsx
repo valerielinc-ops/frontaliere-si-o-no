@@ -33,6 +33,7 @@ vi.mock('@/services/jobAlertService', () => ({
 vi.mock('@/services/analytics', () => ({
   Analytics: {
     trackJobAlertCtaClick: vi.fn(),
+    trackJobAlertCtaShown: vi.fn(),
     trackJobAlertCreated: vi.fn(),
     trackJobAlertDeleted: vi.fn(),
   },
@@ -43,6 +44,13 @@ const authUser = { uid: 'user-1', email: 'foo@example.com' };
 function expandForm() {
   const triggerButton = screen.getAllByRole('button')[0];
   fireEvent.click(triggerButton);
+  // 2026-05-19 form-simplification: advanced filters (locations / contracts
+  // / sectors / cantons / frequency) live behind a "Filtri avanzati" toggle
+  // by default. Most tests inspect those fields, so reveal them eagerly.
+  const advancedToggle = document.querySelector<HTMLButtonElement>(
+    'button[aria-controls="job-alert-advanced"]',
+  );
+  if (advancedToggle) fireEvent.click(advancedToggle);
 }
 
 function getCantonPickerToggle(): HTMLButtonElement {
