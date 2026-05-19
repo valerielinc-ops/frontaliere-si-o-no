@@ -45,7 +45,7 @@ describe('salaryLandingShell · resolver', () => {
     }
   });
 
-  it('resolves all 4 IT net-comparison scenarios (URLs only emitted in IT)', () => {
+  it('resolves all 4 net-comparison scenarios in IT (canonical paths)', () => {
     const cases: Array<{ path: string; eyebrowSubstr: string }> = [
       { path: '/calcola-stipendio/confronto-netto-2025-2026-entro-20km', eyebrowSubstr: 'Entro 20 km' },
       { path: '/calcola-stipendio/confronto-netto-2025-2026-oltre-20km', eyebrowSubstr: 'Oltre 20 km' },
@@ -59,6 +59,43 @@ describe('salaryLandingShell · resolver', () => {
       expect(r.data.table?.headers.length).toBe(4);
       expect(r.data.tiles.length).toBe(4);
       expect(r.data.faqs?.length).toBe(3);
+    }
+  });
+
+  // Regression guard for the 2026-05-19 bug: parseNetComparisonPath
+  // previously returned null for every non-IT variant, dropping all 12
+  // EN/DE/FR scenario URLs into the generic default branch. The sitemap
+  // declares hreflang alternates in all 4 locales and dist/ emits HTML
+  // for each — the resolver must keep all 16 mappings in sync with
+  // services/router.ts REVERSE_SALARY_SUBTAB_BY_LOCALE.
+  it('resolves all 4 net-comparison scenarios across EN, DE, FR', () => {
+    const cases: Array<{ path: string; locale: SalaryLocale }> = [
+      // confronto-netto-2025-2026-entro-20km
+      { path: '/en/calculate-salary/net-comparison-2025-2026-within-20km', locale: 'en' },
+      { path: '/de/gehalt-berechnen/nettovergleich-2025-2026-bis-20km', locale: 'de' },
+      { path: '/fr/calculer-salaire/comparaison-net-2025-2026-moins-20km', locale: 'fr' },
+      // confronto-netto-2025-2026-oltre-20km
+      { path: '/en/calculate-salary/net-comparison-2025-2026-over-20km', locale: 'en' },
+      { path: '/de/gehalt-berechnen/nettovergleich-2025-2026-ueber-20km', locale: 'de' },
+      { path: '/fr/calculer-salaire/comparaison-net-2025-2026-plus-20km', locale: 'fr' },
+      // confronto-permesso-g-vs-b-entro-20km
+      { path: '/en/calculate-salary/permit-g-vs-b-comparison-within-20km', locale: 'en' },
+      { path: '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-bis-20km', locale: 'de' },
+      { path: '/fr/calculer-salaire/comparaison-permis-g-vs-b-moins-20km', locale: 'fr' },
+      // confronto-permesso-g-vs-b-oltre-20km
+      { path: '/en/calculate-salary/permit-g-vs-b-comparison-over-20km', locale: 'en' },
+      { path: '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-ueber-20km', locale: 'de' },
+      { path: '/fr/calculer-salaire/comparaison-permis-g-vs-b-plus-20km', locale: 'fr' },
+    ];
+    for (const c of cases) {
+      const r = _internal.resolveScenarioData(c.path);
+      expect(r.locale, `wrong locale for ${c.path}`).toBe(c.locale);
+      // The shell must serve the net-comparison template (4-column table
+      // + 4 tiles + 3 FAQs), not the generic default that would otherwise
+      // catch unknown paths under /{locale}/{salary-hub}/anything.
+      expect(r.data.table?.headers.length, `missing comparison table for ${c.path}`).toBe(4);
+      expect(r.data.tiles.length, `wrong tile count for ${c.path}`).toBe(4);
+      expect(r.data.faqs?.length, `wrong FAQ count for ${c.path}`).toBe(3);
     }
   });
 

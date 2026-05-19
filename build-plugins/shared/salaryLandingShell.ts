@@ -1755,18 +1755,34 @@ const NET_COMPARISON_SCENARIOS: Record<NetComparisonKey, Record<SalaryLocale, Sa
 
 function parseNetComparisonPath(canonicalPath: string): { key: NetComparisonKey; locale: SalaryLocale } | null {
   const stripped = canonicalPath.replace(/\/+$/, '');
-  // IT canonical paths
-  const itSlugs: Array<{ slug: string; key: NetComparisonKey }> = [
-    { slug: '/calcola-stipendio/confronto-netto-2025-2026-entro-20km', key: 'confronto-netto-2025-2026-entro-20km' },
-    { slug: '/calcola-stipendio/confronto-netto-2025-2026-oltre-20km', key: 'confronto-netto-2025-2026-oltre-20km' },
-    { slug: '/calcola-stipendio/confronto-permesso-g-vs-b-entro-20km', key: 'confronto-permesso-g-vs-b-entro-20km' },
-    { slug: '/calcola-stipendio/confronto-permesso-g-vs-b-oltre-20km', key: 'confronto-permesso-g-vs-b-oltre-20km' },
+  // All 4 net-comparison scenarios × 4 locales. Slugs match
+  // services/router.ts REVERSE_SALARY_SUBTAB_BY_LOCALE tables and the
+  // hreflang alternates emitted in dist/sitemap-pages.xml.
+  const slugMap: Array<{ slug: string; key: NetComparisonKey; locale: SalaryLocale }> = [
+    // confronto-netto-2025-2026-entro-20km
+    { slug: '/calcola-stipendio/confronto-netto-2025-2026-entro-20km', key: 'confronto-netto-2025-2026-entro-20km', locale: 'it' },
+    { slug: '/en/calculate-salary/net-comparison-2025-2026-within-20km', key: 'confronto-netto-2025-2026-entro-20km', locale: 'en' },
+    { slug: '/de/gehalt-berechnen/nettovergleich-2025-2026-bis-20km', key: 'confronto-netto-2025-2026-entro-20km', locale: 'de' },
+    { slug: '/fr/calculer-salaire/comparaison-net-2025-2026-moins-20km', key: 'confronto-netto-2025-2026-entro-20km', locale: 'fr' },
+    // confronto-netto-2025-2026-oltre-20km
+    { slug: '/calcola-stipendio/confronto-netto-2025-2026-oltre-20km', key: 'confronto-netto-2025-2026-oltre-20km', locale: 'it' },
+    { slug: '/en/calculate-salary/net-comparison-2025-2026-over-20km', key: 'confronto-netto-2025-2026-oltre-20km', locale: 'en' },
+    { slug: '/de/gehalt-berechnen/nettovergleich-2025-2026-ueber-20km', key: 'confronto-netto-2025-2026-oltre-20km', locale: 'de' },
+    { slug: '/fr/calculer-salaire/comparaison-net-2025-2026-plus-20km', key: 'confronto-netto-2025-2026-oltre-20km', locale: 'fr' },
+    // confronto-permesso-g-vs-b-entro-20km
+    { slug: '/calcola-stipendio/confronto-permesso-g-vs-b-entro-20km', key: 'confronto-permesso-g-vs-b-entro-20km', locale: 'it' },
+    { slug: '/en/calculate-salary/permit-g-vs-b-comparison-within-20km', key: 'confronto-permesso-g-vs-b-entro-20km', locale: 'en' },
+    { slug: '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-bis-20km', key: 'confronto-permesso-g-vs-b-entro-20km', locale: 'de' },
+    { slug: '/fr/calculer-salaire/comparaison-permis-g-vs-b-moins-20km', key: 'confronto-permesso-g-vs-b-entro-20km', locale: 'fr' },
+    // confronto-permesso-g-vs-b-oltre-20km
+    { slug: '/calcola-stipendio/confronto-permesso-g-vs-b-oltre-20km', key: 'confronto-permesso-g-vs-b-oltre-20km', locale: 'it' },
+    { slug: '/en/calculate-salary/permit-g-vs-b-comparison-over-20km', key: 'confronto-permesso-g-vs-b-oltre-20km', locale: 'en' },
+    { slug: '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-ueber-20km', key: 'confronto-permesso-g-vs-b-oltre-20km', locale: 'de' },
+    { slug: '/fr/calculer-salaire/comparaison-permis-g-vs-b-plus-20km', key: 'confronto-permesso-g-vs-b-oltre-20km', locale: 'fr' },
   ];
-  for (const { slug, key } of itSlugs) {
-    if (stripped === slug) return { key, locale: 'it' };
+  for (const { slug, key, locale } of slugMap) {
+    if (stripped === slug) return { key, locale };
   }
-  // Per live sitemap-pages.xml the net-comparison URLs are IT-only.
-  // EN/DE/FR were never emitted as static landings — no mapping needed.
   return null;
 }
 

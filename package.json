@@ -241,6 +241,7 @@
     "audit:max-bfs-depth": "node scripts/audit-bfs-depth.mjs --baseline=data/bfs-depth-baseline.json",
     "audit:max-bfs-depth:rebaseline": "node scripts/audit-bfs-depth.mjs --write-baseline=data/bfs-depth-baseline.json",
     "audit:footer-root-presence": "node scripts/audit-footer-root-presence.mjs",
+    "audit:salary-landing-template": "node scripts/audit-salary-landing-template.mjs",
     "audit:jsonld-no-nested-scripts": "node scripts/audit-jsonld-no-nested-scripts.mjs",
     "audit:sitemap-canonicals": "node scripts/audit-sitemap-canonicals.mjs",
     "audit:h1-title-duplicates": "node scripts/audit-h1-title-duplicates.mjs --baseline=data/h1-title-duplicates-baseline.json",

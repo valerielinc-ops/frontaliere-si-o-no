@@ -110,7 +110,12 @@ function lookupStaticOverlayHubChrome(canonicalPath: string): StaticOverlayHubCh
  // Every /calcola-stipendio/* scenario page (and locale equivalents) renders
  // through `buildSalaryLandingBody` as a staticOverlay route — emit the body
  // OUTSIDE `#root` so React hydration keeps the SEO-landing template visible.
- if (/^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/[^/]/.test(canonicalPath)) {
+ // Both the IT canonical paths and the locale-prefixed EN/DE/FR variants
+ // ship the same template — keep the gate symmetric across all 4 locales.
+ if (
+   /^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/[^/]/.test(canonicalPath) ||
+   /^\/(en|de|fr)\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/[^/]/.test(canonicalPath)
+ ) {
    return { hubKey: 'calculator', activeSubTab: 'calculator' };
  }
  return null;
@@ -3925,7 +3930,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // as `<details>` from `landingData.faqs`. Suppress this editorial `<dl>`
  // mirror for those paths to avoid a duplicate FAQ section on every
  // /calcola-stipendio/* scenario page. JSON-LD FAQPage stays unchanged.
- const salaryLandingPath = /^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/[^/]/.test(canonicalPath);
+ const salaryLandingPath =
+   /^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/[^/]/.test(canonicalPath) ||
+   /^\/(en|de|fr)\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/[^/]/.test(canonicalPath);
  try {
  const sdSeparator = '</script>\n <script type="application/ld+json">';
  const sdParts = seoData.sd.split(sdSeparator);
@@ -4148,7 +4155,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // helper renders breadcrumb + eyebrow + H1 + lede + stat tiles +
  // consiglio + CTA + comparative table + FAQ, with long prose pushed
  // BELOW the data area so the meaty content stays above the mobile fold.
- /^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/[^/]/.test(canonicalPath)
+ // Accept both the IT canonical paths (no locale prefix) and the
+ // /{en|de|fr}/{calculate-salary|gehalt-berechnen|calculer-salaire}/* variants
+ // — every locale ships these landings (see sitemap-pages.xml hreflangs).
+ (/^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/[^/]/.test(canonicalPath) ||
+  /^\/(en|de|fr)\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/[^/]/.test(canonicalPath))
  ) {
  // H1 must be a headline, not a SERP title. Strip the `| Simulazione 2026`
  // and `| Frontaliere Ticino` suffixes that come from seoData.title

@@ -33,11 +33,13 @@ import { runAudits, filterAuditors, DEFAULT_DIST } from './lib/audit-runner.mjs'
 import { factory as footerRootPresence } from './audit-footer-root-presence.mjs';
 import { factory as jsonldNoNestedScripts } from './audit-jsonld-no-nested-scripts.mjs';
 import { factory as titleLength } from './audit-title-length.mjs';
+import { factory as salaryLandingTemplate } from './audit-salary-landing-template.mjs';
 
 const REGISTRY = [
   { factory: footerRootPresence, name: 'footer-root-presence' },
   { factory: jsonldNoNestedScripts, name: 'jsonld-no-nested-scripts' },
   { factory: titleLength, name: 'title-length' },
+  { factory: salaryLandingTemplate, name: 'salary-landing-template' },
 ];
 
 // ─── CLI parsing ─────────────────────────────────────────────────────────────
