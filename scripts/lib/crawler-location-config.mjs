@@ -322,6 +322,12 @@ export const COMPANY_HQ = {
   'medics-labor':                 { city: 'Bern',               canton: 'BE', postalCode: '3001', addressRegion: 'BE' },
   'stiftung-kind-autismus':       { city: 'Zürich',             canton: 'ZH', postalCode: '8002', addressRegion: 'ZH' },
   'spitex-zuerich':               { city: 'Zürich',             canton: 'ZH', postalCode: '8001', addressRegion: 'ZH' },
+  // ── Batch 14 (Workday + Prospective extended + TI Pro Senectute) ──
+  'stryker':                      { city: 'Biberist',           canton: 'SO', postalCode: '4562', addressRegion: 'SO' },
+  'asana-spital':                 { city: 'Menziken',           canton: 'AG', postalCode: '5737', addressRegion: 'AG' },
+  'gz-dielsdorf':                 { city: 'Dielsdorf',          canton: 'ZH', postalCode: '8157', addressRegion: 'ZH' },
+  'pzm-muensingen':               { city: 'Münsingen',          canton: 'BE', postalCode: '3110', addressRegion: 'BE' },
+  'prosenectute-ti':              { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'spital-limmattal':             { city: 'Schlieren',          canton: 'ZH', postalCode: '8952', addressRegion: 'ZH' },
   'huntsman':                     { city: 'Monthey',            canton: 'VS', postalCode: '1870', addressRegion: 'VS' },
   'fielmann':                     { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
