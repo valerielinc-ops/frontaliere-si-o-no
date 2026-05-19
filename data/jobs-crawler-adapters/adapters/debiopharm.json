@@ -1,0 +1,130 @@
+{
+  "companyKey": "debiopharm",
+  "companyName": "Debiopharm",
+  "companyHost": "apply.workable.com",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "api",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://apply.workable.com/debiopharm/j/B67738E9F2/",
+    "https://apply.workable.com/debiopharm/j/41F975BB19/",
+    "https://apply.workable.com/debiopharm/j/E6C52C1946/",
+    "https://apply.workable.com/debiopharm/j/2EBAF3007D/",
+    "https://apply.workable.com/debiopharm/j/2A8DC73C1D/",
+    "https://apply.workable.com/debiopharm/j/36249F2C30/",
+    "https://apply.workable.com/debiopharm/j/12C173475B/",
+    "https://apply.workable.com/debiopharm/j/FC4F1439C1/",
+    "https://apply.workable.com/debiopharm/j/1B593F4FBF/",
+    "https://apply.workable.com/debiopharm/j/6024013BC6/",
+    "https://apply.workable.com/debiopharm/j/720C19217F/",
+    "https://apply.workable.com/debiopharm/j/40722BE5DC/",
+    "https://apply.workable.com/debiopharm/j/F5778E08C8/",
+    "https://apply.workable.com/debiopharm/j/7151CCF994/",
+    "https://apply.workable.com/debiopharm/j/6D1731B97E/",
+    "https://apply.workable.com/debiopharm/j/62FD6A1955/"
+  ],
+  "seedMetaByUrl": {
+    "https://apply.workable.com/debiopharm/j/B67738E9F2/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-04-23"
+    },
+    "https://apply.workable.com/debiopharm/j/41F975BB19/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-04-23"
+    },
+    "https://apply.workable.com/debiopharm/j/E6C52C1946/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-04-23"
+    },
+    "https://apply.workable.com/debiopharm/j/2EBAF3007D/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-05-04"
+    },
+    "https://apply.workable.com/debiopharm/j/2A8DC73C1D/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-05-05"
+    },
+    "https://apply.workable.com/debiopharm/j/36249F2C30/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-05-05"
+    },
+    "https://apply.workable.com/debiopharm/j/12C173475B/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-05-11"
+    },
+    "https://apply.workable.com/debiopharm/j/FC4F1439C1/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-05-11"
+    },
+    "https://apply.workable.com/debiopharm/j/1B593F4FBF/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-04-13"
+    },
+    "https://apply.workable.com/debiopharm/j/6024013BC6/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-05-13"
+    },
+    "https://apply.workable.com/debiopharm/j/720C19217F/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-05-19"
+    },
+    "https://apply.workable.com/debiopharm/j/40722BE5DC/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-04-07"
+    },
+    "https://apply.workable.com/debiopharm/j/F5778E08C8/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-04-02"
+    },
+    "https://apply.workable.com/debiopharm/j/7151CCF994/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-04-07"
+    },
+    "https://apply.workable.com/debiopharm/j/6D1731B97E/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-05-11"
+    },
+    "https://apply.workable.com/debiopharm/j/62FD6A1955/": {
+      "location": "Lausanne",
+      "canton": "VD",
+      "company": "Debiopharm",
+      "postedDate": "2026-01-21"
+    }
+  },
+  "notes": "Dedicated Debiopharm crawler uses SSR debiopharm.com/careers + Workable v2 job detail API for Swiss jobs.",
+  "updatedAt": "2026-05-19T19:53:21.016Z"
+}
