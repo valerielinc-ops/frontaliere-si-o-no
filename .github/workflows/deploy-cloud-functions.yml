@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - 'functions/**'
+      - 'firestore.indexes.json'
   workflow_dispatch:
 
 permissions:
@@ -50,6 +51,9 @@ jobs:
 
       - name: Deploy Cloud Functions
         run: firebase deploy --only functions --project frontaliere-ticino --force
+
+      - name: Deploy Firestore indexes
+        run: firebase deploy --only firestore:indexes --project frontaliere-ticino
 
       - name: Report failure to Linear
         if: failure()
