@@ -4,13 +4,21 @@
 > **Fonte ospedali:** `data/swiss-hospitals.json` (463 entries scraped da welches-spital.ch, equivalente tedesco di which-hospital.ch/switzerland)
 > **Scope:** identificare ospedali svizzeri NON ancora coperti da parser/crawler esistenti, con relative career page e ATS, pronti per implementazione crawler.
 
-## Stato avanzamento (aggiornato 2026-05-19 post-batch 15)
+## Stato avanzamento (aggiornato 2026-05-19 post-batch 19)
 
-- Parser esistenti al T0: **31** (vedi §2). Ora: **~116 dedicated + 15 ATS factories**.
-- Batch shippati: 1-15 (ultimo PR #392).
-- **Backlog stimato: ~161/277 ospedali standalone** ancora non coperti (questo documento §3 + §4).
-- Sprint highlights post-T0: PUK Zürich 90 jobs (Refline), CSL Behring 40 (Workday), PZM Münsingen 86 (Prospective), LUKS 221 (Prospective), HOCH 204 (SF).
-- Follow-up sprint plan: **`docs/PLANS/crawlers-batch-16-and-followup.md`** — coda residuale via SmartRecruiters/Greenhouse/Personio sweep + verifica live batch 15 + Fielmann backfill + CSL maxPages bump.
+- Parser esistenti al T0: **31** (vedi §2). Ora: **~145 dedicated + 15 ATS factories**.
+- Batch shippati: 1-19 (PR #399 → #413).
+- **Backlog effettivo residuo:** la stragrande maggioranza degli ospedali listati in §3/§4 è ora coperta, o esclusa per: (a) <5 jobs/PDF only, (b) bot-blocked che richiede Playwright, (c) sito morto/parked, (d) sussidiario di gruppo già coperto.
+- Sprint highlights batch 16-19 (2026-05-19 sera):
+  - **Batch 16** (PR #401-403): SmartRecruiters (Ardentis 38, imad 12, Sobi 7), Workable (Debiopharm 16), SF CSB (Bachem 74, Medartis 16, Tecan 14, Octapharma 8) = **185 jobs**
+  - **Batch 17** (PR #406-408): aarReha 13 + Pallas 9; UKBB 19, PBL 47, Rennbahnklinik 12; Uroviva 9, Forel Klinik 6, Kispi 53 = **168 jobs**
+  - **Batch 18** (PR #409-411): PSGN 10, Kispi-SG 10; IGS Bern 5, Südhang 8, Privatklinik Wyss 7; NSN Medical 10, Klinik Susenberg 5, Vista 9 = **64 jobs**
+  - **Batch 19** (PR #412-413): Cereneo 7, Triaplus 28; OSCAM 3, Klinik Gut 7, Canton Ticino OSC 9 = **54 jobs**
+  - **Plus:** CSL Behring bump (+15), Fielmann backfill script, breadcrumb regression fix
+  - **Totale net unlock: ~471 nuovi job CH** + 29 nuovi crawler.
+- Discovery completamente esaurita: SmartRecruiters/Workable/Lever/Greenhouse, SuccessFactors CSB tail, Personio/Recruitee/Teamtailor/softgarden/onlyfy (Agent D batch 16 = 0 qualified), TG/SH/JU/NE/SZ/GL (Agent K batch 18 = 0 qualified, tutto già coperto via parent groups o sotto threshold).
+- **Deferred (richiedono Playwright o ATS proprietario):** Benteler (SAP SF JS), Nestle (Workday retired), Leukerbad Clinic (Prismic CMS), Clinica Holistica (Cloudflare challenge), AMEOS Brunnen (GWT app), Bürgenstock Waldhotel (Umantis 2850 ma 95% hotel jobs), Klinik Meissenberg (medicus.ch SPA).
+- Follow-up sprint plan: **`docs/plans/crawlers-batch-16-and-followup.md`** — TODO list operativo + L1-L9 lezioni operative.
 
 ## Documenti correlati
 
