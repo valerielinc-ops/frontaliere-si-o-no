@@ -1,7 +1,263 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-05-18T22:01:05.675Z",
+  "assembledAt": "2026-05-19T11:48:30.108Z",
   "jobs": [
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4074?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4074?c=groupemutuel&lang=fr-FR",
+      "title": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Sion",
+      "canton": "VS",
+      "country": "CH",
+      "description": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "descriptionByLocale": {
+        "en": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "it": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
+      },
+      "titleByLocale": {
+        "fr": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable",
+        "it": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable",
+        "en": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable",
+        "de": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable"
+      },
+      "slug": "gestionnaire-contrats-m-w-d-100-temporaire-3-mois-prolongeable-groupe-mutuel-sion",
+      "slugByLocale": {
+        "fr": "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel",
+        "en": "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel",
+        "it": "gestionnaire-contrats-m-w-d-100-temporaire-3-mois-prolongeable-groupe-mutuel-sion",
+        "de": "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel"
+      },
+      "category": "administration",
+      "datePosted": "2026-05-19",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Sion"
+      },
+      "jobReqId": "4074",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-c6763622482f",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950",
+      "firstSeenAt": "2026-05-19T11:48:30.108Z"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4073?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4073?c=groupemutuel&lang=fr-FR",
+      "title": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Fribourg",
+      "canton": "FR",
+      "country": "CH",
+      "description": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "descriptionByLocale": {
+        "en": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "it": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "Tu gères les contrats d’assurance avec efficacité, de l’adhésion à la démission, en passant par toutes les modifications nécessaires Rédiger une correspondance claire et professionnelle – par courrier ou par e-mail – fait partie de ton quotidien L’indexation de documents n’a plus de secret pour toi : tu veilles à ce que tout soit organisé et accessible Offrir un service clientèle de qualité, c’est ta priorité : tu assures un suivi rigoureux et attentionné à chaque interaction\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
+      },
+      "titleByLocale": {
+        "fr": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable",
+        "it": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable",
+        "en": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable",
+        "de": "Gestionnaire contrats (h/f) 100% - temporaire 3 mois, prolongeable"
+      },
+      "slug": "gestionnaire-contrats-m-w-d-100-temporaire-3-mois-prolongeable-groupe-mutuel-fribourg",
+      "slugByLocale": {
+        "fr": "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel",
+        "en": "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel",
+        "it": "gestionnaire-contrats-m-w-d-100-temporaire-3-mois-prolongeable-groupe-mutuel-fribourg",
+        "de": "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2"
+      },
+      "category": "administration",
+      "datePosted": "2026-05-19",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Fribourg"
+      },
+      "jobReqId": "4073",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-2e973aa8bc34",
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-contrats-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1700",
+      "firstSeenAt": "2026-05-19T11:48:30.108Z"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4072?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4072?c=groupemutuel&lang=fr-FR",
+      "title": "Sachbearbeiter Vertragsabteilung (m/w) 100% - temporär 3 Monate, verlängerbar",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Zürich",
+      "canton": "ZH",
+      "country": "CH",
+      "description": "Du verwaltest Versicherungsverträge mit Sorgfalt und Effizienz – ob Neuabschluss, Änderung oder Kündigung Ob per Brief oder E-Mail – du kommunizierst klar, verständlich und stets auf professionellem Niveau Die Indexierung von Dokumenten erledigst du strukturiert – du sorgst dafür, dass alles dort ist, wo es hingehört Vorbildlicher Kundenservice ist für dich selbstverständlich – du verfolgst jede Anfrage mit Aufmerksamkeit und Engagement\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "descriptionByLocale": {
+        "en": "Du verwaltest Versicherungsverträge mit Sorgfalt und Effizienz – ob Neuabschluss, Änderung oder Kündigung Ob per Brief oder E-Mail – du kommunizierst klar, verständlich und stets auf professionellem Niveau Die Indexierung von Dokumenten erledigst du strukturiert – du sorgst dafür, dass alles dort ist, wo es hingehört Vorbildlicher Kundenservice ist für dich selbstverständlich – du verfolgst jede Anfrage mit Aufmerksamkeit und Engagement\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "Poste ouvert chez Groupe Mutuel à Zürich.\nRôle : Sachbearbeiter Vertragsabteilung (m/w) 100% - temporär 3 Monate, verlängerbar.\n\nGroupe Mutuel est l'un des principaux groupes d'assurance en Suisse, dont le siège est à Martigny (Valais). L'entreprise propose une large gamme de produits d'assurance et de prévoyance pour les particuliers et les entreprises dans toute la Suisse.",
+        "de": "Du verwaltest Versicherungsverträge mit Sorgfalt und Effizienz – ob Neuabschluss, Änderung oder Kündigung Ob per Brief oder E-Mail – du kommunizierst klar, verständlich und stets auf professionellem Niveau Die Indexierung von Dokumenten erledigst du strukturiert – du sorgst dafür, dass alles dort ist, wo es hingehört Vorbildlicher Kundenservice ist für dich selbstverständlich – du verfolgst jede Anfrage mit Aufmerksamkeit und Engagement\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "it": "Du verwaltest Versicherungsverträge mit Sorgfalt und Effizienz – ob Neuabschluss, Änderung oder Kündigung Ob per Brief oder E-Mail – du kommunizierst klar, verständlich und stets auf professionellem Niveau Die Indexierung von Dokumenten erledigst du strukturiert – du sorgst dafür, dass alles dort ist, wo es hingehört Vorbildlicher Kundenservice ist für dich selbstverständlich – du verfolgst jede Anfrage mit Aufmerksamkeit und Engagement\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
+      },
+      "titleByLocale": {
+        "fr": "Sachbearbeiter Vertragsabteilung (m/w) 100% - temporär 3 Monate, verlängerbar",
+        "de": "Sachbearbeiter Vertragsabteilung (m/w) 100% - temporär 3 Monate, verlängerbar",
+        "it": "Sachbearbeiter Vertragsabteilung (m/w) 100% - temporär 3 Monate, verlängerbar",
+        "en": "Sachbearbeiter Vertragsabteilung (m/w) 100% - temporär 3 Monate, verlängerbar"
+      },
+      "slug": "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel",
+      "slugByLocale": {
+        "fr": "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel",
+        "en": "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel",
+        "it": "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel",
+        "de": "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel"
+      },
+      "category": "administration",
+      "datePosted": "2026-05-19",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "jobReqId": "4072",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-7fa90c45c6f8",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "firstSeenAt": "2026-05-19T11:48:30.108Z"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4071?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4071?c=groupemutuel&lang=fr-FR",
+      "title": "Sachbearbeiter Vertragsabteilung (m/w) 100% - temporär 3 Monate, verlängerbar",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Sion",
+      "canton": "VS",
+      "country": "CH",
+      "description": "Du verwaltest Versicherungsverträge mit Sorgfalt und Effizienz – ob Neuabschluss, Änderung oder Kündigung Ob per Brief oder E-Mail – du kommunizierst klar, verständlich und stets auf professionellem Niveau Die Indexierung von Dokumenten erledigst du strukturiert – du sorgst dafür, dass alles dort ist, wo es hingehört Vorbildlicher Kundenservice ist für dich selbstverständlich – du verfolgst jede Anfrage mit Aufmerksamkeit und Engagement\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "descriptionByLocale": {
+        "en": "Du verwaltest Versicherungsverträge mit Sorgfalt und Effizienz – ob Neuabschluss, Änderung oder Kündigung Ob per Brief oder E-Mail – du kommunizierst klar, verständlich und stets auf professionellem Niveau Die Indexierung von Dokumenten erledigst du strukturiert – du sorgst dafür, dass alles dort ist, wo es hingehört Vorbildlicher Kundenservice ist für dich selbstverständlich – du verfolgst jede Anfrage mit Aufmerksamkeit und Engagement\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "Poste ouvert chez Groupe Mutuel à Sion.\nRôle : Sachbearbeiter Vertragsabteilung (m/w) 100% - temporär 3 Monate, verlängerbar.\n\nGroupe Mutuel est l'un des principaux groupes d'assurance en Suisse, dont le siège est à Martigny (Valais). L'entreprise propose une large gamme de produits d'assurance et de prévoyance pour les particuliers et les entreprises dans toute la Suisse.",
+        "de": "Du verwaltest Versicherungsverträge mit Sorgfalt und Effizienz – ob Neuabschluss, Änderung oder Kündigung Ob per Brief oder E-Mail – du kommunizierst klar, verständlich und stets auf professionellem Niveau Die Indexierung von Dokumenten erledigst du strukturiert – du sorgst dafür, dass alles dort ist, wo es hingehört Vorbildlicher Kundenservice ist für dich selbstverständlich – du verfolgst jede Anfrage mit Aufmerksamkeit und Engagement\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "it": "Du verwaltest Versicherungsverträge mit Sorgfalt und Effizienz – ob Neuabschluss, Änderung oder Kündigung Ob per Brief oder E-Mail – du kommunizierst klar, verständlich und stets auf professionellem Niveau Die Indexierung von Dokumenten erledigst du strukturiert – du sorgst dafür, dass alles dort ist, wo es hingehört Vorbildlicher Kundenservice ist für dich selbstverständlich – du verfolgst jede Anfrage mit Aufmerksamkeit und Engagement\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
+      },
+      "titleByLocale": {
+        "fr": "Sachbearbeiter Vertragsabteilung (m/w) 100% - temporär 3 Monate, verlängerbar",
+        "de": "Sachbearbeiter Vertragsabteilung (m/w) 100% - temporär 3 Monate, verlängerbar",
+        "it": "Sachbearbeiter Vertragsabteilung (m/w) 100% - temporär 3 Monate, verlängerbar",
+        "en": "Sachbearbeiter Vertragsabteilung (m/w) 100% - temporär 3 Monate, verlängerbar"
+      },
+      "slug": "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel-2",
+      "slugByLocale": {
+        "fr": "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel",
+        "en": "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel",
+        "it": "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel-2",
+        "de": "sachbearbeiter-vertragsabteilung-m-w-100-temporar-3-monate-verlangerbar-groupe-mutuel-2"
+      },
+      "category": "administration",
+      "datePosted": "2026-05-19",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Sion"
+      },
+      "jobReqId": "4071",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-fcb9d99cd0eb",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950",
+      "firstSeenAt": "2026-05-19T11:48:30.108Z"
+    },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4041?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4041?c=groupemutuel&lang=fr-FR",
@@ -441,7 +697,8 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-04T10:57:40.559Z"
+      "firstSeenAt": "2026-05-04T10:57:40.559Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4005?c=groupemutuel&lang=fr-FR",
@@ -840,7 +1097,8 @@
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3980?c=groupemutuel&lang=fr-FR",
@@ -915,7 +1173,8 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-04-16T21:40:55.557Z"
+      "firstSeenAt": "2026-04-16T21:40:55.557Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3893?c=groupemutuel&lang=fr-FR",
@@ -990,7 +1249,8 @@
         }
       },
       "postalCode": "4500",
-      "firstSeenAt": "2026-04-15T21:41:29.166Z"
+      "firstSeenAt": "2026-04-15T21:41:29.166Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3883?c=groupemutuel&lang=fr-FR",
@@ -1065,7 +1325,8 @@
           "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3861?c=groupemutuel&lang=fr-FR",
@@ -1156,7 +1417,8 @@
           "conseiller-en-assurances-et-prevoyance-at-h-f-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3852?c=groupemutuel&lang=fr-FR",
@@ -1259,7 +1521,8 @@
           "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3724?c=groupemutuel&lang=fr-FR",
@@ -1358,7 +1621,8 @@
           "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:47:16.445Z"
+      "firstSeenAt": "2026-04-13T21:47:16.445Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/2796?c=groupemutuel&lang=fr-FR",
