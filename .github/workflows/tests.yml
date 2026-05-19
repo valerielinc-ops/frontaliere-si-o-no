@@ -1,0 +1,55 @@
+name: tests
+
+# Runs the full vitest suite on every PR + every push to main as a BLOCKING
+# CI gate. Before this workflow existed, vitest tests were never run in CI —
+# regression gates like `tests/build-plugins/criticalCssRootHeight.test.ts`
+# (added in PR #294) landed already-failing without anyone noticing, and the
+# `#root{min-height:100vh}` bug hit production for 24h until manual report.
+#
+# Wall time: ~2 min (~100s vitest + ~30s npm ci + setup). Fast enough to gate
+# every PR without slowing down the merge queue.
+#
+# Tests that read data/jobs.json (gitignored): the assemble step regenerates
+# it from the per-slice files committed under data/jobs-by-slice/.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Cancel in-progress runs for the same ref so superseded commits don't waste
+# the runner pool (matches deploy.yml's behaviour).
+concurrency:
+  group: tests-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  vitest:
+    name: vitest (unit + integration)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: npm ci
+        run: npm ci
+
+      - name: Assemble data/jobs.json
+        # Several tests read data/jobs.json (job-locale-completeness,
+        # job-cross-locale-guard, sitemap-slug-integrity, search-console-compat,
+        # cathedral-expired-tracking-canton). The file is gitignored — generate
+        # it from committed per-slice files before running the suite.
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Migrate canton-aware tracking
+        # cathedral-expired-tracking-canton asserts non-TI tracking entries use
+        # canton-aware section paths. The migration is idempotent.
+        run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
+
+      - name: vitest run
+        run: npm test

@@ -184,6 +184,9 @@ vi.mock('@/services/posthog', () => ({
  captureEvent: vi.fn(),
  capturePageView: vi.fn(),
  identifyUser: vi.fn(),
+ getFeatureFlag: vi.fn(() => null),
+ onFeatureFlags: vi.fn(() => () => {}),
+ registerSuperProperty: vi.fn(),
 }));
 
 // Mock Web Vitals

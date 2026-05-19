@@ -117,7 +117,13 @@ export interface SeoPageShellOpts {
   bodyHtml: string;
   /** JSON-LD payloads as stringified JSON (one entry per `<script>` tag). */
   jsonLdScripts?: string[];
-  /** Additional `<head>` HTML (extra meta, Twitter cards, prev/next, etc.). */
+  /** Per-page og:image override. Defaults to site-wide og-image.png (1200×630). */
+  ogImage?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
+  ogImageType?: string;
+  ogImageAlt?: string;
+  /** Additional `<head>` HTML (extra meta, prev/next links, etc.). MUST NOT contain og:image — use ogImage. */
   extraHeadHtml?: string;
   /** Override OG locale (e.g. `en_US`). Defaults to locale-mapped value. */
   ogLocale?: string;
@@ -217,6 +223,11 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     bodyHtml,
     jsonLdScripts,
     extraHeadHtml,
+    ogImage,
+    ogImageWidth,
+    ogImageHeight,
+    ogImageType,
+    ogImageAlt,
     ogLocale,
     robots = 'index,follow',
     ogType = 'website',
@@ -255,6 +266,11 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     ogType,
     ogLocale,
     hreflangHtml: hreflangHtml ?? '',
+    ogImage,
+    ogImageWidth,
+    ogImageHeight,
+    ogImageType,
+    ogImageAlt,
     extraHeadHtml: extraHeadHtml ?? '',
     jsonLdScripts: jsonLdScripts ?? [],
     entryJs: assets.entryJs || undefined,

@@ -1729,14 +1729,11 @@ function renderLeafPage(inp: LeafInputs): string {
             : `Live webcam — ${crossingDisplay}`)
     : title;
 
-  const extraHead = `    <meta property="og:image" content="${esc(ogImageTag)}">
-    <meta property="og:image:width" content="${ogImageWidth}">
-    <meta property="og:image:height" content="${ogImageHeight}">
-    <meta property="og:image:alt" content="${esc(ogImageAlt)}">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${esc(title)}">
+  // og:image is delivered via buildSeoPageHtml's ogImage param to avoid
+  // duplicate <meta og:image> tags. Only twitter title/description (which
+  // the shell defaults to og: equivalents) need extraHead override.
+  const extraHead = `    <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
-    <meta name="twitter:image" content="${esc(ogImageTag)}">
     <meta name="twitter:site" content="@frontaliereticino">`;
 
   const jsonLdScripts = [breadcrumbLd, webPageLd, faqLd];
@@ -1753,6 +1750,11 @@ function renderLeafPage(inp: LeafInputs): string {
     ogType: 'website',
     ogLocale: LOCALE_OG[locale],
     hreflangHtml: alternatesHtml,
+    ogImage: ogImageTag,
+    ogImageWidth: Number(ogImageWidth),
+    ogImageHeight: Number(ogImageHeight),
+    ogImageType: hasWebcamOg ? 'image/jpeg' : 'image/png',
+    ogImageAlt,
     extraHeadHtml: extraHead,
     jsonLdScripts,
     bodyHtml,

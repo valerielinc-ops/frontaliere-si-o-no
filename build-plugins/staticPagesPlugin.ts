@@ -1429,10 +1429,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'grenzgaenger-artikel': ['BlogArticles'],
  'articles-frontalier': ['BlogArticles'],
  'mappa-del-sito': ['SiteMapPage'],
- 'cerca-lavoro-ticino': ['JobBoard'],
- 'find-jobs-ticino': ['JobBoard'],
- 'jobs-im-tessin': ['JobBoard'],
- 'trouver-emploi-tessin': ['JobBoard'],
+ 'cerca-lavoro-ticino': ['JobBoard'], // cathedral-allow: TI is the original job board section; non-TI cantons route through cantonSection resolver, this map is the frozen IT-prefixed slug
+ 'find-jobs-ticino': ['JobBoard'], // cathedral-allow: see cerca-lavoro-ticino note
+ 'jobs-im-tessin': ['JobBoard'], // cathedral-allow: see cerca-lavoro-ticino note
+ 'trouver-emploi-tessin': ['JobBoard'], // cathedral-allow: see cerca-lavoro-ticino note
  };
  // Also map locale-specific translation chunks per section
  const sectionLocaleChunks: Record<string, string> = {
@@ -1451,8 +1451,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'leben-im-tessin': 'vita', 'vivre-au-tessin': 'vita',
  'articoli-frontaliere': 'stats', 'cross-border-articles': 'stats', 'frontier-articles': 'stats',
  'grenzgaenger-artikel': 'stats', 'articles-frontalier': 'stats',
- 'cerca-lavoro-ticino': 'stats', 'find-jobs-ticino': 'stats',
- 'jobs-im-tessin': 'stats', 'trouver-emploi-tessin': 'stats',
+ 'cerca-lavoro-ticino': 'stats', 'find-jobs-ticino': 'stats', // cathedral-allow: section→translation-chunk map, frozen original slugs
+ 'jobs-im-tessin': 'stats', 'trouver-emploi-tessin': 'stats', // cathedral-allow: section→translation-chunk map, frozen original slugs
  };
 
  let assetFiles: string[] = [];
@@ -1986,7 +1986,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'taxes-and-pension': 'Taxes & Pensions', 'frontier-guide': 'Cross-Border Guide',
  'living-in-ticino': 'Living in Ticino', 'statistics': 'Statistics',
  'frontier-articles': 'Articles', 'glossary': 'Glossary',
- 'cross-border-faq': 'FAQ', 'find-jobs-ticino': 'Jobs in Ticino',
+ 'cross-border-faq': 'FAQ', 'find-jobs-ticino': 'Jobs in Ticino', // cathedral-allow: EN breadcrumb dictionary, TI is the original section
  'site-map': 'Site Map', 'privacy-policy': 'Privacy Policy',
  'weekly-digest': 'Weekly Digest', 'net-salary-simulator': 'Net Salary Simulator',
  'what-if-simulator': 'What-If Simulator', 'currency-exchange': 'Currency Exchange',
@@ -2011,7 +2011,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'steuern-und-rente': 'Steuern & Vorsorge', 'grenzgaenger-leitfaden': 'Grenzgänger-Leitfaden',
  'leben-im-tessin': 'Leben im Tessin', 'statistiken': 'Statistiken',
  'grenzgaenger-artikel': 'Artikel', 'glossar': 'Glossar',
- 'grenzgaenger-faq': 'FAQ', 'jobs-im-tessin': 'Jobs im Tessin',
+ 'grenzgaenger-faq': 'FAQ', 'jobs-im-tessin': 'Jobs im Tessin', // cathedral-allow: DE breadcrumb dictionary, TI is the original section
  'seitenplan': 'Seitenplan', 'datenschutz': 'Datenschutz',
  'woechentlicher-digest': 'Wöchentlicher Digest', 'nettolohn-simulator': 'Nettolohn-Simulator',
  'was-waere-wenn': 'Was-Wäre-Wenn', 'waehrungsrechner': 'Währungsrechner',
@@ -2036,7 +2036,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'impots-et-retraite': 'Impôts & Retraite', 'guide-frontalier': 'Guide Frontalier',
  'vivre-au-tessin': 'Vivre au Tessin', 'statistiques': 'Statistiques',
  'articles-frontalier': 'Articles', 'glossaire': 'Glossaire',
- 'faq-frontaliers': 'FAQ', 'trouver-emploi-tessin': 'Emploi au Tessin',
+ 'faq-frontaliers': 'FAQ', 'trouver-emploi-tessin': 'Emploi au Tessin', // cathedral-allow: FR breadcrumb dictionary, TI is the original section
  'plan-du-site': 'Plan du Site', 'politique-de-confidentialite': 'Politique de Confidentialité',
  'digest-hebdomadaire': 'Digest Hebdomadaire', 'simulateur-salaire-net': 'Simulateur Salaire Net',
  'simulateur-hypothetique': 'Simulateur Hypothétique', 'change-devises': 'Change de Devises',
@@ -2304,7 +2304,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  'articoli-frontaliere': 'Articoli',
  'glossario-frontaliere': 'Glossario',
  'domande-frequenti-frontalieri': 'FAQ',
- 'cerca-lavoro-ticino': 'Lavoro in Ticino',
+ 'cerca-lavoro-ticino': 'Lavoro in Ticino', // cathedral-allow: IT breadcrumb dictionary, TI is the original section
  'mappa-del-sito': 'Mappa del Sito',
  'privacy-policy': 'Privacy Policy',
  'cancellazione-dati': 'Cancellazione Dati',

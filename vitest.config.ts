@@ -24,9 +24,14 @@ export default defineConfig({
  css: false,
  pool: 'threads',
  // Vitest 4 removed the `poolOptions` wrapper — pool tuning flags now live
- // directly on `InlineConfig`. `isolate: false` lets thread workers share a
- // single VM context, matching the previous pre-v4 behaviour.
- isolate: false,
+ // directly on `InlineConfig`. `isolate: true` runs each test file in its
+ // own VM context — prevents module-cache pollution between sibling tests.
+ // The suite has ~10 tests that pass in isolation but fail when run after
+ // a sibling that leaks vi.mock state into the shared context (e.g.
+ // errorReporter, useSeoPageTracking, jobboard-*). Cost: ~30% wall time
+ // increase, but turns a flaky suite into a deterministic one — required
+ // for the suite to actually gate CI without false-positive failures.
+ isolate: true,
  server: {
  deps: {
  inline: ['unpdf'],
