@@ -33,6 +33,53 @@ interface Release {
 
 export const RELEASES: Release[] = [
  {
+ version: '3.48.0',
+ date: '2026-05-19',
+ titleKey: 'whatsNew.v3480.title',
+ items: [
+ {
+ type: 'improvement',
+ titleKey: 'whatsNew.v3480.jobAlertSimpler.title',
+ descKey: 'whatsNew.v3480.jobAlertSimpler.desc',
+ link: { tab: 'job-board' },
+ },
+ {
+ type: 'fix',
+ titleKey: 'whatsNew.v3480.jobAlertNoPopup.title',
+ descKey: 'whatsNew.v3480.jobAlertNoPopup.desc',
+ link: { tab: 'job-board' },
+ },
+ {
+ type: 'feature',
+ titleKey: 'whatsNew.v3480.hospitalCrawlers.title',
+ descKey: 'whatsNew.v3480.hospitalCrawlers.desc',
+ link: { tab: 'job-board' },
+ },
+ {
+ type: 'improvement',
+ titleKey: 'whatsNew.v3480.blogOpen.title',
+ descKey: 'whatsNew.v3480.blogOpen.desc',
+ link: { tab: 'blog' },
+ },
+ {
+ type: 'improvement',
+ titleKey: 'whatsNew.v3480.newsletterRotation.title',
+ descKey: 'whatsNew.v3480.newsletterRotation.desc',
+ },
+ {
+ type: 'feature',
+ titleKey: 'whatsNew.v3480.salaryLocales.title',
+ descKey: 'whatsNew.v3480.salaryLocales.desc',
+ link: { tab: 'calcolatore' },
+ },
+ {
+ type: 'improvement',
+ titleKey: 'whatsNew.v3480.fasterLoads.title',
+ descKey: 'whatsNew.v3480.fasterLoads.desc',
+ },
+ ],
+ },
+ {
  version: '3.47.0',
  date: '2026-04-21',
  titleKey: 'whatsNew.v3470.title',
