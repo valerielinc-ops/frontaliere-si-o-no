@@ -28,7 +28,15 @@ const parser = createProspectiveChParser({
   defaultPostalCode: '7317',
   publicCareerUrl: 'https://valens.ch/karriere/offene-stellen/',
   defaultSourceLang: 'de',
-  extraTrustedHosts: ['valens.ch', 'jobs.kliniken-valens.ch', 'blitzbewerbung.kliniken-valens.ch'],
+  // Prospective directlink uses the `jobs.valens.ch` host (the corporate apex is
+  // `kliniken-valens.ch` so the bare `valens.ch` apex match doesn't apply to the
+  // jobs subdomain). The full set covers historical apply-form hosts as well.
+  extraTrustedHosts: [
+    'valens.ch',
+    'jobs.valens.ch',
+    'jobs.kliniken-valens.ch',
+    'blitzbewerbung.kliniken-valens.ch',
+  ],
 });
 
 export const fetchAllKlinikenValensJobs = parser.fetchAllJobs;
