@@ -407,6 +407,23 @@ export async function fetchAllJobs(): Promise<Job[]> {
  return data as Job[];
 }
 
+/**
+ * Scope a job array to a canton, preserving the input when the canton is
+ * {@link AGGREGATE_CANTON_CODE}. Used by JobBoard's legacy-fallback path:
+ * when the per-canton shard 404s and we load the locale-wide monolith
+ * (`/data/jobs-{locale}.json`, ~13 MB, all 26 cantons mixed), this filter
+ * prevents the TI-dominant payload from leaking into non-TI canton SERPs.
+ *
+ * Pure / side-effect free → unit-testable without DOM or network.
+ */
+export function scopeJobsToCanton<T extends { canton?: string | null }>(
+ jobs: ReadonlyArray<T>,
+ targetCanton: string,
+): T[] {
+ if (targetCanton === AGGREGATE_CANTON_CODE) return jobs.slice();
+ return jobs.filter((j) => j.canton === targetCanton);
+}
+
 // --------------------------------------------------------------------------
 // Internals
 // --------------------------------------------------------------------------

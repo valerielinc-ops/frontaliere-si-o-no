@@ -2443,11 +2443,17 @@ export function parsePath(pathname: string): ParseResult {
        // across cantons (handled inside `isKnownCityHub`).
        const cantonForCityLookup = cantonCode !== '_AGGREGATE_' ? cantonCode : undefined;
        if (isKnownCityHub(rawSecond, cantonForCityLookup)) {
+         // Build emits a real per-city static HTML at this path (city-jobs-hub
+         // plugin) with the jobs already filtered and ranked for the city.
+         // staticOverlay:true keeps that SSR content visible — without it the
+         // SPA hydration replaces the 3 city-filtered cards with a generic
+         // canton-wide SERP (jobBoardCity is currently a dead field downstream).
          return {
            route: {
              activeTab: 'job-board',
              jobBoardCanton: cantonCode,
              jobBoardCity: rawSecond,
+             staticOverlay: true,
            },
            locale,
          };

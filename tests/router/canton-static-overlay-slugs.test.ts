@@ -101,9 +101,15 @@ describe('per-canton static-overlay slugs', () => {
     expect(parsed.route.jobSlug).toBe('software-engineer-acme-basel');
   });
 
-  it('ZH city slug still routes to jobBoardCity (no false positive)', () => {
+  // 2026-05-19: city hubs now ALSO carry staticOverlay:true (parity with
+  // company hubs / categories). The build emits a real per-city HTML
+  // (city-jobs-hub plugin) with jobs already filtered to the city and the
+  // SEO copy block underneath. Without staticOverlay the SPA replaced the
+  // 3 city-filtered cards with a generic canton-wide SERP — visible bug
+  // on /cerca-lavoro-basilea/pratteln/.
+  it('ZH city slug routes to jobBoardCity with staticOverlay:true', () => {
     const parsed = parsePath('/cerca-lavoro-zurigo/zurich/');
     expect(parsed.route.jobBoardCity).toBe('zurich');
-    expect(parsed.route.staticOverlay).toBeFalsy();
+    expect(parsed.route.staticOverlay).toBe(true);
   });
 });
