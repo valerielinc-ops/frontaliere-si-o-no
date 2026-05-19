@@ -1,18 +1,19 @@
 {
   "key": "uroviva",
   "label": "Uroviva",
-  "generatedAt": "2026-05-19T20:48:21.108Z",
+  "generatedAt": "2026-05-19T23:51:42.375Z",
   "total": 9,
-  "newCount": 9,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 130236,
-  "avgDurationMs": 130236,
+  "durationMs": 7091,
+  "avgDurationMs": 7091,
   "durationHistory": [
-    130236
+    7091
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "uroviva-b848d631d58a",
       "slug": "fachperson-gesundheit-fage-efz-im-operationssaal-40-50-uroviva-bulach",
@@ -26,7 +27,7 @@
       "url": "https://jobs.dualoo.com/portal/nthmjmb4/e3f620cb-eff3-4f4f-a3f9-c1abc855e099/detail?lang=DE",
       "source": "Uroviva Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:11.623Z",
+      "crawledAt": "2026-05-19T23:51:36.523Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/nthmjmb4/e3f620cb-eff3-4f4f-a3f9-c1abc855e099/detail?lang=DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:46:11.623Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://jobs.dualoo.com/portal/nthmjmb4/94489ca8-dd82-4f64-b473-750a177f8ed5/detail?lang=DE",
       "source": "Uroviva Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:12.128Z",
+      "crawledAt": "2026-05-19T23:51:36.998Z",
       "addressLocality": "Stadelhofen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/nthmjmb4/94489ca8-dd82-4f64-b473-750a177f8ed5/detail?lang=DE",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T20:46:12.128Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://jobs.dualoo.com/portal/nthmjmb4/7a7528ec-8534-4efd-8b36-b52b6002e2ff/detail?lang=DE",
       "source": "Uroviva Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:12.628Z",
+      "crawledAt": "2026-05-19T23:51:37.473Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/nthmjmb4/7a7528ec-8534-4efd-8b36-b52b6002e2ff/detail?lang=DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:46:12.628Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://jobs.dualoo.com/portal/nthmjmb4/58a3539a-284d-4db7-aed2-bdd110949716/detail?lang=DE",
       "source": "Uroviva Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:13.126Z",
+      "crawledAt": "2026-05-19T23:51:37.950Z",
       "addressLocality": "Stadelhofen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/nthmjmb4/58a3539a-284d-4db7-aed2-bdd110949716/detail?lang=DE",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T20:46:13.126Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://jobs.dualoo.com/portal/nthmjmb4/289019e6-8024-436a-8806-1ac4fb5552df/detail?lang=DE",
       "source": "Uroviva Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:13.630Z",
+      "crawledAt": "2026-05-19T23:51:38.423Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/nthmjmb4/289019e6-8024-436a-8806-1ac4fb5552df/detail?lang=DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:46:13.630Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://jobs.dualoo.com/portal/nthmjmb4/23b7709f-df7a-478a-9688-827d2ff10dcc/detail?lang=DE",
       "source": "Uroviva Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:14.124Z",
+      "crawledAt": "2026-05-19T23:51:38.892Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/nthmjmb4/23b7709f-df7a-478a-9688-827d2ff10dcc/detail?lang=DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:46:14.124Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://jobs.dualoo.com/portal/nthmjmb4/68b243fa-4637-43a7-8e91-2639b0d00a74/detail?lang=DE",
       "source": "Uroviva Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:14.621Z",
+      "crawledAt": "2026-05-19T23:51:39.365Z",
       "addressLocality": "Bülach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -257,11 +264,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/nthmjmb4/68b243fa-4637-43a7-8e91-2639b0d00a74/detail?lang=DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:46:14.621Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -278,7 +286,7 @@
       "url": "https://jobs.dualoo.com/portal/nthmjmb4/bee37769-ff26-49ab-a4c9-e1ac46b4a2fd/detail?lang=DE",
       "source": "Uroviva Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:15.118Z",
+      "crawledAt": "2026-05-19T23:51:39.835Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -293,11 +301,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/nthmjmb4/bee37769-ff26-49ab-a4c9-e1ac46b4a2fd/detail?lang=DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:46:15.118Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -314,7 +323,7 @@
       "url": "https://jobs.dualoo.com/portal/nthmjmb4/20133170-ae4e-4cb2-b60f-d6c8333665d5/detail?lang=DE",
       "source": "Uroviva Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:15.618Z",
+      "crawledAt": "2026-05-19T23:51:40.306Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -329,16 +338,16 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/nthmjmb4/20133170-ae4e-4cb2-b60f-d6c8333665d5/detail?lang=DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:46:15.618Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
