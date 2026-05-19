@@ -396,9 +396,13 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
       (j.slug && recentSet.has(j.slug)) ||
       Object.values(j.slugByLocale || {}).some((s) => s && recentSet.has(s))
     );
-  // Only apply exclusion when enough non-recent jobs remain
+  // Prefer fresh jobs always; only mix in recent-featured ones at the END to
+  // backfill missing slots. This guarantees a popular evergreen job in the
+  // exclude list cannot displace fresh candidates just because the fresh pool
+  // is below {limit}.
   const freshPool = fullPool.filter((j) => !jobIsRecent(j));
-  const pool = freshPool.length >= limit ? freshPool : fullPool;
+  const recentPool = fullPool.filter((j) => jobIsRecent(j));
+  const pool = freshPool.length >= limit ? freshPool : [...freshPool, ...recentPool];
 
   // ── Build subscriber interest profile from available signals ──
   const jobSlug = subscriber?.job_slug || '';

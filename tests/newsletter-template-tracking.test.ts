@@ -119,6 +119,23 @@ describe('newsletter content v2', () => {
     expect(matched.length).toBe(2);
   });
 
+  // Regression: recentlyFeaturedSlugs must never displace fresh candidates
+  // just because the fresh pool is shorter than `limit`. Older logic
+  // (freshPool.length >= limit ? freshPool : fullPool) wholesale fell back to
+  // the full pool, so an evergreen popular job in the exclude list could win
+  // again. New logic puts fresh first and only backfills missing slots.
+  it('matchJobsForSubscriber prefers fresh over recently-featured even when fresh pool is short', () => {
+    const jobs = [
+      { title: 'Evergreen', company: 'BigCo', location: 'Lugano', slug: 'evergreen', publishedAt: new Date().toISOString() },
+      { title: 'Fresh', company: 'NewCo', location: 'Lugano', slug: 'fresh-job', publishedAt: new Date().toISOString() },
+    ];
+
+    const matched = matchJobsForSubscriber({ locationInterest: null, sectorInterest: null }, jobs, 4, 'it', ['evergreen']);
+    expect(matched[0].slug).toBe('fresh-job');
+    expect(matched.length).toBe(2);
+    expect(matched.map((j) => j.slug)).toEqual(['fresh-job', 'evergreen']);
+  });
+
   it('getFallbackBriefing returns HTML for all locales', () => {
     for (const locale of ['it', 'en', 'de', 'fr']) {
       const html = getFallbackBriefing(locale, SAMPLE_EXCHANGE);
