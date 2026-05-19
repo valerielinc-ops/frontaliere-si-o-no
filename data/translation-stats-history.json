@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-05-04T11:53:50.594Z",
-    "label": "before",
-    "total": 2603,
-    "needsRetranslation": 1043,
-    "incomplete": 133,
-    "complete": 2470,
-    "missingByLocale": {
-      "it": 63,
-      "en": 106,
-      "de": 76,
-      "fr": 119
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 48
-      },
-      {
-        "company": "Kantonsspital Graubünden",
-        "pending": 13
-      },
-      {
-        "company": "Jumbo, Divisione di Coop Società Cooperativa",
-        "pending": 7
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 7
-      },
-      {
-        "company": "Denner",
-        "pending": 6
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 4
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 3
-      },
-      {
-        "company": "Lonza",
-        "pending": 3
-      },
-      {
-        "company": "Genossenschaft Migros Ostschweiz",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-04T12:53:07.405Z",
-    "label": "after",
-    "total": 2603,
-    "needsRetranslation": 93,
-    "incomplete": 36,
-    "complete": 2567,
-    "missingByLocale": {
-      "it": 22,
-      "en": 18,
-      "de": 21,
-      "fr": 27
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 7
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 4
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 3
-      },
-      {
-        "company": "Lonza",
-        "pending": 3
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 2
-      },
-      {
-        "company": "Heineken Switzerland",
-        "pending": 2
-      },
-      {
-        "company": "Union Bancaire Privée",
-        "pending": 2
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 1
-      },
-      {
-        "company": "Ariston Group",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-04T14:24:41.768Z",
     "label": "before",
     "total": 2603,
@@ -11056,6 +10944,118 @@
       {
         "company": "Fust | Swiss Household Services AG",
         "pending": 72
+      },
+      {
+        "company": "Lombard Odier",
+        "pending": 27
+      },
+      {
+        "company": "Novartis",
+        "pending": 24
+      },
+      {
+        "company": "IWC",
+        "pending": 20
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 20
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 11
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-19T04:39:46.683Z",
+    "label": "before",
+    "total": 4827,
+    "needsRetranslation": 1312,
+    "incomplete": 677,
+    "complete": 4150,
+    "missingByLocale": {
+      "it": 592,
+      "en": 242,
+      "de": 448,
+      "fr": 572
+    },
+    "topPending": [
+      {
+        "company": "Roche",
+        "pending": 299
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 76
+      },
+      {
+        "company": "Fust | Swiss Household Services AG",
+        "pending": 74
+      },
+      {
+        "company": "Lombard Odier",
+        "pending": 27
+      },
+      {
+        "company": "Novartis",
+        "pending": 24
+      },
+      {
+        "company": "IWC",
+        "pending": 20
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 20
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 11
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-19T04:57:18.271Z",
+    "label": "after",
+    "total": 4827,
+    "needsRetranslation": 1293,
+    "incomplete": 673,
+    "complete": 4154,
+    "missingByLocale": {
+      "it": 590,
+      "en": 240,
+      "de": 446,
+      "fr": 570
+    },
+    "topPending": [
+      {
+        "company": "Roche",
+        "pending": 299
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 76
+      },
+      {
+        "company": "Fust | Swiss Household Services AG",
+        "pending": 70
       },
       {
         "company": "Lombard Odier",
