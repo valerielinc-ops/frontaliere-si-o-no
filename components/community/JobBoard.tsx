@@ -2905,9 +2905,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // through to `JobOrphanView` even though the job is alive. The static
  // crawler-facing fallback (pre-rendered) shows the correct content, so
  // there's an unacceptable mismatch between first-paint and hydration.
- // Fix: when bridgeTargetSlug is set, jobs are loaded, and selectedJob is
- // null, look up the target canton from the slug-map and lazy-fetch that
- // canton's shard. On the next render selectedJob resolves correctly.
+ //
+ // Resolution order (cheapest → fattest):
+ //   1. fetchJobsForCanton(canton) — per-canton shard. As of 2026-05-19 the
+ //      shards are NOT built in CI (the SPA's primary path is the legacy
+ //      slim locale index), so this returns [] every time on prod. Still
+ //      attempted first in case the shard pipeline lands later.
+ //   2. /data/jobs-${locale}-index.json — full locale corpus (~5 MB,
+ //      already on the GHPages mirror, often warm in HTTP cache). Filter
+ //      by `meta.id` for the single target job, merge that one record.
  const [bridgeFetchAttempted, setBridgeFetchAttempted] = useState<string | null>(null);
  useEffect(() => {
  if (jobsLoading) return;
@@ -2921,18 +2927,38 @@ const JobBoard: React.FC<JobBoardProps> = ({
  await ensureJobSlugMapLoaded();
  if (cancelled) return;
  const meta = getJobMetaForSlug(targetSlug);
- if (!meta?.canton) return;
+ if (!meta?.canton || !meta?.id) return;
  // Skip if we already have any job from this canton — the target really
  // is missing (expired or never crawled) and a re-fetch won't help.
  const cantonCode = meta.canton;
  if (jobs.some((j) => String(j.canton || '').toUpperCase() === cantonCode)) return;
- const extra = await fetchJobsForCanton(cantonCode);
+ let extra: ReadonlyArray<unknown> = await fetchJobsForCanton(cantonCode);
+ if (cancelled) return;
+ if (!Array.isArray(extra) || extra.length === 0) {
+ // Shard unavailable — fall back to the slim locale index (the
+ // SPA's primary loader path). Filter to just the target job by
+ // stable id so we don't replace `jobs` wholesale.
+ try {
+ const res = await fetch(`/data/jobs-${locale}-index.json`);
+ if (res.ok) {
+ const all = await res.json();
+ if (Array.isArray(all)) {
+ const targetId = meta.id;
+ const match = all.find((j: { id?: string }) => j?.id === targetId);
+ if (match) extra = [match];
+ }
+ }
+ } catch {
+ // Slim-index fetch failure — leave extra empty, fall through.
+ }
+ }
  if (cancelled || !Array.isArray(extra) || extra.length === 0) return;
  setJobs((prev) => {
  const seen = new Set(prev.map((j) => j.id));
  const merged = [...prev];
  for (const j of extra) {
- if (!seen.has(j.id)) merged.push(j as unknown as JobListing);
+ const candidate = j as { id?: string };
+ if (candidate.id && !seen.has(candidate.id)) merged.push(j as unknown as JobListing);
  }
  return merged;
  });
