@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "ehc-vd-442b64f7073a",
-      "slug": "offerta-spontanea-centri-medici-presenze-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "slug": "offerta-non-richiesta-centro-medico-permanenze-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "offre-spontanee-centre-medicaux-permanences-ehc-vd-morges",
-        "it": "offerta-spontanea-centri-medici-presenze-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "spontaneous-offer-medical-centers-waiting-rooms-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "it": "offerta-non-richiesta-centro-medico-permanenze-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "unsolicited-offer-medical-centre-permanences-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "spontane-offerte-medizinische-zentren-wartezimmer-ensemble-hospitalier-de-la-cote-ehc-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -71,11 +71,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "offre-spontanee-centre-medicaux-permanences-ehc-vd-morges"
+          "offre-spontanee-centre-medicaux-permanences-ehc-vd-morges",
+          "offerta-spontanea-centri-medici-presenze-ensemble-hospitalier-de-la-cote-ehc-morges"
+        ],
+        "en": [
+          "spontaneous-offer-medical-centers-waiting-rooms-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "previousSlugs": [
-        "offre-spontanee-centre-medicaux-permanences-ehc-vd-morges"
+        "offre-spontanee-centre-medicaux-permanences-ehc-vd-morges",
+        "offerta-spontanea-centri-medici-presenze-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "spontaneous-offer-medical-centers-waiting-rooms-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -93,10 +99,10 @@
     },
     {
       "id": "ehc-vd-2fa0da6c60ca",
-      "slug": "offerta-spontanea-blocco-operatorio-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges",
+      "slug": "offerta-non-richiesta-unita-operativa-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "offre-spontanee-bloc-operatoire-anesthesie-ambulances-radiologie-ehc-vd-morges",
-        "it": "offerta-spontanea-blocco-operatorio-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "it": "offerta-non-richiesta-unita-operativa-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "spontaneous-offer-operating-room-anesthesia-ambulances-radiology-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "spontane-offerte-operationssaal-anasthesie-rettungsdienst-radiologie-ensemble-hospitalier-de-la-cote-ehc-morges"
       },
@@ -159,11 +165,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "offre-spontanee-bloc-operatoire-anesthesie-ambulances-radiologie-ehc-vd-morges"
+          "offre-spontanee-bloc-operatoire-anesthesie-ambulances-radiologie-ehc-vd-morges",
+          "offerta-spontanea-blocco-operatorio-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "previousSlugs": [
-        "offre-spontanee-bloc-operatoire-anesthesie-ambulances-radiologie-ehc-vd-morges"
+        "offre-spontanee-bloc-operatoire-anesthesie-ambulances-radiologie-ehc-vd-morges",
+        "offerta-spontanea-blocco-operatorio-anestesia-ambulanze-radiologia-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

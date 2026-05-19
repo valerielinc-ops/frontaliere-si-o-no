@@ -162,10 +162,10 @@
     },
     {
       "id": "hilcona-1b119fda31dc",
-      "slug": "gruppenleiter-produktion-m-w-d-hilcona-marchtrenk",
+      "slug": "capogruppo-produzione-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
       "slugByLocale": {
         "de": "gruppenleiter-produktion-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "it": "gruppenleiter-produktion-m-w-d-hilcona-marchtrenk",
+        "it": "capogruppo-produzione-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
         "en": "gruppenleiter-produktion-m-w-d-hilcona-marchtrenk",
         "fr": "gruppenleiter-produktion-m-w-d-hilcona-marchtrenk"
       },
@@ -219,7 +219,15 @@
       },
       "postalCode": "7000",
       "firstSeenAt": "2026-05-18T12:31:59.020Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "gruppenleiter-produktion-m-w-d-hilcona-marchtrenk"
+        ]
+      },
+      "previousSlugs": [
+        "gruppenleiter-produktion-m-w-d-hilcona-marchtrenk"
+      ]
     },
     {
       "id": "hilcona-e7209e483834",
@@ -737,9 +745,9 @@
     },
     {
       "id": "hilcona-b7b9fd6857d6",
-      "slug": "betriebsinstallateur-betriebsinstallateurin-hilcona-ag-schaan",
+      "slug": "installatore-aziendale-installatore-aziendale-hilcona-ag-schaan",
       "slugByLocale": {
-        "it": "betriebsinstallateur-betriebsinstallateurin-hilcona-ag-schaan",
+        "it": "installatore-aziendale-installatore-aziendale-hilcona-ag-schaan",
         "en": "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
         "de": "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
         "fr": "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan"
@@ -779,12 +787,12 @@
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
-        "installatore-aziendale-installatore-aziendale-hilcona-ag-schaan"
+        "betriebsinstallateur-betriebsinstallateurin-hilcona-ag-schaan"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebsinstallateur-betriebsinstallateurin-hilcona-schaan",
-          "installatore-aziendale-installatore-aziendale-hilcona-ag-schaan"
+          "betriebsinstallateur-betriebsinstallateurin-hilcona-ag-schaan"
         ]
       },
       "needsRetranslation": true,
@@ -2096,9 +2104,9 @@
     },
     {
       "id": "hilcona-c770e4ca2339",
-      "slug": "installateur-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+      "slug": "installatore-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
       "slugByLocale": {
-        "it": "installateur-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
+        "it": "installatore-m-w-d-hubers-landhendl-gmbh-pfaffstatt",
         "en": "installateur-m-w-d-hilcona-pfaffstatt",
         "de": "installateur-m-w-d-hilcona-pfaffstatt",
         "fr": "installateur-m-w-d-hilcona-pfaffstatt"
@@ -2137,11 +2145,11 @@
       "crawledAt": "2026-05-18T12:31:51.432Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "installatore-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+        "installateur-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "installatore-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
+          "installateur-m-w-d-hubers-landhendl-gmbh-pfaffstatt"
         ]
       },
       "needsRetranslation": true,
@@ -5101,9 +5109,9 @@
     },
     {
       "id": "hilcona-9215a6e64f54",
-      "slug": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
+      "slug": "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
       "slugByLocale": {
-        "it": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
+        "it": "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "en": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "de": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-seevetal",
         "fr": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
@@ -5143,13 +5151,13 @@
       "sourceLang": "de",
       "previousSlugs": [
         "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
-        "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
+        "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal",
         "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
           "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
-          "studio-duale-commercianti-industriali-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
+          "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-bell-deutschland-gmbh-co-kg-seevetal"
         ],
         "en": [
           "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-ag-bell-food-group-landquart"
@@ -5713,9 +5721,9 @@
     },
     {
       "id": "hilcona-b27ee66cce78",
-      "slug": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+      "slug": "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh",
       "slugByLocale": {
-        "it": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell",
+        "it": "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh",
         "en": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
         "de": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-radolfzell",
         "fr": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined"
@@ -5755,12 +5763,12 @@
       "sourceLang": "de",
       "previousSlugs": [
         "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
-        "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh"
+        "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
-          "specialista-in-formazione-per-la-logistica-di-magazzino-magazziniere-specializzato-m-w-d-hugli-nahrungsmittel-gmbh"
+          "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hugli-nahrungsmittel-gmbh-radolfzell"
         ]
       },
       "needsRetranslation": true,
@@ -7040,10 +7048,10 @@
     },
     {
       "id": "hilcona-db2426faa210",
-      "slug": "betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-bell-schweiz-ag-zell",
+      "slug": "meccanico-aziendale-meccanico-aziendale-estrazione-di-carne-100-bell-schweiz-ag-zell",
       "slugByLocale": {
         "de": "betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-bell-schweiz-ag-zell",
-        "it": "betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-bell-schweiz-ag-zell",
+        "it": "meccanico-aziendale-meccanico-aziendale-estrazione-di-carne-100-bell-schweiz-ag-zell",
         "en": "betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-bell-schweiz-ag-zell",
         "fr": "betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-bell-schweiz-ag-zell"
       },
@@ -7085,7 +7093,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-hilcona-ag-bell-food-group-landquart"
+          "betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-hilcona-ag-bell-food-group-landquart",
+          "betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-bell-schweiz-ag-zell"
         ],
         "en": [
           "betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-hilcona-ag-bell-food-group-landquart"
@@ -7099,6 +7108,7 @@
       },
       "previousSlugs": [
         "betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-hilcona-ag-bell-food-group-landquart",
+        "betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-bell-schweiz-ag-zell",
         "betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-hilcona-zell"
       ],
       "salaryMin": 55500,

@@ -2496,10 +2496,10 @@
     },
     {
       "id": "hug-ca0646a38d3e",
-      "slug": "cheffe-ou-chef-de-secretariat-80-a-100-hug-geneva",
+      "slug": "capo-o-capo-segreteria-da-80-a-100-hug-geneva",
       "slugByLocale": {
         "fr": "cheffe-ou-chef-de-secretariat-80-a-100-hug-geneva",
-        "it": "cheffe-ou-chef-de-secretariat-80-a-100-hug-geneva",
+        "it": "capo-o-capo-segreteria-da-80-a-100-hug-geneva",
         "en": "cheffe-ou-chef-de-secretariat-80-a-100-hug-geneva",
         "de": "cheffe-ou-chef-de-secretariat-80-a-100-hug-geneva"
       },
@@ -2558,7 +2558,15 @@
         }
       },
       "firstSeenAt": "2026-05-18T12:34:13.767Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "cheffe-ou-chef-de-secretariat-80-a-100-hug-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "cheffe-ou-chef-de-secretariat-80-a-100-hug-geneva"
+      ]
     },
     {
       "id": "hug-bb858fb6091e",

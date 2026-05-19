@@ -491,9 +491,9 @@
     },
     {
       "id": "pictet-9dae135a1b34",
-      "slug": "client-relationship-officer-latin-america-market-pictet-geneva",
+      "slug": "responsabile-delle-relazioni-con-i-clienti-mercato-dell-america-latina-pictet-group-geneva",
       "slugByLocale": {
-        "it": "client-relationship-officer-latin-america-market-pictet-geneva",
+        "it": "responsabile-delle-relazioni-con-i-clienti-mercato-dell-america-latina-pictet-group-geneva",
         "en": "client-relationship-officer-latin-america-market-pictet-geneva",
         "de": "client-relationship-officer-latin-america-market-pictet-geneva",
         "fr": "client-relationship-officer-latin-america-market-pictet-geneva"
@@ -550,13 +550,21 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-officer-latin-america-market-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "client-relationship-officer-latin-america-market-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-de351a5ddda6",
-      "slug": "risk-manager-9-month-fixed-term-contract-pictet-geneva",
+      "slug": "risk-manager-contratto-a-tempo-determinato-9-mesi-pictet-group-geneva",
       "slugByLocale": {
-        "it": "risk-manager-9-month-fixed-term-contract-pictet-geneva",
+        "it": "risk-manager-contratto-a-tempo-determinato-9-mesi-pictet-group-geneva",
         "en": "risk-manager-9-month-fixed-term-contract-pictet-geneva",
         "de": "risk-manager-9-month-fixed-term-contract-pictet-geneva",
         "fr": "risk-manager-9-month-fixed-term-contract-pictet-geneva"
@@ -613,13 +621,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "risk-manager-9-month-fixed-term-contract-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "risk-manager-9-month-fixed-term-contract-pictet-geneva"
+      ]
     },
     {
       "id": "pictet-559bd27be96e",
-      "slug": "client-relationship-officer-pictet-north-america-8-months-contract-pictet-geneva",
+      "slug": "responsabile-relazioni-con-i-clienti-pictet-nord-america-contratto-di-8-mesi-pictet-group-geneva",
       "slugByLocale": {
-        "it": "client-relationship-officer-pictet-north-america-8-months-contract-pictet-geneva",
+        "it": "responsabile-relazioni-con-i-clienti-pictet-nord-america-contratto-di-8-mesi-pictet-group-geneva",
         "en": "client-relationship-officer-pictet-north-america-8-months-contract-pictet-geneva",
         "de": "client-relationship-officer-pictet-north-america-8-months-contract-pictet-geneva",
         "fr": "client-relationship-officer-pictet-north-america-8-months-contract-pictet-geneva"
@@ -676,7 +692,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-officer-pictet-north-america-8-months-contract-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "client-relationship-officer-pictet-north-america-8-months-contract-pictet-geneva"
+      ]
     }
   ]
 }

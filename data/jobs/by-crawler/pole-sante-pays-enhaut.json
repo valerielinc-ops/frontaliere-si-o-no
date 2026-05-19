@@ -80,7 +80,7 @@
       "slugByLocale": {
         "fr": "medecin-assistant-pole-sante-pays-enhaut-chateau-d-oex",
         "it": "medico-assistente-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "en": "medecin-assistant-pole-sante-pays-enhaut-chateau-d-oex",
+        "en": "medical-assistant-pole-sante-pays-d-enhaut-chateau-d-oex",
         "de": "arztassistent-in-pole-sante-pays-d-enhaut-chateau-d-oex"
       },
       "company": "Pôle Santé Pays-d'Enhaut",
@@ -146,6 +146,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "medecin-assistant-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "en": [
           "medecin-assistant-pole-sante-pays-enhaut-chateau-d-oex"
         ]
       },

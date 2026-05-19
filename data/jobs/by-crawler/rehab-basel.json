@@ -698,7 +698,7 @@
         "en": "dipl-pflegefachperson-paraplegiologie-80-100-m-w-d-rehab-basel-basel",
         "it": "dipl-infermiere-specializzato-in-paraplegiologia-80-100-m-w-d-rehab-basel-basel",
         "de": "dipl-pflegefachperson-paraplegiologie-80-100-m-w-d-rehab-basel-basel",
-        "fr": "dipl-infirmier-en-paraplegologie-80-100-m-w-d-rehab-basel-basel"
+        "fr": "infirmier-e-en-paraplegiologie-80-100-h-f-rehab-basel-basel"
       },
       "company": "REHAB Basel",
       "companyKey": "rehab-basel",
@@ -744,10 +744,14 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-paraplegiologie-80-100-m-w-d-rehab-basel-basel"
+        ],
+        "fr": [
+          "dipl-infirmier-en-paraplegologie-80-100-m-w-d-rehab-basel-basel"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-paraplegiologie-80-100-m-w-d-rehab-basel-basel"
+        "dipl-pflegefachperson-paraplegiologie-80-100-m-w-d-rehab-basel-basel",
+        "dipl-infirmier-en-paraplegologie-80-100-m-w-d-rehab-basel-basel"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

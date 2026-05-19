@@ -446,7 +446,7 @@
         "de": "pflegeexpertin-pflegeexperte-apn-90-mit-klinischem-fokus-adullam-basel",
         "it": "esperto-a-di-assistenza-infermieristica-apn-90-focus-clinico-adullam-stiftung-basel",
         "en": "pflegeexpertin-pflegeexperte-apn-90-mit-klinischem-fokus-adullam-stiftung-basel",
-        "fr": "assistant-de-soins-ou-travailleur-socio-sanitaire-eoc-ente-ospedaliero-cantonale-lugano"
+        "fr": "expert-e-en-soins-infirmiers-apn-90-focus-clinique-adullam-stiftung-basel"
       },
       "company": "Adullam-Stiftung",
       "companyKey": "adullam",
@@ -496,11 +496,15 @@
         ],
         "en": [
           "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano-uikz1l"
+        ],
+        "fr": [
+          "assistant-de-soins-ou-travailleur-socio-sanitaire-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "previousSlugs": [
         "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano",
-        "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano-uikz1l"
+        "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano-uikz1l",
+        "assistant-de-soins-ou-travailleur-socio-sanitaire-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -598,8 +602,8 @@
       "slugByLocale": {
         "de": "logopade-in-20-adullam-stiftung-basel",
         "it": "logopedista-20-adullam-stiftung-basel",
-        "en": "nurse-in-general-care-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-lugano"
+        "en": "speech-therapist-20-adullam-stiftung-basel",
+        "fr": "orthophoniste-20-adullam-stiftung-basel"
       },
       "company": "Adullam-Stiftung",
       "companyKey": "adullam",
@@ -649,11 +653,19 @@
         ],
         "de": [
           "logopade-in-20-adullam-basel"
+        ],
+        "en": [
+          "nurse-in-general-care-eoc-ente-ospedaliero-cantonale-lugano"
+        ],
+        "fr": [
+          "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-lugano"
         ]
       },
       "previousSlugs": [
         "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-lugano",
-        "logopade-in-20-adullam-basel"
+        "logopade-in-20-adullam-basel",
+        "nurse-in-general-care-eoc-ente-ospedaliero-cantonale-lugano",
+        "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

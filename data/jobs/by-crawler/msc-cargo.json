@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "msc-cargo-f1ddd87c1987",
-      "slug": "shore-excursions-product-development-manager-msc-geneva",
+      "slug": "responsabile-sviluppo-prodotto-escursioni-msc-group-geneva",
       "slugByLocale": {
-        "it": "shore-excursions-product-development-manager-msc-geneva",
+        "it": "responsabile-sviluppo-prodotto-escursioni-msc-group-geneva",
         "en": "shore-excursions-product-development-manager-msc-geneva",
         "de": "shore-excursions-product-development-manager-msc-geneva",
         "fr": "shore-excursions-product-development-manager-msc-geneva"
@@ -51,6 +51,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "shore-excursions-product-development-manager-msc-geneva",
         "responsabile-sviluppo-prodotti-escursioni-a-terra-msc-group-geneva"
       ],
       "needsRetranslation": true,
@@ -67,13 +68,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "shore-excursions-product-development-manager-msc-geneva"
+        ]
+      }
     },
     {
       "id": "msc-cargo-be64fb5540f0",
-      "slug": "f-b-service-manager-msc-geneva",
+      "slug": "responsabile-del-servizio-f-b-msc-group-geneva",
       "slugByLocale": {
-        "it": "f-b-service-manager-msc-geneva",
+        "it": "responsabile-del-servizio-f-b-msc-group-geneva",
         "en": "f-b-service-manager-msc-geneva",
         "de": "f-b-service-manager-msc-geneva",
         "fr": "f-b-service-manager-msc-geneva"
@@ -118,7 +124,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsabile-del-servizio-f-b-msc-group-geneva"
+        "f-b-service-manager-msc-geneva"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:50:48.312Z",
@@ -134,7 +140,12 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-service-manager-msc-geneva"
+        ]
+      }
     },
     {
       "id": "msc-cargo-82745a9429a3",
@@ -280,10 +291,10 @@
     },
     {
       "id": "msc-cargo-6a5b336e6a54",
-      "slug": "digital-platforms-manager-msc-geneva",
+      "slug": "responsabile-piattaforme-digitali-msc-group-geneva",
       "slugByLocale": {
         "en": "digital-platforms-manager-msc-geneva",
-        "it": "digital-platforms-manager-msc-geneva",
+        "it": "responsabile-piattaforme-digitali-msc-group-geneva",
         "de": "digital-platforms-manager-msc-geneva",
         "fr": "digital-platforms-manager-msc-geneva"
       },
@@ -342,7 +353,15 @@
         }
       },
       "firstSeenAt": "2026-05-18T22:32:23.728Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-platforms-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "digital-platforms-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-b4cb66b778c0",
@@ -476,10 +495,10 @@
     },
     {
       "id": "msc-cargo-37ffd0de68db",
-      "slug": "casino-slots-and-technical-operations-manager-msc-geneva",
+      "slug": "responsabile-delle-slot-e-delle-operazioni-tecniche-del-casino-msc-group-geneva",
       "slugByLocale": {
         "en": "casino-slots-and-technical-operations-manager-msc-geneva",
-        "it": "casino-slots-and-technical-operations-manager-msc-geneva",
+        "it": "responsabile-delle-slot-e-delle-operazioni-tecniche-del-casino-msc-group-geneva",
         "de": "casino-slots-and-technical-operations-manager-msc-geneva",
         "fr": "casino-slots-and-technical-operations-manager-msc-geneva"
       },
@@ -538,7 +557,15 @@
         }
       },
       "firstSeenAt": "2026-05-18T22:32:21.129Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "casino-slots-and-technical-operations-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "casino-slots-and-technical-operations-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-4d73f620df60",
@@ -1122,10 +1149,10 @@
     },
     {
       "id": "msc-cargo-32cf9574722c",
-      "slug": "culinary-operations-manager-msc-geneva",
+      "slug": "responsabile-operazioni-culinarie-msc-group-geneva",
       "slugByLocale": {
         "en": "culinary-operations-manager-msc-geneva",
-        "it": "culinary-operations-manager-msc-geneva",
+        "it": "responsabile-operazioni-culinarie-msc-group-geneva",
         "de": "culinary-operations-manager-msc-geneva",
         "fr": "culinary-operations-manager-msc-geneva"
       },
@@ -1184,7 +1211,15 @@
         }
       },
       "firstSeenAt": "2026-05-18T22:32:09.248Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "culinary-operations-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "culinary-operations-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-72e4b16fc7fa",

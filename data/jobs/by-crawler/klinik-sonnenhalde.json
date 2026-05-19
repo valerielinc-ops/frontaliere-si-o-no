@@ -299,8 +299,8 @@
       "slugByLocale": {
         "de": "koch-kochin-efz-klinik-sonnenhalde-riehen",
         "it": "cuciniere-cuciniera-efz-klinik-sonnenhalde-riehen",
-        "en": "manager-vendite-nel-servizio-esterno-f-m-d-100-bellinzona-allianz-suisse-bellinzona",
-        "fr": "responsable-vendite-nel-servizio-esterno-f-m-d-100-bellinzona-allianz-suisse-bellinzona"
+        "en": "cook-chef-efz-klinik-sonnenhalde-riehen",
+        "fr": "cuisinier-cuisiniere-efz-klinik-sonnenhalde-riehen"
       },
       "company": "Klinik Sonnenhalde",
       "companyKey": "klinik-sonnenhalde",
@@ -346,10 +346,18 @@
       "previousSlugsByLocale": {
         "it": [
           "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona"
+        ],
+        "en": [
+          "manager-vendite-nel-servizio-esterno-f-m-d-100-bellinzona-allianz-suisse-bellinzona"
+        ],
+        "fr": [
+          "responsable-vendite-nel-servizio-esterno-f-m-d-100-bellinzona-allianz-suisse-bellinzona"
         ]
       },
       "previousSlugs": [
-        "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona"
+        "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona",
+        "manager-vendite-nel-servizio-esterno-f-m-d-100-bellinzona-allianz-suisse-bellinzona",
+        "responsable-vendite-nel-servizio-esterno-f-m-d-100-bellinzona-allianz-suisse-bellinzona"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -548,8 +556,8 @@
       "slugByLocale": {
         "de": "wms-praktikant-in-klinik-sonnenhalde-riehen",
         "it": "tirocinante-wms-klinik-sonnenhalde-riehen",
-        "en": "paramedic-50-100-spital-davos-davos",
-        "fr": "samu-50-100-spital-davos-davos"
+        "en": "dms-intern-klinik-sonnenhalde-riehen",
+        "fr": "stagiaire-wms-klinik-sonnenhalde-riehen"
       },
       "company": "Klinik Sonnenhalde",
       "companyKey": "klinik-sonnenhalde",
@@ -598,10 +606,18 @@
       "previousSlugsByLocale": {
         "it": [
           "paramedico-50-100-spital-davos-davos"
+        ],
+        "en": [
+          "paramedic-50-100-spital-davos-davos"
+        ],
+        "fr": [
+          "samu-50-100-spital-davos-davos"
         ]
       },
       "previousSlugs": [
-        "paramedico-50-100-spital-davos-davos"
+        "paramedico-50-100-spital-davos-davos",
+        "paramedic-50-100-spital-davos-davos",
+        "samu-50-100-spital-davos-davos"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -855,8 +871,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-personal-klinik-sonnenhalde-riehen",
         "it": "addetto-a-risorse-umane-klinik-sonnenhalde-riehen",
-        "en": "hr-staff-klinik-sonnenhalde-riehen",
-        "fr": "personnel-klinik-sonnenhalde-riehen"
+        "en": "associate-personal-klinik-sonnenhalde-riehen",
+        "fr": "collaborateur-trice-personal-klinik-sonnenhalde-riehen"
       },
       "company": "Klinik Sonnenhalde",
       "companyKey": "klinik-sonnenhalde",
@@ -902,10 +918,18 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-personal-klinik-sonnenhalde-riehen"
+        ],
+        "en": [
+          "hr-staff-klinik-sonnenhalde-riehen"
+        ],
+        "fr": [
+          "personnel-klinik-sonnenhalde-riehen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-personal-klinik-sonnenhalde-riehen"
+        "mitarbeiter-in-personal-klinik-sonnenhalde-riehen",
+        "hr-staff-klinik-sonnenhalde-riehen",
+        "personnel-klinik-sonnenhalde-riehen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
