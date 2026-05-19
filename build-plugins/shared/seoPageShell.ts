@@ -41,6 +41,7 @@ import np from 'node:path';
 import { buildSimplePage, type SimplePageOpts } from '../htmlTemplate';
 import { renderHubChromeSplit, type HubKey, type HubLocale, type HubHero } from './hubChrome';
 import { buildTitleWithBrand, TITLE_BRAND_SUFFIX } from './titleSuffix';
+import { minifyHtml } from './htmlMinify';
 
 /**
  * Strip any pre-existing " | Frontaliere Ticino" suffix from a callsite-
@@ -283,5 +284,5 @@ export function buildSeoPageHtml(opts: SeoPageShellOpts): string {
     ...(seoMainClass !== undefined ? { seoMainClass } : {}),
   };
 
-  return buildSimplePage(simpleOpts);
+  return minifyHtml(buildSimplePage(simpleOpts));
 }
