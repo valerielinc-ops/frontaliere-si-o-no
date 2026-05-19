@@ -1,16 +1,16 @@
 {
   "key": "impresa-pizzarotti",
   "label": "pizzarotti",
-  "generatedAt": "2026-05-19T12:28:25.061Z",
+  "generatedAt": "2026-05-19T23:10:42.740Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2045,
-  "avgDurationMs": 2045,
+  "durationMs": 1942,
+  "avgDurationMs": 1942,
   "durationHistory": [
-    2045
+    1942
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,11 +42,11 @@
       "salaryMax": 135000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-17T10:52:26.697Z",
-      "_qualityScore": 82,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 19,
+        "translation": 16,
         "completeness": 19
       }
     }
