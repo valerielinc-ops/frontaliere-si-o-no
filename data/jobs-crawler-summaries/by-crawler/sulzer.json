@@ -1,18 +1,88 @@
 {
   "key": "sulzer",
   "label": "Sulzer",
-  "generatedAt": "2026-05-19T18:52:57.701Z",
+  "generatedAt": "2026-05-19T23:40:13.245Z",
   "total": 40,
-  "newCount": 40,
-  "updatedCount": 0,
-  "removedCount": 0,
+  "newCount": 2,
+  "updatedCount": 38,
+  "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 1141250,
-  "avgDurationMs": 1141250,
+  "durationMs": 37264,
+  "avgDurationMs": 37264,
   "durationHistory": [
-    1141250
+    37264
   ],
   "newJobs": [
+    {
+      "id": "sulzer-24a1fdb25cf3",
+      "slug": "journey-level-machinist-sulzer-ch",
+      "company": "Sulzer",
+      "companyKey": "sulzer",
+      "companyDomain": "sulzer.com",
+      "title": "Journey Level Machinist",
+      "needsRetranslation": true,
+      "location": "Chattanooga",
+      "canton": "ZH",
+      "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Chattanooga/Journey-Level-Machinist_SJR94656-1",
+      "source": "Sulzer Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-19T23:39:40.151Z",
+      "addressLocality": "Chattanooga",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Chattanooga/Journey-Level-Machinist_SJR94656-1",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "sulzer-867962d72fb7",
+      "slug": "journey-level-machinist-sulzer-ch",
+      "company": "Sulzer",
+      "companyKey": "sulzer",
+      "companyDomain": "sulzer.com",
+      "title": "Journey Level Machinist",
+      "needsRetranslation": true,
+      "location": "Chattanooga",
+      "canton": "ZH",
+      "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Chattanooga/Journey-Level-Machinist_SJR94655-1",
+      "source": "Sulzer Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-19T23:39:40.889Z",
+      "addressLocality": "Chattanooga",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Chattanooga/Journey-Level-Machinist_SJR94655-1",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "sulzer-e1416125931d",
       "slug": "engineering-intern-sulzer-ch",
@@ -26,7 +96,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Bridgeport/Engineering-Intern_JR102991",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:00.402Z",
+      "crawledAt": "2026-05-19T23:39:41.598Z",
       "addressLocality": "Bridgeport",
       "addressCountry": "CH",
       "country": "CH",
@@ -39,11 +109,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Bridgeport/Engineering-Intern_JR102991",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T18:34:00.402Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -60,7 +131,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Houston/Payroll-Specialist_JR103056",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:01.108Z",
+      "crawledAt": "2026-05-19T23:39:42.313Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,11 +144,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Houston/Payroll-Specialist_JR103056",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-05-19T18:34:01.108Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -94,7 +166,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/La-Porte/Assistant-Controller_JR101007",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:01.960Z",
+      "crawledAt": "2026-05-19T23:39:43.062Z",
       "addressLocality": "La Porte",
       "addressCountry": "CH",
       "country": "CH",
@@ -107,11 +179,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/La-Porte/Assistant-Controller_JR101007",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:34:01.960Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -128,7 +201,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Suzhou/Service-Center-Manager---Sales-Manager-West_JR102835",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:02.850Z",
+      "crawledAt": "2026-05-19T23:39:43.777Z",
       "addressLocality": "Suzhou",
       "addressCountry": "CH",
       "country": "CH",
@@ -141,11 +214,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Suzhou/Service-Center-Manager---Sales-Manager-West_JR102835",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:34:02.850Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -162,7 +236,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Mobile/Welder_JR103032",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:03.540Z",
+      "crawledAt": "2026-05-19T23:39:44.502Z",
       "addressLocality": "Mobile",
       "addressCountry": "CH",
       "country": "CH",
@@ -175,11 +249,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Mobile/Welder_JR103032",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-19T18:34:03.540Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -196,7 +271,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Thimister-Clermont/Product-Development-Engineer_JR101607-1",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:04.259Z",
+      "crawledAt": "2026-05-19T23:39:45.220Z",
       "addressLocality": "Thimister",
       "addressCountry": "CH",
       "country": "CH",
@@ -209,11 +284,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Thimister-Clermont/Product-Development-Engineer_JR101607-1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:34:04.259Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -230,7 +306,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/La-Porte/Facility-Manager_JR102596-1",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:05.198Z",
+      "crawledAt": "2026-05-19T23:39:45.933Z",
       "addressLocality": "La Porte",
       "addressCountry": "CH",
       "country": "CH",
@@ -243,11 +319,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/La-Porte/Facility-Manager_JR102596-1",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-05-19T18:34:05.198Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -264,7 +341,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Casalecchio-di-Reno/Applications-and-Tendering-Engineer---Wastewater-Treatment_JR102858",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:06.047Z",
+      "crawledAt": "2026-05-19T23:39:46.646Z",
       "addressLocality": "Casalecchio di Reno",
       "addressCountry": "CH",
       "country": "CH",
@@ -277,11 +354,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Casalecchio-di-Reno/Applications-and-Tendering-Engineer---Wastewater-Treatment_JR102858",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-19T18:34:06.047Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -298,7 +376,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Allschwil/Process-Automation---Instrumentation-Engineer_JR102375",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:06.918Z",
+      "crawledAt": "2026-05-19T23:39:47.371Z",
       "addressLocality": "Allschwil",
       "addressCountry": "CH",
       "country": "CH",
@@ -311,11 +389,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Allschwil/Process-Automation---Instrumentation-Engineer_JR102375",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T18:34:06.918Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -332,7 +411,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/rsta/Field-Service-Technician_JR102959",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:07.605Z",
+      "crawledAt": "2026-05-19T23:39:48.085Z",
       "addressLocality": "Årsta",
       "addressCountry": "CH",
       "country": "CH",
@@ -345,11 +424,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/rsta/Field-Service-Technician_JR102959",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:34:07.605Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -366,7 +446,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Allschwil/Laboratory-Technician_JR102559",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:08.608Z",
+      "crawledAt": "2026-05-19T23:39:48.795Z",
       "addressLocality": "Allschwil",
       "addressCountry": "CH",
       "country": "CH",
@@ -379,11 +459,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Allschwil/Laboratory-Technician_JR102559",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:34:08.608Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -400,7 +481,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Pune/FP-A-Controller_JR102515",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:09.405Z",
+      "crawledAt": "2026-05-19T23:39:49.506Z",
       "addressLocality": "Pune",
       "addressCountry": "CH",
       "country": "CH",
@@ -413,11 +494,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Pune/FP-A-Controller_JR102515",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T18:34:09.405Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -434,7 +516,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Pune/Pump-Analytics-Engineer_JR102523",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:10.087Z",
+      "crawledAt": "2026-05-19T23:39:50.213Z",
       "addressLocality": "Pune",
       "addressCountry": "CH",
       "country": "CH",
@@ -447,11 +529,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Pune/Pump-Analytics-Engineer_JR102523",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T18:34:10.087Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -468,7 +551,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Baroda/Quality-Engineer---Rotary-Equipment-Services--Vadodara-_SJR95920",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:10.952Z",
+      "crawledAt": "2026-05-19T23:39:50.938Z",
       "addressLocality": "Baroda",
       "addressCountry": "CH",
       "country": "CH",
@@ -481,11 +564,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Baroda/Quality-Engineer---Rotary-Equipment-Services--Vadodara-_SJR95920",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:34:10.952Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -502,7 +586,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Leeds/Operational-Excellence-Development-Manager--Services_JR102518",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:11.800Z",
+      "crawledAt": "2026-05-19T23:39:51.643Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -515,11 +599,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Leeds/Operational-Excellence-Development-Manager--Services_JR102518",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T18:34:11.800Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -536,7 +621,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Maastricht/Workshop-Engineer_SJR96134",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:12.663Z",
+      "crawledAt": "2026-05-19T23:39:52.363Z",
       "addressLocality": "Maastricht",
       "addressCountry": "CH",
       "country": "CH",
@@ -549,11 +634,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Maastricht/Workshop-Engineer_SJR96134",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T18:34:12.663Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -570,7 +656,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Suzhou/Deputy-General-Manager--Sales----China-JV_SJR96035",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:13.556Z",
+      "crawledAt": "2026-05-19T23:39:53.073Z",
       "addressLocality": "Suzhou",
       "addressCountry": "CH",
       "country": "CH",
@@ -583,11 +669,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Suzhou/Deputy-General-Manager--Sales----China-JV_SJR96035",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T18:34:13.556Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -604,7 +691,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Purwakarta/TS-FS-Mechanic_JR102866",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:14.441Z",
+      "crawledAt": "2026-05-19T23:39:53.806Z",
       "addressLocality": "Purwakarta",
       "addressCountry": "CH",
       "country": "CH",
@@ -617,11 +704,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Purwakarta/TS-FS-Mechanic_JR102866",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T18:34:14.441Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -638,7 +726,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Makati/Technical-Manager_SJR95996",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:16.110Z",
+      "crawledAt": "2026-05-19T23:39:54.511Z",
       "addressLocality": "Makati",
       "addressCountry": "CH",
       "country": "CH",
@@ -651,11 +739,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Makati/Technical-Manager_SJR95996",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T18:34:16.110Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -672,7 +761,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Chattanooga/Quality-Assurance-Coordinator_JR101404",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:16.905Z",
+      "crawledAt": "2026-05-19T23:39:55.229Z",
       "addressLocality": "Chattanooga",
       "addressCountry": "CH",
       "country": "CH",
@@ -685,11 +774,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Chattanooga/Quality-Assurance-Coordinator_JR101404",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-19T18:34:16.905Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -706,7 +796,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Piedmont/Service-Center-Administrator_JR102999",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:17.695Z",
+      "crawledAt": "2026-05-19T23:39:55.942Z",
       "addressLocality": "Piedmont",
       "addressCountry": "CH",
       "country": "CH",
@@ -719,11 +809,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Piedmont/Service-Center-Administrator_JR102999",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T18:34:17.695Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -740,7 +831,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Venlo/Field-Service-Engineering-Lead---Heavy-Industrial-Turbines_JR102908-1",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:18.485Z",
+      "crawledAt": "2026-05-19T23:39:56.675Z",
       "addressLocality": "Venlo",
       "addressCountry": "CH",
       "country": "CH",
@@ -753,11 +844,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Venlo/Field-Service-Engineering-Lead---Heavy-Industrial-Turbines_JR102908-1",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-05-19T18:34:18.485Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -774,7 +866,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Suzhou/Regional-Sales-Manager_JR102111",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:19.172Z",
+      "crawledAt": "2026-05-19T23:39:57.383Z",
       "addressLocality": "Suzhou",
       "addressCountry": "CH",
       "country": "CH",
@@ -787,11 +879,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Suzhou/Regional-Sales-Manager_JR102111",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:34:19.172Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -808,7 +901,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Suzhou/Deputy-Regional-Manager---North-Central-China_JR102833",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:19.858Z",
+      "crawledAt": "2026-05-19T23:39:58.116Z",
       "addressLocality": "Suzhou",
       "addressCountry": "CH",
       "country": "CH",
@@ -821,11 +914,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Suzhou/Deputy-Regional-Manager---North-Central-China_JR102833",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:34:19.858Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -842,7 +936,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Salt-Lake-City/Project-Engineer_JR102882",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:20.683Z",
+      "crawledAt": "2026-05-19T23:39:59.376Z",
       "addressLocality": "Salt Lake City",
       "addressCountry": "CH",
       "country": "CH",
@@ -855,11 +949,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Salt-Lake-City/Project-Engineer_JR102882",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-19T18:34:20.683Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -876,7 +971,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Vantaa/Harjoittelija-huollon-ja-varaston-tehtviin_JR102872",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:21.470Z",
+      "crawledAt": "2026-05-19T23:40:00.214Z",
       "addressLocality": "Vantaa",
       "addressCountry": "CH",
       "country": "CH",
@@ -889,11 +984,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Vantaa/Harjoittelija-huollon-ja-varaston-tehtviin_JR102872",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:34:21.470Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -910,7 +1006,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Asker/Sales-Engineering-Specialist---Treatment-Solutions_JR102715",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:22.163Z",
+      "crawledAt": "2026-05-19T23:40:01.221Z",
       "addressLocality": "Asker",
       "addressCountry": "CH",
       "country": "CH",
@@ -923,11 +1019,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Asker/Sales-Engineering-Specialist---Treatment-Solutions_JR102715",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T18:34:22.163Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -944,7 +1041,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Chennai/Service-Center-Manager---Chennai_JR102416",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:23.356Z",
+      "crawledAt": "2026-05-19T23:40:02.102Z",
       "addressLocality": "Chennai",
       "addressCountry": "CH",
       "country": "CH",
@@ -957,11 +1054,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Chennai/Service-Center-Manager---Chennai_JR102416",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:34:23.356Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -978,7 +1076,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Vadodara/Service-Center-Operation-Head---Vadodara--Pumps---Turbo-services-_JR102415",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:24.240Z",
+      "crawledAt": "2026-05-19T23:40:03.249Z",
       "addressLocality": "Vadodara",
       "addressCountry": "CH",
       "country": "CH",
@@ -991,11 +1089,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Vadodara/Service-Center-Operation-Head---Vadodara--Pumps---Turbo-services-_JR102415",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:34:24.240Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -1012,7 +1111,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/La-Porte/Manual-Machinist---Turbine-Repair-Shop_JR102053",
       "source": "Sulzer Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T18:34:25.026Z",
+      "crawledAt": "2026-05-19T23:40:04.121Z",
       "addressLocality": "La Porte",
       "addressCountry": "CH",
       "country": "CH",
@@ -1025,16 +1124,93 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/La-Porte/Manual-Machinist---Turbine-Repair-Shop_JR102053",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:34:25.026Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "sulzer-5dbff6bc0c4a",
+      "slug": "ingegnere-meccanico-sulzer-margate",
+      "company": "Sulzer",
+      "companyKey": "sulzer",
+      "companyDomain": "sulzer.com",
+      "title": "Mechanical Engineer",
+      "needsRetranslation": true,
+      "location": "Margate",
+      "canton": "ZH",
+      "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Margate/Mechanical-Engineer_JR102845",
+      "source": "Sulzer Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-19T18:34:33.735Z",
+      "addressLocality": "Margate",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Margate/Mechanical-Engineer_JR102845",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "postalCode": "8001",
+      "firstSeenAt": "2026-05-19T18:34:33.735Z",
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "id": "sulzer-e308707ee497",
+      "slug": "aiuto-tecnico-junior-sulzer-margate",
+      "company": "Sulzer",
+      "companyKey": "sulzer",
+      "companyDomain": "sulzer.com",
+      "title": "Tech Helper",
+      "needsRetranslation": true,
+      "location": "Margate",
+      "canton": "ZH",
+      "url": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Margate/Tech-Helper_JR102937-1",
+      "source": "Sulzer Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-19T18:34:33.033Z",
+      "addressLocality": "Margate",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Industria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Margate/Tech-Helper_JR102937-1",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "postalCode": "8001",
+      "firstSeenAt": "2026-05-19T18:34:33.033Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }
