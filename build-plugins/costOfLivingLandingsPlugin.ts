@@ -72,14 +72,11 @@ import {
   H1_STYLE,
   H2_STYLE,
   CARD_STYLE,
-  CARD_BODY_STYLE,
-  CARD_PADDING_STYLE,
   LINK_ACCENT_STYLE,
   CTA_PRIMARY_STYLE,
   HERO_EYEBROW_STYLE,
   LEDE_STYLE,
   SMALL_HEADING_STYLE,
-  ICON_BUILDING_SVG,
   renderStatGrid,
   differentiateH1FromTitle,
 } from './shared/seoContentTokens';
@@ -99,6 +96,10 @@ import {
   pickEmptyState,
   pickCtaAllJobs,
 } from './shared/landingMicroCopy';
+import {
+  renderEmployerCardListHtml,
+  type EmployerCardEmployer,
+} from './shared/employerCardHtml';
 
 // ── Escape ─────────────────────────────────────────────────────────
 
@@ -197,25 +198,59 @@ function renderFeaturedJobs(
   </section>`;
 }
 
-function renderEmployerGrid(snapshot: CityJobsSnapshot, view: CityCopyView): string {
+function renderEmployerGrid(
+  snapshot: CityJobsSnapshot,
+  view: CityCopyView,
+  locale: ColLocale,
+  cityId: ColCityId,
+): string {
   if (snapshot.topEmployers.length === 0) return '';
 
-  const cells = snapshot.topEmployers
-    .map(
-      (e) => `<div style="display:flex;align-items:center;gap:10px;${CARD_PADDING_STYLE};${CARD_BODY_STYLE}">
-        <span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:var(--color-surface-alt);color:var(--color-subtle);flex-shrink:0">${ICON_BUILDING_SVG}</span>
-        <div style="flex:1;min-width:0">
-          <div style="font-weight:700;font-size:14px;color:var(--color-heading);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(e.name)}</div>
-        </div>
-        <div style="flex-shrink:0;font-weight:700;color:var(--color-accent);font-variant-numeric:tabular-nums">${e.count}</div>
-      </div>`,
-    )
-    .join('');
+  const items = snapshot.topEmployers.map((e) => ({
+    employer: {
+      name: e.name,
+      openings: e.count ?? undefined,
+    } satisfies EmployerCardEmployer,
+    href: `${buildCityJobBoardUrl(locale, cityId)}?q=${encodeURIComponent(e.name)}`,
+  }));
+
+  const listHtml = renderEmployerCardListHtml(items, {
+    locale,
+    variant: 'compact',
+  });
 
   return `<section style="margin:0 0 28px">
     <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(view.employerGridTitle)}</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">${cells}</div>
+    ${listHtml}
   </section>`;
+}
+
+/** Exported for unit tests — builds minimal view and delegates to renderEmployerGrid. */
+export function renderCostOfLivingEmployerGridForTest(
+  cityId: ColCityId,
+  locale: ColLocale,
+  snapshot: { topEmployers: ReadonlyArray<{ name: string; count: number }> },
+): string {
+  const L = getLocaleStrings(locale);
+  const cityName = COL_CITY_DISPLAY[cityId][locale];
+  const view: CityCopyView = {
+    statTileSalaryLabel: '',
+    statTileRentLabel: '',
+    statTileLiveJobsLabel: '',
+    statSalaryFmt: () => '',
+    statRentFmt: () => '',
+    statLiveJobsFmt: () => '',
+    primaryCtaLabel: '',
+    featuredJobsTitle: '',
+    featuredJobsCtaAll: '',
+    featuredJobsEmpty: '',
+    featuredFallbackBadge: '',
+    employerGridTitle: L.employerGridTitle(cityName),
+    approfondisciHeading: '',
+    jobPostedLabel: () => '',
+    jobSalaryFmt: () => '',
+  };
+  return renderEmployerGrid(snapshot as CityJobsSnapshot, view, locale, cityId);
 }
 
 function renderApprofondisciDivider(label: string): string {
@@ -450,7 +485,7 @@ function renderPage(opts: {
 
   const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(view.primaryCtaLabel)} →</a></div>`;
   const featuredHtml = renderFeaturedJobs(city, locale, snapshot, view);
-  const employerGridHtml = renderEmployerGrid(snapshot, view);
+  const employerGridHtml = renderEmployerGrid(snapshot, view, locale, city);
   const dividerHtml = renderApprofondisciDivider(view.approfondisciHeading);
 
   // Extract FAQ <details> styling to a single <style> block + 3 classes
