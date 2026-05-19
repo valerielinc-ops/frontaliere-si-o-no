@@ -24329,4 +24329,13 @@ export const ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'autostrada-chiusure-maggio-2026',
+ category: 'novita',
+ date: '2026-05-19T05:15:11.384Z',
+ image: '/images/blog/autostrada-chiusure-maggio-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

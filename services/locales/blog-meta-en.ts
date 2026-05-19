@@ -7651,6 +7651,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-economia-2026.title': 'Swiss Economy Starts 2026 Strong',
     'blog.article.svizzera-economia-2026.excerpt': 'Swiss economy surprises with unexpected 0.5% growth in Q1 2026, beating expert predictions despite oil and tariff uncertainties.',
     'blog.article.svizzera-economia-2026.imageAlt': 'Bar chart showing the increase of the Swiss economy in 2026',
+    'blog.article.autostrada-chiusure-maggio-2026.title': 'Nighttime Closures and Diversions Ahead for Roadwork on A8 Noise Barriers',
+    'blog.article.autostrada-chiusure-maggio-2026.excerpt': 'Upcoming closures and detours planned on A8 for refurbishment of noise barriers.',
+    'blog.article.autostrada-chiusure-maggio-2026.imageAlt': 'Nighttime construction on the A8 motorway in Ticino',
 };
 
 export default blogMetaEn;

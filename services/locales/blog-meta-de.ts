@@ -7650,6 +7650,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-economia-2026.title': 'Starke Wirtschaft in der Schweiz',
     'blog.article.svizzera-economia-2026.excerpt': 'Die Schweizer Wirtschaft hat unerwartet im ersten Quartal 2026 um 0,5% gewachsen, trotz Unsicherheiten bei Öl und Zöllen.',
     'blog.article.svizzera-economia-2026.imageAlt': 'Balkendiagramm, das den Anstieg der Schweizer Wirtschaft im Jahr 2026 zeigt',
+    'blog.article.autostrada-chiusure-maggio-2026.title': 'Störungen bei Arbeiten an der Lärmschutzwand auf der Autolaghi-Autobahn',
+    'blog.article.autostrada-chiusure-maggio-2026.excerpt': 'Nächtliche Sperrungen und Umleitungen auf der A8 für Arbeiten zur Renovierung der Lärmschutzwände.',
+    'blog.article.autostrada-chiusure-maggio-2026.imageAlt': 'Nachtarbeit auf der A8 Autobahn in Ticino',
 };
 
 export default blogMetaDe;

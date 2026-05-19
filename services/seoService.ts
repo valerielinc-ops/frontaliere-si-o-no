@@ -3793,6 +3793,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna': { name: 'Cassis, Blocco ristorni, Ticino', path: '/articoli-frontaliere/cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna', parent: 'blog' },
     'blog-aumento-premi-lamal-assicuratore-deve-mostrare-contabilita': { name: 'Aumento premi LAMal', path: '/articoli-frontaliere/aumento-premi-lamal-assicuratore-deve-mostrare-contabilita', parent: 'blog' },
     'blog-svizzera-economia-2026': { name: 'Economia svizzera', path: '/articoli-frontaliere/svizzera-economia-2026', parent: 'blog' },
+    'blog-autostrada-chiusure-maggio-2026': { name: 'Lavori autostradali in Ticino', path: '/articoli-frontaliere/autostrada-chiusure-maggio-2026', parent: 'blog' },
  };
 
  const info = sectionNames[section];

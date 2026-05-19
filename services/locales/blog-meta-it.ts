@@ -7652,6 +7652,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-economia-2026.title': 'L\'economia svizzera ha registrato un buon inizio di anno',
     'blog.article.svizzera-economia-2026.excerpt': 'L\'economia svizzera ha mostrato una crescita inaspettata dello 0,5% nel primo trimestre 2026, superando le previsioni degli esperti nonostante le incertezze legate a petrolio e dazi.',
     'blog.article.svizzera-economia-2026.imageAlt': 'Grafico a barre che mostra l\'aumento dell\'economia svizzera nel 2026',
+    'blog.article.autostrada-chiusure-maggio-2026.title': 'Disagi in arrivo per lavori autostradali alle barriere antirumore sull\'Autolaghi',
+    'blog.article.autostrada-chiusure-maggio-2026.excerpt': 'Chiusure notturne e diversioni in programma sulla A8 per lavori di riqualifica delle barriere antirumore.',
+    'blog.article.autostrada-chiusure-maggio-2026.imageAlt': 'Cantiere notturno sull\'autostrada A8 in Ticino',
 };
 
 export default blogMetaIt;
