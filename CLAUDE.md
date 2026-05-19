@@ -176,9 +176,30 @@ CI runs full pipeline (`build:ci`) without FAST_BUILD, so production output is a
 
 **Every new feature or component MUST include tests.**
 
-What's mocked (in `tests/setup.tsx`): `window.matchMedia`, `localStorage`, `@/services/firebase`, `@/services/analytics`, `@/services/seoService`, `leaflet` / `react-leaflet`.
+What's mocked (in `tests/setup.tsx`): `window.matchMedia`, `localStorage`, `@/services/firebase`, `@/services/analytics`, `@/services/seoService`, `@/services/posthog` (including `onFeatureFlags`/`getFeatureFlag`/`registerSuperProperty`), `leaflet` / `react-leaflet`.
 
 Tests that read `data/jobs.json` (gitignored): MUST exclude `needsRetranslation: true` jobs from locale completeness checks.
+
+## CI gate: `.github/workflows/tests.yml`
+
+The full vitest suite (`npm test`) is run as a **blocking CI gate** on every PR + every push to `main` via `.github/workflows/tests.yml`. Wall ~7 min in CI (~100s vitest + ~2 min npm ci + ~1 min assemble-jobs/migrate).
+
+**Workflow steps:**
+1. `npm ci`
+2. `node scripts/assemble-jobs-dataset.mjs --stats` — materializes `data/jobs.json` (gitignored) from per-slice files so the 5 tests that read it have a real corpus.
+3. `node scripts/migrate-all-known-job-slugs-canton-aware.mjs` — idempotent migration; `cathedral-expired-tracking-canton.test.ts` asserts the result.
+4. `npm test` — full `vitest run`.
+
+**`vitest.config.ts: isolate: true`** is mandatory. With `isolate: false` ~10 test files fail in the full suite because sibling tests leak `vi.mock` state across the shared VM context. Empirically: isolation is also FASTER (116s → 99s, fewer retries).
+
+**Branch protection caveat** (2026-05-19): main has NO `required_status_checks` rule, so `tests.yml` is visible-but-circumventable — a squash-merge can outrun the in_progress check. Configure via `gh api -X PUT repos/.../branches/main/protection` if strict enforcement is desired.
+
+**Known skip:** `tests/job-locale-consistency.test.ts` is `.skip` pending re-run of `translate-pending-jobs.yml` for ~84 jobs with IT text stored under en/de/fr locale slots without `needsRetranslation: true` flag. Restore the `it()` call once the translator backlog is cleared.
+
+**When adding a new vitest regression gate:**
+1. Verify it runs locally with `npx vitest run <path>` (green).
+2. Confirm `tests.yml` would pick it up (it auto-globs `tests/**/*.test.{ts,tsx}` via vitest config).
+3. **DO NOT** add a new dedicated workflow per-test (PR #321 created `unit-tests.yml`, PR #328 removed it — `tests.yml` covers the whole suite).
 
 ---
 
@@ -350,6 +371,7 @@ Key routing rules:
 | Topic | File |
 |-------|------|
 | CI/CD pipeline, workflows, data files | [docs/CI-CD-PIPELINE.md](docs/CI-CD-PIPELINE.md) — includes `snapshot-jobs-weekly.yml` (Mon 06:00 UTC) feeding F4 + F5 |
+| Vitest unit + integration suite gate | `.github/workflows/tests.yml` — see **Testing > CI gate** section above |
 | SEO rules, structured data, validation | [docs/SEO-RULES.md](docs/SEO-RULES.md) |
 | SEO content gate playbooks (6 ratchets) | [docs/SEO-GATES.md](docs/SEO-GATES.md) |
 | SEO feature catalog (F2/F3b/F4/F5/F6/F8) | [docs/SEO-FEATURES.md](docs/SEO-FEATURES.md) |
