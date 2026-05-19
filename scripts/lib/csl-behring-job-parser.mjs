@@ -181,7 +181,7 @@ async function fetchJobListings() {
     for await (const posting of fetchWorkdayJobs(WORKDAY_API_BASE, {
       // CSL uses the standard 'locationCountry' facet.
       locationFilters: SWISS_LOCATION_IDS,
-      maxPages: 8,
+      maxPages: 10,
     })) {
       const id = extractWorkdayJobIdentity(posting, {
         apiBase: WORKDAY_API_BASE,
