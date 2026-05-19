@@ -1,6 +1,6 @@
 {
   "crawlerKey": "board-international",
-  "assembledAt": "2026-05-19T11:14:30.968Z",
+  "assembledAt": "2026-05-19T21:40:36.955Z",
   "jobs": [
     {
       "title": "RFx Proposal Manager",
@@ -60,7 +60,6 @@
       "streetAddress": "Via Campagna 11",
       "postalCode": "6982",
       "firstSeenAt": "2026-05-17T09:46:35.164Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "rfx-proposal-manager-board-international-chiasso-switzerland-fzo8z7"
       ],
@@ -68,7 +67,8 @@
         "it": [
           "rfx-proposal-manager-board-international-chiasso-switzerland-fzo8z7"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Sr. Account Manager",
@@ -195,7 +195,8 @@
         "it": [
           "associate-product-manager-board-international-chiasso-switzerland"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Product Owner, Integrated Business Planning",
