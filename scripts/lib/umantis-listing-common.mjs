@@ -267,6 +267,79 @@ function parseSwissDate(raw = '') {
   return `${y}-${mo.padStart(2, '0')}-${d.padStart(2, '0')}`;
 }
 
+/**
+ * Extract rich description content from an Umantis detail page.
+ *
+ * Newer-UI tenants (Bethesda, Sonnenhalde) use `<li class="customdatablock"
+ * id="customdatablock_NNNN">…</li>` pairs:
+ *   - Header item: contains the section name as plain text (e.g. "Ihre Aufgaben")
+ *   - Body item: contains the bullet list inside an inner <ul><li>...</li></ul>
+ *
+ * Older-UI tenants (Adullam) embed similar sections via `tableaslist_element_*`
+ * spans; we extract any prose-looking text block we can find.
+ *
+ * Returns concatenated plain-text content (\n\n separated sections).
+ */
+export function extractUmantisDetailContent(html) {
+  if (!html || typeof html !== 'string') return '';
+  // First try the newer-UI customdatablock pattern
+  const blocks = [];
+  const dataBlockRx = /<li class="customdatablock"[^>]*id="customdatablock_\d+"[^>]*>([\s\S]*?)<\/li\s*>/g;
+  let m;
+  while ((m = dataBlockRx.exec(html))) {
+    let text = m[1]
+      .replace(/<ul[^>]*>/gi, '')
+      .replace(/<\/ul\s*>/gi, '')
+      .replace(/<li[^>]*>/gi, '\n• ')
+      .replace(/<\/li\s*>/gi, '')
+      .replace(/<br\s*\/?>/gi, '\n')
+      .replace(/<[^>]+>/g, ' ');
+    text = normalizeSpace(decodeEntities(text)).replace(/\s*•\s*/g, '\n• ');
+    if (text && text.length > 5) blocks.push(text);
+  }
+  if (blocks.length > 0) return blocks.join('\n\n');
+
+  // Fallback: older-UI section text via stripped main content
+  // Strip nav/footer first
+  const main = html
+    .replace(/<header[\s\S]*?<\/header>/gi, '')
+    .replace(/<footer[\s\S]*?<\/footer>/gi, '')
+    .replace(/<nav[\s\S]*?<\/nav>/gi, '')
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[\s\S]*?<\/style>/gi, '');
+  // Find prose blocks: <p>...</p>, <li>...</li>
+  const proseRx = /<(p|li)[^>]*>([\s\S]*?)<\/\1>/g;
+  const parts = [];
+  let pm;
+  while ((pm = proseRx.exec(main))) {
+    const text = normalizeSpace(decodeEntities(pm[2].replace(/<[^>]+>/g, ' ')));
+    if (text && text.length > 25 && !/cookie|datenschutz|privacy|impressum|telefon|email/i.test(text.slice(0, 30))) {
+      parts.push(text);
+    }
+  }
+  return parts.slice(0, 8).join('\n\n');
+}
+
+async function fetchUmantisDetail(detailUrl) {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(detailUrl, {
+      headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
+      signal: controller.signal,
+      redirect: 'follow',
+    });
+    clearTimeout(timer);
+    if (!res.ok) return '';
+    const html = await res.text();
+    return extractUmantisDetailContent(html);
+  } catch {
+    clearTimeout(timer);
+    return '';
+  }
+}
+
 /* ── Factory ─────────────────────────────────────────────── */
 
 /**
@@ -338,20 +411,28 @@ export function createUmantisListingParser(config) {
     const html = await fetchHtml(LISTING_URL);
     const { entries, ui } = parseUmantisListing(html);
     console.log(`  ✓ ${entries.length} jobs from listing (${ui} UI)`);
+    if (entries.length > 0) console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
     if (!entries.length) return [];
 
     const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
+    let detailHits = 0;
 
     for (const entry of entries) {
       const title = entry.title;
       const detailUrl = `${BASE_URL}/Vacancies/${entry.id}/Description/${langCode}`;
       const applyUrl = `${BASE_URL}/Vacancies/${entry.id}/Application/CheckLogin/${langCode}`;
 
-      // Description: prefer snippet, fall back to title + department
+      // Fetch detail page for rich description content
+      const detailContent = await fetchUmantisDetail(detailUrl);
+      if (detailContent) detailHits++;
+      await new Promise((r) => setTimeout(r, 200));
+
+      // Description: detail content + listing-page metadata
       const descParts = [];
-      if (entry.snippet) descParts.push(entry.snippet);
+      if (detailContent) descParts.push(detailContent);
+      if (entry.snippet && !detailContent) descParts.push(entry.snippet);
       if (entry.department) descParts.push(`Bereich: ${entry.department}`);
       if (entry.art) descParts.push(`Art: ${entry.art}`);
       if (entry.befristung) descParts.push(`Befristung: ${entry.befristung}`);
@@ -405,7 +486,7 @@ export function createUmantisListingParser(config) {
       });
     }
 
-    console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length}`);
+    console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${entries.length} with rich detail content)`);
     return jobs;
   }
 

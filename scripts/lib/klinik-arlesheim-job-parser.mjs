@@ -79,6 +79,39 @@ export function parseDualooPortal(html) {
   return out;
 }
 
+/**
+ * Extract rich content from a Dualoo detail page. The portal uses semantic
+ * class names: `advertisementResponsibilitiesText` (tasks), `advertisementRequirementsText`
+ * (profile), `advertisementBenefitsText` (benefits) — each wrapping a <ul><li>.
+ */
+async function fetchDualooDetail(detailUrl) {
+  try {
+    const html = await fetchHtml(detailUrl);
+    const sections = [];
+    const grab = (cls, label) => {
+      const rx = new RegExp(`class="${cls}"[^>]*>([\\s\\S]*?)</div>`, 'i');
+      const m = html.match(rx);
+      if (!m) return;
+      const text = m[1]
+        .replace(/<li[^>]*>/gi, '\n• ')
+        .replace(/<\/li>/gi, '')
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/&nbsp;/gi, ' ')
+        .replace(/\s+\n/g, '\n')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+      if (text) sections.push(`${label}\n${text}`);
+    };
+    grab('advertisementResponsibilitiesText', 'Aufgaben:');
+    grab('advertisementRequirementsText', 'Anforderungen:');
+    grab('advertisementBenefitsText', 'Wir bieten:');
+    return sections.join('\n\n');
+  } catch {
+    return '';
+  }
+}
+
 export async function fetchAllKlinikArlesheimJobs() {
   console.log(`🏥 Fetching ${KLINIK_ARLESHEIM_COMPANY_NAME} jobs`);
   console.log(`   Portal: ${PORTAL_URL}\n`);
@@ -86,12 +119,18 @@ export async function fetchAllKlinikArlesheimJobs() {
   const items = parseDualooPortal(html);
   console.log(`  ✓ ${items.length} Dualoo job cards parsed`);
   if (!items.length) return [];
+  console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
   const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
+  let detailHits = 0;
   for (const it of items) {
     const title = it.title;
+    const detailContent = await fetchDualooDetail(it.url);
+    if (detailContent) detailHits++;
+    await new Promise((r) => setTimeout(r, 200));
     const description = [
+      detailContent,
       it.cityName,
       it.category ? `Kategorie: ${it.category}` : '',
       it.startDateHuman ? `Eintritt: ${it.startDateHuman}` : '',
@@ -135,6 +174,6 @@ export async function fetchAllKlinikArlesheimJobs() {
       requirementsByLocale: { [sourceLang]: [] },
     });
   }
-  console.log(`📋 Total ${KLINIK_ARLESHEIM_COMPANY_NAME} jobs discovered: ${jobs.length}`);
+  console.log(`📋 Total ${KLINIK_ARLESHEIM_COMPANY_NAME} jobs discovered: ${jobs.length} (${detailHits}/${items.length} with rich detail content)`);
   return jobs;
 }

@@ -71,6 +71,11 @@ jobs:
           JOBS_CSVM_MUSTAIR_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
           CRAWLER_SLICE_ONLY: '1'
           SKIP_AI_TRANSLATION: ${{ github.event.inputs.skip_ai_translation || '0' }}
+          # CSVM detail pages are placeholders ("Gib deinen Text hier ein");
+          # the actual content lives in attached PDFs (not scrapable cleanly).
+          # The listing-only descriptions are below the 30-unique-words bar
+          # so we bypass the guard for this specific crawler.
+          SKIP_BOILERPLATE_GUARD: '1'
         run: node scripts/update-csvm-mustair-jobs.mjs
 
       - name: Housekeeping — remove expired job listings (scoped)
