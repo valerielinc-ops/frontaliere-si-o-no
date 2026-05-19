@@ -1,18 +1,19 @@
 {
   "key": "oscam-castelrotto",
   "label": "Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi)",
-  "generatedAt": "2026-05-19T21:17:39.636Z",
+  "generatedAt": "2026-05-19T23:06:45.265Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 30154,
-  "avgDurationMs": 30154,
+  "durationMs": 3442,
+  "avgDurationMs": 3442,
   "durationHistory": [
-    30154
+    3442
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "oscam-castelrotto-concorso-generale-2025-per-medici-assistenti-be80f019a870",
       "slug": "concorso-generale-assunzione-medico-assistente-2025-2026-oscam-castelrotto-castelrotto",
@@ -26,7 +27,7 @@
       "url": "https://www.oscam.ch/lavoraconnoi/#concorso-generale-2025-per-medici-assistenti",
       "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-19T21:17:11.055Z",
+      "crawledAt": "2026-05-19T23:06:43.541Z",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -41,16 +42,16 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.oscam.ch/wp-content/uploads/2025/01/Concorso-generale-2025-per-medici-assistenti.pdf",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T21:17:11.055Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
