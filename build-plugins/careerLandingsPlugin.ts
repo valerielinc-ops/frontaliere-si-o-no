@@ -74,6 +74,10 @@ import {
   pickCtaAllJobs,
 } from './shared/landingMicroCopy';
 import {
+  renderEmployerCardListHtml,
+  type EmployerCardEmployer,
+} from './shared/employerCardHtml';
+import {
   BREADCRUMB_STYLE,
   BREADCRUMB_LINK_STYLE,
   H1_STYLE,
@@ -81,8 +85,6 @@ import {
   BODY_STYLE,
   H2_STYLE,
   CARD_STYLE,
-  CARD_BODY_STYLE,
-  CARD_PADDING_STYLE,
   LINK_ACCENT_STYLE,
   CTA_PRIMARY_STYLE,
   HERO_EYEBROW_STYLE,
@@ -94,7 +96,6 @@ import {
   STAT_TILE_BASE,
   STAT_TILE_LABEL,
   STAT_TILE_VALUE,
-  ICON_BUILDING_SVG,
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 
@@ -286,21 +287,40 @@ function renderEmployerGrid(
   if (employers.length === 0) return '';
   const shell = getCareerTemplateBShell(locale);
   const title = templateB.employerGridTitle ?? shell.employerGridTitle;
-  const cells = employers
-    .map(
-      (e) => `<div style="display:flex;align-items:center;gap:10px;${CARD_PADDING_STYLE};${CARD_BODY_STYLE}">
-        <span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:var(--color-surface-alt);color:var(--color-subtle);flex-shrink:0">${ICON_BUILDING_SVG}</span>
-        <div style="flex:1;min-width:0">
-          <div style="font-weight:700;font-size:14px;color:var(--color-heading);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(e.name)}</div>
-        </div>
-        ${e.count !== null ? `<div style="flex-shrink:0;font-weight:700;color:var(--color-accent);font-variant-numeric:tabular-nums">${e.count}</div>` : ''}
-      </div>`,
-    )
-    .join('');
+
+  const items = employers.map((e) => ({
+    employer: {
+      name: e.name,
+      openings: e.count ?? undefined,
+    } satisfies EmployerCardEmployer,
+    href: `${buildCareerJobBoardUrl(locale)}?q=${encodeURIComponent(e.name)}`,
+  }));
+
+  const listHtml = renderEmployerCardListHtml(items, {
+    locale,
+    variant: 'compact',
+  });
+
   return `<section style="margin:0 0 28px">
     <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(title)}</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">${cells}</div>
+    ${listHtml}
   </section>`;
+}
+
+/** Exported for unit tests — builds minimal copy and delegates to renderEmployerGrid. */
+export function renderCareerEmployerGridForTest(
+  id: CareerLandingId,
+  locale: CareerLocale,
+  snapshot: { topEmployers: ReadonlyArray<{ name: string; count: number }> },
+): string {
+  const templateB = buildCareerTemplateBCopy(locale, id, {
+    liveCount: snapshot.topEmployers.length,
+    fresh30Count: 0,
+    medianSalary: null,
+    agencyCount: 0,
+    concorsiCount: 0,
+  });
+  return renderEmployerGrid(snapshot as CareerJobsSnapshot, templateB, locale);
 }
 
 function renderEmployerGridReplacement(text: string): string {
