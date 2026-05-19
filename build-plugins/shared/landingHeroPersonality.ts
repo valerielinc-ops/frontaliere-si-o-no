@@ -6,6 +6,8 @@
  * Emoji palette: curated, universal-coverage emoji (🎓🚑🍳⚙️👶📊🏗️💼🩺🏠🚛🍽️🔌).
  */
 
+import { escHtml } from './htmlEscape';
+
 export type HeroLocale = 'it' | 'en' | 'de' | 'fr';
 
 export interface HeroVars {
@@ -208,10 +210,3 @@ export function renderLandingHero(
   return `<header>${eyebrow}<h1 class="text-2xl sm:text-3xl font-display font-bold text-heading mt-2">${escHtml(title)}</h1>${taglineHtml}</header>`;
 }
 
-function escHtml(value: unknown): string {
-  return String(value ?? '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}

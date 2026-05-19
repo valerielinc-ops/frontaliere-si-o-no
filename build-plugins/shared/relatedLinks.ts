@@ -41,6 +41,7 @@
  *     fall back to the legacy 5-link list to avoid thin link blocks.
  */
 
+import { escHtml } from './htmlEscape';
 import {
   FUEL_ITALIAN_CITIES,
   FUEL_ZONES,
@@ -527,14 +528,6 @@ const COPY: Record<LinkLocale, Copy> = {
 };
 
 // ── Helpers ─────────────────────────────────────────────────────
-
-function escHtml(s: unknown): string {
-  return String(s ?? '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
-}
 
 function humanizeSlug(slug: string): string {
   return slug
