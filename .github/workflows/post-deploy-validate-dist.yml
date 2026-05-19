@@ -390,6 +390,8 @@ jobs:
             npm run audit:max-bfs-depth
           spawn_capped audit:footer-root-presence    /tmp/g20.log \
             npm run audit:footer-root-presence
+          spawn_capped audit:jsonld-no-nested-scripts /tmp/g21.log \
+            npm run audit:jsonld-no-nested-scripts
           # NOTE: live:post-deploy-smoke moved to validate-live workflow.
           # This validate-dist job runs in parallel with `deploy`, before
           # the new dist is published — there's nothing live to smoke

@@ -240,6 +240,7 @@ Every PR must pass these per-feature ratchet audits. Each gate has a baseline (`
 | `(#hash)` disambiguator visible in `<title>` | `npm run audit:title-no-disambig-hash` | `post-build-tasks.sh` shard 3 | `data/title-no-disambig-hash-baseline.json` |
 | `<div id="footer-root">` present on every `<main class="seo-static-content">` page (zero tolerance) | `npm run audit:footer-root-presence` | `post-deploy-validate-dist.yml` shard 3 | none — must be 0 |
 | `<title>` ≠ `<h1>` (case+ws insensitive, zero tolerance) | `npm run audit:h1-title-duplicates` | `post-deploy-validate-dist.yml` shard 3 | `data/h1-title-duplicates-baseline.json` |
+| No nested `<script type="application/ld+json">` wrappers (zero tolerance) | `npm run audit:jsonld-no-nested-scripts` | `post-deploy-validate-dist.yml` shard 3 | none — must be 0 |
 
 Each audit has a matching `:rebaseline` script (e.g. `npm run audit:title-length:rebaseline`). After a deliberate improvement, run rebaseline and commit the new baseline together with the fix in the same PR.
 
