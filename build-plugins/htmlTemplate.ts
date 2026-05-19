@@ -87,7 +87,17 @@ export interface SimplePageOpts {
  /** Override the default OG locale (e.g. 'en_US' instead of 'en_GB'). */
  ogLocale?: string;
  hreflangHtml?: string;
- /** Additional <head> HTML (prev/next links, twitter cards, etc.). */
+ /**
+  * Per-page og:image override. Defaults to `${BASE_URL}/og-image.png` (1200×630).
+  * When passing a custom image (e.g. webcam snapshot at 640×360), set ogImageWidth/Height too.
+  * Twitter image mirrors this URL.
+  */
+ ogImage?: string;
+ ogImageWidth?: number;
+ ogImageHeight?: number;
+ ogImageType?: string;
+ ogImageAlt?: string;
+ /** Additional <head> HTML (prev/next links, extra meta, etc.). MUST NOT contain og:image — use ogImage. */
  extraHeadHtml?: string;
  jsonLdScripts?: string[];
  entryJs?: string;
@@ -166,6 +176,11 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  ogType = 'website',
  ogLocale: ogLocaleOverride,
  hreflangHtml = '',
+ ogImage,
+ ogImageWidth,
+ ogImageHeight,
+ ogImageType,
+ ogImageAlt,
  extraHeadHtml = '',
  jsonLdScripts = [],
  entryJs,
@@ -228,12 +243,12 @@ ${skipMainWrap ? bodyHtml : ` <main class="static-job-page">\n ${bodyHtml}\n </m
  <meta property="og:title" content="${esc(title)}">
  <meta property="og:description" content="${esc(description)}">
  <meta property="og:url" content="${canonicalUrl}">
- <meta property="og:image" content="${BASE_URL}/og-image.png">
- <meta property="og:image:width" content="1200">
- <meta property="og:image:height" content="630">
- <meta property="og:image:type" content="image/png">
+ <meta property="og:image" content="${esc(ogImage ?? `${BASE_URL}/og-image.png`)}">
+ <meta property="og:image:width" content="${ogImageWidth ?? 1200}">
+ <meta property="og:image:height" content="${ogImageHeight ?? 630}">
+ <meta property="og:image:type" content="${esc(ogImageType ?? 'image/png')}">${ogImageAlt ? `\n <meta property="og:image:alt" content="${esc(ogImageAlt)}">` : ''}
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:image" content="${BASE_URL}/og-image.png">
+ <meta name="twitter:image" content="${esc(ogImage ?? `${BASE_URL}/og-image.png`)}">
  <link rel="canonical" href="${canonicalUrl}">
 ${hreflangHtml}${extraHead}
 ${ldTags}${cssLink}
