@@ -1,16 +1,16 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-05-18T22:28:17.187Z",
-  "total": 5,
+  "generatedAt": "2026-05-19T12:18:47.354Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 8144,
-  "avgDurationMs": 8144,
+  "removedCount": 1,
+  "unchangedCount": 3,
+  "durationMs": 10046,
+  "avgDurationMs": 10046,
   "durationHistory": [
-    8144
+    10046
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -52,7 +52,45 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Senior Full Stack Developer",
+      "slug": "senior-full-stack-developer-mks-pamp-geneve",
+      "url": "https://careers.mkspamp.com/jobs/7564659-senior-full-stack-developer",
+      "applyUrl": "https://careers.mkspamp.com/jobs/7564659-senior-full-stack-developer",
+      "company": "MKS PAMP",
+      "companyKey": "mks-pamp",
+      "companyDomain": "mkspamp.com",
+      "location": "Genève",
+      "addressLocality": "Genève",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "technology",
+      "sector": "Metalli preziosi",
+      "source": "mkspamp-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-04-14",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "id": "mks-pamp-6ff3eb9664fc",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "streetAddress": "Via delle Fornaci",
+      "postalCode": "6828",
+      "firstSeenAt": "2026-05-10T10:37:10.728Z",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Operatore Trattamenti Reflui",
@@ -83,43 +121,6 @@
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
       "firstSeenAt": "2026-04-22T22:09:47.778Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Senior Full Stack Developer",
-      "slug": "senior-full-stack-developer-mks-pamp-geneve",
-      "url": "https://careers.mkspamp.com/jobs/7564659-senior-full-stack-developer",
-      "applyUrl": "https://careers.mkspamp.com/jobs/7564659-senior-full-stack-developer",
-      "company": "MKS PAMP",
-      "companyKey": "mks-pamp",
-      "companyDomain": "mkspamp.com",
-      "location": "Genève",
-      "addressLocality": "Genève",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "technology",
-      "sector": "Metalli preziosi",
-      "source": "mkspamp-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-14",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "id": "mks-pamp-6ff3eb9664fc",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "streetAddress": "Via delle Fornaci",
-      "postalCode": "6828",
-      "firstSeenAt": "2026-05-10T10:37:10.728Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
