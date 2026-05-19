@@ -1,18 +1,19 @@
 {
   "key": "medartis",
   "label": "Medartis",
-  "generatedAt": "2026-05-19T20:00:42.304Z",
+  "generatedAt": "2026-05-19T22:56:46.400Z",
   "total": 16,
-  "newCount": 16,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 16,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 445590,
-  "avgDurationMs": 445590,
+  "durationMs": 9423,
+  "avgDurationMs": 9423,
   "durationHistory": [
-    445590
+    9423
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "medartis-0963ad27118e",
       "slug": "lehrstelle-als-polymechaniker-in-efz-medartis-basel",
@@ -26,7 +27,7 @@
       "url": "https://careers.medartis.com/job/Lehrstelle-als-Polymechanikerin-EFZ/1224082701/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:23.610Z",
+      "crawledAt": "2026-05-19T22:56:42.992Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1224082701/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:23.610Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://careers.medartis.com/job/Produktionsmitarbeiterin-Reinraum/1385072333/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:23.220Z",
+      "crawledAt": "2026-05-19T22:56:42.615Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-05-16",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1385072333/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:23.220Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://careers.medartis.com/job/Regulatory-Affairs-Manager-100/1374929433/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:24.067Z",
+      "crawledAt": "2026-05-19T22:56:43.466Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-15",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1374929433/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:24.067Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://careers.medartis.com/job/Group-Manager-Regulatory-Affairs-100/1392452233/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:25.039Z",
+      "crawledAt": "2026-05-19T22:56:44.336Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1392452233/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:25.039Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://careers.medartis.com/job/Computer-System-Validation-Manager-100/1292372301/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:18.881Z",
+      "crawledAt": "2026-05-19T22:56:38.956Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-08",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1292372301/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:18.881Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://careers.medartis.com/job/HR-Praktikum/1390021433/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:22.272Z",
+      "crawledAt": "2026-05-19T22:56:41.834Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1390021433/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:22.272Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://careers.medartis.com/job/Head-Manufacturing-Engineer/1370946233/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:17.907Z",
+      "crawledAt": "2026-05-19T22:56:37.931Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -257,11 +264,12 @@
       "featured": false,
       "postedDate": "2026-05-03",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1370946233/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:17.907Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -278,7 +286,7 @@
       "url": "https://careers.medartis.com/job/Quality-Inspector-100/1380466733/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:19.848Z",
+      "crawledAt": "2026-05-19T22:56:39.816Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -293,11 +301,12 @@
       "featured": false,
       "postedDate": "2026-05-01",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1380466733/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:19.848Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -314,7 +323,7 @@
       "url": "https://careers.medartis.com/job/Manufacturing-Engineer-100/1288113701/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:22.745Z",
+      "crawledAt": "2026-05-19T22:56:42.224Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -329,11 +338,12 @@
       "featured": false,
       "postedDate": "2026-05-01",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1288113701/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:22.745Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -350,7 +360,7 @@
       "url": "https://careers.medartis.com/job/Paralegal/1389207333/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:21.793Z",
+      "crawledAt": "2026-05-19T22:56:41.436Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -365,11 +375,12 @@
       "featured": false,
       "postedDate": "2026-04-30",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1389207333/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:21.793Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -386,7 +397,7 @@
       "url": "https://careers.medartis.com/job/CNC%E2%80%91Instandhaltungstechnikerin/1388733733/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:20.335Z",
+      "crawledAt": "2026-05-19T22:56:40.210Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -401,11 +412,12 @@
       "featured": false,
       "postedDate": "2026-04-29",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1388733733/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:20.335Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -422,7 +434,7 @@
       "url": "https://careers.medartis.com/job/Group-Manager-Development-Engineering-Container-&-Packaging/1367331033/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:18.406Z",
+      "crawledAt": "2026-05-19T22:56:38.419Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -437,11 +449,12 @@
       "featured": false,
       "postedDate": "2026-04-24",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1367331033/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:18.406Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -458,7 +471,7 @@
       "url": "https://careers.medartis.com/job/New-Graduate-Finance/1378046233/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:24.561Z",
+      "crawledAt": "2026-05-19T22:56:43.856Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -473,11 +486,12 @@
       "featured": false,
       "postedDate": "2026-04-24",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1378046233/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:24.561Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -494,7 +508,7 @@
       "url": "https://careers.medartis.com/job/SAP-BTP-Platform-Manager/1386996633/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:20.810Z",
+      "crawledAt": "2026-05-19T22:56:40.684Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -509,11 +523,12 @@
       "featured": false,
       "postedDate": "2026-04-23",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1386996633/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:20.810Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -530,7 +545,7 @@
       "url": "https://careers.medartis.com/job/Development-Engineer-100-%28mw%29/1387016033/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:21.308Z",
+      "crawledAt": "2026-05-19T22:56:41.063Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -545,11 +560,12 @@
       "featured": false,
       "postedDate": "2026-04-23",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1387016033/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:21.308Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -566,7 +582,7 @@
       "url": "https://careers.medartis.com/job/Clinical-Sales-Specialist-Romandie/1261182001/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:19.373Z",
+      "crawledAt": "2026-05-19T22:56:39.425Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -581,16 +597,16 @@
       "featured": false,
       "postedDate": "2026-04-22",
       "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1261182001/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:19.373Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
