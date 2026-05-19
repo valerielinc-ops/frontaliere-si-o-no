@@ -1,18 +1,57 @@
 {
   "key": "senevita",
   "label": "Senevita",
-  "generatedAt": "2026-05-19T12:50:34.862Z",
+  "generatedAt": "2026-05-19T23:25:33.968Z",
   "total": 99,
-  "newCount": 99,
-  "updatedCount": 0,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 98,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 1784554,
-  "avgDurationMs": 1784554,
+  "durationMs": 58435,
+  "avgDurationMs": 58435,
   "durationHistory": [
-    1784554
+    58435
   ],
   "newJobs": [
+    {
+      "id": "senevita-8b76af87a526",
+      "slug": "koch-kochin-100-im-tagesdienst-senevita-basel-bs",
+      "company": "Senevita",
+      "companyKey": "senevita",
+      "companyDomain": "senevita.ch",
+      "title": "Koch/Köchin 100% im Tagesdienst",
+      "needsRetranslation": true,
+      "location": "Basel BS",
+      "canton": "BS",
+      "url": "https://jobs.senevita.ch/KochKoechin-100-im-Tagesdienst-de-j5193.html",
+      "source": "Senevita Dedicated Parser (rexx systems)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T23:25:22.594Z",
+      "addressLocality": "Basel BS",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4052",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-20",
+      "validThrough": "2026-06-19",
+      "applyUrl": "https://jobs.senevita.ch/KochKoechin-100-im-Tagesdienst-de-j5193.html",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "senevita-a50e6ab189d0",
       "slug": "administration-disposition-50-100-senevita-buchs-zh",
@@ -26,7 +65,7 @@
       "url": "https://jobs.senevita.ch/AdministrationDisposition-50-100-de-j5277.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:20:51.393Z",
+      "crawledAt": "2026-05-19T23:24:36.639Z",
       "addressLocality": "Buchs ZH",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -42,11 +81,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/AdministrationDisposition-50-100-de-j5277.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:20:51.393Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -63,7 +103,7 @@
       "url": "https://jobs.senevita.ch/Assistante-en-soins-et-sant-communautaire-60-80-de-j5179.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T12:20:51.825Z",
+      "crawledAt": "2026-05-19T23:24:37.080Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -79,11 +119,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Assistante-en-soins-et-sant-communautaire-60-80-de-j5179.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:20:51.825Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -100,7 +141,7 @@
       "url": "https://jobs.senevita.ch/Assistent-in-Gesundheit-Soziales-AGS-60-100-de-j5237.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:20:52.779Z",
+      "crawledAt": "2026-05-19T23:24:38.028Z",
       "addressLocality": "Zürich ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -116,11 +157,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Assistent-in-Gesundheit-Soziales-AGS-60-100-de-j5237.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:20:52.779Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -137,7 +179,7 @@
       "url": "https://jobs.senevita.ch/Assistentin-Gesundheit-EBA-oder-Pflegehelferin-SRK-50-100-de-j5232.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:20:54.092Z",
+      "crawledAt": "2026-05-19T23:24:39.309Z",
       "addressLocality": "Affoltern am Albis ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -153,11 +195,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Assistentin-Gesundheit-EBA-oder-Pflegehelferin-SRK-50-100-de-j5232.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:20:54.092Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -174,7 +217,7 @@
       "url": "https://jobs.senevita.ch/Ausbildung-zur-dipl-Pflegefachperson-HF-de-j5171.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:20:54.521Z",
+      "crawledAt": "2026-05-19T23:24:39.740Z",
       "addressLocality": "Arbon TG",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -190,11 +233,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Ausbildung-zur-dipl-Pflegefachperson-HF-de-j5171.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:20:54.521Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -211,7 +255,7 @@
       "url": "https://jobs.senevita.ch/bef-Personalverantwortlicher-40-de-j5239.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:20:55.687Z",
+      "crawledAt": "2026-05-19T23:24:40.909Z",
       "addressLocality": "Zollikofen BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -227,11 +271,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/bef-Personalverantwortlicher-40-de-j5239.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:20:55.687Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -248,7 +293,7 @@
       "url": "https://jobs.senevita.ch/Berufsbildungsverantwortlicher-Pflege-80-100-de-j1232.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:20:56.557Z",
+      "crawledAt": "2026-05-19T23:24:41.780Z",
       "addressLocality": "Erlenbach ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -264,11 +309,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Berufsbildungsverantwortlicher-Pflege-80-100-de-j1232.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:20:56.557Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -285,7 +331,7 @@
       "url": "https://jobs.senevita.ch/Dipl-Pflegefachfrau-mann-80-100-de-j5266.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:20:59.112Z",
+      "crawledAt": "2026-05-19T23:24:44.332Z",
       "addressLocality": "Dietikon ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -301,11 +347,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Dipl-Pflegefachfrau-mann-80-100-de-j5266.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:20:59.112Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -322,7 +369,7 @@
       "url": "https://jobs.senevita.ch/Dipl-Pflegefachfraumann-Demenzabteilung-60-100-de-j4592.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:02.354Z",
+      "crawledAt": "2026-05-19T23:24:47.516Z",
       "addressLocality": "Zollikofen BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -338,11 +385,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Dipl-Pflegefachfraumann-Demenzabteilung-60-100-de-j4592.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:02.354Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -359,7 +407,7 @@
       "url": "https://jobs.senevita.ch/Dipl-Pflegefachperson-40-50-de-j5215.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:03.210Z",
+      "crawledAt": "2026-05-19T23:24:48.369Z",
       "addressLocality": "Olten SO",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -375,11 +423,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Dipl-Pflegefachperson-40-50-de-j5215.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:03.210Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -396,7 +445,7 @@
       "url": "https://jobs.senevita.ch/Dipl-Pflegefachperson-HFDN2DN1-de-j5156.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:06.751Z",
+      "crawledAt": "2026-05-19T23:24:51.760Z",
       "addressLocality": "Islikon TG",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -412,11 +461,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Dipl-Pflegefachperson-HFDN2DN1-de-j5156.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:06.751Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -433,7 +483,7 @@
       "url": "https://jobs.senevita.ch/Dipl-Pflegefachperson-Nachtdienst-50-60-de-j5213.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:08.616Z",
+      "crawledAt": "2026-05-19T23:24:53.605Z",
       "addressLocality": "Olten SO",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -449,11 +499,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Dipl-Pflegefachperson-Nachtdienst-50-60-de-j5213.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:08.616Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -470,7 +521,7 @@
       "url": "https://jobs.senevita.ch/Fachfrau-mann-Gesundheit-de-j5174.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:14.935Z",
+      "crawledAt": "2026-05-19T23:25:00.028Z",
       "addressLocality": "Dietikon ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -486,11 +537,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Fachfrau-mann-Gesundheit-de-j5174.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:14.935Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -507,7 +559,7 @@
       "url": "https://jobs.senevita.ch/Fachfrau-mann-Gesundheit-als-Hauptberufsbildnerin-80-100-de-j5258.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:15.985Z",
+      "crawledAt": "2026-05-19T23:25:01.188Z",
       "addressLocality": "Wohlen AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -523,11 +575,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Fachfrau-mann-Gesundheit-als-Hauptberufsbildnerin-80-100-de-j5258.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:15.985Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -544,7 +597,7 @@
       "url": "https://jobs.senevita.ch/FachfrauFachmann-Gesundheit-EFZ-30-50-im-Stundenlohn-auf-A-de-j5224.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:20.001Z",
+      "crawledAt": "2026-05-19T23:25:05.310Z",
       "addressLocality": "Buchs ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -560,11 +613,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/FachfrauFachmann-Gesundheit-EFZ-30-50-im-Stundenlohn-auf-A-de-j5224.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:20.001Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -581,7 +635,7 @@
       "url": "https://jobs.senevita.ch/Fachfraumann-Betriebsunterhalt-de-j5276.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:20.434Z",
+      "crawledAt": "2026-05-19T23:25:05.742Z",
       "addressLocality": "Herrliberg ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -597,11 +651,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Fachfraumann-Betriebsunterhalt-de-j5276.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:20.434Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -618,7 +673,7 @@
       "url": "https://jobs.senevita.ch/Fachmann-frau-Betriebsunterhalt-mwi-80-de-j5226.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:23.664Z",
+      "crawledAt": "2026-05-19T23:25:09.033Z",
       "addressLocality": "Ebikon LU",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -634,11 +689,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Fachmann-frau-Betriebsunterhalt-mwi-80-de-j5226.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:23.664Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -655,7 +711,7 @@
       "url": "https://jobs.senevita.ch/Fachperson-Aktivierung-mw-80-de-j5271.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:24.100Z",
+      "crawledAt": "2026-05-19T23:25:09.457Z",
       "addressLocality": "Olten SO",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -671,11 +727,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Fachperson-Aktivierung-mw-80-de-j5271.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:24.100Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -692,7 +749,7 @@
       "url": "https://jobs.senevita.ch/Facility-Managerin-100-de-j5259.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:30.316Z",
+      "crawledAt": "2026-05-19T23:25:17.262Z",
       "addressLocality": "Muri BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -708,11 +765,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Facility-Managerin-100-de-j5259.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:30.316Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -729,7 +787,7 @@
       "url": "https://jobs.senevita.ch/KochKoechin-EFZ-60-de-j5212.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:33.285Z",
+      "crawledAt": "2026-05-19T23:25:24.088Z",
       "addressLocality": "Olten SO",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -745,11 +803,12 @@
       "postedDate": "2026-05-19",
       "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/KochKoechin-EFZ-60-de-j5212.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:33.285Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -766,7 +825,7 @@
       "url": "https://jobs.senevita.ch/Dipl-Pflegefachperson-HFFH-DNIII-AKP-PsyKP-50-100-Tagesdie-de-j4632.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:08.188Z",
+      "crawledAt": "2026-05-19T23:24:53.164Z",
       "addressLocality": "Basel BS",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -780,19 +839,20 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-18",
-      "validThrough": "2026-06-18",
+      "validThrough": "2026-06-19",
       "applyUrl": "https://jobs.senevita.ch/Dipl-Pflegefachperson-HFFH-DNIII-AKP-PsyKP-50-100-Tagesdie-de-j4632.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:08.188Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "id": "senevita-17d727727d19",
-      "slug": "hr-berater-in-80-100-m-w-d-senevita-muri-be",
+      "slug": "risorse-umane-berater-in-80-100-m-w-d-senevita-muri-be",
       "company": "Senevita",
       "companyKey": "senevita",
       "companyDomain": "senevita.ch",
@@ -803,7 +863,7 @@
       "url": "https://jobs.senevita.ch/HR-Berater-in-80-100-mwd-de-j5246.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:31.360Z",
+      "crawledAt": "2026-05-19T23:25:18.326Z",
       "addressLocality": "Muri BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -819,11 +879,12 @@
       "postedDate": "2026-05-18",
       "validThrough": "2026-06-18",
       "applyUrl": "https://jobs.senevita.ch/HR-Berater-in-80-100-mwd-de-j5246.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:31.360Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -840,7 +901,7 @@
       "url": "https://jobs.senevita.ch/Dipl-Pflegefachperson-HF-mit-Fallfuehrung-30-60-Stunden-od-de-j4881.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:06.218Z",
+      "crawledAt": "2026-05-19T23:24:51.235Z",
       "addressLocality": "Casa Solothurn und Olten Senevita Casa Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -856,11 +917,12 @@
       "postedDate": "2026-05-14",
       "validThrough": "2026-06-14",
       "applyUrl": "https://jobs.senevita.ch/Dipl-Pflegefachperson-HF-mit-Fallfuehrung-30-60-Stunden-od-de-j4881.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:06.218Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -877,7 +939,7 @@
       "url": "https://jobs.senevita.ch/Fachfrau-mann-Aktivierung-40-60-de-j4795.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:14.503Z",
+      "crawledAt": "2026-05-19T23:24:59.606Z",
       "addressLocality": "Limmatfeld Senevita Vivimus",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -893,11 +955,12 @@
       "postedDate": "2026-05-12",
       "validThrough": "2026-06-12",
       "applyUrl": "https://jobs.senevita.ch/Fachfrau-mann-Aktivierung-40-60-de-j4795.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:14.503Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -914,7 +977,7 @@
       "url": "https://jobs.senevita.ch/FachfrauFachmann-Gesundheit-60-100-de-j5017.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:18.942Z",
+      "crawledAt": "2026-05-19T23:25:04.168Z",
       "addressLocality": "Basel BS",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -930,11 +993,12 @@
       "postedDate": "2026-05-12",
       "validThrough": "2026-06-12",
       "applyUrl": "https://jobs.senevita.ch/FachfrauFachmann-Gesundheit-60-100-de-j5017.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:18.942Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -951,7 +1015,7 @@
       "url": "https://jobs.senevita.ch/Assistent-in-Gesundheit-und-Soziales-50-80-de-j2801.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:20:52.341Z",
+      "crawledAt": "2026-05-19T23:24:37.602Z",
       "addressLocality": "Islikon TG",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -967,11 +1031,12 @@
       "postedDate": "2026-05-11",
       "validThrough": "2026-06-11",
       "applyUrl": "https://jobs.senevita.ch/Assistent-in-Gesundheit-und-Soziales-50-80-de-j2801.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:20:52.341Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -988,7 +1053,7 @@
       "url": "https://jobs.senevita.ch/Dipl-Pflegefachperson-HFFH-60-100-de-j5104.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:07.314Z",
+      "crawledAt": "2026-05-19T23:24:52.290Z",
       "addressLocality": "Affoltern am Albis ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1004,11 +1069,12 @@
       "postedDate": "2026-05-11",
       "validThrough": "2026-06-11",
       "applyUrl": "https://jobs.senevita.ch/Dipl-Pflegefachperson-HFFH-60-100-de-j5104.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:07.314Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1025,7 +1091,7 @@
       "url": "https://jobs.senevita.ch/Dipl-Pflegefachperson-Nachtdienst-40-100-de-j5147.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:09.049Z",
+      "crawledAt": "2026-05-19T23:24:54.028Z",
       "addressLocality": "Basel BS",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1041,11 +1107,12 @@
       "postedDate": "2026-05-11",
       "validThrough": "2026-06-11",
       "applyUrl": "https://jobs.senevita.ch/Dipl-Pflegefachperson-Nachtdienst-40-100-de-j5147.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:09.049Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1062,7 +1129,7 @@
       "url": "https://jobs.senevita.ch/Dipl-Pflegefachperson-Nachtdienst-60-de-j5083.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:09.480Z",
+      "crawledAt": "2026-05-19T23:24:54.459Z",
       "addressLocality": "Arbon TG",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -1078,11 +1145,12 @@
       "postedDate": "2026-05-11",
       "validThrough": "2026-06-11",
       "applyUrl": "https://jobs.senevita.ch/Dipl-Pflegefachperson-Nachtdienst-60-de-j5083.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:09.480Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1099,7 +1167,7 @@
       "url": "https://jobs.senevita.ch/Fachangestellter-Gesundheit-80-100-de-j5105.html",
       "source": "Senevita Dedicated Parser (rexx systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:11.084Z",
+      "crawledAt": "2026-05-19T23:24:56.061Z",
       "addressLocality": "Affoltern am Albis ZH",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1115,16 +1183,57 @@
       "postedDate": "2026-05-11",
       "validThrough": "2026-06-11",
       "applyUrl": "https://jobs.senevita.ch/Fachangestellter-Gesundheit-80-100-de-j5105.html",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:21:11.084Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "senevita-78e7d0ede52a",
+      "slug": "apprendistato-fage-obstgarten-senevita-affoltern-am-albis-zh",
+      "company": "Senevita",
+      "companyKey": "senevita",
+      "companyDomain": "senevita.ch",
+      "title": "Lehrstelle FaGe Obstgarten",
+      "needsRetranslation": true,
+      "location": "Affoltern am Albis ZH",
+      "canton": "ZH",
+      "url": "https://jobs.senevita.ch/Lehrstelle-FaGe-Obstgarten-de-j5205.html",
+      "source": "Senevita Dedicated Parser (rexx systems)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T12:21:39.753Z",
+      "addressLocality": "Affoltern am Albis ZH",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8910",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "validThrough": "2026-07-09",
+      "applyUrl": "https://jobs.senevita.ch/Lehrstelle-FaGe-Obstgarten-de-j5205.html",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "firstSeenAt": "2026-05-19T12:21:39.753Z",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }
