@@ -297,6 +297,12 @@ export const COMPANY_HQ = {
   'stgag':                        { city: 'Münsterlingen',      canton: 'TG', postalCode: '8596', addressRegion: 'TG' },
   'clienia-ag':                   { city: 'Pfäffikon',          canton: 'ZH', postalCode: '8330', addressRegion: 'ZH' },
   'vitrea-gesundheit':            { city: 'Seewis im Prättigau', canton: 'GR', postalCode: '7212', addressRegion: 'GR' },
+  // ── Batch 10 (more EMS + KSB Baden Workday) ──
+  'ksb':                          { city: 'Baden',              canton: 'AG', postalCode: '5404', addressRegion: 'AG' },
+  'solina':                       { city: 'Spiez',              canton: 'BE', postalCode: '3700', addressRegion: 'BE' },
+  'sonnweid':                     { city: 'Wetzikon',           canton: 'ZH', postalCode: '8620', addressRegion: 'ZH' },
+  'diakoniewerk-neumuenster':     { city: 'Zollikerberg',       canton: 'ZH', postalCode: '8125', addressRegion: 'ZH' },
+  'spitex-basel':                 { city: 'Basel',              canton: 'BS', postalCode: '4051', addressRegion: 'BS' },
   'spital-limmattal':             { city: 'Schlieren',          canton: 'ZH', postalCode: '8952', addressRegion: 'ZH' },
   'huntsman':                     { city: 'Monthey',            canton: 'VS', postalCode: '1870', addressRegion: 'VS' },
   'fielmann':                     { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },

@@ -217,6 +217,10 @@ export async function fetchAllKsbJobs() {
       titleByLocale: { [sourceLang]: title },
       description: descriptionText,
       descriptionByLocale: { [sourceLang]: descriptionText },
+      // Newly-discovered jobs ship with source-locale-only fields. The shared
+      // AI-localization step clears this flag when it fills the remaining 3
+      // locales; if it can't, `translate-pending.yml` picks the job up.
+      needsRetranslation: true,
       location,
       canton,
       url: publicUrl,
