@@ -1,18 +1,19 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-05-19T11:23:28.742Z",
+  "generatedAt": "2026-05-19T21:51:16.211Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 25183,
-  "avgDurationMs": 25183,
+  "durationMs": 23145,
+  "avgDurationMs": 23145,
   "durationHistory": [
-    25183
+    23145
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Data Scientist (w/m)",
       "slug": "data-scientist-w-m-banca-cler",
@@ -36,17 +37,24 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-19T11:23:05.973Z",
-      "_qualityScore": 65,
+      "crawledAt": "2026-05-19T21:50:55.480Z",
+      "id": "company-fpuomx",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "firstSeenAt": "2026-05-19T11:23:28.585Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "streetAddress": "Via Pretorio 13",
+      "postalCode": "6900",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 14
+        "translation": 13,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Kundenberaterin Individual und stellvertretende Filialleiterin Solothurn (w/m)",
       "slug": "kundenberaterin-individual-und-stellvertretende-filialleiterin-solothurn-w-m-banca-cler",
@@ -70,7 +78,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-19T11:23:06.733Z",
+      "crawledAt": "2026-05-19T21:50:56.148Z",
       "id": "company-a7q9i9",
       "contract": "full-time",
       "currency": "CHF",
@@ -111,7 +119,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-19T11:23:07.407Z",
+      "crawledAt": "2026-05-19T21:50:56.793Z",
       "id": "company-crpf0w",
       "contract": "full-time",
       "currency": "CHF",
@@ -152,7 +160,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-05-19T11:23:08.072Z",
+      "crawledAt": "2026-05-19T21:50:57.437Z",
       "id": "company-phytkj",
       "contract": "full-time",
       "currency": "CHF",
