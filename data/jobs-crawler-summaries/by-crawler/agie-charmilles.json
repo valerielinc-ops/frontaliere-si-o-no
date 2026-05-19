@@ -1,18 +1,50 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-05-19T11:00:56.808Z",
+  "generatedAt": "2026-05-19T21:24:46.483Z",
   "total": 60,
-  "newCount": 0,
-  "updatedCount": 46,
+  "newCount": 1,
+  "updatedCount": 45,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 96534,
-  "avgDurationMs": 96534,
+  "durationMs": 95134,
+  "avgDurationMs": 95134,
   "durationHistory": [
-    96534
+    95134
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Diagnosetechniker (w/m/d) 100%",
+      "slug": "diagnosetechniker-w-m-d-100-agie-charmilles-biel-bienne",
+      "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-diagnosetechniker-wmd-100/",
+      "applyUrl": "https://tracking.jobchannel.ch/redirect/653dc5e7fc7bf4cdacfa9336693c92c418e4794190cbd00d522ff9181cbe0e076063ea7cbff44a26fe2102710845ac523a3afeda48d1994b5b73e2566dfcf0",
+      "company": "AGIE Charmilles SA",
+      "companyKey": "agie-charmilles",
+      "companyDomain": "gfms.com",
+      "location": "Biel/Bienne",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Macchine utensili",
+      "source": "agie-charmilles-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-19",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "workload": "100%",
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Field Service Engineer",
