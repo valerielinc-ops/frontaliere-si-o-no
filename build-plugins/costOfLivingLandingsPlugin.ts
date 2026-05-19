@@ -78,6 +78,7 @@ import {
   LEDE_STYLE,
   SMALL_HEADING_STYLE,
   renderStatGrid,
+  pickStatTileTone,
   differentiateH1FromTitle,
 } from './shared/seoContentTokens';
 import {
@@ -468,7 +469,7 @@ function renderPage(opts: {
     {
       label: view.statTileSalaryLabel,
       value: view.statSalaryFmt(snapshot.medianSalaryChf),
-      tone: 'accent',
+      tone: pickStatTileTone('salary', snapshot.medianSalaryChf ?? 0),
     },
     {
       label: view.statTileRentLabel,
@@ -479,8 +480,7 @@ function renderPage(opts: {
     {
       label: view.statTileLiveJobsLabel,
       value: view.statLiveJobsFmt(snapshot.liveCount),
-      // Live jobs are an opportunity signal — green when > 0.
-      tone: snapshot.liveCount > 0 ? 'success' : 'neutral',
+      tone: pickStatTileTone('openings', snapshot.liveCount),
     },
   ])}</div>`;
 
