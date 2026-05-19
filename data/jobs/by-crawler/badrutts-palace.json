@@ -1,6 +1,6 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-05-18T21:26:10.098Z",
+  "assembledAt": "2026-05-19T11:10:33.485Z",
   "jobs": [
     {
       "id": "badrutts-palace-6040a72347b5",
@@ -33,7 +33,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/3724328-beauty-therapist-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T21:26:07.965Z",
+      "crawledAt": "2026-05-19T11:10:31.422Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6955753-it-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:26:07.963Z",
+      "crawledAt": "2026-05-19T11:10:31.420Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -149,9 +149,9 @@
     },
     {
       "id": "badrutts-palace-3556bd3429ec",
-      "slug": "reservations-manager-m-w-d-badrutts-palace-ch",
+      "slug": "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
-        "it": "reservations-manager-m-w-d-badrutts-palace-ch",
+        "it": "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "en": "reservations-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "de": "reservations-manager-m-w-d-badrutts-palace-ch",
         "fr": "reservations-manager-m-w-d-badrutts-palace-ch"
@@ -178,7 +178,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6987633-reservations-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:26:07.961Z",
+      "crawledAt": "2026-05-19T11:10:31.419Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -196,6 +196,14 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-18T11:52:11.757Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "reservations-manager-m-w-d-badrutts-palace-ch"
+        ]
+      },
+      "previousSlugs": [
+        "reservations-manager-m-w-d-badrutts-palace-ch"
+      ],
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -240,7 +248,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7377432-guest-experience-executive-m-w-d-teilzeit-50",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:26:07.958Z",
+      "crawledAt": "2026-05-19T11:10:31.417Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -311,7 +319,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7482296-assistant-stewarding-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T21:26:07.955Z",
+      "crawledAt": "2026-05-19T11:10:31.415Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -381,7 +389,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7506059-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-18T21:26:07.948Z",
+      "crawledAt": "2026-05-19T11:10:31.412Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -459,7 +467,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7627802-commis-patissier-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:26:07.923Z",
+      "crawledAt": "2026-05-19T11:10:31.401Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
