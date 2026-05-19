@@ -673,6 +673,156 @@ function extractAlliboEmbeddedData(html = '') {
 }
 
 /**
+ * Parse a single Allibo location string into {city, canton, country}.
+ * Example input: "<i class='aw_pin ...'></i>Svizzera  / Castel San Pietro (TI)"
+ * The widget HTML may also list multiple cities separated by `;`.
+ */
+function parseAlliboLocation(raw = '', listPlaces = []) {
+  // Prefer structured ListPlaces if available — it's the canonical source.
+  if (Array.isArray(listPlaces) && listPlaces.length > 0) {
+    const first = listPlaces[0] || {};
+    const city = String(first.PlaceName || '').trim();
+    const canton = String(first.ProvinceCode || '').trim().toUpperCase();
+    const country = String(first.CountryCode || 'CH').trim().toUpperCase();
+    if (city) return { city, canton, country };
+  }
+  // Fallback to text parsing if ListPlaces is empty.
+  const stripped = decodeHtmlEntities(String(raw || ''))
+    .replace(/<[^>]+>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  // Pattern: "Country / City (CT)" or "Country / City1; City2 (CT)"
+  const match = stripped.match(/\/\s*([^()]+?)\s*\(([A-Z]{2})\)/);
+  if (match) {
+    const cityRaw = match[1].split(';')[0].trim();
+    const canton = match[2].toUpperCase();
+    return { city: cityRaw, canton, country: 'CH' };
+  }
+  return { city: '', canton: '', country: 'CH' };
+}
+
+/**
+ * Extract the Allibo connector URL (data-allibo attribute) from a category page.
+ * Each category page embeds exactly one connector URL with a per-category FT param.
+ */
+function extractAlliboConnectorUrl(html = '') {
+  // Match data-allibo="...connector.aspx?..." — handles single or double quotes.
+  const re = /data-allibo=["']([^"']*connector\.aspx[^"']+)["']/i;
+  const match = html.match(re);
+  if (!match) return '';
+  return match[1].replace(/&amp;/g, '&').trim();
+}
+
+/**
+ * Fetch the Allibo widget connector JSON for one category and map AdsList entries
+ * to the shape expected by injectMedactaJobs().
+ *
+ * Returns [] on any error — the caller handles aggregation across categories.
+ */
+async function fetchAlliboJobsForCategory(category) {
+  const pageUrl = categoryPageUrl('EN', category);
+  const html = await fetchPage(pageUrl, 20000);
+  if (!html) return [];
+
+  const connectorUrl = extractAlliboConnectorUrl(html);
+  if (!connectorUrl) {
+    console.warn(`     ⚠️ No data-allibo connector URL found in ${pageUrl}`);
+    return [];
+  }
+
+  let payload = null;
+  try {
+    const res = await fetch(connectorUrl, {
+      headers: {
+        Accept: 'application/json,text/javascript,*/*',
+        'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
+        // Allibo's widget endpoint expects a normal browser referrer to return JSON.
+        Referer: pageUrl,
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+    });
+    if (!res.ok) {
+      console.warn(`     ⚠️ Allibo connector HTTP ${res.status} for ${category}`);
+      return [];
+    }
+    payload = await res.json();
+  } catch (err) {
+    console.warn(`     ⚠️ Allibo connector fetch failed for ${category}: ${err?.message || err}`);
+    return [];
+  }
+
+  const adsList = payload?.Content?.WidgetData?.AdsList || payload?.WidgetData?.AdsList || [];
+  if (!Array.isArray(adsList) || adsList.length === 0) return [];
+
+  const mapped = [];
+  for (const ad of adsList) {
+    const title = decodeHtmlEntities(String(ad?.Title || '')).trim();
+    if (!title) continue;
+    const detailLink = String(ad?.DetailLink || '').trim();
+    // Extract stable Allibo job ID from DetailLink (?ID=NNNN&...) for dedup + slug.
+    let alliboId = '';
+    if (detailLink) {
+      const idMatch = detailLink.match(/[?&]ID=(\d+)/i);
+      if (idMatch) alliboId = idMatch[1];
+    }
+    const loc = parseAlliboLocation(ad?.JobLocation, ad?.ListPlaces);
+    const isUrgent = Boolean(
+      (ad?.Rush && /\brush\b|urgent|urgente/i.test(String(ad.Rush))) ||
+      (ad?.LabelHtml && /rush|urgent|urgente/i.test(String(ad.LabelHtml)))
+    );
+    mapped.push({
+      title,
+      detailLink,
+      alliboId,
+      location: loc.city || DEFAULT_CITY,
+      canton: loc.canton || DEFAULT_CANTON,
+      country: loc.country || 'CH',
+      category,
+      categoryLabel: CATEGORY_LABELS[category] || category,
+      jobCategory: decodeHtmlEntities(String(ad?.Job || '')).trim(),
+      contract: '',
+      isUrgent,
+    });
+  }
+  return mapped;
+}
+
+/**
+ * Fetch jobs from every category's Allibo connector and dedupe by Allibo ID.
+ * Multiple categories can surface the same job (cross-tagged), so the first
+ * occurrence wins and subsequent duplicates are dropped.
+ */
+async function fetchAllAlliboJobs() {
+  console.log('\n🌐 Fetching Medacta jobs from Allibo widget connectors...');
+  const byId = new Map();
+  let categoriesOk = 0;
+  let categoriesEmpty = 0;
+  for (const category of CAREER_CATEGORIES) {
+    const jobs = await fetchAlliboJobsForCategory(category);
+    if (jobs.length === 0) {
+      categoriesEmpty++;
+      console.log(`  📋 ${CATEGORY_LABELS[category] || category}: 0 jobs`);
+    } else {
+      categoriesOk++;
+      console.log(`  📋 ${CATEGORY_LABELS[category] || category}: ${jobs.length} jobs`);
+    }
+    for (const job of jobs) {
+      const key = job.alliboId
+        ? `id:${job.alliboId}`
+        : `fallback:${normalizeKey(`${job.title}|${job.location}`)}`;
+      if (!byId.has(key)) byId.set(key, job);
+    }
+    // Polite delay between categories.
+    await new Promise((r) => setTimeout(r, 300));
+  }
+  const all = [...byId.values()];
+  console.log(`\n  ✅ ${categoriesOk}/${CAREER_CATEGORIES.length} categories returned jobs, ${categoriesEmpty} empty`);
+  console.log(`  📦 ${all.length} unique jobs after dedup by Allibo ID`);
+  return all;
+}
+
+/**
  * Discover all job URLs and embedded job data from Medacta category pages.
  * Crawls each of the 14 category pages in the EN locale.
  */
@@ -1087,6 +1237,17 @@ async function main() {
     console.log(`\nℹ️ Runtime discovery found ${discovery.links.length} public job links; they will not be stored in git.`);
   }
   ensureAdapterSeedUrls();
+
+  // 1b. Fetch jobs from the Allibo widget connector for each category.
+  //     The Medacta career pages are JS-rendered shells — the job list is
+  //     only populated client-side by the Allibo widget. We replicate the
+  //     widget's call to the JSON connector to recover the full listing.
+  const alliboJobs = await fetchAllAlliboJobs();
+  if (alliboJobs.length > 0) {
+    await injectMedactaJobs(alliboJobs);
+  } else {
+    console.warn('⚠️ No jobs returned from Allibo connectors — skipping injection.');
+  }
 
   // 2. Run the base crawler against first-party category pages.
   await runBaseCrawler();
