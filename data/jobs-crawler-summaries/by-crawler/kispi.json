@@ -1,16 +1,16 @@
 {
   "key": "kispi",
   "label": "Universitäts-Kinderspital Zürich",
-  "generatedAt": "2026-05-19T21:08:14.222Z",
+  "generatedAt": "2026-05-19T22:39:36.648Z",
   "total": 53,
-  "newCount": 53,
-  "updatedCount": 0,
+  "newCount": 1,
+  "updatedCount": 52,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1332990,
-  "avgDurationMs": 1332990,
+  "durationMs": 37984,
+  "avgDurationMs": 37984,
   "durationHistory": [
-    1332990
+    37984
   ],
   "newJobs": [
     {
@@ -26,7 +26,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-fuer-das-nds-hf-anaesthesiepflege-paediatrie/e8bf4146-ee62-468b-a338-13c1ccf3d7a3",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:03.506Z",
+      "crawledAt": "2026-05-19T22:39:00.246Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -49,7 +49,9 @@
         "translation": 4,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "kispi-ba9204bb74f8",
       "slug": "medizinische-praxisassistentin-efz-m-w-40-60-polikliniken-1-4-5-montag-bis-freitag-im",
@@ -63,7 +65,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/medizinische-praxisassistentin-efz-m-w/443be277-2a25-4cdb-bc9b-0cf1325a6542",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:04.123Z",
+      "crawledAt": "2026-05-19T22:39:00.991Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -79,11 +81,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/medizinische-praxisassistentin-efz-m-w/443be277-2a25-4cdb-bc9b-0cf1325a6542",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:04.123Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -100,7 +103,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/dipl-fachfrau-dipl-fachmann-operationstechnik/8a3b5715-4200-4d89-b608-55e7f471da6f",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:04.754Z",
+      "crawledAt": "2026-05-19T22:39:01.706Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -116,11 +119,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/dipl-fachfrau-dipl-fachmann-operationstechnik/8a3b5715-4200-4d89-b608-55e7f471da6f",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:04.754Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -137,7 +141,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/praktikant-therapien-w-m/3625a9e2-7c47-4e29-816a-f51fea6c976e",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:05.264Z",
+      "crawledAt": "2026-05-19T22:39:02.280Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -153,11 +157,12 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/praktikant-therapien-w-m/3625a9e2-7c47-4e29-816a-f51fea6c976e",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:05.264Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -174,7 +179,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/medizinische-praxisassistentin-mpa-oder-fachfrau-gesundheit-w-m/3e633820-849c-4881-852a-f0e1fa30b186",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:05.883Z",
+      "crawledAt": "2026-05-19T22:39:02.917Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -190,11 +195,12 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/medizinische-praxisassistentin-mpa-oder-fachfrau-gesundheit-w-m/3e633820-849c-4881-852a-f0e1fa30b186",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:05.883Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -211,7 +217,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/disponentin-m-w/c9c62ea6-d868-4a2f-af5a-e2b57a744303",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:06.495Z",
+      "crawledAt": "2026-05-19T22:39:03.611Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -227,11 +233,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/disponentin-m-w/c9c62ea6-d868-4a2f-af5a-e2b57a744303",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:06.495Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -248,7 +255,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann/b3b77abb-0632-4d64-844c-910ac7d3094e",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:07.000Z",
+      "crawledAt": "2026-05-19T22:39:04.189Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -264,11 +271,12 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann/b3b77abb-0632-4d64-844c-910ac7d3094e",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:07.000Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -285,7 +293,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/database-data-warehouse-engineer-m-w/0d5c69f1-1e97-42c3-a39c-23e9d2006757",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:07.623Z",
+      "crawledAt": "2026-05-19T22:39:05.071Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -301,11 +309,12 @@
       "featured": false,
       "postedDate": "2026-05-08",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/database-data-warehouse-engineer-m-w/0d5c69f1-1e97-42c3-a39c-23e9d2006757",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:07.623Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -322,7 +331,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/dipl-pflegefachfrau-oder-medizinisch-technische-radiologieassistenz-mtra-m-w/14012f68-3b1c-4faa-aa80-06388d1a3491",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:08.336Z",
+      "crawledAt": "2026-05-19T22:39:05.756Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -338,11 +347,12 @@
       "featured": false,
       "postedDate": "2026-05-08",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/dipl-pflegefachfrau-oder-medizinisch-technische-radiologieassistenz-mtra-m-w/14012f68-3b1c-4faa-aa80-06388d1a3491",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:08.336Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -359,7 +369,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/arztsekretaerin-m-w/18527fee-e250-40b4-80d6-663f95f81d1c",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:08.927Z",
+      "crawledAt": "2026-05-19T22:39:06.444Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -375,11 +385,12 @@
       "featured": false,
       "postedDate": "2026-05-07",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/arztsekretaerin-m-w/18527fee-e250-40b4-80d6-663f95f81d1c",
-      "_qualityScore": 59,
+      "firstSeenAt": "2026-05-19T20:46:08.927Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -396,7 +407,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/ict-system-engineer-m-w-windows-server-microsoft-365-m-w/3d682eb1-23f2-44af-acc7-ec9494589e28",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:09.521Z",
+      "crawledAt": "2026-05-19T22:39:07.125Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -412,11 +423,12 @@
       "featured": false,
       "postedDate": "2026-05-07",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/ict-system-engineer-m-w-windows-server-microsoft-365-m-w/3d682eb1-23f2-44af-acc7-ec9494589e28",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-05-19T20:46:09.521Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -433,7 +445,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/koch-w-m/207ffe60-2cf2-4b14-8c24-42d8f13f2dae",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:09.994Z",
+      "crawledAt": "2026-05-19T22:39:07.623Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -449,11 +461,12 @@
       "featured": false,
       "postedDate": "2026-05-05",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/koch-w-m/207ffe60-2cf2-4b14-8c24-42d8f13f2dae",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:09.994Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -470,7 +483,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/leitender-arzt-leitende-aerztin/88e525b7-ec47-4171-ae46-cfea15559c4e",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:10.616Z",
+      "crawledAt": "2026-05-19T22:39:08.291Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -486,11 +499,12 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/leitender-arzt-leitende-aerztin/88e525b7-ec47-4171-ae46-cfea15559c4e",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:10.616Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -507,7 +521,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/physiotherapeutin-w-m/1f577541-7bfb-4aba-b6f2-e0a94a1c4636",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:11.197Z",
+      "crawledAt": "2026-05-19T22:39:08.836Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -523,11 +537,12 @@
       "featured": false,
       "postedDate": "2026-04-29",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/physiotherapeutin-w-m/1f577541-7bfb-4aba-b6f2-e0a94a1c4636",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:11.197Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -544,7 +559,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/oberaerztin-oberarzt-orl/09295d66-83c9-4d25-b091-4d792aec5bcd",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:11.803Z",
+      "crawledAt": "2026-05-19T22:39:09.387Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -560,11 +575,12 @@
       "featured": false,
       "postedDate": "2026-04-29",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/oberaerztin-oberarzt-orl/09295d66-83c9-4d25-b091-4d792aec5bcd",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:11.803Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -581,7 +597,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/pflegeexpertin-apn-w-m/38a7a7db-d693-45a6-976c-145ffdddde3f",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:12.408Z",
+      "crawledAt": "2026-05-19T22:39:10.078Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -597,11 +613,12 @@
       "featured": false,
       "postedDate": "2026-04-28",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/pflegeexpertin-apn-w-m/38a7a7db-d693-45a6-976c-145ffdddde3f",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:12.408Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -618,7 +635,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-spaetdienstsupport/6d400445-a250-4783-94e7-7cc3c2bfef3b",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:13.028Z",
+      "crawledAt": "2026-05-19T22:39:10.784Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -634,11 +651,12 @@
       "featured": false,
       "postedDate": "2026-04-22",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-spaetdienstsupport/6d400445-a250-4783-94e7-7cc3c2bfef3b",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:13.028Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -655,7 +673,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/md-phd-position-m-w/99cac549-5d96-4e9d-96a1-83669df4b248",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:13.571Z",
+      "crawledAt": "2026-05-19T22:39:11.294Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -671,11 +689,12 @@
       "featured": false,
       "postedDate": "2026-04-21",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/md-phd-position-m-w/99cac549-5d96-4e9d-96a1-83669df4b248",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:13.571Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -692,7 +711,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann/3409aa0c-8d8a-4381-9021-370125838297",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:14.164Z",
+      "crawledAt": "2026-05-19T22:39:11.843Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -708,11 +727,12 @@
       "featured": false,
       "postedDate": "2026-04-20",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann/3409aa0c-8d8a-4381-9021-370125838297",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:14.164Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -729,7 +749,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/mitarbeiterin-fallmanagement-m-w/acd9042c-f72c-48b2-85af-270bec3ca061",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:14.780Z",
+      "crawledAt": "2026-05-19T22:39:12.497Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -745,11 +765,12 @@
       "featured": false,
       "postedDate": "2026-04-17",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/mitarbeiterin-fallmanagement-m-w/acd9042c-f72c-48b2-85af-270bec3ca061",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:14.780Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -766,7 +787,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/leiterin-fundraising-m-w/7235b7b3-c86d-42f0-b9db-e12202d03b65",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:15.481Z",
+      "crawledAt": "2026-05-19T22:39:13.149Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -782,11 +803,12 @@
       "featured": false,
       "postedDate": "2026-04-17",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/leiterin-fundraising-m-w/7235b7b3-c86d-42f0-b9db-e12202d03b65",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:15.481Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -803,7 +825,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/disponentin-m-w/9fa58956-32a0-42a6-aa12-c07b5bbd636e",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:16.064Z",
+      "crawledAt": "2026-05-19T22:39:13.845Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -819,11 +841,12 @@
       "featured": false,
       "postedDate": "2026-04-16",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/disponentin-m-w/9fa58956-32a0-42a6-aa12-c07b5bbd636e",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:16.064Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -840,7 +863,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/fellow-m-w/f0b9154a-3ee4-45b5-ae89-26b2ab3cc0c7",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:16.672Z",
+      "crawledAt": "2026-05-19T22:39:14.526Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -856,11 +879,12 @@
       "featured": false,
       "postedDate": "2026-04-16",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/fellow-m-w/f0b9154a-3ee4-45b5-ae89-26b2ab3cc0c7",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:16.672Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -877,7 +901,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/berufsbildnerin-anaesthesiepflege-nds-w-m/a8dce23d-c8a1-4f6f-ba71-d2596f15e43f",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:17.316Z",
+      "crawledAt": "2026-05-19T22:39:15.218Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -893,11 +917,12 @@
       "featured": false,
       "postedDate": "2026-04-14",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/berufsbildnerin-anaesthesiepflege-nds-w-m/a8dce23d-c8a1-4f6f-ba71-d2596f15e43f",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:17.316Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -914,7 +939,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/hr-controller-m-w/b2b8fc94-68b6-428c-bad6-16950a532d91",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:17.930Z",
+      "crawledAt": "2026-05-19T22:39:15.890Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -930,11 +955,12 @@
       "featured": false,
       "postedDate": "2026-04-02",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/hr-controller-m-w/b2b8fc94-68b6-428c-bad6-16950a532d91",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:17.930Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -951,7 +977,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/fachfrau-fachmann-gesundheit/a52d7d48-0de0-419a-87d1-eeeb7b6aff0e",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:18.525Z",
+      "crawledAt": "2026-05-19T22:39:16.429Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -967,11 +993,12 @@
       "featured": false,
       "postedDate": "2026-03-31",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/fachfrau-fachmann-gesundheit/a52d7d48-0de0-419a-87d1-eeeb7b6aff0e",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:18.525Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -988,7 +1015,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/leiterin-m-w-administrative-applications/327d8b09-e6c6-4097-b80a-18a74e965d57",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:19.154Z",
+      "crawledAt": "2026-05-19T22:39:17.076Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1004,11 +1031,12 @@
       "featured": false,
       "postedDate": "2026-03-27",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/leiterin-m-w-administrative-applications/327d8b09-e6c6-4097-b80a-18a74e965d57",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-05-19T20:46:19.154Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -1025,7 +1053,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/mitarbeiterin-patientenaufnahme-w-m/33ad216e-b1f4-4ee6-8f1a-2ab7f0fddf8e",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:19.818Z",
+      "crawledAt": "2026-05-19T22:39:17.803Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1041,11 +1069,12 @@
       "featured": false,
       "postedDate": "2026-03-24",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/mitarbeiterin-patientenaufnahme-w-m/33ad216e-b1f4-4ee6-8f1a-2ab7f0fddf8e",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:19.818Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -1062,7 +1091,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/sozialpaedagogin-w-m-oder-dipl-pflegefachfrau-dipl-pflegefachmann/2b54a2da-d277-49aa-8552-6e1fa4cc119f",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:20.596Z",
+      "crawledAt": "2026-05-19T22:39:18.497Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1078,11 +1107,12 @@
       "featured": false,
       "postedDate": "2026-03-19",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/sozialpaedagogin-w-m-oder-dipl-pflegefachfrau-dipl-pflegefachmann/2b54a2da-d277-49aa-8552-6e1fa4cc119f",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:20.596Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -1099,7 +1129,7 @@
       "url": "https://stellen.kispi-jobs.ch/offene-stellen/heilpaedagogische-frueherzieherin-m-w/1385b5ef-39f6-490e-9e37-bd36d3d7cf79",
       "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:21.138Z",
+      "crawledAt": "2026-05-19T22:39:19.145Z",
       "addressLocality": "Affoltern am Albis",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1115,16 +1145,54 @@
       "featured": false,
       "postedDate": "2026-03-19",
       "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/heilpaedagogische-frueherzieherin-m-w/1385b5ef-39f6-490e-9e37-bd36d3d7cf79",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:21.138Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "kispi-e5565a797ed1",
+      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-mit-oder-ohne-nds-notfall-80-100-interdisziplinare",
+      "company": "Universitäts-Kinderspital Zürich",
+      "companyKey": "kispi",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann mit oder ohne NDS Notfall 80-100% - Interdisziplinäre pädiatrische Notfallstation",
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://stellen.kispi-jobs.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-mit-oder-ohne-nds-notfall/76d86b2c-1261-452d-b338-059bc378a216",
+      "source": "Universitäts-Kinderspital Zürich Dedicated Parser (Prospective careercenter HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T22:39:19.819Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "streetAddress": "Lenggstrasse 30",
+      "postalCode": "8008",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "part-time",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-05",
+      "applyUrl": "https://stellen.kispi-jobs.ch/offene-stellen/dipl-pflegefachfrau-dipl-pflegefachmann-mit-oder-ohne-nds-notfall/76d86b2c-1261-452d-b338-059bc378a216",
+      "firstSeenAt": "2026-05-19T20:46:21.976Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
