@@ -1,18 +1,19 @@
 {
   "key": "adullam",
   "label": "Adullam-Stiftung",
-  "generatedAt": "2026-05-19T10:24:23.139Z",
+  "generatedAt": "2026-05-19T10:59:06.725Z",
   "total": 10,
-  "newCount": 10,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 68806,
-  "avgDurationMs": 68806,
+  "durationMs": 19209,
+  "avgDurationMs": 19209,
   "durationHistory": [
-    68806
+    19209
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "adullam-a5e3f9276f1e",
       "slug": "werkstudent-in-human-resources-60-adullam-basel",
@@ -25,7 +26,7 @@
       "url": "https://recruitingapp-2562.umantis.com/Vacancies/1093/Description/1",
       "source": "Adullam-Stiftung Dedicated Parser (Umantis listing tenant 2562)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:17.387Z",
+      "crawledAt": "2026-05-19T10:58:52.889Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -40,11 +41,13 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2562.umantis.com/Vacancies/1093/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T10:23:17.387Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -60,7 +63,7 @@
       "url": "https://recruitingapp-2562.umantis.com/Vacancies/1094/Description/1",
       "source": "Adullam-Stiftung Dedicated Parser (Umantis listing tenant 2562)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:18.470Z",
+      "crawledAt": "2026-05-19T10:58:54.136Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -75,11 +78,13 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2562.umantis.com/Vacancies/1094/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T10:23:18.470Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -95,7 +100,7 @@
       "url": "https://recruitingapp-2562.umantis.com/Vacancies/971/Description/1",
       "source": "Adullam-Stiftung Dedicated Parser (Umantis listing tenant 2562)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:19.578Z",
+      "crawledAt": "2026-05-19T10:58:55.401Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -110,11 +115,13 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2562.umantis.com/Vacancies/971/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T10:23:19.578Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -130,7 +137,7 @@
       "url": "https://recruitingapp-2562.umantis.com/Vacancies/1092/Description/1",
       "source": "Adullam-Stiftung Dedicated Parser (Umantis listing tenant 2562)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:20.652Z",
+      "crawledAt": "2026-05-19T10:58:56.634Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -145,11 +152,13 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2562.umantis.com/Vacancies/1092/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T10:23:20.652Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -165,7 +174,7 @@
       "url": "https://recruitingapp-2562.umantis.com/Vacancies/1090/Description/1",
       "source": "Adullam-Stiftung Dedicated Parser (Umantis listing tenant 2562)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:21.775Z",
+      "crawledAt": "2026-05-19T10:58:57.952Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -180,11 +189,13 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2562.umantis.com/Vacancies/1090/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T10:23:21.775Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -200,7 +211,7 @@
       "url": "https://recruitingapp-2562.umantis.com/Vacancies/1091/Description/1",
       "source": "Adullam-Stiftung Dedicated Parser (Umantis listing tenant 2562)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:22.987Z",
+      "crawledAt": "2026-05-19T10:58:59.165Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -215,11 +226,13 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2562.umantis.com/Vacancies/1091/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T10:23:22.987Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -235,7 +248,7 @@
       "url": "https://recruitingapp-2562.umantis.com/Vacancies/1089/Description/1",
       "source": "Adullam-Stiftung Dedicated Parser (Umantis listing tenant 2562)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:24.094Z",
+      "crawledAt": "2026-05-19T10:59:00.371Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -250,11 +263,13 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2562.umantis.com/Vacancies/1089/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T10:23:24.094Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -270,7 +285,7 @@
       "url": "https://recruitingapp-2562.umantis.com/Vacancies/1088/Description/1",
       "source": "Adullam-Stiftung Dedicated Parser (Umantis listing tenant 2562)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:25.328Z",
+      "crawledAt": "2026-05-19T10:59:01.698Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -285,11 +300,13 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2562.umantis.com/Vacancies/1088/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T10:23:25.328Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -305,7 +322,7 @@
       "url": "https://recruitingapp-2562.umantis.com/Vacancies/1087/Description/1",
       "source": "Adullam-Stiftung Dedicated Parser (Umantis listing tenant 2562)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:26.465Z",
+      "crawledAt": "2026-05-19T10:59:03.206Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -320,11 +337,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2562.umantis.com/Vacancies/1087/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T10:23:26.465Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -340,7 +358,7 @@
       "url": "https://recruitingapp-2562.umantis.com/Vacancies/1086/Description/1",
       "source": "Adullam-Stiftung Dedicated Parser (Umantis listing tenant 2562)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:27.589Z",
+      "crawledAt": "2026-05-19T10:59:04.616Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -355,16 +373,17 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2562.umantis.com/Vacancies/1086/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T10:23:27.589Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
