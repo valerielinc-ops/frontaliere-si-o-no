@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-05-19T11:35:54.867Z",
+  "assembledAt": "2026-05-19T22:07:09.072Z",
   "jobs": [
     {
       "id": "efg-6242",
@@ -51,7 +51,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.758Z",
+      "crawledAt": "2026-05-19T22:07:06.844Z",
       "slugByLocale": {
         "it": "corporate-tax-tirocinante-finanza-department-geneva-efg-international-ag-geneve",
         "en": "corporate-tax-intern-finance-department-geneva-efg-geneve",
@@ -93,7 +93,8 @@
       "previousSlugs": [
         "corporate-tax-intern-finance-department-geneva-efg-geneve",
         "corporate-tax-intern-dipartimento-finanze-geneva-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6212",
@@ -243,7 +244,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.757Z",
+      "crawledAt": "2026-05-19T22:07:06.843Z",
       "slugByLocale": {
         "it": "finanza-analisi-dei-dati-e-internamento-bi-potenza-efg-international-ag-geneve",
         "en": "finance-data-analytics-power-bi-internship-efg-geneve",
@@ -282,7 +283,8 @@
       "previousSlugs": [
         "finance-data-analytics-power-bi-internship-efg-geneve",
         "finanza-data-analytics-power-bi-internship-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6209",
@@ -416,7 +418,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.756Z",
+      "crawledAt": "2026-05-19T22:07:06.842Z",
       "slugByLocale": {
         "it": "rischio-operativo-e-specialista-di-sicurezza-informatica-e-informatica-efg-international-ag-zurich",
         "en": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich",
@@ -450,133 +452,8 @@
       },
       "previousSlugs": [
         "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich"
-      ]
-    },
-    {
-      "id": "efg-6197",
-      "slug": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
-      "company": "EFG International AG",
-      "title": "Technology & Cyber Information Security Risk Analyst (Temporary)",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6197",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Technology & Cyber Information Security Risk Analyst (Temporary)",
-        "it": "Technology & Cyber Information Security Risk Analista (Temporary)",
-        "de": "Technologie & Cyber Information Security Risk Analyst (Temporary)",
-        "fr": "Technology & Cyber Information Security Risk Analyste (Temporary)"
-      },
-      "descriptionByLocale": {
-        "en": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "Descrizione del lavoro\n\nThe Technology & Cyber Information Security Risk Analyst sarà parte del team di Risk Operazionale. Siamo alla ricerca di un rischio IT appassionato, sicurezza informatica e informazioni per coprire un ruolo globale situato in Svizzera.\n\nUbicazione: Ginevra, Zurigo, Lugano.\n\nPrincipali responsabilità\n\n- supervisionare l'attuazione e la manutenzione efficaci e coerenti del quadro di gestione del rischio e del controllo a livello globale.\n- Contribuire alle valutazioni di rischio e controllo tematici su problemi di sicurezza informatica, rischio informatico e analisi delle minacce attraverso la collaborazione con altri stakeholder interni.\n- Esegui passaggi a livello di processo e test di controllo per consentire l'identificazione e la valutazione dei rischi e dei controlli.\n- Fornire competenze, formulare raccomandazioni per migliorare l'aderenza dei regolamenti interni, requisiti normativi e best practice del settore e monitorare la loro implementazione.\n- Gestisce i rapporti con i principali stakeholder all'interno della prima linea di difesa.\n- Resta al passo e consiglia la Banca sulle tendenze innovative di business e tecnologia nei rischi e controlli.\n\nCompetenze ed esperienza\n- Master in Informatica, sicurezza informatica, tecnologia dell'informazione, o equivalente.\n- Certificazione professionale, ad esempio Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk e\n- Controllo sistemi informativi (CRISC) o equivalente.\n- Almeno 3-5 anni di esperienza nelle piattaforme IT bancarie, nei processi operativi e nei controlli IT, o in consulenza/audit con una società di servizi professionali leader; una combinazione di entrambi è considerata un vantaggio.\n- Eccellente capacità di comunicazione in inglese, sia verbale che scritta. La conoscenza di tedesco, francese o italiano è un plus.\n\n- comprensione approfondita dei concetti chiave di tecnologia e sicurezza dell'informazione rilevanti per il settore bancario. In particolare, una forte conoscenza dell'organizzazione IT, dei processi aziendali e dei sistemi (ad esempio, sicurezza IT, gestione dei dati, architettura e pianificazione, gestione del ciclo di vita e questioni regolamentari).\n- Prove capacità di scrivere report e comunicare efficacemente con un pubblico senior.\n- Automotivato, diligente, altamente organizzato, in grado di privilegiare e multi-task, e prosperare in un ambiente frenetico.\n- Eccellente capacità analitiche e problem solving, in grado di lavorare autonomamente e come parte di un team globale.\n\nI nostri valori\n- Responsabilità: Assumere la proprietà per i compiti e le sfide e cercare un miglioramento continuo.\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità.\n- Passione: Impegnarsi e lottare per l'eccellenza.\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole.\n- Partenariato: promozione della collaborazione e del lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "Job Description\n\nDer Technology & Cyber Information Security Risk Analyst wird Teil des operativen Risikoteams sein. Wir suchen ein leidenschaftliches IT-Risiko, Cyber- und Informationssicherheit, um eine globale Rolle in der Schweiz zu decken.\n\nLage: Genf, Zürich, Lugano.\n\nHauptaufgaben\n- Überprüfe die effektive und konsequente Umsetzung und Wartung des Risiko- und Kontrollmanagement-Rahmens weltweit.\n- Beitrag zu thematischen Risiko- und Kontrollbeurteilungen zu IT-Sicherheitsfragen, Cyber-Risiko und Bedrohungsanalysen durch Zusammenarbeit mit anderen internen Akteuren.\n- Durchführung von Prozess-Level-Durchgängen und Kontrolltests, um die Identifizierung und Bewertung von Risiken und Kontrollen zu ermöglichen.\n- Bereitstellung von Fachwissen, Empfehlungen zur Verbesserung der Einhaltung interner Vorschriften, regulatorischer Anforderungen und branchenüblicher Praktiken und zur Überwachung ihrer Umsetzung.\n- Verwaltet Beziehungen zu den wichtigsten Interessenvertretern innerhalb der ersten Verteidigungslinie.\n- Bleibt stehen und berät die Bank über innovative Geschäfts- und Technologietrends bei Risiken und Kontrollen.\n\nFähigkeiten und Erfahrung\n- Masterstudium Informatik, Cyber Security, Informationstechnologie oder gleichwertig.\n- Professionelle Zertifizierung, z.B. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risiko und\n- Information Systems Control (CRISC) oder gleichwertig.\n- Mindestens 3-5 Jahre Erfahrung im Bankwesen von IT-Plattformen, operativen Prozessen und IT-Kontrollen oder in Beratung/Audit mit einem führenden professionellen Dienstleistungsunternehmen; eine Kombination von beiden gilt als Vorteil.\n- Ausgezeichnete Kommunikationsfähigkeiten auf Englisch, sowohl verbale als auch geschrieben. Das Wissen um Deutsch, Französisch oder Italienisch ist ein Plus.\n- Vertieftes Verständnis von Schlüsseltechnologien und Informationssicherheitskonzepten für das Bankwesen. Insbesondere starke Kenntnisse der IT-Organisation, der Geschäftsprozesse und der Systeme (z.B. IT-Sicherheit, Datenmanagement, Architektur und Planung, Lebenszyklusmanagement und regulatorische Angelegenheiten).\n- Bewiesene Fähigkeit, Berichte zu schreiben und effektiv mit einem Senior Publikum zu kommunizieren.\n- Selbstmotiviert, fleißig, hoch organisiert, in der Lage, priorisieren und multi-Task, und in einer schnelllebigen Umgebung leben.\n- Ausgezeichnete analytische und Problemlösungsfähigkeiten, autonom und als Teil eines globalen Teams arbeiten können.\n\nUnsere Werte\n- Rechenschaftspflicht: Das Eigentum an Aufgaben und Herausforderungen sowie das Streben nach kontinuierlicher Verbesserung.\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern.\n- Leidenschaftlich : Engagement und Streben nach Exzellenz.\n- Lösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und behandeln Sie Kunden ziemlich mit einem risikobewussten Mindset.\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.",
-        "fr": "Description de l'emploi\n\nL'analyste des risques liés à la technologie et à la cybersécurité de l'information fera partie de l'équipe des risques opérationnels. Nous recherchons un risque informatique passionné, la cybersécurité et la sécurité de l'information pour couvrir un rôle mondial situé en Suisse.\n\nLieu: Genève, Zurich, Lugano.\n\nPrincipales responsabilités\n- Superviser la mise en œuvre et la maintenance efficaces et cohérentes du cadre de gestion des risques et des contrôles au niveau mondial.\n- Contribuer aux évaluations thématiques des risques et des contrôles sur les questions de sécurité des TI, de cyberrisque et d'analyse des menaces par la collaboration avec d'autres intervenants internes.\n- Procéder à des examens et à des essais de contrôle au niveau des processus pour permettre l'identification et l'évaluation des risques et des contrôles.\n- Fournir de l'expertise, formuler des recommandations pour améliorer le respect des règlements internes, des exigences réglementaires et des pratiques exemplaires de l'industrie, et surveiller leur mise en oeuvre.\n- Gérer les relations avec les principaux intervenants au sein de la première ligne de défense.\n- Se tient au courant et conseille la Banque sur les tendances technologiques et commerciales novatrices en matière de risques et de contrôles.\n\nCompétences et expérience\n- Maîtrise en informatique, cybersécurité, technologie de l'information ou équivalent.\n- Attestation professionnelle, p. ex.\n- Contrôle des systèmes d'information (CRISC) ou équivalent.\n- Au moins 3-5 ans d'expérience dans les plateformes informatiques bancaires, les processus opérationnels et les contrôles informatiques, ou en consultation/audit avec une entreprise de services professionnels de premier plan; une combinaison de ces deux types est considérée comme un avantage.\n- Excellente capacité de communication en anglais, à la fois verbale et écrite. La connaissance de l'allemand, du français ou de l'italien est un plus.\n- Compréhension approfondie des concepts clés en matière de technologie et de sécurité de l'information dans le domaine bancaire. En particulier, une bonne connaissance de l'organisation informatique, des processus et des systèmes opérationnels (par exemple, sécurité informatique, gestion des données, architecture et planification, gestion du cycle de vie et questions réglementaires).\n- Capacité éprouvée d'écrire des rapports et de communiquer efficacement avec un auditoire supérieur.\n- Automotivé, diligent, hautement organisé, capable de prioriser et de multitâche, et de prospérer dans un environnement rapide.\n- Excellentes compétences analytiques et de résolution de problèmes, capables de travailler de manière autonome et dans le cadre d'une équipe mondiale.\n\nNos valeurs\n- Responsabilité : Prise en charge des tâches et des défis et recherche d'une amélioration continue.\n- Hands-on : être proactif pour obtenir rapidement des résultats de haute qualité.\n- Passionnée : être engagée et chercher l'excellence.\n- Déterminé par la solution : Se concentrer sur les résultats des clients et traiter ceux-ci de manière équitable avec un état d'esprit conscient des risques.\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "The Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.<br>",
-              "Location: Geneva, Zurich, Lugano.<br>"
-            ],
-            "responsibilities": [
-              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
-              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
-              "Information Systems Control (CRISC) or equivalent.",
-              "At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.",
-              "Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.",
-              "In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).",
-              "Proven ability to write reports and communicate effectively with a senior audience.",
-              "Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.",
-              "Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team."
-            ],
-            "requirements": [],
-            "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
-              "<strong>Passionate</strong>: Being committed and striving for excellence.",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
-              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
-              "Information Systems Control (CRISC) or equivalent.",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
-            ],
-            "keywords": [
-              "Master’s degree in Computer Science",
-              "Professional certification",
-              "Information Systems Control (CRISC) or equivalent.",
-              "At least 3-5 years of experience in banking IT platforms"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
-                  "<br><strong>Our Purpose and Mission</strong>",
-                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-05-19T11:35:52.755Z",
-      "slugByLocale": {
-        "it": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
-        "en": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
-        "de": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
-        "fr": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich"
-      },
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-09",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.907Z",
-      "previousSlugs": [
-        "technology-cyber-information-security-risk-analista-temporary-efg-international-ag-zurich"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technology-cyber-information-security-risk-analista-temporary-efg-international-ag-zurich"
-        ]
-      }
+      "needsRetranslation": true
     },
     {
       "id": "efg-6190",
@@ -704,7 +581,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.754Z",
+      "crawledAt": "2026-05-19T22:07:06.841Z",
       "slugByLocale": {
         "it": "pb-specialist-americas-ginevra-efg-international-ag-geneve",
         "en": "pb-support-specialist-americas-geneva-efg-geneve",
@@ -746,7 +623,134 @@
       "previousSlugs": [
         "pb-support-specialist-americas-geneva-efg-geneve",
         "pb-support-specialista-americas-geneva-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
+    },
+    {
+      "id": "efg-6197",
+      "slug": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+      "company": "EFG International AG",
+      "title": "Technology & Cyber Information Security Risk Analyst (Temporary)",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "description": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6197",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Technology & Cyber Information Security Risk Analyst (Temporary)",
+        "it": "Technology & Cyber Information Security Risk Analista (Temporary)",
+        "de": "Technologie & Cyber Information Security Risk Analyst (Temporary)",
+        "fr": "Technology & Cyber Information Security Risk Analyste (Temporary)"
+      },
+      "descriptionByLocale": {
+        "en": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "Descrizione del lavoro\n\nThe Technology & Cyber Information Security Risk Analyst sarà parte del team di Risk Operazionale. Siamo alla ricerca di un rischio IT appassionato, sicurezza informatica e informazioni per coprire un ruolo globale situato in Svizzera.\n\nUbicazione: Ginevra, Zurigo, Lugano.\n\nPrincipali responsabilità\n\n- supervisionare l'attuazione e la manutenzione efficaci e coerenti del quadro di gestione del rischio e del controllo a livello globale.\n- Contribuire alle valutazioni di rischio e controllo tematici su problemi di sicurezza informatica, rischio informatico e analisi delle minacce attraverso la collaborazione con altri stakeholder interni.\n- Esegui passaggi a livello di processo e test di controllo per consentire l'identificazione e la valutazione dei rischi e dei controlli.\n- Fornire competenze, formulare raccomandazioni per migliorare l'aderenza dei regolamenti interni, requisiti normativi e best practice del settore e monitorare la loro implementazione.\n- Gestisce i rapporti con i principali stakeholder all'interno della prima linea di difesa.\n- Resta al passo e consiglia la Banca sulle tendenze innovative di business e tecnologia nei rischi e controlli.\n\nCompetenze ed esperienza\n- Master in Informatica, sicurezza informatica, tecnologia dell'informazione, o equivalente.\n- Certificazione professionale, ad esempio Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk e\n- Controllo sistemi informativi (CRISC) o equivalente.\n- Almeno 3-5 anni di esperienza nelle piattaforme IT bancarie, nei processi operativi e nei controlli IT, o in consulenza/audit con una società di servizi professionali leader; una combinazione di entrambi è considerata un vantaggio.\n- Eccellente capacità di comunicazione in inglese, sia verbale che scritta. La conoscenza di tedesco, francese o italiano è un plus.\n\n- comprensione approfondita dei concetti chiave di tecnologia e sicurezza dell'informazione rilevanti per il settore bancario. In particolare, una forte conoscenza dell'organizzazione IT, dei processi aziendali e dei sistemi (ad esempio, sicurezza IT, gestione dei dati, architettura e pianificazione, gestione del ciclo di vita e questioni regolamentari).\n- Prove capacità di scrivere report e comunicare efficacemente con un pubblico senior.\n- Automotivato, diligente, altamente organizzato, in grado di privilegiare e multi-task, e prosperare in un ambiente frenetico.\n- Eccellente capacità analitiche e problem solving, in grado di lavorare autonomamente e come parte di un team globale.\n\nI nostri valori\n- Responsabilità: Assumere la proprietà per i compiti e le sfide e cercare un miglioramento continuo.\n- Hands-on: essere proattivi per fornire rapidamente risultati di alta qualità.\n- Passione: Impegnarsi e lottare per l'eccellenza.\n- Soluzione-driven: Focusing sui risultati del cliente e il trattamento dei clienti abbastanza con una mentalità di rischio-consapevole.\n- Partenariato: promozione della collaborazione e del lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.",
+        "de": "Job Description\n\nDer Technology & Cyber Information Security Risk Analyst wird Teil des operativen Risikoteams sein. Wir suchen ein leidenschaftliches IT-Risiko, Cyber- und Informationssicherheit, um eine globale Rolle in der Schweiz zu decken.\n\nLage: Genf, Zürich, Lugano.\n\nHauptaufgaben\n- Überprüfe die effektive und konsequente Umsetzung und Wartung des Risiko- und Kontrollmanagement-Rahmens weltweit.\n- Beitrag zu thematischen Risiko- und Kontrollbeurteilungen zu IT-Sicherheitsfragen, Cyber-Risiko und Bedrohungsanalysen durch Zusammenarbeit mit anderen internen Akteuren.\n- Durchführung von Prozess-Level-Durchgängen und Kontrolltests, um die Identifizierung und Bewertung von Risiken und Kontrollen zu ermöglichen.\n- Bereitstellung von Fachwissen, Empfehlungen zur Verbesserung der Einhaltung interner Vorschriften, regulatorischer Anforderungen und branchenüblicher Praktiken und zur Überwachung ihrer Umsetzung.\n- Verwaltet Beziehungen zu den wichtigsten Interessenvertretern innerhalb der ersten Verteidigungslinie.\n- Bleibt stehen und berät die Bank über innovative Geschäfts- und Technologietrends bei Risiken und Kontrollen.\n\nFähigkeiten und Erfahrung\n- Masterstudium Informatik, Cyber Security, Informationstechnologie oder gleichwertig.\n- Professionelle Zertifizierung, z.B. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risiko und\n- Information Systems Control (CRISC) oder gleichwertig.\n- Mindestens 3-5 Jahre Erfahrung im Bankwesen von IT-Plattformen, operativen Prozessen und IT-Kontrollen oder in Beratung/Audit mit einem führenden professionellen Dienstleistungsunternehmen; eine Kombination von beiden gilt als Vorteil.\n- Ausgezeichnete Kommunikationsfähigkeiten auf Englisch, sowohl verbale als auch geschrieben. Das Wissen um Deutsch, Französisch oder Italienisch ist ein Plus.\n- Vertieftes Verständnis von Schlüsseltechnologien und Informationssicherheitskonzepten für das Bankwesen. Insbesondere starke Kenntnisse der IT-Organisation, der Geschäftsprozesse und der Systeme (z.B. IT-Sicherheit, Datenmanagement, Architektur und Planung, Lebenszyklusmanagement und regulatorische Angelegenheiten).\n- Bewiesene Fähigkeit, Berichte zu schreiben und effektiv mit einem Senior Publikum zu kommunizieren.\n- Selbstmotiviert, fleißig, hoch organisiert, in der Lage, priorisieren und multi-Task, und in einer schnelllebigen Umgebung leben.\n- Ausgezeichnete analytische und Problemlösungsfähigkeiten, autonom und als Teil eines globalen Teams arbeiten können.\n\nUnsere Werte\n- Rechenschaftspflicht: Das Eigentum an Aufgaben und Herausforderungen sowie das Streben nach kontinuierlicher Verbesserung.\n- Hands-on: Als proaktiv, schnell qualitativ hochwertige Ergebnisse zu liefern.\n- Leidenschaftlich : Engagement und Streben nach Exzellenz.\n- Lösungsgetrieben : Konzentrieren Sie sich auf Client-Ergebnisse und behandeln Sie Kunden ziemlich mit einem risikobewussten Mindset.\n- Partnerschaftsorientiert: Förderung von Zusammenarbeit und Teamarbeit. Gemeinsam mit einem Unternehmergeist.",
+        "fr": "Description de l'emploi\n\nL'analyste des risques liés à la technologie et à la cybersécurité de l'information fera partie de l'équipe des risques opérationnels. Nous recherchons un risque informatique passionné, la cybersécurité et la sécurité de l'information pour couvrir un rôle mondial situé en Suisse.\n\nLieu: Genève, Zurich, Lugano.\n\nPrincipales responsabilités\n- Superviser la mise en œuvre et la maintenance efficaces et cohérentes du cadre de gestion des risques et des contrôles au niveau mondial.\n- Contribuer aux évaluations thématiques des risques et des contrôles sur les questions de sécurité des TI, de cyberrisque et d'analyse des menaces par la collaboration avec d'autres intervenants internes.\n- Procéder à des examens et à des essais de contrôle au niveau des processus pour permettre l'identification et l'évaluation des risques et des contrôles.\n- Fournir de l'expertise, formuler des recommandations pour améliorer le respect des règlements internes, des exigences réglementaires et des pratiques exemplaires de l'industrie, et surveiller leur mise en oeuvre.\n- Gérer les relations avec les principaux intervenants au sein de la première ligne de défense.\n- Se tient au courant et conseille la Banque sur les tendances technologiques et commerciales novatrices en matière de risques et de contrôles.\n\nCompétences et expérience\n- Maîtrise en informatique, cybersécurité, technologie de l'information ou équivalent.\n- Attestation professionnelle, p. ex.\n- Contrôle des systèmes d'information (CRISC) ou équivalent.\n- Au moins 3-5 ans d'expérience dans les plateformes informatiques bancaires, les processus opérationnels et les contrôles informatiques, ou en consultation/audit avec une entreprise de services professionnels de premier plan; une combinaison de ces deux types est considérée comme un avantage.\n- Excellente capacité de communication en anglais, à la fois verbale et écrite. La connaissance de l'allemand, du français ou de l'italien est un plus.\n- Compréhension approfondie des concepts clés en matière de technologie et de sécurité de l'information dans le domaine bancaire. En particulier, une bonne connaissance de l'organisation informatique, des processus et des systèmes opérationnels (par exemple, sécurité informatique, gestion des données, architecture et planification, gestion du cycle de vie et questions réglementaires).\n- Capacité éprouvée d'écrire des rapports et de communiquer efficacement avec un auditoire supérieur.\n- Automotivé, diligent, hautement organisé, capable de prioriser et de multitâche, et de prospérer dans un environnement rapide.\n- Excellentes compétences analytiques et de résolution de problèmes, capables de travailler de manière autonome et dans le cadre d'une équipe mondiale.\n\nNos valeurs\n- Responsabilité : Prise en charge des tâches et des défis et recherche d'une amélioration continue.\n- Hands-on : être proactif pour obtenir rapidement des résultats de haute qualité.\n- Passionnée : être engagée et chercher l'excellence.\n- Déterminé par la solution : Se concentrer sur les résultats des clients et traiter ceux-ci de manière équitable avec un état d'esprit conscient des risques.\n- Objectif partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "The Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.<br>",
+              "Location: Geneva, Zurich, Lugano.<br>"
+            ],
+            "responsibilities": [
+              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
+              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
+              "Information Systems Control (CRISC) or equivalent.",
+              "At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.",
+              "Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.",
+              "In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).",
+              "Proven ability to write reports and communicate effectively with a senior audience.",
+              "Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.",
+              "Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team."
+            ],
+            "requirements": [],
+            "benefits": [
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
+              "<strong>Passionate</strong>: Being committed and striving for excellence.",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
+              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
+              "Information Systems Control (CRISC) or equivalent.",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
+            ],
+            "keywords": [
+              "Master’s degree in Computer Science",
+              "Professional certification",
+              "Information Systems Control (CRISC) or equivalent.",
+              "At least 3-5 years of experience in banking IT platforms"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<br><strong>Our Purpose and Mission</strong>",
+                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-05-19T22:07:06.841Z",
+      "slugByLocale": {
+        "it": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+        "en": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+        "de": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+        "fr": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich"
+      },
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-09",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-05-10T21:30:00.907Z",
+      "previousSlugs": [
+        "technology-cyber-information-security-risk-analista-temporary-efg-international-ag-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technology-cyber-information-security-risk-analista-temporary-efg-international-ag-zurich"
+        ]
+      }
     },
     {
       "id": "efg-6177",
@@ -797,7 +801,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.753Z",
+      "crawledAt": "2026-05-19T22:07:06.839Z",
       "slugByLocale": {
         "it": "funzionario-dell-assistenza-clienti-efg-international-ag-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
@@ -959,7 +963,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.752Z",
+      "crawledAt": "2026-05-19T22:07:06.838Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -1001,7 +1005,8 @@
       "previousSlugs": [
         "pb-support-specialist-middle-east-ch-efg-geneve",
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6168",
@@ -1162,7 +1167,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.750Z",
+      "crawledAt": "2026-05-19T22:07:06.837Z",
       "slugByLocale": {
         "it": "stage-in-talent-acquisition-efg-international-ag-lugano",
         "en": "talent-acquisition-internship-efg-international-ag-geneve",
@@ -1205,7 +1210,8 @@
       "previousSlugs": [
         "talent-acquisition-internship-efg-lugano"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1358,7 +1364,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.749Z",
+      "crawledAt": "2026-05-19T22:07:06.835Z",
       "slugByLocale": {
         "it": "specialista-sviluppo-e-formazione-efg-international-ag-lugano",
         "en": "learning-development-specialist-efg-international-ag-lugano",
@@ -1523,7 +1529,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.748Z",
+      "crawledAt": "2026-05-19T22:07:06.834Z",
       "slugByLocale": {
         "it": "bi-solution-specialista-efg-international-ag-geneve",
         "en": "bi-solution-specialist-efg-international-ag-geneve",
@@ -1563,7 +1569,8 @@
       },
       "previousSlugs": [
         "bi-solution-specialist-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6137",
@@ -1717,7 +1724,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.747Z",
+      "crawledAt": "2026-05-19T22:07:06.834Z",
       "slugByLocale": {
         "it": "specialista-internazionale-della-retribuzione-efg-international-ag-lugano",
         "en": "international-payroll-specialist-efg-international-ag-lugano",
@@ -1747,8 +1754,7 @@
         "esg-verwaltungsassistent-in-efg-international-ag-lugano",
         "internationaler-gehaltsabrechnungsspezialist-efg-international-ag-lugano",
         "esg-administrative-assistant-efg-international-ag-lugano",
-        "specialiste-en-paie-internationale-efg-international-ag-lugano",
-        "international-payroll-specialist-efg-lugano"
+        "specialiste-en-paie-internationale-efg-international-ag-lugano"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1895,7 +1901,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.746Z",
+      "crawledAt": "2026-05-19T22:07:06.833Z",
       "slugByLocale": {
         "it": "senior-cloud-ingegnere-efg-international-ag-geneve",
         "en": "senior-cloud-engineer-efg-international-ag-geneve",
@@ -2076,7 +2082,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.745Z",
+      "crawledAt": "2026-05-19T22:07:06.831Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -2102,7 +2108,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-10T21:30:00.895Z"
+      "firstSeenAt": "2026-05-10T21:30:00.895Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6064",
@@ -2153,7 +2160,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.744Z",
+      "crawledAt": "2026-05-19T22:07:06.830Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -2194,7 +2201,8 @@
       "previousSlugs": [
         "cybersecurity-internal-penetration-tester-efg-geneve",
         "client-services-officer-geneva-talent-pool-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6056",
@@ -2269,7 +2277,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.743Z",
+      "crawledAt": "2026-05-19T22:07:06.829Z",
       "slugByLocale": {
         "it": "analista-del-rischio-efg-international-ag-lugano",
         "en": "operational-risk-analyst-efg-international-ag-lugano",
@@ -2381,7 +2389,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.742Z",
+      "crawledAt": "2026-05-19T22:07:06.828Z",
       "slugByLocale": {
         "it": "senior-private-markets-product-specialista-efg-international-ag-zurich",
         "en": "senior-private-markets-product-specialist-efg-zurich",
@@ -2423,7 +2431,8 @@
       "previousSlugs": [
         "senior-private-markets-product-specialist-efg-zurich",
         "senior-private-markets-product-specialiste-efg-international-ag-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -2474,7 +2483,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.741Z",
+      "crawledAt": "2026-05-19T22:07:06.827Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -2562,7 +2571,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.741Z",
+      "crawledAt": "2026-05-19T22:07:06.827Z",
       "slugByLocale": {
         "it": "gruppo-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -2604,7 +2613,8 @@
       "previousSlugs": [
         "network-proxy-support-team-lead-efg-geneve",
         "network-proxy-support-capo-team-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -2767,7 +2777,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.739Z",
+      "crawledAt": "2026-05-19T22:07:06.825Z",
       "slugByLocale": {
         "it": "specialista-in-soluzioni-it-di-trading-e-tesoreria-efg-international-ag-lugano",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -2834,7 +2844,8 @@
           "it-trading-treasury-solutions-specialiste-efg-international-ag-lugano-n93k12"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -2981,7 +2992,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.738Z",
+      "crawledAt": "2026-05-19T22:07:06.824Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-lugano",
         "en": "pension-fund-manager-efg-international-ag-zurich",
@@ -3037,7 +3048,8 @@
           "foundation-manager-efg-international-ag-lugano-n93k14"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5877",
@@ -3088,7 +3100,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.737Z",
+      "crawledAt": "2026-05-19T22:07:06.823Z",
       "slugByLocale": {
         "it": "back-office-cash-reconciliation-specialista-efg-international-ag-geneve",
         "en": "back-office-cash-reconciliation-specialist-efg-geneve",
@@ -3179,7 +3191,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.736Z",
+      "crawledAt": "2026-05-19T22:07:06.822Z",
       "slugByLocale": {
         "it": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
         "en": "strategic-planning-officer-efg-lugano",
@@ -3330,7 +3342,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.736Z",
+      "crawledAt": "2026-05-19T22:07:06.822Z",
       "slugByLocale": {
         "it": "rischio-e-conformita-applicazione-tecnica-proprietario-efg-international-ag-geneve",
         "en": "risk-compliance-technical-application-owner-efg-geneve",
@@ -3512,7 +3524,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.735Z",
+      "crawledAt": "2026-05-19T22:07:06.821Z",
       "slugByLocale": {
         "it": "business-analista-legal-compliance-efg-international-ag-geneve",
         "en": "business-analyst-legal-compliance-efg-geneve",
@@ -3552,7 +3564,8 @@
       },
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-4543",
@@ -3719,7 +3732,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.734Z",
+      "crawledAt": "2026-05-19T22:07:06.820Z",
       "slugByLocale": {
         "it": "gruppo-controllore-finanziario-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -3756,7 +3769,8 @@
       },
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6235",
@@ -3845,7 +3859,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.732Z",
+      "crawledAt": "2026-05-19T22:07:06.818Z",
       "slugByLocale": {
         "it": "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve",
         "en": "cis-specialist-onboarding-periodic-reviews-compliance-officer-efg-geneve",
@@ -3930,7 +3944,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.731Z",
+      "crawledAt": "2026-05-19T22:07:06.817Z",
       "slugByLocale": {
         "it": "analista-di-reporting-regolamentare-efg-international-ag-geneve",
         "en": "regulatory-reporting-analyst-efg-geneve",
@@ -3970,7 +3984,8 @@
       },
       "previousSlugs": [
         "regulatory-reporting-analyst-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6151",
@@ -4130,7 +4145,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.728Z",
+      "crawledAt": "2026-05-19T22:07:06.815Z",
       "slugByLocale": {
         "it": "responsabile-senior-della-trasformazione-strategica-efg-international-ag-geneve",
         "en": "senior-strategic-transformation-manager-efg-geneve",
@@ -4170,7 +4185,8 @@
       },
       "previousSlugs": [
         "senior-strategic-transformation-manager-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6266",
@@ -4253,7 +4269,7 @@
           }
         }
       },
-      "crawledAt": "2026-05-19T11:35:52.726Z",
+      "crawledAt": "2026-05-19T22:07:06.813Z",
       "slugByLocale": {
         "it": "investment-risk-specialista-efg-international-ag-zurich",
         "en": "investment-risk-specialist-efg-zurich",
@@ -4295,7 +4311,8 @@
       "previousSlugs": [
         "investment-risk-specialist-efg-zurich",
         "specialista-del-rischio-di-investimento-efg-international-ag-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -4404,7 +4421,8 @@
           "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6237",
@@ -4737,14 +4755,14 @@
         "temp-contract-business-analista-sviluppatore-efg-international-ag-lugano-n9334f",
         "temp-contract-business-analista-sviluppatore-efg-international-ag-lugano",
         "temp-contract-business-analyste-developpeur-efg-international-ag-lugano-n9334f",
+        "temp-contract-it-business-analyst-developer-efg-international-ag-lugano",
         "contrat-temporaire-analyste-developpeur-efg-international-ag-lugano",
         "contratto-temporaneo-analista-programmatore-efg-international-ag-lugano",
         "temp-contract-business-analyste-developpeur-efg-international-ag-lugano",
         "temp-kontrakt-geschaftsanalytiker-entwickler-efg-international-ag-lugano",
         "temp-contract-business-analyst-entwickler-efg-international-ag-lugano",
         "temp-contract-business-analyst-developer-efg-international-ag-lugano",
-        "contrat-temporaire-analyste-developpeur-business-efg-international-ag-lugano",
-        "temp-contract-it-business-analyst-developer-efg-international-ag-lugano"
+        "contrat-temporaire-analyste-developpeur-business-efg-international-ag-lugano"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
