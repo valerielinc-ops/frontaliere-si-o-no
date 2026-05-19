@@ -57,6 +57,7 @@ import {
   renderStatGrid,
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
+import { renderLandingHero } from './shared/landingHeroPersonality';
 import {
   PROFESSION_LOCALES,
   PROFESSION_IDS,
@@ -484,11 +485,11 @@ function renderPage(opts: {
     employerGridTitle: copy.employerGridTitle,
   };
 
-  const statTilesHtml = renderStatGrid([
+  const statTilesHtml = `<div class="seo-fade-in">${renderStatGrid([
     { label: copy.statTileLiveLabel, value: copy.statLiveValue, tone: 'success' },
     { label: copy.statTileSalaryLabel, value: copy.statSalaryValue, tone: 'accent' },
     { label: copy.statTileFreshLabel, value: copy.statFreshValue, tone: 'warning' },
-  ]);
+  ])}</div>`;
 
   const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.primaryCtaLabel)} →</a></div>`;
 
@@ -511,11 +512,11 @@ function renderPage(opts: {
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
-    <header style="margin-bottom:20px">
-      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.eyebrow)} · ${esc(copy.updatedLabel)} ${esc(dateStamp)}</p>
-      <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
-      <p style="${LEDE_STYLE}">${esc(copy.denseLede)}</p>
-    </header>
+    ${renderLandingHero(id, locale, {
+      openings: snapshot.liveCount,
+      medianSalary: snapshot.medianSalaryChf ?? undefined,
+    }, copy.h1, copy.denseLede)}
+    <p style="${HERO_EYEBROW_STYLE};margin-top:4px;font-weight:500">${esc(copy.updatedLabel)} ${esc(dateStamp)}</p>
     ${statTilesHtml}
     ${primaryCtaHtml}
     ${featuredHtml}
