@@ -1,18 +1,19 @@
 {
   "key": "concara",
   "label": "Concara (Domicil & Spitex Bern)",
-  "generatedAt": "2026-05-19T16:00:08.859Z",
+  "generatedAt": "2026-05-19T21:54:14.188Z",
   "total": 55,
-  "newCount": 55,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 55,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 696579,
-  "avgDurationMs": 696579,
+  "durationMs": 3631,
+  "avgDurationMs": 3631,
   "durationHistory": [
-    696579
+    3631
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "concara-8a247f5eba67",
       "slug": "fachperson-gesundheit-mit-tagesverantwortung-40-100-concara-bern",
@@ -26,7 +27,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/fachperson-gesundheit-mit-tagesverantwortung/fcff32fb-1869-4c03-9aed-06684ca4de7c",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.313Z",
+      "crawledAt": "2026-05-19T21:54:11.634Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "1145",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.313Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/pharma-assistent-in-efz-oder-fachperson-apotheke-fuer-institutionsbetreuung-befristet/9e734dd5-2fc7-42dd-b1a9-88241bf3010a",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.317Z",
+      "crawledAt": "2026-05-19T21:54:11.638Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "1144",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.317Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/fachperson-gesundheit/e78e671b-e2b5-4675-8d06-83410873ef49",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.318Z",
+      "crawledAt": "2026-05-19T21:54:11.639Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "1113",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.318Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/arzt-aerztin-fuer-allgemeine-innere-medizin-gestalte-die-zukunft-mit-uns/e9393a8c-8cc6-4c08-adb6-04e5fddab874",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.319Z",
+      "crawledAt": "2026-05-19T21:54:11.640Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "658",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.319Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/mitarbeiter-in-betreuung-und-pflege-als-nachtwache/ddf35f95-2c8b-4f30-a247-0cd25adf5803",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.320Z",
+      "crawledAt": "2026-05-19T21:54:11.643Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-12",
       "applyUrl": "1099",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.320Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/mitarbeitende-pflege-werde-teil-vom-wildesten-team-in-bern/ce82caed-4530-46ad-99ea-cf7153ac20b7",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.320Z",
+      "crawledAt": "2026-05-19T21:54:11.643Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "featured": false,
       "postedDate": "2026-05-12",
       "applyUrl": "1142",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T15:48:33.320Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/fachverantwortliche-r-pflege/f4984e71-dc68-4dab-9287-297ce76511a5",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.321Z",
+      "crawledAt": "2026-05-19T21:54:11.644Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -257,11 +264,12 @@
       "featured": false,
       "postedDate": "2026-05-12",
       "applyUrl": "1141",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.321Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -278,7 +286,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/pflegeexpert-in-apn-pflege-weiterentwickeln-wirkung-nachhaltig-erzielen-mit-dir/38b657df-720a-4f0d-92da-92fc8f88696c",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.322Z",
+      "crawledAt": "2026-05-19T21:54:11.645Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -293,11 +301,12 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "1102",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.322Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -314,7 +323,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/fachverantwortliche-r-pflege/e56b14a7-d2f1-4ca8-a9c5-d7f227b7f047",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.323Z",
+      "crawledAt": "2026-05-19T21:54:11.646Z",
       "addressLocality": "Belp",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -329,11 +338,12 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "1052",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.323Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -350,7 +360,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/hauptberufliche-r-berufsbildner-in-pflege-80-montag-bis-freitag-im-tagdienst/6e4e18b6-09d3-4a87-851e-645f572af028",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.324Z",
+      "crawledAt": "2026-05-19T21:54:11.647Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -365,11 +375,12 @@
       "featured": false,
       "postedDate": "2026-05-07",
       "applyUrl": "1140",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.324Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -386,7 +397,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/fachperson-mit-tagesverantwortung/294c77e9-8eef-4706-ae82-daffb5f19a25",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.324Z",
+      "crawledAt": "2026-05-19T21:54:11.647Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -401,11 +412,12 @@
       "featured": false,
       "postedDate": "2026-05-07",
       "applyUrl": "1130",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.324Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -422,7 +434,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/co-leiter-in-kueche/ed51b636-f04e-49e4-9b40-eb4b96f349d4",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.325Z",
+      "crawledAt": "2026-05-19T21:54:11.648Z",
       "addressLocality": "Belp",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -437,11 +449,12 @@
       "featured": false,
       "postedDate": "2026-05-06",
       "applyUrl": "1133",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.325Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -458,7 +471,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/fachperson-gesundheit-als-nachtwache/0ca87799-9922-4151-b444-d5f74760e8ef",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.327Z",
+      "crawledAt": "2026-05-19T21:54:11.649Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -473,11 +486,12 @@
       "featured": false,
       "postedDate": "2026-05-06",
       "applyUrl": "1119",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.327Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -494,7 +508,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/mitarbeitende-pflege-alle-funktionsstufen-arbeiten-mit-schoenster-aussicht-ueber-belp/f46de07d-b32d-4e46-a419-be82f18cb043",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.328Z",
+      "crawledAt": "2026-05-19T21:54:11.650Z",
       "addressLocality": "Belp",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -509,11 +523,12 @@
       "featured": false,
       "postedDate": "2026-05-05",
       "applyUrl": "1139",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.328Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -530,7 +545,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/dipl-pflegefachperson-mit-tagesverantwortung/a7e7ca60-07f2-4808-a2dc-52c7aed3de65",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.328Z",
+      "crawledAt": "2026-05-19T21:54:11.650Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -545,11 +560,12 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "1138",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.328Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -566,7 +582,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/leiter-in-kueche/4675c8e1-c4c4-41b6-a563-1dda6ee89766",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.329Z",
+      "crawledAt": "2026-05-19T21:54:11.651Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -581,11 +597,12 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "1131",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.329Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -602,7 +619,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/hauptberufliche-r-berufsbildner-in-pflege-montag-bis-freitag-im-tagdienst/016d695d-98ae-4346-9e6b-ff94a36b53f7",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.330Z",
+      "crawledAt": "2026-05-19T21:54:11.652Z",
       "addressLocality": "Belp",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -617,11 +634,12 @@
       "featured": false,
       "postedDate": "2026-04-30",
       "applyUrl": "1132",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.330Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -638,7 +656,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/assistent-in-geschaeftsfuehrung-domicil-bern-ag/deda72e4-0567-4647-b2f1-add8b25d0f18",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.330Z",
+      "crawledAt": "2026-05-19T21:54:11.654Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -653,11 +671,12 @@
       "featured": false,
       "postedDate": "2026-04-29",
       "applyUrl": "1128",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.330Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -674,7 +693,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/teamleiter-in-pflege-80/87093977-c85d-45b0-ae86-7d06e7acdb30",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.331Z",
+      "crawledAt": "2026-05-19T21:54:11.654Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -689,11 +708,12 @@
       "featured": false,
       "postedDate": "2026-04-29",
       "applyUrl": "1129",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.331Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -710,7 +730,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/hauptberufliche-r-berufsbildner-in-pflege-80-montag-bis-freitag-im-tagdienst/710c1571-41a2-46a8-97e3-93e95d71d6fd",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.331Z",
+      "crawledAt": "2026-05-19T21:54:11.655Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -725,11 +745,12 @@
       "featured": false,
       "postedDate": "2026-04-22",
       "applyUrl": "1124",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.331Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -746,7 +767,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/pflegefachperson-als-nachtwache/484a8ea1-970b-4379-8cea-8e492371c489",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.332Z",
+      "crawledAt": "2026-05-19T21:54:11.656Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -761,11 +782,12 @@
       "featured": false,
       "postedDate": "2026-04-21",
       "applyUrl": "1121",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.332Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -782,7 +804,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/dipl-pflegefachperson-als-stv-teamleitung/07408ae9-679d-4964-9538-3387d96d0d09",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.334Z",
+      "crawledAt": "2026-05-19T21:54:11.659Z",
       "addressLocality": "Münchenbuchsee",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -797,11 +819,12 @@
       "featured": false,
       "postedDate": "2026-04-20",
       "applyUrl": "1122",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.334Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -818,7 +841,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/dipl-pflegefachperson-mit-entwicklungsperspektiven/095e0e79-a361-4e29-8942-1f19d69f67e1",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.335Z",
+      "crawledAt": "2026-05-19T21:54:11.660Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -833,11 +856,12 @@
       "featured": false,
       "postedDate": "2026-04-19",
       "applyUrl": "1118",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.335Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -854,7 +878,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/leiter-in-betriebsunterhalt-domicil-bern-west/d138a384-572c-48d9-a19b-05ab4e94c5c1",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.335Z",
+      "crawledAt": "2026-05-19T21:54:11.660Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -869,11 +893,12 @@
       "featured": false,
       "postedDate": "2026-04-16",
       "applyUrl": "1090",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.335Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -890,7 +915,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/spezialist-in-payroll/1889d39f-a295-4ee9-922e-e5e1e3f950a5",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.336Z",
+      "crawledAt": "2026-05-19T21:54:11.661Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -905,11 +930,12 @@
       "featured": false,
       "postedDate": "2026-04-16",
       "applyUrl": "1117",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.336Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -926,7 +952,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/flexible-nachteule/b55a74ca-5b54-4356-9968-248787d5f752",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.338Z",
+      "crawledAt": "2026-05-19T21:54:11.663Z",
       "addressLocality": "Münchenbuchsee",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -941,11 +967,12 @@
       "featured": false,
       "postedDate": "2026-04-16",
       "applyUrl": "1115",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.338Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -962,7 +989,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/dipl-pflegefachperson-mit-entwicklungsperspektiven/61ddf08b-60af-4cfc-935c-e6ccba84a6a2",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.339Z",
+      "crawledAt": "2026-05-19T21:54:11.664Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -977,17 +1004,18 @@
       "featured": false,
       "postedDate": "2026-04-06",
       "applyUrl": "1078",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.339Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "id": "concara-d01ee13f5399",
-      "slug": "dipl-pflegefachperson-als-nachtwache-60-100-concara-bern",
+      "slug": "dipl-pflegefachperson-als-nachtwache-60-100-concara-domicil-spitex-bern",
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
       "companyDomain": "concara.ch",
@@ -998,7 +1026,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/dipl-pflegefachperson-als-nachtwache/7a5eff85-bce2-42cb-84dd-8130ed73eeb3",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.339Z",
+      "crawledAt": "2026-05-19T21:54:11.664Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1013,11 +1041,12 @@
       "featured": false,
       "postedDate": "2026-04-06",
       "applyUrl": "1080",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.339Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1034,7 +1063,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/dipl-pflegefachperson-mit-zusatzfunktion-rai-ltcf-supervisorin/494afac5-0ffa-4058-876d-bae79330797c",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.340Z",
+      "crawledAt": "2026-05-19T21:54:11.665Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1049,11 +1078,12 @@
       "featured": false,
       "postedDate": "2026-04-06",
       "applyUrl": "1081",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.340Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1070,7 +1100,7 @@
       "url": "https://jobs.domicilbern.ch/offene-stellen/fachperson-gesundheit/2c5c07a3-c723-434b-9362-5edcefe81c35",
       "source": "Concara (Domicil & Spitex Bern) Dedicated Parser (Prospective medium 1000278)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:33.340Z",
+      "crawledAt": "2026-05-19T21:54:11.665Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1085,16 +1115,16 @@
       "featured": false,
       "postedDate": "2026-04-01",
       "applyUrl": "1077",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:33.340Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
