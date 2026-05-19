@@ -1,18 +1,19 @@
 {
   "key": "schulthess-klinik",
   "label": "Schulthess Klinik",
-  "generatedAt": "2026-05-19T15:50:14.312Z",
+  "generatedAt": "2026-05-19T23:24:18.254Z",
   "total": 7,
-  "newCount": 7,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 93019,
-  "avgDurationMs": 93019,
+  "durationMs": 2564,
+  "avgDurationMs": 2564,
   "durationHistory": [
-    93019
+    2564
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "schulthess-klinik-a15bba943807",
       "slug": "chefarztsekretarin-chefarztsekretar-stv-praxismanagerin-stv-praxismanager-handchirurgie",
@@ -26,7 +27,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/chefarztsekretaerin-chefarztsekretaer-stv-praxismanagerin-stv-praxismanager-handchirurgie/4dc150de-df79-40a9-a0ae-b1a862d908df",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:42.188Z",
+      "crawledAt": "2026-05-19T23:24:16.372Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1882",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:42.188Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/abteilungsleitung-fuer-die-bettenstation/98de5588-23ad-4482-9388-d61197a31a28",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:42.214Z",
+      "crawledAt": "2026-05-19T23:24:16.395Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-05-08",
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1944",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:42.214Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/chefarztsekretaerin-chefarztsekretaer-schulter-und-ellbogenchirurgie/00b56bec-e220-490c-861e-f3446fa1c0f8",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:42.216Z",
+      "crawledAt": "2026-05-19T23:24:16.398Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-06",
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1964",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:42.216Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-op-und-bettendisposition/52da4ff8-cb55-4de1-9028-584cc163f4fc",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:42.211Z",
+      "crawledAt": "2026-05-19T23:24:16.392Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-05",
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1969",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:42.211Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/abteilungsleitung-einkauf/15f353a6-e164-430a-9fe0-be45be1cd718",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:42.219Z",
+      "crawledAt": "2026-05-19T23:24:16.400Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-03",
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1962",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T15:48:42.219Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-masseurin-med-masseur/b8c78d24-27b7-45e7-bbdb-6f16d5c33fd3",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:42.221Z",
+      "crawledAt": "2026-05-19T23:24:16.402Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "featured": false,
       "postedDate": "2026-04-23",
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1945",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:42.221Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/mitarbeiterin-mitarbeiter-room-service/1aff0149-2e1b-4f47-b679-5dd2d6e3398a",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:48:42.222Z",
+      "crawledAt": "2026-05-19T23:24:16.404Z",
       "addressLocality": "Lengghalde 2, Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -257,16 +264,16 @@
       "featured": false,
       "postedDate": "2026-04-22",
       "applyUrl": "https://job.schulthess-klinik.ch/successfactors/EMEA_ROT/SchulthessK/de/apply?id=1946",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:48:42.222Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
