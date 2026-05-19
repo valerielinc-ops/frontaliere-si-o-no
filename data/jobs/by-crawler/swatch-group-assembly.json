@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swatch-group-assembly",
-  "assembledAt": "2026-05-19T10:16:48.687Z",
+  "assembledAt": "2026-05-19T12:44:11.211Z",
   "jobs": [
     {
       "id": "company-7uap9s",
@@ -213,7 +213,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-7uaq33",
@@ -289,7 +290,8 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "needsRetranslation": true
     },
     {
       "id": "company-7uaq34",
@@ -363,7 +365,8 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "postalCode": "2855"
+      "postalCode": "2855",
+      "needsRetranslation": true
     },
     {
       "id": "company-7uaqq5",
@@ -442,7 +445,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-7uaqs2",
@@ -527,7 +531,8 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "needsRetranslation": true
     },
     {
       "id": "company-7uaqs4",
@@ -602,7 +607,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-7uaquk",
@@ -681,7 +687,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-7uarim",
@@ -754,7 +761,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-7uarki",
@@ -836,7 +844,8 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "needsRetranslation": true
     }
   ]
 }
