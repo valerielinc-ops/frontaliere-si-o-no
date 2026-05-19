@@ -1,18 +1,19 @@
 {
   "key": "spitex-basel",
   "label": "SPITEX BASEL",
-  "generatedAt": "2026-05-19T15:22:22.445Z",
+  "generatedAt": "2026-05-19T23:34:30.999Z",
   "total": 15,
-  "newCount": 15,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 15,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 160749,
-  "avgDurationMs": 160749,
+  "durationMs": 4821,
+  "avgDurationMs": 4821,
   "durationHistory": [
-    160749
+    4821
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "spitex-basel-8bd77c840b34",
       "slug": "leiterin-leiter-personal-und-bildung-mitglied-der-geschaftsleitung-a-spitex-basel-weitere",
@@ -26,7 +27,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/leiterin-leiter-personal-und-bildung-mitglied-der-geschaeftsleitung-a/38560abe-a56b-4e86-b5fd-c60b7ebb030d",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:19:42.678Z",
+      "crawledAt": "2026-05-19T23:34:28.844Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/leiterin-leiter-personal-und-bildung-mitglied-der-geschaeftsleitung-a/38560abe-a56b-4e86-b5fd-c60b7ebb030d",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:19:42.678Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/hr-sachbearbeiterin-hr-sachbearbeiter-a/23c013f0-e152-44d5-ba0a-501ed2cb8b4c",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:19:42.703Z",
+      "crawledAt": "2026-05-19T23:34:28.867Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/hr-sachbearbeiterin-hr-sachbearbeiter-a/23c013f0-e152-44d5-ba0a-501ed2cb8b4c",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:19:42.703Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/leiterin-leiter-fachentwicklung-mitglied-der-geschaeftsleitung-a/e0f184ba-e424-4512-8d86-cd8de87e9caa",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:19:42.706Z",
+      "crawledAt": "2026-05-19T23:34:28.870Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/leiterin-leiter-fachentwicklung-mitglied-der-geschaeftsleitung-a/e0f184ba-e424-4512-8d86-cd8de87e9caa",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:19:42.706Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a/cdcf7935-f6ab-4fd6-b998-2830d638024d",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:19:42.708Z",
+      "crawledAt": "2026-05-19T23:34:28.872Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a/cdcf7935-f6ab-4fd6-b998-2830d638024d",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:19:42.708Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/angestellte-angestellter-pflege-und-hauswirtschaft-ags-pflegehelfer-in-srk-pflegeassistent-in-a/a55933c8-27a7-4af5-a246-168aaf28fc3e",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:19:42.710Z",
+      "crawledAt": "2026-05-19T23:34:28.874Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/angestellte-angestellter-pflege-und-hauswirtschaft-ags-pflegehelfer-in-srk-pflegeassistent-in-a/a55933c8-27a7-4af5-a246-168aaf28fc3e",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:19:42.710Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/pflegeexpertin-pflegeexperte-a/e079165b-0cf1-402d-93c2-b6ae49dbb553",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:19:42.712Z",
+      "crawledAt": "2026-05-19T23:34:28.876Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/pflegeexpertin-pflegeexperte-a/e079165b-0cf1-402d-93c2-b6ae49dbb553",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:19:42.712Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-paediatrie-a-auch-stundenweise-moeglich/e3e318ca-833f-4407-a2b8-a197f4717cef",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:19:42.715Z",
+      "crawledAt": "2026-05-19T23:34:28.879Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -257,11 +264,12 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-paediatrie-a-auch-stundenweise-moeglich/e3e318ca-833f-4407-a2b8-a197f4717cef",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:19:42.715Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -278,7 +286,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/dipl-pflegefachperson-hf-fh-mit-fallverantwortung-palliative-care-onkologie-oder-nach-absprache-a/c4171e3c-6b2d-400d-b536-c624e7bdc7bc",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:19:42.717Z",
+      "crawledAt": "2026-05-19T23:34:28.881Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -293,11 +301,12 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/dipl-pflegefachperson-hf-fh-mit-fallverantwortung-palliative-care-onkologie-oder-nach-absprache-a/c4171e3c-6b2d-400d-b536-c624e7bdc7bc",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:19:42.717Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -314,7 +323,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-fuer-pflegerische-notfalleinsaetze-a/37bbc6d7-0060-4a62-ad5c-8f3f14b6e4a2",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:19:42.719Z",
+      "crawledAt": "2026-05-19T23:34:28.884Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -329,11 +338,12 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-fuer-pflegerische-notfalleinsaetze-a/37bbc6d7-0060-4a62-ad5c-8f3f14b6e4a2",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:19:42.719Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -350,7 +360,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/pflegeprofi-fuer-flexible-einsaetze-a/d5b49afe-a8a0-4116-ba71-83ec222fd122",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:19:42.721Z",
+      "crawledAt": "2026-05-19T23:34:28.886Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -365,11 +375,12 @@
       "featured": false,
       "postedDate": "2026-05-03",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/pflegeprofi-fuer-flexible-einsaetze-a/d5b49afe-a8a0-4116-ba71-83ec222fd122",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:19:42.721Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -386,7 +397,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsaetze-moeglich-a/e5024ad5-ced7-452e-8c72-36ce0cca1a7e",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:19:42.722Z",
+      "crawledAt": "2026-05-19T23:34:28.888Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -401,11 +412,12 @@
       "featured": false,
       "postedDate": "2026-05-03",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsaetze-moeglich-a/e5024ad5-ced7-452e-8c72-36ce0cca1a7e",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:19:42.722Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -422,7 +434,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a/d728525e-d1d2-408a-90d1-a6bee5edd6e3",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:19:42.725Z",
+      "crawledAt": "2026-05-19T23:34:28.891Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -437,11 +449,12 @@
       "featured": false,
       "postedDate": "2026-05-03",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a/d728525e-d1d2-408a-90d1-a6bee5edd6e3",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:19:42.725Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -458,7 +471,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-kinder-spitex-paediatrie-a/b46e7375-38ac-42f9-b530-12d131d77938",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:19:42.726Z",
+      "crawledAt": "2026-05-19T23:34:28.893Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -473,11 +486,12 @@
       "featured": false,
       "postedDate": "2026-04-28",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/fachperson-gesundheit-fage-kinder-spitex-paediatrie-a/b46e7375-38ac-42f9-b530-12d131d77938",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:19:42.726Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -494,7 +508,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-r-pflege-dipl-pflegefachfperson-hf-fh-kinder-spitex-paediatrie-a/a1c0c5fb-08f1-4b59-ae91-cba7989d78de",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:19:42.728Z",
+      "crawledAt": "2026-05-19T23:34:28.895Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -509,11 +523,12 @@
       "featured": false,
       "postedDate": "2026-04-27",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-r-pflege-dipl-pflegefachfperson-hf-fh-kinder-spitex-paediatrie-a/a1c0c5fb-08f1-4b59-ae91-cba7989d78de",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:19:42.728Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -530,7 +545,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-ohne-nachtdienste-a/622aa789-7f37-46c1-8f98-17affdcc7b96",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:19:42.730Z",
+      "crawledAt": "2026-05-19T23:34:28.896Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -545,16 +560,16 @@
       "featured": false,
       "postedDate": "2026-04-26",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-schwerpunkt-psychiatrie-ohne-nachtdienste-a/622aa789-7f37-46c1-8f98-17affdcc7b96",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:19:42.730Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
