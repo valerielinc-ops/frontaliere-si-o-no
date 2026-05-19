@@ -349,7 +349,15 @@ async function fetchUmantisDetail(detailUrl) {
  * @param {string} config.companyKey         e.g. 'ksbl'
  * @param {string} config.companyName        e.g. 'Kantonsspital Baselland (KSBL)'
  * @param {string} config.companyDomain      e.g. 'ksbl.ch'
- * @param {string|number} config.tenantId    Umantis subdomain ID (e.g. 2748)
+ * @param {string|number} [config.tenantId]  Umantis subdomain ID (e.g. 2748). Optional
+ *                                           when `customBaseUrl` is provided (some tenants
+ *                                           publish the Umantis app behind a corporate
+ *                                           subdomain CNAME and the numeric tenant ID is
+ *                                           hidden). Defaults to 'X' in that case.
+ * @param {string} [config.customBaseUrl]    Override base URL (e.g. 'https://rekrutierung.stgag.ch').
+ *                                           When provided, replaces `recruitingapp-{tenantId}.umantis.com`
+ *                                           for listing/detail/apply URLs and is also accepted by
+ *                                           `isTrustedDomain`. Strip trailing slash.
  * @param {string} [config.lang='ger']       Listing language (ger/fre/eng/ita)
  * @param {string} config.defaultCanton      ISO canton code (e.g. 'BL')
  * @param {string} config.defaultCity        Fallback city
@@ -362,7 +370,8 @@ export function createUmantisListingParser(config) {
     companyKey,
     companyName,
     companyDomain,
-    tenantId,
+    tenantId: rawTenantId,
+    customBaseUrl: rawCustomBaseUrl,
     lang = 'ger',
     defaultCanton,
     defaultCity,
@@ -371,13 +380,27 @@ export function createUmantisListingParser(config) {
     defaultSourceLang = 'de',
   } = config;
 
-  if (!companyKey || !companyName || !tenantId || !defaultCanton) {
-    throw new Error('createUmantisListingParser: missing required config');
+  const customBaseUrl = rawCustomBaseUrl
+    ? String(rawCustomBaseUrl).replace(/\/+$/, '')
+    : '';
+  const tenantId = rawTenantId != null && rawTenantId !== ''
+    ? rawTenantId
+    : (customBaseUrl ? 'X' : undefined);
+
+  if (!companyKey || !companyName || !defaultCanton) {
+    throw new Error('createUmantisListingParser: missing required config (companyKey/companyName/defaultCanton)');
+  }
+  if (!tenantId && !customBaseUrl) {
+    throw new Error('createUmantisListingParser: either tenantId or customBaseUrl is required');
   }
 
-  const BASE_URL = `https://recruitingapp-${tenantId}.umantis.com`;
+  const BASE_URL = customBaseUrl || `https://recruitingapp-${tenantId}.umantis.com`;
   const LISTING_URL = `${BASE_URL}/Jobs/All?lang=${lang}`;
   const corporateHost = String(companyDomain || '').replace(/^www\./, '').toLowerCase();
+  let customBaseHost = '';
+  if (customBaseUrl) {
+    try { customBaseHost = new URL(customBaseUrl).hostname.toLowerCase(); } catch { customBaseHost = ''; }
+  }
   const langCode = lang === 'ger' ? 1 : lang === 'fre' ? 2 : lang === 'eng' ? 3 : lang === 'ita' ? 4 : 1;
 
   function isCompanyJob(job) {
@@ -386,7 +409,8 @@ export function createUmantisListingParser(config) {
     const url = normalize(job?.url || '');
     if (key === companyKey) return true;
     if (corporateHost && (company.includes(corporateHost.split('.')[0]) || url.includes(corporateHost))) return true;
-    if (url.includes(`recruitingapp-${tenantId}.umantis.com`)) return true;
+    if (tenantId && tenantId !== 'X' && url.includes(`recruitingapp-${tenantId}.umantis.com`)) return true;
+    if (customBaseHost && url.includes(customBaseHost)) return true;
     return false;
   }
 
@@ -394,7 +418,8 @@ export function createUmantisListingParser(config) {
     try {
       const host = new URL(rawUrl).hostname.toLowerCase();
       if (corporateHost && (host === corporateHost || host.endsWith(`.${corporateHost}`))) return true;
-      if (host === `recruitingapp-${tenantId}.umantis.com`) return true;
+      if (tenantId && tenantId !== 'X' && host === `recruitingapp-${tenantId}.umantis.com`) return true;
+      if (customBaseHost && (host === customBaseHost || host.endsWith(`.${customBaseHost}`))) return true;
       if (host.endsWith('.umantis.com')) return true;
       return false;
     } catch {
@@ -469,7 +494,9 @@ export function createUmantisListingParser(config) {
         location,
         canton,
         url: detailUrl,
-        source: `${companyName} Dedicated Parser (Umantis listing tenant ${tenantId})`,
+        source: customBaseUrl
+          ? `${companyName} Dedicated Parser (Umantis listing @ ${customBaseHost || customBaseUrl})`
+          : `${companyName} Dedicated Parser (Umantis listing tenant ${tenantId})`,
         sourceLang,
         crawledAt: new Date().toISOString(),
 
