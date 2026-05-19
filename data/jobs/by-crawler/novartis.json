@@ -1,6 +1,6 @@
 {
   "crawlerKey": "novartis",
-  "assembledAt": "2026-05-19T12:21:12.786Z",
+  "assembledAt": "2026-05-19T23:04:53.095Z",
   "jobs": [
     {
       "id": "novartis-4f8dab04752e",
@@ -33,7 +33,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Remote/Director--NPS-Field-Engagement-Strategy-Remote--Multiple-Positions_REQ-10073513",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:21:10.752Z",
+      "crawledAt": "2026-05-19T23:04:50.965Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -48,15 +48,16 @@
       "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Remote/Director--NPS-Field-Engagement-Strategy-Remote--Multiple-Positions_REQ-10073513",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-05-18T12:57:50.537Z",
+      "previousSlugs": [
+        "director-nps-field-engagement-strategy-remote-multiple-positions-novartis-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "director-nps-field-engagement-strategy-remote-multiple-positions-novartis-ch"
         ]
       },
-      "previousSlugs": [
-        "director-nps-field-engagement-strategy-remote-multiple-positions-novartis-ch"
-      ],
+      "firstSeenAt": "2026-05-18T12:57:50.537Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -102,7 +103,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Legal-Trainee---Novartis-Corporate-Functions_REQ-10074716-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:21:09.878Z",
+      "crawledAt": "2026-05-19T23:04:50.071Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -117,8 +118,9 @@
       "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Legal-Trainee---Novartis-Corporate-Functions_REQ-10074716-2",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-18T12:57:49.649Z",
+      "previousSlugs": [
+        "legal-trainee-novartis-corporate-functions-novartis-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "legal-trainee-novartis-corporate-functions-novartis-ch"
@@ -127,9 +129,8 @@
           "legal-trainee-novartis-corporate-functions-novartis-ch"
         ]
       },
-      "previousSlugs": [
-        "legal-trainee-novartis-corporate-functions-novartis-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:57:49.649Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -174,7 +175,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Facilities-Management-Lead_REQ-10074448-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:21:09.050Z",
+      "crawledAt": "2026-05-19T23:04:49.338Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -189,16 +190,16 @@
       "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Facilities-Management-Lead_REQ-10074448-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-18T12:57:48.787Z",
+      "previousSlugs": [
+        "facilities-management-lead-novartis-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "facilities-management-lead-novartis-ch"
         ]
       },
-      "previousSlugs": [
-        "facilities-management-lead-novartis-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:57:48.787Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -243,7 +244,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Head-Design---Construction-Management_REQ-10074450-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:21:08.220Z",
+      "crawledAt": "2026-05-19T23:04:48.475Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -312,7 +313,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Senior-Expert-Science---Technology---Downstream-Process-Modelling_REQ-10074628",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:21:07.342Z",
+      "crawledAt": "2026-05-19T23:04:47.566Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -381,7 +382,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Process-Technician---Supply-Management_REQ-10067434",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:21:06.509Z",
+      "crawledAt": "2026-05-19T23:04:46.716Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -442,7 +443,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Therapeutic-Area-Strategy-Director--Neuroscience_REQ-10075151-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:21:05.599Z",
+      "crawledAt": "2026-05-19T23:04:45.816Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -457,8 +458,9 @@
       "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Therapeutic-Area-Strategy-Director--Neuroscience_REQ-10075151-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-18T12:57:43.556Z",
+      "previousSlugs": [
+        "therapeutic-area-strategy-director-neuroscience-novartis-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "therapeutic-area-strategy-director-neuroscience-novartis-ch"
@@ -467,9 +469,8 @@
           "therapeutic-area-strategy-director-neuroscience-novartis-ch"
         ]
       },
-      "previousSlugs": [
-        "therapeutic-area-strategy-director-neuroscience-novartis-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:57:43.556Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -514,7 +515,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Stein-Aargau/QA-Compliance-Lead--m-f-d-_REQ-10074385-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:21:04.712Z",
+      "crawledAt": "2026-05-19T23:04:45.060Z",
       "addressLocality": "Stein Aargau",
       "addressCountry": "CH",
       "country": "CH",
@@ -587,7 +588,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Executive-Director--Therapeutic-Area-Strategy--Oncology-and-Hematology_REQ-10076235-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:21:03.828Z",
+      "crawledAt": "2026-05-19T23:04:44.191Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -602,8 +603,9 @@
       "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Executive-Director--Therapeutic-Area-Strategy--Oncology-and-Hematology_REQ-10076235-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-18T12:57:41.777Z",
+      "previousSlugs": [
+        "executive-director-therapeutic-area-strategy-oncology-and-hematology-novartis-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "executive-director-therapeutic-area-strategy-oncology-and-hematology-novartis-ch"
@@ -615,9 +617,8 @@
           "executive-director-therapeutic-area-strategy-oncology-and-hematology-novartis-ch"
         ]
       },
-      "previousSlugs": [
-        "executive-director-therapeutic-area-strategy-oncology-and-hematology-novartis-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:57:41.777Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -662,7 +663,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Therapeutic-Area-Strategy--Immunology_REQ-10076667-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:21:02.941Z",
+      "crawledAt": "2026-05-19T23:04:43.244Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -677,8 +678,9 @@
       "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Therapeutic-Area-Strategy--Immunology_REQ-10076667-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-18T12:57:40.915Z",
+      "previousSlugs": [
+        "director-therapeutic-area-strategy-immunology-novartis-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "director-therapeutic-area-strategy-immunology-novartis-ch"
@@ -690,9 +692,8 @@
           "director-therapeutic-area-strategy-immunology-novartis-ch"
         ]
       },
-      "previousSlugs": [
-        "director-therapeutic-area-strategy-immunology-novartis-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:57:40.915Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -737,7 +738,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Therapeutic-Area-Strategy-Executive-Director--Oncology---Hematology_REQ-10074747-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:21:02.044Z",
+      "crawledAt": "2026-05-19T23:04:42.198Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -798,7 +799,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--CRM-Therapeutic-Area-Strategy_REQ-10076215-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:21:01.136Z",
+      "crawledAt": "2026-05-19T23:04:41.271Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -813,8 +814,9 @@
       "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--CRM-Therapeutic-Area-Strategy_REQ-10076215-2",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-18T12:57:39.144Z",
+      "previousSlugs": [
+        "director-therapeutic-area-strategy-crm-novartis-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "director-therapeutic-area-strategy-crm-novartis-ch"
@@ -826,9 +828,8 @@
           "director-therapeutic-area-strategy-crm-novartis-ch"
         ]
       },
-      "previousSlugs": [
-        "director-therapeutic-area-strategy-crm-novartis-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:57:39.144Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -873,7 +874,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Head-of-Neurodegeneration--Translational-Medicine_REQ-10076275-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:21:00.237Z",
+      "crawledAt": "2026-05-19T23:04:40.324Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -888,8 +889,9 @@
       "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Head-of-Neurodegeneration--Translational-Medicine_REQ-10076275-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-18T12:57:38.237Z",
+      "previousSlugs": [
+        "head-of-neurodegeneration-translational-medicine-novartis-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-neurodegeneration-translational-medicine-novartis-ch"
@@ -901,9 +903,8 @@
           "head-of-neurodegeneration-translational-medicine-novartis-ch"
         ]
       },
-      "previousSlugs": [
-        "head-of-neurodegeneration-translational-medicine-novartis-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:57:38.237Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -948,7 +949,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Senior-Expert-Science---Technology_REQ-10076393",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:20:59.379Z",
+      "crawledAt": "2026-05-19T23:04:39.409Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1017,7 +1018,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Schaftenau/Senior--Clinical-Supply-Project-Lead_REQ-10076589",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:20:58.502Z",
+      "crawledAt": "2026-05-19T23:04:38.473Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1092,7 +1093,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Medical-Director--Gastroenterology--Early-Clinical-Development_REQ-10076205-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:20:57.629Z",
+      "crawledAt": "2026-05-19T23:04:37.538Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1107,8 +1108,9 @@
       "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Medical-Director--Gastroenterology--Early-Clinical-Development_REQ-10076205-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-18T12:57:35.568Z",
+      "previousSlugs": [
+        "medical-director-gastroenterology-early-clinical-development-novartis-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "medical-director-gastroenterology-early-clinical-development-novartis-ch"
@@ -1117,9 +1119,8 @@
           "medical-director-gastroenterology-early-clinical-development-novartis-ch"
         ]
       },
-      "previousSlugs": [
-        "medical-director-gastroenterology-early-clinical-development-novartis-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:57:35.568Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -1164,7 +1165,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Senior-Patent-Litigation-Paralegal_REQ-10064204-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:20:56.788Z",
+      "crawledAt": "2026-05-19T23:04:36.788Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1233,7 +1234,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Research-Scientist--DNA-encoded-chemical-libraries--DEL---80-100---_REQ-10076037-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:20:55.871Z",
+      "crawledAt": "2026-05-19T23:04:35.924Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1248,8 +1249,9 @@
       "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Research-Scientist--DNA-encoded-chemical-libraries--DEL---80-100---_REQ-10076037-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-18T12:57:33.573Z",
+      "previousSlugs": [
+        "research-scientist-dna-encoded-chemical-libraries-del-80-100-novartis-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "research-scientist-dna-encoded-chemical-libraries-del-80-100-novartis-ch"
@@ -1261,9 +1263,8 @@
           "research-scientist-dna-encoded-chemical-libraries-del-80-100-novartis-ch"
         ]
       },
-      "previousSlugs": [
-        "research-scientist-dna-encoded-chemical-libraries-del-80-100-novartis-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-18T12:57:33.573Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1308,7 +1309,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Remote/AD--Neuromuscular-Field-Trainer_REQ-10077609-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:20:54.922Z",
+      "crawledAt": "2026-05-19T23:04:35.080Z",
       "addressLocality": "Remote",
       "addressCountry": "CH",
       "country": "CH",
@@ -1377,7 +1378,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Remote/AD--Field-NPS-Neuromuscular-Training-Lead-Remote_REQ-10077608-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:20:53.883Z",
+      "crawledAt": "2026-05-19T23:04:34.172Z",
       "addressLocality": "Remote",
       "addressCountry": "CH",
       "country": "CH",
@@ -1438,7 +1439,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/London-The-Westworks/Vendor-Start-Up-Manager---eCOA---Translations_REQ-10076486",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:20:52.942Z",
+      "crawledAt": "2026-05-19T23:04:33.181Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1453,7 +1454,9 @@
       "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/London-The-Westworks/Vendor-Start-Up-Manager---eCOA---Translations_REQ-10076486",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-05-18T12:57:30.832Z",
+      "previousSlugs": [
+        "vendor-start-up-manager-ecoa-translations-novartis-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "vendor-start-up-manager-ecoa-translations-novartis-ch"
@@ -1462,9 +1465,7 @@
           "vendor-start-up-manager-ecoa-translations-novartis-ch"
         ]
       },
-      "previousSlugs": [
-        "vendor-start-up-manager-ecoa-translations-novartis-ch"
-      ],
+      "firstSeenAt": "2026-05-18T12:57:30.832Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1510,7 +1511,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Manager-Search---Evaluation_REQ-10076270-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:20:52.074Z",
+      "crawledAt": "2026-05-19T23:04:32.172Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1579,7 +1580,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Stein-Aargau/Postdoc-Manufacturing-Science---Technology--MS-T-_REQ-10077362",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:20:51.322Z",
+      "crawledAt": "2026-05-19T23:04:31.424Z",
       "addressLocality": "Stein Aargau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1649,7 +1650,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Stein-Aargau/Post-Doc-Process-Expert_REQ-10077454",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:20:50.356Z",
+      "crawledAt": "2026-05-19T23:04:30.518Z",
       "addressLocality": "Stein Aargau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1719,7 +1720,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Supply-Chain-Manager---Global-Clinical-Supplies_REQ-10077014",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:20:49.492Z",
+      "crawledAt": "2026-05-19T23:04:29.381Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1748,6 +1749,69 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "novartis-807c397bb08a",
+      "slug": "senior-manager-filmmaking-storytelling-novartis-ch",
+      "slugByLocale": {
+        "en": "senior-manager-filmmaking-storytelling-novartis-ch",
+        "it": "senior-manager-filmmaking-storytelling-novartis-ch",
+        "de": "senior-manager-filmmaking-storytelling-novartis-ch",
+        "fr": "senior-manager-filmmaking-storytelling-novartis-ch"
+      },
+      "company": "Novartis",
+      "companyKey": "novartis",
+      "companyDomain": "novartis.com",
+      "title": "Senior Manager, Filmmaking & Storytelling",
+      "titleByLocale": {
+        "en": "Senior Manager, Filmmaking & Storytelling",
+        "it": "Senior Manager, Filmmaking & Storytelling",
+        "de": "Senior Manager, Filmmaking & Storytelling",
+        "fr": "Senior Manager, Filmmaking & Storytelling"
+      },
+      "description": "Job Description Summary\nWe’re a team of dedicated and passionate people united by a drive to achieve together. You will serve as the creative lead and hands‑on filmmaker within the Video and Digital Production team, as the in‑house director and producer for Corporate Marketing. You will drive the development, direction, and execution of cinematic productions that elevate the Novartis brand story on a global scale. Combining visionary creative leadership with practical, on‑set filmmaking expertise, the Senior Manager brings bold concepts to life through world‑class directing, storytelling, and production management—creating powerful content that resonates with global audiences and amplifies our human impact.\n\nJob Description\nThis role must be based in Basel, Switzerland but may require up to 40% global travel.\n\nKey Responsibilities:\n\n• Lead end-to-end production of high-impact, cinematic video content—from concept development to final delivery.\n\n• Direct and produce global shoots, ensuring creative vision, technical excellence, and storytelling integrity.\n\n• Serve as principal producer or director for flagship projects, setting the visual tone and narrative style.\n\n• Collaborate with writers, external partners, and internal stakeholders to transform strategic objectives into compelling visual stories.\n\n• Build and maintain a network of elite production talent— focused specifically on boutique production agency that masterfully balance cost and quality.\n\n• Manage productions in diverse environments—from remote rural locations to major urban centers—while adapting to cultural and logistical challenges.\n\n• Drive innovation by integrating AI-driven tools and emerging technologies into pre-production and creative workflows.\n\n• Champion cost-effective, high-quality storytelling that strengthens brand reputation and delivers measurable business impact.\n\nWhat you'll bring to the role:\n\nEssential Criteria:\n\n• Experience shaping visual storytelling with a distinctive creative voice and strong authorship across formats with ability to source & develop compelling stories in a highly regulated industry. Skilled in developing narrative concepts from strategy to screen, with strong instincts for pacing, emotion, and audience engagement.\n\n• Extensive experience in either freelance or agency and/or Extensive portfolio of high-end producer / director in commercial, documentary storytelling, and experience that demonstrates creative prowess. You will show breadth and depth of portfolio, creative achievements.\n\n• Proven experience in leading and managing production crews, creative teams, and external partners through all phases of production. Solid experience directing on ‑ camera talent; including executives, employees, and non ‑ actors, with confidence and clarity.\n\n• Strong understanding of cinematography, lighting, and camera language to guide technical teams toward the intended aesthetic.\n\n• Experience of AI filmmaking tools and techniques, incorporating innovations into your workflow at all stages of production.\n\n• Excellent Communication skills in English - fluent written and spoken.\n\nDesirable Criteria:\n\n• Relevant academic achievements.\n\n• Other languages.\n\nWhy Novartis? Our purpose is to reimagine medicine to improve and extend people’s lives and our vision is to become the most valued and trusted medicines company in the world. How can we achieve this? With our people. It is our associates that drive us each day to reach our ambitions. Be a part of this mission and join us! Learn more here: https://www.novartis.com/about/strategy/people-and-culture\n\nAccessibility and accommodation:\nNovartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to inclusion.switzerl",
+      "descriptionByLocale": {
+        "en": "Job Description Summary\nWe’re a team of dedicated and passionate people united by a drive to achieve together. You will serve as the creative lead and hands‑on filmmaker within the Video and Digital Production team, as the in‑house director and producer for Corporate Marketing. You will drive the development, direction, and execution of cinematic productions that elevate the Novartis brand story on a global scale. Combining visionary creative leadership with practical, on‑set filmmaking expertise, the Senior Manager brings bold concepts to life through world‑class directing, storytelling, and production management—creating powerful content that resonates with global audiences and amplifies our human impact.\n\nJob Description\nThis role must be based in Basel, Switzerland but may require up to 40% global travel.\n\nKey Responsibilities:\n\n• Lead end-to-end production of high-impact, cinematic video content—from concept development to final delivery.\n\n• Direct and produce global shoots, ensuring creative vision, technical excellence, and storytelling integrity.\n\n• Serve as principal producer or director for flagship projects, setting the visual tone and narrative style.\n\n• Collaborate with writers, external partners, and internal stakeholders to transform strategic objectives into compelling visual stories.\n\n• Build and maintain a network of elite production talent— focused specifically on boutique production agency that masterfully balance cost and quality.\n\n• Manage productions in diverse environments—from remote rural locations to major urban centers—while adapting to cultural and logistical challenges.\n\n• Drive innovation by integrating AI-driven tools and emerging technologies into pre-production and creative workflows.\n\n• Champion cost-effective, high-quality storytelling that strengthens brand reputation and delivers measurable business impact.\n\nWhat you'll bring to the role:\n\nEssential Criteria:\n\n• Experience shaping visual storytelling with a distinctive creative voice and strong authorship across formats with ability to source & develop compelling stories in a highly regulated industry. Skilled in developing narrative concepts from strategy to screen, with strong instincts for pacing, emotion, and audience engagement.\n\n• Extensive experience in either freelance or agency and/or Extensive portfolio of high-end producer / director in commercial, documentary storytelling, and experience that demonstrates creative prowess. You will show breadth and depth of portfolio, creative achievements.\n\n• Proven experience in leading and managing production crews, creative teams, and external partners through all phases of production. Solid experience directing on ‑ camera talent; including executives, employees, and non ‑ actors, with confidence and clarity.\n\n• Strong understanding of cinematography, lighting, and camera language to guide technical teams toward the intended aesthetic.\n\n• Experience of AI filmmaking tools and techniques, incorporating innovations into your workflow at all stages of production.\n\n• Excellent Communication skills in English - fluent written and spoken.\n\nDesirable Criteria:\n\n• Relevant academic achievements.\n\n• Other languages.\n\nWhy Novartis? Our purpose is to reimagine medicine to improve and extend people’s lives and our vision is to become the most valued and trusted medicines company in the world. How can we achieve this? With our people. It is our associates that drive us each day to reach our ambitions. Be a part of this mission and join us! Learn more here: https://www.novartis.com/about/strategy/people-and-culture\n\nAccessibility and accommodation:\nNovartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to inclusion.switzerl",
+        "it": "Job Description Summary\nWe’re a team of dedicated and passionate people united by a drive to achieve together. You will serve as the creative lead and hands‑on filmmaker within the Video and Digital Production team, as the in‑house director and producer for Corporate Marketing. You will drive the development, direction, and execution of cinematic productions that elevate the Novartis brand story on a global scale. Combining visionary creative leadership with practical, on‑set filmmaking expertise, the Senior Manager brings bold concepts to life through world‑class directing, storytelling, and production management—creating powerful content that resonates with global audiences and amplifies our human impact.\n\nJob Description\nThis role must be based in Basel, Switzerland but may require up to 40% global travel.\n\nKey Responsibilities:\n\n• Lead end-to-end production of high-impact, cinematic video content—from concept development to final delivery.\n\n• Direct and produce global shoots, ensuring creative vision, technical excellence, and storytelling integrity.\n\n• Serve as principal producer or director for flagship projects, setting the visual tone and narrative style.\n\n• Collaborate with writers, external partners, and internal stakeholders to transform strategic objectives into compelling visual stories.\n\n• Build and maintain a network of elite production talent— focused specifically on boutique production agency that masterfully balance cost and quality.\n\n• Manage productions in diverse environments—from remote rural locations to major urban centers—while adapting to cultural and logistical challenges.\n\n• Drive innovation by integrating AI-driven tools and emerging technologies into pre-production and creative workflows.\n\n• Champion cost-effective, high-quality storytelling that strengthens brand reputation and delivers measurable business impact.\n\nWhat you'll bring to the role:\n\nEssential Criteria:\n\n• Experience shaping visual storytelling with a distinctive creative voice and strong authorship across formats with ability to source & develop compelling stories in a highly regulated industry. Skilled in developing narrative concepts from strategy to screen, with strong instincts for pacing, emotion, and audience engagement.\n\n• Extensive experience in either freelance or agency and/or Extensive portfolio of high-end producer / director in commercial, documentary storytelling, and experience that demonstrates creative prowess. You will show breadth and depth of portfolio, creative achievements.\n\n• Proven experience in leading and managing production crews, creative teams, and external partners through all phases of production. Solid experience directing on ‑ camera talent; including executives, employees, and non ‑ actors, with confidence and clarity.\n\n• Strong understanding of cinematography, lighting, and camera language to guide technical teams toward the intended aesthetic.\n\n• Experience of AI filmmaking tools and techniques, incorporating innovations into your workflow at all stages of production.\n\n• Excellent Communication skills in English - fluent written and spoken.\n\nDesirable Criteria:\n\n• Relevant academic achievements.\n\n• Other languages.\n\nWhy Novartis? Our purpose is to reimagine medicine to improve and extend people’s lives and our vision is to become the most valued and trusted medicines company in the world. How can we achieve this? With our people. It is our associates that drive us each day to reach our ambitions. Be a part of this mission and join us! Learn more here: https://www.novartis.com/about/strategy/people-and-culture\n\nAccessibility and accommodation:\nNovartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to inclusion.switzerl",
+        "de": "Job Description Summary\nWe’re a team of dedicated and passionate people united by a drive to achieve together. You will serve as the creative lead and hands‑on filmmaker within the Video and Digital Production team, as the in‑house director and producer for Corporate Marketing. You will drive the development, direction, and execution of cinematic productions that elevate the Novartis brand story on a global scale. Combining visionary creative leadership with practical, on‑set filmmaking expertise, the Senior Manager brings bold concepts to life through world‑class directing, storytelling, and production management—creating powerful content that resonates with global audiences and amplifies our human impact.\n\nJob Description\nThis role must be based in Basel, Switzerland but may require up to 40% global travel.\n\nKey Responsibilities:\n\n• Lead end-to-end production of high-impact, cinematic video content—from concept development to final delivery.\n\n• Direct and produce global shoots, ensuring creative vision, technical excellence, and storytelling integrity.\n\n• Serve as principal producer or director for flagship projects, setting the visual tone and narrative style.\n\n• Collaborate with writers, external partners, and internal stakeholders to transform strategic objectives into compelling visual stories.\n\n• Build and maintain a network of elite production talent— focused specifically on boutique production agency that masterfully balance cost and quality.\n\n• Manage productions in diverse environments—from remote rural locations to major urban centers—while adapting to cultural and logistical challenges.\n\n• Drive innovation by integrating AI-driven tools and emerging technologies into pre-production and creative workflows.\n\n• Champion cost-effective, high-quality storytelling that strengthens brand reputation and delivers measurable business impact.\n\nWhat you'll bring to the role:\n\nEssential Criteria:\n\n• Experience shaping visual storytelling with a distinctive creative voice and strong authorship across formats with ability to source & develop compelling stories in a highly regulated industry. Skilled in developing narrative concepts from strategy to screen, with strong instincts for pacing, emotion, and audience engagement.\n\n• Extensive experience in either freelance or agency and/or Extensive portfolio of high-end producer / director in commercial, documentary storytelling, and experience that demonstrates creative prowess. You will show breadth and depth of portfolio, creative achievements.\n\n• Proven experience in leading and managing production crews, creative teams, and external partners through all phases of production. Solid experience directing on ‑ camera talent; including executives, employees, and non ‑ actors, with confidence and clarity.\n\n• Strong understanding of cinematography, lighting, and camera language to guide technical teams toward the intended aesthetic.\n\n• Experience of AI filmmaking tools and techniques, incorporating innovations into your workflow at all stages of production.\n\n• Excellent Communication skills in English - fluent written and spoken.\n\nDesirable Criteria:\n\n• Relevant academic achievements.\n\n• Other languages.\n\nWhy Novartis? Our purpose is to reimagine medicine to improve and extend people’s lives and our vision is to become the most valued and trusted medicines company in the world. How can we achieve this? With our people. It is our associates that drive us each day to reach our ambitions. Be a part of this mission and join us! Learn more here: https://www.novartis.com/about/strategy/people-and-culture\n\nAccessibility and accommodation:\nNovartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to inclusion.switzerl",
+        "fr": "Job Description Summary\nWe’re a team of dedicated and passionate people united by a drive to achieve together. You will serve as the creative lead and hands‑on filmmaker within the Video and Digital Production team, as the in‑house director and producer for Corporate Marketing. You will drive the development, direction, and execution of cinematic productions that elevate the Novartis brand story on a global scale. Combining visionary creative leadership with practical, on‑set filmmaking expertise, the Senior Manager brings bold concepts to life through world‑class directing, storytelling, and production management—creating powerful content that resonates with global audiences and amplifies our human impact.\n\nJob Description\nThis role must be based in Basel, Switzerland but may require up to 40% global travel.\n\nKey Responsibilities:\n\n• Lead end-to-end production of high-impact, cinematic video content—from concept development to final delivery.\n\n• Direct and produce global shoots, ensuring creative vision, technical excellence, and storytelling integrity.\n\n• Serve as principal producer or director for flagship projects, setting the visual tone and narrative style.\n\n• Collaborate with writers, external partners, and internal stakeholders to transform strategic objectives into compelling visual stories.\n\n• Build and maintain a network of elite production talent— focused specifically on boutique production agency that masterfully balance cost and quality.\n\n• Manage productions in diverse environments—from remote rural locations to major urban centers—while adapting to cultural and logistical challenges.\n\n• Drive innovation by integrating AI-driven tools and emerging technologies into pre-production and creative workflows.\n\n• Champion cost-effective, high-quality storytelling that strengthens brand reputation and delivers measurable business impact.\n\nWhat you'll bring to the role:\n\nEssential Criteria:\n\n• Experience shaping visual storytelling with a distinctive creative voice and strong authorship across formats with ability to source & develop compelling stories in a highly regulated industry. Skilled in developing narrative concepts from strategy to screen, with strong instincts for pacing, emotion, and audience engagement.\n\n• Extensive experience in either freelance or agency and/or Extensive portfolio of high-end producer / director in commercial, documentary storytelling, and experience that demonstrates creative prowess. You will show breadth and depth of portfolio, creative achievements.\n\n• Proven experience in leading and managing production crews, creative teams, and external partners through all phases of production. Solid experience directing on ‑ camera talent; including executives, employees, and non ‑ actors, with confidence and clarity.\n\n• Strong understanding of cinematography, lighting, and camera language to guide technical teams toward the intended aesthetic.\n\n• Experience of AI filmmaking tools and techniques, incorporating innovations into your workflow at all stages of production.\n\n• Excellent Communication skills in English - fluent written and spoken.\n\nDesirable Criteria:\n\n• Relevant academic achievements.\n\n• Other languages.\n\nWhy Novartis? Our purpose is to reimagine medicine to improve and extend people’s lives and our vision is to become the most valued and trusted medicines company in the world. How can we achieve this? With our people. It is our associates that drive us each day to reach our ambitions. Be a part of this mission and join us! Learn more here: https://www.novartis.com/about/strategy/people-and-culture\n\nAccessibility and accommodation:\nNovartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to inclusion.switzerl"
+      },
+      "location": "Basel (City)",
+      "canton": "BS",
+      "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Senior-Manager--Filmmaking---Storytelling_REQ-10072676-2",
+      "source": "Novartis Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-05-19T23:04:22.420Z",
+      "addressLocality": "Basel (City)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Farmaceutica / Biotecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Senior-Manager--Filmmaking---Storytelling_REQ-10072676-2",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T23:04:22.420Z"
     }
   ]
 }
