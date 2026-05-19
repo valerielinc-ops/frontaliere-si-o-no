@@ -7747,13 +7747,20 @@ ${alternates}
        const aggregatorHref = `${BASE_URL}${withSlash(`${localePrefix[entry.locale]}/${aggregatorSection}`.replace(/\/+/g, '/'))}`;
        return { '@type': 'ListItem', position: 2, name: cantonSectionName(entry.locale, aggregatorDisplay), item: aggregatorHref };
      })();
-     const cantonBreadcrumbLd = `<script type="application/ld+json">${JSON.stringify({
+     // GSC "Tipo di valore non corretto" (2026-05-16): this string is passed
+     // to `buildSeoPageHtml({ jsonLdScripts: [cantonBreadcrumbLd] })`, and
+     // `buildSimplePage` already wraps each entry in `<script type="application/ld+json">…</script>`
+     // (htmlTemplate.ts:183). Pre-wrapping here produced a nested
+     // `<script><script>{…}</script></script>` in dist/ output, which Google
+     // parsed as wrong-type structured data on ~80 canton-hub URLs across
+     // de/en/fr/it. Pass the raw JSON string; let the shell wrap exactly once.
+     const cantonBreadcrumbLd = JSON.stringify({
        '@context': 'https://schema.org',
        '@type': 'BreadcrumbList',
        itemListElement: entry.key === AGGREGATE_KEY
          ? [homeItem, currentItem]
          : [homeItem, aggregatorBreadcrumbItem, currentItem],
-     })}</script>`;
+     });
 
      // ── P4: rich canton-landing body ────────────────────────────────────
      // Filter all canonical jobs that resolve to this canton via the shared
