@@ -1,21 +1,22 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-05-18T22:12:12.285Z",
+  "generatedAt": "2026-05-19T12:00:34.935Z",
   "total": 15,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 1,
-  "unchangedCount": 11,
-  "durationMs": 34135,
-  "avgDurationMs": 34135,
+  "unchangedCount": 10,
+  "durationMs": 32952,
+  "avgDurationMs": 32952,
   "durationHistory": [
-    34135
+    32952
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-qrsmyr",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+      "slug": "efz-a-nel-ramo-schattdorf-jysk-schattdorf-e972cc",
       "company": "JYSK",
       "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
       "location": "Schattdorf",
@@ -32,16 +33,15 @@
       "crawledAt": "2026-05-18T22:12:11.910Z",
       "firstSeenAt": "2026-05-18T22:12:11.910Z",
       "sourceLang": "de",
-      "_qualityScore": 82,
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-ds4mvl",
       "slug": "store-manager-trainee-a-80-100-per-la-regione-langenthal-burgdorf-jysk-langenthal",
@@ -112,6 +112,34 @@
       "featured": false,
       "postedDate": "2026-04-29",
       "url": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-50-60-der-filiale-hinwil",
+      "source": "Company Careers Crawler",
+      "companyKey": "jysk",
+      "companyDomain": "jysk.ch",
+      "crawledAt": "2026-05-10T10:23:36.404Z",
+      "firstSeenAt": "2026-05-10T10:23:36.404Z",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-gvoozi",
+      "slug": "venditore-con-responsabilita-del-magazzino-a-80-nella-filiale-schlieren-jysk-schlieren",
+      "company": "JYSK",
+      "title": "Verkäufer/in mit Lagerverantwortung (a) 80% in der Filiale Schlieren",
+      "location": "Schlieren",
+      "canton": "JU",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-15",
+      "url": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-80-der-filiale-schlieren",
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
@@ -343,36 +371,6 @@
         "richness": 22,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "id": "company-gvoozi",
-      "slug": "venditore-con-responsabilita-del-magazzino-a-80-nella-filiale-schlieren-jysk-schlieren",
-      "company": "JYSK",
-      "title": "Verkäufer/in mit Lagerverantwortung (a) 80% in der Filiale Schlieren",
-      "location": "Schlieren",
-      "canton": "JU",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-15",
-      "url": "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-80-der-filiale-schlieren",
-      "source": "Company Careers Crawler",
-      "companyKey": "jysk",
-      "companyDomain": "jysk.ch",
-      "crawledAt": "2026-05-10T10:23:36.404Z",
-      "firstSeenAt": "2026-05-10T10:23:36.404Z",
-      "sourceLang": "de",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
       }
     },
     {
