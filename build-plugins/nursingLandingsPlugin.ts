@@ -221,12 +221,6 @@ function renderApprofondisciDivider(label: string): string {
 
 // ── Featured-jobs + employer-grid renderers (template B) ─────────────────────
 
-function pickJobTitle(job: NursingFeaturedJob, locale: NursingLocale): string {
-  return (
-    (job.titleByLocale as Partial<Record<NursingLocale, string>>)[locale] ?? job.title
-  );
-}
-
 function renderFeaturedJobs(
   id: NursingLandingId,
   locale: NursingLocale,

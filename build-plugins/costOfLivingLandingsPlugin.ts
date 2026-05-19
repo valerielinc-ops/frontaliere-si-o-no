@@ -148,16 +148,6 @@ interface CityCopyView {
   readonly jobSalaryFmt: (min: number | null, max: number | null) => string;
 }
 
-function pickJobTitle(job: CityFeaturedJob, locale: ColLocale): string {
-  return job.titleByLocale[locale] ?? job.title;
-}
-
-// Inline cantonal-fallback badge. Uses warning-tone semantic tokens (same
-// palette as STAT_TILE_WARNING) so we don't introduce any new colour. No
-// border-left, no hex — only var(--color-*).
-const FALLBACK_BADGE_STYLE =
-  'font-size:11px;color:var(--color-subtle);font-weight:600;padding:2px 6px;border-radius:6px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border)';
-
 function renderFeaturedJobs(
   cityId: ColCityId,
   locale: ColLocale,

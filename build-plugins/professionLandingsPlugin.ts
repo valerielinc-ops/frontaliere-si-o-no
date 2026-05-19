@@ -167,10 +167,6 @@ interface CopyView {
   employerGridTitle: string;
 }
 
-function pickJobTitle(job: FeaturedJob, locale: ProfessionLocale): string {
-  return job.titleByLocale[locale] ?? job.title;
-}
-
 function renderFeaturedJobs(
   id: ProfessionId,
   locale: ProfessionLocale,
