@@ -40,6 +40,8 @@ interface JobRecord {
   titleByLocale?: Partial<Record<ProfessionLocale, string>>;
   company?: string;
   companyKey?: string;
+  companyDomain?: string;
+  contract?: string;
   category?: string;
   sector?: string;
   addressLocality?: string;
@@ -60,7 +62,12 @@ export interface FeaturedJob {
   readonly title: string;
   readonly titleByLocale: Partial<Record<ProfessionLocale, string>>;
   readonly company: string;
+  readonly companyKey: string | null;
+  readonly companyDomain: string | null;
   readonly city: string;
+  readonly addressLocality: string | null;
+  readonly canton: string | null;
+  readonly contract: string | null;
   readonly salaryMin: number | null;
   readonly salaryMax: number | null;
   readonly postedDate: string;
@@ -68,6 +75,7 @@ export interface FeaturedJob {
   readonly slug: string;
   readonly slugByLocale: Partial<Record<ProfessionLocale, string>>;
   readonly employmentType: string | null;
+  readonly url: string | null;
 }
 
 export interface ProfessionJobsSnapshot {
@@ -215,7 +223,12 @@ function toFeatured(job: JobRecord, now: number): FeaturedJob | null {
     title: job.title,
     titleByLocale: job.titleByLocale ?? {},
     company: job.company ?? '',
+    companyKey: job.companyKey ?? null,
+    companyDomain: job.companyDomain ?? null,
     city: job.addressLocality ?? '',
+    addressLocality: job.addressLocality ?? null,
+    canton: job.canton ?? null,
+    contract: job.employmentType ?? job.contract ?? null,
     salaryMin: typeof job.salaryMin === 'number' ? job.salaryMin : null,
     salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : null,
     postedDate,
@@ -223,6 +236,7 @@ function toFeatured(job: JobRecord, now: number): FeaturedJob | null {
     slug: job.slug,
     slugByLocale: job.slugByLocale ?? {},
     employmentType: job.employmentType ?? null,
+    url: job.url ?? null,
   };
 }
 
@@ -338,3 +352,6 @@ export function buildFeaturedJobUrl(job: FeaturedJob, locale: ProfessionLocale):
 export function buildJobBoardUrl(locale: ProfessionLocale): string {
   return `${JOB_BOARD_BASE_PATH[locale]}/`;
 }
+
+/** Test-only export — exposes the internal projector for unit tests. */
+export { toFeatured as toFeaturedForTest };

@@ -41,6 +41,8 @@ interface JobRecord {
   titleByLocale?: Partial<Record<NursingLocale, string>>;
   company?: string;
   companyKey?: string;
+  companyDomain?: string;
+  contract?: string;
   category?: string;
   sector?: string;
   addressLocality?: string;
@@ -160,7 +162,12 @@ function toFeatured(job: JobRecord, now: number): NursingFeaturedJob | null {
     title: job.title,
     titleByLocale: job.titleByLocale ?? {},
     company: job.company ?? '',
+    companyKey: job.companyKey ?? null,
+    companyDomain: job.companyDomain ?? null,
     city: job.addressLocality ?? '',
+    addressLocality: job.addressLocality ?? null,
+    canton: job.canton ?? null,
+    contract: job.employmentType ?? job.contract ?? null,
     salaryMin: typeof job.salaryMin === 'number' ? job.salaryMin : null,
     salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : null,
     postedDate,
@@ -168,6 +175,7 @@ function toFeatured(job: JobRecord, now: number): NursingFeaturedJob | null {
     slug: job.slug,
     slugByLocale: job.slugByLocale ?? {},
     employmentType: job.employmentType ?? null,
+    url: job.url ?? null,
   };
 }
 
@@ -283,3 +291,6 @@ export function buildFeaturedJobUrl(job: NursingFeaturedJob, locale: NursingLoca
 export function buildJobBoardUrl(locale: NursingLocale): string {
   return `${JOB_BOARD_BASE_PATH[locale]}/`;
 }
+
+/** Test-only export — exposes the internal projector for unit tests. */
+export { toFeatured as toNursingFeaturedForTest };

@@ -38,6 +38,8 @@ interface JobRecord {
   titleByLocale?: Partial<Record<CareerLocale, string>>;
   company?: string;
   companyKey?: string;
+  companyDomain?: string;
+  contract?: string;
   category?: string;
   sector?: string;
   addressLocality?: string;
@@ -58,7 +60,12 @@ export interface CareerFeaturedJob {
   readonly title: string;
   readonly titleByLocale: Partial<Record<CareerLocale, string>>;
   readonly company: string;
+  readonly companyKey: string | null;
+  readonly companyDomain: string | null;
   readonly city: string;
+  readonly addressLocality: string | null;
+  readonly canton: string | null;
+  readonly contract: string | null;
   readonly salaryMin: number | null;
   readonly salaryMax: number | null;
   readonly postedDate: string;
@@ -66,6 +73,7 @@ export interface CareerFeaturedJob {
   readonly slug: string;
   readonly slugByLocale: Partial<Record<CareerLocale, string>>;
   readonly employmentType: string | null;
+  readonly url: string | null;
 }
 
 export interface CareerEmployer {
@@ -260,7 +268,12 @@ function toFeatured(job: JobRecord, now: number): CareerFeaturedJob | null {
     title: job.title,
     titleByLocale,
     company: job.company ?? '',
+    companyKey: job.companyKey ?? null,
+    companyDomain: job.companyDomain ?? null,
     city: job.addressLocality ?? '',
+    addressLocality: job.addressLocality ?? null,
+    canton: job.canton ?? null,
+    contract: job.employmentType ?? job.contract ?? null,
     salaryMin: typeof job.salaryMin === 'number' ? job.salaryMin : null,
     salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : null,
     postedDate,
@@ -268,6 +281,7 @@ function toFeatured(job: JobRecord, now: number): CareerFeaturedJob | null {
     slug: job.slug,
     slugByLocale,
     employmentType: job.employmentType ?? null,
+    url: job.url ?? null,
   };
 }
 
@@ -580,3 +594,6 @@ export function buildCareerFeaturedJobUrl(
 export function buildCareerJobBoardUrl(locale: CareerLocale): string {
   return `${JOB_BOARD_BASE_PATH[locale]}/`;
 }
+
+/** Test-only export — exposes the internal projector for unit tests. */
+export { toFeatured as toCareerFeaturedForTest };

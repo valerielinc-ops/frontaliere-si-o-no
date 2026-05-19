@@ -755,3 +755,14 @@ input[type=number] { -moz-appearance: textfield; }
   /* Ensure result cards don't split across pages */
   [class*="result"], [class*="comparison"] { break-inside: avoid; page-break-inside: avoid; }
 }
+
+@keyframes seo-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+.seo-fade-in {
+  animation: seo-fade-in 320ms ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .seo-fade-in { animation: none; }
+}

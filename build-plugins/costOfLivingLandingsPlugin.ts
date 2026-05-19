@@ -72,14 +72,11 @@ import {
   H1_STYLE,
   H2_STYLE,
   CARD_STYLE,
-  CARD_BODY_STYLE,
-  CARD_PADDING_STYLE,
   LINK_ACCENT_STYLE,
   CTA_PRIMARY_STYLE,
   HERO_EYEBROW_STYLE,
   LEDE_STYLE,
   SMALL_HEADING_STYLE,
-  ICON_BUILDING_SVG,
   renderStatGrid,
   differentiateH1FromTitle,
 } from './shared/seoContentTokens';
@@ -91,6 +88,19 @@ import {
   type CityFeaturedJob,
   type CityJobsSnapshot,
 } from './cityJobsAggregate';
+import {
+  renderJobCardListHtml,
+  type JobCardJob,
+} from './shared/jobCardHtml';
+import {
+  pickEmptyState,
+  pickCtaAllJobs,
+} from './shared/landingMicroCopy';
+import {
+  renderEmployerCardListHtml,
+  type EmployerCardEmployer,
+} from './shared/employerCardHtml';
+import { renderLandingHero, HERO_BADGES } from './shared/landingHeroPersonality';
 
 // ── Escape ─────────────────────────────────────────────────────────
 
@@ -140,46 +150,9 @@ interface CityCopyView {
   readonly jobSalaryFmt: (min: number | null, max: number | null) => string;
 }
 
-function pickJobTitle(job: CityFeaturedJob, locale: ColLocale): string {
-  return job.titleByLocale[locale] ?? job.title;
-}
-
-// Inline cantonal-fallback badge. Uses warning-tone semantic tokens (same
-// palette as STAT_TILE_WARNING) so we don't introduce any new colour. No
-// border-left, no hex — only var(--color-*).
-const FALLBACK_BADGE_STYLE =
-  'font-size:11px;color:var(--color-subtle);font-weight:600;padding:2px 6px;border-radius:6px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border)';
-
-function renderFeaturedJobCard(
-  job: CityFeaturedJob,
-  locale: ColLocale,
-  view: CityCopyView,
-): string {
-  const href = buildFeaturedJobUrl(job, locale);
-  const title = pickJobTitle(job, locale);
-  const subtitleParts: string[] = [];
-  if (job.company) subtitleParts.push(job.company);
-  if (job.city) subtitleParts.push(job.city);
-  const subtitle = subtitleParts.join(' · ');
-  const salary = view.jobSalaryFmt(job.salaryMin, job.salaryMax);
-  const posted = view.jobPostedLabel(job.daysAgo);
-  const fallbackBadge = job.isCantonalFallback
-    ? `<span aria-label="${esc(view.featuredFallbackBadge)}" style="${FALLBACK_BADGE_STYLE}">📍 ${esc(view.featuredFallbackBadge)}</span>`
-    : '';
-
-  return `<a class="seo-card-link" href="${esc(href)}" style="${CARD_STYLE};text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:6px">
-    <div style="font-weight:700;font-size:16px;line-height:1.35;color:var(--color-heading)">${esc(title)}</div>
-    ${subtitle || fallbackBadge ? `<div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px;color:var(--color-body);line-height:1.4">${subtitle ? esc(subtitle) : ''}${fallbackBadge}</div>` : ''}
-    <div style="display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-top:4px;font-size:13px;color:var(--color-subtle)">
-      ${salary ? `<span style="color:var(--color-accent);font-weight:700">${esc(salary)}</span>` : ''}
-      <span>${esc(posted)}</span>
-    </div>
-  </a>`;
-}
-
 function renderFeaturedJobs(
-  locale: ColLocale,
   cityId: ColCityId,
+  locale: ColLocale,
   snapshot: CityJobsSnapshot,
   view: CityCopyView,
 ): string {
@@ -189,46 +162,96 @@ function renderFeaturedJobs(
   // 3-card target even for sparse cities (Chiasso, Bellinzona, Locarno on
   // quiet weeks) — borrowed jobs render with a "Ticino" badge so the user
   // knows they're outside the city perimeter.
-  if (snapshot.featured.length === 0) {
-    const allJobsHref = buildJobBoardUrl(locale);
-    return `<section style="margin:0 0 28px">
-      <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(view.featuredJobsTitle)}</h2>
-      <div style="${CARD_STYLE};display:flex;flex-direction:column;gap:10px">
-        <p style="margin:0;color:var(--color-body);font-size:14px;line-height:1.55">${esc(view.featuredJobsEmpty)}</p>
-        <a href="${esc(allJobsHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px">${esc(view.featuredJobsCtaAll)}</a>
-      </div>
-    </section>`;
-  }
-  const cards = snapshot.featured
-    .map((j) => renderFeaturedJobCard(j, locale, view))
-    .join('');
-  const cityHref = buildCityJobBoardUrl(locale, cityId);
+  const items = snapshot.featured.map((j) => ({
+    job: {
+      title: j.title,
+      titleByLocale: j.titleByLocale,
+      company: j.company,
+      companyKey: j.companyKey ?? undefined,
+      companyDomain: j.companyDomain ?? undefined,
+      addressLocality: j.addressLocality ?? j.city,
+      canton: j.canton ?? undefined,
+      contract: j.contract ?? undefined,
+      salaryMin: j.salaryMin,
+      salaryMax: j.salaryMax,
+      postedDate: j.postedDate,
+      url: j.url ?? undefined,
+    } satisfies JobCardJob,
+    href: buildFeaturedJobUrl(j, locale),
+  }));
+  const allJobsHref = buildJobBoardUrl(locale);
+  const emptyHtml = `<div style="${CARD_STYLE};display:flex;flex-direction:column;gap:10px">
+    <p style="margin:0;color:var(--color-body);font-size:14px;line-height:1.55">${esc(pickEmptyState(cityId, locale))}</p>
+    <a href="${esc(allJobsHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px">${esc(view.featuredJobsCtaAll)}</a>
+  </div>`;
+  const listHtml = renderJobCardListHtml(items, {
+    locale,
+    emptyStateHtml: emptyHtml,
+  });
+  const ctaHref = buildCityJobBoardUrl(locale, cityId);
+  const ctaLabel = snapshot.featured.length > 0 && snapshot.liveCount > 0
+    ? pickCtaAllJobs(cityId, locale, snapshot.liveCount)
+    : view.featuredJobsCtaAll;
   return `<section style="margin:0 0 28px">
     <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(view.featuredJobsTitle)}</h2>
-    <div style="display:grid;gap:12px;margin-bottom:14px">${cards}</div>
-    <a href="${esc(cityHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px">${esc(view.featuredJobsCtaAll)}</a>
+    ${listHtml}
+    ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-block;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
   </section>`;
 }
 
-function renderEmployerGrid(snapshot: CityJobsSnapshot, view: CityCopyView): string {
+function renderEmployerGrid(
+  snapshot: CityJobsSnapshot,
+  view: CityCopyView,
+  locale: ColLocale,
+  cityId: ColCityId,
+): string {
   if (snapshot.topEmployers.length === 0) return '';
 
-  const cells = snapshot.topEmployers
-    .map(
-      (e) => `<div style="display:flex;align-items:center;gap:10px;${CARD_PADDING_STYLE};${CARD_BODY_STYLE}">
-        <span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:var(--color-surface-alt);color:var(--color-subtle);flex-shrink:0">${ICON_BUILDING_SVG}</span>
-        <div style="flex:1;min-width:0">
-          <div style="font-weight:700;font-size:14px;color:var(--color-heading);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(e.name)}</div>
-        </div>
-        <div style="flex-shrink:0;font-weight:700;color:var(--color-accent);font-variant-numeric:tabular-nums">${e.count}</div>
-      </div>`,
-    )
-    .join('');
+  const items = snapshot.topEmployers.map((e) => ({
+    employer: {
+      name: e.name,
+      openings: e.count ?? undefined,
+    } satisfies EmployerCardEmployer,
+    href: `${buildCityJobBoardUrl(locale, cityId)}?q=${encodeURIComponent(e.name)}`,
+  }));
+
+  const listHtml = renderEmployerCardListHtml(items, {
+    locale,
+    variant: 'compact',
+  });
 
   return `<section style="margin:0 0 28px">
     <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(view.employerGridTitle)}</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">${cells}</div>
+    ${listHtml}
   </section>`;
+}
+
+/** Exported for unit tests — builds minimal view and delegates to renderEmployerGrid. */
+export function renderCostOfLivingEmployerGridForTest(
+  cityId: ColCityId,
+  locale: ColLocale,
+  snapshot: { topEmployers: ReadonlyArray<{ name: string; count: number }> },
+): string {
+  const L = getLocaleStrings(locale);
+  const cityName = COL_CITY_DISPLAY[cityId][locale];
+  const view: CityCopyView = {
+    statTileSalaryLabel: '',
+    statTileRentLabel: '',
+    statTileLiveJobsLabel: '',
+    statSalaryFmt: () => '',
+    statRentFmt: () => '',
+    statLiveJobsFmt: () => '',
+    primaryCtaLabel: '',
+    featuredJobsTitle: '',
+    featuredJobsCtaAll: '',
+    featuredJobsEmpty: '',
+    featuredFallbackBadge: '',
+    employerGridTitle: L.employerGridTitle(cityName),
+    approfondisciHeading: '',
+    jobPostedLabel: () => '',
+    jobSalaryFmt: () => '',
+  };
+  return renderEmployerGrid(snapshot as CityJobsSnapshot, view, locale, cityId);
 }
 
 function renderApprofondisciDivider(label: string): string {
@@ -441,7 +464,7 @@ function renderPage(opts: {
     jobSalaryFmt: L.jobSalaryFmt,
   };
 
-  const statTilesHtml = renderStatGrid([
+  const statTilesHtml = `<div class="seo-fade-in">${renderStatGrid([
     {
       label: view.statTileSalaryLabel,
       value: view.statSalaryFmt(snapshot.medianSalaryChf),
@@ -459,11 +482,11 @@ function renderPage(opts: {
       // Live jobs are an opportunity signal — green when > 0.
       tone: snapshot.liveCount > 0 ? 'success' : 'neutral',
     },
-  ]);
+  ])}</div>`;
 
   const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(view.primaryCtaLabel)} →</a></div>`;
-  const featuredHtml = renderFeaturedJobs(locale, city, snapshot, view);
-  const employerGridHtml = renderEmployerGrid(snapshot, view);
+  const featuredHtml = renderFeaturedJobs(city, locale, snapshot, view);
+  const employerGridHtml = renderEmployerGrid(snapshot, view, locale, city);
   const dividerHtml = renderApprofondisciDivider(view.approfondisciHeading);
 
   // Extract FAQ <details> styling to a single <style> block + 3 classes
@@ -495,11 +518,18 @@ function renderPage(opts: {
       <span> / </span>
       <span>${esc(cityName)}</span>
     </nav>
-    <header style="margin-bottom:20px">
-      <p style="${HERO_EYEBROW_STYLE}">${esc(L.eyebrow(cityName))} · ${esc(L.updatedLabel)} ${esc(dateStamp)}</p>
+    ${city in HERO_BADGES
+      ? renderLandingHero(city, locale, {
+          openings: snapshot.liveCount,
+          medianSalary: snapshot.medianSalaryChf ?? undefined,
+          city: cityName,
+        }, h1, denseLede)
+      : `<header style="margin-bottom:20px">
+      <p style="${HERO_EYEBROW_STYLE}">${esc(L.eyebrow(cityName))}</p>
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(denseLede)}</p>
-    </header>
+    </header>`}
+    <p style="${HERO_EYEBROW_STYLE};margin-top:4px;font-weight:500">${esc(L.updatedLabel)} ${esc(dateStamp)}</p>
     ${statTilesHtml}
     ${primaryCtaHtml}
     ${featuredHtml}
@@ -779,4 +809,33 @@ export function costOfLivingLandingsPlugin(rootDir: string): Plugin {
       }
     },
   };
+}
+
+// Test-only export: allows tests/build-plugins/job-card-canonical-adoption.test.ts
+// to verify the migrated renderer emits canonical job-card markers.
+export function renderCostOfLivingFeaturedJobsForTest(
+  city: ColCityId,
+  locale: ColLocale,
+  snapshot: CityJobsSnapshot,
+): string {
+  const L = getLocaleStrings(locale);
+  const cityName = COL_CITY_DISPLAY[city][locale];
+  const view: CityCopyView = {
+    statTileSalaryLabel: L.statTileSalaryLabel,
+    statTileRentLabel: L.statTileRentLabel,
+    statTileLiveJobsLabel: L.statTileLiveJobsLabel,
+    statSalaryFmt: L.statSalaryFmt,
+    statRentFmt: L.statRentFmt,
+    statLiveJobsFmt: L.statLiveJobsFmt,
+    primaryCtaLabel: L.primaryCtaLabel(cityName),
+    featuredJobsTitle: L.featuredJobsTitle(cityName),
+    featuredJobsCtaAll: L.featuredJobsCtaAll(cityName, snapshot.liveCount),
+    featuredJobsEmpty: L.featuredJobsEmpty(cityName),
+    featuredFallbackBadge: L.featuredFallbackBadge,
+    employerGridTitle: L.employerGridTitle(cityName),
+    approfondisciHeading: L.approfondisciHeading,
+    jobPostedLabel: L.jobPostedLabel,
+    jobSalaryFmt: L.jobSalaryFmt,
+  };
+  return renderFeaturedJobs(city, locale, snapshot, view);
 }
