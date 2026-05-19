@@ -66,11 +66,20 @@ export function isSulzerJob(job) {
 
 /**
  * Validate that a URL belongs to Sulzer's domain.
+ *
+ * Sulzer uses Workday as its ATS — job apply URLs are hosted under
+ * `sulzer.wd502.myworkdayjobs.com`, not `sulzer.com`. We trust the Sulzer
+ * tenant on Workday as a first-party domain.
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'sulzer.com' || host.endsWith('.sulzer.com');
+    return (
+      host === 'sulzer.com' ||
+      host.endsWith('.sulzer.com') ||
+      host === 'sulzer.wd502.myworkdayjobs.com' ||
+      host.endsWith('.sulzer.wd502.myworkdayjobs.com')
+    );
   } catch {
     return false;
   }
@@ -219,6 +228,10 @@ export async function fetchAllSulzerJobs() {
       titleByLocale: { [sourceLang]: title },
       description: descriptionText,
       descriptionByLocale: { [sourceLang]: descriptionText },
+      // Newly-discovered jobs ship with source-locale-only fields. The shared
+      // AI-localization step clears this flag when it fills the remaining 3
+      // locales; if it can't, `translate-pending.yml` picks it up out-of-band.
+      needsRetranslation: true,
       location,
       canton,
       url: publicUrl,
