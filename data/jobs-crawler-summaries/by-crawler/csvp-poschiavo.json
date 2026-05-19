@@ -1,18 +1,19 @@
 {
   "key": "csvp-poschiavo",
   "label": "Centro Sanitario Valposchiavo (CSVP)",
-  "generatedAt": "2026-05-19T10:00:03.307Z",
+  "generatedAt": "2026-05-19T11:32:28.106Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11747,
-  "avgDurationMs": 11747,
+  "durationMs": 2996,
+  "avgDurationMs": 2996,
   "durationHistory": [
-    11747
+    2996
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "csvp-poschiavo-56ff0c0e1a48",
       "slug": "addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs-csvp-poschiavo-poschiavo",
@@ -25,7 +26,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/563-concorso-pubblico-per-la-gestione-della-caffetteria-2",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-19T09:59:52.585Z",
+      "crawledAt": "2026-05-19T11:32:26.081Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -40,16 +41,16 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/563-concorso-pubblico-per-la-gestione-della-caffetteria-2",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T09:59:52.585Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
