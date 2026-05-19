@@ -1,18 +1,19 @@
 {
   "key": "abbott",
   "label": "Abbott",
-  "generatedAt": "2026-05-19T17:29:00.105Z",
+  "generatedAt": "2026-05-19T21:22:32.952Z",
   "total": 21,
-  "newCount": 21,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 21,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 635272,
-  "avgDurationMs": 635272,
+  "durationMs": 22894,
+  "avgDurationMs": 22894,
   "durationHistory": [
-    635272
+    22894
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "abbott-60b3daa86bd5",
       "slug": "director-business-relationship-management-commercial-digital-data-ai-abbott-ch",
@@ -26,7 +27,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Director--Business-Relationship-Management---Commercial--Digital--Data---AI_31149215",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:29.058Z",
+      "crawledAt": "2026-05-19T21:22:14.318Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "postedDate": "2026-05-08",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Director--Business-Relationship-Management---Commercial--Digital--Data---AI_31149215",
       "jobReqId": "31149215",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-19T17:18:29.058Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Fribourg---Fribourg/Sales-Representative-Suisse-Romande--Fribourg--Vaud--Valais-_31148184",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T17:18:29.878Z",
+      "crawledAt": "2026-05-19T21:22:15.135Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "postedDate": "2026-05-07",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Fribourg---Fribourg/Sales-Representative-Suisse-Romande--Fribourg--Vaud--Valais-_31148184",
       "jobReqId": "31148184",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-19T17:18:29.878Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Senior-Mechatronics-Engineer_31149539",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:30.715Z",
+      "crawledAt": "2026-05-19T21:22:15.950Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "postedDate": "2026-05-07",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Senior-Mechatronics-Engineer_31149539",
       "jobReqId": "31149539",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T17:18:30.715Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Remote/Medical-Educator---Schweiz_31149502",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T17:18:31.584Z",
+      "crawledAt": "2026-05-19T21:22:16.876Z",
       "addressLocality": "Remote",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "postedDate": "2026-05-05",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Remote/Medical-Educator---Schweiz_31149502",
       "jobReqId": "31149502",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T17:18:31.584Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Supervisor-Quality-Release_31149238",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:32.428Z",
+      "crawledAt": "2026-05-19T21:22:17.841Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "postedDate": "2026-05-05",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Supervisor-Quality-Release_31149238",
       "jobReqId": "31149238",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-05-19T17:18:32.428Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Medical-Director-Gastroenterology_31146562",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:33.243Z",
+      "crawledAt": "2026-05-19T21:22:18.685Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "postedDate": "2026-04-20",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Medical-Director-Gastroenterology_31146562",
       "jobReqId": "31146562",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-05-19T17:18:33.243Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Medical-Director-Cardiometabolic_31146564",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:33.997Z",
+      "crawledAt": "2026-05-19T21:22:19.494Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -257,11 +264,12 @@
       "postedDate": "2026-04-20",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Global-Medical-Director-Cardiometabolic_31146564",
       "jobReqId": "31146564",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-05-19T17:18:33.997Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -278,7 +286,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Inside-Sales-Representative_31138824",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T17:18:34.841Z",
+      "crawledAt": "2026-05-19T21:22:20.271Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -293,11 +301,12 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Inside-Sales-Representative_31138824",
       "jobReqId": "31138824",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-19T17:18:34.841Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
-        "cleanliness": 25,
+        "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -314,7 +323,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Belgium---Diegem/Director--Commercial-Excellence--EMEA-Structural-Heart_31146965-1",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:35.579Z",
+      "crawledAt": "2026-05-19T21:22:21.054Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -329,11 +338,12 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Belgium---Diegem/Director--Commercial-Excellence--EMEA-Structural-Heart_31146965-1",
       "jobReqId": "31146965",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-19T17:18:35.579Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -350,7 +360,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Manufacturing-Engineering---Maintenance---Facility-Control_31142513",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:36.331Z",
+      "crawledAt": "2026-05-19T21:22:21.994Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -365,11 +375,12 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Manufacturing-Engineering---Maintenance---Facility-Control_31142513",
       "jobReqId": "31142513",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-19T17:18:36.331Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -386,7 +397,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Field-Service-Engineer---Laboratory-Diagnostics--m-f-d-_31146045-1",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:37.112Z",
+      "crawledAt": "2026-05-19T21:22:22.938Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -401,11 +412,12 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Field-Service-Engineer---Laboratory-Diagnostics--m-f-d-_31146045-1",
       "jobReqId": "31146045",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T17:18:37.112Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -422,7 +434,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Manager-Quality-System---Regulatory-Compliance_31146008-1",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:37.890Z",
+      "crawledAt": "2026-05-19T21:22:23.703Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -437,11 +449,12 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Manager-Quality-System---Regulatory-Compliance_31146008-1",
       "jobReqId": "31146008",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-19T17:18:37.890Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -458,7 +471,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Product-Owner-Advanced-Analytics-for-Commercial-Domain_31146256",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:38.640Z",
+      "crawledAt": "2026-05-19T21:22:24.499Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -473,11 +486,12 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Product-Owner-Advanced-Analytics-for-Commercial-Domain_31146256",
       "jobReqId": "31146256",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T17:18:38.640Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -494,7 +508,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Ethics-and-Compliance-Director--EPD--m-f-d-_31145992",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:39.360Z",
+      "crawledAt": "2026-05-19T21:22:25.280Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -509,11 +523,12 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Ethics-and-Compliance-Director--EPD--m-f-d-_31145992",
       "jobReqId": "31145992",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-05-19T17:18:39.360Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -530,7 +545,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Senior-Data-Engineer_31144980",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:40.167Z",
+      "crawledAt": "2026-05-19T21:22:26.067Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -545,11 +560,12 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Senior-Data-Engineer_31144980",
       "jobReqId": "31144980",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-05-19T17:18:40.167Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -566,7 +582,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Director---Operations-Strategy---CMO--EPD--m-f-d-_31145456",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:40.964Z",
+      "crawledAt": "2026-05-19T21:22:26.859Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -581,11 +597,12 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Director---Operations-Strategy---CMO--EPD--m-f-d-_31145456",
       "jobReqId": "31145456",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T17:18:40.964Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -602,7 +619,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Marketing-Project-Manager---Nutrition--DACH-_31145001",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:41.706Z",
+      "crawledAt": "2026-05-19T21:22:27.679Z",
       "addressLocality": "Baar",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -617,11 +634,12 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Baar/Marketing-Project-Manager---Nutrition--DACH-_31145001",
       "jobReqId": "31145001",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T17:18:41.706Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -638,7 +656,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Regional-Sales-Manager-Cardiac-Rhythm-Management---Region-Zentralschweiz_31142681",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T17:18:42.646Z",
+      "crawledAt": "2026-05-19T21:22:28.482Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -653,11 +671,12 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Regional-Sales-Manager-Cardiac-Rhythm-Management---Region-Zentralschweiz_31142681",
       "jobReqId": "31142681",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T17:18:42.646Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -674,7 +693,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Finance-IT-Expert_31141909",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:43.426Z",
+      "crawledAt": "2026-05-19T21:22:29.249Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -689,11 +708,12 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Finance-IT-Expert_31141909",
       "jobReqId": "31141909",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-05-19T17:18:43.426Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -710,7 +730,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Senior-Manufacturing-Engineer_31138835",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:44.436Z",
+      "crawledAt": "2026-05-19T21:22:30.083Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -725,11 +745,12 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Zurich/Senior-Manufacturing-Engineer_31138835",
       "jobReqId": "31138835",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T17:18:44.436Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -746,7 +767,7 @@
       "url": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Cloud-Architect_31138417",
       "source": "Abbott Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T17:18:45.224Z",
+      "crawledAt": "2026-05-19T21:22:31.001Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -761,16 +782,16 @@
       "postedDate": "2026-04-19",
       "applyUrl": "https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Switzerland---Basel/Cloud-Architect_31138417",
       "jobReqId": "31138417",
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-05-19T17:18:45.224Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
