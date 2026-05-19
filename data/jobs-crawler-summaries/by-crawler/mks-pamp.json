@@ -1,22 +1,23 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-05-19T12:18:47.354Z",
-  "total": 4,
+  "generatedAt": "2026-05-19T23:02:14.188Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 1,
   "unchangedCount": 3,
-  "durationMs": 10046,
-  "avgDurationMs": 10046,
+  "durationMs": 6575,
+  "avgDurationMs": 6575,
   "durationHistory": [
-    10046
+    6575
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
-      "title": "Metal &amp; Inventory Controller",
-      "slug": "metal-amp-inventory-controller-mks-pamp-castel-san-pietro",
+      "title": "Metal & Inventory Controller",
+      "slug": "controllore-del-metallo-e-dell-inventario-mks-pamp-castel-san-pietro",
       "url": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
       "applyUrl": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
       "company": "MKS PAMP",
@@ -31,7 +32,7 @@
       "category": "finance",
       "sector": "Metalli preziosi",
       "source": "mkspamp-dedicated-crawler",
-      "sourceLang": "it",
+      "sourceLang": "en",
       "postedDate": "2026-02-04",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -43,45 +44,6 @@
       "postalCode": "6828",
       "id": "mks-pamp-3b2040222bc6",
       "firstSeenAt": "2026-04-13T22:10:50.570Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "title": "Senior Full Stack Developer",
-      "slug": "senior-full-stack-developer-mks-pamp-geneve",
-      "url": "https://careers.mkspamp.com/jobs/7564659-senior-full-stack-developer",
-      "applyUrl": "https://careers.mkspamp.com/jobs/7564659-senior-full-stack-developer",
-      "company": "MKS PAMP",
-      "companyKey": "mks-pamp",
-      "companyDomain": "mkspamp.com",
-      "location": "Genève",
-      "addressLocality": "Genève",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "technology",
-      "sector": "Metalli preziosi",
-      "source": "mkspamp-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-04-14",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "id": "mks-pamp-6ff3eb9664fc",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "streetAddress": "Via delle Fornaci",
-      "postalCode": "6828",
-      "firstSeenAt": "2026-05-10T10:37:10.728Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
