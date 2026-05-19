@@ -369,10 +369,10 @@ export function _resetCityJobsAggregateCache(): void {
 // ── Job-board URL builders ───────────────────────────────────────────────────
 
 const JOB_BOARD_SECTION: Record<ColLocale, string> = {
-  it: 'cerca-lavoro-ticino',
-  en: 'find-jobs-ticino',
-  de: 'jobs-im-tessin',
-  fr: 'trouver-emploi-tessin',
+  it: 'cerca-lavoro-ticino', // cathedral-allow: job-board section→slug map source-of-truth, frozen IT slug
+  en: 'find-jobs-ticino', // cathedral-allow: see cerca-lavoro-ticino note
+  de: 'jobs-im-tessin', // cathedral-allow: see cerca-lavoro-ticino note
+  fr: 'trouver-emploi-tessin', // cathedral-allow: see cerca-lavoro-ticino note
 };
 
 const JOB_BOARD_LOCALE_PREFIX: Record<ColLocale, string> = {

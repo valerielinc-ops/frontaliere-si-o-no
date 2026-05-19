@@ -41,7 +41,15 @@ const SAFE_BLOCK_RX =
 // IE conditional comments — preserved verbatim (Outlook + legacy webmail
 // clients still parse them; AdSense + email-style snippets may rely on them).
 const IE_COND_COMMENT_RX = /<!--\[if[\s\S]*?<!\[endif\]-->/gi;
-// Regular HTML comments — stripped.
+// Project-internal placeholder comments that downstream code uses as
+// injection anchors (e.g. `<!--SIBLING_LINKS_PLACEHOLDER-->` in
+// weeklyEmployersPlugin.injectSiblingLinks). Convention: ALL_CAPS plus an
+// underscore (no spaces, no lowercase). Stripping these would break the
+// String.replace() calls that depend on the literal anchor, so we mask
+// them as opaque blocks like IE conditional comments.
+const PLACEHOLDER_COMMENT_RX = /<!--[A-Z][A-Z0-9_]*-->/g;
+// Regular HTML comments — stripped (after the two preserve regexes have
+// already masked their matches).
 const HTML_COMMENT_RX = /<!--[\s\S]*?-->/g;
 
 // Whitespace BETWEEN block-level tags is safe to collapse. Inline tags
@@ -81,6 +89,10 @@ export function minifyHtml(html: string): string {
   const placeholder = (i: number) => `\x00MINIF_SAFE_${i}\x00`;
 
   let masked = html.replace(IE_COND_COMMENT_RX, (m) => {
+    const i = safe.push(m) - 1;
+    return placeholder(i);
+  });
+  masked = masked.replace(PLACEHOLDER_COMMENT_RX, (m) => {
     const i = safe.push(m) - 1;
     return placeholder(i);
   });

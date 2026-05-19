@@ -35,11 +35,17 @@
 // more RAM, parallelism can be opted into via AUDIT_WORKERS=N (TODO).
 
 import { readFile, readdir, stat } from 'node:fs/promises';
-import { join } from 'node:path';
+import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeAuditReport, auditReportPath } from './auditReport.mjs';
 
-const __dirname = fileURLToPath(new URL('.', import.meta.url));
+// Use the proven `dirname(fileURLToPath(import.meta.url))` pattern instead of
+// `fileURLToPath(new URL('.', import.meta.url))`. The latter throws
+// `ERR_INVALID_URL_SCHEME` when vitest loads this module via a non-file:
+// URL scheme (test runner uses its own bundler resolution). The former
+// works in both runtime + vitest because fileURLToPath() accepts file: URLs
+// directly without re-parsing them through the URL constructor.
+const __dirname = dirname(fileURLToPath(import.meta.url));
 export const ROOT = join(__dirname, '..', '..');
 export const DEFAULT_DIST = join(ROOT, 'dist');
 
