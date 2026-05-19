@@ -747,9 +747,13 @@ function computeExchangeInsight(series, fallbackRate, fallbackPrev) {
   };
 }
 
+// Candidate pool size must comfortably exceed MAX_HISTORY (12) so rotation
+// never collapses to "every top-viewed article is in the exclude list".
+const TOP_ARTICLES_LIMIT = 50;
+
 async function fetchTopArticles() {
   try {
-    const snap = await db.collection('article_views').orderBy('views', 'desc').limit(10).get();
+    const snap = await db.collection('article_views').orderBy('views', 'desc').limit(TOP_ARTICLES_LIMIT).get();
     if (snap.empty) return [];
     return snap.docs.map((d) => ({
       id: d.id,
@@ -760,6 +764,39 @@ async function fetchTopArticles() {
     }));
   } catch (e) {
     console.warn('\u26a0\ufe0f Top articles fetch failed:', e.message);
+    return [];
+  }
+}
+
+/**
+ * Second-tier featured-article pool: most recently *published* articles,
+ * regardless of views. Used by selectFeaturedArticleId when the views-based
+ * pool is exhausted \u2014 promotes new content instead of looping on evergreens.
+ *
+ * Reads data/blog-articles/*.json (each file carries a `publishedAt` ISO
+ * string) and returns at most {limit} article IDs sorted newest first.
+ */
+function fetchRecentlyPublishedArticleIds(limit = 30) {
+  try {
+    const dir = new URL('../data/blog-articles/', import.meta.url);
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json'));
+    const articles = [];
+    for (const file of files) {
+      try {
+        const raw = fs.readFileSync(new URL(file, dir), 'utf8');
+        const data = JSON.parse(raw);
+        const ts = Date.parse(data.publishedAt || '');
+        if (!Number.isNaN(ts)) {
+          articles.push({ id: data.id || file.replace(/\.json$/, ''), ts });
+        }
+      } catch {
+        // Skip unparseable file
+      }
+    }
+    articles.sort((a, b) => b.ts - a.ts);
+    return articles.slice(0, limit).map((a) => a.id);
+  } catch (e) {
+    console.warn('\u26a0\ufe0f Recently published articles scan failed:', e.message);
     return [];
   }
 }
@@ -920,7 +957,11 @@ async function saveRecentlyFeaturedArticle(articleId) {
 
 // \u2500\u2500\u2500 Job rotation (mirrors article rotation) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
 const RECENTLY_FEATURED_JOBS_KEY = 'recently_featured_jobs';
-const MAX_FEATURED_JOBS_HISTORY = 8; // 2 weeks \u00d7 4 cards = 8 slots
+// Each weekly send flattens 4 cards across N subscribers into 100+ distinct
+// slugs (personalization expands the set). Keeping the window large enough to
+// cover ~3-4 weeks of distinct featured slugs prevents popular jobs from
+// resurfacing every other send.
+const MAX_FEATURED_JOBS_HISTORY = 100;
 
 async function fetchRecentlyFeaturedJobs() {
   if (!db) return [];
@@ -1003,13 +1044,18 @@ async function pickFeaturedArticle() {
         fetchTopArticles(),
         fetchRecentlyFeaturedArticles(),
       ]);
+      const recentlyPublished = fetchRecentlyPublishedArticleIds();
       const hasMeta = (id) => !!loadBlogMeta(id, 'it');
-      const pick = selectFeaturedArticleId(topArticles, recentlyFeatured, hasMeta);
+      const pick = selectFeaturedArticleId(topArticles, recentlyFeatured, hasMeta, Date.now(), recentlyPublished);
       if (pick.id) {
         bestId = pick.id;
         const best = topArticles.find((a) => a.id === pick.id);
-        const rotated = pick.reason === 'fresh' ? '' : ' (rotation exhausted, reusing)';
-        console.log(`\ud83d\udcf0 Featured article: "${pick.id}" (${best?.views ?? '?'} views)${rotated}`);
+        const reasonLabel = {
+          'fresh': '',
+          'recent-publication': ' (recently published, promoting)',
+          'rotation-exhausted': ' (rotation exhausted, reusing)',
+        }[pick.reason] || '';
+        console.log(`\ud83d\udcf0 Featured article: "${pick.id}" (${best?.views ?? '?'} views)${reasonLabel}`);
         if (recentlyFeatured.length > 0) {
           console.log(`   Recently featured (excluded): ${recentlyFeatured.join(', ')}`);
         }
