@@ -58,6 +58,12 @@ const SEO_STATIC_RE = /<main\b[^>]*class=["'][^"']*\bseo-static-content\b/i;
 const THIN_H1_RE = /<h1\s+style="font-size:1\.25rem;font-weight:700;margin-bottom:\.5rem">/i;
 // Empty calculator placeholder div from the default branch.
 const PLACEHOLDER_DIV_RE = /<div\s+style="[^"]*;height:38rem;margin-top:1\.5rem"><\/div>/i;
+// Legacy-redirect bridge detection: pages whose `<link rel="canonical">`
+// points to a different URL than the page's own path are intentional
+// redirects (handled by legacyRedirectsPlugin / shell helpers), NOT
+// salary-landing templates. Same exclusion pattern used by
+// audit-content-duplicates.mjs.
+const CANONICAL_RE = /<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']+)["']/i;
 
 /**
  * @param {{ limit?: number }} [opts]
@@ -74,6 +80,34 @@ export function createAuditor(opts = {}) {
       // Normalize to a posix-style path so the regex matches on Windows too.
       const posixPath = file.replace(/\\/g, '/');
       if (!SALARY_LANDING_PATH_RE.test(posixPath)) return;
+
+      // Skip legacy-redirect bridge pages. legacyRedirectsPlugin emits
+      // ~10 historical-slug-bridge HTML pages at /calcola-stipendio/{old}/
+      // whose canonical points to the new slug (`/calcola-stipendio/{new}/`)
+      // or to a target outside the salary-calculator hub. These are
+      // intentionally thin (meta-refresh + JS location.replace) — they're
+      // NOT salary-landing templates and must not trigger this audit.
+      //
+      // Detection: parse the canonical href, compare to the page's own
+      // URL path (derived from the file path). If they differ, skip.
+      // Mirror pattern used by audit-content-duplicates.mjs.
+      const canonicalMatch = html.match(CANONICAL_RE);
+      if (canonicalMatch) {
+        const canonicalHref = canonicalMatch[1].trim();
+        // Convert canonical absolute URL to a normalized path
+        const canonicalPath = canonicalHref
+          .replace(/^https?:\/\/[^/]+/, '')
+          .replace(/[?#].*$/, '')
+          .replace(/\/$/, '') || '/';
+        // Convert file path to URL path: dist/foo/bar/index.html → /foo/bar
+        const ownPath = ('/' + relative(ROOT, file)
+          .replace(/\\/g, '/')
+          .replace(/^dist\//, '')
+          .replace(/\/index\.html$/, '')
+          .replace(/\.html$/, '')).replace(/\/$/, '') || '/';
+        if (canonicalPath !== ownPath) return; // legacy redirect bridge, skip
+      }
+
       scanned++;
 
       const reasons = [];
