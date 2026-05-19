@@ -1,6 +1,6 @@
 {
   "crawlerKey": "convit-holding",
-  "assembledAt": "2026-05-19T11:28:34.665Z",
+  "assembledAt": "2026-05-19T21:58:08.117Z",
   "jobs": [
     {
       "id": "convit-4c8a4aa9db48",
@@ -60,7 +60,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-massagno"
       ],
@@ -68,7 +67,8 @@
         "it": [
           "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-massagno"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-b4a4c8b586ae",
@@ -439,7 +439,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "pianificazione-finanziaria-junior-mentoring-convit-holding-gmbh-gordola"
       ],
@@ -447,7 +446,8 @@
         "it": [
           "pianificazione-finanziaria-junior-mentoring-convit-holding-gmbh-gordola"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-73953b1cec9c",
@@ -507,7 +507,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "pianificatore-finanziario-regionale-junior-ibrido-convit-holding-gmbh-magadino",
         "pianificatore-finanziario-regionale-junior-ibrido-convit-holding-gmbh-magadino-29vs6a"
@@ -517,7 +516,8 @@
           "pianificatore-finanziario-regionale-junior-ibrido-convit-holding-gmbh-magadino",
           "pianificatore-finanziario-regionale-junior-ibrido-convit-holding-gmbh-magadino-29vs6a"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-4935af8fcde3",
@@ -637,7 +637,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "pianificatore-finanziario-entrata-laterale-fisso-bonus-convit-holding-gmbh-cugnasco-gerra"
       ],
@@ -645,7 +644,8 @@
         "it": [
           "pianificatore-finanziario-entrata-laterale-fisso-bonus-convit-holding-gmbh-cugnasco-gerra"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-49ead986df83",
@@ -765,7 +765,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "ingresso-consulenza-finanziaria-3a-3b-orari-flessibili-convit-holding-gmbh-giubiasco-monte"
       ],
@@ -773,7 +772,8 @@
         "it": [
           "ingresso-consulenza-finanziaria-3a-3b-orari-flessibili-convit-holding-gmbh-giubiasco-monte"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-27b91666f795",
@@ -1114,10 +1114,10 @@
       },
       "previousSlugs": [
         "consultant-previdenza-e-risparmio-entrata-laterale-ote-fino-a-7-500-chf-convit-via-al-mulino-22a-6814-cadempino",
-        "consulente-previdenza-e-risparmio-entrata-laterale-ote-fino-a-7-500-chf-convit-holding-gmbh-via-al-mulino-22a-6814-cadem",
-        "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
         "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-l",
-        "berater-previdenza-e-risparmio-entrata-laterale-ote-fino-a-7-500-chf-convit-holding-gmbh-via-al-mulino-22a-6814-cadempin"
+        "berater-previdenza-e-risparmio-entrata-laterale-ote-fino-a-7-500-chf-convit-holding-gmbh-via-al-mulino-22a-6814-cadempin",
+        "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
+        "consulente-previdenza-e-risparmio-entrata-laterale-ote-fino-a-7-500-chf-convit-holding-gmbh-via-al-mulino-22a-6814-cadem"
       ]
     },
     {
@@ -1367,7 +1367,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "consulenza-previdenziale-3a-3b-homeoffice-convit-holding-gmbh-pazzallo"
       ],
@@ -1375,7 +1374,8 @@
         "it": [
           "consulenza-previdenziale-3a-3b-homeoffice-convit-holding-gmbh-pazzallo"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-cfded655d12b",
@@ -1435,7 +1435,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-bellinzona"
       ],
@@ -1443,7 +1442,8 @@
         "it": [
           "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-bellinzona"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-e9d466895266",
@@ -1623,7 +1623,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbedo-castione",
         "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbed"
@@ -1633,7 +1632,8 @@
           "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbedo-castione",
           "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbed"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-e470d47ccc0c",
@@ -2113,7 +2113,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "consulente-previdenziale-pianificazione-ibrido-convit-holding-gmbh-montagnola"
       ],
@@ -2121,7 +2120,8 @@
         "it": [
           "consulente-previdenziale-pianificazione-ibrido-convit-holding-gmbh-montagnola"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-0ba4fc14f88e",
@@ -2181,7 +2181,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-biasca",
         "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-biasca-hohte2"
@@ -2191,7 +2190,8 @@
           "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-biasca",
           "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-biasca-hohte2"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-a39ca3976752",
@@ -2311,7 +2311,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "consulente-previdenziale-junior-percorso-di-carriera-bonus-convit-holding-gmbh-preonzo"
       ],
@@ -2319,7 +2318,8 @@
         "it": [
           "consulente-previdenziale-junior-percorso-di-carriera-bonus-convit-holding-gmbh-preonzo"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-b6496a6408b9",
@@ -2439,7 +2439,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-camorino",
         "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-ca"
@@ -2449,7 +2448,8 @@
           "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-camorino",
           "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-ca"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-ae8e2d729db0",
@@ -2629,7 +2629,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
         "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7500-chf-convit-holding-gmbh-losone",
@@ -2641,7 +2640,8 @@
           "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7500-chf-convit-holding-gmbh-losone",
           "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca-hohte1"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-7fd409506c68",
@@ -2701,7 +2701,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "consulente-previdenziale-ibrido-ingresso-senza-esperienza-convit-holding-gmbh-paradiso"
       ],
@@ -2709,7 +2708,8 @@
         "it": [
           "consulente-previdenziale-ibrido-ingresso-senza-esperienza-convit-holding-gmbh-paradiso"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-f2b12fa24a77",
@@ -3369,7 +3369,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-holding-gmbh-comano",
         "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-holding-gmbh-",
@@ -3381,7 +3380,8 @@
           "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-holding-gmbh-",
           "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-holding-gmbh-comano-29vs9q"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-3787e158a8d5",
@@ -3441,7 +3441,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "consulente-privati-piani-di-risparmio-junior-homeoffice-convit-holding-gmbh-origlio"
       ],
@@ -3449,7 +3448,8 @@
         "fr": [
           "consulente-privati-piani-di-risparmio-junior-homeoffice-convit-holding-gmbh-origlio"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-1c1006f76a77",
@@ -3749,7 +3749,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T10:01:25.841Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "consulente-privati-finanza-entrata-laterale-convit-holding-gmbh-cresciano"
       ],
@@ -3757,7 +3756,8 @@
         "it": [
           "consulente-privati-finanza-entrata-laterale-convit-holding-gmbh-cresciano"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-b35bd71ca9f9",
