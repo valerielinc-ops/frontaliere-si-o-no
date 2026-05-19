@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "builtAt": "2026-05-18T08:00:16.485Z",
+  "builtAt": "2026-05-19T07:43:26.144Z",
   "windowDays": 90,
   "gsc": {
     "queries": {
@@ -33,10 +33,10 @@
         "topLandingPage": "/cerca-lavoro-ticino/concorsi-per-l-assunzione-di-personale-citta-di-lugano-lugano/"
       },
       "simulazione tasse nuovi frontalieri": {
-        "imp": 753,
-        "clicks": 180,
-        "pos": 3.93,
-        "ctr": 0.239,
+        "imp": 746,
+        "clicks": 178,
+        "pos": 3.89,
+        "ctr": 0.2386,
         "topLandingPage": "/"
       },
       "case anziani ticino offerte di lavoro": {
@@ -1853,10 +1853,10 @@
         "topLandingPage": "/cerca-lavoro-ticino/collaboratore-trice-di-ristorazione-eoc-ente-ospedaliero-cantonale-bellinzona/"
       },
       "calcolo tasse frontalieri oltre 20 km": {
-        "imp": 185,
+        "imp": 183,
         "clicks": 6,
-        "pos": 9.91,
-        "ctr": 0.0324,
+        "pos": 9.74,
+        "ctr": 0.0328,
         "topLandingPage": "/calcola-stipendio/nuovi-frontalieri-oltre-20-km/"
       },
       "cuoco svizzera": {
@@ -4737,10 +4737,10 @@
         "topLandingPage": "/"
       },
       "calcolo tasse svizzera frontalieri": {
-        "imp": 29,
+        "imp": 28,
         "clicks": 2,
-        "pos": 13.38,
-        "ctr": 0.069,
+        "pos": 12.71,
+        "ctr": 0.0714,
         "topLandingPage": "/"
       },
       "canton ticino lavora con noi": {
@@ -44748,14 +44748,14 @@
   "ga4": {
     "pages": {
       "/": {
-        "sessions": 12788,
-        "engageTime": 46.86,
+        "sessions": 12883,
+        "engageTime": 46.83,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/cerca-lavoro-ticino/": {
-        "sessions": 4240,
-        "engageTime": 33.56,
+        "sessions": 4258,
+        "engageTime": 33.9,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -44766,8 +44766,8 @@
         "cluster": "generic"
       },
       "/traffico-dogane/": {
-        "sessions": 1665,
-        "engageTime": 0.25,
+        "sessions": 1667,
+        "engageTime": 0.26,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -44783,20 +44783,20 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/prezzi-benzina/oggi/": {
-        "sessions": 872,
-        "engageTime": 0.37,
+      "/cerca-lavoro-ticino/stagista-delle-risorse-umane-al-dettaglio-guess-europe-sagl-bioggio/": {
+        "sessions": 885,
+        "engageTime": 4.61,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/stagista-delle-risorse-umane-al-dettaglio-guess-europe-sagl-bioggio/": {
-        "sessions": 863,
-        "engageTime": 4.73,
+      "/prezzi-benzina/oggi/": {
+        "sessions": 873,
+        "engageTime": 0.38,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/cerca-lavoro-ticino/azienda-amministrazione-cantonale-ticino/": {
-        "sessions": 850,
+        "sessions": 872,
         "engageTime": 0.77,
         "publishedAt": null,
         "cluster": "generic"
@@ -44808,13 +44808,13 @@
         "cluster": "generic"
       },
       "/articoli-frontaliere/apprendisti-ticino-incidenti-2026/": {
-        "sessions": 785,
-        "engageTime": 0.14,
+        "sessions": 801,
+        "engageTime": 0.13,
         "publishedAt": null,
         "cluster": "lavoro"
       },
       "/cerca-lavoro-ticino/meccanico-a-di-produzione-afc-bellinzona-ffs-officine-ferrovie-federali-bellinzona/": {
-        "sessions": 758,
+        "sessions": 774,
         "engageTime": 0.14,
         "publishedAt": null,
         "cluster": "generic"
@@ -44844,8 +44844,8 @@
         "cluster": "generic"
       },
       "/cerca-lavoro-ticino/addetti-servizi-alla-casa/": {
-        "sessions": 505,
-        "engageTime": 46.8,
+        "sessions": 506,
+        "engageTime": 46.74,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -44856,8 +44856,8 @@
         "cluster": "generic"
       },
       "/traffico-dogane/chiasso-centro/oggi/": {
-        "sessions": 428,
-        "engageTime": 0.17,
+        "sessions": 429,
+        "engageTime": 0.3,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -44868,20 +44868,20 @@
         "cluster": "generic"
       },
       "/calcola-stipendio/": {
-        "sessions": 397,
-        "engageTime": 1.73,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/compara-servizi/cambio-franco-euro/": {
-        "sessions": 361,
-        "engageTime": 58.15,
+        "sessions": 415,
+        "engageTime": 1.66,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/comparatori/cambio-valuta/": {
-        "sessions": 357,
+        "sessions": 378,
         "engageTime": 0.02,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/compara-servizi/cambio-franco-euro/": {
+        "sessions": 363,
+        "engageTime": 57.87,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -44898,26 +44898,26 @@
         "cluster": "generic"
       },
       "/tasse-e-pensione/": {
-        "sessions": 293,
-        "engageTime": 29.47,
+        "sessions": 294,
+        "engageTime": 29.44,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/en/find-jobs-ticino/": {
-        "sessions": 251,
-        "engageTime": 62.67,
+        "sessions": 257,
+        "engageTime": 62.62,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/en/": {
-        "sessions": 240,
-        "engageTime": 46.43,
+        "sessions": 244,
+        "engageTime": 46.68,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/statistiche": {
-        "sessions": 240,
-        "engageTime": 8.59,
+        "sessions": 237,
+        "engageTime": 8.42,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -44927,27 +44927,27 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/vivere-in-ticino/comuni-di-frontiera/": {
+        "sessions": 227,
+        "engageTime": 53.39,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/calcola-stipendio/simula-busta-paga/": {
+        "sessions": 226,
+        "engageTime": 56.45,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/educatori-dell-infanzia-lis-lugano-istituti-sociali-lugano/": {
         "sessions": 226,
         "engageTime": 44.55,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/calcola-stipendio/simula-busta-paga/": {
-        "sessions": 225,
-        "engageTime": 56.55,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/vivere-in-ticino/comuni-di-frontiera/": {
-        "sessions": 221,
-        "engageTime": 53.33,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/vivere-in-ticino/": {
-        "sessions": 219,
-        "engageTime": 57.06,
+        "sessions": 220,
+        "engageTime": 56.81,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -44958,20 +44958,20 @@
         "cluster": "generic"
       },
       "/cerca-lavoro-ticino/lavora-con-noi-casale-sa-lugano-ticino/": {
-        "sessions": 213,
-        "engageTime": 25.44,
+        "sessions": 216,
+        "engageTime": 25.49,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/calcola-stipendio/cosa-cambia-se/": {
-        "sessions": 210,
-        "engageTime": 59.66,
+        "sessions": 213,
+        "engageTime": 59.65,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/statistiche/": {
-        "sessions": 197,
-        "engageTime": 16.19,
+        "sessions": 199,
+        "engageTime": 16.21,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -44994,8 +44994,8 @@
         "cluster": "generic"
       },
       "/simulatori/ral-comparator": {
-        "sessions": 151,
-        "engageTime": 8.56,
+        "sessions": 152,
+        "engageTime": 8.5,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45005,21 +45005,21 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino": {
-        "sessions": 146,
-        "engageTime": 26.25,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-bellinzona/": {
-        "sessions": 146,
-        "engageTime": 3.84,
+        "sessions": 147,
+        "engageTime": 3.99,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/calcola-stipendio/confronta-retribuzione-ral/": {
-        "sessions": 145,
-        "engageTime": 47.7,
+        "sessions": 146,
+        "engageTime": 47.69,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino": {
+        "sessions": 146,
+        "engageTime": 26.25,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45030,8 +45030,8 @@
         "cluster": "generic"
       },
       "/profilo/": {
-        "sessions": 140,
-        "engageTime": 29.66,
+        "sessions": 141,
+        "engageTime": 30.06,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45042,8 +45042,8 @@
         "cluster": "generic"
       },
       "/auth/linkedin/callback/": {
-        "sessions": 133,
-        "engageTime": 1.72,
+        "sessions": 134,
+        "engageTime": 1.71,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45054,32 +45054,32 @@
         "cluster": "generic"
       },
       "/dialetto-ticinese": {
-        "sessions": 128,
-        "engageTime": 14.91,
+        "sessions": 129,
+        "engageTime": 14.88,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/cerca-lavoro-ticino/un-a-educatore-trice-diplomato-a-80-al-fornaio-fonte-7-fondazione-la-fonte-lugano/": {
-        "sessions": 117,
-        "engageTime": 28.32,
+        "sessions": 118,
+        "engageTime": 28.66,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/cerca-lavoro-ticino/azienda-eoc-ente-ospedaliero-cantonale/": {
-        "sessions": 114,
-        "engageTime": 39.76,
+        "sessions": 117,
+        "engageTime": 40.03,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/educatori-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-citta-di-lugano/": {
+        "sessions": 115,
+        "engageTime": 50.14,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/articoli-frontaliere": {
         "sessions": 112,
         "engageTime": 9.5,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/educatori-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-citta-di-lugano/": {
-        "sessions": 112,
-        "engageTime": 50.29,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45102,8 +45102,8 @@
         "cluster": "generic"
       },
       "/guida-frontaliere/tempi-attesa-dogana/": {
-        "sessions": 105,
-        "engageTime": 21.1,
+        "sessions": 107,
+        "engageTime": 21.85,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45120,8 +45120,14 @@
         "cluster": "generic"
       },
       "/de/": {
-        "sessions": 96,
-        "engageTime": 72.94,
+        "sessions": 97,
+        "engageTime": 72.19,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/educatori-dell-infanzia/": {
+        "sessions": 92,
+        "engageTime": 12.6,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45131,15 +45137,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/educatori-dell-infanzia/": {
-        "sessions": 90,
-        "engageTime": 12.79,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/compara-servizi/costo-della-vita/": {
-        "sessions": 89,
-        "engageTime": 46.04,
+        "sessions": 90,
+        "engageTime": 46.68,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45162,8 +45162,14 @@
         "cluster": "generic"
       },
       "/dialetto-ticinese/": {
-        "sessions": 86,
-        "engageTime": 38.06,
+        "sessions": 87,
+        "engageTime": 38.02,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/infermieri/": {
+        "sessions": 85,
+        "engageTime": 57.96,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45179,15 +45185,21 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/infermieri/": {
-        "sessions": 81,
-        "engageTime": 58.58,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/tasse-e-pensione/calcola-previdenza/": {
         "sessions": 81,
         "engageTime": 116.25,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/infermiere-a-di-ricerca-clinica-eoc-ente-ospedaliero-cantonale-bellinzona/": {
+        "sessions": 75,
+        "engageTime": 40.81,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/compara-servizi/confronta-casse-malati/": {
+        "sessions": 75,
+        "engageTime": 78.61,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45197,15 +45209,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/infermiere-a-di-ricerca-clinica-eoc-ente-ospedaliero-cantonale-bellinzona/": {
+      "/cerca-lavoro-ticino/educatori-sociali-lis-lugano-istituti-sociali-lugano/": {
         "sessions": 74,
-        "engageTime": 40.91,
+        "engageTime": 36.55,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/compara-servizi/confronta-casse-malati/": {
+      "/de/grenzgaenger-artikel/alpen-fussball-tessin-2026/": {
         "sessions": 74,
-        "engageTime": 78,
+        "engageTime": 42.05,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45218,12 +45230,6 @@
       "/cerca-lavoro-ticino/collaboratori-sanitari-lis-lugano-istituti-sociali-lugano/": {
         "sessions": 72,
         "engageTime": 62.17,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/educatori-sociali-lis-lugano-istituti-sociali-lugano/": {
-        "sessions": 72,
-        "engageTime": 37.13,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45245,12 +45251,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/de/grenzgaenger-artikel/alpen-fussball-tessin-2026/": {
-        "sessions": 67,
-        "engageTime": 42.3,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/de/grenzgaenger-artikel/monteviasco-seilbahn-fahrplaene-dienste/": {
         "sessions": 67,
         "engageTime": 49.58,
@@ -45263,21 +45263,21 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/de/grenzgaenger-artikel/chiasso-como-a9-autobahn-nachtschliessungen-baustellen/": {
+        "sessions": 66,
+        "engageTime": 33.77,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/guida-frontaliere/permessi-di-lavoro/": {
         "sessions": 66,
         "engageTime": 78.03,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/de/grenzgaenger-artikel/chiasso-como-a9-autobahn-nachtschliessungen-baustellen/": {
-        "sessions": 65,
-        "engageTime": 33.65,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/candidature-spontanee-per-lavoro-estivo-presso-l-amministrazione-cantonale-per-studenti-domiciliati-nel-cantone-ticino-o-nel-grigioni-italia-213ie3/": {
-        "sessions": 64,
-        "engageTime": 24.44,
+        "sessions": 65,
+        "engageTime": 24.08,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45287,9 +45287,27 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/fr/articles-frontalier/g7-evian-frontieres-2026/": {
+        "sessions": 64,
+        "engageTime": 88.7,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/calcola-stipendio/quanto-guadagneresti-in-svizzera/": {
         "sessions": 62,
         "engageTime": 36.94,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/calcola-stipendio/verifica-congedo-parentale/": {
+        "sessions": 62,
+        "engageTime": 18.34,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona/": {
+        "sessions": 62,
+        "engageTime": 29.6,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45305,15 +45323,21 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/calcola-stipendio/verifica-congedo-parentale/": {
+      "/cerca-lavoro-ticino/addetto-a-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona/": {
         "sessions": 61,
-        "engageTime": 18.18,
+        "engageTime": 51.77,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/fr/articles-frontalier/g7-evian-frontieres-2026/": {
+      "/cerca-lavoro-ticino/operatori-trici-pausa-meridiana-si-a-tempo-parziale-presso-l-istituto-scolastico-valido-per-l-anno-2026-citta-di-lugano/": {
         "sessions": 61,
-        "engageTime": 90.89,
+        "engageTime": 36.9,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/lavoro-infermieri-svizzera/": {
+        "sessions": 61,
+        "engageTime": 117.23,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45335,15 +45359,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona/": {
+      "/cerca-lavoro-ticino/educatori-dell-infanzia-lis-lugano-istituti-sociali-pregassona/": {
         "sessions": 60,
-        "engageTime": 29.82,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/operatori-trici-pausa-meridiana-si-a-tempo-parziale-presso-l-istituto-scolastico-valido-per-l-anno-2026-citta-di-lugano/": {
-        "sessions": 60,
-        "engageTime": 37.1,
+        "engageTime": 18.32,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45353,33 +45371,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/calcola-stipendio": {
-        "sessions": 59,
-        "engageTime": 30.98,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/lavoro-infermieri-svizzera/": {
-        "sessions": 59,
-        "engageTime": 117.14,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/articoli-frontaliere/lavena-brano-musicale-leone-xiv/": {
-        "sessions": 58,
-        "engageTime": 37.86,
+        "sessions": 59,
+        "engageTime": 37.22,
         "publishedAt": null,
         "cluster": "mobilita"
       },
-      "/cerca-lavoro-ticino/addetto-a-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona/": {
-        "sessions": 58,
-        "engageTime": 49.48,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/educatori-dell-infanzia-lis-lugano-istituti-sociali-pregassona/": {
-        "sessions": 58,
-        "engageTime": 17.26,
+      "/calcola-stipendio": {
+        "sessions": 59,
+        "engageTime": 30.98,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45407,6 +45407,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/tasse-e-pensione/festivita-ticino/": {
+        "sessions": 57,
+        "engageTime": 20.09,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/vivere-in-ticino/comuni-di-frontiera": {
         "sessions": 57,
         "engageTime": 36.49,
@@ -45428,12 +45434,6 @@
       "/en/cross-border-articles/swiss-nurses-cross-border-workers-ticino/": {
         "sessions": 56,
         "engageTime": 8.39,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/tasse-e-pensione/festivita-ticino/": {
-        "sessions": 56,
-        "engageTime": 19.63,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45461,6 +45461,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/front-desk-office-support-50-70-mendrisio-site-ticino-sintetica/": {
+        "sessions": 53,
+        "engageTime": 101.02,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/vendite-operatore-di-filiale-part-time-f-m-lidl-svizzera-arbedo-castione/": {
         "sessions": 53,
         "engageTime": 140.06,
@@ -45485,9 +45491,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/front-desk-office-support-50-70-mendrisio-site-ticino-sintetica/": {
+      "/compara-servizi/confronta-prezzi-spesa/": {
+        "sessions": 52,
+        "engageTime": 40.17,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona/": {
         "sessions": 51,
-        "engageTime": 104.18,
+        "engageTime": 16.45,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45497,21 +45509,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/compara-servizi/confronta-prezzi-spesa/": {
-        "sessions": 51,
-        "engageTime": 39.49,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona/": {
         "sessions": 50,
         "engageTime": 5,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona/": {
-        "sessions": 50,
-        "engageTime": 16.44,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45575,15 +45575,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/levatrice-ostetrica-eoc-ente-ospedaliero-cantonale-bellinzona/": {
-        "sessions": 47,
-        "engageTime": 33.98,
+      "/compara-servizi/confronta-banche/": {
+        "sessions": 48,
+        "engageTime": 74.06,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/compara-servizi/confronta-banche/": {
+      "/cerca-lavoro-ticino/levatrice-ostetrica-eoc-ente-ospedaliero-cantonale-bellinzona/": {
         "sessions": 47,
-        "engageTime": 74.11,
+        "engageTime": 33.98,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45608,6 +45608,18 @@
       "/cerca-lavoro-ticino/collaboratore-hr-swiss-medical-network-lugano/": {
         "sessions": 46,
         "engageTime": 32.46,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/apprendista-laboratorista-in-chimica-afc-sintetica/": {
+        "sessions": 45,
+        "engageTime": 38.53,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/case-anziani/": {
+        "sessions": 45,
+        "engageTime": 51.13,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45641,15 +45653,27 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/lavoro-oss-svizzera/": {
+        "sessions": 44,
+        "engageTime": 124.2,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/traffico-dogane/chiasso-brogeda/oggi/": {
+        "sessions": 44,
+        "engageTime": 21.32,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/azienda-lis-lugano-istituti-sociali/": {
         "sessions": 43,
         "engageTime": 53.7,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/case-anziani/": {
+      "/de/jobs-im-tessin/": {
         "sessions": 43,
-        "engageTime": 52.07,
+        "engageTime": 23.47,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45665,18 +45689,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/apprendista-laboratorista-in-chimica-afc-sintetica/": {
-        "sessions": 42,
-        "engageTime": 33.17,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/de/jobs-im-tessin/": {
-        "sessions": 42,
-        "engageTime": 23.88,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/profilo": {
         "sessions": 42,
         "engageTime": 11.71,
@@ -45689,15 +45701,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/traffico-dogane/chiasso-brogeda/oggi/": {
-        "sessions": 42,
-        "engageTime": 19.17,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-bellinzona/": {
         "sessions": 41,
         "engageTime": 18.73,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/capisquadra-chef-di-cucina-lis-lugano-istituti-sociali-lugano/": {
+        "sessions": 41,
+        "engageTime": 36.37,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45707,21 +45719,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/capisquadra-chef-di-cucina-lis-lugano-istituti-sociali-lugano/": {
-        "sessions": 40,
-        "engageTime": 37.25,
+      "/tasse-e-pensione/simula-terzo-pilastro/": {
+        "sessions": 41,
+        "engageTime": 48.05,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/cerca-lavoro-ticino/cuochi-lis-lugano-istituti-sociali-lugano/": {
         "sessions": 40,
         "engageTime": 91.03,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/tasse-e-pensione/simula-terzo-pilastro/": {
-        "sessions": 40,
-        "engageTime": 47.1,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45737,9 +45743,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/lavoro-oss-svizzera/": {
-        "sessions": 39,
-        "engageTime": 136.23,
+      "/cerca-lavoro-ticino/apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia/": {
+        "sessions": 38,
+        "engageTime": 53.71,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45791,12 +45797,6 @@
         "publishedAt": null,
         "cluster": "novita"
       },
-      "/cerca-lavoro-ticino/apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia/": {
-        "sessions": 36,
-        "engageTime": 51.72,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona/": {
         "sessions": 36,
         "engageTime": 30.83,
@@ -45839,6 +45839,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/articoli-frontaliere/campione-ditalia-elezioni-sindaco-2026/": {
+        "sessions": 34,
+        "engageTime": 53.44,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/articoli-frontaliere/esposizione-segughi-malvaglia-2026/": {
         "sessions": 34,
         "engageTime": 34.21,
@@ -45848,6 +45854,12 @@
       "/cerca-lavoro-ticino/azienda-citta-di-lugano/": {
         "sessions": 34,
         "engageTime": 32.24,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/operai-e-generici-che-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano/": {
+        "sessions": 34,
+        "engageTime": 23.88,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45869,11 +45881,11 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/articoli-frontaliere/campione-ditalia-elezioni-sindaco-2026/": {
+      "/articoli-frontaliere/quanto-costa-vivere-a-lugano-da-frontaliere-analisi-costi-2026/": {
         "sessions": 33,
-        "engageTime": 54.73,
+        "engageTime": 56.82,
         "publishedAt": null,
-        "cluster": "generic"
+        "cluster": "novita"
       },
       "/calcola-stipendio/confronta-retribuzione-ral": {
         "sessions": 33,
@@ -45887,9 +45899,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/operai-e-generici-che-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano/": {
+      "/cerca-lavoro-ticino/infermieri-lis-lugano-istituti-sociali-pregassona/": {
         "sessions": 33,
-        "engageTime": 22.67,
+        "engageTime": 16.3,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45911,27 +45923,15 @@
         "publishedAt": null,
         "cluster": "novita"
       },
-      "/articoli-frontaliere/quanto-costa-vivere-a-lugano-da-frontaliere-analisi-costi-2026/": {
+      "/cerca-lavoro-ticino/concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatri/": {
         "sessions": 32,
-        "engageTime": 58.47,
+        "engageTime": 25.13,
         "publishedAt": null,
-        "cluster": "novita"
+        "cluster": "generic"
       },
       "/cerca-lavoro-ticino/cuoco-a-e-o-cuoco-a-in-dietetica-eoc-ente-ospedaliero-cantonale-bellinzona/": {
         "sessions": 32,
         "engageTime": 29,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/infermieri-lis-lugano-istituti-sociali-pregassona/": {
-        "sessions": 32,
-        "engageTime": 13.63,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/comparatori/cambio-valuta": {
-        "sessions": 32,
-        "engageTime": 59.59,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -45965,6 +45965,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/de/grenzgaenger-artikel/nachtliche-autobahn-schliessungen/": {
+        "sessions": 31,
+        "engageTime": 48.35,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/fisco": {
         "sessions": 31,
         "engageTime": 2.29,
@@ -45982,6 +45988,12 @@
         "engageTime": 28.57,
         "publishedAt": null,
         "cluster": "mobilita"
+      },
+      "/articoli-frontaliere/naspi-ex-frontalieri-2026/": {
+        "sessions": 30,
+        "engageTime": 47.93,
+        "publishedAt": null,
+        "cluster": "pratico"
       },
       "/cerca-lavoro-ticino/architetto-qualificato-artisa-group-lugano/": {
         "sessions": 30,
@@ -46007,15 +46019,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatri/": {
+      "/cerca-lavoro-ticino/operatore-trice-sociale-i-opzione-educatore-trice-a-tempo-parziale-75-presso-l-organizzazione-sociopsichiatrica-cantonal/": {
         "sessions": 30,
-        "engageTime": 24.7,
+        "engageTime": 29.47,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/de/grenzgaenger-artikel/nachtliche-autobahn-schliessungen/": {
+      "/cerca-lavoro-ticino/tecnico-laboratorio-microbiologico-controllo-qualita-sede-di-mendrisio-ticino-sintetica-sa-mendrisio/": {
         "sessions": 30,
-        "engageTime": 48.03,
+        "engageTime": 34.73,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -46049,12 +46061,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/articoli-frontaliere/naspi-ex-frontalieri-2026/": {
-        "sessions": 29,
-        "engageTime": 49.59,
-        "publishedAt": null,
-        "cluster": "pratico"
-      },
       "/buongiorno-frontaliere/": {
         "sessions": 29,
         "engageTime": 14.21,
@@ -46064,12 +46070,6 @@
       "/cerca-lavoro-ticino/fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona/": {
         "sessions": 29,
         "engageTime": 6.24,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/operatore-trice-sociale-i-opzione-educatore-trice-a-tempo-parziale-75-presso-l-organizzazione-sociopsichiatrica-cantonal/": {
-        "sessions": 29,
-        "engageTime": 30.41,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -46091,6 +46091,12 @@
         "publishedAt": null,
         "cluster": "mobilita"
       },
+      "/articoli-frontaliere/ddl-caregiver-frontalieri-ticino-2026/": {
+        "sessions": 28,
+        "engageTime": 43.96,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/articoli-frontaliere/dogana-chiasso-traffico-2026/": {
         "sessions": 28,
         "engageTime": 22.11,
@@ -46106,12 +46112,6 @@
       "/cerca-lavoro-ticino/mcdonald-s-citta-di-coira-mcdonald-s-switzerland-chur/": {
         "sessions": 28,
         "engageTime": 11.46,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/tecnico-laboratorio-microbiologico-controllo-qualita-sede-di-mendrisio-ticino-sintetica-sa-mendrisio/": {
-        "sessions": 28,
-        "engageTime": 34.29,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -46132,12 +46132,6 @@
         "engageTime": 1.41,
         "publishedAt": null,
         "cluster": "pensioni"
-      },
-      "/articoli-frontaliere/ddl-caregiver-frontalieri-ticino-2026/": {
-        "sessions": 27,
-        "engageTime": 45.59,
-        "publishedAt": null,
-        "cluster": "generic"
       },
       "/articoli-frontaliere/fuga-ammoniaca-stabio-rapelli-allerta-ticino/": {
         "sessions": 27,
@@ -46184,6 +46178,12 @@
       "/cerca-lavoro-ticino/mcdonald-s-citta-di-coira-mcdonald-s-switzerland-chiasso/": {
         "sessions": 26,
         "engageTime": 41.35,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/operatori-settore-animazione-lis-lugano-istituti-sociali-lugano/": {
+        "sessions": 26,
+        "engageTime": 33.12,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -46235,6 +46235,12 @@
         "publishedAt": null,
         "cluster": "mobilita"
       },
+      "/cerca-lavoro-ticino/apprendista-tecnologo-di-chimica-e-chimica-farmaceutica-con-maturita-professionale-mendrisio-site-ticino-sintetica-sa-me/": {
+        "sessions": 25,
+        "engageTime": 40.48,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/cassieri-e-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano/": {
         "sessions": 25,
         "engageTime": 31.88,
@@ -46265,12 +46271,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/operatori-settore-animazione-lis-lugano-istituti-sociali-lugano/": {
-        "sessions": 25,
-        "engageTime": 25,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/articoli-frontaliere/addiofrontalierelongo/": {
         "sessions": 24,
         "engageTime": 43.13,
@@ -46292,6 +46292,12 @@
       "/cerca-lavoro-ticino/assistenti-di-cura/": {
         "sessions": 24,
         "engageTime": 37.79,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-/": {
+        "sessions": 24,
+        "engageTime": 31.88,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -46322,6 +46328,12 @@
       "/cerca-lavoro-ticino/vendita-m-w-d-60-80-lidl-svizzera-cadenazzo/": {
         "sessions": 24,
         "engageTime": 23.17,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/comparatori/cambio-valuta": {
+        "sessions": 24,
+        "engageTime": 70.5,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -46388,6 +46400,12 @@
       "/calcola-stipendio/quanto-guadagneresti-in-svizzera": {
         "sessions": 23,
         "engageTime": 17.35,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/azienda-sintetica-sa/": {
+        "sessions": 23,
+        "engageTime": 16.26,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -46463,21 +46481,15 @@
         "publishedAt": null,
         "cluster": "mobilita"
       },
-      "/cerca-lavoro-ticino/apprendista-tecnologo-di-chimica-e-chimica-farmaceutica-con-maturita-professionale-mendrisio-site-ticino-sintetica-sa-me/": {
+      "/articoli-frontaliere/terzo-pilastro-3a-frontaliere/": {
         "sessions": 22,
-        "engageTime": 44.64,
+        "engageTime": 72.05,
         "publishedAt": null,
-        "cluster": "generic"
+        "cluster": "pensioni"
       },
       "/cerca-lavoro-ticino/assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-manno/": {
         "sessions": 22,
         "engageTime": 3.09,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-/": {
-        "sessions": 22,
-        "engageTime": 34.45,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -46541,6 +46553,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/tfr-liquidazione-frontaliere/": {
+        "sessions": 22,
+        "engageTime": 58.86,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/articoli-frontaliere/controlli-serali-lavena-ponte-tresa-15-aprile-2026/": {
         "sessions": 21,
         "engageTime": 29.29,
@@ -46577,18 +46595,6 @@
         "publishedAt": null,
         "cluster": "novita"
       },
-      "/articoli-frontaliere/terzo-pilastro-3a-frontaliere/": {
-        "sessions": 21,
-        "engageTime": 67.86,
-        "publishedAt": null,
-        "cluster": "pensioni"
-      },
-      "/cerca-lavoro-ticino/azienda-sintetica-sa/": {
-        "sessions": 21,
-        "engageTime": 11.76,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/azienda-unione-farmaceutica-distribuzione-sa-galenica/": {
         "sessions": 21,
         "engageTime": 50.33,
@@ -46601,9 +46607,21 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/cuochi-lis-lugano-istituti-sociali-pregassona/": {
+        "sessions": 21,
+        "engageTime": 9.52,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/digital-order-edi-specialista-50-80-rapelli-orior-food-ag-stabio/": {
         "sessions": 21,
         "engageTime": 14.14,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/infermieri-in-ticino/": {
+        "sessions": 21,
+        "engageTime": 37.05,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -46655,6 +46673,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/spedizione-casale-sa-lugano/": {
+        "sessions": 21,
+        "engageTime": 22.81,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-lugano/": {
         "sessions": 21,
         "engageTime": 4.33,
@@ -46694,12 +46718,6 @@
       "/guida-frontaliere/tempi-attesa-dogana/chiasso-brogeda/": {
         "sessions": 21,
         "engageTime": 26.57,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/tfr-liquidazione-frontaliere/": {
-        "sessions": 21,
-        "engageTime": 57.81,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -46751,15 +46769,33 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/comprare-ingredienti-commercio-100-rapelli-orior-food-ag-stabio/": {
+      "/cerca-lavoro-ticino/account-manager-m-w-d-tschuggen-collection-ascona/": {
         "sessions": 20,
-        "engageTime": 2.95,
+        "engageTime": 4.9,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/infermieri-in-ticino/": {
+      "/cerca-lavoro-ticino/agente-di-vendita-agno-60-100-sunrise-communications-ag-ticino/": {
         "sessions": 20,
-        "engageTime": 38.1,
+        "engageTime": 14.05,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/buyer-ingredienti-trade-100-rapelli-stabio/": {
+        "sessions": 20,
+        "engageTime": 2.55,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/capisquadra-chef-di-cucina-lis-lugano-istituti-sociali-pregassona/": {
+        "sessions": 20,
+        "engageTime": 3.25,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/comprare-ingredienti-commercio-100-rapelli-orior-food-ag-stabio/": {
+        "sessions": 20,
+        "engageTime": 2.95,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -46778,12 +46814,6 @@
       "/cerca-lavoro-ticino/specialista-internazionale-della-retribuzione-efg-international-ag-lugano/": {
         "sessions": 20,
         "engageTime": 1.05,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/spedizione-casale-sa-lugano/": {
-        "sessions": 20,
-        "engageTime": 23.95,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -46883,21 +46913,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/account-manager-m-w-d-tschuggen-collection-ascona/": {
+      "/cerca-lavoro-ticino/apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano/": {
         "sessions": 19,
-        "engageTime": 4.37,
+        "engageTime": 26.37,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/cerca-lavoro-ticino/azienda-lidl/": {
         "sessions": 19,
         "engageTime": 23.47,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/buyer-ingredienti-trade-100-rapelli-stabio/": {
-        "sessions": 19,
-        "engageTime": 2.68,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -46913,9 +46937,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/cuochi-lis-lugano-istituti-sociali-pregassona/": {
+      "/cerca-lavoro-ticino/dietista-40-eoc-ente-ospedaliero-cantonale-novaggio/": {
         "sessions": 19,
-        "engageTime": 9.37,
+        "engageTime": 27.89,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-lugano/": {
+        "sessions": 19,
+        "engageTime": 24.89,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -46973,23 +47003,17 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/guida-frontalieri": {
-        "sessions": 19,
-        "engageTime": 28.95,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/pianificatore-pensione": {
-        "sessions": 19,
-        "engageTime": 13.11,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/tasse-e-pensione/dichiarazione-redditi/": {
         "sessions": 19,
         "engageTime": 0,
         "publishedAt": null,
         "cluster": "generic"
+      },
+      "/articoli-frontaliere/lavoro-carceri-ticino/": {
+        "sessions": 18,
+        "engageTime": 89.5,
+        "publishedAt": null,
+        "cluster": "lavoro"
       },
       "/articoli-frontaliere/maternita-frontaliere-cassazione-riconosce-indennita-inps": {
         "sessions": 18,
@@ -47039,12 +47063,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano/": {
-        "sessions": 18,
-        "engageTime": 24.61,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/assistente-di-cura-eoc-ente-ospedaliero-cantonale-mendrisio/": {
         "sessions": 18,
         "engageTime": 21.11,
@@ -47075,12 +47093,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/capisquadra-chef-di-cucina-lis-lugano-istituti-sociali-pregassona/": {
-        "sessions": 18,
-        "engageTime": 1.11,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/collaboratore-trice-cassa-supermercato-40-manor-ag-lugano/": {
         "sessions": 18,
         "engageTime": 16.06,
@@ -47093,21 +47105,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/dietista-40-eoc-ente-ospedaliero-cantonale-novaggio/": {
+      "/cerca-lavoro-ticino/concorso-assunzione-personale-avventizio-estivo-2026-oscam/": {
         "sessions": 18,
-        "engageTime": 29.44,
+        "engageTime": 21.78,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/cerca-lavoro-ticino/impiegato-a-amministrativo-a-70-90-eoc-ente-ospedaliero-cantonale-bellinzona/": {
         "sessions": 18,
         "engageTime": 18,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-lugano/": {
-        "sessions": 18,
-        "engageTime": 25.83,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -47138,6 +47144,18 @@
       "/de/jobs-im-tessin/psychologe-in-assistent-fur-die-kantonalzulassung-80-eoc-ente-ospedaliero-cantonale-bellinzona/": {
         "sessions": 18,
         "engageTime": 8.61,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/cross-border-articles/a9-chiasso-como-closures-commuters/": {
+        "sessions": 18,
+        "engageTime": 46.56,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/find-jobs-ticino/receptionist-operator-50-eoc-ente-ospedaliero-cantonale-bellinzona/": {
+        "sessions": 18,
+        "engageTime": 38.17,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -47206,12 +47224,6 @@
         "engageTime": 134.29,
         "publishedAt": null,
         "cluster": "fiscale"
-      },
-      "/articoli-frontaliere/lavoro-carceri-ticino/": {
-        "sessions": 17,
-        "engageTime": 94.76,
-        "publishedAt": null,
-        "cluster": "lavoro"
       },
       "/articoli-frontaliere/problemi-casellario-giudiziale-varese-2026/": {
         "sessions": 17,
@@ -47297,27 +47309,21 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/agente-di-vendita-agno-60-100-sunrise-communications-ag-ticino/": {
-        "sessions": 17,
-        "engageTime": 14.29,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/apprendista-impiegato-di-commercio-afc-sintetica/": {
         "sessions": 17,
         "engageTime": 13.47,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/collaboratore-collaboratrice-vendita-interna-front-office-100-rapelli-orior-food-ag-stabio/": {
+      "/cerca-lavoro-ticino/assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano/": {
         "sessions": 17,
-        "engageTime": 16.06,
+        "engageTime": 7.76,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/concorso-assunzione-personale-avventizio-estivo-2026-oscam/": {
+      "/cerca-lavoro-ticino/collaboratore-collaboratrice-vendita-interna-front-office-100-rapelli-orior-food-ag-stabio/": {
         "sessions": 17,
-        "engageTime": 22.06,
+        "engageTime": 16.06,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -47351,6 +47357,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/spontaneous-application-mendrisio-site-ticino-sintetica/": {
+        "sessions": 17,
+        "engageTime": 29.12,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/stadio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-bellinzona/": {
         "sessions": 17,
         "engageTime": 3.29,
@@ -47363,9 +47375,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/cross-border-articles/a9-chiasso-como-closures-commuters/": {
+      "/de/grenzgaenger-artikel/locarno-stoppt-zweithauslizenzen/": {
         "sessions": 17,
-        "engageTime": 49.29,
+        "engageTime": 149.71,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -47375,9 +47387,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/find-jobs-ticino/receptionist-operator-50-eoc-ente-ospedaliero-cantonale-bellinzona/": {
+      "/en/cross-border-articles/ukrainian-refugees-social-assistance-2027/": {
         "sessions": 17,
-        "engageTime": 20.47,
+        "engageTime": 26.88,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/statistics/": {
+        "sessions": 17,
+        "engageTime": 7,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -47390,12 +47408,6 @@
       "/lavoro-sanitario-ticino/": {
         "sessions": 17,
         "engageTime": 81.24,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/simulatore-what-if": {
-        "sessions": 17,
-        "engageTime": 61.18,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -47495,12 +47507,6 @@
         "publishedAt": null,
         "cluster": "mobilita"
       },
-      "/cerca-lavoro-ticino/assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano/": {
-        "sessions": 16,
-        "engageTime": 8.25,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/assistente-di-studio-medico-lugano-moncucco/": {
         "sessions": 16,
         "engageTime": 3.56,
@@ -47585,9 +47591,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/de/grenzgaenger-artikel/locarno-stoppt-zweithauslizenzen/": {
+      "/de/grenzgaenger-artikel/locarno-stoppt-neue-zweitwohnungen-20-prozent-quote/": {
         "sessions": 16,
-        "engageTime": 158.75,
+        "engageTime": 150.19,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -47609,21 +47615,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/cross-border-articles/ukrainian-refugees-social-assistance-2027/": {
-        "sessions": 16,
-        "engageTime": 28.13,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/en/find-jobs-ticino/job-openings-for-staff-citta-di-lugano-lugano/": {
         "sessions": 16,
         "engageTime": 7.5,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/statistics/": {
+      "/en/taxes-and-pension/": {
         "sessions": 16,
-        "engageTime": 7.44,
+        "engageTime": 11.75,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -47855,6 +47855,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/impiegato-o-impiegata-d-ufficio-all-80-a-tempo-determinato-mendrisio/": {
+        "sessions": 15,
+        "engageTime": 32.6,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/infermiere-a-in-cure-generali-attualmente-in-formazione-diploma-ancora-da-ottenere-eoc-ente-ospedaliero-cantonale-lugano/": {
         "sessions": 15,
         "engageTime": 16.4,
@@ -47891,12 +47897,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/spontaneous-application-mendrisio-site-ticino-sintetica/": {
-        "sessions": 15,
-        "engageTime": 31.8,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno/": {
         "sessions": 15,
         "engageTime": 0,
@@ -47921,33 +47921,27 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/comparatori": {
-        "sessions": 15,
-        "engageTime": 10.47,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/de/grenzgaenger-artikel/locarno-stoppt-neue-zweitwohnungen-20-prozent-quote/": {
-        "sessions": 15,
-        "engageTime": 153.07,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/de/unternehmen-einstellen/stabio/aktuelle-woche/": {
         "sessions": 15,
         "engageTime": 17.6,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/statistics/compare-salaries/": {
+      "/en/find-jobs-ticino/concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-/": {
         "sessions": 15,
-        "engageTime": 4.87,
+        "engageTime": 262.53,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/taxes-and-pension/": {
+      "/en/find-jobs-ticino/logistics/": {
         "sessions": 15,
-        "engageTime": 12.4,
+        "engageTime": 64.2,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/statistics/compare-salaries/": {
+        "sessions": 15,
+        "engageTime": 4.87,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -47972,6 +47966,12 @@
       "/tasse-e-pensione/calcola-previdenza": {
         "sessions": 15,
         "engageTime": 22.53,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/traffico-dogane/chiasso-strada/oggi/": {
+        "sessions": 15,
+        "engageTime": 53.33,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -48074,12 +48074,6 @@
       "/cerca-lavoro-ticino/group-talent-systems-operations-project-manager-richemont-bellevue/": {
         "sessions": 14,
         "engageTime": 0.29,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/impiegato-o-impiegata-d-ufficio-all-80-a-tempo-determinato-mendrisio/": {
-        "sessions": 14,
-        "engageTime": 34.14,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -48197,15 +48191,21 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/en/cross-border-articles/find-job-ticino-guide-cross-border-worker/": {
+        "sessions": 14,
+        "engageTime": 86.71,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/en/cross-border-articles/parental-leave-cross-border-worker-switzerland-italy-guide-2026/": {
         "sessions": 14,
         "engageTime": 12.29,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/find-jobs-ticino/concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-/": {
+      "/en/cross-border-guide/": {
         "sessions": 14,
-        "engageTime": 277.79,
+        "engageTime": 21.5,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -48230,12 +48230,6 @@
       "/glossario-frontaliere/": {
         "sessions": 14,
         "engageTime": 105,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/traffico-dogane/chiasso-strada/oggi/": {
-        "sessions": 14,
-        "engageTime": 54.21,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -48334,6 +48328,12 @@
         "engageTime": 5.62,
         "publishedAt": null,
         "cluster": "fiscale"
+      },
+      "/aziende-che-assumono/mendrisio/sintetica-sa/settimana-corrente/": {
+        "sessions": 13,
+        "engageTime": 55.62,
+        "publishedAt": null,
+        "cluster": "generic"
       },
       "/aziende-che-assumono/stabio/vf-international-the-north-face-timberland/settimana-corrente/": {
         "sessions": 13,
@@ -48461,6 +48461,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/collaboratore-trice-dell-amministrazione-del-personale-locale-eoc-ente-ospedaliero-cantonale-bellinzona/": {
+        "sessions": 13,
+        "engageTime": 13.46,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/consulente-clientela-b2b-ail-lugano/": {
         "sessions": 13,
         "engageTime": 39.85,
@@ -48509,6 +48515,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/infermiere-a-in-cure-generali-iosi-eoc-ente-ospedaliero-cantonale-bellinzona/": {
+        "sessions": 13,
+        "engageTime": 10.77,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/ingegnere-dati-cartier-villars-sur-glane/": {
         "sessions": 13,
         "engageTime": 0.46,
@@ -48530,6 +48542,12 @@
       "/cerca-lavoro-ticino/operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-bellinzona/": {
         "sessions": 13,
         "engageTime": 15.08,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/operatori-sociosanitari-lis-lugano-istituti-sociali-lugano/": {
+        "sessions": 13,
+        "engageTime": 63.69,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -48587,9 +48605,21 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/tester-conversazioni-vocali-ai-madrelingua-italiana-variante-regionale-svizzera-tsmg-bellinzona/": {
+        "sessions": 13,
+        "engageTime": 20.46,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/tester-conversazioni-vocali-ai-madrelingua-italiana-variante-regionale-svizzera-tsmg-lugano/": {
         "sessions": 13,
         "engageTime": 36.38,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland/": {
+        "sessions": 13,
+        "engageTime": 0.77,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -48623,6 +48653,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/comparatori": {
+        "sessions": 13,
+        "engageTime": 3.54,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/de/grenzgaenger-artikel/a9-como-chiasso-nachtstoerungen-grenze/": {
         "sessions": 13,
         "engageTime": 72.85,
@@ -48647,12 +48683,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/cross-border-articles/find-job-ticino-guide-cross-border-worker/": {
-        "sessions": 13,
-        "engageTime": 93.38,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/en/cross-border-articles/from-statut-s-to-permit-b/": {
         "sessions": 13,
         "engageTime": 36.08,
@@ -48665,9 +48695,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/cross-border-guide/": {
+      "/en/find-jobs-ticino/autista-addetto-raccolta-dati-in-bellinzona-switzerland-tsmg-bellinzona/": {
         "sessions": 13,
-        "engageTime": 22.77,
+        "engageTime": 54.31,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/find-jobs-ticino/lugano/": {
+        "sessions": 13,
+        "engageTime": 48.69,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -48704,6 +48740,18 @@
       "/guida-frontaliere/tempi-attesa-dogana": {
         "sessions": 13,
         "engageTime": 32.15,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/lavoro-ticino-infermiere/": {
+        "sessions": 13,
+        "engageTime": 84.08,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/premi-cassa-malati/ticino/": {
+        "sessions": 13,
+        "engageTime": 48.69,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -48863,6 +48911,12 @@
         "publishedAt": null,
         "cluster": "salute"
       },
+      "/articoli-frontaliere/giro-ditalia-ticino-strade-chiuse/": {
+        "sessions": 12,
+        "engageTime": 68.92,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/articoli-frontaliere/iniziative-cassa-malati-piano-lega-ticino": {
         "sessions": 12,
         "engageTime": 0,
@@ -48971,9 +49025,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/aziende-che-assumono/mendrisio/sintetica-sa/settimana-corrente/": {
+      "/cerca-lavoro-grigioni/trainee-vte-80-100-terreno-ferrovia-retica-rhb-landquart/": {
         "sessions": 12,
-        "engageTime": 58.75,
+        "engageTime": 5.75,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/assistente-amministrativo-epfl-lausanne-b9f8ec/": {
+        "sessions": 12,
+        "engageTime": 4.75,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -49013,12 +49073,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/collaboratore-trice-dell-amministrazione-del-personale-locale-eoc-ente-ospedaliero-cantonale-bellinzona/": {
-        "sessions": 12,
-        "engageTime": 12.17,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/esperto-tecnico-m-f-d-otis-sa-belp/": {
         "sessions": 12,
         "engageTime": 3.83,
@@ -49031,6 +49085,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/gruppo-leader-tecnico-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz/": {
+        "sessions": 12,
+        "engageTime": 8.08,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/high-voltage-testing-and-process-engineer-for-bushings-80-100-f-m-d-hitachi-energy-zurich-switzerland/": {
         "sessions": 12,
         "engageTime": 0.58,
@@ -49040,12 +49100,6 @@
       "/cerca-lavoro-ticino/ict-solution-architekt-sap-100-w-m-d-ruag-ag-emmen/": {
         "sessions": 12,
         "engageTime": 2.58,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/infermiere-a-in-cure-generali-iosi-eoc-ente-ospedaliero-cantonale-bellinzona/": {
-        "sessions": 12,
-        "engageTime": 11.67,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -49079,12 +49133,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/operatori-sociosanitari-lis-lugano-istituti-sociali-lugano/": {
-        "sessions": 12,
-        "engageTime": 69,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/operatori-sociosanitari-lis-lugano-istituti-sociali-pregassona/": {
         "sessions": 12,
         "engageTime": 1.75,
@@ -49094,6 +49142,12 @@
       "/cerca-lavoro-ticino/piastrellista-pemsa-locarno/": {
         "sessions": 12,
         "engageTime": 4.25,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne-2/": {
+        "sessions": 12,
+        "engageTime": 9.75,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -49112,6 +49166,12 @@
       "/cerca-lavoro-ticino/ricezionista-centralinista-50-eoc-ente-ospedaliero-cantonale-bellinzona/": {
         "sessions": 12,
         "engageTime": 12.08,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/segretaria-legale-e-notarile-lwp-ledermann-wieting-partners-lugano/": {
+        "sessions": 12,
+        "engageTime": 39.92,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -49145,12 +49205,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/tester-conversazioni-vocali-ai-madrelingua-italiana-variante-regionale-svizzera-tsmg-bellinzona/": {
-        "sessions": 12,
-        "engageTime": 18.25,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/tirocinio-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio/": {
         "sessions": 12,
         "engageTime": 11.58,
@@ -49163,6 +49217,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-vaud/postdoc-at-the-digital-and-cognitive-musicology-lab-epfl-lausanne-epfl-lausanne/": {
+        "sessions": 12,
+        "engageTime": 3.67,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-zurigo/high-voltage-testing-and-process-ingegnere-for-bushings-80-100-f-m-d-hitachi-energy-zurich/": {
         "sessions": 12,
         "engageTime": 0,
@@ -49172,18 +49232,6 @@
       "/cerca-lavoro-zurigo/prada-store-manager-zurich-prada-group-zurich/": {
         "sessions": 12,
         "engageTime": 0.67,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/comparatori/congedo-genitoriale": {
-        "sessions": 12,
-        "engageTime": 17.33,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/comparatori/mappa-comuni": {
-        "sessions": 12,
-        "engageTime": 31.58,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -49211,15 +49259,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/cross-border-articles/transit-fee-switzerland-2023/": {
+      "/en/cross-border-articles/tragedy-canton-ticino-child-drowns-pool/": {
         "sessions": 12,
-        "engageTime": 30.08,
+        "engageTime": 111.67,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/find-jobs-ticino/autista-addetto-raccolta-dati-in-bellinzona-switzerland-tsmg-bellinzona/": {
+      "/en/cross-border-articles/transit-fee-switzerland-2023/": {
         "sessions": 12,
-        "engageTime": 58.75,
+        "engageTime": 30.08,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -49229,15 +49277,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/find-jobs-ticino/logistics/": {
+      "/en/find-jobs-ticino/r-d-software-engineer-robotics-medacta-international-sa-rancate/": {
         "sessions": 12,
-        "engageTime": 76.83,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/en/find-jobs-ticino/lugano/": {
-        "sessions": 12,
-        "engageTime": 48.33,
+        "engageTime": 4.58,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -49277,15 +49319,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/lavoro-ticino-infermiere/": {
+      "/vita-in-ticino/vacanze-scolastiche-ticino-2026/": {
         "sessions": 12,
-        "engageTime": 90.92,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/premi-cassa-malati/ticino/": {
-        "sessions": 12,
-        "engageTime": 52.75,
+        "engageTime": 27.33,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -49451,6 +49487,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/articoli-frontaliere/vivere-svizzera-vs-italia-frontaliere/": {
+        "sessions": 11,
+        "engageTime": 45.91,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/aziende-che-assumono/mendrisio/eoc-ente-ospedaliero-cantonale/settimana-corrente/": {
         "sessions": 11,
         "engageTime": 90.27,
@@ -49463,9 +49505,27 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-grigioni/venditore-in-food-coop-genossenschaft-felsberg/": {
+        "sessions": 11,
+        "engageTime": 5.82,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/268-venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-lidl-svizzera-locarno-xsgjt1/": {
         "sessions": 11,
         "engageTime": 0,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/addetto-magazzino-supporto-negozio-20-40-chocolaterie-st-moritz-m-f-d-laderach-schweiz-ag-sankt-moritz/": {
+        "sessions": 11,
+        "engageTime": 56.64,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/agente-commerciale-lugano-60-100-sunrise-communications-ag-ticino/": {
+        "sessions": 11,
+        "engageTime": 14.82,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -49529,6 +49589,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/carpentiere-edile-casseratore-pemsa-lugano/": {
+        "sessions": 11,
+        "engageTime": 0.55,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/collaboratore-trice-lamone-mcdonald-s-switzerland-lugano/": {
         "sessions": 11,
         "engageTime": 13,
@@ -49568,6 +49634,12 @@
       "/cerca-lavoro-ticino/educatori-dell-infanzia": {
         "sessions": 11,
         "engageTime": 25.45,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/gestione-della-tecnologia-e-degli-eventi-50-60-ferrovia-retica-rhb-chur/": {
+        "sessions": 11,
+        "engageTime": 4.82,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -49667,12 +49739,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/segretaria-legale-e-notarile-lwp-ledermann-wieting-partners-lugano/": {
-        "sessions": 11,
-        "engageTime": 42.73,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/settori/": {
         "sessions": 11,
         "engageTime": 130.36,
@@ -49703,6 +49769,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/tecnico-data-center-svizzera-chiasso-on-site-reboot-monkey-chiasso/": {
+        "sessions": 11,
+        "engageTime": 13.09,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/visual-merchandiser-trainer-east-coast-the-swatch-group-u-s-inc-10017-new-york-ny-new-york-united-states-company-address-the-swatch-group-u-7uaw1g/": {
         "sessions": 11,
         "engageTime": 0.45,
@@ -49721,6 +49793,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-zurigo/risoluzione-dei-problemi-tecnologia-di-qualita-del-processo-80-100-f-m-d-hitachi-energy-zurich-switzerland/": {
+        "sessions": 11,
+        "engageTime": 4.36,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/compara-servizi/confronta-banche": {
         "sessions": 11,
         "engageTime": 25.91,
@@ -49733,12 +49811,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/comparatori/banche": {
-        "sessions": 11,
-        "engageTime": 7.45,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/consulenza/": {
         "sessions": 11,
         "engageTime": 30.64,
@@ -49748,6 +49820,12 @@
       "/contratti-lavoro-svizzera/": {
         "sessions": 11,
         "engageTime": 46.91,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/de/grenzgaenger-artikel/a9-autobahn-sperrungen-11-15-mai-2026/": {
+        "sessions": 11,
+        "engageTime": 100,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -49766,12 +49844,6 @@
       "/en/cross-border-articles/switzerland-fuel-shortage-2026/": {
         "sessions": 11,
         "engageTime": 46.82,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/en/cross-border-articles/tragedy-canton-ticino-child-drowns-pool/": {
-        "sessions": 11,
-        "engageTime": 110.91,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -49811,12 +49883,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/find-jobs-ticino/r-d-software-engineer-robotics-medacta-international-sa-rancate/": {
-        "sessions": 11,
-        "engageTime": 4.82,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/fr/articles-frontalier": {
         "sessions": 11,
         "engageTime": 6.82,
@@ -49838,12 +49904,6 @@
       "/tasse-e-pensione/dichiarazione-redditi-svizzera": {
         "sessions": 11,
         "engageTime": 22.09,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/vita-in-ticino/vacanze-scolastiche-ticino-2026/": {
-        "sessions": 11,
-        "engageTime": 29.09,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -49922,12 +49982,6 @@
       "/articoli-frontaliere/gandria-lusso-immobiliare-ticino": {
         "sessions": 10,
         "engageTime": 19.5,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/articoli-frontaliere/giro-ditalia-ticino-strade-chiuse/": {
-        "sessions": 10,
-        "engageTime": 77.9,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -50063,12 +50117,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/articoli-frontaliere/vivere-svizzera-vs-italia-frontaliere/": {
-        "sessions": 10,
-        "engageTime": 45,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/buongiorno-frontaliere": {
         "sessions": 10,
         "engageTime": 36.3,
@@ -50078,6 +50126,18 @@
       "/cerca-lavoro-berna/formatore-nelle-professioni-meccaniche-100-agie-charmilles-sa-biel-bienne/": {
         "sessions": 10,
         "engageTime": 3.4,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-grigioni/formazione-come-guida-100-regione-nord-ferrovia-retica-rhb-chur/": {
+        "sessions": 10,
+        "engageTime": 7.3,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-grigioni/gestione-della-tecnologia-e-degli-eventi-50-60-ferrovia-retica-rhb-chur/": {
+        "sessions": 10,
+        "engageTime": 9.1,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -50096,12 +50156,6 @@
       "/cerca-lavoro-neuchatel/procedure-di-formazione-procadrans-la-chaux-de-fonds/": {
         "sessions": 10,
         "engageTime": 2,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/addetto-magazzino-supporto-negozio-20-40-chocolaterie-st-moritz-m-f-d-laderach-schweiz-ag-sankt-moritz/": {
-        "sessions": 10,
-        "engageTime": 61.3,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -50138,6 +50192,12 @@
       "/cerca-lavoro-ticino/assistente-o-psicologo-clinico-psychiatrische-dienste-graubunden-chur/": {
         "sessions": 10,
         "engageTime": 15.8,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/ausbildner-in-triebfahrzeugfuhrende-vte-80-100-landquart-ferrovia-retica-rhb-landquart/": {
+        "sessions": 10,
+        "engageTime": 0,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -50183,12 +50243,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/carpentiere-edile-casseratore-pemsa-lugano/": {
-        "sessions": 10,
-        "engageTime": 0.4,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/collaboratrice-collaboratore-spedizione-100-rapelli-stabio/": {
         "sessions": 10,
         "engageTime": 22.4,
@@ -50210,6 +50264,12 @@
       "/cerca-lavoro-ticino/consulente-vendita-lwp-ledermann-wieting-partners-mendrisio/": {
         "sessions": 10,
         "engageTime": 10.3,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/cuoco-ristorante-del-personale-contratto-a-tempo-indeterminato-m-w-d-grand-hotel-kronenhof-pontresina/": {
+        "sessions": 10,
+        "engageTime": 49.5,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -50387,12 +50447,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/tecnico-data-center-svizzera-chiasso-on-site-reboot-monkey-chiasso/": {
-        "sessions": 10,
-        "engageTime": 10.4,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/tecnico-di-sala-operatoria-tso-e-o-infermiere-a-strumentista-eoc-ente-ospedaliero-cantonale-bellinzona/": {
         "sessions": 10,
         "engageTime": 108.9,
@@ -50423,21 +50477,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-vaud/assistente-amministrativo-epfl-lausanne/": {
+        "sessions": 10,
+        "engageTime": 4.7,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/compara-servizi/confronta-offerte-lavoro": {
         "sessions": 10,
         "engageTime": 21,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/comparatori/offerte-lavoro": {
-        "sessions": 10,
-        "engageTime": 1.9,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/comparatori/traffico-valichi": {
-        "sessions": 10,
-        "engageTime": 16.2,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -50447,15 +50495,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/de/grenzgaenger-artikel/a9-autobahn-sperrungen-11-15-mai-2026/": {
-        "sessions": 10,
-        "engageTime": 106.6,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/de/grenzgaenger-artikel/a9-autobahn-sperrungen-lombardei-2026/": {
         "sessions": 10,
         "engageTime": 66.1,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/de/grenzgaenger-artikel/giro-ditalia-tessin-gesperrte-strassen/": {
+        "sessions": 10,
+        "engageTime": 90.4,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -50495,6 +50543,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/en/find-jobs-ticino/engineers/": {
+        "sessions": 10,
+        "engageTime": 18.7,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/en/find-jobs-ticino/junior-legal-counsel-aziende-industriali-di-lugano-ail-sa-lugano/": {
         "sessions": 10,
         "engageTime": 5.4,
@@ -50504,6 +50558,12 @@
       "/en/find-jobs-ticino/risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano/": {
         "sessions": 10,
         "engageTime": 2.9,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/simulatore-what-if": {
+        "sessions": 10,
+        "engageTime": 45,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -50669,6 +50729,12 @@
         "publishedAt": null,
         "cluster": "salute"
       },
+      "/articoli-frontaliere/malpensa-pista-riapre-frontalieri/": {
+        "sessions": 9,
+        "engageTime": 1.33,
+        "publishedAt": null,
+        "cluster": "novita"
+      },
       "/articoli-frontaliere/momoride-carpooling-benefico-ticino-2026/": {
         "sessions": 9,
         "engageTime": 10.22,
@@ -50795,6 +50861,12 @@
         "publishedAt": null,
         "cluster": "pratico"
       },
+      "/articoli-frontaliere/varese-corsi-nuovi-orizzonti-2026/": {
+        "sessions": 9,
+        "engageTime": 2,
+        "publishedAt": null,
+        "cluster": "novita"
+      },
       "/aziende-che-assumono/bellinzona/eoc-ente-ospedaliero-cantonale/settimana-corrente/": {
         "sessions": 9,
         "engageTime": 41.78,
@@ -50813,9 +50885,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/agente-commerciale-lugano-60-100-sunrise-communications-ag-ticino/": {
+      "/cerca-lavoro-grigioni/allenatore-vte-80-100-samedan-ferrovia-retica-rhb-samedan/": {
         "sessions": 9,
-        "engageTime": 13,
+        "engageTime": 5.44,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-grigioni/assemblaggio-leader-tecnico-magra-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz/": {
+        "sessions": 9,
+        "engageTime": 0,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -50945,12 +51023,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/cuoco-ristorante-del-personale-contratto-a-tempo-indeterminato-m-w-d-grand-hotel-kronenhof-pontresina/": {
-        "sessions": 9,
-        "engageTime": 55,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/dietista-40-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedaliera-glob/": {
         "sessions": 9,
         "engageTime": 5.78,
@@ -51059,6 +51131,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/responsabile-data-platform-engineering-chiasso/": {
+        "sessions": 9,
+        "engageTime": 19.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/responsabile-del-miglioramento-continuo-bracco-suisse-s-a-chiasso/": {
         "sessions": 9,
         "engageTime": 5.89,
@@ -51143,9 +51221,21 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/trainee-vte-80-100-terreno-ferrovia-retica-rhb-landquart/": {
+        "sessions": 9,
+        "engageTime": 4.11,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/tutti/": {
         "sessions": 9,
         "engageTime": 62,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/venditore-in-food-coop-genossenschaft-felsberg/": {
+        "sessions": 9,
+        "engageTime": 12.67,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -51164,12 +51254,6 @@
       "/de/grenzgaenger-artikel/antikmarkt-mendrisio-2026/": {
         "sessions": 9,
         "engageTime": 25.67,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/de/grenzgaenger-artikel/giro-ditalia-tessin-gesperrte-strassen/": {
-        "sessions": 9,
-        "engageTime": 100.44,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -51218,6 +51302,12 @@
       "/en/cross-border-articles/locarno-stops-second-home-licenses/": {
         "sessions": 9,
         "engageTime": 3.44,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/cross-border-articles/swiss-italian-cuisine-preferred/": {
+        "sessions": 9,
+        "engageTime": 100.67,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -51275,6 +51365,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/guida-frontaliere/tempi-attesa-dogana/chiasso-strada/": {
+        "sessions": 9,
+        "engageTime": 39,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/guida-frontaliere/tempi-attesa-dogana/luino-fornasette/": {
         "sessions": 9,
         "engageTime": 10.89,
@@ -51287,9 +51383,21 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/pianificatore-pensione": {
+        "sessions": 9,
+        "engageTime": 5.44,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/supporto/": {
         "sessions": 9,
         "engageTime": 228.67,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/traffico-dogane/gaggiolo/oggi/": {
+        "sessions": 9,
+        "engageTime": 20.78,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -51340,6 +51448,12 @@
         "engageTime": 68.5,
         "publishedAt": null,
         "cluster": "novita"
+      },
+      "/articoli-frontaliere/cannabis-medica-rimborsi-casse-malati-ticino/": {
+        "sessions": 8,
+        "engageTime": 36.75,
+        "publishedAt": null,
+        "cluster": "generic"
       },
       "/articoli-frontaliere/carburanti-rincari-confine-ticino": {
         "sessions": 8,
@@ -51479,6 +51593,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/articoli-frontaliere/lavorare-germania-educatori/": {
+        "sessions": 8,
+        "engageTime": 21.5,
+        "publishedAt": null,
+        "cluster": "fiscale"
+      },
       "/articoli-frontaliere/lavoro-educatori-germania-alternativa-frontalieri": {
         "sessions": 8,
         "engageTime": 0,
@@ -51490,12 +51610,6 @@
         "engageTime": 55.38,
         "publishedAt": null,
         "cluster": "lavoro"
-      },
-      "/articoli-frontaliere/malpensa-pista-riapre-frontalieri/": {
-        "sessions": 8,
-        "engageTime": 0.88,
-        "publishedAt": null,
-        "cluster": "novita"
       },
       "/articoli-frontaliere/mendrisio-senso-citta-rossini-lorenzon/": {
         "sessions": 8,
@@ -51593,6 +51707,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/articoli-frontaliere/spring-giubiasco-sport-convivialita-2026/": {
+        "sessions": 8,
+        "engageTime": 115.63,
+        "publishedAt": null,
+        "cluster": "novita"
+      },
       "/articoli-frontaliere/stagflazione-imprese-varesine-2026/": {
         "sessions": 8,
         "engageTime": 1.25,
@@ -51682,12 +51802,6 @@
         "engageTime": 2,
         "publishedAt": null,
         "cluster": "generic"
-      },
-      "/articoli-frontaliere/varese-corsi-nuovi-orizzonti-2026/": {
-        "sessions": 8,
-        "engageTime": 1.13,
-        "publishedAt": null,
-        "cluster": "novita"
       },
       "/articoli-frontaliere/varese-frontalieri-7000-postivacanti-2026/": {
         "sessions": 8,
@@ -51779,6 +51893,18 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/ausbildner-in-triebfahrzeugfuhrende-vte-80-100-samedan-ferrovia-retica-rhb-samedan/": {
+        "sessions": 8,
+        "engageTime": 0.88,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/autista-addetto-raccolta-dati-in-chur-switzerland-tsmg-chur-dfa1adf1/": {
+        "sessions": 8,
+        "engageTime": 15.75,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/autista-cat-c-e-heineken-switzerland-content-width-device-width/": {
         "sessions": 8,
         "engageTime": 12.88,
@@ -51851,6 +51977,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/collaboratrice-tore-usi-lugano/": {
+        "sessions": 8,
+        "engageTime": 118.25,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/concorso-generale-2026-medici-assistenti-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-amministrazio/": {
         "sessions": 8,
         "engageTime": 10.38,
@@ -51893,6 +52025,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/formazione-come-guida-100-regione-nord-ferrovia-retica-rhb-chur/": {
+        "sessions": 8,
+        "engageTime": 4.88,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/freelance-java-sviluppatore-full-remote-tinext-sa-morbio/": {
         "sessions": 8,
         "engageTime": 28.5,
@@ -51923,6 +52061,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/global-payroll-risorse-umane-systems-manager-chiasso/": {
+        "sessions": 8,
+        "engageTime": 13.13,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/history-teacher-international-school-of-ticino-lugano/": {
         "sessions": 8,
         "engageTime": 4.88,
@@ -51938,6 +52082,12 @@
       "/cerca-lavoro-ticino/impiegato-a-in-logistica-afc-unione-farmaceutica-distribuzione-sa-galenica-bern/": {
         "sessions": 8,
         "engageTime": 15.63,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/infermiere-a-specializzato-a-in-cure-urgenti-e-pronto-soccorso-eoc-ente-ospedaliero-cantonale-mendrisio/": {
+        "sessions": 8,
+        "engageTime": 19.88,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -52043,6 +52193,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/responsabile-di-progetto-generale-immobiliare-m-f-d-ffs-officine-ferrovie-federali-bellinzona/": {
+        "sessions": 8,
+        "engageTime": 73,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/responsabile-textil-psychiatrische-dienste-graubunden-chur/": {
         "sessions": 8,
         "engageTime": 3.88,
@@ -52064,6 +52220,12 @@
       "/cerca-lavoro-ticino/ricerca-lugano-stage/": {
         "sessions": 8,
         "engageTime": 23.25,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/risoluzione-dei-problemi-tecnologia-di-qualita-del-processo-80-100-f-m-d-hitachi-energy-zurich-switzerland/": {
+        "sessions": 8,
+        "engageTime": 5.75,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -52187,18 +52349,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/comparatori/cambio-residenza": {
-        "sessions": 8,
-        "engageTime": 13,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/comparatori/trasporti": {
-        "sessions": 8,
-        "engageTime": 8.38,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/de/grenzgaenger-artikel/chiasso-zollverkehr-2026/": {
         "sessions": 8,
         "engageTime": 41.25,
@@ -52271,21 +52421,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/cross-border-articles/swiss-italian-cuisine-preferred/": {
-        "sessions": 8,
-        "engageTime": 113.25,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/en/find-jobs-ticino/company-abb-svizzera-sede-ticino/": {
         "sessions": 8,
         "engageTime": 11.13,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/en/find-jobs-ticino/engineers/": {
-        "sessions": 8,
-        "engageTime": 17.25,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -52373,6 +52511,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/fr/statistiques/historique-trafic-frontiere/": {
+        "sessions": 8,
+        "engageTime": 11.25,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/fr/vivre-au-tessin/comparer-creches/": {
         "sessions": 8,
         "engageTime": 3.88,
@@ -52391,12 +52535,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/guida-frontaliere/tempi-attesa-dogana/chiasso-strada/": {
-        "sessions": 8,
-        "engageTime": 40.63,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/guida-frontaliere/tempi-attesa-dogana/drezzo-pedrinate/": {
         "sessions": 8,
         "engageTime": 14.63,
@@ -52406,6 +52544,12 @@
       "/guida-frontaliere/tempi-attesa-dogana/saltrio-arzo/": {
         "sessions": 8,
         "engageTime": 15.38,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/guida-frontalieri": {
+        "sessions": 8,
+        "engageTime": 61.38,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -52424,12 +52568,6 @@
       "/ricerca/offerte-di-lavoro-svizzera/": {
         "sessions": 8,
         "engageTime": 27.5,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/stato-api": {
-        "sessions": 8,
-        "engageTime": 11.38,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -52460,12 +52598,6 @@
       "/articoli-frontaliere/calo-frontalieri-ticino-economia": {
         "sessions": 7,
         "engageTime": 29,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/articoli-frontaliere/cannabis-medica-rimborsi-casse-malati-ticino/": {
-        "sessions": 7,
-        "engageTime": 26.29,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -52637,12 +52769,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/articoli-frontaliere/lavorare-germania-educatori/": {
-        "sessions": 7,
-        "engageTime": 24.57,
-        "publishedAt": null,
-        "cluster": "fiscale"
-      },
       "/articoli-frontaliere/lavori-autostradali-a8-milano-varese/": {
         "sessions": 7,
         "engageTime": 0.57,
@@ -52774,12 +52900,6 @@
         "engageTime": 20.14,
         "publishedAt": null,
         "cluster": "salute"
-      },
-      "/articoli-frontaliere/spring-giubiasco-sport-convivialita-2026/": {
-        "sessions": 7,
-        "engageTime": 122.71,
-        "publishedAt": null,
-        "cluster": "novita"
       },
       "/articoli-frontaliere/summer-camp-malnate-tenuta-novella/": {
         "sessions": 7,
@@ -52979,6 +53099,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/assistente-di-studio-medico-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-mendrisio/": {
+        "sessions": 7,
+        "engageTime": 25,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/assistente-legale-kantonale-verwaltung-graubunden-chur/": {
         "sessions": 7,
         "engageTime": 18.86,
@@ -53012,12 +53138,6 @@
       "/cerca-lavoro-ticino/associato-vendite-landquart-outlet-capri-holdings-michael-kors-versace-graubunden/": {
         "sessions": 7,
         "engageTime": 5.71,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/autista-addetto-raccolta-dati-in-chur-switzerland-tsmg-chur-dfa1adf1/": {
-        "sessions": 7,
-        "engageTime": 18,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -53171,9 +53291,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/collaboratrice-tore-usi-lugano/": {
+      "/cerca-lavoro-ticino/collaboratrice-tore-carriere-eventi-e-comunicazione-usi/": {
         "sessions": 7,
-        "engageTime": 129.14,
+        "engageTime": 6.86,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -53198,6 +53318,12 @@
       "/cerca-lavoro-ticino/consulente-di-vendita-senior-vw-m-f-100/": {
         "sessions": 7,
         "engageTime": 49.71,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona/": {
+        "sessions": 7,
+        "engageTime": 37.57,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -53273,6 +53399,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/galenica-sun-store-apotheke-assistente-di-farmacia-afc-lugano/": {
+        "sessions": 7,
+        "engageTime": 13.14,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/gestione-del-progetto-clienti-e-dati-roger-dubuis-meyrin/": {
         "sessions": 7,
         "engageTime": 0,
@@ -53282,12 +53414,6 @@
       "/cerca-lavoro-ticino/giurista-per-il-servizio-legale-attivita-di-segreteria-kantonale-verwaltung-graubunden-chur/": {
         "sessions": 7,
         "engageTime": 18.86,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/global-payroll-risorse-umane-systems-manager-chiasso/": {
-        "sessions": 7,
-        "engageTime": 14.57,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -53303,15 +53429,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/in-store-trainer-m-f-d-prada-group-mendrisio/": {
+      "/cerca-lavoro-ticino/impiegato-a-amministrativo-a-70-90-eoc-ente-ospedaliero-cantonale-mendrisio/": {
         "sessions": 7,
-        "engageTime": 6.14,
+        "engageTime": 23.14,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/infermiere-a-specializzato-a-in-cure-urgenti-e-pronto-soccorso-eoc-ente-ospedaliero-cantonale-mendrisio/": {
+      "/cerca-lavoro-ticino/in-store-trainer-m-f-d-prada-group-mendrisio/": {
         "sessions": 7,
-        "engageTime": 16.71,
+        "engageTime": 6.14,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -53465,12 +53591,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/responsabile-di-progetto-generale-immobiliare-m-f-d-ffs-officine-ferrovie-federali-bellinzona/": {
-        "sessions": 7,
-        "engageTime": 75.71,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/responsabile-progetto-sviluppo-farmaceutico-sede-di-mendrisio-ticino-sintetica-sa-mendrisio/": {
         "sessions": 7,
         "engageTime": 8.43,
@@ -53549,33 +53669,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/comparatori/assicurazioni-sanitarie": {
-        "sessions": 7,
-        "engageTime": 8.57,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/comparatori/confronto-ral": {
-        "sessions": 7,
-        "engageTime": 2.43,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/comparatori/costo-della-vita": {
-        "sessions": 7,
-        "engageTime": 7.71,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/comparatori/exchange": {
         "sessions": 7,
         "engageTime": 4,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/comparatori/operatori-mobili": {
-        "sessions": 7,
-        "engageTime": 4.71,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -53654,6 +53750,12 @@
       "/de/jobs-im-tessin/assistenzarzt-innere-medizin-eoc-ente-ospedaliero-cantonale-mendrisio/": {
         "sessions": 7,
         "engageTime": 36.14,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/de/jobs-im-tessin/unternehmen-eoc-ente-ospedaliero-cantonale/": {
+        "sessions": 7,
+        "engageTime": 10.43,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -53753,6 +53855,18 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/en/find-jobs-ticino/early-childhood-educator-lis-lugano-istituti-sociali-pregassona/": {
+        "sessions": 7,
+        "engageTime": 22.71,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/find-jobs-ticino/intern-chemical-laboratory-quality-control-zambon-svizzera-sa-cadempino/": {
+        "sessions": 7,
+        "engageTime": 8.86,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/en/find-jobs-ticino/junior-legal-dxt-commodities-s-a-lugano/": {
         "sessions": 7,
         "engageTime": 29.57,
@@ -53849,12 +53963,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/fr/statistiques/historique-trafic-frontiere/": {
-        "sessions": 7,
-        "engageTime": 5.57,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/fr/trouver-emploi-tessin/auxiliaire-de-vente-etudiant-e-f-h-d-landi-rhone-lavaux-sa-saxon/": {
         "sessions": 7,
         "engageTime": 14.71,
@@ -53870,12 +53978,6 @@
       "/guida-frontaliere/tassa-salute-frontalieri/": {
         "sessions": 7,
         "engageTime": 98.14,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/guida-frontalieri/spesa-transfrontaliera": {
-        "sessions": 7,
-        "engageTime": 0.43,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -53897,6 +53999,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/stato-api": {
+        "sessions": 7,
+        "engageTime": 13,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/tasse-e-pensione/quiz-fiscale/": {
         "sessions": 7,
         "engageTime": 2.29,
@@ -53906,12 +54014,6 @@
       "/tasse-e-pensione/simula-terzo-pilastro": {
         "sessions": 7,
         "engageTime": 34.29,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/traffico-dogane/gaggiolo/oggi/": {
-        "sessions": 7,
-        "engageTime": 25,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -54016,6 +54118,12 @@
         "engageTime": 1,
         "publishedAt": null,
         "cluster": "generic"
+      },
+      "/articoli-frontaliere/carburanti-ticino-aumento-prezzi/": {
+        "sessions": 6,
+        "engageTime": 6.5,
+        "publishedAt": null,
+        "cluster": "novita"
       },
       "/articoli-frontaliere/chippis-ponte-demolito-sicurezza/": {
         "sessions": 6,
@@ -54185,9 +54293,21 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/articoli-frontaliere/frontalieri-disoccupazione-ue-svizzera-2026/": {
+        "sessions": 6,
+        "engageTime": 10.33,
+        "publishedAt": null,
+        "cluster": "pratico"
+      },
       "/articoli-frontaliere/frontalieri-immondizia-cantello-multa/": {
         "sessions": 6,
         "engageTime": 12,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/articoli-frontaliere/frontalieri-orari-lavorativi-residenzialita/": {
+        "sessions": 6,
+        "engageTime": 49.5,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -54443,6 +54563,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/allenatore-vte-80-100-samedan-ferrovia-retica-rhb-samedan/": {
+        "sessions": 6,
+        "engageTime": 4.17,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/amministratore-di-sistema-erp-e-progetto-it-lead-linnea-sa-riazzino/": {
         "sessions": 6,
         "engageTime": 8.83,
@@ -54689,12 +54815,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona/": {
-        "sessions": 6,
-        "engageTime": 43.83,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/consulente-legal-jr-a-plus-plus-group-massagno/": {
         "sessions": 6,
         "engageTime": 19.83,
@@ -54761,12 +54881,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/impiegato-a-amministrativo-a-70-90-eoc-ente-ospedaliero-cantonale-mendrisio/": {
-        "sessions": 6,
-        "engageTime": 27,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano/": {
         "sessions": 6,
         "engageTime": 19.33,
@@ -54788,6 +54902,12 @@
       "/cerca-lavoro-ticino/ingegnere-applicativo-potenza-critica-centiel-lugano/": {
         "sessions": 6,
         "engageTime": 6.83,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/ingegnere-computerizzato-di-sistemi-di-potenza-senior-abb-svizzera-sede-ticino-ticino/": {
+        "sessions": 6,
+        "engageTime": 0.83,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -54923,6 +55043,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/posizione-aperta-consulente-immobiliare-m-w-d-100-lugano-ticino-premium-properties-sa-lugano/": {
+        "sessions": 6,
+        "engageTime": 541.67,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/posizioni-di-dottorato-usi-universita-della-svizzera-italiana-lugano/": {
         "sessions": 6,
         "engageTime": 21.5,
@@ -54938,6 +55064,12 @@
       "/cerca-lavoro-ticino/projektleiter-m-w-d-agie-charmilles-sa-biel-bienne/": {
         "sessions": 6,
         "engageTime": 5.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-incaricato-a-art-15-e-16-lord-presso-l-organizzazione-sociopsich/": {
+        "sessions": 6,
+        "engageTime": 11.83,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -55163,12 +55295,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/comparatori/spesa-transfrontaliera": {
-        "sessions": 6,
-        "engageTime": 3.33,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/confronta-servizi/cambio-franco-euro": {
         "sessions": 6,
         "engageTime": 45,
@@ -55196,6 +55322,12 @@
       "/de/grenzgaenger-artikel/a9-auffahrt-unfall-chiasso-2026/": {
         "sessions": 6,
         "engageTime": 3.5,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/de/grenzgaenger-artikel/a9-nachtschliessung-lomazzo-chiasso/": {
+        "sessions": 6,
+        "engageTime": 37.5,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -55244,12 +55376,6 @@
       "/de/jobs-im-tessin/cassieri-e-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-stadt-lugano/": {
         "sessions": 6,
         "engageTime": 5.67,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/de/jobs-im-tessin/unternehmen-eoc-ente-ospedaliero-cantonale/": {
-        "sessions": 6,
-        "engageTime": 10.17,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -55310,6 +55436,12 @@
       "/en/cross-border-articles/military-trains-ticino-20-euro/": {
         "sessions": 6,
         "engageTime": 0,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/cross-border-articles/new-swiss-rail-routes-ticino-2026/": {
+        "sessions": 6,
+        "engageTime": 18,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -55391,21 +55523,21 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/find-jobs-ticino/early-childhood-educator-lis-lugano-istituti-sociali-pregassona/": {
+      "/en/find-jobs-ticino/developers/": {
         "sessions": 6,
-        "engageTime": 20.83,
+        "engageTime": 15.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/find-jobs-ticino/history-teacher-international-school-of-ticino-lugano/": {
+        "sessions": 6,
+        "engageTime": 29.83,
         "publishedAt": null,
         "cluster": "generic"
       },
       "/en/find-jobs-ticino/hydroelectric-hydromechanical-engineer-workplace-italy-milan-or-rome-or-turin-lombardi-group-giubiasco/": {
         "sessions": 6,
         "engageTime": 3.67,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/en/find-jobs-ticino/intern-chemical-laboratory-quality-control-zambon-svizzera-sa-cadempino/": {
-        "sessions": 6,
-        "engageTime": 6.17,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -55430,6 +55562,12 @@
       "/en/find-jobs-ticino/official-gazette-ticino-jobs/": {
         "sessions": 6,
         "engageTime": 21.5,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/find-jobs-ticino/psychologist-specialist-in-neuropsychology-fsp-gruppo-ospedaliero-moncucco-lugano/": {
+        "sessions": 6,
+        "engageTime": 11.67,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -55469,6 +55607,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/en/jobs-ticino-driver/": {
+        "sessions": 6,
+        "engageTime": 169.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/en/service-comparison/cost-of-living/": {
         "sessions": 6,
         "engageTime": 0.33,
@@ -55496,6 +55640,12 @@
       "/fr/articles-frontalier/fermetures-a9-transports-speciaux-como-chiasso/": {
         "sessions": 6,
         "engageTime": 156.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/fr/articles-frontalier/frontaliers-tessin-donnees-baisse-fin-2025/": {
+        "sessions": 6,
+        "engageTime": 30,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -55547,15 +55697,15 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/guida-frontaliere/trasferire-auto-svizzera": {
+      "/guida-frontaliere/mappa-live-valichi/": {
         "sessions": 6,
-        "engageTime": 58.17,
+        "engageTime": 32.67,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/guida-frontalieri/calendario-fiscale": {
+      "/guida-frontaliere/trasferire-auto-svizzera": {
         "sessions": 6,
-        "engageTime": 17.33,
+        "engageTime": 58.17,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -55592,12 +55742,6 @@
       "/prezzi-diesel/chiasso/stazioni/eni-via-comacini/": {
         "sessions": 6,
         "engageTime": 29.5,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/supporto": {
-        "sessions": 6,
-        "engageTime": 21.17,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -55733,12 +55877,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/articoli-frontaliere/carburanti-ticino-aumento-prezzi/": {
-        "sessions": 5,
-        "engageTime": 3.6,
-        "publishedAt": null,
-        "cluster": "novita"
-      },
       "/articoli-frontaliere/castiglione-olona-ufficio-postale-riaperto/": {
         "sessions": 5,
         "engageTime": 0.2,
@@ -55846,12 +55984,6 @@
         "engageTime": 20.4,
         "publishedAt": null,
         "cluster": "fiscale"
-      },
-      "/articoli-frontaliere/frontalieri-orari-lavorativi-residenzialita/": {
-        "sessions": 5,
-        "engageTime": 58.4,
-        "publishedAt": null,
-        "cluster": "generic"
       },
       "/articoli-frontaliere/frontalieri-redditi-2026/": {
         "sessions": 5,
@@ -56273,6 +56405,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/1-apprendista-giardiniera-e-afc-indirizzo-produzione-di-piante-per-il-periodo-dal-31-agosto-2026-al-30-agosto-2029-press/": {
+        "sessions": 5,
+        "engageTime": 23.2,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/1-capo-dipartimento-dell-esercizio-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno/": {
         "sessions": 5,
         "engageTime": 2.4,
@@ -56513,6 +56651,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/borsa-di-studio-in-ricerca-clinica-100-eoc-ente-ospedaliero-cantonale-bellinzona/": {
+        "sessions": 5,
+        "engageTime": 242,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/cambio-carriera-come-macchinista-per-il-traffico-passeggeri-12-2026-ffs-officine-ferrovie-/": {
         "sessions": 5,
         "engageTime": 15,
@@ -56570,12 +56714,6 @@
       "/cerca-lavoro-ticino/collaboratrice-collaboratore-tecnica-o-informatica-o-di-dipartimento-supsi-dti-manno/": {
         "sessions": 5,
         "engageTime": 6.6,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/collaboratrice-tore-carriere-eventi-e-comunicazione-usi/": {
-        "sessions": 5,
-        "engageTime": 9.6,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -56747,12 +56885,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/galenica-sun-store-apotheke-assistente-di-farmacia-afc-lugano/": {
-        "sessions": 5,
-        "engageTime": 12.6,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/geologo-junior-f-m-d-80-100-cantiere-n2-secondo-tubo-del-san-gottardo-ad-airolo-afry-airolo/": {
         "sessions": 5,
         "engageTime": 14,
@@ -56807,6 +56939,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/infermiere-a-specializzato-a-in-cure-intense-eoc-ente-ospedaliero-cantonale-mendrisio/": {
+        "sessions": 5,
+        "engageTime": 6.2,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/ingegnere-elettrico-di-ricerca-e-sviluppo-hitachi-energy-molinazzo-di-monteggio/": {
         "sessions": 5,
         "engageTime": 3,
@@ -56822,6 +56960,12 @@
       "/cerca-lavoro-ticino/ingegneri/": {
         "sessions": 5,
         "engageTime": 51.4,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/insegnante-tedesco-international-school-of-ticino-cadempino/": {
+        "sessions": 5,
+        "engageTime": 38.4,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -56876,6 +57020,12 @@
       "/cerca-lavoro-ticino/macellaia-macellaio-salumiera-salumiere-f-m-d-coop-riazzino-ticino-3c36xg/": {
         "sessions": 5,
         "engageTime": 1.4,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/macellaio-a-specialista-in-carne-e-pesce-coop-chur-graubunden/": {
+        "sessions": 5,
+        "engageTime": 24.2,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -56993,9 +57143,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/posizione-aperta-consulente-immobiliare-m-w-d-100-lugano-ticino-premium-properties-sa-lugano/": {
+      "/cerca-lavoro-ticino/piombo-di-vendita-a-tempo-pieno-west-edmonton-mall-the-swatch-group-canada-ltd-ticino/": {
         "sessions": 5,
-        "engageTime": 28.6,
+        "engageTime": 0.6,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -57035,12 +57185,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/psicologo-a-i-oppure-psicologo-a-ii-a-tempo-parziale-30-incaricato-a-art-15-e-16-lord-presso-l-organizzazione-sociopsich/": {
-        "sessions": 5,
-        "engageTime": 13.6,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/receptionist-tirocinante-guess-europe-sagl-bioggio/": {
         "sessions": 5,
         "engageTime": 22.4,
@@ -57062,6 +57206,12 @@
       "/cerca-lavoro-ticino/responsabile-del-negozio-tally-weijl-sion/": {
         "sessions": 5,
         "engageTime": 1.2,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/responsabile-delle-offerte-avaloq-bioggio/": {
+        "sessions": 5,
+        "engageTime": 15,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -57119,6 +57269,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/ricerca-infermiere-ticino/": {
+        "sessions": 5,
+        "engageTime": 41.4,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/ricerca-locarno-amministrazione/": {
         "sessions": 5,
         "engageTime": 0,
@@ -57158,6 +57314,12 @@
       "/cerca-lavoro-ticino/ricerca-mendrisio-stage/": {
         "sessions": 5,
         "engageTime": 82.4,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/saldatore-metalcostruttore-pemsa-chiasso/": {
+        "sessions": 5,
+        "engageTime": 4.8,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -57335,6 +57497,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/comparatori/traffico-valichi": {
+        "sessions": 5,
+        "engageTime": 18.6,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/de/grenzgaenger-artikel/a2-giornico-baustelle-verzogerungen-grenzganger/": {
         "sessions": 5,
         "engageTime": 54.2,
@@ -57356,12 +57524,6 @@
       "/de/grenzgaenger-artikel/a9-chiasso-como-nachtschliessungen-baustellen/": {
         "sessions": 5,
         "engageTime": 51.6,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/de/grenzgaenger-artikel/a9-nachtschliessung-lomazzo-chiasso/": {
-        "sessions": 5,
-        "engageTime": 40.8,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -57437,6 +57599,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/de/wartezeit-grenze/gaggiolo/heute/": {
+        "sessions": 5,
+        "engageTime": 46.4,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/en/calculate-salary/simulate-residency-change/": {
         "sessions": 5,
         "engageTime": 3,
@@ -57470,12 +57638,6 @@
       "/en/cross-border-articles/lufthansa-removes-free-hand-luggage/": {
         "sessions": 5,
         "engageTime": 68.8,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/en/cross-border-articles/new-swiss-rail-routes-ticino-2026/": {
-        "sessions": 5,
-        "engageTime": 12.2,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -57533,21 +57695,33 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/en/find-jobs-ticino/autista-addetto-raccolta-dati-in-chur-switzerland-tsmg-chur/": {
+        "sessions": 5,
+        "engageTime": 17.6,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/find-jobs-ticino/career-or-health-care-assistant-eoc-ente-ospedaliero-cantonale-lugano/": {
+        "sessions": 5,
+        "engageTime": 27.4,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/en/find-jobs-ticino/chef-de-partie-mitarbeiterrestaurant-personalkoch-m-w-d-kulm-hotel-st-moritz-st-moritz-623/": {
         "sessions": 5,
         "engageTime": 15.4,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/find-jobs-ticino/company-efg-international-ag/": {
+      "/en/find-jobs-ticino/company-badrutt-s-palace-hotel/": {
         "sessions": 5,
-        "engageTime": 31.2,
+        "engageTime": 13.6,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/find-jobs-ticino/developers/": {
+      "/en/find-jobs-ticino/company-efg-international-ag/": {
         "sessions": 5,
-        "engageTime": 18.4,
+        "engageTime": 31.2,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -57578,12 +57752,6 @@
       "/en/find-jobs-ticino/healthcare-assistants/": {
         "sessions": 5,
         "engageTime": 6.6,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/en/find-jobs-ticino/history-teacher-international-school-of-ticino-lugano/": {
-        "sessions": 5,
-        "engageTime": 22.4,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -57641,12 +57809,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/find-jobs-ticino/psychologist-specialist-in-neuropsychology-fsp-gruppo-ospedaliero-moncucco-lugano/": {
-        "sessions": 5,
-        "engageTime": 14,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/en/find-jobs-ticino/r-d-certification-engineer-abb-svizzera-sede-ticino-quartino/": {
         "sessions": 5,
         "engageTime": 0,
@@ -57701,21 +57863,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/jobs-ticino-driver/": {
-        "sessions": 5,
-        "engageTime": 201,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/en/service-comparison/chf-eur-exchange-rate": {
         "sessions": 5,
         "engageTime": 5.6,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/en/statistics": {
-        "sessions": 5,
-        "engageTime": 10.4,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -57746,12 +57896,6 @@
       "/fr/articles-frontalier/frais-de-transit-suisse-2023/": {
         "sessions": 5,
         "engageTime": 71.4,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/fr/articles-frontalier/frontaliers-tessin-donnees-baisse-fin-2025/": {
-        "sessions": 5,
-        "engageTime": 35.6,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -57833,6 +57977,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/fr/trouver-emploi-tessin/responsable-des-relations-publiques-et-de-la-presse-piaget-plan-les-ouates/": {
+        "sessions": 5,
+        "engageTime": 1.8,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/glossario-frontaliere/imposta-alla-fonte/": {
         "sessions": 5,
         "engageTime": 10,
@@ -57851,27 +58001,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/guida-frontaliere/mappa-live-valichi/": {
-        "sessions": 5,
-        "engageTime": 37.4,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/guida-frontaliere/sposato-o-single-impatto-tasse-frontaliere/": {
         "sessions": 5,
         "engageTime": 43.8,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/guida-frontalieri/disoccupazione": {
-        "sessions": 5,
-        "engageTime": 8.8,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/guida-frontalieri/permessi-lavoro": {
-        "sessions": 5,
-        "engageTime": 0.2,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -58004,6 +58136,12 @@
       "/articoli-frontaliere/bellinzona-scomparsa-ricerche-ticino-piemonte/": {
         "sessions": 4,
         "engageTime": 11.75,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/articoli-frontaliere/bibo-app-mezzi-pubblici-2026/": {
+        "sessions": 4,
+        "engageTime": 12,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -58232,6 +58370,12 @@
       "/articoli-frontaliere/ginevra-manifestazione-frontalieri-2026/": {
         "sessions": 4,
         "engageTime": 5.75,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/articoli-frontaliere/gita-cuore-soncino-saronno-point/": {
+        "sessions": 4,
+        "engageTime": 52.75,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -58733,15 +58877,21 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-svizzera/": {
+      "/cerca-lavoro-grigioni/capofila-dell-istruzione-denner-chur/": {
         "sessions": 4,
-        "engageTime": 2.5,
+        "engageTime": 13,
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/1-apprendista-giardiniera-e-afc-indirizzo-produzione-di-piante-per-il-periodo-dal-31-agosto-2026-al-30-agosto-2029-press/": {
+      "/cerca-lavoro-grigioni/mostro-di-pista-80-100-ferrovia-retica-rhb-chur/": {
         "sessions": 4,
-        "engageTime": 20,
+        "engageTime": 5.25,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-svizzera/": {
+        "sessions": 4,
+        "engageTime": 2.5,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -58952,12 +59102,6 @@
       "/cerca-lavoro-ticino/assistente-di-studio-medico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-/": {
         "sessions": 4,
         "engageTime": 9.5,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/assistente-di-studio-medico-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-mendrisio/": {
-        "sessions": 4,
-        "engageTime": 34,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -59198,12 +59342,6 @@
       "/cerca-lavoro-ticino/bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-risorse-bibliotecario-usi-universita-della-svizzera-italiana-lugano/": {
         "sessions": 4,
         "engageTime": 9.25,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/borsa-di-studio-in-ricerca-clinica-100-eoc-ente-ospedaliero-cantonale-bellinzona/": {
-        "sessions": 4,
-        "engageTime": 292.5,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -59537,12 +59675,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/infermiere-a-specializzato-a-in-cure-intense-eoc-ente-ospedaliero-cantonale-mendrisio/": {
-        "sessions": 4,
-        "engageTime": 7.75,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/infermiere-a-specializzato-a-in-gerontologia-e-geriatria-eoc-ente-ospedaliero-cantonale-me/": {
         "sessions": 4,
         "engageTime": 16,
@@ -59576,12 +59708,6 @@
       "/cerca-lavoro-ticino/insegnante-cardio-zumba-f-m-d-scuola-club-lugano-scuola-club-migros-lugano": {
         "sessions": 4,
         "engageTime": 6.5,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/insegnante-tedesco-international-school-of-ticino-cadempino/": {
-        "sessions": 4,
-        "engageTime": 45.5,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -59717,6 +59843,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/medico-assistente-medicina-interna-eoc-ente-ospedaliero-cantonale-mendrisio/": {
+        "sessions": 4,
+        "engageTime": 2.5,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/medico-capoclinica-di-dermatologia-da-50-a-100-eoc-ente-ospedaliero-cantonale-bellinzona/": {
         "sessions": 4,
         "engageTime": 2.5,
@@ -59768,6 +59900,12 @@
       "/cerca-lavoro-ticino/operatore-trice-tecnica-di-pulizia-afc-basel-ffs-officine-ferrovie-federali-basel/": {
         "sessions": 4,
         "engageTime": 2.5,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/operatori-socio-sanitari/": {
+        "sessions": 4,
+        "engageTime": 3.25,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -59903,12 +60041,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/responsabile-data-platform-engineering-chiasso/": {
-        "sessions": 4,
-        "engageTime": 43,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/responsabile-dei-sistemi-di-comando-e-informazione-eidgenossisches-departement-fur-verteid/": {
         "sessions": 4,
         "engageTime": 11.75,
@@ -59936,12 +60068,6 @@
       "/cerca-lavoro-ticino/responsabile-della-preparazione-e-pulizia-dei-treni-bernina-sud-50-100-ferrovia-retica-rhb-poschiavo/": {
         "sessions": 4,
         "engageTime": 12,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/responsabile-delle-offerte-avaloq-bioggio/": {
-        "sessions": 4,
-        "engageTime": 17.75,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -60059,12 +60185,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/ricerca-infermiere-ticino/": {
-        "sessions": 4,
-        "engageTime": 50.75,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/ricerca-lavoro-psicologo-svizzera/": {
         "sessions": 4,
         "engageTime": 18.5,
@@ -60086,6 +60206,18 @@
       "/cerca-lavoro-ticino/ricerca-lugano-vendite/": {
         "sessions": 4,
         "engageTime": 16.25,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/ricerca-macellaio-a-specialista-in-carne-coop-genossenschaft/": {
+        "sessions": 4,
+        "engageTime": 19.75,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/ricerca-medico-assistente-pneumologia-eoc-ente-ospedaliero-cantonale/": {
+        "sessions": 4,
+        "engageTime": 74,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -60116,12 +60248,6 @@
       "/cerca-lavoro-ticino/ricerca-zurich-laderach-schweiz-ag/": {
         "sessions": 4,
         "engageTime": 0,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/saldatore-metalcostruttore-pemsa-chiasso/": {
-        "sessions": 4,
-        "engageTime": 5.75,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -60281,6 +60407,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/tecnico-a-di-sala-operatoria-o-infermiera-a-strumentista-80-100-eoc-ente-ospedaliero-cantonale-locarno/": {
+        "sessions": 4,
+        "engageTime": 38.75,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/tecnico-di-sala-operatoria-tso-e-o-infermiere-a-strumentista-eoc-ente-ospedaliero-cantonale-locarno/": {
         "sessions": 4,
         "engageTime": 4.25,
@@ -60380,6 +60512,18 @@
       "/cerca-lavoro-zurigo/responsabile-tecnico-del-prodotto-qvac-100-remoto-tether-operations-zurich-zurich/": {
         "sessions": 4,
         "engageTime": 0,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/comparatori/congedo-genitoriale": {
+        "sessions": 4,
+        "engageTime": 25.5,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/comparatori/mappa-comuni": {
+        "sessions": 4,
+        "engageTime": 26.5,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -60488,6 +60632,12 @@
       "/de/grenzgaenger-artikel/schweizer-wirtschaft-risiko-burokratie/": {
         "sessions": 4,
         "engageTime": 29,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/de/grenzgaenger-artikel/seligsprechung-don-roberto-malgesini-2026/": {
+        "sessions": 4,
+        "engageTime": 124,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -60635,6 +60785,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/de/statistiken/": {
+        "sessions": 4,
+        "engageTime": 84.75,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/de/wartezeit-grenze/chiasso-strada/heute/": {
         "sessions": 4,
         "engageTime": 12.25,
@@ -60644,6 +60800,18 @@
       "/de/wartezeit-grenze/ponte-tresa/heute/": {
         "sessions": 4,
         "engageTime": 1.25,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/de/wartezeit-grenze/ticino-como/": {
+        "sessions": 4,
+        "engageTime": 6.25,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/border-wait/chiasso-strada/today/": {
+        "sessions": 4,
+        "engageTime": 10.5,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -60917,12 +61085,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/en/find-jobs-ticino/autista-addetto-raccolta-dati-in-chur-switzerland-tsmg-chur/": {
-        "sessions": 4,
-        "engageTime": 21,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/en/find-jobs-ticino/bar-clerk-m-w-d-kulm-hotel-st-moritz-st-moritz/": {
         "sessions": 4,
         "engageTime": 29.5,
@@ -60932,12 +61094,6 @@
       "/en/find-jobs-ticino/buyer-ingredienti-trade-100-rapelli-stabio/": {
         "sessions": 4,
         "engageTime": 29.75,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/en/find-jobs-ticino/career-or-health-care-assistant-eoc-ente-ospedaliero-cantonale-lugano/": {
-        "sessions": 4,
-        "engageTime": 22,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -60962,12 +61118,6 @@
       "/en/find-jobs-ticino/company-avaloq/": {
         "sessions": 4,
         "engageTime": 19,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/en/find-jobs-ticino/company-badrutt-s-palace-hotel/": {
-        "sessions": 4,
-        "engageTime": 16.75,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -61121,6 +61271,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/en/find-jobs-ticino/r-d-project-engineer-spine-medacta-international-sa-rancate/": {
+        "sessions": 4,
+        "engageTime": 12.5,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/en/find-jobs-ticino/real-estate-valuer-graubundner-kantonalbank-chur/": {
         "sessions": 4,
         "engageTime": 30.25,
@@ -61190,6 +61346,12 @@
       "/en/living-in-ticino/cross-border-transport/": {
         "sessions": 4,
         "engageTime": 6.5,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/statistics": {
+        "sessions": 4,
+        "engageTime": 13,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -61403,12 +61565,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/fr/trouver-emploi-tessin/responsable-des-relations-publiques-et-de-la-presse-piaget-plan-les-ouates/": {
-        "sessions": 4,
-        "engageTime": 0.5,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/fr/trouver-emploi-tessin/specialiste-technique-mecanique-specialisation-grue-swiss-armed-forces-vtg-bern/": {
         "sessions": 4,
         "engageTime": 18,
@@ -61416,6 +61572,12 @@
         "cluster": "generic"
       },
       "/fr/trouver-emploi-tessin/superviseur-de-production-electronique-pcba-h-f-x-100-schindler-locarno/": {
+        "sessions": 4,
+        "engageTime": 19.75,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/fr/trouver-emploi-tessin/technologue-lait-assistant-fromager-caseificio-dimostrativo-del-gottardo-sa-airolo/": {
         "sessions": 4,
         "engageTime": 19.75,
         "publishedAt": null,
@@ -61463,30 +61625,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/guida-frontalieri/aziende-ticino": {
-        "sessions": 4,
-        "engageTime": 8.25,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/guida-frontalieri/festivita-ticino": {
-        "sessions": 4,
-        "engageTime": 4.75,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/guida-frontalieri/primo-giorno": {
-        "sessions": 4,
-        "engageTime": 2.25,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/guida-frontalieri/scuole-ticino": {
-        "sessions": 4,
-        "engageTime": 16,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/https://frontaliereticino.ch/cerca-lavoro-ticino/": {
         "sessions": 4,
         "engageTime": 0,
@@ -61514,12 +61652,6 @@
       "/meteo-frontalieri/lugano/": {
         "sessions": 4,
         "engageTime": 50.25,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/pianificatore-pensione/terzo-pilastro": {
-        "sessions": 4,
-        "engageTime": 35.5,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -61565,6 +61697,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/supporto": {
+        "sessions": 4,
+        "engageTime": 18.75,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/tasse-e-pensione/dichiarazione-redditi": {
         "sessions": 4,
         "engageTime": 8.75,
@@ -61574,6 +61712,12 @@
       "/tasse-e-pensione/quiz-fiscale": {
         "sessions": 4,
         "engageTime": 13.25,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/traffico-dogane/maslianico-pizzamiglio/oggi/": {
+        "sessions": 4,
+        "engageTime": 30.25,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -61732,12 +61876,6 @@
         "engageTime": 0,
         "publishedAt": null,
         "cluster": "novita"
-      },
-      "/articoli-frontaliere/bibo-app-mezzi-pubblici-2026/": {
-        "sessions": 3,
-        "engageTime": 12.67,
-        "publishedAt": null,
-        "cluster": "generic"
       },
       "/articoli-frontaliere/blocco-ristorni-imprese-ticino-allarme-calo-frontalieri": {
         "sessions": 3,
@@ -62087,12 +62225,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/articoli-frontaliere/gita-cuore-soncino-saronno-point/": {
-        "sessions": 3,
-        "engageTime": 68,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/articoli-frontaliere/giudici-federali-indagine-2026/": {
         "sessions": 3,
         "engageTime": 1.33,
@@ -62237,6 +62369,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/articoli-frontaliere/morte-alex-zanardi-impatti-frontalieri/": {
+        "sessions": 3,
+        "engageTime": 12.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/articoli-frontaliere/multe-vignetta-chiasso-2024": {
         "sessions": 3,
         "engageTime": 0,
@@ -62282,6 +62420,12 @@
       "/articoli-frontaliere/parco-biumo-inaugurazione-2026/": {
         "sessions": 3,
         "engageTime": 4,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/articoli-frontaliere/pasta-svizzera-italia-2026/": {
+        "sessions": 3,
+        "engageTime": 9.33,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -62633,6 +62777,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-neuchatel/educatori/": {
+        "sessions": 3,
+        "engageTime": 21,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/1-addetto-al-reparto-verifica-e-pulizia-del-garage-autolinee-100-m-f-fart-ferrovie-autolin/": {
         "sessions": 3,
         "engageTime": 1.67,
@@ -62825,6 +62975,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/apprendista-polimeccanico-a-afc-2026-100-f-m-d-ruag-ag-lodrino/": {
+        "sessions": 3,
+        "engageTime": 1.67,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/apprendistato-2027-logistiker-in-cfc-trumpf-schweiz-ag-grusch/": {
         "sessions": 3,
         "engageTime": 6,
@@ -62846,6 +63002,12 @@
       "/cerca-lavoro-ticino/apprendistato-assistente-di-studio-medico-100-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popol/": {
         "sessions": 3,
         "engageTime": 5,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-sils-maria/": {
+        "sessions": 3,
+        "engageTime": 24.67,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -63803,9 +63965,21 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/field-service-engineer-f-m-d-hitachi-energy-zurich-switzerland/": {
+        "sessions": 3,
+        "engageTime": 0,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/field-service-expert-flying-doctor-agie-charmilles-biel-bienne/": {
         "sessions": 3,
         "engageTime": 0,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/field-service-ingegnere-f-m-d-hitachi-energy-zurich/": {
+        "sessions": 3,
+        "engageTime": 1.67,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -63932,6 +64106,12 @@
       "/cerca-lavoro-ticino/impiegato-a-d-ufficio-steward-immediatamente-disponibile-m-f-d-grand-hotel-kronenhof-pontresina/": {
         "sessions": 3,
         "engageTime": 0,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-locarno/": {
+        "sessions": 3,
+        "engageTime": 65.67,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -64181,6 +64361,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/manor-apprendista-polydesigner-3d-afc-100-lugano/": {
+        "sessions": 3,
+        "engageTime": 18.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/manor-collaboratore-trice-cassa-supermercato-40-ascona/": {
         "sessions": 3,
         "engageTime": 17,
@@ -64224,12 +64410,6 @@
         "cluster": "generic"
       },
       "/cerca-lavoro-ticino/medico-assistente-medicina-intensiva-del-sottoceneri-eoc-ente-ospedaliero-cantonale-lugano/": {
-        "sessions": 3,
-        "engageTime": 3,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/medico-assistente-medicina-interna-eoc-ente-ospedaliero-cantonale-mendrisio/": {
         "sessions": 3,
         "engageTime": 3,
         "publishedAt": null,
@@ -64409,12 +64589,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/operatori-socio-sanitari/": {
-        "sessions": 3,
-        "engageTime": 1,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona/": {
         "sessions": 3,
         "engageTime": 4,
@@ -64445,6 +64619,18 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/pasticceria-6-mesi-w-verbier-marriott-international-verbier/": {
+        "sessions": 3,
+        "engageTime": 0,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/pastry-tirocinante-6-months-w-verbier-marriott-international-verbier/": {
+        "sessions": 3,
+        "engageTime": 0.67,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/pflegepraktikum-eoc-ente-ospedaliero-cantonale-novaggio/": {
         "sessions": 3,
         "engageTime": 47.33,
@@ -64457,6 +64643,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/piombo-di-vendita-a-tempo-pieno-west-edmonton-mall-the-swatch-group-canada-ltd-0200-english-search-search-full-time/": {
+        "sessions": 3,
+        "engageTime": 2.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/pittore-imbianchino-afc-jobcourier-locarno-ticino-switzerland/": {
         "sessions": 3,
         "engageTime": 3.33,
@@ -64466,6 +64658,18 @@
       "/cerca-lavoro-ticino/polymechaniker-w-m-d-100-ems-chemie-domat-ems/": {
         "sessions": 3,
         "engageTime": 1.67,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne-d02b8a/": {
+        "sessions": 3,
+        "engageTime": 3.67,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/posizione-postdoc-sull-allineamento-ai-e-ai-sicuro-disponibile-su-epfl-dlab-epfl-lausanne/": {
+        "sessions": 3,
+        "engageTime": 0,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -64883,18 +65087,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/cerca-lavoro-ticino/ricerca-macellaio-a-specialista-in-carne-coop-genossenschaft/": {
-        "sessions": 3,
-        "engageTime": 21.33,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/ricerca-medico-assistente-pneumologia-eoc-ente-ospedaliero-cantonale/": {
-        "sessions": 3,
-        "engageTime": 84.33,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/cerca-lavoro-ticino/ricerca-mendrisio-tecnologia/": {
         "sessions": 3,
         "engageTime": 20,
@@ -65159,6 +65351,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/swatch-part-time-keyholder-ny-ny-hotel-las-vegas-the-swatch-group-u-s-inc-ticino/": {
+        "sessions": 3,
+        "engageTime": 8.67,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/swatch-tempo-pieno-keyholder-green-hills-nashville-the-swatch-group-u-s-inc-ticino/": {
         "sessions": 3,
         "engageTime": 1.67,
@@ -65186,6 +65384,12 @@
       "/cerca-lavoro-ticino/technicien-d-installation-de-cuisine-et-de-salle-de-bain-fust-swiss-household-services-ag-bellinzona/": {
         "sessions": 3,
         "engageTime": 179.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/tecnico-di-sala-operatoria-swiss-medical-network-sorengo/": {
+        "sessions": 3,
+        "engageTime": 35.33,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -65225,6 +65429,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/cerca-lavoro-ticino/trainer-del-prodotto-abb-svizzera-sede-ticino-ticino/": {
+        "sessions": 3,
+        "engageTime": 7,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/cerca-lavoro-ticino/transportdisponent-in-magenwil-denner/": {
         "sessions": 3,
         "engageTime": 2.33,
@@ -65234,12 +65444,6 @@
       "/cerca-lavoro-ticino/trasformazione-dei-dati-ai-center-of-excellence-manager-h-f-80-100-groupe-mutuel-lausanne/": {
         "sessions": 3,
         "engageTime": 5.67,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/cerca-lavoro-ticino/troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland/": {
-        "sessions": 3,
-        "engageTime": 3.33,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -65282,6 +65486,12 @@
       "/cerca-lavoro-ticino/vendite-associate-20-terreno-capri-holdings-michael-kors-versace-graubunden/": {
         "sessions": 3,
         "engageTime": 39.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-ticino/vendite-associate-part-time-8h-landquart-capri-holdings-michael-kors-versace-graubunden/": {
+        "sessions": 3,
+        "engageTime": 18.67,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -65372,6 +65582,24 @@
       "/cerca-lavoro-vallese/ausiliare-30-tally-weijl-monthey/": {
         "sessions": 3,
         "engageTime": 7,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/cerca-lavoro-vallese/pastry-tirocinante-6-months-w-verbier-marriott-international-verbier/": {
+        "sessions": 3,
+        "engageTime": 6.67,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/comparatori/costo-della-vita": {
+        "sessions": 3,
+        "engageTime": 3.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/comparatori/offerte-lavoro": {
+        "sessions": 3,
+        "engageTime": 2.33,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -65597,9 +65825,9 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/de/grenzgaenger-artikel/seligsprechung-don-roberto-malgesini-2026/": {
+      "/de/grenzgaenger-artikel/spring-giubiasco-sport-gemuetlichkeit-2026/": {
         "sessions": 3,
-        "engageTime": 53,
+        "engageTime": 38.33,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -65651,6 +65879,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/de/grenzgaenger-ratgeber/live-grenzuebergaenge-karte/": {
+        "sessions": 3,
+        "engageTime": 37.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/de/haeufige-fragen/": {
         "sessions": 3,
         "engageTime": 73,
@@ -65678,6 +65912,12 @@
       "/de/jobs-im-tessin/concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino-l4ti2z/": {
         "sessions": 3,
         "engageTime": 0,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/de/jobs-im-tessin/deutscher-lehrer-international-school-of-ticino-lugano/": {
+        "sessions": 3,
+        "engageTime": 20.33,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -65765,6 +66005,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/de/jobs-im-tessin/stage-formativo-pre-supsi-eoc-ente-ospedaliero-cantonale-novaggio-uil1sr/": {
+        "sessions": 3,
+        "engageTime": 8,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/de/jobs-im-tessin/standort-bellinzona/": {
         "sessions": 3,
         "engageTime": 0.67,
@@ -65825,12 +66071,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/de/statistiken/": {
-        "sessions": 3,
-        "engageTime": 0.33,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/de/steuern-und-vorsorge/tessin-feiertage/": {
         "sessions": 3,
         "engageTime": 22,
@@ -65840,6 +66080,12 @@
       "/en/about-us/": {
         "sessions": 3,
         "engageTime": 6.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/border-wait/chiasso-brogeda/today/": {
+        "sessions": 3,
+        "engageTime": 11,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -65912,6 +66158,12 @@
       "/en/cross-border-articles/anti-dumping-initiative-ticino-vote": {
         "sessions": 3,
         "engageTime": 142,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/cross-border-articles/blocking-remittances-ticino-frontalieri-2026/": {
+        "sessions": 3,
+        "engageTime": 46.67,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -66065,6 +66317,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/en/cross-border-articles/iran-excludes-italy-from-world-cup-2026-replay/": {
+        "sessions": 3,
+        "engageTime": 0,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/en/cross-border-articles/italy-inflation-april-2026/": {
         "sessions": 3,
         "engageTime": 32,
@@ -66119,6 +66377,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/en/cross-border-articles/migros-immigration-necessary-offer/": {
+        "sessions": 3,
+        "engageTime": 34.67,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/en/cross-border-articles/mobile-ban-school-ticino-2024/": {
         "sessions": 3,
         "engageTime": 0,
@@ -66134,6 +66398,12 @@
       "/en/cross-border-articles/more-rescues-fewer-victims-mountain-ticino-2025/": {
         "sessions": 3,
         "engageTime": 1.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/cross-border-articles/ndrangheta-ticino-italian-antimafia/": {
+        "sessions": 3,
+        "engageTime": 73.67,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -66164,6 +66434,12 @@
       "/en/cross-border-articles/risks-of-oil-lugano-may-3-2026/": {
         "sessions": 3,
         "engageTime": 0.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/cross-border-articles/spring-bridges-traffic-ticino-2026/": {
+        "sessions": 3,
+        "engageTime": 15,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -66224,6 +66500,12 @@
       "/en/cross-border-articles/ticino-cross-border-workers-decline-data-skilled-sectors": {
         "sessions": 3,
         "engageTime": 50,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/cross-border-articles/ticino-cross-border-workers-stable-2026-q1/": {
+        "sessions": 3,
+        "engageTime": 33.67,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -66491,6 +66773,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/en/find-jobs-ticino/educator-position-for-early-childhood-service-2026-supsi-dti-ticino/": {
+        "sessions": 3,
+        "engageTime": 31,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/en/find-jobs-ticino/fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-pregassona/": {
         "sessions": 3,
         "engageTime": 2.33,
@@ -66707,6 +66995,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/en/find-jobs-ticino/procurement-category-specialist-ibsa-institut-biochimique-6916-working-area/": {
+        "sessions": 3,
+        "engageTime": 0.67,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/en/find-jobs-ticino/procurement-category-specialist-ibsa-institut-biochimique-grancia/": {
         "sessions": 3,
         "engageTime": 34,
@@ -66734,12 +67028,6 @@
       "/en/find-jobs-ticino/quality-technician-specialist-m-f-d-mikron-group-agno/": {
         "sessions": 3,
         "engageTime": 76,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/en/find-jobs-ticino/r-d-project-engineer-spine-medacta-international-sa-rancate/": {
-        "sessions": 3,
-        "engageTime": 7,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -66839,6 +67127,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/en/find-jobs-ticino/swatch-assistant-store-manager-the-mall-at-millenia-the-swatch-group-u-s-inc-ticino/": {
+        "sessions": 3,
+        "engageTime": 0,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/en/find-jobs-ticino/team-assistant-m-f-100-lugano-ticino-premium-properties-sa-lugano/": {
         "sessions": 3,
         "engageTime": 29,
@@ -66884,6 +67178,12 @@
       "/en/find-jobs-ticino/web-developer-lwp-ledermann-wieting-partners-lugano/": {
         "sessions": 3,
         "engageTime": 100,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/en/gasoline-price-switzerland/today/": {
+        "sessions": 3,
+        "engageTime": 14,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -67079,9 +67379,21 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/fr/emplois-infirmiers-suisse/": {
+        "sessions": 3,
+        "engageTime": 42.67,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/fr/glossaire-frontalier/lohnausweis/": {
         "sessions": 3,
         "engageTime": 3.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/fr/guide-frontalier/temps-attente-douane/chiasso-brogeda/": {
+        "sessions": 3,
+        "engageTime": 9.33,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -67112,6 +67424,12 @@
       "/fr/statistiques/prix-essence-frontiere/": {
         "sessions": 3,
         "engageTime": 33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
+      "/fr/temps-attente-douane/gaggiolo/aujourd-hui/": {
+        "sessions": 3,
+        "engageTime": 73.33,
         "publishedAt": null,
         "cluster": "generic"
       },
@@ -67259,12 +67577,6 @@
         "publishedAt": null,
         "cluster": "generic"
       },
-      "/fr/trouver-emploi-tessin/technologue-lait-assistant-fromager-caseificio-dimostrativo-del-gottardo-sa-airolo/": {
-        "sessions": 3,
-        "engageTime": 25.67,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
       "/fr/trouver-emploi-tessin/vendeur-vendeuse-denner-geneve/": {
         "sessions": 3,
         "engageTime": 13.67,
@@ -67361,6 +67673,12 @@
         "publishedAt": null,
         "cluster": "generic"
       },
+      "/prezzi-benzina/lugano/stazioni/gioia-str-cantonale/": {
+        "sessions": 3,
+        "engageTime": 37.33,
+        "publishedAt": null,
+        "cluster": "generic"
+      },
       "/prezzi-benzina/lugano/stazioni/piccadilly-via-cantonale/": {
         "sessions": 3,
         "engageTime": 8.33,
@@ -67412,12 +67730,6 @@
       "/termini-di-servizio/": {
         "sessions": 3,
         "engageTime": 5.67,
-        "publishedAt": null,
-        "cluster": "generic"
-      },
-      "/traffico-dogane/maslianico-pizzamiglio/oggi/": {
-        "sessions": 3,
-        "engageTime": 11,
         "publishedAt": null,
         "cluster": "generic"
       },
