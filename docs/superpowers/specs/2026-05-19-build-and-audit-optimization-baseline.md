@@ -196,3 +196,62 @@ Unified runner measurement after cache warm-up:
 node -e "import('./scripts/lib/audit-runner.mjs').then(m => m.walkHtmlFiles('dist'))" > /dev/null
 /usr/bin/time -p node scripts/audit-all.mjs
 ```
+
+---
+
+## Status 2026-05-19 — 7 PR shipped + pending work
+
+### Shipped (merged to main)
+
+| PR | Phase | Local measurement |
+|---|---|---|
+| #331 | L3 Phase 1 — audit runner + 3 audits | 2.35× on 3 audits |
+| #333 | L3 Phase 2 — 3 audits + workflow update | 2.17× on 6 audits |
+| #334 | L1 Phase 1 — Mercato del lavoro hoist | ~280k iter × 4-branch → 1 lookup |
+| #336 | L2 — HTML minifier in seoPageShell | 0.54% on 1 sample file |
+| #339 | L1.x — esc-hoist + precomputeCache utility + verify-l1 | ~8M esc() saved across soft-landing loop |
+| #340 | L3.x — last 3 audits + MAX_PARALLEL=2 + AUDIT_STRICT=1 + verify-l3 | **3.87×** on 10 audits (53.98 s vs 209 s) |
+| #341 | L2.x — verify-l2 + measure-l2 + production distribution | 0.87% mean over 1000 random files |
+
+### Post-deploy verification checklist
+
+The local numbers project a -70/85 % wall-time reduction on `post-deploy-validate-dist.yml`. None of it is confirmed on the ubuntu-latest free runner against the full 650 k-file dist. Run on the first deploy after these 7 PRs land:
+
+1. **Watch `post-deploy-validate-dist` wall time.**
+   - Pre-L3 baseline: ~25-45 min (chain serial, MAX_PARALLEL=1).
+   - Expected post-L3: ~5-10 min (audit:all single process, MAX_PARALLEL=2).
+   - **Regression alarm**: if wall time > 15 min or any audit OOMs (rc=134), drop MAX_PARALLEL back to 1 in a hotfix and capture the dist artifact for replay via `audit-dist-from-run.yml`.
+
+2. **Watch peak RSS.**
+   - Look for SIGABRT or `Out of memory` in any audit step log. The unified runner should peak ~1 GB; combined with one pool audit at MAX_PARALLEL=2 should stay ≤4 GB.
+   - **Alarm**: rc=134 anywhere → rollback to PR #341 state (chain step + MAX_PARALLEL=1).
+
+3. **Rebaseline `text-html-ratio` upward.**
+   ```bash
+   gh workflow run audit-dist-from-run.yml -f deploy_run_id=<recent-deploy-id> -f audits=text-html-ratio
+   # Download the report artifact, read the new ratios, then:
+   # commit the new data/text-html-ratio-baseline.json with delta noted in PR message
+   ```
+   Per the C2-relaxed constraint, rebaselining UPWARD when the gate has IMPROVED is legitimate.
+
+4. **Rebaseline `page-weight`** if applicable (ceiling-gate; only if the gate value changed meaningfully).
+
+5. **Compare artifact size.**
+   ```bash
+   # On the gh-pages branch:
+   du -sb dist/  # post-L2
+   git log --diff-filter=A -- dist/ | head  # find pre-L2 commit
+   git checkout <pre-L2 sha> -- dist && du -sb dist  # compare
+   ```
+   Expected: ~-0.66 % (~54 MB on 8.2 GB). Smaller-than-expected is fine; larger-than-expected suggests minifier ran on more pages than expected (also fine).
+
+6. **JSON-LD sanity check.** 20 representative pages (5 page-types × 4 locales) through Google Rich Results Test pre/post L2. The minifier treats JSON-LD as opaque (vincolo N2), so this should be a no-op — but worth verifying.
+
+### Pending work (not blocking deploy verification)
+
+- **`vite.config.ts` per-plugin closeBundle timing** instrumentation. Without it, the L1 esc-hoist win (~8 M esc() saved) remains a projection. ~30 LOC change; would surface in workflow logs.
+- **L3 worker_threads parallelism** (`AUDIT_WORKERS=N` opt-in). Documented as TODO in `scripts/lib/audit-runner.mjs`. Defer unless validate-dist still >10 min post-MAX_PARALLEL=2.
+- **L1 per-canton precompute + formatter caching** in `fuelDailyPagesPlugin` / `weeklyEmployersPlugin` / `healthPremiumsLandingPlugin`. Investigated 2026-05-19: no Mercato-pattern hoists, only smaller wins (5-15 s closeBundle each). Cumulable but ROI marginal.
+- **L2 aggressive mode** (attribute quote stripping, optional close-tag stripping). +0.3-0.5 % extra reduction; needs visual-regression coverage first.
+- **Vitest coverage** for `precomputeCache.ts`, `htmlMinify.ts`, `audit-runner.mjs`.
+- **CLAUDE.md update** documenting `npm run audit:all` as the canonical entry point + verify-* scripts as gate tooling.
