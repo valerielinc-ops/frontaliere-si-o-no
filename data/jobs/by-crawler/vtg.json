@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-3uv1w",
-      "slug": "diagnostiker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-03uv1w",
+      "slug": "diagnostica-in-veicoli-commerciali-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Diagnostiker/-in Nutzfahrzeuge",
       "location": "Bern",
@@ -36,19 +36,27 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "diagnostiker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-03uv1w",
-        "en": "diagnostiker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-03uv1w",
+        "it": "diagnostica-in-veicoli-commerciali-swiss-armed-forces-vtg-bern",
+        "en": "diagnostics-in-commercial-vehicles-swiss-armed-forces-vtg-bern",
         "de": "diagnostiker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-03uv1w",
-        "fr": "diagnostiker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-03uv1w"
+        "fr": "diagnostics-dans-les-vehicules-utilitaires-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "diagnostiker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern"
+          "diagnostiker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern",
+          "diagnostiker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-03uv1w"
+        ],
+        "en": [
+          "diagnostiker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-03uv1w"
+        ],
+        "fr": [
+          "diagnostiker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-03uv1w"
         ]
       },
       "previousSlugs": [
-        "diagnostiker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern"
+        "diagnostiker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern",
+        "diagnostiker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-03uv1w"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

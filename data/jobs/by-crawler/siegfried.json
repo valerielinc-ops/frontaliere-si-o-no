@@ -1638,12 +1638,12 @@
     },
     {
       "id": "siegfried-5242db5ae6b0",
-      "slug": "laborant-in-cfc-chemie-siegfried-zofingen",
+      "slug": "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen",
       "slugByLocale": {
-        "it": "laborant-in-cfc-chemie-siegfried-zofingen",
-        "en": "laborant-in-efz-chemie-siegfried-ch",
+        "it": "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen",
+        "en": "laboratory-technician-efz-chemie-siegfried-zofingen",
         "de": "laborant-in-efz-chemie-siegfried-ch",
-        "fr": "laborant-in-efz-chemie-siegfried-ch"
+        "fr": "technicien-de-laboratoire-efz-chemie-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1687,11 +1687,19 @@
       "firstSeenAt": "2026-05-18T13:08:57.746Z",
       "previousSlugsByLocale": {
         "it": [
+          "laborant-in-efz-chemie-siegfried-ch",
+          "laborant-in-cfc-chemie-siegfried-zofingen"
+        ],
+        "en": [
+          "laborant-in-efz-chemie-siegfried-ch"
+        ],
+        "fr": [
           "laborant-in-efz-chemie-siegfried-ch"
         ]
       },
       "previousSlugs": [
-        "laborant-in-efz-chemie-siegfried-ch"
+        "laborant-in-efz-chemie-siegfried-ch",
+        "laborant-in-cfc-chemie-siegfried-zofingen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1709,9 +1717,9 @@
     },
     {
       "id": "siegfried-612b054c6700",
-      "slug": "lab-technician-r-d-siegfried-ch",
+      "slug": "laboratorio-tecnico-r-d-siegfried-evionnaz",
       "slugByLocale": {
-        "it": "lab-technician-r-d-siegfried-ch",
+        "it": "laboratorio-tecnico-r-d-siegfried-evionnaz",
         "en": "lab-technician-r-d-siegfried-evionnaz",
         "de": "lab-techniker-r-d-siegfried-evionnaz",
         "fr": "lab-technician-r-d-siegfried-ch"
@@ -1768,7 +1776,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950"
+      "postalCode": "1950",
+      "previousSlugsByLocale": {
+        "it": [
+          "lab-technician-r-d-siegfried-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lab-technician-r-d-siegfried-ch"
+      ]
     }
   ]
 }

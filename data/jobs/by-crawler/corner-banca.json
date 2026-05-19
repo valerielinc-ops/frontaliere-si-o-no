@@ -829,8 +829,8 @@
       "slugByLocale": {
         "it": "it-auditor-corner-banca-lugano",
         "en": "it-auditor-corner-banca-lugano",
-        "de": "it-auditor-corner-banca-lugano",
-        "fr": "it-auditor-corner-banca-lugano"
+        "de": "it-audit-corner-banca-lugano",
+        "fr": "auditeur-informatique-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1108,12 +1108,12 @@
     },
     {
       "id": "corner-banca-f52a05ad44cc",
-      "slug": "litigation-office-associate-corner-banca-wallisellen",
+      "slug": "ufficio-delle-pubblicazioni-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "litigation-office-associate-corner-banca-wallisellen",
+        "it": "ufficio-delle-pubblicazioni-corner-banca-wallisellen",
         "en": "litigation-office-associate-corner-banca-wallisellen",
-        "de": "litigation-office-associate-corner-banca-wallisellen",
-        "fr": "litigation-office-associate-corner-banca-wallisellen"
+        "de": "haftungsausschluss-corner-banca-wallisellen",
+        "fr": "bureau-du-contentieux-associe-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1178,7 +1178,21 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "litigation-office-associate-corner-banca-wallisellen"
+        ],
+        "de": [
+          "litigation-office-associate-corner-banca-wallisellen"
+        ],
+        "fr": [
+          "litigation-office-associate-corner-banca-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "litigation-office-associate-corner-banca-wallisellen"
+      ]
     }
   ]
 }

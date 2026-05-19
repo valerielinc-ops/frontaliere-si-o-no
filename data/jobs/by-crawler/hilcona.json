@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-0aa58c96a782",
-      "slug": "produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-bell-schweiz-ag-churwalden",
+      "slug": "impiegato-di-produzione-metzger-metzgerin-bell-schweiz-ag-churwalden",
       "slugByLocale": {
         "de": "produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-bell-schweiz-ag-churwalden",
-        "it": "produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-bell-schweiz-ag-churwalden",
-        "en": "produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-bell-schweiz-ag-churwalden",
-        "fr": "produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-bell-schweiz-ag-churwalden"
+        "it": "impiegato-di-produzione-metzger-metzgerin-bell-schweiz-ag-churwalden",
+        "en": "production-worker-production-employee-metzger-metzgerin-bell-schweiz-ag-churwalden",
+        "fr": "ouvrier-de-production-employe-de-production-metzger-metzgerin-bell-schweiz-ag-churwalden"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -48,14 +48,22 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-hilcona-churwalden"
+          "produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-hilcona-churwalden",
+          "produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-bell-schweiz-ag-churwalden"
         ],
         "de": [
           "produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-hilcona-churwalden"
+        ],
+        "en": [
+          "produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-bell-schweiz-ag-churwalden"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-bell-schweiz-ag-churwalden"
         ]
       },
       "previousSlugs": [
-        "produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-hilcona-churwalden"
+        "produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-hilcona-churwalden",
+        "produktionsmitarbeiter-produktionsmitarbeiterin-metzger-metzgerin-bell-schweiz-ag-churwalden"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,

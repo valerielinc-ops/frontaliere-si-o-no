@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "mobiliar-fea122f628f5",
-      "slug": "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch",
+      "slug": "responsabile-transazioni-immobiliari-mercato-est-w-m-d-die-mobiliar-zurich",
       "slugByLocale": {
         "de": "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch",
-        "it": "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch",
-        "en": "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch",
-        "fr": "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch"
+        "it": "responsabile-transazioni-immobiliari-mercato-est-w-m-d-die-mobiliar-zurich",
+        "en": "responsible-real-estate-transactions-market-east-w-m-d-die-mobiliar-zurich",
+        "fr": "responsable-des-transactions-immobilieres-marche-est-w-m-d-die-mobiliar-zurich"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -81,7 +81,21 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-18T22:29:36.358Z"
+      "firstSeenAt": "2026-05-18T22:29:36.358Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch"
+        ],
+        "en": [
+          "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch"
+        ],
+        "fr": [
+          "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verantwortlicher-immobilien-transaktionen-markt-ost-w-m-d-mobiliar-ch"
+      ]
     },
     {
       "id": "mobiliar-15291c509aaf",
@@ -152,7 +166,6 @@
       "sfJobId": "1164561055",
       "previousSlugsByLocale": {
         "de": [
-          "devsecops-engineer-w-m-d-mobiliar-ch",
           "microsoft-power-platform-devsecops-engineer-w-m-d-mobiliar-ch"
         ],
         "it": [
@@ -265,12 +278,12 @@
     },
     {
       "id": "mobiliar-225b1dbbeaef",
-      "slug": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf",
+      "slug": "consulente-senior-m-d-projektmanagement-die-mobiliar-dielsdorf",
       "slugByLocale": {
         "de": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-dielsdorf-mobiliar-ch",
-        "it": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf",
-        "en": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-dielsdorf-mobiliar-ch",
-        "fr": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-dielsdorf-mobiliar-ch"
+        "it": "consulente-senior-m-d-projektmanagement-die-mobiliar-dielsdorf",
+        "en": "senior-consultant-m-d-projektmanagement-die-mobiliar-dielsdorf",
+        "fr": "consultant-principal-m-d-die-mobiliar-dielsdorf"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -315,11 +328,19 @@
       "sfJobId": "1164751955",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-dielsdorf-mobiliar-ch",
+          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf"
+        ],
+        "en": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-dielsdorf-mobiliar-ch"
+        ],
+        "fr": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-dielsdorf-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-dielsdorf-mobiliar-ch"
+        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-dielsdorf-mobiliar-ch",
+        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-dielsdorf-die-mobiliar-dielsdorf"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

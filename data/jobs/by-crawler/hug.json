@@ -4603,12 +4603,12 @@
     },
     {
       "id": "hug-7fec6836f932",
-      "slug": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve",
+      "slug": "medico-interno-nel-reparto-riabilitazione-e-geriatria-100-hug-geneve-50947b",
       "slugByLocale": {
         "fr": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve",
-        "it": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve",
-        "en": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve",
-        "de": "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve"
+        "it": "medico-interno-nel-reparto-riabilitazione-e-geriatria-100-hug-geneve-50947b",
+        "en": "internal-physician-in-the-rehabilitation-and-geriatric-department-100-hug-geneve-50947b",
+        "de": "interner-arzt-in-der-rehabilitations-und-geriatsabteilung-100-hug-geneve-50947b"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4664,7 +4664,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-18T22:07:20.236Z"
+      "firstSeenAt": "2026-05-18T22:07:20.236Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve"
+        ],
+        "de": [
+          "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-au-departement-de-readaptation-et-geriatrie-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-7525fc18ca72",

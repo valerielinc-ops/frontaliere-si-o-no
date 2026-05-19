@@ -202,12 +202,12 @@
     },
     {
       "id": "msc-cargo-8fd1f556af0a",
-      "slug": "brand-manager-brand-product-msc-geneva",
+      "slug": "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva",
       "slugByLocale": {
         "en": "brand-manager-brand-product-msc-geneva",
-        "it": "brand-manager-brand-product-msc-geneva",
-        "de": "brand-manager-brand-product-msc-geneva",
-        "fr": "brand-manager-brand-product-msc-geneva"
+        "it": "responsabile-del-marchio-marchio-e-prodotto-msc-group-geneva",
+        "de": "brand-manager-marke-produkt-msc-group-geneva",
+        "fr": "gestionnaire-de-marques-marque-produit-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -262,7 +262,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-18T22:32:24.551Z"
+      "firstSeenAt": "2026-05-18T22:32:24.551Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "brand-manager-brand-product-msc-geneva"
+        ],
+        "de": [
+          "brand-manager-brand-product-msc-geneva"
+        ],
+        "fr": [
+          "brand-manager-brand-product-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "brand-manager-brand-product-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-6a5b336e6a54",
@@ -532,7 +546,7 @@
       "slugByLocale": {
         "en": "experience-development-delivery-manager-new-builds-msc-geneva",
         "it": "experience-development-delivery-manager-new-builds-msc-geneva",
-        "de": "experience-development-delivery-manager-new-builds-msc-geneva",
+        "de": "erfahrungs-und-liefermanager-neubauten-msc-group-geneva",
         "fr": "experience-development-delivery-manager-new-builds-msc-geneva"
       },
       "company": "MSC Group",
@@ -592,12 +606,12 @@
     },
     {
       "id": "msc-cargo-ae2d4551edb1",
-      "slug": "spa-product-manager-msc-geneva",
+      "slug": "responsabile-prodotto-spa-msc-group-geneva",
       "slugByLocale": {
-        "it": "spa-product-manager-msc-geneva",
+        "it": "responsabile-prodotto-spa-msc-group-geneva",
         "en": "spa-product-manager-msc-geneva",
-        "de": "spa-product-manager-msc-geneva",
-        "fr": "spa-product-manager-msc-geneva"
+        "de": "spa-produktmanager-msc-group-geneva",
+        "fr": "gestionnaire-de-produits-spa-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -650,13 +664,27 @@
           "maxValue": 133000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-product-manager-msc-geneva"
+        ],
+        "de": [
+          "spa-product-manager-msc-geneva"
+        ],
+        "fr": [
+          "spa-product-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "spa-product-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-b8db6c0698ca",
-      "slug": "direttore-of-operations-hospitality-infrastructure-msc-group-geneva",
+      "slug": "direttore-delle-operazioni-infrastrutture-di-accoglienza-msc-group-geneva",
       "slugByLocale": {
-        "it": "direttore-of-operations-hospitality-infrastructure-msc-group-geneva",
+        "it": "direttore-delle-operazioni-infrastrutture-di-accoglienza-msc-group-geneva",
         "en": "director-of-operations-hospitality-infrastructure-msc-geneva",
         "de": "direktor-of-operations-hospitality-infrastructure-msc-group-geneva",
         "fr": "directeur-of-operations-hospitality-infrastructure-msc-group-geneva"
@@ -701,11 +729,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "director-of-operations-hospitality-infrastructure-msc-geneva"
+        "director-of-operations-hospitality-infrastructure-msc-geneva",
+        "direttore-of-operations-hospitality-infrastructure-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-operations-hospitality-infrastructure-msc-geneva"
+          "director-of-operations-hospitality-infrastructure-msc-geneva",
+          "direttore-of-operations-hospitality-infrastructure-msc-group-geneva"
         ],
         "de": [
           "director-of-operations-hospitality-infrastructure-msc-geneva"
@@ -735,7 +765,7 @@
         "it": "senior-project-manager-investimenti-in-infrastrutture-caribico-msc-group-geneva",
         "en": "senior-project-manager-infrastructure-investments-caribbean-msc-geneva",
         "de": "senior-projektmanager-infrastrukturinvestitionen-karibik-msc-group-geneva",
-        "fr": "responsable-de-projet-senior-investissements-en-infrastructures-caraibes-msc-group-geneva"
+        "fr": "gestionnaire-principal-de-projet-investissements-en-infrastructure-caraibes-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -777,11 +807,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-project-manager-infrastructure-investments-caribbean-msc-geneva"
+        "senior-project-manager-infrastructure-investments-caribbean-msc-geneva",
+        "responsable-de-projet-senior-investissements-en-infrastructures-caraibes-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-project-manager-infrastructure-investments-caribbean-msc-geneva"
+        ],
+        "fr": [
+          "responsable-de-projet-senior-investissements-en-infrastructures-caraibes-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-05-11T12:59:30.064Z",
@@ -800,12 +834,12 @@
     },
     {
       "id": "msc-cargo-a231a60627cc",
-      "slug": "responsabile-acquisizione-digitale-msc-group-geneva",
+      "slug": "gestione-dell-acquisizione-digitale-msc-group-geneva",
       "slugByLocale": {
-        "it": "responsabile-acquisizione-digitale-msc-group-geneva",
+        "it": "gestione-dell-acquisizione-digitale-msc-group-geneva",
         "en": "digital-acquisition-manager-msc-geneva",
-        "de": "digitaler-akquisitionsmanager-msc-group-geneva",
-        "fr": "responsable-de-l-acquisition-numerique-msc-group-geneva"
+        "de": "digital-akquisition-manager-msc-group-geneva",
+        "fr": "gestionnaire-d-acquisitions-numeriques-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -847,11 +881,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "digital-acquisition-manager-msc-geneva"
+        "digital-acquisition-manager-msc-geneva",
+        "responsabile-acquisizione-digitale-msc-group-geneva",
+        "digitaler-akquisitionsmanager-msc-group-geneva",
+        "responsable-de-l-acquisition-numerique-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "digital-acquisition-manager-msc-geneva"
+          "digital-acquisition-manager-msc-geneva",
+          "responsabile-acquisizione-digitale-msc-group-geneva"
+        ],
+        "de": [
+          "digitaler-akquisitionsmanager-msc-group-geneva"
+        ],
+        "fr": [
+          "responsable-de-l-acquisition-numerique-msc-group-geneva"
         ]
       },
       "firstSeenAt": "2026-05-11T12:59:30.062Z",
@@ -1148,7 +1192,7 @@
       "slugByLocale": {
         "it": "mobile-app-product-specialista-msc-group-geneva",
         "en": "mobile-app-product-specialist-msc-geneva",
-        "de": "mobile-app-product-spezialist-msc-group-geneva",
+        "de": "mobile-app-produktspezialist-msc-group-geneva",
         "fr": "mobile-app-product-specialiste-msc-group-geneva"
       },
       "company": "MSC Group",
@@ -1192,6 +1236,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mobile-app-product-specialist-msc-geneva",
+        "mobile-app-product-spezialist-msc-group-geneva",
         "specialista-di-prodotto-per-app-mobili-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
@@ -1199,7 +1244,8 @@
           "mobile-app-product-specialist-msc-geneva"
         ],
         "de": [
-          "mobile-app-product-specialist-msc-geneva"
+          "mobile-app-product-specialist-msc-geneva",
+          "mobile-app-product-spezialist-msc-group-geneva"
         ],
         "fr": [
           "mobile-app-product-specialist-msc-geneva"

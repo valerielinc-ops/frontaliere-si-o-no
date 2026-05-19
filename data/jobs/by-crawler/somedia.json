@@ -204,8 +204,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-kauffrau-kaufmann-efz-2027-somedia-ch",
         "it": "apprendistato-come-kauffrau-kaufmann-cfc-2027-somedia-ag-chur",
-        "en": "lehrstelle-als-kauffrau-kaufmann-efz-2027-somedia-ch",
-        "fr": "lehrstelle-als-kauffrau-kaufmann-efz-2027-somedia-ch"
+        "en": "apprenticeship-as-a-merchant-efz-2027-somedia-ag-chur",
+        "fr": "apprentissage-en-tant-que-marchand-efz-2027-somedia-ag-chur"
       },
       "company": "Somedia AG",
       "companyKey": "somedia",
@@ -256,6 +256,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-2027-somedia-ch"
+        ],
+        "en": [
+          "lehrstelle-als-kauffrau-kaufmann-efz-2027-somedia-ch"
+        ],
+        "fr": [
           "lehrstelle-als-kauffrau-kaufmann-efz-2027-somedia-ch"
         ]
       },
