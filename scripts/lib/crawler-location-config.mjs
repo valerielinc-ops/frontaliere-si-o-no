@@ -293,6 +293,10 @@ export const COMPANY_HQ = {
   'sanatorium-kilchberg':         { city: 'Kilchberg',          canton: 'ZH', postalCode: '8802', addressRegion: 'ZH' },
   'caritas-schweiz':              { city: 'Luzern',             canton: 'LU', postalCode: '6002', addressRegion: 'LU' },
   'privatklinik-hohenegg':        { city: 'Meilen',             canton: 'ZH', postalCode: '8706', addressRegion: 'ZH' },
+  // ── Batch 9 (STGAG custom subdomain + Clienia + Vitrea/onlyfy) ──
+  'stgag':                        { city: 'Münsterlingen',      canton: 'TG', postalCode: '8596', addressRegion: 'TG' },
+  'clienia-ag':                   { city: 'Pfäffikon',          canton: 'ZH', postalCode: '8330', addressRegion: 'ZH' },
+  'vitrea-gesundheit':            { city: 'Seewis im Prättigau', canton: 'GR', postalCode: '7212', addressRegion: 'GR' },
   'spital-limmattal':             { city: 'Schlieren',          canton: 'ZH', postalCode: '8952', addressRegion: 'ZH' },
   'huntsman':                     { city: 'Monthey',            canton: 'VS', postalCode: '1870', addressRegion: 'VS' },
   'fielmann':                     { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
