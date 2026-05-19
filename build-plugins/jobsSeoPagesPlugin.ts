@@ -2381,7 +2381,7 @@ ${hreflangHtml}
  <body>
  <div id="root">
  <main class="static-job-page">
- <nav class="bn"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}">&larr; ${esc(allJobsLinkLabel(locale, dc))}</a></nav>
+ <nav class="bn"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}">&larr; ${esc(allJobsLinkLabel(locale, getCantonDisplayLabel(jobCanton, locale)))}</a></nav>
  <article class="proposal">
  <section class="hero">
  <h1 class="hero-title">${esc(composeJobPageH1(localizedTitle, String(job.company || '')))}</h1>
