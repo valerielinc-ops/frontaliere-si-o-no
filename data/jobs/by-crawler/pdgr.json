@@ -1990,7 +1990,6 @@
         "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
         "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur",
-        "specialista-in-salute-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
         "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
@@ -2079,7 +2078,6 @@
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch",
         "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch-2",
         "praktikant-in-praxismodul-i-ii-o-vorpraktikum-psychiatrische-dienste-graubunden-chur",
-        "medico-specializzando-in-psichiatria-psychiatrische-dienste-graubunden-cazis-chur",
         "praktikant-in-praxismodul-i-ii-oder-vorpraktikum-pdgr-ch",
         "tirocinante-modulo-pratico-i-ii-o-pre-tirocinio-psychiatrische-dienste-graubunden-chur"
       ],
@@ -2934,12 +2932,12 @@
     },
     {
       "id": "pdgr-31e2458cefe5",
-      "slug": "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis",
+      "slug": "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "de": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
-        "it": "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis",
+        "it": "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "en": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
-        "fr": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis"
+        "fr": "personnel-a-hotellerie-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2987,14 +2985,20 @@
       "pensum": "50 - 70%",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-hotellerie-pdgr-ch"
+          "mitarbeiter-in-hotellerie-pdgr-ch",
+          "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis"
         ],
         "de": [
           "mitarbeiter-in-hotellerie-pdgr-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hotellerie-pdgr-ch"
+        "mitarbeiter-in-hotellerie-pdgr-ch",
+        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis",
+        "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3082,7 +3086,6 @@
       },
       "previousSlugs": [
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
-        "oberarztin-oberarzt-pdgr-ch",
         "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
         "psychiatrist-psychiatrische-dienste-graubunden-chur",
         "psychiatre-psychiatrische-dienste-graubunden-chur"
@@ -3517,12 +3520,12 @@
     },
     {
       "id": "pdgr-ede11f763766",
-      "slug": "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis",
+      "slug": "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis-6ae551",
       "slugByLocale": {
-        "it": "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis",
-        "en": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
+        "it": "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis-6ae551",
+        "en": "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "de": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
-        "fr": "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis"
+        "fr": "personnel-a-hotellerie-psychiatrische-dienste-graubunden-cazis-6ae551"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3603,20 +3606,25 @@
         ],
         "it": [
           "mitarbeiter-in-hotellerie-pdgr-ch-2",
-          "personale-hotel-psychiatrische-dienste-graubunden-cazis"
+          "personale-hotel-psychiatrische-dienste-graubunden-cazis",
+          "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis"
         ],
         "en": [
-          "hotel-staff-psychiatrische-dienste-graubunden-cazis"
+          "hotel-staff-psychiatrische-dienste-graubunden-cazis",
+          "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis"
         ],
         "fr": [
-          "personnel-hotel-psychiatrische-dienste-graubunden-cazis"
+          "personnel-hotel-psychiatrische-dienste-graubunden-cazis",
+          "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-hotellerie-pdgr-ch",
         "mitarbeiter-in-hotellerie-pdgr-ch-2",
         "personale-hotel-psychiatrische-dienste-graubunden-cazis",
+        "collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "hotel-staff-psychiatrische-dienste-graubunden-cazis",
+        "mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
         "personnel-hotel-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",

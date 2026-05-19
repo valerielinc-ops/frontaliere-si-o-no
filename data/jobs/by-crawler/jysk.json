@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-qrsmyr",
-      "slug": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+      "slug": "efz-a-nel-ramo-schattdorf-jysk-schattdorf-e972cc",
       "company": "JYSK",
       "title": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
       "location": "Schattdorf",
@@ -23,10 +23,10 @@
       "crawledAt": "2026-05-18T22:12:11.910Z",
       "firstSeenAt": "2026-05-18T22:12:11.910Z",
       "slugByLocale": {
-        "it": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
-        "en": "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+        "it": "efz-a-nel-ramo-schattdorf-jysk-schattdorf-e972cc",
+        "en": "learning-retailer-efz-a-in-the-schattdorf-branch-jysk-schattdorf-e972cc",
         "de": "lernende-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
-        "fr": "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr"
+        "fr": "detaillant-d-apprentissage-efz-a-dans-la-succursale-de-schattdorf-jysk-schattdorf-e972cc"
       },
       "titleByLocale": {
         "de": "Lernende Detailhandelsfachfrau/-mann EFZ (a) in der Filiale Schattdorf",
@@ -54,7 +54,23 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr"
+        ],
+        "en": [
+          "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr"
+        ],
+        "fr": [
+          "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr"
+        ]
+      },
+      "previousSlugs": [
+        "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+        "apprentice-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr",
+        "apprenti-e-detailhandelsfachfrau-mann-efz-a-in-der-filiale-schattdorf-jysk-schattdorf-qrsmyr"
+      ]
     },
     {
       "id": "company-ds4mvl",
