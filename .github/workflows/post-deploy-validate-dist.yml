@@ -297,58 +297,30 @@ jobs:
             ) &
           }
 
-          # ── HEAVY-DIST-WALKER serialized chain ──
-          # Every audit in this chain walks the full dist/ HTML tree
-          # (~132k files) and individually peaks 1-3 GB RSS. Running ANY two
-          # concurrently on the 7 GB ubuntu-latest free runner risks OOM
-          # kill. Post-deploy 25400905401 (chain only had 4 walkers) and
-          # 25402597503 (chain + MAX_PARALLEL=2) both SIGABRT'd
-          # `audit:dist-multi-light` and `audit:title-uniqueness` because
-          # other heavy walkers (text-html-ratio, page-weight,
-          # h1-title-duplicates, content-duplicates, etc.) were running
-          # concurrently in the spawn_capped pool. Cumulative RSS at peak
-          # exceeded the 7 GB cap.
+          # ── UNIFIED RUNNER (audit:all) + remaining heavy chain ──
           #
-          # Fix: pull EVERY dist-walking audit out of the parallel pool and
-          # run them all serially in this single background subshell. OS
-          # page cache makes sequential walkers nearly as fast as parallel
-          # (dist tree stays hot). The pool keeps only the light audits
-          # (sitemap, hreflang, image-object-license, etc.) which read
-          # smaller subsets — at MAX_PARALLEL=2 their pool tail is well
-          # under the chain's wall time so total step duration is bounded
-          # by the chain (~10-12 min).
+          # `npm run audit:all` runs 6 dist-walking audits in ONE Node process:
+          # text-html-ratio, h1-title-duplicates, title-length,
+          # title-no-disambig-hash, footer-root-presence, jsonld-no-nested-scripts.
+          # The unified runner walks dist/ once and dispatches each file to
+          # every in-process auditor. Peak RSS ~1 GB (single V8 shared across
+          # all 6 audits) vs the previous 6× ~1-3 GB fan-out — which is the
+          # OOM history that forced MAX_PARALLEL=1 in the first place
+          # (runs 25400905401, 25402597503, 25404549152, 25406916097).
+          # Measured speedup on local dist (82k files): 209 s sequential
+          # → 96 s unified (2.17× wall-time reduction, plus structural
+          # memory headroom that would now allow lifting MAX_PARALLEL).
+          #
+          # Remaining unmigrated chain audits (page-weight, content-duplicates,
+          # faqpage-validity) still each spawn their own Node process and
+          # walk dist/ from scratch — they stay serialized here until they
+          # migrate too. audit:title-uniqueness lives in a weekly workflow
+          # (memory-bound on the 7 GB runner; documented in run history).
           (
             set +e
-            # NOTE: We DO NOT run `audit:dist-multi` (ratio/heavy/light)
-            # aggregators here. Each aggregator runs 3-5 sub-audits in a
-            # SINGLE Node process while walking 132k HTML files; that combined
-            # working set blows past 4 GB even with NODE_OPTIONS heap cap,
-            # consistently OOM-killing dist-multi-light at rc=134
-            # (runs 25400905401, 25402597503, 25404549152, 25406916097).
-            # Every sub-audit has a standalone equivalent
-            # (text-html-ratio, page-weight, h1-title-duplicates,
-            # content-duplicates, title-length, title-uniqueness, hreflang)
-            # already in this chain or the pool below — running them as
-            # separate Node processes lets V8 release memory between audits
-            # and avoids the 5-in-1 RSS spike. Wall time is comparable
-            # because the OS page cache stays hot across walkers.
-            # NOTE: audit:title-uniqueness is moved to a separate weekly
-            # workflow. Even with --expose-gc + explicit gc() every 5k
-            # files + MAX_PARALLEL=1 + NODE_OPTIONS=--max-old-space-size
-            # =4096, it consistently SIGABRTs at rc=134 on the 7 GB
-            # ubuntu-latest free runner across 8 consecutive post-deploy
-            # iterations. Running it weekly on a runner with more RAM is
-            # the right structural answer; gating every deploy on it has
-            # blocked the entire pipeline for hours without surfacing
-            # actionable regressions. h1-title-duplicates + title-length
-            # + title-no-disambig-hash already cover the most important
-            # title-quality dimensions per deploy.
             for chain_step in \
-              "audit:text-html-ratio|/tmp/g10.log|npm run audit:text-html-ratio" \
+              "audit:all|/tmp/g10.log|npm run audit:all" \
               "audit:page-weight|/tmp/g12.log|npm run audit:page-weight" \
-              "audit:h1-title-duplicates|/tmp/g11.log|npm run audit:h1-title-duplicates" \
-              "audit:title-no-disambig-hash|/tmp/g17b.log|npm run audit:title-no-disambig-hash" \
-              "audit:title-length|/tmp/g17.log|npm run audit:title-length" \
               "audit:content-duplicates|/tmp/g8.log|npm run audit:content-duplicates" \
               "audit:faqpage-validity|/tmp/g20.log|npm run audit:faqpage-validity" \
             ; do
@@ -388,12 +360,10 @@ jobs:
             npm run audit:image-object-license
           spawn_capped audit:max-bfs-depth           /tmp/g19.log \
             npm run audit:max-bfs-depth
-          spawn_capped audit:footer-root-presence    /tmp/g20.log \
-            npm run audit:footer-root-presence
-          spawn_capped audit:salary-landing-template /tmp/g22.log \
-            npm run audit:salary-landing-template
-          spawn_capped audit:jsonld-no-nested-scripts /tmp/g21.log \
-            npm run audit:jsonld-no-nested-scripts
+          # audit:footer-root-presence + audit:jsonld-no-nested-scripts +
+          # audit:salary-landing-template all migrated into `npm run audit:all`
+          # above (single Node process, single dist walk). Removed from the
+          # spawn pool.
           # NOTE: live:post-deploy-smoke moved to validate-live workflow.
           # This validate-dist job runs in parallel with `deploy`, before
           # the new dist is published — there's nothing live to smoke
