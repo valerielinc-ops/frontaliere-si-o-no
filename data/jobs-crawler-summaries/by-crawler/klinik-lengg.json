@@ -1,18 +1,19 @@
 {
   "key": "klinik-lengg",
   "label": "Klinik Lengg",
-  "generatedAt": "2026-05-19T12:28:26.672Z",
+  "generatedAt": "2026-05-19T22:41:11.424Z",
   "total": 22,
-  "newCount": 22,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 22,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 370085,
-  "avgDurationMs": 370085,
+  "durationMs": 2751,
+  "avgDurationMs": 2751,
   "durationHistory": [
-    370085
+    2751
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "klinik-lengg-c07a69d5a4a6",
       "slug": "dipl-pflegefachperson-in-der-epileptologie-a-im-fruh-und-spatdienst-klinik-lengg-zurich",
@@ -26,7 +27,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-in-der-epileptologie-a-im-frueh-und-spaetdienst/2d4788b6-1800-45fb-8c2c-4cd9c79d19f2",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.513Z",
+      "crawledAt": "2026-05-19T22:41:09.487Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "3826",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.513Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/ernaehrungsberaterin-ernaehrungsberater-svde-a/b66ba965-0bb7-418c-ac3a-93bcf70b6531",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.515Z",
+      "crawledAt": "2026-05-19T22:41:09.491Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "3881",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.515Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/ergotherapeutin-ergotherapeut-a/e3ad637c-7f41-4e0d-b2a8-f54741e36b0c",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.518Z",
+      "crawledAt": "2026-05-19T22:41:09.492Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-07",
       "applyUrl": "3832",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.518Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/eeg-assistentin-assistent-oder-fachfrau-fachmann-neurophysiologische-diagnostik/18007f93-250f-450a-ae22-e285e2cda0a1",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.520Z",
+      "crawledAt": "2026-05-19T22:41:09.494Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "3887",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T12:22:17.520Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/sportwissenschaftlerin-sportwissenschaftler-leitung-sporttherapie/2a05322c-60ef-4f3d-9817-c62c284524f5",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.522Z",
+      "crawledAt": "2026-05-19T22:41:09.496Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-03",
       "applyUrl": "3853",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.522Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/logopaedin-logopaede-a/6f8dd159-86be-492c-bf97-b68684de972d",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.524Z",
+      "crawledAt": "2026-05-19T22:41:09.498Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "featured": false,
       "postedDate": "2026-04-29",
       "applyUrl": "3851",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.524Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/quereinsteigerin-quereinsteiger-neurophysiologie-im-nachtdienst-so-mo-di/2b616eba-e84a-4884-9097-889b0003a7f5",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.525Z",
+      "crawledAt": "2026-05-19T22:41:09.500Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -257,11 +264,12 @@
       "featured": false,
       "postedDate": "2026-04-23",
       "applyUrl": "3892",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.525Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -278,7 +286,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/oberaerztin-oberarzt-neurorehabilitation-a/502397c6-c020-4294-b490-6a9d2c0f61fe",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.527Z",
+      "crawledAt": "2026-05-19T22:41:09.502Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -293,11 +301,12 @@
       "featured": false,
       "postedDate": "2026-04-20",
       "applyUrl": "3441",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.527Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -314,7 +323,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/assistenzaerztin-assistenzarzt-neurorehabilitation-a/d24e37cf-e968-4f0f-ad27-e04027a77018",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.529Z",
+      "crawledAt": "2026-05-19T22:41:09.504Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -329,11 +338,12 @@
       "featured": false,
       "postedDate": "2026-04-20",
       "applyUrl": "3211",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.529Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -350,7 +360,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-fachfrau-fachmann-gesundheit-a/779a3692-454f-4de8-be2f-ebfb929778a5",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.532Z",
+      "crawledAt": "2026-05-19T22:41:09.506Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -365,11 +375,12 @@
       "featured": false,
       "postedDate": "2026-04-20",
       "applyUrl": "3047",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.532Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -386,7 +397,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-als-early-bird-oder-night-owl-a/eb82813c-0b0e-4dd6-b845-7188cc474cfa",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.533Z",
+      "crawledAt": "2026-05-19T22:41:09.507Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -401,11 +412,12 @@
       "featured": false,
       "postedDate": "2026-04-20",
       "applyUrl": "2964",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.533Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -422,7 +434,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/praktikantin-praktikant-sporttherapie/9e13c111-ebe3-49e3-98f0-38ef0dcd0b7d",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.534Z",
+      "crawledAt": "2026-05-19T22:41:09.509Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -437,11 +449,12 @@
       "featured": false,
       "postedDate": "2026-03-18",
       "applyUrl": "3844",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.534Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -458,7 +471,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/dipl-pflegefachperson-hf-fh-neurorehabilitation-a-im-frueh-und-spaetdienst/82eb2166-7a10-4ba5-94ce-c697cde6f034",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.536Z",
+      "crawledAt": "2026-05-19T22:41:09.510Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -473,11 +486,12 @@
       "featured": false,
       "postedDate": "2026-02-16",
       "applyUrl": "2886",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.536Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -494,7 +508,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/berufsbildner-in-dipl-pflegefachperson-hf-fh-a/ad835304-93b3-48f4-8dc1-26ace217e71e",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.538Z",
+      "crawledAt": "2026-05-19T22:41:09.513Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -509,11 +523,12 @@
       "featured": false,
       "postedDate": "2026-02-16",
       "applyUrl": "2894",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.538Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -530,7 +545,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/fachfrau-fachmann-gesundheit-neurorehabilitation-a-im-frueh-und-spaetdienst/8d696f45-158b-405b-9851-2a66b6d33ae7",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.539Z",
+      "crawledAt": "2026-05-19T22:41:09.514Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -545,11 +560,12 @@
       "featured": false,
       "postedDate": "2026-02-16",
       "applyUrl": "2942",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.539Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -566,7 +582,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/praktikantin-praktikant-pflege-neurorehabilitation-a/d5cb13f9-b276-4b49-9d69-193a2e9b57f9",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.541Z",
+      "crawledAt": "2026-05-19T22:41:09.516Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -581,11 +597,12 @@
       "featured": false,
       "postedDate": "2026-02-16",
       "applyUrl": "3434",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.541Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -602,7 +619,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/fachpersonen-pflege-im-flexiblen-pflegepool-a/1152bc4c-bd08-403b-8d43-986c62439636",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.542Z",
+      "crawledAt": "2026-05-19T22:41:09.519Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -617,11 +634,12 @@
       "featured": false,
       "postedDate": "2026-01-14",
       "applyUrl": "1895",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.542Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -638,7 +656,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/neuropsychologin-neuropsychologe-a/7142282f-00ec-4851-b2f5-b884cec29efb",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.544Z",
+      "crawledAt": "2026-05-19T22:41:09.520Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -653,11 +671,12 @@
       "featured": false,
       "postedDate": "2026-01-14",
       "applyUrl": "3602",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.544Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -674,7 +693,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/eignungspraktikum-zum-studium-dipl-pflegefachfrau-pflegefachmann-hf-fh-a/441f7e8a-f768-4396-b9fe-c886ef55e55c",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.545Z",
+      "crawledAt": "2026-05-19T22:41:09.522Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -689,11 +708,12 @@
       "featured": false,
       "postedDate": "2026-01-12",
       "applyUrl": "265",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.545Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -710,7 +730,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/studierende-studierender-hf-fh-pflege-akut-somatik-a/70b0b145-c264-46c2-9724-755b6cabc071",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.547Z",
+      "crawledAt": "2026-05-19T22:41:09.523Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -725,11 +745,12 @@
       "featured": false,
       "postedDate": "2026-01-12",
       "applyUrl": "266",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.547Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -746,7 +767,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/parkinson-nurse-dipl-pflegefachperson-a/e229f81f-f659-48a9-85a1-7176e4c797fe",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.549Z",
+      "crawledAt": "2026-05-19T22:41:09.525Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -761,11 +782,12 @@
       "featured": false,
       "postedDate": "2025-12-19",
       "applyUrl": "3665",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.549Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -782,7 +804,7 @@
       "url": "https://jobs.kliniklengg.ch/offene-stellen/medizinische-sekretaerin-medizinischer-sekretaer/2383ecbe-f2e7-4db2-8ca9-4f4e8474d6d4",
       "source": "Klinik Lengg Dedicated Parser (Prospective medium 1008440)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T12:22:17.493Z",
+      "crawledAt": "2026-05-19T22:41:09.467Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -797,16 +819,16 @@
       "featured": false,
       "postedDate": "2025-12-18",
       "applyUrl": "3432",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T12:22:17.493Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
