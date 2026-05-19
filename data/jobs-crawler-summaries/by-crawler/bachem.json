@@ -1,18 +1,56 @@
 {
   "key": "bachem",
   "label": "Bachem AG",
-  "generatedAt": "2026-05-19T20:23:34.996Z",
+  "generatedAt": "2026-05-19T21:36:24.593Z",
   "total": 74,
-  "newCount": 74,
-  "updatedCount": 0,
+  "newCount": 1,
+  "updatedCount": 73,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1819403,
-  "avgDurationMs": 1819403,
+  "durationMs": 45228,
+  "avgDurationMs": 45228,
   "durationHistory": [
-    1819403
+    45228
   ],
   "newJobs": [
+    {
+      "id": "bachem-909bf85805f0",
+      "slug": "lab-technician-qc-late-phase-100-w-m-d-bachem-bubendorf",
+      "company": "Bachem AG",
+      "companyKey": "bachem",
+      "companyDomain": "bachem.com",
+      "title": "Lab Technician QC - Late Phase 100% (w/m/d)",
+      "needsRetranslation": true,
+      "location": "Bubendorf",
+      "canton": "BL",
+      "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-QC-Late-Phase-100-%28wmd%29-BL-4416/1386375033/",
+      "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T21:35:47.613Z",
+      "addressLocality": "Bubendorf",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4416",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-22",
+      "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1386375033/?locale=de_DE",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "bachem-ef15ff513fb6",
       "slug": "global-technology-lead-technical-operations-spray-drying-f-m-d-100-bachem-bubendorf",
@@ -26,7 +64,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Global-Technology-Lead-Technical-Operations-Spray-Drying-%28fmd%29%2C-100-BL-4416/1385543733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:19.180Z",
+      "crawledAt": "2026-05-19T21:35:43.193Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -41,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1385543733/?locale=en_GB",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T19:53:19.180Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +101,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Global-Technology-Lead-Technical-Operations-Spray-Drying-%28fmd%29%2C-100-BL-4416/1385543633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:19.692Z",
+      "crawledAt": "2026-05-19T21:35:43.722Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -77,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1385543633/?locale=en_US",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:19.692Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +138,7 @@
       "url": "https://careers.bachem.com/job/Vionnaz-Senior-Manager-Regulatory-Affairs-%28fmd%29-100-Vala-1895/1227100301/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:20.229Z",
+      "crawledAt": "2026-05-19T21:35:44.307Z",
       "addressLocality": "Vionnaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -113,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1227100301/?locale=en_US",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:20.229Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +175,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-CMC-Project-Leader-%28fmd%29%2C-100-BL-4416/1253028901/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:18.143Z",
+      "crawledAt": "2026-05-19T21:35:42.056Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -149,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1253028901/?locale=en_US",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:18.143Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +212,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Process-Specialist-Manufacturing-&-Process-Technology-%28wmd%29%2C-100-BL-4416/1394530433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:54.034Z",
+      "crawledAt": "2026-05-19T21:36:20.061Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -185,11 +227,12 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1394530433/?locale=de_DE",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:54.034Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +249,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Process-Specialist-Manufacturing-&-Process-Technology-%28wmd%29%2C-100-BL-4416/1394528333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:54.541Z",
+      "crawledAt": "2026-05-19T21:36:20.631Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -221,11 +264,12 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1394528333/?locale=de_DE",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:54.541Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -242,7 +286,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Order-Manager-CMC-%28mwd%29%2C-80-100-BL-4416/1376021733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:53.526Z",
+      "crawledAt": "2026-05-19T21:36:19.393Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -257,11 +301,12 @@
       "featured": false,
       "postedDate": "2026-05-17",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1376021733/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:53.526Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -278,7 +323,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Quality-IT-Systems-Administrator-%28fmd%29%2C-100-BL-4416/1385110433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:17.629Z",
+      "crawledAt": "2026-05-19T21:35:41.503Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -293,11 +338,12 @@
       "featured": false,
       "postedDate": "2026-05-16",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1385110433/?locale=en_US",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:17.629Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -314,7 +360,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Director-GSCM-Network-&-Demand-Center-%28wmd%29%2C-100-BL-4416/1384413333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:17.102Z",
+      "crawledAt": "2026-05-19T21:35:40.955Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -329,11 +375,12 @@
       "featured": false,
       "postedDate": "2026-05-15",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1384413333/?locale=en_US",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:17.102Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -350,7 +397,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-QA-Engineering-Manager-%28wmd%29%2C-100-BL-4416/1261351201/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:38.300Z",
+      "crawledAt": "2026-05-19T21:36:03.192Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -365,11 +412,12 @@
       "featured": false,
       "postedDate": "2026-05-14",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1261351201/?locale=de_DE",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:38.300Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -386,7 +434,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Production-Technician-Oligo-Prod_-I-%28wmd%29%2C-100-BL-4416/1189349201/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:43.601Z",
+      "crawledAt": "2026-05-19T21:36:08.799Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -401,11 +449,12 @@
       "featured": false,
       "postedDate": "2026-05-14",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1189349201/?locale=de_DE",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:43.601Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -422,7 +471,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Scientist-QC-100-%28mwd%29-BL-4416/1280546601/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:53.011Z",
+      "crawledAt": "2026-05-19T21:36:18.740Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -437,11 +486,12 @@
       "featured": false,
       "postedDate": "2026-05-14",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1280546601/?locale=de_DE",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:53.011Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -458,7 +508,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-R&D-%28wmd%29%2C-100-BL-4416/1373911333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:20.771Z",
+      "crawledAt": "2026-05-19T21:35:44.855Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -473,11 +523,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1373911333/?locale=en_US",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:20.771Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -494,7 +545,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-IT-Success-&-Enablement-Manager-%28fmd%29%2C-100-BL-4416/1393463133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:32.508Z",
+      "crawledAt": "2026-05-19T21:35:56.932Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -509,11 +560,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1393463133/?locale=en_US",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:32.508Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -530,7 +582,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Operator-Support-Team-Manufacturing-%28wmd%29-BL-4416/1185866001/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:37.253Z",
+      "crawledAt": "2026-05-19T21:36:01.975Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -545,11 +597,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1185866001/?locale=de_DE",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:37.253Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -566,7 +619,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Lab-Technician-QC-Late-Phase-100-%28mwd%29-BL-4416/1372540333/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:38.814Z",
+      "crawledAt": "2026-05-19T21:36:03.736Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -581,11 +634,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1372540333/?locale=en_US",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:38.814Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -602,7 +656,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Lab-Technician-QC-100-%28mwd%29-BL-4416/1372540433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:39.356Z",
+      "crawledAt": "2026-05-19T21:36:04.284Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -617,11 +671,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1372540433/?locale=de_DE",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:39.356Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -638,7 +693,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Operational-Excellence-Business-Partner-Bubendorf-%28fmd%29-100-BL-4416/1373973233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:39.877Z",
+      "crawledAt": "2026-05-19T21:36:04.933Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -653,11 +708,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1373973233/?locale=en_US",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:39.877Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -674,7 +730,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Specialist-QA-Quality-Systems-QMS-100-%28mwd%29-BL-4416/1393241933/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:49.839Z",
+      "crawledAt": "2026-05-19T21:36:15.259Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -689,11 +745,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1393241933/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:49.839Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -710,7 +767,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Global-Marketing-Analyst-%28fmd%29%2C-100-BL-4416/1392744233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:18.661Z",
+      "crawledAt": "2026-05-19T21:35:42.456Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -725,11 +782,12 @@
       "featured": false,
       "postedDate": "2026-05-12",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1392744233/?locale=en_US",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:18.661Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -746,7 +804,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Senior-Controller-Finance-Business-Partner-Global-IT-%28wmd%29%2C-100-BL-4416/1392771433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:28.209Z",
+      "crawledAt": "2026-05-19T21:35:52.649Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -761,11 +819,12 @@
       "featured": false,
       "postedDate": "2026-05-12",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1392771433/?locale=de_DE",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:28.209Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -782,7 +841,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Lab-Technician-QC-Late-Phase-100-%28wmd%29-befristet-12-Monate-BL-4416/1392765633/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:28.745Z",
+      "crawledAt": "2026-05-19T21:35:53.198Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -797,11 +856,12 @@
       "featured": false,
       "postedDate": "2026-05-12",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1392765633/?locale=en_US",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:28.745Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -818,7 +878,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Group-Leader-Customer-Service-CMC-%28wmd%29-80-100-BL-4416/1383198133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:50.919Z",
+      "crawledAt": "2026-05-19T21:36:16.422Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -833,11 +893,12 @@
       "featured": false,
       "postedDate": "2026-05-12",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1383198133/?locale=de_DE",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:50.919Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -854,7 +915,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Process-Specialist-&-Training-Leader-Chromatography-%28wmd%29-%28Neubau-Geb%C3%A4ude-K%29%2C-100-BL-4416/1392755733/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:52.497Z",
+      "crawledAt": "2026-05-19T21:36:18.213Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -869,11 +930,12 @@
       "featured": false,
       "postedDate": "2026-05-12",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1392755733/?locale=de_DE",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:52.497Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -890,7 +952,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Group-Leader-QA-Project-Management-100-%28fmd%29-BL-4416/1392389233/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:27.671Z",
+      "crawledAt": "2026-05-19T21:35:52.110Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -905,11 +967,12 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1392389233/?locale=de_DE",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:27.671Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -926,7 +989,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Maintenance-Technician-Electrotechnics-in-der-Gruppe-Elektrotechnik-%28wmd%29%2C-100-BL-4416/1293193501/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:36.733Z",
+      "crawledAt": "2026-05-19T21:36:01.409Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -941,11 +1004,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1293193501/?locale=de_DE",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:36.733Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -962,7 +1026,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Chemikerin-%28wmd%29-100-BL-4416/1373458533/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:44.119Z",
+      "crawledAt": "2026-05-19T21:36:09.336Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -977,11 +1041,12 @@
       "featured": false,
       "postedDate": "2026-05-10",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1373458533/?locale=de_DE",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:44.119Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -998,7 +1063,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Detailed-Scheduler-%28wmd%29%2C-100-BL-4416/1382661433/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:33.034Z",
+      "crawledAt": "2026-05-19T21:35:57.473Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1013,11 +1078,12 @@
       "featured": false,
       "postedDate": "2026-05-09",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1382661433/?locale=de_DE",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:33.034Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1034,7 +1100,7 @@
       "url": "https://careers.bachem.com/job/Bubendorf-Maintenance-Technician-Clean-Utilities-%28fmd%29%2C-100-BL-4416/1391887133/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:29.299Z",
+      "crawledAt": "2026-05-19T21:35:53.736Z",
       "addressLocality": "Bubendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1049,11 +1115,12 @@
       "featured": false,
       "postedDate": "2026-05-08",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1391887133/?locale=de_DE",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:29.299Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1070,7 +1137,7 @@
       "url": "https://careers.bachem.com/job/Stein-AG-Technical-Operations-Process-Scientist-%28Downstream-API%29-100-%28mwd%29-AG-4332/1372725033/",
       "source": "Bachem AG Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T19:53:47.212Z",
+      "crawledAt": "2026-05-19T21:36:12.578Z",
       "addressLocality": "Stein AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1085,16 +1152,16 @@
       "featured": false,
       "postedDate": "2026-05-08",
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1372725033/?locale=de_DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:47.212Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
