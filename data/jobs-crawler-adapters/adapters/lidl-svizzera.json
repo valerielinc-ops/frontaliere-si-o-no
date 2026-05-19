@@ -20,11 +20,21 @@
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-604777",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lugano-588267",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-minusio-606859",
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231"
+    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231",
+    "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-lugano-691648"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch search API (/it/search_api/jobsearch) using Ticino and Grigioni italiano geo queries.",
-  "updatedAt": "2026-05-18T22:17:36.492Z",
+  "updatedAt": "2026-05-19T12:07:43.424Z",
   "seedMetaByUrl": {
+    "https://team.lidl.ch/it/jobs/ch-tuttofare-vendita-m-f-d-20-40-lugano-691648": {
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/it/jobs/361-venditore-venditrice-m-f-d-20-40-riazzino-674241": {
       "location": "Riazzino",
       "addressLocality": "Riazzino",
