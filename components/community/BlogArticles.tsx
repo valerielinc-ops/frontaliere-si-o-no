@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo, useCallback, Suspense, memo, Fragment, type FC, type FormEvent, type ReactNode, type ReactElement } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback, Suspense, memo, Fragment, type FC, type ReactNode, type ReactElement } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
@@ -13,13 +13,11 @@ const KEYWORD_LINKS_GI = KEYWORD_LINKS.map(kl => ({
  giPattern: new RegExp(kl.pattern.source, 'gi'),
 }));
 import { Analytics } from '@/services/analytics';
-import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User, List, ChevronDown, RefreshCw, Bookmark as BookmarkIcon, Printer, ThumbsUp, ThumbsDown, MessageSquareMore, HelpCircle, Loader2, Shield } from 'lucide-react';
-import { eagerAuth, isLinkedInSignInAvailable, signInWithGoogle, signInWithLinkedIn, renderGoogleButtonWithReadiness } from '@/services/authService';
+import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User, List, ChevronDown, RefreshCw, Bookmark as BookmarkIcon, Printer, ThumbsUp, ThumbsDown, MessageSquareMore, HelpCircle } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { PARTNERS, buildAffiliateUrl, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 import { AD_SLOTS, isPlaceholderAdSlot } from '@/services/adsenseSlots';
-import { computeArticleAdSlots } from '@/services/articleAdSlots';
 import Callout from '@/components/shared/Callout';
 import { resolveCompanyLogoUrl, resolveCompanyWebsiteHost } from '@/services/jobDataNormalization';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
@@ -293,13 +291,58 @@ function tryRenderMdTable(text: string, keyPrefix: string, navigators?: Navigato
  );
 }
 
-function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactElement {
+/** Min words of content that must elapse between two consecutive inline ads.
+ *  Prevents back-to-back ad stacking when adjacent paragraphs are short, which
+ *  is the dominant cause of CLS spikes on article pages.
+ *  Conservative profile (2026-05-19). */
+const AD_MIN_WORD_GAP = 200;
+
+function countWordsIn(text: string): number {
+ const t = text.trim();
+ if (!t) return 0;
+ return t.split(/\s+/).filter(Boolean).length;
+}
+
+function renderFormattedContent(
+ text: string,
+ navigators?: NavigatorMap,
+ adRenderer?: (keyPrefix: string) => ReactElement | null,
+): ReactElement {
  // Auto-link keywords if navigators provided
  const processed = navigators ? autoLinkKeywords(text, navigators) : text;
 
- // If no block separators, render as a single paragraph (backward compatible)
+ const renderedBlocks: ReactElement[] = [];
+
+ // Section-aware ad gating: emit an ad before each H2 boundary (so the ad sits
+ // between section A's end and section B's H2) and once at end-of-segment,
+ // when ≥AD_MIN_WORD_GAP words of content have elapsed since the previous ad.
+ // The renderer enforces the per-article cap (returns null when capped).
+ let wordsSinceLastAd = 0;
+ let sawContent = false;
+ const tryEmitAd = (keyPrefix: string): void => {
+  if (!adRenderer) return;
+  if (!sawContent || wordsSinceLastAd < AD_MIN_WORD_GAP) return;
+  const ad = adRenderer(keyPrefix);
+  if (!ad) return;
+  renderedBlocks.push(ad);
+  wordsSinceLastAd = 0;
+  sawContent = false;
+ };
+ const markContent = (words: number): void => {
+  wordsSinceLastAd += words;
+  sawContent = true;
+ };
+
+ // If no block separators, render as a single paragraph.
  if (!processed.includes('\n\n') && !processed.includes('\n')) {
- return <p className="text-body leading-relaxed">{renderInlineFormatting(processed, navigators)}</p>;
+  renderedBlocks.push(
+   <p key="p-solo" className="text-body leading-relaxed">
+    {renderInlineFormatting(processed, navigators)}
+   </p>,
+  );
+  markContent(countWordsIn(processed));
+  tryEmitAd('post-solo');
+  return <div className="space-y-5">{renderedBlocks}</div>;
  }
 
  const blocks = processed.split('\n\n').filter(b => b.trim());
@@ -317,7 +360,6 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  || /(cambio|banche|tool|recommended|conseill|empfohlen|vergleich|comparatore)/i.test(v);
  };
 
- const renderedBlocks: ReactElement[] = [];
  let blockquoteCount = 0;
  for (let idx = 0; idx < blocks.length; idx += 1) {
  const trimmed = blocks[idx].trim();
@@ -341,6 +383,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  ))}
  </div>
  );
+ if (inlineBody) markContent(countWordsIn(inlineBody));
  continue;
  }
 
@@ -363,11 +406,15 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  ))}
  </div>
  );
+ if (inlineBody) markContent(countWordsIn(inlineBody));
  continue;
  }
 
- // Heading: ## (supports malformed blocks where heading and paragraph are in the same block)
+ // Heading: ## — natural section boundary. Try emitting an ad BEFORE the H2
+ // (so the ad sits between the previous section's end and this H2's title).
  if (trimmed.startsWith('## ')) {
+ tryEmitAd(`pre-h2-${idx}`);
+
  const lines = trimmed.split('\n');
  const rawHeadingLine = lines[0].replace(/^##\s+/, '').trim();
  let heading = rawHeadingLine;
@@ -405,6 +452,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  </div>
  </div>
  );
+ if (toolBody) markContent(countWordsIn(toolBody));
  continue;
  }
 
@@ -421,6 +469,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  ))}
  </div>
  );
+ if (inlineBody) markContent(countWordsIn(inlineBody));
  continue;
  }
 
@@ -434,23 +483,27 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
 
  // Data box: 📊 prefix
  if (trimmed.startsWith('📊')) {
+ const body = trimmed.slice(2).trim();
  renderedBlocks.push(
  <div key={`data-${idx}`} className="bg-accent-subtle border border-accent-border rounded-xl p-4 flex gap-3">
  <BarChart3 size={20} className="text-link shrink-0 mt-0.5" />
- <p className="text-accent leading-relaxed">{renderInlineFormatting(trimmed.slice(2).trim(), navigators)}</p>
+ <p className="text-accent leading-relaxed">{renderInlineFormatting(body, navigators)}</p>
  </div>
  );
+ markContent(countWordsIn(body));
  continue;
  }
 
  // Tip box: 💡 prefix
  if (trimmed.startsWith('💡')) {
+ const body = trimmed.slice(2).trim();
  renderedBlocks.push(
  <div key={`tip-${idx}`} className="bg-warning-subtle border border-warning-border rounded-xl p-4 flex gap-3">
  <Lightbulb size={20} className="text-warning shrink-0 mt-0.5" />
- <p className="text-warning leading-relaxed">{renderInlineFormatting(trimmed.slice(2).trim(), navigators)}</p>
+ <p className="text-warning leading-relaxed">{renderInlineFormatting(body, navigators)}</p>
  </div>
  );
+ markContent(countWordsIn(body));
  continue;
  }
 
@@ -463,6 +516,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  <p className="text-danger leading-relaxed">{renderInlineFormatting(content, navigators)}</p>
  </div>
  );
+ markContent(countWordsIn(content));
  continue;
  }
 
@@ -487,6 +541,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  </p>
  );
  }
+ markContent(countWordsIn(quote));
  continue;
  }
 
@@ -494,6 +549,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  const standaloneTable = tryRenderMdTable(trimmed, `table-${idx}`, navigators);
  if (standaloneTable) {
  renderedBlocks.push(standaloneTable);
+ markContent(countWordsIn(trimmed));
  continue;
  }
 
@@ -510,16 +566,21 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  ))}
  </ul>
  );
+ markContent(items.reduce((sum, item) => sum + countWordsIn(item), 0));
  continue;
  }
 
- // Plain paragraph (default)
+ // Plain paragraph (default) — no mid-paragraph splitting (conservative profile).
  renderedBlocks.push(
  <p key={`p-${idx}`} className="text-body leading-relaxed">
  {renderInlineFormatting(trimmed, navigators)}
  </p>
  );
+ markContent(countWordsIn(trimmed));
  }
+
+ // Final ad slot — the last section gets its own breakpoint at end-of-segment.
+ tryEmitAd('post-end');
 
  return <div className="space-y-5">{renderedBlocks}</div>;
 }
@@ -875,10 +936,6 @@ interface BlogArticlesProps {
  selectedArticle?: BlogArticleId | null;
  /** Navigate to an individual article (updates URL) */
  onSelectArticle?: (articleId: BlogArticleId | null) => void;
- /** Firebase auth state — bypasses content gate when true (mirrors JobBoard) */
- isLoggedIn?: boolean;
- /** True while Firebase auth is resolving — gate stays closed until resolved */
- authLoading?: boolean;
 }
 
 /* CTA widget config */
@@ -976,8 +1033,6 @@ const SEO_CLUSTER_ACTIONS: Record<SeoCluster, NavAction[]> = {
 function BlogArticles({
  selectedArticle = null,
  onSelectArticle,
- isLoggedIn = false,
- authLoading = false,
 }: BlogArticlesProps) {
  const nav = useNavigation();
  const { t } = useTranslation();
@@ -1034,75 +1089,6 @@ function BlogArticles({
 
  // Mobile infinite scroll: accumulate articles instead of paginating
  const [mobileArticleLimit, setMobileArticleLimit] = useState(ARTICLES_PER_PAGE);
-
- // Content gate auth state (Google / LinkedIn / email)
- const inlineGoogleButtonRef = useRef<HTMLDivElement | null>(null);
- const [inlineGoogleButtonReady, setInlineGoogleButtonReady] = useState(false);
- const [linkedInAvailable, setLinkedInAvailable] = useState(false);
- const [authBusy, setAuthBusy] = useState<'google' | 'email' | 'linkedin' | null>(null);
- const [authError, setAuthError] = useState<string | null>(null);
- const [gateEmailInput, setGateEmailInput] = useState('');
-
- useEffect(() => {
-  isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
- }, []);
-
- // Mount Google Sign-In button when an article is selected and its body is ready
- useEffect(() => {
-  if (!selectedArticle || !bodyReady) return;
-  eagerAuth();
-  const tid = window.setTimeout(() => {
-   const el = inlineGoogleButtonRef.current;
-   if (!el) return;
-   void renderGoogleButtonWithReadiness(el).then(setInlineGoogleButtonReady).catch(() => {});
-  }, 150);
-  return () => window.clearTimeout(tid);
- }, [selectedArticle, bodyReady]);
-
- const handleBlogGoogleAuth = useCallback(async () => {
-  setAuthBusy('google');
-  setAuthError(null);
-  try {
-   const user = await signInWithGoogle();
-   if (!user) {
-    setAuthBusy(null);
-    return;
-   }
-   const email = (user?.email as string | undefined) || null;
-   if (email) {
-    try { localStorage.setItem('ft_job_email', email); } catch { /* quota */ }
-   }
-   Analytics.trackSelectContent('blog_content_gate', 'auth_success_google');
-   window.location.reload();
-  } catch {
-   setAuthError(t('blog.gate.authFailed'));
-   setAuthBusy(null);
-  }
- }, [t]);
-
- const handleBlogLinkedInAuth = useCallback(() => {
-  setAuthBusy('linkedin');
-  setAuthError(null);
-  Analytics.trackSelectContent('blog_content_gate', 'auth_method_click_linkedin');
-  signInWithLinkedIn().catch(() => {
-   setAuthError(t('blog.gate.authFailed'));
-   setAuthBusy(null);
-  });
- }, [t]);
-
- const handleBlogEmailAccess = useCallback((e: FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  const email = gateEmailInput.trim();
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-   setAuthError(t('blog.gate.emailInvalid'));
-   return;
-  }
-  setAuthBusy('email');
-  setAuthError(null);
-  try { localStorage.setItem('ft_job_email', email); } catch { /* quota */ }
-  Analytics.trackSelectContent('blog_content_gate', 'auth_success_email');
-  window.location.reload();
- }, [gateEmailInput, t]);
 
  // FRO-314: Load blog meta translations AND articles data in parallel on mount.
  // Dynamic import of blog-articles-data (122KB) so it doesn't block component parse time.
@@ -1213,13 +1199,9 @@ function BlogArticles({
  // Skip injection if translations aren't loaded yet
  if (title.startsWith('blog.article.')) return;
  const canonicalUrl = `https://frontaliereticino.ch${buildPath({ activeTab: 'blog', blogArticle: article.id })}`;
- // Compute actual body word count from translated segments — matches the
- // bodyWordCount used by contentGateApplies in renderArticle. Determines
- // whether this URL is paywalled for crawlers (Flexible Sampling pattern).
  const articleBodyText = collectBodyParts(article.id, t).join(' ');
  const articleBodyWordCount = articleBodyText.split(/\s+/).filter(Boolean).length;
  const wordCount = articleBodyWordCount || estimateReadingMinutes(article.id, t) * 200;
- const articlePaywallable = articleBodyWordCount >= 300;
  const jsonLd: Record<string, unknown> = {
  '@context': 'https://schema.org',
  '@type': 'NewsArticle',
@@ -1246,7 +1228,7 @@ function BlogArticles({
  mainEntityOfPage: canonicalUrl,
  image: `https://frontaliereticino.ch${article.image}`,
  inLanguage: locale,
- isAccessibleForFree: !articlePaywallable,
+ isAccessibleForFree: true,
  articleSection: article.category,
  wordCount,
  speakable: {
@@ -1254,17 +1236,6 @@ function BlogArticles({
  cssSelector: ['h1', '.article-body p:first-of-type', '[data-speakable]'],
  },
  };
- // Google Flexible Sampling: when the article is paywalled, mark the
- // hidden second half via cssSelector so crawlers can index full content
- // without triggering cloaking penalties. The selector matches the DOM
- // markers applied in renderArticle.
- if (articlePaywallable) {
- jsonLd.hasPart = {
- '@type': 'WebPageElement',
- isAccessibleForFree: false,
- cssSelector: '.paywall-hidden-content',
- };
- }
  const scriptId = 'blog-article-jsonld';
  // Remove any pre-existing BlogPosting JSON-LD from static HTML (ogPagesPlugin)
  // to prevent duplicate schemas during SPA hydration
@@ -1718,37 +1689,9 @@ function BlogArticles({
  const adEligible = bodyReady && presentSegments.length >= 3 && bodyWordCount >= 220 && bodyCharCount >= 1400;
  const adEligibleInline = adEligible;
 
- // Content gate — mirrors JobBoard.tsx hasAccess logic exactly:
- //   Firebase auth (Google/LinkedIn) OR legacy email localStorage OR crawler UA.
- // Crawlers MUST bypass the gate: without this, SEO content goes missing on
- // half of long articles and Google indexes the "sign in" call-to-action
- // instead of the real text.
- const isCrawlerVisitor = typeof window !== 'undefined' &&
-  /bot|crawler|spider|crawling|googlebot|bingbot|yandexbot|duckduckbot|baiduspider|semrushbot|ahrefsbot|applebot|slurp|facebookexternalhit|linkedinbot|twitterbot|whatsapp/i.test(
-   navigator.userAgent || ''
-  );
- const hasEmailAccess = typeof window !== 'undefined' && (
-  !!localStorage.getItem('ft_job_email') ||
-  !!localStorage.getItem('frontaliere_job_email_access')
- );
- const hasArticleAccess = isLoggedIn || hasEmailAccess || isCrawlerVisitor;
- // Article is "paywallable" when it has enough real text to justify gating.
- // Decoupled from contentGateApplies so the .paywall-hidden-content marker and
- // the JSON-LD hasPart selector stay stable per URL (what crawlers see), while
- // the actual hiding only fires for the current visitor when they lack access.
- // Threshold (300w) covers 99.6% of the corpus and excludes thin pages (<100w).
- const paywallable = bodyWordCount >= 300;
- // Keep gate closed while auth resolves — avoids a brief flash of "sign in"
- // for users who are already logged in when they land on an article.
- const contentGateApplies = !authLoading && !hasArticleAccess && paywallable;
- const visibleSegmentCount = paywallable ? Math.ceil(presentSegments.length / 2) : presentSegments.length;
- // Inline ad placement — scalable density (every >=2 segments AND >=250 words),
- // capped at 5 inline ads. Pure walk over visible segments, paywall-aware,
- // heading-safe. Cheap enough to recompute on every render.
- const adInsertionPlan = adEligibleInline
-  ? computeArticleAdSlots(presentSegments, visibleSegmentCount, { minimumWhenEligible: 1 })
-  : null;
- // Slot config lookup table (positions 1..5 → AD_SLOTS entries).
+ // Slot config lookup table (positions 1..5 → AD_SLOTS entries). Cycled by the
+ // per-paragraph and inter-segment ad renderers — Google AdSense allows the
+ // same ad-unit to be rendered multiple times on the same page.
  const articleInlineSlotByPosition = [
   AD_SLOTS.ARTICLE_INLINE_MOBILE,
   AD_SLOTS.ARTICLE_INLINE_MOBILE_2,
@@ -1756,6 +1699,38 @@ function BlogArticles({
   AD_SLOTS.ARTICLE_INLINE_MOBILE_4,
   AD_SLOTS.ARTICLE_INLINE_MOBILE_5,
  ] as const;
+ // Per-article cap on inline ads (conservative profile, 2026-05-19).
+ // Combined with the section-aware gating + 200-word gap inside
+ // renderFormattedContent, this targets ~4 ads on a 1500w article and ~7-8
+ // ads on a 3000w article — ratio under Better Ads ≈30% guideline.
+ const ARTICLE_INLINE_AD_CAP = 8;
+ // Mutable counter for the per-paragraph ad renderer; reset on every render
+ // pass so React keys stay stable across re-renders of the same article.
+ let inlineAdCounter = 0;
+ const makeInlineAd = (keyPrefix: string): ReactElement | null => {
+  if (!adEligibleInline) return null;
+  if (inlineAdCounter >= ARTICLE_INLINE_AD_CAP) return null;
+  const pos = inlineAdCounter % articleInlineSlotByPosition.length;
+  const slotConfig = articleInlineSlotByPosition[pos];
+  const n = inlineAdCounter;
+  inlineAdCounter += 1;
+  if (!slotConfig || isPlaceholderAdSlot(slotConfig.slot)) return null;
+  return (
+   <Suspense
+    key={`${keyPrefix}-ad-${n}`}
+    fallback={<div style={{ minHeight: slotConfig.placeholderMinHeight, contain: 'content' }} className="my-4" />}
+   >
+    <AdSenseBanner
+     adSlot={slotConfig.slot}
+     adFormat={slotConfig.format}
+     adLayout={'layout' in slotConfig ? slotConfig.layout : undefined}
+     fullWidthResponsive={false}
+     enabled={adEligibleInline}
+     className="my-4"
+    />
+   </Suspense>
+  );
+ };
 
  // TOC headings extracted from article body
  const tocHeadings = extractHeadings(bodySegments);
@@ -2097,16 +2072,10 @@ function BlogArticles({
 
  <div className="space-y-4">
  {presentSegments.map((segment, idx) => {
-  // Anti-cloaking: paywalled tail segments are always rendered in the DOM
-  // (so crawlers can index the full article) but hidden via `display:none`
-  // for visitors without access. The `.paywall-hidden-content` class is
-  // the Schema.org hasPart cssSelector marker.
-  const isInPaywall = paywallable && idx >= visibleSegmentCount;
-  const hideForVisitor = isInPaywall && contentGateApplies;
   return (
  <Fragment key={idx}>
  {/* Interstitials after body1 (index 0) — all viewports */}
- {!hideForVisitor && idx === 1 && (
+ {idx === 1 && (
  <>
  {/* Live fuel price table — only for fuel-price articles */}
  {FUEL_PRICE_ARTICLE_IDS.has(article.id) && (
@@ -2118,28 +2087,8 @@ function BlogArticles({
  </>
  )}
 
- {/* Scalable inline ads — placement computed by computeArticleAdSlots.
-   Renders before the segment at `idx` when the placer decided to plant one there. */}
- {!hideForVisitor && adInsertionPlan?.insertions.has(idx) && (() => {
-  const position = adInsertionPlan.insertions.get(idx)!;
-  const slotConfig = articleInlineSlotByPosition[position - 1];
-  if (!slotConfig || isPlaceholderAdSlot(slotConfig.slot)) return null;
-  return (
-   <Suspense fallback={<div style={{ minHeight: slotConfig.placeholderMinHeight, contain: 'content' }} className="my-4" />}>
-    <AdSenseBanner
-     adSlot={slotConfig.slot}
-     adFormat={slotConfig.format}
-     adLayout={slotConfig.layout}
-     fullWidthResponsive={false}
-     enabled={adEligibleInline}
-     className="my-4"
-    />
-   </Suspense>
-  );
- })()}
-
  {/* Interstitials after body2 (index 1) */}
- {!hideForVisitor && idx === 2 && (
+ {idx === 2 && (
  <>
  {/* Inline job teaser — shows 1-2 relevant jobs mid-article */}
  {relatedJobs.length > 0 && (
@@ -2201,144 +2150,10 @@ function BlogArticles({
  </>
  )}
 
- {isInPaywall ? (
- <div className={hideForVisitor ? 'paywall-hidden-content hidden' : 'paywall-hidden-content'}>
- {renderFormattedContent(segment, navigators)}
- </div>
- ) : (
- renderFormattedContent(segment, navigators)
- )}
+ {renderFormattedContent(segment, navigators, makeInlineAd)}
  </Fragment>
   );
  })}
-
- {/* Content gate: fade overlay + sign-in prompt for unauthenticated users */}
- {contentGateApplies && (
-  <>
-  {/* Gradient fade-out overlay */}
-  <div className="relative h-32 -mt-32 bg-gradient-to-t from-surface to-transparent pointer-events-none" />
-
-  {/* Sign-in prompt — 3-method (Google / LinkedIn / Email) */}
-  <div className="relative z-10 mx-auto max-w-lg rounded-2xl border border-accent-border bg-accent-subtle p-5 sm:p-6">
-   <div className="flex items-center gap-3 mb-3">
-    <div className="flex-shrink-0 p-2 bg-accent-subtle rounded-stripe">
-     <BookOpen className="w-5 h-5 text-accent" />
-    </div>
-    <div>
-     <h3 className="text-lg font-bold font-display text-heading">{t('blog.gate.title')}</h3>
-     <p className="text-sm text-subtle">{t('blog.gate.subtitle')}</p>
-    </div>
-   </div>
-
-   {/* Trust signals */}
-   <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
-    <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('blog.gate.benefit1')}</span>
-    <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('blog.gate.benefit2')}</span>
-    <span className="inline-flex items-center gap-1"><Shield size={12} className="text-success" />{t('blog.gate.privacyNote')}</span>
-   </div>
-
-   {/* Social proof */}
-   {articles.length > 0 && (
-    <p className="mb-3 text-xs font-medium text-accent">
-     {articles.length.toLocaleString()}+ {locale === 'it' ? 'articoli disponibili gratis' : locale === 'de' ? 'Artikel kostenlos verfügbar' : locale === 'fr' ? 'articles gratuits disponibles' : 'articles available free'}
-    </p>
-   )}
-
-   <div className="space-y-3">
-    {/* Google Sign-In */}
-    <div className="space-y-2">
-     <div ref={inlineGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
-     {!inlineGoogleButtonReady && (
-      <button
-       type="button"
-       onClick={() => void handleBlogGoogleAuth()}
-       disabled={authBusy !== null}
-       className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-edge hover:bg-surface-raised disabled:opacity-60 text-strong text-sm font-semibold shadow-sm transition-colors"
-      >
-       {authBusy === 'google' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
-        <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
-         <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" />
-         <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-         <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-         <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-        </svg>
-       )}
-       {t('newsletter.popup.googleSignIn')}
-      </button>
-     )}
-    </div>
-
-    {/* LinkedIn Sign-In (conditional) */}
-    {linkedInAvailable && (
-     <button
-      type="button"
-      onClick={handleBlogLinkedInAuth}
-      disabled={authBusy !== null}
-      className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-brand-linkedin hover:bg-brand-linkedin-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
-     >
-      {authBusy === 'linkedin' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
-       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      )}
-      {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
-     </button>
-    )}
-
-    {/* Separator */}
-    <div className="flex items-center gap-3">
-     <div className="flex-1 h-px bg-surface-raised/50" />
-     <span className="text-sm text-muted">{t('blog.gate.orEmail')}</span>
-     <div className="flex-1 h-px bg-surface-raised/50" />
-    </div>
-
-    {/* Email form */}
-    <form onSubmit={handleBlogEmailAccess} className="space-y-2">
-     <input
-      type="email"
-      required
-      value={gateEmailInput}
-      onChange={(e) => setGateEmailInput(e.target.value)}
-      placeholder={t('blog.gate.emailPlaceholder')}
-      className="w-full px-3 py-2.5 rounded-stripe border border-edge bg-surface text-sm text-heading placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-     />
-     <button
-      type="submit"
-      disabled={authBusy !== null || !gateEmailInput.trim()}
-      className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
-     >
-      {authBusy === 'email' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
-      {t('blog.gate.emailCta')}
-     </button>
-    </form>
-   </div>
-
-   {authError && <p className="text-sm text-danger mt-2">{authError}</p>}
-  </div>
-
-  {/* AdSense — below blog content gate */}
-  {AD_SLOTS.JOBDETAIL_AUTH_GATE.slot && (
-   <Suspense fallback={<div style={{ minHeight: AD_SLOTS.JOBDETAIL_AUTH_GATE.placeholderMinHeight, contain: 'content' }} className="mt-4" />}>
-    <AdSenseBanner
-    adSlot={AD_SLOTS.JOBDETAIL_AUTH_GATE.slot}
-    adFormat={AD_SLOTS.JOBDETAIL_AUTH_GATE.format}
-    fullWidthResponsive={AD_SLOTS.JOBDETAIL_AUTH_GATE.fullWidthResponsive}
-    className="mt-4"
-    />
-   </Suspense>
-  )}
-
-  {/* AdSense — multiplex below content gate */}
-  {AD_SLOTS.AUTHGATE_END_MULTIPLEX.slot && (
-   <Suspense fallback={<div style={{ minHeight: AD_SLOTS.AUTHGATE_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="mt-4" />}>
-    <AdSenseBanner
-    adSlot={AD_SLOTS.AUTHGATE_END_MULTIPLEX.slot}
-    adFormat={AD_SLOTS.AUTHGATE_END_MULTIPLEX.format}
-    fullWidthResponsive={AD_SLOTS.AUTHGATE_END_MULTIPLEX.fullWidthResponsive}
-    className="mt-4"
-    />
-   </Suspense>
-  )}
-  </>
- )}
  </div>
 
  {/* Visible FAQ section */}
