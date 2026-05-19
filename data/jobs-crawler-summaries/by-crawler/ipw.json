@@ -1,21 +1,22 @@
 {
   "key": "ipw",
   "label": "Integrierte Psychiatrie Winterthur (ipw)",
-  "generatedAt": "2026-05-19T18:26:36.996Z",
+  "generatedAt": "2026-05-19T22:34:57.380Z",
   "total": 10,
-  "newCount": 10,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 64394,
-  "avgDurationMs": 64394,
+  "durationMs": 11129,
+  "avgDurationMs": 11129,
   "durationHistory": [
-    64394
+    11129
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "ipw-6dff06f31ea5",
-      "slug": "oberarztin-oberarzt-oder-oberpsychologin-oberpsychologe-50-100-ipw-winterthur",
+      "slug": "oberarztin-oberarzt-o-oberpsychologin-oberpsychologe-50-100-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
       "companyDomain": "ipw.ch",
@@ -26,7 +27,7 @@
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3820/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T18:25:34.405Z",
+      "crawledAt": "2026-05-19T22:34:48.584Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2906.umantis.com/Vacancies/3820/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:25:34.405Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3665/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T18:25:36.156Z",
+      "crawledAt": "2026-05-19T22:34:50.632Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2906.umantis.com/Vacancies/3665/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:25:36.156Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3753/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T18:25:36.771Z",
+      "crawledAt": "2026-05-19T22:34:51.214Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2906.umantis.com/Vacancies/3753/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:25:36.771Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3819/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T18:25:37.385Z",
+      "crawledAt": "2026-05-19T22:34:51.828Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2906.umantis.com/Vacancies/3819/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:25:37.385Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3703/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T18:25:38.185Z",
+      "crawledAt": "2026-05-19T22:34:52.600Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2906.umantis.com/Vacancies/3703/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:25:38.185Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3808/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T18:25:38.812Z",
+      "crawledAt": "2026-05-19T22:34:53.159Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2906.umantis.com/Vacancies/3808/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:25:38.812Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3815/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T18:25:39.439Z",
+      "crawledAt": "2026-05-19T22:34:53.723Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -257,11 +264,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2906.umantis.com/Vacancies/3815/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:25:39.439Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -278,7 +286,7 @@
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3755/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T18:25:40.252Z",
+      "crawledAt": "2026-05-19T22:34:54.492Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -293,11 +301,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2906.umantis.com/Vacancies/3755/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:25:40.252Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -314,7 +323,7 @@
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3799/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T18:25:40.890Z",
+      "crawledAt": "2026-05-19T22:34:55.053Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -329,11 +338,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2906.umantis.com/Vacancies/3799/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:25:40.890Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -350,7 +360,7 @@
       "url": "https://recruitingapp-2906.umantis.com/Vacancies/3634/Description/1",
       "source": "Integrierte Psychiatrie Winterthur (ipw) Dedicated Parser (Umantis listing tenant 2906)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T18:25:41.504Z",
+      "crawledAt": "2026-05-19T22:34:55.625Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -365,16 +375,16 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2906.umantis.com/Vacancies/3634/Application/CheckLogin/1",
-      "_qualityScore": 56,
+      "firstSeenAt": "2026-05-19T18:25:41.504Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
