@@ -33,11 +33,17 @@ import { runAudits, filterAuditors, DEFAULT_DIST } from './lib/audit-runner.mjs'
 import { factory as footerRootPresence } from './audit-footer-root-presence.mjs';
 import { factory as jsonldNoNestedScripts } from './audit-jsonld-no-nested-scripts.mjs';
 import { factory as titleLength } from './audit-title-length.mjs';
+import { factory as titleNoDisambigHash } from './audit-title-no-disambig-hash.mjs';
+import { factory as h1TitleDuplicates } from './audit-h1-title-duplicates.mjs';
+import { factory as textHtmlRatio } from './audit-text-html-ratio.mjs';
 
 const REGISTRY = [
   { factory: footerRootPresence, name: 'footer-root-presence' },
   { factory: jsonldNoNestedScripts, name: 'jsonld-no-nested-scripts' },
   { factory: titleLength, name: 'title-length' },
+  { factory: titleNoDisambigHash, name: 'title-no-disambig-hash' },
+  { factory: h1TitleDuplicates, name: 'h1-title-duplicates' },
+  { factory: textHtmlRatio, name: 'text-html-ratio' },
 ];
 
 // ─── CLI parsing ─────────────────────────────────────────────────────────────

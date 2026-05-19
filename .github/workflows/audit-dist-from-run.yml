@@ -7,9 +7,9 @@ on:
         required: true
         type: string
       audits:
-        description: 'Comma-sep audit script names to run (omit = all 4 currently-failing). e.g. text-html-ratio,page-weight,h1-title-duplicates,max-bfs-depth,footer-root-presence'
+        description: 'Comma-sep audit script names. `all` invokes the unified runner (6 dist-walking audits in 1 Node process). Examples: `all` / `all,page-weight,max-bfs-depth` / `text-html-ratio,page-weight`.'
         required: false
-        default: 'text-html-ratio,page-weight,h1-title-duplicates,max-bfs-depth,footer-root-presence'
+        default: 'all,page-weight,max-bfs-depth'
         type: string
 
 permissions:
