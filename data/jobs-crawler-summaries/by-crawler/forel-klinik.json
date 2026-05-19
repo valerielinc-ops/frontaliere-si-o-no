@@ -1,18 +1,19 @@
 {
   "key": "forel-klinik",
   "label": "Forel Klinik",
-  "generatedAt": "2026-05-19T20:47:51.448Z",
+  "generatedAt": "2026-05-19T22:15:34.465Z",
   "total": 6,
-  "newCount": 6,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 118340,
-  "avgDurationMs": 118340,
+  "durationMs": 4912,
+  "avgDurationMs": 4912,
   "durationHistory": [
-    118340
+    4912
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "forel-klinik-6629b75ec058",
       "slug": "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-m-w-d-80-100-forel-klinik-ellikon-an-der",
@@ -26,7 +27,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/2f048b16-e2a7-4ac4-b28c-827fde953db4/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:45:53.905Z",
+      "crawledAt": "2026-05-19T22:15:30.377Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/2f048b16-e2a7-4ac4-b28c-827fde953db4/detail?lang=DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:45:53.905Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/941a1f7e-7cf9-4121-a861-7f4d50207a49/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:45:54.345Z",
+      "crawledAt": "2026-05-19T22:15:30.829Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/941a1f7e-7cf9-4121-a861-7f4d50207a49/detail?lang=DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:45:54.345Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/3279a191-1927-4214-914b-ddb0fd457673/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:45:54.793Z",
+      "crawledAt": "2026-05-19T22:15:31.281Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/3279a191-1927-4214-914b-ddb0fd457673/detail?lang=DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:45:54.793Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/c1be7eb2-81a0-4049-a6db-d44fef24bf36/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:45:55.240Z",
+      "crawledAt": "2026-05-19T22:15:31.728Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/c1be7eb2-81a0-4049-a6db-d44fef24bf36/detail?lang=DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:45:55.240Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/f65dcb17-01cd-4ef8-8ef0-396166b72084/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:45:55.688Z",
+      "crawledAt": "2026-05-19T22:15:32.181Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/f65dcb17-01cd-4ef8-8ef0-396166b72084/detail?lang=DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:45:55.688Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://jobs.dualoo.com/portal/w1f713hy/0985934c-e39e-4a25-98e1-0a66599669d6/detail?lang=DE",
       "source": "Forel Klinik Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:45:56.135Z",
+      "crawledAt": "2026-05-19T22:15:32.634Z",
       "addressLocality": "Ellikon an der Thur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -221,16 +227,16 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.dualoo.com/portal/w1f713hy/0985934c-e39e-4a25-98e1-0a66599669d6/detail?lang=DE",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:45:56.135Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
