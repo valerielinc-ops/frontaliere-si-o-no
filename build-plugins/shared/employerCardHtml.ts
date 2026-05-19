@@ -17,6 +17,13 @@ import {
 
 export type EmployerCardLocale = 'it' | 'en' | 'de' | 'fr';
 
+export type EmployerMetricTone =
+  | 'default'
+  | 'accent'
+  | 'success'
+  | 'warning'
+  | 'danger';
+
 export interface EmployerCardEmployer {
   name: string;
   companyKey?: string;
@@ -26,6 +33,17 @@ export interface EmployerCardEmployer {
   openings?: number | null;
   city?: string | null;
   sector?: string | null;
+  /** Ranking prefix (1, 2, 3) prepended to the title in the detailed variant. */
+  rank?: number;
+  /** Free-form second line in the detailed variant. Overrides the
+   *  auto-built `city · sector` line when present. Used by weekly-employers
+   *  pages to surface "city · +3 questa settimana"-style deltas. */
+  subtitle?: string;
+  /** Prominent right-side metric in the detailed variant (e.g. "5 posti").
+   *  When set, takes priority over the implicit `openings` rendering. */
+  metric?: string;
+  /** Tone for the `metric` color in the detailed variant. */
+  metricTone?: EmployerMetricTone;
 }
 
 export interface EmployerCardOptions {
@@ -48,6 +66,14 @@ const OPENINGS_DEFAULT_LABEL: Record<EmployerCardLocale, (n: number) => string> 
   en: (n) => (n === 1 ? '1 opening' : `${n} openings`),
   de: (n) => (n === 1 ? '1 Stelle' : `${n} Stellen`),
   fr: (n) => (n === 1 ? '1 poste' : `${n} postes`),
+};
+
+const METRIC_TONE_CLASS: Record<EmployerMetricTone, string> = {
+  default: 'text-link',
+  accent: 'text-accent',
+  success: 'text-success',
+  warning: 'text-warning',
+  danger: 'text-danger',
 };
 
 function renderLogoSlot(e: EmployerCardEmployer, sizeClass: string): string {
@@ -75,16 +101,42 @@ export function renderEmployerCardHtml(
     : '';
 
   if (variant === 'detailed') {
-    const sectorChip = e.sector
-      ? `<span class="px-1.5 py-0.5 rounded bg-surface-raised text-subtle text-xs">${escHtml(e.sector)}</span>`
-      : '';
-    const cityChip = e.city
-      ? `<span class="text-xs text-subtle">${escHtml(e.city)}</span>`
-      : '';
-    const openingsLine = typeof e.openings === 'number' && e.openings > 0
-      ? `<p class="text-sm text-success font-semibold mt-1">${escHtml(openingsLbl(e.openings))}</p>`
-      : '';
-    return `<article class="rounded-xl border border-edge bg-surface/50 hover:border-accent-border transition-colors p-3 sm:p-4"><a href="${escHtml(opts.href)}" class="block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"><div class="flex items-start gap-3">${renderLogoSlot(e, 'w-12 h-12 sm:w-14 sm:h-14')}<div class="min-w-0 flex-1"><h3 class="text-sm sm:text-base font-bold font-display text-heading leading-tight">${escHtml(e.name)}</h3><div class="mt-1 flex flex-wrap items-center gap-2">${sectorChip}${cityChip}</div>${openingsLine}</div></div></a></article>`;
+    // Title with optional ranking prefix.
+    const titleHtml = e.rank
+      ? `<h3 class="text-sm sm:text-base font-bold font-display text-heading leading-tight"><span class="tabular-nums">${escHtml(String(e.rank))}.</span> ${escHtml(e.name)}</h3>`
+      : `<h3 class="text-sm sm:text-base font-bold font-display text-heading leading-tight">${escHtml(e.name)}</h3>`;
+
+    // Subtitle: explicit `subtitle` wins, else fall back to chips of sector + city.
+    let subtitleHtml = '';
+    if (e.subtitle) {
+      subtitleHtml = `<p class="mt-1 text-xs sm:text-sm text-subtle leading-snug">${escHtml(e.subtitle)}</p>`;
+    } else {
+      const sectorChip = e.sector
+        ? `<span class="px-1.5 py-0.5 rounded bg-surface-raised text-subtle text-xs">${escHtml(e.sector)}</span>`
+        : '';
+      const cityChip = e.city
+        ? `<span class="text-xs text-subtle">${escHtml(e.city)}</span>`
+        : '';
+      if (sectorChip || cityChip) {
+        subtitleHtml = `<div class="mt-1 flex flex-wrap items-center gap-2">${sectorChip}${cityChip}</div>`;
+      }
+    }
+
+    // Metric: explicit `metric` wins, else fall back to localized openings line.
+    let metricHtml = '';
+    if (e.metric) {
+      const toneClass = METRIC_TONE_CLASS[e.metricTone ?? 'default'];
+      metricHtml = `<span class="shrink-0 ml-2 font-bold text-sm tabular-nums ${toneClass}">${escHtml(e.metric)}</span>`;
+    } else if (typeof e.openings === 'number' && e.openings > 0) {
+      metricHtml = `<p class="text-sm text-success font-semibold mt-1">${escHtml(openingsLbl(e.openings))}</p>`;
+    }
+
+    // Layout: when a metric is present we use a flex row (logo · title/subtitle · metric).
+    // Otherwise we use the original stacked layout (logo+title above, openings line below).
+    if (e.metric) {
+      return `<article class="rounded-xl border border-edge bg-surface/50 hover:border-accent-border transition-colors p-3 sm:p-4"><a href="${escHtml(opts.href)}" class="block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"><div class="flex items-center gap-3">${renderLogoSlot(e, 'w-12 h-12 sm:w-14 sm:h-14')}<div class="min-w-0 flex-1">${titleHtml}${subtitleHtml}</div>${metricHtml}</div></a></article>`;
+    }
+    return `<article class="rounded-xl border border-edge bg-surface/50 hover:border-accent-border transition-colors p-3 sm:p-4"><a href="${escHtml(opts.href)}" class="block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"><div class="flex items-start gap-3">${renderLogoSlot(e, 'w-12 h-12 sm:w-14 sm:h-14')}<div class="min-w-0 flex-1">${titleHtml}${subtitleHtml}${metricHtml}</div></div></a></article>`;
   }
 
   // compact (default)

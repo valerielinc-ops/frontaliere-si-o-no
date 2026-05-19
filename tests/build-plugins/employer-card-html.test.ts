@@ -72,6 +72,50 @@ describe('renderEmployerCardHtml (detailed)', () => {
   });
 });
 
+describe('renderEmployerCardHtml (detailed) extended features', () => {
+  it('prepends rank prefix to title when rank is set', () => {
+    const html = renderEmployerCardHtml(
+      { name: 'Lonza', rank: 1 },
+      { href: '/aziende/lonza', locale: 'it', variant: 'detailed' },
+    );
+    expect(html).toMatch(/<span class="tabular-nums">1\.<\/span>\s*Lonza/);
+  });
+
+  it('uses explicit subtitle over auto-built chips', () => {
+    const html = renderEmployerCardHtml(
+      { name: 'Migros', subtitle: 'Lugano · +5 questa settimana', sector: 'Retail', city: 'Lugano' },
+      { href: '/x', locale: 'it', variant: 'detailed' },
+    );
+    expect(html).toContain('Lugano · +5 questa settimana');
+    expect(html).not.toContain('>Retail<');  // chips should NOT render when subtitle wins
+  });
+
+  it('renders explicit metric with success tone', () => {
+    const html = renderEmployerCardHtml(
+      { name: 'X', metric: '5 posti', metricTone: 'success' },
+      { href: '/x', locale: 'it', variant: 'detailed' },
+    );
+    expect(html).toContain('text-success');
+    expect(html).toContain('5 posti');
+  });
+
+  it('falls back to openings line when no explicit metric', () => {
+    const html = renderEmployerCardHtml(
+      { name: 'X', openings: 7 },
+      { href: '/x', locale: 'it', variant: 'detailed' },
+    );
+    expect(html).toContain('7 posti');  // localized via OPENINGS_DEFAULT_LABEL.it
+  });
+
+  it('metricTone defaults to default (text-link) when not specified', () => {
+    const html = renderEmployerCardHtml(
+      { name: 'X', metric: '$$' },
+      { href: '/x', locale: 'it', variant: 'detailed' },
+    );
+    expect(html).toContain('text-link');
+  });
+});
+
 describe('renderEmployerCardListHtml', () => {
   it('renders <ul role="list"> with one <li> per employer', () => {
     const html = renderEmployerCardListHtml(
