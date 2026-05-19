@@ -7647,6 +7647,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.title': 'ErhÃ¶hte LAMal-PrÃ¤mien: Versicherer muss BuchfÃ¼hrung nachweisen',
     'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.excerpt': 'Die erhÃ¶hten LAMal-PrÃ¤mien erfordern von den Versicherern, ihre BuchfÃ¼hrung nachzuweisen.',
     'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.imageAlt': 'Lago Maggiore mit Bergen',
+    'blog.article.svizzera-economia-2026.title': 'Starke Wirtschaft in der Schweiz',
+    'blog.article.svizzera-economia-2026.excerpt': 'Die Schweizer Wirtschaft hat unerwartet im ersten Quartal 2026 um 0,5% gewachsen, trotz Unsicherheiten bei Öl und Zöllen.',
+    'blog.article.svizzera-economia-2026.imageAlt': 'Balkendiagramm, das den Anstieg der Schweizer Wirtschaft im Jahr 2026 zeigt',
 };
 
 export default blogMetaDe;

@@ -38294,6 +38294,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-economia-2026': {
+    title: 'L\'economia svizzera ha registrato un buon inizio di anno',
+    description: 'L\'economia svizzera ha mostrato una crescita inaspettata dello 0,5% nel primo trimestre 2026, superando le previsioni degli esperti nonostante le incertezze',
+    keywords: 'frontalieri, ticino, svizzera, italia, economia, registrato, buon, inizio',
+    ogTitle: 'L\'economia svizzera ha registrato un buon inizio di anno',
+    ogDescription: 'L\'economia svizzera ha mostrato una crescita inaspettata dello 0,5% nel primo trimestre 2026, superando le previsioni degli esperti nonostante le incertezze',
+    canonicalPath: '/articoli-frontaliere/svizzera-economia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'economia svizzera ha registrato un buon inizio di anno",
+      "description": "L'economia svizzera ha mostrato una crescita inaspettata dello 0,5% nel primo trimestre 2026, superando le previsioni degli esperti nonostante le incertezze",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-economia-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Grafico a barre che mostra l'aumento dell'economia svizzera nel 2026"
+      },
+      "datePublished": "2026-05-19T04:42:57+00:00",
+      "dateModified": "2026-05-19T04:42:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-economia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

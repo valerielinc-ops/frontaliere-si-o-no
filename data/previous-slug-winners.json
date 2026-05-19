@@ -549,9 +549,9 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::data-center-technician-switzerland-pratteln-on-site-reboot-monkey-pratteln-2": {
-    "winnerJobIdentifier": "reboot-monkey-39fa58da10d7",
+    "winnerJobIdentifier": "reboot-monkey-82b75718ba1a",
     "winnerCanonical": "data-center-technician-svizzera-pratteln-in-loco-reboot-monkey-pratteln",
-    "decidedAt": "2026-05-17T00:00:00.000Z",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
     "score": 0.4615,
     "candidatesCount": 1,
@@ -729,12 +729,21 @@
     "canton": "BE"
   },
   "BE::de::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf": {
-    "winnerJobIdentifier": "company-9v6y1x",
+    "winnerJobIdentifier": "company-s8ey7i",
     "winnerCanonical": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
     "score": 0.7778,
-    "candidatesCount": 1,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::de::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
+    "winnerJobIdentifier": "company-s8ey7i",
+    "winnerCanonical": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.7,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::de::developpeur-sap-abap-fiori-agie-charmilles-sa-biel-bienne": {
@@ -1070,6 +1079,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::en::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
+    "winnerJobIdentifier": "company-s8ey7i",
+    "winnerCanonical": "retailer-mann-efz-creating-shopping-experiences-interdiscount-jegensdorf-8639d9",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::en::developpeur-sap-abap-fiori-agie-charmilles-sa-biel-bienne": {
     "winnerJobIdentifier": "agie-charmilles-e67647fb366d",
     "winnerCanonical": "sap-developer-agie-charmilles-biel-bienne",
@@ -1385,6 +1403,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::fr::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
+    "winnerJobIdentifier": "company-s8ey7i",
+    "winnerCanonical": "detaillant-mann-efz-creer-des-experiences-d-achat-interdiscount-jegensdorf-8639d9",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1765,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::fr::developpeur-sap-abap-fiori-agie-charmilles-sa-biel-bienne": {
     "winnerJobIdentifier": "agie-charmilles-e67647fb366d",
     "winnerCanonical": "sap-developer-agie-charmilles-biel-bienne",
@@ -1584,12 +1611,12 @@
     "canton": "BE"
   },
   "BE::fr::specialiste-de-vente-au-detail-efz-creer-des-experiences-d-achat-interdiscount-grigioni": {
-    "winnerJobIdentifier": "company-9v6y1x",
-    "winnerCanonical": "detaillant-mann-efz-creer-des-experiences-d-achat-interdiscount-jegensdorf-2db6ba",
+    "winnerJobIdentifier": "company-2kwafk",
+    "winnerCanonical": "detaillant-mann-efz-creer-des-experiences-d-achat-interdiscount-jegensdorf",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
-    "score": 0.4118,
-    "candidatesCount": 1,
+    "score": 0.4375,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::fr::specialiste-du-commerce-de-detail-efz-creer-des-experiences-d-achat-fust-swiss-household-services-ag-tenero-contra": {
@@ -1706,6 +1733,15 @@
     "decidedAt": "2026-05-18T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
     "score": 0.625,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
+    "winnerJobIdentifier": "company-96xkec",
+    "winnerCanonical": "detailhandelsfachfrau-mann-interdiscount-grigioni-96xkec",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.4,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -2340,11 +2376,11 @@
     "canton": "GE"
   },
   "GE::it::data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates-2": {
-    "winnerJobIdentifier": "reboot-monkey-e36672046620",
-    "winnerCanonical": "data-center-technician-switzerland-plan-les-ouates-on-site-reboot-monkey-plan-les-ouates",
+    "winnerJobIdentifier": "reboot-monkey-45e2d3b3629a",
+    "winnerCanonical": "data-center-technician-svizzera-plan-les-ouates-in-loco-reboot-monkey-plan-les-ouates",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
-    "score": 0.9167,
+    "score": 0.5333,
     "candidatesCount": 1,
     "canton": "GE"
   },
@@ -2376,12 +2412,12 @@
     "canton": "GE"
   },
   "GE::it::gruppo-datori-di-lavoro-branding-e-rapporti-universitari-richemont-bellevue": {
-    "winnerJobIdentifier": "richemont-e1278ddb6576",
-    "winnerCanonical": "group-employer-branding-and-university-relations-tirocinante-richemont-bellevue",
+    "winnerJobIdentifier": "richemont-0e4c0b8d0de7",
+    "winnerCanonical": "partner-commerciale-delle-risorse-umane-piaget-plan-les-ouates",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
-    "score": 0.1875,
-    "candidatesCount": 2,
+    "score": 0,
+    "candidatesCount": 1,
     "canton": "GE"
   },
   "GE::it::gruppo-l-d-richemont-bellevue": {
@@ -2403,12 +2439,12 @@
     "canton": "GE"
   },
   "GE::it::hris-specialist-cdd-richemont-meyrin": {
-    "winnerJobIdentifier": "richemont-ea0036f1fc4e",
-    "winnerCanonical": "hris-specialista-cdd-richemont-meyrin",
+    "winnerJobIdentifier": "richemont-31697e54915b",
+    "winnerCanonical": "ospitalita-interno-richemont-meyrin",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
-    "score": 0.6667,
-    "candidatesCount": 2,
+    "score": 0.2857,
+    "candidatesCount": 1,
     "canton": "GE"
   },
   "GE::it::internal-warehousing-tech-team-lead-richemont-meyrin": {
@@ -2853,7 +2889,7 @@
     "canton": "GR"
   },
   "GR::de::verkauferin-verkaufer-m-w-d-volg-vals-shyscx": {
-    "winnerJobIdentifier": "volg-fenaco-6778621893b4",
+    "winnerJobIdentifier": "volg-fenaco-699f9076ff23",
     "winnerCanonical": "verkauferin-verkaufer-m-w-d-volg-vals",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
@@ -3446,6 +3482,15 @@
     "candidatesCount": 1,
     "canton": "GR"
   },
+  "GR::fr::mitarbeiter-in-hotellerie-psychiatrische-dienste-graubunden-cazis": {
+    "winnerJobIdentifier": "pdgr-31e2458cefe5",
+    "winnerCanonical": "personnel-a-hotellerie-psychiatrische-dienste-graubunden-cazis",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.5556,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::fr::place-d-apprentissage-en-tant-qu-assistant-e-de-commerce-de-detail-afp-en-denrees-alimentaires-volg-untervaz": {
     "winnerJobIdentifier": "volg-fenaco-51b4337a6fa7",
     "winnerCanonical": "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-untervaz-uiccmi",
@@ -3731,6 +3776,15 @@
     "decidedAt": "2026-05-12T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
     "score": 0.3077,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
+  "GR::it::collaboratore-trice-hotellerie-psychiatrische-dienste-graubunden-cazis": {
+    "winnerJobIdentifier": "pdgr-31e2458cefe5",
+    "winnerCanonical": "staff-in-hotellerie-psychiatrische-dienste-graubunden-cazis",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.5556,
     "candidatesCount": 2,
     "canton": "GR"
   },
@@ -4904,6 +4958,24 @@
     "candidatesCount": 1,
     "canton": "SG"
   },
+  "SG::de::detailhandelsassistent-in-afp-coop-grigioni-6y8rn9": {
+    "winnerJobIdentifier": "company-2zdn0o",
+    "winnerCanonical": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-fgt457",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::de::detailhandelsassistent-in-eba-coop-grigioni-2zdn0o": {
+    "winnerJobIdentifier": "company-2zdn0o",
+    "winnerCanonical": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-fgt457",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::de::detailhandelsassistent-in-eba-coop-grigioni-6y8rn9": {
     "winnerJobIdentifier": "company-6y8rn9",
     "winnerCanonical": "detailhandelsassistent-in-eba-coop-gossau",
@@ -4931,6 +5003,15 @@
     "candidatesCount": 2,
     "canton": "SG"
   },
+  "SG::de::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-pd7xlx": {
+    "winnerJobIdentifier": "company-38decq",
+    "winnerCanonical": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-ovxh7g",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.6364,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::de::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
     "winnerJobIdentifier": "company-4iugqw",
     "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau-k1bc5i",
@@ -4950,12 +5031,21 @@
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-pd7xlx": {
-    "winnerJobIdentifier": "company-fgt457",
-    "winnerCanonical": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau",
+    "winnerJobIdentifier": "company-38decq",
+    "winnerCanonical": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-ovxh7g",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
-    "score": 0.7,
-    "candidatesCount": 1,
+    "score": 0.8,
+    "candidatesCount": 3,
+    "canton": "SG"
+  },
+  "SG::de::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-r5vpxa": {
+    "winnerJobIdentifier": "company-38decq",
+    "winnerCanonical": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-ovxh7g",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.8,
+    "candidatesCount": 2,
     "canton": "SG"
   },
   "SG::de::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
@@ -5003,6 +5093,24 @@
     "candidatesCount": 2,
     "canton": "SG"
   },
+  "SG::en::detailhandelsassistent-in-afp-coop-grigioni-6y8rn9": {
+    "winnerJobIdentifier": "company-2zdn0o",
+    "winnerCanonical": "retailer-man-coop-gossau-dff4a5",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::en::detailhandelsassistent-in-eba-coop-grigioni-2zdn0o": {
+    "winnerJobIdentifier": "company-2zdn0o",
+    "winnerCanonical": "retailer-man-coop-gossau-dff4a5",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::en::detailhandelsassistent-in-eba-coop-grigioni-6y8rn9": {
     "winnerJobIdentifier": "company-6y8rn9",
     "winnerCanonical": "retailer-man-coop-gossau-dff4a5",
@@ -5030,6 +5138,15 @@
     "candidatesCount": 2,
     "canton": "SG"
   },
+  "SG::en::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-pd7xlx": {
+    "winnerJobIdentifier": "company-38decq",
+    "winnerCanonical": "retailer-man-coop-gossau",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.0833,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::en::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
     "winnerJobIdentifier": "company-4iugqw",
     "winnerCanonical": "retailer-mann-efz-creating-shopping-experiences-coop-gossau",
@@ -5041,6 +5158,15 @@
   },
   "SG::en::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-pd7xlx": {
     "winnerJobIdentifier": "company-pd7xlx",
+    "winnerCanonical": "retailer-man-coop-gossau",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.0833,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::en::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-r5vpxa": {
+    "winnerJobIdentifier": "company-38decq",
     "winnerCanonical": "retailer-man-coop-gossau",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
@@ -5102,6 +5228,24 @@
     "candidatesCount": 2,
     "canton": "SG"
   },
+  "SG::fr::detailhandelsassistent-in-afp-coop-grigioni-6y8rn9": {
+    "winnerJobIdentifier": "company-2zdn0o",
+    "winnerCanonical": "detaillant-homme-coop-gossau-dff4a5",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::detailhandelsassistent-in-eba-coop-grigioni-2zdn0o": {
+    "winnerJobIdentifier": "company-2zdn0o",
+    "winnerCanonical": "detaillant-homme-coop-gossau-dff4a5",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::fr::detailhandelsassistent-in-eba-coop-grigioni-6y8rn9": {
     "winnerJobIdentifier": "company-6y8rn9",
     "winnerCanonical": "detaillant-homme-coop-gossau-dff4a5",
@@ -5129,6 +5273,15 @@
     "candidatesCount": 2,
     "canton": "SG"
   },
+  "SG::fr::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-pd7xlx": {
+    "winnerJobIdentifier": "company-38decq",
+    "winnerCanonical": "detaillant-homme-coop-gossau",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.0833,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::fr::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i": {
     "winnerJobIdentifier": "company-4iugqw",
     "winnerCanonical": "detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau",
@@ -5140,6 +5293,15 @@
   },
   "SG::fr::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-pd7xlx": {
     "winnerJobIdentifier": "company-pd7xlx",
+    "winnerCanonical": "detaillant-homme-coop-gossau",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.0833,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-r5vpxa": {
+    "winnerJobIdentifier": "company-38decq",
     "winnerCanonical": "detaillant-homme-coop-gossau",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
@@ -5171,6 +5333,15 @@
     "decidedAt": "2026-05-18T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
     "score": 0,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::fr::detaillant-mann-efz-creer-des-experiences-d-achat-coop-gossau": {
+    "winnerJobIdentifier": "company-bho34r",
+    "winnerCanonical": "detaillant-homme-assistant-in-coop-gossau",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.2308,
     "candidatesCount": 2,
     "canton": "SG"
   },
@@ -5219,6 +5390,15 @@
     "candidatesCount": 1,
     "canton": "SG"
   },
+  "SG::it::detailhandelsassistent-in-afp-coop-grigioni-2zdn0o": {
+    "winnerJobIdentifier": "company-2zdn0o",
+    "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-fgt457",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::it::detailhandelsassistent-in-afp-coop-grigioni-6y8rn9": {
     "winnerJobIdentifier": "company-6y8rn9",
     "winnerCanonical": "detailhandelsassistent-in-afp-coop-gossau",
@@ -5237,6 +5417,24 @@
     "candidatesCount": 1,
     "canton": "SG"
   },
+  "SG::it::detailhandelsassistent-in-eba-coop-grigioni-6y8rn9": {
+    "winnerJobIdentifier": "company-2zdn0o",
+    "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-fgt457",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::detailhandelsassistent-in-eba-coop-grigioni-8": {
+    "winnerJobIdentifier": "company-2zdn0o",
+    "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-fgt457",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
   "SG::it::detailhandelsassistent-in-eba-coop-grigioni-9": {
     "winnerJobIdentifier": "company-6y8rn9",
     "winnerCanonical": "detailhandelsassistent-in-afp-coop-gossau",
@@ -5247,30 +5445,30 @@
     "canton": "SG"
   },
   "SG::it::detailhandelsfachfrau-mann-assistent-in-coop-grigioni-10": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
+    "winnerJobIdentifier": "company-1ceqqh",
+    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
-    "score": 0.625,
-    "candidatesCount": 1,
+    "score": 0.75,
+    "candidatesCount": 2,
     "canton": "SG"
   },
   "SG::it::detailhandelsfachfrau-mann-assistent-in-coop-grigioni-11": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
+    "winnerJobIdentifier": "company-bho34r",
+    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-k1bc5i",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
-    "score": 0.625,
-    "candidatesCount": 1,
+    "score": 0.75,
+    "candidatesCount": 2,
     "canton": "SG"
   },
   "SG::it::detailhandelsfachfrau-mann-assistent-in-coop-grigioni-4": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
+    "winnerJobIdentifier": "company-6v37ek",
+    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
-    "score": 0.625,
-    "candidatesCount": 1,
+    "score": 0.75,
+    "candidatesCount": 2,
     "canton": "SG"
   },
   "SG::it::detailhandelsfachfrau-mann-assistent-in-coop-grigioni-bho34r": {
@@ -5283,12 +5481,12 @@
     "canton": "SG"
   },
   "SG::it::detailhandelsfachfrau-mann-assistent-in-coop-grigioni-hwivop": {
-    "winnerJobIdentifier": "company-4iugqw",
-    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
+    "winnerJobIdentifier": "company-6v37ek",
+    "winnerCanonical": "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-1ceqqh",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
-    "score": 0.625,
-    "candidatesCount": 1,
+    "score": 0.75,
+    "candidatesCount": 2,
     "canton": "SG"
   },
   "SG::it::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-fgt457": {
@@ -5302,6 +5500,15 @@
   },
   "SG::it::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-pd7xlx": {
     "winnerJobIdentifier": "company-pd7xlx",
+    "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-ovxh7g",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.8,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-r5vpxa": {
+    "winnerJobIdentifier": "company-38decq",
     "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-ovxh7g",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
@@ -5329,6 +5536,24 @@
   },
   "SG::it::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-15": {
     "winnerJobIdentifier": "company-pd7xlx",
+    "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-ovxh7g",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.6364,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-9": {
+    "winnerJobIdentifier": "company-38decq",
+    "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-ovxh7g",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.6364,
+    "candidatesCount": 2,
+    "canton": "SG"
+  },
+  "SG::it::detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-pd7xlx": {
+    "winnerJobIdentifier": "company-38decq",
     "winnerCanonical": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-grigioni-ovxh7g",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
@@ -5516,10 +5741,64 @@
     "candidatesCount": 1,
     "canton": "SZ"
   },
+  "TG::de::psychologe-in-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-4fca9efb3c6b",
+    "winnerCanonical": "psychologe-in-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
   "TG::de::salute-professionale-moglie-efz-nella-springerpool-spital-thurgau-stgag-diessenhofen": {
     "winnerJobIdentifier": "spital-thurgau-07a5645fdbb5",
     "winnerCanonical": "fachmann-frau-gesundheit-efz-im-springerpool-stgag-ch",
     "decidedAt": "2026-05-18T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::en::ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-42a0b306d831",
+    "winnerCanonical": "education-care-specialist-hf-2-years-shortened-september-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::en::ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch-3": {
+    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
+    "winnerCanonical": "education-care-specialist-hf-2-years-shortened-september-2027-bfgs-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::en::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-": {
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "education-care-specialist-hf-3-years-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1739,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::en::ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-": {
+    "winnerJobIdentifier": "spital-thurgau-422f0cc4c8e3",
+    "winnerCanonical": "dipl-pflegefachmann-frau-forensik-stgag-ch",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.2667,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::en::dipl-pflegefachmann-frau-externer-psychiatrischer-dienst-weinfelden-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-db07bbdff69f",
+    "winnerCanonical": "dipl-nursing-specialist-woman-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
     "score": 0.2,
     "candidatesCount": 2,
@@ -5532,6 +5811,42 @@
     "lastSeenAt": "2026-05-17T00:00:00.000Z",
     "score": 0.8571,
     "candidatesCount": 1,
+    "canton": "TG"
+  },
+  "TG::en::fachmann-frau-gesundheit-efz-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-f3f67b64106d",
+    "winnerCanonical": "fachperson-hauswirtschaft-stgag-ch",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::en::fachmann-frau-gesundheit-im-mitarbeiterpool-stundenlohn-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-904fcdaf9ab0",
+    "winnerCanonical": "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.3077,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::en::fachmann-frau-gesundheit-stgag-ch-2": {
+    "winnerJobIdentifier": "spital-thurgau-781835498ca1",
+    "winnerCanonical": "professional-wife-health-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.0833,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::en::psychologe-in-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-7179d7551c18",
+    "winnerCanonical": "psychologen-in-psychiatrische-alterstagesklinik-romanshorn-stgag-ch",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::en::psychologen-in-im-bereich-forensik-ambulanz-kalchrain-stgag-ch": {
@@ -5549,6 +5864,51 @@
     "decidedAt": "2026-05-18T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
     "score": 0.4286,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::fr::ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-42a0b306d831",
+    "winnerCanonical": "specialiste-de-l-education-hf-2-ans-raccourcis-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.2174,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::fr::ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch-3": {
+    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
+    "winnerCanonical": "specialiste-des-soins-d-education-hf-2-ans-raccourcis-septembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.2,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::fr::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-": {
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "specialiste-des-soins-d-education-hf-3-ans-de-routine-septembre-2026-bfgs-spital-thurgau-stgag-munsterlingen-16c9b0",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1538,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::fr::ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-": {
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "formation-de-specialiste-en-soins-infirmiers-hf-4-ans-a-temps-partiel-bfgs-a-partir-de-janvier-2027-spital-thurgau-stgag",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1852,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::fr::dipl-pflegefachmann-frau-externer-psychiatrischer-dienst-weinfelden-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-6dcc5e35dbaa",
+    "winnerCanonical": "dipl-specialiste-des-soins-services-psychiatriques-externes-weinfelden-spital-thurgau-stgag-weinfelden",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1765,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -5570,6 +5930,42 @@
     "candidatesCount": 1,
     "canton": "TG"
   },
+  "TG::fr::fachmann-frau-gesundheit-efz-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-f3f67b64106d",
+    "winnerCanonical": "fachperson-hauswirtschaft-stgag-ch",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::fr::fachmann-frau-gesundheit-im-mitarbeiterpool-stundenlohn-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-904fcdaf9ab0",
+    "winnerCanonical": "dipl-pflegefachmann-frau-akutstation-im-hoheren-alter-stgag-ch",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.3077,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::fr::fachmann-frau-gesundheit-stgag-ch-2": {
+    "winnerJobIdentifier": "spital-thurgau-781835498ca1",
+    "winnerCanonical": "professionnels-femmes-sante-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.0833,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::fr::psychologe-in-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-7179d7551c18",
+    "winnerCanonical": "psychologen-in-psychiatrische-alterstagesklinik-romanshorn-stgag-ch",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.375,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
   "TG::fr::psychologen-in-im-bereich-forensik-ambulanz-kalchrain-stgag-ch": {
     "winnerJobIdentifier": "spital-thurgau-28213b816210",
     "winnerCanonical": "psychologue-dans-le-domaine-de-l-ambulance-medico-legale-kalchrain-spital-thurgau-stgag-munsterlingen",
@@ -5588,6 +5984,42 @@
     "candidatesCount": 2,
     "canton": "TG"
   },
+  "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
+    "winnerJobIdentifier": "spital-thurgau-42a0b306d831",
+    "winnerCanonical": "specialista-per-l-educazione-hf-2-anni-abbreviato-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2026-bfgs-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-42a0b306d831",
+    "winnerCanonical": "specialista-per-l-educazione-hf-2-anni-abbreviato-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.2174,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-spital-thurgau-stgag-munsterlingen": {
+    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
+    "winnerCanonical": "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.381,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-2-jahre-verkurzt-september-2027-bfgs-stgag-ch-3": {
+    "winnerJobIdentifier": "spital-thurgau-757e7b31e3f6",
+    "winnerCanonical": "specialista-dell-educazione-hf-2-anni-abbreviato-settembre-2027-bfgs-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.2174,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
   "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-regular-september-2026-bfgs-spital-thurgau-stgag-munsterlingen": {
     "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
     "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
@@ -5597,13 +6029,67 @@
     "candidatesCount": 1,
     "canton": "TG"
   },
-  "TG::it::dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen": {
-    "winnerJobIdentifier": "spital-thurgau-daae166861d1",
-    "winnerCanonical": "dipl-pflegefachmann-frau-spital-thurgau-stgag-munsterlingen",
+  "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-": {
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
-    "score": 0.875,
-    "candidatesCount": 1,
+    "score": 0.1818,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-3-jahre-verkurzt-berufsbegleitend-bfgs-januar-2026-spital-thurgau-stgag-munsterlingen": {
+    "winnerJobIdentifier": "spital-thurgau-0fe1a8054d15",
+    "winnerCanonical": "specialista-dell-istruzione-hf-3-anni-regolari-settembre-2026-bfgs-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-spital-thurgau-stgag-munsterlingen": {
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "formazione-di-infermiere-specializzato-a-hf-4-anni-part-time-bfgs-a-partire-da-gennaio-2027-spital-thurgau-stgag-munster",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::ausbildung-dipl-pflegefachmann-frau-hf-4-jahre-berufsbegleitend-bfgs-ab-januar-2027-stgag-": {
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "formazione-di-infermiere-specializzato-a-hf-4-anni-part-time-bfgs-a-partire-da-gennaio-2027-spital-thurgau-stgag-munster",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1852,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::dipl-pflegefachmann-frau-externer-psychiatrischer-dienst-weinfelden-spital-thurgau-stgag-weinfelden": {
+    "winnerJobIdentifier": "spital-thurgau-db07bbdff69f",
+    "winnerCanonical": "dipl-infermieristica-donna-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.3846,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::dipl-pflegefachmann-frau-externer-psychiatrischer-dienst-weinfelden-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-db07bbdff69f",
+    "winnerCanonical": "dipl-infermieristica-donna-alterstagesklinik-weinfelden-spital-thurgau-stgag-weinfelden",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.2143,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen": {
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerCanonical": "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.5455,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::dipl-pflegefachmann-frau-forensik-stgag-ch": {
@@ -5634,12 +6120,21 @@
     "canton": "TG"
   },
   "TG::it::dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen-7418fa": {
-    "winnerJobIdentifier": "spital-thurgau-a7017a609abc",
-    "winnerCanonical": "dipl-specialista-di-cura-forense-spital-thurgau-stgag-munsterlingen",
+    "winnerJobIdentifier": "spital-thurgau-39f64cefd83d",
+    "winnerCanonical": "dipl-specialista-in-allattamento-forensik-spital-thurgau-stgag-munsterlingen",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
-    "score": 0.9,
+    "score": 0.4615,
     "candidatesCount": 1,
+    "canton": "TG"
+  },
+  "TG::it::education-senior-caregiver-hf-4-anni-legato-al-lavoro-bfgs-dal-gennaio-2027-spital-thurgau-stgag-munsterlingen": {
+    "winnerJobIdentifier": "spital-thurgau-40985ecffc2b",
+    "winnerCanonical": "formazione-di-infermiere-specializzato-a-hf-4-anni-part-time-bfgs-a-partire-da-gennaio-2027-spital-thurgau-stgag-munster",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TG::it::ernahrungsberater-in-hf-bsc-spital-thurgau-stgag-diessenhofen": {
@@ -5648,6 +6143,87 @@
     "decidedAt": "2026-05-18T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
     "score": 0.7778,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::fachmann-frau-gesundheit-cfc-spital-thurgau-stgag-diessenhofen": {
+    "winnerJobIdentifier": "spital-thurgau-f3f67b64106d",
+    "winnerCanonical": "abitazioni-specialistiche-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::fachmann-frau-gesundheit-efz-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-b6184a6ad14a",
+    "winnerCanonical": "salute-professionale-moglie-efz-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1667,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::fachmann-frau-gesundheit-im-mitarbeiterpool-stundenlohn-spital-thurgau-stgag-munsterlingen": {
+    "winnerJobIdentifier": "spital-thurgau-2e7794ba5e65",
+    "winnerCanonical": "salute-professionale-moglie-presso-la-piscina-dei-dipendenti-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::fachmann-frau-gesundheit-im-mitarbeiterpool-stundenlohn-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-2e7794ba5e65",
+    "winnerCanonical": "salute-professionale-moglie-presso-la-piscina-dei-dipendenti-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.0526,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::fachmann-frau-gesundheit-spital-thurgau-stgag-diessenhofen": {
+    "winnerJobIdentifier": "spital-thurgau-781835498ca1",
+    "winnerCanonical": "salute-professionale-moglie-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::fachmann-frau-gesundheit-stgag-ch-2": {
+    "winnerJobIdentifier": "spital-thurgau-781835498ca1",
+    "winnerCanonical": "salute-professionale-moglie-spital-thurgau-stgag-diessenhofen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.0833,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen": {
+    "winnerJobIdentifier": "spital-thurgau-422f0cc4c8e3",
+    "winnerCanonical": "infermiere-a-specializzato-a-in-medicina-forense-spital-thurgau-stgag-munsterlingen-f431a9",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.9091,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::psicologo-spital-thurgau-stgag-diessenhofen": {
+    "winnerJobIdentifier": "spital-thurgau-7179d7551c18",
+    "winnerCanonical": "psicologo-in-psichiatria-vecchia-clinica-romanshorn-spital-thurgau-stgag-romanshorn",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.4,
+    "candidatesCount": 2,
+    "canton": "TG"
+  },
+  "TG::it::psychologe-in-stgag-ch": {
+    "winnerJobIdentifier": "spital-thurgau-7179d7551c18",
+    "winnerCanonical": "psicologo-in-psichiatria-vecchia-clinica-romanshorn-spital-thurgau-stgag-romanshorn",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.1818,
     "candidatesCount": 2,
     "canton": "TG"
   },
@@ -5676,6 +6252,15 @@
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 1,
+    "canton": "TG"
+  },
+  "TG::it::salute-professionale-moglie-presso-la-piscina-dei-dipendenti-spital-thurgau-stgag-munsterlingen": {
+    "winnerJobIdentifier": "spital-thurgau-18953bc68b20",
+    "winnerCanonical": "medico-senior-forensik-spital-thurgau-stgag-munsterlingen",
+    "decidedAt": "2026-05-19T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
+    "score": 0.2667,
+    "candidatesCount": 2,
     "canton": "TG"
   },
   "TI::de::addetti-e-alle-cure-sociosanitarie-e-o-assistenti-di-cura-50-100-eoc-ente-ospedaliero-cantonale-lugano": {
@@ -8316,11 +8901,11 @@
     "canton": "TI"
   },
   "TI::it::data-center-technician-switzerland-manno-on-site-reboot-monkey-manno-2": {
-    "winnerJobIdentifier": "reboot-monkey-91e3515db4f8",
-    "winnerCanonical": "data-center-technician-switzerland-manno-on-site-reboot-monkey-manno",
+    "winnerJobIdentifier": "reboot-monkey-fd0c70d330ba",
+    "winnerCanonical": "data-center-technician-svizzera-manno-in-loco-reboot-monkey-manno",
     "decidedAt": "2026-05-19T00:00:00.000Z",
     "lastSeenAt": "2026-05-19T00:00:00.000Z",
-    "score": 0.9,
+    "score": 0.4615,
     "candidatesCount": 1,
     "canton": "TI"
   },
@@ -9858,7 +10443,7 @@
     "winnerJobIdentifier": "pwc-0054671bedc4",
     "winnerCanonical": "associato-senior-assistente-responsabile-controllo-del-commercio-delle-industrie-e-dei-servizi-pwc-switzerland-zug",
     "decidedAt": "2026-05-14T00:00:00.000Z",
-    "lastSeenAt": "2026-05-18T00:00:00.000Z",
+    "lastSeenAt": "2026-05-19T00:00:00.000Z",
     "score": 0.1364,
     "candidatesCount": 1,
     "canton": "ZG"

@@ -24320,4 +24320,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'svizzera-economia-2026',
+ category: 'novita',
+ date: '2026-05-19T04:42:57.843Z',
+ image: '/images/blog/svizzera-economia-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

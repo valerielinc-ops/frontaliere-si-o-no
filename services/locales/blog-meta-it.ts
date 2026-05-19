@@ -7649,6 +7649,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.title': 'Aumento premi LAMal: assicuratore deve mostrare contabilità',
     'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.excerpt': 'L\'aumento dei premi LAMal richiede agli assicuratori di dimostrare la loro contabilità.',
     'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.imageAlt': 'Lago Maggiore con montagne',
+    'blog.article.svizzera-economia-2026.title': 'L\'economia svizzera ha registrato un buon inizio di anno',
+    'blog.article.svizzera-economia-2026.excerpt': 'L\'economia svizzera ha mostrato una crescita inaspettata dello 0,5% nel primo trimestre 2026, superando le previsioni degli esperti nonostante le incertezze legate a petrolio e dazi.',
+    'blog.article.svizzera-economia-2026.imageAlt': 'Grafico a barre che mostra l\'aumento dell\'economia svizzera nel 2026',
 };
 
 export default blogMetaIt;

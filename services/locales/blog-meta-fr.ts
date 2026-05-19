@@ -7649,6 +7649,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.title': 'Hausse des primes LAMal : les assureurs doivent justifier leur comptabilité',
     'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.excerpt': 'La hausse des primes LAMal oblige les assureurs à justifier leur comptabilité.',
     'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.imageAlt': 'Lac Majeur avec montagnes',
+    'blog.article.svizzera-economia-2026.title': 'Bon début d\'année pour l\'économie suisse',
+    'blog.article.svizzera-economia-2026.excerpt': 'L\'économie suisse a connu une croissance inattendue de 0,5% au premier trimestre 2026, dépassant les prévisions des experts malgré les incertitudes liées au pétrole et aux droits de douane.',
+    'blog.article.svizzera-economia-2026.imageAlt': 'Graphique à barres montrant l\'augmentation de l\'économie suisse en 2026',
 };
 
 export default blogMetaFr;

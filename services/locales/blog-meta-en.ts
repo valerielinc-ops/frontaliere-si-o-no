@@ -7648,6 +7648,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.title': 'LAMal Premium Increase: Insurers Must Show Accounts',
     'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.excerpt': 'The increase in LAMal premiums requires insurers to demonstrate their accounting.',
     'blog.article.aumento-premi-lamal-assicuratore-deve-mostrare-contabilita.imageAlt': 'Lake Maggiore with mountains',
+    'blog.article.svizzera-economia-2026.title': 'Swiss Economy Starts 2026 Strong',
+    'blog.article.svizzera-economia-2026.excerpt': 'Swiss economy surprises with unexpected 0.5% growth in Q1 2026, beating expert predictions despite oil and tariff uncertainties.',
+    'blog.article.svizzera-economia-2026.imageAlt': 'Bar chart showing the increase of the Swiss economy in 2026',
 };
 
 export default blogMetaEn;
