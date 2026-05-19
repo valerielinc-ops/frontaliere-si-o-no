@@ -1,0 +1,929 @@
+{
+  "crawlerKey": "klinik-sonnenhalde",
+  "assembledAt": "2026-05-19T10:00:04.897Z",
+  "jobs": [
+    {
+      "id": "klinik-sonnenhalde-f74f498d3bb7",
+      "slug": "medico-assistente-klinik-sonnenhalde-riehen",
+      "slugByLocale": {
+        "de": "assistenzarzt-assistenzarztin-klinik-sonnenhalde-riehen",
+        "it": "medico-assistente-klinik-sonnenhalde-riehen",
+        "en": "assistant-physician-klinik-sonnenhalde-riehen",
+        "fr": "medecin-assistant-klinik-sonnenhalde-riehen"
+      },
+      "company": "Klinik Sonnenhalde",
+      "companyKey": "klinik-sonnenhalde",
+      "companyDomain": "sonnenhalde.ch",
+      "title": "Assistenzarzt/Assistenzärztin",
+      "titleByLocale": {
+        "de": "Assistenzarzt/Assistenzärztin",
+        "it": "Medico Assistente",
+        "en": "Assistant Physician",
+        "fr": "Médecin Assistant"
+      },
+      "description": "## Mansioni\n- Supporto al team di trattamento stazionario a Riehen\n- Orario di lavoro: part-time\n\n## Contratto\n- Contratto a tempo indeterminato\n\n## Area\n- Servizio medico-psicologico",
+      "descriptionByLocale": {
+        "de": "Mansioni\n- Supporto al team di trattamento stazionario a Riehen\n- Orario di lavoro: part-time\n\nContratto\n- Contratto a tempo indeterminato\n\nArea\n- Servizio medico-psicologico",
+        "it": "Mansioni - Affiancamento alla squadra della stazione di Riehen - Orario di lavoro: contratto part-time - Contratto a tempo indeterminato Area - Servizio medico-psicologico",
+        "en": "Role\n- Support the inpatient treatment team in Riehen\n- Working hours: part-time\n\nContract\n- Permanent contract\n\nArea\n- Medical-psychological service",
+        "fr": "Rôle\n- Soutien à l'équipe de traitement hospitalier à Riehen\n- Horaires de travail : temps partiel\n\nContrat\n- Contrat à durée indéterminée\n\nDomaine\n- Service médico-psychologique"
+      },
+      "location": "Riehen",
+      "canton": "BS",
+      "url": "https://recruitingapp-3030.umantis.com/Vacancies/311/Description/1",
+      "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-19T09:58:41.755Z",
+      "addressLocality": "Riehen",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4125",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-3030.umantis.com/Vacancies/311/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-assistenzarztin-klinik-sonnenhalde-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-assistenzarztin-klinik-sonnenhalde-riehen"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T09:58:41.755Z"
+    },
+    {
+      "id": "klinik-sonnenhalde-733386d47707",
+      "slug": "psicologo-specializzato-klinik-sonnenhalde-riehen",
+      "slugByLocale": {
+        "de": "fachpsycholog-in-klinik-sonnenhalde-riehen",
+        "it": "psicologo-specializzato-klinik-sonnenhalde-riehen",
+        "en": "clinical-psychologist-klinik-sonnenhalde-riehen",
+        "fr": "psychologue-clinicien-klinik-sonnenhalde-riehen"
+      },
+      "company": "Klinik Sonnenhalde",
+      "companyKey": "klinik-sonnenhalde",
+      "companyDomain": "sonnenhalde.ch",
+      "title": "Fachpsycholog:in",
+      "titleByLocale": {
+        "de": "Fachpsycholog:in",
+        "it": "Psicologo Specializzato",
+        "en": "Clinical Psychologist",
+        "fr": "Psychologue clinicien"
+      },
+      "description": "## Descrizione\n\nFür unser Ambulatorium am Aeschengraben 26 in Basel suchen wir eine motivierte und engagierte Persönlichkeit.\n\nBereich: Ärztliche- Psychologischer Dienst\n\nArt: Teilzeit\n\nBefristung: Unbefristet",
+      "descriptionByLocale": {
+        "de": "Descrizione\n\nFür unser Ambulatorium am Aeschengraben 26 in Basel suchen wir eine motivierte und engagierte Persönlichkeit.\n\nBereich: Ärztliche- Psychologischer Dienst\n\nArt: Teilzeit\n\nBefristung: Unbefristet",
+        "it": "Cerchiamo una persona motivata e impegnata per il nostro ambulatorio al Aeschengraben 26 a Basilea.\n\nArea: Servizio Medico-Psichiatrico\n• Tipo: Part-Time\n• Durata: Indeterminata",
+        "en": "We are looking for a motivated and dedicated person for our outpatient clinic at Aeschengraben 26 in Basel.\n\nArea: Medical-Psychological Service\n• Type: Part-Time\n• Duration: Indefinite",
+        "fr": "Nous recherchons une personne motivée et dévouée pour notre clinique à Aeschengraben 26 à Bâle.\n\n• Domaine: Service médical-psychologique\n• Type: Mi-temps\n• Durée: Indéterminée"
+      },
+      "location": "Riehen",
+      "canton": "BS",
+      "url": "https://recruitingapp-3030.umantis.com/Vacancies/320/Description/1",
+      "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T09:58:41.754Z",
+      "addressLocality": "Riehen",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4125",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-3030.umantis.com/Vacancies/320/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachpsycholog-in-klinik-sonnenhalde-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "fachpsycholog-in-klinik-sonnenhalde-riehen"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T09:58:41.754Z"
+    },
+    {
+      "id": "klinik-sonnenhalde-193b0c90bcc8",
+      "slug": "psicologo-specializzato-in-psicoterapia-klinik-sonnenhalde-riehen",
+      "slugByLocale": {
+        "de": "fachpsycholog-in-fur-psychotherapie-klinik-sonnenhalde-riehen",
+        "it": "psicologo-specializzato-in-psicoterapia-klinik-sonnenhalde-riehen",
+        "en": "specialist-psychologist-for-psychotherapy-klinik-sonnenhalde-riehen",
+        "fr": "psychologue-specialise-en-psychotherapie-klinik-sonnenhalde-riehen"
+      },
+      "company": "Klinik Sonnenhalde",
+      "companyKey": "klinik-sonnenhalde",
+      "companyDomain": "sonnenhalde.ch",
+      "title": "Fachpsycholog:in für Psychotherapie",
+      "titleByLocale": {
+        "de": "Fachpsycholog:in für Psychotherapie",
+        "it": "Psicologo specializzato in psicoterapia",
+        "en": "Specialist Psychologist for Psychotherapy",
+        "fr": "Psychologue spécialisé en psychothérapie"
+      },
+      "description": "## Mansioni\n- Fachpsycholog:in mit Erfahrung in der Behandlung von Angsterkrankungen und Traumafolgestörungen.\n\n## Area\n- Ärztlicher- Psychologischer Dienst\n\n## Tipo\n- Teilzeit\n\n## Durata\n- Unbefristet",
+      "descriptionByLocale": {
+        "de": "Mansioni\n- Fachpsycholog:in mit Erfahrung in der Behandlung von Angsterkrankungen und Traumafolgestörungen.\n\nArea\n- Ärztlicher- Psychologischer Dienst\n\nTipo\n- Teilzeit\n\nDurata\n- Unbefristet",
+        "it": "Mansione\n- Psicologo specializzato con esperienza nel trattamento dei disturbi da ansia e disturbi post-traumatici.\n\nArea\n- Servizio medico-psicologico\n\nTipo\n- Part-time\n\nDurata\n- Indeterminato",
+        "en": "Position\n- Specialist Psychologist with experience in treating anxiety disorders and post-traumatic stress disorders.\n\nArea\n- Medical-Psychological Service\n\nType\n- Part-time\n\nDuration\n- Permanent",
+        "fr": "Poste\n- Psychologue spécialisé avec de l'expérience dans le traitement des troubles anxieux et des troubles de stress post-traumatique.\n\nDomaine\n- Service médico-psychologique\n\nType\n- Mi-temps\n\nDurée\n- Permanent"
+      },
+      "location": "Riehen",
+      "canton": "BS",
+      "url": "https://recruitingapp-3030.umantis.com/Vacancies/318/Description/1",
+      "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T09:58:41.754Z",
+      "addressLocality": "Riehen",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4125",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-3030.umantis.com/Vacancies/318/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "fachpsycholog-in-fur-psychotherapie-klinik-sonnenhalde-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "fachpsycholog-in-fur-psychotherapie-klinik-sonnenhalde-riehen"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T09:58:41.754Z"
+    },
+    {
+      "id": "klinik-sonnenhalde-046f3c861f7d",
+      "slug": "praktikantin-di-psicologia-klinik-sonnenhalde-riehen",
+      "slugByLocale": {
+        "de": "psychologie-klinik-sonnenhalde-riehen",
+        "it": "praktikantin-di-psicologia-klinik-sonnenhalde-riehen",
+        "en": "psychology-practitioner-klinik-sonnenhalde-riehen",
+        "fr": "psychologiepraktikantin-klinik-sonnenhalde-riehen"
+      },
+      "company": "Klinik Sonnenhalde",
+      "companyKey": "klinik-sonnenhalde",
+      "companyDomain": "sonnenhalde.ch",
+      "title": "Psychologiepraktikantin",
+      "titleByLocale": {
+        "de": "Psychologie",
+        "fr": "Psychologiepraktikantin",
+        "it": "Praktikantin di Psicologia",
+        "en": "Psychology Practitioner"
+      },
+      "description": "## Mansioni\n- Conoscere da vicino i disturbi psicopatologici appresi in teoria e gli approcci terapeutici\n\n## Area\n- Servizio Psicologico Medico\n\n## Tipo\n- Tempo pieno\n\n## Durata\n- Contratto a termine",
+      "descriptionByLocale": {
+        "de": "Mansioni\n- Conoscere da vicino i disturbi psicopatologici appresi in teoria e gli approcci terapeutici\n\nArea\n- Servizio Psicologico Medico\n\nTipo\n- Tempo pieno\n\nDurata\n- Contratto a termine",
+        "it": "Mansioni - Conoscere vicino da i disturbi psicopatologici appresi in teoria e gli approcci terapeutici Area - Servizio Psicologico Medico Tipo - Tempo pieno Durata - Contratto a termine",
+        "en": "Role\n- Gain practical experience with psychopathological disorders and therapeutic approaches learned in theory\n\nArea\n- Medical Psychological Service\n\nType\n- Full-time\n\nDuration\n- Fixed-term contract",
+        "fr": "Rôle\n- Découvrir de près les troubles psychopathologiques appris en théorie et les approches thérapeutiques\n\nDomaine\n- Service Psychologique Médical\n\nType\n- Temps plein\n\nDurée\n- Contrat à durée déterminée"
+      },
+      "location": "Riehen",
+      "canton": "BS",
+      "url": "https://recruitingapp-3030.umantis.com/Vacancies/343/Description/1",
+      "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-19T09:58:41.753Z",
+      "addressLocality": "Riehen",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4125",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-3030.umantis.com/Vacancies/343/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologiepraktikantin-klinik-sonnenhalde-riehen"
+        ],
+        "de": [
+          "psychologiepraktikantin-klinik-sonnenhalde-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "psychologiepraktikantin-klinik-sonnenhalde-riehen"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T09:58:41.753Z"
+    },
+    {
+      "id": "klinik-sonnenhalde-7cbdd2ea7e58",
+      "slug": "cuciniere-cuciniera-efz-klinik-sonnenhalde-riehen",
+      "slugByLocale": {
+        "de": "koch-kochin-efz-klinik-sonnenhalde-riehen",
+        "it": "cuciniere-cuciniera-efz-klinik-sonnenhalde-riehen",
+        "en": "manager-vendite-nel-servizio-esterno-f-m-d-100-bellinzona-allianz-suisse-bellinzona",
+        "fr": "responsable-vendite-nel-servizio-esterno-f-m-d-100-bellinzona-allianz-suisse-bellinzona"
+      },
+      "company": "Klinik Sonnenhalde",
+      "companyKey": "klinik-sonnenhalde",
+      "companyDomain": "sonnenhalde.ch",
+      "title": "Koch / Köchin EFZ",
+      "titleByLocale": {
+        "de": "Koch / Köchin EFZ",
+        "it": "Koch / Köchin CFC",
+        "en": "Cook / Chef EFZ",
+        "fr": "Cuisinier / Cuisinière EFZ"
+      },
+      "description": "## Mansioni\n- Cuoco/a\n\n## Area\n- Servizi trasversali Finanza, Processi e Servizi\n\n## Tipologia\n- Tempo pieno o part-time\n\n## Durata\n- Indeterminato\n\n## Descrizione\n- Cerchiamo una persona motivata e affidabile per rafforzare la nostra squadra di cucina a partire dal 1° maggio 2026.",
+      "descriptionByLocale": {
+        "de": "Mansioni\n- Cuoco/a\n\nArea\n- Servizi trasversali Finanza, Processi e Servizi\n\nTipologia\n- Tempo pieno o part-time\n\nDurata\n- Indeterminato\n\nDescrizione\n- Cerchiamo una persona motivata e affidabile per rafforzare la nostra squadra di cucina a partire dal 1° maggio 2026.",
+        "it": "Mansioni - Cuoco/a Area - Servizi trasversali Finanza, Processi e Servizi Tipologia - Tempo pieno o part-time Durata - Indeterminato Descrizione - \n• Cerchiamo una persona motivata e attendibile per aiutarci la nostra squadra di cucina a partire dal 1° maggio 2026.",
+        "en": "Position\n- Cook\n\nArea\n- Cross-functional Finance, Processes and Services\n\nType\n- Full-time or part-time\n\nDuration\n- Indefinite\n\nDescription\n- We are looking for a motivated and reliable person to strengthen our kitchen team starting from May 1, 2026.",
+        "fr": "Poste\n- Cuisinier\n\nZone\n- Services financiers, processus et services transversaux\n\nType\n- Temps plein ou temps partiel\n\nDurée\n- Indéterminée\n\nDescription\n- Nous recherchons une personne motivée et fiable pour renforcer notre équipe de cuisine à partir du 1er mai 2026."
+      },
+      "location": "Riehen",
+      "canton": "BS",
+      "url": "https://recruitingapp-3030.umantis.com/Vacancies/375/Description/1",
+      "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-19T09:58:41.752Z",
+      "addressLocality": "Riehen",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4125",
+      "category": "Amministrazione",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-3030.umantis.com/Vacancies/375/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T09:58:41.752Z"
+    },
+    {
+      "id": "klinik-sonnenhalde-e86f304633dc",
+      "slug": "oberin-oberarzio-di-psichiatria-e-psicoterapia-klinik-sonnenhalde-riehen",
+      "slugByLocale": {
+        "de": "oberarztin-oberarzt-stationar-alterspsychiatrie-und-alterspsychotherapie-klinik",
+        "it": "oberin-oberarzio-di-psichiatria-e-psicoterapia-klinik-sonnenhalde-riehen",
+        "en": "senior-physician-senior-psychologist-stationary-geriatric-psychiatry-and-psychotherapy-klinik-sonnenhalde-riehen",
+        "fr": "chirurgien-chef-chirurgien-chef-de-psychiatrie-et-de-psychotherapie-pour-personnes-agees-klinik-sonnenhalde-riehen"
+      },
+      "company": "Klinik Sonnenhalde",
+      "companyKey": "klinik-sonnenhalde",
+      "companyDomain": "sonnenhalde.ch",
+      "title": "Oberärztin/Oberarzt stationär Alterspsychiatrie und Alterspsychotherapie",
+      "titleByLocale": {
+        "de": "Oberärztin/Oberarzt stationär Alterspsychiatrie und Alterspsychotherapie",
+        "it": "Oberärztin/Oberarzt stationär Alterspsychiatrie e Alterspsychotherapie",
+        "en": "Senior Physician/Senior Psychologist Stationary Geriatric Psychiatry and Psychotherapy",
+        "fr": "Chirurgien-chef/Chirurgien-chef de psychiatrie et de psychothérapie pour personnes âgées"
+      },
+      "description": "## Descrizione\nZur Verstärkung unserers Führungsteams suchen wir eine motivierte und engagierte Persönlichkeit.\n\n## Requisiti\n- Ärztliche- Psychologischer Dienst\n- Vollzeit oder Teilzeit möglich\n- Befristung: Unbefristet",
+      "descriptionByLocale": {
+        "de": "Descrizione\nZur Verstärkung unserers Führungsteams suchen wir eine motivierte und engagierte Persönlichkeit.\n\nRequisiti\n- Ärztliche- Psychologischer Dienst\n- Vollzeit oder Teilzeit möglich\n- Befristung: Unbefristet",
+        "it": "Descrizione\nSiamo alla ricerca di una persona motivata e impegnata per rinforzare il nostro team di direzione.\n\nRequisiti\n- Servizio medico-psicologico\n- Tempo pieno o tempo parziale possibile\n- Contratto a tempo indeterminato",
+        "en": "Description\nWe are looking for a motivated and engaged person to strengthen our leadership team.\n\nRequirements\n- Medical-Psychological Service\n- Full-time or part-time possible\n- Unlimited contract",
+        "fr": "Description\nNous recherchons une personne motivée et engagée pour renforcer notre équipe de direction.\n\nExigences\n- Service médico-psychologique\n- Temps plein ou temps partiel possible\n- Contrat à durée indéterminée"
+      },
+      "location": "Riehen",
+      "canton": "BS",
+      "url": "https://recruitingapp-3030.umantis.com/Vacancies/357/Description/1",
+      "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T09:58:41.752Z",
+      "addressLocality": "Riehen",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4125",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-3030.umantis.com/Vacancies/357/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": [],
+        "it": [
+          "Servizio medico-psicologico",
+          "Tempo pieno o tempo parziale possibile",
+          "Contratto a tempo indeterminato"
+        ],
+        "en": [
+          "Medical-Psychological Service",
+          "Full-time or part-time possible",
+          "Unlimited contract"
+        ],
+        "fr": [
+          "Service médico-psychologique",
+          "Temps plein ou temps partiel possible",
+          "Contrat à durée indéterminée"
+        ]
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-stationar-alterspsychiatrie-und-alterspsychotherapie-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-stationar-alterspsychiatrie-und-alterspsychotherapie-klinik"
+      ],
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T09:58:41.752Z"
+    },
+    {
+      "id": "klinik-sonnenhalde-f3b6d688b496",
+      "slug": "specialista-infermieristico-qualificato-hf-fh-klinik-sonnenhalde-riehen",
+      "slugByLocale": {
+        "de": "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
+        "it": "specialista-infermieristico-qualificato-hf-fh-klinik-sonnenhalde-riehen",
+        "en": "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen",
+        "fr": "infirmier-ere-diplome-e-es-hes-klinik-sonnenhalde-riehen"
+      },
+      "company": "Klinik Sonnenhalde",
+      "companyKey": "klinik-sonnenhalde",
+      "companyDomain": "sonnenhalde.ch",
+      "title": "Dipl. Pflegefachperson HF/FH",
+      "titleByLocale": {
+        "de": "Dipl.-Ing. Pflegefachperson HF/FH",
+        "en": "Dipl. Pflegefachperson HF/FH",
+        "it": "Specialista infermieristico qualificato HF/FH",
+        "fr": "Infirmier/ère diplômé/e ES/HES"
+      },
+      "description": "## Descrizione\n- Für das Team der offenen Abteilung Chrischonahaus suchen wir eine interessierte und engagierte Persönlichkeit.\n- Bereich: Pflege, Therapie, SPD\n- Art: Teilzeit\n- Befristung: Unbefristet",
+      "descriptionByLocale": {
+        "de": "Descrizione\n- Für das Team der offenen Abteilung Chrischonahaus suchen wir eine interessierte und engagierte Persönlichkeit.\n- Bereich: Pflege, Therapie, SPD\n- Art: Teilzeit\n- Befristung: Unbefristet",
+        "it": "Descrizione\n\n- Per il team della sezione Chrischonahaus stiamo cercando una persona interessata e impegnata.\n- Settore: Assistenza, Terapia, SPD\n- Tipo di contratto: Part-time\n- Durata: Senza fine contrattuale",
+        "en": "Description\n\n- We are looking for an interested and engaged person to join the Chrischonahaus open department team.\n- Field: Care, Therapy, SPD\n- Type: Part-time\n- Duration: Unlimited",
+        "fr": "Description\n\n- Nous recherchons une personne intéressée et engagée pour rejoindre l'équipe de la section Chrischonahaus.\n- Domaine : Soins, Thérapie, SPD\n- Type : Temps partiel\n- Durée : Illimité"
+      },
+      "location": "Riehen",
+      "canton": "BS",
+      "url": "https://recruitingapp-3030.umantis.com/Vacancies/390/Description/1",
+      "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T09:58:41.751Z",
+      "addressLocality": "Riehen",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4125",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-3030.umantis.com/Vacancies/390/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": [],
+        "it": [
+          "Interessata e impegnata persona",
+          "Esperienza nel settore dell'assistenza, della terapia e dello SPD",
+          "Disponibilità per un contratto part-time",
+          "Disponibilità per un impegno a lungo termine"
+        ],
+        "en": [
+          "Interested and engaged person",
+          "Experience in the care, therapy, and SPD sectors",
+          "Availability for a part-time contract",
+          "Availability for a long-term commitment"
+        ],
+        "fr": [
+          "Personne intéressée et engagée",
+          "Expérience dans les secteurs des soins, de la thérapie et du SPD",
+          "Disponibilité pour un contrat à temps partiel",
+          "Disponibilité pour un engagement à long terme"
+        ]
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-klinik-sonnenhalde-riehen"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T09:58:41.751Z"
+    },
+    {
+      "id": "klinik-sonnenhalde-ca132c018962",
+      "slug": "tirocinante-wms-klinik-sonnenhalde-riehen",
+      "slugByLocale": {
+        "de": "wms-praktikant-in-klinik-sonnenhalde-riehen",
+        "it": "tirocinante-wms-klinik-sonnenhalde-riehen",
+        "en": "paramedic-50-100-spital-davos-davos",
+        "fr": "samu-50-100-spital-davos-davos"
+      },
+      "company": "Klinik Sonnenhalde",
+      "companyKey": "klinik-sonnenhalde",
+      "companyDomain": "sonnenhalde.ch",
+      "title": "WMS-Praktikant/in",
+      "titleByLocale": {
+        "de": "WMS-Praktikant/in",
+        "it": "Tirocinante WMS",
+        "en": "DMS Intern",
+        "fr": "Stagiaire WMS"
+      },
+      "description": "## Descrizione\nIn questa pratica professionale variegata, supporterete il nostro team nei settori di amministrazione, finanza, contabilità dei pazienti e personale, e riceverete una visione completa delle procedure commerciali di una clinica.\n\n## Requisiti\n- Art: Vollzeit\n- Befristung: Befristet\n\n## Cosa offriamo\n- Supporto del team in diversi settori\n- Visione completa delle procedure commerciali di una clinica\n- Opportunità di crescita e sviluppo professionale\n\n## Contatto\n- (Contatto non specificato)",
+      "descriptionByLocale": {
+        "de": "Descrizione\nIn questa pratica professionale variegata, supporterete il nostro team nei settori di amministrazione, finanza, contabilità dei pazienti e personale, e riceverete una visione completa delle procedure commerciali di una clinica.\n\nRequisiti\n- Art: Vollzeit\n- Befristung: Befristet\n\nCosa offriamo\n- Supporto del team in diversi settori\n- Visione completa delle procedure commerciali di una clinica\n- Opportunità di crescita e sviluppo professionale\n\nContatto\n- (Contatto non specificato)",
+        "it": "Descrizione In questa pratica professionale variegata, supporterete il nostro team nei settori di amministrazione, finanza, contabilità dei pazienti e personale, e riceverete una visione completa delle procedure commerciali di una clinica. \n• Requisiti - Tipo: a tempo pieno - Scadenza: a tempo determinato \n• Cosa offriamo - Supporto del team in diversi settori - Visione completa delle procedure commerciali di una clinica - Opportunità di crescita e sviluppo professionale Contatto - (Contatto non specificato)",
+        "en": "Description\nIn this diverse professional practice, you will support our team in administration, finance, patient and personnel accounting, and receive a comprehensive view of the commercial procedures of a clinic.\n\nRequirements\n- Art: Full-time\n- Befristung: Limited\n\nWhat we offer\n- Team support in various sectors\n- Comprehensive view of the commercial procedures of a clinic\n- Opportunity for growth and professional development\n\nContact\n- (Contact not specified)",
+        "fr": "Description\nDans cette pratique professionnelle variée, vous soutiendrez notre équipe dans les secteurs de l'administration, de la finance, de la comptabilité des patients et du personnel, et recevrez une vision complète des procédures commerciales d'une clinique.\n\nExigences\n- Art: Temps plein\n- Befristung: Limité\n\nCe que nous offrons\n- Soutien de l'équipe dans divers secteurs\n- Vision complète des procédures commerciales d'une clinique\n- Opportunité de croissance et de développement professionnel\n\nContact\n- (Contact non spécifié)"
+      },
+      "location": "Riehen",
+      "canton": "BS",
+      "url": "https://recruitingapp-3030.umantis.com/Vacancies/389/Description/1",
+      "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-19T09:58:41.751Z",
+      "addressLocality": "Riehen",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4125",
+      "category": "Amministrazione",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-3030.umantis.com/Vacancies/389/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": [],
+        "it": [
+          "Requisiti - Tipo:"
+        ]
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "paramedico-50-100-spital-davos-davos"
+        ]
+      },
+      "previousSlugs": [
+        "paramedico-50-100-spital-davos-davos"
+      ],
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T09:58:41.751Z"
+    },
+    {
+      "id": "klinik-sonnenhalde-4b64f2c58b0a",
+      "slug": "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
+      "slugByLocale": {
+        "de": "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
+        "it": "miterbeiter-in-service-stundenlohn-klinik-sonnenhalde-riehen",
+        "en": "miterbeiter-in-service-hourly-wage-klinik-sonnenhalde-riehen",
+        "fr": "mitarbeiter-in-service-salaire-horaire-klinik-sonnenhalde-riehen"
+      },
+      "company": "Klinik Sonnenhalde",
+      "companyKey": "klinik-sonnenhalde",
+      "companyDomain": "sonnenhalde.ch",
+      "title": "Miterbeiter:in Service (Stundenlohn)",
+      "titleByLocale": {
+        "de": "Miterbeiter:in Service (Stundenlohn)",
+        "it": "Mitarbeiter:in Service (Stundenlohn)",
+        "en": "Miterbeiter:in Service (Hourly Wage)",
+        "fr": "Mitarbeiter:in Service (Salaire horaire)"
+      },
+      "description": "## Descrizione\n- Für il Team della Gastronomia, stiamo cercando una persona interessata e impegnata a partire dal 01. Giugno 2026 o dopo un accordo.\n\n## Mansioni\n- Sono parte del Team di Querschnittsdienste Finanzen, Prozesse e Services\n\n## Requisiti\n- Art: Part-time\n\n## Cosa offriamo\n- Befristung: Unbefristet",
+      "descriptionByLocale": {
+        "de": "Descrizione\n- Für il Team della Gastronomia, stiamo cercando una persona interessata e impegnata a partire dal 01. Giugno 2026 o dopo un accordo.\n\nMansioni\n- Sono parte del Team di Querschnittsdienste Finanzen, Prozesse e Services\n\nRequisiti\n- Art: Part-time\n\nCosa offriamo\n- Befristung: Unbefristet",
+        "it": "Descrizione\n- Per il Team della Gastronomia, stiamo cercando una persona interessata e impegnata a partire dal 01. Giugno 2026 o dopo un accordo.\n\nMansioni\n- Sono parte del Team di Querschnittsdienste Finanzen, Prozesse e Services\n\nRequisiti\n- Art: Part-time\n\nCosa offriamo\n- Befristung: Unbefristet",
+        "en": "Description\n- We are looking for a person interested and committed to join the Food Team as of June 1, 2026 or after an agreement.\n\nResponsibilities\n- Part of the Cross-Service Team Finance, Processes and Services\n\nRequirements\n- Art: Part-time\n\nWhat we offer\n- Befristung: Unlimited",
+        "fr": "Description\n- Nous recherchons une personne intéressée et engagée pour rejoindre l'équipe de la Gastronomie à partir du 01. Juin 2026 ou après un accord.\n\nTâches\n- Partie du Team de Services Transversaux Finances, Processus et Services\n\nExigences\n- Art: Part-time\n\nCe que nous offrons\n- Befristung: Illimité"
+      },
+      "location": "Riehen",
+      "canton": "BS",
+      "url": "https://recruitingapp-3030.umantis.com/Vacancies/391/Description/1",
+      "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-19T09:58:41.750Z",
+      "addressLocality": "Riehen",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4125",
+      "category": "Amministrazione",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-3030.umantis.com/Vacancies/391/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": [],
+        "it": [
+          "Art: Part-time"
+        ],
+        "en": [
+          "Part-time"
+        ],
+        "fr": [
+          "Part-time"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T09:58:41.750Z"
+    },
+    {
+      "id": "klinik-sonnenhalde-ab491d95915f",
+      "slug": "cucina-efz-contratto-a-termine-3-mesi-klinik-sonnenhalde-riehen",
+      "slugByLocale": {
+        "de": "koch-kochin-efz-befristet-3-monate-klinik-sonnenhalde-riehen",
+        "it": "cucina-efz-contratto-a-termine-3-mesi-klinik-sonnenhalde-riehen",
+        "en": "kitchen-efz-fixed-term-3-months-klinik-sonnenhalde-riehen",
+        "fr": "cuisine-efz-contrat-a-duree-determinee-3-mois-klinik-sonnenhalde-riehen"
+      },
+      "company": "Klinik Sonnenhalde",
+      "companyKey": "klinik-sonnenhalde",
+      "companyDomain": "sonnenhalde.ch",
+      "title": "Koch / Köchin EFZ (Befristet 3 Monate)",
+      "titleByLocale": {
+        "de": "Koch / Köchin EFZ (Befristet 3 Monate)",
+        "it": "Cucina EFZ (Contratto a Termine 3 Mesi)",
+        "en": "Kitchen EFZ (Fixed-Term 3 Months)",
+        "fr": "Cuisine EFZ (Contrat à Durée Déterminée 3 Mois)"
+      },
+      "description": "## Descrizione\nZur Verstärkung unseres Küchenteams suchen wir zum 01. Juni 2026 eine engagierte und zuverlässige Persönlichkeit\n\n## Requisiti\n- Bereich: Querschnittsdienste Finanzen, Prozesse und Services\n- Art: Vollzeit oder Teilzeit möglich\n- Befristung: Befristet",
+      "descriptionByLocale": {
+        "de": "Descrizione\nZur Verstärkung unseres Küchenteams suchen wir zum 01. Juni 2026 eine engagierte und zuverlässige Persönlichkeit\n\nRequisiti\n- Bereich: Querschnittsdienste Finanzen, Prozesse und Services\n- Art: Vollzeit oder Teilzeit möglich\n- Befristung: Befristet",
+        "it": "Descrizione\n\nSiamo alla ricerca di una persona impegnata e affidabile per rinforzare il nostro team di cucina a partire dal 01. Giugno 2026.\n\nRequisiti\n\n- Settore: Servizi Finanziari, Processi e Servizi\n- Tipo di contratto: Tempo pieno o tempo parziale possibile\n- Durata del contratto: Contratto a termine",
+        "en": "Description\n\nWe are seeking a dedicated and reliable individual to join our kitchen team as of June 1st, 2026.\n\nRequirements\n\n- Department: Cross-Service Finance, Processes and Services\n- Type: Full-time or part-time possible\n- Contract duration: Fixed-term",
+        "fr": "Description\n\nNous recherchons une personne engagée et fiable pour renforcer notre équipe de cuisine à partir du 01. Juin 2026.\n\nExigences\n\n- Département: Services financiers, processus et services\n- Type: Temps plein ou temps partiel possible\n- Durée du contrat: Contrat à durée déterminée"
+      },
+      "location": "Riehen",
+      "canton": "BS",
+      "url": "https://recruitingapp-3030.umantis.com/Vacancies/392/Description/1",
+      "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T09:58:41.749Z",
+      "addressLocality": "Riehen",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4125",
+      "category": "Amministrazione",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-3030.umantis.com/Vacancies/392/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": [],
+        "it": [
+          "Settore: Servizi Finanziari, Processi e Servizi",
+          "Tipo di contratto: Tempo pieno o tempo parziale possibile",
+          "Durata del contratto: Contratto a termine"
+        ],
+        "en": [
+          "Department: Cross-Service Finance, Processes and Services",
+          "Type: Full-time or part-time possible",
+          "Contract duration: Fixed-term"
+        ],
+        "fr": [
+          "Département: Services financiers, processus et services",
+          "Type: Temps plein ou temps partiel possible",
+          "Durée du contrat: Contrat à durée déterminée"
+        ]
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-efz-befristet-3-monate-klinik-sonnenhalde-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-efz-befristet-3-monate-klinik-sonnenhalde-riehen"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T09:58:41.749Z"
+    },
+    {
+      "id": "klinik-sonnenhalde-c131990acb4e",
+      "slug": "addetto-a-gestione-pazienti-fatturazione-klinik-sonnenhalde-riehen",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-patientenmanagement-patientenabrechnung-klinik-sonnenhalde-riehen",
+        "it": "addetto-a-gestione-pazienti-fatturazione-klinik-sonnenhalde-riehen",
+        "en": "patient-management-billing-coordinator-klinik-sonnenhalde-riehen",
+        "fr": "coordinateur-trice-gestion-des-patients-facturation-klinik-sonnenhalde-riehen"
+      },
+      "company": "Klinik Sonnenhalde",
+      "companyKey": "klinik-sonnenhalde",
+      "companyDomain": "sonnenhalde.ch",
+      "title": "Mitarbeiter:in Patientenmanagement & Patientenabrechnung",
+      "titleByLocale": {
+        "de": "Mitarbeiter:in Patientenmanagement & Patientenabrechnung",
+        "it": "Addetto/a Gestione Pazienti & Fatturazione",
+        "en": "Patient Management & Billing Coordinator",
+        "fr": "Coordinateur(trice) Gestion des Patients & Facturation"
+      },
+      "description": "## Descrizione\nFür unser Team suchen wir eine engagierte Persönlichkeit, die Lust hat, zwei zentrale Bereiche unserer Klinik zu verbinden: Patientenmanagement und Patientenabrechnung/Finanzen. Hier arbeiten Sie an der Schnittstelle zwischen, organisatorischer Präzision und finanzieller Verantwortung – und gestalten Prozesse aktiv mit.\n\n## Requisiti\n- Art: Vollzeit\n- Befristung: Unbefristet\n\n## Cosa offriamo\n- Hier arbeiten Sie an der Schnittstelle zwischen organisatorischer Präzision und finanzieller Verantwortung\n- Gestalten Prozesse aktiv mit\n\n## Contatto\n- Bereich: Strategisches & Innovationsmanagement",
+      "descriptionByLocale": {
+        "de": "Descrizione\nFür unser Team suchen wir eine engagierte Persönlichkeit, die Lust hat, zwei zentrale Bereiche unserer Klinik zu verbinden: Patientenmanagement und Patientenabrechnung/Finanzen. Hier arbeiten Sie an der Schnittstelle zwischen, organisatorischer Präzision und finanzieller Verantwortung – und gestalten Prozesse aktiv mit.\n\nRequisiti\n- Art: Vollzeit\n- Befristung: Unbefristet\n\nCosa offriamo\n- Hier arbeiten Sie an der Schnittstelle zwischen organisatorischer Präzision und finanzieller Verantwortung\n- Gestalten Prozesse aktiv mit\n\nContatto\n- Bereich: Strategisches & Innovationsmanagement",
+        "it": "Descrizione\nPer il nostro team cerchiamo una persona motivata, desiderosa di unire due aree centrali della nostra clinica: gestione dei pazienti e fatturazione/pianificazione finanziaria. Qui lavorerai all'intersezione tra precisione organizzativa e responsabilità finanziaria – contribuendo attivamente alla definizione dei processi.\n\nRequisiti\n- Tipo: Full-time\n- Durata: Indeterminato\n\nCosa offriamo\n- Qui lavori all'intersezione tra precisione organizzativa e responsabilità finanziaria\n- Contribuisci attivamente alla definizione dei processi\n\nContatto\n- Settore: Gestione strategica e innovazione",
+        "en": "Description\nWe are looking for a dedicated individual to join our team, eager to connect two core areas of our clinic: patient management and billing/financial administration. Here, you will work at the intersection of organizational precision and financial responsibility – actively shaping processes.\n\nRequirements\n- Type: Full-time\n- Duration: Permanent\n\nWhat We Offer\n- You will work at the interface between organizational precision and financial responsibility\n- Actively shape processes\n\nContact\n- Department: Strategic & Innovation Management",
+        "fr": "Description\nPour notre équipe, nous recherchons une personne engagée, désireuse de relier deux domaines clés de notre clinique : la gestion des patients et la facturation/administration financière. Ici, vous travaillerez à l’intersection entre précision organisationnelle et responsabilité financière – en participant activement à la définition des processus.\n\nExigences\n- Type : Temps plein\n- Contrat : CDI\n\nCe que nous offrons\n- Vous travaillez à l’interface entre précision organisationnelle et responsabilité financière\n- Contribuez activement à la conception des processus\n\nContact\n- Département : Gestion stratégique & Innovation"
+      },
+      "location": "Riehen",
+      "canton": "BS",
+      "url": "https://recruitingapp-3030.umantis.com/Vacancies/393/Description/1",
+      "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T09:58:41.748Z",
+      "addressLocality": "Riehen",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4125",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-3030.umantis.com/Vacancies/393/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-patientenmanagement-patientenabrechnung-klinik-sonnenhalde-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-patientenmanagement-patientenabrechnung-klinik-sonnenhalde-riehen"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T09:58:41.748Z"
+    },
+    {
+      "id": "klinik-sonnenhalde-479acb3bca8e",
+      "slug": "addetto-a-risorse-umane-klinik-sonnenhalde-riehen",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-personal-klinik-sonnenhalde-riehen",
+        "it": "addetto-a-risorse-umane-klinik-sonnenhalde-riehen",
+        "en": "hr-staff-klinik-sonnenhalde-riehen",
+        "fr": "personnel-klinik-sonnenhalde-riehen"
+      },
+      "company": "Klinik Sonnenhalde",
+      "companyKey": "klinik-sonnenhalde",
+      "companyDomain": "sonnenhalde.ch",
+      "title": "Mitarbeiter:in Personal",
+      "titleByLocale": {
+        "de": "Mitarbeiter:in Personal",
+        "it": "Addetto/a Risorse Umane",
+        "en": "Associate Personal",
+        "fr": "Collaborateur/trice Personal"
+      },
+      "description": "## Descrizione\n\nZur Verstärkung unseres Teams suchen wir eine interessierte und engagierte Persönlichkeit.\n\n## Mansioni\n\n- Bereich: Querschnittsdienste Finanzen, Prozesse und Services\n\n## Requisiti\n\n- Art: Teilzeit\n- Befristung: Unbefristet\n\n## Cosa offriamo\n\n*(Nessuna informazione fornita)*\n\n## Contatto\n\n*(Nessuna informazione fornita)*",
+      "descriptionByLocale": {
+        "de": "Descrizione\n\nZur Verstärkung unseres Teams suchen wir eine interessierte und engagierte Persönlichkeit.\n\nMansioni\n\n- Bereich: Querschnittsdienste Finanzen, Prozesse und Services\n\nRequisiti\n\n- Art: Teilzeit\n- Befristung: Unbefristet\n\nCosa offriamo\n\n*(Nessuna informazione fornita)*\n\nContatto\n\n*(Nessuna informazione fornita)*",
+        "it": "Descrizione\n\nPer rafforzare il nostro team cerchiamo una persona interessata e motivata.\n\nMansioni\n\n- Area: Servizi trasversali Finanza, Processi e Servizi\n\nRequisiti\n\n- Tipo: Part-time\n- Durata: Indeterminato\n\nCosa offriamo\n\n*(Nessuna informazione fornita)*\n\nContatto\n\n*(Nessuna informazione fornita)*",
+        "en": "Description\n\nTo strengthen our team, we are looking for an interested and committed individual.\n\nTasks\n\n- Area: Cross-sectional services Finance, Processes, and Services\n\nRequirements\n\n- Type: Part-time\n- Duration: Permanent\n\nWhat we offer\n\n*(No information provided)*\n\nContact\n\n*(No information provided)*",
+        "fr": "Description\n\nPour renforcer notre équipe, nous recherchons une personne intéressée et engagée.\n\nMissions\n\n- Domaine : Services transversaux Finances, Processus et Services\n\nExigences\n\n- Type : Temps partiel\n- Contrat : CDI\n\nCe que nous offrons\n\n*(Aucune information fournie)*\n\nContact\n\n*(Aucune information fournie)*"
+      },
+      "location": "Riehen",
+      "canton": "BS",
+      "url": "https://recruitingapp-3030.umantis.com/Vacancies/394/Description/1",
+      "source": "Klinik Sonnenhalde Dedicated Parser (Umantis listing tenant 3030)",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-19T09:58:41.740Z",
+      "addressLocality": "Riehen",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4125",
+      "category": "Amministrazione",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://recruitingapp-3030.umantis.com/Vacancies/394/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-personal-klinik-sonnenhalde-riehen"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-personal-klinik-sonnenhalde-riehen"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-05-19T09:58:41.740Z"
+    }
+  ]
+}
