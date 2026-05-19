@@ -46,6 +46,8 @@
  * correctness over speed.
  */
 
+import { expandCantonGroup } from './cantonList';
+
 /**
  * Permissive Job shape. The full Job interface lives in component-level types,
  * but this fetch/cache layer is structure-agnostic — it only needs to round-trip
@@ -414,6 +416,12 @@ export async function fetchAllJobs(): Promise<Job[]> {
  * (`/data/jobs-{locale}.json`, ~13 MB, all 26 cantons mixed), this filter
  * prevents the TI-dominant payload from leaking into non-TI canton SERPs.
  *
+ * URL group codes (`BASILEA` → BL+BS, `APPENZELLO` → AI+AR) are expanded
+ * to their BFS members before matching, since `job.canton` always carries
+ * the real BFS code (BL/BS/AI/AR), never the URL group key. Without the
+ * expansion, `/cerca-lavoro-basilea/` would render an empty SERP because
+ * no row has `canton === 'BASILEA'`.
+ *
  * Pure / side-effect free → unit-testable without DOM or network.
  */
 export function scopeJobsToCanton<T extends { canton?: string | null }>(
@@ -421,7 +429,14 @@ export function scopeJobsToCanton<T extends { canton?: string | null }>(
  targetCanton: string,
 ): T[] {
  if (targetCanton === AGGREGATE_CANTON_CODE) return jobs.slice();
- return jobs.filter((j) => j.canton === targetCanton);
+ const members = expandCantonGroup(targetCanton);
+ if (members.length === 0) return [];
+ if (members.length === 1) {
+  const only = members[0];
+  return jobs.filter((j) => j.canton === only);
+ }
+ const memberSet = new Set(members);
+ return jobs.filter((j) => typeof j.canton === 'string' && memberSet.has(j.canton));
 }
 
 // --------------------------------------------------------------------------
