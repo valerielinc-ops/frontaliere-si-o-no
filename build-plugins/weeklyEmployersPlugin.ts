@@ -4197,7 +4197,7 @@ export function renderTopCompaniesSectionForTest(
   const copy = COPY[locale];
   const cityDisplay = 'Test City';
   const hasHistoricalDelta = true;
-  const jobBoardSection = 'cerca-lavoro-ticino';
+  const jobBoardSection = 'cerca-lavoro-ticino'; // cathedral-allow: test-only fixture in renderTopCompaniesSectionForTest (TI is the original IT slug)
   const localePrefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
 
   if (topCompanies.length === 0) {

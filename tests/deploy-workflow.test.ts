@@ -20,6 +20,7 @@ const ROOT = resolve(import.meta.dirname, '..');
 const VALIDATION_YML = readFileSync(resolve(ROOT, '.github/workflows/post-deploy-validate-dist.yml'), 'utf-8');
 const PACKAGE_JSON = JSON.parse(readFileSync(resolve(ROOT, 'package.json'), 'utf-8'));
 const BATCH_WRITE = readFileSync(resolve(ROOT, 'build-plugins/batchWrite.ts'), 'utf-8');
+const AUDIT_ALL_REGISTRY_SRC = readFileSync(resolve(ROOT, 'scripts/audit-all.mjs'), 'utf-8');
 
 // `audit:title-uniqueness` was moved to a separate weekly workflow because it
 // OOM-killed the parallel block. All remaining gates must stay in parallel.
@@ -32,6 +33,33 @@ const AUDIT_SCRIPTS_IN_PARALLEL_BLOCK = [
   'audit:title-length',
 ] as const;
 
+/**
+ * Parse the REGISTRY block of scripts/audit-all.mjs to extract the set of
+ * audit names that the unified runner wraps. Each entry has the shape
+ *   `{ factory: <ident>, name: '<audit-name>' }` — we match the `name: '…'`
+ * literal so additions to the registry are automatically picked up.
+ */
+function parseAuditAllRegistry(src: string): Set<string> {
+  const out = new Set<string>();
+  const re = /\bname:\s*['"]([a-z][a-z0-9-]*)['"]/g;
+  let m;
+  while ((m = re.exec(src)) !== null) out.add(`audit:${m[1]}`);
+  return out;
+}
+
+const AUDIT_ALL_WRAPS = parseAuditAllRegistry(AUDIT_ALL_REGISTRY_SRC);
+
+/**
+ * Returns true if the workflow invokes the audit either directly via
+ * `npm run audit:<name>` OR transitively via `npm run audit:all` (when the
+ * audit is registered in audit-all.mjs).
+ */
+function isInvokedDirectlyOrViaAuditAll(name: string): boolean {
+  const directRe = new RegExp(`npm run ${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'g');
+  if (directRe.test(VALIDATION_YML)) return true;
+  return AUDIT_ALL_WRAPS.has(name) && /npm run audit:all\b/.test(VALIDATION_YML);
+}
+
 describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
   it('every gate in the parallel block is defined in package.json', () => {
     const scripts = PACKAGE_JSON.scripts || {};
@@ -40,14 +68,15 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
     }
   });
 
-  it('every gate is invoked in post-deploy-validate-dist.yml', () => {
+  it('every gate is reachable from post-deploy-validate-dist.yml (directly or via audit:all)', () => {
     for (const name of AUDIT_SCRIPTS_IN_PARALLEL_BLOCK) {
-      const re = new RegExp(`npm run ${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'g');
-      const matches = VALIDATION_YML.match(re) || [];
       expect(
-        matches.length,
-        `"${name}" should appear in post-deploy-validate-dist.yml; found ${matches.length}`,
-      ).toBeGreaterThanOrEqual(1);
+        isInvokedDirectlyOrViaAuditAll(name),
+        `"${name}" is unreachable from post-deploy-validate-dist.yml. ` +
+        `Either invoke it directly via \`npm run ${name}\`, or register it in ` +
+        `scripts/audit-all.mjs REGISTRY (audit-all is invoked in workflow). ` +
+        `audit-all currently wraps: ${[...AUDIT_ALL_WRAPS].sort().join(', ')}`,
+      ).toBe(true);
     }
   });
 
@@ -58,25 +87,28 @@ describe('post-deploy-validate-dist.yml — parallel SEO audit gates', () => {
     ).toContain('spawn_capped()');
   });
 
-  it('any new audit:* script added to package.json must be wired into post-deploy-validate-dist.yml', () => {
+  it('any new audit:* script added to package.json must be reachable in post-deploy-validate-dist.yml (direct or via audit:all)', () => {
     // Gates intentionally NOT in the dist-validate parallel block:
     // - `:rebaseline` variants mutate the checked-in baseline; never CI.
     // - `audit:title-uniqueness` runs on a separate weekly workflow because
     //   it OOM-killed the parallel block.
     // - `audit:dist-multi*` are aggregators that wrap other audits.
     // - `audit:parser-quality` is a developer self-test, not gated in CI.
+    // - `audit:all` IS the wrapper itself; reachability check would be circular.
     const GATES_NOT_IN_DIST_PARALLEL = new Set([
       'audit:title-uniqueness',
       'audit:dist-multi',
       'audit:parser-quality',
+      'audit:all',
     ]);
     const allAuditScripts = Object.keys(PACKAGE_JSON.scripts || {}).filter((k) => {
       return /^audit:/.test(k) && !/:rebaseline$/.test(k) && !GATES_NOT_IN_DIST_PARALLEL.has(k);
     });
     for (const name of allAuditScripts) {
       expect(
-        VALIDATION_YML.includes(`npm run ${name}`),
-        `package.json defines "${name}" but post-deploy-validate-dist.yml never invokes it — gate would never run`,
+        isInvokedDirectlyOrViaAuditAll(name),
+        `package.json defines "${name}" but post-deploy-validate-dist.yml has no reachable invocation — ` +
+        `gate would never run. audit:all currently wraps: ${[...AUDIT_ALL_WRAPS].sort().join(', ')}`,
       ).toBe(true);
     }
   });
