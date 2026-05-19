@@ -79,10 +79,6 @@ const RC_TO_ENV = {
   SERVER_POSTHOG_PROJECT_ID:       ['POSTHOG_PROJECT_ID'],
   SERVER_POSTHOG_HOST:             ['POSTHOG_HOST'],
 
-  // Amazon Creators API (build-time product fetch)
-  AMAZON_CREATOR_ID:              ['AMAZON_CREATOR_ID'],
-  AMAZON_CREATOR_SECRET:          ['AMAZON_CREATOR_SECRET'],
-
   // LinkedIn auto-posting (Company Page articles)
   LINKEDIN_POST_CLIENT_ID:        ['LINKEDIN_POST_CLIENT_ID'],
   LINKEDIN_POST_CLIENT_SECRET:    ['LINKEDIN_POST_CLIENT_SECRET'],
