@@ -255,3 +255,51 @@ describe('router — city hub URLs', () => {
     }
   });
 });
+
+// ──────────────────────────────────────────────────────────────────────
+// PR #318 regression — buildCityHubSeo forwards cantonDisplay through to
+// both buildCityHubTitle and buildCityHubMeta. Cross-canton city hubs like
+// /cerca-lavoro-basilea/pratteln/ must not say "in Ticino" / "Tessin".
+// ──────────────────────────────────────────────────────────────────────
+describe('buildCityHubSeo — non-TI cantonDisplay forwarded to title and meta', () => {
+  it('IT non-TI: title omits "in Ticino" pad when cantonDisplay is set', () => {
+    const tiPratteln = buildCityHubSeo('it', 'pratteln' as never, 3, YEAR);
+    const bsPratteln = buildCityHubSeo('it', 'pratteln' as never, 3, YEAR, 'Basilea Città');
+    // With no cantonDisplay, short titles fall back to "in Ticino" pad
+    // (preserves legacy TI behaviour). With cantonDisplay, the pad swaps to
+    // the actual canton — so the BS variant must not say "Ticino" anywhere.
+    expect(bsPratteln.title).not.toContain('Ticino');
+    expect(bsPratteln.title).not.toContain('Tessin');
+    // If the IT title was short enough to trigger pad-to-min, verify the
+    // substitution actually happened.
+    if (tiPratteln.title.includes('in Ticino')) {
+      expect(bsPratteln.title).toContain('Basilea Città');
+    }
+  });
+
+  it('EN/DE/FR non-TI: title + meta substitute the actual canton', () => {
+    const cantonByLocale = {
+      en: 'Basel-City',
+      de: 'Basel-Stadt',
+      fr: 'Bâle-Ville',
+    } as const;
+    for (const locale of ['en', 'de', 'fr'] as const) {
+      const seo = buildCityHubSeo(locale, 'pratteln' as never, 3, YEAR, cantonByLocale[locale]);
+      expect(seo.title, `${locale} title`).not.toContain('Ticino');
+      expect(seo.title, `${locale} title`).not.toContain('Tessin');
+      expect(seo.title, `${locale} title`).toContain(cantonByLocale[locale]);
+      expect(seo.desc, `${locale} desc`).not.toContain('Ticino');
+      expect(seo.desc, `${locale} desc`).not.toContain('Tessin');
+      expect(seo.desc, `${locale} desc`).toContain(cantonByLocale[locale]);
+    }
+  });
+
+  it('TI callers (no 5th arg) keep legacy Ticino/Tessin copy — byte-identical guarantee', () => {
+    const legacyLugano = buildCityHubSeo('en', 'lugano', 50, YEAR);
+    const explicitNoCanton = buildCityHubSeo('en', 'lugano', 50, YEAR, undefined);
+    expect(legacyLugano.title).toBe(explicitNoCanton.title);
+    expect(legacyLugano.desc).toBe(explicitNoCanton.desc);
+    expect(legacyLugano.h1).toBe(explicitNoCanton.h1);
+    expect(legacyLugano.title).toContain('Ticino');
+  });
+});

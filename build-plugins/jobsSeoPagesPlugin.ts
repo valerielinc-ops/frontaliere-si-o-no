@@ -3066,10 +3066,15 @@ ${hreflangHtml}
  };
  organizationLd = JSON.stringify(curatedOrgLd);
 
- // ItemList with top open roles
+ // ItemList with top open roles. URLs must be canton-aware so that
+ // structured data points at the actually-emitted job-detail page
+ // (not the soft-canonical TI redirect). Otherwise Google ingests
+ // canonical chains in rich-result candidates.
  const itemListItems = companyJobs.slice(0, 10).map((job, idx) => {
  const jSlug = localizedSlug(job, locale);
- const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
+ const jobCantonForList = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ const sectionForJob = jobCantonForList ? sharedResolveCantonSection(locale, jobCantonForList) : sectionByLocale[locale];
+ const jPath = `${localePrefix[locale]}/${sectionForJob}/${jSlug}`.replace(/\/+/g, '/');
  const jHref = `${BASE_URL}${withSlash(jPath)}`;
  const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
  return { '@type': 'ListItem', position: idx + 1, url: jHref, name: jTitle };
@@ -5490,7 +5495,14 @@ ${alternates}
  const pgNextLink = pgNextHref ? `\n <link rel="next" href="${pgNextHref}">` : '';
  const pgListHtml = pgJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
  const pgCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
- const pgItemLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => ({ '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}` })) });
+ const pgItemLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => {
+ // Canton-aware item URL: pagination is TI-section by design but the jobs
+ // listed may live in any canton. Point ItemList at the actually-emitted
+ // canonical URL, not the soft-canonical TI detour.
+ const jc = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ const secForJob = jc ? sharedResolveCantonSection(locale, jc) : sectionByLocale[locale];
+ return { '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${secForJob}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}` };
+ }) });
  const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
  const pgHomeUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
  const pgListName = locale === 'it' ? 'Lavoro in Ticino' : locale === 'en' ? 'Jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Emploi au Tessin';

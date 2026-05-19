@@ -221,3 +221,39 @@ describe('all 4 locales covered for every page type', () => {
     }
   });
 });
+
+// ──────────────────────────────────────────────────────────────────────
+// Regression: non-TI city hubs must NOT hardcode "Ticino Switzerland" /
+// "Tessin" / "Tessin Suisse" in the meta description (PR #318 — buildCityHubMeta
+// gained optional cantonDisplay).
+// ──────────────────────────────────────────────────────────────────────
+describe('buildCityHubMeta — non-TI cantonDisplay (no Ticino/Tessin leak)', () => {
+  it('EN/DE/FR non-TI: meta substitutes the actual canton', () => {
+    const cantonByLocale = {
+      en: 'Basel-City',
+      de: 'Basel-Stadt',
+      fr: 'Bâle-Ville',
+    } as const;
+    for (const locale of ['en', 'de', 'fr'] as const) {
+      const m = buildCityHubMeta({
+        locale,
+        cityDisplay: 'Pratteln',
+        count: 3,
+        cantonDisplay: cantonByLocale[locale],
+      });
+      expect(m, `${locale}`).not.toContain('Ticino');
+      expect(m, `${locale}`).not.toContain('Tessin');
+      expect(m, `${locale}`).toContain(cantonByLocale[locale]);
+      expect(m, `${locale}`).toContain('Pratteln');
+    }
+  });
+
+  it('TI callers (cantonDisplay undefined) keep legacy Ticino/Tessin copy', () => {
+    const en = buildCityHubMeta({ locale: 'en', cityDisplay: 'Lugano', count: 50 });
+    const de = buildCityHubMeta({ locale: 'de', cityDisplay: 'Lugano', count: 50 });
+    const fr = buildCityHubMeta({ locale: 'fr', cityDisplay: 'Lugano', count: 50 });
+    expect(en).toContain('Ticino');
+    expect(de).toContain('Tessin');
+    expect(fr).toContain('Tessin');
+  });
+});
