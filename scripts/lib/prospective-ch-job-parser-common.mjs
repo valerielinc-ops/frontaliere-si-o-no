@@ -65,16 +65,30 @@ function pickLocation(job, defaultCity) {
     if (m) return normalizeSpace(m[2]);
     return normalizeSpace(cityRaw);
   }
-  // Sometimes the site label is in attributes[10]
+  // Some Prospective tenants store the city under `sza_workplace.city` (a
+  // plain city name without postal prefix) — newer schema, e.g. asana Spital AG.
+  const workplaceCity = String(szas['sza_workplace.city'] || '').trim();
+  if (workplaceCity) return normalizeSpace(workplaceCity);
+  // Sometimes the site label is in attributes[10] (legacy fallback). Skip it
+  // when it's clearly a department code (4-letter all-caps) rather than a city,
+  // so callers fall through to defaultCity.
   const attr10 = Array.isArray(job?.attributes?.['10']) ? job.attributes['10'][0] : '';
-  if (attr10) return normalizeSpace(attr10);
+  if (attr10) {
+    const trimmed = normalizeSpace(attr10);
+    if (!/^[A-Z]{2,5}$/.test(trimmed)) return trimmed;
+  }
   return defaultCity;
 }
 
 function pickPostalCode(job, defaultPostal) {
   const cityRaw = String(job?.szas?.['sza_location.city'] || '').trim();
   const m = cityRaw.match(/\b(\d{4})\b/);
-  return m ? m[1] : defaultPostal;
+  if (m) return m[1];
+  // Newer schema: explicit workplace ZIP field.
+  const workplaceZip = String(job?.szas?.['sza_workplace.zip'] || '').trim();
+  const m2 = workplaceZip.match(/\b(\d{4})\b/);
+  if (m2) return m2[1];
+  return defaultPostal;
 }
 
 function pickEmploymentType(job) {
