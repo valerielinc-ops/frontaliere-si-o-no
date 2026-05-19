@@ -1527,24 +1527,38 @@ function buildLocaleReverses<T extends string>(mapping: Record<T, keyof SlugTabl
 
 // ── Job slug cross-locale translation ──
 // Maps any-locale job slug → per-locale slugs (populated by JobBoard after loading jobs).
-let _jobSlugMap: Map<string, Record<string, string>> | null = null;
+export type JobSlugMapRecord = Record<string, string> & {
+ // Optional metadata used by SPA bridge resolution. `_id` is the job id, `_canton`
+ // the canton code (uppercase). Both are looked up via `getJobMetaForSlug` so the
+ // SPA can lazy-fetch the right canton shard when a bridge slug points to a job
+ // that isn't in the initial referrer-aware load (e.g. /cerca-lavoro-ticino/<bridge>
+ // for a job now in AI). Underscore-prefixed to avoid colliding with locale keys.
+ _id?: string;
+ _canton?: string;
+};
+
+let _jobSlugMap: Map<string, JobSlugMapRecord> | null = null;
 let _jobSlugMapPromise: Promise<void> | null = null;
 
 /** Register the job slug map so the router can translate job slugs across locales. */
-export function registerJobSlugMap(jobs: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[]; previousSlugsByLocale?: Partial<Record<string, string[]>> }>): void {
- const map = new Map<string, Record<string, string>>();
+export function registerJobSlugMap(jobs: Array<{ id?: string; canton?: string; slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[]; previousSlugsByLocale?: Partial<Record<string, string[]>> }>): void {
+ const map = new Map<string, JobSlugMapRecord>();
  for (const job of jobs) {
  const byLocale = job.slugByLocale;
  if (!byLocale) continue;
- const record: Record<string, string> = {};
+ const record: JobSlugMapRecord = {};
  for (const [loc, s] of Object.entries(byLocale)) {
  if (s) record[loc] = s;
  }
  // Also include the default slug
  if (job.slug) record['_default'] = job.slug;
- // Index by every locale slug + default slug
- for (const s of Object.values(record)) {
+ if (job.id) record._id = job.id;
+ if (job.canton) record._canton = String(job.canton).toUpperCase();
+ // Index by every locale slug + default slug (skip underscore-prefixed meta keys)
+ for (const [k, s] of Object.entries(record)) {
+ if (!k.startsWith('_') || k === '_default') {
  if (s) map.set(s, record);
+ }
  }
  // Index legacy slug aliases so old URLs resolve to current job
  if (Array.isArray(job.previousSlugs)) {
@@ -1590,12 +1604,25 @@ export function getLocalizedJobSlug(slug: string, targetLocale: string): string 
  return translateJobSlug(slug, targetLocale);
 }
 
+/**
+ * Look up metadata for a job slug (id + canton).
+ * Used by JobBoard to lazy-fetch the right canton shard when a bridge slug
+ * points to a job whose canton was not in the initial referrer-aware load.
+ * Returns undefined if the slug map is not yet loaded or the slug is not found.
+ */
+export function getJobMetaForSlug(slug: string): { id?: string; canton?: string; canonicalSlug?: string } | undefined {
+ if (!_jobSlugMap) return undefined;
+ const record = _jobSlugMap.get(slug);
+ if (!record) return undefined;
+ return { id: record._id, canton: record._canton, canonicalSlug: record['_default'] };
+}
+
 export async function ensureJobSlugMapLoaded(): Promise<void> {
  if (_jobSlugMap) return;
  if (!_jobSlugMapPromise) {
  _jobSlugMapPromise = fetch('/data/jobs-slug-map.json')
  .then(r => r.ok ? r.json() : Promise.reject(r.status))
- .then((data: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[]; previousSlugsByLocale?: Partial<Record<string, string[]>> }>) => {
+ .then((data: Array<{ id?: string; canton?: string; slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[]; previousSlugsByLocale?: Partial<Record<string, string[]>> }>) => {
  registerJobSlugMap(data);
  })
  .finally(() => {

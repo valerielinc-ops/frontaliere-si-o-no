@@ -157,11 +157,18 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  );
  }
 
- // Slug map: minimal file for router.ts slug translation (~2MB vs 44MB full)
+ // Slug map: minimal file for router.ts slug translation (~2MB vs 44MB full).
+ // Also includes `id` + `canton` so the SPA can resolve a bridge URL whose
+ // target job lives in a canton shard that wasn't loaded by the initial
+ // referrer-aware fetch (e.g. /cerca-lavoro-ticino/<bridge>/ for a job now
+ // in AI — JobBoard would otherwise show JobOrphanView even though the job
+ // is alive). With id+canton the SPA can lazy-fetch /data/job-detail/{id}.json.
  const slugMap = jobs.map((j) => {
  const entry: Record<string, unknown> = {};
+ if (j.id) entry.id = j.id;
  if (j.slug) entry.slug = j.slug;
  if (j.slugByLocale) entry.slugByLocale = j.slugByLocale;
+ if (j.canton) entry.canton = j.canton;
  if (Array.isArray(j.previousSlugs) && j.previousSlugs.length) entry.previousSlugs = j.previousSlugs;
  if (j.previousSlugsByLocale) entry.previousSlugsByLocale = j.previousSlugsByLocale;
  return entry;

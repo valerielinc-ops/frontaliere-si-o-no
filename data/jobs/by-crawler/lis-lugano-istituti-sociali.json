@@ -47,7 +47,8 @@
       "previousSlugs": [
         "capireparto",
         "capireparto-lis-lugano-istituti-sociali-pregassona-845mpk",
-        "capo-reparto-lis-lugano-istituti-sociali-pregassona"
+        "capo-reparto-lis-lugano-istituti-sociali-pregassona",
+        "capireparto-lis-lugano-istituti-sociali-lugano"
       ],
       "sourceLang": "it",
       "currency": "CHF",
@@ -71,7 +72,8 @@
       "id": "lis-lugano-istituti-sociali-141ef52d04c5",
       "previousSlugsByLocale": {
         "it": [
-          "capireparto"
+          "capireparto",
+          "capireparto-lis-lugano-istituti-sociali-lugano"
         ],
         "en": [
           "capireparto-lis-lugano-istituti-sociali-pregassona-845mpk"
@@ -131,7 +133,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infermieri",
-        "infermieri-lis-lugano-istituti-sociali-pregassona-isfspc"
+        "infermieri-lis-lugano-istituti-sociali-pregassona-isfspc",
+        "infermieri-lis-lugano-istituti-sociali-lugano"
       ],
       "sourceLang": "it",
       "currency": "CHF",
@@ -155,7 +158,8 @@
       "id": "lis-lugano-istituti-sociali-f650fe01210f",
       "previousSlugsByLocale": {
         "it": [
-          "infermieri"
+          "infermieri",
+          "infermieri-lis-lugano-istituti-sociali-lugano"
         ],
         "en": [
           "infermieri-lis-lugano-istituti-sociali-pregassona-isfspc"
@@ -333,12 +337,18 @@
         ],
         "fr": [
           "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona-d2blfr"
+        ],
+        "it": [
+          "assistenti-di-cura-lis-lugano-istituti-sociali-lugano",
+          "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona"
         ]
       },
       "previousSlugs": [
         "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona-d2blfr",
         "assistente-di-cura-lis-lugano-istituti-sociali-pregassona",
-        "assistente-di-cura-lis-lugano-istituti-sociali-pregassona"
+        "assistente-di-cura-lis-lugano-istituti-sociali-pregassona",
+        "assistenti-di-cura-lis-lugano-istituti-sociali-lugano",
+        "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona"
       ],
       "needsRetranslation": true
     },
@@ -1102,7 +1112,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "cuochi",
-        "cuochi-lis-lugano-istituti-sociali-pregassona-3l2ilu"
+        "cuochi-lis-lugano-istituti-sociali-pregassona-3l2ilu",
+        "cuochi-lis-lugano-istituti-sociali-lugano"
       ],
       "sourceLang": "it",
       "currency": "CHF",
@@ -1126,7 +1137,8 @@
       "id": "lis-lugano-istituti-sociali-8b7fd953ec8f",
       "previousSlugsByLocale": {
         "it": [
-          "cuochi"
+          "cuochi",
+          "cuochi-lis-lugano-istituti-sociali-lugano"
         ],
         "en": [
           "cuochi-lis-lugano-istituti-sociali-pregassona-3l2ilu"
@@ -1210,7 +1222,15 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-14T22:20:25.346Z"
+      "firstSeenAt": "2026-05-14T22:20:25.346Z",
+      "previousSlugs": [
+        "addetti-servizi-alla-casa-lis-lugano-istituti-sociali-pregassona"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "addetti-servizi-alla-casa-lis-lugano-istituti-sociali-pregassona"
+        ]
+      }
     }
   ]
 }
