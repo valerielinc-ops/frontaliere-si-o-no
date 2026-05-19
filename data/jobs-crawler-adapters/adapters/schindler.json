@@ -10,13 +10,9 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://job.schindler.com/careers",
-    "https://job.schindler.com/career",
-    "https://job.schindler.com/jobs",
-    "https://job.schindler.com/karriere",
-    "https://job.schindler.com/offene-stellen",
-    "https://job.schindler.com/lavora-con-noi"
+    "https://job.schindler.com/search/?q=&locationsearch=Switzerland",
+    "https://job.schindler.com/careers"
   ],
-  "notes": "",
-  "updatedAt": "2026-02-27T17:06:06.979Z"
+  "notes": "Migrated from SmartRecruiters to SAP SuccessFactors jobs2web (job.schindler.com). Listings span multiple SF tenants (Schindler, ASZ, ASZ_Fitter, SCH_Fitter, SBB, Jardine_Schindler) all under job.schindler.com.",
+  "updatedAt": "2026-05-19T00:00:00.000Z"
 }

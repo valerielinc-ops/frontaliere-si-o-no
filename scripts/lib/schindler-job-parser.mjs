@@ -1,19 +1,28 @@
 #!/usr/bin/env node
 /**
- * Schindler job parser — SmartRecruiters API consumer.
+ * Schindler job parser — SAP SuccessFactors jobs2web (j2w) HTML scraper.
  *
- * Source: https://api.smartrecruiters.com/v1/companies/Schindler/postings
+ * Source: https://job.schindler.com/search/?q=&locationsearch=Switzerland
  *
- * Pagination + transport are delegated to the shared SmartRecruiters client
- * (`scripts/lib/ats-clients/smartrecruiters-client.mjs`). This file only owns
- * Schindler-specific concerns:
- *   - Country/location filter (CH via `locationCountryCodes` + Swiss-region
- *     fallback for postings where the country code is missing)
- *   - Canton inference + ParsedJob assembly (id, slug, sector, employmentType,
- *     experienceLevel, …)
- *   - Description extraction policy: "first non-empty jobAd section among
- *     [jobDescription, qualifications, additionalInformation]" (preserved from
- *     pre-extraction behaviour for byte-identical output).
+ * Schindler migrated off SmartRecruiters (2026) to SAP SuccessFactors jobs2web.
+ * Listings are spread across multiple SF career-site "tenants" all served from
+ * `job.schindler.com`:
+ *   - /Schindler/job/...           (corporate HQ & central Schindler postings)
+ *   - /ASZ/job/...                 (Aufzüge Schweiz AG — sales/admin)
+ *   - /ASZ_Fitter/job/...          (ASZ — fitter / installation technicians)
+ *   - /ASZ_Service_TechnikerIn/... (ASZ — service technicians)
+ *   - /ASZ_Office_General/...      (ASZ — office staff)
+ *   - /SBB/, /SBB_AS/, /SCH_Fitter/, /Jardine_Schindler/, ...
+ *
+ * All tenants share the same j2w listing/detail format, so we match them
+ * generically by URL pattern `/{Tenant}/job/.../{jobId}/`.
+ *
+ * Strategy:
+ *   1. Walk paginated search results at /search/?q=&locationsearch=Switzerland
+ *      (25 per page, ~93 total Swiss jobs)
+ *   2. For each listing extract: title, url, location, postedDate, jobId
+ *   3. Fetch each detail page for the full description (<div id="content">)
+ *   4. Build ParsedJob with canton resolution + fallback description
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllSchindlerJobs()  — Fetch and parse all jobs
@@ -23,12 +32,8 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
-import {
-  fetchSmartRecruitersJobs,
-  SmartRecruitersApiError,
-} from './ats-clients/smartrecruiters-client.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -36,12 +41,13 @@ export const SCHINDLER_KEY = 'schindler';
 export const SCHINDLER_COMPANY_NAME = 'Schindler';
 export const SCHINDLER_COMPANY_DOMAIN = 'schindler.com';
 
-const SR_TENANT = 'Schindler';
-const CAREER_URL = `https://jobs.smartrecruiters.com/${SR_TENANT}`;
-const SR_API = `https://api.smartrecruiters.com/v1/companies/${SR_TENANT}/postings`;
-const SR_PAGE_DELAY_MS = 2000;
-const SR_REQUEST_TIMEOUT_MS = 5000;
-const SR_USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/)';
+const BASE_URL = 'https://job.schindler.com';
+const SEARCH_URL = `${BASE_URL}/search/`;
+const PAGE_SIZE = 25; // SuccessFactors j2w default
+
+const DEFAULT_TIMEOUT_MS = 20000;
+const DEFAULT_USER_AGENT =
+  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -49,8 +55,44 @@ function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
+/* ── Date helpers ─────────────────────────────────────────── */
+
+const MONTH_ABBR = {
+  jan: '01', feb: '02', mar: '03', apr: '04', may: '05', jun: '06',
+  jul: '07', aug: '08', sep: '09', sept: '09', oct: '10', nov: '11', dec: '12',
+  // German abbreviations
+  mär: '03', maerz: '03', mai: '05', okt: '10', dez: '12',
+  // Italian
+  gen: '01', mag: '05', giu: '06', lug: '07', ago: '08', set: '09', ott: '10', dic: '12',
+};
+
+/**
+ * Parse SF j2w date string. Accepts:
+ *   - "May 11, 2026" / "Apr 28, 2026"  (English, common default)
+ *   - "DD.MM.YYYY"                     (German format)
+ *   - "2026-05-11"                     (ISO, just-in-case)
+ * Returns YYYY-MM-DD or '' on failure.
+ */
+export function parseDate(raw = '') {
+  const text = String(raw || '').trim();
+  if (!text) return '';
+
+  // ISO already
+  const iso = text.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (iso) return `${iso[1]}-${iso[2]}-${iso[3]}`;
+
+  // English "MMM D, YYYY"
+  const en = text.match(/^([A-Za-zÀ-ÿ]{3,5})\s+(\d{1,2}),?\s+(\d{4})/);
+  if (en) {
+    const mm = MONTH_ABBR[en[1].toLowerCase().slice(0, 4)] || MONTH_ABBR[en[1].toLowerCase().slice(0, 3)];
+    if (mm) return `${en[3]}-${mm}-${en[2].padStart(2, '0')}`;
+  }
+
+  // German "DD.MM.YYYY"
+  const de = text.match(/^(\d{1,2})\.(\d{1,2})\.(\d{4})/);
+  if (de) return `${de[3]}-${de[2].padStart(2, '0')}-${de[1].padStart(2, '0')}`;
+
+  return '';
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -74,16 +116,13 @@ export function isSchindlerJob(job) {
     company.includes('schindler') ||
     url.includes('schindler.com') ||
     url.includes('schindler.ch') ||
-    url.includes('smartrecruiters.com/schindler') ||
-    url.includes('jobs.smartrecruiters.com/schindler')
+    url.includes('job.schindler.com')
   );
 }
 
 /**
- * Validate that a URL belongs to Schindler or its SmartRecruiters tenant.
- * SmartRecruiters hosts the public-facing apply pages under
- * `jobs.smartrecruiters.com/Schindler/...` — those are first-party for our
- * trust model since they are the canonical apply destination.
+ * Validate that a URL belongs to Schindler or one of its SF j2w tenants
+ * hosted under `job.schindler.com`.
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
@@ -91,32 +130,26 @@ export function isTrustedDomain(rawUrl = '') {
     const host = url.hostname.toLowerCase();
     if (host === 'schindler.com' || host.endsWith('.schindler.com')) return true;
     if (host === 'schindler.ch' || host.endsWith('.schindler.ch')) return true;
-    if (host === 'jobs.smartrecruiters.com' || host === 'smartrecruiters.com') {
-      return /\/schindler(\/|$)/i.test(url.pathname);
-    }
-    if (host === 'api.smartrecruiters.com') {
-      return /\/companies\/schindler(\/|$)/i.test(url.pathname);
-    }
     return false;
   } catch {
     return false;
   }
 }
 
-/* ── Category Detection ────────────────────────────────────── */
+/* ── Category / level / employment detection ──────────────── */
 
 function detectCategory(title = '') {
   const t = normalize(title);
   if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
-  if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
+  if (/\b(techni|tecnic|mecanic|elektr|install|montage|monteur|aufzug)/.test(t)) return 'Tecnica';
   if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
-  if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
-  if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
+  if (/\b(vendita|sales|verkauf|commerce|verkaufsprofi|neukunden|salesperson|account.manager)/.test(t)) return 'Commerciale';
+  if (/\b(logist|magazz|lager|warehouse|procurement|supply.chain|purchasing)/.test(t)) return 'Logistica';
   if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
   if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
-  if (/\b(it|software|develop|programm)/.test(t)) return 'IT';
+  if (/\b(it\b|software|develop|programm|data.analyst)/.test(t)) return 'IT';
   if (/\b(hr|human|risorse|personal)/.test(t)) return 'Risorse Umane';
-  if (/\b(market|kommunik|comunicaz)/.test(t)) return 'Marketing';
+  if (/\b(market|kommunik|comunicaz|event)/.test(t)) return 'Marketing';
   if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
   if (/\b(legal|giurid|recht)/.test(t)) return 'Legale';
   return 'Altro';
@@ -124,155 +157,313 @@ function detectCategory(title = '') {
 
 function detectExperienceLevel(title = '') {
   const t = normalize(title);
-  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
+  if (/\b(praktik|stage|stagiair|intern|apprendist|lehrling|lernend|apprenti|schnupperlehre|working.student|trainee)/.test(t)) return 'intern';
   if (/\b(junior|jr)/.test(t)) return 'junior';
-  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
+  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab|leiter|leitend|teamleiter|montageleiter|montagechef|projektleiter)/.test(t)) return 'senior';
   return 'mid';
 }
 
 function detectEmploymentType(text = '') {
   const t = normalize(text);
   if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
-  if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
-  return 'OTHER';
-}
-
-/* ── SmartRecruiters Posting Helpers ───────────────────────── */
-
-/**
- * Decide whether a SmartRecruiters posting is in Switzerland. Used as a
- * custom filter passed to the shared client (the client's built-in
- * `locationCountryCodes` filter accepts postings with no country code; we
- * still want them only if the human-readable string resolves to a Swiss
- * target region — hence this hybrid predicate).
- */
-function isSwissPosting(posting) {
-  const country = String(posting?.location?.country?.code || posting?.location?.country || '').toLowerCase();
-  if (country === 'ch') return true;
-  if (country && country !== 'ch') return false;
-  const text = composeLocationText(posting?.location);
-  if (!text) return false;
-  return isTargetSwissLocation(text, { includeGrigioni: true });
-}
-
-/**
- * Build a single human-readable location string from a SmartRecruiters
- * posting `location` object. Falls back through fullLocation → city +
- * region → country.
- */
-function composeLocationText(loc = {}) {
-  if (!loc || typeof loc !== 'object') return '';
-  if (typeof loc.fullLocation === 'string' && loc.fullLocation.trim()) {
-    return loc.fullLocation.trim();
+  const pctMatch = t.match(/(\d{1,3})\s*[-–]\s*(\d{1,3})\s*%/) || t.match(/(\d{1,3})\s*%/);
+  if (pctMatch) {
+    const maxPct = pctMatch[2] ? parseInt(pctMatch[2], 10) : parseInt(pctMatch[1], 10);
+    if (maxPct < 80) return 'PART_TIME';
+    if (maxPct >= 80) return 'FULL_TIME';
   }
-  const parts = [loc.city, loc.region, loc.country?.name || loc.country]
-    .filter((part) => typeof part === 'string' && part.trim().length > 0)
-    .map((part) => part.trim());
-  return parts.join(', ');
+  if (/\b(full.?time|vollzeit|tempo pieno|temps plein|100\s*%)/.test(t)) return 'FULL_TIME';
+  return 'FULL_TIME';
+}
+
+/* ── Location extraction ──────────────────────────────────── */
+
+/**
+ * Parse SF j2w location string. Format: "City, Region, CC" or "City, CC".
+ * (e.g., "Ebikon, Lucerne, CH", "Visp, Wallis, CH").
+ */
+export function parseLocation(raw = '') {
+  const text = normalizeSpace(raw);
+  if (!text) return { city: '', region: '' };
+  // Strip trailing ", CH" if present
+  const parts = text.split(',').map((s) => s.trim()).filter(Boolean);
+  if (parts.length === 0) return { city: '', region: '' };
+  const last = parts[parts.length - 1];
+  if (/^(CH|Switzerland|Schweiz|Suisse|Svizzera)$/i.test(last)) parts.pop();
+  return {
+    city: parts[0] || '',
+    region: parts[1] || '',
+  };
+}
+
+/* ── Listing page parser ──────────────────────────────────── */
+
+/**
+ * Parse the SuccessFactors / j2w search-results HTML table.
+ * Each row links to a detail page at /{Tenant}/job/.../{jobId}/.
+ * Tenants seen: Schindler, ASZ, ASZ_Fitter, ASZ_Service_TechnikerIn,
+ * ASZ_Office_General, SBB, SBB_AS, SCH_Fitter, Jardine_Schindler.
+ * Returns array of { title, url, location, postedDate, jobId, tenant }.
+ */
+export function parseSearchResults(html) {
+  if (!html || typeof html !== 'string') return [];
+  const jobs = [];
+  const seen = new Set();
+
+  // Match anchors to detail pages across any tenant under job.schindler.com.
+  // Pattern: /{Tenant}/job/{slug}/{jobId}/
+  // We only care about ones whose anchor has class jobTitle-link to avoid
+  // matching breadcrumb / unrelated links.
+  const anchorRe = /<a[^>]+class="[^"]*jobTitle-link[^"]*"[^>]+href="(\/([A-Za-z_][A-Za-z0-9_]*)\/job\/[^"]+\/(\d+)\/?)"[^>]*>([\s\S]*?)<\/a>/gi;
+  let m;
+  while ((m = anchorRe.exec(html)) !== null) {
+    const relUrl = m[1].replace(/&amp;/g, '&');
+    const tenant = m[2];
+    const jobId = m[3];
+    const rawTitle = normalizeSpace(stripHtml(m[4]));
+    if (!rawTitle || rawTitle.length < 3) continue;
+    if (seen.has(jobId)) continue;
+    seen.add(jobId);
+
+    const fullUrl = `${BASE_URL}${relUrl}`;
+
+    // Locate the surrounding row to extract location + date columns.
+    // The relevant pattern in the j2w template:
+    //   <td class="colLocation ...">...<span class="jobLocation">City, Region, CC</span>...</td>
+    //   <td class="colDate ...">...<span class="jobDate">May 11, 2026</span>...</td>
+    // We search forward from the anchor match for the next ~3KB of HTML.
+    const lookahead = html.slice(m.index, m.index + 4000);
+    const locMatch = lookahead.match(/class="jobLocation"[^>]*>\s*([^<]+?)\s*</i);
+    const dateMatch = lookahead.match(/class="jobDate"[^>]*>\s*([^<]+?)\s*</i);
+
+    const location = locMatch ? normalizeSpace(locMatch[1]) : '';
+    const rawDate = dateMatch ? normalizeSpace(dateMatch[1]) : '';
+    const postedDate = parseDate(rawDate);
+
+    jobs.push({
+      title: rawTitle,
+      url: fullUrl,
+      location,
+      postedDate,
+      jobId,
+      tenant,
+    });
+  }
+  return jobs;
 }
 
 /**
- * Extract a description string from `posting.jobAd.sections.jobDescription`
- * when the field is populated. SmartRecruiters returns either rich-text
- * HTML or plain text in `text`; both are accepted and stripped of HTML.
- *
- * Policy (preserved verbatim from the pre-extraction implementation): take
- * the FIRST non-empty section among [jobDescription, qualifications,
- * additionalInformation]. The shared client offers a concatenated
- * `descriptionHtml`; Schindler intentionally does NOT use it to keep
- * downstream localisation token budgets stable.
+ * Extract total results count: "Results 1 – N of N" / "Ergebnisse 1 – N von N".
  */
-function extractPostingDescription(posting) {
-  const sections = posting?.jobAd?.sections;
-  if (!sections || typeof sections !== 'object') return '';
-  const candidates = [
-    sections.jobDescription,
-    sections.qualifications,
-    sections.additionalInformation,
+export function extractTotalResults(html) {
+  if (!html) return 0;
+  // SF j2w pagination format wraps numbers in <b>: "Results <b>1 – 25</b> of <b>93</b>"
+  // Strip <b>/<strong> tags first so the regex can match across both bare and wrapped formats.
+  const flat = String(html).replace(/<\/?(?:b|strong)>/gi, '');
+  const m = flat.match(/(?:Ergebnisse|Results|Risultati|Résultats)\s+\d+\s*[–\-]\s*\d+\s+(?:von|of|di|de|sur)\s+(\d+)/i);
+  return m ? parseInt(m[1], 10) : 0;
+}
+
+/* ── Detail page parser ──────────────────────────────────── */
+
+/**
+ * Parse a Schindler SF j2w detail page.
+ * Returns { title, description, location, applyUrl }.
+ */
+export function parseDetailPage(html) {
+  if (!html || typeof html !== 'string') return null;
+
+  // Title: <h1 class="job-title"> for Schindler tenants
+  const titleMatch = html.match(/<h1[^>]*class="[^"]*job-title[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)
+    || html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i)
+    || html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
+
+  // Description: Schindler SF j2w puts the actual job body inside
+  //   <span class="jobdescription">...</span>
+  // (NOT in <div id="content"> — that wrapper contains search widgets too).
+  let descriptionHtml = '';
+  const jdSpanMatch = html.match(/<span[^>]*class="[^"]*jobdescription[^"]*"[^>]*>([\s\S]*?)<\/span>\s*(?:<\/div>\s*){0,5}(?:<div[^>]*class="(?:job-action|jobtitle-action|btn|apply-button)|<footer|<div[^>]*id="footer")/i);
+  if (jdSpanMatch) {
+    descriptionHtml = jdSpanMatch[1];
+  } else {
+    // Fall back: greedy match from <span class="jobdescription"> to its closing </span>.
+    // SF templates can nest tags inside jobdescription, so we accept the largest match.
+    const fallbackSpan = html.match(/<span[^>]*class="[^"]*jobdescription[^"]*"[^>]*>([\s\S]*?)<\/span>\s*<\/div>/i);
+    if (fallbackSpan) descriptionHtml = fallbackSpan[1];
+  }
+
+  if (!descriptionHtml) {
+    // Last resort: previously-supported <div id="content"> shape (other SF tenants)
+    const contentMatch = html.match(/<div[^>]*id="content"[^>]*>([\s\S]*?)<\/div>\s*(?:<div[^>]*id="(?:footer|sidebar)|<footer)/i);
+    if (contentMatch) descriptionHtml = contentMatch[1];
+  }
+
+  if (!descriptionHtml) {
+    const parts = [];
+    const blockRe = /<(?:p|ul|ol|li|div)[^>]*>([\s\S]*?)<\/(?:p|ul|ol|li|div)>/gi;
+    let blockMatch;
+    while ((blockMatch = blockRe.exec(html)) !== null) {
+      const text = normalizeDescriptionSpace(stripHtml(blockMatch[1]));
+      if (text.length > 40 && !/cookie|datenschutz|privacy|navigation|login|consent/i.test(text)) {
+        parts.push(text);
+      }
+    }
+    if (parts.length > 0) descriptionHtml = parts.join('\n\n');
+  }
+
+  let description = normalizeDescriptionSpace(stripHtml(descriptionHtml));
+
+  // Reject SF widget garbage that occasionally bleeds into the description
+  const GARBAGE = [
+    /Suche nach Stichwort/i,
+    /Benachrichtigung erstellen/i,
+    /Search by keyword/i,
+    /Create Alert/i,
+    /Select how often/i,
+    /Wählen Sie.*wie oft/i,
+    /Manager für Cookie/i,
+    /Cookie Consent/i,
   ];
-  for (const section of candidates) {
-    const raw = typeof section?.text === 'string' ? section.text : '';
-    if (raw && raw.trim().length > 0) return raw;
+  if (GARBAGE.some((re) => re.test(description))) description = '';
+
+  // Apply URL: SF talent-community / apply link
+  const applyMatch = html.match(/href="([^"]*(?:talentcommunity\/apply|\/apply\/)\d+[^"]*)"/i);
+  const applyUrl = applyMatch
+    ? (applyMatch[1].startsWith('http') ? applyMatch[1] : `${BASE_URL}${applyMatch[1]}`)
+    : '';
+
+  // NOTE: We do NOT extract a canonical location from the detail page.
+  // SF j2w detail pages render a "Standort suchen" / "Search location" widget
+  // whose text inevitably matches naive Ort/Standort regexes and pollutes the
+  // location field (e.g. → "suchen"). The listing-page `<span class="jobLocation">`
+  // value is always authoritative; fetchAll uses it directly.
+  const location = '';
+
+  return { title, description, location, applyUrl };
+}
+
+/* ── Fallback description ─────────────────────────────────── */
+
+function buildFallbackDescription(title, location) {
+  return `${title} bei Schindler in ${location || 'der Schweiz'}.\n\nDie Schindler-Gruppe ist einer der weltweit führenden Hersteller von Aufzügen, Fahrtreppen und Fahrsteigen. Das 1874 in der Schweiz gegründete Unternehmen beschäftigt rund 70'000 Mitarbeitende weltweit, davon mehrere tausend in der Schweiz. Schindler bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen, vielfältige Weiterbildungsmöglichkeiten und Karriereperspektiven in einem global tätigen Schweizer Technologieunternehmen mit Hauptsitz in Ebikon (Kanton Luzern).`;
+}
+
+/* ── HTTP fetch with timeout ──────────────────────────────── */
+
+async function fetchPage(url, timeoutMs, userAgent) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      headers: {
+        'User-Agent': userAgent,
+        Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'de-DE,de;q=0.9,en;q=0.7,it;q=0.5,fr;q=0.4',
+      },
+      signal: controller.signal,
+      redirect: 'follow',
+    });
+    clearTimeout(timer);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.text();
+  } catch (err) {
+    clearTimeout(timer);
+    throw err;
   }
-  return '';
 }
 
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
- * Fetch all Schindler jobs.
+ * Fetch all Schindler jobs from job.schindler.com (SF jobs2web).
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
 export async function fetchAllSchindlerJobs() {
-  console.log(`🔍 Fetching Schindler jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
-  console.log(`   Fetching from: ${SR_API}`);
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || DEFAULT_TIMEOUT_MS;
+  const userAgent = process.env.JOBS_CRAWLER_USER_AGENT || DEFAULT_USER_AGENT;
 
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || SR_REQUEST_TIMEOUT_MS;
-  const userAgent = process.env.JOBS_CRAWLER_USER_AGENT || SR_USER_AGENT;
+  console.log(`🔍 Fetching ${SCHINDLER_COMPANY_NAME} jobs`);
+  console.log(`   Source: ${SEARCH_URL}?locationsearch=Switzerland (SuccessFactors jobs2web)\n`);
 
+  // Step 1 — listing pages (paginated, 25 per page)
+  const allListings = [];
+  let startrow = 0;
+  let totalReported = 0;
+  for (let page = 0; page < 50; page += 1) {
+    const url = `${SEARCH_URL}?q=&locationsearch=Switzerland&startrow=${startrow}`;
+    console.log(`  📄 Fetching search page at startrow=${startrow}...`);
+    let html;
+    try {
+      html = await fetchPage(url, timeoutMs, userAgent);
+    } catch (err) {
+      if (startrow === 0) {
+        throw new Error(`Failed to fetch search page: ${err?.message || err}`);
+      }
+      console.warn(`  ⚠️ Pagination fetch failed at startrow=${startrow}, stopping.`);
+      break;
+    }
+    const listings = parseSearchResults(html);
+    if (startrow === 0) {
+      totalReported = extractTotalResults(html);
+      console.log(`  📋 Total Swiss results reported by site: ${totalReported || 'unknown'}`);
+    }
+    if (listings.length === 0) break;
+    allListings.push(...listings);
+
+    if (totalReported > 0 && allListings.length >= totalReported) break;
+    if (listings.length < PAGE_SIZE) break;
+
+    startrow += PAGE_SIZE;
+    await new Promise((r) => setTimeout(r, 500));
+  }
+
+  console.log(`  📋 Found ${allListings.length} job listings\n`);
+  if (allListings.length === 0) {
+    console.warn('⚠️ No Schindler job listings found.');
+    return [];
+  }
+
+  // Step 2 — detail pages
   const jobs = [];
-  let yielded = 0;
-  try {
-    const iter = fetchSmartRecruitersJobs(SR_TENANT, {
-      company: SCHINDLER_COMPANY_NAME,
-      // Country-code is the primary signal; the custom filter handles the
-      // "missing country code" fallback via `isTargetSwissLocation`.
-      locationCountryCodes: ['ch'],
-      filter: isSwissPosting,
-      // Schindler intentionally consumes the listing payload only — the
-      // jobDescription text is present on the listing posting object via
-      // `jobAd.sections` because the SR API includes it for the Schindler
-      // tenant. Leaving `fetchDetail: false` preserves the legacy fetch
-      // count (no extra detail call per posting).
-      fetchDetail: false,
-      maxPages: 50,
-      minDelayMs: SR_PAGE_DELAY_MS,
-      timeoutMs,
-      userAgent,
-    });
+  for (const listing of allListings) {
+    try {
+      let detail = null;
+      try {
+        const detailHtml = await fetchPage(listing.url, timeoutMs, userAgent);
+        detail = parseDetailPage(detailHtml);
+      } catch (err) {
+        console.warn(`  ⚠️ Detail fetch failed for ${listing.title}: ${err?.message || err}`);
+      }
 
-    for await (const normalized of iter) {
-      yielded += 1;
-      const posting = normalized.rawPosting || {};
-      const title = normalizeSpace(posting?.name || '');
-      if (!title || title.length < 3) continue;
+      const title = detail?.title || listing.title;
+      const { city, region } = parseLocation(listing.location);
+      const location = detail?.location || city || listing.location || 'Switzerland';
+      const canton =
+        inferSwissTargetCanton(`${location} ${region}`) ||
+        inferSwissTargetCanton(location) ||
+        inferSwissTargetCanton(region) ||
+        'LU'; // Schindler HQ is in Ebikon (LU)
 
-      const locationText = composeLocationText(posting?.location) || 'Switzerland';
-      const city = (posting?.location?.city && String(posting.location.city).trim())
-        || locationText.split(',')[0].trim();
-      const canton = inferSwissTargetCanton(locationText) || inferSwissTargetCanton(city) || 'LU';
+      let description = '';
+      if (detail?.description && detail.description.split(/\s+/).length >= 50) {
+        description = detail.description;
+      } else {
+        description = buildFallbackDescription(title, location);
+      }
 
-      const descriptionRaw = extractPostingDescription(posting);
-      const descriptionText = stripHtml(descriptionRaw);
-
-      // SmartRecruiters publishes both an authenticated apply URL and a
-      // public-facing job page. Prefer `applyUrl`; fall back to the
-      // canonical jobs.smartrecruiters.com URL composed from the posting id.
-      const postingId = String(posting?.id || '').trim();
-      const publicUrl =
-        (typeof posting?.applyUrl === 'string' && posting.applyUrl) ||
-        (postingId ? `https://jobs.smartrecruiters.com/Schindler/${postingId}` : CAREER_URL);
-
-      const sourceLang = detectLang(descriptionText || title, 'en');
-      const jobSlug = slugify(`${title} schindler ${city || 'ch'}`);
-      const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-
-      // Date: prefer `releasedDate` (ISO); otherwise `createdOn`; default to today.
-      const releasedRaw = posting?.releasedDate || posting?.createdOn || '';
-      const postedDate = (() => {
-        if (!releasedRaw) return new Date().toISOString().slice(0, 10);
-        const d = new Date(releasedRaw);
-        if (Number.isNaN(d.getTime())) return new Date().toISOString().slice(0, 10);
-        return d.toISOString().slice(0, 10);
-      })();
+      const sourceLang = detectLang(description || title, 'de');
+      const postedDate = listing.postedDate || new Date().toISOString().slice(0, 10);
+      const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
+      const jobSlug = slugify(`${title} ${SCHINDLER_KEY} ${location}`);
+      const employmentType = detectEmploymentType(title);
 
       const job = {
         // ── Required fields ──
-        id: `schindler-${urlHash}`,
+        id: `${SCHINDLER_KEY}-${urlHash}`,
         slug: jobSlug,
         slugByLocale: { [sourceLang]: jobSlug },
         company: SCHINDLER_COMPANY_NAME,
@@ -280,44 +471,51 @@ export async function fetchAllSchindlerJobs() {
         companyDomain: SCHINDLER_COMPANY_DOMAIN,
         title,
         titleByLocale: { [sourceLang]: title },
-        description: descriptionText || `${title} — Schindler`,
-        descriptionByLocale: { [sourceLang]: descriptionText || `${title} — Schindler` },
-        location: city || locationText,
+        description,
+        descriptionByLocale: { [sourceLang]: description },
+        location,
         canton,
-        url: publicUrl,
-        source: 'Schindler Dedicated Parser (SmartRecruiters API)',
+        url: listing.url,
+        source: 'Schindler Dedicated Parser (SuccessFactors j2w)',
         sourceLang,
         crawledAt: new Date().toISOString(),
 
         // ── Recommended fields ──
-        addressLocality: city || locationText,
+        addressLocality: location,
         addressRegion: canton,
         addressCountry: 'CH',
         country: 'CH',
         category: detectCategory(title),
-        contract: 'full-time',
-        employmentType: detectEmploymentType(`${posting?.typeOfEmployment?.id || ''} ${title}`),
+        contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+        employmentType,
         experienceLevel: detectExperienceLevel(title),
         sector: 'Industrial',
         currency: 'CHF',
         featured: false,
         postedDate,
-        applyUrl: publicUrl,
-        jobReqId: postingId || null,
+        applyUrl: detail?.applyUrl || listing.url,
+        jobReqId: listing.jobId || null,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
       };
 
       jobs.push(job);
+    } catch (err) {
+      console.warn(`  ⚠️ Skipping ${listing.title} — ${err?.message || err}`);
     }
-  } catch (err) {
-    if (err instanceof SmartRecruitersApiError) {
-      console.warn(`  ⚠️ SmartRecruiters API error: ${err.message} (status=${err.statusCode ?? 'n/a'})`);
-    }
-    throw err;
+    await new Promise((r) => setTimeout(r, 300));
   }
 
-  console.log(`  ✅ SmartRecruiters Swiss postings yielded: ${yielded}`);
-  console.log(`\n📋 Total Schindler jobs discovered: ${jobs.length}`);
-  return jobs;
+  // Deduplicate by URL (safety: multiple tenants can occasionally cross-link)
+  const seen = new Set();
+  const deduped = [];
+  for (const job of jobs) {
+    const key = job.url.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    deduped.push(job);
+  }
+
+  console.log(`\n📋 Total unique ${SCHINDLER_COMPANY_NAME} jobs discovered: ${deduped.length}`);
+  return deduped;
 }
