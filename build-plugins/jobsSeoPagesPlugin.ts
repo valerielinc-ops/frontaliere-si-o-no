@@ -995,6 +995,21 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  };
  return map[locale] || map.it;
  };
+ // Canton-aware breadcrumb label. Reflects the JOB'S canton, not the URL
+ // canton segment — required for bridge pages where a job moved across
+ // cantons and the old URL slug still lives on. Without this, a page
+ // served at /cerca-lavoro-ticino/<bridge> for a job now in Appenzell
+ // displayed "Tutte le offerte di lavoro in Ticino" while linking to
+ // /cerca-lavoro-appenzello/ — a visible inconsistency for the user.
+ const allJobsLinkLabel = (locale: 'it' | 'en' | 'de' | 'fr', cantonDisplay: string): string => {
+ const map: Record<string, string> = {
+ it: `Tutte le offerte di lavoro in ${cantonDisplay}`,
+ en: `All job offers in ${cantonDisplay}`,
+ de: `Alle Stellenangebote ${germanCantonPrep(cantonDisplay)}`,
+ fr: `Toutes les offres d'emploi ${frenchCantonPrep(cantonDisplay)}`,
+ };
+ return map[locale] || map.it;
+ };
  const cantonPracticalNote0 = (locale: 'it' | 'en' | 'de' | 'fr', cantonDisplay: string): string => {
  const dePrep = germanCantonPrep(cantonDisplay);
  const frPrep = frenchCantonPrep(cantonDisplay);
@@ -2366,7 +2381,7 @@ ${hreflangHtml}
  <body>
  <div id="root">
  <main class="static-job-page">
- <nav class="bn"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}">&larr; ${esc(localeCopy[locale].allJobsLink)}</a></nav>
+ <nav class="bn"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}">&larr; ${esc(allJobsLinkLabel(locale, dc))}</a></nav>
  <article class="proposal">
  <section class="hero">
  <h1 class="hero-title">${esc(composeJobPageH1(localizedTitle, String(job.company || '')))}</h1>

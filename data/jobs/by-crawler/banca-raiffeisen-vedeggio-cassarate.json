@@ -145,10 +145,14 @@
       "previousSlugsByLocale": {
         "en": [
           "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-m99b74"
+        ],
+        "it": [
+          "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-cadempino"
         ]
       },
       "previousSlugs": [
-        "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-m99b74"
+        "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-m99b74",
+        "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-cadempino"
       ],
       "needsRetranslation": true
     },
@@ -216,9 +220,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino"
+        "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino",
+        "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-tic"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-tic"
+        ]
+      }
     }
   ]
 }

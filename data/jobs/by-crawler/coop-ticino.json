@@ -254,10 +254,22 @@
         ],
         "fr": [
           "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-lesziv"
+        ],
+        "it": [
+          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag",
+          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-mezzovico",
+          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-0jqltq",
+          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona",
+          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-e3zmz6"
         ]
       },
       "previousSlugs": [
-        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-lesziv"
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-lesziv",
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag",
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-mezzovico",
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-0jqltq",
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona",
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-e3zmz6"
       ]
     },
     {
@@ -718,6 +730,9 @@
         ],
         "fr": [
           "verkaufer-in-food-coop-city-chur-graubunden-e66ikm"
+        ],
+        "it": [
+          "verkaufer-in-food-coop-genossenschaft-chur"
         ]
       },
       "previousSlugs": [
@@ -730,7 +745,8 @@
         "verkaufer-in-food-coop-felsberg-graubunden",
         "verkaufer-in-food-coop-felsberg-graubunden-metayj",
         "seller-in-food-coop-genossenschaft-felsberg-6dde92",
-        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92"
+        "vendeur-dans-la-nourriture-coop-genossenschaft-felsberg-6dde92",
+        "verkaufer-in-food-coop-genossenschaft-chur"
       ],
       "needsRetranslation": true
     },
@@ -862,6 +878,19 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugs": [
+        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-2",
+        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-3",
+        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-4",
+        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-interdiscount-jegensdorf",
+        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-ticino"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-interdiscount-jegensdorf",
+          "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-ticino"
+        ]
       }
     },
     {
@@ -1007,9 +1036,15 @@
         }
       },
       "previousSlugs": [
-        "cambio-carriera-koch-kochin-in-der-systemgastronomie-f-m-d-coop-genossenschaft-graubunden"
+        "cambio-carriera-koch-kochin-in-der-systemgastronomie-f-m-d-coop-genossenschaft-graubunden",
+        "quereinstieg-koch-kochin-in-der-systemgastronomie-f-m-d-coop-genossenschaft-graubunden"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "quereinstieg-koch-kochin-in-der-systemgastronomie-f-m-d-coop-genossenschaft-graubunden"
+        ]
+      }
     },
     {
       "id": "company-rf7c8w",
@@ -1065,7 +1100,18 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1",
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-2",
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-ticino"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1",
+          "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-ticino"
+        ]
+      }
     },
     {
       "id": "company-z0zxuf",
@@ -1136,10 +1182,19 @@
       "previousSlugsByLocale": {
         "fr": [
           "utilisation-standard-de-la-gastronomie-complement-gastronomique-standard-marche-dietlikon"
+        ],
+        "it": [
+          "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon",
+          "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-ticino",
+          "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-mezzovico"
         ]
       },
       "previousSlugs": [
-        "utilisation-standard-de-la-gastronomie-complement-gastronomique-standard-marche-dietlikon"
+        "utilisation-standard-de-la-gastronomie-complement-gastronomique-standard-marche-dietlikon",
+        "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon",
+        "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-2",
+        "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-ticino",
+        "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-mezzovico"
       ],
       "needsRetranslation": true
     },
@@ -1206,7 +1261,13 @@
         ]
       },
       "previousSlugs": [
-        "angestellter-a-interdiscount-jegensdorf-j301yl"
+        "angestellter-a-interdiscount-jegensdorf-j301yl",
+        "impiegato-a-interdiscount-jegensdorf-2",
+        "impiegato-a-interdiscount-jegensdorf-3",
+        "impiegato-a-interdiscount-jegensdorf-4",
+        "impiegato-a-interdiscount-jegensdorf-5",
+        "impiegato-a-interdiscount-jegensdorf-6",
+        "impiegato-a-interdiscount-jegensdorf-7"
       ]
     },
     {
@@ -1331,6 +1392,17 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugs": [
+        "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon",
+        "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-2",
+        "addetta-o-di-gastronomia-standardizzata-cfp-marche-ticino"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon",
+          "addetta-o-di-gastronomia-standardizzata-cfp-marche-ticino"
+        ]
       }
     },
     {
@@ -1399,12 +1471,17 @@
         ],
         "fr": [
           "impiegata-employe-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr"
+        ],
+        "it": [
+          "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon"
         ]
       },
       "previousSlugs": [
         "impiegata-employee-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
         "impiegata-angestellter-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
-        "impiegata-employe-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr"
+        "impiegata-employe-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
+        "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon",
+        "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-2"
       ]
     },
     {
@@ -1723,7 +1800,10 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-21"
+      ]
     },
     {
       "id": "company-ruhpr3",
@@ -2231,8 +2311,17 @@
         }
       },
       "previousSlugs": [
-        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-n4f99v"
-      ]
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-n4f99v",
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1",
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-2",
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-3",
+        "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-4"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1"
+        ]
+      }
     },
     {
       "id": "company-n4f99v",
@@ -2586,7 +2675,8 @@
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-assistent-in-coop-gossau",
-        "systemgastronomiefachfrau-mann-cfc-coop-ristorante-grigioni"
+        "systemgastronomiefachfrau-mann-cfc-coop-ristorante-grigioni",
+        "detailhandelsfachfrau-mann-assistent-in-coop-grigioni-18"
       ],
       "needsRetranslation": true
     },
@@ -2644,9 +2734,19 @@
       },
       "previousSlugs": [
         "systemgastronomiefachfrau-mann-cfc-coop-ristorante-gossau",
-        "detailhandelsassistent-in-eba-coop-grigioni-6"
+        "detailhandelsassistent-in-eba-coop-grigioni-6",
+        "systemgastronomiefachfrau-mann-efz-coop-ristorante-grigioni",
+        "systemgastronomiefachfrau-mann-efz-coop-ristorante-gossau"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "systemgastronomiefachfrau-mann-efz-coop-ristorante-grigioni"
+        ],
+        "it": [
+          "systemgastronomiefachfrau-mann-efz-coop-ristorante-gossau"
+        ]
+      }
     },
     {
       "id": "company-tychyk",
@@ -2870,9 +2970,17 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-grigioni-7"
+        "detailhandelsassistent-in-eba-coop-grigioni-7",
+        "backer-in-konditor-in-confiseur-in-coop-grigioni",
+        "backer-in-konditor-in-confiseur-in-coop-gossau"
       ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "backer-in-konditor-in-confiseur-in-coop-grigioni",
+          "backer-in-konditor-in-confiseur-in-coop-gossau"
+        ]
+      }
     },
     {
       "id": "company-czukhm",
@@ -4264,7 +4372,8 @@
           "detailhandelsassistent-in-afp-coop-grigioni-uglo11"
         ],
         "de": [
-          "detailhandelsassistent-in-eba-coop-grigioni-uglo11"
+          "detailhandelsassistent-in-eba-coop-grigioni-uglo11",
+          "detailhandelsfachfrau-mann-interdiscount-jegensdorf"
         ]
       },
       "previousSlugs": [
@@ -4281,7 +4390,8 @@
         "detailhandelsfachfrau-mann-interdiscount-grigioni-d5xyy2",
         "retailer-man-coop-gossau-2cf7c7",
         "detaillant-homme-coop-gossau-2cf7c7",
-        "detailhandelsassistent-in-afp-coop-grigioni-uglo11"
+        "detailhandelsassistent-in-afp-coop-grigioni-uglo11",
+        "detailhandelsfachfrau-mann-interdiscount-jegensdorf"
       ]
     },
     {
@@ -5183,7 +5293,8 @@
         "retail-sales-specialist-efz-shaping-shopping-experiences-interdiscount-grigioni",
         "specialiste-de-vente-au-detail-efz-creer-des-experiences-d-achat-interdiscount-grigioni",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-3"
       ],
       "needsRetranslation": true,
       "retranslationAttempts": 1
@@ -5823,7 +5934,8 @@
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-grigioni-6kplqg",
-        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-jumbo-grigioni"
+        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-jumbo-grigioni",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-grigioni-2"
       ],
       "needsRetranslation": true,
       "retranslationAttempts": 1
@@ -8562,7 +8674,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-scuol",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-poschiavo"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9"
@@ -8575,7 +8689,9 @@
         ]
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-uwtky9",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-scuol",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-poschiavo"
       ]
     },
     {
@@ -9339,7 +9455,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-a9zoqf"
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-a9zoqf",
+          "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-n3eyyx"
         ],
         "en": [
           "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-a9zoqf"
@@ -9352,7 +9469,8 @@
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-a9zoqf"
+        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-a9zoqf",
+        "verkaufsberater-in-inkl-stellvertretung-der-geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur-n3eyyx"
       ],
       "needsRetranslation": true
     },
@@ -9503,7 +9621,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur-v2cid8"
         ],
         "en": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5"
@@ -9516,7 +9635,8 @@
         ]
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-zb8ot5",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur-v2cid8"
       ],
       "needsRetranslation": true
     },
@@ -10042,12 +10162,14 @@
         "specialiste-en-gastronomie-et-cuisine-stagiaire-marche-grigioni",
         "systemgastronomiefachfrau-mann-praktiker-in-marche-dietlikon",
         "system-gastronomy-specialist-practitioner-marche-grigioni",
-        "systemgastronomiefachfrau-mann-praktiker-in-marche-grigioni-2p2jlr"
+        "systemgastronomiefachfrau-mann-praktiker-in-marche-grigioni-2p2jlr",
+        "systemgastronomiefachfrau-mann-praktiker-in-marche-grigioni"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialiste-en-gastronomie-et-cuisine-stagiaire-marche-grigioni",
-          "systemgastronomiefachfrau-mann-praktiker-in-marche-dietlikon"
+          "systemgastronomiefachfrau-mann-praktiker-in-marche-dietlikon",
+          "systemgastronomiefachfrau-mann-praktiker-in-marche-grigioni"
         ],
         "en": [
           "specialiste-en-gastronomie-et-cuisine-stagiaire-marche-grigioni",
@@ -10208,7 +10330,8 @@
         "systemgastronomiefachfrau-mann-efz-marche-grigioni-7qutu2",
         "specialista-di-gastronomia-e-cucina-praticante-marche-grigioni",
         "systemgastronomia-donna-uomo-efz-marche-dietlikon",
-        "specialiste-en-gastronomie-systematique-efz-marche-grigioni"
+        "specialiste-en-gastronomie-systematique-efz-marche-grigioni",
+        "systemgastronomiefachfrau-mann-efz-marche-grigioni"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -10216,7 +10339,8 @@
           "systemgastronomiefachfrau-mann-praktiker-in-marche-grigioni-2p2jlr",
           "specialiste-en-gastronomie-et-cuisine-stagiaire-marche-grigioni",
           "systemgastronomiefachfrau-mann-efz-marche-dietlikon",
-          "systemgastronomiefachfrau-mann-efz-marche-grigioni-7qutu2"
+          "systemgastronomiefachfrau-mann-efz-marche-grigioni-7qutu2",
+          "systemgastronomiefachfrau-mann-efz-marche-grigioni"
         ],
         "it": [
           "specialista-di-gastronomia-e-cucina-praticante-marche-grigioni",
@@ -10456,11 +10580,13 @@
         "specialiste-du-retail-efz-pour-coop-city-coop-city-grigioni",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-grigioni-hm4hme",
         "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-city-dietlikon",
-        "detaillant-mann-efz-creer-des-experiences-d-achat-coop-city-dietlikon"
+        "detaillant-mann-efz-creer-des-experiences-d-achat-coop-city-dietlikon",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-grigioni"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "retail-specialist-efz-for-coop-city-coop-city-grigioni"
+          "retail-specialist-efz-for-coop-city-coop-city-grigioni",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-grigioni"
         ],
         "fr": [
           "specialiste-du-retail-efz-pour-coop-city-coop-city-grigioni"
@@ -10785,7 +10911,8 @@
       "previousSlugs": [
         "food-service-specialist-trainee-coop-ristorante-grigioni",
         "specialiste-en-gastronomie-stagiaire-coop-ristorante-grigioni",
-        "systemgastronomiefachfrau-mann-praktiker-in-coop-ristorante-grigioni-ebfo12"
+        "systemgastronomiefachfrau-mann-praktiker-in-coop-ristorante-grigioni-ebfo12",
+        "systemgastronomiefachfrau-mann-praktiker-in-coop-ristorante-grigioni"
       ],
       "previousSlugsByLocale": {
         "en": [
@@ -10793,7 +10920,8 @@
           "specialiste-en-gastronomie-stagiaire-coop-ristorante-grigioni"
         ],
         "it": [
-          "specialiste-en-gastronomie-stagiaire-coop-ristorante-grigioni"
+          "specialiste-en-gastronomie-stagiaire-coop-ristorante-grigioni",
+          "systemgastronomiefachfrau-mann-praktiker-in-coop-ristorante-grigioni"
         ],
         "de": [
           "specialiste-en-gastronomie-stagiaire-coop-ristorante-grigioni",
@@ -10942,11 +11070,13 @@
       "previousSlugs": [
         "retail-specialist-efz-for-shaping-shopping-experiences-livique-grigioni",
         "specialiste-de-la-vente-efz-pour-la-creation-d-experiences-d-achat-livique-grigioni",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-livique-grigioni-86rxeu"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-livique-grigioni-86rxeu",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-livique-grigioni"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "retail-specialist-efz-for-shaping-shopping-experiences-livique-grigioni"
+          "retail-specialist-efz-for-shaping-shopping-experiences-livique-grigioni",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-livique-grigioni"
         ],
         "fr": [
           "specialiste-de-la-vente-efz-pour-la-creation-d-experiences-d-achat-livique-grigioni"

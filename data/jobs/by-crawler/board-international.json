@@ -60,7 +60,15 @@
       "streetAddress": "Via Campagna 11",
       "postalCode": "6982",
       "firstSeenAt": "2026-05-17T09:46:35.164Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "rfx-proposal-manager-board-international-chiasso-switzerland-fzo8z7"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "rfx-proposal-manager-board-international-chiasso-switzerland-fzo8z7"
+        ]
+      }
     },
     {
       "title": "Sr. Account Manager",
@@ -455,10 +463,14 @@
         ],
         "fr": [
           "solution-developer-fp-a-board-international-chiasso-switzerland"
+        ],
+        "en": [
+          "solution-developer-board-international-chiasso-switzerland"
         ]
       },
       "previousSlugs": [
-        "solution-developer-fp-a-board-international-chiasso-switzerland"
+        "solution-developer-fp-a-board-international-chiasso-switzerland",
+        "solution-developer-board-international-chiasso-switzerland"
       ]
     },
     {

@@ -77,7 +77,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
-          "senior-power-systems-computer-aided-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-w5vlie"
+          "senior-power-systems-computer-aided-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-w5vlie",
+          "senior-power-systems-computer-aided-engineer-abb-svizzera-sede-ticino-quartino-ticino"
         ],
         "fr": [
           "senior-power-systems-computer-aided-ingenieur-abb-svizzera-sede-ticino-quartino-ticino-w5vlie"
@@ -86,7 +87,8 @@
       "previousSlugs": [
         "senior-power-systems-computer-aided-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-w5vlie",
         "senior-power-systems-computer-aided-ingenieur-abb-svizzera-sede-ticino-quartino-ticino-w5vlie",
-        "ingegnere-computerizzato-di-sistemi-di-potenza-senior-abb-svizzera-sede-ticino-quartino-ticino"
+        "ingegnere-computerizzato-di-sistemi-di-potenza-senior-abb-svizzera-sede-ticino-quartino-ticino",
+        "senior-power-systems-computer-aided-engineer-abb-svizzera-sede-ticino-quartino-ticino"
       ],
       "needsRetranslation": true
     },
@@ -156,11 +158,13 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe",
-        "trainer-del-prodotto-abb-svizzera-sede-ticino-quartino"
+        "trainer-del-prodotto-abb-svizzera-sede-ticino-quartino",
+        "product-trainer-abb-svizzera-sede-ticino-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe"
+          "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe",
+          "product-trainer-abb-svizzera-sede-ticino-ticino"
         ]
       }
     },
@@ -231,8 +235,15 @@
       "employmentType": "FULL_TIME",
       "retranslationAttempts": 1,
       "previousSlugs": [
-        "r-d-senior-ingegnere-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino"
-      ]
+        "r-d-senior-ingegnere-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "r-d-senior-engineer-firmware-80-100-abb-svizzera-sede-ticino-quartino",
+        "r-d-senior-engineer-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "r-d-senior-engineer-firmware-80-100-abb-svizzera-sede-ticino-quartino"
+        ]
+      }
     },
     {
       "id": "company-qkvhc4",
@@ -299,7 +310,15 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugs": [
+        "80-100-warehouse-internal-logistics-supervisor-abb-svizzera-sede-ticino-quartino-ticino"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "80-100-warehouse-internal-logistics-supervisor-abb-svizzera-sede-ticino-quartino-ticino"
+        ]
+      }
     },
     {
       "id": "company-u6aw32",
@@ -368,8 +387,18 @@
       "employmentType": "FULL_TIME",
       "retranslationAttempts": 1,
       "previousSlugs": [
-        "specialista-della-qualita-dei-processi-80-100-abb-svizzera-sede-ticino-quartino-ticino"
-      ]
+        "specialista-della-qualita-dei-processi-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "process-quality-specialist-80-100-abb-svizzera-sede-ticino-quartino",
+        "process-quality-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "process-quality-specialist-80-100-abb-svizzera-sede-ticino-quartino"
+        ],
+        "it": [
+          "process-quality-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+        ]
+      }
     },
     {
       "id": "company-d6wkr3",
@@ -438,8 +467,18 @@
       "employmentType": "FULL_TIME",
       "retranslationAttempts": 1,
       "previousSlugs": [
-        "test-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino"
-      ]
+        "test-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "test-engineer-80-100-abb-svizzera-sede-ticino-quartino",
+        "test-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "test-engineer-80-100-abb-svizzera-sede-ticino-quartino"
+        ],
+        "it": [
+          "test-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+        ]
+      }
     },
     {
       "id": "company-l7apjs",
@@ -506,7 +545,17 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugs": [
+        "80-100-r-d-hw-engineer-abb-svizzera-sede-ticino-quartino",
+        "80-100-r-d-hw-engineer-abb-svizzera-sede-ticino-quartino-ticino"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "80-100-r-d-hw-engineer-abb-svizzera-sede-ticino-quartino",
+          "80-100-r-d-hw-engineer-abb-svizzera-sede-ticino-quartino-ticino"
+        ]
+      }
     },
     {
       "id": "company-ouqirv",
@@ -575,8 +624,14 @@
       "employmentType": "FULL_TIME",
       "retranslationAttempts": 1,
       "previousSlugs": [
-        "specialista-di-ingegneria-di-produzione-80-100-abb-svizzera-sede-ticino-quartino"
-      ]
+        "specialista-di-ingegneria-di-produzione-80-100-abb-svizzera-sede-ticino-quartino",
+        "production-engineering-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "production-engineering-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+        ]
+      }
     },
     {
       "id": "company-b9qjfm",
@@ -628,7 +683,8 @@
         "inside-sales-service-specialista-80-100-abb-svizzera-sede-ticino-ticino",
         "specialista-di-vendita-interna-servizi-80-100-abb-svizzera-sede-ticino-quartino",
         "inside-sales-service-specialist-80-100-abb-svizzera-sede-ticino-ticino-b9qjfm",
-        "specialista-servizi-di-vendita-interna-80-100-abb-svizzera-sede-ticino-quartino"
+        "specialista-servizi-di-vendita-interna-80-100-abb-svizzera-sede-ticino-quartino",
+        "inside-sales-service-specialist-80-100-abb-svizzera-sede-ticino-ticino"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,

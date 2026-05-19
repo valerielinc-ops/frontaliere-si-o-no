@@ -793,11 +793,17 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "previousSlugs": [
-        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz"
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz",
+        "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz",
+        "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz",
+        "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz"
+          "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz",
+          "commis-de-cuisine-m-f-d-kulm-hotel-st-moritz-st-moritz",
+          "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz",
+          "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz"
         ]
       },
       "firstSeenAt": "2026-04-13T22:00:28.646Z",
@@ -898,7 +904,10 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "previousSlugs": [
-        "chef-de-rang-m-f-d-kulm-hotel-st-moritz-st-moritz"
+        "chef-de-rang-m-f-d-kulm-hotel-st-moritz-st-moritz",
+        "chef-de-rang-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "chef-de-rang-m-w-kulm-hotel-st-moritz-st-moritz",
+        "chef-de-rang-h-f-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "firstSeenAt": "2026-04-13T22:00:28.646Z",
       "needsRetranslation": true,
@@ -913,6 +922,13 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-rang-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "chef-de-rang-m-w-kulm-hotel-st-moritz-st-moritz",
+          "chef-de-rang-h-f-d-kulm-hotel-st-moritz-st-moritz"
+        ]
       }
     },
     {

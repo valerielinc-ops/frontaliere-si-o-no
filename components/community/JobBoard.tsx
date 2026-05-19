@@ -81,7 +81,7 @@ import {
 import { type Locale, useLocale, useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { loadBlogMeta } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
-import { buildPath, registerJobSlugMap } from '@/services/router';
+import { buildPath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugMapLoaded } from '@/services/router';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import Callout from '@/components/shared/Callout';
@@ -2897,6 +2897,53 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const lookupSlug = bridgeTargetSlug || initialJobSlug;
  return jobs.find((j) => matchesRouteSlug(j, lookupSlug)) || null;
  }, [jobs, initialJobSlug, bridgeTargetSlug, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor]);
+
+ // Cross-canton bridge resolution: when a bridge URL (e.g.
+ // /cerca-lavoro-ticino/<old-slug>/) points to a job that now lives in a
+ // canton not included in the initial referrer-aware load (e.g. AI), the
+ // slim `jobs` array won't contain it and the SPA would otherwise fall
+ // through to `JobOrphanView` even though the job is alive. The static
+ // crawler-facing fallback (pre-rendered) shows the correct content, so
+ // there's an unacceptable mismatch between first-paint and hydration.
+ // Fix: when bridgeTargetSlug is set, jobs are loaded, and selectedJob is
+ // null, look up the target canton from the slug-map and lazy-fetch that
+ // canton's shard. On the next render selectedJob resolves correctly.
+ const [bridgeFetchAttempted, setBridgeFetchAttempted] = useState<string | null>(null);
+ useEffect(() => {
+ if (jobsLoading) return;
+ if (!initialJobSlug) return;
+ if (selectedJob) return;
+ const targetSlug = bridgeTargetSlug || initialJobSlug;
+ if (bridgeFetchAttempted === targetSlug) return;
+ let cancelled = false;
+ (async () => {
+ try {
+ await ensureJobSlugMapLoaded();
+ if (cancelled) return;
+ const meta = getJobMetaForSlug(targetSlug);
+ if (!meta?.canton) return;
+ // Skip if we already have any job from this canton — the target really
+ // is missing (expired or never crawled) and a re-fetch won't help.
+ const cantonCode = meta.canton;
+ if (jobs.some((j) => String(j.canton || '').toUpperCase() === cantonCode)) return;
+ const extra = await fetchJobsForCanton(cantonCode);
+ if (cancelled || !Array.isArray(extra) || extra.length === 0) return;
+ setJobs((prev) => {
+ const seen = new Set(prev.map((j) => j.id));
+ const merged = [...prev];
+ for (const j of extra) {
+ if (!seen.has(j.id)) merged.push(j as unknown as JobListing);
+ }
+ return merged;
+ });
+ } catch {
+ // Silently ignore — JobOrphanView is the acceptable fallback.
+ } finally {
+ if (!cancelled) setBridgeFetchAttempted(targetSlug);
+ }
+ })();
+ return () => { cancelled = true; };
+ }, [jobsLoading, initialJobSlug, selectedJob, bridgeTargetSlug, bridgeFetchAttempted, jobs]);
 
  // FRO-detail-split: Lazily enrich slim job with per-job detail data (~15KB)
  // instead of fetching the full locale file (~11MB). Merges detail fields into

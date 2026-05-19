@@ -62,7 +62,15 @@
       "postalCode": "6901",
       "firstSeenAt": "2026-05-17T09:40:29.449Z",
       "retranslationAttempts": 1,
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "consulente-assicurativo-per-il-luganese-axa-svizzera-axa"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-assicurativo-per-il-luganese-axa-svizzera-axa"
+        ]
+      }
     },
     {
       "title": "Consulente Assicurativo",
@@ -124,7 +132,15 @@
       "postalCode": "6901",
       "firstSeenAt": "2026-05-17T09:40:29.449Z",
       "retranslationAttempts": 1,
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "consulente-assicurativo-axa-svizzera-axa"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-assicurativo-axa-svizzera-axa"
+        ]
+      }
     },
     {
       "title": "Consulente Assicurativo",
@@ -186,7 +202,19 @@
       "postalCode": "6901",
       "firstSeenAt": "2026-05-17T09:40:29.449Z",
       "retranslationAttempts": 1,
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "consulente-assicurativo-axa-svizzera-axa-agenzia-principale-nicola-locarnini-manno",
+        "consulente-assicurativo-axa-svizzera-axa-agenzia-principale-nicola-locarnini-manno-2",
+        "consulente-assicurativo-axa-svizzera-axa-agenzia-principale-nicola-locarnini-manno-3"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-assicurativo-axa-svizzera-axa-agenzia-principale-nicola-locarnini-manno",
+          "consulente-assicurativo-axa-svizzera-axa-agenzia-principale-nicola-locarnini-manno-2",
+          "consulente-assicurativo-axa-svizzera-axa-agenzia-principale-nicola-locarnini-manno-3"
+        ]
+      }
     },
     {
       "title": "Consulente Assicurativo per il Mendrisiotto",
@@ -248,7 +276,17 @@
       "postalCode": "6901",
       "firstSeenAt": "2026-05-17T09:40:29.449Z",
       "retranslationAttempts": 1,
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-axa",
+        "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello-bkvc6m"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-axa",
+          "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello-bkvc6m"
+        ]
+      }
     },
     {
       "title": "Fachführung Krankenzusatzversicherung (VVG) Schwerpunkt stationäre Mehrleistungen (all genders)",
@@ -665,14 +703,16 @@
       "id": "axa-svizzera-91fb6801250c",
       "previousSlugsByLocale": {
         "it": [
-          "fachberater-in-private-vorsorge-fur-die-generalagentur-vorsorge-vermogen-schaffhaus-79x7ku"
+          "fachberater-in-private-vorsorge-fur-die-generalagentur-vorsorge-vermogen-schaffhaus-79x7ku",
+          "fachberater-in-private-vorsorge-fur-die-generalagentur-vorsorge-vermogen-schaffhausen-axa-svizzera-70-arbeitsort-schaffh"
         ],
         "de": [
           "fachberater-in-private-vorsorge-fur-die-generalagentur-vorsorge-vermogen-schaffhaus-79x7ku"
         ]
       },
       "previousSlugs": [
-        "fachberater-in-private-vorsorge-fur-die-generalagentur-vorsorge-vermogen-schaffhaus-79x7ku"
+        "fachberater-in-private-vorsorge-fur-die-generalagentur-vorsorge-vermogen-schaffhaus-79x7ku",
+        "fachberater-in-private-vorsorge-fur-die-generalagentur-vorsorge-vermogen-schaffhausen-axa-svizzera-70-arbeitsort-schaffh"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1541,14 +1581,20 @@
       "id": "axa-svizzera-e64ce2409096",
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-ymdiir"
+          "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-ymdiir",
+          "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-svizzera-ticino"
         ],
         "de": [
           "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-ymdiir"
+        ],
+        "en": [
+          "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-svizzera-axa"
         ]
       },
       "previousSlugs": [
-        "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-ymdiir"
+        "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-ymdiir",
+        "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-svizzera-axa",
+        "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-svizzera-ticino"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -1687,7 +1733,8 @@
       "id": "axa-svizzera-b548fd42935e",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-innendienst-40-60-fur-die-generalagentur-vorsorge-vermogen-schaffhau-xthz4l"
+          "mitarbeiter-in-innendienst-40-60-fur-die-generalagentur-vorsorge-vermogen-schaffhau-xthz4l",
+          "mitarbeiter-in-innendienst-40-60-fur-die-generalagentur-vorsorge-vermogen-schaffhausen-axa-svizzera-arbeitsort-schaffhau"
         ],
         "de": [
           "mitarbeiter-in-innendienst-40-60-fur-die-generalagentur-vorsorge-vermogen-schaffhau-xthz4l"
@@ -1698,7 +1745,8 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-innendienst-40-60-fur-die-generalagentur-vorsorge-vermogen-schaffhau-xthz4l",
-        "mitarbeiter-in-innendienst-40-60-fur-die-generalagentur-vorsorge-vermogen-schaffhausen-axa-svizzera-arbeitsort"
+        "mitarbeiter-in-innendienst-40-60-fur-die-generalagentur-vorsorge-vermogen-schaffhausen-axa-svizzera-arbeitsort",
+        "mitarbeiter-in-innendienst-40-60-fur-die-generalagentur-vorsorge-vermogen-schaffhausen-axa-svizzera-arbeitsort-schaffhau"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1911,7 +1959,8 @@
       "id": "axa-svizzera-883a45a1c822",
       "previousSlugsByLocale": {
         "it": [
-          "vorsorgeberater-in-fur-die-geschaftsstelle-vorsorge-vermogen-glarus-axa-arbeitsorte-jerdl0"
+          "vorsorgeberater-in-fur-die-geschaftsstelle-vorsorge-vermogen-glarus-axa-arbeitsorte-jerdl0",
+          "vorsorgeberater-in-fur-die-geschaftsstelle-vorsorge-vermogen-glarus-axa-svizzera-arbeitsorte-glarus-lachen-uznach-sargan"
         ],
         "de": [
           "vorsorgeberater-in-fur-die-geschaftsstelle-vorsorge-vermogen-glarus-axa-arbeitsorte-jerdl0"
@@ -1919,7 +1968,8 @@
       },
       "previousSlugs": [
         "vorsorgeberater-in-fur-die-geschaftsstelle-vorsorge-vermogen-glarus-axa-arbeitsorte-jerdl0",
-        "vorsorgeberater-in-per-la-geschaftsstelle-previdenza-patrimonio-glarus-axa-svizzera-arbeitsorte-glarus-lachen-uznach-sar"
+        "vorsorgeberater-in-per-la-geschaftsstelle-previdenza-patrimonio-glarus-axa-svizzera-arbeitsorte-glarus-lachen-uznach-sar",
+        "vorsorgeberater-in-fur-die-geschaftsstelle-vorsorge-vermogen-glarus-axa-svizzera-arbeitsorte-glarus-lachen-uznach-sargan"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

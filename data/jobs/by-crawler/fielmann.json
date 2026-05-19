@@ -2234,6 +2234,14 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugs": [
+        "bachelor-of-science-fhnw-en-optometrie-w-m-d-suisse-fielmann-group-basel-steinenvorstadt"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "bachelor-of-science-fhnw-en-optometrie-w-m-d-suisse-fielmann-group-basel-steinenvorstadt"
+        ]
       }
     },
     {
@@ -2383,11 +2391,13 @@
           "opticien-ne-f-h-d-fielmann-ch"
         ],
         "it": [
-          "opticien-ne-f-h-d-fielmann-ch"
+          "opticien-ne-f-h-d-fielmann-ch",
+          "opticien-w-m-d-fielmann-group-st"
         ]
       },
       "previousSlugs": [
-        "opticien-ne-f-h-d-fielmann-ch"
+        "opticien-ne-f-h-d-fielmann-ch",
+        "opticien-w-m-d-fielmann-group-st"
       ],
       "firstSeenAt": "2026-05-13T11:02:19.380Z",
       "salaryMin": 49500,
@@ -2631,7 +2641,8 @@
       "previousSlugs": [
         "horakustikermeister-w-m-d-fielmann-ch",
         "horakustikermeister-w-m-d-fielmann-group-aarau",
-        "horakustikermeister-w-m-d-fielmann-ch-2"
+        "horakustikermeister-w-m-d-fielmann-ch-2",
+        "horakustikermeister-w-m-d-fielmann-group-aarau-2"
       ],
       "firstSeenAt": "2026-05-13T11:02:17.170Z",
       "salaryMin": 49500,

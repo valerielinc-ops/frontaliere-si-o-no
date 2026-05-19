@@ -132,7 +132,8 @@
         "consulente-m-f-d-nel-wealth-management-a-lugano-con-focus-sui-clienti-norditaliani-colin-cie-wealth-management-lugano",
         "berater-m-w-d-im-wealth-management-am-standort-lugano-mit-fokus-norditalienische-kunden-colin-cie-lugano",
         "consultant-m-f-d-in-wealth-management-in-lugano-with-a-focus-on-northern-italian-clients-colin-cie-wealth-management-lugano",
-        "berater-m-w-d-im-wealth-management-am-standort-lugano-mit-fokus-norditalienische-kunden-colin-cie-wealth-management-lugano"
+        "berater-m-w-d-im-wealth-management-am-standort-lugano-mit-fokus-norditalienische-kunden-colin-cie-wealth-management-lugano",
+        "berater-m-w-d-im-wealth-management-am-standort-lugano-con-fokus-norditalienische-kunden-colin-cie-wealth-management-lugano"
       ],
       "salaryMin": 77500,
       "salaryMax": 104500,
@@ -373,7 +374,8 @@
         "consulente-m-f-d-nel-wealth-management-a-schaffhausen-con-focus-sui-clienti-regionali-colin-cie-wealth-management-schaff",
         "berater-m-w-d-im-wealth-management-am-standort-schaffhausen-mit-fokus-regionale-kunden-colin-cie-schaffhausen",
         "consultant-m-f-d-in-wealth-management-at-the-schaffhausen-location-with-a-focus-on-regional-customers-colin-cie-wealth-management-schaffhaus",
-        "berater-m-w-d-im-wealth-management-am-standort-schaffhausen-mit-fokus-regionale-kunden-colin-cie-wealth-management-schaffhausen"
+        "berater-m-w-d-im-wealth-management-am-standort-schaffhausen-mit-fokus-regionale-kunden-colin-cie-wealth-management-schaffhausen",
+        "berater-m-w-d-im-wealth-management-am-standort-schaffhausen-con-fokus-regionale-kunden-colin-cie-wealth-management-schaffhausen"
       ],
       "salaryMin": 77500,
       "salaryMax": 104500,
@@ -463,7 +465,19 @@
       "streetAddress": "Via Nassa 15",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-17T09:57:04.753Z",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "berater-m-w-d-im-wealth-management-am-standort-luxemburg-con-fokus-deutsche-kunden-colin-cie-wealth-management-munsbach",
+        "berater-m-w-d-im-wealth-management-am-standort-luxemburg-mit-fokus-deutsche-kunden-colin-cie-wealth-management-munsbach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-m-w-d-im-wealth-management-am-standort-luxemburg-con-fokus-deutsche-kunden-colin-cie-wealth-management-munsbach"
+        ],
+        "en": [
+          "berater-m-w-d-im-wealth-management-am-standort-luxemburg-mit-fokus-deutsche-kunden-colin-cie-wealth-management-munsbach"
+        ]
+      }
     },
     {
       "title": "Berater (m/w/d) im Wealth Management am Standort Luxemburg mit Fokus  Benelux-Kunden",
@@ -522,7 +536,19 @@
       },
       "streetAddress": "Via Nassa 15",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-17T09:57:04.753Z"
+      "firstSeenAt": "2026-05-17T09:57:04.753Z",
+      "previousSlugs": [
+        "berater-m-w-d-im-wealth-management-am-standort-luxemburg-con-fokus-benelux-kunden-colin-cie-wealth-management-munsbach",
+        "berater-m-w-d-im-wealth-management-am-standort-luxemburg-mit-fokus-benelux-kunden-colin-cie-wealth-management-munsbach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-m-w-d-im-wealth-management-am-standort-luxemburg-con-fokus-benelux-kunden-colin-cie-wealth-management-munsbach"
+        ],
+        "en": [
+          "berater-m-w-d-im-wealth-management-am-standort-luxemburg-mit-fokus-benelux-kunden-colin-cie-wealth-management-munsbach"
+        ]
+      }
     },
     {
       "title": "Berater (m/w/d) im Wealth Management am Standort Luxemburg mit Fokus  regionale Kunden",
@@ -581,7 +607,19 @@
       },
       "streetAddress": "Via Nassa 15",
       "postalCode": "6900",
-      "firstSeenAt": "2026-05-17T09:57:04.753Z"
+      "firstSeenAt": "2026-05-17T09:57:04.753Z",
+      "previousSlugs": [
+        "berater-m-w-d-im-wealth-management-am-standort-luxemburg-con-fokus-regionale-kunden-colin-cie-wealth-management-munsbach",
+        "berater-m-w-d-im-wealth-management-am-standort-luxemburg-mit-fokus-regionale-kunden-colin-cie-wealth-management-munsbach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berater-m-w-d-im-wealth-management-am-standort-luxemburg-con-fokus-regionale-kunden-colin-cie-wealth-management-munsbach"
+        ],
+        "en": [
+          "berater-m-w-d-im-wealth-management-am-standort-luxemburg-mit-fokus-regionale-kunden-colin-cie-wealth-management-munsbach"
+        ]
+      }
     },
     {
       "title": "Berater (m/w/d) im Wealth Management am Standort Zürich mit Fokus niederländische Kunden",

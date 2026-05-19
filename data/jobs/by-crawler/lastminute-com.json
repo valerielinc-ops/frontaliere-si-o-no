@@ -65,16 +65,22 @@
       "previousSlugsByLocale": {
         "it": [
           "global-payroll-hr-systems-manager-chiasso",
-          "global-payroll-hr-systems-manager-switzerlandteam"
+          "global-payroll-hr-systems-manager-switzerlandteam",
+          "global-payroll-hr-systems-manager-lastminute-com-chiasso"
         ],
         "fr": [
           "global-payroll-ressources-humaines-systems-manager-chiasso"
+        ],
+        "en": [
+          "global-payroll-hr-systems-manager-lastminute-com-switzerlandteam"
         ]
       },
       "previousSlugs": [
         "global-payroll-hr-systems-manager-chiasso",
         "global-payroll-hr-systems-manager-switzerlandteam",
-        "global-payroll-ressources-humaines-systems-manager-chiasso"
+        "global-payroll-ressources-humaines-systems-manager-chiasso",
+        "global-payroll-hr-systems-manager-lastminute-com-chiasso",
+        "global-payroll-hr-systems-manager-lastminute-com-switzerlandteam"
       ],
       "salaryMin": 79500,
       "salaryMax": 135000,
@@ -263,11 +269,15 @@
         ],
         "fr": [
           "software-ingenieur-etls-microservices-chiasso"
+        ],
+        "en": [
+          "software-engineer-etls-microservices-lastminute-com-chiasso"
         ]
       },
       "previousSlugs": [
         "software-engineer-etls-microservices-chiasso",
-        "software-ingenieur-etls-microservices-chiasso"
+        "software-ingenieur-etls-microservices-chiasso",
+        "software-engineer-etls-microservices-lastminute-com-chiasso"
       ],
       "salaryMin": 51500,
       "salaryMax": 88000,
