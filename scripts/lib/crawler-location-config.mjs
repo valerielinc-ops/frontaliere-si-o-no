@@ -233,6 +233,8 @@ export const COMPANY_HQ = {
   'csvm-mustair':                 { city: 'Sta. Maria Val Müstair', canton: 'GR', postalCode: '7536', addressRegion: 'GR' },
   'klinik-arlesheim':             { city: 'Arlesheim',          canton: 'BL', postalCode: '4144', addressRegion: 'BL' },
   'rehab-basel':                  { city: 'Basel',              canton: 'BS', postalCode: '4055', addressRegion: 'BS' },
+  'kliniken-valens':              { city: 'Valens',             canton: 'SG', postalCode: '7317', addressRegion: 'SG' },
+  'merian-iselin':                { city: 'Basel',              canton: 'BS', postalCode: '4054', addressRegion: 'BS' },
   'spital-limmattal':             { city: 'Schlieren',          canton: 'ZH', postalCode: '8952', addressRegion: 'ZH' },
   'huntsman':                     { city: 'Monthey',            canton: 'VS', postalCode: '1870', addressRegion: 'VS' },
   'fielmann':                     { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
