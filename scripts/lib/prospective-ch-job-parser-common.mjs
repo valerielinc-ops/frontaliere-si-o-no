@@ -253,6 +253,12 @@ export function createProspectiveChParser(config) {
         titleByLocale: { [sourceLang]: title },
         description: descriptionText || `${title} — ${companyName}`,
         descriptionByLocale: { [sourceLang]: descriptionText || `${title} — ${companyName}` },
+        // Newly-discovered jobs ship with source-locale-only fields. The shared
+        // AI-localization step clears this flag when it fills the remaining 3
+        // locales; if it can't (cache miss + AI quota), the flag stays and
+        // `translate-pending.yml` picks the job up out-of-band. Without this
+        // flag the locale-completeness gate trips before translation can run.
+        needsRetranslation: true,
         location,
         canton,
         url: publicUrl,
