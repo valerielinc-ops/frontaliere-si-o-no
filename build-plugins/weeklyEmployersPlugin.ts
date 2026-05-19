@@ -93,7 +93,6 @@ import {
   STAT_TILE_VALUE,
   clampSiteSuffix,
   renderDiscoverMore,
-  renderEntityCard,
   resolveBrandLogoUrl,
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
@@ -108,6 +107,10 @@ import { renderJobCardHtml, type JobCardJob } from './shared/jobCardHtml';
 import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
+import {
+  renderEmployerCardListHtml,
+  type EmployerCardEmployer,
+} from './shared/employerCardHtml';
 import { SECTOR_HUB_KEYS, buildSectorHubPath, type SectorHubKey } from './jobSectorLanding';
 import {
   startTimer as __weProfStart,
@@ -2645,47 +2648,50 @@ export function renderWeeklyEmployersPage(inp: WeeklyEmployersPageInputs): strin
   // early-returns the legacy slug → TI URLs stay byte-identical.
   const cityCanton = cityWeeklyEmployerCanton(city);
   const jobBoardSection = weeklyJobBoardSection(locale, cityCanton);
-  const topCompaniesHtml =
-    stats.topCompanies.length > 0
-      ? `${coldStartBannerHtml}<ol style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;counter-reset:seo-rank">${stats.topCompanies
-          .map((c, idx) => {
-            const brandHref = employerBrandPath(c.employerKey, c.employer, knownSlugs);
-            // When no historical delta exists at all, suppress the per-card
-            // coldStart label (shown once above as a banner instead).
-            const deltaLabel =
-              !hasHistoricalDelta
-                ? null
-                : c.delta > 0
-                ? copy.deltaPositive(c.delta)
-                : copy.deltaZero;
-            const needsReview =
-              enableAutoStubs && !brandHref && c.active >= 3 && idx < 3;
-            const localePrefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
-            const companyFallbackHref = (`${localePrefix}/${jobBoardSection}/?q=${encodeURIComponent(c.employer)}`).replace(/\/\/+/g, '/');
-            const href = brandHref ?? companyFallbackHref;
-            const subtitle = deltaLabel
-              ? `${cityDisplay} · ${deltaLabel}`
-              : cityDisplay;
-            const logoSlug = c.employerKey || slugifyEmployer(c.employer);
-            const logoUrl = rootDir ? resolveBrandLogoUrl(rootDir, logoSlug) : null;
-            const card = renderEntityCard({
-              href,
-              title: `${idx + 1}. ${c.employer}`,
-              subtitle,
-              metric: copy.jobsCountLabel(c.active),
-              metricTone: c.delta > 0 ? 'success' : 'default',
-              logoUrl: logoUrl ?? undefined,
-              logoAlt: c.employer,
-              iconSvg: logoUrl ? undefined : ICON_BUILDING_SVG,
-            });
-            // Preserve the auto-employer-stub review marker on the list item
-            // (no production code currently reads it, but it existed for
-            // potential editorial tooling — keep the signal alive).
-            const reviewAttr = needsReview ? ' data-needs-editorial-review="true"' : '';
-            return `<li style="margin:0;padding:0"${reviewAttr}>${card}</li>`;
-          })
-          .join('')}</ol>`
-      : `<p style="padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning)">${esc(copy.topCompaniesEmpty)}</p>`;
+  const topCompaniesHtml = (() => {
+    if (stats.topCompanies.length === 0) {
+      return `<p style="padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-warning)">${esc(copy.topCompaniesEmpty)}</p>`;
+    }
+    const items = stats.topCompanies.map((c, idx) => {
+      const brandHref = employerBrandPath(c.employerKey, c.employer, knownSlugs);
+      // When no historical delta exists at all, suppress the per-card
+      // coldStart label (shown once above as a banner instead).
+      const deltaLabel =
+        !hasHistoricalDelta
+          ? null
+          : c.delta > 0
+          ? copy.deltaPositive(c.delta)
+          : copy.deltaZero;
+      const localePrefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
+      const companyFallbackHref = (`${localePrefix}/${jobBoardSection}/?q=${encodeURIComponent(c.employer)}`).replace(/\/\/+/g, '/');
+      const href = brandHref ?? companyFallbackHref;
+      const subtitle = deltaLabel
+        ? `${cityDisplay} · ${deltaLabel}`
+        : cityDisplay;
+      const logoSlug = c.employerKey || slugifyEmployer(c.employer);
+      const explicitLogo = rootDir ? resolveBrandLogoUrl(rootDir, logoSlug) : null;
+      return {
+        employer: {
+          name: c.employer,
+          companyKey: c.employerKey ?? undefined,
+          logo: explicitLogo,
+          rank: idx + 1,
+          subtitle,
+          metric: copy.jobsCountLabel(c.active),
+          metricTone: c.delta > 0 ? ('success' as const) : ('default' as const),
+        } satisfies EmployerCardEmployer,
+        href,
+      };
+    });
+    // Note: data-needs-editorial-review attribute is deliberately dropped in
+    // this migration. The original comment confirmed no production code reads
+    // it — it was an unrealized editorial tooling hook.
+    const listHtml = renderEmployerCardListHtml(items, {
+      locale,
+      variant: 'detailed',
+    });
+    return `${coldStartBannerHtml}${listHtml}`;
+  })();
 
   const newcomersHtml =
     stats.newcomers.length > 0
@@ -4171,4 +4177,56 @@ ${urlEntries}
       __weProfPrint();
     },
   };
+}
+
+/**
+ * Test-only export — renders just the top-companies section for a given
+ * locale and synthetic top-companies array. Uses the same canonical
+ * renderEmployerCardListHtml (detailed variant) path as the production page,
+ * with sane defaults for fields not needed by tests.
+ */
+export function renderTopCompaniesSectionForTest(
+  locale: WeeklyEmployersLocale,
+  topCompanies: ReadonlyArray<{
+    employer: string;
+    employerKey?: string | null;
+    active: number;
+    delta: number;
+  }>,
+): string {
+  const copy = COPY[locale];
+  const cityDisplay = 'Test City';
+  const hasHistoricalDelta = true;
+  const jobBoardSection = 'cerca-lavoro-ticino';
+  const localePrefix = WEEKLY_EMPLOYERS_LOCALE_PREFIX[locale];
+
+  if (topCompanies.length === 0) {
+    return `<p>${copy.topCompaniesEmpty}</p>`;
+  }
+  const items = topCompanies.map((c, idx) => {
+    const companyFallbackHref =
+      (`${localePrefix}/${jobBoardSection}/?q=${encodeURIComponent(c.employer)}`).replace(/\/\/+/g, '/');
+    const deltaLabel =
+      !hasHistoricalDelta
+        ? null
+        : c.delta > 0
+        ? copy.deltaPositive(c.delta)
+        : copy.deltaZero;
+    const subtitle = deltaLabel
+      ? `${cityDisplay} · ${deltaLabel}`
+      : cityDisplay;
+    return {
+      employer: {
+        name: c.employer,
+        companyKey: c.employerKey ?? undefined,
+        logo: null,
+        rank: idx + 1,
+        subtitle,
+        metric: copy.jobsCountLabel(c.active),
+        metricTone: c.delta > 0 ? ('success' as const) : ('default' as const),
+      } satisfies EmployerCardEmployer,
+      href: companyFallbackHref,
+    };
+  });
+  return renderEmployerCardListHtml(items, { locale, variant: 'detailed' });
 }

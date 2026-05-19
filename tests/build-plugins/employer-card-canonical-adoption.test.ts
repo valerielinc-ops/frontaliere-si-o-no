@@ -69,3 +69,19 @@ describe('costOfLivingLandingsPlugin uses canonical employer cards', () => {
     expect(html).toContain('Migros Ticino');
   });
 });
+
+describe('weeklyEmployersPlugin uses canonical employer cards (detailed)', () => {
+  it('renders detailed-variant employer markup with rank + subtitle + metric tone', async () => {
+    const mod: any = await import('../../build-plugins/weeklyEmployersPlugin');
+    expect(typeof mod.renderTopCompaniesSectionForTest).toBe('function');
+    const html = mod.renderTopCompaniesSectionForTest('it', [
+      { employer: 'Lonza', employerKey: 'lonza', active: 35, delta: 3 },
+      { employer: 'Migros', employerKey: 'migros', active: 18, delta: 0 },
+    ]);
+    expect(html).toMatch(/<article class="rounded-xl border border-edge/);
+    expect(html).toContain('Lonza');
+    expect(html).toContain('Migros');
+    expect(html).toContain('text-success');  // Lonza has positive delta → success tone
+    expect(html).toMatch(/<span class="tabular-nums">1\.<\/span>/);  // ranking prefix
+  });
+});
