@@ -208,7 +208,19 @@ export function createProspectiveChParser(config) {
     while (offset < total) {
       const url = `${API_BASE}?lang=${apiLang}&offset=${offset}&limit=${PAGE_SIZE}`;
       console.log(`  📄 offset=${offset}…`);
-      const data = await fetchPage(url);
+      // Graceful degradation: any fetch error (HTTP 404, ENOTFOUND, abort,
+      // malformed JSON) terminates pagination instead of throwing. Returns
+      // whatever was collected so far (empty list on first-iter failure).
+      // Matches the contract every dedicated crawler test asserts via
+      // "graceful degradation" suites — when the upstream JobAbo is offline,
+      // the crawler must return [] (no throw), not crash the cron workflow.
+      let data;
+      try {
+        data = await fetchPage(url);
+      } catch (err) {
+        console.warn(`  ⚠️  Prospective fetch failed at offset=${offset}: ${err && err.message || err}. Returning ${all.length} jobs collected so far.`);
+        break;
+      }
       const items = Array.isArray(data?.jobs) ? data.jobs : [];
       if (Number.isFinite(Number(data?.total))) total = Number(data.total);
       if (items.length === 0) break;

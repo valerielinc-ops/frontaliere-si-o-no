@@ -128,12 +128,32 @@ function parseSoliqueTileBody(id, body) {
  */
 export function extractSoliqueDetailContent(html = '') {
   if (!html || typeof html !== 'string') return '';
+
+  // Strip <script>, <style>, and HTML comments BEFORE the regex extraction.
+  // Solique detail pages embed inline `<script>function sendMail(){…}</script>`
+  // blocks after the offer section. The regex pipeline below only strips
+  // `<[^>]+>` tags, which leaves the JS BODY (var/let/function statements,
+  // string literals, `document.location.href = …`) sitting as plain text
+  // inside the extracted description. validate-jobs-quality catches this as
+  // `code_in_description` and blocks the deploy (run 26104688496 surfaced
+  // 35 Spital Emmental jobs failing this gate). Pre-stripping removes the
+  // entire script body before any tag is touched, so the extracted text
+  // stays clean prose.
+  // Pattern matches both `<script>…</script>` and `<script src="…"></script>`
+  // (self-closing is rare but the lazy `[\s\S]*?` handles the empty case).
+  // The `<!-- … -->` strip also removes the CMS template-source comments
+  // that occasionally include code snippets.
+  const cleaned = html
+    .replace(/<script\b[\s\S]*?<\/script\s*>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style\s*>/gi, ' ')
+    .replace(/<!--[\s\S]*?-->/g, ' ');
+
   const sections = [];
 
   // Template (i): .intro blocks
   const introRx = /<div\s+class="intro"[^>]*>([\s\S]*?)<\/div>/g;
   let im;
-  while ((im = introRx.exec(html))) {
+  while ((im = introRx.exec(cleaned))) {
     let text = im[1]
       .replace(/<br\s*\/?>(?!\s*<)/gi, '\n')
       .replace(/<[^>]+>/g, ' ');
@@ -144,7 +164,7 @@ export function extractSoliqueDetailContent(html = '') {
   // Template (i): .title-green blocks
   const titledRx = /<div\s+class="title-green"[^>]*>([\s\S]*?)<\/div>([\s\S]*?)(?=<div\s+class="title-green"|$)/g;
   let tm;
-  while ((tm = titledRx.exec(html))) {
+  while ((tm = titledRx.exec(cleaned))) {
     const title = normalizeSpace(decodeEntities(stripHtml(tm[1])));
     if (!title) continue;
     let body = tm[2]
@@ -159,7 +179,7 @@ export function extractSoliqueDetailContent(html = '') {
   // Template (ii): <div class="offer"> with <h4 class="sub-subtitle"> headings
   const offerRx = /<div\s+class="offer(?:\s+[^"]*)?"[^>]*>([\s\S]*?)<\/div>\s*(?=<div\s+class="offer(?:\s+[^"]*)?"|<div\s+class="offer-additional"|<\/div>\s*<\/div>|$)/g;
   let om;
-  while ((om = offerRx.exec(html))) {
+  while ((om = offerRx.exec(cleaned))) {
     const inner = om[1];
     // Look for sub-subtitle headings, otherwise treat the whole block as a single section.
     const headingRx = /<h[1-6][^>]*class="sub-subtitle"[^>]*>([\s\S]*?)<\/h[1-6]>([\s\S]*?)(?=<h[1-6][^>]*class="sub-subtitle"|$)/g;
