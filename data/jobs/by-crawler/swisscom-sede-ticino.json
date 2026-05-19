@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisscom-sede-ticino",
-  "assembledAt": "2026-05-18T22:53:44.278Z",
+  "assembledAt": "2026-05-19T12:45:49.143Z",
   "jobs": [
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Product-Manager---Cloud---Datacenter_R-0005476-1",
@@ -156,7 +156,8 @@
       },
       "previousSlugs": [
         "lead-business-analysis-avaloq-swisscom-zurich-p4qk49"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-Avaloq-Consultant_R-0002801-1",
@@ -235,6 +236,218 @@
       "previousSlugs": [
         "senior-avaloq-consultant-swisscom-zurich-voe1en"
       ]
+    },
+    {
+      "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer---Ansible_R-0005523",
+      "applyUrl": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer---Ansible_R-0005523",
+      "title": "DevOps Engineer - Ansible",
+      "company": "Swisscom (sede Ticino)",
+      "companyKey": "swisscom-sede-ticino",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "# DevOps Engineer - Ansible\n\n## Il tuo futuro inizia qui\nDu begleitest die Schweizer Armee auf ihrer Digitalisierungsreise und stärkst mit deiner Arbeit die Verteidigungsfähigkeit der Schweiz. Im Fokus stehen Engineering, Stabilisierung und die sichere Weiterentwicklung von Services und Plattformen. Du stellst einen standardisierten, reproduzierbaren und sicheren Betrieb über verschiedene Umgebungen hinweg sicher. Gemeinsam mit Product Owner sowie Entwicklungs- und Betriebsteams treibst du Qualität und Tempo in einer hochsicheren Private-Cloud-Umgebung voran.\n- Enge Zusammenarbeit mit Product Owner sowie Entwicklungs- und Betriebsteams zur Zielerreichung\n- Engineering, Betrieb und kontinuierliche Optimierung der Ansible-Services im Projektkontext\n- Sicherstellen von Qualität, Stabilität und Security der betriebenen Services\n- Aktive Weiterentwicklung der Projektplattform und der Betriebsprozesse\n- Einsatz moderner Methoden für einen sicheren und stabilen Private-Cloud-Betrieb\n\n## Deine Skills\n- Technischer Abschluss (EFZ) mit Weiterbildung (FH/HF) in Informatik oder gleichwertiger Abschluss\n- Fundierte Kenntnisse in der Automatisierung von Infrastruktur- und Betriebsabläufen sowie im Design von Infrastructure as Code mit Ansible\n- Erfahrung im Lifecycle-Management von Automationslösungen von Entwicklung über Testing bis Rollout und Betrieb\n- Praxis in Versionskontrolle und Build- und Deployment-Pipelines, z. B. mit Git, sowie in der Erstellung und Pflege wiederverwendbarer Playbooks und Modulen\n- Du verfügst über vertieftes Wissen, übernimmst Architektur-, Design- oder Entscheidungsaufgaben und unterstützt Reviews sowie Know-how-Transfer\n- Analytisch, strukturiert und lösungsorientiert, du arbeitest verlässlich und qualitätsbewusst\n- Teamfähig und kommunikativ, du stimmst dich sicher mit verschiedenen Stakeholdern ab und führst bei Bedarf kleinere Vorhaben\n- Sehr gutes Deutsch in Wort und Schrift, Englisch von Vorteil\n\nBei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
+      "descriptionByLocale": {
+        "it": "# DevOps Engineer - Ansible\n\n## Il tuo futuro inizia qui\nDu begleitest die Schweizer Armee auf ihrer Digitalisierungsreise und stärkst mit deiner Arbeit die Verteidigungsfähigkeit der Schweiz. Im Fokus stehen Engineering, Stabilisierung und die sichere Weiterentwicklung von Services und Plattformen. Du stellst einen standardisierten, reproduzierbaren und sicheren Betrieb über verschiedene Umgebungen hinweg sicher. Gemeinsam mit Product Owner sowie Entwicklungs- und Betriebsteams treibst du Qualität und Tempo in einer hochsicheren Private-Cloud-Umgebung voran.\n- Enge Zusammenarbeit mit Product Owner sowie Entwicklungs- und Betriebsteams zur Zielerreichung\n- Engineering, Betrieb und kontinuierliche Optimierung der Ansible-Services im Projektkontext\n- Sicherstellen von Qualität, Stabilität und Security der betriebenen Services\n- Aktive Weiterentwicklung der Projektplattform und der Betriebsprozesse\n- Einsatz moderner Methoden für einen sicheren und stabilen Private-Cloud-Betrieb\n\n## Deine Skills\n- Technischer Abschluss (EFZ) mit Weiterbildung (FH/HF) in Informatik oder gleichwertiger Abschluss\n- Fundierte Kenntnisse in der Automatisierung von Infrastruktur- und Betriebsabläufen sowie im Design von Infrastructure as Code mit Ansible\n- Erfahrung im Lifecycle-Management von Automationslösungen von Entwicklung über Testing bis Rollout und Betrieb\n- Praxis in Versionskontrolle und Build- und Deployment-Pipelines, z. B. mit Git, sowie in der Erstellung und Pflege wiederverwendbarer Playbooks und Modulen\n- Du verfügst über vertieftes Wissen, übernimmst Architektur-, Design- oder Entscheidungsaufgaben und unterstützt Reviews sowie Know-how-Transfer\n- Analytisch, strukturiert und lösungsorientiert, du arbeitest verlässlich und qualitätsbewusst\n- Teamfähig und kommunikativ, du stimmst dich sicher mit verschiedenen Stakeholdern ab und führst bei Bedarf kleinere Vorhaben\n- Sehr gutes Deutsch in Wort und Schrift, Englisch von Vorteil\n\nBei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
+        "de": "# DevOps Engineer - Ansible\n\n## Il tuo futuro inizia qui\nDu begleitest die Schweizer Armee auf ihrer Digitalisierungsreise und stärkst mit deiner Arbeit die Verteidigungsfähigkeit der Schweiz. Im Fokus stehen Engineering, Stabilisierung und die sichere Weiterentwicklung von Services und Plattformen. Du stellst einen standardisierten, reproduzierbaren und sicheren Betrieb über verschiedene Umgebungen hinweg sicher. Gemeinsam mit Product Owner sowie Entwicklungs- und Betriebsteams treibst du Qualität und Tempo in einer hochsicheren Private-Cloud-Umgebung voran.\n- Enge Zusammenarbeit mit Product Owner sowie Entwicklungs- und Betriebsteams zur Zielerreichung\n- Engineering, Betrieb und kontinuierliche Optimierung der Ansible-Services im Projektkontext\n- Sicherstellen von Qualität, Stabilität und Security der betriebenen Services\n- Aktive Weiterentwicklung der Projektplattform und der Betriebsprozesse\n- Einsatz moderner Methoden für einen sicheren und stabilen Private-Cloud-Betrieb\n\n## Deine Skills\n- Technischer Abschluss (EFZ) mit Weiterbildung (FH/HF) in Informatik oder gleichwertiger Abschluss\n- Fundierte Kenntnisse in der Automatisierung von Infrastruktur- und Betriebsabläufen sowie im Design von Infrastructure as Code mit Ansible\n- Erfahrung im Lifecycle-Management von Automationslösungen von Entwicklung über Testing bis Rollout und Betrieb\n- Praxis in Versionskontrolle und Build- und Deployment-Pipelines, z. B. mit Git, sowie in der Erstellung und Pflege wiederverwendbarer Playbooks und Modulen\n- Du verfügst über vertieftes Wissen, übernimmst Architektur-, Design- oder Entscheidungsaufgaben und unterstützt Reviews sowie Know-how-Transfer\n- Analytisch, strukturiert und lösungsorientiert, du arbeitest verlässlich und qualitätsbewusst\n- Teamfähig und kommunikativ, du stimmst dich sicher mit verschiedenen Stakeholdern ab und führst bei Bedarf kleinere Vorhaben\n- Sehr gutes Deutsch in Wort und Schrift, Englisch von Vorteil\n\nBei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
+        "en": "# DevOps Engineer - Ansible\n\n## Il tuo futuro inizia qui\nDu begleitest die Schweizer Armee auf ihrer Digitalisierungsreise und stärkst mit deiner Arbeit die Verteidigungsfähigkeit der Schweiz. Im Fokus stehen Engineering, Stabilisierung und die sichere Weiterentwicklung von Services und Plattformen. Du stellst einen standardisierten, reproduzierbaren und sicheren Betrieb über verschiedene Umgebungen hinweg sicher. Gemeinsam mit Product Owner sowie Entwicklungs- und Betriebsteams treibst du Qualität und Tempo in einer hochsicheren Private-Cloud-Umgebung voran.\n- Enge Zusammenarbeit mit Product Owner sowie Entwicklungs- und Betriebsteams zur Zielerreichung\n- Engineering, Betrieb und kontinuierliche Optimierung der Ansible-Services im Projektkontext\n- Sicherstellen von Qualität, Stabilität und Security der betriebenen Services\n- Aktive Weiterentwicklung der Projektplattform und der Betriebsprozesse\n- Einsatz moderner Methoden für einen sicheren und stabilen Private-Cloud-Betrieb\n\n## Deine Skills\n- Technischer Abschluss (EFZ) mit Weiterbildung (FH/HF) in Informatik oder gleichwertiger Abschluss\n- Fundierte Kenntnisse in der Automatisierung von Infrastruktur- und Betriebsabläufen sowie im Design von Infrastructure as Code mit Ansible\n- Erfahrung im Lifecycle-Management von Automationslösungen von Entwicklung über Testing bis Rollout und Betrieb\n- Praxis in Versionskontrolle und Build- und Deployment-Pipelines, z. B. mit Git, sowie in der Erstellung und Pflege wiederverwendbarer Playbooks und Modulen\n- Du verfügst über vertieftes Wissen, übernimmst Architektur-, Design- oder Entscheidungsaufgaben und unterstützt Reviews sowie Know-how-Transfer\n- Analytisch, strukturiert und lösungsorientiert, du arbeitest verlässlich und qualitätsbewusst\n- Teamfähig und kommunikativ, du stimmst dich sicher mit verschiedenen Stakeholdern ab und führst bei Bedarf kleinere Vorhaben\n- Sehr gutes Deutsch in Wort und Schrift, Englisch von Vorteil\n\nBei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
+        "fr": "# DevOps Engineer - Ansible\n\n## Il tuo futuro inizia qui\nDu begleitest die Schweizer Armee auf ihrer Digitalisierungsreise und stärkst mit deiner Arbeit die Verteidigungsfähigkeit der Schweiz. Im Fokus stehen Engineering, Stabilisierung und die sichere Weiterentwicklung von Services und Plattformen. Du stellst einen standardisierten, reproduzierbaren und sicheren Betrieb über verschiedene Umgebungen hinweg sicher. Gemeinsam mit Product Owner sowie Entwicklungs- und Betriebsteams treibst du Qualität und Tempo in einer hochsicheren Private-Cloud-Umgebung voran.\n- Enge Zusammenarbeit mit Product Owner sowie Entwicklungs- und Betriebsteams zur Zielerreichung\n- Engineering, Betrieb und kontinuierliche Optimierung der Ansible-Services im Projektkontext\n- Sicherstellen von Qualität, Stabilität und Security der betriebenen Services\n- Aktive Weiterentwicklung der Projektplattform und der Betriebsprozesse\n- Einsatz moderner Methoden für einen sicheren und stabilen Private-Cloud-Betrieb\n\n## Deine Skills\n- Technischer Abschluss (EFZ) mit Weiterbildung (FH/HF) in Informatik oder gleichwertiger Abschluss\n- Fundierte Kenntnisse in der Automatisierung von Infrastruktur- und Betriebsabläufen sowie im Design von Infrastructure as Code mit Ansible\n- Erfahrung im Lifecycle-Management von Automationslösungen von Entwicklung über Testing bis Rollout und Betrieb\n- Praxis in Versionskontrolle und Build- und Deployment-Pipelines, z. B. mit Git, sowie in der Erstellung und Pflege wiederverwendbarer Playbooks und Modulen\n- Du verfügst über vertieftes Wissen, übernimmst Architektur-, Design- oder Entscheidungsaufgaben und unterstützt Reviews sowie Know-how-Transfer\n- Analytisch, strukturiert und lösungsorientiert, du arbeitest verlässlich und qualitätsbewusst\n- Teamfähig und kommunikativ, du stimmst dich sicher mit verschiedenen Stakeholdern ab und führst bei Bedarf kleinere Vorhaben\n- Sehr gutes Deutsch in Wort und Schrift, Englisch von Vorteil\n\nBei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "titleByLocale": {
+        "it": "DevOps Ingegnere - Ansible",
+        "en": "DevOps Engineer - Ansible",
+        "de": "DevOps Ingenieur - Ansible",
+        "fr": "DevOps Ingénieur - Ansible"
+      },
+      "slug": "devops-engineer-ansible-swisscom-bern-a47l1o",
+      "slugByLocale": {
+        "it": "devops-engineer-ansible-swisscom-bern-a47l1o",
+        "en": "devops-engineer-ansible-swisscom-sede-ticino-bern",
+        "de": "devops-engineer-ansible-swisscom-bern-a47l1o",
+        "fr": "devops-engineer-ansible-swisscom-bern-a47l1o"
+      },
+      "category": "technology",
+      "datePosted": "2026-05-19",
+      "source": "swisscom-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Tecnologia & IT",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "sourceLang": "de",
+      "jobReqId": "R-0005523",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "swisscom-sede-ticino-1b223dae6604",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Ghiringhelli 15A",
+      "postalCode": "6500",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-19T12:45:49.142Z"
+    },
+    {
+      "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Olten/DevOps-Engineer_R-0005409",
+      "applyUrl": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Olten/DevOps-Engineer_R-0005409",
+      "title": "DevOps Engineer",
+      "company": "Swisscom (sede Ticino)",
+      "companyKey": "swisscom-sede-ticino",
+      "location": "Olten",
+      "addressLocality": "Olten",
+      "canton": "SO",
+      "country": "CH",
+      "description": "# DevOps Engineer\n\n## Il tuo futuro inizia qui\nDu arbeitest in einem agilen, schweizweit verteiltem Team und bist verantwortlich für die Entwicklung von massgeschneiderten Lösungen. Dabei setzt du moderne Methoden und Werkzeuge ein und trägst zur kontinuierlichen Verbesserung unserer Systeme bei. Gemeinsam mit deinen Teamkolleg*innen sorgst du dafür, dass die Lösungen stets auf dem neuesten Stand sind und optimal funktionieren. Durch deinen Einsatz leistest du einen wichtigen Beitrag zur digitalen Transformation und zur Weiterentwicklung unserer IT-Infrastruktur.\n- Du bist verantwortlich für die Entwicklung, die Implementierung und den Betrieb von Anwendungen in einem agilen DevOps-Team\n- Administration, Wartung und kontinuierliche Optimierung von CI/CD-Strategien\n- No-Code/ Low-Code Entwicklung inklusive Integration innovativer Technologien\n- Durchführung von Ursachenanalysen und Lösungsfindungen bei Applikationsproblemen\n- Unterstützung der Weiterentwicklung und Automatisierung technischer Abläufe und Prozesse\n- Implementierung und Administration von Plattformlösungen\n- Zusammenarbeit in einem agilen Team\n- Nutzung der neuesten Technologien zur Förderung der digitalen Transformation\n\n## Deine Skills\n- Abschluss (Uni/ETH/FH) in Informatik oder vergleichbare Berufserfahrung\n- Mehrjährige Erfahrung in der Entwicklung, Bereitstellung und Administration von Plattformen\n- Kenntnisse in Prompt Engineering und Automatisierung\n- Erfahrung mit Webtechnologien und APIs\n- Gute Kenntnisse in Netzwerk-, Cloud und Datenbanktechnologien\n- Erfahrung mit modernen DevOps-Praktiken und CI/CD-Tools\n- Erfahrung in agilen Arbeitsweisen und Methoden (SAFe, Scrum)\n- Bereitschaft zu Pikettdiensten und zur Bearbeitung von Incidents und Changes\n- Hohe Belastbarkeit und die Fähigkeit, komplexe Probleme zu durchdringen\n- Ausgeprägte Kunden- und Serviceorientierung\n- Sehr gutes Deutsch und Englisch, Französisch von Vorteil\n\nBei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
+      "descriptionByLocale": {
+        "it": "# DevOps Engineer\n\n## Il tuo futuro inizia qui\nDu arbeitest in einem agilen, schweizweit verteiltem Team und bist verantwortlich für die Entwicklung von massgeschneiderten Lösungen. Dabei setzt du moderne Methoden und Werkzeuge ein und trägst zur kontinuierlichen Verbesserung unserer Systeme bei. Gemeinsam mit deinen Teamkolleg*innen sorgst du dafür, dass die Lösungen stets auf dem neuesten Stand sind und optimal funktionieren. Durch deinen Einsatz leistest du einen wichtigen Beitrag zur digitalen Transformation und zur Weiterentwicklung unserer IT-Infrastruktur.\n- Du bist verantwortlich für die Entwicklung, die Implementierung und den Betrieb von Anwendungen in einem agilen DevOps-Team\n- Administration, Wartung und kontinuierliche Optimierung von CI/CD-Strategien\n- No-Code/ Low-Code Entwicklung inklusive Integration innovativer Technologien\n- Durchführung von Ursachenanalysen und Lösungsfindungen bei Applikationsproblemen\n- Unterstützung der Weiterentwicklung und Automatisierung technischer Abläufe und Prozesse\n- Implementierung und Administration von Plattformlösungen\n- Zusammenarbeit in einem agilen Team\n- Nutzung der neuesten Technologien zur Förderung der digitalen Transformation\n\n## Deine Skills\n- Abschluss (Uni/ETH/FH) in Informatik oder vergleichbare Berufserfahrung\n- Mehrjährige Erfahrung in der Entwicklung, Bereitstellung und Administration von Plattformen\n- Kenntnisse in Prompt Engineering und Automatisierung\n- Erfahrung mit Webtechnologien und APIs\n- Gute Kenntnisse in Netzwerk-, Cloud und Datenbanktechnologien\n- Erfahrung mit modernen DevOps-Praktiken und CI/CD-Tools\n- Erfahrung in agilen Arbeitsweisen und Methoden (SAFe, Scrum)\n- Bereitschaft zu Pikettdiensten und zur Bearbeitung von Incidents und Changes\n- Hohe Belastbarkeit und die Fähigkeit, komplexe Probleme zu durchdringen\n- Ausgeprägte Kunden- und Serviceorientierung\n- Sehr gutes Deutsch und Englisch, Französisch von Vorteil\n\nBei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
+        "de": "# DevOps Engineer\n\n## Il tuo futuro inizia qui\nDu arbeitest in einem agilen, schweizweit verteiltem Team und bist verantwortlich für die Entwicklung von massgeschneiderten Lösungen. Dabei setzt du moderne Methoden und Werkzeuge ein und trägst zur kontinuierlichen Verbesserung unserer Systeme bei. Gemeinsam mit deinen Teamkolleg*innen sorgst du dafür, dass die Lösungen stets auf dem neuesten Stand sind und optimal funktionieren. Durch deinen Einsatz leistest du einen wichtigen Beitrag zur digitalen Transformation und zur Weiterentwicklung unserer IT-Infrastruktur.\n- Du bist verantwortlich für die Entwicklung, die Implementierung und den Betrieb von Anwendungen in einem agilen DevOps-Team\n- Administration, Wartung und kontinuierliche Optimierung von CI/CD-Strategien\n- No-Code/ Low-Code Entwicklung inklusive Integration innovativer Technologien\n- Durchführung von Ursachenanalysen und Lösungsfindungen bei Applikationsproblemen\n- Unterstützung der Weiterentwicklung und Automatisierung technischer Abläufe und Prozesse\n- Implementierung und Administration von Plattformlösungen\n- Zusammenarbeit in einem agilen Team\n- Nutzung der neuesten Technologien zur Förderung der digitalen Transformation\n\n## Deine Skills\n- Abschluss (Uni/ETH/FH) in Informatik oder vergleichbare Berufserfahrung\n- Mehrjährige Erfahrung in der Entwicklung, Bereitstellung und Administration von Plattformen\n- Kenntnisse in Prompt Engineering und Automatisierung\n- Erfahrung mit Webtechnologien und APIs\n- Gute Kenntnisse in Netzwerk-, Cloud und Datenbanktechnologien\n- Erfahrung mit modernen DevOps-Praktiken und CI/CD-Tools\n- Erfahrung in agilen Arbeitsweisen und Methoden (SAFe, Scrum)\n- Bereitschaft zu Pikettdiensten und zur Bearbeitung von Incidents und Changes\n- Hohe Belastbarkeit und die Fähigkeit, komplexe Probleme zu durchdringen\n- Ausgeprägte Kunden- und Serviceorientierung\n- Sehr gutes Deutsch und Englisch, Französisch von Vorteil\n\nBei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
+        "en": "# DevOps Engineer\n\n## Il tuo futuro inizia qui\nDu arbeitest in einem agilen, schweizweit verteiltem Team und bist verantwortlich für die Entwicklung von massgeschneiderten Lösungen. Dabei setzt du moderne Methoden und Werkzeuge ein und trägst zur kontinuierlichen Verbesserung unserer Systeme bei. Gemeinsam mit deinen Teamkolleg*innen sorgst du dafür, dass die Lösungen stets auf dem neuesten Stand sind und optimal funktionieren. Durch deinen Einsatz leistest du einen wichtigen Beitrag zur digitalen Transformation und zur Weiterentwicklung unserer IT-Infrastruktur.\n- Du bist verantwortlich für die Entwicklung, die Implementierung und den Betrieb von Anwendungen in einem agilen DevOps-Team\n- Administration, Wartung und kontinuierliche Optimierung von CI/CD-Strategien\n- No-Code/ Low-Code Entwicklung inklusive Integration innovativer Technologien\n- Durchführung von Ursachenanalysen und Lösungsfindungen bei Applikationsproblemen\n- Unterstützung der Weiterentwicklung und Automatisierung technischer Abläufe und Prozesse\n- Implementierung und Administration von Plattformlösungen\n- Zusammenarbeit in einem agilen Team\n- Nutzung der neuesten Technologien zur Förderung der digitalen Transformation\n\n## Deine Skills\n- Abschluss (Uni/ETH/FH) in Informatik oder vergleichbare Berufserfahrung\n- Mehrjährige Erfahrung in der Entwicklung, Bereitstellung und Administration von Plattformen\n- Kenntnisse in Prompt Engineering und Automatisierung\n- Erfahrung mit Webtechnologien und APIs\n- Gute Kenntnisse in Netzwerk-, Cloud und Datenbanktechnologien\n- Erfahrung mit modernen DevOps-Praktiken und CI/CD-Tools\n- Erfahrung in agilen Arbeitsweisen und Methoden (SAFe, Scrum)\n- Bereitschaft zu Pikettdiensten und zur Bearbeitung von Incidents und Changes\n- Hohe Belastbarkeit und die Fähigkeit, komplexe Probleme zu durchdringen\n- Ausgeprägte Kunden- und Serviceorientierung\n- Sehr gutes Deutsch und Englisch, Französisch von Vorteil\n\nBei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
+        "fr": "# DevOps Engineer\n\n## Il tuo futuro inizia qui\nDu arbeitest in einem agilen, schweizweit verteiltem Team und bist verantwortlich für die Entwicklung von massgeschneiderten Lösungen. Dabei setzt du moderne Methoden und Werkzeuge ein und trägst zur kontinuierlichen Verbesserung unserer Systeme bei. Gemeinsam mit deinen Teamkolleg*innen sorgst du dafür, dass die Lösungen stets auf dem neuesten Stand sind und optimal funktionieren. Durch deinen Einsatz leistest du einen wichtigen Beitrag zur digitalen Transformation und zur Weiterentwicklung unserer IT-Infrastruktur.\n- Du bist verantwortlich für die Entwicklung, die Implementierung und den Betrieb von Anwendungen in einem agilen DevOps-Team\n- Administration, Wartung und kontinuierliche Optimierung von CI/CD-Strategien\n- No-Code/ Low-Code Entwicklung inklusive Integration innovativer Technologien\n- Durchführung von Ursachenanalysen und Lösungsfindungen bei Applikationsproblemen\n- Unterstützung der Weiterentwicklung und Automatisierung technischer Abläufe und Prozesse\n- Implementierung und Administration von Plattformlösungen\n- Zusammenarbeit in einem agilen Team\n- Nutzung der neuesten Technologien zur Förderung der digitalen Transformation\n\n## Deine Skills\n- Abschluss (Uni/ETH/FH) in Informatik oder vergleichbare Berufserfahrung\n- Mehrjährige Erfahrung in der Entwicklung, Bereitstellung und Administration von Plattformen\n- Kenntnisse in Prompt Engineering und Automatisierung\n- Erfahrung mit Webtechnologien und APIs\n- Gute Kenntnisse in Netzwerk-, Cloud und Datenbanktechnologien\n- Erfahrung mit modernen DevOps-Praktiken und CI/CD-Tools\n- Erfahrung in agilen Arbeitsweisen und Methoden (SAFe, Scrum)\n- Bereitschaft zu Pikettdiensten und zur Bearbeitung von Incidents und Changes\n- Hohe Belastbarkeit und die Fähigkeit, komplexe Probleme zu durchdringen\n- Ausgeprägte Kunden- und Serviceorientierung\n- Sehr gutes Deutsch und Englisch, Französisch von Vorteil\n\nBei uns hast du die Möglichkeit, in einem unserer Offices in der Schweiz oder im Homeoffice zu arbeiten. Dabei kommst du mit agilen Arbeitsmethoden und den neuesten Technologien in Kontakt. Wir bieten eine flexible Arbeitszeitgestaltung, um deinen persönlichen Bedürfnissen gerecht zu werden. Als Mitarbeitende*r von Swisscom kannst du dich auf eine Vielzahl von attraktiven Leistungen freuen, die deine Arbeitserfahrung bereichern werden. Dazu gehören ein angenehmes Arbeitsumfeld, finanzielle Vorteile und spannende Möglichkeiten zur beruflichen Weiterentwicklung. Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "titleByLocale": {
+        "it": "DevOps Ingegnere",
+        "en": "DevOps Engineer",
+        "de": "DevOps Ingenieur",
+        "fr": "DevOps Ingénieur"
+      },
+      "slug": "devops-engineer-swisscom-olten-manvy0",
+      "slugByLocale": {
+        "it": "devops-engineer-swisscom-olten-manvy0",
+        "en": "devops-engineer-swisscom-sede-ticino-olten",
+        "de": "devops-engineer-swisscom-olten-manvy0",
+        "fr": "devops-engineer-swisscom-olten-manvy0"
+      },
+      "category": "technology",
+      "datePosted": "2026-05-19",
+      "source": "swisscom-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Tecnologia & IT",
+      "_targetScope": {
+        "canton": "SO",
+        "location": "Olten"
+      },
+      "sourceLang": "de",
+      "jobReqId": "R-0005409",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "swisscom-sede-ticino-171083c60d03",
+      "previousSlugsByLocale": {
+        "it": [
+          "devops-ingegnere-swisscom-sede-ticino-olten"
+        ]
+      },
+      "previousSlugs": [
+        "devops-ingegnere-swisscom-sede-ticino-olten"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Ghiringhelli 15A",
+      "postalCode": "6500",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-19T12:45:49.142Z"
+    },
+    {
+      "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer_R-0005214-1",
+      "applyUrl": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer_R-0005214-1",
+      "title": "DevOps Engineer",
+      "company": "Swisscom (sede Ticino)",
+      "companyKey": "swisscom-sede-ticino",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "description": "# DevOps Engineer\n\n## Il tuo futuro inizia qui\nYou drive Salesforce development for Swisscom’s Network Construction. In a mature, connected CRM platform, you design and build complex, customized solutions. You shape the architecture and co-create a future-proof, high-performance CRM landscape. Together with business and integration teams, you collaborate in an agile setup and stay hands-on.\nRole highlights\nEnd-to-end Salesforce development covering solution design, build, testing and deployment\nIntegrated solution architecture for new use cases across the CRM landscape\nCo-create and coordinate the Salesforce roadmap at Swisscom\nDefine security architecture and data protection within the CRM domain\nAlign with business stakeholders and partner systems, drive integrations and effort estimations\nYour skills\nTechnical and experience\nAdvanced Apex development, including triggers and asynchronous processing\nExpertise with Lightning Web Components, including architecture and reactivity\nSolid programming patterns and layered design, plus REST API integrations\nPlatform administration across profiles, roles, permission sets, validation rules, flows and sharing\nPersonal and languages\nStrong analytical thinking and debugging skills\nSolution-oriented, communicative and a strong team player\nWilling to take on coordination responsibilities and ownership\nFluent English; German is a big plus\nWith us, you have the opportunity to work in one of our offices in Switzerland or in your home office. You will come into contact with agile working methods and the latest technologies. \n• We offer flexible working hours to meet your personal needs. As a Swisscom employee, you can look forward to a variety of attractive benefits that will enrich your work experience. These include a pleasant working environment, financial benefits and exciting opportunities for professional development. Discover your Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
+      "descriptionByLocale": {
+        "it": "# DevOps Engineer\n\n## Il tuo futuro inizia qui\nYou drive Salesforce development for Swisscom’s Network Construction. In a mature, connected CRM platform, you design and build complex, customized solutions. You shape the architecture and co-create a future-proof, high-performance CRM landscape. Together with business and integration teams, you collaborate in an agile setup and stay hands-on.\nRole highlights\nEnd-to-end Salesforce development covering solution design, build, testing and deployment\nIntegrated solution architecture for new use cases across the CRM landscape\nCo-create and coordinate the Salesforce roadmap at Swisscom\nDefine security architecture and data protection within the CRM domain\nAlign with business stakeholders and partner systems, drive integrations and effort estimations\nYour skills\nTechnical and experience\nAdvanced Apex development, including triggers and asynchronous processing\nExpertise with Lightning Web Components, including architecture and reactivity\nSolid programming patterns and layered design, plus REST API integrations\nPlatform administration across profiles, roles, permission sets, validation rules, flows and sharing\nPersonal and languages\nStrong analytical thinking and debugging skills\nSolution-oriented, communicative and a strong team player\nWilling to take on coordination responsibilities and ownership\nFluent English; German is a big plus\nWith us, you have the opportunity to work in one of our offices in Switzerland or in your home office. You will come into contact with agile working methods and the latest technologies. \n• We offer flexible working hours to meet your personal needs. As a Swisscom employee, you can look forward to a variety of attractive benefits that will enrich your work experience. These include a pleasant working environment, financial benefits and exciting opportunities for professional development. Discover your Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
+        "en": "# DevOps Engineer\n\n## Il tuo futuro inizia qui\nYou drive Salesforce development for Swisscom’s Network Construction. In a mature, connected CRM platform, you design and build complex, customized solutions. You shape the architecture and co-create a future-proof, high-performance CRM landscape. Together with business and integration teams, you collaborate in an agile setup and stay hands-on.\nRole highlights\nEnd-to-end Salesforce development covering solution design, build, testing and deployment\nIntegrated solution architecture for new use cases across the CRM landscape\nCo-create and coordinate the Salesforce roadmap at Swisscom\nDefine security architecture and data protection within the CRM domain\nAlign with business stakeholders and partner systems, drive integrations and effort estimations\nYour skills\nTechnical and experience\nAdvanced Apex development, including triggers and asynchronous processing\nExpertise with Lightning Web Components, including architecture and reactivity\nSolid programming patterns and layered design, plus REST API integrations\nPlatform administration across profiles, roles, permission sets, validation rules, flows and sharing\nPersonal and languages\nStrong analytical thinking and debugging skills\nSolution-oriented, communicative and a strong team player\nWilling to take on coordination responsibilities and ownership\nFluent English; German is a big plus\nWith us, you have the opportunity to work in one of our offices in Switzerland or in your home office. You will come into contact with agile working methods and the latest technologies. \n• We offer flexible working hours to meet your personal needs. As a Swisscom employee, you can look forward to a variety of attractive benefits that will enrich your work experience. These include a pleasant working environment, financial benefits and exciting opportunities for professional development. Discover your Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
+        "de": "# DevOps Engineer\n\n## Il tuo futuro inizia qui\nYou drive Salesforce development for Swisscom’s Network Construction. In a mature, connected CRM platform, you design and build complex, customized solutions. You shape the architecture and co-create a future-proof, high-performance CRM landscape. Together with business and integration teams, you collaborate in an agile setup and stay hands-on.\nRole highlights\nEnd-to-end Salesforce development covering solution design, build, testing and deployment\nIntegrated solution architecture for new use cases across the CRM landscape\nCo-create and coordinate the Salesforce roadmap at Swisscom\nDefine security architecture and data protection within the CRM domain\nAlign with business stakeholders and partner systems, drive integrations and effort estimations\nYour skills\nTechnical and experience\nAdvanced Apex development, including triggers and asynchronous processing\nExpertise with Lightning Web Components, including architecture and reactivity\nSolid programming patterns and layered design, plus REST API integrations\nPlatform administration across profiles, roles, permission sets, validation rules, flows and sharing\nPersonal and languages\nStrong analytical thinking and debugging skills\nSolution-oriented, communicative and a strong team player\nWilling to take on coordination responsibilities and ownership\nFluent English; German is a big plus\nWith us, you have the opportunity to work in one of our offices in Switzerland or in your home office. You will come into contact with agile working methods and the latest technologies. \n• We offer flexible working hours to meet your personal needs. As a Swisscom employee, you can look forward to a variety of attractive benefits that will enrich your work experience. These include a pleasant working environment, financial benefits and exciting opportunities for professional development. Discover your Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
+        "fr": "# DevOps Engineer\n\n## Il tuo futuro inizia qui\nYou drive Salesforce development for Swisscom’s Network Construction. In a mature, connected CRM platform, you design and build complex, customized solutions. You shape the architecture and co-create a future-proof, high-performance CRM landscape. Together with business and integration teams, you collaborate in an agile setup and stay hands-on.\nRole highlights\nEnd-to-end Salesforce development covering solution design, build, testing and deployment\nIntegrated solution architecture for new use cases across the CRM landscape\nCo-create and coordinate the Salesforce roadmap at Swisscom\nDefine security architecture and data protection within the CRM domain\nAlign with business stakeholders and partner systems, drive integrations and effort estimations\nYour skills\nTechnical and experience\nAdvanced Apex development, including triggers and asynchronous processing\nExpertise with Lightning Web Components, including architecture and reactivity\nSolid programming patterns and layered design, plus REST API integrations\nPlatform administration across profiles, roles, permission sets, validation rules, flows and sharing\nPersonal and languages\nStrong analytical thinking and debugging skills\nSolution-oriented, communicative and a strong team player\nWilling to take on coordination responsibilities and ownership\nFluent English; German is a big plus\nWith us, you have the opportunity to work in one of our offices in Switzerland or in your home office. You will come into contact with agile working methods and the latest technologies. \n• We offer flexible working hours to meet your personal needs. As a Swisscom employee, you can look forward to a variety of attractive benefits that will enrich your work experience. These include a pleasant working environment, financial benefits and exciting opportunities for professional development. Discover your Benefits.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "titleByLocale": {
+        "it": "DevOps Ingegnere",
+        "en": "DevOps Engineer",
+        "de": "DevOps Ingenieur",
+        "fr": "DevOps Ingénieur"
+      },
+      "slug": "devops-engineer-swisscom-bern-on9t50",
+      "slugByLocale": {
+        "it": "devops-engineer-swisscom-bern-on9t50",
+        "en": "devops-engineer-swisscom-sede-ticino-bern",
+        "de": "devops-engineer-swisscom-bern-on9t50",
+        "fr": "devops-engineer-swisscom-bern-on9t50"
+      },
+      "category": "technology",
+      "datePosted": "2026-05-19",
+      "source": "swisscom-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Tecnologia & IT",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "sourceLang": "en",
+      "jobReqId": "R-0005214",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "swisscom-sede-ticino-301227f663ce",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Ghiringhelli 15A",
+      "postalCode": "6500",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "firstSeenAt": "2026-05-19T12:45:49.142Z"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Lausanne/Social-Services-Specialist_R-0005396-1",
@@ -467,7 +680,8 @@
       },
       "previousSlugs": [
         "system-architect-ansible-swisscom-bern-5dk2mo"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-PKI_R-0005527",
@@ -545,7 +759,8 @@
       },
       "previousSlugs": [
         "devops-engineer-pki-swisscom-bern-7g85ru"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-PAM-PKI_R-0005223",
@@ -626,7 +841,8 @@
       },
       "previousSlugs": [
         "devops-engineer-pam-pki-swisscom-bern-jdh6dq"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-Data-Analyst---Data-Engineer_R-0004945",
@@ -704,7 +920,8 @@
       },
       "previousSlugs": [
         "senior-data-analyst-data-engineer-swisscom-zurich-dyrj2g"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/DevOps-Engineer-BCA-Cloud_R-0005258-1",
@@ -785,7 +1002,8 @@
       },
       "previousSlugs": [
         "devops-engineer-bca-cloud-swisscom-zurich-rxxqe9"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Product-Owner---Kubernetes-Platform_R-0005123",
@@ -1095,7 +1313,8 @@
       },
       "previousSlugs": [
         "data-platform-engineer-swisscom-bern-94fpo1"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Solution-Sales_R-0004162",
@@ -1170,7 +1389,8 @@
       },
       "previousSlugs": [
         "solution-sales-large-enterprise-customers-swisscom-zurich-e032jo"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Fribourg/ICT-Operational-Engineer-II_R-0005331",
@@ -1248,7 +1468,8 @@
       },
       "previousSlugs": [
         "operational-engineer-swisscom-fribourg-eq7f83"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Business-Engineer--Syrius-_R-0005211",
@@ -1326,7 +1547,8 @@
       },
       "previousSlugs": [
         "business-engineer-syrius-swisscom-zurich-b0d1aa"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Olten/Banking-Operations-Intern_R-0002710",
@@ -1481,7 +1703,8 @@
       },
       "previousSlugs": [
         "senior-consultant-e-foresight-swisscom-zurich-3jv1up"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-Cyber-Security-Analyst_R-0004250-1",
@@ -1559,7 +1782,8 @@
       },
       "previousSlugs": [
         "senior-cyber-security-analyst-swisscom-zurich-7uipbw"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Design---Multimedia-Specialist-Corporate-Communications_R-0004388",
@@ -1717,7 +1941,8 @@
       },
       "previousSlugs": [
         "bid-manager-swisscom-lausanne-6j09yy"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Olten/Operation-Engineer-Linux_R-0005141",
@@ -1792,7 +2017,8 @@
       },
       "previousSlugs": [
         "operation-engineer-linux-swisscom-olten-0synuo"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Geneva-Genve/ServiceNow-Business-Senior-Consultant_R-0005339",
@@ -1888,7 +2114,8 @@
       },
       "previousSlugs": [
         "servicenow-business-senior-consultant-swisscom-geneva-geneve-l5ajvo"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/DevOps-Engineer-Microsoft_R-0005286",
@@ -2210,7 +2437,8 @@
       },
       "previousSlugs": [
         "devops-engineer-open-source-collab-betrieb-swisscom-bern-kv6k1v"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/_R-0005107",
@@ -2370,7 +2598,8 @@
         "it": [
           "ict-supporter-swisscom-geneva-geneve-12cy45"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Head-Container-Application-Operations_R-0003803-1",
@@ -2445,7 +2674,8 @@
       },
       "previousSlugs": [
         "head-container-application-operations-swisscom-zurich-9pl6kv"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-iOS--TWINT----Fullstack-Software-Engineer_R-0005019",
@@ -2526,7 +2756,8 @@
       },
       "previousSlugs": [
         "senior-ios-twint-fullstack-software-engineer-swisscom-zurich-c8fv3h"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/IT-Consultant---Full-Stack-Software-Engineer_R-0004536-1",
@@ -2601,7 +2832,8 @@
       },
       "previousSlugs": [
         "it-consultant-full-stack-software-engineer-swisscom-zurich-hmniej"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Senior-Security-Engineer-IAM_R-0004172-1",
@@ -2763,7 +2995,8 @@
       },
       "previousSlugs": [
         "onsite-vip-it-support-specialist-vevey-swisscom-vevey-1umsv7"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/IT-Consultant-Finance_R-0001100",
@@ -3079,7 +3312,8 @@
       },
       "previousSlugs": [
         "microsoft-dynamics-consultant-swisscom-geneva-geneve-cvswb8"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Lausanne/Apprentissage--Dveloppeur-se-de-business-numrique-CFC_R-0002699",
@@ -3242,7 +3476,8 @@
       "postalCode": "6500",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "firstSeenAt": "2026-05-10T10:58:32.802Z"
+      "firstSeenAt": "2026-05-10T10:58:32.802Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Chur/Lehre--Detailhandelsfachfrau--mann-EFZ_R-0001874",
@@ -3393,7 +3628,8 @@
           "apprentissage-specialiste-du-commerce-de-detail-cfc-swisscom-sede-ticino-chur"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:31:40.193Z"
+      "firstSeenAt": "2026-04-13T22:31:40.193Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/OT-Cyber-Security-Sales-Spezialist-in_R-0004118",
@@ -3546,7 +3782,8 @@
       },
       "previousSlugs": [
         "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bellinzona/Apprendistato--Sviluppatore-Sviluppatrice-business-digitale-AFC_R-0002914",
@@ -4125,7 +4362,8 @@
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-grancia-56yj6w"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:31:40.193Z"
+      "firstSeenAt": "2026-04-13T22:31:40.193Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Balerna/Apprendistato--Impiegato-a-del-commercio-al-dettaglio-AFC_R-0002527",
@@ -4230,7 +4468,8 @@
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-afc-swisscom-sede-ticino-balerna-56yj6u"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:31:40.193Z"
+      "firstSeenAt": "2026-04-13T22:31:40.193Z",
+      "needsRetranslation": true
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bellinzona/Mediamatico-a-AFC_R-0001731",
