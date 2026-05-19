@@ -93,6 +93,7 @@ import {
   renderEmployerCardListHtml,
   type EmployerCardEmployer,
 } from './shared/employerCardHtml';
+import { renderLandingHero, HERO_BADGES } from './shared/landingHeroPersonality';
 
 // CTA target sector for each landing id — null means "fall back to the
 // unfiltered job-board hub" (used by `healthcare-ticino`, whose CTA copy
@@ -403,11 +404,11 @@ function renderPage(opts: {
 
   // ── Template B body ──────────────────────────────────────────────────────
 
-  const statTilesHtml = renderStatGrid([
+  const statTilesHtml = `<div class="seo-fade-in">${renderStatGrid([
     { label: copy.shell.statTileLiveLabel, value: copy.statLiveValue, tone: 'success' },
     { label: copy.shell.statTileSalaryLabel, value: copy.statSalaryValue, tone: 'accent' },
     { label: copy.shell.statTileFreshLabel, value: copy.statFreshValue, tone: 'warning' },
-  ]);
+  ])}</div>`;
 
   const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.shell.primaryCtaLabel)} →</a></div>`;
 
@@ -427,11 +428,17 @@ function renderPage(opts: {
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
-    <header style="margin-bottom:20px">
-      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.shell.eyebrow)} · ${esc(copy.updatedLabel)} ${esc(dateStamp)}</p>
+    ${id in HERO_BADGES
+      ? renderLandingHero(id, locale, {
+          openings: snapshot.liveCount,
+          medianSalary: snapshot.medianSalaryChf ?? undefined,
+        }, copy.h1, copy.denseLede)
+      : `<header style="margin-bottom:20px">
+      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.shell.eyebrow)}</p>
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(copy.denseLede)}</p>
-    </header>
+    </header>`}
+    <p style="${HERO_EYEBROW_STYLE};margin-top:4px;font-weight:500">${esc(copy.updatedLabel)} ${esc(dateStamp)}</p>
     ${statTilesHtml}
     ${primaryCtaHtml}
     ${featuredHtml}
