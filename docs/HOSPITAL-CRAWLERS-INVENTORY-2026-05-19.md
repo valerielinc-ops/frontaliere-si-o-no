@@ -4,6 +4,30 @@
 > **Fonte ospedali:** `data/swiss-hospitals.json` (463 entries scraped da welches-spital.ch, equivalente tedesco di which-hospital.ch/switzerland)
 > **Scope:** identificare ospedali svizzeri NON ancora coperti da parser/crawler esistenti, con relative career page e ATS, pronti per implementazione crawler.
 
+## Stato avanzamento (aggiornato 2026-05-19 post-batch 15)
+
+- Parser esistenti al T0: **31** (vedi §2). Ora: **~116 dedicated + 15 ATS factories**.
+- Batch shippati: 1-15 (ultimo PR #392).
+- **Backlog stimato: ~161/277 ospedali standalone** ancora non coperti (questo documento §3 + §4).
+- Sprint highlights post-T0: PUK Zürich 90 jobs (Refline), CSL Behring 40 (Workday), PZM Münsingen 86 (Prospective), LUKS 221 (Prospective), HOCH 204 (SF).
+- Follow-up sprint plan: **`docs/PLANS/crawlers-batch-16-and-followup.md`** — coda residuale via SmartRecruiters/Greenhouse/Personio sweep + verifica live batch 15 + Fielmann backfill + CSL maxPages bump.
+
+## Documenti correlati
+
+- **`docs/PLANS/crawlers-batch-16-and-followup.md`** — TODO list operativo post-batch 15 (verifica live + 4 agent paralleli batch 16)
+- **`docs/crawler-parametrizzazione-plan.md`** — design originale delle 15 ATS factories (`scripts/lib/*-common.mjs`)
+- **`docs/crawler-expansion-nazionale.md`** — piano espansione iniziale Apr 7 (contesto cantoni e priorità)
+- **`data/swiss-hospitals.json`** — fonte dati canonica
+
+## Convenzioni implementative (CRITICAL)
+
+- `ParsedJob.needsRetranslation: true` su ogni nuovo crawler. Factory-based (Refline/Prospective/Umantis/Workday) lo ereditano; verificare comunque.
+- MAI modificare `scripts/lib/crawler-location-config.mjs` (skip-worktree, auto-overwritten da cron).
+- MAI committare `data/known-company-slugs.json` (skip-worktree).
+- Crawler template: `runStandardCrawlerPipeline` da `scripts/lib/crawler-template.mjs` (7-step pipeline).
+- Boilerplate guard: `MIN_UNIQUE_WORDS = 30` in `scripts/assemble-jobs-dataset.mjs` → se desc < 30 unique words usa `SKIP_BOILERPLATE_GUARD=1` env nel workflow.
+- Workflow template: copy `.github/workflows/update-jobs-bethesda-spital.yml`.
+
 ---
 
 ## 1. Sintesi

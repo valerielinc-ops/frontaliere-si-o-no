@@ -45,6 +45,10 @@ const parser = createProspectiveChParser({
     'jobs.pzmag.ch',
     'pzm.pi-asp.de',
   ],
+  // Prospective tenant 1008606 is shared with Universitäre Psychiatrische
+  // Dienste Bern (UPD) — 61 of 86 listings carry jobs.upd.ch directlinks.
+  // UPD has its own dedicated crawler; filter them out here.
+  acceptDirectlinkHosts: ['jobs.pzmag.ch'],
 });
 
 export const fetchAllPzmMuensingenJobs = parser.fetchAllJobs;
