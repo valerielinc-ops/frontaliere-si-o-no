@@ -1,106 +1,34 @@
 #!/usr/bin/env node
 /**
- * audit-title-no-disambig-hash.mjs
+ * audit-title-no-disambig-hash
  *
- * Walks `dist/**\/*.html` and flags pages whose `<title>` contains an
- * auto-generated 8-hex-char disambiguator like `(#abcdef12)`. The
- * disambiguator is appended by build plugins as a backstop against
- * Semrush `audit:title-uniqueness` collisions (see
- * build-plugins/ogPagesPlugin.ts:articleHashFromSlug and
- * jobsSeoPagesPlugin.ts:buildTitleDisambiguator). The hash keeps the
- * gate green but it is *visible in the SERP* — degrading CTR and brand
- * perception. The proper fix is to dedupe at source: rename the
- * colliding article (e.g. add a year, city, or source qualifier to the
- * headline) so the base title is unique without the hash.
+ * Walks `dist/**\/*.html` and flags pages whose `<title>` still contains the
+ * " (#abcdef12)" disambiguator — emitted by ogPagesPlugin.articleHashFromSlug
+ * and jobsSeoPagesPlugin.buildTitleDisambiguator when the base title collides
+ * with another page and we need 8 hex chars to keep the title unique for
+ * the canonical-cluster filter.
  *
- * This audit is the validator that prevents the issue from recurring.
+ * Long-term goal: zero hashes in titles. Per-feature ratchet against
+ * `data/title-no-disambig-hash-baseline.json`: counts can only go DOWN.
  *
- * Usage:
- *   node scripts/audit-title-no-disambig-hash.mjs                 # human summary
- *   node scripts/audit-title-no-disambig-hash.mjs --json          # JSON report
- *   node scripts/audit-title-no-disambig-hash.mjs --csv > out.csv # CSV report
- *   node scripts/audit-title-no-disambig-hash.mjs --limit=50      # top N
- *   node scripts/audit-title-no-disambig-hash.mjs --feature=blog  # one bucket
- *   node scripts/audit-title-no-disambig-hash.mjs --fail-on-offenders
- *   node scripts/audit-title-no-disambig-hash.mjs --include-noindex
- *   node scripts/audit-title-no-disambig-hash.mjs --baseline=path.json
- *   node scripts/audit-title-no-disambig-hash.mjs --write-baseline=path.json
- *
- * Baseline / ratchet: same semantics as audit-title-length. Deploy gate
- * uses `--baseline=` to fail only on regressions; improvements are
- * always accepted. After collisions are deduped at source, regenerate
- * the baseline with `--write-baseline=` and commit.
- *
- * Exit codes:
- *   0 — within baseline (or --fail-on-offenders not set).
- *   1 — `--fail-on-offenders` set OR baseline regression detected.
- *   2 — dist/ missing / fatal error.
+ * Two execution modes:
+ *   1. Standalone CLI:  node scripts/audit-title-no-disambig-hash.mjs [...]
+ *   2. Unified runner:  imported by scripts/audit-all.mjs via factory().
  */
 
-import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
+import { readFile, stat, writeFile } from 'node:fs/promises';
 import { join, relative, isAbsolute } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { dirname } from 'node:path';
 import { writeAuditReport, relBaseline } from './lib/auditReport.mjs';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const ROOT = join(__dirname, '..');
-const DIST = join(ROOT, 'dist');
-
-const argv = process.argv.slice(2);
-const args = new Map();
-for (const a of argv) {
-  if (a.startsWith('--')) {
-    const [k, v] = a.slice(2).split('=');
-    args.set(k, v ?? true);
-  }
-}
-
-const LIMIT = Number(args.get('limit') ?? 30);
-const MODE_JSON = args.has('json');
-const MODE_CSV = args.has('csv');
-const FAIL = args.has('fail-on-offenders');
-const FEATURE_FILTER = args.get('feature') ?? null;
-const INCLUDE_NOINDEX = args.has('include-noindex');
-const BASELINE_PATH = args.get('baseline');
-const WRITE_BASELINE_PATH = args.get('write-baseline');
+import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
+import { classifyFeature, inferLocale } from './audit-title-length.mjs';
 
 const resolvePath = (p) => (isAbsolute(p) ? p : join(ROOT, p));
 
 const NOINDEX_RE = /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i;
 const META_REFRESH_RE = /<meta[^>]+http-equiv=["']refresh["']/i;
 const TITLE_RE = /<title[^>]*>([\s\S]*?)<\/title>/i;
-// Matches the disambiguator emitted by ogPagesPlugin.articleHashFromSlug
-// and jobsSeoPagesPlugin.buildTitleDisambiguator: " (#" + 8 hex chars + ")".
+// Matches " (#" + 8 hex chars + ")". Emitted by the title-disambig path.
 const HASH_RE = /\(#[0-9a-f]{8}\)/;
-
-async function walk(dir) {
-  // Iterative — the cathedral expansion produced dist/ trees deep enough
-  // to blow the call stack via async recursion + array spread.
-  const out = [];
-  const stack = [dir];
-  while (stack.length > 0) {
-    const cur = stack.pop();
-    let entries;
-    try {
-      entries = await readdir(cur, { withFileTypes: true });
-    } catch (err) {
-      if (err.code === 'ENOENT') continue;
-      throw err;
-    }
-    for (const e of entries) {
-      // Skip dot-prefixed dirs (debug artifacts, not deployed pages).
-      if (e.isDirectory() && e.name.startsWith('.')) continue;
-      const p = join(cur, e.name);
-      if (e.isDirectory()) {
-        stack.push(p);
-      } else if (e.isFile() && p.endsWith('.html')) {
-        out.push(p);
-      }
-    }
-  }
-  return out;
-}
 
 function normalizeText(raw) {
   if (!raw) return '';
@@ -118,211 +46,248 @@ function normalizeText(raw) {
   return s.replace(/\s+/g, ' ').trim();
 }
 
-/** Mirror of audit-title-length.classifyFeature for a consistent bucket map. */
-function classifyFeature(relPath) {
-  const p = '/' + relPath.replace(/\\/g, '/').replace(/^dist\//, '').replace(/index\.html$/, '');
-  if (/(?:^|\/)(prezzi-benzina-svizzera|prezzi-carburante-svizzera|prix-essence-suisse|fuel-prices-switzerland|benzinpreise?-schweiz|prezzi-benzina|prezzi-diesel|gasoline-price|diesel-price|benzinpreis|dieselpreis|prix-essence|prix-gasoil|prix-diesel)\//.test(p)) return 'fuel-daily';
-  if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/(?:azienda|company|unternehmen|entreprise)-/.test(p)) return 'weekly-employers';
-  if (/(?:^|\/)(?:aziende-che-assumono|companies-hiring|firmen-die-einstellen|unternehmen-die-einstellen|entreprises-qui-recrutent)\//.test(p)) return 'weekly-employers-hub';
-  if (/(?:^|\/)(?:cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\//.test(p)) return 'job-board';
-  if (/(?:^|\/)(?:premi-cassa-malati|cassa-malati|health-premiums|health-insurance|krankenkassen-praemien|krankenkasse|primes-assurance-maladie)\//.test(p)) return 'health-premiums';
-  if (/(?:^|\/)(?:mercato-lavoro|mercato-lavoro-ticino|job-market|ticino-job-market|arbeitsmarkt|arbeitsmarkt-tessin|marche-emploi|marche-travail|marche-emploi-tessin|marche-travail-tessin)\//.test(p)) return 'job-market-snapshot';
-  if (/(?:^|\/)(?:articoli-frontaliere|cross-border-articles|grenzgaenger-artikel|articles-frontalier)\//.test(p)) return 'blog';
-  if (/(?:^|\/)(?:tempi-attesa-frontiera|border-wait-times|grenzwartezeiten|wartezeit-grenze|temps-attente-frontiere)\//.test(p)) return 'border-wait';
-  if (/^\/(en|de|fr)\//.test(p)) return 'spa-locale';
-  return 'spa-other';
-}
+export function createAuditor(opts = {}) {
+  const limit = opts.limit ?? 30;
+  const featureFilter = opts.featureFilter ?? null;
+  const includeNoindex = !!opts.includeNoindex;
+  const failOnOffenders = !!opts.failOnOffenders;
+  const baselinePath = opts.baselinePath ?? null;
+  const writeBaselinePath = opts.writeBaselinePath ?? null;
 
-function inferLocale(relPath) {
-  const seg = relPath.replace(/\\/g, '/').replace(/^dist\//, '').split('/')[0];
-  if (seg === 'en' || seg === 'de' || seg === 'fr') return seg;
-  return 'it';
-}
-
-async function main() {
-  const stats = await stat(DIST).catch(() => null);
-  if (!stats || !stats.isDirectory()) {
-    console.error(`audit-title-no-disambig-hash: dist/ not found at ${DIST}. Run a build first.`);
-    process.exit(2);
-  }
-
-  const files = await walk(DIST);
-  const offenders = [];
   let scanned = 0;
   let skippedNoindex = 0;
   let missingTitle = 0;
+  const offenders = [];
 
+  return {
+    name: 'title-no-disambig-hash',
+    collect(file, html) {
+      if (!html) return;
+      if (!includeNoindex && (NOINDEX_RE.test(html) || META_REFRESH_RE.test(html))) {
+        skippedNoindex++;
+        return;
+      }
+      scanned++;
+      const titleMatch = html.match(TITLE_RE);
+      const title = normalizeText(titleMatch?.[1] ?? '');
+      if (!title) { missingTitle++; return; }
+      const m = title.match(HASH_RE);
+      if (!m) return;
+      const rel = relative(ROOT, file);
+      const feature = classifyFeature(rel);
+      if (featureFilter && feature !== featureFilter) return;
+      const locale = inferLocale(rel);
+      offenders.push({ path: rel, file: rel, feature, locale, title, hash: m[0], metric: 1 });
+    },
+    async report() {
+      offenders.sort((a, b) => a.feature.localeCompare(b.feature) || a.file.localeCompare(b.file));
+
+      const byFeature = {};
+      const byLocale = {};
+      for (const o of offenders) {
+        byFeature[o.feature] = (byFeature[o.feature] ?? 0) + 1;
+        byLocale[o.locale] = (byLocale[o.locale] ?? 0) + 1;
+      }
+
+      if (writeBaselinePath) {
+        const baseline = {
+          generated: new Date().toISOString(),
+          _note: 'Per-feature ratchet for the (#abcdef12) disambiguator visible in <title>. Counts can only go DOWN.',
+          total: offenders.length,
+          byFeature,
+          byLocale,
+        };
+        await writeFile(resolvePath(writeBaselinePath), JSON.stringify(baseline, null, 2) + '\n', 'utf8');
+      }
+
+      let passed = !(failOnOffenders && offenders.length > 0);
+      let baselineDelta = null;
+      const regressedFeatures = [];
+
+      if (baselinePath) {
+        let baseline;
+        try { baseline = JSON.parse(await readFile(resolvePath(baselinePath), 'utf8')); }
+        catch (err) {
+          return {
+            passed: false,
+            offendersTotal: offenders.length,
+            offenders,
+            threshold: { metric: 'count', value: 0, comparator: '<=baseline' },
+            extra: { scanned, skippedNoindex, missingTitle, byLocale, baselineError: err.message },
+            humanSummary: `cannot read baseline ${baselinePath}: ${err.message}`,
+          };
+        }
+        let regression = false;
+        const baseTotal = Number(baseline.total ?? 0);
+        if (typeof baseline.total === 'number' && offenders.length > baseline.total) regression = true;
+        if (baseline.byFeature && typeof baseline.byFeature === 'object') {
+          for (const [feat, count] of Object.entries(byFeature)) {
+            const cap = baseline.byFeature[feat] ?? 0;
+            if (count > cap) {
+              regressedFeatures.push({ feat, cap, count });
+              regression = true;
+            }
+          }
+        }
+        baselineDelta = { before: baseTotal, after: offenders.length, regression: Math.max(0, offenders.length - baseTotal) };
+        if (regression) passed = false;
+      }
+
+      const humanSummary = passed
+        ? `${offenders.length} offender(s) within baseline`
+        : `${offenders.length} offender(s) — regressed features: ${regressedFeatures.map(r => `${r.feat}(${r.count}>${r.cap})`).join(', ') || 'total cap exceeded'}`;
+
+      return {
+        passed,
+        offendersTotal: offenders.length,
+        offenders,
+        threshold: { metric: 'count', value: 0, comparator: '<=baseline' },
+        baselineFile: relBaseline(baselinePath),
+        baselineDelta,
+        byFeature,
+        extra: { scanned, skippedNoindex, missingTitle, byLocale, regressedFeatures, limit },
+        humanSummary,
+      };
+    },
+  };
+}
+
+export function factory(opts) {
+  return createAuditor({
+    baselinePath: 'data/title-no-disambig-hash-baseline.json',
+    ...opts,
+  });
+}
+export const auditor = factory();
+
+// ─── Standalone CLI ──────────────────────────────────────────────────────────
+
+async function standalone() {
+  const argv = process.argv.slice(2);
+  const args = new Map();
+  for (const a of argv) {
+    if (a.startsWith('--')) {
+      const [k, v] = a.slice(2).split('=');
+      args.set(k, v ?? true);
+    }
+  }
+  const opts = {
+    limit: Number(args.get('limit') ?? 30),
+    featureFilter: args.get('feature') ?? null,
+    includeNoindex: args.has('include-noindex'),
+    failOnOffenders: args.has('fail-on-offenders'),
+    baselinePath: typeof args.get('baseline') === 'string' ? args.get('baseline') : null,
+    writeBaselinePath: typeof args.get('write-baseline') === 'string' ? args.get('write-baseline') : null,
+  };
+  const MODE_JSON = args.has('json');
+  const MODE_CSV = args.has('csv');
+
+  const s = await stat(DEFAULT_DIST).catch(() => null);
+  if (!s || !s.isDirectory()) {
+    console.error(`audit-title-no-disambig-hash: dist/ not found at ${DEFAULT_DIST}. Run a build first.`);
+    process.exit(2);
+  }
+
+  const a = createAuditor(opts);
+  const files = await walkHtmlFiles(DEFAULT_DIST);
   for (const file of files) {
     let html;
-    try {
-      html = await readFile(file, 'utf8');
-    } catch (err) {
+    try { html = await readFile(file, 'utf8'); }
+    catch (err) {
       if (err.code === 'ENOENT') continue;
       throw err;
     }
-    if (!html) continue;
-    if (!INCLUDE_NOINDEX && (NOINDEX_RE.test(html) || META_REFRESH_RE.test(html))) {
-      skippedNoindex++;
-      continue;
-    }
-    scanned++;
-    const titleMatch = html.match(TITLE_RE);
-    const title = normalizeText(titleMatch?.[1] ?? '');
-    if (!title) { missingTitle++; continue; }
-    const m = title.match(HASH_RE);
-    if (!m) continue;
-    const rel = relative(ROOT, file);
-    const feature = classifyFeature(rel);
-    if (FEATURE_FILTER && feature !== FEATURE_FILTER) continue;
-    const locale = inferLocale(rel);
-    offenders.push({ file: rel, feature, locale, title, hash: m[0] });
+    a.collect(file, html);
   }
 
-  offenders.sort((a, b) => a.feature.localeCompare(b.feature) || a.file.localeCompare(b.file));
-
-  const byFeatureCount = {};
-  const byLocaleCount = {};
-  for (const r of offenders) {
-    byFeatureCount[r.feature] = (byFeatureCount[r.feature] ?? 0) + 1;
-    byLocaleCount[r.locale] = (byLocaleCount[r.locale] ?? 0) + 1;
-  }
-
-  const structuredOffenders = offenders.map((r) => ({
-    path: r.file,
-    feature: r.feature,
-    metric: 1,
-    ratio: null,
-    locale: r.locale,
-    hash: r.hash,
-    title: r.title,
-  }));
-  const writeReport = (passed, baselineDelta) => writeAuditReport({
-    audit: 'title-no-disambig-hash',
-    passed,
-    threshold: { metric: 'count', value: 0, comparator: '<=baseline' },
-    baselineFile: relBaseline(typeof BASELINE_PATH === 'string' ? BASELINE_PATH : null),
-    baselineDelta,
-    offenders: structuredOffenders,
-    byFeature: byFeatureCount,
-    extra: { byLocale: byLocaleCount },
+  const result = await a.report();
+  await writeAuditReport({
+    audit: a.name,
+    passed: result.passed,
+    threshold: result.threshold ?? null,
+    baselineFile: result.baselineFile ?? null,
+    baselineDelta: result.baselineDelta ?? null,
+    offenders: result.offenders ?? [],
+    byFeature: result.byFeature,
+    extra: { byLocale: result.extra.byLocale },
   });
 
   if (MODE_CSV) {
     console.log('file,feature,locale,hash,title');
-    for (const r of offenders) {
+    for (const r of result.offenders) {
       const safe = (s) => `"${String(s).replace(/"/g, '""')}"`;
       console.log(`${r.file},${r.feature},${r.locale},${r.hash},${safe(r.title)}`);
     }
-    await writeReport(!(FAIL && offenders.length > 0), null);
-    process.exit(FAIL && offenders.length > 0 ? 1 : 0);
+    process.exit(result.passed ? 0 : 1);
   }
-
   if (MODE_JSON) {
     console.log(JSON.stringify({
-      scanned,
-      skippedNoindex,
-      missingTitle,
-      offenders: offenders.length,
-      byFeature: byFeatureCount,
-      byLocale: byLocaleCount,
-      worst: offenders.slice(0, LIMIT),
+      scanned: result.extra.scanned,
+      skippedNoindex: result.extra.skippedNoindex,
+      missingTitle: result.extra.missingTitle,
+      offenders: result.offendersTotal,
+      byFeature: result.byFeature,
+      byLocale: result.extra.byLocale,
+      worst: result.offenders.slice(0, opts.limit),
     }, null, 2));
-    await writeReport(!(FAIL && offenders.length > 0), null);
-    process.exit(FAIL && offenders.length > 0 ? 1 : 0);
+    process.exit(result.passed ? 0 : 1);
   }
 
-  console.log(`audit-title-no-disambig-hash: scanned ${scanned} HTML files in dist/ (skipped ${skippedNoindex} noindex/redirect, ${missingTitle} missing <title>)`);
+  console.log(`audit-title-no-disambig-hash: scanned ${result.extra.scanned} HTML files in dist/ (skipped ${result.extra.skippedNoindex} noindex/redirect, ${result.extra.missingTitle} missing <title>)`);
   console.log(`Pattern: " (#abcdef12)" disambiguator inside <title>`);
-  console.log(`Offenders: ${offenders.length} (${((offenders.length / Math.max(scanned, 1)) * 100).toFixed(1)} % of scanned)`);
+  console.log(`Offenders: ${result.offendersTotal} (${((result.offendersTotal / Math.max(result.extra.scanned, 1)) * 100).toFixed(1)} % of scanned)`);
 
-  if (Object.keys(byFeatureCount).length > 0) {
+  if (Object.keys(result.byFeature).length > 0) {
     console.log('\nOffenders by feature:');
-    for (const [f, c] of Object.entries(byFeatureCount).sort((a, b) => b[1] - a[1])) {
+    for (const [f, c] of Object.entries(result.byFeature).sort((a, b) => b[1] - a[1])) {
       console.log(`  ${String(c).padStart(6)}  ${f}`);
     }
   }
-  if (Object.keys(byLocaleCount).length > 0) {
+  if (Object.keys(result.extra.byLocale).length > 0) {
     console.log('\nOffenders by locale:');
-    for (const [l, c] of Object.entries(byLocaleCount).sort((a, b) => b[1] - a[1])) {
+    for (const [l, c] of Object.entries(result.extra.byLocale).sort((a, b) => b[1] - a[1])) {
       console.log(`  ${String(c).padStart(6)}  ${l}`);
     }
   }
-  if (offenders.length > 0) {
-    console.log(`\nFirst ${Math.min(LIMIT, offenders.length)} offenders:`);
-    for (const r of offenders.slice(0, LIMIT)) {
+  if (result.offendersTotal > 0) {
+    console.log(`\nFirst ${Math.min(opts.limit, result.offendersTotal)} offenders:`);
+    for (const r of result.offenders.slice(0, opts.limit)) {
       console.log(`  ${r.hash}  [${r.locale}] ${r.feature.padEnd(22)}  ${r.file}`);
       console.log(`        ${JSON.stringify(r.title.slice(0, 120))}`);
     }
   }
 
-  // Baseline write / ratchet check.
-  if (WRITE_BASELINE_PATH && typeof WRITE_BASELINE_PATH === 'string') {
-    const baseline = {
-      generated: new Date().toISOString(),
-      _note: 'Per-feature ratchet for the (#abcdef12) disambiguator visible in <title>. Counts can only go DOWN. Fix at source by renaming colliding articles (year, city, source qualifier) so the base title is unique without the hash.',
-      total: offenders.length,
-      byFeature: byFeatureCount,
-      byLocale: byLocaleCount,
-    };
-    await writeFile(resolvePath(WRITE_BASELINE_PATH), JSON.stringify(baseline, null, 2) + '\n', 'utf8');
-    console.log(`\nWrote baseline → ${WRITE_BASELINE_PATH}`);
-  }
+  if (opts.writeBaselinePath) console.log(`\nWrote baseline → ${opts.writeBaselinePath}`);
 
-  if (BASELINE_PATH && typeof BASELINE_PATH === 'string') {
-    let baseline;
-    try {
-      baseline = JSON.parse(await readFile(resolvePath(BASELINE_PATH), 'utf8'));
-    } catch (err) {
-      console.error(`audit-title-no-disambig-hash: cannot read baseline ${BASELINE_PATH}: ${err.message}`);
-      process.exit(2);
-    }
-    let regression = false;
-    const regressedFeatures = [];
-    if (typeof baseline.total === 'number' && offenders.length > baseline.total) {
-      console.error(`\nREGRESSION: total offenders ${offenders.length} > baseline ${baseline.total}`);
-      regression = true;
-    }
-    if (baseline.byFeature && typeof baseline.byFeature === 'object') {
-      for (const [feat, count] of Object.entries(byFeatureCount)) {
-        const cap = baseline.byFeature[feat] ?? 0;
-        if (count > cap) {
-          console.error(`REGRESSION: feature "${feat}" offenders ${count} > baseline ${cap}`);
-          regressedFeatures.push({ feat, cap, count });
-          regression = true;
-        }
+  if (!result.passed && result.extra.regressedFeatures?.length > 0) {
+    for (const { feat, cap, count } of result.extra.regressedFeatures) {
+      const featOffenders = result.offenders
+        .filter((o) => o.feature === feat)
+        .sort((a, b) => a.file.localeCompare(b.file));
+      console.error(`\nFull offender list for feature "${feat}" (${count} pages, baseline ${cap}, +${count - cap}):`);
+      for (const o of featOffenders) {
+        console.error(`  [${o.locale}]  ${o.hash}  ${o.file}`);
+        console.error(`        ${o.title}`);
       }
     }
-    if (regression) {
-      // Dump ALL offenders for each regressed feature so the CI log alone is
-      // enough to diagnose without downloading the dist artifact.
-      for (const { feat, cap, count } of regressedFeatures) {
-        const featOffenders = offenders
-          .filter((o) => o.feature === feat)
-          .sort((a, b) => a.file.localeCompare(b.file));
-        console.error(`\nFull offender list for feature "${feat}" (${count} pages, baseline ${cap}, +${count - cap}):`);
-        for (const o of featOffenders) {
-          console.error(`  [${o.locale}]  ${o.hash}  ${o.file}`);
-          console.error(`        ${o.title}`);
-        }
-      }
-      console.error('\nThe (#hash) baseline ratchet only allows the count to go DOWN.');
-      console.error('Dedupe colliding base titles at source (rename articles, add year/city qualifiers),');
-      console.error('then regenerate with --write-baseline=<path>.');
-      const baseTotal = Number(baseline.total ?? 0);
-      await writeReport(false, { before: baseTotal, after: offenders.length, regression: Math.max(0, offenders.length - baseTotal) });
-      process.exit(1);
-    }
-    console.log('\nBaseline ratchet: OK (no regressions vs ' + BASELINE_PATH + ')');
-    const baseTotalOk = Number(baseline.total ?? 0);
-    await writeReport(true, { before: baseTotalOk, after: offenders.length, regression: Math.max(0, offenders.length - baseTotalOk) });
-    process.exit(FAIL && offenders.length > 0 ? 1 : 0);
+    console.error('\nThe (#hash) baseline ratchet only allows the count to go DOWN.');
+    console.error('Dedupe colliding base titles at source (rename articles, add year/city qualifiers),');
+    console.error('then regenerate with --write-baseline=<path>.');
+  } else if (opts.baselinePath && result.passed) {
+    console.log(`\nBaseline ratchet: OK (no regressions vs ${opts.baselinePath})`);
   }
 
-  await writeReport(!(FAIL && offenders.length > 0), null);
-  process.exit(FAIL && offenders.length > 0 ? 1 : 0);
+  process.exit(result.passed ? 0 : 1);
 }
 
-main().catch((err) => {
-  console.error('audit-title-no-disambig-hash: fatal', err);
-  process.exit(2);
-});
+const invokedDirectly = (() => {
+  try { return import.meta.url === `file://${process.argv[1]}` || import.meta.url.endsWith(process.argv[1]); }
+  catch { return false; }
+})();
+
+if (invokedDirectly) {
+  standalone().catch((err) => {
+    console.error('audit-title-no-disambig-hash: fatal', err);
+    process.exit(2);
+  });
+}

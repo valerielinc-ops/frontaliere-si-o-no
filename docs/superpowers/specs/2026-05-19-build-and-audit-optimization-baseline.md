@@ -40,6 +40,49 @@ Matches the empirical "10-12 min chain" reported in `post-deploy-validate-dist.y
 since the chain only runs 4-7 audits with OS page-cache warm-up amortizing
 the walk cost across consecutive audits in the same shell.
 
+## L3 — Phase 2 measurement (6 audits migrated, all top-6 done)
+
+All 6 dist-walking audits now run through `npm run audit:all` in a single
+Node process:
+
+| Mode | Wall time (s) | Notes |
+|---|---|---|
+| Sequential 6 standalone audits (baseline) | **209.32** | 6 separate Node processes, 6 dist walks |
+| Unified runner with 6 audits (warm cache) | **96.31** | single process, single dist walk |
+| **Speedup** | **2.17×** | dist of 81.684 files |
+
+Single-process breakdown:
+- File walk (readdir traversal): 24.29 s
+- File read + collect (6 audit regex per file): 71.84 s
+
+Collect time dominates because text-html-ratio's `extractVisibleText`
+strips `<script>/<style>/<svg>` blocks via regex which is non-trivial CPU
+per file. With 6 audits processing the same in-memory string, collect
+work accumulates linearly — but still beats 6 separate processes that
+each have to walk + read + parse.
+
+The bigger structural win (not captured in the speedup ratio) is peak
+RSS: **single V8 process ~1 GB** vs **6× ~1-3 GB fan-out**. The 7 GB
+ubuntu-latest free runner forced the previous setup into MAX_PARALLEL=1
+because two concurrent dist-walking Node processes blew past the heap
+ceiling (run history 25400905401, 25402597503, 25404549152, 25406916097).
+With audit:all replacing the chain, there's now memory headroom to lift
+the pool's MAX_PARALLEL — left as a follow-up.
+
+### Workflow integration
+
+`.github/workflows/post-deploy-validate-dist.yml` chain reduced from 7
+heavy audits to 4 entries (audit:all + 3 unmigrated):
+- `audit:all` ← replaces text-html-ratio + h1-title-duplicates +
+  title-length + title-no-disambig-hash + footer-root-presence +
+  jsonld-no-nested-scripts
+- `audit:page-weight` (not migrated yet)
+- `audit:content-duplicates` (not migrated yet)
+- `audit:faqpage-validity` (not migrated yet)
+
+`.github/workflows/audit-dist-from-run.yml` default updated to invoke
+`audit:all,page-weight,max-bfs-depth` for the audit-replay use case.
+
 ## L3 — Phase 1 measurement (3 audits migrated)
 
 Migrated to unified runner (`scripts/audit-all.mjs`):
