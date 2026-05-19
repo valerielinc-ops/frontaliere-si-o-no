@@ -1793,11 +1793,25 @@ export const Analytics = {
 
  // ── FRO-334: Job Alert analytics ──────────────────────────────
 
- trackJobAlertCreated: (details: { keywords?: string; location?: string; frequency?: string }) => {
+ trackJobAlertCreated: (details: {
+ keywords?: string;
+ location?: string;
+ frequency?: string;
+ surface?: 'inline_card' | 'job_detail_prompt' | 'sticky_banner' | 'end_card' | 'preferences';
+ } = {}) => {
+ // Defensive: collapse undefined/empty to clear sentinels rather than null
+ // so PostHog HogQL queries never see mixed null/empty values for the same
+ // column. Pre-2026-05-19 we saw "null null null" rows that came from
+ // an older payload shape — fix the schema, not the workaround.
+ const keywords = (details.keywords || '').trim();
+ const location = (details.location || '').trim();
+ const frequency = (details.frequency || 'daily').trim();
+ const surface = details.surface || 'inline_card';
  log('job_alert_created', {
- alert_keywords: details.keywords || '',
- alert_location: details.location || '',
- alert_frequency: details.frequency || 'daily',
+ alert_keywords: keywords || '(none)',
+ alert_location: location || '(none)',
+ alert_frequency: frequency || 'daily',
+ alert_surface: surface,
  });
  },
 
@@ -1806,20 +1820,36 @@ export const Analytics = {
  },
 
  /**
-  * Track an interaction with a Job Alert conversion surface other than the
-  * inline form itself. `surface` identifies where the event originated
-  * (sticky banner, end-of-list card, post-auth prompt); `action` identifies
-  * whether the user opened or dismissed it. Used to compare conversion rate
-  * across surfaces and prune the ones that underperform.
+  * User-intent interaction on a Job Alert conversion surface. Only fire for
+  * actions the USER took (click, dismiss, accept, success, error).
+  * Rendering / auto-expand / impressions belong in `trackJobAlertCtaShown`
+  * — keeping the two separate stops `auto_expand` from inflating "open"
+  * counts during funnel analysis.
   */
  trackJobAlertCtaClick: (
- surface: 'sticky_banner' | 'end_card' | 'post_auth_prompt' | 'post_auth_prompt_search' | 'post_auth_prompt_detail' | 'inline_card' | 'job_detail_prompt',
- action: 'open' | 'dismiss' | 'auto_expand' | 'shown' | 'accept' | 'success' | 'error',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt',
+ action: 'open' | 'dismiss' | 'accept' | 'success' | 'error',
  keyword?: string,
  ) => {
  log('job_alert_cta_click', {
  cta_surface: surface,
  cta_action: action,
+ cta_keyword: (keyword || '').slice(0, 80),
+ });
+ },
+
+ /**
+  * Impression event: the surface became visible to the user without any
+  * explicit action. Was previously folded into `job_alert_cta_click` with
+  * `action='shown'` / `'auto_expand'`; split out so the click event stays
+  * intent-only.
+  */
+ trackJobAlertCtaShown: (
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt',
+ keyword?: string,
+ ) => {
+ log('job_alert_cta_shown', {
+ cta_surface: surface,
  cta_keyword: (keyword || '').slice(0, 80),
  });
  },

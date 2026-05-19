@@ -2,56 +2,64 @@
  * Job-detail alert prompt — gating logic.
  *
  * Pure utility module: no React, no Firebase. Only reads/writes
- * `localStorage` under a single namespaced key, plus a `sessionStorage`
- * "shown this session" flag.
+ * `localStorage` under a single namespaced key.
  *
- * Decision is split across three rules:
- *   1. Session check — never re-show within the same browser session.
- *   2. Persistent dismiss cap — at most 2 dismisses lifetime, OR a 30-day
- *      cooldown if the cap is reached.
- *   3. Per-category cooldown — at least 7 days between shows for the same
- *      normalized category label.
+ * Rule (post-2026-05-19 relaxation):
+ *   At most `DAILY_DISMISS_CAP` dismisses per local day. After the cap is
+ *   reached the prompt is suppressed for the rest of that day; it resumes
+ *   the following day. No 30-day cooldown, no per-category cooldown, no
+ *   session-scoped suppression.
+ *
+ * Rationale: the previous gating (DISMISS_CAP=2 → 30d cooldown +
+ * 7d per-category + 1×/session) produced only 4 `shown` events in 30 days
+ * across all categories, starving the funnel of signal. The relaxed gate
+ * still respects user intent (2 explicit dismisses in a day = stop nagging)
+ * without erasing the surface for weeks.
+ *
+ * A successful accept also suppresses for the day to avoid re-prompting on
+ * the same day the user just subscribed.
  */
 
 import { normalizeKeyword } from './jobAlertService';
 
 export const STORAGE_KEY = 'jobDetailAlertPromptState';
-export const SESSION_KEY = 'jobDetailAlertPromptShownThisSession';
 
-const DISMISS_CAP = 2;
-const DISMISS_COOLDOWN_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
-const PER_CATEGORY_COOLDOWN_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
+const DAILY_DISMISS_CAP = 2;
 
 export interface JobDetailAlertPromptState {
-  /** Total lifetime "Non ora" / ✕ presses. */
-  dismissCount: number;
-  /** ISO timestamp of last dismiss; null if never dismissed. */
-  lastDismissAt: string | null;
-  /** Map: normalized-category → ISO timestamp when it was last shown. */
-  perCategorySeenAt: Record<string, string>;
+  /** Local-date key (YYYY-MM-DD) the counter applies to. */
+  dismissDay: string | null;
+  /** How many dismisses (or accepts) happened on `dismissDay`. */
+  dismissesToday: number;
 }
 
 const DEFAULT_STATE: JobDetailAlertPromptState = {
-  dismissCount: 0,
-  lastDismissAt: null,
-  perCategorySeenAt: {},
+  dismissDay: null,
+  dismissesToday: 0,
 };
 
 function cloneDefault(): JobDetailAlertPromptState {
-  return {
-    dismissCount: 0,
-    lastDismissAt: null,
-    perCategorySeenAt: {},
-  };
+  return { dismissDay: null, dismissesToday: 0 };
 }
 
 function isPlainObject(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
+function todayKey(now: Date): string {
+  const y = now.getFullYear();
+  const m = String(now.getMonth() + 1).padStart(2, '0');
+  const d = String(now.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+}
+
 /**
  * Robust JSON-parse of the persisted state. Returns defaults if missing,
  * malformed, or the schema doesn't match. Never throws.
+ *
+ * Forward-migrates the legacy shape (`dismissCount` / `lastDismissAt` /
+ * `perCategorySeenAt`) by discarding it — the user gets a fresh quota,
+ * which is the desired outcome of the relaxation.
  */
 export function loadGatingState(): JobDetailAlertPromptState {
   if (typeof localStorage === 'undefined') return cloneDefault();
@@ -60,22 +68,15 @@ export function loadGatingState(): JobDetailAlertPromptState {
     if (!raw) return cloneDefault();
     const parsed: unknown = JSON.parse(raw);
     if (!isPlainObject(parsed)) return cloneDefault();
-    const dismissCount =
-      typeof parsed.dismissCount === 'number' && Number.isFinite(parsed.dismissCount)
-        ? parsed.dismissCount
-        : 0;
-    const lastDismissAt =
-      typeof parsed.lastDismissAt === 'string' && parsed.lastDismissAt.length > 0
-        ? parsed.lastDismissAt
+    const dismissDay =
+      typeof parsed.dismissDay === 'string' && parsed.dismissDay.length > 0
+        ? parsed.dismissDay
         : null;
-    const perCategoryRaw = isPlainObject(parsed.perCategorySeenAt)
-      ? parsed.perCategorySeenAt
-      : {};
-    const perCategorySeenAt: Record<string, string> = {};
-    for (const [k, v] of Object.entries(perCategoryRaw)) {
-      if (typeof v === 'string' && v.length > 0) perCategorySeenAt[k] = v;
-    }
-    return { dismissCount, lastDismissAt, perCategorySeenAt };
+    const dismissesToday =
+      typeof parsed.dismissesToday === 'number' && Number.isFinite(parsed.dismissesToday)
+        ? parsed.dismissesToday
+        : 0;
+    return { dismissDay, dismissesToday };
   } catch {
     return cloneDefault();
   }
@@ -94,32 +95,10 @@ export function saveGatingState(state: JobDetailAlertPromptState): void {
   }
 }
 
-function isSessionMarked(): boolean {
-  if (typeof sessionStorage === 'undefined') return false;
-  try {
-    return sessionStorage.getItem(SESSION_KEY) === '1';
-  } catch {
-    return false;
-  }
-}
-
-/**
- * Mark the prompt as "shown" for the current browser session. Cleared
- * automatically when the tab/window is closed.
- */
-export function markShownThisSession(): void {
-  if (typeof sessionStorage === 'undefined') return;
-  try {
-    sessionStorage.setItem(SESSION_KEY, '1');
-  } catch {
-    // ignore
-  }
-}
-
 /**
  * Decide whether the prompt should be shown for `normalizedCategory` at `now`,
- * given `state`. Returns `false` if any of the three rules trip; returns
- * `true` only if all checks pass and `normalizedCategory` is non-empty.
+ * given `state`. Returns `false` only when the user has already dismissed
+ * `DAILY_DISMISS_CAP` times today.
  */
 export function shouldShowPrompt(
   state: JobDetailAlertPromptState,
@@ -127,81 +106,48 @@ export function shouldShowPrompt(
   normalizedCategory: string,
 ): boolean {
   if (!normalizedCategory) return false;
-  if (isSessionMarked()) return false;
-
-  const nowMs = now.getTime();
-
-  // Rule 2: persistent dismiss cap.
-  if (state.dismissCount >= DISMISS_CAP) {
-    const lastMs = state.lastDismissAt ? new Date(state.lastDismissAt).getTime() : 0;
-    if (Number.isFinite(lastMs) && nowMs - lastMs <= DISMISS_COOLDOWN_MS) {
-      return false;
-    }
+  const today = todayKey(now);
+  if (state.dismissDay === today && state.dismissesToday >= DAILY_DISMISS_CAP) {
+    return false;
   }
-
-  // Rule 3: per-category cooldown.
-  const seenIso = state.perCategorySeenAt[normalizedCategory];
-  if (seenIso) {
-    const seenMs = new Date(seenIso).getTime();
-    if (Number.isFinite(seenMs) && nowMs - seenMs <= PER_CATEGORY_COOLDOWN_MS) {
-      return false;
-    }
-  }
-
   return true;
 }
 
 /**
  * Apply the side-effects for a "user dismissed the prompt" event.
- *  - bump `dismissCount`
- *  - set `lastDismissAt = now`
- *  - record `perCategorySeenAt[category] = now`
- *
+ * Bumps the daily counter; rolls over the day when the date changes.
  * Returns a NEW state object (no mutation of the input).
  */
 export function recordDismiss(
   state: JobDetailAlertPromptState,
   now: Date,
-  normalizedCategory: string,
+  _normalizedCategory: string,
 ): JobDetailAlertPromptState {
-  const iso = now.toISOString();
-  return {
-    dismissCount: state.dismissCount + 1,
-    lastDismissAt: iso,
-    perCategorySeenAt: normalizedCategory
-      ? { ...state.perCategorySeenAt, [normalizedCategory]: iso }
-      : { ...state.perCategorySeenAt },
-  };
+  const today = todayKey(now);
+  if (state.dismissDay !== today) {
+    return { dismissDay: today, dismissesToday: 1 };
+  }
+  return { dismissDay: today, dismissesToday: state.dismissesToday + 1 };
 }
 
 /**
  * Apply the side-effects for a successful "user accepted" event.
- *  - leave `dismissCount` and `lastDismissAt` untouched
- *  - record `perCategorySeenAt[category] = now`
- *
+ * Suppresses further prompts for the rest of the day (counter pinned to cap).
  * Returns a NEW state object (no mutation of the input).
  */
 export function recordAccept(
   state: JobDetailAlertPromptState,
   now: Date,
-  normalizedCategory: string,
+  _normalizedCategory: string,
 ): JobDetailAlertPromptState {
-  const iso = now.toISOString();
-  return {
-    dismissCount: state.dismissCount,
-    lastDismissAt: state.lastDismissAt,
-    perCategorySeenAt: normalizedCategory
-      ? { ...state.perCategorySeenAt, [normalizedCategory]: iso }
-      : { ...state.perCategorySeenAt },
-  };
+  return { dismissDay: todayKey(now), dismissesToday: DAILY_DISMISS_CAP };
 }
 
 /** Re-export for callers that already have the gating module imported. */
 export { normalizeKeyword };
 
 export const __testing = {
-  DISMISS_CAP,
-  DISMISS_COOLDOWN_MS,
-  PER_CATEGORY_COOLDOWN_MS,
+  DAILY_DISMISS_CAP,
   DEFAULT_STATE,
+  todayKey,
 };

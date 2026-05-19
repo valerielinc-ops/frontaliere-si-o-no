@@ -46,7 +46,7 @@ export interface JobAlert extends JobAlertConfig {
 
 const SUBSCRIBERS_COLLECTION = 'job_alert_subscribers';
 const ALERTS_SUBCOLLECTION = 'alerts';
-const MAX_ALERTS_PER_USER = 3;
+export const MAX_ALERTS_PER_USER = 3;
 
 // ── Lazy Firestore init ──────────────────────────────────────
 

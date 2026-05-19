@@ -1,13 +1,17 @@
 /**
  * Unit tests for `services/jobDetailAlertGating.ts`.
  *
- * Covers all three decision branches in `shouldShowPrompt`:
- *  - session "shown this session" flag short-circuits true → false.
- *  - dismiss cap with 30-day cooldown.
- *  - per-category 7-day cooldown.
+ * Post-2026-05-19 relaxation: the gating module only enforces a daily
+ * dismiss cap. All previous cooldowns (30-day, 7-day per-category,
+ * per-session) were removed because PostHog data showed only 4 `shown`
+ * events in 30 days under the old rules — too aggressive to learn from.
  *
- * Also locks in the recordDismiss/recordAccept side-effect contract
- * (immutable, ISO timestamps, dismiss bumps counter, accept doesn't).
+ * Locks in the rewritten contract:
+ *  - shouldShowPrompt is true unless the daily cap is hit for today.
+ *  - recordDismiss bumps the daily counter (rolling over on new day).
+ *  - recordAccept pins the counter to the cap (no re-prompt same day).
+ *  - All side-effects are immutable.
+ *  - loadGatingState gracefully ignores the legacy persisted shape.
  */
 
 import { describe, it, expect, beforeEach } from 'vitest';
@@ -17,20 +21,20 @@ import {
   shouldShowPrompt,
   recordAccept,
   recordDismiss,
-  markShownThisSession,
   STORAGE_KEY,
-  SESSION_KEY,
   __testing,
   type JobDetailAlertPromptState,
 } from '@/services/jobDetailAlertGating';
 
-const DAY_MS = 24 * 60 * 60 * 1000;
-
 const emptyState = (): JobDetailAlertPromptState => ({
-  dismissCount: 0,
-  lastDismissAt: null,
-  perCategorySeenAt: {},
+  dismissDay: null,
+  dismissesToday: 0,
 });
+
+const today = new Date('2026-05-19T12:00:00.000Z');
+const tomorrow = new Date('2026-05-20T08:00:00.000Z');
+const todayKey = __testing.todayKey(today);
+const tomorrowKey = __testing.todayKey(tomorrow);
 
 describe('jobDetailAlertGating', () => {
   beforeEach(() => {
@@ -45,9 +49,8 @@ describe('jobDetailAlertGating', () => {
 
     it('parses valid JSON from localStorage', () => {
       const persisted: JobDetailAlertPromptState = {
-        dismissCount: 1,
-        lastDismissAt: '2026-01-01T00:00:00.000Z',
-        perCategorySeenAt: { sanita: '2026-01-02T00:00:00.000Z' },
+        dismissDay: '2026-01-01',
+        dismissesToday: 1,
       };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(persisted));
       expect(loadGatingState()).toEqual(persisted);
@@ -66,7 +69,23 @@ describe('jobDetailAlertGating', () => {
     it('coerces invalid fields to defaults', () => {
       localStorage.setItem(
         STORAGE_KEY,
-        JSON.stringify({ dismissCount: 'oops', lastDismissAt: 42, perCategorySeenAt: null }),
+        JSON.stringify({ dismissDay: 42, dismissesToday: 'oops' }),
+      );
+      expect(loadGatingState()).toEqual(emptyState());
+    });
+
+    it('discards the legacy shape (forward migration)', () => {
+      // Before 2026-05-19 the shape was { dismissCount, lastDismissAt,
+      // perCategorySeenAt }. None of those fields are valid keys in the
+      // new shape, so loadGatingState should return defaults rather than
+      // surface stale state (which would prevent prompts indefinitely).
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          dismissCount: 99,
+          lastDismissAt: '2026-04-01T00:00:00.000Z',
+          perCategorySeenAt: { sanita: '2026-04-01T00:00:00.000Z' },
+        }),
       );
       expect(loadGatingState()).toEqual(emptyState());
     });
@@ -75,9 +94,8 @@ describe('jobDetailAlertGating', () => {
   describe('saveGatingState', () => {
     it('persists JSON', () => {
       const state: JobDetailAlertPromptState = {
-        dismissCount: 2,
-        lastDismissAt: '2026-02-01T00:00:00.000Z',
-        perCategorySeenAt: { 'it sector': '2026-02-02T00:00:00.000Z' },
+        dismissDay: todayKey,
+        dismissesToday: 2,
       };
       saveGatingState(state);
       const raw = localStorage.getItem(STORAGE_KEY);
@@ -87,126 +105,100 @@ describe('jobDetailAlertGating', () => {
   });
 
   describe('shouldShowPrompt', () => {
-    const now = new Date('2026-05-04T12:00:00.000Z');
-
     it('returns false for empty category', () => {
-      expect(shouldShowPrompt(emptyState(), now, '')).toBe(false);
+      expect(shouldShowPrompt(emptyState(), today, '')).toBe(false);
     });
 
     it('returns true on a fresh state with a real category', () => {
-      expect(shouldShowPrompt(emptyState(), now, 'sanita')).toBe(true);
+      expect(shouldShowPrompt(emptyState(), today, 'sanita')).toBe(true);
     });
 
-    it('returns false if the session flag is set', () => {
-      markShownThisSession();
-      expect(shouldShowPrompt(emptyState(), now, 'sanita')).toBe(false);
-    });
-
-    it('returns true if dismissCount < cap', () => {
+    it('returns true when below the daily cap', () => {
       const state: JobDetailAlertPromptState = {
-        dismissCount: __testing.DISMISS_CAP - 1,
-        lastDismissAt: new Date(now.getTime() - DAY_MS).toISOString(),
-        perCategorySeenAt: {},
+        dismissDay: todayKey,
+        dismissesToday: __testing.DAILY_DISMISS_CAP - 1,
       };
-      expect(shouldShowPrompt(state, now, 'sanita')).toBe(true);
+      expect(shouldShowPrompt(state, today, 'sanita')).toBe(true);
     });
 
-    it('returns false when dismiss cap hit and within 30-day cooldown', () => {
+    it('returns false when the daily cap is hit today', () => {
       const state: JobDetailAlertPromptState = {
-        dismissCount: __testing.DISMISS_CAP,
-        lastDismissAt: new Date(now.getTime() - 5 * DAY_MS).toISOString(),
-        perCategorySeenAt: {},
+        dismissDay: todayKey,
+        dismissesToday: __testing.DAILY_DISMISS_CAP,
       };
-      expect(shouldShowPrompt(state, now, 'sanita')).toBe(false);
+      expect(shouldShowPrompt(state, today, 'sanita')).toBe(false);
     });
 
-    it('returns true when dismiss cap hit but cooldown elapsed', () => {
+    it('returns true after the day rolls over even when prior counter was at cap', () => {
       const state: JobDetailAlertPromptState = {
-        dismissCount: __testing.DISMISS_CAP,
-        lastDismissAt: new Date(now.getTime() - 31 * DAY_MS).toISOString(),
-        perCategorySeenAt: {},
+        dismissDay: todayKey,
+        dismissesToday: __testing.DAILY_DISMISS_CAP,
       };
-      expect(shouldShowPrompt(state, now, 'sanita')).toBe(true);
+      expect(shouldShowPrompt(state, tomorrow, 'sanita')).toBe(true);
     });
 
-    it('returns false when category was seen within 7 days', () => {
+    it('is category-agnostic — no per-category cooldown anymore', () => {
+      // Before 2026-05-19 each category had its own 7-day cooldown. After
+      // the relaxation, only the daily cap matters: every category is
+      // gated by the same counter.
       const state: JobDetailAlertPromptState = {
-        dismissCount: 0,
-        lastDismissAt: null,
-        perCategorySeenAt: { sanita: new Date(now.getTime() - 3 * DAY_MS).toISOString() },
+        dismissDay: todayKey,
+        dismissesToday: __testing.DAILY_DISMISS_CAP,
       };
-      expect(shouldShowPrompt(state, now, 'sanita')).toBe(false);
-    });
-
-    it('returns true when category was seen more than 7 days ago', () => {
-      const state: JobDetailAlertPromptState = {
-        dismissCount: 0,
-        lastDismissAt: null,
-        perCategorySeenAt: { sanita: new Date(now.getTime() - 8 * DAY_MS).toISOString() },
-      };
-      expect(shouldShowPrompt(state, now, 'sanita')).toBe(true);
-    });
-
-    it('per-category cooldown only blocks the matching category', () => {
-      const state: JobDetailAlertPromptState = {
-        dismissCount: 0,
-        lastDismissAt: null,
-        perCategorySeenAt: { sanita: new Date(now.getTime() - 1 * DAY_MS).toISOString() },
-      };
-      expect(shouldShowPrompt(state, now, 'sanita')).toBe(false);
-      expect(shouldShowPrompt(state, now, 'finanza')).toBe(true);
+      expect(shouldShowPrompt(state, today, 'sanita')).toBe(false);
+      expect(shouldShowPrompt(state, today, 'finanza')).toBe(false);
     });
   });
 
   describe('recordDismiss', () => {
-    const now = new Date('2026-05-04T12:00:00.000Z');
+    it('starts the daily counter when no prior state for today', () => {
+      const next = recordDismiss(emptyState(), today, 'sanita');
+      expect(next).toEqual({ dismissDay: todayKey, dismissesToday: 1 });
+    });
 
-    it('increments dismissCount and stamps lastDismissAt', () => {
-      const next = recordDismiss(emptyState(), now, 'sanita');
-      expect(next.dismissCount).toBe(1);
-      expect(next.lastDismissAt).toBe(now.toISOString());
-      expect(next.perCategorySeenAt).toEqual({ sanita: now.toISOString() });
+    it('bumps the counter for same-day dismisses', () => {
+      const next = recordDismiss(
+        { dismissDay: todayKey, dismissesToday: 1 },
+        today,
+        'sanita',
+      );
+      expect(next).toEqual({ dismissDay: todayKey, dismissesToday: 2 });
+    });
+
+    it('rolls over to a fresh counter on a new day', () => {
+      const next = recordDismiss(
+        { dismissDay: todayKey, dismissesToday: __testing.DAILY_DISMISS_CAP },
+        tomorrow,
+        'sanita',
+      );
+      expect(next).toEqual({ dismissDay: tomorrowKey, dismissesToday: 1 });
     });
 
     it('does not mutate input state', () => {
       const input = emptyState();
-      recordDismiss(input, now, 'sanita');
-      expect(input.dismissCount).toBe(0);
-      expect(input.lastDismissAt).toBeNull();
-      expect(input.perCategorySeenAt).toEqual({});
+      recordDismiss(input, today, 'sanita');
+      expect(input).toEqual({ dismissDay: null, dismissesToday: 0 });
     });
   });
 
   describe('recordAccept', () => {
-    const now = new Date('2026-05-04T12:00:00.000Z');
-
-    it('does not bump dismissCount but stamps perCategorySeenAt', () => {
-      const next = recordAccept(emptyState(), now, 'sanita');
-      expect(next.dismissCount).toBe(0);
-      expect(next.lastDismissAt).toBeNull();
-      expect(next.perCategorySeenAt).toEqual({ sanita: now.toISOString() });
-    });
-
-    it('preserves prior per-category entries', () => {
-      const state: JobDetailAlertPromptState = {
-        dismissCount: 1,
-        lastDismissAt: '2026-01-01T00:00:00.000Z',
-        perCategorySeenAt: { other: '2026-04-01T00:00:00.000Z' },
-      };
-      const next = recordAccept(state, now, 'sanita');
-      expect(next.dismissCount).toBe(1);
-      expect(next.lastDismissAt).toBe('2026-01-01T00:00:00.000Z');
-      expect(next.perCategorySeenAt).toEqual({
-        other: '2026-04-01T00:00:00.000Z',
-        sanita: now.toISOString(),
+    it('pins the counter to the daily cap to suppress further prompts today', () => {
+      const next = recordAccept(emptyState(), today, 'sanita');
+      expect(next).toEqual({
+        dismissDay: todayKey,
+        dismissesToday: __testing.DAILY_DISMISS_CAP,
       });
     });
-  });
 
-  describe('markShownThisSession', () => {
-    it('writes the sentinel value', () => {
-      markShownThisSession();
-      expect(sessionStorage.getItem(SESSION_KEY)).toBe('1');
+    it('lets the user be prompted again tomorrow', () => {
+      const afterAccept = recordAccept(emptyState(), today, 'sanita');
+      expect(shouldShowPrompt(afterAccept, tomorrow, 'altro')).toBe(true);
+    });
+
+    it('does not mutate input state', () => {
+      const input = emptyState();
+      recordAccept(input, today, 'sanita');
+      expect(input).toEqual({ dismissDay: null, dismissesToday: 0 });
     });
   });
 });
