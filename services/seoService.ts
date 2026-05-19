@@ -3790,6 +3790,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-blocco-ristorni-ticino-de-rosa-aperto-a-valutare': { name: 'Blocco dei ristorni', path: '/articoli-frontaliere/blocco-ristorni-ticino-de-rosa-aperto-a-valutare', parent: 'blog' },
     'blog-giovani-assistenza-lugano-preoccupazione': { name: 'Assistenza sociale', path: '/articoli-frontaliere/giovani-assistenza-lugano-preoccupazione', parent: 'blog' },
     'blog-statuto-svizzera-centrale-permesso-b': { name: 'Fiscale', path: '/articoli-frontaliere/statuto-svizzera-centrale-permesso-b', parent: 'blog' },
+    'blog-cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna': { name: 'Cassis, Blocco ristorni, Ticino', path: '/articoli-frontaliere/cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna', parent: 'blog' },
  };
 
  const info = sectionNames[section];

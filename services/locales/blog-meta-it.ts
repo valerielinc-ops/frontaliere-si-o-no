@@ -7643,6 +7643,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.statuto-svizzera-centrale-permesso-b.title': 'Statuto S: no della Svizzera centrale a permesso B',
     'blog.article.statuto-svizzera-centrale-permesso-b.excerpt': 'Direttori sociali della Svizzera centrale respingono proposta di trasformare lo statuto di protezione S in permesso B dopo cinque anni.',
     'blog.article.statuto-svizzera-centrale-permesso-b.imageAlt': 'Valico di Brogeda in Ticino, frontaliere svizzero-italiana, con traffico.',
+    'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.title': 'Cassis: ‘Blocco ristorni dal Ticino? La reazione più pesante sarebbe con Berna’',
+    'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.excerpt': 'Il Consiglio di Stato del Cantone Ticino si riunisce per discutere la proposta di bloccare i ristorni dal Ticino',
+    'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.imageAlt': 'Il Consiglio di Stato del Cantone Ticino in una riunione',
 };
 
 export default blogMetaIt;

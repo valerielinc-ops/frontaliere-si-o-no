@@ -7642,6 +7642,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.statuto-svizzera-centrale-permesso-b.title': 'Switzerland Central: No to G Permit After 5 Years',
     'blog.article.statuto-svizzera-centrale-permesso-b.excerpt': 'Social directors of Switzerland Central reject proposal to convert S protection status to G permit after five years.',
     'blog.article.statuto-svizzera-centrale-permesso-b.imageAlt': 'Border crossing at Brogeda in Ticino, Swiss-Italian border, with traffic.',
+    'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.title': 'Cassis: \'Block Ticino Ristorni? Bern\'s Heaviest Reaction\'',
+    'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.excerpt': 'Ticino\'s Council of State to discuss proposal to block ristorni from Ticino',
+    'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.imageAlt': 'The Council of State of the Canton Ticino in a meeting',
 };
 
 export default blogMetaEn;

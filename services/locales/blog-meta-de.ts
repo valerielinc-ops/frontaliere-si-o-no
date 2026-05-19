@@ -7641,6 +7641,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.statuto-svizzera-centrale-permesso-b.title': 'Statut S: Nein der Zentralschweiz zu G-Bewilligung',
     'blog.article.statuto-svizzera-centrale-permesso-b.excerpt': 'Geschäftsführer der Zentralschweiz lehnen Vorschlag ab, Statut S nach fünf Jahren in G-Bewilligung umzuwandeln.',
     'blog.article.statuto-svizzera-centrale-permesso-b.imageAlt': 'Grenzübergang bei Brogeda in Tessin, Schweizer-italienische Grenze, mit Verkehr.',
+    'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.title': 'Cassis: Rückerstattungen aus Ticino? Bern reagiert heftig',
+    'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.excerpt': 'Der Staatsrat des Kantons Tessin trifft sich, um den Vorschlag zu diskutieren, die Rückerstattungen aus dem Tessin zu sperren',
+    'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.imageAlt': 'Der Staatsrat des Kantons Tessin in einer Sitzung',
 };
 
 export default blogMetaDe;

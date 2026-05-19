@@ -24302,4 +24302,13 @@ export const ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna',
+ category: 'novita',
+ date: '2026-05-19T02:04:46.666Z',
+ image: '/images/blog/cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];

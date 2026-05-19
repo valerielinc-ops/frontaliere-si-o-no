@@ -7643,6 +7643,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.statuto-svizzera-centrale-permesso-b.title': 'Statut S : non de la Suisse centrale au permis B',
     'blog.article.statuto-svizzera-centrale-permesso-b.excerpt': 'Directeurs sociaux de la Suisse centrale rejettent la proposition de transformer le statut de protection S en permis B après cinq ans.',
     'blog.article.statuto-svizzera-centrale-permesso-b.imageAlt': 'Passage frontalier à Brogeda dans le Tessin, frontière Suisse-Italie, avec trafic.',
+    'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.title': 'Cassis: Blocus du Ticino?',
+    'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.excerpt': 'Le Conseil d\'État du canton du Tessin se réunit pour discuter de la proposition de bloquer les revenus du Tessin',
+    'blog.article.cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.imageAlt': 'Le Conseil d\'État du canton du Tessin en réunion',
 };
 
 export default blogMetaFr;

@@ -38216,6 +38216,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna': {
+    title: 'Cassis: ‘Blocco ristorni dal Ticino? La reazione più pesante sarebbe con Berna’',
+    description: 'Il Consiglio di Stato del Cantone Ticino si riunisce per discutere la proposta di bloccare i ristorni dal Ticino, con possibili implicazioni per i frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassis, blocco, ristorni, reazione',
+    ogTitle: 'Cassis: ‘Blocco ristorni dal Ticino? La reazione più pesante sarebbe con Berna’',
+    ogDescription: 'Il Consiglio di Stato del Cantone Ticino si riunisce per discutere la proposta di bloccare i ristorni dal Ticino, con possibili implicazioni per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassis: ‘Blocco ristorni dal Ticino? La reazione più pesante sarebbe con Berna’",
+      "description": "Il Consiglio di Stato del Cantone Ticino si riunisce per discutere la proposta di bloccare i ristorni dal Ticino, con possibili implicazioni per i frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Consiglio di Stato del Cantone Ticino in una riunione"
+      },
+      "datePublished": "2026-05-19T02:04:46+00:00",
+      "dateModified": "2026-05-19T02:04:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassis-blocco-ristorni-ticino-la-reazione-piu-pesante-sarebbe-con-berna`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
