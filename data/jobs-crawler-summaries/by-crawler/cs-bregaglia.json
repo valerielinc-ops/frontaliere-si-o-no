@@ -1,0 +1,55 @@
+{
+  "key": "cs-bregaglia",
+  "label": "Centro Sanitario Bregaglia",
+  "generatedAt": "2026-05-19T09:59:33.254Z",
+  "total": 1,
+  "newCount": 1,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 6680,
+  "avgDurationMs": 6680,
+  "durationHistory": [
+    6680
+  ],
+  "newJobs": [
+    {
+      "id": "cs-bregaglia-98393ca40498",
+      "slug": "medico-di-medicina-interna-generale-cs-bregaglia-promontogno",
+      "company": "Centro Sanitario Bregaglia",
+      "companyKey": "cs-bregaglia",
+      "companyDomain": "csbregaglia.ch",
+      "title": "medico di medicina interna generale",
+      "location": "Promontogno",
+      "canton": "GR",
+      "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/419-offerta-di-lavoro-medico-di-medicina-generale-o-internista",
+      "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
+      "sourceLang": "it",
+      "crawledAt": "2026-05-19T09:59:27.433Z",
+      "addressLocality": "Promontogno",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7606",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-07-28",
+      "applyUrl": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/419-offerta-di-lavoro-medico-di-medicina-generale-o-internista",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": []
+}
