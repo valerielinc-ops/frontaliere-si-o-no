@@ -113,6 +113,10 @@ export async function fetchAllHopitalDeLavauxJobs() {
       titleByLocale: { [sourceLang]: title },
       description,
       descriptionByLocale: { [sourceLang]: description },
+      // Newly-discovered jobs ship with source-locale-only fields. The shared
+      // AI-localization step clears this flag when it fills the remaining 3
+      // locales; if it can't, `translate-pending.yml` picks the job up.
+      needsRetranslation: true,
       location: city,
       canton,
       url,
