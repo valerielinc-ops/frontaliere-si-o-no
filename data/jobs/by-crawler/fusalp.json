@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fusalp",
-  "assembledAt": "2026-05-19T11:44:15.152Z",
+  "assembledAt": "2026-05-19T22:16:21.293Z",
   "jobs": [
     {
       "id": "fusalp-6d79b758876b",
@@ -33,7 +33,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-sales-consultant-h-f_crans-montana",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T11:44:11.237Z",
+      "crawledAt": "2026-05-19T22:16:18.246Z",
       "addressLocality": "Crans-Montana",
       "addressCountry": "CH",
       "country": "CH",
@@ -82,8 +82,8 @@
       },
       "previousSlugs": [
         "conseiller-de-vente-sales-consultant-h-f-fusalp-crans-montana",
-        "conseiller-de-vente-sales-consulente-h-f-fusalp-crans-montana",
-        "conseiller-de-vente-sales-consultant-h-f-fusalp-luxembourg"
+        "conseiller-de-vente-sales-consultant-h-f-fusalp-luxembourg",
+        "conseiller-de-vente-sales-consulente-h-f-fusalp-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -92,6 +92,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:34:51.057Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -136,7 +137,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/responsable-de-boutique-h-f-store-manager-m-w_crans-montana",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T11:44:10.165Z",
+      "crawledAt": "2026-05-19T22:16:17.226Z",
       "addressLocality": "Crans-Montana",
       "addressCountry": "CH",
       "country": "CH",
@@ -196,6 +197,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:34:50.149Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -240,7 +242,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f-sales-consultant-w-m_aubonne",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T11:44:08.187Z",
+      "crawledAt": "2026-05-19T22:16:15.255Z",
       "addressLocality": "Aubonne",
       "addressCountry": "CH",
       "country": "CH",
@@ -265,6 +267,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:50:28.461Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
