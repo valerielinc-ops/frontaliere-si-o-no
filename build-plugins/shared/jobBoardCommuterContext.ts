@@ -697,15 +697,47 @@ export function buildJobBoardCommuterFaqLd(opts: JobBoardCommuterContextOpts): s
  * the commuter-context FAQ block. Use this when the host page emits another
  * source of FAQs (e.g. AI enrichment) and needs to merge them into a single
  * `FAQPage` JSON-LD script to avoid GSC duplicate-FAQPage warnings.
+ *
+ * Memoised by (locale | location | sectorOrType). Pure function of the
+ * 3-tuple — same cardinality as renderJobBoardCommuterContext (≈ 7-10k
+ * unique keys across cathedral cantons × cities × sectors). Called ~102k
+ * times from relatedSearchClustersPlugin + tens of thousands more from
+ * jobsSeoPagesPlugin editorial emitters. Cap 30000 matches the sibling
+ * renderJobBoardCommuterContext cache (fail-loud on cardinality blowup,
+ * not a silent leak). Per-entry footprint ≈ 4 × ~200 B = ~1 KB so peak
+ * heap headroom is ~30 MB — well under the CI 7 GB ceiling. The returned
+ * array is reused (not deep-cloned) — callers MUST treat the result as
+ * immutable. Today the only consumers are `JSON.stringify(...)` so the
+ * shared-reference is safe.
  */
-export function buildJobBoardCommuterFaqItems(opts: JobBoardCommuterContextOpts): Array<{
+type FaqItem = {
   '@type': 'Question';
   name: string;
   acceptedAnswer: { '@type': 'Answer'; text: string };
-}> {
+};
+const FAQ_ITEMS_CACHE = new Map<string, ReadonlyArray<FaqItem>>();
+const FAQ_ITEMS_CACHE_MAX = 30000;
+
+function faqItemsCacheKey(opts: JobBoardCommuterContextOpts): string {
+  return `${opts.locale}\x00${opts.location}\x00${opts.sectorOrType ?? ''}`;
+}
+
+export function buildJobBoardCommuterFaqItems(opts: JobBoardCommuterContextOpts): ReadonlyArray<FaqItem> {
+  const cacheKey = faqItemsCacheKey(opts);
+  const cached = FAQ_ITEMS_CACHE.get(cacheKey);
+  if (cached !== undefined) return cached;
+  if (FAQ_ITEMS_CACHE.size >= FAQ_ITEMS_CACHE_MAX) {
+    throw new Error(
+      `buildJobBoardCommuterFaqItems memo cache exceeded maxSize=${FAQ_ITEMS_CACHE_MAX}. ` +
+      `Last key: ${JSON.stringify({ locale: opts.locale, location: opts.location, sectorOrType: opts.sectorOrType ?? null })}. ` +
+      `Either raise the cap (if cardinality is genuinely bounded) or remove the offending ` +
+      `per-page parameter from opts so the cache key space stays bounded.`,
+    );
+  }
+
   const { locale, location, sectorOrType = null } = opts;
   const faq = buildFaq(locale, location, sectorOrType);
-  return faq
+  const items: ReadonlyArray<FaqItem> = faq
     .filter((f) => f.q && f.q.trim() && f.a && f.a.trim())
     .map((f) => ({
       '@type': 'Question' as const,
@@ -715,4 +747,6 @@ export function buildJobBoardCommuterFaqItems(opts: JobBoardCommuterContextOpts)
         text: f.a.replace(/<[^>]+>/g, '').trim(),
       },
     }));
+  FAQ_ITEMS_CACHE.set(cacheKey, items);
+  return items;
 }
