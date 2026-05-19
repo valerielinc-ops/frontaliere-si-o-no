@@ -98,6 +98,7 @@ import {
   STAT_TILE_VALUE,
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
+import { renderLandingHero, HERO_BADGES } from './shared/landingHeroPersonality';
 
 // ── Helpers ──────────────────────────────────────────────────────
 
@@ -470,7 +471,7 @@ function renderPage(opts: {
   });
 
   // ── Template B header → above-the-fold ─────────────────────────────────
-  const statTilesHtml = renderStatTiles(id, templateB, snapshot, agencyCount, concorsiCount);
+  const statTilesHtml = `<div class="seo-fade-in">${renderStatTiles(id, templateB, snapshot, agencyCount, concorsiCount)}</div>`;
 
   const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(primaryCtaUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(templateB.primaryCtaLabel)} →</a></div>`;
 
@@ -502,11 +503,17 @@ function renderPage(opts: {
       <span> / </span>
       <span>${esc(copy.h1)}</span>
     </nav>
-    <header style="margin-bottom:20px">
-      <p style="${HERO_EYEBROW_STYLE}">${esc(templateB.eyebrow)} · ${esc(shell.updatedLabel)} ${esc(dateStamp)}</p>
+    ${id in HERO_BADGES
+      ? renderLandingHero(id, locale, {
+          openings: snapshot.liveCount,
+          medianSalary: snapshot.medianSalaryChf ?? undefined,
+        }, copy.h1, templateB.denseLede)
+      : `<header style="margin-bottom:20px">
+      <p style="${HERO_EYEBROW_STYLE}">${esc(templateB.eyebrow ?? '')}</p>
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(templateB.denseLede)}</p>
-    </header>
+    </header>`}
+    <p style="${HERO_EYEBROW_STYLE};margin-top:4px;font-weight:500">${esc(shell.updatedLabel)} ${esc(dateStamp)}</p>
     ${statTilesHtml}
     ${primaryCtaHtml}
     ${featuredHtml}
