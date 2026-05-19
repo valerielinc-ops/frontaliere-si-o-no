@@ -1,18 +1,19 @@
 {
   "key": "bethesda-spital",
   "label": "Bethesda Spital",
-  "generatedAt": "2026-05-19T10:24:21.399Z",
+  "generatedAt": "2026-05-19T11:13:20.371Z",
   "total": 10,
-  "newCount": 10,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 64358,
-  "avgDurationMs": 64358,
+  "durationMs": 12963,
+  "avgDurationMs": 12963,
   "durationHistory": [
-    64358
+    12963
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "bethesda-spital-12eacb47fea1",
       "slug": "teamleitung-sekretariat-gynakologie-und-beckenboden-100-bethesda-spital-basel",
@@ -25,7 +26,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/448/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:19.595Z",
+      "crawledAt": "2026-05-19T11:13:10.024Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -40,11 +41,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2998.umantis.com/Vacancies/448/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T10:23:19.595Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -60,7 +62,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/426/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:20.493Z",
+      "crawledAt": "2026-05-19T11:13:10.965Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -75,11 +77,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2998.umantis.com/Vacancies/426/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T10:23:20.493Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -95,7 +98,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/365/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:21.234Z",
+      "crawledAt": "2026-05-19T11:13:11.904Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -110,11 +113,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2998.umantis.com/Vacancies/365/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T10:23:21.234Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -130,7 +134,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/393/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:21.992Z",
+      "crawledAt": "2026-05-19T11:13:12.836Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -145,11 +149,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2998.umantis.com/Vacancies/393/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T10:23:21.992Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -165,7 +170,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/445/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:22.750Z",
+      "crawledAt": "2026-05-19T11:13:13.763Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -180,11 +185,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2998.umantis.com/Vacancies/445/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T10:23:22.750Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -200,7 +206,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/444/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:23.504Z",
+      "crawledAt": "2026-05-19T11:13:14.690Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -215,11 +221,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2998.umantis.com/Vacancies/444/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T10:23:23.504Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -235,7 +242,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/436/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:24.239Z",
+      "crawledAt": "2026-05-19T11:13:15.623Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -250,11 +257,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2998.umantis.com/Vacancies/436/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T10:23:24.239Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -270,7 +278,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/415/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:24.993Z",
+      "crawledAt": "2026-05-19T11:13:16.517Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -285,11 +293,13 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2998.umantis.com/Vacancies/415/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T10:23:24.993Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -305,7 +315,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/390/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:25.752Z",
+      "crawledAt": "2026-05-19T11:13:17.469Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -320,11 +330,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2998.umantis.com/Vacancies/390/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T10:23:25.752Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -340,7 +351,7 @@
       "url": "https://recruitingapp-2998.umantis.com/Vacancies/328/Description/1",
       "source": "Bethesda Spital Dedicated Parser (Umantis listing tenant 2998)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T10:23:26.516Z",
+      "crawledAt": "2026-05-19T11:13:18.386Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -355,16 +366,16 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2998.umantis.com/Vacancies/328/Application/CheckLogin/1",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T10:23:26.516Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
