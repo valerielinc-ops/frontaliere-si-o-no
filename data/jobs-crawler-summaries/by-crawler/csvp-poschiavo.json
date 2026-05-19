@@ -1,16 +1,16 @@
 {
   "key": "csvp-poschiavo",
   "label": "Centro Sanitario Valposchiavo (CSVP)",
-  "generatedAt": "2026-05-19T11:32:28.106Z",
+  "generatedAt": "2026-05-19T22:02:27.398Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2996,
-  "avgDurationMs": 2996,
+  "durationMs": 3149,
+  "avgDurationMs": 3149,
   "durationHistory": [
-    2996
+    3149
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -21,12 +21,13 @@
       "companyKey": "csvp-poschiavo",
       "companyDomain": "csvp.ch",
       "title": "Addetto alle cure sociosanitarie o Collaboratore sanitario CRS",
+      "needsRetranslation": true,
       "location": "Poschiavo",
       "canton": "GR",
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/563-concorso-pubblico-per-la-gestione-della-caffetteria-2",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-05-19T11:32:26.081Z",
+      "crawledAt": "2026-05-19T22:02:25.454Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
