@@ -80,6 +80,14 @@ import {
   type FeaturedJob,
   type ProfessionJobsSnapshot,
 } from './professionJobsAggregate';
+import {
+  renderJobCardListHtml,
+  type JobCardJob,
+} from './shared/jobCardHtml';
+import {
+  pickEmptyState,
+  pickCtaAllJobs,
+} from './shared/landingMicroCopy';
 
 // ── Helpers ──────────────────────────────────────────────────────
 
@@ -163,49 +171,42 @@ function pickJobTitle(job: FeaturedJob, locale: ProfessionLocale): string {
   return job.titleByLocale[locale] ?? job.title;
 }
 
-function renderFeaturedJobCard(
-  job: FeaturedJob,
-  locale: ProfessionLocale,
-  copy: CopyView,
-): string {
-  const href = buildFeaturedJobUrl(job, locale);
-  const title = pickJobTitle(job, locale);
-  const subtitleParts: string[] = [];
-  if (job.company) subtitleParts.push(job.company);
-  if (job.city) subtitleParts.push(job.city);
-  const subtitle = subtitleParts.join(' · ');
-  const salary = copy.formatJobSalary(job.salaryMin, job.salaryMax);
-  const posted = copy.formatJobPosted(job.daysAgo);
-
-  return `<a class="seo-card-link" href="${esc(href)}" style="${CARD_STYLE};text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:6px">
-    <div style="font-weight:700;font-size:16px;line-height:1.35;color:var(--color-heading)">${esc(title)}</div>
-    ${subtitle ? `<div style="font-size:14px;color:var(--color-body);line-height:1.4">${esc(subtitle)}</div>` : ''}
-    <div style="display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-top:4px;font-size:13px;color:var(--color-subtle)">
-      ${salary ? `<span style="color:var(--color-accent);font-weight:700">${esc(salary)}</span>` : ''}
-      <span>${esc(posted)}</span>
-    </div>
-  </a>`;
-}
-
 function renderFeaturedJobs(
+  id: ProfessionId,
   locale: ProfessionLocale,
   snapshot: ProfessionJobsSnapshot,
   copy: CopyView,
 ): string {
-  if (snapshot.featured.length === 0) {
-    return `<section style="margin:0 0 28px">
-      <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(copy.featuredJobsTitle)}</h2>
-      <p style="${CARD_STYLE};color:var(--color-subtle);font-size:14px;margin:0">${esc(copy.featuredJobsEmpty)}</p>
-    </section>`;
-  }
-  const cards = snapshot.featured
-    .map((j) => renderFeaturedJobCard(j, locale, copy))
-    .join('');
+  const items = snapshot.featured.map((j) => ({
+    job: {
+      title: j.title,
+      titleByLocale: j.titleByLocale,
+      company: j.company,
+      companyKey: j.companyKey ?? undefined,
+      companyDomain: j.companyDomain ?? undefined,
+      addressLocality: j.addressLocality ?? j.city,
+      canton: j.canton ?? undefined,
+      contract: j.contract ?? undefined,
+      salaryMin: j.salaryMin,
+      salaryMax: j.salaryMax,
+      postedDate: j.postedDate,
+      url: j.url ?? undefined,
+    } satisfies JobCardJob,
+    href: buildFeaturedJobUrl(j, locale),
+  }));
+  const emptyHtml = `<p style="${CARD_STYLE};color:var(--color-subtle);font-size:14px;margin:0">${esc(pickEmptyState(id, locale))}</p>`;
+  const listHtml = renderJobCardListHtml(items, {
+    locale,
+    emptyStateHtml: emptyHtml,
+  });
   const ctaHref = buildJobBoardUrl(locale);
+  const ctaLabel = snapshot.featured.length > 0 && snapshot.liveCount > 0
+    ? pickCtaAllJobs(id, locale, snapshot.liveCount)
+    : (copy.featuredJobsCtaAllLabel ?? 'Vedi tutti gli annunci →');
   return `<section style="margin:0 0 28px">
     <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(copy.featuredJobsTitle)}</h2>
-    <div style="display:grid;gap:12px;margin-bottom:14px">${cards}</div>
-    <a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px">${esc(copy.featuredJobsCtaAllLabel)}</a>
+    ${listHtml}
+    ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-block;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
   </section>`;
 }
 
@@ -475,7 +476,7 @@ function renderPage(opts: {
 
   const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.primaryCtaLabel)} →</a></div>`;
 
-  const featuredHtml = renderFeaturedJobs(locale, snapshot, copyView);
+  const featuredHtml = renderFeaturedJobs(id, locale, snapshot, copyView);
   const employerGridHtml = renderEmployerGrid(snapshot, id, copyView);
   const dividerHtml = renderApprofondisciDivider(copy.approfondisciHeading);
 
@@ -688,4 +689,26 @@ export function professionLandingsPlugin(rootDir: string): Plugin {
       resolveProfessionLandingsFlushed();
     },
   };
+}
+
+// Test-only export: allows tests/build-plugins/job-card-canonical-adoption.test.ts
+// to verify the migrated renderer emits canonical job-card markers.
+export function renderProfessionFeaturedJobsForTest(
+  id: ProfessionId,
+  locale: ProfessionLocale,
+  snapshot: ProfessionJobsSnapshot,
+): string {
+  const copy = buildProfessionLandingCopy(locale, id, {
+    liveCount: snapshot.liveCount,
+    fresh30Count: snapshot.fresh30Count,
+  });
+  const copyView: CopyView = {
+    formatJobPosted: copy.formatJobPosted,
+    formatJobSalary: copy.formatJobSalary,
+    featuredJobsEmpty: copy.featuredJobsEmpty,
+    featuredJobsTitle: copy.featuredJobsTitle,
+    featuredJobsCtaAllLabel: copy.featuredJobsCtaAllLabel,
+    employerGridTitle: copy.employerGridTitle,
+  };
+  return renderFeaturedJobs(id, locale, snapshot, copyView);
 }
