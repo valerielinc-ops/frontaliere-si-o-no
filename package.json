@@ -235,6 +235,7 @@
     "audit:content-duplicates": "node scripts/audit-content-duplicates.mjs dist",
     "audit:dist-multi": "node scripts/audit-dist-multi.mjs",
     "audit:all": "node scripts/audit-all.mjs",
+    "validate:jsonld-shape": "node scripts/validate-jsonld-shape.mjs",
     "audit:page-weight": "node scripts/audit-page-weight.mjs",
     "audit:text-html-ratio": "node scripts/audit-text-html-ratio.mjs --baseline=data/text-html-ratio-baseline.json",
     "audit:text-html-ratio:rebaseline": "node scripts/audit-text-html-ratio.mjs --write-baseline=data/text-html-ratio-baseline.json",
