@@ -63,12 +63,22 @@ export function extractCleniaDetailContent(html) {
   // Stop at the next big Elementor column outside the content section
   const stopIdx = slice.search(/<div class="elementor-column elementor-col-50 elementor-top-column/);
   const window = stopIdx > 100 ? slice.slice(0, stopIdx) : slice;
-  const text = normalizeSpace(decodeEntities(window
+  let text = normalizeSpace(decodeEntities(window
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/(?:p|div|li|h[1-6])>/gi, '\n')
     .replace(/<[^>]+>/g, ' '),
   ));
+  // Truncate at first inline JS widget signature (Elementor pages embed
+  // tracking/share widgets like `function emailLink() { var url = ... }`
+  // that survive HTML strip and trip validate:jobs-quality).
+  const fnIdx = text.search(/(?:^|\s)function\s+\w+\s*\([^)]*\)\s*\{/);
+  if (fnIdx > 50) text = text.slice(0, fnIdx).trimEnd();
+  const varIdx = text.search(/(?:^|\s)var\s+\w+\s*=\s*(?:window|document)\./);
+  if (varIdx > 50) text = text.slice(0, varIdx).trimEnd();
   // Drop trailing boilerplate "Arbeiten bei Clienia – Ihre Vorteile auf einen Blick…" if present
   const trimAt = text.indexOf('Arbeiten bei Clienia');
   return trimAt > 50 ? normalizeSpace(text.slice(0, trimAt)) : text;
