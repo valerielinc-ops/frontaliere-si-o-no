@@ -1,18 +1,19 @@
 {
   "key": "hfr-hopital-fribourgeois",
   "label": "Hôpital fribourgeois (HFR)",
-  "generatedAt": "2026-05-19T13:11:33.005Z",
+  "generatedAt": "2026-05-19T22:26:20.821Z",
   "total": 30,
-  "newCount": 30,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 30,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 496511,
-  "avgDurationMs": 496511,
+  "durationMs": 22092,
+  "avgDurationMs": 22092,
   "durationHistory": [
-    496511
+    22092
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hfr-hopital-fribourgeois-95476503d1ea",
       "slug": "chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt",
@@ -26,7 +27,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/947dcfafe2c3-chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt-spitalfacharztin-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:23.420Z",
+      "crawledAt": "2026-05-19T22:26:05.886Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -42,11 +43,12 @@
       "postedDate": "2026-05-18",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/947dcfafe2c3-chef-fe-de-clinique-ou-medecin-associe-e-80-100-oberarzt-oberarztin-oder-spitalfacharzt-spitalfacharztin-80-100",
       "externalId": "947dcfafe2c3",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:23.420Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -63,7 +65,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/da607bc2178a-medecin-chef-fe-du-service-de-radiologie-80-100-abteilungschefarztin-arzt-radiologie-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:31.716Z",
+      "crawledAt": "2026-05-19T22:26:13.563Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -79,11 +81,12 @@
       "postedDate": "2026-05-11",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/da607bc2178a-medecin-chef-fe-du-service-de-radiologie-80-100-abteilungschefarztin-arzt-radiologie-80-100",
       "externalId": "da607bc2178a",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:31.716Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -100,7 +103,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/242853171754-oberarzt-in-oder-stv-oberarzt-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:33.016Z",
+      "crawledAt": "2026-05-19T22:26:14.821Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -116,11 +119,12 @@
       "postedDate": "2026-05-07",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/242853171754-oberarzt-in-oder-stv-oberarzt-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e",
       "externalId": "242853171754",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:33.016Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -137,7 +141,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c4c72a66f509-infirmiers-eres-en-cdd-de-6-mois-pflegefachmann-pflegefachfrau-befristeter-arbeitsvertrag-fur-6-monate",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:28.723Z",
+      "crawledAt": "2026-05-19T22:26:11.152Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -153,17 +157,18 @@
       "postedDate": "2026-05-06",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/c4c72a66f509-infirmiers-eres-en-cdd-de-6-mois-pflegefachmann-pflegefachfrau-befristeter-arbeitsvertrag-fur-6-monate",
       "externalId": "c4c72a66f509",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:28.723Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "id": "hfr-hopital-fribourgeois-60ae81a356f7",
-      "slug": "logisticien-ne-80-100-logistiker-in-80-100-hfr-hopital-fribourgeois-fribourg",
+      "slug": "logisticien-ne-80-100-logistiker-in-80-100-hopital-fribourgeois-hfr-fribourg",
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
       "companyDomain": "h-fr.ch",
@@ -174,7 +179,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/f34aab85edfb-logisticien-ne-80-100-logistiker-in-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:30.424Z",
+      "crawledAt": "2026-05-19T22:26:12.373Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -190,11 +195,12 @@
       "postedDate": "2026-05-06",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/f34aab85edfb-logisticien-ne-80-100-logistiker-in-80-100",
       "externalId": "f34aab85edfb",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:30.424Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -211,7 +217,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/1d60f65eff57-collaborateur-trice-restaurants-60",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:24.082Z",
+      "crawledAt": "2026-05-19T22:26:06.500Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -227,11 +233,12 @@
       "postedDate": "2026-05-04",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/1d60f65eff57-collaborateur-trice-restaurants-60",
       "externalId": "1d60f65eff57",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:24.082Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -248,7 +255,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/993b15e4990b-infirmiers-eres-pour-un-cdd-de-6-mois-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:29.777Z",
+      "crawledAt": "2026-05-19T22:26:11.770Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -264,11 +271,12 @@
       "postedDate": "2026-05-04",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/993b15e4990b-infirmiers-eres-pour-un-cdd-de-6-mois-80-100",
       "externalId": "993b15e4990b",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:29.777Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -285,7 +293,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/2fa07f1ec26f-stagiaire-pre-hes-heg-ou-post-bachelor-stage-entre-6-et-13-mois-praktikantin-praktikanten-vor-hsw-studium-oder-nach-bachelor-abschluss-6-bis-13-monatiges-praktikum",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:37.041Z",
+      "crawledAt": "2026-05-19T22:26:18.615Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -301,11 +309,12 @@
       "postedDate": "2026-05-01",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/2fa07f1ec26f-stagiaire-pre-hes-heg-ou-post-bachelor-stage-entre-6-et-13-mois-praktikantin-praktikanten-vor-hsw-studium-oder-nach-bachelor-abschluss-6-bis-13-monatiges-praktikum",
       "externalId": "2fa07f1ec26f",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:37.041Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -322,7 +331,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/239a984c2afb-chef-adjoint-du-laboratoire-hfr-specialiste-famh",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:19.490Z",
+      "crawledAt": "2026-05-19T22:26:01.527Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -338,11 +347,12 @@
       "postedDate": "2026-04-30",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/239a984c2afb-chef-adjoint-du-laboratoire-hfr-specialiste-famh",
       "externalId": "239a984c2afb",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:19.490Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -359,7 +369,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/bd4b71239810-physiotherapeute-physiotherapeut-in",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:36.379Z",
+      "crawledAt": "2026-05-19T22:26:17.976Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -375,11 +385,12 @@
       "postedDate": "2026-04-22",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/bd4b71239810-physiotherapeute-physiotherapeut-in",
       "externalId": "bd4b71239810",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:36.379Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -396,7 +407,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c8ca1aea1ffd-fachfrau-mann-fur-medizinisch-technische-radiologie-unbefristeter-vertrag-70-80-technicien-ne-en-radiologie-medicale-cdi---70-80",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:26.755Z",
+      "crawledAt": "2026-05-19T22:26:08.985Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -412,11 +423,12 @@
       "postedDate": "2026-04-21",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/c8ca1aea1ffd-fachfrau-mann-fur-medizinisch-technische-radiologie-unbefristeter-vertrag-70-80-technicien-ne-en-radiologie-medicale-cdi---70-80",
       "externalId": "c8ca1aea1ffd",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:26.755Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -433,7 +445,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/44db59b90658-oberarztin-oberarzt-allgemeine-innere-medizin-100-chef-fe-de-clinique-en-medecine-interne-generale-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:33.670Z",
+      "crawledAt": "2026-05-19T22:26:15.451Z",
       "addressLocality": "HFR Meyriez-Murten",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -449,11 +461,12 @@
       "postedDate": "2026-03-23",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/44db59b90658-oberarztin-oberarzt-allgemeine-innere-medizin-100-chef-fe-de-clinique-en-medecine-interne-generale-100",
       "externalId": "44db59b90658",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:33.670Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -470,7 +483,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/5f82d0f35ac9-chef-fe-de-clinique-cardiologie-80-100-oberarztin-oberarzt-kardiologie-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:20.140Z",
+      "crawledAt": "2026-05-19T22:26:02.649Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -486,11 +499,12 @@
       "postedDate": "2026-03-05",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/5f82d0f35ac9-chef-fe-de-clinique-cardiologie-80-100-oberarztin-oberarzt-kardiologie-80-100",
       "externalId": "5f82d0f35ac9",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:20.140Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -507,7 +521,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/4e3e3fcc629a-cuisinier-ere-en-dietetique-80-100-diatkoch-kochin-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:24.737Z",
+      "crawledAt": "2026-05-19T22:26:07.135Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -523,11 +537,12 @@
       "postedDate": "2026-02-18",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/4e3e3fcc629a-cuisinier-ere-en-dietetique-80-100-diatkoch-kochin-80-100",
       "externalId": "4e3e3fcc629a",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:24.737Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -544,7 +559,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/2c19e7fb73f5-dipl-pflegefachfrau--mann-40-100-unbefristeter-vertrag-infirmier-ere-diplome-e-40-100-contrat-a-duree-indeterminee",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:25.389Z",
+      "crawledAt": "2026-05-19T22:26:07.749Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -560,11 +575,12 @@
       "postedDate": "2026-01-27",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/2c19e7fb73f5-dipl-pflegefachfrau--mann-40-100-unbefristeter-vertrag-infirmier-ere-diplome-e-40-100-contrat-a-duree-indeterminee",
       "externalId": "2c19e7fb73f5",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:25.389Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -581,7 +597,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/ddb97171bcd7-fachfrau-mann-gesundheit-fage-40-100-unbefristeter-vertrag-assistant-e-en-soins-et-sante-communautaire-assc-contrat-a-duree-indeterminee-a-40-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:26.048Z",
+      "crawledAt": "2026-05-19T22:26:08.380Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -597,17 +613,18 @@
       "postedDate": "2026-01-27",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/ddb97171bcd7-fachfrau-mann-gesundheit-fage-40-100-unbefristeter-vertrag-assistant-e-en-soins-et-sante-communautaire-assc-contrat-a-duree-indeterminee-a-40-100",
       "externalId": "ddb97171bcd7",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:26.048Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "id": "hfr-hopital-fribourgeois-5d0b3e262685",
-      "slug": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder",
+      "slug": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-o-stellvertretende-n-oberarztin-oberarzt-hopital-fribourgeois-hfr-riaz",
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
       "companyDomain": "h-fr.ch",
@@ -618,7 +635,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c7c6506715de-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:22.745Z",
+      "crawledAt": "2026-05-19T22:26:05.254Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -634,11 +651,12 @@
       "postedDate": "2026-01-07",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/c7c6506715de-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt",
       "externalId": "c7c6506715de",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:22.745Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -655,7 +673,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/9f2b7f59d46b-assistenzarztin-oder-assistenzarzt-100-teilzeit-oder-jobsharing-moglich-medecin-assistant-e-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:18.822Z",
+      "crawledAt": "2026-05-19T22:26:00.876Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -671,11 +689,12 @@
       "postedDate": "2026-01-05",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/9f2b7f59d46b-assistenzarztin-oder-assistenzarzt-100-teilzeit-oder-jobsharing-moglich-medecin-assistant-e-100",
       "externalId": "9f2b7f59d46b",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:18.822Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -692,7 +711,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/7195b7311b2a-assistant-e-en-soins-et-sante-communautaire-remplacant-e-assc-fachfrau-mann-gesundheit-fage-im-ersatz-fur-absenzen",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:18.107Z",
+      "crawledAt": "2026-05-19T22:26:00.236Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -708,11 +727,12 @@
       "postedDate": "2025-12-23",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/7195b7311b2a-assistant-e-en-soins-et-sante-communautaire-remplacant-e-assc-fachfrau-mann-gesundheit-fage-im-ersatz-fur-absenzen",
       "externalId": "7195b7311b2a",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:18.107Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -729,7 +749,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/442cd30627ad-infirmier-eres-de-remplacement-40-100-pflegefachpersonen-fur-absenzenvertretungen-40-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:28.062Z",
+      "crawledAt": "2026-05-19T22:26:10.540Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -745,11 +765,12 @@
       "postedDate": "2025-12-01",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/442cd30627ad-infirmier-eres-de-remplacement-40-100-pflegefachpersonen-fur-absenzenvertretungen-40-100",
       "externalId": "442cd30627ad",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:28.062Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -766,7 +787,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/0cb89529dd2e-chef-fe-de-clinique-en-infectiologie-pediatrique-50-100-oberarztin-oberarzt-padiatrische-infektiologie-50-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:20.795Z",
+      "crawledAt": "2026-05-19T22:26:03.315Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -782,11 +803,12 @@
       "postedDate": "2025-11-20",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/0cb89529dd2e-chef-fe-de-clinique-en-infectiologie-pediatrique-50-100-oberarztin-oberarzt-padiatrische-infektiologie-50-100",
       "externalId": "0cb89529dd2e",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:20.795Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -803,7 +825,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/42355f3111eb-oracle-hcm-cloud-specialist-50",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T13:03:35.743Z",
+      "crawledAt": "2026-05-19T22:26:17.352Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -819,11 +841,12 @@
       "postedDate": "2025-09-24",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/42355f3111eb-oracle-hcm-cloud-specialist-50",
       "externalId": "42355f3111eb",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:35.743Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -840,7 +863,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/929d3767a1d6-medecin-assistant-e-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:32.371Z",
+      "crawledAt": "2026-05-19T22:26:14.193Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -856,11 +879,12 @@
       "postedDate": "2025-09-01",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/929d3767a1d6-medecin-assistant-e-100",
       "externalId": "929d3767a1d6",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:32.371Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -877,7 +901,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/059b6bbc75cd-medecin-adjoint-e-specialiste-en-chirurgie-vasculaire-100-leitende-arztin-leitenden-arzt-mit-fachrichtung-gefasschirurgie-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:31.068Z",
+      "crawledAt": "2026-05-19T22:26:12.975Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -893,11 +917,12 @@
       "postedDate": "2025-07-28",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/059b6bbc75cd-medecin-adjoint-e-specialiste-en-chirurgie-vasculaire-100-leitende-arztin-leitenden-arzt-mit-fachrichtung-gefasschirurgie-100",
       "externalId": "059b6bbc75cd",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:31.068Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -914,7 +939,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/e609ca49ff11-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-fur-innere-medizin-in-tafers-60-80",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:34.959Z",
+      "crawledAt": "2026-05-19T22:26:16.735Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -930,17 +955,18 @@
       "postedDate": "2025-06-23",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/e609ca49ff11-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-fur-innere-medizin-in-tafers-60-80",
       "externalId": "e609ca49ff11",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:34.959Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "id": "hfr-hopital-fribourgeois-ef67494b6229",
-      "slug": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-la-permanence-de-riaz-60-100-hfr",
+      "slug": "chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-la-permanence-de-riaz-60-100-hopital-fribourgeois-hfr-riaz",
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
       "companyDomain": "h-fr.ch",
@@ -951,7 +977,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/919980102cd5-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-la-permanence-de-riaz-60-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:22.090Z",
+      "crawledAt": "2026-05-19T22:26:04.639Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -967,11 +993,12 @@
       "postedDate": "2025-05-26",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/919980102cd5-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-la-permanence-de-riaz-60-100",
       "externalId": "919980102cd5",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:22.090Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -988,7 +1015,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c2eb0e06320a-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-60-100-innere-medizin-service-de-la-medecine-interne",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:34.323Z",
+      "crawledAt": "2026-05-19T22:26:16.091Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1004,11 +1031,12 @@
       "postedDate": "2025-04-22",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/c2eb0e06320a-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-60-100-innere-medizin-service-de-la-medecine-interne",
       "externalId": "c2eb0e06320a",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:34.323Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1025,7 +1053,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c235a4f18fc5-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische-operationsassistentin-technischen-operationsassistenten-90-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:17.431Z",
+      "crawledAt": "2026-05-19T22:25:59.594Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1041,11 +1069,12 @@
       "postedDate": "2024-02-22",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/c235a4f18fc5-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische-operationsassistentin-technischen-operationsassistenten-90-100",
       "externalId": "c235a4f18fc5",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:17.431Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1062,7 +1091,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/986b30dc5421-chef-fe-de-clinique-en-pediatrie-70-100-oberarztin-oberarzt-padiatrie-70-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:21.438Z",
+      "crawledAt": "2026-05-19T22:26:04.005Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1078,11 +1107,12 @@
       "postedDate": "2022-11-09",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/986b30dc5421-chef-fe-de-clinique-en-pediatrie-70-100-oberarztin-oberarzt-padiatrie-70-100",
       "externalId": "986b30dc5421",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:21.438Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1099,7 +1129,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/6e1db079dce0-infirmier-ere-instrumentiste-iso-ou-technicien-ne-en-salle-d-operation-tso-80-100-pflegefachperson-operationsbereich-oder-fachperson-operationstechnik-toa-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:27.414Z",
+      "crawledAt": "2026-05-19T22:26:09.628Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1115,16 +1145,16 @@
       "postedDate": "2022-01-28",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/6e1db079dce0-infirmier-ere-instrumentiste-iso-ou-technicien-ne-en-salle-d-operation-tso-80-100-pflegefachperson-operationsbereich-oder-fachperson-operationstechnik-toa-80-100",
       "externalId": "6e1db079dce0",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T13:03:27.414Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
