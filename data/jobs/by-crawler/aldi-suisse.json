@@ -1,6 +1,6 @@
 {
   "crawlerKey": "aldi-suisse",
-  "assembledAt": "2026-05-18T21:17:03.857Z",
+  "assembledAt": "2026-05-19T11:01:37.745Z",
   "jobs": [
     {
       "id": "aldi-suisse-0c5c9bc1b71c",
@@ -77,7 +77,15 @@
       "url": "https://www.jobs.aldi.ch/job/1391132333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:17:02.026Z",
+      "crawledAt": "2026-05-19T11:01:35.706Z",
+      "previousSlugs": [
+        "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-18T11:43:10.534Z",
       "salaryMin": 59000,
@@ -91,15 +99,7 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "stellvertretender-filialleiter-m-w-d-aldi-suisse"
-        ]
-      },
-      "previousSlugs": [
-        "stellvertretender-filialleiter-m-w-d-aldi-suisse"
-      ]
+      }
     },
     {
       "id": "aldi-suisse-2b7849368ea3",
@@ -173,7 +173,7 @@
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:17:02.020Z",
+      "crawledAt": "2026-05-19T11:01:35.700Z",
       "previousSlugs": [
         "addetto-vendite-m-f-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",

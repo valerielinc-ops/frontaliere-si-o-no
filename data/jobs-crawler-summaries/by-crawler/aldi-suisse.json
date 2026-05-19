@@ -1,22 +1,22 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-05-18T21:17:03.858Z",
+  "generatedAt": "2026-05-19T11:01:37.745Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4462,
-  "avgDurationMs": 4462,
+  "durationMs": 3901,
+  "avgDurationMs": 3901,
   "durationHistory": [
-    4462
+    3901
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "aldi-suisse-0c5c9bc1b71c",
-      "slug": "stellvertretender-filialleiter-m-w-d-aldi-suisse",
+      "slug": "vicedirettore-di-filiale-m-f-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
       "companyDomain": "aldi.ch",
@@ -38,16 +38,16 @@
       "url": "https://www.jobs.aldi.ch/job/1391132333",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:17:02.026Z",
+      "crawledAt": "2026-05-19T11:01:35.706Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-18T11:43:10.534Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
-      "_qualityScore": 87,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 16,
+        "translation": 19,
         "completeness": 25
       }
     },
@@ -75,7 +75,7 @@
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:17:02.020Z",
+      "crawledAt": "2026-05-19T11:01:35.700Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T09:33:14.853Z",
       "salaryMin": 59000,
