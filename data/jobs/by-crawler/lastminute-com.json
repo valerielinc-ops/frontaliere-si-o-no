@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-05-19T12:07:30.565Z",
+  "assembledAt": "2026-05-19T22:49:02.109Z",
   "jobs": [
     {
       "id": "company-2oxpfe",
@@ -78,8 +78,8 @@
       "previousSlugs": [
         "global-payroll-hr-systems-manager-chiasso",
         "global-payroll-hr-systems-manager-switzerlandteam",
-        "global-payroll-ressources-humaines-systems-manager-chiasso",
         "global-payroll-hr-systems-manager-lastminute-com-chiasso",
+        "global-payroll-ressources-humaines-systems-manager-chiasso",
         "global-payroll-hr-systems-manager-lastminute-com-switzerlandteam"
       ],
       "salaryMin": 79500,
@@ -98,7 +98,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-6y6dd3",
@@ -199,7 +200,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-wndocq",
@@ -293,7 +295,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     }
   ]
 }
