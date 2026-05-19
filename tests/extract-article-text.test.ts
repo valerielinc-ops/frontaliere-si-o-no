@@ -9,7 +9,6 @@
  */
 
 import { describe, expect, it } from 'vitest';
-// @ts-expect-error — .mjs file, no .d.ts
 import { extractArticleText } from '../scripts/lib/extract-article-text.mjs';
 
 describe('extractArticleText', () => {

@@ -17,12 +17,9 @@ function visibleText(s: string): string {
 
 describe('minifyHtml — basic safety', () => {
   it('returns input unchanged when not a string', () => {
-    // @ts-expect-error testing runtime behaviour on bad input
-    expect(minifyHtml(null)).toBe(null);
-    // @ts-expect-error
-    expect(minifyHtml(undefined)).toBe(undefined);
-    // @ts-expect-error
-    expect(minifyHtml(42)).toBe(42);
+    expect(minifyHtml(null as unknown as string)).toBe(null);
+    expect(minifyHtml(undefined as unknown as string)).toBe(undefined);
+    expect(minifyHtml(42 as unknown as string)).toBe(42);
   });
 
   it('returns empty string unchanged', () => {
