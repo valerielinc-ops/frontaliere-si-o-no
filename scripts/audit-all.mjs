@@ -40,6 +40,7 @@ import { factory as salaryLandingTemplate } from './audit-salary-landing-templat
 import { factory as pageWeight } from './audit-page-weight.mjs';
 import { factory as contentDuplicates } from './audit-content-duplicates.mjs';
 import { factory as faqpageValidity } from './audit-faqpage-validity.mjs';
+import { factory as imageObjectLicense } from './audit-image-object-license.mjs';
 
 const REGISTRY = [
   { factory: footerRootPresence, name: 'footer-root-presence' },
@@ -52,6 +53,7 @@ const REGISTRY = [
   { factory: pageWeight, name: 'page-weight' },
   { factory: contentDuplicates, name: 'content-duplicates' },
   { factory: faqpageValidity, name: 'faqpage-validity' },
+  { factory: imageObjectLicense, name: 'image-object-license' },
 ];
 
 // ─── CLI parsing ─────────────────────────────────────────────────────────────
