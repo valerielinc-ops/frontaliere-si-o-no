@@ -1,18 +1,19 @@
 {
   "key": "vista",
   "label": "Vista Augenpraxen & Kliniken",
-  "generatedAt": "2026-05-19T21:06:45.434Z",
+  "generatedAt": "2026-05-19T23:54:04.265Z",
   "total": 9,
-  "newCount": 9,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 279952,
-  "avgDurationMs": 279952,
+  "durationMs": 9120,
+  "avgDurationMs": 9120,
   "durationHistory": [
-    279952
+    9120
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "vista-a14b350da55c",
       "slug": "dipl-experte-anasthesiepflege-m-w-60-80-vista-burgdorf",
@@ -26,7 +27,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experte-anaesthesiepflege/77qin0tyz4buxlhbaeed88wt4783dnkmczw5zgcu8sqcnewzkco7zcy545km4izk",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T21:02:07.198Z",
+      "crawledAt": "2026-05-19T23:53:57.038Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -46,11 +47,12 @@
       "pensum": "60 - 80%",
       "pensumMin": 60,
       "pensumMax": 80,
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T21:02:07.198Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -67,7 +69,7 @@
       "url": "https://link.ostendis.com/publication/co-leitung-praxis/6xfj7gd210hybk5tekictfac0jnfhxtlxsffxbg36quvdhjrt5kqkyw0rrqj4x3o",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T21:02:07.878Z",
+      "crawledAt": "2026-05-19T23:53:57.716Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -87,11 +89,12 @@
       "pensum": "100%",
       "pensumMin": 100,
       "pensumMax": 100,
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T21:02:07.878Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -108,7 +111,7 @@
       "url": "https://link.ostendis.com/publication/fage-dipl-pflegefachperson/rzy3evf2g3ed9qmr0cye5qzvbaolshs63mtks44vp5tbypkabam32vffszoakvwm",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T21:02:08.547Z",
+      "crawledAt": "2026-05-19T23:53:58.394Z",
       "addressLocality": "Dättwil AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -128,11 +131,12 @@
       "pensum": "40%",
       "pensumMin": 40,
       "pensumMax": 40,
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T21:02:08.547Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -149,7 +153,7 @@
       "url": "https://link.ostendis.com/publication/augenoptiker-in/o0s0few6o00bjjgtl3f7cxorkcx7vsd5ypw6r43drmpnogs882ahob57c0fzleyf",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T21:02:09.236Z",
+      "crawledAt": "2026-05-19T23:53:59.086Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -169,11 +173,12 @@
       "pensum": "60%",
       "pensumMin": 60,
       "pensumMax": 60,
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T21:02:09.236Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -190,7 +195,7 @@
       "url": "https://link.ostendis.com/publication/fachspezialist-in-medizintechnik/936q7sihmzh6t0awmowdqhny1u5oi7c7z4qd42m1kzybbxq2do2yiq4gmij6jt8n",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T21:02:09.909Z",
+      "crawledAt": "2026-05-19T23:53:59.761Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -210,11 +215,12 @@
       "pensum": "50 - 80%",
       "pensumMin": 50,
       "pensumMax": 80,
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T21:02:09.909Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -231,7 +237,7 @@
       "url": "https://link.ostendis.com/publication/augenoptiker-in-oder-praxisassistent-in/fsx7kedrt1cainixvayb3maywh8od08dsiiye6as3nbnc1a0u2xj4600pxj2lmbx",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T21:02:10.599Z",
+      "crawledAt": "2026-05-19T23:54:00.429Z",
       "addressLocality": "Brugg AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -251,11 +257,12 @@
       "pensum": "60 - 100%",
       "pensumMin": 60,
       "pensumMax": 100,
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T21:02:10.599Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -272,7 +279,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf-toa/prxoyrfon67wl4fx6jswvoke9tnls0ax4kkujhpih0bjzi9rdczmzsz1cccomqpj",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T21:02:11.265Z",
+      "crawledAt": "2026-05-19T23:54:01.100Z",
       "addressLocality": "Dättwil AG",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -292,11 +299,12 @@
       "pensum": "40%",
       "pensumMin": 40,
       "pensumMax": 40,
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T21:02:11.265Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -313,7 +321,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fachaerztin-ophthalmologie-fmh/o755tllfwbzjkryomceyj7w4j1b68des8lmzc2ffeb8q1fc5ej6k3d7idec86sti",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T21:02:11.935Z",
+      "crawledAt": "2026-05-19T23:54:01.779Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -333,11 +341,12 @@
       "pensum": "60 - 100%",
       "pensumMin": 60,
       "pensumMax": 100,
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T21:02:11.935Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -354,7 +363,7 @@
       "url": "https://link.ostendis.com/publication/orthoptist-in/wjv31tkhqfjxpd5y4dkwrtri6fswk7stcktmleb8v9jv4wh0sip6y1ev4brall46",
       "source": "Vista Augenpraxen & Kliniken Dedicated Parser (Ostendis JobPublisher)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T21:02:12.593Z",
+      "crawledAt": "2026-05-19T23:54:02.444Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -374,16 +383,16 @@
       "pensum": "60 - 80%",
       "pensumMin": 60,
       "pensumMax": 80,
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T21:02:12.593Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
