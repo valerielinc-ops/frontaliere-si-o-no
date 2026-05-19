@@ -846,6 +846,8 @@ const translations: Record<string, string> = {
  'jobAlert.cantonSelectedCount': 'Selezionati',
  'jobAlert.cantonSelectedAria': 'Cantoni selezionati',
  'jobAlert.cantonHint': 'Lascia vuoto per ricevere alert da tutti i cantoni svizzeri.',
+ 'jobAlert.advancedShow': 'Filtri avanzati (opzionali)',
+ 'jobAlert.advancedHide': 'Nascondi filtri avanzati',
 
  // Search
  'search.placeholder': 'Cerca sezioni, strumenti, funzionalità...',
@@ -2534,6 +2536,22 @@ Regole:
  'seoContent.stats.check4': 'Andamento storico cambio CHF-EUR e dati comunità frontaliera',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3480.title': 'Job alert che funzionano + più ospedali + blog libero',
+ 'whatsNew.v3480.jobAlertSimpler.title': 'Job alert in 1 click',
+ 'whatsNew.v3480.jobAlertSimpler.desc': 'Il form per creare un job alert ora chiede solo la parola chiave. Zona, settore, contratto e cantoni sono diventati filtri opzionali sotto il bottone — chi vuole li apre, gli altri si iscrivono in un secondo.',
+ 'whatsNew.v3480.jobAlertNoPopup.title': 'Niente più popup molesti dopo il login',
+ 'whatsNew.v3480.jobAlertNoPopup.desc': 'Tolto il popup che chiedeva di creare un alert subito dopo l\'accesso (88% delle persone lo chiudeva). Sostituito da un invito gentile sulla pagina del singolo lavoro, con limite di 2 al giorno.',
+ 'whatsNew.v3480.hospitalCrawlers.title': '16 nuovi ospedali svizzeri sul job board',
+ 'whatsNew.v3480.hospitalCrawlers.desc': '~256 nuove offerte da ospedali in Vaud, Ginevra, Basilea e altri cantoni. Crawler dedicati per ogni struttura, aggiornati ogni notte.',
+ 'whatsNew.v3480.blogOpen.title': 'Blog accessibile senza login',
+ 'whatsNew.v3480.blogOpen.desc': 'Gli articoli del blog ora sono leggibili anche senza account. Niente più paywall per le notizie e gli approfondimenti.',
+ 'whatsNew.v3480.newsletterRotation.title': 'Newsletter senza ripetizioni',
+ 'whatsNew.v3480.newsletterRotation.desc': 'Allargato il pool di articoli e lavori in rotazione: stop alle stesse offerte e agli stessi articoli che tornavano settimana dopo settimana.',
+ 'whatsNew.v3480.salaryLocales.title': 'Calcolatore stipendio anche in EN/DE/FR',
+ 'whatsNew.v3480.salaryLocales.desc': 'Le landing del calcolatore stipendio sono ora tradotte anche in inglese, tedesco e francese — non solo italiano.',
+ 'whatsNew.v3480.fasterLoads.title': 'Pagine più veloci',
+ 'whatsNew.v3480.fasterLoads.desc': 'CSS, script e logo estratti in file separati per migliore caching del browser. Minifier HTML conservativo per il primo render. Risparmio di tempo soprattutto su mobile.',
+
  'whatsNew.v3470.title': 'Nuove sezioni SEO giornaliere e settimanali',
  'whatsNew.v3470.fuelDaily.title': 'Prezzi diesel e benzina aggiornati ogni giorno',
  'whatsNew.v3470.fuelDaily.desc': 'Prezzo diesel e benzina aggiornati quotidianamente per tutto il Ticino e 5 zone (Lugano, Mendrisio, Bellinzona, Locarno, Chiasso), con trend degli ultimi 7 giorni.',

@@ -809,6 +809,8 @@ const frCore: Record<string, string> = {
  'jobAlert.cantonSelectedCount': 'Sélectionnés',
  'jobAlert.cantonSelectedAria': 'Cantons sélectionnés',
  'jobAlert.cantonHint': 'Laissez vide pour recevoir des alertes de tous les cantons suisses.',
+ 'jobAlert.advancedShow': 'Filtres avancés (facultatifs)',
+ 'jobAlert.advancedHide': 'Masquer les filtres avancés',
 
  'search.placeholder': 'Rechercher sections, outils, fonctionnalités...',
  'search.hint': 'Tapez pour rechercher dans toutes les sections du site',
@@ -2447,6 +2449,22 @@ Règles :
  'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
  // ─── What's New / Feature Announcements ─────────────────────────────────
+ 'whatsNew.v3480.title': 'Alertes emploi qui fonctionnent + plus d\'hôpitaux + blog ouvert',
+ 'whatsNew.v3480.jobAlertSimpler.title': 'Alertes emploi en 1 clic',
+ 'whatsNew.v3480.jobAlertSimpler.desc': 'Le formulaire d\'alerte emploi ne demande plus que le mot-clé. Lieu, secteur, contrat et cantons sont devenus des filtres optionnels derrière un toggle — tapez un mot, abonnez-vous en une seconde.',
+ 'whatsNew.v3480.jobAlertNoPopup.title': 'Plus de popup gênant après la connexion',
+ 'whatsNew.v3480.jobAlertNoPopup.desc': 'Supprimé le popup qui demandait de créer une alerte juste après la connexion (88% le fermaient). Remplacé par une invitation discrète sur la page d\'une offre, limitée à 2 par jour.',
+ 'whatsNew.v3480.hospitalCrawlers.title': '16 nouveaux hôpitaux suisses sur le job board',
+ 'whatsNew.v3480.hospitalCrawlers.desc': '~256 nouvelles offres d\'hôpitaux en Vaud, Genève, Bâle et d\'autres cantons. Crawlers dédiés par établissement, rafraîchis chaque nuit.',
+ 'whatsNew.v3480.blogOpen.title': 'Blog lisible sans connexion',
+ 'whatsNew.v3480.blogOpen.desc': 'Les articles du blog sont maintenant lisibles sans compte. Plus de paywall pour les actualités et les dossiers.',
+ 'whatsNew.v3480.newsletterRotation.title': 'Newsletter sans répétition',
+ 'whatsNew.v3480.newsletterRotation.desc': 'Le pool de rotation des articles et offres a été élargi : fini les mêmes offres et articles qui revenaient semaine après semaine.',
+ 'whatsNew.v3480.salaryLocales.title': 'Calculateur de salaire aussi en EN/DE/FR',
+ 'whatsNew.v3480.salaryLocales.desc': 'Les landings du calculateur de salaire sont maintenant traduites en anglais, allemand et français — plus seulement en italien.',
+ 'whatsNew.v3480.fasterLoads.title': 'Pages plus rapides',
+ 'whatsNew.v3480.fasterLoads.desc': 'CSS, scripts et logo extraits dans des fichiers séparés pour un meilleur caching navigateur. Minifier HTML conservateur pour le premier rendu. Gains surtout visibles sur mobile.',
+
  'whatsNew.v3470.title': 'Nouvelles sections SEO quotidiennes et hebdomadaires',
  'whatsNew.v3470.fuelDaily.title': 'Prix du diesel et de l\'essence mis à jour chaque jour',
  'whatsNew.v3470.fuelDaily.desc': 'Prix du diesel et de l\'essence mis à jour quotidiennement pour tout le Tessin et 5 zones (Lugano, Mendrisio, Bellinzona, Locarno, Chiasso), avec tendance sur 7 jours.',

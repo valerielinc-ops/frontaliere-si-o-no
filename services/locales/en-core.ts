@@ -809,6 +809,8 @@ const enCore: Record<string, string> = {
  'jobAlert.cantonSelectedCount': 'Selected',
  'jobAlert.cantonSelectedAria': 'Selected cantons',
  'jobAlert.cantonHint': 'Leave empty to receive alerts from every Swiss canton.',
+ 'jobAlert.advancedShow': 'Advanced filters (optional)',
+ 'jobAlert.advancedHide': 'Hide advanced filters',
 
  'search.placeholder': 'Search sections, tools, features...',
  'search.hint': 'Type to search across all site sections',
@@ -2447,6 +2449,22 @@ Rules:
  'seoContent.stats.check4': 'Historical CHF-EUR exchange trends and community data',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3480.title': 'Job alerts that actually work + more hospitals + open blog',
+ 'whatsNew.v3480.jobAlertSimpler.title': '1-click job alerts',
+ 'whatsNew.v3480.jobAlertSimpler.desc': 'The job alert form now only asks for the keyword. Location, sector, contract and cantons became optional filters behind a toggle — type a word and subscribe in one second.',
+ 'whatsNew.v3480.jobAlertNoPopup.title': 'No more annoying post-login popup',
+ 'whatsNew.v3480.jobAlertNoPopup.desc': 'Removed the popup that asked you to create an alert right after sign-in (88% of people closed it). Replaced with a gentle invite on the single-job page, capped at 2 a day.',
+ 'whatsNew.v3480.hospitalCrawlers.title': '16 new Swiss hospitals on the job board',
+ 'whatsNew.v3480.hospitalCrawlers.desc': '~256 new openings from hospitals in Vaud, Geneva, Basel and other cantons. Dedicated crawlers per facility, refreshed every night.',
+ 'whatsNew.v3480.blogOpen.title': 'Blog readable without login',
+ 'whatsNew.v3480.blogOpen.desc': 'Blog articles are now readable without an account. No more paywall for news and deep dives.',
+ 'whatsNew.v3480.newsletterRotation.title': 'Newsletter without repetition',
+ 'whatsNew.v3480.newsletterRotation.desc': 'Broadened the rotation pool of articles and jobs: no more identical listings and articles coming back week after week.',
+ 'whatsNew.v3480.salaryLocales.title': 'Salary calculator in EN/DE/FR too',
+ 'whatsNew.v3480.salaryLocales.desc': 'Salary calculator landings are now translated into English, German and French — not Italian only.',
+ 'whatsNew.v3480.fasterLoads.title': 'Faster page loads',
+ 'whatsNew.v3480.fasterLoads.desc': 'CSS, scripts and logo extracted to separate files for better browser caching. Conservative HTML minifier for the first render. Wins are most visible on mobile.',
+
  'whatsNew.v3470.title': 'New daily and weekly SEO sections',
  'whatsNew.v3470.fuelDaily.title': 'Diesel and petrol prices updated daily',
  'whatsNew.v3470.fuelDaily.desc': 'Diesel and petrol prices updated every day for all of Ticino and 5 zones (Lugano, Mendrisio, Bellinzona, Locarno, Chiasso), with a 7-day trend.',

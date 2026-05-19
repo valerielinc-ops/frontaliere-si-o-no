@@ -809,6 +809,8 @@ const deCore: Record<string, string> = {
  'jobAlert.cantonSelectedCount': 'Ausgewählt',
  'jobAlert.cantonSelectedAria': 'Ausgewählte Kantone',
  'jobAlert.cantonHint': 'Leer lassen, um Alerts aus allen Schweizer Kantonen zu erhalten.',
+ 'jobAlert.advancedShow': 'Erweiterte Filter (optional)',
+ 'jobAlert.advancedHide': 'Erweiterte Filter ausblenden',
 
  'search.placeholder': 'Bereiche, Tools, Funktionen suchen...',
  'search.hint': 'Tippen Sie, um alle Bereiche der Website zu durchsuchen',
@@ -2447,6 +2449,22 @@ Regeln:
  'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
  // ─── What's New / Feature Announcements ─────────────────────────────
+ 'whatsNew.v3480.title': 'Job-Alerts, die funktionieren + mehr Spitäler + offener Blog',
+ 'whatsNew.v3480.jobAlertSimpler.title': 'Job-Alerts mit einem Klick',
+ 'whatsNew.v3480.jobAlertSimpler.desc': 'Das Job-Alert-Formular fragt jetzt nur noch nach dem Stichwort. Ort, Branche, Vertragsart und Kantone sind optionale Filter hinter einem Toggle — Stichwort eingeben und abonnieren in einer Sekunde.',
+ 'whatsNew.v3480.jobAlertNoPopup.title': 'Kein lästiges Popup nach dem Login mehr',
+ 'whatsNew.v3480.jobAlertNoPopup.desc': 'Das Popup, das nach dem Login zur Alert-Erstellung aufforderte, wurde entfernt (88% schlossen es). Ersetzt durch eine sanfte Einladung auf der Detailseite eines Inserats, max. 2 pro Tag.',
+ 'whatsNew.v3480.hospitalCrawlers.title': '16 neue Schweizer Spitäler im Job Board',
+ 'whatsNew.v3480.hospitalCrawlers.desc': '~256 neue Stellen aus Spitälern in Waadt, Genf, Basel und weiteren Kantonen. Dedizierte Crawler pro Standort, jede Nacht aktualisiert.',
+ 'whatsNew.v3480.blogOpen.title': 'Blog ohne Login lesbar',
+ 'whatsNew.v3480.blogOpen.desc': 'Blog-Artikel sind jetzt auch ohne Konto lesbar. Keine Paywall mehr für News und Tiefenberichte.',
+ 'whatsNew.v3480.newsletterRotation.title': 'Newsletter ohne Wiederholungen',
+ 'whatsNew.v3480.newsletterRotation.desc': 'Der Rotationspool für Artikel und Stellen wurde erweitert: keine identischen Inserate und Artikel mehr Woche für Woche.',
+ 'whatsNew.v3480.salaryLocales.title': 'Lohnrechner auch auf EN/DE/FR',
+ 'whatsNew.v3480.salaryLocales.desc': 'Die Lohnrechner-Landingpages sind jetzt auf Englisch, Deutsch und Französisch übersetzt — nicht mehr nur auf Italienisch.',
+ 'whatsNew.v3480.fasterLoads.title': 'Schnellere Seitenladezeiten',
+ 'whatsNew.v3480.fasterLoads.desc': 'CSS, Skripte und Logo in separate Dateien ausgelagert für besseres Browser-Caching. Konservativer HTML-Minifier für den ersten Render. Vorteile besonders auf Mobile.',
+
  'whatsNew.v3470.title': 'Neue tägliche und wöchentliche SEO-Bereiche',
  'whatsNew.v3470.fuelDaily.title': 'Diesel- und Benzinpreise täglich aktualisiert',
  'whatsNew.v3470.fuelDaily.desc': 'Diesel- und Benzinpreise werden täglich für das gesamte Tessin und 5 Zonen (Lugano, Mendrisio, Bellinzona, Locarno, Chiasso) aktualisiert, mit 7-Tage-Trend.',
