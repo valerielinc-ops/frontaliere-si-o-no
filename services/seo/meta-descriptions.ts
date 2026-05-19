@@ -125,11 +125,22 @@ interface CityHubArgs {
   locale: JobPageLocale;
   cityDisplay: string;
   count: number;
+  /**
+   * Optional canton display label. When provided, non-IT meta descriptions
+   * weave the actual canton in place of the legacy Ticino/Tessin fallback.
+   * Omit for TI city hubs — keeps existing meta byte-identical.
+   */
+  cantonDisplay?: string;
 }
 
-export function buildCityHubMeta({ locale, cityDisplay, count }: CityHubArgs): string {
+export function buildCityHubMeta({ locale, cityDisplay, count, cantonDisplay }: CityHubArgs): string {
   const n = safeCount(count);
   const city = cityDisplay;
+  const region = {
+    en: cantonDisplay ?? 'Ticino',
+    de: cantonDisplay ?? 'Tessin',
+    fr: cantonDisplay ?? 'Tessin',
+  };
   let base: string;
   let qualifier: string;
   switch (locale) {
@@ -141,20 +152,20 @@ export function buildCityHubMeta({ locale, cityDisplay, count }: CityHubArgs): s
       break;
     case 'en':
       base = n > 0
-        ? `Browse ${n} jobs in ${city}, Ticino Switzerland — updated today: healthcare, banking, offices, retail, hospitality. Apply online for free in 2 minutes.`
-        : `Browse jobs in ${city}, Ticino Switzerland — updated daily: healthcare, banking, offices, retail, hospitality. Apply online for free in 2 minutes.`;
+        ? `Browse ${n} jobs in ${city}, ${region.en} Switzerland — updated today: healthcare, banking, offices, retail, hospitality. Apply online for free in 2 minutes.`
+        : `Browse jobs in ${city}, ${region.en} Switzerland — updated daily: healthcare, banking, offices, retail, hospitality. Apply online for free in 2 minutes.`;
       qualifier = 'No signup needed.';
       break;
     case 'de':
       base = n > 0
-        ? `Durchsuche ${n} Stellenangebote in ${city}, Tessin — täglich aktualisiert: Pflege, Banken, Büros, Handel. Kostenlos online bewerben in Minuten.`
-        : `Durchsuche Stellenangebote in ${city}, Tessin — täglich aktualisiert: Pflege, Banken, Büros, Handel. Kostenlos online bewerben.`;
+        ? `Durchsuche ${n} Stellenangebote in ${city}, ${region.de} — täglich aktualisiert: Pflege, Banken, Büros, Handel. Kostenlos online bewerben in Minuten.`
+        : `Durchsuche Stellenangebote in ${city}, ${region.de} — täglich aktualisiert: Pflege, Banken, Büros, Handel. Kostenlos online bewerben.`;
       qualifier = 'Ohne Anmeldung.';
       break;
     case 'fr':
       base = n > 0
-        ? `Parcourez ${n} offres d'emploi à ${city}, Tessin mises à jour aujourd'hui : santé, banques, bureaux, commerce. Postulez gratuitement en ligne.`
-        : `Parcourez les offres d'emploi à ${city}, Tessin mises à jour chaque jour : santé, banques, bureaux, commerce. Postulez gratuitement.`;
+        ? `Parcourez ${n} offres d'emploi à ${city}, ${region.fr} mises à jour aujourd'hui : santé, banques, bureaux, commerce. Postulez gratuitement en ligne.`
+        : `Parcourez les offres d'emploi à ${city}, ${region.fr} mises à jour chaque jour : santé, banques, bureaux, commerce. Postulez gratuitement.`;
       qualifier = 'Sans inscription.';
       break;
   }

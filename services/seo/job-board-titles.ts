@@ -168,6 +168,13 @@ interface CityHubArgs {
   year: number;
   /** Override the fire-emoji threshold. Defaults to FIRE_EMOJI_THRESHOLD. */
   fireThreshold?: number;
+  /**
+   * Optional canton display label (e.g. 'Basilea Città', 'Zurigo'). When set,
+   * the base title and pad-to-min use the actual canton instead of the legacy
+   * Ticino/Tessin fallback. Omit to preserve the legacy TI behavior — keeps
+   * existing TI city-hub titles byte-identical.
+   */
+  cantonDisplay?: string;
 }
 
 /** Default fire-emoji threshold for per-city hubs: single-city counts rarely
@@ -181,9 +188,18 @@ export function buildCityHubTitle({
   count,
   year,
   fireThreshold = DEFAULT_CITY_HUB_FIRE_THRESHOLD,
+  cantonDisplay,
 }: CityHubArgs): string {
   const n = safeCount(count);
   const city = cityDisplay;
+  // When the caller passes a non-TI cantonDisplay, weave it into the base
+  // title (en/de/fr) and into the pad-to-min fallback. For TI callers the
+  // arg is undefined and the legacy "Ticino/Tessin" copy stays byte-identical.
+  const regionLabels = {
+    en: cantonDisplay ?? 'Ticino',
+    de: cantonDisplay ?? 'Tessin',
+    fr: cantonDisplay ?? 'Tessin',
+  };
   let base: string;
   switch (locale) {
     case 'it':
@@ -193,18 +209,18 @@ export function buildCityHubTitle({
       break;
     case 'en':
       base = n > 0
-        ? `Jobs in ${city} Ticino ${year} — ${n} open positions today`
-        : `Jobs in ${city} Ticino Switzerland ${year} — Updated Daily`;
+        ? `Jobs in ${city} ${regionLabels.en} ${year} — ${n} open positions today`
+        : `Jobs in ${city} ${regionLabels.en} Switzerland ${year} — Updated Daily`;
       break;
     case 'de':
       base = n > 0
-        ? `Jobs in ${city} Tessin ${year} — ${n} offene Stellen heute`
-        : `Jobs in ${city} Tessin Schweiz ${year} — Täglich aktuell`;
+        ? `Jobs in ${city} ${regionLabels.de} ${year} — ${n} offene Stellen heute`
+        : `Jobs in ${city} ${regionLabels.de} Schweiz ${year} — Täglich aktuell`;
       break;
     case 'fr':
       base = n > 0
-        ? `Emploi à ${city} Tessin ${year} — ${n} postes aujourd'hui`
-        : `Emploi à ${city} Tessin Suisse ${year} — Mises à jour`;
+        ? `Emploi à ${city} ${regionLabels.fr} ${year} — ${n} postes aujourd'hui`
+        : `Emploi à ${city} ${regionLabels.fr} Suisse ${year} — Mises à jour`;
       break;
   }
   // Use per-caller fire threshold; city hubs pass 30, site-wide hub inherits 500.
@@ -216,7 +232,7 @@ export function buildCityHubTitle({
   base = trimToMax(base);
   if (visibleLength(base) < TITLE_MIN_CHARS) {
     const padWord = locale === 'it'
-      ? 'in Ticino'
+      ? (cantonDisplay ? `in ${cantonDisplay}` : 'in Ticino')
       : locale === 'en'
         ? 'Switzerland'
         : locale === 'de'

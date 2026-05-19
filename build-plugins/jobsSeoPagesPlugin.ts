@@ -2854,7 +2854,14 @@ ${hreflangHtml}
  // eslint-disable-next-line @typescript-eslint/no-explicit-any
  const renderJobCardLi = (job: any, locale: 'it' | 'en' | 'de' | 'fr'): string => {
  const jSlug = localizedSlug(job, locale);
- const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
+ // Section is canton-aware: a non-TI job's detail page is emitted under its
+ // own canton section (e.g. /cerca-lavoro-basilea/<slug>/). Hardcoding
+ // sectionByLocale[locale] worked only for TI jobs; non-TI jobs reached a
+ // soft-canonical /cerca-lavoro-ticino/ detour that <link rel=canonical>
+ // redirected back to the canton URL — needless hop and breadcrumb mismatch.
+ const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
+ const sectionForJob = jobCanton ? sharedResolveCantonSection(locale, jobCanton) : sectionByLocale[locale];
+ const jPath = `${localePrefix[locale]}/${sectionForJob}/${jSlug}`.replace(/\/+/g, '/');
  const jHref = `${BASE_URL}${withSlash(jPath)}`;
  const cardHtml = renderJobCardHtml(job as JobCardJob, {
  href: jHref,
@@ -5331,7 +5338,7 @@ ${alternates}
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const cDisplay = cantonDisplayLocalCity(canton, locale);
  const year = new Date().getFullYear();
- const cityHubSeo = buildCityHubSeo(locale as never, citySlug, cityJobs.length, year);
+ const cityHubSeo = buildCityHubSeo(locale as never, citySlug, cityJobs.length, year, cDisplay);
  const pageTitle = cityHubSeo.title;
  const pageDesc = cityHubSeo.desc;
  // Build hreflang including x-default
