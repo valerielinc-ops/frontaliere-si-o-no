@@ -77,6 +77,8 @@ import {
   HERO_EYEBROW_STYLE,
   LEDE_STYLE,
   SMALL_HEADING_STYLE,
+  TABLE_HEAD_STYLE,
+  TABLE_CELL_STYLE,
   renderStatGrid,
   pickStatTileTone,
   differentiateH1FromTitle,
@@ -392,7 +394,7 @@ function renderPage(opts: {
     .map(
       (s) => `
         <section style="margin:0 0 28px;max-width:960px">
-          <h2 style="${H2_STYLE}">${esc(s.title)}</h2>
+          <h2 class="col-h2">${esc(s.title)}</h2>
           ${s.html}
         </section>`,
     )
@@ -464,15 +466,23 @@ function renderPage(opts: {
   const employerGridHtml = renderEmployerGrid(snapshot, view, locale, city);
   const dividerHtml = renderApprofondisciDivider(view.approfondisciHeading);
 
-  // Extract FAQ <details> styling to a single <style> block + 3 classes
-  // (.cf, .cs, .ca). Inline-style variant cost ~500 B per FAQ × N items per
-  // page; on 16 cost-of-living locale pages this floored the text-to-HTML
-  // ratio in the 9.0-9.95% band (just under the Semrush 10% gate). The
-  // class-based variant costs ~250 B once + ~80 B per FAQ — saves ~6-10 KB
-  // per page, lifting the ratio above the threshold without rewriting the
-  // editorial content.
-  const faqStyleBlock = `<style>.cf{margin:0 0 10px;${CARD_STYLE};border-radius:12px}.cs{font-weight:700;cursor:pointer;color:var(--color-heading);line-height:1.45}.ca{margin:10px 0 0;color:var(--color-body);line-height:1.65}</style>`;
-  const faqHtml = faqStyleBlock + faqs
+  // Extract FAQ <details> + table cell styling to a single <style> block +
+  // ~5 classes. Each table cell + header had `style="..."` (~110-170 B
+  // inline) and there are ~25-35 such elements per page across the rent +
+  // basket + comparison tables in costOfLivingLandingsCopy.ts. After PR
+  // #338 added the DE/FR/EN locale variants, this floored text-html ratio
+  // at ~7.98-8.58% on cost-of-living city pages (just under the Semrush
+  // 10 % gate, baseline allowed 25 spa-locale offenders, observed 30).
+  //
+  // Resolution: define the shared style block ONCE at the top of <main>
+  // (so the rules apply to BOTH tables in sectionsHtml AND the FAQ block
+  // that follows), and replace `style="${TABLE_HEAD_STYLE}"` with
+  // `class="t-h"` in costOfLivingLandingsCopy.ts. Saves ~3-5 KB per page
+  // on top of the FAQ extraction already in place. Classes (.cf/.cs/.ca
+  // for FAQ; .t-h/.t-c for tables) intentionally short to minimise
+  // per-usage overhead.
+  const sharedStyleBlock = `<style>.cf{margin:0 0 10px;${CARD_STYLE};border-radius:12px}.cs{font-weight:700;cursor:pointer;color:var(--color-heading);line-height:1.45}.ca{margin:10px 0 0;color:var(--color-body);line-height:1.65}.t-h{${TABLE_HEAD_STYLE}}.t-c{${TABLE_CELL_STYLE}}.col-h2{${H2_STYLE}}.col-lede{${LEDE_STYLE}}.col-eyebrow{${HERO_EYEBROW_STYLE}}</style>`;
+  const faqHtml = faqs
     .map(
       (f) => `<details class="cf"><summary class="cs">${esc(f.question)}</summary><p class="ca">${esc(f.answer)}</p></details>`,
     )
@@ -486,6 +496,7 @@ function renderPage(opts: {
     .join('');
 
   const body = `
+    ${sharedStyleBlock}
     <nav style="${BREADCRUMB_STYLE}">
       <a href="${esc(homeUrl)}" style="${BREADCRUMB_LINK_STYLE}">${esc(L.breadcrumbHome)}</a>
       <span> / </span>
@@ -500,9 +511,9 @@ function renderPage(opts: {
           city: cityName,
         }, h1, denseLede)
       : `<header style="margin-bottom:20px">
-      <p style="${HERO_EYEBROW_STYLE}">${esc(L.eyebrow(cityName))}</p>
+      <p class="col-eyebrow">${esc(L.eyebrow(cityName))}</p>
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
-      <p style="${LEDE_STYLE}">${esc(denseLede)}</p>
+      <p class="col-lede">${esc(denseLede)}</p>
     </header>`}
     <p style="${HERO_EYEBROW_STYLE};margin-top:4px;font-weight:500">${esc(L.updatedLabel)} ${esc(dateStamp)}</p>
     ${statTilesHtml}
@@ -512,11 +523,11 @@ function renderPage(opts: {
     ${dividerHtml}
     ${sectionsHtml}
     <section style="margin:0 0 28px;max-width:960px">
-      <h2 style="${H2_STYLE}">${esc(L.faqTitle)}</h2>
+      <h2 class="col-h2">${esc(L.faqTitle)}</h2>
       ${faqHtml}
     </section>
     <section style="margin:0 0 28px;max-width:960px">
-      <h2 style="${H2_STYLE}">${esc(L.relatedLabel)}</h2>
+      <h2 class="col-h2">${esc(L.relatedLabel)}</h2>
       <ul style="margin:0 0 0 20px;padding:0;color:var(--color-body);line-height:1.55">${relatedHtml}</ul>
     </section>
     <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
