@@ -1,18 +1,60 @@
 {
   "key": "caritas-schweiz",
   "label": "Caritas Schweiz",
-  "generatedAt": "2026-05-19T14:43:05.958Z",
-  "total": 17,
-  "newCount": 17,
-  "updatedCount": 0,
+  "generatedAt": "2026-05-19T21:44:55.301Z",
+  "total": 18,
+  "newCount": 1,
+  "updatedCount": 17,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 372643,
-  "avgDurationMs": 372643,
+  "durationMs": 11694,
+  "avgDurationMs": 11694,
   "durationHistory": [
-    372643
+    11694
   ],
   "newJobs": [
+    {
+      "id": "caritas-schweiz-4d232a8712f2",
+      "slug": "employ-u00e9-en-intendance-h-f-x-60-caritas-schweiz-matran-fr",
+      "company": "Caritas Schweiz",
+      "companyKey": "caritas-schweiz",
+      "companyDomain": "caritas.ch",
+      "title": "Employ\\u00e9 en intendance (h/f/x), 60%",
+      "needsRetranslation": true,
+      "location": "Matran FR",
+      "canton": "FR",
+      "url": "https://apply.refline.ch/126757/2310/pub/1/index.html",
+      "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-05-19T21:44:50.902Z",
+      "addressLocality": "Matran FR",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6002",
+      "category": "Sociale / Educazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / NGO",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://apply.refline.ch/126757/2310/pub/1/index.html",
+      "pensumMin": 60,
+      "pensumMax": 60,
+      "pensum": "60%",
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "caritas-schweiz-4d232a8712f2",
       "slug": "consultant-s-international-and-local-experts-for-the-end-of-programme-evaluation-of-the",
@@ -26,7 +68,7 @@
       "url": "https://apply.refline.ch/126757/2301/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T14:36:54.374Z",
+      "crawledAt": "2026-05-19T21:44:44.725Z",
       "addressLocality": "Kosovo",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -44,16 +86,17 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-694a68c5421e",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "interpr-u00e8te-communautaire-10-100-h-f-d-caritas-schweiz-fribourg-jura-et-jura-bernois",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -65,7 +108,7 @@
       "url": "https://apply.refline.ch/126757/2015/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T14:36:54.803Z",
+      "crawledAt": "2026-05-19T21:44:45.208Z",
       "addressLocality": "Fribourg, Jura et Jura bernois",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -83,16 +126,17 @@
       "pensumMin": 10,
       "pensumMax": 100,
       "pensum": "10 - 100%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-71c4986907ca",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "ladenleitung-freiwilligenkoordination-80-f-u00fcr-den-caritas-markt-wil-sg-caritas-schweiz",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -104,7 +148,7 @@
       "url": "https://apply.refline.ch/126757/2284/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:55.228Z",
+      "crawledAt": "2026-05-19T21:44:45.685Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -122,16 +166,17 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-b99e1e3b6c2f",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "assistant-social-80-100-h-f-d-caritas-schweiz-fribourg",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -143,7 +188,7 @@
       "url": "https://apply.refline.ch/126757/2276/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T14:36:55.651Z",
+      "crawledAt": "2026-05-19T21:44:46.159Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -161,16 +206,17 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-867dfc17d18e",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "pflegefachperson-hf-fh-50-80-m-w-d-caritas-schweiz-zentralschweiz",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -182,7 +228,7 @@
       "url": "https://apply.refline.ch/126757/2299/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:56.082Z",
+      "crawledAt": "2026-05-19T21:44:46.642Z",
       "addressLocality": "Zentralschweiz",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -200,16 +246,17 @@
       "pensumMin": 50,
       "pensumMax": 80,
       "pensum": "50 - 80%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-5c19667e986c",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "betreuende-fachperson-nacht-und-wochenende-mna-60-80-in-z-u00fcrich-oerlikon-m-w-d-caritas",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -221,7 +268,7 @@
       "url": "https://apply.refline.ch/126757/2304/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:56.503Z",
+      "crawledAt": "2026-05-19T21:44:47.115Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -239,16 +286,17 @@
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-fb69a6349367",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "fachbereichsleitung-finanzen-administration-100-m-w-d-caritas-schweiz-zurich",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -260,7 +308,7 @@
       "url": "https://apply.refline.ch/126757/2302/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:56.923Z",
+      "crawledAt": "2026-05-19T21:44:47.588Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -278,16 +326,17 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-ba657758739a",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "sozialarbeiter-in-80-befristet-in-adliswil-zh-w-m-d-caritas-schweiz-zurich",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -299,7 +348,7 @@
       "url": "https://apply.refline.ch/126757/2303/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:57.348Z",
+      "crawledAt": "2026-05-19T21:44:48.062Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -317,16 +366,17 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-cc9e975c766a",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "r-u00e9f-u00e9rent-socio-u00e9ducatif-80-h-f-x-caritas-schweiz-matran-fr",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -338,7 +388,7 @@
       "url": "https://apply.refline.ch/126757/2307/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T14:36:57.769Z",
+      "crawledAt": "2026-05-19T21:44:48.534Z",
       "addressLocality": "Matran FR",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -356,16 +406,17 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-88859583a90a",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "betreuende-fachpersonen-nacht-und-wochenende-mna-40-in-z-u00fcrich-uster-m-w-d-caritas",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -377,7 +428,7 @@
       "url": "https://apply.refline.ch/126757/2308/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:58.190Z",
+      "crawledAt": "2026-05-19T21:44:49.007Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -395,16 +446,17 @@
       "pensumMin": 40,
       "pensumMax": 40,
       "pensum": "40%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-f9be43e53303",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "sozialp-u00e4dagogische-bezugsperson-mna-100-in-z-u00fcrich-uster-m-w-d-caritas-schweiz",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -416,7 +468,7 @@
       "url": "https://apply.refline.ch/126757/2249/pub/11/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:58.609Z",
+      "crawledAt": "2026-05-19T21:44:49.487Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -434,16 +486,17 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-e02c660cb543",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "teamleitung-und-sozialp-u00e4dagogische-bezugsperson-80-100-in-uster-m-w-d-caritas-schweiz",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -455,7 +508,7 @@
       "url": "https://apply.refline.ch/126757/2270/pub/11/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:59.028Z",
+      "crawledAt": "2026-05-19T21:44:49.959Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -473,16 +526,17 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-31dd9bb8331f",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "verantwortliche-r-unternehmenspartnerschaften-60-70-m-w-d-caritas-schweiz-luzern",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -494,7 +548,7 @@
       "url": "https://apply.refline.ch/126757/2311/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:59.447Z",
+      "crawledAt": "2026-05-19T21:44:50.430Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -512,16 +566,17 @@
       "pensumMin": 60,
       "pensumMax": 70,
       "pensum": "60 - 70%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-200731672a67",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "sozialarbeiter-in-in-der-sozialberatung-f-u00fcr-familien-100-caritas-schweiz-zurich",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -533,7 +588,7 @@
       "url": "https://apply.refline.ch/126757/2300/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:36:59.867Z",
+      "crawledAt": "2026-05-19T21:44:51.375Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -551,16 +606,17 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-38e6a0d6e79e",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "praktikum-youngcaritas-z-u00fcrich-f-u00fcr-6-monate-60-caritas-schweiz-zurich",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -572,7 +628,7 @@
       "url": "https://apply.refline.ch/126757/2309/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:00.288Z",
+      "crawledAt": "2026-05-19T21:44:51.846Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -590,16 +646,17 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-6ff4b684e04f",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "sachbearbeiter-in-administration-projekte-50-caritas-schweiz-aarau",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -611,7 +668,7 @@
       "url": "https://apply.refline.ch/126757/2298/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:00.706Z",
+      "crawledAt": "2026-05-19T21:44:52.318Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -629,16 +686,17 @@
       "pensumMin": 50,
       "pensumMax": 50,
       "pensum": "50%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
-      "id": "caritas-schweiz-a816c55b40f4",
+      "id": "caritas-schweiz-4d232a8712f2",
       "slug": "sozialarbeiter-in-fh-mit-sehr-guten-italienischkenntnissen-50-60-caritas-schweiz-baden",
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -650,7 +708,7 @@
       "url": "https://apply.refline.ch/126757/2297/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T14:37:01.124Z",
+      "crawledAt": "2026-05-19T21:44:52.786Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -668,16 +726,16 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T14:36:54.374Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
