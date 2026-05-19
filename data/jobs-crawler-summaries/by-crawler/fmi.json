@@ -1,54 +1,18 @@
 {
   "key": "fmi",
   "label": "Spitäler fmi AG",
-  "generatedAt": "2026-05-19T15:50:01.722Z",
+  "generatedAt": "2026-05-19T22:15:07.909Z",
   "total": 62,
-  "newCount": 62,
-  "updatedCount": 0,
+  "newCount": 1,
+  "updatedCount": 61,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1076058,
-  "avgDurationMs": 1076058,
+  "durationMs": 43087,
+  "avgDurationMs": 43087,
   "durationHistory": [
-    1076058
+    43087
   ],
   "newJobs": [
-    {
-      "id": "fmi-220580d4c881",
-      "slug": "pflegefachfrau-pflegefachmann-hf-fh-chirurgie-orthopadie-60-100-fmi-unterseen",
-      "company": "Spitäler fmi AG",
-      "companyKey": "fmi",
-      "companyDomain": "spitalfmi.ch",
-      "title": "Pflegefachfrau / Pflegefachmann HF/FH Chirurgie/Orthopädie 60-100%",
-      "needsRetranslation": true,
-      "location": "Unterseen",
-      "canton": "BE",
-      "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-chirurgie-orthopaedie/912ba1dd-8303-49b3-87b8-62dba9beceee",
-      "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:08.060Z",
-      "addressLocality": "Unterseen",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3800",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-chirurgie-orthopaedie/912ba1dd-8303-49b3-87b8-62dba9beceee",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
     {
       "id": "fmi-d2c3915bcbf3",
       "slug": "assistenzarztin-assistenzarzt-80-100-fmi-unterseen",
@@ -62,7 +26,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistenzaerztin-assistenzarzt/3c68714d-5929-4a32-8bcc-1261b38bd3a0",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:08.808Z",
+      "crawledAt": "2026-05-19T22:14:28.074Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -84,6 +48,45 @@
         "translation": 4,
         "completeness": 17
       }
+    }
+  ],
+  "updatedJobs": [
+    {
+      "id": "fmi-220580d4c881",
+      "slug": "pflegefachfrau-pflegefachmann-hf-fh-chirurgie-orthopadie-60-100-fmi-unterseen",
+      "company": "Spitäler fmi AG",
+      "companyKey": "fmi",
+      "companyDomain": "spitalfmi.ch",
+      "title": "Pflegefachfrau / Pflegefachmann HF/FH Chirurgie/Orthopädie 60-100%",
+      "needsRetranslation": true,
+      "location": "Unterseen",
+      "canton": "BE",
+      "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-chirurgie-orthopaedie/912ba1dd-8303-49b3-87b8-62dba9beceee",
+      "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T22:14:27.491Z",
+      "addressLocality": "Unterseen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3800",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-chirurgie-orthopaedie/912ba1dd-8303-49b3-87b8-62dba9beceee",
+      "firstSeenAt": "2026-05-19T15:32:08.060Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
     },
     {
       "id": "fmi-5a455ab12f5b",
@@ -98,7 +101,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistenzaerztin-assistenzarzt/4cb91fc1-ca49-4791-b8e3-df610fbcd5ae",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:09.531Z",
+      "crawledAt": "2026-05-19T22:14:28.699Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-18",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/assistenzaerztin-assistenzarzt/4cb91fc1-ca49-4791-b8e3-df610fbcd5ae",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:09.531Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachspezialist-in-it-security/35347489-abf7-4997-8d2d-a0c064baed51",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:10.264Z",
+      "crawledAt": "2026-05-19T22:14:29.462Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/fachspezialist-in-it-security/35347489-abf7-4997-8d2d-a0c064baed51",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:32:10.264Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistenzaerztin-assistenzarzt-medizin/9ad2e438-a308-4acd-afac-e9874cd38e19",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:10.985Z",
+      "crawledAt": "2026-05-19T22:14:30.413Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-12",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/assistenzaerztin-assistenzarzt-medizin/9ad2e438-a308-4acd-afac-e9874cd38e19",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:10.985Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-station-medizin/6062bcbc-38c1-4dc3-a814-538ae85be262",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:11.729Z",
+      "crawledAt": "2026-05-19T22:14:31.003Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "featured": false,
       "postedDate": "2026-05-12",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fh-station-medizin/6062bcbc-38c1-4dc3-a814-538ae85be262",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:11.729Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachperson-apotheke-pharmaassistent-in/b440ddfa-d547-4d07-a5fa-b13ae86c059d",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:12.523Z",
+      "crawledAt": "2026-05-19T22:14:31.652Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -257,11 +264,12 @@
       "featured": false,
       "postedDate": "2026-05-07",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/fachperson-apotheke-pharmaassistent-in/b440ddfa-d547-4d07-a5fa-b13ae86c059d",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:12.523Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -278,7 +286,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistenzarzt-aerztin-psychiatrie/649b9b0c-e65b-4364-8449-a67f28e2ae1a",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:13.237Z",
+      "crawledAt": "2026-05-19T22:14:32.222Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -293,11 +301,12 @@
       "featured": false,
       "postedDate": "2026-05-07",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/assistenzarzt-aerztin-psychiatrie/649b9b0c-e65b-4364-8449-a67f28e2ae1a",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:13.237Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -314,7 +323,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/sachbearbeiter-in-payroll-hr-administration-50/b65c0c5d-e8a3-4466-a7fb-90452475269f",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:13.935Z",
+      "crawledAt": "2026-05-19T22:14:32.839Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -329,11 +338,12 @@
       "featured": false,
       "postedDate": "2026-05-06",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/sachbearbeiter-in-payroll-hr-administration-50/b65c0c5d-e8a3-4466-a7fb-90452475269f",
-      "_qualityScore": 59,
+      "firstSeenAt": "2026-05-19T15:32:13.935Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -350,7 +360,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/mitarbeiter-in-reinigung-spital/deace7b6-1415-4a6d-9e97-28f171a1ae7a",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:14.652Z",
+      "crawledAt": "2026-05-19T22:14:33.546Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -365,11 +375,12 @@
       "featured": false,
       "postedDate": "2026-05-05",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/mitarbeiter-in-reinigung-spital/deace7b6-1415-4a6d-9e97-28f171a1ae7a",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T15:32:14.652Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -386,7 +397,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/mitarbeiter-in-raumpflege-waescheversorgung/6b52f88d-287f-4624-a908-349ef1d622ce",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:15.654Z",
+      "crawledAt": "2026-05-19T22:14:34.154Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -401,11 +412,12 @@
       "featured": false,
       "postedDate": "2026-05-05",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/mitarbeiter-in-raumpflege-waescheversorgung/6b52f88d-287f-4624-a908-349ef1d622ce",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:15.654Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -422,7 +434,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/oberarzt-oberaerztin-anaesthesie/5289b2e3-e0a0-48a5-b417-7f4170ed34c5",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:16.457Z",
+      "crawledAt": "2026-05-19T22:14:34.724Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -437,11 +449,12 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/oberarzt-oberaerztin-anaesthesie/5289b2e3-e0a0-48a5-b417-7f4170ed34c5",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:16.457Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -458,7 +471,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/psycholog-in-psychiatrie/f179ddfa-45cf-485e-97f5-76eaa6d0b153",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:17.197Z",
+      "crawledAt": "2026-05-19T22:14:35.318Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -473,11 +486,12 @@
       "featured": false,
       "postedDate": "2026-04-30",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/psycholog-in-psychiatrie/f179ddfa-45cf-485e-97f5-76eaa6d0b153",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:17.197Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -494,7 +508,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistenz-psychiatrie-leitung/79f168e8-c4d6-4d27-932f-459c3b43dbd4",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:17.939Z",
+      "crawledAt": "2026-05-19T22:14:35.944Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -509,11 +523,12 @@
       "featured": false,
       "postedDate": "2026-04-20",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/assistenz-psychiatrie-leitung/79f168e8-c4d6-4d27-932f-459c3b43dbd4",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:17.939Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -530,7 +545,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-koechin-koch-efz-spital-interlaken-2027/dbb1a528-a7db-45ab-ab4d-66b96d60ecc0",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:18.707Z",
+      "crawledAt": "2026-05-19T22:14:36.612Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -545,11 +560,12 @@
       "featured": false,
       "postedDate": "2026-04-08",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-koechin-koch-efz-spital-interlaken-2027/dbb1a528-a7db-45ab-ab4d-66b96d60ecc0",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:18.707Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -566,7 +582,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2027/236c98b5-290e-49d0-853c-87be82a07f46",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:19.301Z",
+      "crawledAt": "2026-05-19T22:14:37.288Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -581,11 +597,12 @@
       "featured": false,
       "postedDate": "2026-04-08",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-frutigen-2027/236c98b5-290e-49d0-853c-87be82a07f46",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:19.301Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -602,7 +619,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-weissenau-2027/2baa4758-741f-402e-baaa-0b448d2c10c9",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:20.041Z",
+      "crawledAt": "2026-05-19T22:14:37.935Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -617,11 +634,12 @@
       "featured": false,
       "postedDate": "2026-04-08",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-assistent-in-gesundheit-und-soziales-eba-seniorenpark-weissenau-2027/2baa4758-741f-402e-baaa-0b448d2c10c9",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:20.041Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -638,7 +656,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2027/c45ec92b-a03c-41a2-96b7-e0fdb0bc6462",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:20.673Z",
+      "crawledAt": "2026-05-19T22:14:38.606Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -653,11 +671,12 @@
       "featured": false,
       "postedDate": "2026-04-08",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-seniorenpark-frutigen-2027/c45ec92b-a03c-41a2-96b7-e0fdb0bc6462",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:20.673Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -674,7 +693,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-seniorenpark-weissenau-2027/a30626f2-2c18-430f-aee3-45601b11149c",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:21.426Z",
+      "crawledAt": "2026-05-19T22:14:39.192Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -689,11 +708,12 @@
       "featured": false,
       "postedDate": "2026-04-08",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-seniorenpark-weissenau-2027/a30626f2-2c18-430f-aee3-45601b11149c",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:21.426Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -710,7 +730,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-spital-interlaken-2027/9603ba2d-4b72-431c-8374-3c3d4dfaf493",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:22.192Z",
+      "crawledAt": "2026-05-19T22:14:39.800Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -725,11 +745,12 @@
       "featured": false,
       "postedDate": "2026-04-08",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-spital-interlaken-2027/9603ba2d-4b72-431c-8374-3c3d4dfaf493",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:22.192Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -746,7 +767,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-spital-frutigen-2027/8225ef49-9e67-43f0-80b3-bf8ee8ae8951",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:22.941Z",
+      "crawledAt": "2026-05-19T22:14:40.419Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -761,11 +782,12 @@
       "featured": false,
       "postedDate": "2026-04-08",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/lernende-fachperson-gesundheit-fage-efz-spital-frutigen-2027/8225ef49-9e67-43f0-80b3-bf8ee8ae8951",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:22.941Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -782,7 +804,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-koechin-koch-efz-spital-frutigen-2027/c7e7abbc-7a6c-4c63-8b9c-9e09082fc9fb",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:23.568Z",
+      "crawledAt": "2026-05-19T22:14:41.030Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -797,11 +819,12 @@
       "featured": false,
       "postedDate": "2026-04-08",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-koechin-koch-efz-spital-frutigen-2027/c7e7abbc-7a6c-4c63-8b9c-9e09082fc9fb",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:23.568Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -818,7 +841,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-kauffrau-kaufmann-efz-spital-interlaken-2027/0d61e731-0ebe-4ce6-a1c5-2b7ddcc9e902",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:24.818Z",
+      "crawledAt": "2026-05-19T22:14:41.662Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -833,11 +856,12 @@
       "featured": false,
       "postedDate": "2026-04-08",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-kauffrau-kaufmann-efz-spital-interlaken-2027/0d61e731-0ebe-4ce6-a1c5-2b7ddcc9e902",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:24.818Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -854,7 +878,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-kauffrau-kaufmann-efz-spital-frutigen-2027/999184db-a35f-463c-8a7a-ec2ef3a69233",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:27.752Z",
+      "crawledAt": "2026-05-19T22:14:42.250Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -869,11 +893,12 @@
       "featured": false,
       "postedDate": "2026-04-08",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/lernende-r-kauffrau-kaufmann-efz-spital-frutigen-2027/999184db-a35f-463c-8a7a-ec2ef3a69233",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:27.752Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -890,7 +915,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/praktikant-in-in-klinischer-psychologie/d674277b-fd13-4fa6-8fbc-fe805c058f79",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:28.761Z",
+      "crawledAt": "2026-05-19T22:14:42.835Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -905,11 +930,12 @@
       "featured": false,
       "postedDate": "2026-04-07",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/praktikant-in-in-klinischer-psychologie/d674277b-fd13-4fa6-8fbc-fe805c058f79",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:28.761Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -926,7 +952,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/e7e22560-a193-403e-87a0-6599c776b47f",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:30.160Z",
+      "crawledAt": "2026-05-19T22:14:43.411Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -941,11 +967,12 @@
       "featured": false,
       "postedDate": "2026-04-01",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/e7e22560-a193-403e-87a0-6599c776b47f",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:30.160Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -962,7 +989,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/apotheker-in/f8bcab0f-4fc1-491d-ba2f-1fff4fc4ae32",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:31.045Z",
+      "crawledAt": "2026-05-19T22:14:44.034Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -977,11 +1004,12 @@
       "featured": false,
       "postedDate": "2026-03-27",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/apotheker-in/f8bcab0f-4fc1-491d-ba2f-1fff4fc4ae32",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:31.045Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -998,7 +1026,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/diplomierte-pflegefachperson-als-bildungsbeauftragte-r-fage/81ea08aa-acd9-46df-bcea-2bb3ae3b4040",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:32.207Z",
+      "crawledAt": "2026-05-19T22:14:44.646Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1013,11 +1041,12 @@
       "featured": false,
       "postedDate": "2026-03-27",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/diplomierte-pflegefachperson-als-bildungsbeauftragte-r-fage/81ea08aa-acd9-46df-bcea-2bb3ae3b4040",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:32.207Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1034,7 +1063,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/fachperson-gesundheit-efz/f315d841-ffae-4aed-8a37-0ea65fdc93d0",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:33.239Z",
+      "crawledAt": "2026-05-19T22:14:45.231Z",
       "addressLocality": "Frutigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1049,11 +1078,12 @@
       "featured": false,
       "postedDate": "2026-03-25",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/fachperson-gesundheit-efz/f315d841-ffae-4aed-8a37-0ea65fdc93d0",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:33.239Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1070,7 +1100,7 @@
       "url": "https://jobs.spitalfmi.ch/offene-stellen/diaetkoechin-diaetkoch/7a182630-ce28-4da0-957b-6b5f7c38f3ba",
       "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T15:32:34.051Z",
+      "crawledAt": "2026-05-19T22:14:45.814Z",
       "addressLocality": "Unterseen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1085,16 +1115,53 @@
       "featured": false,
       "postedDate": "2026-03-24",
       "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/diaetkoechin-diaetkoch/7a182630-ce28-4da0-957b-6b5f7c38f3ba",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T15:32:34.051Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "fmi-cfe374d5cfcd",
+      "slug": "case-manager-in-70-fmi-unterseen",
+      "company": "Spitäler fmi AG",
+      "companyKey": "fmi",
+      "companyDomain": "spitalfmi.ch",
+      "title": "Case Manager/in 70%",
+      "needsRetranslation": true,
+      "location": "Unterseen",
+      "canton": "BE",
+      "url": "https://jobs.spitalfmi.ch/offene-stellen/case-manager-in/7b95d8e5-eae5-4d55-a7db-fc41c31f5a9b",
+      "source": "Spitäler fmi Dedicated Parser (Prospective careercenter + JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T22:14:46.459Z",
+      "addressLocality": "Unterseen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3800",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-19",
+      "applyUrl": "https://jobs.spitalfmi.ch/offene-stellen/case-manager-in/7b95d8e5-eae5-4d55-a7db-fc41c31f5a9b",
+      "firstSeenAt": "2026-05-19T15:32:34.928Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
