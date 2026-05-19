@@ -1,18 +1,19 @@
 {
   "key": "tecan",
   "label": "Tecan",
-  "generatedAt": "2026-05-19T20:05:08.915Z",
+  "generatedAt": "2026-05-19T23:45:18.719Z",
   "total": 14,
-  "newCount": 14,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 14,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 708458,
-  "avgDurationMs": 708458,
+  "durationMs": 10212,
+  "avgDurationMs": 10212,
   "durationHistory": [
-    708458
+    10212
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "tecan-f1e527196bc9",
       "slug": "technical-writer-tecan-mannedorf",
@@ -26,7 +27,7 @@
       "url": "https://careers.tecan.com/job/Technical-Writer/1226895301/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:27.097Z",
+      "crawledAt": "2026-05-19T23:45:14.723Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1226895301/?locale=en_US",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:27.097Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://careers.tecan.com/job/Associate-Consumables-Analytics-Specialist/1375733533/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:24.972Z",
+      "crawledAt": "2026-05-19T23:45:12.983Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-05-16",
       "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1375733533/?locale=en_US",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:24.972Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://careers.tecan.com/job/Messtechniker/1385009633/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:25.507Z",
+      "crawledAt": "2026-05-19T23:45:13.412Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-16",
       "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1385009633/?locale=en_US",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:25.507Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 23,
         "completeness": 17
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://careers.tecan.com/job/Manager-Sales-Operations-IVD-&-LS-Partnering/1375601433/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:26.037Z",
+      "crawledAt": "2026-05-19T23:45:13.839Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-16",
       "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1375601433/?locale=en_US",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:26.037Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://careers.tecan.com/job/Sales-Manager-East/1393949533/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:27.608Z",
+      "crawledAt": "2026-05-19T23:45:15.258Z",
       "addressLocality": "China",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-15",
       "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1393949533/?locale=en_US",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:27.608Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://careers.tecan.com/job/Production-Engineer/1393509133/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:26.570Z",
+      "crawledAt": "2026-05-19T23:45:14.255Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1393509133/?locale=en_US",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:26.570Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://careers.tecan.com/job/Financial-Accountant/1390668433/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:28.122Z",
+      "crawledAt": "2026-05-19T23:45:15.802Z",
       "addressLocality": "China",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -257,11 +264,12 @@
       "featured": false,
       "postedDate": "2026-05-06",
       "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1390668433/?locale=en_US",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:28.122Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -278,7 +286,7 @@
       "url": "https://careers.tecan.com/job/Site-Manager-&-Head-Operations/1291497701/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:22.327Z",
+      "crawledAt": "2026-05-19T23:45:10.399Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -293,11 +301,12 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1291497701/?locale=en_US",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:22.327Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -314,7 +323,7 @@
       "url": "https://careers.tecan.com/job/%28Senior%29-Director-Service-Portfolio-&-Enablement/1380353433/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:22.850Z",
+      "crawledAt": "2026-05-19T23:45:10.943Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -329,11 +338,12 @@
       "featured": false,
       "postedDate": "2026-05-01",
       "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1380353433/?locale=en_US",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:22.850Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -350,7 +360,7 @@
       "url": "https://careers.tecan.com/job/Senior-Embedded-Software-Engineer/1289076101/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:23.391Z",
+      "crawledAt": "2026-05-19T23:45:11.507Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -365,11 +375,12 @@
       "featured": false,
       "postedDate": "2026-05-01",
       "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1289076101/?locale=en_US",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:23.391Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -386,7 +397,7 @@
       "url": "https://careers.tecan.com/job/Production-Engineer-Electronics/1379904133/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:24.432Z",
+      "crawledAt": "2026-05-19T23:45:12.561Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -401,11 +412,12 @@
       "featured": false,
       "postedDate": "2026-04-30",
       "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1379904133/?locale=en_US",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:24.432Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -422,7 +434,7 @@
       "url": "https://careers.tecan.com/job/Marketing-Director/1379701933/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:28.660Z",
+      "crawledAt": "2026-05-19T23:45:16.356Z",
       "addressLocality": "China",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -437,11 +449,12 @@
       "featured": false,
       "postedDate": "2026-04-30",
       "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1379701933/?locale=en_US",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:28.660Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -458,7 +471,7 @@
       "url": "https://careers.tecan.com/job/Manager-Strategic-Pricing-&-Analytics/1365580333/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:21.776Z",
+      "crawledAt": "2026-05-19T23:45:09.827Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -473,11 +486,12 @@
       "featured": false,
       "postedDate": "2026-04-29",
       "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1365580333/?locale=en_US",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T19:53:21.776Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -494,7 +508,7 @@
       "url": "https://careers.tecan.com/job/Senior-IT-Data-Analyst/1281846301/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T19:53:23.915Z",
+      "crawledAt": "2026-05-19T23:45:12.024Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -509,16 +523,16 @@
       "featured": false,
       "postedDate": "2026-04-28",
       "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1281846301/?locale=en_US",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-05-19T19:53:23.915Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
