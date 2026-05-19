@@ -1,18 +1,19 @@
 {
   "key": "spital-zofingen",
   "label": "Spital Zofingen",
-  "generatedAt": "2026-05-19T11:38:25.661Z",
+  "generatedAt": "2026-05-19T23:33:47.065Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 38092,
-  "avgDurationMs": 38092,
+  "durationMs": 6413,
+  "avgDurationMs": 6413,
   "durationHistory": [
-    38092
+    6413
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "spital-zofingen-31337739a8b6",
       "slug": "praktikant-in-fur-pflegezentrum-spital-zofingen-zofingen",
@@ -20,12 +21,13 @@
       "companyKey": "spital-zofingen",
       "companyDomain": "spitalzofingen.ch",
       "title": "Praktikant/in für Pflegezentrum",
+      "needsRetranslation": true,
       "location": "Zofingen",
       "canton": "AG",
       "url": "https://recruitingapp-22707.umantis.com/Vacancies/2311/Description/1",
       "source": "Spital Zofingen Dedicated Parser (Umantis listing tenant 22707)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T11:37:50.460Z",
+      "crawledAt": "2026-05-19T23:33:44.271Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -40,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-22707.umantis.com/Vacancies/2311/Application/CheckLogin/1",
-      "_qualityScore": 46,
+      "firstSeenAt": "2026-05-19T11:37:50.460Z",
+      "_qualityScore": 63,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
-        "translation": 4,
+        "richness": 6,
+        "translation": 15,
         "completeness": 17
       }
     },
@@ -55,12 +58,13 @@
       "companyKey": "spital-zofingen",
       "companyDomain": "spitalzofingen.ch",
       "title": "Pflegefachperson HF in Ausbildung",
+      "needsRetranslation": true,
       "location": "Zofingen",
       "canton": "AG",
       "url": "https://recruitingapp-22707.umantis.com/Vacancies/1896/Description/1",
       "source": "Spital Zofingen Dedicated Parser (Umantis listing tenant 22707)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T11:37:51.164Z",
+      "crawledAt": "2026-05-19T23:33:44.952Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -75,16 +79,16 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-22707.umantis.com/Vacancies/1896/Application/CheckLogin/1",
-      "_qualityScore": 46,
+      "firstSeenAt": "2026-05-19T11:37:51.164Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 0,
-        "translation": 4,
+        "richness": 10,
+        "translation": 15,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
