@@ -1,18 +1,128 @@
 {
   "key": "lups",
   "label": "Luzerner Psychiatrie (LUPS)",
-  "generatedAt": "2026-05-19T13:25:45.035Z",
-  "total": 82,
-  "newCount": 82,
-  "updatedCount": 0,
-  "removedCount": 0,
+  "generatedAt": "2026-05-19T22:55:21.790Z",
+  "total": 83,
+  "newCount": 3,
+  "updatedCount": 80,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 1329161,
-  "avgDurationMs": 1329161,
+  "durationMs": 50188,
+  "avgDurationMs": 50188,
   "durationHistory": [
-    1329161
+    50188
   ],
   "newJobs": [
+    {
+      "id": "lups-c6ccc2761e2e",
+      "slug": "arztsekretarin-60-100-befristet-fur-1-jahr-m-w-d-lups-sursee",
+      "company": "Luzerner Psychiatrie (LUPS)",
+      "companyKey": "lups",
+      "companyDomain": "lups.ch",
+      "title": "Arztsekretärin 60-100% befristet für 1 Jahr (m/w/d)",
+      "needsRetranslation": true,
+      "location": "Sursee",
+      "canton": "LU",
+      "url": "https://jobs.lups.ch/offene-stellen/arztsekretaerin-befristet-fuer-1-jahr-m-w-d/8ce92529-fd89-4586-91e8-9881a7c5df0b",
+      "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T22:54:33.615Z",
+      "addressLocality": "Sursee",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6210",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://jobs.lups.ch/offene-stellen/arztsekretaerin-befristet-fuer-1-jahr-m-w-d/8ce92529-fd89-4586-91e8-9881a7c5df0b",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "lups-daee56feb44c",
+      "slug": "direktionsassistent-w-m-d-80-100-lups-st-urban",
+      "company": "Luzerner Psychiatrie (LUPS)",
+      "companyKey": "lups",
+      "companyDomain": "lups.ch",
+      "title": "Direktionsassistent (w/m/d) 80–100%",
+      "needsRetranslation": true,
+      "location": "St. Urban",
+      "canton": "LU",
+      "url": "https://jobs.lups.ch/offene-stellen/direktionsassistent-w-m-d-80/2e7a4753-e799-4d4e-ac60-05a699c3b538",
+      "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T22:54:34.145Z",
+      "addressLocality": "St. Urban",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4915",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-19",
+      "applyUrl": "https://jobs.lups.ch/offene-stellen/direktionsassistent-w-m-d-80/2e7a4753-e799-4d4e-ac60-05a699c3b538",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "lups-3670d71dceae",
+      "slug": "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern",
+      "company": "Luzerner Psychiatrie (LUPS)",
+      "companyKey": "lups",
+      "companyDomain": "lups.ch",
+      "title": "Zivildiensteinsatz als Betreuungsassistent 100%",
+      "needsRetranslation": true,
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-betreuungsassistent/58363b0e-9e37-49c5-81fd-1debb1a950fe",
+      "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T22:55:06.314Z",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6000",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-12-15",
+      "applyUrl": "https://jobs.lups.ch/offene-stellen/zivildiensteinsatz-als-betreuungsassistent/58363b0e-9e37-49c5-81fd-1debb1a950fe",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "lups-9f6c521c3c04",
       "slug": "psychologin-50-100-m-w-d-lups-wolhusen",
@@ -26,7 +136,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/psychologin-m-w-d/c11f2f82-bdb5-4de2-953f-f8776ed7ebb2",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:37.561Z",
+      "crawledAt": "2026-05-19T22:54:34.655Z",
       "addressLocality": "Wolhusen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -41,11 +151,12 @@
       "featured": false,
       "postedDate": "2026-05-15",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/psychologin-m-w-d/c11f2f82-bdb5-4de2-953f-f8776ed7ebb2",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:37.561Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +173,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/diaetkoch-m-w-d/58d292a4-5742-4ddc-9317-b08cfb0616fc",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:38.181Z",
+      "crawledAt": "2026-05-19T22:54:35.307Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -77,11 +188,12 @@
       "featured": false,
       "postedDate": "2026-05-15",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/diaetkoch-m-w-d/58d292a4-5742-4ddc-9317-b08cfb0616fc",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:38.181Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +210,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberarzt-m-w-d/eb1d8d03-d366-4098-9f24-38314885a230",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:38.880Z",
+      "crawledAt": "2026-05-19T22:54:35.905Z",
       "addressLocality": "Luz",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -113,11 +225,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/oberarzt-m-w-d/eb1d8d03-d366-4098-9f24-38314885a230",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:38.880Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +247,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzpsychologe-m-w-d/cf63d751-dee6-4847-960b-1818dfa7dab0",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:39.357Z",
+      "crawledAt": "2026-05-19T22:54:36.409Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -149,11 +262,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/assistenzpsychologe-m-w-d/cf63d751-dee6-4847-960b-1818dfa7dab0",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:39.357Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +284,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/vorpraktikantin-sozialpaedagogik-m-w-d/30fd89bd-58b7-4d0d-8844-1ee3f422a3a7",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:39.862Z",
+      "crawledAt": "2026-05-19T22:54:36.951Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -185,11 +299,12 @@
       "featured": false,
       "postedDate": "2026-05-13",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/vorpraktikantin-sozialpaedagogik-m-w-d/30fd89bd-58b7-4d0d-8844-1ee3f422a3a7",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:39.862Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +321,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/leitende-psychologin-in-oberarztfunktion-w-m-d/874aab6b-c71d-4e11-8716-a46ba3f074ba",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:40.357Z",
+      "crawledAt": "2026-05-19T22:54:37.445Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -221,11 +336,12 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/leitende-psychologin-in-oberarztfunktion-w-m-d/874aab6b-c71d-4e11-8716-a46ba3f074ba",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T13:03:40.357Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -242,7 +358,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzarzt-m-w-d/1f4f17d6-50fd-41aa-a5c0-c69aa4aa82ef",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:40.895Z",
+      "crawledAt": "2026-05-19T22:54:37.947Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -257,11 +373,12 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/assistenzarzt-m-w-d/1f4f17d6-50fd-41aa-a5c0-c69aa4aa82ef",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:40.895Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -278,7 +395,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/arbeitsagoge-oder-lehrperson-orst-fuer-technisches-gestalten-m-w-d-befristet-fuer-6-monate/e80388a7-e145-452a-a119-2e5121d3a5d9",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:41.514Z",
+      "crawledAt": "2026-05-19T22:54:38.818Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -293,11 +410,12 @@
       "featured": false,
       "postedDate": "2026-05-08",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/arbeitsagoge-oder-lehrperson-orst-fuer-technisches-gestalten-m-w-d-befristet-fuer-6-monate/e80388a7-e145-452a-a119-2e5121d3a5d9",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:41.514Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -314,7 +432,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/ergotherapeut-m-w-d/e9ca2e31-34ff-43a2-8183-7cea2aadf295",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:42.027Z",
+      "crawledAt": "2026-05-19T22:54:39.329Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -329,11 +447,12 @@
       "featured": false,
       "postedDate": "2026-05-08",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/ergotherapeut-m-w-d/e9ca2e31-34ff-43a2-8183-7cea2aadf295",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:42.027Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -350,7 +469,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/psychologin-m-w-d/5b41a757-8460-4c82-8e06-c74540c39f6e",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:42.538Z",
+      "crawledAt": "2026-05-19T22:54:39.827Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -365,11 +484,12 @@
       "featured": false,
       "postedDate": "2026-05-04",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/psychologin-m-w-d/5b41a757-8460-4c82-8e06-c74540c39f6e",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:42.538Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -386,7 +506,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/praktikantin-sozialdienst-m-w-d/a51f9a77-f896-4cc3-965b-0743d6edfb40",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:43.172Z",
+      "crawledAt": "2026-05-19T22:54:40.448Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -401,11 +521,12 @@
       "featured": false,
       "postedDate": "2026-05-01",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/praktikantin-sozialdienst-m-w-d/a51f9a77-f896-4cc3-965b-0743d6edfb40",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:43.172Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -422,7 +543,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-m-w-d/f1a44783-b2b2-4033-84e1-ca31216f320b",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:43.680Z",
+      "crawledAt": "2026-05-19T22:54:40.981Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -437,11 +558,12 @@
       "featured": false,
       "postedDate": "2026-04-30",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/pflegefachperson-m-w-d/f1a44783-b2b2-4033-84e1-ca31216f320b",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T13:03:43.680Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -458,7 +580,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/spitalfachaerztin-assistenzaerztin-m-w-d/2cbdd4db-b94a-4ca3-a065-98321fcad6b2",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:44.191Z",
+      "crawledAt": "2026-05-19T22:54:41.517Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -473,11 +595,12 @@
       "featured": false,
       "postedDate": "2026-04-30",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/spitalfachaerztin-assistenzaerztin-m-w-d/2cbdd4db-b94a-4ca3-a065-98321fcad6b2",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T13:03:44.191Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -494,7 +617,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/sozialarbeiterin-m-w-d/db9ac9d8-f9b8-471a-a1f7-15dc1d111d90",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:44.714Z",
+      "crawledAt": "2026-05-19T22:54:42.062Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -509,11 +632,12 @@
       "featured": false,
       "postedDate": "2026-04-30",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/sozialarbeiterin-m-w-d/db9ac9d8-f9b8-471a-a1f7-15dc1d111d90",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T13:03:44.714Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -530,7 +654,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegerische-und-sozialpaedagogische-leitung-m-w-d/52250bb2-c992-4814-a17a-a02688b73705",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:45.379Z",
+      "crawledAt": "2026-05-19T22:54:42.710Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -545,11 +669,12 @@
       "featured": false,
       "postedDate": "2026-04-30",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/pflegerische-und-sozialpaedagogische-leitung-m-w-d/52250bb2-c992-4814-a17a-a02688b73705",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:45.379Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -566,7 +691,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/psychologin-ambulante-transitionspsychiatrie-m-w-d/3ae4fdda-3ef2-43b7-afe1-4aab7ccbe8fe",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:45.910Z",
+      "crawledAt": "2026-05-19T22:54:43.204Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -581,11 +706,12 @@
       "featured": false,
       "postedDate": "2026-04-30",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/psychologin-ambulante-transitionspsychiatrie-m-w-d/3ae4fdda-3ef2-43b7-afe1-4aab7ccbe8fe",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T13:03:45.910Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -602,7 +728,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/aerztin-ambulante-transitionspsychiatrie-m-w-d/0726b8a6-c6b7-4251-80f9-0f5e9aa9a8fd",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:46.434Z",
+      "crawledAt": "2026-05-19T22:54:43.740Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -617,11 +743,12 @@
       "featured": false,
       "postedDate": "2026-04-30",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/aerztin-ambulante-transitionspsychiatrie-m-w-d/0726b8a6-c6b7-4251-80f9-0f5e9aa9a8fd",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T13:03:46.434Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -638,7 +765,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-oder-sozialpaedagoge-nachtwache-m-w-d-befristet/e312d763-abd6-425e-a53e-b6a6d1efecb5",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:47.261Z",
+      "crawledAt": "2026-05-19T22:54:44.355Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -653,11 +780,12 @@
       "featured": false,
       "postedDate": "2026-04-30",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/pflegefachperson-oder-sozialpaedagoge-nachtwache-m-w-d-befristet/e312d763-abd6-425e-a53e-b6a6d1efecb5",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:47.261Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -674,7 +802,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/applikationsverantwortlicher-w-m-d/18e70ca4-df8b-4769-94a7-417ab3b99ead",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:48.142Z",
+      "crawledAt": "2026-05-19T22:54:45.007Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -689,11 +817,12 @@
       "featured": false,
       "postedDate": "2026-04-30",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/applikationsverantwortlicher-w-m-d/18e70ca4-df8b-4769-94a7-417ab3b99ead",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:48.142Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -710,7 +839,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/assistenzaerztin-m-w-d/05666200-021c-4330-af79-3d5c69ecbf88",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:48.669Z",
+      "crawledAt": "2026-05-19T22:54:45.579Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -725,11 +854,12 @@
       "featured": false,
       "postedDate": "2026-04-28",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/assistenzaerztin-m-w-d/05666200-021c-4330-af79-3d5c69ecbf88",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:48.669Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -746,7 +876,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/oberaerztin-co-stellenleitung-w-m-d/6e23fdd4-1386-4ad2-88ed-b986ad1ed5d0",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:49.338Z",
+      "crawledAt": "2026-05-19T22:54:46.191Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -761,11 +891,12 @@
       "featured": false,
       "postedDate": "2026-04-27",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/oberaerztin-co-stellenleitung-w-m-d/6e23fdd4-1386-4ad2-88ed-b986ad1ed5d0",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T13:03:49.338Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -782,7 +913,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegeexpertin-apn-w-m-d/da352ceb-3a3f-43b5-995d-6830f2636a3d",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:49.877Z",
+      "crawledAt": "2026-05-19T22:54:46.719Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -797,11 +928,12 @@
       "featured": false,
       "postedDate": "2026-04-27",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/pflegeexpertin-apn-w-m-d/da352ceb-3a3f-43b5-995d-6830f2636a3d",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:49.877Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -818,7 +950,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/aerztin-psychologin-heilpaedagogin-sozialpaedagogin-sozialarbeiterin-m-w-d/dc3950bf-a586-4629-a3f6-41a08e49dc52",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:50.607Z",
+      "crawledAt": "2026-05-19T22:54:47.357Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -833,11 +965,12 @@
       "featured": false,
       "postedDate": "2026-04-23",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/aerztin-psychologin-heilpaedagogin-sozialpaedagogin-sozialarbeiterin-m-w-d/dc3950bf-a586-4629-a3f6-41a08e49dc52",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T13:03:50.607Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -854,7 +987,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-mit-zusatzfunktion-berufsbildung-w-m-d/17e2f9cd-4151-4ac9-a731-762356f3224f",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:51.118Z",
+      "crawledAt": "2026-05-19T22:54:47.871Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -869,11 +1002,12 @@
       "featured": false,
       "postedDate": "2026-04-23",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/pflegefachperson-mit-zusatzfunktion-berufsbildung-w-m-d/17e2f9cd-4151-4ac9-a731-762356f3224f",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:51.118Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -890,7 +1024,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-w-m-d/512ba1e6-871a-49e4-89c2-5ba78e0624eb",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:51.641Z",
+      "crawledAt": "2026-05-19T22:54:48.385Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -905,11 +1039,12 @@
       "featured": false,
       "postedDate": "2026-04-22",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/pflegefachperson-w-m-d/512ba1e6-871a-49e4-89c2-5ba78e0624eb",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:51.641Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -926,7 +1061,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/leitender-arzt-m-w-d/bef76132-ec2c-4bf3-afb9-0c2820e5fef6",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:52.305Z",
+      "crawledAt": "2026-05-19T22:54:48.988Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -941,11 +1076,12 @@
       "featured": false,
       "postedDate": "2026-04-22",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/leitender-arzt-m-w-d/bef76132-ec2c-4bf3-afb9-0c2820e5fef6",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:52.305Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -962,7 +1098,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/it-security-engineer-m-w-d/0c4d8f34-617d-48a8-a8ab-fb35980c9fca",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:52.825Z",
+      "crawledAt": "2026-05-19T22:54:49.508Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -977,11 +1113,12 @@
       "featured": false,
       "postedDate": "2026-04-17",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/it-security-engineer-m-w-d/0c4d8f34-617d-48a8-a8ab-fb35980c9fca",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:52.825Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -998,7 +1135,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/pflegefachperson-oder-sozialpaedagogin-als-nachtwache-m-w-d/43b6eb6b-3515-4b98-9108-157ed3e51422",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:53.438Z",
+      "crawledAt": "2026-05-19T22:54:50.116Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1013,11 +1150,12 @@
       "featured": false,
       "postedDate": "2026-04-16",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/pflegefachperson-oder-sozialpaedagogin-als-nachtwache-m-w-d/43b6eb6b-3515-4b98-9108-157ed3e51422",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:53.438Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1034,7 +1172,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/sozialarbeiterin-m-w-d/c31dcdbf-4cfb-4e12-83e6-4d474676e668",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:53.970Z",
+      "crawledAt": "2026-05-19T22:54:50.634Z",
       "addressLocality": "St. Urban",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1049,11 +1187,12 @@
       "featured": false,
       "postedDate": "2026-04-16",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/sozialarbeiterin-m-w-d/c31dcdbf-4cfb-4e12-83e6-4d474676e668",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-05-19T13:03:53.970Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1070,7 +1209,7 @@
       "url": "https://jobs.lups.ch/offene-stellen/arztsekretaerin-m-w-d/5ee46230-0e7e-4858-9389-a1ac504b917e",
       "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T13:03:54.563Z",
+      "crawledAt": "2026-05-19T22:54:51.138Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1085,16 +1224,56 @@
       "featured": false,
       "postedDate": "2026-04-16",
       "applyUrl": "https://jobs.lups.ch/offene-stellen/arztsekretaerin-m-w-d/5ee46230-0e7e-4858-9389-a1ac504b917e",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T13:03:54.563Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "lups-e6ec211a5837",
+      "slug": "specialista-della-salute-uomo-donna-fage-efz-80-a-tempo-determinato-luzerner-psychiatrie-lups-st-urban",
+      "company": "Luzerner Psychiatrie (LUPS)",
+      "companyKey": "lups",
+      "companyDomain": "lups.ch",
+      "title": "Fachfrau Gesundheit (w/m/d) (FaGe EFZ) 80% (befristet)",
+      "needsRetranslation": true,
+      "location": "St. Urban",
+      "canton": "LU",
+      "url": "https://jobs.lups.ch/offene-stellen/fachfrau-gesundheit-w-m-d-fage-efz-befristet/2422f5aa-9f8e-472b-9792-94773235acc7",
+      "source": "Luzerner Psychiatrie (LUPS) Dedicated Parser (Prospective careercenter 1001516)",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T13:04:06.578Z",
+      "addressLocality": "St. Urban",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4915",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-20",
+      "applyUrl": "https://jobs.lups.ch/offene-stellen/fachfrau-gesundheit-w-m-d-fage-efz-befristet/2422f5aa-9f8e-472b-9792-94773235acc7",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "firstSeenAt": "2026-05-19T13:04:06.578Z",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }
