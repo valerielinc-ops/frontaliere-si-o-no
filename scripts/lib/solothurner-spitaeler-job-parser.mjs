@@ -26,7 +26,7 @@
  *   - SOLOTHURNER_SPITAELER_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
-import { slugify, normalizeSpace } from './crawler-template.mjs';
+import { slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -230,6 +230,78 @@ export function parseSohListingPage(html = '') {
   return results;
 }
 
+/* ── Detail Page Parser ────────────────────────────────────── */
+
+/**
+ * Parse a soH detail page (jobs.so-h.ch/offene-stellen/{slug}/{uuid}).
+ *
+ * The page is server-rendered and embeds:
+ *   - A JSON-LD JobPosting at the bottom with `description` / `responsibilities`
+ *     / `qualifications` (richest source, prefer when present).
+ *   - HTML containers <div id="tasks"> (Aufgaben) and <div id="profile">
+ *     (Profil) as a fallback when JSON-LD is missing.
+ *
+ * Both branches include the German content headings "Aufgaben" / "Profil"
+ * that satisfy the boilerplate-guard CONTENT_HEADINGS_RE.
+ */
+export function parseSohDetailPage(html = '') {
+  const blocks = [];
+
+  // ── Strategy A: JSON-LD JobPosting (richest) ─────────────
+  const jsonLdMatch = html.match(/<script[^>]+application\/ld\+json[^>]*>([\s\S]*?)<\/script>/i);
+  if (jsonLdMatch) {
+    try {
+      const raw = jsonLdMatch[1].trim();
+      const parsed = JSON.parse(raw);
+      const items = Array.isArray(parsed) ? parsed : [parsed];
+      for (const item of items) {
+        if (!item || (item['@type'] && item['@type'] !== 'JobPosting')) continue;
+        // Some sources put richer markup in responsibilities + qualifications
+        const resp = String(item.responsibilities || '');
+        const qual = String(item.qualifications || '');
+        const desc = String(item.description || '');
+        const respClean = normalizeSpace(decodeEntities(stripHtml(resp)));
+        const qualClean = normalizeSpace(decodeEntities(stripHtml(qual)));
+        const descClean = normalizeSpace(decodeEntities(stripHtml(desc)));
+        // Prefer separate responsibilities/qualifications because description
+        // often duplicates them. Pick the longer signal source per field.
+        if (respClean.length > 30) blocks.push(respClean);
+        if (qualClean.length > 30) blocks.push(qualClean);
+        if (blocks.length === 0 && descClean.length > 30) blocks.push(descClean);
+        break; // first JobPosting wins
+      }
+    } catch {
+      // fall through to HTML scrape
+    }
+  }
+
+  // ── Strategy B: HTML container fallback ──────────────────
+  if (blocks.length === 0) {
+    const tasksMatch = html.match(/<div\s+id="tasks"[^>]*>([\s\S]*?)<\/div>/i);
+    if (tasksMatch) {
+      const txt = normalizeSpace(decodeEntities(stripHtml(tasksMatch[1])));
+      if (txt.length > 20) blocks.push(txt);
+    }
+    const profileMatch = html.match(/<div\s+id="profile"[^>]*>([\s\S]*?)<\/div>/i);
+    if (profileMatch) {
+      const txt = normalizeSpace(decodeEntities(stripHtml(profileMatch[1])));
+      if (txt.length > 20) blocks.push(txt);
+    }
+  }
+
+  // Detail page H2 title (fall back to listing card if missing)
+  const titleMatch = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
+    || html.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
+  const detailTitle = titleMatch
+    ? normalizeSpace(decodeEntities(stripHtml(titleMatch[1])))
+    : '';
+
+  return {
+    title: detailTitle,
+    description: blocks.join('\n\n'),
+  };
+}
+
 /* ── HTTP Fetch ───────────────────────────────────────────── */
 
 async function fetchPage(url) {
@@ -255,6 +327,45 @@ async function fetchPage(url) {
   }
 }
 
+/**
+ * Sequential mini-helper to fetch N detail pages with bounded concurrency
+ * + a per-worker delay between requests + retry-on-503/429 with backoff.
+ *
+ * jobs.so-h.ch returns sporadic 503s when hit faster than ~2 req/s, so we
+ * keep concurrency=2 and pause briefly between calls to stay polite.
+ */
+async function fetchInBatches(items, concurrency, fn, opts = {}) {
+  const delayMs = Number.isFinite(opts.delayMs) ? opts.delayMs : 350;
+  const retries = Number.isFinite(opts.retries) ? opts.retries : 2;
+  const results = new Array(items.length);
+  let next = 0;
+  async function worker() {
+    while (true) {
+      const i = next++;
+      if (i >= items.length) return;
+      let lastErr = null;
+      for (let attempt = 0; attempt <= retries; attempt++) {
+        try {
+          results[i] = await fn(items[i], i);
+          lastErr = null;
+          break;
+        } catch (err) {
+          lastErr = err;
+          const msg = String(err?.message || '');
+          // Retry on 5xx and 429 only — propagate other errors after first try
+          if (!/HTTP\s+(5\d\d|429)/.test(msg)) break;
+          await new Promise((r) => setTimeout(r, delayMs * (attempt + 1) * 2));
+        }
+      }
+      if (lastErr) results[i] = { __error: lastErr };
+      if (delayMs) await new Promise((r) => setTimeout(r, delayMs));
+    }
+  }
+  const workers = Array.from({ length: Math.max(1, concurrency) }, () => worker());
+  await Promise.all(workers);
+  return results;
+}
+
 /* ── Main Fetch Function ──────────────────────────────────── */
 
 export async function fetchAllSolothurnerSpitaelerJobs() {
@@ -277,9 +388,36 @@ export async function fetchAllSolothurnerSpitaelerJobs() {
   }
   console.log(`  📋 Listings found: ${listings.length}\n`);
 
+  // Fetch each detail page on jobs.so-h.ch to extract the JSON-LD JobPosting
+  // (with `responsibilities` + `qualifications`). Without this, descriptions
+  // are just the listing card's pensum/department/site line — ~10 words,
+  // well under the boilerplate guard's 30 unique-word threshold.
+  // jobs.so-h.ch returns 503s above ~2 req/s — serial with 600ms gap keeps
+  // failures to 1/125 in practice; parallel concurrency=2 leaves ~25 5xx-only
+  // failures even with retries. The total walk takes ~80s — acceptable.
+  const detailConcurrency = Number(process.env.JOBS_CRAWLER_DETAIL_CONCURRENCY) || 1;
+  const detailDelayMs = Number(process.env.JOBS_CRAWLER_DETAIL_DELAY_MS) || 600;
+  console.log(`  🔎 Fetching ${listings.length} detail pages (concurrency=${detailConcurrency}, delay=${detailDelayMs}ms)…`);
+  const detailResults = await fetchInBatches(listings, detailConcurrency, async (listing) => {
+    const detailHtml = await fetchPage(listing.detailUrl);
+    return parseSohDetailPage(detailHtml);
+  }, { delayMs: detailDelayMs, retries: 3 });
+  let detailOk = 0;
+  let detailFail = 0;
+  for (const r of detailResults) {
+    if (r && !r.__error && r.description) detailOk++;
+    else detailFail++;
+  }
+  console.log(`  ✅ Detail OK: ${detailOk} · ⚠️ failures: ${detailFail}\n`);
+
   const jobs = [];
-  for (const listing of listings) {
-    const title = listing.title;
+  for (let i = 0; i < listings.length; i++) {
+    const listing = listings[i];
+    const detail = detailResults[i];
+    const detailOkHere = detail && !detail.__error;
+    const title = (detailOkHere && detail.title && detail.title.length > 3)
+      ? detail.title
+      : listing.title;
     const { city, postalCode } = pickCityForSite(listing.siteName);
     const canton = 'SO';
 
@@ -288,9 +426,13 @@ export async function fetchAllSolothurnerSpitaelerJobs() {
     if (listing.siteName) descBits.push(`• Standort: ${listing.siteName}`);
     if (listing.department) descBits.push(`• Abteilung: ${listing.department}`);
     if (listing.pensumStr) descBits.push(`• Pensum: ${listing.pensumStr}`);
-    const descriptionText = descBits.length
-      ? `${title} — ${SOLOTHURNER_SPITAELER_COMPANY_NAME}.\n\n${descBits.join('\n')}`
-      : `${title} — ${SOLOTHURNER_SPITAELER_COMPANY_NAME}, ${city}`;
+    const metaLine = descBits.length ? descBits.join('\n') : '';
+    const detailText = detailOkHere ? detail.description : '';
+    const descriptionText = detailText
+      ? (metaLine ? `${detailText}\n\n${metaLine}` : detailText)
+      : (metaLine
+          ? `${title} — ${SOLOTHURNER_SPITAELER_COMPANY_NAME}.\n\n${metaLine}`
+          : `${title} — ${SOLOTHURNER_SPITAELER_COMPANY_NAME}, ${city}`);
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} soh ch`);
