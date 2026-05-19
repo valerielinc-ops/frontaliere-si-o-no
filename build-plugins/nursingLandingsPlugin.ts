@@ -61,6 +61,7 @@ import {
   LEDE_STYLE,
   SMALL_HEADING_STYLE,
   renderStatGrid,
+  pickStatTileTone,
 } from './shared/seoContentTokens';
 import {
   NURSING_LOCALES,
@@ -405,9 +406,9 @@ function renderPage(opts: {
   // ── Template B body ──────────────────────────────────────────────────────
 
   const statTilesHtml = `<div class="seo-fade-in">${renderStatGrid([
-    { label: copy.shell.statTileLiveLabel, value: copy.statLiveValue, tone: 'success' },
-    { label: copy.shell.statTileSalaryLabel, value: copy.statSalaryValue, tone: 'accent' },
-    { label: copy.shell.statTileFreshLabel, value: copy.statFreshValue, tone: 'warning' },
+    { label: copy.shell.statTileLiveLabel, value: copy.statLiveValue, tone: pickStatTileTone('openings', snapshot.liveCount) },
+    { label: copy.shell.statTileSalaryLabel, value: copy.statSalaryValue, tone: pickStatTileTone('salary', snapshot.medianSalaryChf ?? 0) },
+    { label: copy.shell.statTileFreshLabel, value: copy.statFreshValue, tone: pickStatTileTone('fresh', snapshot.fresh30Count) },
   ])}</div>`;
 
   const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.shell.primaryCtaLabel)} →</a></div>`;

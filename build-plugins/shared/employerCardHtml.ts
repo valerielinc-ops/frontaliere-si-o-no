@@ -9,6 +9,7 @@
  * Tailwind (`./build-plugins/**\/*.{js,ts}` in tailwind.config.js) so every
  * class used here is preserved in the production CSS bundle.
  */
+import { escHtml } from './htmlEscape';
 import {
   resolveJobLogoSrc,
   generateInitialsLogo,
@@ -51,14 +52,6 @@ export interface EmployerCardOptions {
   locale: EmployerCardLocale;
   variant?: 'compact' | 'detailed';
   openingsLabel?: (n: number) => string;
-}
-
-function escHtml(value: unknown): string {
-  return String(value ?? '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
 }
 
 const OPENINGS_DEFAULT_LABEL: Record<EmployerCardLocale, (n: number) => string> = {

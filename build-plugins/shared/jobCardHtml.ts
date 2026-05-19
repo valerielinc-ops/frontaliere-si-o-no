@@ -16,13 +16,14 @@
  *  - orphanQueryLandingPlugin (GSC orphan-query landings)
  */
 
+import { escHtml } from './htmlEscape';
 import {
   resolveJobLogoSrc as resolveJobCardLogo,
   generateInitialsLogo,
   LOGO_FALLBACK_SRC,
 } from './companyLogoResolver';
 
-export { resolveJobCardLogo };
+export { resolveJobCardLogo, escHtml };
 
 export type JobCardLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -65,16 +66,6 @@ export interface JobCardOptions {
   linkifyLocation?: (raw: string, locale: JobCardLocale) => string;
   /** Explicit logo override; bypasses the auto-resolver. */
   logoUrl?: string | null;
-}
-
-// ── HTML escaping ────────────────────────────────────────────────────
-
-export function escHtml(value: unknown): string {
-  return String(value ?? '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
 }
 
 // ── Locale labels ────────────────────────────────────────────────────

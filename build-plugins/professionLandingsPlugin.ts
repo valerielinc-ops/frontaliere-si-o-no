@@ -55,6 +55,7 @@ import {
   LEDE_STYLE,
   SMALL_HEADING_STYLE,
   renderStatGrid,
+  pickStatTileTone,
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import { renderLandingHero } from './shared/landingHeroPersonality';
@@ -486,9 +487,9 @@ function renderPage(opts: {
   };
 
   const statTilesHtml = `<div class="seo-fade-in">${renderStatGrid([
-    { label: copy.statTileLiveLabel, value: copy.statLiveValue, tone: 'success' },
-    { label: copy.statTileSalaryLabel, value: copy.statSalaryValue, tone: 'accent' },
-    { label: copy.statTileFreshLabel, value: copy.statFreshValue, tone: 'warning' },
+    { label: copy.statTileLiveLabel, value: copy.statLiveValue, tone: pickStatTileTone('openings', snapshot.liveCount) },
+    { label: copy.statTileSalaryLabel, value: copy.statSalaryValue, tone: pickStatTileTone('salary', snapshot.medianSalaryChf ?? 0) },
+    { label: copy.statTileFreshLabel, value: copy.statFreshValue, tone: pickStatTileTone('fresh', snapshot.fresh30Count) },
   ])}</div>`;
 
   const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.primaryCtaLabel)} →</a></div>`;

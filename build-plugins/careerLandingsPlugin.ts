@@ -96,6 +96,7 @@ import {
   STAT_TILE_BASE,
   STAT_TILE_LABEL,
   STAT_TILE_VALUE,
+  pickStatTileStyle,
 } from './shared/seoContentTokens';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import { renderLandingHero, HERO_BADGES } from './shared/landingHeroPersonality';
@@ -218,17 +219,19 @@ function renderStatTiles(
           liveCount: snapshot.liveCount,
         });
 
-  const tile1 = renderTile(
-    templateB.statTile1.label,
-    templateB.statTile1.valueFromCount(tile1Count),
-    templateB.statTile1.tone,
-  );
+  // Dynamic tone: tile1 tracks count (openings-style), tile3 tracks fresh.
+  // tile2 is salary/accent per copy data — keep the copy-specified tone.
+  const tile1DynStyle = pickStatTileStyle('openings', tile1Count);
+  const tile1 = `<div style="${tile1DynStyle}">
+    <div style="${STAT_TILE_LABEL}">${esc(templateB.statTile1.label)}</div>
+    <div style="${STAT_TILE_VALUE}">${esc(templateB.statTile1.valueFromCount(tile1Count))}</div>
+  </div>`;
   const tile2 = renderTile(templateB.statTile2.label, tile2Value, templateB.statTile2.tone);
-  const tile3 = renderTile(
-    templateB.statTile3.label,
-    templateB.statTile3.valueFromFresh(snapshot.fresh30Count),
-    templateB.statTile3.tone,
-  );
+  const tile3DynStyle = pickStatTileStyle('fresh', snapshot.fresh30Count);
+  const tile3 = `<div style="${tile3DynStyle}">
+    <div style="${STAT_TILE_LABEL}">${esc(templateB.statTile3.label)}</div>
+    <div style="${STAT_TILE_VALUE}">${esc(templateB.statTile3.valueFromFresh(snapshot.fresh30Count))}</div>
+  </div>`;
 
   return `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">${tile1}${tile2}${tile3}</div>`;
 }

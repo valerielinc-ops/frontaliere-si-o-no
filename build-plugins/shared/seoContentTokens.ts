@@ -92,6 +92,54 @@ export const STAT_TILE_LABEL =
 export const STAT_TILE_VALUE =
   'margin-top:8px;font-size:28px;font-weight:700;color:var(--color-heading);line-height:1.1';
 
+/**
+ * Pick a stat-tile style based on a numeric value and threshold semantics.
+ * Used by SEO landings to color metric tiles by meaning instead of fixed tone.
+ *
+ *   'openings': SUCCESS if >20, WARNING if 5-20, BASE if <5 (many = green)
+ *   'fresh':    SUCCESS if >0, BASE if 0
+ *   'salary':   ACCENT (always — it's the headline metric)
+ *   'count':    BASE always (informational, no good/bad direction)
+ */
+export type StatTileMetric = 'openings' | 'fresh' | 'salary' | 'count';
+
+export function pickStatTileStyle(metric: StatTileMetric, value: number): string {
+  switch (metric) {
+    case 'openings':
+      if (value > 20) return STAT_TILE_SUCCESS;
+      if (value >= 5) return STAT_TILE_WARNING;
+      return STAT_TILE_BASE;
+    case 'fresh':
+      return value > 0 ? STAT_TILE_SUCCESS : STAT_TILE_BASE;
+    case 'salary':
+      return STAT_TILE_ACCENT;
+    case 'count':
+    default:
+      return STAT_TILE_BASE;
+  }
+}
+
+/**
+ * Same semantics as {@link pickStatTileStyle} but returns a `StatTileTone`
+ * compatible with `renderStatGrid`'s `tone` property.
+ * Callers that use `renderStatGrid` should prefer this over `pickStatTileStyle`.
+ */
+export function pickStatTileTone(metric: StatTileMetric, value: number): StatTileTone {
+  switch (metric) {
+    case 'openings':
+      if (value > 20) return 'success';
+      if (value >= 5) return 'warning';
+      return 'neutral';
+    case 'fresh':
+      return value > 0 ? 'success' : 'neutral';
+    case 'salary':
+      return 'accent';
+    case 'count':
+    default:
+      return 'neutral';
+  }
+}
+
 // ── Links / CTAs ──────────────────────────────────────────────────────────────
 
 export const CTA_PRIMARY_STYLE =

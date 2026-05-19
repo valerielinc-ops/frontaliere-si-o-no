@@ -18,6 +18,28 @@ describe('HERO_BADGES coverage', () => {
     }
   });
 
+  it('includes all 4 career landing ids', () => {
+    const required = [
+      'agenzie-lavoro-lugano', 'concorsi-pubblici-lugano',
+      'stage-lugano', 'contratti-lavoro-frontalieri',
+    ];
+    for (const id of required) {
+      expect(HERO_BADGES, `missing badge for career ${id}`).toHaveProperty(id);
+    }
+  });
+
+  it('includes all 3 nursing landing ids', () => {
+    for (const id of ['nurses', 'oss', 'healthcare-ticino']) {
+      expect(HERO_BADGES, `missing badge for nursing ${id}`).toHaveProperty(id);
+    }
+  });
+
+  it('includes all 6 costOfLiving city ids', () => {
+    for (const id of ['lugano', 'mendrisio', 'chiasso', 'bellinzona', 'locarno', 'ticino']) {
+      expect(HERO_BADGES, `missing badge for col city ${id}`).toHaveProperty(id);
+    }
+  });
+
   it('every badge has emoji + all 4 locale eyebrows + all 4 locale taglines', () => {
     for (const [id, badge] of Object.entries(HERO_BADGES)) {
       expect(badge.emoji.length, `${id} emoji empty`).toBeGreaterThan(0);
