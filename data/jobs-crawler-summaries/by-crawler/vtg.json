@@ -1,47 +1,18 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-05-18T23:02:22.730Z",
-  "total": 30,
-  "newCount": 1,
+  "generatedAt": "2026-05-19T12:54:38.700Z",
+  "total": 29,
+  "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 23,
-  "durationMs": 34465,
-  "avgDurationMs": 34465,
+  "durationMs": 32611,
+  "avgDurationMs": 32611,
   "durationHistory": [
-    34465
+    32611
   ],
-  "newJobs": [
-    {
-      "id": "company-3uv1w",
-      "slug": "diagnostiker-in-nutzfahrzeuge-swiss-armed-forces-vtg-bern-03uv1w",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Diagnostiker/-in Nutzfahrzeuge",
-      "location": "Bern",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-18",
-      "url": "https://jobs.admin.ch/offene-stellen/diagnostiker-in-nutzfahrzeuge/e66d8d78-9b62-4da9-86d9-764cd483d44d",
-      "source": "Company Careers Crawler",
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-05-18T23:02:21.570Z",
-      "firstSeenAt": "2026-05-18T23:02:21.570Z",
-      "needsRetranslation": true,
-      "sourceLang": "de",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 18,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-3mzk6n",
@@ -265,6 +236,41 @@
   "removedJobs": [],
   "unchangedJobs": [
     {
+      "id": "company-3uv1w",
+      "slug": "diagnostica-in-veicoli-commerciali-swiss-armed-forces-vtg-bern",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Diagnostiker/-in Nutzfahrzeuge",
+      "location": "Bern",
+      "canton": "BE",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "url": "https://jobs.admin.ch/offene-stellen/diagnostiker-in-nutzfahrzeuge/e66d8d78-9b62-4da9-86d9-764cd483d44d",
+      "source": "Company Careers Crawler",
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-05-18T23:02:21.570Z",
+      "firstSeenAt": "2026-05-18T23:02:21.570Z",
+      "sourceLang": "de",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bern",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
       "id": "company-xcnafm",
       "slug": "specialista-dell-esperienza-utente-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
@@ -396,46 +402,6 @@
       "_targetScope": {
         "type": "adapter_seed_meta",
         "location": "Mels",
-        "canton": ""
-      },
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-05-10T11:06:13.818Z",
-      "firstSeenAt": "2026-05-10T11:06:13.818Z",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "streetAddress": "Via Stazione 31",
-      "postalCode": "6500",
-      "addressLocality": "Bern",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-u9uu98",
-      "slug": "velivolo-meccanico-campo-militare-alpnach-swiss-armed-forces-vtg-bern",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Luftfahrzeugmechaniker/-in, Militärflugplatz Alpnach",
-      "location": "Bern",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-13",
-      "url": "https://jobs.admin.ch/offene-stellen/luftfahrzeugmechaniker-in-militaerflugplatz-alpnach/f0ff4c6a-5ac8-40be-97bb-9f880f211d15",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Alpnach",
         "canton": ""
       },
       "companyKey": "vtg",
