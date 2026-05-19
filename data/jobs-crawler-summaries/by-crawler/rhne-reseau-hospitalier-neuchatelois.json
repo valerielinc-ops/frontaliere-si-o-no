@@ -1,18 +1,19 @@
 {
   "key": "rhne-reseau-hospitalier-neuchatelois",
   "label": "Réseau hospitalier neuchâtelois (RHNE)",
-  "generatedAt": "2026-05-19T13:04:05.838Z",
+  "generatedAt": "2026-05-19T23:18:38.650Z",
   "total": 8,
-  "newCount": 8,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 48685,
-  "avgDurationMs": 48685,
+  "durationMs": 3633,
+  "avgDurationMs": 3633,
   "durationHistory": [
-    48685
+    3633
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-e304bff53fc4",
       "slug": "coordinateur-rice-de-parcours-de-soins-integres-a-80-rhne-reseau-hospitalier-neuchatelois",
@@ -26,7 +27,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2552662&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:18.366Z",
+      "crawledAt": "2026-05-19T23:18:36.562Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -42,11 +43,12 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2552662&cat=all",
       "externalId": "2552662",
-      "_qualityScore": 60,
+      "firstSeenAt": "2026-05-19T13:03:18.366Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -63,7 +65,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2552429&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:18.368Z",
+      "crawledAt": "2026-05-19T23:18:36.564Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -79,11 +81,12 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2552429&cat=all",
       "externalId": "2552429",
-      "_qualityScore": 60,
+      "firstSeenAt": "2026-05-19T13:03:18.368Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -100,7 +103,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2552207&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:18.369Z",
+      "crawledAt": "2026-05-19T23:18:36.566Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -116,11 +119,12 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2552207&cat=all",
       "externalId": "2552207",
-      "_qualityScore": 60,
+      "firstSeenAt": "2026-05-19T13:03:18.369Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -137,7 +141,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2551688&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:18.370Z",
+      "crawledAt": "2026-05-19T23:18:36.567Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -153,11 +157,12 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2551688&cat=all",
       "externalId": "2551688",
-      "_qualityScore": 60,
+      "firstSeenAt": "2026-05-19T13:03:18.370Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -174,7 +179,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2551279&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:18.370Z",
+      "crawledAt": "2026-05-19T23:18:36.568Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -190,11 +195,12 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2551279&cat=all",
       "externalId": "2551279",
-      "_qualityScore": 60,
+      "firstSeenAt": "2026-05-19T13:03:18.370Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -211,7 +217,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2551240&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:18.370Z",
+      "crawledAt": "2026-05-19T23:18:36.568Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -227,11 +233,12 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2551240&cat=all",
       "externalId": "2551240",
-      "_qualityScore": 60,
+      "firstSeenAt": "2026-05-19T13:03:18.370Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -248,7 +255,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2549269&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:18.370Z",
+      "crawledAt": "2026-05-19T23:18:36.568Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -264,11 +271,12 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2549269&cat=all",
       "externalId": "2549269",
-      "_qualityScore": 60,
+      "firstSeenAt": "2026-05-19T13:03:18.370Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -285,7 +293,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2548977&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T13:03:18.370Z",
+      "crawledAt": "2026-05-19T23:18:36.568Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -301,16 +309,16 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=2548977&cat=all",
       "externalId": "2548977",
-      "_qualityScore": 60,
+      "firstSeenAt": "2026-05-19T13:03:18.370Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
