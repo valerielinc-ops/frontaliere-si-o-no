@@ -454,18 +454,23 @@ function getCantonProseBlock(
 // function of opts (no module-level mutable state, no Date.now() calls),
 // so caching the full HTML is safe.
 //
-// Observed cardinality (memory: project_cluster_render_optimization_may9):
-// ~560 unique outputs across ~52k invocations in a full build. Per-call
-// cost ~3-5 ms (paragraph composition + 1-2 KB string concat). Memoization
-// saves ~3-5 min off related-search-clusters (305 s) + jobs-seo-pages (288 s)
-// closeBundle hooks where this helper is called dozens of times per page.
+// Cardinality grew after the May 9 baseline (memory:
+// project_cluster_render_optimization_may9 → ~560 unique outputs) because
+// `cantonEntityName` was added for company-landing rows: it carries
+// "${companyName} — ${cityDisplay}" → ~500 companies × ~50 cities × 4
+// locales ≈ 100k upper-bound combinations. Realistic build hits ~20-30k
+// distinct keys (most company × city pairs don't exist).
 //
-// maxSize = 5000 matches build-plugins/shared/precomputeCache.ts default —
-// generous headroom over the observed 560 distinct keys. Exceeding the cap
-// throws (fail-loud) so a high-cardinality key (e.g. per-slug parameter
-// slipping into opts) surfaces as a build error, not a silent memory leak.
+// maxSize = 30000 keeps the cap as a fail-loud guardrail (a per-slug
+// parameter still surfaces as a build error, not a silent leak) but gives
+// headroom for the legitimate company × city × locale fan-out. At ~1-2 KB
+// per cached HTML the peak heap cost is ~30-60 MB — fine for the 7 GB
+// CI heap. If this cap is hit again, the next steps are: (a) split into
+// two caches (low-cardinality opts vs. company-landing opts), or (b)
+// strip cantonEntityName from the key and re-render the entity-name line
+// per call (cheap — single string concat).
 const COMMUTER_CONTEXT_CACHE = new Map<string, string>();
-const COMMUTER_CONTEXT_CACHE_MAX = 5000;
+const COMMUTER_CONTEXT_CACHE_MAX = 30000;
 
 function commuterContextCacheKey(opts: JobBoardCommuterContextOpts): string {
   // Stable concatenation in field order — cheaper than JSON.stringify on a
