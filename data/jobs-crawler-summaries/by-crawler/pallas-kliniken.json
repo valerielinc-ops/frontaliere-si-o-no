@@ -1,18 +1,19 @@
 {
   "key": "pallas-kliniken",
   "label": "Pallas Kliniken",
-  "generatedAt": "2026-05-19T20:47:39.559Z",
+  "generatedAt": "2026-05-19T23:08:04.596Z",
   "total": 10,
-  "newCount": 10,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 110103,
-  "avgDurationMs": 110103,
+  "durationMs": 15339,
+  "avgDurationMs": 15339,
   "durationHistory": [
-    110103
+    15339
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "pallas-kliniken-e0613caf6af7",
       "slug": "dipl-expert-in-anasthesiepflege-40-60-pallas-kliniken-olten",
@@ -26,7 +27,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000LXnCL2A1",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:45:51.682Z",
+      "crawledAt": "2026-05-19T23:07:51.474Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -42,11 +43,12 @@
       "featured": false,
       "postedDate": "2026-04-10",
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000LXnCL2A1",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:45:51.682Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -63,7 +65,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000LXUPu2AP",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:45:58.208Z",
+      "crawledAt": "2026-05-19T23:07:58.669Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -79,11 +81,12 @@
       "featured": false,
       "postedDate": "2026-04-10",
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000LXUPu2AP",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:45:58.208Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -100,7 +103,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000LICcy2AH",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:02.316Z",
+      "crawledAt": "2026-05-19T23:08:02.578Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -116,11 +119,12 @@
       "featured": false,
       "postedDate": "2026-04-01",
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000LICcy2AH",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:02.316Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -137,7 +141,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000KvngY2AR",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:45:57.009Z",
+      "crawledAt": "2026-05-19T23:07:57.339Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -153,11 +157,12 @@
       "featured": false,
       "postedDate": "2026-03-19",
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000KvngY2AR",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:45:57.009Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -174,7 +179,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000Kb2yb2AB",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:46:01.095Z",
+      "crawledAt": "2026-05-19T23:08:01.265Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -190,11 +195,12 @@
       "featured": false,
       "postedDate": "2026-03-06",
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000Kb2yb2AB",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:46:01.095Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -211,7 +217,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000JQ0iz2AD",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:45:55.830Z",
+      "crawledAt": "2026-05-19T23:07:56.011Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -227,11 +233,12 @@
       "featured": false,
       "postedDate": "2026-01-23",
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000JQ0iz2AD",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:45:55.830Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -248,7 +255,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000IDWsX2AX",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:45:54.694Z",
+      "crawledAt": "2026-05-19T23:07:54.715Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -264,11 +271,12 @@
       "featured": false,
       "postedDate": "2025-12-10",
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000IDWsX2AX",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:45:54.694Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -285,7 +293,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000HYXar2AH",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:45:59.398Z",
+      "crawledAt": "2026-05-19T23:07:59.893Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -301,11 +309,12 @@
       "featured": false,
       "postedDate": "2025-11-18",
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000HYXar2AH",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:45:59.398Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -322,7 +331,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000FwYzx2AF",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:45:53.494Z",
+      "crawledAt": "2026-05-19T23:07:53.376Z",
       "addressLocality": "Wohlen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -338,11 +347,12 @@
       "featured": false,
       "postedDate": "2025-09-24",
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000FwYzx2AF",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:45:53.494Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -359,7 +369,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG000003q8Nx2AI",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:45:52.184Z",
+      "crawledAt": "2026-05-19T23:07:52.033Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -375,16 +385,16 @@
       "featured": false,
       "postedDate": "2024-05-14",
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG000003q8Nx2AI",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-05-19T20:45:52.184Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
