@@ -2067,6 +2067,73 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const segs = locPath.split('/').filter(Boolean);
  const pathSegs = ['en', 'de', 'fr'].includes(segs[0]) ? segs.slice(1) : segs;
 
+ // ── Salary-landing net-comparison pages (4 scenarios × 3 non-IT locales) ──
+ // services/seo/seo-landing.ts only ships IT copy for these 4 keys; without
+ // a locale override the title falls through to title-casing the slug
+ // ("Net Comparison 2025 2026 Over 20km"). Match on the canonical path
+ // (trailing slash stripped) and emit explicit, human-readable title +
+ // description per locale. Keep this map in sync with services/router.ts
+ // REVERSE_SALARY_SUBTAB_BY_LOCALE.
+ const SALARY_LANDING_LOCALE_OVERRIDES: Record<string, { title: string; desc: string }> = {
+ // net-comparison-2025-2026 — within 20 km
+ '/en/calculate-salary/net-comparison-2025-2026-within-20km': {
+ title: 'Net Comparison 2025 vs 2026 (within 20 km) | Frontaliere Ticino',
+ desc: 'Compare the annual net pay for cross-border workers living within 20 km of the border under the 2025 regime vs the 2026 New Agreement: side-by-side simulation, updated tables, EUR/CHF conversion.',
+ },
+ '/de/gehalt-berechnen/nettovergleich-2025-2026-bis-20km': {
+ title: 'Nettovergleich 2025 vs 2026 (bis 20 km) | Frontaliere Ticino',
+ desc: 'Vergleichen Sie den jährlichen Nettolohn für Grenzgänger mit Wohnsitz bis 20 km von der Grenze unter dem Regime 2025 vs. dem Neuen Abkommen 2026: parallele Simulation, aktualisierte Tabellen, EUR/CHF-Umrechnung.',
+ },
+ '/fr/calculer-salaire/comparaison-net-2025-2026-moins-20km': {
+ title: 'Comparaison du net 2025 vs 2026 (moins de 20 km) | Frontaliere Ticino',
+ desc: 'Comparez le salaire net annuel des frontaliers résidant à moins de 20 km de la frontière sous le régime 2025 vs le Nouvel Accord 2026 : simulation côte à côte, barèmes à jour, conversion EUR/CHF.',
+ },
+ // net-comparison-2025-2026 — over 20 km
+ '/en/calculate-salary/net-comparison-2025-2026-over-20km': {
+ title: 'Net Comparison 2025 vs 2026 (over 20 km) | Frontaliere Ticino',
+ desc: 'Compare the annual net pay for cross-border workers living beyond 20 km of the border under the 2025 regime vs the 2026 New Agreement: side-by-side simulation, updated tables, EUR/CHF conversion.',
+ },
+ '/de/gehalt-berechnen/nettovergleich-2025-2026-ueber-20km': {
+ title: 'Nettovergleich 2025 vs 2026 (über 20 km) | Frontaliere Ticino',
+ desc: 'Vergleichen Sie den jährlichen Nettolohn für Grenzgänger mit Wohnsitz über 20 km von der Grenze unter dem Regime 2025 vs. dem Neuen Abkommen 2026: parallele Simulation, aktualisierte Tabellen, EUR/CHF-Umrechnung.',
+ },
+ '/fr/calculer-salaire/comparaison-net-2025-2026-plus-20km': {
+ title: 'Comparaison du net 2025 vs 2026 (plus de 20 km) | Frontaliere Ticino',
+ desc: 'Comparez le salaire net annuel des frontaliers résidant à plus de 20 km de la frontière sous le régime 2025 vs le Nouvel Accord 2026 : simulation côte à côte, barèmes à jour, conversion EUR/CHF.',
+ },
+ // permit G vs B — within 20 km
+ '/en/calculate-salary/permit-g-vs-b-comparison-within-20km': {
+ title: 'Permit G vs B Comparison (within 20 km) | Frontaliere Ticino',
+ desc: 'Side-by-side net-salary comparison for Permit G (cross-border commuter) vs Permit B (resident) within 20 km of the border, with 2026 Swiss-Italian tax tables and EUR/CHF conversion.',
+ },
+ '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-bis-20km': {
+ title: 'Vergleich Bewilligung G vs B (bis 20 km) | Frontaliere Ticino',
+ desc: 'Direkter Nettolohnvergleich für Bewilligung G (Grenzgänger) vs. Bewilligung B (Niedergelassene) mit Wohnsitz bis 20 km von der Grenze — schweizerisch-italienische Steuertabellen 2026 und EUR/CHF-Umrechnung.',
+ },
+ '/fr/calculer-salaire/comparaison-permis-g-vs-b-moins-20km': {
+ title: 'Comparaison Permis G vs B (moins de 20 km) | Frontaliere Ticino',
+ desc: 'Comparaison directe du salaire net pour Permis G (frontalier) vs Permis B (résident) à moins de 20 km de la frontière — barèmes fiscaux suisses-italiens 2026 et conversion EUR/CHF.',
+ },
+ // permit G vs B — over 20 km
+ '/en/calculate-salary/permit-g-vs-b-comparison-over-20km': {
+ title: 'Permit G vs B Comparison (over 20 km) | Frontaliere Ticino',
+ desc: 'Side-by-side net-salary comparison for Permit G (cross-border commuter) vs Permit B (resident) beyond 20 km of the border, with 2026 Swiss-Italian tax tables and EUR/CHF conversion.',
+ },
+ '/de/gehalt-berechnen/vergleich-bewilligung-g-vs-b-ueber-20km': {
+ title: 'Vergleich Bewilligung G vs B (über 20 km) | Frontaliere Ticino',
+ desc: 'Direkter Nettolohnvergleich für Bewilligung G (Grenzgänger) vs. Bewilligung B (Niedergelassene) mit Wohnsitz über 20 km von der Grenze — schweizerisch-italienische Steuertabellen 2026 und EUR/CHF-Umrechnung.',
+ },
+ '/fr/calculer-salaire/comparaison-permis-g-vs-b-plus-20km': {
+ title: 'Comparaison Permis G vs B (plus de 20 km) | Frontaliere Ticino',
+ desc: 'Comparaison directe du salaire net pour Permis G (frontalier) vs Permis B (résident) à plus de 20 km de la frontière — barèmes fiscaux suisses-italiens 2026 et conversion EUR/CHF.',
+ },
+ };
+ const overrideKey = locPath.replace(/\/+$/, '');
+ const override = SALARY_LANDING_LOCALE_OVERRIDES[overrideKey];
+ if (override) {
+ return { title: override.title, desc: override.desc, ogT: override.title, ogD: override.desc, sd: italianSeo.sd };
+ }
+
  // Homepage
  if (pathSegs.length === 0) {
  const h = LOCALE_HOME[locale];
@@ -2422,7 +2489,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const isHomePage = canonicalPath === '/';
  const isJobsIndex = /\/(cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/?$/.test(canonicalPath);
  const isArticlesIndex = /\/(articoli-frontaliere|frontier-articles|grenzgaenger-artikel|articles-frontalier)\/?$/.test(canonicalPath);
- const isCalcStipendioIndex = /^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/?$/.test(canonicalPath);
+ const isCalcStipendioIndex =
+   /^\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/?$/.test(canonicalPath) ||
+   /^\/(en|de|fr)\/(calcola-stipendio|calculate-salary|gehalt-berechnen|calculer-salaire)\/?$/.test(canonicalPath);
  // Don't seed editorialBlocks with seoData.desc — it's already rendered
  // in the gray subtitle <p> above the editorial div. Duplicating it wastes
  // the most valuable content slot and signals thin/boilerplate to crawlers.
@@ -3587,6 +3656,32 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // index `/calcola-stipendio/scenari/` covers the parametric grid but
  // NOT these editorial landings, which is why 22 of them surfaced in
  // the May-2026 Ahrefs orphan-page audit.
+ //
+ // For non-IT hub roots we resolve each IT scenario's locale-specific
+ // alternate via its hreflangs so the EN/DE/FR navigator only lists
+ // URLs that actually exist for that locale.
+ const SPA_TOOL_SLUGS = new Set([
+   'scenari', 'simula-busta-paga', 'cosa-cambia-se', 'confronta-stipendi',
+   'quiz-stipendio', 'confronta-retribuzione-ral',
+ ]);
+ const NAV_HEADINGS: Record<string, { h2: (n: number) => string; intro: string }> = {
+   it: {
+     h2: (n) => `Scenari di stipendio netto curati (${n})`,
+     intro: 'Confronti pre-impostati per le combinazioni più frequenti — vecchio vs nuovo frontaliere, residenza entro/oltre 20 km, sposato con figli, soglie salariali principali.',
+   },
+   en: {
+     h2: (n) => `Curated net-salary scenarios (${n})`,
+     intro: 'Pre-set comparisons for the most common combinations — old vs new cross-border worker, within/over 20 km of the border, married with children, key salary thresholds.',
+   },
+   de: {
+     h2: (n) => `Kuratierte Nettolohn-Szenarien (${n})`,
+     intro: 'Vorkonfigurierte Vergleiche für die häufigsten Konstellationen — alter vs. neuer Grenzgänger, Wohnsitz bis/über 20 km, verheiratet mit Kindern, wichtigste Lohnschwellen.',
+   },
+   fr: {
+     h2: (n) => `Scénarios de salaire net sélectionnés (${n})`,
+     intro: 'Comparaisons préconfigurées pour les combinaisons les plus fréquentes — ancien vs nouveau frontalier, résidence à moins/plus de 20 km, marié avec enfants, principaux seuils de salaire.',
+   },
+ };
  const calcLandings = italianUrls
  .filter(u => {
  const p = u.path.replace(/\/+$/, '');
@@ -3594,21 +3689,33 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (p === '/calcola-stipendio') return false;
  // Exclude the SPA "tool" sub-pages; they're already linked from main nav.
  const seg = p.replace('/calcola-stipendio/', '').split('/')[0];
- return !['scenari', 'simula-busta-paga', 'cosa-cambia-se', 'confronta-stipendi', 'quiz-stipendio', 'confronta-retribuzione-ral'].includes(seg);
+ return !SPA_TOOL_SLUGS.has(seg);
  })
  .map(u => {
- const slug = u.path.split('/').filter(Boolean).pop() ?? u.path;
+ // Resolve the URL for the page locale via the IT entry's hreflangs.
+ // Falls back to the IT path when no alternate is published (IT-only
+ // landings simply don't appear on non-IT hub roots).
+ let pagePath = u.path;
+ if (locale !== 'it') {
+   const alt = u.hreflangs.find(h => h.lang === locale);
+   if (!alt) return null;
+   const altPath = alt.href.replace(BASE_URL, '') || alt.href;
+   pagePath = altPath.replace(/\/+$/, '');
+ }
+ const slug = pagePath.split('/').filter(Boolean).pop() ?? pagePath;
  const label = slug.replace(/-/g, ' ').replace(/\bchf\b/gi, 'CHF').replace(/\b\w/g, m => m.toUpperCase());
- return { href: withTrailingSlash(u.path), label };
+ return { href: withTrailingSlash(pagePath), label };
  })
+ .filter((p): p is { href: string; label: string } => p !== null)
  .sort((a, b) => a.label.localeCompare(b.label));
  if (calcLandings.length > 0) {
+ const headings = NAV_HEADINGS[locale] ?? NAV_HEADINGS.it;
  const anchors = calcLandings
  .map(p => `<li><a href="${p.href}" style="color:var(--color-link);text-decoration:none;font-weight:500">${esc(p.label)}</a></li>`)
  .join('');
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Scenari di stipendio netto curati (${calcLandings.length})</h2>`,
- `<p style="margin:.25rem 0 .75rem;color:var(--color-subtle);font-size:.9rem">Confronti pre-impostati per le combinazioni più frequenti — vecchio vs nuovo frontaliere, residenza entro/oltre 20 km, sposato con figli, soglie salariali principali.</p>`,
+ `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">${esc(headings.h2(calcLandings.length))}</h2>`,
+ `<p style="margin:.25rem 0 .75rem;color:var(--color-subtle);font-size:.9rem">${esc(headings.intro)}</p>`,
  `<ul style="margin:0 0 1rem;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:6px;font-size:.9rem">${anchors}</ul>`,
  );
  }
