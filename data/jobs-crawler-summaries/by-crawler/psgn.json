@@ -1,18 +1,19 @@
 {
   "key": "psgn",
   "label": "Psychiatrie St.Gallen",
-  "generatedAt": "2026-05-19T21:07:12.071Z",
+  "generatedAt": "2026-05-19T23:14:01.502Z",
   "total": 10,
-  "newCount": 10,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 447781,
-  "avgDurationMs": 447781,
+  "durationMs": 12613,
+  "avgDurationMs": 12613,
   "durationHistory": [
-    447781
+    12613
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "psgn-c297e39266b0",
       "slug": "hr-praktikantin-hr-praktikant-psgn-wil-sg",
@@ -26,7 +27,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/hr-praktikantin-hr-praktikant/2d0f47a5-0fd6-4e55-9c94-6df8609a14b6",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:59:46.473Z",
+      "crawledAt": "2026-05-19T23:13:50.904Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -41,11 +42,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/hr-praktikantin-hr-praktikant/2d0f47a5-0fd6-4e55-9c94-6df8609a14b6",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:59:46.473Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -62,7 +64,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/chefaerztin-chefarzt/6fa8f9ef-bb87-4531-b043-d4dd350f0b99",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:59:47.261Z",
+      "crawledAt": "2026-05-19T23:13:51.740Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -77,11 +79,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/chefaerztin-chefarzt/6fa8f9ef-bb87-4531-b043-d4dd350f0b99",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:59:47.261Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/f815f6b6-daab-4928-8258-4b68180a8fdf",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:59:48.117Z",
+      "crawledAt": "2026-05-19T23:13:52.867Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -113,11 +116,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/f815f6b6-daab-4928-8258-4b68180a8fdf",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:59:48.117Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -134,7 +138,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh-intensivbetreuung/bc4b60ef-745b-4198-8b0a-1082c1af3e43",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:59:48.898Z",
+      "crawledAt": "2026-05-19T23:13:53.926Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -149,11 +153,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh-intensivbetreuung/bc4b60ef-745b-4198-8b0a-1082c1af3e43",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:59:48.898Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -170,7 +175,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/mitarbeiterin-mitarbeiter-reinigung-befristet/816cff4d-5d61-42d8-a7b7-38e65fb748e5",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:59:49.708Z",
+      "crawledAt": "2026-05-19T23:13:55.066Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -185,11 +190,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/mitarbeiterin-mitarbeiter-reinigung-befristet/816cff4d-5d61-42d8-a7b7-38e65fb748e5",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:59:49.708Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -206,7 +212,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/fachperson-gesundheit/ff5981a5-1534-48d2-804e-02048db34599",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:59:50.479Z",
+      "crawledAt": "2026-05-19T23:13:55.893Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -221,11 +227,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/fachperson-gesundheit/ff5981a5-1534-48d2-804e-02048db34599",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:59:50.479Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/0b9c658b-89f2-47a3-883c-0b8928df87dd",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:59:51.253Z",
+      "crawledAt": "2026-05-19T23:13:56.773Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -257,11 +264,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzpsychologin-assistenzpsychologe/0b9c658b-89f2-47a3-883c-0b8928df87dd",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:59:51.253Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -278,7 +286,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/ergotherapeutin-ergotherapeut/74a3d2c3-1f02-4c7a-9798-9ecedb460c68",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:59:52.039Z",
+      "crawledAt": "2026-05-19T23:13:57.551Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -293,11 +301,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/ergotherapeutin-ergotherapeut/74a3d2c3-1f02-4c7a-9798-9ecedb460c68",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:59:52.039Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -314,7 +323,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/827ea883-2ef8-4636-9286-da3f450e4f27",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:59:52.811Z",
+      "crawledAt": "2026-05-19T23:13:58.658Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -329,11 +338,12 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh/827ea883-2ef8-4636-9286-da3f450e4f27",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:59:52.811Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -350,7 +360,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/b0f202fa-b8ab-43af-a3fe-d0818174990e",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T20:59:53.614Z",
+      "crawledAt": "2026-05-19T23:13:59.598Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -365,16 +375,16 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/b0f202fa-b8ab-43af-a3fe-d0818174990e",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-05-19T20:59:53.614Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
