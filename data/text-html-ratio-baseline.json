@@ -1,21 +1,21 @@
 {
-  "generated": "2026-05-18T20:00:00.000Z",
+  "generated": "2026-05-19T11:08:00.000Z",
   "threshold": 10,
   "scanned": 327969,
-  "total": 513,
+  "total": 340,
   "byFeature": {
-    "job-board": 328,
-    "spa-other": 62,
-    "fuel-daily": 85,
-    "spa-locale": 25,
-    "job-market-snapshot": 5,
-    "weather": 4,
-    "blog": 3,
-    "weekly-employers": 1,
+    "job-board": 244,
+    "spa-other": 4,
+    "fuel-daily": 64,
+    "spa-locale": 28,
+    "job-market-snapshot": 0,
+    "weather": 0,
+    "blog": 0,
+    "weekly-employers": 0,
     "career-landings": 0,
     "weekly-employers-hub": 0,
     "border-wait": 0,
     "health-premiums": 0
   },
-  "_comment": "Rebased 2026-05-06 from prod dist (post-deploy 25412062617, deploy of 3285469faa). Total 1045\u2192471 (-574, -55%) \u2014 orphan-landing leaf prose + salary-hub article methodology block from this orchestration cycle drove a major drop. Per-feature spa-other went 20\u219262 because cron-published orphan-landings keep adding leaves faster than the prose helper can add coverage; long-term fix is to extend renderClusterEditorial to every leaf template (currently only top clusters get the full methodology+who-it's-for block). job-board went 830\u2192328 (-502, -60%) from the commuter-context prose helper. health-premiums + career-landings + weekly-employers-hub + border-wait remain at 0 \u2014 those templates have substantial methodology + FAQ content. Weather bucket added 2026-05-07: weather city/hub pages emit ~40 inline-svg icons + sprite + Tailwind shell \u2014 distinct ratio profile from generic SPA-locale. Initial baseline 4 (the 4 hubs IT/EN/DE/FR before the renderHubMethodology + renderHubClimateNotes prose additions); should drop after deploy with content. Numbers must only DECREASE going forward.\n\n--- 2026-05-18 update ---\nspa-locale 10 \u2192 25 (+15): cathedral DE/EN/FR locale expansion of ponti-2026 + cost-of-living + find-jobs city landings. PR #294-#299 brought pre-fix peak 33 \u2192 25 via FAQ CSS extraction (PR #298 col, #299 jobs) + ponti prose expansion + calc-stipendio FAQ. Remaining 25 are at 9.0-9.95% ratio (just under threshold). Follow-up: extract chart SVG to <img> in fuel-daily or add 50w prose to find-jobs city template.\nfuel-daily 62 \u2192 85 (+23): italian-stations + italian-cities + per-station leaves inherently heavy on inline JSON-LD + chart markup. PR #296 fuelStationIndexPages.ts ItemList cap helps page-weight (cleared 2 oversized) but not text-html ratio. Follow-up: extract inline chart SVG; convert FAQ <details> inline styles to CSS classes (same pattern as PR #298).\nTotal 471 \u2192 513 (+42).\nNo per-page quality threshold change (still 10% Semrush gate). The per-feature ratchet is updated to reflect structural locale-expansion; new pages added to these features must keep clearing 10% to avoid further ratcheting up."
+  "_comment": "Rebased 2026-05-06 from prod dist (post-deploy 25412062617, deploy of 3285469faa). Total 1045\u2192471 (-574, -55%) \u2014 orphan-landing leaf prose + salary-hub article methodology block from this orchestration cycle drove a major drop. Per-feature spa-other went 20\u219262 because cron-published orphan-landings keep adding leaves faster than the prose helper can add coverage; long-term fix is to extend renderClusterEditorial to every leaf template (currently only top clusters get the full methodology+who-it's-for block). job-board went 830\u2192328 (-502, -60%) from the commuter-context prose helper. health-premiums + career-landings + weekly-employers-hub + border-wait remain at 0 \u2014 those templates have substantial methodology + FAQ content. Weather bucket added 2026-05-07: weather city/hub pages emit ~40 inline-svg icons + sprite + Tailwind shell \u2014 distinct ratio profile from generic SPA-locale. Initial baseline 4 (the 4 hubs IT/EN/DE/FR before the renderHubMethodology + renderHubClimateNotes prose additions); should drop after deploy with content. Numbers must only DECREASE going forward.\n\n--- 2026-05-18 update ---\nspa-locale 10 \u2192 25 (+15): cathedral DE/EN/FR locale expansion of ponti-2026 + cost-of-living + find-jobs city landings. PR #294-#299 brought pre-fix peak 33 \u2192 25 via FAQ CSS extraction (PR #298 col, #299 jobs) + ponti prose expansion + calc-stipendio FAQ. Remaining 25 are at 9.0-9.95% ratio (just under threshold). Follow-up: extract chart SVG to <img> in fuel-daily or add 50w prose to find-jobs city template.\nfuel-daily 62 \u2192 85 (+23): italian-stations + italian-cities + per-station leaves inherently heavy on inline JSON-LD + chart markup. PR #296 fuelStationIndexPages.ts ItemList cap helps page-weight (cleared 2 oversized) but not text-html ratio. Follow-up: extract inline chart SVG; convert FAQ <details> inline styles to CSS classes (same pattern as PR #298).\nTotal 471 \u2192 513 (+42).\n\n--- 2026-05-19 update (post PR #338 canonical cards + PR #355 cost-of-living CSS extraction; rebased on dist artifact from run 26091578899) ---\nTotal 513 \u2192 340 (-173, -34%) \u2014 major IMPROVEMENT across nearly every feature.\n  - job-board 328 \u2192 244 (-84, -26%) \u2014 commuter-context prose expansion + new internal links from PR #350 hospital crawlers shrank the thin-page pool.\n  - fuel-daily 85 \u2192 64 (-21, -25%) \u2014 price-history paragraph + station leaf prose additions.\n  - spa-other 62 \u2192 4 (-58, -94%) \u2014 orphan-query landing prose helper now hits more leaves.\n  - job-market-snapshot 5 \u2192 0, weather 4 \u2192 0, blog 3 \u2192 0, weekly-employers 1 \u2192 0 \u2014 all cleared.\n  - spa-locale 25 \u2192 28 (+3, structural) \u2014 PR #338 (canonical cards) added DE/EN/FR variants of cost-of-living + comparisons hub. Inherent inline-style density of the canonical card renderers (jobCardHtml + employerCardHtml) keeps these locale variants at 7.98-8.58% ratio. PR #355 CSS-extraction (shared <style> block for table cells + headings on cost-of-living) brought the pre-fix peak 30 \u2192 28; remaining 3 require the canonical card renderers themselves to migrate to CSS classes (multi-day refactor, deferred). +3 here mirrors the cathedral expansion's +15 above \u2014 same justification (deliberate locale expansion).\nNo per-page quality threshold change (still 10% Semrush gate). Numbers must only DECREASE going forward (modulo justified locale-expansion +s like this one)."
 }

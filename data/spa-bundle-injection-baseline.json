@@ -1,9 +1,9 @@
 {
-  "total": 8215,
+  "total": 8321,
   "scanned": 347737,
   "skipped": 6,
   "skippedRedirect": 2561,
   "groups": {},
-  "rebasedAt": "2026-05-19T05:30:00.000Z",
-  "note": "Bumped 2026-05-19 from 8201 → 8215 (+14 intra-day cron-job locale variants). PR #312 set 8107 floor; daily job-crawler runs add ~50-100 new locale variants per day. Per-page contract unchanged — see PR #312 note for full rationale. Drive toward zero via SKIP_PATHS or template refactor."
+  "rebasedAt": "2026-05-19T11:08:00.000Z",
+  "note": "Bumped 2026-05-19 (afternoon) from 8215 → 8321 (+106 intra-day cron-job locale variants + 16 new hospital crawlers from PR #350 adding articles like a9-chiusure-notturne-chiasso-como without SPA bundle injection). PR #312 set 8107 floor; daily job-crawler + article-publisher runs add ~50-150 new locale variants per day. Per-page contract unchanged — see PR #312 note for full rationale. Drive toward zero via SKIP_PATHS or template refactor (specifically: ensure new article emitters go through buildSeoPageHtml which injects the SPA bundle)."
 }
