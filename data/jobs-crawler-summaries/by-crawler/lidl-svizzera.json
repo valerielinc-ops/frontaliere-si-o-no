@@ -1,18 +1,19 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-05-19T12:08:00.697Z",
+  "generatedAt": "2026-05-19T22:49:47.979Z",
   "total": 11,
-  "newCount": 1,
-  "updatedCount": 10,
+  "newCount": 0,
+  "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18702,
-  "avgDurationMs": 18702,
+  "durationMs": 10513,
+  "avgDurationMs": 10513,
   "durationHistory": [
-    18702
+    10513
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-csxpwn",
       "slug": "ch-tuttofare-vendita-m-w-d-20-40-lidl-svizzera-lugano",
@@ -39,16 +40,20 @@
       "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 79,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 15,
-        "completeness": 14
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-xsgkjj",
       "slug": "361-venditore-venditrice-m-f-d-20-40-lidl-svizzera-riazzino-xsgkjj",
@@ -122,11 +127,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "retranslationAttempts": 1,
-      "_qualityScore": 87,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 9,
         "completeness": 25
       }
     },
@@ -163,11 +168,11 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "retranslationAttempts": 1,
-      "_qualityScore": 87,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 9,
         "completeness": 25
       }
     },
