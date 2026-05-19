@@ -1,16 +1,16 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-05-19T12:26:24.217Z",
+  "generatedAt": "2026-05-19T23:12:13.116Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6962,
-  "avgDurationMs": 6962,
+  "durationMs": 5764,
+  "avgDurationMs": 5764,
   "durationHistory": [
-    6962
+    5764
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:26:19.809Z",
+      "crawledAt": "2026-05-19T23:12:09.285Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "_qualityScore": 76,
@@ -65,7 +65,7 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-PRADA-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:26:19.436Z",
+      "crawledAt": "2026-05-19T23:12:08.976Z",
       "firstSeenAt": "2026-05-16T10:49:17.374Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -76,41 +76,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "prada-b9ae973c94ba",
-      "slug": "responsabile-laboratorio-di-collezione-abbigliamento-lifestyle-uomo-prada-group-montevarchi-responsabile-laboratorio-di-collezione-abbigliamento-lifestyle-uomo",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "Responsabile Laboratorio di Collezione Abbigliamento Lifestyle Uomo",
-      "location": "Montevarchi Responsabile Laboratorio di Collezione Abbigliamento Lifestyle Uomo",
-      "canton": "TI",
-      "addressLocality": "Montevarchi Responsabile Laboratorio di Collezione Abbigliamento Lifestyle Uomo",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-18",
-      "url": "https://jobs.pradagroup.com/job/Montevarchi-Responsabile-Laboratorio-di-Collezione-Abbigliamento-Lifestyle-Uomo/1256446201/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-05-18T13:01:29.523Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "postalCode": "6500",
-      "firstSeenAt": "2026-05-18T13:01:29.523Z",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "prada-332f237b0ca4",
@@ -132,7 +98,7 @@
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:26:19.809Z",
+      "crawledAt": "2026-05-19T23:12:09.285Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:53:53.278Z",
       "salaryMin": 68000,
@@ -166,7 +132,7 @@
       "url": "https://jobs.pradagroup.com/job/Zurich-PRADA-Store-Manager%2C-Zurich/1255193301/",
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T12:26:19.436Z",
+      "crawledAt": "2026-05-19T23:12:08.976Z",
       "firstSeenAt": "2026-05-16T10:49:17.374Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
