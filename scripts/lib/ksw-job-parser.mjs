@@ -198,6 +198,79 @@ export function parseKswListingPage(html = '') {
   return results;
 }
 
+/* ── Detail Page Parser ────────────────────────────────────── */
+
+/**
+ * Parse a Solique KSW detail page (live.solique.ch/ksw/job/details/{id}).
+ *
+ * The page is a server-rendered HTML document with these content sections:
+ *   - <div class="introduction">…company/team intro</div>
+ *   - <div class="tasks-wrapper"><h2>Deine Aufgaben</h2><ul class="tasks"><li>…</li></ul></div>
+ *   - <div class="profile-wrapper"><h2>Dein Profil</h2><ul class="profile"><li>…</li></ul></div>
+ *   - <div class="benefits-wrapper">…benefits</div>
+ *   - <div class="contact-info">…contact</div>
+ *
+ * The "tasks" + "profile" sections include the German content headings
+ * "Aufgaben" / "Profil" which satisfy the boilerplate-guard CONTENT_HEADINGS_RE
+ * regex (matches "Aufgaben|Anforderungen|Tasks|Requirements" etc).
+ */
+export function parseKswDetailPage(html = '') {
+  const blocks = [];
+
+  // Page-level title (more authoritative than the listing card sometimes)
+  const h1Match = html.match(/<h1[^>]*class="[^"]*jobtitle[^"]*"[^>]*>([\s\S]*?)<\/h1>/i);
+  const detailTitle = h1Match
+    ? normalizeSpace(decodeEntities(stripHtml(h1Match[1])))
+    : '';
+
+  // Introduction (team/company context)
+  const introMatch = html.match(/<div\s+class="introduction"[^>]*>([\s\S]*?)<\/div>/i);
+  if (introMatch) {
+    const txt = normalizeSpace(decodeEntities(stripHtml(introMatch[1])));
+    if (txt.length > 20) blocks.push(txt);
+  }
+
+  // Tasks (Aufgaben)
+  const tasksMatch = html.match(/<div\s+class="tasks-wrapper"[\s\S]*?<ul[^>]*class="[^"]*tasks[^"]*"[^>]*>([\s\S]*?)<\/ul>/i);
+  if (tasksMatch) {
+    const items = [...tasksMatch[1].matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)]
+      .map((m) => normalizeSpace(decodeEntities(stripHtml(m[1]))))
+      .filter((t) => t.length > 3);
+    if (items.length) {
+      blocks.push(`Aufgaben:\n• ${items.join('\n• ')}`);
+    }
+  }
+
+  // Profile (Profil / Anforderungen)
+  const profileMatch = html.match(/<div\s+class="profile-wrapper"[\s\S]*?<ul[^>]*class="[^"]*profile[^"]*"[^>]*>([\s\S]*?)<\/ul>/i);
+  if (profileMatch) {
+    const items = [...profileMatch[1].matchAll(/<li[^>]*>([\s\S]*?)<\/li>/gi)]
+      .map((m) => normalizeSpace(decodeEntities(stripHtml(m[1]))))
+      .filter((t) => t.length > 3);
+    if (items.length) {
+      blocks.push(`Profil:\n• ${items.join('\n• ')}`);
+    }
+  }
+
+  // Benefits (optional flavour)
+  const benefitsMatch = html.match(/<div\s+class="benefits-wrapper"[^>]*>([\s\S]*?)<\/div>\s*<\/div>\s*<\/div>/i);
+  if (benefitsMatch) {
+    const titles = [...benefitsMatch[1].matchAll(/<div\s+class="benefit-title"[^>]*>([\s\S]*?)<\/div>/gi)]
+      .map((m) => normalizeSpace(decodeEntities(stripHtml(m[1]))))
+      .filter((t) => t.length > 2);
+    const texts = [...benefitsMatch[1].matchAll(/<div\s+class="benefit-text"[^>]*>([\s\S]*?)<\/div>/gi)]
+      .map((m) => normalizeSpace(decodeEntities(stripHtml(m[1]))))
+      .filter((t) => t.length > 5);
+    const combined = [...titles, ...texts].slice(0, 8);
+    if (combined.length) blocks.push(`Benefits: ${combined.join('; ')}`);
+  }
+
+  return {
+    title: detailTitle,
+    description: blocks.join('\n\n'),
+  };
+}
+
 /* ── HTTP Fetch ───────────────────────────────────────────── */
 
 async function fetchPage(url) {
@@ -223,6 +296,42 @@ async function fetchPage(url) {
   }
 }
 
+/**
+ * Sequential mini-helper to fetch N detail pages with bounded concurrency
+ * + per-worker delay + retry-on-503/429 with backoff. Solique handles a
+ * few rps fine but we still pause to stay polite.
+ */
+async function fetchInBatches(items, concurrency, fn, opts = {}) {
+  const delayMs = Number.isFinite(opts.delayMs) ? opts.delayMs : 150;
+  const retries = Number.isFinite(opts.retries) ? opts.retries : 2;
+  const results = new Array(items.length);
+  let next = 0;
+  async function worker() {
+    while (true) {
+      const i = next++;
+      if (i >= items.length) return;
+      let lastErr = null;
+      for (let attempt = 0; attempt <= retries; attempt++) {
+        try {
+          results[i] = await fn(items[i], i);
+          lastErr = null;
+          break;
+        } catch (err) {
+          lastErr = err;
+          const msg = String(err?.message || '');
+          if (!/HTTP\s+(5\d\d|429)/.test(msg)) break;
+          await new Promise((r) => setTimeout(r, delayMs * (attempt + 1) * 2));
+        }
+      }
+      if (lastErr) results[i] = { __error: lastErr };
+      if (delayMs) await new Promise((r) => setTimeout(r, delayMs));
+    }
+  }
+  const workers = Array.from({ length: Math.max(1, concurrency) }, () => worker());
+  await Promise.all(workers);
+  return results;
+}
+
 /* ── Main Fetch Function ──────────────────────────────────── */
 
 export async function fetchAllKswJobs() {
@@ -245,9 +354,32 @@ export async function fetchAllKswJobs() {
   }
   console.log(`  📋 Listings found: ${listings.length}\n`);
 
+  // Fetch detail pages with bounded concurrency. The Solique detail page
+  // carries the real Aufgaben/Profil sections — the listing card alone
+  // produces stub descriptions (~15 words) that fail the boilerplate guard.
+  const detailConcurrency = Number(process.env.JOBS_CRAWLER_DETAIL_CONCURRENCY) || 3;
+  const detailDelayMs = Number(process.env.JOBS_CRAWLER_DETAIL_DELAY_MS) || 200;
+  console.log(`  🔎 Fetching ${listings.length} detail pages (concurrency=${detailConcurrency}, delay=${detailDelayMs}ms)…`);
+  const detailResults = await fetchInBatches(listings, detailConcurrency, async (listing) => {
+    const detailHtml = await fetchPage(listing.detailUrl);
+    return parseKswDetailPage(detailHtml);
+  }, { delayMs: detailDelayMs, retries: 2 });
+  let detailOk = 0;
+  let detailFail = 0;
+  for (const r of detailResults) {
+    if (r && !r.__error && r.description) detailOk++;
+    else detailFail++;
+  }
+  console.log(`  ✅ Detail OK: ${detailOk} · ⚠️ failures: ${detailFail}\n`);
+
   const jobs = [];
-  for (const listing of listings) {
-    const title = listing.title;
+  for (let i = 0; i < listings.length; i++) {
+    const listing = listings[i];
+    const detail = detailResults[i];
+    const detailOkHere = detail && !detail.__error;
+    const title = (detailOkHere && detail.title && detail.title.length > 3)
+      ? detail.title
+      : listing.title;
     const location = 'Winterthur';
     const canton = 'ZH';
 
@@ -260,8 +392,12 @@ export async function fetchAllKswJobs() {
         : `${listing.workloadMin}-${listing.workloadMax}%`;
       descBits.push(`• Pensum: ${pct}`);
     }
+    const metaLine = descBits.length ? descBits.join('\n') : '';
     const fallbackDesc = `${title} — ${KSW_COMPANY_NAME}, Winterthur`;
-    const descriptionText = descBits.length ? `${fallbackDesc}\n\n${descBits.join('\n')}` : fallbackDesc;
+    const detailText = detailOkHere ? detail.description : '';
+    const descriptionText = detailText
+      ? (metaLine ? `${detailText}\n\n${metaLine}` : detailText)
+      : (metaLine ? `${fallbackDesc}\n\n${metaLine}` : fallbackDesc);
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} ksw ch`);
