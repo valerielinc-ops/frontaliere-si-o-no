@@ -1,6 +1,6 @@
 {
   "crawlerKey": "flury-stiftung",
-  "assembledAt": "2026-05-18T21:55:29.900Z",
+  "assembledAt": "2026-05-19T11:42:42.131Z",
   "jobs": [
     {
       "id": "flury-stiftung-31ec11d4dd25",
@@ -33,7 +33,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Assistenzperson%20Gesundheit%20und%20Soziales%202027_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T12:21:54.823Z",
+      "crawledAt": "2026-05-19T11:42:36.404Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -71,6 +71,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.234Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -115,7 +116,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachperson%20Gesundheit%20EFZ%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T12:21:54.823Z",
+      "crawledAt": "2026-05-19T11:42:36.403Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -164,6 +165,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.234Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -208,7 +210,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-08/Lehrstelle%20Fachfperson%20Hotellerie-Hauswirtschaft%202026.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T12:21:54.822Z",
+      "crawledAt": "2026-05-19T11:42:36.401Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -285,6 +287,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.228Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -294,6 +297,92 @@
           "@type": "QuantitativeValue",
           "minValue": 41600,
           "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "flury-stiftung-ccf7fd962c44",
+      "slug": "assistenza-pratica-medicina-generale-m-f-50-100-flury-stiftung-klosters",
+      "slugByLocale": {
+        "it": "assistenza-pratica-medicina-generale-m-f-50-100-flury-stiftung-klosters",
+        "en": "practice-assistance-general-medicine-m-w-50-100-flury-stiftung-klosters",
+        "de": "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
+        "fr": "assistance-pratique-medecine-generale-m-f-50-100-flury-stiftung-klosters"
+      },
+      "company": "Flury Stiftung",
+      "companyKey": "flury-stiftung",
+      "companyDomain": "flurystiftung.ch",
+      "title": "Praxisassistenz Hausarztmedizin (m/w) 50 - 100%",
+      "titleByLocale": {
+        "it": "Assistenza pratica medicina generale (m/f) 50 - 100%",
+        "en": "Practice assistance general medicine (m/w) 50 - 100%",
+        "de": "Praxisassistenz Hausarztmedizin (m/w) 50 - 100%",
+        "fr": "Assistance pratique médecine générale (m/f) 50 - 100%"
+      },
+      "description": "Praxisassistenz Hausarztmedizin (m/w) 50 - 100% — Flury Stiftung. Bereich: Medizinisches Zentrum Klosters. Arbeitsort: Klosters (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
+      "descriptionByLocale": {
+        "it": "Descrizione - Medico Medico Generale Assistente (m/f) 50 - 100% - Fondazione Flury - Area: Klosters Medical Centre - Luogo di lavoro: Klosters (GR) - La Fondazione Flury è un fornitore regionale di assistenza sanitaria a Prättigau, Cantone dei Grigioni, e gestisce l'Ospedale Schiers, due case di riposo a Schiers e Jenaz, un'organizzazione Spitex, il Centro Medico Klosters e asili nido -\n• Offriamo un'ampia gamma di opportunità di carriera, condizioni di lavoro moderne e un team collégiale Ambiente di lavoro in una regione montana attraente -\n• Cerchiamo professionisti impegnati che vogliano contribuire all'assistenza sanitaria nella nostra regione con competenza e passione",
+        "en": "Descrizione - Practice Assistant General Practitioner (m/f) 50 - 100% - Flury Foundation - Area: Klosters Medical Centre - Place of work: Klosters (GR) - The Flury Foundation is a regional health care provider in Prättigau, Canton of Graubünden, and operates the Schiers Hospital, two retirement homes in Schiers and Jenaz, a Spitex organisation, the Klosters Medical Centre and crèches -\n• We offer a wide range of career opportunities, modern working conditions and a collegial team Working environment in an attractive mountain region - We are looking for committed professionals who want to contribute to health care in our region with competence and passion",
+        "de": "Praxisassistenz Hausarztmedizin (m/w) 50 - 100% — Flury Stiftung. Bereich: Medizinisches Zentrum Klosters. Arbeitsort: Klosters (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
+        "fr": "Descrizione - Médecin généraliste assistant (m/f) 50 % - 100 % - Fondation Flury - Zone : Centre médical Klosters - Lieu de travail : Klosters (GR) - La Fondation Flury est un prestataire régional de soins de santé à Prättigau, canton des Grisons, et gère l'hôpital Schiers, deux maisons de retraite à Schiers et Jenaz, une organisation Spitex, le Centre médical Klosters et des crèches -\n• Nous proposons une large gamme d'opportunités professionnelles, des conditions de travail modernes et une équipe collégiale Environnement de travail dans une région montagneuse attrayante - Nous recherchons des professionnels engagés qui souhaitent contribuer aux soins de santé de notre région avec compétence et passion"
+      },
+      "location": "Klosters",
+      "canton": "GR",
+      "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Praxisassistenz%20Hausarztmedizin%2050-100%25.pdf",
+      "source": "Flury Stiftung Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T11:42:36.399Z",
+      "addressLocality": "Klosters",
+      "postalCode": "7250",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Medicina",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-27",
+      "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-03/Praxisassistenz%20Hausarztmedizin%2050-100%25.pdf",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Medizinisches Zentrum Klosters",
+      "pensum": "50 - 100%",
+      "pensumMin": 50,
+      "pensumMax": 100,
+      "previousSlugs": [
+        "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
+        "assistente-ambulatoriale-medicina-di-famiglia-m-f-50-100-flury-stiftung-klosters",
+        "practice-assistant-general-practitioner-m-f-50-100-flury-stiftung-klosters",
+        "assistant-au-cabinet-medical-medecin-de-famille-h-f-50-100-flury-stiftung-klosters",
+        "apprendistato-impiegato-a-di-commercio-afc-da-estate-2027-flury-stiftung-schiers"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
+          "assistente-ambulatoriale-medicina-di-famiglia-m-f-50-100-flury-stiftung-klosters"
+        ],
+        "en": [
+          "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
+          "practice-assistant-general-practitioner-m-f-50-100-flury-stiftung-klosters"
+        ],
+        "fr": [
+          "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
+          "assistant-au-cabinet-medical-medecin-de-famille-h-f-50-100-flury-stiftung-klosters"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T10:33:20.233Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
@@ -329,7 +418,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Dipl.%20Pflegefachperson%20Spitex.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T12:21:54.819Z",
+      "crawledAt": "2026-05-19T11:42:36.398Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -395,92 +484,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.233Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "flury-stiftung-ccf7fd962c44",
-      "slug": "assistenza-pratica-medicina-generale-m-f-50-100-flury-stiftung-klosters",
-      "slugByLocale": {
-        "it": "assistenza-pratica-medicina-generale-m-f-50-100-flury-stiftung-klosters",
-        "en": "practice-assistance-general-medicine-m-w-50-100-flury-stiftung-klosters",
-        "de": "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
-        "fr": "assistance-pratique-medecine-generale-m-f-50-100-flury-stiftung-klosters"
-      },
-      "company": "Flury Stiftung",
-      "companyKey": "flury-stiftung",
-      "companyDomain": "flurystiftung.ch",
-      "title": "Praxisassistenz Hausarztmedizin (m/w) 50 - 100%",
-      "titleByLocale": {
-        "it": "Assistenza pratica medicina generale (m/f) 50 - 100%",
-        "en": "Practice assistance general medicine (m/w) 50 - 100%",
-        "de": "Praxisassistenz Hausarztmedizin (m/w) 50 - 100%",
-        "fr": "Assistance pratique médecine générale (m/f) 50 - 100%"
-      },
-      "description": "Praxisassistenz Hausarztmedizin (m/w) 50 - 100% — Flury Stiftung. Bereich: Medizinisches Zentrum Klosters. Arbeitsort: Klosters (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
-      "descriptionByLocale": {
-        "it": "Descrizione - Medico Medico Generale Assistente (m/f) 50 - 100% - Fondazione Flury - Area: Klosters Medical Centre - Luogo di lavoro: Klosters (GR) - La Fondazione Flury è un fornitore regionale di assistenza sanitaria a Prättigau, Cantone dei Grigioni, e gestisce l'Ospedale Schiers, due case di riposo a Schiers e Jenaz, un'organizzazione Spitex, il Centro Medico Klosters e asili nido -\n• Offriamo un'ampia gamma di opportunità di carriera, condizioni di lavoro moderne e un team collégiale Ambiente di lavoro in una regione montana attraente -\n• Cerchiamo professionisti impegnati che vogliano contribuire all'assistenza sanitaria nella nostra regione con competenza e passione",
-        "en": "Descrizione - Practice Assistant General Practitioner (m/f) 50 - 100% - Flury Foundation - Area: Klosters Medical Centre - Place of work: Klosters (GR) - The Flury Foundation is a regional health care provider in Prättigau, Canton of Graubünden, and operates the Schiers Hospital, two retirement homes in Schiers and Jenaz, a Spitex organisation, the Klosters Medical Centre and crèches -\n• We offer a wide range of career opportunities, modern working conditions and a collegial team Working environment in an attractive mountain region - We are looking for committed professionals who want to contribute to health care in our region with competence and passion",
-        "de": "Praxisassistenz Hausarztmedizin (m/w) 50 - 100% — Flury Stiftung. Bereich: Medizinisches Zentrum Klosters. Arbeitsort: Klosters (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
-        "fr": "Descrizione - Médecin généraliste assistant (m/f) 50 % - 100 % - Fondation Flury - Zone : Centre médical Klosters - Lieu de travail : Klosters (GR) - La Fondation Flury est un prestataire régional de soins de santé à Prättigau, canton des Grisons, et gère l'hôpital Schiers, deux maisons de retraite à Schiers et Jenaz, une organisation Spitex, le Centre médical Klosters et des crèches -\n• Nous proposons une large gamme d'opportunités professionnelles, des conditions de travail modernes et une équipe collégiale Environnement de travail dans une région montagneuse attrayante - Nous recherchons des professionnels engagés qui souhaitent contribuer aux soins de santé de notre région avec compétence et passion"
-      },
-      "location": "Klosters",
-      "canton": "GR",
-      "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Praxisassistenz%20Hausarztmedizin%2050-100%25.pdf",
-      "source": "Flury Stiftung Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:55:20.526Z",
-      "addressLocality": "Klosters",
-      "postalCode": "7250",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Medicina",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-03/Praxisassistenz%20Hausarztmedizin%2050-100%25.pdf",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Medizinisches Zentrum Klosters",
-      "pensum": "50 - 100%",
-      "pensumMin": 50,
-      "pensumMax": 100,
-      "previousSlugs": [
-        "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
-        "assistente-ambulatoriale-medicina-di-famiglia-m-f-50-100-flury-stiftung-klosters",
-        "practice-assistant-general-practitioner-m-f-50-100-flury-stiftung-klosters",
-        "assistant-au-cabinet-medical-medecin-de-famille-h-f-50-100-flury-stiftung-klosters",
-        "apprendistato-impiegato-a-di-commercio-afc-da-estate-2027-flury-stiftung-schiers"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
-          "assistente-ambulatoriale-medicina-di-famiglia-m-f-50-100-flury-stiftung-klosters"
-        ],
-        "en": [
-          "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
-          "practice-assistant-general-practitioner-m-f-50-100-flury-stiftung-klosters"
-        ],
-        "fr": [
-          "praxisassistenz-hausarztmedizin-m-w-50-100-flury-stiftung-ch",
-          "assistant-au-cabinet-medical-medecin-de-famille-h-f-50-100-flury-stiftung-klosters"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:33:20.233Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -525,7 +529,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Stelleninserat%20MA%20Haushalt%20Spitex.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T12:21:54.818Z",
+      "crawledAt": "2026-05-19T11:42:36.397Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -599,85 +603,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.233Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "flury-stiftung-9abb701f01a8",
-      "slug": "formatore-in-cura-50-casa-di-riposo-schiers-flury-stiftung-schiers",
-      "slugByLocale": {
-        "it": "formatore-in-cura-50-casa-di-riposo-schiers-flury-stiftung-schiers",
-        "en": "vocational-trainer-nursing-50-schiers-retirement-home-flury-stiftung-schiers",
-        "de": "berufsbildner-in-pflege-50-altersheim-schiers-flury-stiftung-ch",
-        "fr": "formateur-triceen-soins-infirmiers-50-maison-de-retraite-schiers-flury-stiftung-schiers"
-      },
-      "company": "Flury Stiftung",
-      "companyKey": "flury-stiftung",
-      "companyDomain": "flurystiftung.ch",
-      "title": "Berufsbildner*in Pflege 50%, Altersheim Schiers",
-      "titleByLocale": {
-        "it": "Formatore*in cura 50%, casa di riposo Schiers",
-        "en": "Vocational trainer nursing 50%, Schiers retirement home",
-        "de": "Berufsbildner*in Pflege 50%, Altersheim Schiers",
-        "fr": "Formateur· triceen soins infirmiers 50 %, maison de retraite Schiers"
-      },
-      "description": "Berufsbildner*in Pflege 50%, Altersheim Schiers — Flury Stiftung. Bereich: Altersheime. Arbeitsort: Schiers (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
-      "descriptionByLocale": {
-        "it": "Descrizione - Job designer*in Care 50%, Altersheim Schiers — Flury Foundation - Area: Old age houses - Posto di lavoro: Schiers (GR) - La Flury Foundation è un fornitore regionale di assistenza sanitaria nel Prättigau, cantone di Grigioni, e gestisce il Spital Schiers, due vecchie case di età a Schiers e Jenaz, un'organizzazione Spitex, il Medical Center Klosters e i presepi per bambini diversi -",
-        "en": "Descrizione - Job designer*in Care 50%, Altersheim Schiers — Flury Foundation - Area: Old age homes - Working place: Schiers (GR) - The Flury Foundation is a regional health care provider in the Prättigau, canton of Graubünden, and operates the Spital Schiers, two old age homes in Schiers and Jenaz, a Spitex organization, the Medical Center Klosters and children's cribs - we offer diverse career opportunities",
-        "de": "Berufsbildner*in Pflege 50%, Altersheim Schiers — Flury Stiftung. Bereich: Altersheime. Arbeitsort: Schiers (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
-        "fr": "Descrizione - Job designer*in Care 50%, Altersheim Schiers — Fondation Flury - Zone: Maisons de vieillesse - Lieu de travail: Schiers (GR) - La Fondation Flury est un prestataire régional de soins de santé dans le Prättigau, canton des Grisons, et exploite les Spital Schiers, deux maisons de vieillesse à Schiers et Jenaz, une organisation Spitex, le Centre médical Klosters et les crèches pour enfants - nous offrons diverses possibilités de carrière"
-      },
-      "location": "Schiers",
-      "canton": "GR",
-      "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Berufsbildung%20Pflege%2050%25%20Altersheim%20Schiers.pdf",
-      "source": "Flury Stiftung Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-05-18T12:21:54.816Z",
-      "addressLocality": "Schiers",
-      "postalCode": "7220",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-03/Berufsbildung%20Pflege%2050%25%20Altersheim%20Schiers.pdf",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Altersheime",
-      "pensum": "50%",
-      "pensumMin": 50,
-      "pensumMax": 50,
-      "previousSlugs": [
-        "berufsbildner-in-pflege-50-altersheim-schiers-flury-stiftung-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "berufsbildner-in-pflege-50-altersheim-schiers-flury-stiftung-ch"
-        ],
-        "en": [
-          "berufsbildner-in-pflege-50-altersheim-schiers-flury-stiftung-ch"
-        ],
-        "fr": [
-          "berufsbildner-in-pflege-50-altersheim-schiers-flury-stiftung-ch"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:33:20.233Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -722,7 +648,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/FAGE%20oder%20Pflegefachperson%2040-50%25%20AHJ%20Demenz.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T12:21:54.817Z",
+      "crawledAt": "2026-05-19T11:42:36.395Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -761,6 +687,87 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.233Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "flury-stiftung-9abb701f01a8",
+      "slug": "formatore-in-cura-50-casa-di-riposo-schiers-flury-stiftung-schiers",
+      "slugByLocale": {
+        "it": "formatore-in-cura-50-casa-di-riposo-schiers-flury-stiftung-schiers",
+        "en": "vocational-trainer-nursing-50-schiers-retirement-home-flury-stiftung-schiers",
+        "de": "berufsbildner-in-pflege-50-altersheim-schiers-flury-stiftung-ch",
+        "fr": "formateur-triceen-soins-infirmiers-50-maison-de-retraite-schiers-flury-stiftung-schiers"
+      },
+      "company": "Flury Stiftung",
+      "companyKey": "flury-stiftung",
+      "companyDomain": "flurystiftung.ch",
+      "title": "Berufsbildner*in Pflege 50%, Altersheim Schiers",
+      "titleByLocale": {
+        "it": "Formatore*in cura 50%, casa di riposo Schiers",
+        "en": "Vocational trainer nursing 50%, Schiers retirement home",
+        "de": "Berufsbildner*in Pflege 50%, Altersheim Schiers",
+        "fr": "Formateur· triceen soins infirmiers 50 %, maison de retraite Schiers"
+      },
+      "description": "Berufsbildner*in Pflege 50%, Altersheim Schiers — Flury Stiftung. Bereich: Altersheime. Arbeitsort: Schiers (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
+      "descriptionByLocale": {
+        "it": "Descrizione - Job designer*in Care 50%, Altersheim Schiers — Flury Foundation - Area: Old age houses - Posto di lavoro: Schiers (GR) - La Flury Foundation è un fornitore regionale di assistenza sanitaria nel Prättigau, cantone di Grigioni, e gestisce il Spital Schiers, due vecchie case di età a Schiers e Jenaz, un'organizzazione Spitex, il Medical Center Klosters e i presepi per bambini diversi -",
+        "en": "Descrizione - Job designer*in Care 50%, Altersheim Schiers — Flury Foundation - Area: Old age homes - Working place: Schiers (GR) - The Flury Foundation is a regional health care provider in the Prättigau, canton of Graubünden, and operates the Spital Schiers, two old age homes in Schiers and Jenaz, a Spitex organization, the Medical Center Klosters and children's cribs - we offer diverse career opportunities",
+        "de": "Berufsbildner*in Pflege 50%, Altersheim Schiers — Flury Stiftung. Bereich: Altersheime. Arbeitsort: Schiers (GR). Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. \n• Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten",
+        "fr": "Descrizione - Job designer*in Care 50%, Altersheim Schiers — Fondation Flury - Zone: Maisons de vieillesse - Lieu de travail: Schiers (GR) - La Fondation Flury est un prestataire régional de soins de santé dans le Prättigau, canton des Grisons, et exploite les Spital Schiers, deux maisons de vieillesse à Schiers et Jenaz, une organisation Spitex, le Centre médical Klosters et les crèches pour enfants - nous offrons diverses possibilités de carrière"
+      },
+      "location": "Schiers",
+      "canton": "GR",
+      "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Berufsbildung%20Pflege%2050%25%20Altersheim%20Schiers.pdf",
+      "source": "Flury Stiftung Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-05-19T11:42:36.394Z",
+      "addressLocality": "Schiers",
+      "postalCode": "7220",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-27",
+      "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-03/Berufsbildung%20Pflege%2050%25%20Altersheim%20Schiers.pdf",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Altersheime",
+      "pensum": "50%",
+      "pensumMin": 50,
+      "pensumMax": 50,
+      "previousSlugs": [
+        "berufsbildner-in-pflege-50-altersheim-schiers-flury-stiftung-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-pflege-50-altersheim-schiers-flury-stiftung-ch"
+        ],
+        "en": [
+          "berufsbildner-in-pflege-50-altersheim-schiers-flury-stiftung-ch"
+        ],
+        "fr": [
+          "berufsbildner-in-pflege-50-altersheim-schiers-flury-stiftung-ch"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T10:33:20.233Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -805,7 +812,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Fachverantwortung_Pflege%20AHJ.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T12:21:54.815Z",
+      "crawledAt": "2026-05-19T11:42:36.393Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -840,6 +847,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.233Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -884,7 +892,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-05/Inserat_Pflegefachperson_AHJ_50-100.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T12:21:54.814Z",
+      "crawledAt": "2026-05-19T11:42:36.392Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -916,6 +924,7 @@
         ]
       },
       "firstSeenAt": "2026-05-05T21:48:57.020Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -960,7 +969,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-05/Dipl.%20Pflegefachperson%20HF_FH%20%28w_m%29%2060-100%25%20AHS.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:55:20.520Z",
+      "crawledAt": "2026-05-19T11:42:36.391Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1043,7 +1052,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2022-07/20220719Unterassistenz%20Chirurgie_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:55:20.519Z",
+      "crawledAt": "2026-05-19T11:42:36.390Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1122,7 +1131,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-06/20230426_unterassistenz_innere_medizin.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:55:20.518Z",
+      "crawledAt": "2026-05-19T11:42:36.389Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1202,7 +1211,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/20220719%20Unterassistenz%20An%C3%A4sthesie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:55:20.517Z",
+      "crawledAt": "2026-05-19T11:42:36.388Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1287,7 +1296,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-08/assistenzarzt_innere_medizin_m_w_100.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:55:20.516Z",
+      "crawledAt": "2026-05-19T11:42:36.386Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1366,7 +1375,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Assistenz%C3%A4rztin_Assistenzarzt%20Chirurgie%20%28w_m%29_Neu_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T12:21:54.809Z",
+      "crawledAt": "2026-05-19T11:42:36.385Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1407,6 +1416,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.232Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1451,7 +1461,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Berufsbildnerin%20Pflege%20Spital.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T12:21:54.809Z",
+      "crawledAt": "2026-05-19T11:42:36.384Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1491,6 +1501,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.231Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1535,7 +1546,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/BMA%20Labor%2050%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:55:20.513Z",
+      "crawledAt": "2026-05-19T11:42:36.383Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1614,7 +1625,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-11/Dipl.%20Pflegefachperson%20mit%20Fachverantwortung%20Interdisziplin%C3%A4re%20Station%2060%20-%20100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:55:20.512Z",
+      "crawledAt": "2026-05-19T11:42:36.382Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1693,7 +1704,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-11/Dipl.%20Pflegefachperson%20Interdisziplin%C3%A4re%20Station%2040%20-%20100%25%20neu_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T12:21:54.806Z",
+      "crawledAt": "2026-05-19T11:42:36.381Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1759,6 +1770,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.230Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1803,7 +1815,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-09/Dipl.%20Pflegefachperson%20HF%20in%20Ausbildung_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-05-18T21:55:20.510Z",
+      "crawledAt": "2026-05-19T11:42:36.379Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
