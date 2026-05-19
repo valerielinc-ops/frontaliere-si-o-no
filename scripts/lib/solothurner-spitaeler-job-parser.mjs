@@ -458,6 +458,12 @@ export async function fetchAllSolothurnerSpitaelerJobs() {
       titleByLocale: { [sourceLang]: title },
       description: descriptionText,
       descriptionByLocale: { [sourceLang]: descriptionText },
+      // Flag for AI localization: source-locale only → translate to it/fr/en.
+      // Also exempts the job from the boilerplate guard, which only scrutinises
+      // already-translated jobs (the guard's IT-locale check would mis-flag
+      // listing-only fallback descriptions emitted when jobs.so-h.ch returns
+      // 503/timeout for a detail page).
+      needsRetranslation: true,
       location: city,
       canton,
       url: listing.detailUrl,

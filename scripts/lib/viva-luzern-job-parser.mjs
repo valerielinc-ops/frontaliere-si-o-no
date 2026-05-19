@@ -28,6 +28,10 @@ const parser = createProspectiveChParser({
   defaultPostalCode: '6004',
   publicCareerUrl: 'https://www.viva-luzern.ch/karriere',
   defaultSourceLang: 'de',
+  // Detail/apply URLs land on jobs.vivaluzern.ch (no hyphen) — outside the
+  // corporate `viva-luzern.ch` host, so the default trust check misses them
+  // and validation fails every job with `url_not_viva-luzern_domain`.
+  extraTrustedHosts: ['jobs.vivaluzern.ch', 'vivaluzern.ch', 'www.vivaluzern.ch'],
 });
 
 export const fetchAllVivaLuzernJobs = parser.fetchAllJobs;

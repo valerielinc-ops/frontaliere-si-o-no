@@ -1,16 +1,28 @@
 #!/usr/bin/env node
 /**
- * Spital STS AG (Thun-Simmental) job parser — Prospective.ch API.
+ * Spital STS AG (Thun-Simmental) job parser — SSR career page + job-detail HTML.
  *
- * Public career site:
- *   - Hub iframe: https://www.spitalthun.ch/stellenmarkt
- *   - Embedded:   https://jobs.spitalstsag.ch/  (PastaHR overlay → Prospective)
+ * The Prospective.ch `/medium/1000717/jobs` listing endpoint started returning
+ * HTTP 400 in May 2026 (schema rotation). The public career site at
+ *   https://jobs.spitalstsag.ch/
+ * is still alive and contains all 10–15 active jobs SSR'd inside
+ * `<div class="job job-N">` blocks. Each block carries:
  *
- * The PastaHR overlay (`pastahr.dev/bootstrap.js`) renders against the
- * Prospective career-center bundle for tenant 1000717. The listing JSON
- * endpoint is the same shape used by USZ / KSGR / Agroscope:
- *   https://ohws.prospective.ch/public/v1/medium/1000717/jobs?lang=de&offset=0&limit=100
- *   { medium_id, total, jobs: [{ id, hk_id, viewkey, title, attributes, szas, links }] }
+ *   <a id="job-{numericId}"
+ *      data-href="https://ohws.prospective.ch/public/v1/redirect/{viewkey}/ats/"
+ *      data-location="Thun"
+ *      data-workload="80-100%"
+ *      href="https://jobs.spitalstsag.ch/offene-stellen/{slug}/{viewkey}"
+ *      title="...">
+ *     <h3 class="title">...</h3>
+ *     <span class="workplace bold">...</span>
+ *     <span class="workload bold">...</span>
+ *     <span class="description">...teaser...</span>
+ *
+ * The canonical detail page at `jobs.spitalstsag.ch/offene-stellen/{slug}/{viewkey}`
+ * SSRs the full job description in `<section id="introduction">` + `<section id="tasks">`
+ * + `<section id="skills">` (Prospective Aequivital ATS shell). We scrape those
+ * sections to build a rich `description`.
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllSpitalStsJobs()  — Fetch and parse all jobs across pages
@@ -20,7 +32,17 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify } from './crawler-template.mjs';
+import {
+  fetchHtml,
+  decodeEntities,
+  normalize,
+  normalizeSpace,
+  htmlToText,
+  detectHealthcareCategory,
+  detectHealthcareExperienceLevel,
+  detectHealthcareEmploymentType,
+} from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -30,24 +52,9 @@ export const SPITAL_STS_COMPANY_NAME = 'Spital STS';
 export const SPITAL_STS_COMPANY_DOMAIN = 'spitalstsag.ch';
 
 const PROSPECTIVE_TENANT = '1000717';
-const API_BASE = `https://ohws.prospective.ch/public/v1/medium/${PROSPECTIVE_TENANT}/jobs`;
-const API_LANG = 'de';
-const PAGE_SIZE = 100;
-const CAREER_URL = 'https://www.spitalthun.ch/stellenmarkt';
-const EMBED_URL = 'https://jobs.spitalstsag.ch/';
-
-const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
-  || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
-
-/* ── Helpers ───────────────────────────────────────────────── */
-
-function normalize(value = '') {
-  return String(value || '').trim().toLowerCase();
-}
-
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
-}
+const CAREER_LIST_URL = 'https://jobs.spitalstsag.ch/';
+const PUBLIC_CAREER_URL = 'https://www.spitalthun.ch/stellenmarkt';
+const DETAIL_DELAY_MS = 250;
 
 /* ── Company Matchers ──────────────────────────────────────── */
 
@@ -70,12 +77,17 @@ export function isSpitalStsJob(job) {
     company.includes('spital thun') ||
     url.includes('spitalstsag.ch') ||
     url.includes('spitalthun.ch') ||
-    url.includes(`/${PROSPECTIVE_TENANT}/`)
+    url.includes(`/${PROSPECTIVE_TENANT}/`) ||
+    url.includes('ohws.prospective.ch')
   );
 }
 
 /**
- * Validate that a URL belongs to Spital STS AG or the Prospective tenant.
+ * Validate that a URL belongs to Spital STS AG or the Prospective ATS host.
+ *
+ * We accept any path on `ohws.prospective.ch` because the parser now uses the
+ * Prospective `redirect/{viewkey}/ats/` URL as the canonical job URL, and the
+ * tenant scope is no longer encoded in that path (it lives in the viewkey).
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
@@ -83,198 +95,236 @@ export function isTrustedDomain(rawUrl = '') {
     if (host === 'spitalstsag.ch' || host.endsWith('.spitalstsag.ch')) return true;
     if (host === 'spitalthun.ch' || host.endsWith('.spitalthun.ch')) return true;
     if (host === 'jobs.spitalstsag.ch') return true;
-    if (host === 'ohws.prospective.ch' && rawUrl.includes(`/${PROSPECTIVE_TENANT}/`)) return true;
+    if (host === 'ohws.prospective.ch') return true;
     return false;
   } catch {
     return false;
   }
 }
 
-/* ── Category Detection ────────────────────────────────────── */
+/* ── HTML extractors ───────────────────────────────────────── */
 
-function detectCategory(title = '') {
-  const t = normalize(title);
-  if (/\b(pflege|pflegefach|stationsleitung|fage|spitex|nachtwache|geburts|hebamme)/.test(t)) return 'Sanità / Ospedali';
-  if (/\b(arzt|ärztin|oberarzt|chefarzt|leitend|medizin|chirurg|anästhes|onkolog|kardiolog|neurolog|pädiatr|gynäk)/.test(t)) return 'Sanità / Ospedali';
-  if (/\b(labor|laborant|biomedizin|analyse|radiolog|röntgen|mtra|physiother|ergo|logopäd|rehabilit|apothek|pharma)/.test(t)) return 'Sanità / Ospedali';
-  if (/\b(techni|haustechni|facility|wartung|maintenance)/.test(t)) return 'Tecnica';
-  if (/\b(it|software|develop|programm|system|informatik)/.test(t)) return 'IT';
-  if (/\b(admin|segret|buchhalt|sachbearbeiter|finanz|controll|account)/.test(t)) return 'Amministrazione';
-  if (/\b(hr|human|personal|talent|recruit)/.test(t)) return 'Risorse Umane';
-  if (/\b(küche|koch|gastro|hauswirtschaft|reinigung|hotellerie)/.test(t)) return 'Ospitalità';
-  if (/\b(logist|magazz|lager|einkauf|transport)/.test(t)) return 'Logistica';
-  if (/\b(market|kommunik)/.test(t)) return 'Marketing';
-  if (/\b(lernend|praktik|ausbildung|apprenti)/.test(t)) return 'Formazione';
-  return 'Sanità / Ospedali';
-}
+/**
+ * Parse the SSR career list page (`https://jobs.spitalstsag.ch/`) and return
+ * one row per `<div class="job job-N">` block.
+ *
+ * The list block also includes a teaser description; we keep it as a fallback
+ * in case the detail-page fetch fails.
+ */
+export function parseJobListHtml(html = '') {
+  const out = [];
+  const seen = new Set();
+  // Match each `<div class="job job-N">` block up to its closing tag.
+  // The greedy version would slurp the entire trailing `<div class="job-favorit">`;
+  // we anchor on the inner `</a>` instead and stop there.
+  const blockRe = /<div\s+class="job\s+job-\d+">([\s\S]*?)<\/a>/g;
+  let m;
+  while ((m = blockRe.exec(html))) {
+    const block = m[1];
+    const anchorTagMatch = block.match(/<a\b[^>]*>/);
+    if (!anchorTagMatch) continue;
+    const tag = anchorTagMatch[0];
 
-function detectExperienceLevel(title = '') {
-  const t = normalize(title);
-  if (/\b(praktik|stage|intern|lehrling|lernend|apprenti)/.test(t)) return 'intern';
-  if (/\b(junior|jr|assistent)/.test(t)) return 'junior';
-  if (/\b(senior|sr|lead|head|director|chef|verantwort|leiter|leitend|stationsleitung|oberarzt|chefarzt)/.test(t)) return 'senior';
-  return 'mid';
-}
+    const dataHref = (tag.match(/\sdata-href="([^"]+)"/) || [])[1] || '';
+    const href = (tag.match(/\shref="([^"]+)"/) || [])[1] || '';
+    const dataLocation = (tag.match(/\sdata-location="([^"]+)"/) || [])[1] || '';
+    const dataWorkload = (tag.match(/\sdata-workload="([^"]+)"/) || [])[1] || '';
+    const titleAttr = (tag.match(/\stitle="([^"]+)"/) || [])[1] || '';
+    const numericId = (tag.match(/\sid="job-(\d+)"/) || [])[1] || '';
 
-/* ── Prospective API Client ────────────────────────────────── */
+    // Extract viewkey from the redirect URL (`/redirect/{viewkey}/ats/`) or
+    // fall back to the canonical detail URL (`/offene-stellen/{slug}/{viewkey}`).
+    let viewkey = '';
+    const vkRedirect = dataHref.match(/\/redirect\/([a-f0-9-]{36})\//i);
+    if (vkRedirect) viewkey = vkRedirect[1];
+    if (!viewkey && href) {
+      const vkDetail = href.match(/\/([a-f0-9-]{36})(?:[/?#]|$)/i);
+      if (vkDetail) viewkey = vkDetail[1];
+    }
+    if (!viewkey) continue;
+    if (seen.has(viewkey)) continue;
+    seen.add(viewkey);
 
-async function fetchProspectivePage(offset = 0) {
-  const url = `${API_BASE}?lang=${API_LANG}&offset=${offset}&limit=${PAGE_SIZE}`;
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      headers: { Accept: 'application/json', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
+    const titleH3 = (block.match(/<h3[^>]*class="title"[^>]*>([\s\S]*?)<\/h3>/i) || [])[1] || '';
+    const title = normalizeSpace(decodeEntities(titleH3 || titleAttr));
+    if (!title || title.length < 3) continue;
+
+    const teaserMatch = block.match(/<span[^>]*class="description"[^>]*>([\s\S]*?)<\/span>/i);
+    const teaser = teaserMatch ? normalizeSpace(decodeEntities(teaserMatch[1])) : '';
+
+    out.push({
+      viewkey,
+      numericId,
+      dataHref: dataHref || `https://ohws.prospective.ch/public/v1/redirect/${viewkey}/ats/`,
+      detailHref: href,
+      title,
+      location: normalizeSpace(decodeEntities(dataLocation)) || 'Thun',
+      workload: normalizeSpace(decodeEntities(dataWorkload)),
+      teaser,
     });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.json();
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
   }
-}
-
-async function fetchJobListings() {
-  const all = [];
-  let offset = 0;
-  let total = Infinity;
-  while (offset < total) {
-    console.log(`  📄 Fetching offset=${offset} (limit=${PAGE_SIZE})...`);
-    const data = await fetchProspectivePage(offset);
-    const items = Array.isArray(data?.jobs) ? data.jobs : [];
-    if (Number.isFinite(Number(data?.total))) total = Number(data.total);
-    if (items.length === 0) break;
-    all.push(...items);
-    offset += items.length;
-    if (items.length < PAGE_SIZE) break;
-    await new Promise((r) => setTimeout(r, 350));
-  }
-  console.log(`  ✓ Total Prospective jobs (raw): ${all.length} (API total=${total})`);
-  return all;
-}
-
-/* ── Prospective record helpers ───────────────────────────── */
-
-function pickLocation(job = {}) {
-  const szas = job?.szas || {};
-  const cityRaw = String(szas['sza_location.city'] || '').trim();
-  if (cityRaw) {
-    const m = cityRaw.match(/\b(\d{4})\s+([^\n,]+)/);
-    if (m) return normalizeSpace(m[2]);
-    return normalizeSpace(cityRaw);
-  }
-  return 'Thun';
-}
-
-function pickPostalCode(job = {}) {
-  const cityRaw = String(job?.szas?.['sza_location.city'] || '').trim();
-  const m = cityRaw.match(/\b(\d{4})\s+/);
-  return m ? m[1] : '3600';
-}
-
-function buildDescription(job = {}) {
-  const szas = job?.szas || {};
-  const parts = [];
-  const intro = normalizeSpace(szas.sza_introduction || '');
-  if (intro) parts.push(intro);
-  const tasks = stripHtml(szas.sza_tasks || '');
-  if (tasks) parts.push(`Aufgaben:\n${tasks}`);
-  const reqs = stripHtml(szas.sza_requirements || '');
-  if (reqs) parts.push(`Anforderungen:\n${reqs}`);
-  const benefits = stripHtml(szas.sza_benefits || '');
-  if (benefits) parts.push(`Wir bieten:\n${benefits}`);
-  return parts.join('\n\n');
-}
-
-function pickEmploymentType(job = {}) {
-  const min = Number(job?.szas?.['sza_pensum.min'] || 0);
-  const max = Number(job?.szas?.['sza_pensum.max'] || 0);
-  if (max > 0 && max < 90) return 'PART_TIME';
-  if (min >= 90 || max >= 90) return 'FULL_TIME';
-  return 'OTHER';
+  return out;
 }
 
 /**
- * Fetch all Spital STS AG jobs.
- * Returns an array of ParsedJob objects (source-locale = de).
+ * Scrape the SSR detail page and build a clean German-text description by
+ * concatenating the Prospective `<section id="introduction|tasks|skills">`
+ * blocks. Falls back to the listing teaser if the detail fetch returns
+ * something unusable.
+ */
+function extractSection(html, id) {
+  const re = new RegExp(`<section[^>]*id="${id}"[^>]*>([\\s\\S]*?)<\\/section>`, 'i');
+  const m = html.match(re);
+  if (!m) return '';
+  return htmlToText(m[1]);
+}
+
+async function fetchDetailDescription(detailUrl, fallbackTeaser) {
+  if (!detailUrl) return fallbackTeaser || '';
+  try {
+    const html = await fetchHtml(detailUrl);
+    if (!html) return fallbackTeaser || '';
+
+    const parts = [];
+    const intro = normalizeSpace(extractSection(html, 'introduction'));
+    if (intro) parts.push(intro);
+
+    // The Prospective shell uses `<div class="title"><H2>...</H2></div>` then
+    // `<div class="content">...</div>` inside each accordion section. We grab
+    // the section verbatim and let `htmlToText` flatten it.
+    const tasks = normalizeSpace(extractSection(html, 'tasks'));
+    if (tasks) parts.push(tasks);
+
+    const skills = normalizeSpace(extractSection(html, 'skills'));
+    if (skills) parts.push(skills);
+
+    const text = parts.filter(Boolean).join('\n\n').trim();
+    if (text && text.split(/\s+/).length >= 30) return text.slice(0, 6000);
+
+    // Detail page returned but sections were empty / too short — combine
+    // whatever we got with the listing teaser so the description is never
+    // worse than the row teaser alone.
+    return [fallbackTeaser, text].filter(Boolean).join('\n\n').trim();
+  } catch (err) {
+    console.warn(`  ⚠️ STS detail fetch failed (${detailUrl}): ${err?.message || err}`);
+    return fallbackTeaser || '';
+  }
+}
+
+/* ── Misc helpers ──────────────────────────────────────────── */
+
+function pickPostalCode(city) {
+  const c = normalize(city);
+  if (c.includes('zweisimmen')) return '3770';
+  if (c.includes('steffisburg')) return '3612';
+  if (c.includes('saanen')) return '3792';
+  if (c.includes('frutigen')) return '3714';
+  return '3600'; // Thun default
+}
+
+function parsePostedDate() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+/* ── Main entry ────────────────────────────────────────────── */
+
+/**
+ * Fetch all Spital STS AG jobs by scraping the SSR career page and (best
+ * effort) hydrating each row with the matching detail-page description.
+ *
+ * Returns an array of ParsedJob objects (source-locale = de). Graceful
+ * degradation: if the list fetch fails we return [] instead of throwing,
+ * matching the contract that every dedicated crawler asserts.
  */
 export async function fetchAllSpitalStsJobs() {
   console.log(`🏥 Fetching ${SPITAL_STS_COMPANY_NAME} jobs`);
-  console.log(`   Source: ${API_BASE} (Prospective tenant ${PROSPECTIVE_TENANT})`);
-  console.log(`   Public: ${CAREER_URL} (iframe → ${EMBED_URL})\n`);
+  console.log(`   Source: ${CAREER_LIST_URL} (SSR career list + per-job detail HTML)`);
+  console.log(`   Public: ${PUBLIC_CAREER_URL} (iframe → ${CAREER_LIST_URL})\n`);
 
-  const listings = await fetchJobListings();
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned from Prospective API.');
+  let listHtml = '';
+  try {
+    listHtml = await fetchHtml(CAREER_LIST_URL);
+  } catch (err) {
+    console.warn(`  ⚠️ STS career list fetch failed: ${err?.message || err}. Returning [].`);
     return [];
   }
 
+  const rows = parseJobListHtml(listHtml);
+  console.log(`  ✓ Parsed ${rows.length} job rows from career list HTML`);
+  if (!rows.length) return [];
+
   const jobs = [];
-  for (const listing of listings) {
-    const szas = listing?.szas || {};
-    const title = normalizeSpace(szas.sza_title || listing.title || '');
-    if (!title || title.length < 3) continue;
+  for (let i = 0; i < rows.length; i += 1) {
+    const r = rows[i];
+    if (i > 0) await new Promise((res) => setTimeout(res, DETAIL_DELAY_MS));
 
-    const directLink = normalizeSpace(listing?.links?.directlink || '');
-    const applyLink = normalizeSpace(szas.sza_apply_link || '');
-    const publicUrl = directLink || applyLink || EMBED_URL;
-    const location = pickLocation(listing);
-    const canton = inferSwissTargetCanton(location) || 'BE';
-    const descriptionText = buildDescription(listing);
+    const description = await fetchDetailDescription(r.detailHref, r.teaser);
+    const fallback = `${r.title} — ${SPITAL_STS_COMPANY_NAME}, ${r.location}${r.workload ? ` (${r.workload})` : ''}.`;
+    const safeDescription = description && description.split(/\s+/).length >= 30
+      ? description
+      : [fallback, description].filter(Boolean).join('\n\n');
 
-    const sourceLang = detectLang(descriptionText || title, 'de');
-    const jobSlug = slugify(`${title} ${SPITAL_STS_KEY} ch`);
-    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    const canton = inferSwissTargetCanton(r.location) || 'BE';
+    const sourceLang = detectLang(safeDescription || r.title, 'de');
+    const jobSlug = slugify(`${r.title} ${SPITAL_STS_KEY} ${r.location}`);
 
-    const postedDate = (() => {
-      const raw = listing?.start_date || listing?.last_modification_timestamp || '';
-      const d = new Date(String(raw || ''));
-      if (!Number.isNaN(d.getTime())) return d.toISOString().slice(0, 10);
-      return new Date().toISOString().slice(0, 10);
-    })();
+    // The canonical job URL is the Prospective `redirect/{viewkey}/ats/`
+    // endpoint (302s to the active applicant flow). We keep this rather than
+    // the `jobs.spitalstsag.ch/offene-stellen/...` slug-URL so the link
+    // survives slug renames (which Prospective triggers on title edits).
+    const url = r.dataHref;
+    const applyUrl = `https://jobs.spitalstsag.ch/apply/ats/${r.viewkey}`;
+    const urlHash = createHash('sha1').update(url).digest('hex').slice(0, 12);
 
-    const job = {
+    // Employment type: prefer the workload pill (e.g. "80-100%"), fall back to
+    // a heuristic over title+description.
+    const employmentType = detectHealthcareEmploymentType(r.workload || `${r.title} ${safeDescription}`);
+
+    jobs.push({
       id: `${SPITAL_STS_KEY}-${urlHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
       company: SPITAL_STS_COMPANY_NAME,
       companyKey: SPITAL_STS_KEY,
       companyDomain: SPITAL_STS_COMPANY_DOMAIN,
-      title,
-      titleByLocale: { [sourceLang]: title },
-      description: descriptionText || `${title} — ${SPITAL_STS_COMPANY_NAME}`,
-      descriptionByLocale: { [sourceLang]: descriptionText || `${title} — ${SPITAL_STS_COMPANY_NAME}` },
-      location,
+      title: r.title,
+      titleByLocale: { [sourceLang]: r.title },
+      description: safeDescription,
+      descriptionByLocale: { [sourceLang]: safeDescription },
+      // Newly-discovered jobs ship with source-locale-only fields. The shared
+      // AI-localization step clears this flag when it fills the remaining 3
+      // locales; if it can't (cache miss + AI quota), the flag stays and
+      // `translate-pending.yml` picks the job up out-of-band. Without this
+      // flag the locale-completeness gate trips before translation can run.
+      needsRetranslation: true,
+      location: r.location,
       canton,
-      url: publicUrl,
-      source: 'Spital STS Dedicated Parser (Prospective API)',
+      url,
+      source: 'Spital STS Dedicated Parser (SSR + job-direct)',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
-      addressLocality: location,
+      addressLocality: r.location,
       addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
-      postalCode: pickPostalCode(listing),
-      category: detectCategory(title),
+      postalCode: pickPostalCode(r.location),
+      category: detectHealthcareCategory(r.title),
       contract: 'full-time',
-      employmentType: pickEmploymentType(listing),
-      experienceLevel: detectExperienceLevel(title),
+      employmentType,
+      experienceLevel: detectHealthcareExperienceLevel(r.title),
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
       featured: false,
-      postedDate,
-      applyUrl: applyLink || publicUrl,
+      postedDate: parsePostedDate(),
+      applyUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
-    };
-
-    jobs.push(job);
+    });
   }
 
   console.log(`\n📋 Total ${SPITAL_STS_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
 }
+
+export { CAREER_LIST_URL, PUBLIC_CAREER_URL, PROSPECTIVE_TENANT };
