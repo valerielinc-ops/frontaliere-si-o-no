@@ -303,6 +303,11 @@ export const COMPANY_HQ = {
   'sonnweid':                     { city: 'Wetzikon',           canton: 'ZH', postalCode: '8620', addressRegion: 'ZH' },
   'diakoniewerk-neumuenster':     { city: 'Zollikerberg',       canton: 'ZH', postalCode: '8125', addressRegion: 'ZH' },
   'spitex-basel':                 { city: 'Basel',              canton: 'BS', postalCode: '4051', addressRegion: 'BS' },
+  // ── Batch 11 (FMI + disability foundations) ──
+  'fmi':                          { city: 'Unterseen',          canton: 'BE', postalCode: '3800', addressRegion: 'BE' },
+  'bachtelen':                    { city: 'Grenchen',           canton: 'SO', postalCode: '2540', addressRegion: 'SO' },
+  'pigna':                        { city: 'Kloten',             canton: 'ZH', postalCode: '8302', addressRegion: 'ZH' },
+  'wagerenhof':                   { city: 'Uster',              canton: 'ZH', postalCode: '8610', addressRegion: 'ZH' },
   'spital-limmattal':             { city: 'Schlieren',          canton: 'ZH', postalCode: '8952', addressRegion: 'ZH' },
   'huntsman':                     { city: 'Monthey',            canton: 'VS', postalCode: '1870', addressRegion: 'VS' },
   'fielmann':                     { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
