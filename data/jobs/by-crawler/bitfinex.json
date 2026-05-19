@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bitfinex",
-  "assembledAt": "2026-05-19T11:13:26.376Z",
+  "assembledAt": "2026-05-19T21:39:34.568Z",
   "jobs": [
     {
       "id": "bitfinex-c4e4e25c75af",
@@ -33,7 +33,7 @@
       "url": "https://bitfinex.recruitee.com/o/junior-risk-monitoring-analyst-100-remote-cet-timezone",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T11:13:24.490Z",
+      "crawledAt": "2026-05-19T21:39:32.372Z",
       "addressLocality": "London",
       "addressRegion": "England",
       "addressCountry": "",
@@ -110,7 +110,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-backend-developer-nodejs-fully-remote-worldwide-31",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T11:13:24.461Z",
+      "crawledAt": "2026-05-19T21:39:32.344Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -130,20 +130,6 @@
       "department": "Engineering",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-17T09:45:31.255Z",
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79500,
-          "maxValue": 135000,
-          "unitText": "YEAR"
-        }
-      },
       "previousSlugs": [
         "senior-backend-developer-node-js-fully-remote-worldwide-bitfinex-ch-2",
         "senior-backend-developer-node-js-fully-remote-worldwide-bitfinex-ch-3",
@@ -165,6 +151,20 @@
           "senior-backend-developer-node-js-fully-remote-worldwide-bitfinex-ch-8",
           "senior-backend-developer-node-js-fully-remote-worldwide-bitfinex-ch-9"
         ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-17T09:45:31.255Z",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79500,
+          "maxValue": 135000,
+          "unitText": "YEAR"
+        }
       }
     },
     {
@@ -198,7 +198,7 @@
       "url": "https://bitfinex.recruitee.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-7",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T11:13:24.435Z",
+      "crawledAt": "2026-05-19T21:39:32.318Z",
       "addressLocality": "Sydney",
       "addressRegion": "New South Wales",
       "addressCountry": "",
@@ -290,7 +290,7 @@
       "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-8",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T11:13:24.405Z",
+      "crawledAt": "2026-05-19T21:39:32.292Z",
       "addressLocality": "Ha Noi",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -378,7 +378,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-nodejs-backend-developer-100-remote-worldwide",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T11:13:24.396Z",
+      "crawledAt": "2026-05-19T21:39:32.288Z",
       "addressLocality": "London",
       "addressRegion": "England",
       "addressCountry": "",
@@ -444,7 +444,7 @@
       "url": "https://bitfinex.recruitee.com/o/mobile-developer-react-native-100-remote-worldwide-12",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T11:13:24.364Z",
+      "crawledAt": "2026-05-19T21:39:32.255Z",
       "addressLocality": "Budapest",
       "addressRegion": "Budapest",
       "addressCountry": "",
@@ -534,7 +534,7 @@
       "url": "https://bitfinex.recruitee.com/o/junior-risk-monitoring-analyst-100-remote-worldwide-5",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T11:13:24.359Z",
+      "crawledAt": "2026-05-19T21:39:32.250Z",
       "addressLocality": "Barcelona",
       "addressRegion": "Catalunya [Cataluña]",
       "addressCountry": "",
@@ -610,7 +610,7 @@
       "url": "https://bitfinex.recruitee.com/o/payment-processing-specialist-taiwan",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-05-19T11:13:24.354Z",
+      "crawledAt": "2026-05-19T21:39:32.245Z",
       "addressLocality": "Taipei",
       "addressRegion": "TI",
       "addressCountry": "CH",
