@@ -100,6 +100,7 @@ import {
   renderEmployerCardListHtml,
   type EmployerCardEmployer,
 } from './shared/employerCardHtml';
+import { renderLandingHero, HERO_BADGES } from './shared/landingHeroPersonality';
 
 // ── Escape ─────────────────────────────────────────────────────────
 
@@ -463,7 +464,7 @@ function renderPage(opts: {
     jobSalaryFmt: L.jobSalaryFmt,
   };
 
-  const statTilesHtml = renderStatGrid([
+  const statTilesHtml = `<div class="seo-fade-in">${renderStatGrid([
     {
       label: view.statTileSalaryLabel,
       value: view.statSalaryFmt(snapshot.medianSalaryChf),
@@ -481,7 +482,7 @@ function renderPage(opts: {
       // Live jobs are an opportunity signal — green when > 0.
       tone: snapshot.liveCount > 0 ? 'success' : 'neutral',
     },
-  ]);
+  ])}</div>`;
 
   const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(calculatorUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(view.primaryCtaLabel)} →</a></div>`;
   const featuredHtml = renderFeaturedJobs(city, locale, snapshot, view);
@@ -517,11 +518,18 @@ function renderPage(opts: {
       <span> / </span>
       <span>${esc(cityName)}</span>
     </nav>
-    <header style="margin-bottom:20px">
-      <p style="${HERO_EYEBROW_STYLE}">${esc(L.eyebrow(cityName))} · ${esc(L.updatedLabel)} ${esc(dateStamp)}</p>
+    ${city in HERO_BADGES
+      ? renderLandingHero(city, locale, {
+          openings: snapshot.liveCount,
+          medianSalary: snapshot.medianSalaryChf ?? undefined,
+          city: cityName,
+        }, h1, denseLede)
+      : `<header style="margin-bottom:20px">
+      <p style="${HERO_EYEBROW_STYLE}">${esc(L.eyebrow(cityName))}</p>
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(denseLede)}</p>
-    </header>
+    </header>`}
+    <p style="${HERO_EYEBROW_STYLE};margin-top:4px;font-weight:500">${esc(L.updatedLabel)} ${esc(dateStamp)}</p>
     ${statTilesHtml}
     ${primaryCtaHtml}
     ${featuredHtml}
