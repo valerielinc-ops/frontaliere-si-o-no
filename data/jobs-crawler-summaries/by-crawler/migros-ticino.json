@@ -1,18 +1,61 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-05-18T22:26:03.634Z",
-  "total": 25,
-  "newCount": 0,
+  "generatedAt": "2026-05-19T12:16:42.448Z",
+  "total": 26,
+  "newCount": 1,
   "updatedCount": 23,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 37872,
-  "avgDurationMs": 37872,
+  "durationMs": 46844,
+  "avgDurationMs": 46844,
   "durationHistory": [
-    37872
+    46844
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-kqhv7y",
+      "slug": "konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-mels",
+      "company": "Genossenschaft Migros Ostschweiz",
+      "title": "Konditor*in-Confiseur*in",
+      "location": "Mels",
+      "canton": "SG",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-18",
+      "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/konditorin-confiseurin/1a36ec51-75a5-426f-a303-7e6980e9689e",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Du bist ein Confiserie-Künstler 🍫🍬✨. Mit deinem Geschick stellst du verschiedenste Confiserie-Artikel her.",
+        "Du zauberst Besonderes 🎂🎁. Spezialbestellungen fertigst du mit Liebe zum Detail an.",
+        "Du sorgst für Ordnung 📦✅. Bestellungen werden von dir sorgfältig eingepackt und bereitgestellt.",
+        "Du übernimmst Verantwortung 🍪. Mit deinem Einsatz stellst du sicher, dass die Lieferbereitschaft 🚚 gewährleistet ist.",
+        "Du hältst höchste Standards 🌟. Hygiene- und Sicherheitsbestimmungen setzt du gewissenhaft um."
+      ],
+      "_migrosBenefits": [
+        "Handy-Abo: Stark vergünstigte Konditionen beim privaten Handy-Abo auch für Familie und Freunde",
+        "Berufliche Vorsorge: Attraktive Pensionskassenleistungen mit hoher Arbeitgeberbeteiligung",
+        "Cumulus-Punkte: Mehrfach Cumulus-Punkte auf Food- und Nonfood-Artikel",
+        "Klubschule Migros: Grosszügige finanzielle Beteiligung an selbst ausgewählten Kursen"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-05-19T12:16:39.752Z",
+      "firstSeenAt": "2026-05-19T12:16:39.752Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-pgglsr",
