@@ -193,6 +193,57 @@ function detectExperienceLevel(title = '', occupation = '') {
   return 'mid';
 }
 
+/**
+ * Extract the rich job description from a KSBL detail page.
+ *
+ * Page structure (cs2jobs TYPO3 template):
+ *   - <h1 class="...hyphen-title">{TITLE}</h1>
+ *   - <div class="lead font-weight-bold">{PERCENT}</div>
+ *   - <div class="lead font-weight-normal">{POSITION-INFO multi-line}</div>
+ *   - <div id="jobcollapse-accordion-tasks">  → tasks (Aufgaben)
+ *   - <div id="jobcollapse-accordion-profile"> → profile (Anforderungen)
+ *   - <div id="jobcollapse-accordion-benefits"> → benefits
+ *
+ * Each accordion has a `.accordion-body` with <ul><li> bullet points.
+ */
+export function extractKsblDetailContent(html, listingMeta = {}) {
+  const sections = [];
+  const grab = (anchorId, label) => {
+    const rx = new RegExp(`id="${anchorId}"[\\s\\S]*?<div class="accordion-body">([\\s\\S]*?)<\\/div>`, 'i');
+    const m = html.match(rx);
+    if (!m) return;
+    const text = m[1]
+      .replace(/<li[^>]*>/gi, '\n• ')
+      .replace(/<\/li>/gi, '')
+      .replace(/<br\s*\/?>/gi, '\n')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&nbsp;/gi, ' ')
+      .replace(/&amp;/gi, '&')
+      .replace(/&quot;/gi, '"')
+      .replace(/&#39;/gi, "'")
+      .replace(/\s+\n/g, '\n')
+      .replace(/\s{2,}/g, ' ')
+      .trim();
+    if (text) sections.push(`${label}\n${text}`);
+  };
+  // Position info (multi-line under .lead.font-weight-normal)
+  const posMatch = html.match(/<div class="lead font-weight-normal[^"]*"[^>]*>([\s\S]*?)<\/div>\s*<div class="item-white">/);
+  if (posMatch) {
+    const posInfo = posMatch[1]
+      .replace(/<[^>]+>/g, '\n')
+      .replace(/&nbsp;/gi, ' ')
+      .replace(/\s+\n/g, '\n')
+      .replace(/\n{2,}/g, '\n')
+      .split('\n').map(s => s.trim()).filter(Boolean).join(' · ');
+    if (posInfo) sections.push(posInfo);
+  }
+  grab('jobcollapse-accordion-tasks', 'Aufgaben:');
+  grab('jobcollapse-accordion-profile', 'Anforderungen:');
+  grab('jobcollapse-accordion-benefits', 'Benefits:');
+  if (sections.length === 0) return '';
+  return sections.join('\n\n');
+}
+
 export async function fetchAllKsblJobs() {
   console.log(`🏥 Fetching ${KSBL_COMPANY_NAME} jobs`);
   console.log(`   Source: karriere.ksbl.ch (TYPO3 cs2jobs)\n`);
@@ -219,16 +270,30 @@ export async function fetchAllKsblJobs() {
     await new Promise((r) => setTimeout(r, 250));
   }
 
-  console.log(`\n  ✓ ${collected.length} unique KSBL job cards across pages\n`);
+  console.log(`\n  ✓ ${collected.length} unique KSBL job cards across pages`);
+  console.log(`  📄 Fetching detail pages for rich descriptions...\n`);
 
   const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
+  let detailCount = 0;
   for (const e of collected) {
     const title = e.title;
+    // Fetch detail page for rich description
+    let detailContent = '';
+    try {
+      const detailHtml = await fetchHtml(e.detailUrl);
+      detailContent = extractKsblDetailContent(detailHtml, e);
+      detailCount++;
+    } catch (err) {
+      console.warn(`  ⚠️  failed detail fetch ${e.detailUrl}: ${err.message}`);
+    }
+    await new Promise((r) => setTimeout(r, 200));
+
     const description = [
+      detailContent,
       e.category ? `Bereich: ${e.category}` : '',
       e.occupation ? `Beschäftigungsgrad: ${e.occupation}` : '',
-      'KSBL — Standorte Bruderholz, Liestal, Laufen.',
+      'KSBL Kantonsspital Baselland — Standorte Bruderholz, Liestal, Laufen. ~4\'500 Mitarbeitende auf 3 Standorten in der Region Basel.',
     ].filter(Boolean).join('\n\n');
 
     const location = 'Liestal'; // Default — site is not in the listing card
@@ -274,6 +339,6 @@ export async function fetchAllKsblJobs() {
     });
   }
 
-  console.log(`📋 Total ${KSBL_COMPANY_NAME} jobs discovered: ${jobs.length}`);
+  console.log(`📋 Total ${KSBL_COMPANY_NAME} jobs discovered: ${jobs.length} (${detailCount}/${collected.length} with rich detail content)`);
   return jobs;
 }

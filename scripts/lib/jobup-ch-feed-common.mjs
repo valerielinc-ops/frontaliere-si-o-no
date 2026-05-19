@@ -166,6 +166,54 @@ function detectExperienceLevel(title = '', contrat = '') {
 }
 
 /**
+ * Fetch a jobup.ch detail page and extract the JobPosting description from
+ * the embedded JSON-LD structured data block. jobup.ch publishes complete
+ * `JobPosting` schema with `description` (HTML) — far richer than the feed's
+ * `ref` category text.
+ */
+export async function fetchJobupDetailDescription(detailUrl) {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(detailUrl, {
+      headers: { Accept: 'text/html', 'User-Agent': USER_AGENT },
+      signal: controller.signal,
+      redirect: 'follow',
+    });
+    clearTimeout(timer);
+    if (!res.ok) return '';
+    const html = await res.text();
+    // Extract every <script type="application/ld+json"> block and look for JobPosting
+    const blocks = html.match(/<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g) || [];
+    for (const block of blocks) {
+      const payload = block.replace(/^<script[^>]+>/, '').replace(/<\/script>$/, '').trim();
+      try {
+        const data = JSON.parse(payload);
+        const items = Array.isArray(data) ? data : [data];
+        for (const item of items) {
+          if (item?.['@type'] === 'JobPosting' && item?.description) {
+            // description is HTML; strip tags and decode entities
+            const text = String(item.description)
+              .replace(/<br\s*\/?>/gi, '\n')
+              .replace(/<li[^>]*>/gi, '\n• ')
+              .replace(/<\/(p|div|li|h[1-6])>/gi, '\n')
+              .replace(/<[^>]+>/g, ' ');
+            return decodeEntities(text).replace(/\n{3,}/g, '\n\n').replace(/ {2,}/g, ' ').trim();
+          }
+        }
+      } catch {
+        // skip malformed JSON-LD blocks
+      }
+    }
+    return '';
+  } catch {
+    clearTimeout(timer);
+    return '';
+  }
+}
+
+/**
  * Create a jobup.ch feed parser for one employer.
  *
  * @param {Object} config
@@ -230,12 +278,14 @@ export function createJobupChFeedParser(config) {
     const items = Array.isArray(payload?.jobs) ? payload.jobs : [];
     const totalReported = parseInt(String(payload?.jobcount || items.length), 10) || items.length;
     console.log(`  ✓ ${items.length} jobs (jobcount=${totalReported})`);
+    if (items.length > 0) console.log(`  📄 Fetching jobup.ch detail pages for rich descriptions...`);
 
     if (!items.length) return [];
 
     const todayIso = new Date().toISOString().slice(0, 10);
     const jobs = [];
     const seenLinks = new Set();
+    let detailHits = 0;
 
     for (const raw of items) {
       const link = normalizeSpace(raw?.link || '');
@@ -251,7 +301,12 @@ export function createJobupChFeedParser(config) {
       const canton = inferSwissTargetCanton(location) || defaultCanton;
       const postalCode = lieu.postal || defaultPostalCode;
 
-      const description = normalizeSpace(
+      // Fetch detail page for rich description (JSON-LD JobPosting)
+      const detailDescription = await fetchJobupDetailDescription(link);
+      if (detailDescription) detailHits++;
+      await new Promise((r) => setTimeout(r, 250));
+
+      const description = detailDescription || normalizeSpace(
         [
           decodeEntities(raw?.ref || ''),
           raw?.contrat ? `Contrat : ${decodeEntities(raw.contrat)}` : '',
@@ -305,7 +360,7 @@ export function createJobupChFeedParser(config) {
       });
     }
 
-    console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length}`);
+    console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length} (${detailHits}/${items.length} with rich detail content)`);
     return jobs;
   }
 

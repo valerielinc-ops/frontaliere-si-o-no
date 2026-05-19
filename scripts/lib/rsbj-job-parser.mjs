@@ -155,6 +155,32 @@ function detectExperienceLevel(title = '') {
   return 'mid';
 }
 
+async function fetchDetailContent(detailUrl) {
+  try {
+    const html = await fetchHtml(detailUrl);
+    // Strip nav/footer/script, then extract prose elements
+    const main = html
+      .replace(/<script[\s\S]*?<\/script>/gi, '')
+      .replace(/<style[\s\S]*?<\/style>/gi, '')
+      .replace(/<nav[\s\S]*?<\/nav>/gi, '')
+      .replace(/<header[\s\S]*?<\/header>/gi, '')
+      .replace(/<footer[\s\S]*?<\/footer>/gi, '');
+    const parts = [];
+    const proseRx = /<(p|li|h[1-6])[^>]*>([\s\S]*?)<\/\1>/g;
+    let pm;
+    while ((pm = proseRx.exec(main))) {
+      const text = normalizeSpace(decodeEntities(pm[2].replace(/<[^>]+>/g, ' ')));
+      if (!text || text.length < 8) continue;
+      if (/cookie|privacy|impressum|réseaux sociaux/i.test(text.slice(0, 40))) continue;
+      if (text.startsWith('.')) continue;
+      parts.push(pm[1].match(/^li$/i) ? `• ${text}` : text);
+    }
+    return parts.slice(0, 25).join('\n');
+  } catch {
+    return '';
+  }
+}
+
 export async function fetchAllRsbjJobs() {
   console.log(`🏥 Fetching ${RSBJ_COMPANY_NAME} jobs`);
   console.log(`   Source: ${LISTING_URL}\n`);
@@ -162,14 +188,20 @@ export async function fetchAllRsbjJobs() {
   const html = await fetchHtml(LISTING_URL);
   const entries = parseRsbjListing(html);
   console.log(`  ✓ ${entries.length} vignettes found`);
+  if (entries.length > 0) console.log(`  📄 Fetching detail pages for rich descriptions...`);
 
   if (!entries.length) return [];
 
   const todayIso = new Date().toISOString().slice(0, 10);
   const jobs = [];
+  let detailHits = 0;
   for (const e of entries) {
     const title = e.title;
+    const detailContent = await fetchDetailContent(e.url);
+    if (detailContent) detailHits++;
+    await new Promise((r) => setTimeout(r, 250));
     const description = [
+      detailContent,
       e.meta,
       'Réseau Santé Balcon du Jura Vaudois — Sites Sainte-Croix, L\'Auberson, Bullet.',
     ].filter(Boolean).join('\n\n');
@@ -216,6 +248,6 @@ export async function fetchAllRsbjJobs() {
     });
   }
 
-  console.log(`📋 Total ${RSBJ_COMPANY_NAME} jobs discovered: ${jobs.length}`);
+  console.log(`📋 Total ${RSBJ_COMPANY_NAME} jobs discovered: ${jobs.length} (${detailHits}/${entries.length} with rich detail content)`);
   return jobs;
 }
