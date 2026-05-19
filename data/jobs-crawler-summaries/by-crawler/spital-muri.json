@@ -1,18 +1,19 @@
 {
   "key": "spital-muri",
   "label": "Spital Muri",
-  "generatedAt": "2026-05-19T11:37:47.920Z",
+  "generatedAt": "2026-05-19T23:31:56.156Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10385,
-  "avgDurationMs": 10385,
+  "durationMs": 3799,
+  "avgDurationMs": 3799,
   "durationHistory": [
-    10385
+    3799
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "spital-muri-f630033e83b2",
       "slug": "teststelle-rav-schnittstelle-spital-muri-muri",
@@ -20,12 +21,13 @@
       "companyKey": "spital-muri",
       "companyDomain": "spital-muri.ch",
       "title": "Teststelle RAV Schnittstelle",
+      "needsRetranslation": true,
       "location": "Muri",
       "canton": "AG",
       "url": "https://recruitingapp-2997.umantis.com/Vacancies/239/Description/1",
       "source": "Spital Muri Dedicated Parser (Umantis listing tenant 2997)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T11:37:39.059Z",
+      "crawledAt": "2026-05-19T23:31:54.501Z",
       "addressLocality": "Muri",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -40,16 +42,16 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-2997.umantis.com/Vacancies/239/Application/CheckLogin/1",
-      "_qualityScore": 60,
+      "firstSeenAt": "2026-05-19T11:37:39.059Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
