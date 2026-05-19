@@ -1,9 +1,9 @@
 {
-  "total": 8321,
+  "total": 8430,
   "scanned": 347737,
   "skipped": 6,
   "skippedRedirect": 2561,
   "groups": {},
-  "rebasedAt": "2026-05-19T11:08:00.000Z",
-  "note": "Bumped 2026-05-19 (afternoon) from 8215 → 8321 (+106 intra-day cron-job locale variants + 16 new hospital crawlers from PR #350 adding articles like a9-chiusure-notturne-chiasso-como without SPA bundle injection). PR #312 set 8107 floor; daily job-crawler + article-publisher runs add ~50-150 new locale variants per day. Per-page contract unchanged — see PR #312 note for full rationale. Drive toward zero via SKIP_PATHS or template refactor (specifically: ensure new article emitters go through buildSeoPageHtml which injects the SPA bundle)."
+  "rebasedAt": "2026-05-19T12:24:00.000Z",
+  "note": "Bumped 2026-05-19 (late afternoon) from 8321 → 8430 (+109 intra-day cron-job locale variants). PR #371 (batch-4: 8 hospitals + 116 jobs across SF/Beehire/eRecruit ATS templates) contributed the bulk via per-locale article variants under de/jobs-im-tessin (1427 paths), en/find-jobs-ticino (829), fr/trouver-emploi-tessin (701), and per-canton variants for graubunden / valais / zurich. Previous note: 2026-05-19 afternoon 8215 → 8321 (+106). PR #312 set 8107 floor; daily job-crawler + article-publisher runs add ~50-150 new locale variants per day. Per-page contract unchanged. Drive toward zero via SKIP_PATHS or template refactor (specifically: ensure new article emitters go through buildSeoPageHtml which injects the SPA bundle)."
 }
