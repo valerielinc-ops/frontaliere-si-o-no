@@ -308,6 +308,12 @@ export const COMPANY_HQ = {
   'bachtelen':                    { city: 'Grenchen',           canton: 'SO', postalCode: '2540', addressRegion: 'SO' },
   'pigna':                        { city: 'Kloten',             canton: 'ZH', postalCode: '8302', addressRegion: 'ZH' },
   'wagerenhof':                   { city: 'Uster',              canton: 'ZH', postalCode: '8610', addressRegion: 'ZH' },
+  // ── Batch 12 (Prospective discovery + SPG + small TI/GR) ──
+  'schulthess-klinik':            { city: 'Zürich',             canton: 'ZH', postalCode: '8008', addressRegion: 'ZH' },
+  'cds-savognin':                 { city: 'Savognin',           canton: 'GR', postalCode: '7460', addressRegion: 'GR' },
+  'concara':                      { city: 'Bern',               canton: 'BE', postalCode: '3012', addressRegion: 'BE' },
+  'epi-stiftung':                 { city: 'Zürich',             canton: 'ZH', postalCode: '8008', addressRegion: 'ZH' },
+  'paraplegie':                   { city: 'Nottwil',            canton: 'LU', postalCode: '6207', addressRegion: 'LU' },
   'spital-limmattal':             { city: 'Schlieren',          canton: 'ZH', postalCode: '8952', addressRegion: 'ZH' },
   'huntsman':                     { city: 'Monthey',            canton: 'VS', postalCode: '1870', addressRegion: 'VS' },
   'fielmann':                     { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },

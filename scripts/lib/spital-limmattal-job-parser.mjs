@@ -308,6 +308,10 @@ export async function fetchAllSpitalLimmattalJobs() {
       titleByLocale: { [sourceLang]: title },
       description,
       descriptionByLocale: { [sourceLang]: description },
+      // Newly-discovered jobs ship source-locale-only; AI step clears this
+      // flag once it fills the 3 remaining locales, otherwise the
+      // translate-pending workflow picks them up.
+      needsRetranslation: true,
       location,
       canton,
       url: listing.url,
