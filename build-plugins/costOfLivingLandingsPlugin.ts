@@ -133,7 +133,8 @@ const CITY_PAIRED_PROVINCE: Record<ColCityId, Record<ColLocale, string>> = {
 
 // ── Template B renderers ─────────────────────────────────────────────────────
 
-interface CityCopyView {
+/** @internal */
+export interface CityCopyView {
   readonly statTileSalaryLabel: string;
   readonly statTileRentLabel: string;
   readonly statTileLiveJobsLabel: string;
@@ -151,7 +152,8 @@ interface CityCopyView {
   readonly jobSalaryFmt: (min: number | null, max: number | null) => string;
 }
 
-function renderFeaturedJobs(
+/** @internal Exported for test-helper only — not part of the public API. */
+export function renderFeaturedJobs(
   cityId: ColCityId,
   locale: ColLocale,
   snapshot: CityJobsSnapshot,
@@ -200,7 +202,8 @@ function renderFeaturedJobs(
   </section>`;
 }
 
-function renderEmployerGrid(
+/** @internal Exported for test-helper only — not part of the public API. */
+export function renderEmployerGrid(
   snapshot: CityJobsSnapshot,
   view: CityCopyView,
   locale: ColLocale,
@@ -225,34 +228,6 @@ function renderEmployerGrid(
     <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(view.employerGridTitle)}</h2>
     ${listHtml}
   </section>`;
-}
-
-/** Exported for unit tests — builds minimal view and delegates to renderEmployerGrid. */
-export function renderCostOfLivingEmployerGridForTest(
-  cityId: ColCityId,
-  locale: ColLocale,
-  snapshot: { topEmployers: ReadonlyArray<{ name: string; count: number }> },
-): string {
-  const L = getLocaleStrings(locale);
-  const cityName = COL_CITY_DISPLAY[cityId][locale];
-  const view: CityCopyView = {
-    statTileSalaryLabel: '',
-    statTileRentLabel: '',
-    statTileLiveJobsLabel: '',
-    statSalaryFmt: () => '',
-    statRentFmt: () => '',
-    statLiveJobsFmt: () => '',
-    primaryCtaLabel: '',
-    featuredJobsTitle: '',
-    featuredJobsCtaAll: '',
-    featuredJobsEmpty: '',
-    featuredFallbackBadge: '',
-    employerGridTitle: L.employerGridTitle(cityName),
-    approfondisciHeading: '',
-    jobPostedLabel: () => '',
-    jobSalaryFmt: () => '',
-  };
-  return renderEmployerGrid(snapshot as CityJobsSnapshot, view, locale, cityId);
 }
 
 function renderApprofondisciDivider(label: string): string {
@@ -811,31 +786,7 @@ export function costOfLivingLandingsPlugin(rootDir: string): Plugin {
   };
 }
 
-// Test-only export: allows tests/build-plugins/job-card-canonical-adoption.test.ts
-// to verify the migrated renderer emits canonical job-card markers.
-export function renderCostOfLivingFeaturedJobsForTest(
-  city: ColCityId,
-  locale: ColLocale,
-  snapshot: CityJobsSnapshot,
-): string {
-  const L = getLocaleStrings(locale);
-  const cityName = COL_CITY_DISPLAY[city][locale];
-  const view: CityCopyView = {
-    statTileSalaryLabel: L.statTileSalaryLabel,
-    statTileRentLabel: L.statTileRentLabel,
-    statTileLiveJobsLabel: L.statTileLiveJobsLabel,
-    statSalaryFmt: L.statSalaryFmt,
-    statRentFmt: L.statRentFmt,
-    statLiveJobsFmt: L.statLiveJobsFmt,
-    primaryCtaLabel: L.primaryCtaLabel(cityName),
-    featuredJobsTitle: L.featuredJobsTitle(cityName),
-    featuredJobsCtaAll: L.featuredJobsCtaAll(cityName, snapshot.liveCount),
-    featuredJobsEmpty: L.featuredJobsEmpty(cityName),
-    featuredFallbackBadge: L.featuredFallbackBadge,
-    employerGridTitle: L.employerGridTitle(cityName),
-    approfondisciHeading: L.approfondisciHeading,
-    jobPostedLabel: L.jobPostedLabel,
-    jobSalaryFmt: L.jobSalaryFmt,
-  };
-  return renderFeaturedJobs(city, locale, snapshot, view);
-}
+export {
+  renderCostOfLivingFeaturedJobsForTest,
+  renderCostOfLivingEmployerGridForTest,
+} from './costOfLivingLandingsTestExports';
