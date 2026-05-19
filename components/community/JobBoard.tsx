@@ -19,6 +19,7 @@ import {
  fetchAllJobs,
  fetchJobsForCanton,
  getDefaultCantonForVisit,
+ scopeJobsToCanton,
  AGGREGATE_CANTON_CODE,
  type Job as RawJob,
 } from '@/services/jobsService';
@@ -2768,21 +2769,28 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
 
  const run = async (): Promise<void> => {
- try {
  // P7.2 — URL-driven canton pre-filter takes precedence over
  // referrer-based default. /cerca-lavoro-zurigo/ → ZH shard;
  // /cerca-lavoro-svizzera/ → AGGREGATE; legacy /cerca-lavoro-ticino/
  // → TI (router sets jobBoardCanton:'TI' explicitly per P7.1).
+ // Hoisted above try/catch so the catch block can scope its legacy
+ // fallback to the same canton.
  const targetCanton = initialFilterCanton || getDefaultCantonForVisit();
+ try {
  const shardJobs: RawJob[] =
  targetCanton === AGGREGATE_CANTON_CODE
  ? await fetchAggregatedJobs(TOP_AGGREGATE_CANTONS, { deduplicate: true })
  : await fetchJobsForCanton(targetCanton);
 
  // Shards not yet deployed (every shard 404'd / empty) → legacy loader.
+ // The legacy payload is the locale-wide monolith (~13 MB, all 26 cantons
+ // mixed, TI-dominant). Without a post-filter the canton SERP degenerates
+ // to a TI-biased listing — visible on every non-TI /cerca-lavoro-{canton}/
+ // page until shards land. Aggregator keeps the full list.
  if (shardJobs.length === 0) {
  const legacy = await loadLegacyLocaleJobs();
- finalize(Array.isArray(legacy) ? legacy : []);
+ const legacyArr = Array.isArray(legacy) ? legacy : [];
+ finalize(scopeJobsToCanton(legacyArr, targetCanton));
  return;
  }
 
@@ -2793,7 +2801,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  reportCaughtError(err, 'jobBoard.loadJobs.shards');
  try {
  const legacy = await loadLegacyLocaleJobs();
- finalize(Array.isArray(legacy) ? legacy : []);
+ const legacyArr = Array.isArray(legacy) ? legacy : [];
+ finalize(scopeJobsToCanton(legacyArr, targetCanton));
  } catch (legacyErr: unknown) {
  console.warn('Legacy locale-jobs fallback also failed:', legacyErr);
  reportCaughtError(legacyErr, 'jobBoard.loadJobs.legacy');

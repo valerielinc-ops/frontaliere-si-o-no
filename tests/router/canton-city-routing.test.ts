@@ -23,6 +23,22 @@ describe('Phase 2 — per-canton city routing', () => {
     expect(parsed.notFoundPath).toBeUndefined();
   });
 
+  // Regression 2026-05-19: city hub routes must set staticOverlay:true so
+  // the build-time SSR (city-jobs-hub plugin) survives hydration. Without
+  // it the SPA replaces 3 city-filtered cards with a generic canton SERP —
+  // user-visible bug on /cerca-lavoro-basilea/pratteln/ before this fix.
+  it('city hub sets staticOverlay:true (parity with company hubs)', () => {
+    const parsed = parsePath('/cerca-lavoro-basilea/pratteln/');
+    expect(parsed.route.activeTab).toBe('job-board');
+    expect(parsed.route.jobBoardCity).toBe('pratteln');
+    expect(parsed.route.staticOverlay).toBe(true);
+  });
+
+  it('non-TI city hub fix applies broadly (Zurigo)', () => {
+    const parsed = parsePath('/cerca-lavoro-zurigo/zurich/');
+    expect(parsed.route.staticOverlay).toBe(true);
+  });
+
   it('/cerca-lavoro-ginevra/geneve/ → jobBoardCanton=GE, jobBoardCity=geneve', () => {
     const parsed = parsePath('/cerca-lavoro-ginevra/geneve/');
     expect(parsed.route.activeTab).toBe('job-board');
