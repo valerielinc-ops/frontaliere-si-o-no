@@ -747,7 +747,7 @@ function computeExchangeInsight(series, fallbackRate, fallbackPrev) {
   };
 }
 
-// Candidate pool size must comfortably exceed MAX_HISTORY (12) so rotation
+// Candidate pool size must comfortably exceed MAX_HISTORY (26) so rotation
 // never collapses to "every top-viewed article is in the exclude list".
 const TOP_ARTICLES_LIMIT = 50;
 
@@ -799,6 +799,38 @@ function fetchRecentlyPublishedArticleIds(limit = 30) {
     console.warn('\u26a0\ufe0f Recently published articles scan failed:', e.message);
     return [];
   }
+}
+
+/**
+ * Build a `getPublishedAt(id) => Date|null` lookup over `data/blog-articles/*.json`.
+ *
+ * Used by `selectFeaturedArticleId` to penalize "evergreen" articles (older
+ * than 1 year). Legacy evergreens stored under `services/locales/blog-meta-*.ts`
+ * have no JSON file \u2192 the getter returns `null`, which the selector treats as
+ * "unknown publish date \u2192 evergreen" \u2192 de-prioritized.
+ */
+function buildPublishedAtLookup() {
+  const map = new Map();
+  try {
+    const dir = new URL('../data/blog-articles/', import.meta.url);
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith('.json'));
+    for (const file of files) {
+      try {
+        const raw = fs.readFileSync(new URL(file, dir), 'utf8');
+        const data = JSON.parse(raw);
+        const ts = Date.parse(data.publishedAt || '');
+        if (Number.isNaN(ts)) continue;
+        const id = data.id || file.replace(/\.json$/, '');
+        map.set(id, new Date(ts));
+      } catch {
+        // Skip unparseable file
+      }
+    }
+  } catch {
+    // Directory missing in test environments \u2014 return empty map; everything
+    // resolves to null, which evergreen-checks treat as "old".
+  }
+  return (id) => map.get(id) || null;
 }
 
 // Capture group for a single-quoted string literal that allows escaped chars
@@ -945,7 +977,10 @@ async function fetchRecentlyFeaturedArticles() {
 
 async function saveRecentlyFeaturedArticle(articleId) {
   if (!db) return;
-  const MAX_HISTORY = 12; // exclude last 12 articles → ~3 months of variety with weekly sends
+  // 2026-05-19: bumped from 12 → 26 weeks (~6 months) after subscriber feedback
+  // that featured articles felt familiar. The old window cycled every ~3 months,
+  // long enough for evergreens to keep resurfacing.
+  const MAX_HISTORY = 26;
   try {
     const history = await fetchRecentlyFeaturedArticles();
     const updated = [articleId, ...history.filter(id => id !== articleId)].slice(0, MAX_HISTORY);
@@ -1045,14 +1080,23 @@ async function pickFeaturedArticle() {
         fetchRecentlyFeaturedArticles(),
       ]);
       const recentlyPublished = fetchRecentlyPublishedArticleIds();
+      const getPublishedAt = buildPublishedAtLookup();
       const hasMeta = (id) => !!loadBlogMeta(id, 'it');
-      const pick = selectFeaturedArticleId(topArticles, recentlyFeatured, hasMeta, Date.now(), recentlyPublished);
+      const pick = selectFeaturedArticleId(
+        topArticles,
+        recentlyFeatured,
+        hasMeta,
+        Date.now(),
+        recentlyPublished,
+        getPublishedAt,
+      );
       if (pick.id) {
         bestId = pick.id;
         const best = topArticles.find((a) => a.id === pick.id);
         const reasonLabel = {
           'fresh': '',
           'recent-publication': ' (recently published, promoting)',
+          'fresh-evergreen': ' (no fresh-published alternative, reusing evergreen)',
           'rotation-exhausted': ' (rotation exhausted, reusing)',
         }[pick.reason] || '';
         console.log(`\ud83d\udcf0 Featured article: "${pick.id}" (${best?.views ?? '?'} views)${reasonLabel}`);
@@ -2004,8 +2048,10 @@ async function main() {
   const sampleSubject = emails[0]?.payload?.subject || 'N/A';
   await logSend(sent.length, sampleSubject, sent.length > 0 ? 'sent' : 'failed');
 
-  // Track featured article for rotation (avoid repeating same article next week)
-  if (sent.length > 0 && featuredArticle.persistRotation) {
+  // Track featured article for rotation — only persist on real sends, not test/preview.
+  // Pre-2026-05-19 every test send polluted the article history; today's test mode
+  // could push 12 entries and overwrite the whole window before any real send.
+  if (mode === 'send' && sent.length > 0 && featuredArticle.persistRotation) {
     await featuredArticle.persistRotation();
   }
 
