@@ -1,69 +1,5 @@
 [
   {
-    "timestamp": "2026-05-04T08:54:33.887Z",
-    "label": "before",
-    "total": 2522,
-    "needsRetranslation": 53,
-    "incomplete": 9,
-    "complete": 2513,
-    "missingByLocale": {
-      "it": 8,
-      "en": 1,
-      "de": 7,
-      "fr": 9
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-05-04T09:08:05.088Z",
-    "label": "after",
-    "total": 2522,
-    "needsRetranslation": 61,
-    "incomplete": 9,
-    "complete": 2513,
-    "missingByLocale": {
-      "it": 8,
-      "en": 1,
-      "de": 7,
-      "fr": 9
-    },
-    "topPending": [
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 1
-      },
-      {
-        "company": "Hôpital du Valais",
-        "pending": 1
-      },
-      {
-        "company": "Spital Davos",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-05-04T11:53:50.594Z",
     "label": "before",
     "total": 2603,
@@ -11008,6 +10944,118 @@
       {
         "company": "Bell Schweiz AG",
         "pending": 76
+      },
+      {
+        "company": "Lombard Odier",
+        "pending": 27
+      },
+      {
+        "company": "Novartis",
+        "pending": 24
+      },
+      {
+        "company": "IWC",
+        "pending": 20
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 20
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 11
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-19T03:38:59.733Z",
+    "label": "before",
+    "total": 4827,
+    "needsRetranslation": 1417,
+    "incomplete": 724,
+    "complete": 4103,
+    "missingByLocale": {
+      "it": 630,
+      "en": 261,
+      "de": 462,
+      "fr": 600
+    },
+    "topPending": [
+      {
+        "company": "Roche",
+        "pending": 299
+      },
+      {
+        "company": "Fust | Swiss Household Services AG",
+        "pending": 76
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 76
+      },
+      {
+        "company": "Lombard Odier",
+        "pending": 27
+      },
+      {
+        "company": "Novartis",
+        "pending": 24
+      },
+      {
+        "company": "IWC",
+        "pending": 20
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 20
+      },
+      {
+        "company": "UBS",
+        "pending": 19
+      },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 15
+      },
+      {
+        "company": "Kantonsspital St. Gallen (KSSG / HOCH)",
+        "pending": 11
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-05-19T04:25:43.911Z",
+    "label": "after",
+    "total": 4827,
+    "needsRetranslation": 1312,
+    "incomplete": 675,
+    "complete": 4152,
+    "missingByLocale": {
+      "it": 594,
+      "en": 242,
+      "de": 446,
+      "fr": 572
+    },
+    "topPending": [
+      {
+        "company": "Roche",
+        "pending": 299
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 76
+      },
+      {
+        "company": "Fust | Swiss Household Services AG",
+        "pending": 72
       },
       {
         "company": "Lombard Odier",
