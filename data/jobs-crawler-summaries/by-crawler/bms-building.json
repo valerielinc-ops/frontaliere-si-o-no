@@ -1,18 +1,19 @@
 {
   "key": "bms-building",
   "label": "BMS Building Materials",
-  "generatedAt": "2026-05-19T11:14:20.357Z",
+  "generatedAt": "2026-05-19T21:40:16.080Z",
   "total": 4,
-  "newCount": 2,
-  "updatedCount": 2,
-  "removedCount": 2,
+  "newCount": 0,
+  "updatedCount": 4,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7654,
-  "avgDurationMs": 7654,
+  "durationMs": 6727,
+  "avgDurationMs": 6727,
   "durationHistory": [
-    7654
+    6727
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "bms-building-01533163f33a",
       "slug": "conseiller-de-vente-shop-sanitaire-a-50-f-h-d-bms-building-ch",
@@ -25,7 +26,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/152-conseiller-de-vente-shop-sanitaire-a-50-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T11:14:15.539Z",
+      "crawledAt": "2026-05-19T21:40:11.991Z",
       "addressLocality": "Martigny",
       "addressCountry": "CH",
       "country": "CH",
@@ -39,11 +40,13 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/0au1y53z70ip5vlmq1wqdxl58mi007",
-      "_qualityScore": 67,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T11:14:15.539Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -59,7 +62,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/166-responsable-de-site-showroom-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T11:14:18.040Z",
+      "crawledAt": "2026-05-19T21:40:13.863Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,16 +76,16 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/0b2v4e24gqntue5teszm2k390a5env",
-      "_qualityScore": 67,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T11:14:18.040Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "bms-building-ddb82db4dac8",
       "slug": "conseiller-ere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f-h-d-100-bms",
@@ -95,7 +98,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/154-conseillerere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f/h/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T11:14:16.778Z",
+      "crawledAt": "2026-05-19T21:40:12.929Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -130,7 +133,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/137-conseiller-de-vente-expo-cuisines-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-05-19T11:14:14.320Z",
+      "crawledAt": "2026-05-19T21:40:11.029Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -154,81 +157,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "bms-building-04dfbb1bd722",
-      "slug": "responsable-de-site-showroom-100-f-h-d-bms-building-ch",
-      "company": "BMS Building Materials",
-      "companyKey": "bms-building",
-      "companyDomain": "bmsuisse.ch",
-      "title": "Responsable de Site Showroom 100% (f/h/d)",
-      "location": "Conthey",
-      "canton": "VS",
-      "url": "https://jobs.bmsuisse.ch/jobs/detail/162-responsable-de-site-showroom-100-f/h/d/",
-      "source": "BMS Building Materials Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-18T21:28:54.503Z",
-      "addressLocality": "Conthey",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1964",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Edilizia / Materiali da costruzione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-06",
-      "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/0b2v4e24gqntue5teszm2k390a5env",
-      "firstSeenAt": "2026-05-06T10:28:27.612Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "id": "bms-building-b04ef5c1e9a6",
-      "slug": "negozio-di-salute-consulente-commerciale-al-50-f-h-d-bms-building-materials-martigny",
-      "company": "BMS Building Materials",
-      "companyKey": "bms-building",
-      "companyDomain": "bmsuisse.ch",
-      "title": "Conseiller de vente shop sanitaire à 50% (f/h/d)",
-      "location": "Martigny",
-      "canton": "VS",
-      "url": "https://jobs.bmsuisse.ch/jobs/detail/151-conseiller-de-vente-shop-sanitaire-a-50-f/h/d/",
-      "source": "BMS Building Materials Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-05-18T21:28:52.396Z",
-      "addressLocality": "Martigny",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1920",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Edilizia / Materiali da costruzione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/0au1y53z70ip5vlmq1wqdxl58mi007",
-      "firstSeenAt": "2026-04-15T21:08:51.535Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
