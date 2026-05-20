@@ -58,6 +58,7 @@ import {
 } from './jobMarketSnapshotPlugin';
 import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
 import { buildSnapshotProseBlock } from './shared/cantonSnapshotProse';
+import { breadcrumbListLd } from '../services/seo/structuredData';
 
 // ── Local types — kept loose; the TI-side JobRecord is already compatible. ──
 interface JobLike {
@@ -525,16 +526,12 @@ function renderSnapshotPage(inp: RenderInputs): string {
     <p style="margin-top:24px"><a href="${esc(inp.hiringHubHref)}" style="${LINK_ACCENT_STYLE}">${esc(c.ctaLabel)} →</a></p>
   </main>`;
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: c.breadcrumbHome, item: `${BASE_URL}${homeHref}` },
-      { '@type': 'ListItem', position: 2, name: c.breadcrumbSwitzerland, item: `${BASE_URL}${homeHref}` },
-      { '@type': 'ListItem', position: 3, name: cantonName, item: `${BASE_URL}${inp.canonicalPath}` },
-      { '@type': 'ListItem', position: 4, name: c.breadcrumbSnapshot, item: `${BASE_URL}${inp.canonicalPath}` },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: c.breadcrumbHome, url: `${BASE_URL}${homeHref}` },
+    { name: c.breadcrumbSwitzerland, url: `${BASE_URL}${homeHref}` },
+    { name: cantonName, url: `${BASE_URL}${inp.canonicalPath}` },
+    { name: c.breadcrumbSnapshot, url: `${BASE_URL}${inp.canonicalPath}` },
+  ]));
 
   const title = `${c.titlePrefix} ${cantonName}: ${c.eyebrow.toLowerCase()}`;
   const description = `${c.descriptionPrefix} ${cantonName}: ${inp.totalJobs} ${c.totalJobsLabel.toLowerCase()}.`;
