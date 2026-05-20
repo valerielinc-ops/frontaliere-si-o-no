@@ -338,3 +338,27 @@ curl -sIL --max-time 8 "https://{tenant}.{wdN}.myworkdayjobs.com/Careers"
 # Sync main
 git fetch origin main && git status
 ```
+
+## Batch 20R discovery report (2026-05-20)
+
+No-op batch. All probed tenants fail the ≥5 CH jobs threshold or require deferred tooling.
+
+| Target | ATS | Live result | Verdict |
+|---|---|---|---|
+| Bürgenstock Waldhotel Health & Medical Excellence (NW) | Umantis tenant 2850 | 44 jobs total, **0 match medical filter** — all hospitality (F&B, Concierge, Housekeeping, Sommelier, Spa Therapist at Hotel Schweizerhof Bern not Bürgenstock). No "Waldhotel" / "Medical Excellence" / "Obbürgen" mentions in listing. Tenant 2850 is the corporate-hospitality side. | SKIP — no medical roles publicly listed at tenant 2850 |
+| Nestlé Suisse | SuccessFactors `nestleHRprdBX` on `career2.successfactors.eu` | Old `nestle.wd*.myworkdayjobs.com` retired (Workday → SF migration confirmed). New SF site renders job results client-side; no documented JSON sidecar accessible without an authenticated cookie/session. `https://www.nestlejobs.com/` is the global landing redirecting to SF. SF sitemap 404; nestle.com sitemap has 0 job-detail URLs. | DEFER — needs Playwright runtime + SF session capture (separate work item) |
+| Klinik Aadorf (TG) | Dualoo `3ibnwlo9` | 4 live jobs: ASSISTENZÄRZTIN/ASSISTENZARZT, FACHÄRZTIN/FACHARZT OBERÄRZTIN/OBERARZT, KÖCHIN/KOCH, PRAKTIKANT/IN PSYCHOLOGIE | SKIP — below 5-job threshold |
+| Klinik Seeschau (TG) | klinikseeschau.ch | DNS does not resolve from this network (NXDOMAIN both `www.` and apex) | SKIP — re-probe from CI runner needed |
+| Klinik Schönberg (BE) | jobalino iframe (`jobalino.ch/component/jobsfactory/?company_name=klinik-schoenberg-ag`) | Jobalino hosted on Wix; direct API path returns 404 outside iframe context. Embedded by category (Pflege, Therapien, Medizin, …) — would need to scrape parent page categories or reverse-engineer Wix render. Site has at least 1 live job visible (`/job/.../wir-sind-offen-fuer-talente`) but no clean listing endpoint. | DEFER — needs jobalino-common parser or a Webflow/Wix listing scraper |
+| Klinik Selhofen (BE) | klinikselhofen.ch | DNS NXDOMAIN | SKIP — site likely renamed/parked |
+| Therapiezentrum Meggen (LU) | tzm.ch Jimdo CMS | 2 PDF stellenausschreibungen | SKIP — below 5-job threshold |
+
+**Net new wrappers shipped:** 0. PR opens but only adds this report so future agents skip these tenants until either (a) Nestle Playwright SF infrastructure exists, or (b) DNS-resolved re-probes confirm Seeschau/Selhofen sites are live, or (c) jobalino-common factory lands.
+
+**Conditions for re-attempt:**
+- Bürgenstock: re-check tenant 2850 if Waldhotel Medical Excellence migrates to its own Umantis tenant or starts publishing under tenant 2850 with department=Medical Excellence.
+- Nestle: open a separate engineering task to build `successfactors-spa-playwright-common.mjs` (current `successfactors-client.mjs` is HTML-detail-only; SPA listings need browser rendering).
+- Aadorf / Meggen: passive watch — re-probe when total jobs in inventory show ≥5.
+- Seeschau / Selhofen: re-probe DNS from CI; if resolves but still <5 jobs, skip permanently.
+- Schönberg: ship a `jobalino-common.mjs` factory first (referenced in roadmap above) — Schönberg becomes a one-line consumer afterwards.
+
