@@ -45,7 +45,7 @@ import {
   getFaqHubByCategory,
 } from '../data/faq-hub';
 import type { FaqHubCategory, FaqHubEntry, FaqHubLocale } from '../data/faq-hub';
-import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { imageObjectLd, breadcrumbListLd } from '../services/seo/structuredData';
 
 // ── Locale-specific static copy ────────────────────────────────────
 
@@ -368,15 +368,11 @@ function renderPage(locale: FaqHubLocale, dateStamp: string, distDir?: string): 
   const bodyHtml = `<main class="seo-static-content fh-main">${body}</main>`;
 
   // ── Structured data ────────────────────────────────────────────
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: homeUrl },
-      { '@type': 'ListItem', position: 2, name: copy.breadcrumbHub, item: hubParentUrl },
-      { '@type': 'ListItem', position: 3, name: copy.h1, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: homeUrl },
+    { name: copy.breadcrumbHub, url: hubParentUrl },
+    { name: copy.h1, url: canonicalUrl },
+  ]));
 
   const faqLd = JSON.stringify({
     '@context': 'https://schema.org',
