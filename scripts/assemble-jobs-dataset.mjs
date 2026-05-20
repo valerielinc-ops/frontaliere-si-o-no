@@ -1623,12 +1623,13 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
     for (let i = 0; i < assembled.length; i++) {
       const before = assembled[i];
       const after = enrichJobForSeo(before);
-      // count only when at least one of the four target fields actually changed
+      // count only when at least one of the five target fields actually changed
       if (
         before.hiringOrganization !== after.hiringOrganization ||
         before.datePosted !== after.datePosted ||
         before.jobLocation !== after.jobLocation ||
-        before.streetAddress !== after.streetAddress
+        before.streetAddress !== after.streetAddress ||
+        before.employmentType !== after.employmentType
       ) {
         seoEnrichedCount++;
         assembled[i] = after;

@@ -62,4 +62,53 @@ describe('assemble-jobs-dataset schema gate', () => {
     }
     expect(exitCode).not.toBe(0);
   });
+
+  it('exits zero with --validate-only OK message when a slice contains a fully-valid job', () => {
+    // Happy-path guard: if the schema import silently breaks (e.g., the gate
+    // becomes a no-op or always-fails), the failure-path test above still
+    // passes. This test asserts the gate accepts valid input.
+    const tmp = mkdtempSync(join(tmpdir(), 'assemble-gate-ok-'));
+    const byCrawler = join(tmp, 'data', 'jobs', 'by-crawler');
+    mkdirSync(byCrawler, { recursive: true });
+
+    const validSlice = {
+      crawlerKey: 'unit-test-ok',
+      assembledAt: new Date().toISOString(),
+      jobs: [
+        {
+          id: 'ok-1',
+          slug: 'ok-1',
+          url: 'https://example.ch/ok-1',
+          title: 'Valid Job',
+          company: 'Acme',
+          hiringOrganization: { name: 'Acme' },
+          location: 'Lugano',
+          addressLocality: 'Lugano',
+          postalCode: '6900',
+          streetAddress: 'Via Test 1',
+          description: 'A'.repeat(100),
+          datePosted: '2026-05-15',
+          employmentType: 'FULL_TIME',
+          jobLocation: { addressLocality: 'Lugano', postalCode: '6900', addressCountry: 'CH' },
+          baseSalary: {
+            currency: 'CHF',
+            value: { minValue: 60000, maxValue: 90000, unitText: 'YEAR' },
+          },
+        },
+      ],
+    };
+    writeFileSync(join(byCrawler, 'unit-test-ok.json'), JSON.stringify(validSlice));
+
+    let exitCode = 0;
+    let stderr = '';
+    try {
+      execSync(`SLICES_DIR=${byCrawler} node scripts/assemble-jobs-dataset.mjs --validate-only`, { stdio: ['pipe', 'pipe', 'pipe'] });
+    } catch (e: any) {
+      exitCode = e.status ?? 1;
+      stderr = e.stderr?.toString() ?? '';
+    } finally {
+      rmSync(tmp, { recursive: true, force: true });
+    }
+    expect(exitCode).toBe(0);
+  });
 });
