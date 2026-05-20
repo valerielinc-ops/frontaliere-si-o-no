@@ -1,18 +1,90 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-05-20T05:18:01.370Z",
-  "total": 13,
-  "newCount": 13,
-  "updatedCount": 0,
-  "removedCount": 0,
+  "generatedAt": "2026-05-20T11:03:38.008Z",
+  "total": 14,
+  "newCount": 2,
+  "updatedCount": 12,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 74344,
-  "avgDurationMs": 74344,
+  "durationMs": 4436,
+  "avgDurationMs": 4436,
   "durationHistory": [
-    74344
+    4436
   ],
   "newJobs": [
+    {
+      "title": "Mitarbeiter Technischer Dienst, 100%",
+      "slug": "mitarbeiter-technischer-dienst-100-berit-klinik",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_technischer_dienst_100__ae8a56c176.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Speicher",
+      "addressLocality": "Speicher",
+      "addressRegion": "AR",
+      "postalCode": "9042",
+      "addressCountry": "CH",
+      "canton": "AR",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-20",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "stelleninserat_mitarbeiter_in_technischer_dienst_100__ae8a56c176.pdf"
+      },
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
+    {
+      "title": "Teamleitung Fakturierung, 100%",
+      "slug": "teamleitung-fakturierung-100-berit-klinik",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_stv._teamleitung_fakturierung_100__8a984a3fa8.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Speicher",
+      "addressLocality": "Speicher",
+      "addressRegion": "AR",
+      "postalCode": "9042",
+      "addressCountry": "CH",
+      "canton": "AR",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-20",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "stelleninserat_stv._teamleitung_fakturierung_100__8a984a3fa8.pdf"
+      },
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Logistiker:in, 100%",
       "slug": "logistiker-in-100-berit-klinik",
@@ -40,11 +112,13 @@
       "_meta": {
         "sourceFilename": "stelleninserat_logistiker_in_100__fb375a3261.pdf"
       },
-      "_qualityScore": 64,
+      "id": "berit-klinik-be5ec3f62e24",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -75,46 +149,13 @@
       "_meta": {
         "sourceFilename": "stelleninserat_dipl._fachfrau_fachmann_op_technik__60_80__1a84a099a7.pdf"
       },
-      "_qualityScore": 64,
+      "id": "berit-klinik-bc1b34bee37c",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "Mitarbeiter:In Technischer Dienst 100% — Fachbereich Sanit R",
-      "slug": "mitarbeiter-in-technischer-dienst-100-fachbereich-sanit-r-berit-klinik",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_technischer_dienst_100___fachbereich_sanit_r__d33ceea69c.pdf",
-      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
-      "company": "Berit Klinik",
-      "companyKey": "berit-klinik",
-      "companyDomain": "beritklinik.ch",
-      "location": "Speicher",
-      "addressLocality": "Speicher",
-      "addressRegion": "AR",
-      "postalCode": "9042",
-      "addressCountry": "CH",
-      "canton": "AR",
-      "country": "CH",
-      "category": "health",
-      "sector": "Gesundheitswesen / Klinik",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "berit-klinik-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-20",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "stelleninserat_mitarbeiter_in_technischer_dienst_100___fachbereich_sanit_r__d33ceea69c.pdf"
-      },
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -145,11 +186,13 @@
       "_meta": {
         "sourceFilename": "stelleninserat_mitarbeiter_in_hotellerie_100__ea649357ba.pdf"
       },
-      "_qualityScore": 64,
+      "id": "berit-klinik-866e3eebd557",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -180,11 +223,13 @@
       "_meta": {
         "sourceFilename": "stelleninserat_praktikant_in_berit_sportslab_647779f409.pdf"
       },
-      "_qualityScore": 64,
+      "id": "berit-klinik-4eb29cd9fb19",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -215,11 +260,13 @@
       "_meta": {
         "sourceFilename": "stelleninserat_mpa__100__71216bc456.pdf"
       },
-      "_qualityScore": 64,
+      "id": "berit-klinik-7ee376e687d8",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -250,11 +297,13 @@
       "_meta": {
         "sourceFilename": "stelleninserat_dipl._pflegefachperson_hf_rehaklinik_80_100__b7b2dc0031.pdf"
       },
-      "_qualityScore": 64,
+      "id": "berit-klinik-e457f8690673",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -285,11 +334,13 @@
       "_meta": {
         "sourceFilename": "ausbildungsstelle_zur_dipl._pflegefachperson_hf_770ca5da27.pdf"
       },
-      "_qualityScore": 64,
+      "id": "berit-klinik-3fba6edfeac0",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -320,11 +371,13 @@
       "_meta": {
         "sourceFilename": "stelleninserat_mitarbeiter_in_restaurant_60_80__84f364acfb.pdf"
       },
-      "_qualityScore": 64,
+      "id": "berit-klinik-cf9ff275fd85",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -355,11 +408,13 @@
       "_meta": {
         "sourceFilename": "stelleninserat_k_chin_koch_100__3caee99d09.pdf"
       },
-      "_qualityScore": 64,
+      "id": "berit-klinik-a7bfcbdb917c",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -390,11 +445,13 @@
       "_meta": {
         "sourceFilename": "stelleninserat_dipl._pflegefachperson_hf_100__wattwil_9ef08da21f.pdf"
       },
-      "_qualityScore": 64,
+      "id": "berit-klinik-c6f963d67c5d",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -425,11 +482,13 @@
       "_meta": {
         "sourceFilename": "stelleninserat_op_dispo_wattwil_50_70__6db2c5f5c1.pdf"
       },
-      "_qualityScore": 64,
+      "id": "berit-klinik-d8e0f1afab48",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -460,16 +519,58 @@
       "_meta": {
         "sourceFilename": "stelleninserat_mpa_arztsekret_rin_wattwil_40__70d7b013fb.pdf"
       },
-      "_qualityScore": 64,
+      "id": "berit-klinik-b5f5dfcffd62",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Mitarbeiter:In Technischer Dienst 100% — Fachbereich Sanit R",
+      "slug": "collaboratore-trice-technischer-dienst-100-fachbereich-sanit-r-berit-klinik-speicher",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_technischer_dienst_100___fachbereich_sanit_r__d33ceea69c.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Speicher",
+      "addressLocality": "Speicher",
+      "addressRegion": "AR",
+      "postalCode": "9042",
+      "addressCountry": "CH",
+      "canton": "AR",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-20",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "stelleninserat_mitarbeiter_in_technischer_dienst_100___fachbereich_sanit_r__d33ceea69c.pdf"
+      },
+      "id": "berit-klinik-2ce26edafe60",
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "currency": "CHF",
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }
