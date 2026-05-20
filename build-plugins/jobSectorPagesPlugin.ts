@@ -41,6 +41,7 @@ import {
   type JobCardListItem,
 } from './shared/jobCardHtml';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
+import { breadcrumbListLd, faqPageLd } from '../services/seo/structuredData';
 import type { JobBoardLocale } from './jobBoardSeo';
 import {
   SECTOR_HUB_KEYS,
@@ -228,15 +229,11 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     `${SECTOR_HUB_LOCALE_PREFIX[locale]}/${SECTOR_HUB_SECTION[locale]}`.replace(/\/+/g, '/'),
   )}`;
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: SECTION_NAME[locale], item: sectionRootUrl },
-      { '@type': 'ListItem', position: 3, name: seo.h1, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: 'Home', url: `${BASE_URL}/` },
+    { name: SECTION_NAME[locale], url: sectionRootUrl },
+    { name: seo.h1, url: canonicalUrl },
+  ]));
 
   const itemListLd = jobCards.length > 0
     ? JSON.stringify({
@@ -265,15 +262,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   });
 
   const faqLd = seo.faq.length > 0
-    ? JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: seo.faq.map((f) => ({
-          '@type': 'Question',
-          name: f.question,
-          acceptedAnswer: { '@type': 'Answer', text: f.answer },
-        })),
-      })
+    ? JSON.stringify(faqPageLd(seo.faq.map((f) => ({ question: f.question, answer: f.answer }))))
     : '';
 
   const countsLabelByLocale: Record<JobBoardLocale, string> = {
