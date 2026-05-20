@@ -65,6 +65,7 @@ import {
 import { BASE_URL } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
+import { breadcrumbListLd } from '../services/seo/structuredData';
 import {
   BREADCRUMB_LINK_STYLE,
   BREADCRUMB_STYLE,
@@ -864,20 +865,11 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   const alternatesHtml = renderHreflangTags(alternates);
 
   // BreadcrumbList JSON-LD.
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: fuelLabel,
-        item: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/`,
-      },
-      { '@type': 'ListItem', position: 3, name: titles.h1, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: `${BASE_URL}/` },
+    { name: fuelLabel, url: `${BASE_URL}${FUEL_LOCALE_PREFIX[locale]}/${FUEL_SECTION_SLUG[locale][fuel]}/` },
+    { name: titles.h1, url: canonicalUrl },
+  ]));
 
   // CollectionPage + mainEntity ItemList — gives Google a structured view
   // of every station/city the page links to. Position is global (1..N)
