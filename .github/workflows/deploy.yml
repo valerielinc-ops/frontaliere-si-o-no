@@ -1,13 +1,17 @@
 name: Deploy to GitHub Pages
 
+# ⚠️ DEPLOY BLOCKED 2026-05-20 — Astro+Zod migration in progress (24h autonomous run).
+# Push-trigger disabled to prevent accidental deploy of in-progress refactor.
+# Re-enable by restoring the `push:` block when migration is verified.
+# Manual deploy via workflow_dispatch still available for emergency hotfix.
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - 'data/border-wait-current.json'
-      - 'data/border-wait-history/**'
-      - 'data/weather-snapshot.json'
+  # push:  # DISABLED during Astro migration — see comment above
+  #   branches:
+  #     - main
+  #   paths-ignore:
+  #     - 'data/border-wait-current.json'
+  #     - 'data/border-wait-history/**'
+  #     - 'data/weather-snapshot.json'
   workflow_dispatch:
     inputs:
       article_id:
