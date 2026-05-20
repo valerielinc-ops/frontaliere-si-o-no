@@ -79,6 +79,10 @@ import {
 } from './orphanQueryData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
+import {
+  breadcrumbListLd,
+  webPageLd as webPageLdHelper,
+} from '../services/seo/structuredData';
 
 const MIN_MATCHING_JOBS = 3;
 const DEFAULT_MAX_LANDINGS = 500;
@@ -575,26 +579,20 @@ function renderPage(opts: {
 
   const h1ForLd = buildEditorialH1(cluster.canonicalQuery, locale);
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: t('orphanLanding.breadcrumbHome', 'Home'), item: `${BASE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: h1ForLd, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(
+    breadcrumbListLd([
+      { name: t('orphanLanding.breadcrumbHome', 'Home'), url: `${BASE_URL}/` },
+      { name: h1ForLd, url: canonicalUrl },
+    ]),
+  );
 
-  const webPageLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: h1ForLd,
-    url: canonicalUrl,
-    description: editorialBody.slice(0, 200),
-    inLanguage: locale,
-    isPartOf: { '@type': 'WebSite', url: BASE_URL, name: 'Frontaliere Ticino' },
-    datePublished: dateStamp,
-    dateModified: dateStamp,
-  });
+  const webPageScript = JSON.stringify(
+    webPageLdHelper({
+      url: canonicalUrl,
+      name: h1ForLd,
+      description: editorialBody.slice(0, 160).padEnd(50, ' ').trimEnd() || h1ForLd.slice(0, 160),
+    }),
+  );
 
   // Decide indexability — <MIN_MATCHING_JOBS jobs → noindex (anti-doorway).
   const indexable = matchingJobs.length >= MIN_MATCHING_JOBS;
@@ -731,7 +729,7 @@ function renderPage(opts: {
     <meta name="twitter:description" content="${esc(description)}">
     <meta name="twitter:site" content="@frontaliereticino">`;
 
-  const jsonLdScripts = [breadcrumbLd, webPageLd];
+  const jsonLdScripts = [breadcrumbLd, webPageScript];
   if (itemListLd) jsonLdScripts.push(itemListLd);
 
   // Keep the existing inline-styled `<main>` so the static shell still renders
@@ -940,14 +938,12 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
           .map((it) => `<li style="margin:0"><a href="${esc(it.path)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(cap(it.query))}</a></li>`)
           .join('');
 
-        const breadcrumbLd = JSON.stringify({
-          '@context': 'https://schema.org',
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: `${BASE_URL}/` },
-            { '@type': 'ListItem', position: 2, name: copy.sectionLabel, item: canonicalUrl },
-          ],
-        });
+        const breadcrumbLd = JSON.stringify(
+          breadcrumbListLd([
+            { name: copy.breadcrumbHome, url: `${BASE_URL}/` },
+            { name: copy.sectionLabel, url: canonicalUrl },
+          ]),
+        );
         const collectionLd = JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
