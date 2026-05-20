@@ -113,6 +113,13 @@ function isPlausibleYmd(y, m, d) {
   // implausibly far past or future → reject
   if (yr < 1990) return false;
   if (yr > new Date().getFullYear() + 1) return false;
+  // Calendar validation: day must not exceed month's max (account for leap years).
+  // Without this check, JS Date silently rolls Feb 31 → Mar 3, producing
+  // invalid-but-plausible-looking ISO output.
+  const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const isLeap = (yr % 4 === 0 && yr % 100 !== 0) || (yr % 400 === 0);
+  const maxDay = (mo === 2 && isLeap) ? 29 : daysInMonth[mo - 1];
+  if (da > maxDay) return false;
   return true;
 }
 

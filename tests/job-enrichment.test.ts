@@ -103,6 +103,22 @@ describe('enrichDatePosted', () => {
     expect(out).not.toBe(job);
     expect(job.datePosted).toBeUndefined();
   });
+
+  it('rejects Feb 31 (invalid calendar date)', () => {
+    expect(enrichDatePosted({ postedDate: '31/02/26' }).datePosted).toBeUndefined();
+  });
+
+  it('rejects April 31 (invalid calendar date)', () => {
+    expect(enrichDatePosted({ postedDate: '31/04/26' }).datePosted).toBeUndefined();
+  });
+
+  it('accepts Feb 29 on a leap year (2024)', () => {
+    expect(enrichDatePosted({ postedDate: '29/02/24' }).datePosted).toBe('2024-02-29');
+  });
+
+  it('rejects Feb 29 on a non-leap year (2026)', () => {
+    expect(enrichDatePosted({ postedDate: '29/02/26' }).datePosted).toBeUndefined();
+  });
 });
 
 describe('enrichJobLocation', () => {
