@@ -9,9 +9,10 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, BUILD_ID, DARK_MODE_SCRIPT } from './constants';
+import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, FAVICON_LINKS, BUILD_ID, EARLY_BOOT_SCRIPT } from './constants';
 import { buildSimplePage } from './htmlTemplate';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { minifyHtml } from './shared/htmlMinify';
 import { jobDescriptionTextToHtml } from './shared/jobDescription/toHtml';
 import { WriteCollector } from './batchWrite';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
@@ -9127,9 +9128,12 @@ ${alternates}
  // Avoids re-building the same ~2KB of boilerplate for each page.
  const currentYear = new Date().getFullYear();
  // Was inline (~200 B per soft-landing page). Now references
- // /assets/dark-mode-init.js via DARK_MODE_SCRIPT — emitted by
- // staticScriptsPlugin at build, browser-cached globally.
- const darkModeScript = DARK_MODE_SCRIPT;
+ // /assets/early-boot-{hash}.js via EARLY_BOOT_SCRIPT — emitted by
+ // staticScriptsPlugin at build, browser-cached globally. The merged
+ // early-boot bundle concatenates dark-mode-init + spa-action-redirect
+ // so a SINGLE <script src> tag covers both responsibilities (theme +
+ // newsletter-action handoff) instead of two separate tags per page.
+ const earlyBootScript = EARLY_BOOT_SCRIPT;
  // darkModeStyles + nav/footer/article inline styles now live in
  // /assets/seo-static.css (loaded via <link> in the template head).
  // Deduplicates ~1 KB of identical CSS across ~98k soft-landing pages
@@ -9141,13 +9145,26 @@ ${alternates}
  const navSvg = `<img src="/assets/logo.svg" width="28" height="28" alt="" loading="lazy" decoding="async">`;
  const spaBundleCss = hasSpaBundle ? `\n <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : '';
  const spaBundleJs = hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : '';
- // Per-locale pre-built nav + footer (only 4 strings to cache)
+ // Per-locale pre-built nav + footer (only 4 strings to cache).
+ //
+ // Markup-extraction (2026-05-20): renamed long `.ft-static-*` / `.ft-*`
+ // class names to a compact `.ft-n / .ft-nb / .ft-ns / .ft-f` scheme so
+ // the repeated wrapper boilerplate shrinks ~100 B/page across ~822k
+ // soft-landing + bridge pages (~80 MB dist). The CSS at
+ // public/assets/seo-static.css carries both legacy and short selectors
+ // until the next deploy fully propagates. Same text content, same a11y
+ // labels, just shorter class strings — no SEO impact.
+ //
+ // Layout changes (drop wrapper `<div class="ft-row">` + `<span class="ft-spacer">`):
+ // `nav.ft-n` becomes the flex container directly; `.ft-ns` carries
+ // `margin-left: auto` to push the section link to the right. Same goes
+ // for `footer.ft-f` (drops inner `<div class="ft-wrap">`).
  const localeShells = Object.fromEntries(localeList.map(l => {
  const lp = `${localePrefix[l]}/${sectionByLocale[l]}/`.replace(/\/+/g, '/');
  const sectionLink = `${BASE_URL}${lp}`;
  const sectionName = esc(localeCopy[l].sectionName);
- const nav = `<nav class="ft-static-nav" aria-label="Navigazione principale"><div class="ft-row"><a href="${BASE_URL}/" class="ft-brand">${navSvg} Frontaliere Ticino</a><span class="ft-spacer"></span><a href="${sectionLink}" class="ft-section">${sectionName}</a></div></nav>`;
- const footer = `<footer class="ft-static-footer"><div class="ft-wrap">&copy; ${currentYear} <a href="${BASE_URL}/">Frontaliere Ticino</a> &mdash; <a href="${sectionLink}">${sectionName}</a></div></footer>`;
+ const nav = `<nav class="ft-n" aria-label="Navigazione principale"><a href="${BASE_URL}/" class="ft-nb">${navSvg} Frontaliere Ticino</a><a href="${sectionLink}" class="ft-ns">${sectionName}</a></nav>`;
+ const footer = `<footer class="ft-f">&copy; ${currentYear} <a href="${BASE_URL}/">Frontaliere Ticino</a> &mdash; <a href="${sectionLink}">${sectionName}</a></footer>`;
  return [l, { nav, footer, listingPath: lp }];
  }));
 
@@ -9161,7 +9178,21 @@ ${alternates}
  selfUrl: string, hreflangLinks: string, jsonLdScripts: string, expiredWindowData: string,
  staticBody: string): string => {
  const shell = localeShells[locale];
- return `<!DOCTYPE html>
+ // Single early-boot tag covers BOTH dark-mode and spa-action-redirect
+ // (merged into /assets/early-boot-{hash}.js via EARLY_BOOT_SCRIPT). The
+ // previous template emitted two separate <script src> tags here; combining
+ // them saves ~80 B/page across ~470k soft-landing+bridge pages (~36 MB).
+ //
+ // The static `<article class="ft-static-article">` class is preserved
+ // because the in-page snapshot script (last line of <body>) reads from
+ // `document.querySelector('.ft-static-article')` to seed
+ // `window.__STATIC_BODY_HTML__` for JobOrphanView hydration.
+ //
+ // The whole HTML string is passed through minifyHtml so the per-line
+ // leading-whitespace overhead in this template literal is collapsed
+ // before the file hits dist/. minifyHtml is DOM-equivalent (see
+ // shared/htmlMinify.ts).
+ const html = `<!DOCTYPE html>
 <html lang="${locale}">
  <head>
  <meta charset="utf-8">
@@ -9173,11 +9204,10 @@ ${alternates}
  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
  <link rel="canonical" href="${selfUrl}">
 ${hreflangLinks}
- ${darkModeScript}
+ ${earlyBootScript}
  ${seoStaticCssLink}
  ${jsonLdScripts}
  <script>window.__EXPIRED_JOB_DATA__=${expiredWindowData};</script>${spaBundleCss}
- ${SPA_ACTION_REDIRECT_SCRIPT}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
  </head>
@@ -9192,6 +9222,7 @@ ${hreflangLinks}
  <script>window.__STATIC_BODY_HTML__=(document.querySelector('.ft-static-article')||{}).innerHTML||'';</script>${spaBundleJs}
  </body>
 </html>`;
+ return minifyHtml(html);
  };
  const writeSoftLandingPage = (outRelPath: string, html: string) => {
  // Normalize: strip trailing slashes to prevent flat files like ".html" (hidden files)
@@ -9461,19 +9492,38 @@ ${hreflangLinks}
   if (!src || src[l] == null) return {};
   return { [l]: src[l] };
  };
- const expiredWindowData = JSON.stringify({
- slug,
- title: ejData?.title || gscInfo?.title || slugInfo?.title || '',
- titleByLocale: pickLocaleEntry(ejData?.titleByLocale || gscInfo?.titleByLocale, locale),
- company: ejData?.company || gscInfo?.company || slugInfo?.company || '',
- companyKey: ejData?.companyKey || gscInfo?.companyKey || slugInfo?.companyKey || '',
- location: ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '',
- descriptionByLocale: pickLocaleEntry(ejData?.descriptionByLocale || gscInfo?.descriptionByLocale, locale),
- slugByLocale: ejData?.slugByLocale || gscInfo?.slugByLocale || {},
- sector: ejData?.sector || gscInfo?.sector || '',
- expiredAt: ejData?.expiredAt || '',
- ...(gscInfo?.queries ? { gscQueries: gscInfo.queries, gscImpressions: gscInfo.totalImpressions, gscClicks: gscInfo.totalClicks } : {}),
- });
+ // Markup-extraction (2026-05-20): omit empty / blank fields from the
+ // inlined object. The previous shape always emitted every field with
+ // an empty default (`""`, `{}`), which costs ~100-200 B/page across
+ // ~470k soft-landing + bridge pages (~70 MB dist). The SPA's
+ // useExpiredJob hook + JobExpiredView treat missing fields exactly
+ // the same as empty ones (already `?? default` everywhere), so this
+ // is a no-op for runtime behaviour — only the wire-form shrinks.
+ const expiredTitle = ejData?.title || gscInfo?.title || slugInfo?.title || '';
+ const expiredCompany = ejData?.company || gscInfo?.company || slugInfo?.company || '';
+ const expiredCompanyKey = ejData?.companyKey || gscInfo?.companyKey || slugInfo?.companyKey || '';
+ const expiredLocation = ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '';
+ const expiredTitleByLocale = pickLocaleEntry(ejData?.titleByLocale || gscInfo?.titleByLocale, locale);
+ const expiredDescriptionByLocale = pickLocaleEntry(ejData?.descriptionByLocale || gscInfo?.descriptionByLocale, locale);
+ const expiredSlugByLocale = ejData?.slugByLocale || gscInfo?.slugByLocale || {};
+ const expiredSector = ejData?.sector || gscInfo?.sector || '';
+ const expiredAt = ejData?.expiredAt || '';
+ const expiredDataObj: Record<string, unknown> = { slug };
+ if (expiredTitle) expiredDataObj.title = expiredTitle;
+ if (Object.keys(expiredTitleByLocale).length > 0) expiredDataObj.titleByLocale = expiredTitleByLocale;
+ if (expiredCompany) expiredDataObj.company = expiredCompany;
+ if (expiredCompanyKey) expiredDataObj.companyKey = expiredCompanyKey;
+ if (expiredLocation) expiredDataObj.location = expiredLocation;
+ if (Object.keys(expiredDescriptionByLocale).length > 0) expiredDataObj.descriptionByLocale = expiredDescriptionByLocale;
+ if (Object.keys(expiredSlugByLocale).length > 0) expiredDataObj.slugByLocale = expiredSlugByLocale;
+ if (expiredSector) expiredDataObj.sector = expiredSector;
+ if (expiredAt) expiredDataObj.expiredAt = expiredAt;
+ if (gscInfo?.queries) {
+   expiredDataObj.gscQueries = gscInfo.queries;
+   expiredDataObj.gscImpressions = gscInfo.totalImpressions;
+   expiredDataObj.gscClicks = gscInfo.totalClicks;
+ }
+ const expiredWindowData = JSON.stringify(expiredDataObj);
 
  // FRO-320: Generate static body content so Google sees real text, not an empty SPA shell.
  // Enriched template ensures >100 words per page for every expired job.

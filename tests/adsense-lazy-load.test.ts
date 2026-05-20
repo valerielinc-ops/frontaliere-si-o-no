@@ -56,13 +56,16 @@ describe('AdSense lazy loading — ADSENSE_SNIPPET (static pages)', () => {
     );
   });
 
-  it('embeds the IntersectionObserver-based lazy loader (via external /assets/adsense-loader.js)', () => {
+  it('embeds the IntersectionObserver-based lazy loader (via external /assets/adsense-loader-{hash}.js)', () => {
     expect(ADSENSE_SNIPPET).toContain(ADSENSE_LAZY_LOADER);
     // ADSENSE_LAZY_LOADER is now a tiny <script src="..."> tag pointing to the
-    // externalised loader file written by staticScriptsPlugin. The actual loader
-    // body lives in ADSENSE_LOADER_CONTENT (also written to dist/assets/adsense-loader.js).
+    // externalised loader file written by staticScriptsPlugin. The cachebuster
+    // moved from `?v=BUILD_ID` (query string) into the filename itself —
+    // `adsense-loader-{8charHash}.js` — so the per-page tag drops the query
+    // string entirely while still invalidating browser caches whenever the
+    // loader body changes.
     expect(ADSENSE_LAZY_LOADER).toMatch(
-      /<script\s+defer\s+src=["']\/assets\/adsense-loader\.js\?v=\d+["']><\/script>/,
+      /<script\s+defer\s+src=["']\/assets\/adsense-loader-[A-Za-z0-9_-]{8}\.js["']><\/script>/,
     );
     expect(ADSENSE_LOADER_CONTENT).toContain('IntersectionObserver');
     expect(ADSENSE_LOADER_CONTENT).toContain('rootMargin');
