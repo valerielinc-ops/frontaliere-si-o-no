@@ -2,18 +2,24 @@
 /**
  * audit-footer-root-presence
  *
- * Guarantees every static HTML page that ships the staticOverlay shell
- * (`<main class="seo-static-content">`) also ships the `<div id="footer-root">`
- * portal target App.tsx reads via `document.getElementById('footer-root')`.
+ * Guards the hydration-safe staticOverlay shell. Two zero-tolerance checks
+ * run on every dist HTML page in a single walk:
  *
- * Without that div, the footer falls back to inline render INSIDE `#root` and
- * paints ABOVE the static body — burying the page content under the entire
- * footer chrome (~1500 px on mobile). PR #243 fixed this for `/calcola-stipendio/*`
- * via build-plugins/staticPagesPlugin.ts; this audit prevents the regression
- * on any other plugin that emits the staticOverlay shell.
+ *   1. `missing-footer-root` — page ships `<main class="seo-static-content">`
+ *      but no `<div id="footer-root">` portal target. Without it App.tsx's
+ *      footer falls back to inline render INSIDE `#root` and paints ABOVE
+ *      the static body, burying ~1500 px of content on mobile. PR #243 fixed
+ *      this for `/calcola-stipendio/*`; this check stops other plugins from
+ *      regressing.
  *
- * Zero-tolerance: any page with `seo-static-content` but no `footer-root`
- * fails the deploy.
+ *   2. `static-job-page-inside-root` — page ships the legacy buildSimplePage
+ *      shell `<div id="root"><main class="static-job-page">`. React hydrates
+ *      `#root` and wipes that static `<main>`; App.tsx then skips its own
+ *      `<main>` because the route is `staticOverlay:true` — SPA users see a
+ *      blank page (header + sub-nav only). Crawlers still see SSR content so
+ *      the missing-footer-root check alone would miss this. PRs #376/#416/#420
+ *      converted every known emit to `buildSeoPageHtml`; this check stops a
+ *      future caller from reintroducing the buggy shape.
  *
  * Two execution modes:
  *   1. Standalone:  `node scripts/audit-footer-root-presence.mjs`
@@ -33,6 +39,10 @@ import { writeAuditReport } from './lib/auditReport.mjs';
 
 const SEO_STATIC_RE = /<main\b[^>]*class=["'][^"']*\bseo-static-content\b/i;
 const FOOTER_ROOT_RE = /<div\b[^>]*\bid=["']footer-root["']/i;
+// Buggy legacy shell: `<div id="root">` immediately followed by `<main class="static-job-page">`.
+// Mirrors the regression check in tests/city-jobs-hub.test.ts:358.
+const STATIC_JOB_INSIDE_ROOT_RE =
+  /<div\b[^>]*\bid=["']root["'][^>]*>\s*<main\b[^>]*class=["'][^"']*\bstatic-job-page\b/i;
 
 /**
  * Factory that creates a fresh stateful Auditor closure.
@@ -44,29 +54,47 @@ const FOOTER_ROOT_RE = /<div\b[^>]*\bid=["']footer-root["']/i;
  */
 export function createAuditor(opts = {}) {
   const limit = Math.max(1, opts.limit ?? 30);
+  /** @type {Array<{ path: string, feature: string, kind: 'missing-footer-root' | 'static-job-page-inside-root' }>} */
   const offenders = [];
-  let scanned = 0;
+  let scannedSeoStatic = 0;
+  let scannedStaticJob = 0;
 
   return {
     name: 'footer-root-presence',
     collect(file, html) {
-      if (!html || !SEO_STATIC_RE.test(html)) return;
-      scanned++;
-      if (!FOOTER_ROOT_RE.test(html)) {
-        offenders.push({ path: relative(ROOT, file), feature: featureOf(file) });
+      if (!html) return;
+      if (SEO_STATIC_RE.test(html)) {
+        scannedSeoStatic++;
+        if (!FOOTER_ROOT_RE.test(html)) {
+          offenders.push({
+            path: relative(ROOT, file),
+            feature: featureOf(file),
+            kind: 'missing-footer-root',
+          });
+        }
+      }
+      if (STATIC_JOB_INSIDE_ROOT_RE.test(html)) {
+        scannedStaticJob++;
+        offenders.push({
+          path: relative(ROOT, file),
+          feature: featureOf(file),
+          kind: 'static-job-page-inside-root',
+        });
       }
     },
     report() {
       const passed = offenders.length === 0;
+      const missingFooter = offenders.filter((o) => o.kind === 'missing-footer-root').length;
+      const insideRoot = offenders.filter((o) => o.kind === 'static-job-page-inside-root').length;
       const humanSummary = passed
-        ? `scanned ${scanned} seo-static-content page(s) — all have footer-root`
-        : `${offenders.length} of ${scanned} seo-static-content page(s) missing <div id="footer-root">`;
+        ? `scanned ${scannedSeoStatic} seo-static-content page(s); 0 legacy static-job-page emits — shell is hydration-safe`
+        : `${missingFooter} missing footer-root (of ${scannedSeoStatic} seo-static-content), ${insideRoot} legacy static-job-page inside #root`;
       return {
         passed,
         offendersTotal: offenders.length,
         offenders,
-        threshold: { metric: 'missingFooterRoot', value: 0, comparator: '<=' },
-        extra: { scanned, limit },
+        threshold: { metric: 'hydrationUnsafeShell', value: 0, comparator: '<=' },
+        extra: { scannedSeoStatic, scannedStaticJob, missingFooter, insideRoot, limit },
         humanSummary,
       };
     },
@@ -126,21 +154,37 @@ async function standalone() {
 
   console.log(`audit-footer-root-presence: ${result.humanSummary}`);
   if (result.passed) {
-    console.log('PASS: every staticOverlay page also ships <div id="footer-root">.');
+    console.log('PASS: hydration-safe shell on every staticOverlay page.');
     process.exit(0);
   }
 
-  console.error(`\nFAIL: ${result.offendersTotal} page(s) ship <main class="seo-static-content"> WITHOUT a matching <div id="footer-root">.`);
-  console.error(`The SPA footer will paint INSIDE #root, above the static body, burying the page content.`);
-  console.error(`\nFirst ${Math.min(limit, result.offenders.length)} offenders:`);
-  for (const o of result.offenders.slice(0, limit)) console.error(`  ${o.path}`);
-  if (result.offenders.length > limit) console.error(`  ... and ${result.offenders.length - limit} more`);
+  const missingFooter = result.offenders.filter((o) => o.kind === 'missing-footer-root');
+  const insideRoot = result.offenders.filter((o) => o.kind === 'static-job-page-inside-root');
+
+  console.error(`\nFAIL: ${result.offendersTotal} hydration-unsafe page(s).`);
+
+  if (missingFooter.length > 0) {
+    console.error(`\n[missing-footer-root] ${missingFooter.length} page(s) ship <main class="seo-static-content"> WITHOUT <div id="footer-root">.`);
+    console.error(`The SPA footer falls back to inline render INSIDE #root, above the static body, burying the page content.`);
+    console.error(`First ${Math.min(limit, missingFooter.length)} offenders:`);
+    for (const o of missingFooter.slice(0, limit)) console.error(`  ${o.path}`);
+    if (missingFooter.length > limit) console.error(`  ... and ${missingFooter.length - limit} more`);
+  }
+
+  if (insideRoot.length > 0) {
+    console.error(`\n[static-job-page-inside-root] ${insideRoot.length} page(s) ship the legacy <div id="root"><main class="static-job-page"> shell.`);
+    console.error(`React hydration wipes that <main>; App.tsx skips its own <main> on staticOverlay routes → SPA users see a blank page.`);
+    console.error(`First ${Math.min(limit, insideRoot.length)} offenders:`);
+    for (const o of insideRoot.slice(0, limit)) console.error(`  ${o.path}`);
+    if (insideRoot.length > limit) console.error(`  ... and ${insideRoot.length - limit} more`);
+  }
+
   console.error(`\nHow to fix`);
   console.error(`----------`);
-  console.error(`Emit <div id="footer-root"></div> as a sibling AFTER <main class="seo-static-content">`);
-  console.error(`in the plugin that produced these pages. Reference implementation:`);
-  console.error(`  build-plugins/staticPagesPlugin.ts:4271-4279 (PR #243)`);
-  console.error(`  build-plugins/shared/seoPageShell.ts:188-193 (canonical helper)`);
+  console.error(`Emit pages via buildSeoPageHtml (build-plugins/shared/seoPageShell.ts), which`);
+  console.error(`puts the static body in <main class="seo-static-content"> OUTSIDE #root AND`);
+  console.error(`adds <div id="footer-root"></div> — both required by App.tsx + useNavigationState.`);
+  console.error(`Reference: PR #243 (footer-root), PR #420 (sweep to buildSeoPageHtml).`);
   process.exit(1);
 }
 
