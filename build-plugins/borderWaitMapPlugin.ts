@@ -52,6 +52,7 @@ import {
   type BorderWaitLocale,
   type BorderCrossingSlug,
 } from './borderWaitData';
+import { breadcrumbListLd, faqPageLd } from '../services/seo/structuredData';
 
 // ── URL slugs for the map hub page ────────────────────────────────
 
@@ -375,15 +376,11 @@ function renderPage(opts: {
 &lt;p style="font-size:12px;color:var(--color-subtle);margin-top:4px"&gt;Source: &lt;a href="${canonicalUrl}" rel="nofollow noopener"&gt;Frontaliere Ticino&lt;/a&gt;&lt;/p&gt;`;
 
   // Embed JSON-LD
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: copy.breadcrumbHome, item: homeUrl },
-      { '@type': 'ListItem', position: 2, name: copy.breadcrumbGuide, item: guideUrl },
-      { '@type': 'ListItem', position: 3, name: copy.h1, item: canonicalUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: copy.breadcrumbHome, url: homeUrl },
+    { name: copy.breadcrumbGuide, url: guideUrl },
+    { name: copy.h1, url: canonicalUrl },
+  ]));
 
   // Build a Place[] list of the crossings for the Map structured data
   const places = BORDER_WAIT_CROSSINGS.map((slug) => ({
@@ -415,16 +412,11 @@ function renderPage(opts: {
     },
   });
 
-  const faqLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    inLanguage: locale,
-    mainEntity: [
-      { '@type': 'Question', name: copy.faqQ1, acceptedAnswer: { '@type': 'Answer', text: copy.faqA1 } },
-      { '@type': 'Question', name: copy.faqQ2, acceptedAnswer: { '@type': 'Answer', text: copy.faqA2 } },
-      { '@type': 'Question', name: copy.faqQ3, acceptedAnswer: { '@type': 'Answer', text: copy.faqA3 } },
-    ],
-  });
+  const faqLd = JSON.stringify(faqPageLd([
+    { question: copy.faqQ1, answer: copy.faqA1 },
+    { question: copy.faqQ2, answer: copy.faqA2 },
+    { question: copy.faqQ3, answer: copy.faqA3 },
+  ]));
 
   const body = `
     <nav style="margin:0 0 14px;font-size:13px;color:var(--color-subtle)">
