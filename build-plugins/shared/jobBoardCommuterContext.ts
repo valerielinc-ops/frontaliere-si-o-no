@@ -360,9 +360,9 @@ function buildFaq(locale: CommuterLocale, location: string, sectorOrType: string
 }
 
 function buildCrossLinks(locale: CommuterLocale): string {
-  const calc = `<a href="${CALC_HREF[locale]}" style="color:var(--color-link);text-decoration:none">`;
-  const fx = `<a href="${FX_HREF[locale]}" style="color:var(--color-link);text-decoration:none">`;
-  const health = `<a href="${HEALTH_HREF[locale]}" style="color:var(--color-link);text-decoration:none">`;
+  const calc = `<a class="s-U9K6Vf" href="${CALC_HREF[locale]}">`;
+  const fx = `<a class="s-U9K6Vf" href="${FX_HREF[locale]}">`;
+  const health = `<a class="s-U9K6Vf" href="${HEALTH_HREF[locale]}">`;
   if (locale === 'it') {
     return `Tre strumenti gratuiti per chiudere il cerchio prima di candidarti: ${calc}calcolatore stipendio netto frontaliere</a> con i due regimi fiscali (vecchio + nuovo accordo 2024) e la stima del rimborso del comune; ${fx}comparatore cambio CHF/EUR</a> con i tassi di banche italiane, cambia-valute svizzeri e Wise/Revolut; ${health}comparatore casse malati LAMal</a> per scegliere il premio mensile più conveniente nel tuo comune ticinese di lavoro.`;
   }
@@ -530,7 +530,7 @@ export function renderJobBoardCommuterContext(
   const faqHtml = faq
     .map(
       (f) =>
-        `<details style="background:var(--color-surface);border:1px solid var(--color-edge);border-radius:12px;padding:14px 16px;margin-bottom:8px"><summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${escAttr(f.q)}</summary><p style="margin:8px 0 0;color:var(--color-body);line-height:1.6">${f.a}</p></details>`,
+        `<details class="s-TdgkK3"><summary class="s-HBR0NM">${escAttr(f.q)}</summary><p class="s-bOIp6r">${f.a}</p></details>`,
     )
     .join('');
 
@@ -555,18 +555,18 @@ export function renderJobBoardCommuterContext(
     }
   }
 
-  const html = `<section class="job-board-commuter-context" style="max-width:860px;margin:32px auto 0;color:var(--color-body);line-height:1.65;font-size:15px">
-  <h2 style="font-size:22px;font-weight:700;color:var(--color-heading);margin:24px 0 12px">${escAttr(copy.methodologyH)}</h2>
-  <p style="margin:0 0 14px">${copy.methodology}</p>
-  <h2 style="font-size:22px;font-weight:700;color:var(--color-heading);margin:24px 0 12px">${escAttr(copy.commuterH)}</h2>
-  <p style="margin:0 0 14px">${commuterParagraph}</p>
-  <h2 style="font-size:22px;font-weight:700;color:var(--color-heading);margin:24px 0 12px">${escAttr(copy.salaryH)}</h2>
-  <p style="margin:0 0 14px">${salaryParagraph}</p>
-  <p style="margin:0 0 22px;padding:14px 16px;background:var(--color-surface-alt);border-radius:12px;border-left:3px solid var(--color-link)">${scenarioCallout}</p>
-  <h2 style="font-size:22px;font-weight:700;color:var(--color-heading);margin:24px 0 12px">${escAttr(copy.faqH)}</h2>
+  const html = `<section class="job-board-commuter-context s-A_RnbE">
+  <h2 class="s-1kjxOy">${escAttr(copy.methodologyH)}</h2>
+  <p class="s-clIDbe">${copy.methodology}</p>
+  <h2 class="s-1kjxOy">${escAttr(copy.commuterH)}</h2>
+  <p class="s-clIDbe">${commuterParagraph}</p>
+  <h2 class="s-1kjxOy">${escAttr(copy.salaryH)}</h2>
+  <p class="s-clIDbe">${salaryParagraph}</p>
+  <p class="s--0PHnG">${scenarioCallout}</p>
+  <h2 class="s-1kjxOy">${escAttr(copy.faqH)}</h2>
   ${faqHtml}
-  <h2 style="font-size:20px;font-weight:700;color:var(--color-heading);margin:24px 0 12px">${escAttr(copy.ctaH)}</h2>
-  <p style="margin:0 0 14px">${crossLinks}</p>
+  <h2 class="s-WaVHtT">${escAttr(copy.ctaH)}</h2>
+  <p class="s-clIDbe">${crossLinks}</p>
 ${cantonBlock}
 </section>`;
   COMMUTER_CONTEXT_CACHE.set(cacheKey, html);
@@ -628,7 +628,7 @@ export function renderSearchQueryIntro(
       : `Le ${matchCount} offerte raggruppate in questa pagina rispondono alla ricerca <strong>"${escAttr(safeQ)}"</strong>: sono filtrate dal nostro feed proprietario aggiornato ogni 6 ore e mostrano solo posizioni la cui scadenza non è ancora trascorsa.`;
     const context = `${hasCompanies ? `Tra i datori di lavoro che assumono per "${escAttr(safeQ)}" trovi ${topCompanies}. ` : ''}${hasLocations ? `Le località ricorrenti negli annunci sono ${topLocations}: tieni conto di tempi di pendolarismo e tipologia di valico (Brogeda, Stabio, Ponte Tresa) prima di scegliere un\'opportunità rispetto a un\'altra. ` : ''}Per chi è frontaliere italiano, ogni ruolo richiede il Permesso G richiesto dal datore svizzero — è gratuito e di norma rilasciato in 2-6 settimane dopo la firma del contratto.`;
     const valueProp = `Sotto ogni annuncio trovi un link diretto alla pagina ufficiale di candidatura: non chiediamo registrazione, non intermediamo CV. Se vuoi confrontare il lordo CHF con il netto reale per la tua situazione (zona di frontiera vs Permesso B, vecchio vs nuovo accordo fiscale Italia-Svizzera 2024, presenza di figli a carico, telelavoro fino al 25 %), apri il calcolatore Frontaliere Ticino dal menu in alto: in 30 secondi ottieni la cifra netta mensile in CHF e in EUR.`;
-    return `<p style="margin:0 0 14px">${intro}</p>\n<p style="margin:0 0 14px">${context}</p>\n<p style="margin:0 0 14px">${valueProp}</p>`;
+    return `<p class="s-clIDbe">${intro}</p>\n<p class="s-clIDbe">${context}</p>\n<p class="s-clIDbe">${valueProp}</p>`;
   }
   if (locale === 'en') {
     const intro = angle === 0
@@ -638,7 +638,7 @@ export function renderSearchQueryIntro(
       : `The ${matchCount} listings grouped on this page answer the search <strong>"${escAttr(safeQ)}"</strong>: filtered from our proprietary feed refreshed every 6 hours, showing only positions whose deadline has not passed.`;
     const context = `${hasCompanies ? `Employers hiring for "${escAttr(safeQ)}" include ${topCompanies}. ` : ''}${hasLocations ? `Recurring locations are ${topLocations}: factor in commute time and crossing type (Brogeda, Stabio, Ponte Tresa) before picking one opportunity over another. ` : ''}For Italian cross-border applicants, every role requires the G permit filed by the Swiss employer — it is free of charge and typically issued in 2-6 weeks after contract signature.`;
     const valueProp = `Each listing links directly to the official application page: we never require registration and never intermediate CVs. To compare the CHF gross with real take-home for your specific situation (border zone vs Permit B, old vs new 2024 Italy-Switzerland fiscal agreement, dependent children, teleworking up to 25 %), open the Frontaliere Ticino calculator from the top menu: in 30 seconds you get the monthly net in CHF and EUR.`;
-    return `<p style="margin:0 0 14px">${intro}</p>\n<p style="margin:0 0 14px">${context}</p>\n<p style="margin:0 0 14px">${valueProp}</p>`;
+    return `<p class="s-clIDbe">${intro}</p>\n<p class="s-clIDbe">${context}</p>\n<p class="s-clIDbe">${valueProp}</p>`;
   }
   if (locale === 'de') {
     const intro = angle === 0
@@ -648,7 +648,7 @@ export function renderSearchQueryIntro(
       : `Die ${matchCount} Inserate auf dieser Seite beantworten die Suche <strong>"${escAttr(safeQ)}"</strong>: gefiltert aus unserem eigenen Feed, alle 6 Stunden aktualisiert, mit ausschliesslich noch offenen Bewerbungsfristen.`;
     const context = `${hasCompanies ? `Zu den Arbeitgebern, die für "${escAttr(safeQ)}" rekrutieren, gehören ${topCompanies}. ` : ''}${hasLocations ? `Häufige Standorte sind ${topLocations}: Pendelzeit und Grenzübergang (Brogeda, Stabio, Ponte Tresa) sollten in die Wahl einer Stelle gegenüber einer anderen einfliessen. ` : ''}Für italienische Grenzgänger erfordert jede Rolle die G-Bewilligung, die der Schweizer Arbeitgeber kostenlos beantragt — die Ausstellung dauert in der Regel 2-6 Wochen nach Vertragsunterzeichnung.`;
     const valueProp = `Jedes Inserat führt direkt zur offiziellen Bewerbungsseite: wir verlangen keine Registrierung und vermitteln keine Lebensläufe. Um den CHF-Bruttolohn mit dem realen Netto für Ihre Situation zu vergleichen (Grenzzone vs. B-Bewilligung, altes vs. neues Steuerabkommen 2024, Kinderzulagen, Homeoffice bis 25 %), öffnen Sie den Frontaliere-Ticino-Rechner über das obere Menü: in 30 Sekunden erhalten Sie das Monatsnetto in CHF und EUR.`;
-    return `<p style="margin:0 0 14px">${intro}</p>\n<p style="margin:0 0 14px">${context}</p>\n<p style="margin:0 0 14px">${valueProp}</p>`;
+    return `<p class="s-clIDbe">${intro}</p>\n<p class="s-clIDbe">${context}</p>\n<p class="s-clIDbe">${valueProp}</p>`;
   }
   const intro = angle === 0
     ? `Cette page rassemble les offres actives au Tessin liées à la recherche <strong>"${escAttr(safeQ)}"</strong> : les ${matchCount} annonces ci-dessous sont filtrées depuis notre index de postes ouverts et triées par date de publication, des plus récentes aux plus anciennes.`
@@ -657,7 +657,7 @@ export function renderSearchQueryIntro(
     : `Les ${matchCount} annonces regroupées sur cette page répondent à la recherche <strong>"${escAttr(safeQ)}"</strong> : filtrées depuis notre flux propriétaire actualisé toutes les 6 heures, ne montrant que les postes dont l\'échéance n\'est pas encore passée.`;
   const context = `${hasCompanies ? `Les employeurs qui recrutent pour "${escAttr(safeQ)}" incluent ${topCompanies}. ` : ''}${hasLocations ? `Les localités récurrentes sont ${topLocations} : prenez en compte le temps de trajet et le type de passage frontalier (Brogeda, Stabio, Ponte Tresa) avant de choisir une opportunité plutôt qu\'une autre. ` : ''}Pour les frontaliers italiens, chaque poste requiert le permis G demandé par l\'employeur suisse — il est gratuit et délivré en 2-6 semaines après la signature du contrat.`;
   const valueProp = `Chaque annonce renvoie directement à la page de candidature officielle : nous ne demandons aucune inscription et n\'intermédions aucun CV. Pour comparer le brut CHF avec le net réel pour votre situation (zone frontalière vs permis B, ancien vs nouvel accord fiscal 2024, enfants à charge, télétravail jusqu\'à 25 %), ouvrez le calculateur Frontaliere Ticino depuis le menu supérieur : en 30 secondes vous obtenez le net mensuel en CHF et en EUR.`;
-  return `<p style="margin:0 0 14px">${intro}</p>\n<p style="margin:0 0 14px">${context}</p>\n<p style="margin:0 0 14px">${valueProp}</p>`;
+  return `<p class="s-clIDbe">${intro}</p>\n<p class="s-clIDbe">${context}</p>\n<p class="s-clIDbe">${valueProp}</p>`;
 }
 
 /**

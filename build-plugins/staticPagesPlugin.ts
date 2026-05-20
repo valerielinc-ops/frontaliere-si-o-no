@@ -194,18 +194,18 @@ function buildDedicatedFaqHtml(
  }
 
  // Build visible HTML with <h2> per category and <dl>/<dt>/<dd> per Q&A
- let html = `<section style="margin-top:1.25rem">`;
- html += `<h2 style="font-size:1.1rem;font-weight:700;margin:0 0 1rem">${esc(FAQ_PAGE_HEADING[locale] ?? FAQ_PAGE_HEADING.it)}</h2>`;
+ let html = `<section class="s-UBICn_">`;
+ html += `<h2 class="s-B6GBYn">${esc(FAQ_PAGE_HEADING[locale] ?? FAQ_PAGE_HEADING.it)}</h2>`;
 
  for (const cat of FAQ_CATEGORIES) {
  const items = grouped.get(cat);
  if (!items || items.length === 0) continue;
  const catLabel = FAQ_CATEGORY_LABELS[cat]?.[locale] ?? FAQ_CATEGORY_LABELS[cat]?.it ?? cat;
- html += `<h3 style="font-size:1rem;font-weight:600;margin:1.25rem 0 .5rem;color:var(--color-heading)">${esc(catLabel)}</h3>`;
- html += `<dl style="margin:0">`;
+ html += `<h3 class="s-RCwYB3">${esc(catLabel)}</h3>`;
+ html += `<dl class="s-q3nqK4">`;
  for (const item of items) {
- html += `<dt style="font-weight:600;margin:.75rem 0 .25rem">${esc(item.question)}</dt>`;
- html += `<dd style="margin:0 0 .5rem 0;color:var(--color-body)">${esc(item.answer)}</dd>`;
+ html += `<dt class="s-IJKL8M">${esc(item.question)}</dt>`;
+ html += `<dd class="s-xVCIev">${esc(item.answer)}</dd>`;
  }
  html += `</dl>`;
  }
@@ -238,158 +238,158 @@ function buildDedicatedFaqHtml(
 const SALARY_LANDING_EDITORIAL: Record<string, string[]> = {
  // ────────── 60'000 CHF ──────────
  '/calcola-stipendio/stipendio-netto-60000-chf': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stipendio netto con 60'000 CHF lordi: panoramica generale</h2>`,
+ `<h2 class="s-o3IET6">Stipendio netto con 60'000 CHF lordi: panoramica generale</h2>`,
  `Con un reddito lordo annuo di CHF 60'000 il frontaliere in Ticino si colloca nella fascia d'ingresso più comune del mercato del lavoro transfrontaliero. Le deduzioni sociali obbligatorie svizzere — AVS/AI/IPG al 5,3 %, assicurazione contro la disoccupazione (AC) all'1,1 %, infortuni non professionali (LAA), indennità giornaliera malattia (IJM) e previdenza professionale (LPP) secondo la fascia d'età — riducono il lordo di circa il 12-13 % prima ancora dell'imposta alla fonte.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Da lordo a netto: cosa aspettarsi</h2>`,
+ `<h2 class="s-o3IET6">Da lordo a netto: cosa aspettarsi</h2>`,
  `L'imposta alla fonte cantonale ticinese varia in base a stato civile e numero di figli. Per un lavoratore celibe senza figli (tabella A) lo stipendio netto mensile si attesta indicativamente tra CHF 3'800 e CHF 4'100. Se sposato con coniuge a carico il netto può salire leggermente grazie alla tabella C con aliquota marginale inferiore. Utilizza il simulatore per inserire i tuoi parametri personali e ottenere una stima precisa, inclusa la conversione automatica in euro al tasso di cambio corrente.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  '/calcola-stipendio/stipendio-netto-60000-chf-nuovo-frontaliere-2026': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Nuovo frontaliere 2026: netto su CHF 60'000</h2>`,
+ `<h2 class="s-o3IET6">Nuovo frontaliere 2026: netto su CHF 60'000</h2>`,
  `Se hai iniziato a lavorare in Svizzera dal 17 luglio 2023, rientri nel Nuovo Accordo fiscale Italia-Svizzera. Con un lordo di CHF 60'000 l'imposta alla fonte trattenuta in Ticino rappresenta solo la prima componente del prelievo: in Italia dovrai dichiarare il reddito estero e versare l'IRPEF, beneficiando però di una franchigia di € 10'000 e del credito d'imposta per le imposte già pagate in Svizzera.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Doppia imposizione e credito d'imposta</h2>`,
+ `<h2 class="s-o3IET6">Doppia imposizione e credito d'imposta</h2>`,
  `Il meccanismo del credito d'imposta evita la doppia tassazione integrale: l'IRPEF dovuta viene ridotta dell'imposta alla fonte svizzera già trattenuta. Tuttavia, per redditi di CHF 60'000 la differenza di aliquota tra Italia e Svizzera genera comunque un carico aggiuntivo: il netto effettivo è tipicamente inferiore di CHF 100-200 al mese rispetto al vecchio regime. Il simulatore calcola entrambi gli scenari così da quantificare il divario esatto per la tua situazione personale.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  '/calcola-stipendio/stipendio-netto-60000-chf-vecchio-frontaliere': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Vecchio frontaliere: netto su CHF 60'000</h2>`,
+ `<h2 class="s-o3IET6">Vecchio frontaliere: netto su CHF 60'000</h2>`,
  `Chi ha iniziato l'attività transfrontaliera prima del 17 luglio 2023 resta nel cosiddetto "vecchio regime". Il vantaggio principale è la semplicità: l'unico prelievo fiscale è l'imposta alla fonte cantonale svizzera, senza obbligo di dichiarazione IRPEF in Italia sul reddito da lavoro dipendente in Svizzera. Su un lordo di CHF 60'000 il netto mensile si aggira indicativamente tra CHF 3'900 e CHF 4'200 a seconda della classificazione (tabella A, B o C).`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Perché il vecchio regime è più favorevole a questo livello</h2>`,
+ `<h2 class="s-o3IET6">Perché il vecchio regime è più favorevole a questo livello</h2>`,
  `A CHF 60'000 la differenza tra vecchio e nuovo regime risulta significativa: il vecchio frontaliere paga esclusivamente l'imposta alla fonte svizzera, mentre il nuovo deve integrare con IRPEF italiana. La franchigia di € 10'000 riduce la base imponibile italiana ma non la annulla. Il risultato è un risparmio netto per il vecchio regime stimato intorno a CHF 100-250 mensili. Il simulatore confronta i due scenari fianco a fianco con tutti i parametri aggiornati al 2026.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  '/calcola-stipendio/stipendio-netto-60000-chf-sposato-2-figli': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Sposato con 2 figli: netto su CHF 60'000</h2>`,
+ `<h2 class="s-o3IET6">Sposato con 2 figli: netto su CHF 60'000</h2>`,
  `Per un frontaliere sposato con due figli a carico e un lordo di CHF 60'000, la tassazione svizzera è calcolata con la tabella C dell'imposta alla fonte, che prevede aliquote sensibilmente ridotte rispetto alla tabella A per celibi. Ogni figlio genera inoltre un abbattimento sulla ritenuta e il diritto agli assegni familiari svizzeri: in Ticino l'importo è di CHF 200 per figlio al mese fino ai 16 anni, elevato a CHF 250 per figli in formazione.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Impatto reale sulla busta paga familiare</h2>`,
+ `<h2 class="s-o3IET6">Impatto reale sulla busta paga familiare</h2>`,
  `Con tabella C e due figli, il netto mensile indicativo si colloca tra CHF 4'100 e CHF 4'300 al mese, a cui si sommano gli assegni familiari (CHF 400 complessivi). In Italia le detrazioni per figli a carico e l'assegno unico universale completano il quadro. Il simulatore combina contributi svizzeri, imposta alla fonte con la corretta tabella familiare, IRPEF e assegni per restituire il netto effettivo complessivo del nucleo.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  '/calcola-stipendio/stipendio-netto-60000-chf-residenza-entro-20km': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Residenza entro 20 km: netto su CHF 60'000</h2>`,
+ `<h2 class="s-o3IET6">Residenza entro 20 km: netto su CHF 60'000</h2>`,
  `Se risiedi in un comune italiano entro 20 km dalla frontiera svizzera — come Como, Varese, Lavena Ponte Tresa o Luino — rientri nella fascia territoriale che attiva il meccanismo di ripartizione fiscale 80/20 per i nuovi frontalieri. La Svizzera trattiene l'80 % dell'imposta alla fonte; il restante 20 % viene retrocesso all'Italia. Per i vecchi frontalieri la retrocessione avviene con il meccanismo storico dei ristorni ai comuni di frontiera.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Effetto pratico sulla busta paga a CHF 60'000</h2>`,
+ `<h2 class="s-o3IET6">Effetto pratico sulla busta paga a CHF 60'000</h2>`,
  `In termini di netto mensile, la residenza entro 20 km con un lordo di CHF 60'000 produce cifre nell'ordine di CHF 3'800-4'100 per un celibe, dopo contributi sociali e imposta alla fonte. La componente italiana (IRPEF con credito d'imposta e franchigia) varia in base al comune di residenza e alla data di inizio lavoro. Il simulatore consente di selezionare il tuo comune per una stima personalizzata che tenga conto della retrocessione fiscale effettiva.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  '/calcola-stipendio/stipendio-netto-60000-chf-residenza-oltre-20km': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Residenza oltre 20 km: netto su CHF 60'000</h2>`,
+ `<h2 class="s-o3IET6">Residenza oltre 20 km: netto su CHF 60'000</h2>`,
  `Se risiedi oltre 20 km dalla frontiera svizzera — ad esempio a Milano, Bergamo, Monza o Novara — l'intero importo dell'imposta alla fonte rimane alla Svizzera senza ripartizione. Per i nuovi frontalieri questo significa tassazione completa in Svizzera più obbligo di dichiarazione IRPEF in Italia, con franchigia di € 10'000 e credito d'imposta. Il carico fiscale complessivo è generalmente superiore rispetto a chi risiede entro 20 km.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Conviene pendolare da oltre 20 km con CHF 60'000?</h2>`,
+ `<h2 class="s-o3IET6">Conviene pendolare da oltre 20 km con CHF 60'000?</h2>`,
  `Il netto indicativo per un celibe si attesta tra CHF 3'700 e CHF 4'000 al mese. A questo importo vanno sottratti costi di trasporto più elevati (abbonamento ferroviario, carburante, pedaggio autostradale) tipici della maggiore distanza. Il simulatore permette di includere i costi di pendolarismo e confrontare il saldo finale con uno scenario di residenza entro 20 km, così da valutare se la distanza dal confine è finanziariamente sostenibile.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  // ────────── 80'000 CHF ──────────
  '/calcola-stipendio/stipendio-netto-80000-chf': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stipendio netto con 80'000 CHF lordi: la fascia intermedia</h2>`,
+ `<h2 class="s-o3IET6">Stipendio netto con 80'000 CHF lordi: la fascia intermedia</h2>`,
  `CHF 80'000 lordi annui rappresentano lo stipendio mediano per profili qualificati in Ticino: tecnici specializzati, impiegati amministrativi senior, sviluppatori software e professionisti sanitari. Le deduzioni sociali svizzere (AVS 5,3 %, AC 1,1 %, LAA, IJM, LPP) incidono per circa CHF 10'000-10'500 annui. L'imposta alla fonte cantonale ticinese assorbe un ulteriore 7-12 % in base alla tabella di classificazione.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stima del netto mensile a CHF 80'000</h2>`,
+ `<h2 class="s-o3IET6">Stima del netto mensile a CHF 80'000</h2>`,
  `Per un celibe senza figli il netto mensile indicativo si colloca tra CHF 5'000 e CHF 5'300 al mese. La progressione rispetto ai CHF 60'000 lordi non è lineare: l'aliquota marginale dell'imposta alla fonte aumenta con il reddito, riducendo proporcionalmente il guadagno netto di ogni franco aggiuntivo. Il simulatore applica le tabelle cantonali 2026 in vigore e converte automaticamente il risultato in euro per un confronto con il mercato italiano.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  '/calcola-stipendio/stipendio-netto-80000-chf-nuovo-frontaliere-2026': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Nuovo frontaliere 2026: doppia imposizione su CHF 80'000</h2>`,
+ `<h2 class="s-o3IET6">Nuovo frontaliere 2026: doppia imposizione su CHF 80'000</h2>`,
  `Con un lordo di CHF 80'000 il peso del Nuovo Accordo fiscale diventa più tangibile rispetto a fasce di reddito inferiori. L'imposta alla fonte svizzera viene trattenuta in busta paga; successivamente, in Italia dovrai dichiarare il reddito e calcolare l'IRPEF applicando la franchigia di € 10'000 e il credito per le imposte pagate in Svizzera. L'aliquota marginale IRPEF al 35 % (scaglione 28'001-50'000 €) incide in modo apprezzabile su questo livello retributivo.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Quanto resta in tasca: stima netta mensile</h2>`,
+ `<h2 class="s-o3IET6">Quanto resta in tasca: stima netta mensile</h2>`,
  `Il netto per un nuovo frontaliere celibe con CHF 80'000 lordi si aggira intorno a CHF 4'800-5'100 al mese, una volta integrata la componente IRPEF italiana. La franchigia € 10'000 attenua la doppia imposizione ma non la elimina. Prova il simulatore inserendo i tuoi dati personali: il calcolo tiene conto di entrambe le legislazioni e restituisce il saldo finale in franchi e in euro.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  '/calcola-stipendio/stipendio-netto-80000-chf-vecchio-frontaliere': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Vecchio frontaliere: tassazione semplificata a CHF 80'000</h2>`,
+ `<h2 class="s-o3IET6">Vecchio frontaliere: tassazione semplificata a CHF 80'000</h2>`,
  `Per chi ha avviato il rapporto di lavoro prima del 17 luglio 2023, il regime fiscale resta quello storico: l'unico prelievo è l'imposta alla fonte cantonale svizzera. Nessun obbligo di dichiarazione IRPEF in Italia sul reddito da lavoro dipendente svizzero. A CHF 80'000 lordi questo comporta un notevole vantaggio: l'assenza dell'IRPEF italiana — che per questa fascia salirebbe al 35 % marginale — si traduce in un netto più elevato di diverse centinaia di franchi al mese.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Netto mensile stimato nel vecchio regime</h2>`,
+ `<h2 class="s-o3IET6">Netto mensile stimato nel vecchio regime</h2>`,
  `Un frontaliere celibe nel vecchio regime con CHF 80'000 lordi può aspettarsi un netto mensile nell'ordine di CHF 5'100-5'400, sensibilmente più alto rispetto a un nuovo frontaliere con lo stesso stipendio. Il differenziale cresce con l'aumentare del reddito per effetto della progressività IRPEF. Usa il simulatore per confrontare i due regimi con i tuoi parametri specifici di età, stato civile e comune di residenza.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  '/calcola-stipendio/stipendio-netto-80000-chf-sposato-2-figli': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Sposato con 2 figli: netto familiare a CHF 80'000</h2>`,
+ `<h2 class="s-o3IET6">Sposato con 2 figli: netto familiare a CHF 80'000</h2>`,
  `Un reddito lordo di CHF 80'000 per un frontaliere sposato con due figli beneficia della tabella C dell'imposta alla fonte, con aliquote notevolmente ridotte rispetto al celibe. In Ticino la tabella C per questa fascia applica un'aliquota effettiva del 4-6 % anziché il 9-11 % della tabella A. A questo si aggiungono gli assegni familiari cantonali: CHF 200 per figlio al mese (CHF 250 se in formazione), per un totale di CHF 400 mensili con due figli.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Budget familiare: dal lordo al disponibile</h2>`,
+ `<h2 class="s-o3IET6">Budget familiare: dal lordo al disponibile</h2>`,
  `Il netto mensile indicativo per questa configurazione è compreso tra CHF 5'400 e CHF 5'700, senza considerare gli assegni familiari che portano il disponibile effettivo oltre CHF 5'800. In Italia, il nucleo familiare con due figli minori beneficia anche dell'assegno unico universale. Il simulatore calcola ogni componente — deduzioni svizzere, IF tabella C, assegni e detrazioni italiane — per restituire il quadro economico completo della famiglia frontaliera.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  '/calcola-stipendio/stipendio-netto-80000-chf-residenza-entro-20km': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Entro 20 km dal confine: netto su CHF 80'000</h2>`,
+ `<h2 class="s-o3IET6">Entro 20 km dal confine: netto su CHF 80'000</h2>`,
  `Per chi risiede in un comune entro 20 km dalla frontiera — ad esempio Como, Varese, Ponte Chiasso, Stabio o Lavena Ponte Tresa — il Nuovo Accordo prevede che la Svizzera trattenga l'80 % dell'imposta alla fonte e retroceda il 20 % all'Italia. Il vecchio frontaliere beneficia invece del meccanismo di ristorno ai comuni di frontiera. A CHF 80'000 questa ripartizione modifica l'equilibrio fiscale in modo apprezzabile rispetto alla fascia dei 60'000.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Calcolo pratico della busta paga entro 20 km</h2>`,
+ `<h2 class="s-o3IET6">Calcolo pratico della busta paga entro 20 km</h2>`,
  `Con residenza entro 20 km e CHF 80'000 lordi, il netto mensile indicativo per un celibe è compreso tra CHF 5'000 e CHF 5'300 dopo contributi e imposta alla fonte. La componente IRPEF per i nuovi frontalieri può ridursi grazie alla retrocessione del 20 %. L'elenco dei comuni che rientrano nella fascia dei 20 km è determinato per via geodesica e include gran parte delle province di Como, Varese e Verbano-Cusio-Ossola. Verifica il tuo comune nel simulatore.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  '/calcola-stipendio/stipendio-netto-80000-chf-residenza-oltre-20km': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Oltre 20 km dal confine: netto su CHF 80'000</h2>`,
+ `<h2 class="s-o3IET6">Oltre 20 km dal confine: netto su CHF 80'000</h2>`,
  `Risiedere oltre 20 km dalla frontiera — in città come Milano, Bergamo, Lecco, Busto Arsizio o Novara — comporta che l'intera imposta alla fonte resti in Svizzera, senza alcuna retrocessione. I nuovi frontalieri devono inoltre dichiarare il reddito in Italia e versare l'IRPEF con franchigia € 10'000, scontando il credito d'imposta per quanto già trattenuto. A CHF 80'000 la combinazione di IF integrale e IRPEF italiana è il caso fiscale più gravoso.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Bilancio mensile per i pendolari da lontano</h2>`,
+ `<h2 class="s-o3IET6">Bilancio mensile per i pendolari da lontano</h2>`,
  `Il netto indicativo si colloca tra CHF 4'800 e CHF 5'100 al mese per un celibe nuovo frontaliere. Oltre all'aspetto fiscale, chi vive oltre 20 km affronta costi di pendolarismo più rilevanti: abbonamenti Trenord o autostradali, carburante, eventuale parcheggio di frontiera. Il simulatore consente di confrontare direttamente lo scenario "oltre 20 km" con quello "entro 20 km" a parità di reddito, includendo anche una stima dei costi di trasporto.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  // ────────── 100'000 CHF ──────────
  '/calcola-stipendio/stipendio-netto-100000-chf': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stipendio netto con 100'000 CHF lordi: fascia alta in Ticino</h2>`,
+ `<h2 class="s-o3IET6">Stipendio netto con 100'000 CHF lordi: fascia alta in Ticino</h2>`,
  `Un lordo annuo di CHF 100'000 posiziona il frontaliere nella fascia dei profili senior: manager di linea, ingegneri con esperienza, quadri intermedi nel settore farmaceutico e bancario. Le deduzioni sociali obbligatorie ammontano a circa CHF 12'500-13'000 annui; il contributo LPP cresce con l'età e con questa base salariale inizia a pesare in modo più rilevante, soprattutto per gli over 45.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Netto mensile indicativo per CHF 100'000</h2>`,
+ `<h2 class="s-o3IET6">Netto mensile indicativo per CHF 100'000</h2>`,
  `Per un celibe senza figli il netto si attesta indicativamente tra CHF 6'000 e CHF 6'400 al mese; la progressività dell'imposta alla fonte ticinese assorbe una quota crescente rispetto alle fasce inferiori. L'aliquota effettiva della ritenuta alla fonte può raggiungere il 13-15 % in tabella A. Il simulatore applica le tabelle 2026 per il Canton Ticino e calcola la busta paga mese per mese, incluso il tredicesimo dove previsto dal contratto collettivo.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  '/calcola-stipendio/stipendio-netto-100000-chf-nuovo-frontaliere-2026': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Nuovo frontaliere 2026: impatto del doppio prelievo su CHF 100'000</h2>`,
+ `<h2 class="s-o3IET6">Nuovo frontaliere 2026: impatto del doppio prelievo su CHF 100'000</h2>`,
  `A CHF 100'000 lordi il Nuovo Accordo fiscale produce l'effetto più marcato: la franchigia di € 10'000 copre solo una frazione ridotta della base imponibile italiana. L'IRPEF si applica a scaglioni progressivi fino al 43 % (per la parte oltre € 50'000), generando un'integrazione fiscale italiana consistente anche dopo il credito d'imposta per l'imposta alla fonte svizzera.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Quanto si perde rispetto al vecchio regime</h2>`,
+ `<h2 class="s-o3IET6">Quanto si perde rispetto al vecchio regime</h2>`,
  `Il netto indicativo per un nuovo frontaliere celibe con CHF 100'000 scende a circa CHF 5'700-6'100 al mese, contro i CHF 6'200-6'500 del vecchio regime. La differenza — nell'ordine di CHF 300-500 mensili — riflette l'intero peso dell'integrazione IRPEF dopo la franchigia e il credito. Il simulatore mette a confronto i due scenari con un dettaglio mensile, mostrando esattamente dove si concentra la perdita e come mitigarla con le deduzioni disponibili.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  '/calcola-stipendio/stipendio-netto-100000-chf-vecchio-frontaliere': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Vecchio frontaliere: il massimo vantaggio a CHF 100'000</h2>`,
+ `<h2 class="s-o3IET6">Vecchio frontaliere: il massimo vantaggio a CHF 100'000</h2>`,
  `Per chi ha iniziato prima del 17 luglio 2023, CHF 100'000 lordi vengono tassati esclusivamente in Svizzera tramite l'imposta alla fonte. L'assenza di IRPEF italiana sul reddito svizzero rappresenta un vantaggio netto crescente con il salario: a questo livello retributivo, l'aliquota marginale IRPEF che il nuovo frontaliere deve invece pagare supera il 35-43 %, generando un differenziale significativo sulla busta paga finale.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stima netta mensile: vecchio regime a CHF 100'000</h2>`,
+ `<h2 class="s-o3IET6">Stima netta mensile: vecchio regime a CHF 100'000</h2>`,
  `Il netto mensile indicativo per un vecchio frontaliere celibe con CHF 100'000 è compreso tra CHF 6'200 e CHF 6'500. L'imposta alla fonte ticinese assorbe circa il 13-15 % lordo in tabella A, ma non interviene alcun prelievo italiano. Questo scenario è il più favorevole in assoluto per redditi alti. Il simulatore permette di confrontare in tempo reale vecchio e nuovo regime, evidenziando la convenienza residua e il suo eventuale esaurimento nel tempo.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  '/calcola-stipendio/stipendio-netto-100000-chf-sposato-2-figli': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Famiglia con 2 figli e CHF 100'000: tassazione agevolata</h2>`,
+ `<h2 class="s-o3IET6">Famiglia con 2 figli e CHF 100'000: tassazione agevolata</h2>`,
  `A CHF 100'000 lordi la tabella C dell'imposta alla fonte per coniuge e figli a carico riduce sensibilmente l'aliquota effettiva: invece del 13-15 % della tabella A, si applica circa il 6-9 %. La differenza si amplifica a redditi più elevati perché la progressività della tabella A penalizza di più il celibe. I due figli generano inoltre CHF 400 mensili di assegni familiari ticinesi (CHF 200 per figlio) che si aggiungono al netto.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Reddito familiare complessivo: tutte le voci</h2>`,
+ `<h2 class="s-o3IET6">Reddito familiare complessivo: tutte le voci</h2>`,
  `Il netto mensile indicativo per questa configurazione è compreso tra CHF 6'500 e CHF 6'800, esclusi gli assegni familiari. Sommando questi ultimi il disponibile effettivo supera CHF 7'000. In Italia il nucleo familiare beneficia anche dell'assegno unico universale per i figli minori e delle detrazioni IRPEF per carichi di famiglia. Il simulatore integra tutti questi elementi — svizzeri e italiani — per una visione completa del reddito familiare transfrontaliero.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  '/calcola-stipendio/stipendio-netto-100000-chf-residenza-entro-20km': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Entro 20 km dal confine con CHF 100'000: ripartizione 80/20</h2>`,
+ `<h2 class="s-o3IET6">Entro 20 km dal confine con CHF 100'000: ripartizione 80/20</h2>`,
  `Per i nuovi frontalieri con residenza entro 20 km dalla frontiera (province di Como, Varese, Verbania) e un lordo di CHF 100'000, la Svizzera trattiene l'80 % dell'imposta alla fonte e retrocede il restante 20 % all'Italia. Questo meccanismo riduce la base del credito d'imposta utilizzabile in sede di dichiarazione IRPEF, rendendo il calcolo più articolato rispetto al caso "oltre 20 km" dove non c'è ripartizione.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stima netta e lista dei comuni di frontiera</h2>`,
+ `<h2 class="s-o3IET6">Stima netta e lista dei comuni di frontiera</h2>`,
  `Il netto mensile indicativo per un celibe nuovo frontaliere entro 20 km si colloca tra CHF 6'000 e CHF 6'400. I principali comuni rientranti nella fascia includono Como, Chiasso (CH), Varese, Luino, Lavena Ponte Tresa, Ponte Tresa e Campione d'Italia. Il simulatore consente di selezionare il comune di residenza e calcola automaticamente se rientra nel raggio dei 20 km, applicando le regole di retrocessione corrette per la tua situazione.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  '/calcola-stipendio/stipendio-netto-100000-chf-residenza-oltre-20km': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Oltre 20 km con CHF 100'000: scenario di massima tassazione</h2>`,
+ `<h2 class="s-o3IET6">Oltre 20 km con CHF 100'000: scenario di massima tassazione</h2>`,
  `Residenza oltre 20 km dalla frontiera (Milano, Bergamo, Monza, Brescia, Novara) e CHF 100'000 lordi: è la combinazione con il carico fiscale più elevato per un nuovo frontaliere. L'imposta alla fonte resta interamente in Svizzera — nessuna retrocessione — e l'IRPEF italiana si applica con aliquote fino al 43 % dopo la franchigia di € 10'000 e il credito d'imposta. L'addizionale regionale lombarda o piemontese aggiunge un ulteriore 1,6-1,7 %.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Netto mensile e sostenibilità del pendolarismo</h2>`,
+ `<h2 class="s-o3IET6">Netto mensile e sostenibilità del pendolarismo</h2>`,
  `Il netto indicativo scende a circa CHF 5'700-6'100 al mese per un celibe; rispetto al caso "entro 20 km" la perdita è di CHF 200-300 mensili dovuta alla mancata retrocessione. A questo si aggiungono i costi di trasporto, che per un pendolare da Milano possono superare CHF 400-500 mensili tra treno, autostrada e parcheggio. Il simulatore confronta i due scenari di residenza includendo le spese di pendolarismo per una valutazione economica completa.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 
  // ────────── 120'000 CHF ──────────
  '/calcola-stipendio/stipendio-netto-120000-chf': [
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stipendio netto con 120'000 CHF lordi: fascia dirigenziale</h2>`,
+ `<h2 class="s-o3IET6">Stipendio netto con 120'000 CHF lordi: fascia dirigenziale</h2>`,
  `CHF 120'000 lordi annui collocano il frontaliere nella fascia dei profili dirigenziali e delle figure altamente specializzate: direttori di funzione, responsabili R&D, medici specialisti e consulenti senior. A questo livello le deduzioni sociali obbligatorie raggiungono circa CHF 15'000-16'000 annui, con il LPP che pesa in modo particolarmente rilevante per i lavoratori sopra i 45 anni (accrediti del 18 % del salario coordinato).`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Da lordo a netto: gli scaglioni che contano a CHF 120'000</h2>`,
+ `<h2 class="s-o3IET6">Da lordo a netto: gli scaglioni che contano a CHF 120'000</h2>`,
  `L'imposta alla fonte ticinese per questa fascia raggiunge aliquote effettive del 15-17 % in tabella A. Il netto mensile indicativo per un celibe si attesta tra CHF 7'000 e CHF 7'400 nel vecchio regime (solo IF svizzera). Con il Nuovo Accordo 2026 l'integrazione IRPEF italiana — con aliquota marginale al 43 % oltre € 50'000 — può ridurre il netto di CHF 400-600 al mese. Il simulatore consente di confrontare i due regimi e di valutare l'impatto delle diverse tabelle di classificazione sulla tua busta paga effettiva.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  ],
 };
 
@@ -441,6 +441,15 @@ export function collapsifySeoBlock(html: string): string {
  const SEC_MID = '\u0001SECMID\u0001';
  let out = html;
 
+ //
+ // Class-extract migration (2026-05-20): these regexes still target the
+ // INLINE-STYLE form because they're applied INSIDE the prebuilt SEO block
+ // template literal, BEFORE the class-extract codemod transforms the rest
+ // of the source. The block lives in this same file but as a quoted
+ // template string, which the codemod intentionally skips (regex pattern
+ // safety). Keep these patterns referencing inline `style="..."` so the
+ // collapsifySeoBlock transform stays a no-op on already-class-converted
+ // markup and a full transform on the still-inline source block.
  out = out.replace(
   /<aside id="((?:hp|calc|jb)-seo-block)" style="[^"]*" aria-labelledby="([^"]+)">/,
   '<aside id="$1" class="seo-footer-block" aria-labelledby="$2">',
@@ -547,10 +556,10 @@ function buildHomepageCrossLocaleCantonNavHtml(): string {
        .join(' ');
      rows.push(`<a href="${cantonHubHref}" hreflang="${loc}" style="${pillStyle}">${displayLabel}</a>`);
    }
-   if (rows.length > 0) sections.push(`<div><strong style="font-size:11px;color:var(--color-subtle);font-weight:600">${langName}</strong> ${rows.join('')}</div>`);
+   if (rows.length > 0) sections.push(`<div><strong class="s-ox6EAg">${langName}</strong> ${rows.join('')}</div>`);
  }
  if (sections.length === 0) return '';
- return `<aside id="hp-xlocale-cantons" aria-label="Canton hubs in all languages" style="max-width:1100px;margin:8px auto 24px;padding:0 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.7"><details style="border:1px solid #e2e8f0;border-radius:6px;padding:.4rem .6rem;background:#f8fafc"><summary style="cursor:pointer;font-size:.85rem;color:var(--color-subtle);font-weight:600">Cantons in other languages (${sections.length * 25})</summary><div style="margin-top:.4rem">${sections.join('')}</div></details></aside>`;
+ return `<aside class="s-mnG0tW" id="hp-xlocale-cantons" aria-label="Canton hubs in all languages"><details class="s-B_AjzX"><summary class="s-JzgXFd">Cantons in other languages (${sections.length * 25})</summary><div class="s-TLn90R">${sections.join('')}</div></details></aside>`;
 }
 
 /**
@@ -592,7 +601,7 @@ function buildHomepageLangSwitchHtml(currentLocale: HpSeoLocale): string {
      : `<a href="${href}" hreflang="${code}" style="${pillStyle}">${label}</a>`,
    )
    .join('');
- return `<nav id="hp-lang-switch" aria-label="${navLabel}" style="max-width:1100px;margin:16px auto 0;padding:0 20px;line-height:1.9">${items}</nav>`;
+ return `<nav class="s-U89jtE" id="hp-lang-switch" aria-label="${navLabel}">${items}</nav>`;
 }
 
 /**
@@ -713,10 +722,10 @@ function buildHomepageCantonNavHtml(locale: HpSeoLocale): string {
  const xsHubsHtml = xsHubs
    .map(({ href, label }) => `<a href="${href}" style="${xsPillStyle}">${label}</a>`)
    .join('');
- const xsHubsBlock = `<nav aria-label="${xsHubsLabel}" style="margin:0 0 12px;line-height:1.9">${xsHubsHtml}</nav>`;
+ const xsHubsBlock = `<nav class="s-qF4KTg" aria-label="${xsHubsLabel}">${xsHubsHtml}</nav>`;
  // Collapsed <details> — BFS walker reads <a> tags regardless of `open`
  // state, mobile fold stays clear.
- return `<aside id="hp-canton-nav" aria-label="${navLabel}" style="max-width:1100px;margin:24px auto 56px;padding:0 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--color-body);line-height:1.65">${xsHubsBlock}<details style="border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem;background:#f8fafc"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:var(--color-heading);padding:.25rem 0">${navLabel} (${cantonRows.length})</summary><nav aria-label="${navLabel}" style="margin-top:.5rem;line-height:1.9">${cantonRows.join('')}</nav></details></aside>`;
+ return `<aside class="s-A9Z4Vy" id="hp-canton-nav" aria-label="${navLabel}">${xsHubsBlock}<details class="s-iS9cG5"><summary class="s-DhA4PZ">${navLabel} (${cantonRows.length})</summary><nav class="s-6_t7LY" aria-label="${navLabel}">${cantonRows.join('')}</nav></details></aside>`;
 }
 
 // ── Related-guides block (orphan-page rescue) ──────────────────────
@@ -796,7 +805,7 @@ function buildHomepageRelatedGuidesBlock(locale: HpSeoLocale): string {
  const anchors = links
   .map(({ href, label }) => `<a href="${href}" style="${pillStyle}">${escAttr(label)}</a>`)
   .join('');
- return `<aside id="hp-related-guides" aria-labelledby="hpRelatedGuidesTitle" style="max-width:1100px;margin:24px auto;padding:0 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.7"><h2 id="hpRelatedGuidesTitle" style="font-size:1rem;font-weight:700;color:var(--color-heading);margin:0 0 .5rem">${heading}</h2><nav aria-label="${heading}" style="line-height:1.9">${anchors}</nav></aside>`;
+ return `<aside class="s-Q1eQm9" id="hp-related-guides" aria-labelledby="hpRelatedGuidesTitle"><h2 class="s-WrrqHM" id="hpRelatedGuidesTitle">${heading}</h2><nav class="s-G8-GwP" aria-label="${heading}">${anchors}</nav></aside>`;
 }
 
 // ── Calculator landing SEO block ─────────────────────────────────────
@@ -844,10 +853,10 @@ const JOBBOARD_SEO_BLOCK_HTML: Record<HpSeoLocale, string> = {
 // Closes the orphan loop where Semrush BFS could not reach /tutti/ pages.
 // Same canonical archive paths used by build-plugins/seoHubsData.ts (HUB_SLUGS.jobsAll).
 const JOB_ARCHIVE_CTA_HTML: Record<HpSeoLocale, string> = {
- it: `<aside id="jb-archive-cta" style="max-width:1100px;margin:24px auto 0;padding:16px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--color-heading);line-height:1.6"><p style="margin:0;font-size:15px"><strong>Archivio completo:</strong> <a href="/cerca-lavoro-ticino/tutti/" style="color:var(--color-link);text-decoration:underline;font-weight:600">Vedi tutte le offerte →</a> &middot; <a href="/cerca-lavoro-ticino/settori/" style="color:var(--color-link);text-decoration:underline;font-weight:600">Esplora per settore →</a> &middot; sfoglia ogni annuncio attivo del Canton Ticino, paginato per crawler e ricerca interna.</p></aside>`,
- en: `<aside id="jb-archive-cta" style="max-width:1100px;margin:24px auto 0;padding:16px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--color-heading);line-height:1.6"><p style="margin:0;font-size:15px"><strong>Full archive:</strong> <a href="/en/find-jobs-ticino/all/" style="color:var(--color-link);text-decoration:underline;font-weight:600">View all jobs →</a> &middot; <a href="/en/find-jobs-ticino/sectors/" style="color:var(--color-link);text-decoration:underline;font-weight:600">Browse by sector →</a> &middot; browse every active listing in Canton Ticino, paginated for crawlers and on-site search.</p></aside>`,
- de: `<aside id="jb-archive-cta" style="max-width:1100px;margin:24px auto 0;padding:16px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--color-heading);line-height:1.6"><p style="margin:0;font-size:15px"><strong>Vollständiges Archiv:</strong> <a href="/de/jobs-im-tessin/alle/" style="color:var(--color-link);text-decoration:underline;font-weight:600">Alle Stellen ansehen →</a> &middot; <a href="/de/jobs-im-tessin/branchen/" style="color:var(--color-link);text-decoration:underline;font-weight:600">Nach Branche durchsuchen →</a> &middot; durchsuchen Sie jede aktive Stelle im Kanton Tessin, paginiert für Crawler und interne Suche.</p></aside>`,
- fr: `<aside id="jb-archive-cta" style="max-width:1100px;margin:24px auto 0;padding:16px 20px;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--color-heading);line-height:1.6"><p style="margin:0;font-size:15px"><strong>Archive complète :</strong> <a href="/fr/trouver-emploi-tessin/tous/" style="color:var(--color-link);text-decoration:underline;font-weight:600">Voir toutes les offres →</a> &middot; <a href="/fr/trouver-emploi-tessin/secteurs/" style="color:var(--color-link);text-decoration:underline;font-weight:600">Explorer par secteur →</a> &middot; parcourez chaque annonce active du Canton du Tessin, paginée pour les crawlers et la recherche interne.</p></aside>`,
+ it: `<aside class="s-TAzRqw" id="jb-archive-cta"><p class="s-B8IIZP"><strong>Archivio completo:</strong> <a class="s-nF5mos" href="/cerca-lavoro-ticino/tutti/">Vedi tutte le offerte →</a> &middot; <a class="s-nF5mos" href="/cerca-lavoro-ticino/settori/">Esplora per settore →</a> &middot; sfoglia ogni annuncio attivo del Canton Ticino, paginato per crawler e ricerca interna.</p></aside>`,
+ en: `<aside class="s-TAzRqw" id="jb-archive-cta"><p class="s-B8IIZP"><strong>Full archive:</strong> <a class="s-nF5mos" href="/en/find-jobs-ticino/all/">View all jobs →</a> &middot; <a class="s-nF5mos" href="/en/find-jobs-ticino/sectors/">Browse by sector →</a> &middot; browse every active listing in Canton Ticino, paginated for crawlers and on-site search.</p></aside>`,
+ de: `<aside class="s-TAzRqw" id="jb-archive-cta"><p class="s-B8IIZP"><strong>Vollständiges Archiv:</strong> <a class="s-nF5mos" href="/de/jobs-im-tessin/alle/">Alle Stellen ansehen →</a> &middot; <a class="s-nF5mos" href="/de/jobs-im-tessin/branchen/">Nach Branche durchsuchen →</a> &middot; durchsuchen Sie jede aktive Stelle im Kanton Tessin, paginiert für Crawler und interne Suche.</p></aside>`,
+ fr: `<aside class="s-TAzRqw" id="jb-archive-cta"><p class="s-B8IIZP"><strong>Archive complète :</strong> <a class="s-nF5mos" href="/fr/trouver-emploi-tessin/tous/">Voir toutes les offres →</a> &middot; <a class="s-nF5mos" href="/fr/trouver-emploi-tessin/secteurs/">Explorer par secteur →</a> &middot; parcourez chaque annonce active du Canton du Tessin, paginée pour les crawlers et la recherche interne.</p></aside>`,
 };
 
 function injectJobboardSeoContent(html: string, locale: HpSeoLocale): string {
@@ -2484,7 +2493,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const allLinks = [...navLinks, ...filteredContextual];
  const navHtml = allLinks.map(l => `<a href="${l.href}">${l.label}</a>`).join(' | ');
  const relatedHtml = filteredContextual.length
- ? `<h2 style="font-size:1rem;font-weight:600;margin:1rem 0 .5rem">${RELATED_HEADING[locale] ?? RELATED_HEADING['it']}</h2><ul style="margin:0 0 1rem 1.25rem;padding:0">${filteredContextual.map((l) => `<li style="margin:.25rem 0"><a href="${l.href}">${l.label}</a></li>`).join('')}</ul>`
+ ? `<h2 class="s-fd95FC">${RELATED_HEADING[locale] ?? RELATED_HEADING['it']}</h2><ul class="s-2u1Hmp">${filteredContextual.map((l) => `<li class="s-wP4Jn1"><a href="${l.href}">${l.label}</a></li>`).join('')}</ul>`
  : '';
  const isHomePage = canonicalPath === '/';
  const isJobsIndex = /\/(cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin)\/?$/.test(canonicalPath);
@@ -2529,11 +2538,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  .sort((a, b) => a.label.localeCompare(b.label));
  if (valichiPages.length > 0) {
  const valichiAnchors = valichiPages
- .map(p => `<li><a href="${p.href}" style="color:var(--color-link);text-decoration:none;font-weight:500">${esc(p.label)}</a></li>`)
+ .map(p => `<li><a class="s-ku_ryy" href="${p.href}">${esc(p.label)}</a></li>`)
  .join('');
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1.25rem 0 .5rem">Tutti i valichi (${valichiPages.length})</h2>`,
- `<ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px;font-size:.9rem">${valichiAnchors}</ul>`,
+ `<h2 class="s-CGV2dt">Tutti i valichi (${valichiPages.length})</h2>`,
+ `<ul class="s-4FiAM7">${valichiAnchors}</ul>`,
  );
  }
  }
@@ -2553,54 +2562,54 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (locEditorial) editorialBlocks.push(...locEditorial);
  } else if (canonicalPath.startsWith('/calcola-stipendio/simula-busta-paga')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come simulare la busta paga del frontaliere</h2>`,
+ `<h2 class="s-o3IET6">Come simulare la busta paga del frontaliere</h2>`,
  `Il simulatore di busta paga ricostruisce voce per voce lo stipendio netto partendo dal lordo annuo in franchi svizzeri: AVS/AI/IPG (5,3 %), assicurazione contro la disoccupazione (1,1 %), infortunio non professionale e indennità giornaliera di malattia vengono sottratti prima del calcolo dell'imposta alla fonte.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Imposta alla fonte e conversione CHF-EUR</h2>`,
+ `<h2 class="s-o3IET6">Imposta alla fonte e conversione CHF-EUR</h2>`,
  `L'imposta alla fonte è calcolata secondo le tabelle A/B/C/H del Canton Ticino, aggiornate al 2026, e tiene conto di stato civile, numero di figli e appartenenza religiosa. Il risultato viene convertito in euro al tasso di cambio selezionato per quantificare il potere d'acquisto reale in Italia.`,
  `Dopo la simulazione puoi confrontare il netto ottenuto con i costi effettivi della vita da frontaliere: trasporto, cassa malati LAMal o CMU, pranzi, parcheggio e assicurazione auto con targhe svizzere. Questo permette di stimare il risparmio mensile effettivo.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  );
  } else if (canonicalPath.startsWith('/calcola-stipendio/cosa-cambia-se')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Simulatore scenari fiscali frontaliere</h2>`,
+ `<h2 class="s-o3IET6">Simulatore scenari fiscali frontaliere</h2>`,
  `Il simulatore "Cosa cambia se" permette di variare un parametro alla volta — stato civile, distanza dal confine, numero figli, percentuale di lavoro, cantone — e vedere immediatamente l'impatto sul netto mensile e annuale, così da valutare decisioni concrete prima di attuarle.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Quando usare il simulatore what-if</h2>`,
+ `<h2 class="s-o3IET6">Quando usare il simulatore what-if</h2>`,
  `Ogni scenario viene calcolato con le stesse regole del simulatore principale: deduzioni sociali svizzere, imposta alla fonte cantonale, e conversione CHF-EUR. Le differenze vengono evidenziate in modo visivo per facilitare il confronto rapido.`,
  `Questo strumento è particolarmente utile quando si valuta un cambio di residenza, un matrimonio, la nascita di un figlio o il passaggio al tempo parziale: tutte situazioni che modificano significativamente la tassazione del frontaliere.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Esempi pratici di simulazione</h2>`,
+ `<h2 class="s-o3IET6">Esempi pratici di simulazione</h2>`,
  `Tra gli scenari più richiesti: il passaggio da single a coniugato (che modifica la tabella dell'imposta alla fonte da A0 a C0-C5), il trasferimento da un comune entro 20 km a uno oltre 20 km dal confine (che cambia la ripartizione fiscale 80/20), e la riduzione dal 100% al 80% di lavoro (che incide su contributi AVS, LPP e soglie IRPEF in Italia).`,
  `Il risultato mostra il confronto diretto tra la situazione attuale e quella ipotetica, con il delta netto in CHF e in EUR. Puoi anche esportare i risultati in PDF per condividerli con il tuo commercialista o consulente fiscale.`,
  );
  } else if (canonicalPath.startsWith('/calcola-stipendio/confronta-stipendi')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Confronto stipendi Ticino vs Italia</h2>`,
+ `<h2 class="s-o3IET6">Confronto stipendi Ticino vs Italia</h2>`,
  `Il comparatore di stipendi mette a confronto la retribuzione netta dello stesso ruolo in Ticino (CHF) e in Lombardia/Piemonte (EUR), considerando tassazione, contributi e costo della vita in entrambi i paesi.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Costi indiretti del frontaliere nel confronto</h2>`,
+ `<h2 class="s-o3IET6">Costi indiretti del frontaliere nel confronto</h2>`,
  `I dati di riferimento provengono da statistiche salariali reali per settore e livello di esperienza, integrati con le aliquote fiscali e contributive vigenti in Svizzera e Italia per il 2026.`,
  `Il confronto include costi indiretti tipici del frontaliere (trasporto, cassa malati, cambio valuta) per dare un quadro completo del vantaggio economico netto di lavorare in Svizzera rispetto a un impiego equivalente in Italia.`,
  );
  } else if (canonicalPath.startsWith('/calcola-stipendio/quiz-stipendio')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Quiz fiscale per frontalieri</h2>`,
+ `<h2 class="s-o3IET6">Quiz fiscale per frontalieri</h2>`,
  `Il quiz sullo stipendio ti permette di testare la tua conoscenza sulle regole fiscali e contributive che determinano il netto di un frontaliere: deduzioni sociali, imposta alla fonte, franchigia e Nuovo Accordo fiscale 2026.`,
  `Ogni domanda è accompagnata da una spiegazione dettagliata che chiarisce il meccanismo sottostante, così il quiz diventa anche uno strumento formativo per chi si avvicina per la prima volta al lavoro transfrontaliero.`,
  );
  } else if (canonicalPath.startsWith('/calcola-stipendio/nuovi-frontalieri-oltre-20-km')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Nuovi frontalieri oltre 20 km: regole fiscali</h2>`,
+ `<h2 class="s-o3IET6">Nuovi frontalieri oltre 20 km: regole fiscali</h2>`,
  `Questa pagina e pensata per chi ha iniziato a lavorare in Svizzera dal 17 luglio 2023 in poi e vive in un comune italiano oltre 20 km dalla frontiera. In questo scenario l'imposta alla fonte resta interamente trattenuta in Svizzera, senza il meccanismo dell'80 % / 20 % tipico dei comuni entro 20 km.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Confronto netto: entro 20 km vs oltre 20 km</h2>`,
+ `<h2 class="s-o3IET6">Confronto netto: entro 20 km vs oltre 20 km</h2>`,
  `Per aiutare il confronto, l'hub raccoglie casi pratici su tre fasce di reddito e mette a fianco uno scenario identico entro 20 km. In questo modo puoi capire subito se la differenza reale riguarda il netto mensile, il saldo fiscale in Italia o la semplicita operativa della dichiarazione dei redditi.`,
  `La landing collega anche i tool gia presenti nel sito: simulatore del netto, confronto 2025 vs 2026, guida alla dichiarazione dei redditi e aliquote dell'imposta alla fonte Ticino 2026. L'obiettivo e trasformare una regola fiscale astratta in una decisione concreta sulla tua situazione personale.`,
  );
  } else if (canonicalPath.startsWith('/calcola-stipendio/confronta-retribuzione-ral')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Da RAL a netto: calcolo per frontalieri</h2>`,
+ `<h2 class="s-o3IET6">Da RAL a netto: calcolo per frontalieri</h2>`,
  `Il comparatore RAL vs netto mette a confronto la retribuzione annua lorda (RAL) dichiarata in offerta con il netto mensile effettivo che il frontaliere riceve in busta paga, dopo tutte le deduzioni svizzere: AVS/AI/IPG (5,3 %), disoccupazione (1,1 %), infortuni non professionali, indennità giornaliera malattia, LPP e imposta alla fonte cantonale.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Negoziazione salariale: RAL Svizzera vs Italia</h2>`,
+ `<h2 class="s-o3IET6">Negoziazione salariale: RAL Svizzera vs Italia</h2>`,
  `Questo strumento è particolarmente utile durante la negoziazione salariale: una RAL di 80.000 CHF può corrispondere a netti mensili molto diversi a seconda di stato civile, figli, cantone e fascia d'età per il LPP. Conoscere il netto atteso prima di firmare permette confronti realistici con stipendi italiani equivalenti.`,
  `Il risultato include la conversione CHF-EUR al tasso di cambio corrente e il confronto con la retribuzione netta di un ruolo equivalente in Lombardia/Piemonte, tenendo conto di IRPEF, contributi INPS e addizionali regionali, così da valutare concretamente il vantaggio economico del lavoro in Svizzera.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Attenzione ai costi nascosti nel confronto RAL</h2>`,
+ `<h2 class="s-o3IET6">Attenzione ai costi nascosti nel confronto RAL</h2>`,
  `Confrontare solo la RAL tra un'offerta svizzera e una italiana è fuorviante: in Svizzera i contributi LPP (secondo pilastro) sono più alti e variano per fascia d'età (7 % sotto i 35, fino al 18 % dopo i 55), l'assicurazione malattia LAMal non è dedotta dallo stipendio ma pagata separatamente (CHF 200-600/mese), e il costo del trasporto transfrontaliero (auto + benzina + vignetta o abbonamento TILO) può incidere per 200-400 EUR/mese.`,
  `Per un confronto completo tra RAL svizzera e RAL italiana, lo strumento integra anche i benefit tipici dei contratti svizzeri — buoni pasto, contributo parcheggio, tredicesima obbligatoria nei settori con CCL — e li mette a confronto con i corrispettivi italiani come welfare aziendale, premio di risultato detassato e TFR accantonato. Solo così si può capire se un'offerta da CHF 80.000 a Lugano è davvero migliore di una da EUR 45.000 a Milano.`,
  );
@@ -2611,133 +2620,133 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Add prominent internal link from every scenario page with anchor "calcolatore stipendio netto".
  // See docs/seo-semrush-growth-plan.md Task A.3.
  editorialBlocks.push(
- `<p style="margin:1rem 0 .5rem;padding:.9rem 1rem;background:var(--color-accent-subtle);border-left:4px solid #3730a3;border-radius:4px;font-size:.95rem"><strong>Vai al <a href="/calcola-stipendio/" style="color:var(--color-accent);text-decoration:underline;font-weight:700">calcolatore stipendio netto</a></strong> per una simulazione personalizzata: inserisci lordo, stato civile, figli e tipo di frontaliere per ottenere il tuo netto mensile aggiornato al 2026.</p>`,
+ `<p class="s-ZkNjVc"><strong>Vai al <a class="s-23va8X" href="/calcola-stipendio/">calcolatore stipendio netto</a></strong> per una simulazione personalizzata: inserisci lordo, stato civile, figli e tipo di frontaliere per ottenere il tuo netto mensile aggiornato al 2026.</p>`,
  );
  } else if (canonicalPath.startsWith('/calcola-stipendio/') && !isCalcStipendioIndex) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come calcolare lo stipendio netto in Svizzera</h2>`,
+ `<h2 class="s-o3IET6">Come calcolare lo stipendio netto in Svizzera</h2>`,
  `Lo strumento di calcolo utilizza i parametri fiscali e previdenziali aggiornati al 2026 per la Svizzera e l'Italia, applicando le regole del Nuovo Accordo sulla tassazione dei frontalieri entrato in vigore nel 2024.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Deduzioni obbligatorie per frontalieri</h2>`,
+ `<h2 class="s-o3IET6">Deduzioni obbligatorie per frontalieri</h2>`,
  `I risultati tengono conto delle specificità del Canton Ticino: aliquote dell'imposta alla fonte, tabelle di classificazione A/B/C/H, deduzioni per figli e conversione automatica CHF-EUR ai tassi di mercato.`,
  `Per ottenere una stima affidabile, inserisci lo stipendio lordo annuo in franchi svizzeri: il sistema applica automaticamente contributi AVS/AI/IPG, AC, LAA, IJM e LPP secondo le fasce d'età previste dalla legge federale.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  );
  } else if (canonicalPath.startsWith('/compara-servizi/cambio-franco-euro')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Cambio franco svizzero euro oggi</h2>`,
+ `<h2 class="s-o3IET6">Cambio franco svizzero euro oggi</h2>`,
  `Il convertitore di valuta CHF-EUR utilizza i tassi di cambio aggiornati in tempo reale dalla fonte TwelveData, con cache Firestore per garantire velocità e affidabilità anche in caso di picchi di traffico.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Storico tasso di cambio CHF-EUR</h2>`,
+ `<h2 class="s-o3IET6">Storico tasso di cambio CHF-EUR</h2>`,
  `Oltre alla conversione istantanea, viene mostrato lo storico del tasso di cambio franco svizzero / euro con grafici interattivi che coprono gli ultimi 12 mesi, utili per individuare il momento migliore per convertire lo stipendio.`,
  `Per i frontalieri, il tasso di cambio è un fattore determinante: una variazione dell'1 % su uno stipendio di 6000 CHF equivale a circa 55–60 EUR al mese. Monitorare il cambio aiuta a pianificare le conversioni e ridurre le commissioni bancarie.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.snb.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Banca Nazionale Svizzera (BNS)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.snb.ch" rel="noopener">Banca Nazionale Svizzera (BNS)</a></p>`,
  );
  } else if (canonicalPath.startsWith('/compara-servizi/confronta-casse-malati')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Confronto casse malati per frontalieri</h2>`,
+ `<h2 class="s-o3IET6">Confronto casse malati per frontalieri</h2>`,
  `Il comparatore di casse malati LAMal confronta i premi mensili di 14 assicuratori svizzeri riconosciuti (UFSP), calcolati per cantone, modello assicurativo, franchigia, fascia d'età e copertura infortuni.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">LAMal o SSN: quale scegliere</h2>`,
+ `<h2 class="s-o3IET6">LAMal o SSN: quale scegliere</h2>`,
  `I frontalieri con permesso G hanno diritto di optare tra LAMal svizzera e SSN italiano: la scelta è irrevocabile per tutta la durata del rapporto di lavoro. Questo strumento aiuta a confrontare i costi prima della decisione.`,
  `I premi vengono calcolati con la formula: base × (1 − sconto modello) × (1 + fattore franchigia) × moltiplicatore età × (1 + copertura infortuni). I dati coprono i cantoni TI, GR, VS, ZH, GE, BE e LU.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.bag.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Ufficio federale della sanità pubblica (UFSP)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.bag.admin.ch" rel="noopener">Ufficio federale della sanità pubblica (UFSP)</a></p>`,
  );
  } else if (canonicalPath.startsWith('/compara-servizi/confronta-banche')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Migliori conti bancari per frontalieri</h2>`,
+ `<h2 class="s-o3IET6">Migliori conti bancari per frontalieri</h2>`,
  `Il confronto banche analizza le principali banche svizzere e italiane utilizzate dai frontalieri, confrontando commissioni di cambio, costi di conto, carte di debito/credito e servizi di bonifico transfrontaliero. Per la maggior parte dei frontalieri ticinesi conviene mantenere due conti separati: uno svizzero per accreditare lo stipendio in CHF (richiesto dal datore di lavoro) e uno italiano per le spese domestiche in EUR (mutuo, utenze, scuola, supermercato). La differenza di costo annua tra una buona e una cattiva strategia di cambio supera tipicamente 600-900 EUR su uno stipendio mediano di CHF 70.000.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Commissioni di cambio CHF-EUR a confronto</h2>`,
+ `<h2 class="s-o3IET6">Commissioni di cambio CHF-EUR a confronto</h2>`,
  `Per i frontalieri, la scelta della banca incide direttamente sul netto percepito: le commissioni di cambio CHF→EUR possono variare dallo 0,3 % al 2,5 % a seconda dell'istituto e dello strumento utilizzato. Le banche svizzere tradizionali (UBS, PostFinance, Raiffeisen, BancaStato) applicano spread del 1,0-2,0 % sul tasso interbancario, mentre le piattaforme multi-valuta (Wise, Revolut, Yuh) si fermano sotto lo 0,6 %. Il delta cumulato su 12 cambi mensili da CHF 4.000 può arrivare a 800-1.200 EUR/anno.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Carte di credito e prelievi transfrontalieri</h2>`,
+ `<h2 class="s-o3IET6">Carte di credito e prelievi transfrontalieri</h2>`,
  `Le carte di credito Visa e Mastercard emesse da banche svizzere applicano commissioni di transazione estera del 1,5-2,5 % sui pagamenti in EUR e prelievi ATM in Italia. Le carte multi-valuta (Wise Visa Debit, Revolut Premium, Corner Bank Cashback) eliminano queste commissioni quando il conto contiene già il saldo nella valuta locale. Per chi vive in Italia e lavora in Svizzera, una carta multi-valuta risparmia tipicamente 200-400 CHF/anno solo sui pagamenti quotidiani.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Bonifici SEPA e SIC tra Svizzera e Italia</h2>`,
+ `<h2 class="s-o3IET6">Bonifici SEPA e SIC tra Svizzera e Italia</h2>`,
  `I bonifici dalla Svizzera verso l'Italia sono SEPA-compatibili dal 2017 e costano in media CHF 0-5 per operazione tramite e-banking, accreditati in 1-2 giorni lavorativi. I bonifici inversi (da IT a CH) seguono lo stesso standard SEPA con commissioni EUR 0-2. Per i pagamenti urgenti tra le due banche conviene usare il sistema SIC svizzero (real-time) o gli IBAN istantanei, quando supportati. Il comparatore evidenzia per ogni banca: commissione bonifico standard, costo del cambio applicato in valuta destinataria, e tempi di accredito tipici sui principali corridoi CH→IT più utilizzati dai frontalieri.`,
  );
  } else if (canonicalPath.startsWith('/compara-servizi/confronta-prezzi-spesa')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Confronto prezzi spesa Svizzera vs Italia</h2>`,
+ `<h2 class="s-o3IET6">Confronto prezzi spesa Svizzera vs Italia</h2>`,
  `Il comparatore dei prezzi della spesa confronta un paniere tipo settimanale tra supermercati svizzeri (Migros, Coop, Denner, Aldi Svizzera) e italiani (Esselunga, Lidl, Eurospin, Conad), convertendo tutto in una valuta comune al tasso di cambio corrente per un confronto reale del potere d'acquisto.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Categorie con maggiore risparmio in Italia</h2>`,
+ `<h2 class="s-o3IET6">Categorie con maggiore risparmio in Italia</h2>`,
  `Il confronto copre oltre 50 categorie di prodotti: freschi, latticini, carne, confezionati, bevande e cura della persona. In media, i prodotti di marca identici costano il 35-55 % in più in Ticino rispetto alle province italiane di confine, rendendo la spesa in Italia un risparmio mensile concreto per molte famiglie frontaliere.`,
  `Lo strumento evidenzia anche le categorie dove il vantaggio italiano è maggiore (carne, formaggi, vino, pasta fresca) versus quelle dove la qualità svizzera o la disponibilità locale rende i supermercati elvetici competitivi. I dati vengono aggiornati mensilmente per riflettere le variazioni stagionali e promozionali.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Anche il pieno fa parte della spesa</h2>`,
- `<p style="margin:.5rem 0">Per chi pendola in auto il carburante è una voce mensile rilevante: confronta i prezzi quotidiani della <a href="/prezzi-diesel/oggi/" style="color:var(--color-link);text-decoration:none">benzina e del diesel in Svizzera</a> e l'<a href="/prezzi-diesel/stazioni-svizzere/" style="color:var(--color-link);text-decoration:none">indice completo delle stazioni Ticino</a> per capire dove conviene fare il pieno prima di passare il valico. Una differenza di 0,15 EUR/litro su un pieno settimanale da 50 L vale circa 380 EUR/anno — equivalente al risparmio di un mese di spesa alimentare, quindi è coerente trattare entrambi i comparatori nello stesso budget familiare.</p>`,
+ `<h2 class="s-o3IET6">Anche il pieno fa parte della spesa</h2>`,
+ `<p class="s-F2hp6o">Per chi pendola in auto il carburante è una voce mensile rilevante: confronta i prezzi quotidiani della <a class="s-U9K6Vf" href="/prezzi-diesel/oggi/">benzina e del diesel in Svizzera</a> e l'<a class="s-U9K6Vf" href="/prezzi-diesel/stazioni-svizzere/">indice completo delle stazioni Ticino</a> per capire dove conviene fare il pieno prima di passare il valico. Una differenza di 0,15 EUR/litro su un pieno settimanale da 50 L vale circa 380 EUR/anno — equivalente al risparmio di un mese di spesa alimentare, quindi è coerente trattare entrambi i comparatori nello stesso budget familiare.</p>`,
  );
  } else if (canonicalPath.startsWith('/compara-servizi/confronta-operatori-mobili')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Migliori operatori mobili per frontalieri</h2>`,
+ `<h2 class="s-o3IET6">Migliori operatori mobili per frontalieri</h2>`,
  `Il comparatore di operatori mobili valuta i piani tariffari degli operatori svizzeri (Swisscom, Salt, Sunrise, Yallo) e italiani (TIM, Vodafone, WindTre, Iliad) specificamente per chi attraversa quotidianamente il confine Svizzera-Italia e ha bisogno di copertura affidabile in entrambi i paesi senza costi di roaming eccessivi.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Roaming Svizzera-Italia: costi e copertura</h2>`,
+ `<h2 class="s-o3IET6">Roaming Svizzera-Italia: costi e copertura</h2>`,
  `I criteri chiave per i frontalieri: il roaming UE è incluso nella maggior parte delle offerte italiane per obbligo di legge, mentre gli operatori svizzeri non sono vincolati dalla normativa UE e possono addebitare costi di roaming in Italia. Per chi trascorre 8+ ore al giorno in Svizzera, un piano svizzero può essere più economico nonostante le tariffe apparentemente più alte.`,
  `Il confronto è strutturato su tre profili d'uso tipici del frontaliere: pendolare classico (alti dati, attraversamento giornaliero), smart worker (attraversamento occasionale, priorità videochiamate) e famiglia (SIM multiple). Seleziona il tuo profilo per vedere la classifica più rilevante per la tua situazione.`,
  );
  } else if (canonicalPath.startsWith('/compara-servizi/calcola-bonus-ristrutturazione')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Bonus ristrutturazione per frontalieri</h2>`,
+ `<h2 class="s-o3IET6">Bonus ristrutturazione per frontalieri</h2>`,
  `Il calcolatore del bonus ristrutturazione aiuta i frontalieri proprietari di immobili in Italia a stimare il costo netto degli interventi edilizi dopo l'applicazione degli incentivi fiscali italiani: detrazione ristrutturazione 50 % (Bonus Ristrutturazione), Ecobonus 65 % per efficienza energetica, Superbonus per cappotto termico e serramenti qualificati, e Bonus Mobili 36 % per arredi acquistati post-ristrutturazione.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Detraibilit&agrave; e IRPEF frontaliere</h2>`,
+ `<h2 class="s-o3IET6">Detraibilit&agrave; e IRPEF frontaliere</h2>`,
  `Lo strumento calcola la ripartizione della detrazione in 10 rate annuali uguali, il risparmio fiscale totale nel periodo di recupero e il costo netto effettivo dell'intervento. Tiene conto della franchigia di 10.000 EUR prevista per i nuovi frontalieri dall'Accordo 2026 per determinare quanta parte dell'IRPEF dovuta può assorbire la detrazione.`,
  `Per i frontalieri, la detraibilità è condizionata al livello di imposta italiana dovuta: se l'IRPEF netta è bassa grazie al credito per le imposte svizzere già pagate, il bonus si può recuperare solo parzialmente. Il calcolatore mostra il punto di pareggio e suggerisce se massimizzare il bonus è ottimale rispetto ad altri investimenti data la tua specifica posizione fiscale italo-svizzera.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Requisiti e documenti per il bonus 2026</h2>`,
+ `<h2 class="s-o3IET6">Requisiti e documenti per il bonus 2026</h2>`,
  `Per accedere al Bonus Ristrutturazione 2026 servono: CILA o SCIA depositata al Comune, fatture con bonifico parlante (causale specifica con riferimento alla norma), e comunicazione all'ENEA per gli interventi di efficienza energetica. I frontalieri devono inoltre presentare il Modello 730 o Redditi PF con il quadro E compilato, indicando il codice fiscale e la documentazione delle imposte pagate in Svizzera per il calcolo del credito d'imposta.`,
  `Il tetto di spesa ammesso varia per tipologia di intervento: 96.000 EUR per ristrutturazione edilizia, 60.000-100.000 EUR per Ecobonus, 10.000 EUR per Bonus Mobili. Per chi ha acquistato casa come prima abitazione in Italia pur lavorando in Svizzera, la detrazione degli interessi sul mutuo può cumularsi con il bonus ristrutturazione, ottimizzando ulteriormente il risparmio fiscale complessivo.`,
  );
  } else if (canonicalPath.startsWith('/compara-servizi/confronta-offerte-lavoro')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Metodologia del confronto offerte lavoro Svizzera</h2>`,
+ `<h2 class="s-o3IET6">Metodologia del confronto offerte lavoro Svizzera</h2>`,
  `Il comparatore permette di mettere affiancate fino a 4 offerte di lavoro in Svizzera (Canton Ticino) e calcolare il <strong>netto reale mensile</strong> per ciascuna — non solo il lordo dichiarato dal datore di lavoro. Il calcolo incorpora sette fattori che la maggior parte dei portali di lavoro ignora: (1) <strong>imposta alla fonte Ticino 2026</strong> con tabelle A/B/C/H secondo stato civile e figli, (2) <strong>contributi sociali obbligatori</strong> AVS 5,3% + AC 1,1% + LPP variabile 7-18% per età, (3) <strong>imposta italiana residua</strong> con franchigia 10.000 EUR e credito d'imposta per nuovi frontalieri, (4) <strong>costi trasporto</strong> casa-sede (auto, treno TILO, abbonamento Arcobaleno), (5) <strong>tempo di viaggio</strong> convertito in costo-opportunità al salario orario netto, (6) <strong>home office</strong> (giorni/mese e impatto sul tempo viaggio), (7) <strong>benefit monetizzabili</strong> (buoni pasto, assicurazione integrativa, bonus target).`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Esempio numerico: due offerte a parità di lordo CHF 90.000</h2>`,
+ `<h2 class="s-o3IET6">Esempio numerico: due offerte a parità di lordo CHF 90.000</h2>`,
  `<strong>Offerta A</strong> — Lugano, CHF 90.000 lordi, 5 giorni/settimana in sede, pendolarismo auto 40 km da Como. Netto svizzero dopo AVS/AC/LPP e imposta alla fonte tabella A0N: circa CHF 70.400/anno. Costi diretti: carburante + pedaggi EUR 4.200/anno, usura auto + parcheggio CHF 1.800/anno, tempo viaggio 2h/giorno × 220 giorni × 35 CHF/h = costo-opportunità CHF 15.400. Netto economico reale: ~CHF 50.000/anno in EUR (~EUR 52.500).`,
  `<strong>Offerta B</strong> — Mendrisio, CHF 90.000 lordi, 2 giorni home office + 3 giorni in sede, pendolarismo treno TILO da Como 20 km. Netto svizzero identico a offerta A (CHF 70.400). Costi diretti: abbonamento Arcobaleno anno CHF 1.450, tempo viaggio solo 3 giorni × 1h × 132 giorni = costo-opportunità CHF 4.620. Netto economico reale: ~CHF 64.300/anno (~EUR 67.500). A parità di lordo, l'offerta B vale <strong>EUR 15.000 in più all'anno</strong> grazie a home office, distanza minore e trasporto pubblico.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come integrare il confronto con gli altri strumenti</h2>`,
+ `<h2 class="s-o3IET6">Come integrare il confronto con gli altri strumenti</h2>`,
  `Per un'analisi completa, combina il confronto con il <a href="/calcola-stipendio/">simulatore stipendio frontaliere</a> (per verificare le singole voci di trattenuta), il <a href="/guida-frontaliere/costo-auto-pendolare/">calcolatore costo auto pendolare</a> (per validare i parametri di trasporto) e il <a href="/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/">simulatore tasse nuovi frontalieri</a> (per stimare l'IRPEF residua con la franchigia di 10.000 EUR). Le offerte attualmente disponibili in Canton Ticino sono elencate nella <a href="/cerca-lavoro-ticino/">bacheca lavoro Ticino</a>.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Aggiornamento dati e fonti</h2>`,
+ `<h2 class="s-o3IET6">Aggiornamento dati e fonti</h2>`,
  `Le aliquote fiscali, i contributi sociali e la franchigia IRPEF sono aggiornati al 2026 sulle tabelle ufficiali dell'Amministrazione cantonale delle contribuzioni Ticino e dell'Agenzia delle Entrate italiana. Il tasso di cambio CHF-EUR viene aggiornato quotidianamente alle 18:00 CET dalla BNS. I parametri dei costi trasporto (prezzi carburante, pedaggi autostradali, abbonamenti TILO/FFS) sono rivisti trimestralmente. Puoi salvare il confronto come PDF per allegarlo alla trattativa salariale o alla valutazione di un cambio lavoro.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonti: <a href="https://www4.ti.ch/dfe" style="color:var(--color-link);text-decoration:none;" rel="noopener">Divisione delle contribuzioni Ticino</a> · <a href="https://www.bns.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Banca Nazionale Svizzera (BNS)</a> · <a href="https://www.arcobaleno.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Comunità tariffale Arcobaleno</a></p>`,
+ `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www4.ti.ch/dfe" rel="noopener">Divisione delle contribuzioni Ticino</a> · <a class="s-OsohZU" href="https://www.bns.ch" rel="noopener">Banca Nazionale Svizzera (BNS)</a> · <a class="s-OsohZU" href="https://www.arcobaleno.ch" rel="noopener">Comunità tariffale Arcobaleno</a></p>`,
  );
  } else if (canonicalPath.startsWith('/compara-servizi/costo-auto')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Costo auto per frontalieri: Svizzera vs Italia</h2>`,
+ `<h2 class="s-o3IET6">Costo auto per frontalieri: Svizzera vs Italia</h2>`,
  `Il calcolatore del costo auto confronta le spese annuali di possedere e usare un veicolo in Svizzera e in Italia, includendo assicurazione RC, bollo/imposta di circolazione, manutenzione, carburante e pedaggi.`,
  `Per i frontalieri che attraversano quotidianamente il confine, le targhe svizzere e italiane comportano costi differenti: l'assicurazione svizzera copre la circolazione in tutta Europa, ma i premi possono superare i 1500 CHF/anno.`,
  );
  } else if (canonicalPath.startsWith('/compara-servizi/')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Comparatori per frontalieri Svizzera-Italia</h2>`,
+ `<h2 class="s-o3IET6">Comparatori per frontalieri Svizzera-Italia</h2>`,
  `Questa sezione mette a confronto servizi, costi e condizioni rilevanti per chi lavora in Svizzera e vive in Italia, con dati aggiornati e strumenti interattivi per decisioni informate.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Voci di spesa della vita transfrontaliera</h2>`,
+ `<h2 class="s-o3IET6">Voci di spesa della vita transfrontaliera</h2>`,
  `Ogni comparatore utilizza dati reali e fonti verificabili per garantire risultati affidabili. I parametri sono personalizzabili in base alla tua situazione specifica di frontaliere.`,
  `I confronti coprono le principali voci di spesa della vita transfrontaliera — banche, assicurazioni sanitarie, operatori mobili, costo della spesa e asili nido — aiutandoti a risparmiare senza rinunciare alla qualità dei servizi.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.bfs.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Ufficio federale di statistica (UST)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">Ufficio federale di statistica (UST)</a></p>`,
  );
  } else if (canonicalPath.startsWith('/tasse-e-pensione/calcola-previdenza')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Calcolo pensione frontaliere Svizzera</h2>`,
+ `<h2 class="s-o3IET6">Calcolo pensione frontaliere Svizzera</h2>`,
  `Il simulatore previdenziale stima la rendita pensionistica combinando primo pilastro AVS (rendita massima 2024: 2450 CHF/mese), secondo pilastro LPP (accrediti dal 7 % al 18 % in base all'età) e terzo pilastro 3a facoltativo.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Strategie previdenziali per frontalieri</h2>`,
+ `<h2 class="s-o3IET6">Strategie previdenziali per frontalieri</h2>`,
  `Per i frontalieri, la pensione svizzera viene versata anche dopo il rientro definitivo in Italia. I contributi AVS maturati in Svizzera si sommano a quelli INPS italiani grazie alla convenzione bilaterale di sicurezza sociale.`,
  `Il simulatore mostra anche l'impatto di diverse strategie: versamenti volontari al pilastro 3a, riscatto LPP, e l'effetto del tasso di conversione sulla rendita finale, con proiezioni a 5, 10 e 20 anni.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.bsv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Ufficio federale delle assicurazioni sociali (UFAS)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.bsv.admin.ch" rel="noopener">Ufficio federale delle assicurazioni sociali (UFAS)</a></p>`,
  );
  } else if (canonicalPath.startsWith('/tasse-e-pensione/scadenze-fiscali')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Scadenze fiscali frontalieri 2026</h2>`,
+ `<h2 class="s-o3IET6">Scadenze fiscali frontalieri 2026</h2>`,
  `Il calendario fiscale mostra tutte le scadenze che un frontaliere deve rispettare in Svizzera e in Italia: dichiarazione dei redditi (730/Modello Redditi PF), conguaglio imposta alla fonte, versamento IMU e addizionali regionali/comunali.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Franchigia 10.000 EUR per nuovi frontalieri</h2>`,
+ `<h2 class="s-o3IET6">Franchigia 10.000 EUR per nuovi frontalieri</h2>`,
  `Per i nuovi frontalieri (regime dal 2024), la franchigia di 10.000 EUR si applica al reddito da lavoro dipendente in Svizzera ai fini IRPEF: la dichiarazione italiana tiene conto di questo abbattimento nella base imponibile.`,
  `Rispettare ogni scadenza evita sanzioni e interessi di mora. Lo strumento ti invia promemoria personalizzati e mostra il calendario completo con le date italiane e svizzere sovrapposte.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  );
  } else if (canonicalPath.startsWith('/tasse-e-pensione/simula-terzo-pilastro')) {
  editorialBlocks.push(
  `Il simulatore del terzo pilastro 3a calcola il capitale accumulato e la rendita futura in base a versamento annuo, durata, rendimento atteso e imposta di riscatto, mostrando il vantaggio fiscale rispetto a investimenti non agevolati.`,
  `Nel 2026, il massimo deducibile per il pilastro 3a è di 7258 CHF per lavoratori affiliati a un fondo pensione LPP. Il versamento riduce direttamente il reddito imponibile ai fini dell'imposta alla fonte cantonale.`,
  `Il simulatore confronta anche scenari con diversi orizzonti temporali e rendimenti, permettendo di visualizzare l'effetto dell'interesse composto e dell'agevolazione fiscale sul lungo periodo.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.bsv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Ufficio federale delle assicurazioni sociali (UFAS)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.bsv.admin.ch" rel="noopener">Ufficio federale delle assicurazioni sociali (UFAS)</a></p>`,
  );
  } else if (canonicalPath.startsWith('/tasse-e-pensione/crediti-imposta')) {
  editorialBlocks.push(
  `Il calcolatore dei crediti d'imposta determina il credito per imposte pagate all'estero (Art. 165 TUIR) applicabile nella dichiarazione italiana, evitando la doppia imposizione sul reddito da lavoro svizzero.`,
  `Con il Nuovo Accordo 2024, l'Italia tassa il reddito dei nuovi frontalieri con una franchigia di 10.000 EUR e riconosce un credito per l'imposta alla fonte svizzera pagata, fino a concorrenza dell'imposta italiana dovuta.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  );
  } else if (canonicalPath.startsWith('/tasse-e-pensione/dichiarazione-redditi')) {
  editorialBlocks.push(
@@ -2747,15 +2756,15 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  } else if (canonicalPath.startsWith('/tasse-e-pensione/quiz-fiscale')) {
  // H.5: Quiz fiscale — espansione 500+ parole con FAQ, esempi e fonti
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come funziona il quiz fiscale frontalieri 2026</h2>`,
+ `<h2 class="s-o3IET6">Come funziona il quiz fiscale frontalieri 2026</h2>`,
  `Il quiz fiscale settimanale mette alla prova le conoscenze del frontaliere su tasse, deduzioni, permessi e normative in vigore nel 2026. Ogni settimana vengono selezionate 5 domande dal pool complessivo di 20 item, estratte in modo pseudo-casuale per coprire equamente quattro aree tematiche: fiscalità svizzera (imposta alla fonte Ticino, tabelle A/B/C/H), fiscalità italiana (IRPEF, franchigia 10.000 EUR, quadro CE), contributi sociali (AVS 5,3%, AC 1,1%, LPP variabile per età) e assicurazioni/permessi (LAMal, diritto d'opzione, permesso G vs B).`,
  `Le 20 domande del pool sono state redatte da consulenti specializzati in fiscalità transfrontaliera e validate contro testi normativi: Accordo CH-IT del 23 dicembre 2020 (RS 0.642.045.43), Legge federale sull'imposta federale diretta (LIFD), Circolari dell'Agenzia delle Entrate italiana e direttive dell'Amministrazione cantonale delle contribuzioni Ticino. Il quiz è gratuito, richiede circa 6-8 minuti e termina con un punteggio finale (5/5, 4/5, etc.) accompagnato dalla spiegazione dettagliata di ciascuna risposta.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Cosa imparerai — esempi di domande</h2>`,
+ `<h2 class="s-o3IET6">Cosa imparerai — esempi di domande</h2>`,
  `Ogni domanda è costruita su uno scenario reale del frontaliere. Esempi: (1) "Un nuovo frontaliere residente a Como con reddito lordo CHF 72.000 quanto paga di imposta alla fonte Ticino 2026 con tabella A0N?" — risposta con aliquota effettiva applicata e riferimento alla tabella ufficiale; (2) "La franchigia IRPEF di 10.000 EUR si applica al lordo o al netto del reddito svizzero?" — risposta con chiarimento sul reddito da lavoro dipendente e trattamento in dichiarazione; (3) "Quando si può richiedere la rettifica dell'imposta alla fonte (TDR) in Svizzera?" — scadenza 31 marzo e requisiti.`,
  `Le risposte spiegate includono il percorso di calcolo passo-passo, il riferimento normativo preciso (articolo di legge o circolare), e collegamenti diretti agli <a href="/tasse-e-pensione/">simulatori fiscali del sito</a> per applicare subito il concetto alla propria situazione. Il quiz è uno strumento didattico complementare al <a href="/calcola-stipendio/">simulatore stipendio frontaliere</a> e alla <a href="/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/">guida completa lavoro frontaliere</a>.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Punteggio, gamification e aggiornamenti</h2>`,
+ `<h2 class="s-o3IET6">Punteggio, gamification e aggiornamenti</h2>`,
  `Il punteggio contribuisce al sistema di gamification del sito: 5/5 sblocca il badge "Esperto Fiscale Frontaliere", 4/5 sblocca "Frontaliere Informato", 3/5 equivale a "In formazione". I badge sono visibili nel profilo e possono essere condivisi sui social. Le domande vengono ruotate trimestralmente per riflettere aggiornamenti normativi: adeguamenti delle tabelle d'imposta alla fonte, variazione della franchigia, modifiche alle aliquote AVS/LPP e nuove interpretazioni giurisprudenziali sul concetto di residenza fiscale CH-IT.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonti normative: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a> · <a href="https://www.agenziaentrate.gov.it" style="color:var(--color-link);text-decoration:none;" rel="noopener">Agenzia delle Entrate</a> · Accordo CH-IT 23.12.2020 (RS 0.642.045.43)</p>`,
+ `<p class="s-tTvoK-">Fonti normative: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a> · Accordo CH-IT 23.12.2020 (RS 0.642.045.43)</p>`,
  );
  } else if (canonicalPath.startsWith('/tasse-e-pensione/calcola-ristorni')) {
  editorialBlocks.push(
@@ -2764,44 +2773,44 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  );
  } else if (canonicalPath.startsWith('/tasse-e-pensione/festivita-ticino')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.15rem;font-weight:700;margin:1rem 0 .5rem">Festività Ticino 2026: calendario ufficiale completo</h2>`,
- `Il Canton Ticino osserva 15 giorni festivi ufficiali all'anno, il calendario cantonale più ricco della Svizzera. Si tratta dei 9 festivi nazionali svizzeri (Capodanno, Giovedì Santo, Venerdì Santo, Pasqua, Lunedì dell'Angelo, Ascensione, Pentecoste, Festa Nazionale del 1° agosto e Natale) più 6 festivi cantonali ticinesi legati alla tradizione cattolica della Svizzera italiana (Epifania, San Giuseppe, SS. Pietro e Paolo, Assunzione, Ognissanti e Santo Stefano). Per chi lavora oltre frontiera, questi giorni incidono direttamente sul calcolo degli straordinari, sulla retribuzione dei giorni festivi lavorati e sul numero di ore utili per la <a href="https://frontaliereticino.ch/calcolo-tredicesima-frontaliere/" style="color:var(--color-link);text-decoration:none">tredicesima svizzera del frontaliere</a>. Usa il <a href="https://frontaliereticino.ch/calcola-stipendio/" style="color:var(--color-link);text-decoration:none">calcolatore stipendio frontaliere</a> per stimare l'impatto dei festivi lavorati sul netto mensile.`,
- `<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Calendario festività Ticino 2026</h2>`,
- `<div style="overflow-x:auto;margin:.5rem 0 1rem"><table style="width:100%;border-collapse:collapse;font-size:0.9rem"><thead><tr style="background:#f1f5f9"><th style="text-align:left;padding:.5rem;border:1px solid #cbd5e1">Data</th><th style="text-align:left;padding:.5rem;border:1px solid #cbd5e1">Giorno</th><th style="text-align:left;padding:.5rem;border:1px solid #cbd5e1">Festività</th><th style="text-align:left;padding:.5rem;border:1px solid #cbd5e1">Tipologia</th></tr></thead><tbody><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Gio 1 gen 2026</td><td style="padding:.4rem;border:1px solid #e2e8f0">Giovedì</td><td style="padding:.4rem;border:1px solid #e2e8f0">Capodanno</td><td style="padding:.4rem;border:1px solid #e2e8f0">Federale</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Ven 2 gen 2026</td><td style="padding:.4rem;border:1px solid #e2e8f0">Venerdì</td><td style="padding:.4rem;border:1px solid #e2e8f0">San Berchtoldo</td><td style="padding:.4rem;border:1px solid #e2e8f0">Cantonale parziale</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Mar 6 gen 2026</td><td style="padding:.4rem;border:1px solid #e2e8f0">Martedì</td><td style="padding:.4rem;border:1px solid #e2e8f0">Epifania</td><td style="padding:.4rem;border:1px solid #e2e8f0">Cantonale (TI)</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Gio 19 mar 2026</td><td style="padding:.4rem;border:1px solid #e2e8f0">Giovedì</td><td style="padding:.4rem;border:1px solid #e2e8f0">San Giuseppe</td><td style="padding:.4rem;border:1px solid #e2e8f0">Cantonale (TI)</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Ven 3 apr 2026</td><td style="padding:.4rem;border:1px solid #e2e8f0">Venerdì</td><td style="padding:.4rem;border:1px solid #e2e8f0">Venerdì Santo</td><td style="padding:.4rem;border:1px solid #e2e8f0">Federale</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Lun 6 apr 2026</td><td style="padding:.4rem;border:1px solid #e2e8f0">Lunedì</td><td style="padding:.4rem;border:1px solid #e2e8f0">Lunedì dell'Angelo (Pasquetta)</td><td style="padding:.4rem;border:1px solid #e2e8f0">Federale</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Ven 1 mag 2026</td><td style="padding:.4rem;border:1px solid #e2e8f0">Venerdì</td><td style="padding:.4rem;border:1px solid #e2e8f0">Festa del Lavoro</td><td style="padding:.4rem;border:1px solid #e2e8f0">Cantonale (TI)</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Gio 14 mag 2026</td><td style="padding:.4rem;border:1px solid #e2e8f0">Giovedì</td><td style="padding:.4rem;border:1px solid #e2e8f0">Ascensione</td><td style="padding:.4rem;border:1px solid #e2e8f0">Federale</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Lun 25 mag 2026</td><td style="padding:.4rem;border:1px solid #e2e8f0">Lunedì</td><td style="padding:.4rem;border:1px solid #e2e8f0">Lunedì di Pentecoste</td><td style="padding:.4rem;border:1px solid #e2e8f0">Federale</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Gio 4 giu 2026</td><td style="padding:.4rem;border:1px solid #e2e8f0">Giovedì</td><td style="padding:.4rem;border:1px solid #e2e8f0">Corpus Domini</td><td style="padding:.4rem;border:1px solid #e2e8f0">Cantonale (TI)</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Lun 29 giu 2026</td><td style="padding:.4rem;border:1px solid #e2e8f0">Lunedì</td><td style="padding:.4rem;border:1px solid #e2e8f0">SS. Pietro e Paolo</td><td style="padding:.4rem;border:1px solid #e2e8f0">Cantonale (TI)</td></tr><tr style="background:#fef3c7"><td style="padding:.4rem;border:1px solid #e2e8f0"><strong>Sab 1 ago 2026</strong></td><td style="padding:.4rem;border:1px solid #e2e8f0">Sabato</td><td style="padding:.4rem;border:1px solid #e2e8f0">Festa Nazionale Svizzera</td><td style="padding:.4rem;border:1px solid #e2e8f0">Federale</td></tr><tr style="background:#fef3c7"><td style="padding:.4rem;border:1px solid #e2e8f0"><strong>Sab 15 ago 2026</strong></td><td style="padding:.4rem;border:1px solid #e2e8f0">Sabato</td><td style="padding:.4rem;border:1px solid #e2e8f0">Assunzione</td><td style="padding:.4rem;border:1px solid #e2e8f0">Cantonale (TI)</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Dom 1 nov 2026</td><td style="padding:.4rem;border:1px solid #e2e8f0">Domenica</td><td style="padding:.4rem;border:1px solid #e2e8f0">Ognissanti (Tutti i Santi)</td><td style="padding:.4rem;border:1px solid #e2e8f0">Cantonale (TI)</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Mar 8 dic 2026</td><td style="padding:.4rem;border:1px solid #e2e8f0">Martedì</td><td style="padding:.4rem;border:1px solid #e2e8f0">Immacolata Concezione</td><td style="padding:.4rem;border:1px solid #e2e8f0">Cantonale (TI)</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Ven 25 dic 2026</td><td style="padding:.4rem;border:1px solid #e2e8f0">Venerdì</td><td style="padding:.4rem;border:1px solid #e2e8f0">Natale</td><td style="padding:.4rem;border:1px solid #e2e8f0">Federale</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Sab 26 dic 2026</td><td style="padding:.4rem;border:1px solid #e2e8f0">Sabato</td><td style="padding:.4rem;border:1px solid #e2e8f0">Santo Stefano</td><td style="padding:.4rem;border:1px solid #e2e8f0">Cantonale (TI)</td></tr></tbody></table></div>`,
- `<p style="font-size:0.85rem;color:#475569;margin:.25rem 0 1rem">Nel 2026 due festivi principali cadono di sabato (1° agosto e 15 agosto) e uno di domenica (1° novembre). La legge svizzera non prevede il recupero automatico come in Italia: il frontaliere non ha diritto a un giorno libero aggiuntivo salvo che il CCL (Contratto Collettivo di Lavoro) applicato lo preveda esplicitamente.</p>`,
- `<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Ticino vs resto della Svizzera: quali festività sono diverse</h2>`,
- `<div style="overflow-x:auto;margin:.5rem 0 1rem"><table style="width:100%;border-collapse:collapse;font-size:0.9rem"><thead><tr style="background:#f1f5f9"><th style="text-align:left;padding:.5rem;border:1px solid #cbd5e1">Festività</th><th style="text-align:center;padding:.5rem;border:1px solid #cbd5e1">Ticino</th><th style="text-align:center;padding:.5rem;border:1px solid #cbd5e1">Zurigo / Berna</th><th style="text-align:center;padding:.5rem;border:1px solid #cbd5e1">Ginevra / Vaud</th></tr></thead><tbody><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Epifania (6 gen)</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">No</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">No</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">San Giuseppe (19 mar)</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">No</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">No</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Festa del Lavoro (1 mag)</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">Parziale</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">Sì</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Corpus Domini</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">No</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">No</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">SS. Pietro e Paolo (29 giu)</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">No</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">No</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Assunzione (15 ago)</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">No</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">No</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Ognissanti (1 nov)</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">No</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">No</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Immacolata (8 dic)</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">No</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">No</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0">Santo Stefano (26 dic)</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0;text-align:center">No</td></tr></tbody></table></div>`,
+ `<h2 class="s-lEEXLG">Festività Ticino 2026: calendario ufficiale completo</h2>`,
+ `Il Canton Ticino osserva 15 giorni festivi ufficiali all'anno, il calendario cantonale più ricco della Svizzera. Si tratta dei 9 festivi nazionali svizzeri (Capodanno, Giovedì Santo, Venerdì Santo, Pasqua, Lunedì dell'Angelo, Ascensione, Pentecoste, Festa Nazionale del 1° agosto e Natale) più 6 festivi cantonali ticinesi legati alla tradizione cattolica della Svizzera italiana (Epifania, San Giuseppe, SS. Pietro e Paolo, Assunzione, Ognissanti e Santo Stefano). Per chi lavora oltre frontiera, questi giorni incidono direttamente sul calcolo degli straordinari, sulla retribuzione dei giorni festivi lavorati e sul numero di ore utili per la <a class="s-U9K6Vf" href="https://frontaliereticino.ch/calcolo-tredicesima-frontaliere/">tredicesima svizzera del frontaliere</a>. Usa il <a class="s-U9K6Vf" href="https://frontaliereticino.ch/calcola-stipendio/">calcolatore stipendio frontaliere</a> per stimare l'impatto dei festivi lavorati sul netto mensile.`,
+ `<h2 class="s-FoMhWG">Calendario festività Ticino 2026</h2>`,
+ `<div class="s-Tzz0X_"><table class="s-bzA9D0"><thead><tr class="s-3WzZY3"><th class="s-oF89cR">Data</th><th class="s-oF89cR">Giorno</th><th class="s-oF89cR">Festività</th><th class="s-oF89cR">Tipologia</th></tr></thead><tbody><tr><td class="s-z725d5">Gio 1 gen 2026</td><td class="s-z725d5">Giovedì</td><td class="s-z725d5">Capodanno</td><td class="s-z725d5">Federale</td></tr><tr><td class="s-z725d5">Ven 2 gen 2026</td><td class="s-z725d5">Venerdì</td><td class="s-z725d5">San Berchtoldo</td><td class="s-z725d5">Cantonale parziale</td></tr><tr><td class="s-z725d5">Mar 6 gen 2026</td><td class="s-z725d5">Martedì</td><td class="s-z725d5">Epifania</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Gio 19 mar 2026</td><td class="s-z725d5">Giovedì</td><td class="s-z725d5">San Giuseppe</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Ven 3 apr 2026</td><td class="s-z725d5">Venerdì</td><td class="s-z725d5">Venerdì Santo</td><td class="s-z725d5">Federale</td></tr><tr><td class="s-z725d5">Lun 6 apr 2026</td><td class="s-z725d5">Lunedì</td><td class="s-z725d5">Lunedì dell'Angelo (Pasquetta)</td><td class="s-z725d5">Federale</td></tr><tr><td class="s-z725d5">Ven 1 mag 2026</td><td class="s-z725d5">Venerdì</td><td class="s-z725d5">Festa del Lavoro</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Gio 14 mag 2026</td><td class="s-z725d5">Giovedì</td><td class="s-z725d5">Ascensione</td><td class="s-z725d5">Federale</td></tr><tr><td class="s-z725d5">Lun 25 mag 2026</td><td class="s-z725d5">Lunedì</td><td class="s-z725d5">Lunedì di Pentecoste</td><td class="s-z725d5">Federale</td></tr><tr><td class="s-z725d5">Gio 4 giu 2026</td><td class="s-z725d5">Giovedì</td><td class="s-z725d5">Corpus Domini</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Lun 29 giu 2026</td><td class="s-z725d5">Lunedì</td><td class="s-z725d5">SS. Pietro e Paolo</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr class="s-ATnCqo"><td class="s-z725d5"><strong>Sab 1 ago 2026</strong></td><td class="s-z725d5">Sabato</td><td class="s-z725d5">Festa Nazionale Svizzera</td><td class="s-z725d5">Federale</td></tr><tr class="s-ATnCqo"><td class="s-z725d5"><strong>Sab 15 ago 2026</strong></td><td class="s-z725d5">Sabato</td><td class="s-z725d5">Assunzione</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Dom 1 nov 2026</td><td class="s-z725d5">Domenica</td><td class="s-z725d5">Ognissanti (Tutti i Santi)</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Mar 8 dic 2026</td><td class="s-z725d5">Martedì</td><td class="s-z725d5">Immacolata Concezione</td><td class="s-z725d5">Cantonale (TI)</td></tr><tr><td class="s-z725d5">Ven 25 dic 2026</td><td class="s-z725d5">Venerdì</td><td class="s-z725d5">Natale</td><td class="s-z725d5">Federale</td></tr><tr><td class="s-z725d5">Sab 26 dic 2026</td><td class="s-z725d5">Sabato</td><td class="s-z725d5">Santo Stefano</td><td class="s-z725d5">Cantonale (TI)</td></tr></tbody></table></div>`,
+ `<p class="s-3DDKBR">Nel 2026 due festivi principali cadono di sabato (1° agosto e 15 agosto) e uno di domenica (1° novembre). La legge svizzera non prevede il recupero automatico come in Italia: il frontaliere non ha diritto a un giorno libero aggiuntivo salvo che il CCL (Contratto Collettivo di Lavoro) applicato lo preveda esplicitamente.</p>`,
+ `<h2 class="s-FoMhWG">Ticino vs resto della Svizzera: quali festività sono diverse</h2>`,
+ `<div class="s-Tzz0X_"><table class="s-bzA9D0"><thead><tr class="s-3WzZY3"><th class="s-oF89cR">Festività</th><th class="s-xatC0t">Ticino</th><th class="s-xatC0t">Zurigo / Berna</th><th class="s-xatC0t">Ginevra / Vaud</th></tr></thead><tbody><tr><td class="s-z725d5">Epifania (6 gen)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td><td class="s-OogV4_">No</td></tr><tr><td class="s-z725d5">San Giuseppe (19 mar)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td><td class="s-OogV4_">No</td></tr><tr><td class="s-z725d5">Festa del Lavoro (1 mag)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">Parziale</td><td class="s-OogV4_">Sì</td></tr><tr><td class="s-z725d5">Corpus Domini</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td><td class="s-OogV4_">No</td></tr><tr><td class="s-z725d5">SS. Pietro e Paolo (29 giu)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td><td class="s-OogV4_">No</td></tr><tr><td class="s-z725d5">Assunzione (15 ago)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td><td class="s-OogV4_">No</td></tr><tr><td class="s-z725d5">Ognissanti (1 nov)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td><td class="s-OogV4_">No</td></tr><tr><td class="s-z725d5">Immacolata (8 dic)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td><td class="s-OogV4_">No</td></tr><tr><td class="s-z725d5">Santo Stefano (26 dic)</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">Sì</td><td class="s-OogV4_">No</td></tr></tbody></table></div>`,
  `Il Canton Ticino, per ragioni di tradizione cattolica e di confine con l'Italia, ha il calendario festivo più ricco della Svizzera: 15 giorni festivi pagati contro i 9 nazionali. Questo è un vantaggio concreto per i frontalieri rispetto a chi lavora a Zurigo o Basilea, che perdono mediamente 5-6 giorni di festività cantonali all'anno. Un lavoratore in Ticino con salario mensile pieno di CHF 6.000 beneficia quindi di circa CHF 1.400 in più all'anno in termini di giorni pagati non lavorati rispetto al collega zurighese.`,
- `<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Cosa succede se il festivo cade di sabato o domenica?</h2>`,
+ `<h2 class="s-FoMhWG">Cosa succede se il festivo cade di sabato o domenica?</h2>`,
  `Questa è una delle domande più frequenti sulle festività Ticino 2026, e la risposta sorprende chi viene dall'Italia. A differenza del diritto italiano, la legge svizzera non prevede il recupero automatico dei giorni festivi che cadono nel weekend: se il festivo coincide con sabato o domenica, il lavoratore perde semplicemente il beneficio del giorno libero. Nel 2026 questa regola penalizza i frontalieri in modo concreto: il 1° agosto (Festa Nazionale Svizzera) cade di sabato, il 15 agosto (Assunzione) anche e il 1° novembre (Ognissanti) cade di domenica. Sono quindi tre festività potenzialmente "perse" sul calendario 2026.`,
- `Alcuni CCL settoriali prevedono però la compensazione con un giorno di ferie aggiuntivo. È il caso, ad esempio, del CCL dell'industria MEM (metalmeccanica), del CCL delle costruzioni, del CCL del commercio al dettaglio e di diversi CCL sanitari. Il frontaliere deve verificare il proprio <a href="https://frontaliereticino.ch/contratti-lavoro-svizzera/" style="color:var(--color-link);text-decoration:none">CCL di categoria</a> per capire se ha diritto a recuperare il festivo domenicale o se perde il giorno. Nei contratti individuali privi di CCL prevale il Codice delle Obbligazioni (CO art. 110 ss.), che non impone recuperi.`,
- `<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Differenze tra festività svizzere e italiane: cosa cambia per il frontaliere</h2>`,
+ `Alcuni CCL settoriali prevedono però la compensazione con un giorno di ferie aggiuntivo. È il caso, ad esempio, del CCL dell'industria MEM (metalmeccanica), del CCL delle costruzioni, del CCL del commercio al dettaglio e di diversi CCL sanitari. Il frontaliere deve verificare il proprio <a class="s-U9K6Vf" href="https://frontaliereticino.ch/contratti-lavoro-svizzera/">CCL di categoria</a> per capire se ha diritto a recuperare il festivo domenicale o se perde il giorno. Nei contratti individuali privi di CCL prevale il Codice delle Obbligazioni (CO art. 110 ss.), che non impone recuperi.`,
+ `<h2 class="s-FoMhWG">Differenze tra festività svizzere e italiane: cosa cambia per il frontaliere</h2>`,
  `Il frontaliere italiano che lavora in Ticino deve seguire il calendario festivo svizzero in base al principio lex loci laboris (la legge del luogo di lavoro regola il rapporto): non ha automaticamente diritto a restare a casa nei giorni festivi italiani non riconosciuti in Svizzera. Festività italiane come il 25 aprile (Festa della Liberazione), il 2 giugno (Festa della Repubblica) e le feste patronali locali (ad esempio Sant'Abbondio a Como il 31 agosto) non sono giorni non lavorativi in Ticino. Per assentarsi, il frontaliere deve usare giorni di ferie ordinarie o chiedere un permesso non retribuito.`,
  `Al contrario, alcune festività ticinesi cadono in giorni in cui in Italia si lavora: è il caso dell'Ascensione (giovedì), del Corpus Domini (giovedì) e dei lunedì di Pentecoste. Per le famiglie con figli iscritti in scuole italiane questo crea un disallineamento di calendario importante, che richiede pianificazione di babysitter, nonni o asili estivi. Pasqua, Natale e Capodanno sono invece allineati tra i due paesi, con il Ticino che aggiunge il Lunedì dell'Angelo (Pasquetta) come festivo federale.`,
- `<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Retribuzione, straordinari e maggiorazioni nei festivi lavorati</h2>`,
- `I festivi che cadono in giorni feriali riducono il numero di giorni lavorativi del mese e possono influenzare il calcolo del salario proporzionale, l'accantonamento dei giorni di vacanza e la distribuzione della <a href="https://frontaliereticino.ch/calcolo-tredicesima-frontaliere/" style="color:var(--color-link);text-decoration:none">tredicesima mensilità del frontaliere</a> nel corso dell'anno. La legge svizzera (CO art. 329) prevede che il datore di lavoro paghi il giorno festivo anche in caso di assenza del lavoratore dipendente con salario mensile, salvo eccezioni contrattuali per il personale pagato ad ore (Stundenlohn).`,
- `Chi lavora durante un giorno festivo riconosciuto dal Canton Ticino ha generalmente diritto a una maggiorazione tra il 50% e il 100% della paga oraria ordinaria, oppure a un giorno di compensazione da usufruire entro 14 settimane. Le condizioni esatte sono stabilite dal CCL di categoria: il CCL MEM prevede +50%, il CCL della costruzione +50% con giorno di recupero obbligatorio, il CCL della sanità può arrivare a +100% per il lavoro domenicale festivo, il CCL dell'ospitalità (Gastrosuisse) prevede maggiorazioni tra 25% e 50% con compensazione in tempo. In assenza di CCL si applica il Codice delle Obbligazioni (CO art. 321-329) e la Legge sul Lavoro cantonale (RL 5.1.1.1). Vedi il dettaglio completo nei <a href="https://frontaliereticino.ch/contratti-lavoro-svizzera/" style="color:var(--color-link);text-decoration:none">contratti collettivi di lavoro svizzeri</a>.`,
- `<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Ponti migliori del calendario festività Ticino 2026</h2>`,
+ `<h2 class="s-FoMhWG">Retribuzione, straordinari e maggiorazioni nei festivi lavorati</h2>`,
+ `I festivi che cadono in giorni feriali riducono il numero di giorni lavorativi del mese e possono influenzare il calcolo del salario proporzionale, l'accantonamento dei giorni di vacanza e la distribuzione della <a class="s-U9K6Vf" href="https://frontaliereticino.ch/calcolo-tredicesima-frontaliere/">tredicesima mensilità del frontaliere</a> nel corso dell'anno. La legge svizzera (CO art. 329) prevede che il datore di lavoro paghi il giorno festivo anche in caso di assenza del lavoratore dipendente con salario mensile, salvo eccezioni contrattuali per il personale pagato ad ore (Stundenlohn).`,
+ `Chi lavora durante un giorno festivo riconosciuto dal Canton Ticino ha generalmente diritto a una maggiorazione tra il 50% e il 100% della paga oraria ordinaria, oppure a un giorno di compensazione da usufruire entro 14 settimane. Le condizioni esatte sono stabilite dal CCL di categoria: il CCL MEM prevede +50%, il CCL della costruzione +50% con giorno di recupero obbligatorio, il CCL della sanità può arrivare a +100% per il lavoro domenicale festivo, il CCL dell'ospitalità (Gastrosuisse) prevede maggiorazioni tra 25% e 50% con compensazione in tempo. In assenza di CCL si applica il Codice delle Obbligazioni (CO art. 321-329) e la Legge sul Lavoro cantonale (RL 5.1.1.1). Vedi il dettaglio completo nei <a class="s-U9K6Vf" href="https://frontaliereticino.ch/contratti-lavoro-svizzera/">contratti collettivi di lavoro svizzeri</a>.`,
+ `<h2 class="s-FoMhWG">Ponti migliori del calendario festività Ticino 2026</h2>`,
  `Il calendario 2026 offre diversi ponti interessanti per i frontalieri che vogliono ottimizzare i giorni di ferie. I migliori sono: (1) Pasqua — Venerdì Santo 3 aprile + Pasquetta 6 aprile: bastano zero giorni di ferie per ottenere 4 giorni consecutivi. (2) Ascensione — giovedì 14 maggio, ponte con un giorno di ferie venerdì 15 maggio per 4 giorni consecutivi. (3) Corpus Domini — giovedì 4 giugno, ponte con venerdì 5 giugno per 4 giorni. (4) SS. Pietro e Paolo — lunedì 29 giugno, weekend lungo di 3 giorni senza usare ferie. (5) Immacolata — martedì 8 dicembre, ponte con lunedì 7 dicembre per 4 giorni consecutivi. Pianificando anticipatamente le ferie (rispettando il preavviso del CCL, generalmente 2 mesi per ferie estive) un frontaliere può ottenere fino a 25-28 giorni di vacanza effettiva usando solo 15-17 giorni del monte ferie.`,
- `<h2 style="font-size:1.15rem;font-weight:700;margin:1.25rem 0 .5rem">Giorni di ferie e festività: come si sommano?</h2>`,
+ `<h2 class="s-FoMhWG">Giorni di ferie e festività: come si sommano?</h2>`,
  `Per il diritto svizzero (CO art. 329a) il minimo legale di ferie è 4 settimane (20 giorni lavorativi) all'anno per lavoratori adulti e 5 settimane per lavoratori sotto i 20 anni. Molti CCL ticinesi prevedono 5 settimane dopo una certa anzianità (5-10 anni) e 6 settimane per over 50. I giorni festivi ticinesi NON rientrano nel conteggio delle ferie: si aggiungono ai 20 giorni di ferie minime. Un frontaliere con contratto MEM e 10 anni di anzianità ha quindi 25 giorni di ferie + circa 13 giorni festivi lavorativi (i 15 festivi meno quelli che nel 2026 cadono nel weekend) = 38 giorni pagati non lavorati all'anno. I frontalieri devono anche tenere presente che i festivi italiani non si applicano automaticamente in Svizzera: chi lavora in Ticino è soggetto al calendario svizzero e deve eventualmente concordare per iscritto con il datore di lavoro la possibilità di fruire dei festivi nazionali italiani (25 aprile, 2 giugno, Immacolata italiana) come giorni di ferie retribuite.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:1rem">Fonte: <a href="https://www4.ti.ch/dfe/dfe/" style="color:var(--color-link);text-decoration:none;" rel="noopener">Dipartimento finanze ed economia Canton Ticino</a> · <a href="https://www.seco.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">SECO</a> · Legge cantonale sui giorni festivi ufficiali del Canton Ticino (RL 10.1.1.5) · Codice delle Obbligazioni svizzero (CO art. 110, 321, 329, 329a)</p>`,
+ `<p class="s-JBVO9H">Fonte: <a class="s-OsohZU" href="https://www4.ti.ch/dfe/dfe/" rel="noopener">Dipartimento finanze ed economia Canton Ticino</a> · <a class="s-OsohZU" href="https://www.seco.admin.ch" rel="noopener">SECO</a> · Legge cantonale sui giorni festivi ufficiali del Canton Ticino (RL 10.1.1.5) · Codice delle Obbligazioni svizzero (CO art. 110, 321, 329, 329a)</p>`,
  );
  } else if (canonicalPath.startsWith('/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri')) {
  editorialBlocks.push(
  `Questa simulazione tasse nuovi frontalieri stima in pochi secondi l'imposta alla fonte Ticino, l'IRPEF italiana con la franchigia di 10.000 EUR e il credito d'imposta sul reddito estero. Con il Nuovo Accordo fiscale Italia-Svizzera entrato in vigore il 17 luglio 2023, i frontalieri assunti a partire da quella data — i cosiddetti "nuovi frontalieri" — sono soggetti a una tassazione concorrente: pagano l'imposta alla fonte in Svizzera (all'80 % dell'aliquota ordinaria) e l'IRPEF in Italia, con la franchigia di 10.000 EUR sul reddito da lavoro estero. Il simulatore è gratuito, anonimo e aggiornato alle aliquote 2026.`,
  `Il simulatore fiscale calcola in modo automatico tutte le componenti del netto mensile: contributi AVS/AI/IPG (5,3 %), AC (1,1 %), LPP variabile per fascia d'età, imposta alla fonte Ticino 2026 secondo le tabelle A/B/C/H, e poi la parte italiana con IRPEF, addizionale regionale e comunale, al netto della franchigia e del credito per imposte estere. Il risultato mostra il netto reale in EUR al tasso di cambio aggiornato.`,
  `Per evitare la doppia imposizione, il credito d'imposta previsto dall'accordo bilaterale permette di detrarre le imposte svizzere già pagate dall'IRPEF italiana dovuta, fino a concorrenza della quota relativa al reddito estero. Il simulatore stima automaticamente questo credito insieme al saldo fiscale finale, così puoi vedere in anticipo quanto pagherai in ciascun paese e pianificare la dichiarazione dei redditi.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
  );
  } else if (canonicalPath.startsWith('/tasse-e-pensione/')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Tassazione frontalieri Ticino 2026</h2>`,
+ `<h2 class="s-o3IET6">Tassazione frontalieri Ticino 2026</h2>`,
  `Questa sezione copre gli aspetti fiscali e previdenziali del lavoro transfrontaliero: imposta alla fonte svizzera, IRPEF italiana, contributi AVS/LPP e pianificazione pensionistica.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Nuovo accordo fiscale Italia-Svizzera</h2>`,
+ `<h2 class="s-o3IET6">Nuovo accordo fiscale Italia-Svizzera</h2>`,
  `Le informazioni sono aggiornate al Nuovo Accordo fiscale Italia-Svizzera 2024 e tengono conto delle specificità del Canton Ticino per l'imposta alla fonte e dei regimi transitori per i frontalieri storici (ante 2024).`,
  `Per ogni tema fiscale trovi simulatori interattivi che calcolano il tuo caso specifico e guide passo-passo per compilare correttamente dichiarazioni, moduli e richieste di rimborso.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a> · <a href="https://www.bsv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">UFAS</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a> · <a class="s-OsohZU" href="https://www.bsv.admin.ch" rel="noopener">UFAS</a></p>`,
  );
  } else if (canonicalPath.startsWith('/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026')) {
  editorialBlocks.push(
@@ -2856,28 +2865,28 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  } else if (canonicalPath.startsWith('/guida-frontaliere/mappa-confine')) {
  // H.5: Mappa valichi Svizzera-Italia — guida pratica con numeri e comuni
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Mappa del confine Svizzera-Italia per frontalieri</h2>`,
+ `<h2 class="s-o3IET6">Mappa del confine Svizzera-Italia per frontalieri</h2>`,
  `Il confine tra Canton Ticino e Italia si estende per circa 250 km e include 12 valichi aperti al traffico privato. I principali per volumi di frontalieri sono Chiasso-Brogeda (autostrada A2, circa 20.000 passaggi/giorno), Como-Brogeda (SS35, ingresso alternativo), Ponte Tresa (collega Luino e Lavena Ponte Tresa a Lugano, 12.000 passaggi/giorno), Stabio (frontalieri del Mendrisiotto, 9.500 passaggi), Gaggiolo e Bizzarone (SS342, circa 6.000 passaggi ciascuno), Ponte Chiasso pedonale, Porto Ceresio (lago Ceresio) e i valichi minori verso la Valle Morobbia e la Val Mesolcina.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Comuni italiani entro 20 km: chi ha diritto al regime "vecchi frontalieri"</h2>`,
+ `<h2 class="s-o3IET6">Comuni italiani entro 20 km: chi ha diritto al regime "vecchi frontalieri"</h2>`,
  `L'Accordo del 23 dicembre 2020 (L. 83/2023) definisce "zona di 20 km" la fascia che dà diritto al regime fiscale speciale. Per i vecchi frontalieri (assunti prima del 17 luglio 2023) il salario è tassato solo in Svizzera; per i nuovi si applica la tassazione concorrente con franchigia di EUR 10.000. I comuni italiani entro 20 km dal confine sono circa 300 e comprendono Como, Varese, Verbania, Luino, Porlezza, Menaggio, Cantù, Olgiate Comasco, Malnate, Maccagno, Cannobio, Domodossola (parziale) e Chiavenna (parziale). Il caso "20 km" si misura in linea d'aria dal punto di ingresso del valico, non su strada — un dettaglio rilevante per chi risiede in vallate che dilatano il tragitto stradale.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Scegliere il valico giusto: tempi e addizionali IRPEF</h2>`,
+ `<h2 class="s-o3IET6">Scegliere il valico giusto: tempi e addizionali IRPEF</h2>`,
  `La scelta del valico impatta sul tempo di pendolarismo medio: Chiasso-Brogeda ha code di 25-40 minuti in fascia 6:30-8:00 ma è l'unico con corsia preferenziale frontalieri attiva dal 2024; Ponte Tresa scende a 10-15 minuti in fascia diurna ma satura tra 17:00-18:30; Stabio è il più scorrevole ma richiede un tragitto più lungo da Varese. Oltre al tempo, pesano le addizionali IRPEF del comune di residenza: Como città applica 0,80% addizionale comunale + 1,73% regionale Lombardia, Varese 0,80% + 1,73%, Verbania 0,70% + 1,73%. Per un nuovo frontaliere con reddito CHF 75.000 la differenza annua tra i comuni con addizionale massima e minima della fascia di 20 km può raggiungere EUR 900.`,
  `Tutti i dati su valichi, tempi di attesa e addizionali sono integrati con il <a href="/calcola-stipendio/">simulatore stipendio netto</a>, il <a href="/guida-frontaliere/costo-auto-pendolare/">calcolatore costo auto pendolare</a> e il <a href="/statistiche/migliori-comuni-frontiera/">ranking migliori comuni di frontiera</a> per valutare quale comune + valico produca il miglior saldo netto disponibile.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonti: <a href="https://www.bazg.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">BAZG - Amministrazione federale delle dogane</a> · <a href="https://www.gdf.gov.it" style="color:var(--color-link);text-decoration:none;" rel="noopener">Guardia di Finanza</a> · <a href="https://www.finanze.gov.it" style="color:var(--color-link);text-decoration:none;" rel="noopener">MEF - Dipartimento delle Finanze</a></p>`,
+ `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www.bazg.admin.ch" rel="noopener">BAZG - Amministrazione federale delle dogane</a> · <a class="s-OsohZU" href="https://www.gdf.gov.it" rel="noopener">Guardia di Finanza</a> · <a class="s-OsohZU" href="https://www.finanze.gov.it" rel="noopener">MEF - Dipartimento delle Finanze</a></p>`,
  );
  } else if (canonicalPath.startsWith('/guida-frontaliere/costo-auto-pendolare')) {
  // H.5: Costo auto pendolare — casi studio numerici + tabelle
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Quanto costa davvero l'auto per un frontaliere</h2>`,
+ `<h2 class="s-o3IET6">Quanto costa davvero l'auto per un frontaliere</h2>`,
  `Il costo reale dell'auto per un frontaliere che pendola Italia-Ticino va oltre il pieno di benzina: comprende ammortamento del veicolo, assicurazione RCA + kasko, bollo, manutenzione e pneumatici, consumo carburante e pedaggi. Il TCS (Touring Club Svizzero) e l'ACI calcolano un costo medio chilometrico di EUR 0,38-0,52/km per un'auto di segmento C (tipo VW Golf) in uso intensivo. Per un frontaliere che percorre 50 km × 2 × 220 giorni lavorativi = 22.000 km/anno solo per il tragitto casa-lavoro, il costo annuo oscilla tra EUR 8.360 e EUR 11.440.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Caso studio 1 — Como-Lugano (30 km, A2)</h2>`,
+ `<h2 class="s-o3IET6">Caso studio 1 — Como-Lugano (30 km, A2)</h2>`,
  `Residenza: Como. Posto di lavoro: Lugano. Tragitto: 30 km × 2 = 60 km/giorno × 220 giorni = 13.200 km/anno. Auto diesel segmento C, consumo medio 6,5 L/100 km. Carburante: 858 L × EUR 1,80/L = EUR 1.545/anno. Assicurazione RCA + kasko (Como): EUR 1.100/anno. Bollo: EUR 280. Manutenzione + pneumatici: EUR 900. Ammortamento (valore auto EUR 22.000, vita utile 8 anni): EUR 2.750. Vignetta svizzera: CHF 40 = circa EUR 42. <strong>Costo totale annuo: EUR 6.617, pari a EUR 0,50/km.</strong> Alternativa treno TILO Como-Lugano: EUR 1.560/anno (abbonamento annuale frontaliere), risparmio netto EUR 5.057/anno.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Caso studio 2 — Varese-Mendrisio (18 km, valico Stabio)</h2>`,
+ `<h2 class="s-o3IET6">Caso studio 2 — Varese-Mendrisio (18 km, valico Stabio)</h2>`,
  `Residenza: Varese. Posto di lavoro: Mendrisio (polo industriale). Tragitto: 18 km × 2 = 36 km/giorno × 220 giorni = 7.920 km/anno. Auto benzina segmento B, consumo 6,0 L/100 km. Carburante: 475 L × EUR 1,85/L = EUR 879. Assicurazione (Varese, RC + kasko): EUR 950. Bollo: EUR 220. Manutenzione: EUR 700. Ammortamento (EUR 16.000 / 8 anni): EUR 2.000. Vignetta svizzera: EUR 42. <strong>Costo annuo: EUR 4.791, pari a EUR 0,61/km.</strong> Il costo al km è più alto per un'auto di valore minore perché i costi fissi (assicurazione, bollo) pesano percentualmente di più sui pochi chilometri percorsi.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Tabella confronto 4 scenari tipici</h2>`,
- `<div style="overflow-x:auto;margin:0.5rem 0;"><table style="width:100%;border-collapse:collapse;font-size:0.9rem;"><thead><tr style="background:#f1f5f9;"><th style="padding:8px;border:1px solid #e2e8f0;text-align:left;">Tratta</th><th style="padding:8px;border:1px solid #e2e8f0;">Km/anno</th><th style="padding:8px;border:1px solid #e2e8f0;">Costo auto/anno</th><th style="padding:8px;border:1px solid #e2e8f0;">Alternativa treno</th></tr></thead><tbody><tr><td style="padding:8px;border:1px solid #e2e8f0;">Como-Lugano</td><td style="padding:8px;border:1px solid #e2e8f0;text-align:center;">13.200</td><td style="padding:8px;border:1px solid #e2e8f0;text-align:center;">EUR 6.617</td><td style="padding:8px;border:1px solid #e2e8f0;text-align:center;">EUR 1.560</td></tr><tr><td style="padding:8px;border:1px solid #e2e8f0;">Varese-Mendrisio</td><td style="padding:8px;border:1px solid #e2e8f0;text-align:center;">7.920</td><td style="padding:8px;border:1px solid #e2e8f0;text-align:center;">EUR 4.791</td><td style="padding:8px;border:1px solid #e2e8f0;text-align:center;">EUR 1.320</td></tr><tr><td style="padding:8px;border:1px solid #e2e8f0;">Luino-Lugano</td><td style="padding:8px;border:1px solid #e2e8f0;text-align:center;">11.440</td><td style="padding:8px;border:1px solid #e2e8f0;text-align:center;">EUR 5.900</td><td style="padding:8px;border:1px solid #e2e8f0;text-align:center;">EUR 1.480</td></tr><tr><td style="padding:8px;border:1px solid #e2e8f0;">Domodossola-Brig</td><td style="padding:8px;border:1px solid #e2e8f0;text-align:center;">17.600</td><td style="padding:8px;border:1px solid #e2e8f0;text-align:center;">EUR 8.450</td><td style="padding:8px;border:1px solid #e2e8f0;text-align:center;">EUR 1.890</td></tr></tbody></table></div>`,
+ `<h2 class="s-o3IET6">Tabella confronto 4 scenari tipici</h2>`,
+ `<div class="s-fDg-Ev"><table class="s-_HU7Tb"><thead><tr class="s-wlPpjp"><th class="s-nZhn-B">Tratta</th><th class="s-jCpNMe">Km/anno</th><th class="s-jCpNMe">Costo auto/anno</th><th class="s-jCpNMe">Alternativa treno</th></tr></thead><tbody><tr><td class="s-jCpNMe">Como-Lugano</td><td class="s-iukv6x">13.200</td><td class="s-iukv6x">EUR 6.617</td><td class="s-iukv6x">EUR 1.560</td></tr><tr><td class="s-jCpNMe">Varese-Mendrisio</td><td class="s-iukv6x">7.920</td><td class="s-iukv6x">EUR 4.791</td><td class="s-iukv6x">EUR 1.320</td></tr><tr><td class="s-jCpNMe">Luino-Lugano</td><td class="s-iukv6x">11.440</td><td class="s-iukv6x">EUR 5.900</td><td class="s-iukv6x">EUR 1.480</td></tr><tr><td class="s-jCpNMe">Domodossola-Brig</td><td class="s-iukv6x">17.600</td><td class="s-iukv6x">EUR 8.450</td><td class="s-iukv6x">EUR 1.890</td></tr></tbody></table></div>`,
  `Il risparmio annuo spostandosi dal pendolarismo in auto al treno TILO varia tra EUR 3.400 e EUR 6.500. Per confronti più accurati usa il <a href="/guida-frontaliere/mappa-confine/">confronto valichi</a>, integra il dato nel <a href="/calcola-stipendio/">simulatore netto frontaliere</a> e consulta il <a href="/statistiche/migliori-comuni-frontiera/">ranking comuni di frontiera</a> per vedere quale comune ottimizza il saldo dopo il costo della mobilità.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonti: <a href="https://www.tcs.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">TCS</a> · <a href="https://www.aci.it" style="color:var(--color-link);text-decoration:none;" rel="noopener">ACI</a> · <a href="https://www.tilo.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">TILO</a></p>`,
+ `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www.tcs.ch" rel="noopener">TCS</a> · <a class="s-OsohZU" href="https://www.aci.it" rel="noopener">ACI</a> · <a class="s-OsohZU" href="https://www.tilo.ch" rel="noopener">TILO</a></p>`,
  );
  } else if (canonicalPath.startsWith('/guida-frontaliere/primo-giorno-lavoro')) {
  editorialBlocks.push(
@@ -2889,10 +2898,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // B.2 — Structural additions to mappa-confine: comparison table + deep-link grid.
  // Editorial paragraphs are owned by H.5/H.6 agents.
  editorialBlocks.push(
- `<h2 style="font-size:1.15rem;font-weight:700;margin:1rem 0 .5rem">Confronto rapido valichi Ticino-Italia</h2>`,
- `<div style="overflow-x:auto;margin:.5rem 0 1rem"><table style="width:100%;border-collapse:collapse;font-size:0.85rem"><thead><tr style="background:#f1f5f9"><th style="text-align:left;padding:.5rem;border:1px solid #cbd5e1">Valico</th><th style="text-align:left;padding:.5rem;border:1px solid #cbd5e1">Tipo</th><th style="text-align:left;padding:.5rem;border:1px solid #cbd5e1">Orari</th><th style="text-align:left;padding:.5rem;border:1px solid #cbd5e1">Attesa mattina</th><th style="text-align:left;padding:.5rem;border:1px solid #cbd5e1">Dogana</th><th style="text-align:left;padding:.5rem;border:1px solid #cbd5e1">Pedoni</th><th style="text-align:left;padding:.5rem;border:1px solid #cbd5e1">Webcam</th></tr></thead><tbody><tr><td style="padding:.4rem;border:1px solid #e2e8f0"><a href="/guida-frontaliere/tempi-attesa-dogana/brogeda-chiasso/" style="color:var(--color-link);text-decoration:none">Chiasso-Brogeda (A2)</a></td><td style="padding:.4rem;border:1px solid #e2e8f0">Autostrada</td><td style="padding:.4rem;border:1px solid #e2e8f0">24h</td><td style="padding:.4rem;border:1px solid #e2e8f0">8-15 min</td><td style="padding:.4rem;border:1px solid #e2e8f0">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0">No</td><td style="padding:.4rem;border:1px solid #e2e8f0">Sì (2)</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0"><a href="/guida-frontaliere/tempi-attesa-dogana/chiasso-centro-ponte-chiasso/" style="color:var(--color-link);text-decoration:none">Chiasso Centro (Ponte Chiasso)</a></td><td style="padding:.4rem;border:1px solid #e2e8f0">Statale</td><td style="padding:.4rem;border:1px solid #e2e8f0">24h</td><td style="padding:.4rem;border:1px solid #e2e8f0">15-30 min</td><td style="padding:.4rem;border:1px solid #e2e8f0">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0">Sì</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0"><a href="/guida-frontaliere/tempi-attesa-dogana/gaggiolo-cantello-stabio/" style="color:var(--color-link);text-decoration:none">Gaggiolo (Cantello-Stabio)</a></td><td style="padding:.4rem;border:1px solid #e2e8f0">Statale</td><td style="padding:.4rem;border:1px solid #e2e8f0">24h</td><td style="padding:.4rem;border:1px solid #e2e8f0">10-20 min</td><td style="padding:.4rem;border:1px solid #e2e8f0">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0">No</td><td style="padding:.4rem;border:1px solid #e2e8f0">Sì (2)</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0"><a href="/guida-frontaliere/tempi-attesa-dogana/ponte-tresa/" style="color:var(--color-link);text-decoration:none">Ponte Tresa</a></td><td style="padding:.4rem;border:1px solid #e2e8f0">Statale</td><td style="padding:.4rem;border:1px solid #e2e8f0">24h</td><td style="padding:.4rem;border:1px solid #e2e8f0">5-15 min</td><td style="padding:.4rem;border:1px solid #e2e8f0">No</td><td style="padding:.4rem;border:1px solid #e2e8f0">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0">—</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0"><a href="/guida-frontaliere/tempi-attesa-dogana/chiasso-strada/" style="color:var(--color-link);text-decoration:none">Chiasso-Strada</a></td><td style="padding:.4rem;border:1px solid #e2e8f0">Locale</td><td style="padding:.4rem;border:1px solid #e2e8f0">24h</td><td style="padding:.4rem;border:1px solid #e2e8f0">5-10 min</td><td style="padding:.4rem;border:1px solid #e2e8f0">No</td><td style="padding:.4rem;border:1px solid #e2e8f0">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0">—</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0"><a href="/guida-frontaliere/tempi-attesa-dogana/bizzarone-novazzano/" style="color:var(--color-link);text-decoration:none">Bizzarone-Novazzano</a></td><td style="padding:.4rem;border:1px solid #e2e8f0">Locale</td><td style="padding:.4rem;border:1px solid #e2e8f0">24h</td><td style="padding:.4rem;border:1px solid #e2e8f0">4-10 min</td><td style="padding:.4rem;border:1px solid #e2e8f0">No</td><td style="padding:.4rem;border:1px solid #e2e8f0">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0">—</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0"><a href="/guida-frontaliere/tempi-attesa-dogana/luino-fornasette/" style="color:var(--color-link);text-decoration:none">Luino-Fornasette</a></td><td style="padding:.4rem;border:1px solid #e2e8f0">Statale</td><td style="padding:.4rem;border:1px solid #e2e8f0">24h</td><td style="padding:.4rem;border:1px solid #e2e8f0">4-10 min</td><td style="padding:.4rem;border:1px solid #e2e8f0">No</td><td style="padding:.4rem;border:1px solid #e2e8f0">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0">—</td></tr><tr><td style="padding:.4rem;border:1px solid #e2e8f0"><a href="/guida-frontaliere/tempi-attesa-dogana/zenna-dirinella/" style="color:var(--color-link);text-decoration:none">Zenna-Dirinella</a></td><td style="padding:.4rem;border:1px solid #e2e8f0">Locale</td><td style="padding:.4rem;border:1px solid #e2e8f0">24h</td><td style="padding:.4rem;border:1px solid #e2e8f0">2-5 min</td><td style="padding:.4rem;border:1px solid #e2e8f0">No</td><td style="padding:.4rem;border:1px solid #e2e8f0">Sì</td><td style="padding:.4rem;border:1px solid #e2e8f0">—</td></tr></tbody></table></div>`,
- `<p style="font-size:0.85rem;color:#475569;margin:.25rem 0 1rem">Tempi indicativi nelle fasce di punta del lunedì-venerdì (7:00-8:30). Ogni valico ha una pagina dedicata con dati storici orari, webcam in diretta e consigli di percorso aggiornati.</p>`,
- `<p style="margin-top:.5rem"><strong>Valichi con webcam live:</strong> <a href="/guida-frontaliere/tempi-attesa-dogana/brogeda-chiasso/" style="color:var(--color-link);text-decoration:none">Brogeda</a> · <a href="/guida-frontaliere/tempi-attesa-dogana/chiasso-centro-ponte-chiasso/" style="color:var(--color-link);text-decoration:none">Chiasso Centro</a> · <a href="/guida-frontaliere/tempi-attesa-dogana/gaggiolo-cantello-stabio/" style="color:var(--color-link);text-decoration:none">Gaggiolo</a>. Le immagini sono fornite dal <a href="https://www.ti.ch/webcam" style="color:var(--color-link);text-decoration:none;" rel="noopener" target="_blank">Dipartimento del territorio del Canton Ticino</a> e si aggiornano ogni 60 secondi.</p>`,
+ `<h2 class="s-lEEXLG">Confronto rapido valichi Ticino-Italia</h2>`,
+ `<div class="s-Tzz0X_"><table class="s-YFwixH"><thead><tr class="s-3WzZY3"><th class="s-oF89cR">Valico</th><th class="s-oF89cR">Tipo</th><th class="s-oF89cR">Orari</th><th class="s-oF89cR">Attesa mattina</th><th class="s-oF89cR">Dogana</th><th class="s-oF89cR">Pedoni</th><th class="s-oF89cR">Webcam</th></tr></thead><tbody><tr><td class="s-z725d5"><a class="s-U9K6Vf" href="/guida-frontaliere/tempi-attesa-dogana/brogeda-chiasso/">Chiasso-Brogeda (A2)</a></td><td class="s-z725d5">Autostrada</td><td class="s-z725d5">24h</td><td class="s-z725d5">8-15 min</td><td class="s-z725d5">Sì</td><td class="s-z725d5">No</td><td class="s-z725d5">Sì (2)</td></tr><tr><td class="s-z725d5"><a class="s-U9K6Vf" href="/guida-frontaliere/tempi-attesa-dogana/chiasso-centro-ponte-chiasso/">Chiasso Centro (Ponte Chiasso)</a></td><td class="s-z725d5">Statale</td><td class="s-z725d5">24h</td><td class="s-z725d5">15-30 min</td><td class="s-z725d5">Sì</td><td class="s-z725d5">Sì</td><td class="s-z725d5">Sì</td></tr><tr><td class="s-z725d5"><a class="s-U9K6Vf" href="/guida-frontaliere/tempi-attesa-dogana/gaggiolo-cantello-stabio/">Gaggiolo (Cantello-Stabio)</a></td><td class="s-z725d5">Statale</td><td class="s-z725d5">24h</td><td class="s-z725d5">10-20 min</td><td class="s-z725d5">Sì</td><td class="s-z725d5">No</td><td class="s-z725d5">Sì (2)</td></tr><tr><td class="s-z725d5"><a class="s-U9K6Vf" href="/guida-frontaliere/tempi-attesa-dogana/ponte-tresa/">Ponte Tresa</a></td><td class="s-z725d5">Statale</td><td class="s-z725d5">24h</td><td class="s-z725d5">5-15 min</td><td class="s-z725d5">No</td><td class="s-z725d5">Sì</td><td class="s-z725d5">—</td></tr><tr><td class="s-z725d5"><a class="s-U9K6Vf" href="/guida-frontaliere/tempi-attesa-dogana/chiasso-strada/">Chiasso-Strada</a></td><td class="s-z725d5">Locale</td><td class="s-z725d5">24h</td><td class="s-z725d5">5-10 min</td><td class="s-z725d5">No</td><td class="s-z725d5">Sì</td><td class="s-z725d5">—</td></tr><tr><td class="s-z725d5"><a class="s-U9K6Vf" href="/guida-frontaliere/tempi-attesa-dogana/bizzarone-novazzano/">Bizzarone-Novazzano</a></td><td class="s-z725d5">Locale</td><td class="s-z725d5">24h</td><td class="s-z725d5">4-10 min</td><td class="s-z725d5">No</td><td class="s-z725d5">Sì</td><td class="s-z725d5">—</td></tr><tr><td class="s-z725d5"><a class="s-U9K6Vf" href="/guida-frontaliere/tempi-attesa-dogana/luino-fornasette/">Luino-Fornasette</a></td><td class="s-z725d5">Statale</td><td class="s-z725d5">24h</td><td class="s-z725d5">4-10 min</td><td class="s-z725d5">No</td><td class="s-z725d5">Sì</td><td class="s-z725d5">—</td></tr><tr><td class="s-z725d5"><a class="s-U9K6Vf" href="/guida-frontaliere/tempi-attesa-dogana/zenna-dirinella/">Zenna-Dirinella</a></td><td class="s-z725d5">Locale</td><td class="s-z725d5">24h</td><td class="s-z725d5">2-5 min</td><td class="s-z725d5">No</td><td class="s-z725d5">Sì</td><td class="s-z725d5">—</td></tr></tbody></table></div>`,
+ `<p class="s-3DDKBR">Tempi indicativi nelle fasce di punta del lunedì-venerdì (7:00-8:30). Ogni valico ha una pagina dedicata con dati storici orari, webcam in diretta e consigli di percorso aggiornati.</p>`,
+ `<p class="s-4vhLHi"><strong>Valichi con webcam live:</strong> <a class="s-U9K6Vf" href="/guida-frontaliere/tempi-attesa-dogana/brogeda-chiasso/">Brogeda</a> · <a class="s-U9K6Vf" href="/guida-frontaliere/tempi-attesa-dogana/chiasso-centro-ponte-chiasso/">Chiasso Centro</a> · <a class="s-U9K6Vf" href="/guida-frontaliere/tempi-attesa-dogana/gaggiolo-cantello-stabio/">Gaggiolo</a>. Le immagini sono fornite dal <a class="s-OsohZU" href="https://www.ti.ch/webcam" rel="noopener" target="_blank">Dipartimento del territorio del Canton Ticino</a> e si aggiornano ogni 60 secondi.</p>`,
  );
  } else if (canonicalPath.startsWith('/guida-frontaliere/permessi-di-lavoro')) {
  editorialBlocks.push(
@@ -2905,7 +2914,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `I tempi di attesa ai valichi di confine vengono stimati in base ai dati storici e alle fasce orarie tipiche: ingresso mattutino (6:30–8:30) e uscita serale (17:00–18:30) sono le finestre con maggiore congestione.`,
  `Per ogni valico vengono forniti consigli pratici su orari alternativi, percorsi secondari e strumenti di monitoraggio in tempo reale (webcam, app traffico) per ridurre i tempi di pendolarismo quotidiano.`,
  // B.2 — Internal link back to the mappa-confine hub for SEO consolidation
- `<p style="margin-top:.5rem;font-size:0.9rem">Confronta tutti i valichi Ticino-Italia sulla <a href="/guida-frontaliere/mappa-confine/" style="color:var(--color-link);text-decoration:none"><strong>mappa interattiva del confine</strong></a>: tempi di attesa, webcam, coordinate GPS e consigli di percorso per 22 valichi.</p>`,
+ `<p class="s-N03jFT">Confronta tutti i valichi Ticino-Italia sulla <a class="s-U9K6Vf" href="/guida-frontaliere/mappa-confine/"><strong>mappa interattiva del confine</strong></a>: tempi di attesa, webcam, coordinate GPS e consigli di percorso per 22 valichi.</p>`,
  );
  } else if (canonicalPath.startsWith('/guida-frontaliere/tempi-attesa-dogana')) {
  editorialBlocks.push(
@@ -2929,11 +2938,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  .sort((a, b) => a.label.localeCompare(b.label));
  if (valichiPages.length > 0) {
  const valichiAnchors = valichiPages
- .map(p => `<li><a href="${p.href}" style="color:var(--color-link);text-decoration:none;font-weight:500">${esc(p.label)}</a></li>`)
+ .map(p => `<li><a class="s-ku_ryy" href="${p.href}">${esc(p.label)}</a></li>`)
  .join('');
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1.25rem 0 .5rem">Tutti i valichi (${valichiPages.length})</h2>`,
- `<ul style="margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px;font-size:.9rem">${valichiAnchors}</ul>`,
+ `<h2 class="s-CGV2dt">Tutti i valichi (${valichiPages.length})</h2>`,
+ `<ul class="s-4FiAM7">${valichiAnchors}</ul>`,
  );
  }
  } else if (canonicalPath.startsWith('/guida-frontaliere/trasferimento-auto')) {
@@ -2946,7 +2955,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `La guida frontaliere raccoglie informazioni pratiche e aggiornate per chi lavora in Ticino e vive in Italia: procedure amministrative, permessi, documenti necessari e consigli basati sull'esperienza di migliaia di frontalieri.`,
  `Ogni sezione è pensata per essere consultabile in modo autonomo e contiene link diretti a modulistica ufficiale, uffici competenti e strumenti di calcolo per verificare immediatamente le implicazioni pratiche.`,
  `Le guide coprono l'intero ciclo di vita del frontaliere: dal primo impiego al pensionamento, passando per disoccupazione, trasferimento auto, valichi di confine e maternità/paternità transfrontaliera.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.seco.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">SECO - Segretariato di Stato dell'economia</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.seco.admin.ch" rel="noopener">SECO - Segretariato di Stato dell'economia</a></p>`,
  );
  } else if (canonicalPath === '/mappa-del-sito/' || canonicalPath === '/mappa-del-sito') {
  // Comprehensive site index — closes ~67 sitemap-pages and ~30
@@ -2993,12 +3002,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  .replace(/\bNaspi\b/g, 'NASpI')
  .replace(/\bIrpef\b/g, 'IRPEF')
  .replace(/\bAinp\b/g, 'AINP');
- return `<li style="margin:.2rem 0"><a href="${href}" style="color:var(--color-link);text-decoration:none">${esc(label)}</a></li>`;
+ return `<li class="s-xu5DGK"><a class="s-U9K6Vf" href="${href}">${esc(label)}</a></li>`;
  }).join('');
  const seeAll = truncated && seeAllHref
- ? `<li style="margin:.4rem 0 .2rem"><a href="${seeAllHref}" style="color:var(--color-link);text-decoration:none;font-weight:600">${esc(seeAllLabel ?? `→ Vedi tutti (${hrefs.length})`)}</a></li>`
+ ? `<li class="s-CFPEWZ"><a class="s-t_pXue" href="${seeAllHref}">${esc(seeAllLabel ?? `→ Vedi tutti (${hrefs.length})`)}</a></li>`
  : '';
- return `<h3 style="font-size:0.95rem;font-weight:700;margin:1rem 0 .35rem;color:var(--color-heading)">${esc(heading)}</h3><ul style="margin:0 0 .5rem 1.25rem;padding:0;font-size:0.85rem;line-height:1.5">${items}${seeAll}</ul>`;
+ return `<h3 class="s-ghlfvV">${esc(heading)}</h3><ul class="s--Vsbr1">${items}${seeAll}</ul>`;
  };
 
  // Per-segment "see all" indexes (already emitted by their respective plugins).
@@ -3120,7 +3129,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  const renderHubLinks = (heading: string, items: ReadonlyArray<{ href: string; label: string }>): string =>
  items.length
- ? `<h3 style="font-size:0.95rem;font-weight:700;margin:1rem 0 .35rem;color:var(--color-heading)">${esc(heading)}</h3><ul style="margin:0 0 .5rem 1.25rem;padding:0;font-size:0.85rem;line-height:1.5">${items.map(it => `<li style="margin:.2rem 0"><a href="${it.href}" style="color:var(--color-link);text-decoration:none">${esc(it.label)}</a></li>`).join('')}</ul>`
+ ? `<h3 class="s-ghlfvV">${esc(heading)}</h3><ul class="s--Vsbr1">${items.map(it => `<li class="s-xu5DGK"><a class="s-U9K6Vf" href="${it.href}">${esc(it.label)}</a></li>`).join('')}</ul>`
  : '';
 
  // Group all italianUrls by their first path segment for an organized index.
@@ -3144,7 +3153,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  };
 
  editorialBlocks.push(
- `<h2 style="font-size:1.1rem;font-weight:700;margin:1rem 0 .5rem">Indice completo del sito</h2>`,
+ `<h2 class="s-eObdja">Indice completo del sito</h2>`,
  `<p>Questa pagina elenca tutti gli strumenti, le guide, i comparatori e le risorse pubblicate su Frontaliere Ticino. È pensata sia per la navigazione umana che per i motori di ricerca: ogni voce è un link diretto alla pagina di destinazione, organizzata per categoria. Le pagine in lingua inglese, tedesca e francese sono raggiungibili dal selettore lingua in alto.</p>`,
  // First: in-section pages from sitemap-pages.xml + sitemap-glossario.xml
  ...Array.from(grouped.entries())
@@ -3171,7 +3180,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  renderHubLinks('Risorse in altre lingue', FR_SALAIRE_LINKS),
  renderHubLinks('Hub root — alberi di pagine cascading', HUB_ROOT_LINKS),
  renderHubLinks('Ricerche correlate (orphan landings)', ORPHAN_LANDING_HUB_LINKS),
- `<p style="margin-top:1rem;color:var(--color-subtle);font-size:0.85rem">Pagine root non in elenco: <a href="/" style="color:var(--color-link);text-decoration:none">homepage</a>, <a href="/cerca-lavoro-ticino/" style="color:var(--color-link);text-decoration:none">job-board</a>, <a href="/articoli-frontaliere/" style="color:var(--color-link);text-decoration:none">archivio articoli</a>, <a href="/glossario-frontaliere/" style="color:var(--color-link);text-decoration:none">glossario</a>, <a href="/domande-frequenti-frontalieri/" style="color:var(--color-link);text-decoration:none">FAQ</a>.</p>`,
+ `<p class="s-eLCSVF">Pagine root non in elenco: <a class="s-U9K6Vf" href="/">homepage</a>, <a class="s-U9K6Vf" href="/cerca-lavoro-ticino/">job-board</a>, <a class="s-U9K6Vf" href="/articoli-frontaliere/">archivio articoli</a>, <a class="s-U9K6Vf" href="/glossario-frontaliere/">glossario</a>, <a class="s-U9K6Vf" href="/domande-frequenti-frontalieri/">FAQ</a>.</p>`,
  );
  } else if (canonicalPath === '/glossario-frontaliere/') {
  // H.5: Landing del glossario — intro 300w + 3 FAQ prima della lista
@@ -3204,20 +3213,20 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  })
  .sort((a, b) => a.label.localeCompare(b.label));
  const glossaryListHtml = glossaryEntries.length
- ? `<h2 style="font-size:1.05rem;font-weight:700;margin:1.25rem 0 .5rem">Tutti i termini del glossario</h2><ul style="margin:0 0 1rem 1.25rem;padding:0;font-size:0.9rem;line-height:1.6">${glossaryEntries
- .map(g => `<li style="margin:.15rem 0"><a href="${g.href}" style="color:var(--color-link);text-decoration:none">${esc(g.label)}</a></li>`)
+ ? `<h2 class="s-CGV2dt">Tutti i termini del glossario</h2><ul class="s-vs8NSY">${glossaryEntries
+ .map(g => `<li class="s-5dnk5l"><a class="s-U9K6Vf" href="${g.href}">${esc(g.label)}</a></li>`)
  .join('')}</ul>`
  : '';
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">A cosa serve un glossario per frontalieri Svizzera-Italia</h2>`,
+ `<h2 class="s-o3IET6">A cosa serve un glossario per frontalieri Svizzera-Italia</h2>`,
  `Il glossario frontaliere raccoglie 52 definizioni essenziali per chi lavora in Svizzera (Canton Ticino) e vive in Italia. Ogni voce affronta un termine tecnico che un frontaliere incontra in busta paga, contratto di lavoro, dichiarazione dei redditi o pratica amministrativa — dalle sigle fiscali (AVS, LPP, LAMal, IRPEF, TUIR) ai documenti ufficiali (Lohnausweis, Modello 730, CU, Quellensteuerausweis), fino ai concetti giuridici chiave dell'Accordo bilaterale 2020 (residenza fiscale, franchigia 10.000 EUR, tassazione concorrente).`,
  `Le definizioni sono verificate contro fonti ufficiali: Amministrazione federale delle contribuzioni (AFC), Ufficio federale delle assicurazioni sociali (UFAS), Segreteria di Stato della migrazione (SEM) per la parte svizzera; Agenzia delle Entrate, INPS e testo dell'Accordo italo-svizzero del 23 dicembre 2020 (L. 83/2023) per la parte italiana. Ogni voce specifica l'anno di validità delle cifre riportate (aliquote, soglie, tetti) perché molti parametri cambiano annualmente — ad esempio il salario coordinato LPP (CHF 26.460-90.720 nel 2026), il massimale deducibile del pilastro 3a (CHF 7.258 per dipendenti LPP nel 2026), o la franchigia IRPEF per nuovi frontalieri (EUR 10.000 dal 2024).`,
  `Il glossario è uno strumento trasversale, collegato a tutti gli strumenti del sito: il <a href="/calcola-stipendio/">simulatore stipendio frontaliere</a> usa le voci AVS, AC, LPP e imposta alla fonte per spiegare ogni trattenuta; la <a href="/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026/">guida completa 2026</a> rimanda al glossario per ogni sigla introdotta; il <a href="/domande-frequenti-frontalieri/">FAQ frontalieri</a> usa lo stesso vocabolario. Passare da definizione ad applicazione pratica richiede un solo clic.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">FAQ sul glossario frontaliere</h2>`,
+ `<h2 class="s-o3IET6">FAQ sul glossario frontaliere</h2>`,
  `<p><strong>Perché alcune sigle hanno nomi diversi in italiano, tedesco e francese?</strong> La Svizzera ha quattro lingue ufficiali e ogni sigla ha una versione per lingua: AVS (it) = AHV (de) = AVS (fr), LPP (it) = BVG (de) = LPP (fr), LAMal (it/fr) = KVG (de). Sul certificato di salario (Lohnausweis) tedesco trovi AHV, NBU, KTG, BVG. Il glossario riporta tutte le varianti perché molti datori di lavoro ticinesi usano la terminologia tedesca anche nelle buste paga italiane.</p>`,
  `<p><strong>Il glossario include anche i termini italiani non presenti in Svizzera?</strong> Sì: IRPEF, addizionale regionale, addizionale comunale, quadro CE, quadro RW, CU (Certificazione Unica), 730 e Modello Redditi PF sono termini italiani fondamentali per il frontaliere, perché la dichiarazione in Italia resta obbligatoria per i nuovi frontalieri assunti dal 17 luglio 2023. Vedi la <a href="/tasse-e-pensione/dichiarazione-redditi/">guida dichiarazione dei redditi frontaliere</a>.</p>`,
  `<p><strong>Con quale frequenza viene aggiornato?</strong> Le cifre numeriche (aliquote, franchigie, massimali) vengono riviste annualmente a gennaio. I cambiamenti normativi strutturali (come il Nuovo Accordo 2020) vengono incorporati entro 30 giorni dalla pubblicazione ufficiale. Le nuove voci vengono aggiunte in base alle ricerche più frequenti degli utenti e alle novità normative segnalate dai patronati OCST, SIT e Unia Ticino.</p>`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonti: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">AFC</a> · <a href="https://www.bsv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">UFAS</a> · <a href="https://www.agenziaentrate.gov.it" style="color:var(--color-link);text-decoration:none;" rel="noopener">Agenzia delle Entrate</a></p>`,
+ `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">AFC</a> · <a class="s-OsohZU" href="https://www.bsv.admin.ch" rel="noopener">UFAS</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a></p>`,
  glossaryListHtml,
  );
  } else if (canonicalPath.startsWith('/glossario-frontaliere/')) {
@@ -3243,76 +3252,76 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  );
  } else if (canonicalPath.startsWith('/vivere-in-ticino/costo-della-vita')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Costo della vita per frontalieri</h2>`,
+ `<h2 class="s-o3IET6">Costo della vita per frontalieri</h2>`,
  `L'indice del costo della vita confronta le principali voci di spesa tra Svizzera (Ticino) e Italia (Lombardia/Piemonte): affitto, trasporti, alimentari, sanità, istruzione e tempo libero.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Permesso G vs B: impatto sul costo della vita</h2>`,
+ `<h2 class="s-o3IET6">Permesso G vs B: impatto sul costo della vita</h2>`,
  `Il differenziale di costo della vita è il fattore chiave nella scelta tra permesso G (residenza in Italia) e permesso B (residenza in Svizzera): vivere in Italia può ridurre le spese fisse del 30–50 % rispetto al Ticino.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.bfs.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Ufficio federale di statistica (UST)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">Ufficio federale di statistica (UST)</a></p>`,
  );
  } else if (canonicalPath.startsWith('/vivere-in-ticino/aziende-svizzera-italiana')) {
  // H.5: settori, dimensioni, salari medi
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Aziende che assumono frontalieri in Ticino 2026 — panorama occupazionale</h2>`,
+ `<h2 class="s-o3IET6">Aziende che assumono frontalieri in Ticino 2026 — panorama occupazionale</h2>`,
  `Nel Canton Ticino lavorano circa <strong>79.000 frontalieri</strong> (dato UST/BFS Q4 2025), distribuiti su un tessuto produttivo che conta oltre 40.000 aziende attive. Le aziende più rilevanti per volume di assunzioni di frontalieri appartengono a <strong>sei macro-settori</strong>: manifattura (23% dei frontalieri), costruzioni (12%), finanza e assicurazioni (11%), sanità (10%), ospitalità e ristorazione (9%), informatica (8%). Il restante 27% è ripartito tra commercio, logistica, servizi alle imprese, istruzione, pubblica amministrazione, agricoltura e settore energetico.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Dimensioni aziendali e stipendi medi per settore</h2>`,
+ `<h2 class="s-o3IET6">Dimensioni aziendali e stipendi medi per settore</h2>`,
  `Le multinazionali con sede o filiale in Ticino rappresentano i datori di lavoro più visibili ma non i più numerosi. Per dimensione: circa <strong>150 aziende con oltre 250 dipendenti</strong> (grandi; tipicamente finanza, pharma, manifattura evoluta), <strong>1.200 aziende tra 50 e 249 dipendenti</strong> (medie), e oltre <strong>38.000 PMI sotto i 50 dipendenti</strong>. Le PMI assumono circa il 68% dei frontalieri totali, mentre le 150 grandi aziende concentrano il 22% dei posti più remunerati.`,
  `Stipendi <strong>lordi mediani 2026</strong> per settore (fonte UST/BFS, rilevazione salari 2024 proiettata): Finanza e assicurazioni CHF 105.000 (mediana), fino a CHF 180.000+ per ruoli senior; Pharma/biotech CHF 95.000, fino a CHF 160.000; IT CHF 85.000, fino a CHF 140.000; Manifattura meccanica CHF 75.000; Sanità CHF 78.000 (OSS e infermieri da CHF 65.000, medici specialisti da CHF 150.000); Costruzioni CHF 68.000; Ospitalità e ristorazione CHF 52.000. I range sopra il mediano richiedono 5-10 anni di esperienza.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Principali datori di lavoro per area</h2>`,
+ `<h2 class="s-o3IET6">Principali datori di lavoro per area</h2>`,
  `<strong>Lugano e Sud Ticino</strong>: UBS, Credit Suisse, BSI, Vontobel, Banca dello Stato Ticino (finanza); Helsinn, IBSA, Mepha (pharma); Armasuisse, Swisscom, Softway (IT); VF International, Hugo Boss (fashion/retail); USI, SUPSI (università). <strong>Mendrisiotto</strong>: Schindler, Agie Charmilles, Husky Injection Molding (manifattura); FoxTown (retail); Regent (illuminazione). <strong>Bellinzonese e Tre Valli</strong>: Officine FFS, AET (azienda elettrica), Repower, Autopostale (trasporti e utilities). <strong>Locarnese</strong>: ospedale La Carità, Dadò Editore, turismo alberghiero. Per un elenco aggiornato e offerte attive consulta la <a href="/cerca-lavoro-ticino/">bacheca lavoro Ticino</a>.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come candidarsi: canali e CV svizzero</h2>`,
+ `<h2 class="s-o3IET6">Come candidarsi: canali e CV svizzero</h2>`,
  `Oltre il 80% delle assunzioni passa dai portali aziendali ufficiali (sezione "Carriere" / "Jobs" sui siti corporate), seguiti da LinkedIn, Jobup.ch, JobScout24 e agenzie di collocamento specializzate (Adecco, Manpower, Kelly Services). Il CV svizzero è strutturalmente diverso da quello italiano: include foto professionale, data di nascita (diversamente da UE/GDPR), referenze esplicite con contatti, certificati di lavoro dettagliati (Arbeitszeugnis) invece di semplici attestazioni. Per preparare una candidatura efficace consulta la <a href="/guida-frontaliere/primo-giorno-lavoro/">guida primo giorno di lavoro frontaliere</a> e il <a href="/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri/">simulatore tasse nuovi frontalieri</a> per confrontare il netto reale di ogni offerta.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonti: <a href="https://www.bfs.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Ufficio federale di statistica (UST)</a> · <a href="https://www.seco.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">SECO</a> · <a href="https://www4.ti.ch/dfe/usl" style="color:var(--color-link);text-decoration:none;" rel="noopener">Ufficio di statistica Canton Ticino (USTAT)</a></p>`,
+ `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">Ufficio federale di statistica (UST)</a> · <a class="s-OsohZU" href="https://www.seco.admin.ch" rel="noopener">SECO</a> · <a class="s-OsohZU" href="https://www4.ti.ch/dfe/usl" rel="noopener">Ufficio di statistica Canton Ticino (USTAT)</a></p>`,
  );
  } else if (canonicalPath.startsWith('/vivere-in-ticino/attrazioni-svizzera-italiana')) {
  // H.5: contenuto editoriale 500w + mappa
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Attrazioni da visitare in Ticino e Svizzera italiana</h2>`,
+ `<h2 class="s-o3IET6">Attrazioni da visitare in Ticino e Svizzera italiana</h2>`,
  `Il Canton Ticino (2.812 km²) combina natura alpina, laghi prealpini e patrimonio culturale italiano-svizzero in un territorio raggiungibile dalla Lombardia e Piemonte in meno di 90 minuti. Per i frontalieri e le loro famiglie, le attrazioni migliori sono distribuite su <strong>quattro aree geografiche</strong>: Luganese e Ceresio, Mendrisiotto e Sottoceneri, Bellinzonese e Tre Valli, Locarnese e Vallemaggia. Di seguito una selezione ragionata di <strong>oltre 25 luoghi imperdibili</strong> con focus su accessibilità per pendolari, costi di ingresso e idoneità per famiglie con bambini.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Luganese e Ceresio — laghi, monti e cultura</h2>`,
+ `<h2 class="s-o3IET6">Luganese e Ceresio — laghi, monti e cultura</h2>`,
  `<strong>Monte San Salvatore</strong> (912 m s.l.m.): funicolare da Paradiso, CHF 32 andata/ritorno adulti, panorama a 360° su lago e Alpi. Tempo di salita 12 minuti. <strong>Monte Brè</strong> (925 m): salita con funicolare da Cassarate, CHF 25 AR, villaggio pittoresco di Brè con opere all'aperto. <strong>Parco Ciani</strong>: parco storico sul lungolago di Lugano, ingresso libero, 63.000 m² con alberi monumentali e Villa Ciani. <strong>Swissminiatur</strong> (Melide): parco miniature con 130 modelli dei monumenti svizzeri, CHF 21 adulti/CHF 14 bambini, orari 9:00-18:00 da marzo a ottobre. <strong>LAC Lugano Arte e Cultura</strong>: museo di arte moderna (MASI), concerti e teatro nel centro città; collezione Thyssen-Bornemisza. <strong>Monte Generoso</strong> (1.704 m): trenino a cremagliera da Capolago, Fiore di Pietra di Mario Botta in cima, ristorante panoramico.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Mendrisiotto — vigne, grotti e shopping</h2>`,
+ `<h2 class="s-o3IET6">Mendrisiotto — vigne, grotti e shopping</h2>`,
  `<strong>FoxTown Factory Stores</strong> (Mendrisio): outlet con 160 marche di lusso al 30-70% di sconto; il più grande outlet del Sud Europa, uscita autostrada A2. <strong>Monte Generoso e Valle di Muggio</strong>: sentieri escursionistici tra terrazzamenti e grotti (osterie tradizionali semi-sotterranee). <strong>Vigneti del Mendrisiotto</strong>: percorso delle cantine con degustazione di Merlot ticinese; oltre 80 cantine aderenti al marchio "Ticino DOC". <strong>Gole della Breggia</strong>: geoparco con sentieri geologici, accessibile gratuitamente.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Bellinzona — castelli UNESCO e cultura medievale</h2>`,
+ `<h2 class="s-o3IET6">Bellinzona — castelli UNESCO e cultura medievale</h2>`,
  `<strong>I tre castelli di Bellinzona</strong> (Castelgrande, Montebello, Sasso Corbaro) sono <strong>Patrimonio UNESCO dal 2000</strong>: biglietto cumulativo CHF 28 adulti, accesso libero ai cammini di ronda e al parco di Castelgrande. Le <strong>fortificazioni medievali</strong> lunghe oltre 5 km includono la Murata che sbarrava la valle del Ticino. <strong>Carnevale Rabadan</strong> (febbraio) e <strong>Sagra del Borgo</strong> (agosto) sono eventi popolari che attirano pubblico italiano e svizzero.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Locarnese e Vallemaggia — natura e cinema</h2>`,
+ `<h2 class="s-o3IET6">Locarnese e Vallemaggia — natura e cinema</h2>`,
  `<strong>Locarno Film Festival</strong> (primi di agosto): storico festival internazionale del cinema, proiezioni nella Piazza Grande da 8.000 posti, ingressi accessibili. <strong>Isole di Brissago</strong>: giardino botanico sul Lago Maggiore, battello da Locarno, CHF 9 biglietto isole + CHF 20 battello. <strong>Valle Verzasca</strong>: ponte dei Salti di Lavertezzo, acque turchesi, il famoso salto di James Bond dalla diga (220 m — bungee jumping operativo in estate). <strong>Cardada</strong> e <strong>Cimetta</strong>: funivia da Orselina, trekking e paragliding. <strong>Centovalli</strong>: linea ferroviaria panoramica Domodossola-Locarno, paesaggi di castagni e cascate.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come organizzare la visita</h2>`,
+ `<h2 class="s-o3IET6">Come organizzare la visita</h2>`,
  `Per i frontalieri, il <strong>Ticino Ticket</strong> (gratuito per gli ospiti di hotel, campeggi e ostelli) copre tutti i trasporti pubblici, funicolari e battelli del cantone — valido per l'intera durata del soggiorno. Chi non pernotta può acquistare un biglietto giornaliero FFS/TILO a CHF 25 per muoversi in tutto il cantone. Molte attrazioni offrono sconti per famiglie (2 adulti + bambini fino a 16 anni) e abbonamenti annuali convenienti per chi vive vicino al confine. Per pianificare gli spostamenti in base ai tempi di attesa alle dogane consulta la <a href="/guida-frontaliere/mappa-confine/">mappa dei valichi</a> e la guida <a href="/vivere-in-ticino/trasporti-frontalieri/">trasporti frontalieri</a>.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonti: <a href="https://www.ticino.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Ticino Turismo</a> · <a href="https://whc.unesco.org" style="color:var(--color-link);text-decoration:none;" rel="noopener">UNESCO — Bellinzona Three Castles</a> · <a href="https://www.pardo.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Locarno Film Festival</a></p>`,
+ `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www.ticino.ch" rel="noopener">Ticino Turismo</a> · <a class="s-OsohZU" href="https://whc.unesco.org" rel="noopener">UNESCO — Bellinzona Three Castles</a> · <a class="s-OsohZU" href="https://www.pardo.ch" rel="noopener">Locarno Film Festival</a></p>`,
  );
  } else if (canonicalPath.startsWith('/vivere-in-ticino/confronta-asili-nido')) {
  // H.5: introduzione comparativa + metodologia
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Confronta asili nido Ticino vs Italia — panoramica e differenze</h2>`,
+ `<h2 class="s-o3IET6">Confronta asili nido Ticino vs Italia — panoramica e differenze</h2>`,
  `Per una famiglia di frontalieri con figli sotto i 3 anni, la scelta dell'asilo nido è tra le decisioni economicamente più impattanti dell'anno: un posto tempo pieno in un nido comunale di Lugano o Bellinzona costa mediamente <strong>CHF 1.500-2.200/mese</strong> (reddito-dipendente, scontato a CHF 400-800 per redditi bassi), mentre in un nido comunale italiano di Como, Varese o Luino la tariffa parte da <strong>EUR 300-500/mese</strong> (ISEE-dipendente) e raramente supera i 650 EUR/mese. Su 11 mesi di frequenza, il differenziale annuo può superare i 15.000 EUR — una cifra che pesa direttamente sul vantaggio economico del lavoro frontaliere.`,
  `Il comparatore mette a confronto <strong>10 strutture ticinesi campione</strong> (5 comunali + 5 privati/aziendali) con le principali strutture pubbliche dei comuni italiani di frontiera entro 20 km dalla dogana più vicina. Per ogni struttura sono raccolti: tariffa tempo pieno e part-time, criteri di ammissione (residenza, ISEE, occupazione genitori), orari di apertura (i nidi ticinesi tipicamente 6:30-18:30, quelli italiani 7:30-17:00), liste d'attesa tipiche e disponibilità di agevolazioni.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Metodologia del confronto</h2>`,
+ `<h2 class="s-o3IET6">Metodologia del confronto</h2>`,
  `Il confronto normalizza le tariffe a un parametro comparabile: <strong>costo netto mensile per una coppia con reddito familiare di CHF 120.000 / EUR 60.000</strong>. Per il Ticino, il comune applica una tabella di riduzione graduata sul reddito: un nucleo con reddito imponibile CHF 100.000 paga tipicamente CHF 1.600/mese (75% della tariffa massima), mentre CHF 60.000 scende a CHF 800/mese. In Italia, il calcolo usa l'ISEE (Indicatore Situazione Economica Equivalente): un ISEE di EUR 30.000 colloca la famiglia in una fascia media con quota EUR 350-450/mese per un nido comunale.`,
  `Vanno considerate anche le <strong>agevolazioni aggiuntive</strong>: in Svizzera, alcuni datori di lavoro ticinesi offrono nidi aziendali convenzionati (USI/SUPSI, Helsinn, IBSA) o rimborsi fino a CHF 500/mese; in Italia esistono il <em>bonus asilo nido INPS</em> (fino a EUR 3.000/anno per ISEE sotto 25.000) e le detrazioni IRPEF del 19% sulle rette fino a EUR 632/anno. Il comparatore applica automaticamente queste agevolazioni in base al profilo selezionato.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Oltre al prezzo: criteri qualitativi</h2>`,
+ `<h2 class="s-o3IET6">Oltre al prezzo: criteri qualitativi</h2>`,
  `Il prezzo non è l'unico criterio. Il tool valuta anche: <strong>rapporto educatori/bambini</strong> (Ticino 1:5 per i sotto-2; Italia 1:7-1:8), <strong>progetto pedagogico</strong> (Reggio Emilia, Montessori, bilingue italo-tedesco o italo-inglese), <strong>orari di apertura</strong> (critici per frontalieri che partono alle 6:30), <strong>presenza di servizi complementari</strong> (pasti, doposcuola, portineria, logopedista). Per scelte integrate con la pianificazione familiare vedi anche la <a href="/vivere-in-ticino/scuole-svizzera-italiana/">guida scuole Svizzera italiana</a> e la <a href="/vivere-in-ticino/comuni-di-frontiera/">mappa comuni di frontiera</a>.`,
  // H.7 — conclusion + actionable next step to raise text/HTML ratio above 0.10
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come scegliere: flusso decisionale consigliato</h2>`,
+ `<h2 class="s-o3IET6">Come scegliere: flusso decisionale consigliato</h2>`,
  `Per una famiglia di frontalieri il percorso decisionale consigliato è in quattro passaggi. <strong>Primo</strong>: usare il comparatore per filtrare le strutture in base al comune di residenza italiano (Como, Varese, Luino, Ponte Tresa) oppure al comune svizzero se si detiene un permesso B, ordinate per costo mensile stimato sul reddito familiare reale. <strong>Secondo</strong>: verificare la lista d'attesa con una telefonata diretta o e-mail al servizio infanzia del Comune; nei nidi comunali ticinesi conviene iscriversi almeno 9-12 mesi prima della data di ingresso desiderata. <strong>Terzo</strong>: calcolare il costo netto sottraendo le detrazioni IRPEF italiane (fino a 632 € a figlio) e il Bonus Asilo Nido INPS (fino a 3.000 €/anno con ISEE basso) oppure, in caso di nido svizzero, le deduzioni fiscali ticinesi per spese di custodia. <strong>Quarto</strong>: valutare i costi accessori di trasporto quotidiano — se il nido è a Lugano e si vive a Como, il tempo aggiuntivo mattutino e l'abbonamento Arcobaleno o il consumo di benzina possono spostare il break-even di 200-400 CHF al mese.`,
  `Una volta presa la decisione, è utile integrarla con la pianificazione fiscale complessiva: i frontalieri soggetti al regime dei "nuovi frontalieri" possono dedurre in Italia una parte delle spese di asilo e in Svizzera beneficiare di deduzioni aggiuntive per spese di custodia, mentre i "vecchi frontalieri" (assunti prima del 17 luglio 2023) hanno solo la detrazione italiana. Per stimare l'impatto sul netto mensile usa il <a href="/calcola-stipendio/">simulatore stipendio frontaliere</a> e il <a href="/comparatori/confronta-lamal-ssn/">comparatore LAMal vs SSN</a> (che pesa molto se il figlio è assicurato in SSN italiano invece che in LAMal svizzera). Il comparatore asili nido viene aggiornato due volte all'anno, a marzo per le nuove tariffe comunali e a settembre alla pubblicazione delle graduatorie definitive.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonti: <a href="https://www4.ti.ch/das" style="color:var(--color-link);text-decoration:none;" rel="noopener">Divisione azione sociale Ticino</a> · <a href="https://www.inps.it" style="color:var(--color-link);text-decoration:none;" rel="noopener">INPS — Bonus Asilo Nido</a> · <a href="https://www.agenziaentrate.gov.it" style="color:var(--color-link);text-decoration:none;" rel="noopener">Agenzia delle Entrate — detrazioni asilo nido</a></p>`,
+ `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www4.ti.ch/das" rel="noopener">Divisione azione sociale Ticino</a> · <a class="s-OsohZU" href="https://www.inps.it" rel="noopener">INPS — Bonus Asilo Nido</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate — detrazioni asilo nido</a></p>`,
  );
  } else if (canonicalPath.startsWith('/vivere-in-ticino/trasporti-frontalieri')) {
  // H.5: guida treni/auto/car-sharing dettagliata
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Trasporti frontalieri Ticino 2026 — le 4 opzioni principali</h2>`,
+ `<h2 class="s-o3IET6">Trasporti frontalieri Ticino 2026 — le 4 opzioni principali</h2>`,
  `Ogni giorno circa <strong>79.000 frontalieri</strong> attraversano il confine Italia-Ticino. La scelta tra auto, treno, car-sharing e carpooling incide su tre variabili critiche: <strong>costo</strong> (da EUR 1.500 a EUR 6.000 all'anno), <strong>tempo</strong> (da 30 a 90 minuti per tratta) e <strong>flessibilità</strong> (orari fissi vs. partenza quando vuoi). Questa guida confronta le quattro opzioni con numeri reali 2026, inclusi abbonamenti, consumi e casi d'uso tipici del frontaliere.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">1. Treno — TILO, FFS e Trenord</h2>`,
+ `<h2 class="s-o3IET6">1. Treno — TILO, FFS e Trenord</h2>`,
  `La rete <strong>TILO</strong> (FFS + Trenord) è la spina dorsale del trasporto pubblico transfrontaliero. Le linee principali sono: <strong>S10 Como-Mendrisio-Lugano-Bellinzona-Airolo</strong> (frequenza ogni 30', 12-18 minuti Chiasso-Lugano), <strong>S40 Varese-Mendrisio-Como</strong>, <strong>S50 Bellinzona-Malpensa</strong> (collegamento aeroporto). L'abbonamento annuale <strong>Arcobaleno</strong> (comunità tariffale Ticino + Moesa) costa CHF 1.450-2.350 a seconda delle zone; l'abbonamento FFS generale costa CHF 3.995/anno. Per chi arriva in treno dall'Italia: abbonamento Trenord Como-Chiasso EUR 70/mese, poi proseguimento in Ticino con TILO. Tempo tipico Como-Lugano: 35-45 minuti porta a porta.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">2. Auto propria — benzina, pedaggi e parcheggio</h2>`,
+ `<h2 class="s-o3IET6">2. Auto propria — benzina, pedaggi e parcheggio</h2>`,
  `L'<strong>auto privata</strong> resta il mezzo più usato dai frontalieri (circa 60%), soprattutto per chi vive fuori dai collegamenti ferroviari diretti. Costi medi 2026 per un pendolare 40 km andata/ritorno × 220 giorni lavorativi: <strong>carburante</strong> EUR 1.600/anno (consumo 6 l/100km × EUR 1,55/l benzina in Italia), <strong>vignetta autostradale svizzera</strong> CHF 40/anno obbligatoria, <strong>pedaggi italiani</strong> variabili (Como-Chiasso: gratuito; Varese-Ponte Tresa: gratuito), <strong>parcheggio in zona lavoro</strong> CHF 100-200/mese (CHF 1.200-2.400/anno), <strong>manutenzione e pneumatici</strong> EUR 800/anno, <strong>assicurazione + bollo</strong> EUR 800-1.200/anno. Totale realistico: <strong>EUR 4.500-6.000/anno</strong>.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">3. Car-sharing e mobilità condivisa</h2>`,
+ `<h2 class="s-o3IET6">3. Car-sharing e mobilità condivisa</h2>`,
  `<strong>Mobility</strong> è la principale cooperativa di car-sharing svizzera (quota annuale CHF 130, tariffa oraria CHF 2,80 + CHF 0,75/km): utile per chi lavora in smart-working parziale e usa l'auto solo 1-2 giorni a settimana. Per tratte ripetute casa-lavoro il car-sharing è antieconomico. In alternativa: <strong>BlaBlaCar</strong> e gruppi Facebook come "Frontalieri Ticino Carpool" organizzano carpooling a quote di EUR 3-5 a tratta per passeggero, con risparmi del 60-70% rispetto all'auto individuale. Molte aziende ticinesi incentivano il carpooling con parcheggi dedicati (Helsinn, IBSA, USI). Per i brevi spostamenti in città il <strong>bike-sharing PubliBike</strong> (CHF 99/anno per bici elettrica) integra bene l'arrivo in treno.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">4. Autobus transfrontalieri e pullman aziendali</h2>`,
+ `<h2 class="s-o3IET6">4. Autobus transfrontalieri e pullman aziendali</h2>`,
  `Sulle tratte non coperte da treno operano <strong>autolinee AMSA</strong> (Como-Chiasso-Mendrisio), <strong>Linea C30 Varese-Lugano</strong> e servizi FlixBus per tratte lunghe (Milano-Lugano EUR 12-18 a tratta). Alcune grandi aziende offrono <strong>pullman aziendali gratuiti</strong> dalla stazione o da parcheggi italiani: verifica con l'HR prima di scegliere l'abitazione. L'abbonamento bus urbano Lugano (TPL) costa CHF 65/mese — utile se vivi a Lugano con permesso B.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Confronto costi annuali e consigli per scegliere</h2>`,
+ `<h2 class="s-o3IET6">Confronto costi annuali e consigli per scegliere</h2>`,
  `Riassunto costi annuali per tratta 40 km AR × 220 giorni: <strong>auto propria</strong> EUR 4.500-6.000; <strong>treno TILO + Trenord</strong> EUR 1.800-2.500; <strong>carpooling 3 persone</strong> EUR 1.500-2.200 (quota condivisa); <strong>car-sharing Mobility</strong> (solo 1 giorno/settimana) EUR 800-1.200. Il treno è <strong>sempre la scelta più economica</strong> se la casa e il lavoro sono entrambi vicini a una stazione — ma richiede più tempo (45-60 min vs 30-40 min in auto) e vincola agli orari. L'auto vince su flessibilità e door-to-door ma costa fino al triplo. Usa il <a href="/guida-frontaliere/costo-auto-pendolare/">calcolatore costo auto pendolare</a> per quantificare la tua tratta specifica, e il <a href="/compara-servizi/confronta-offerte-lavoro/">comparatore offerte lavoro</a> per includere il costo trasporto nella valutazione di un'offerta.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonti: <a href="https://www.tilo.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">TILO (FFS)</a> · <a href="https://www.arcobaleno.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Comunità tariffale Arcobaleno</a> · <a href="https://www.mobility.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Mobility Genossenschaft</a></p>`,
+ `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www.tilo.ch" rel="noopener">TILO (FFS)</a> · <a class="s-OsohZU" href="https://www.arcobaleno.ch" rel="noopener">Comunità tariffale Arcobaleno</a> · <a class="s-OsohZU" href="https://www.mobility.ch" rel="noopener">Mobility Genossenschaft</a></p>`,
  );
  } else if (canonicalPath.startsWith('/vivere-in-ticino/asili-nido')) {
  editorialBlocks.push(
@@ -3346,12 +3355,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  );
  } else if (canonicalPath.startsWith('/vivere-in-ticino/')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Vita quotidiana per frontalieri in Ticino</h2>`,
+ `<h2 class="s-o3IET6">Vita quotidiana per frontalieri in Ticino</h2>`,
  `La sezione "Vivere in Ticino" copre gli aspetti pratici della vita quotidiana per chi lavora nel cantone: alloggio, trasporti, spesa, servizi per la famiglia e tempo libero.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Strumenti e comparatori per la vita transfrontaliera</h2>`,
+ `<h2 class="s-o3IET6">Strumenti e comparatori per la vita transfrontaliera</h2>`,
  `Le informazioni sono pensate sia per chi valuta un trasferimento in Svizzera sia per chi resta in Italia e vuole ottimizzare il pendolarismo quotidiano e le spese della vita da frontaliere.`,
  `Trovi comparatori interattivi per asili nido, trasporti pubblici, operatori mobili e costo della spesa, oltre a mappe e classifiche dei comuni di frontiera migliori per qualità di vita e tempi di percorrenza.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.bfs.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Ufficio federale di statistica (UST)</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">Ufficio federale di statistica (UST)</a></p>`,
  );
  } else if (canonicalPath.startsWith('/statistiche/storico-traffico-dogane')) {
  editorialBlocks.push(
@@ -3364,30 +3373,30 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `La sezione statistiche stipendi confronta i salari lordi mediani e medi in 24 settori economici nel Canton Ticino (CHF) rispetto alle province italiane equivalenti di Como, Varese e Verbano-Cusio-Ossola (EUR), convertiti al tasso di cambio corrente per un confronto diretto del potere d'acquisto.`,
  `I dati provengono dall'indagine annuale sui salari dell'Ufficio federale di statistica (UST/BFS), dalle statistiche occupazionali ISTAT e dal Monitor del Mercato del Lavoro Cantonale SECO, offrendo un quadro statisticamente robusto del differenziale salariale transfrontaliero per ruolo, livello di esperienza e tipo di contratto nel 2026.`,
  `Il confronto è progettato per supportare decisioni reali di negoziazione: conoscere il salario mediano del proprio settore in Svizzera vs Italia fornisce dati oggettivi per le trattative salariali. Lo strumento calcola anche il vantaggio netto dopo le deduzioni sociali svizzere e l'imposta alla fonte cantonale versus il netto italiano dopo IRPEF e contributi INPS.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.bfs.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Ufficio federale di statistica (UST)</a> · <a href="https://www.seco.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">SECO</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">Ufficio federale di statistica (UST)</a> · <a class="s-OsohZU" href="https://www.seco.admin.ch" rel="noopener">SECO</a></p>`,
  );
  } else if (canonicalPath.startsWith('/statistiche/migliori-comuni-frontiera')) {
  // H.5: Ranking migliori comuni frontiera — metodologia + caso studio Como-Varese
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Metodologia del ranking migliori comuni di frontiera</h2>`,
+ `<h2 class="s-o3IET6">Metodologia del ranking migliori comuni di frontiera</h2>`,
  `La classifica dei migliori comuni di frontiera per frontalieri Svizzera-Italia combina 7 indicatori quantitativi con pesi oggettivi: costo della vita ISTAT (peso 20%), tempo medio al valico più vicino (18%), addizionale IRPEF comunale + regionale (15%), disponibilità di scuole e asili (12%), sanità e distanza ospedale (10%), trasporto pubblico verso la Svizzera (15%) e sicurezza urbana ISTAT (10%). Ogni indicatore è normalizzato su scala 0-100 e il punteggio finale è la media ponderata. La lista copre 84 comuni italiani entro 20 km dal confine ticinese, aggiornata trimestralmente con i dati ISTAT, MIUR e Ministero della Salute.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Caso studio: Como vs Varese vs Mendrisio (residenza Permit B)</h2>`,
+ `<h2 class="s-o3IET6">Caso studio: Como vs Varese vs Mendrisio (residenza Permit B)</h2>`,
  `Prendiamo un frontaliere con reddito lordo CHF 85.000/anno, coniugato con un figlio. Residenza a Como città (ranking #12): canone medio trilocale EUR 950/mese, addizionali IRPEF 2,53% (0,80% comunale + 1,73% regionale), tempo valico Brogeda 28 min. Residenza a Varese (ranking #8): canone EUR 850/mese, addizionali 2,53%, tempo valico Gaggiolo 22 min, scuole con tempo pieno più diffuso. Residenza a Porlezza (ranking #5): canone EUR 680/mese, addizionali 2,18% (comune convenzionato), tempo valico Gandria 15 min, ma servizi scolastici ridotti. Il saldo netto disponibile dopo abitazione, tasse e mobilità è: Como EUR 42.180, Varese EUR 43.920, Porlezza EUR 46.300 — Porlezza vince di EUR 4.120/anno rispetto a Como.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Top 10 comuni per punteggio complessivo 2026</h2>`,
+ `<h2 class="s-o3IET6">Top 10 comuni per punteggio complessivo 2026</h2>`,
  `I primi 10 comuni per punteggio aggregato nel 2026 sono: 1) Lavena Ponte Tresa (punteggio 82,4), 2) Chiasso (80,1 — unico svizzero, incluso come riferimento), 3) Maccagno con Pino (78,6), 4) Luino (77,9), 5) Porlezza (77,2), 6) Cantello (75,8), 7) Clivio (74,5), 8) Varese (73,9), 9) Malnate (73,1), 10) Cernobbio (72,6). I comuni piccoli della prima fascia (entro 5 km dal valico) primeggiano per tempi di attraversamento e canoni ridotti, ma perdono punti su trasporto pubblico serale e servizi sanitari di prossimità. Varese e Como bilanciano servizi e tempi con un costo della vita medio.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come cambia la classifica nel tempo</h2>`,
+ `<h2 class="s-o3IET6">Come cambia la classifica nel tempo</h2>`,
  `La classifica viene ricalcolata ogni trimestre con il dataset aggiornato: negli ultimi 24 mesi i comuni del Verbano-Cusio-Ossola hanno guadagnato 8-12 posizioni grazie al raddoppio della linea ferroviaria Domodossola-Briga e al potenziamento del valico di Iselle, mentre i comuni della provincia di Lecco (Maccagno, Colico) hanno perso posizioni a causa dell'aumento delle addizionali IRPEF 2025. Il comune di Chiasso resta il solo territorio svizzero incluso a titolo di benchmark: gli indicatori di qualità vita UST lo collocano sistematicamente al top, ma il costo abitativo medio (CHF 1.850/mese per trilocale) rende la residenza svizzera conveniente solo oltre CHF 95.000 di reddito lordo.`,
  `Per approfondire, incrocia il ranking con il <a href="/calcola-stipendio/">simulatore stipendio netto frontaliere</a> per calcolare il saldo fiscale del tuo reddito specifico, consulta la <a href="/guida-frontaliere/mappa-confine/">mappa valichi</a> per ottimizzare il tragitto e il <a href="/guida-frontaliere/costo-auto-pendolare/">calcolatore costo auto</a> per sommare il costo della mobilità al canone di locazione.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonti: <a href="https://www.istat.it" style="color:var(--color-link);text-decoration:none;" rel="noopener">ISTAT</a> · <a href="https://www.miur.gov.it" style="color:var(--color-link);text-decoration:none;" rel="noopener">MIUR</a> · <a href="https://www.salute.gov.it" style="color:var(--color-link);text-decoration:none;" rel="noopener">Ministero della Salute</a> · <a href="https://www.finanze.gov.it" style="color:var(--color-link);text-decoration:none;" rel="noopener">MEF</a></p>`,
+ `<p class="s-tTvoK-">Fonti: <a class="s-OsohZU" href="https://www.istat.it" rel="noopener">ISTAT</a> · <a class="s-OsohZU" href="https://www.miur.gov.it" rel="noopener">MIUR</a> · <a class="s-OsohZU" href="https://www.salute.gov.it" rel="noopener">Ministero della Salute</a> · <a class="s-OsohZU" href="https://www.finanze.gov.it" rel="noopener">MEF</a></p>`,
  );
  } else if (canonicalPath.startsWith('/statistiche/')) {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Statistiche lavoro frontaliero Ticino</h2>`,
+ `<h2 class="s-o3IET6">Statistiche lavoro frontaliero Ticino</h2>`,
  `La sezione statistiche presenta dati aggregati e tendenze sul fenomeno frontaliero in Ticino: numero di permessi G per settore, andamento dei salari medi, tasso di disoccupazione cantonale e flussi di traffico ai valichi.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Fonti ufficiali e dati aggiornati</h2>`,
+ `<h2 class="s-o3IET6">Fonti ufficiali e dati aggiornati</h2>`,
  `I dati provengono da fonti ufficiali (USTAT, SECO, UST) e vengono aggiornati periodicamente. I grafici interattivi permettono di esplorare serie storiche e confrontare periodi diversi.`,
  `Le statistiche sono utili per capire l'evoluzione del mercato del lavoro ticinese, identificare i settori in crescita e preparare negoziazioni salariali con dati oggettivi e verificabili.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.bfs.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">Ufficio federale di statistica (UST)</a> · <a href="https://www.seco.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">SECO</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">Ufficio federale di statistica (UST)</a> · <a class="s-OsohZU" href="https://www.seco.admin.ch" rel="noopener">SECO</a></p>`,
  );
  } else if (isHomePage) {
  editorialBlocks.push(
@@ -3450,7 +3459,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
    .split('-')
    .map((w: string) => w.length > 2 ? w.charAt(0).toUpperCase() + w.slice(1) : w)
    .join(' ');
- cantonAnchors.push(`<a href="${cantonHubHref}" style="display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:var(--color-accent-subtle);color:#312e81;text-decoration:none;font-size:13px;font-weight:600;border:1px solid #c7d2fe">${esc(displayLabel)}</a>`);
+ cantonAnchors.push(`<a class="s-8OHxk_" href="${cantonHubHref}">${esc(displayLabel)}</a>`);
  // Per-canton "today" landing lives under that canton's own section
  // with the canton's per-locale long-form slug, e.g.
  // `/cerca-lavoro-basilea/offerte-di-lavoro-basilea-oggi/` or
@@ -3461,12 +3470,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const todaySlug = getJobTodayLandingSlug(cantonLocale, code);
  const cantonSectionForToday = resolveCantonSection(cantonLocale, code);
  const todayHref = `/${(locale === 'it' ? '' : `${locale}/`)}${cantonSectionForToday}/${todaySlug}/`.replace(/\/+/g, '/');
- cantonAnchors.push(`<a href="${todayHref}" style="display:inline-block;padding:3px 8px;margin:2px;border-radius:6px;background:#f0fdf4;color:#166534;text-decoration:none;font-size:12px;border:1px solid #bbf7d0">${esc(displayLabel)} &mdash; ${esc(todayLabel)}</a>`);
+ cantonAnchors.push(`<a class="s-BN54Bf" href="${todayHref}">${esc(displayLabel)} &mdash; ${esc(todayLabel)}</a>`);
  }
  }
  if (cantonAnchors.length > 0) {
  editorialBlocks.push(
- `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem" open><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:var(--color-heading);padding:.25rem 0">${esc(cantonNavLabel)} (${codesForNav.length})</summary><nav aria-label="${esc(cantonNavLabel)}" style="margin-top:.5rem;line-height:1.9">${cantonAnchors.join('')}</nav></details>`,
+ `<details class="s-01GpQM" open><summary class="s-DhA4PZ">${esc(cantonNavLabel)} (${codesForNav.length})</summary><nav class="s-6_t7LY" aria-label="${esc(cantonNavLabel)}">${cantonAnchors.join('')}</nav></details>`,
  );
  }
  // ── BFS-depth closure (May 2026, run 25739076601) — per-canton deep leaves ──
@@ -3516,38 +3525,38 @@ export function staticPagesPlugin(rootDir: string): Plugin {
      const anchors = e.editorialSlots[navLocale]
        .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillEditorialStyle}">${esc(it.label)}</a>`)
        .join('');
-     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(editorialLabel)}:</strong> ${anchors}</div>`);
+     blocks.push(`<div class="s-GP_Yr7"><strong class="s-htiQGR">${esc(editorialLabel)}:</strong> ${anchors}</div>`);
    }
    // Sector hubs (≤10).
    if (e.sectorSlugs[navLocale].length > 0) {
      const anchors = e.sectorSlugs[navLocale]
        .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillSectorStyle}">${esc(it.label)}</a>`)
        .join('');
-     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(sectorLabel)}:</strong> ${anchors}</div>`);
+     blocks.push(`<div class="s-GP_Yr7"><strong class="s-htiQGR">${esc(sectorLabel)}:</strong> ${anchors}</div>`);
    }
    // Top company hubs (≤6).
    if (e.companyHubs[navLocale].length > 0) {
      const anchors = e.companyHubs[navLocale]
        .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillCompanyStyle}">${esc(it.label)}</a>`)
        .join('');
-     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(companyLabel)}:</strong> ${anchors}</div>`);
+     blocks.push(`<div class="s-GP_Yr7"><strong class="s-htiQGR">${esc(companyLabel)}:</strong> ${anchors}</div>`);
    }
    // City hubs (≤8) — slug is locale-agnostic (citySlug normalised).
    if (e.cityHubs.length > 0) {
      const anchors = e.cityHubs
        .map((it) => `<a href="${cantonBase}${it.slug}/" style="${pillBaseStyle}">${esc(it.label)}</a>`)
        .join('');
-     blocks.push(`<div style="margin:.4rem 0"><strong style="font-size:.8rem;color:#475569">${esc(cityLabel)}:</strong> ${anchors}</div>`);
+     blocks.push(`<div class="s-GP_Yr7"><strong class="s-htiQGR">${esc(cityLabel)}:</strong> ${anchors}</div>`);
    }
    if (blocks.length === 0) continue;
    const totalCount = e.editorialSlots[navLocale].length + e.sectorSlugs[navLocale].length + e.companyHubs[navLocale].length + e.cityHubs.length;
    subSectionDetails.push(
-     `<details style="margin:.25rem 0;border-left:3px solid #cbd5e1;padding:.25rem .5rem"><summary style="cursor:pointer;font-weight:600;font-size:.85rem;color:var(--color-body)">${esc(cantonDisplay)} (${totalCount})</summary><div style="margin-top:.25rem">${blocks.join('')}</div></details>`,
+     `<details class="s-1y-RCP"><summary class="s-SVmSBd">${esc(cantonDisplay)} (${totalCount})</summary><div class="s-IGZ79Z">${blocks.join('')}</div></details>`,
    );
  }
  if (subSectionDetails.length > 0) {
    editorialBlocks.push(
-     `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:var(--color-heading);padding:.25rem 0">${esc(outerNavLabel)} (${subSectionDetails.length})</summary><div style="margin-top:.5rem">${subSectionDetails.join('')}</div></details>`,
+     `<details class="s-01GpQM"><summary class="s-DhA4PZ">${esc(outerNavLabel)} (${subSectionDetails.length})</summary><div class="s-4vhLHi">${subSectionDetails.join('')}</div></details>`,
    );
  }
  }
@@ -3593,7 +3602,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
      .map((it) => `<a href="${tiBase}${it.slug}/" style="${linkStyle}">${esc(it.label)}</a>`)
      .join('');
    editorialBlocks.push(
-     `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem" open><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:var(--color-heading);padding:.25rem 0">${esc(slLabels.nav)} (${editorialSlotItems.length})</summary><nav aria-label="${esc(slLabels.nav)}" style="margin-top:.5rem;line-height:1.9">${editorialSlotAnchors}</nav></details>`,
+     `<details class="s-01GpQM" open><summary class="s-DhA4PZ">${esc(slLabels.nav)} (${editorialSlotItems.length})</summary><nav class="s-6_t7LY" aria-label="${esc(slLabels.nav)}">${editorialSlotAnchors}</nav></details>`,
    );
 
    // (b) Native pagination ladder — only when there are ≥ 2 listing pages.
@@ -3609,7 +3618,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
        paginationAnchors.push(`<a href="${href}" style="${linkStyle}">${pageWord}&nbsp;${p}</a>`);
      }
      editorialBlocks.push(
-       `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:var(--color-heading);padding:.25rem 0">${esc(paginationNavLabel)} (${tiPaginationPages - 1})</summary><nav aria-label="${esc(paginationNavLabel)}" style="margin-top:.5rem;line-height:1.9">${paginationAnchors.join('')}</nav></details>`,
+       `<details class="s-01GpQM"><summary class="s-DhA4PZ">${esc(paginationNavLabel)} (${tiPaginationPages - 1})</summary><nav class="s-6_t7LY" aria-label="${esc(paginationNavLabel)}">${paginationAnchors.join('')}</nav></details>`,
      );
    }
 
@@ -3624,7 +3633,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
        .map((c) => `<a href="${tiBase}${c.slug}/" style="${secondaryLinkStyle}">${esc(c.label)}</a>`)
        .join('');
      editorialBlocks.push(
-       `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:var(--color-heading);padding:.25rem 0">${esc(clustersNavLabel)} (${localeClusters.length})</summary><nav aria-label="${esc(clustersNavLabel)}" style="margin-top:.5rem;line-height:1.9">${clusterAnchors}</nav></details>`,
+       `<details class="s-01GpQM"><summary class="s-DhA4PZ">${esc(clustersNavLabel)} (${localeClusters.length})</summary><nav class="s-6_t7LY" aria-label="${esc(clustersNavLabel)}">${clusterAnchors}</nav></details>`,
      );
    }
 
@@ -3640,7 +3649,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
        .map((c) => `<a href="${tiBase}${companyPrefix}-${c.slug}/" style="${linkStyle}">${esc(c.label)}</a>`)
        .join('');
      editorialBlocks.push(
-       `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:600;font-size:.95rem;color:var(--color-heading);padding:.25rem 0">${esc(companyNavLabel)} (${tiTopCompanies.length})</summary><nav aria-label="${esc(companyNavLabel)}" style="margin-top:.5rem;line-height:1.9">${companyAnchors}</nav></details>`,
+       `<details class="s-01GpQM"><summary class="s-DhA4PZ">${esc(companyNavLabel)} (${tiTopCompanies.length})</summary><nav class="s-6_t7LY" aria-label="${esc(companyNavLabel)}">${companyAnchors}</nav></details>`,
      );
    }
  }
@@ -3711,26 +3720,26 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (calcLandings.length > 0) {
  const headings = NAV_HEADINGS[locale] ?? NAV_HEADINGS.it;
  const anchors = calcLandings
- .map(p => `<li><a href="${p.href}" style="color:var(--color-link);text-decoration:none;font-weight:500">${esc(p.label)}</a></li>`)
+ .map(p => `<li><a class="s-ku_ryy" href="${p.href}">${esc(p.label)}</a></li>`)
  .join('');
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">${esc(headings.h2(calcLandings.length))}</h2>`,
- `<p style="margin:.25rem 0 .75rem;color:var(--color-subtle);font-size:.9rem">${esc(headings.intro)}</p>`,
- `<ul style="margin:0 0 1rem;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:6px;font-size:.9rem">${anchors}</ul>`,
+ `<h2 class="s-o3IET6">${esc(headings.h2(calcLandings.length))}</h2>`,
+ `<p class="s-7X_bw2">${esc(headings.intro)}</p>`,
+ `<ul class="s-FZD3nZ">${anchors}</ul>`,
  );
  }
  } else if (isArticlesIndex) {
  // H.7 — enriched intro + conclusion to raise text/HTML ratio above 0.10
  // Definition block for AI extraction (intro 150+ words)
  editorialBlocks.push(
- `<p style="margin:.5rem 0;font-weight:500;font-size:1rem;line-height:1.7"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino con oltre 870 articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera. I contenuti coprono fiscalità (Nuovo Accordo 2026 ratificato, IRPEF, imposta alla fonte, franchigia di 10.000 €), previdenza (AVS/AHV, LPP/BVG secondo pilastro, terzo pilastro 3a e 3b), guide pratiche (permessi G e B, apertura conto bancario in Svizzera, dogana, trasporti transfrontalieri) e novità legislative (ratifica definitiva del telelavoro fino a 45 giorni, ristorni ai comuni italiani di frontiera, tassa salute della Lombardia). Ogni articolo cita le fonti primarie, include riferimenti normativi aggiornati e collega direttamente ai simulatori della piattaforma così da passare dalla notizia alla stima numerica in pochi click. La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene aggiornati i contenuti evergreen a ogni modifica normativa significativa.</p>`,
+ `<p class="s-6g7z41"><strong>Articoli Frontaliere</strong> è l'hub editoriale di Frontaliere Ticino con oltre 870 articoli di approfondimento dedicati ai lavoratori transfrontalieri tra Italia e Svizzera. I contenuti coprono fiscalità (Nuovo Accordo 2026 ratificato, IRPEF, imposta alla fonte, franchigia di 10.000 €), previdenza (AVS/AHV, LPP/BVG secondo pilastro, terzo pilastro 3a e 3b), guide pratiche (permessi G e B, apertura conto bancario in Svizzera, dogana, trasporti transfrontalieri) e novità legislative (ratifica definitiva del telelavoro fino a 45 giorni, ristorni ai comuni italiani di frontiera, tassa salute della Lombardia). Ogni articolo cita le fonti primarie, include riferimenti normativi aggiornati e collega direttamente ai simulatori della piattaforma così da passare dalla notizia alla stima numerica in pochi click. La redazione pubblica nuovi approfondimenti più volte alla settimana e mantiene aggiornati i contenuti evergreen a ogni modifica normativa significativa.</p>`,
  );
  // Visible CTA → full A-Z archive. Critical for crawler reachability:
  // closes the BFS path from this index to /articoli-frontaliere/tutti/
  // so articles only reachable via /tutti/page-N/ are not flagged as
  // orphans in the sitemap (Semrush "orphaned pages in sitemaps" gate).
  editorialBlocks.push(
- `<p style="margin:1rem 0"><a href="/articoli-frontaliere/tutti/" style="display:inline-block;padding:.5rem 1rem;border-radius:6px;background:#2563eb;color:#fff;text-decoration:none;font-weight:600">Vedi l'archivio completo →</a></p>`,
+ `<p class="s-_TvFy0"><a class="s-277ZFO" href="/articoli-frontaliere/tutti/">Vedi l'archivio completo →</a></p>`,
  );
  // Deep-link navigator: emit one anchor per archive page (1..N) so every
  // /tutti/page-K/ is reachable at depth-2 from `/`, instead of forcing
@@ -3750,54 +3759,54 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const pageAnchors: string[] = [];
  for (let p = 1; p <= articlesTotalPages; p++) {
  const href = paginatedPath(articlesArchiveBase, p);
- pageAnchors.push(`<a href="${href}" style="display:inline-block;padding:4px 10px;margin:2px;border-radius:6px;background:#f1f5f9;color:var(--color-heading);text-decoration:none;font-size:13px;border:1px solid #e2e8f0">${pageWord}&nbsp;${p}</a>`);
+ pageAnchors.push(`<a class="s-4pFg-C" href="${href}">${pageWord}&nbsp;${p}</a>`);
  }
  editorialBlocks.push(
- `<nav aria-label="${esc(navLabel)}" style="margin:.75rem 0 1rem"><p style="margin:.25rem 0;font-size:.85rem;color:var(--color-subtle)">${esc(navLabel)}:</p>${pageAnchors.join('')}</nav>`,
+ `<nav class="s-rzdYWi" aria-label="${esc(navLabel)}"><p class="s-AYnHp_">${esc(navLabel)}:</p>${pageAnchors.join('')}</nav>`,
  );
  }
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come è organizzata la redazione di Frontaliere Ticino</h2>`,
+ `<h2 class="s-o3IET6">Come è organizzata la redazione di Frontaliere Ticino</h2>`,
  `La sezione articoli è costruita come hub editoriale: ogni contenuto approfondisce un tema operativo e collega strumenti o guide utili per passare rapidamente dalla notizia alla simulazione numerica. I temi spaziano dalla fiscalità del Nuovo Accordo 2026 alle guide pratiche sull'apertura del conto bancario svizzero, dalla pianificazione del terzo pilastro 3a al confronto tra LAMal svizzera e SSN italiano per i figli residenti in Italia.`,
  `Gli articoli vengono scritti con approccio pratico, includendo scenari concreti, tabelle con esempi numerici e implicazioni fiscali o previdenziali, così da migliorare sia l'informazione generale sia la capacità decisionale di chi sta per diventare frontaliere e di chi lo è già da anni. Ogni articolo include riferimenti normativi aggiornati, link ai simulatori pertinenti e citazioni delle fonti ufficiali (AFC, AFD, Agenzia delle Entrate, INPS, SECO, UFAS, DSS Canton Ticino, Banca d'Italia, Banca Nazionale Svizzera).`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Le quattro macro-categorie principali</h2>`,
+ `<h2 class="s-o3IET6">Le quattro macro-categorie principali</h2>`,
  `Le categorie principali della sezione sono quattro. <strong>Fiscale</strong> raccoglie le guide su tassazione frontalieri, imposta alla fonte cantonale e federale, IRPEF con franchigia e addizionali regionali/comunali. <strong>Pratico</strong> copre permessi G/B/C/L, dogana e tempi d'attesa ai valichi, trasporti transfrontalieri (treno TILO, auto, car-sharing), apertura di conti correnti svizzeri e italiani. <strong>Novità</strong> segnala aggiornamenti legislativi svizzeri e italiani, sentenze fiscali rilevanti, circolari dell'Agenzia delle Entrate e comunicati dell'AFC. <strong>Pensione</strong> include AVS, LPP, terzo pilastro 3a, riscatto LPP al rientro in Italia, totalizzazione contributiva Italia-Svizzera e simulazioni di rendita futura.`,
  `Il formato editoriale è pensato per la consultazione mobile durante il tragitto: ogni articolo ha un sommario esecutivo con i tre punti principali, seguiti dall'approfondimento con dati e calcoli concreti. I lettori registrati ricevono notifiche e-mail settimanali sugli articoli più rilevanti per la propria situazione fiscale, mentre chi cerca contenuti specifici può usare la ricerca per parola chiave in testata o filtrare per categoria dal menu laterale.`,
  );
  // H.7 conclusion — reinforces dwell-time and closes the editorial loop
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Dall'articolo al calcolo: come sfruttare al meglio l'hub</h2>`,
- `Per ottenere il massimo da questa sezione conviene partire dall'articolo che riguarda la propria situazione (ad esempio <em>nuovo frontaliere assunto dopo il 17 luglio 2023</em> oppure <em>vecchio frontaliere che lavora da remoto 2 giorni a settimana</em>) e poi cliccare sui link interni che portano al simulatore fiscale, al comparatore LAMal o alla bacheca lavoro. In questo modo è possibile passare in meno di due minuti da una notizia generica a una stima numerica personalizzata sul proprio stipendio netto, sul premio LAMal della propria famiglia o sul beneficio fiscale del terzo pilastro 3a. Per chi preferisce un percorso guidato, la home page raccoglie i quattro strumenti più usati — <a href="/calcola-stipendio/" style="color:var(--color-link);text-decoration:none;">simulatore stipendio</a>, <a href="/comparatori/cambio-valuta/" style="color:var(--color-link);text-decoration:none;">comparatore cambio CHF/EUR</a>, <a href="/comparatori/confronta-lamal-ssn/" style="color:var(--color-link);text-decoration:none;">confronto LAMal vs SSN</a> e <a href="/cerca-lavoro-ticino/" style="color:var(--color-link);text-decoration:none;">bacheca lavoro Ticino</a> — assieme ai dieci articoli più letti dell'ultima settimana.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:.75rem;">Fonti principali: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">AFC/ESTV</a> · <a href="https://www.agenziaentrate.gov.it" style="color:var(--color-link);text-decoration:none;" rel="noopener">Agenzia delle Entrate</a> · <a href="https://www.bfs.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">UST/BFS</a> · <a href="https://www.seco.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">SECO</a> · <a href="https://www.bag.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">BAG/UFSP</a></p>`,
+ `<h2 class="s-o3IET6">Dall'articolo al calcolo: come sfruttare al meglio l'hub</h2>`,
+ `Per ottenere il massimo da questa sezione conviene partire dall'articolo che riguarda la propria situazione (ad esempio <em>nuovo frontaliere assunto dopo il 17 luglio 2023</em> oppure <em>vecchio frontaliere che lavora da remoto 2 giorni a settimana</em>) e poi cliccare sui link interni che portano al simulatore fiscale, al comparatore LAMal o alla bacheca lavoro. In questo modo è possibile passare in meno di due minuti da una notizia generica a una stima numerica personalizzata sul proprio stipendio netto, sul premio LAMal della propria famiglia o sul beneficio fiscale del terzo pilastro 3a. Per chi preferisce un percorso guidato, la home page raccoglie i quattro strumenti più usati — <a class="s-OsohZU" href="/calcola-stipendio/">simulatore stipendio</a>, <a class="s-OsohZU" href="/comparatori/cambio-valuta/">comparatore cambio CHF/EUR</a>, <a class="s-OsohZU" href="/comparatori/confronta-lamal-ssn/">confronto LAMal vs SSN</a> e <a class="s-OsohZU" href="/cerca-lavoro-ticino/">bacheca lavoro Ticino</a> — assieme ai dieci articoli più letti dell'ultima settimana.`,
+ `<p class="s-4Rmrb6">Fonti principali: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">AFC/ESTV</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a> · <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · <a class="s-OsohZU" href="https://www.seco.admin.ch" rel="noopener">SECO</a> · <a class="s-OsohZU" href="https://www.bag.admin.ch" rel="noopener">BAG/UFSP</a></p>`,
  );
  // AI-extractable FAQ for blog — collapsible to not disturb UX
  editorialBlocks.push(
- `<details style="margin:.75rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:700;font-size:1rem;color:var(--color-heading);padding:.25rem 0">Domande frequenti sugli articoli per frontalieri</summary><div style="margin-top:.5rem">` +
- `<p style="margin:.5rem 0"><strong>Quanti articoli sono disponibili?</strong> La sezione articoli contiene oltre 700 approfondimenti su fiscalità, permessi, pensioni, sanità e vita quotidiana per i lavoratori frontalieri tra Italia e Svizzera. Nuovi articoli vengono pubblicati ogni settimana.</p>` +
- `<p style="margin:.5rem 0"><strong>Come funziona la tassazione dei frontalieri nel 2026?</strong> Dal 2026 esistono due regimi fiscali: i &quot;vecchi frontalieri&quot; (assunti prima del 17 luglio 2023) pagano solo l'imposta alla fonte in Svizzera, i &quot;nuovi frontalieri&quot; pagano sia in Svizzera (aliquota ridotta all'80%) sia in Italia (IRPEF con franchigia di €10.000). Approfondisci nella <a href="/articoli-frontaliere/guida-completa-diventare-frontaliere-svizzera/" style="color:var(--color-link);text-decoration:none;">guida completa</a>.</p>` +
- `<p style="margin:.5rem 0"><strong>Quale assicurazione sanitaria scegliere come frontaliere?</strong> I frontalieri hanno 3 mesi per scegliere tra LAMal svizzera (CHF 200-600/mese) e SSN italiano. La scelta dipende da dove si vive e dalle esigenze familiari. Leggi il <a href="/articoli-frontaliere/lamal-vs-ssn-guida-scelta-frontaliere/" style="color:var(--color-link);text-decoration:none;">confronto LAMal vs SSN</a>.</p>` +
- `<p style="margin:.5rem 0"><strong>Quali sono i vantaggi del permesso G?</strong> Il permesso G consente di lavorare in Svizzera vivendo in Italia, con accesso a stipendi svizzeri (mediana CHF 62.000-68.000) e costo della vita italiano (30-45% inferiore). I dettagli nella <a href="/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere/" style="color:var(--color-link);text-decoration:none;">guida Permesso G</a>.</p>` +
- `<p style="margin:.5rem 0"><strong>Come trovare lavoro in Ticino?</strong> Il Canton Ticino offre oltre 1.500 posizioni attive in settori come banca, pharma, IT, edilizia e sanità. Consulta la <a href="/cerca-lavoro-ticino/" style="color:var(--color-link);text-decoration:none;">bacheca lavoro</a> e leggi la <a href="/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere/" style="color:var(--color-link);text-decoration:none;">guida per trovare lavoro</a>.</p>` +
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:.5rem;">Fonte: <a href="https://www.bfs.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">UST/BFS</a> · Agenzia delle Entrate · Canton Ticino DFE</p>` +
+ `<details class="s-01GpQM"><summary class="s-8LTzsC">Domande frequenti sugli articoli per frontalieri</summary><div class="s-4vhLHi">` +
+ `<p class="s-F2hp6o"><strong>Quanti articoli sono disponibili?</strong> La sezione articoli contiene oltre 700 approfondimenti su fiscalità, permessi, pensioni, sanità e vita quotidiana per i lavoratori frontalieri tra Italia e Svizzera. Nuovi articoli vengono pubblicati ogni settimana.</p>` +
+ `<p class="s-F2hp6o"><strong>Come funziona la tassazione dei frontalieri nel 2026?</strong> Dal 2026 esistono due regimi fiscali: i &quot;vecchi frontalieri&quot; (assunti prima del 17 luglio 2023) pagano solo l'imposta alla fonte in Svizzera, i &quot;nuovi frontalieri&quot; pagano sia in Svizzera (aliquota ridotta all'80%) sia in Italia (IRPEF con franchigia di €10.000). Approfondisci nella <a class="s-OsohZU" href="/articoli-frontaliere/guida-completa-diventare-frontaliere-svizzera/">guida completa</a>.</p>` +
+ `<p class="s-F2hp6o"><strong>Quale assicurazione sanitaria scegliere come frontaliere?</strong> I frontalieri hanno 3 mesi per scegliere tra LAMal svizzera (CHF 200-600/mese) e SSN italiano. La scelta dipende da dove si vive e dalle esigenze familiari. Leggi il <a class="s-OsohZU" href="/articoli-frontaliere/lamal-vs-ssn-guida-scelta-frontaliere/">confronto LAMal vs SSN</a>.</p>` +
+ `<p class="s-F2hp6o"><strong>Quali sono i vantaggi del permesso G?</strong> Il permesso G consente di lavorare in Svizzera vivendo in Italia, con accesso a stipendi svizzeri (mediana CHF 62.000-68.000) e costo della vita italiano (30-45% inferiore). I dettagli nella <a class="s-OsohZU" href="/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere/">guida Permesso G</a>.</p>` +
+ `<p class="s-F2hp6o"><strong>Come trovare lavoro in Ticino?</strong> Il Canton Ticino offre oltre 1.500 posizioni attive in settori come banca, pharma, IT, edilizia e sanità. Consulta la <a class="s-OsohZU" href="/cerca-lavoro-ticino/">bacheca lavoro</a> e leggi la <a class="s-OsohZU" href="/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere/">guida per trovare lavoro</a>.</p>` +
+ `<p class="s-c06OMF">Fonte: <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · Agenzia delle Entrate · Canton Ticino DFE</p>` +
  `</div></details>`,
  );
  } else if (canonicalPath === '/chi-siamo' || canonicalPath === '/chi-siamo/') {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Chi siamo — Il team di Frontaliere Ticino</h2>`,
+ `<h2 class="s-o3IET6">Chi siamo — Il team di Frontaliere Ticino</h2>`,
  `Frontaliere Ticino è la piattaforma informativa indipendente di riferimento per i lavoratori frontalieri italiani che lavorano nel Canton Ticino, Svizzera. Fondata nel 2024, nasce dall'esigenza concreta di oltre 80.000 frontalieri che ogni giorno attraversano la frontiera italo-svizzera e necessitano di informazioni chiare, aggiornate e imparziali su fiscalità, previdenza, permessi di lavoro e vita quotidiana.`,
  `La redazione è composta da esperti in fiscalità transfrontaliera, previdenza sociale svizzera e italiana, e diritto del lavoro internazionale. Il team monitora quotidianamente le normative di entrambi i paesi — dall'Amministrazione federale delle contribuzioni (AFC/ESTV) all'Agenzia delle Entrate italiana, dalla SECO all'INPS — per garantire che ogni dato, aliquota e procedura pubblicata sia accurata e aggiornata.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">La nostra missione</h2>`,
+ `<h2 class="s-o3IET6">La nostra missione</h2>`,
  `La missione di Frontaliere Ticino è rendere accessibili e comprensibili le complessità fiscali e amministrative del lavoro transfrontaliero. I nostri simulatori calcolano il netto in busta paga con i parametri reali delle tabelle fiscali svizzere e italiane 2026, i comparatori confrontano assicurazioni sanitarie LAMal, costi della vita e opzioni di trasporto, e il motore di ricerca lavoro aggrega oltre 1.500 posizioni attive da più di 100 aziende ticinesi.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Competenza e indipendenza</h2>`,
+ `<h2 class="s-o3IET6">Competenza e indipendenza</h2>`,
  `Tutti i contenuti sono basati esclusivamente su fonti ufficiali: tabelle fiscali dell'AFC, parametri contributivi UFAS/BSV, dati statistici dell'Ufficio federale di statistica (UST/BFS), normative SECO e pubblicazioni dell'Agenzia delle Entrate. La piattaforma è completamente indipendente da banche, assicurazioni e datori di lavoro — le informazioni fornite sono imparziali e verificabili.`,
  `Il sito è disponibile in quattro lingue (italiano, inglese, tedesco, francese) e viene aggiornato quotidianamente con le ultime novità legislative, offerte di lavoro verificate e dati di mercato. Oltre 700 articoli di approfondimento coprono ogni aspetto della vita del frontaliere, dalla prima assunzione alla pianificazione pensionistica.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Le firme della redazione</h2>`,
- `<ul style="list-style:none;padding:0;margin:0">` +
- `<li style="margin:.25rem 0"><a href="/autori/marco-ferrari/" style="color:var(--color-link);text-decoration:none;" rel="author">Marco Ferrari</a> — Esperto fiscalità frontaliera (730, dichiarazione redditi, imposta alla fonte, accordo Italia-Svizzera 2026).</li>` +
- `<li style="margin:.25rem 0"><a href="/autori/laura-bianchi/" style="color:var(--color-link);text-decoration:none;" rel="author">Laura Bianchi</a> — Specialista previdenza svizzera (AVS, LPP, LAMal, pensioni, assicurazioni sociali).</li>` +
- `<li style="margin:.25rem 0"><a href="/autori/redazione/" style="color:var(--color-link);text-decoration:none;" rel="author">Redazione Frontaliere Ticino</a> — Lavoro frontaliere, salari, trasporti transfrontalieri, dogana.</li>` +
+ `<h2 class="s-o3IET6">Le firme della redazione</h2>`,
+ `<ul class="s-QkRjp8">` +
+ `<li class="s-wP4Jn1"><a class="s-OsohZU" href="/autori/marco-ferrari/" rel="author">Marco Ferrari</a> — Esperto fiscalità frontaliera (730, dichiarazione redditi, imposta alla fonte, accordo Italia-Svizzera 2026).</li>` +
+ `<li class="s-wP4Jn1"><a class="s-OsohZU" href="/autori/laura-bianchi/" rel="author">Laura Bianchi</a> — Specialista previdenza svizzera (AVS, LPP, LAMal, pensioni, assicurazioni sociali).</li>` +
+ `<li class="s-wP4Jn1"><a class="s-OsohZU" href="/autori/redazione/" rel="author">Redazione Frontaliere Ticino</a> — Lavoro frontaliere, salari, trasporti transfrontalieri, dogana.</li>` +
  `</ul>`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">AFC</a> · <a href="https://www.bfs.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">UST/BFS</a> · <a href="https://www.agenziaentrate.gov.it" style="color:var(--color-link);text-decoration:none;" rel="noopener">Agenzia delle Entrate</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">AFC</a> · <a class="s-OsohZU" href="https://www.bfs.admin.ch" rel="noopener">UST/BFS</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a></p>`,
  );
  } else if (canonicalPath.startsWith('/autori/') && canonicalPath !== '/autori/' && canonicalPath !== '/autori') {
  // Author profile pages (Google News A1) — render bio + expertise + links
@@ -3829,125 +3838,125 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  };
  const meta = authorMeta[authorSlug];
  if (meta) {
- const tagsHtml = meta.expertise.map((t) => `<li style="display:inline-block;margin:.15rem .25rem;padding:.25rem .6rem;background:#dbeafe;color:var(--color-accent);border-radius:9999px;font-size:.75rem;font-weight:600">${t}</li>`).join('');
+ const tagsHtml = meta.expertise.map((t) => `<li class="s-S0sOCN">${t}</li>`).join('');
  const otherAuthorsHtml = Object.entries(authorMeta)
  .filter(([s]) => s !== authorSlug)
- .map(([s, m]) => `<li style="margin:.25rem 0"><a href="/autori/${s}/" style="color:var(--color-link);text-decoration:none;" rel="author">${m.name}</a> — ${m.role}.</li>`)
+ .map(([s, m]) => `<li class="s-wP4Jn1"><a class="s-OsohZU" href="/autori/${s}/" rel="author">${m.name}</a> — ${m.role}.</li>`)
  .join('');
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">${meta.name} — ${meta.role}</h2>`,
- `<p style="margin:.5rem 0">${meta.bio}</p>`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Aree di competenza</h2>`,
- `<ul style="list-style:none;padding:0;margin:0">${tagsHtml}</ul>`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Profilo pubblico e contatti</h2>`,
- `<p style="margin:.5rem 0">Profilo pubblico LinkedIn: <a href="${meta.linkedin}" style="color:var(--color-link);text-decoration:none;" rel="noopener me" target="_blank">${meta.linkedin}</a>. Per scrivere alla redazione: <a href="mailto:redazione@frontaliereticino.ch" style="color:var(--color-link);text-decoration:none;">redazione@frontaliereticino.ch</a>.</p>`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Altre firme di Frontaliere Ticino</h2>`,
- `<ul style="list-style:none;padding:0;margin:0">${otherAuthorsHtml}</ul>`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Riferimenti: <a href="/chi-siamo/" style="color:var(--color-link);text-decoration:none;">Chi Siamo</a> · <a href="/correzioni/" style="color:var(--color-link);text-decoration:none;">Correzioni</a></p>`,
+ `<h2 class="s-o3IET6">${meta.name} — ${meta.role}</h2>`,
+ `<p class="s-F2hp6o">${meta.bio}</p>`,
+ `<h2 class="s-o3IET6">Aree di competenza</h2>`,
+ `<ul class="s-QkRjp8">${tagsHtml}</ul>`,
+ `<h2 class="s-o3IET6">Profilo pubblico e contatti</h2>`,
+ `<p class="s-F2hp6o">Profilo pubblico LinkedIn: <a class="s-OsohZU" href="${meta.linkedin}" rel="noopener me" target="_blank">${meta.linkedin}</a>. Per scrivere alla redazione: <a class="s-OsohZU" href="mailto:redazione@frontaliereticino.ch">redazione@frontaliereticino.ch</a>.</p>`,
+ `<h2 class="s-o3IET6">Altre firme di Frontaliere Ticino</h2>`,
+ `<ul class="s-QkRjp8">${otherAuthorsHtml}</ul>`,
+ `<p class="s-tTvoK-">Riferimenti: <a class="s-OsohZU" href="/chi-siamo/">Chi Siamo</a> · <a class="s-OsohZU" href="/correzioni/">Correzioni</a></p>`,
  );
  }
  } else if (canonicalPath === '/correzioni' || canonicalPath === '/correzioni/') {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Correzioni — Politica di rettifica e registro pubblico</h2>`,
+ `<h2 class="s-o3IET6">Correzioni — Politica di rettifica e registro pubblico</h2>`,
  `La trasparenza editoriale è uno dei pilastri di Frontaliere Ticino. Quando un dato numerico, una citazione o un'affermazione pubblicata sulla piattaforma si rivela errata, la correggiamo entro 48 ore dalla segnalazione e ne registriamo la traccia in questa pagina, con data, articolo interessato, tipologia (errore fattuale, refuso, chiarimento) e una descrizione sintetica della modifica. Questo registro pubblico serve sia ai lettori — che possono verificare in qualsiasi momento la nostra storia editoriale — sia ai motori di ricerca che valutano l'affidabilità dei contenuti YMYL (your money your life) nei domini fiscale e previdenziale.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come segnalare un errore</h2>`,
- `Per segnalare un errore scrivi a <a href="mailto:redazione@frontaliereticino.ch?subject=Segnalazione%20correzione" style="color:var(--color-link);text-decoration:none;">redazione@frontaliereticino.ch</a> indicando l'URL della pagina o il titolo dell'articolo, la frase o il dato contestato (citato verbatim) e una fonte ufficiale che dimostri l'errore (link a ESTV, Agenzia delle Entrate, BFS, INPS, gazzetta ufficiale o altra amministrazione competente). Risponderemo entro 48 ore lavorative: se la segnalazione è fondata l'articolo viene aggiornato immediatamente, l'entry viene registrata qui sotto in ordine cronologico inverso e — se la correzione è sostanziale — aggiungiamo una nota visibile in cima all'articolo originale.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Tipologie di correzione accettate</h2>`,
+ `<h2 class="s-o3IET6">Come segnalare un errore</h2>`,
+ `Per segnalare un errore scrivi a <a class="s-OsohZU" href="mailto:redazione@frontaliereticino.ch?subject=Segnalazione%20correzione">redazione@frontaliereticino.ch</a> indicando l'URL della pagina o il titolo dell'articolo, la frase o il dato contestato (citato verbatim) e una fonte ufficiale che dimostri l'errore (link a ESTV, Agenzia delle Entrate, BFS, INPS, gazzetta ufficiale o altra amministrazione competente). Risponderemo entro 48 ore lavorative: se la segnalazione è fondata l'articolo viene aggiornato immediatamente, l'entry viene registrata qui sotto in ordine cronologico inverso e — se la correzione è sostanziale — aggiungiamo una nota visibile in cima all'articolo originale.`,
+ `<h2 class="s-o3IET6">Tipologie di correzione accettate</h2>`,
  `Accettiamo tre tipologie di rettifica: <strong>errore fattuale</strong> (dato numerico, citazione o affermazione errata che modifica la sostanza dell'articolo — per esempio un'aliquota fiscale, un parametro contributivo o una scadenza), <strong>refuso</strong> (errore di battitura, ortografico o di formattazione che non modifica il significato del testo) e <strong>chiarimento</strong> (aggiunta di contesto o precisazione che migliora la comprensione senza correggere un errore). Ogni segnalazione fondata viene registrata indipendentemente dalla tipologia, perché anche un refuso può cambiare il senso percepito di una frase.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Indipendenza editoriale</h2>`,
+ `<h2 class="s-o3IET6">Indipendenza editoriale</h2>`,
  `Frontaliere Ticino è una piattaforma indipendente: non riceviamo compensi da banche, casse malati o datori di lavoro citati negli articoli. Le correzioni vengono effettuate solo sulla base di prove verificabili. La storia delle modifiche è sempre tracciata in questa pagina pubblica, sincronizzata con il file <code>data/corrections-log.json</code> versionato nel repository pubblico del progetto.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Riferimenti: <a href="/chi-siamo/" style="color:var(--color-link);text-decoration:none;">Chi Siamo</a> · <a href="/privacy/" style="color:var(--color-link);text-decoration:none;">Privacy</a></p>`,
+ `<p class="s-tTvoK-">Riferimenti: <a class="s-OsohZU" href="/chi-siamo/">Chi Siamo</a> · <a class="s-OsohZU" href="/privacy/">Privacy</a></p>`,
  );
  } else if (canonicalPath === '/metodologia' || canonicalPath === '/metodologia/') {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come scriviamo gli articoli — metodologia editoriale</h2>`,
+ `<h2 class="s-o3IET6">Come scriviamo gli articoli — metodologia editoriale</h2>`,
  `Frontaliere Ticino pubblica guide, simulazioni e notizie destinate ai lavoratori frontalieri italo-svizzeri. Ogni articolo segue una pipeline editoriale a cinque fasi — raccolta delle fonti primarie, bozza assistita da intelligenza artificiale, revisione redazionale, fact-checking e pubblicazione tracciata. La trasparenza sul metodo è parte integrante della qualità: ogni lettore deve poter capire come è stato prodotto il testo che sta leggendo, quali fonti sono state usate e in che modo l'IA e la redazione collaborano.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Strumenti di intelligenza artificiale e revisione umana</h2>`,
+ `<h2 class="s-o3IET6">Strumenti di intelligenza artificiale e revisione umana</h2>`,
  `Usiamo modelli linguistici di nuova generazione (Claude di Anthropic e GPT di OpenAI) per produrre bozze iniziali, suggerire strutture e tradurre i contenuti tra italiano, inglese, tedesco e francese. L'IA è un assistente, non un autore autonomo: ogni articolo è revisionato dalla redazione prima della pubblicazione.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Fonti primarie utilizzate</h2>`,
+ `<h2 class="s-o3IET6">Fonti primarie utilizzate</h2>`,
  `Per ogni argomento usiamo esclusivamente fonti primarie e verificabili: Amministrazione federale delle contribuzioni (AFC/ESTV), comunicati stampa di Cantone Ticino, Confederazione e MEF, Ufficio federale di statistica (UST/BFS), USTAT, sentenze del Tribunale federale, Gazzetta Ufficiale italiana e Foglio federale svizzero, Agenzia delle Entrate, INPS. Le fonti utilizzate per ciascun articolo sono linkate direttamente nel testo.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Standard giornalistici</h2>`,
+ `<h2 class="s-o3IET6">Standard giornalistici</h2>`,
  `Aderiamo agli standard di riferimento del giornalismo economico-finanziario: separazione netta tra fatti e opinioni, attribuzione esplicita di ogni dato numerico, citazioni verbatim, verificabilità di ogni affermazione importante, imparzialità rispetto a banche, casse malati e datori di lavoro, trasparenza sugli autori.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Politica di aggiornamento e correzioni</h2>`,
- `<p>Gli articoli vengono aggiornati ogni volta che cambiano i fatti, entro 48 ore lavorative. Le correzioni sono registrate in modo permanente nel <a href="/correzioni/" style="color:var(--color-link);text-decoration:none;">registro delle correzioni</a>. Per segnalare un errore scrivere a redazione@frontaliereticino.ch.</p>`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Pagine collegate: <a href="/chi-siamo/" style="color:var(--color-link);text-decoration:none;">Chi siamo</a> · <a href="/correzioni/" style="color:var(--color-link);text-decoration:none;">Registro delle correzioni</a></p>`,
+ `<h2 class="s-o3IET6">Politica di aggiornamento e correzioni</h2>`,
+ `<p>Gli articoli vengono aggiornati ogni volta che cambiano i fatti, entro 48 ore lavorative. Le correzioni sono registrate in modo permanente nel <a class="s-OsohZU" href="/correzioni/">registro delle correzioni</a>. Per segnalare un errore scrivere a redazione@frontaliereticino.ch.</p>`,
+ `<p class="s-tTvoK-">Pagine collegate: <a class="s-OsohZU" href="/chi-siamo/">Chi siamo</a> · <a class="s-OsohZU" href="/correzioni/">Registro delle correzioni</a></p>`,
  );
  } else if (canonicalPath === '/contattaci' || canonicalPath === '/contattaci/') {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Contatta Frontaliere Ticino</h2>`,
+ `<h2 class="s-o3IET6">Contatta Frontaliere Ticino</h2>`,
  `Frontaliere Ticino è a disposizione per domande su tassazione, previdenza, permessi di lavoro e vita quotidiana per i lavoratori transfrontalieri tra Svizzera e Italia. Il team risponde a quesiti pratici legati agli strumenti della piattaforma, segnalazioni di errori nei calcolatori e suggerimenti per nuove funzionalità.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Tempi di risposta e canali disponibili</h2>`,
+ `<h2 class="s-o3IET6">Tempi di risposta e canali disponibili</h2>`,
  `Le risposte vengono fornite entro 48 ore lavorative. Per domande fiscali complesse (dichiarazione dei redditi, crediti d'imposta, regime nuovi frontalieri 2026) consigliamo il servizio di consulenza dedicato con professionisti specializzati in fiscalità transfrontaliera.`,
  `La piattaforma è indipendente da banche, assicurazioni e datori di lavoro: le informazioni fornite sono imparziali e basate su fonti ufficiali svizzere e italiane (AFC, Agenzia delle Entrate, SECO, INPS).`,
  );
  } else if (canonicalPath === '/consulenza' || canonicalPath === '/consulenza/') {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Consulenza fiscale per frontalieri Svizzera-Italia</h2>`,
+ `<h2 class="s-o3IET6">Consulenza fiscale per frontalieri Svizzera-Italia</h2>`,
  `Il servizio di consulenza fiscale è rivolto ai lavoratori frontalieri che necessitano di assistenza personalizzata su tassazione, previdenza e ottimizzazione fiscale nel contesto transfrontaliero Svizzera-Italia. I consulenti sono specializzati nelle normative di entrambi i paesi e aggiornati sul Nuovo Accordo Fiscale 2026.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Aree di consulenza disponibili</h2>`,
+ `<h2 class="s-o3IET6">Aree di consulenza disponibili</h2>`,
  `Le aree principali includono: dichiarazione dei redditi italiana per redditi svizzeri, scelta del regime fiscale (vecchi vs nuovi frontalieri), calcolo e applicazione della franchigia di €10.000, ottimizzazione dei crediti d'imposta per imposte pagate all'estero (Art. 165 TUIR), pianificazione previdenziale AVS/LPP/terzo pilastro 3a, e scelta tra LAMal e SSN.`,
  `Ogni consulenza parte dall'analisi della situazione individuale — stato civile, distanza dal confine, anzianità lavorativa in Svizzera, reddito lordo — per identificare la strategia fiscale più vantaggiosa. I professionisti utilizzano gli stessi parametri dei simulatori del sito, verificati sulle tabelle ufficiali dell'Amministrazione federale delle contribuzioni e dell'Agenzia delle Entrate.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:var(--color-link);text-decoration:none;" rel="noopener">AFC</a> · <a href="https://www.agenziaentrate.gov.it" style="color:var(--color-link);text-decoration:none;" rel="noopener">Agenzia delle Entrate</a></p>`,
+ `<p class="s-tTvoK-">Fonte: <a class="s-OsohZU" href="https://www.estv.admin.ch" rel="noopener">AFC</a> · <a class="s-OsohZU" href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a></p>`,
  );
  } else if (canonicalPath === '/privacy' || canonicalPath === '/privacy/') {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Informativa sulla privacy per i frontalieri</h2>`,
+ `<h2 class="s-o3IET6">Informativa sulla privacy per i frontalieri</h2>`,
  `Frontaliere Ticino tratta i dati personali degli utenti nel rispetto del Regolamento Generale sulla Protezione dei Dati (GDPR, Regolamento UE 2016/679) e della Legge federale svizzera sulla protezione dei dati (LPD, nLPD 2023). La piattaforma non richiede registrazione obbligatoria: tutti i calcolatori e i comparatori possono essere utilizzati senza fornire dati personali.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Dati raccolti e finalità del trattamento</h2>`,
+ `<h2 class="s-o3IET6">Dati raccolti e finalità del trattamento</h2>`,
  `I dati eventualmente raccolti (indirizzo e-mail per le allerte lavoro, dati di navigazione tramite Google Analytics 4) vengono utilizzati esclusivamente per il funzionamento dei servizi richiesti dall'utente e per l'analisi aggregata dell'utilizzo della piattaforma. Non vengono ceduti a terzi per finalità di marketing.`,
  `Le simulazioni fiscali e previdenziali vengono eseguite interamente nel browser dell'utente: i dati inseriti nei calcolatori (stipendio, stato civile, numero di figli) non vengono mai trasmessi ai server. Questa architettura garantisce la massima riservatezza delle informazioni finanziarie personali.`,
  );
  } else if (canonicalPath === '/about' || canonicalPath === '/about/') {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">About Us — The Frontaliere Ticino Team</h2>`,
+ `<h2 class="s-o3IET6">About Us — The Frontaliere Ticino Team</h2>`,
  `Frontaliere Ticino is the leading independent information platform for Italian cross-border workers employed in Canton Ticino, Switzerland. Founded in 2024, it was created to serve the over 80,000 frontalieri who cross the Swiss-Italian border daily and need clear, up-to-date, and impartial information on taxation, social security, work permits, and daily life.`,
  `Our editorial team consists of experts in cross-border taxation, Swiss and Italian social security systems, and international labour law. The team monitors regulations from both countries daily — from the Federal Tax Administration (FTA/ESTV) to the Italian Revenue Agency (Agenzia delle Entrate), from SECO to INPS — to ensure every rate, procedure, and data point published is accurate and current.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Our Mission</h2>`,
+ `<h2 class="s-o3IET6">Our Mission</h2>`,
  `Frontaliere Ticino's mission is to make the fiscal and administrative complexities of cross-border work accessible and understandable. Our simulators calculate net salary using actual 2026 Swiss and Italian tax tables, our comparators benchmark LAMal health insurance, cost of living, and transport options, and our job search engine aggregates over 1,500 active positions from more than 100 Ticino-based companies.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Expertise and Independence</h2>`,
+ `<h2 class="s-o3IET6">Expertise and Independence</h2>`,
  `All content is based exclusively on official sources: FTA tax tables, FSIO/BSV contribution parameters, FSO/BFS statistical data, SECO regulations, and Italian Revenue Agency publications. The platform is completely independent from banks, insurance companies, and employers — the information provided is impartial and verifiable.`,
  `The site is available in four languages (Italian, English, German, French) and is updated daily with the latest legislative developments, verified job offers, and market data. Over 700 in-depth articles cover every aspect of the cross-border worker's life, from first employment to retirement planning.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Platform Features</h2>`,
+ `<h2 class="s-o3IET6">Platform Features</h2>`,
  `Key features include a comprehensive fiscal simulator comparing Permit B (Swiss resident) and Permit G (cross-border commuter) scenarios, a pension planner covering AVS/AHV first pillar and LPP/BVG second pillar projections, a health insurance comparator with real LAMal premiums from 14 Swiss insurers across 7 cantons, a currency exchange tracker with live CHF-EUR rates, and a border crossing traffic monitor providing real-time wait estimates for all Ticino-Italy crossings.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Contact and Community</h2>`,
+ `<h2 class="s-o3IET6">Contact and Community</h2>`,
  `<p>We welcome feedback, corrections, and feature suggestions from our users. The platform evolves continuously based on community input — every tool, article, and comparison was built to solve real problems faced by real frontalieri. Visit our <a href="/contact/">contact page</a> for questions, or explore our <a href="/privacy-policy/">privacy policy</a> for data handling details.</p>`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Sources: <a href="https://www.estv.admin.ch" rel="noopener">FTA</a> · <a href="https://www.bfs.admin.ch" rel="noopener">FSO/BFS</a> · <a href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a> · <a href="https://www.seco.admin.ch" rel="noopener">SECO</a></p>`,
+ `<p class="s-tTvoK-">Sources: <a href="https://www.estv.admin.ch" rel="noopener">FTA</a> · <a href="https://www.bfs.admin.ch" rel="noopener">FSO/BFS</a> · <a href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a> · <a href="https://www.seco.admin.ch" rel="noopener">SECO</a></p>`,
  );
  } else if (canonicalPath === '/contact' || canonicalPath === '/contact/') {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Contact Frontaliere Ticino</h2>`,
+ `<h2 class="s-o3IET6">Contact Frontaliere Ticino</h2>`,
  `Frontaliere Ticino is available for questions about taxation, social security, work permits, and daily life for cross-border workers between Switzerland and Italy. Our team answers practical questions about platform tools, calculator error reports, and suggestions for new features.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Response Times and Available Channels</h2>`,
+ `<h2 class="s-o3IET6">Response Times and Available Channels</h2>`,
  `Responses are provided within 48 business hours. For complex tax questions (income tax returns, tax credits, 2026 new frontalieri regime), we recommend our dedicated consulting service with professionals specialising in cross-border taxation.`,
  `The platform is independent from banks, insurance companies, and employers: all information provided is impartial and based on official Swiss and Italian sources (FTA, Italian Revenue Agency, SECO, INPS).`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">How to Reach Us</h2>`,
+ `<h2 class="s-o3IET6">How to Reach Us</h2>`,
  `The best way to contact us is via email at info@frontaliereticino.ch. We also monitor social media channels for questions and feedback. For urgent technical issues with the calculators or job search, please include a screenshot and the browser you are using so we can diagnose the problem efficiently.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Common Questions We Can Help With</h2>`,
+ `<h2 class="s-o3IET6">Common Questions We Can Help With</h2>`,
  `Our team regularly assists with questions about: understanding your Swiss payslip deductions (AVS, AC, LAA, IJM, LPP), choosing between LAMal and Italian SSN health insurance, calculating the impact of the 2026 bilateral tax agreement on your take-home pay, interpreting your Italian income tax return for Swiss-sourced income, comparing the financial implications of Permit B versus Permit G, and navigating the pension system across both countries.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Professional Consulting Services</h2>`,
+ `<h2 class="s-o3IET6">Professional Consulting Services</h2>`,
  `<p>For personalized advice beyond the scope of our free tools, we partner with licensed Swiss and Italian tax consultants who specialize in cross-border employment. These professionals can assist with specific tax return preparation, optimization strategies, and complex scenarios involving multiple jurisdictions or family situations. Learn more on our <a href="/about/">about page</a> or review our <a href="/privacy-policy/">privacy policy</a>.</p>`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Sources: <a href="https://www.estv.admin.ch" rel="noopener">FTA</a> · <a href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a> · <a href="https://www.seco.admin.ch" rel="noopener">SECO</a></p>`,
+ `<p class="s-tTvoK-">Sources: <a href="https://www.estv.admin.ch" rel="noopener">FTA</a> · <a href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a> · <a href="https://www.seco.admin.ch" rel="noopener">SECO</a></p>`,
  );
  } else if (canonicalPath === '/privacy-policy' || canonicalPath === '/privacy-policy/') {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Privacy Policy for Cross-Border Workers</h2>`,
+ `<h2 class="s-o3IET6">Privacy Policy for Cross-Border Workers</h2>`,
  `Frontaliere Ticino processes personal data in compliance with the General Data Protection Regulation (GDPR, EU Regulation 2016/679) and the Swiss Federal Act on Data Protection (FADP, nDSG 2023). The platform does not require mandatory registration: all calculators and comparators can be used without providing personal data.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Data Collection and Processing Purposes</h2>`,
+ `<h2 class="s-o3IET6">Data Collection and Processing Purposes</h2>`,
  `Any collected information (email addresses for job alerts, browsing behaviour via Google Analytics 4) is used exclusively for operating user-requested services and aggregate platform usage analysis. No information is shared with third parties for marketing purposes.`,
  `Tax and pension simulations are performed entirely in the user's browser: inputs entered in calculators (salary, marital status, number of children) are never transmitted to servers. This architecture ensures maximum privacy of personal financial information.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Cookies and Tracking Technologies</h2>`,
+ `<h2 class="s-o3IET6">Cookies and Tracking Technologies</h2>`,
  `The platform uses first-party cookies for essential functionality (language preference, consent state) and Google Analytics 4 for anonymised traffic analysis. No advertising or remarketing cookies are used. Users can opt out of analytics tracking via the cookie consent banner displayed on first visit. Consent preferences are stored locally and can be updated at any time from the footer settings link.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Your Rights Under GDPR and FADP</h2>`,
+ `<h2 class="s-o3IET6">Your Rights Under GDPR and FADP</h2>`,
  `<p>Under GDPR and Swiss FADP, you have the right to access, rectify, delete, and port your personal information. You may also object to processing or request restriction of processing. To exercise any of these rights, contact us at info@frontaliereticino.ch. We respond to all requests within 30 days as required by law. For more information about our team and mission, visit our <a href="/about/">about page</a> or <a href="/contact/">contact page</a>.</p>`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Third-Party Services</h2>`,
+ `<h2 class="s-o3IET6">Third-Party Services</h2>`,
  `The platform integrates with the following third-party services: Firebase (Google) for hosting, analytics, and configuration; TwelveData for live CHF-EUR exchange rates; Google Maps API for border crossing traffic estimates; and reCAPTCHA v3 for form protection. Each service has its own privacy policy, and we limit the information shared to the minimum necessary for service operation. No personal financial information entered in our calculators is ever sent to any third party.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">References: <a href="https://gdpr.eu/" rel="noopener">GDPR</a> · <a href="https://www.fedlex.admin.ch/eli/cc/2022/491/en" rel="noopener">Swiss FADP</a></p>`,
+ `<p class="s-tTvoK-">References: <a href="https://gdpr.eu/" rel="noopener">GDPR</a> · <a href="https://www.fedlex.admin.ch/eli/cc/2022/491/en" rel="noopener">Swiss FADP</a></p>`,
  );
  } else if (canonicalPath === '/stato-api' || canonicalPath === '/stato-api/') {
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stato dei servizi e delle API</h2>`,
+ `<h2 class="s-o3IET6">Stato dei servizi e delle API</h2>`,
  `Questa pagina mostra lo stato operativo in tempo reale di tutti i servizi esterni utilizzati dalla piattaforma Frontaliere Ticino: tasso di cambio CHF/EUR (TwelveData API), traffico ai valichi di frontiera (Google Maps API), reCAPTCHA per la protezione dei moduli, e Firebase per l'archiviazione e le configurazioni.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Affidabilità e fallback dei dati</h2>`,
+ `<h2 class="s-o3IET6">Affidabilità e fallback dei dati</h2>`,
  `La piattaforma è progettata per funzionare anche quando uno o più servizi esterni sono temporaneamente non disponibili: i tassi di cambio hanno una cache locale con fallback ai dati più recenti, il traffico ai valichi utilizza stime basate su dati storici, e i calcolatori funzionano interamente nel browser senza dipendenze da server remoti.`,
  `Lo storico delle interruzioni e la disponibilità media di ciascun servizio sono visibili in questa pagina, insieme alla latenza media delle API e alla frequenza di aggiornamento dei dati.`,
  );
@@ -3969,26 +3978,26 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Cross-references chosen by section root so the recommended next step
  // is always topically adjacent, not a generic homepage link.
  const sectionCrossRefs: Record<string, string> = {
- 'glossario-frontaliere': '<a href="/calcola-stipendio/" style="color:var(--color-link);text-decoration:none">calcolatore di stipendio</a> e <a href="/articoli-frontaliere/" style="color:var(--color-link);text-decoration:none">archivio articoli</a>',
- 'articoli-frontaliere': '<a href="/articoli-frontaliere/tutti/" style="color:var(--color-link);text-decoration:none">indice completo degli articoli</a> e <a href="/calcola-stipendio/" style="color:var(--color-link);text-decoration:none">calcolatore di stipendio</a>',
- 'compara-servizi': '<a href="/compara-servizi/cambio-franco-euro/" style="color:var(--color-link);text-decoration:none">cambio CHF/EUR</a>, <a href="/compara-servizi/confronta-casse-malati/" style="color:var(--color-link);text-decoration:none">casse malati</a> e <a href="/compara-servizi/confronta-banche/" style="color:var(--color-link);text-decoration:none">conti bancari</a>',
- 'tasse-e-pensione': '<a href="/calcola-stipendio/" style="color:var(--color-link);text-decoration:none">calcolatore di stipendio</a> e <a href="/tasse-e-pensione/calcola-previdenza/" style="color:var(--color-link);text-decoration:none">simulatore di previdenza</a>',
- 'guida-frontaliere': '<a href="/guida-frontaliere/permessi-di-lavoro/" style="color:var(--color-link);text-decoration:none">guida ai permessi G/B/L</a> e <a href="/traffico-dogane/" style="color:var(--color-link);text-decoration:none">tempi di attesa ai valichi</a>',
- 'vita-in-ticino': '<a href="/compara-servizi/costo-vita-ticino/" style="color:var(--color-link);text-decoration:none">costo della vita in Ticino</a> e <a href="/cerca-lavoro-ticino/" style="color:var(--color-link);text-decoration:none">offerte di lavoro</a>',
- 'statistiche': '<a href="/statistiche/" style="color:var(--color-link);text-decoration:none">dashboard statistiche</a> e <a href="/mercato-lavoro-ticino/" style="color:var(--color-link);text-decoration:none">mercato del lavoro Ticino</a>',
+ 'glossario-frontaliere': '<a class="s-U9K6Vf" href="/calcola-stipendio/">calcolatore di stipendio</a> e <a class="s-U9K6Vf" href="/articoli-frontaliere/">archivio articoli</a>',
+ 'articoli-frontaliere': '<a class="s-U9K6Vf" href="/articoli-frontaliere/tutti/">indice completo degli articoli</a> e <a class="s-U9K6Vf" href="/calcola-stipendio/">calcolatore di stipendio</a>',
+ 'compara-servizi': '<a class="s-U9K6Vf" href="/compara-servizi/cambio-franco-euro/">cambio CHF/EUR</a>, <a class="s-U9K6Vf" href="/compara-servizi/confronta-casse-malati/">casse malati</a> e <a class="s-U9K6Vf" href="/compara-servizi/confronta-banche/">conti bancari</a>',
+ 'tasse-e-pensione': '<a class="s-U9K6Vf" href="/calcola-stipendio/">calcolatore di stipendio</a> e <a class="s-U9K6Vf" href="/tasse-e-pensione/calcola-previdenza/">simulatore di previdenza</a>',
+ 'guida-frontaliere': '<a class="s-U9K6Vf" href="/guida-frontaliere/permessi-di-lavoro/">guida ai permessi G/B/L</a> e <a class="s-U9K6Vf" href="/traffico-dogane/">tempi di attesa ai valichi</a>',
+ 'vita-in-ticino': '<a class="s-U9K6Vf" href="/compara-servizi/costo-vita-ticino/">costo della vita in Ticino</a> e <a class="s-U9K6Vf" href="/cerca-lavoro-ticino/">offerte di lavoro</a>',
+ 'statistiche': '<a class="s-U9K6Vf" href="/statistiche/">dashboard statistiche</a> e <a class="s-U9K6Vf" href="/mercato-lavoro-ticino/">mercato del lavoro Ticino</a>',
  };
  const crossRefsHtml = sectionCrossRefs[sectionSlug]
- || '<a href="/calcola-stipendio/" style="color:var(--color-link);text-decoration:none">calcolatore di stipendio</a>, <a href="/compara-servizi/" style="color:var(--color-link);text-decoration:none">comparatori</a> e <a href="/guida-frontaliere/" style="color:var(--color-link);text-decoration:none">guida frontaliere</a>';
+ || '<a class="s-U9K6Vf" href="/calcola-stipendio/">calcolatore di stipendio</a>, <a class="s-U9K6Vf" href="/compara-servizi/">comparatori</a> e <a class="s-U9K6Vf" href="/guida-frontaliere/">guida frontaliere</a>';
 
  editorialBlocks.push(
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">${esc(leafLabel)} per frontalieri Ticino</h2>`,
+ `<h2 class="s-o3IET6">${esc(leafLabel)} per frontalieri Ticino</h2>`,
  `Questa pagina ${esc(leafLabel.toLowerCase())} fa parte della sezione ${esc(sectionLabel)} di Frontaliere Ticino, la piattaforma di riferimento per chi lavora in Canton Ticino e mantiene la residenza in un comune italiano della zona di frontiera. I contenuti aiutano a prendere decisioni concrete su tassazione, previdenza, costi del pendolarismo e procedure amministrative legate al lavoro transfrontaliero, applicando le regole del Nuovo Accordo Fiscale 2026 e i parametri retributivi aggiornati al cantone.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Cosa puoi fare da qui</h2>`,
+ `<h2 class="s-o3IET6">Cosa puoi fare da qui</h2>`,
  `Da questa pagina puoi muoverti rapidamente verso gli strumenti più rilevanti per la sezione ${esc(sectionLabel)}: ${crossRefsHtml}. Ogni strumento è gratuito, non richiede registrazione e calcola i risultati nel browser per garantire la massima privacy dei dati finanziari personali. I valori sono presentati sia in franchi svizzeri che in euro al cambio attuale, con la possibilità di forzare un cambio personalizzato per simulare scenari di volatilità.`,
- `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come applicare queste informazioni alla tua situazione</h2>`,
+ `<h2 class="s-o3IET6">Come applicare queste informazioni alla tua situazione</h2>`,
  `Per un frontaliere italiano, il vantaggio economico del lavoro in Ticino dipende da quattro variabili che interagiscono fra loro: aliquota di imposta alla fonte (variabile per cantone, stato civile, figli e fascia di reddito), contributi sociali svizzeri (AVS/AI/IPG al 5,3 %, disoccupazione 1,1 %, infortunio non professionale, indennità giornaliera di malattia, LPP per fascia d'età), scelta dell'assicurazione malattia (LAMal in Svizzera o opzione di rimanere in CMU/SSN nel sistema italiano per i nuovi frontalieri post-17 luglio 2023), e cambio CHF-EUR. Una variazione di 5 centesimi sul cambio sposta il netto in euro di circa il 5-7 % a parità di lordo svizzero.`,
  `Il Nuovo Accordo Fiscale Bilaterale 2026 tra Svizzera e Italia introduce regole diverse per i nuovi frontalieri (assunti dopo il 17 luglio 2023): l'imposta alla fonte resta interamente in Svizzera, mentre i vecchi frontalieri continuano a beneficiare della ripartizione 80 %/20 % per chi risiede entro 20 km dal confine. La distanza dalla frontiera (entro o oltre 20 km misurati come strada percorribile, non in linea d'aria) e la data di prima assunzione sono i due discriminanti principali per scegliere fra calcolatore "vecchio frontaliere" e "nuovo frontaliere" nelle sezioni di simulazione.`,
- `<p style="color:var(--color-subtle);font-size:0.8rem;margin-top:4px;">Aggiornato secondo le tabelle <a href="https://www4.ti.ch/dfe/dc/" style="color:var(--color-link);text-decoration:none;" rel="noopener">Divisione delle contribuzioni del Canton Ticino</a> per l'anno fiscale 2026.</p>`,
+ `<p class="s-tTvoK-">Aggiornato secondo le tabelle <a class="s-OsohZU" href="https://www4.ti.ch/dfe/dc/" rel="noopener">Divisione delle contribuzioni del Canton Ticino</a> per l'anno fiscale 2026.</p>`,
  );
  }
 
@@ -4056,7 +4065,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  .filter((e: Record<string, unknown>) => e['@type'] === 'Question' && e.name && (e as Record<string, Record<string, unknown>>).acceptedAnswer?.text)
  .slice(0, 5);
  if (qas.length > 0 && !salaryLandingPath) {
- faqHtml = `<section style="margin-top:1.25rem"><h2 style="font-size:1rem;font-weight:700;margin:0 0 .75rem">${esc(FAQ_HEADING[locale] ?? FAQ_HEADING.it)}</h2><dl style="margin:0">${qas.map((q: Record<string, Record<string, string>>) => `<dt style="font-weight:600;margin:.75rem 0 .25rem">${esc(String(q.name))}</dt><dd style="margin:0 0 .5rem 0;color:var(--color-body)">${esc(String(q.acceptedAnswer?.text ?? ''))}</dd>`).join('')}</dl></section>`;
+ faqHtml = `<section class="s-UBICn_"><h2 class="s-p8nQEt">${esc(FAQ_HEADING[locale] ?? FAQ_HEADING.it)}</h2><dl class="s-q3nqK4">${qas.map((q: Record<string, Record<string, string>>) => `<dt class="s-IJKL8M">${esc(String(q.name))}</dt><dd class="s-xVCIev">${esc(String(q.acceptedAnswer?.text ?? ''))}</dd>`).join('')}</dl></section>`;
  }
  break;
  }
@@ -4070,17 +4079,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // static HTML, so we inject simplified comparison tables here.
  let comparisonTableHtml = '';
  if (canonicalPath.startsWith('/guida-frontaliere/confronta-permesso-g-vs-b')) {
- comparisonTableHtml = '<table style="width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem"><thead><tr style="background:#f1f5f9"><th style="padding:.5rem;text-align:left;border:1px solid #e2e8f0">Aspetto</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Permesso G (Frontaliere)</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Permesso B (Residente)</th></tr></thead><tbody><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Residenza</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Italia</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Svizzera</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Tassazione</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Imposta alla fonte CH + IRPEF IT</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Solo imposte svizzere</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Costo della vita</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">30-45% inferiore</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Riferimento (pi&ugrave; alto)</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Pendolarismo</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">45-90 min/tratta</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Nessuno o breve</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Sanit&agrave;</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">SSN Italia o LAMal</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">LAMal obbligatoria</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Previdenza</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">AVS/LPP + INPS</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">AVS/LPP</td></tr></tbody></table>';
+ comparisonTableHtml = '<table class="s-VhqZBv"><thead><tr class="s-3WzZY3"><th class="s-NTotfT">Aspetto</th><th class="s-bgy2Ol">Permesso G (Frontaliere)</th><th class="s-bgy2Ol">Permesso B (Residente)</th></tr></thead><tbody><tr><td class="s-aVO1nD">Residenza</td><td class="s-bgy2Ol">Italia</td><td class="s-bgy2Ol">Svizzera</td></tr><tr><td class="s-aVO1nD">Tassazione</td><td class="s-bgy2Ol">Imposta alla fonte CH + IRPEF IT</td><td class="s-bgy2Ol">Solo imposte svizzere</td></tr><tr><td class="s-aVO1nD">Costo della vita</td><td class="s-bgy2Ol">30-45% inferiore</td><td class="s-bgy2Ol">Riferimento (pi&ugrave; alto)</td></tr><tr><td class="s-aVO1nD">Pendolarismo</td><td class="s-bgy2Ol">45-90 min/tratta</td><td class="s-bgy2Ol">Nessuno o breve</td></tr><tr><td class="s-aVO1nD">Sanit&agrave;</td><td class="s-bgy2Ol">SSN Italia o LAMal</td><td class="s-bgy2Ol">LAMal obbligatoria</td></tr><tr><td class="s-aVO1nD">Previdenza</td><td class="s-bgy2Ol">AVS/LPP + INPS</td><td class="s-bgy2Ol">AVS/LPP</td></tr></tbody></table>';
  } else if (canonicalPath.startsWith('/statistiche/confronta-stipendi')) {
- comparisonTableHtml = '<table style="width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem"><thead><tr style="background:#f1f5f9"><th style="padding:.5rem;text-align:left;border:1px solid #e2e8f0">Settore</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Stipendio Mediano Ticino (CHF)</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Stipendio Mediano Italia (EUR)</th></tr></thead><tbody><tr><td style="padding:.5rem;border:1px solid #e2e8f0">IT / Software</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">95.000</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">35.000</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Finanza / Banking</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">110.000</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">38.000</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Pharma / Chimica</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">105.000</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">34.000</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Ingegneria</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">90.000</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">32.000</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Commercio / Retail</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">55.000</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">24.000</td></tr></tbody></table>';
+ comparisonTableHtml = '<table class="s-VhqZBv"><thead><tr class="s-3WzZY3"><th class="s-NTotfT">Settore</th><th class="s-bgy2Ol">Stipendio Mediano Ticino (CHF)</th><th class="s-bgy2Ol">Stipendio Mediano Italia (EUR)</th></tr></thead><tbody><tr><td class="s-aVO1nD">IT / Software</td><td class="s-bgy2Ol">95.000</td><td class="s-bgy2Ol">35.000</td></tr><tr><td class="s-aVO1nD">Finanza / Banking</td><td class="s-bgy2Ol">110.000</td><td class="s-bgy2Ol">38.000</td></tr><tr><td class="s-aVO1nD">Pharma / Chimica</td><td class="s-bgy2Ol">105.000</td><td class="s-bgy2Ol">34.000</td></tr><tr><td class="s-aVO1nD">Ingegneria</td><td class="s-bgy2Ol">90.000</td><td class="s-bgy2Ol">32.000</td></tr><tr><td class="s-aVO1nD">Commercio / Retail</td><td class="s-bgy2Ol">55.000</td><td class="s-bgy2Ol">24.000</td></tr></tbody></table>';
  } else if (canonicalPath.startsWith('/compara-servizi/confronta-casse-malati')) {
- comparisonTableHtml = '<table style="width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem"><thead><tr style="background:#f1f5f9"><th style="padding:.5rem;text-align:left;border:1px solid #e2e8f0">Opzione</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Premio Mensile</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Copertura</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Nota</th></tr></thead><tbody><tr><td style="padding:.5rem;border:1px solid #e2e8f0">LAMal Svizzera</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 300-500</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CH + UE</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Obbligatoria per residenti</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">SSN Italia</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">~&euro; 50-100</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Solo Italia</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Diritto d&#39;opzione per G</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">CMB (Complementare)</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 200-400</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Integrativa</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Riduce franchigia</td></tr></tbody></table>';
+ comparisonTableHtml = '<table class="s-VhqZBv"><thead><tr class="s-3WzZY3"><th class="s-NTotfT">Opzione</th><th class="s-bgy2Ol">Premio Mensile</th><th class="s-bgy2Ol">Copertura</th><th class="s-bgy2Ol">Nota</th></tr></thead><tbody><tr><td class="s-aVO1nD">LAMal Svizzera</td><td class="s-bgy2Ol">CHF 300-500</td><td class="s-bgy2Ol">CH + UE</td><td class="s-bgy2Ol">Obbligatoria per residenti</td></tr><tr><td class="s-aVO1nD">SSN Italia</td><td class="s-bgy2Ol">~&euro; 50-100</td><td class="s-bgy2Ol">Solo Italia</td><td class="s-bgy2Ol">Diritto d&#39;opzione per G</td></tr><tr><td class="s-aVO1nD">CMB (Complementare)</td><td class="s-bgy2Ol">CHF 200-400</td><td class="s-bgy2Ol">Integrativa</td><td class="s-bgy2Ol">Riduce franchigia</td></tr></tbody></table>';
  } else if (canonicalPath.startsWith('/compara-servizi/confronta-banche') || canonicalPath.startsWith('/compara-servizi/confronta-conti-bancari')) {
- comparisonTableHtml = '<table style="width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem"><thead><tr style="background:#f1f5f9"><th style="padding:.5rem;text-align:left;border:1px solid #e2e8f0">Banca</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Conto CHF</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Cambio CHF-EUR</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Costi mensili</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Carta</th></tr></thead><tbody><tr><td style="padding:.5rem;border:1px solid #e2e8f0">PostFinance</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">S&igrave;</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">1,5 % spread</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 5</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Debit Mastercard</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Revolut</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Multi-valuta</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">0,3-0,5 %</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Gratis / &euro; 8</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Visa Debit</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Wise</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Multi-valuta</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">0,3-0,6 %</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Gratis</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Visa Debit</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Corner Banca</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">S&igrave;</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">1,0-1,5 %</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 6</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Visa/Mastercard</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">BancaStato</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">S&igrave;</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">1,0-2,0 %</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 3-8</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Maestro/Visa</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Raiffeisen</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">S&igrave;</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">1,2-1,8 %</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 4-7</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Visa Debit</td></tr></tbody></table>';
+ comparisonTableHtml = '<table class="s-VhqZBv"><thead><tr class="s-3WzZY3"><th class="s-NTotfT">Banca</th><th class="s-bgy2Ol">Conto CHF</th><th class="s-bgy2Ol">Cambio CHF-EUR</th><th class="s-bgy2Ol">Costi mensili</th><th class="s-bgy2Ol">Carta</th></tr></thead><tbody><tr><td class="s-aVO1nD">PostFinance</td><td class="s-bgy2Ol">S&igrave;</td><td class="s-bgy2Ol">1,5 % spread</td><td class="s-bgy2Ol">CHF 5</td><td class="s-bgy2Ol">Debit Mastercard</td></tr><tr><td class="s-aVO1nD">Revolut</td><td class="s-bgy2Ol">Multi-valuta</td><td class="s-bgy2Ol">0,3-0,5 %</td><td class="s-bgy2Ol">Gratis / &euro; 8</td><td class="s-bgy2Ol">Visa Debit</td></tr><tr><td class="s-aVO1nD">Wise</td><td class="s-bgy2Ol">Multi-valuta</td><td class="s-bgy2Ol">0,3-0,6 %</td><td class="s-bgy2Ol">Gratis</td><td class="s-bgy2Ol">Visa Debit</td></tr><tr><td class="s-aVO1nD">Corner Banca</td><td class="s-bgy2Ol">S&igrave;</td><td class="s-bgy2Ol">1,0-1,5 %</td><td class="s-bgy2Ol">CHF 6</td><td class="s-bgy2Ol">Visa/Mastercard</td></tr><tr><td class="s-aVO1nD">BancaStato</td><td class="s-bgy2Ol">S&igrave;</td><td class="s-bgy2Ol">1,0-2,0 %</td><td class="s-bgy2Ol">CHF 3-8</td><td class="s-bgy2Ol">Maestro/Visa</td></tr><tr><td class="s-aVO1nD">Raiffeisen</td><td class="s-bgy2Ol">S&igrave;</td><td class="s-bgy2Ol">1,2-1,8 %</td><td class="s-bgy2Ol">CHF 4-7</td><td class="s-bgy2Ol">Visa Debit</td></tr></tbody></table>';
  } else if (canonicalPath.startsWith('/compara-servizi/confronta-operatori-mobili')) {
- comparisonTableHtml = '<table style="width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem"><thead><tr style="background:#f1f5f9"><th style="padding:.5rem;text-align:left;border:1px solid #e2e8f0">Operatore</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Piano</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Prezzo/mese</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Dati</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Roaming CH-IT</th></tr></thead><tbody><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Swisscom</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">blue Mobile M</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 55</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Illimitati CH</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">2 GB/mese UE incl.</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Salt</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Swiss</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 30</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Illimitati CH</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">1 GB/mese UE incl.</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Sunrise</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">smart</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 45</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Illimitati CH</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">2 GB/mese UE incl.</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Iliad Italia</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Giga 180</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">&euro; 10</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">180 GB IT</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Roaming UE incluso</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">ho. Mobile</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">200 GB</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">&euro; 10</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">200 GB IT</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Roaming UE incluso</td></tr></tbody></table>';
+ comparisonTableHtml = '<table class="s-VhqZBv"><thead><tr class="s-3WzZY3"><th class="s-NTotfT">Operatore</th><th class="s-bgy2Ol">Piano</th><th class="s-bgy2Ol">Prezzo/mese</th><th class="s-bgy2Ol">Dati</th><th class="s-bgy2Ol">Roaming CH-IT</th></tr></thead><tbody><tr><td class="s-aVO1nD">Swisscom</td><td class="s-bgy2Ol">blue Mobile M</td><td class="s-bgy2Ol">CHF 55</td><td class="s-bgy2Ol">Illimitati CH</td><td class="s-bgy2Ol">2 GB/mese UE incl.</td></tr><tr><td class="s-aVO1nD">Salt</td><td class="s-bgy2Ol">Swiss</td><td class="s-bgy2Ol">CHF 30</td><td class="s-bgy2Ol">Illimitati CH</td><td class="s-bgy2Ol">1 GB/mese UE incl.</td></tr><tr><td class="s-aVO1nD">Sunrise</td><td class="s-bgy2Ol">smart</td><td class="s-bgy2Ol">CHF 45</td><td class="s-bgy2Ol">Illimitati CH</td><td class="s-bgy2Ol">2 GB/mese UE incl.</td></tr><tr><td class="s-aVO1nD">Iliad Italia</td><td class="s-bgy2Ol">Giga 180</td><td class="s-bgy2Ol">&euro; 10</td><td class="s-bgy2Ol">180 GB IT</td><td class="s-bgy2Ol">Roaming UE incluso</td></tr><tr><td class="s-aVO1nD">ho. Mobile</td><td class="s-bgy2Ol">200 GB</td><td class="s-bgy2Ol">&euro; 10</td><td class="s-bgy2Ol">200 GB IT</td><td class="s-bgy2Ol">Roaming UE incluso</td></tr></tbody></table>';
  } else if (canonicalPath.startsWith('/vivere-in-ticino/costo-della-vita') || canonicalPath.startsWith('/compara-servizi/costo-della-vita') || canonicalPath.startsWith('/compara-servizi/confronta-costo-vita')) {
- comparisonTableHtml = '<table style="width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem"><thead><tr style="background:#f1f5f9"><th style="padding:.5rem;text-align:left;border:1px solid #e2e8f0">Voce</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Lugano (CHF)</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Como (EUR)</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Varese (EUR)</th></tr></thead><tbody><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Affitto bilocale</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">1.400-1.800</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">650-900</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">550-800</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Spesa settimanale</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">150-200</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">80-110</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">75-105</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Trasporto mensile</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">70-100</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">35-50</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">35-50</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Asilo nido/mese</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">1.500-2.500</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">300-500</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">250-450</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Cena ristorante (2 pers.)</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">100-150</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">50-70</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">45-65</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Abbonamento palestra</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">80-120</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">30-50</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">25-45</td></tr></tbody></table>';
+ comparisonTableHtml = '<table class="s-VhqZBv"><thead><tr class="s-3WzZY3"><th class="s-NTotfT">Voce</th><th class="s-bgy2Ol">Lugano (CHF)</th><th class="s-bgy2Ol">Como (EUR)</th><th class="s-bgy2Ol">Varese (EUR)</th></tr></thead><tbody><tr><td class="s-aVO1nD">Affitto bilocale</td><td class="s-bgy2Ol">1.400-1.800</td><td class="s-bgy2Ol">650-900</td><td class="s-bgy2Ol">550-800</td></tr><tr><td class="s-aVO1nD">Spesa settimanale</td><td class="s-bgy2Ol">150-200</td><td class="s-bgy2Ol">80-110</td><td class="s-bgy2Ol">75-105</td></tr><tr><td class="s-aVO1nD">Trasporto mensile</td><td class="s-bgy2Ol">70-100</td><td class="s-bgy2Ol">35-50</td><td class="s-bgy2Ol">35-50</td></tr><tr><td class="s-aVO1nD">Asilo nido/mese</td><td class="s-bgy2Ol">1.500-2.500</td><td class="s-bgy2Ol">300-500</td><td class="s-bgy2Ol">250-450</td></tr><tr><td class="s-aVO1nD">Cena ristorante (2 pers.)</td><td class="s-bgy2Ol">100-150</td><td class="s-bgy2Ol">50-70</td><td class="s-bgy2Ol">45-65</td></tr><tr><td class="s-aVO1nD">Abbonamento palestra</td><td class="s-bgy2Ol">80-120</td><td class="s-bgy2Ol">30-50</td><td class="s-bgy2Ol">25-45</td></tr></tbody></table>';
  }
 
  const LAST_UPDATED_LABEL: Record<string, string> = {
@@ -4095,17 +4104,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Tokens bind to OKLCH semantic vars in index.css so the editorial wrapper
  // adapts to light/dark theme. Prior hardcoded hex (#94a3b8, #64748b, #2563eb,
  // #334155 below) shipped invisible text in dark mode — CLAUDE.md rule 17.
- const dateLine = `<p style="margin:.5rem 0;font-size:.8rem;color:var(--color-subtle)"><time itemprop="datePublished" datetime="${new Date().toISOString().slice(0, 10)}">${dateLabel}: ${formattedDate}</time></p>`;
+ const dateLine = `<p class="s-gu2hlZ"><time itemprop="datePublished" datetime="${new Date().toISOString().slice(0, 10)}">${dateLabel}: ${formattedDate}</time></p>`;
 
  // Byline kept tight — schema.org/author + link to /chi-siamo only.
  // Dropped the "Esperti in fiscalità e previdenza frontaliera" subtitle
  // (and locale equivalents) that read content-farm-y on every page.
  // Fix #7.
  const AUTHOR_BYLINE: Record<string, string> = {
- it: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">A cura di <a href="/chi-siamo/" rel="author" style="color:var(--color-link);text-decoration:none;">Redazione Frontaliere Ticino</a></span></p>',
- en: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">By <a href="/en/about-us/" rel="author" style="color:var(--color-link);text-decoration:none;">Frontaliere Ticino Editorial Team</a></span></p>',
- de: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Von <a href="/de/ueber-uns/" rel="author" style="color:var(--color-link);text-decoration:none;">Redaktion Frontaliere Ticino</a></span></p>',
- fr: '<p style="color:var(--color-subtle);font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Par <a href="/fr/a-propos/" rel="author" style="color:var(--color-link);text-decoration:none;">Rédaction Frontaliere Ticino</a></span></p>',
+ it: '<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">A cura di <a class="s-OsohZU" href="/chi-siamo/" rel="author">Redazione Frontaliere Ticino</a></span></p>',
+ en: '<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">By <a class="s-OsohZU" href="/en/about-us/" rel="author">Frontaliere Ticino Editorial Team</a></span></p>',
+ de: '<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Von <a class="s-OsohZU" href="/de/ueber-uns/" rel="author">Redaktion Frontaliere Ticino</a></span></p>',
+ fr: '<p class="s-22zpHk" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Par <a class="s-OsohZU" href="/fr/a-propos/" rel="author">Rédaction Frontaliere Ticino</a></span></p>',
  };
  const authorLine = AUTHOR_BYLINE[locale] ?? AUTHOR_BYLINE.it;
 
@@ -4113,10 +4122,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // contains any HTML tag at all (e.g. paragraphs that begin with text but
  // embed `<strong>` / `<a>` / `<em>`). Without the second check those tags
  // were escaped to literal `&lt;strong&gt;` text on the rendered page.
- const editorialHtml = `<div style="margin-top:.75rem;font-size:.95rem;line-height:1.6;color:var(--color-body)">${dateLine}${authorLine}${editorialBlocks.map((b) => {
+ const editorialHtml = `<div class="s-0DwxlR">${dateLine}${authorLine}${editorialBlocks.map((b) => {
    if (/^<(h[1-6]|p|nav|div|details|section|ul|ol|table|figure|aside|blockquote)\b/.test(b)) return b;
-   if (/<[a-zA-Z][^>]*>/.test(b)) return `<p style="margin:.5rem 0">${b}</p>`;
-   return `<p style="margin:.5rem 0">${esc(b)}</p>`;
+   if (/<[a-zA-Z][^>]*>/.test(b)) return `<p class="s-F2hp6o">${b}</p>`;
+   return `<p class="s-F2hp6o">${esc(b)}</p>`;
  }).join('')}${comparisonTableHtml}${faqHtml}${relatedHtml}</div>`;
 
  // Detect page section from URL for skeleton-aligned static content
@@ -4167,7 +4176,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  paragraphs: [body],
  })));
  const blogArticleHtml = blogSectionData
- .map((section) => `<section style="margin-top:1rem"><h2 style="font-size:1rem;font-weight:700;margin:0 0 .5rem">${esc(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p style="margin:.5rem 0">${esc(paragraph)}</p>`).join('')}</section>`)
+ .map((section) => `<section class="s-Zua2Uq"><h2 class="s-pIiivc">${esc(section.heading)}</h2>${section.paragraphs.map((paragraph) => `<p class="s-F2hp6o">${esc(paragraph)}</p>`).join('')}</section>`)
  .join('');
 
  // Build skeleton-matching HTML for #root to minimize CLS at hydration
@@ -4195,18 +4204,18 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  : h1Fallback;
  const h1Text = differentiateH1FromTitle(h1RawText, capTitle70(seoData.title), h1Locale);
  if (comparatorSlugs.includes(firstSeg)) {
- rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="${sp};height:9rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:var(--color-subtle);font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:12rem"></div><div style="${sp};height:12rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:var(--color-subtle)">${navHtml}</nav></div>`;
+ rootHtml = `<div class="s-wWmcGm"><div style="${sp};height:9rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div class="s-d0FtpK"><div style="${sp};height:12rem"></div><div style="${sp};height:12rem"></div></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (guideSlugs.includes(firstSeg)) {
- rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:var(--color-subtle);font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:flex;flex-direction:column;gap:1rem;margin-top:1.5rem">${`<div style="${sp};height:5rem"></div>`.repeat(4)}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:var(--color-subtle)">${navHtml}</nav></div>`;
+ rootHtml = `<div class="s-wWmcGm"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div class="s-1oTdPl">${`<div style="${sp};height:5rem"></div>`.repeat(4)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (fiscoSlugs.includes(firstSeg)) {
- rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="display:flex;gap:.5rem;margin-bottom:1.5rem">${`<div style="${sp};width:6rem;height:2.25rem;border-radius:9999px"></div>`.repeat(5)}</div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:var(--color-subtle);font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="${sp};height:14rem;margin-top:1.5rem"></div><nav style="margin-top:1.5rem;font-size:.75rem;color:var(--color-subtle)">${navHtml}</nav></div>`;
+ rootHtml = `<div class="s-wWmcGm"><div class="s-34uchz">${`<div style="${sp};width:6rem;height:2.25rem;border-radius:9999px"></div>`.repeat(5)}</div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="${sp};height:14rem;margin-top:1.5rem"></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (blogSlugs.includes(firstSeg)) {
- const heroImg = blogHeroImageStatic ? `<img src="${blogHeroImageStatic}" alt="${esc(seoData.ogT)}" width="800" height="320" style="width:100%;height:16rem;object-fit:cover;border-radius:12px;margin-bottom:1.5rem" fetchpriority="high">` : `<div style="${sp};height:16rem;margin-bottom:1.5rem"></div>`;
+ const heroImg = blogHeroImageStatic ? `<img class="s-zYpvpO" src="${blogHeroImageStatic}" alt="${esc(seoData.ogT)}" width="800" height="320" fetchpriority="high">` : `<div style="${sp};height:16rem;margin-bottom:1.5rem"></div>`;
  // Ad placeholders reserve vertical space so React hydration doesn't cause layout shifts (CLS).
  // Heights match AdSenseBanner's placeholderMinHeight values.
- const adPlaceholder = `<div style="min-height:180px;contain:layout;overflow:hidden;margin:1rem 0" aria-hidden="true"></div>`;
+ const adPlaceholder = `<div class="s-1zvlaE" aria-hidden="true"></div>`;
  rootHtml = isBlogDetailPage
- ? `<div style="max-width:56rem;margin:0 auto;padding:1rem">${heroImg}<article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:var(--color-subtle);font-size:.875rem">${esc(seoData.desc)}</p><div style="margin-top:.75rem;font-size:.95rem;line-height:1.7;color:var(--color-body)">${blogArticleHtml}</div>${adPlaceholder}${relatedHtml}</article>${adPlaceholder}<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:var(--color-subtle)">${navHtml}</nav></div>`
+ ? `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p><div class="s-6z0aHu">${blogArticleHtml}</div>${adPlaceholder}${relatedHtml}</article>${adPlaceholder}<div class="s-WR7RLD">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`
  : (() => {
  // FRO-330: SSG article cards — render first 20 articles with real titles for crawlers
  const blogListSlug = firstSeg;
@@ -4250,12 +4259,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // articles-hub HTML under the 200 KB page-weight gate (100 cards × ~750
  // bytes of repeated inline styles ≈ 75 KB savings). Visual output is
  // byte-identical — same rules, just defined once in the <style> block.
- return `<style>.ssg-article-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:1.5rem}@media(min-width:640px){.ssg-article-grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.ssg-article-grid{grid-template-columns:repeat(3,1fr)}}.ssg-art-card{display:block;text-decoration:none;color:inherit;border:1px solid #e2e8f0;border-radius:12px;background:#ffffff;overflow:hidden}.ssg-art-img{width:100%;height:10rem;object-fit:cover}.ssg-art-body{padding:.75rem}.ssg-art-cat{display:inline-block;padding:2px 8px;border-radius:9999px;font-size:.625rem;font-weight:700}.ssg-art-date{font-size:.625rem;color:#94a3b8;margin-left:.5rem}.ssg-art-title{font-size:.875rem;font-weight:700;color:var(--color-body);margin:.5rem 0 .25rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.ssg-art-desc{font-size:.75rem;color:var(--color-subtle);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}</style><div style="max-width:56rem;margin:0 auto;padding:1rem">${heroImg}<article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:var(--color-subtle);font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><h2 style="font-size:1.1rem;font-weight:700;margin:1.5rem 0 1rem;color:var(--color-heading)">${ARTICLES_HEADING[locale] ?? ARTICLES_HEADING.it}</h2><div class="ssg-article-grid">${articleCardsHtml}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:var(--color-subtle)">${navHtml}</nav></div>`;
+ return `<style>.ssg-article-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:1.5rem}@media(min-width:640px){.ssg-article-grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.ssg-article-grid{grid-template-columns:repeat(3,1fr)}}.ssg-art-card{display:block;text-decoration:none;color:inherit;border:1px solid #e2e8f0;border-radius:12px;background:#ffffff;overflow:hidden}.ssg-art-img{width:100%;height:10rem;object-fit:cover}.ssg-art-body{padding:.75rem}.ssg-art-cat{display:inline-block;padding:2px 8px;border-radius:9999px;font-size:.625rem;font-weight:700}.ssg-art-date{font-size:.625rem;color:#94a3b8;margin-left:.5rem}.ssg-art-title{font-size:.875rem;font-weight:700;color:var(--color-body);margin:.5rem 0 .25rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}.ssg-art-desc{font-size:.75rem;color:var(--color-subtle);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}</style><div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><h2 class="s-sXAwQz">${ARTICLES_HEADING[locale] ?? ARTICLES_HEADING.it}</h2><div class="ssg-article-grid">${articleCardsHtml}</div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  })();
  } else if (statsSlugs.includes(firstSeg)) {
- rootHtml = `<div style="max-width:72rem;margin:0 auto;padding:1rem"><div style="${sp};height:6rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:var(--color-subtle);font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:14rem"></div><div style="${sp};height:14rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:var(--color-subtle)">${navHtml}</nav></div>`;
+ rootHtml = `<div class="s-rO4k66"><div style="${sp};height:6rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div class="s-d0FtpK"><div style="${sp};height:14rem"></div><div style="${sp};height:14rem"></div></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (vitaSlugs.includes(firstSeg)) {
- rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:var(--color-subtle);font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:10rem"></div><div style="${sp};height:10rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:var(--color-subtle)">${navHtml}</nav></div>`;
+ rootHtml = `<div class="s-wWmcGm"><div style="${sp};height:7rem;margin-bottom:1.5rem"></div><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div class="s-d0FtpK"><div style="${sp};height:10rem"></div><div style="${sp};height:10rem"></div></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  } else if (
  // Mobile-first SEO-landing template (CLAUDE.md rule 17) for every
  // /calcola-stipendio/* scenario page (and locale equivalents). The
@@ -4289,7 +4298,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  });
  } else {
  // Default: calculator-like layout
- rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(h1Text)}</h1><p style="color:var(--color-subtle);font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="${sp};height:38rem;margin-top:1.5rem"></div><nav style="margin-top:1.5rem;font-size:.75rem;color:var(--color-subtle)">${navHtml}</nav></div>`;
+ rootHtml = `<div class="s-wWmcGm"><article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="${sp};height:38rem;margin-top:1.5rem"></div><nav class="s-eazYqN">${navHtml}</nav></div>`;
  }
 
  // ── SpeakableSpecification for all content pages ──

@@ -361,110 +361,110 @@ export function renderCompanyHubFrontalierContext(
 
  if (locale === 'it') {
   blocks.push(
-   `<section style="margin-top:20px"><h2>Lavorare da ${eCompany} come frontaliere</h2>` +
+   `<section class="s-7uP4UM"><h2>Lavorare da ${eCompany} come frontaliere</h2>` +
    `<p>${eCompany} è un datore di lavoro attivo nel settore ${eSector} in Canton ${eCanton}` +
    `${eLocation ? `, con presenza diretta a ${eLocation}` : ''}. Per i frontalieri italiani candidarsi a una delle ${jobCount} posizioni aperte significa entrare in un rapporto di lavoro disciplinato dal Permesso G: residenza in un comune entro 20 km dal confine, rientro al domicilio almeno una volta a settimana, contratto firmato in Svizzera. Le tipologie contrattuali tipiche di ${eCompany} sono ${eContract}, e la mansione di riferimento per il sondaggio retributivo è quella di ${eRole}.</p>` +
    `<p>Tre elementi pesano più della cifra in busta paga quando si valuta un’offerta di ${eCompany}: la <strong>banda salariale del settore ${eSector}</strong> in ${eCanton} (${juniorBand} per ruoli junior, ${midBand} per ruoli intermedi, ${seniorBand} per ruoli senior, 13ª inclusa); l’<strong>imposta alla fonte cantonale</strong> e i contributi sociali svizzeri (vedi la <a href="${fiscalGuide}">guida frontaliere</a>); la <strong>distanza fra residenza e sede</strong>${eLocation ? `, in particolare se ${eLocation} comporta tragitti diversi dai valichi standard di Brogeda o Stabio` : ''}. Confronta sempre il netto svizzero con il netto italiano equivalente prima di accettare.</p>` +
    `</section>`
   );
   blocks.push(
-   `<section style="margin-top:20px"><h2>Stipendio medio nel settore di ${eCompany}: scenario CHF→EUR</h2>` +
+   `<section class="s-7uP4UM"><h2>Stipendio medio nel settore di ${eCompany}: scenario CHF→EUR</h2>` +
    `<p>Per quantificare il vantaggio reale di un’assunzione presso ${eCompany} usiamo come riferimento il ruolo di ${eRole} a inizio banda intermedia (${grossMid.toLocaleString('it-CH')} CHF lordi mensili). Su 13 mensilità fanno ${grossYearLabel} lordi annui. Sottraendo imposta alla fonte (~10 % nel ${eCanton} per single senza figli a carico) e contributi sociali svizzeri (AVS/AI/IPG, AD, LPP) si arriva a circa ${netYearChfLabel} netti annui. Convertendo a un cambio CHF/EUR di 1,04 (media 12 mesi) si ottengono ${netYearEurLabel} di potere d’acquisto in Italia.</p>` +
    `<p>Lo stesso ruolo, in Italia con un CCNL di settore comparabile, raramente supera EUR 28’000 netti annui. Il delta lordo a tuo vantaggio in Ticino è dunque concreto, ma ricorda di sottrarre i costi specifici del frontalierato — carburante e usura veicolo (~CHF 3’000–5’000/anno), eventuale parcheggio aziendale, premi assicurativi LAMal facoltativi se richiesti dall’azienda. Per simulare il tuo caso esatto con età, situazione familiare e città di residenza usa il <a href="${calc}">calcolatore stipendio</a>; per scoprire altri datori di lavoro nel settore ${eSector} consulta il <a href="${sectorHub}">job board ${eCanton}</a>.</p>` +
    `</section>`
   );
   blocks.push(
-   `<section style="margin-top:20px"><h2>Come candidarsi e domande frequenti</h2>` +
+   `<section class="s-7uP4UM"><h2>Come candidarsi e domande frequenti</h2>` +
    `<p><strong>Metodologia.</strong> Le ${jobCount} posizioni aperte di ${eCompany} che vedi in questa pagina vengono aggregate dal nostro crawler ogni 24 ore dalle pagine "Lavora con noi" ufficiali e dai principali ATS svizzeri (Greenhouse, Workday, SmartRecruiters, jobs.ch, jobup.ch). Quando clicchi su un annuncio vieni rediretto/a alla scheda originale dell’azienda: candidati sempre sul sito ufficiale, mai su intermediari non verificati. Se un annuncio risulta non più disponibile, la cache potrebbe avere fino a 24 ore di ritardo rispetto al feed sorgente.</p>` +
-   `<dl style="margin:12px 0 0;display:grid;gap:10px">` +
-   `<dt style="font-weight:600;color:var(--color-heading)">${eCompany} accetta candidature spontanee?</dt>` +
-   `<dd style="margin:0;color:var(--color-body);line-height:1.6">La maggior parte dei datori di lavoro svizzeri delle dimensioni di ${eCompany} mantiene un portale candidature aperto tutto l’anno. Anche se non vedi una posizione aperta corrispondente al tuo profilo, invia CV + lettera di motivazione tramite la sezione carriere ufficiale: gli HR svizzeri archiviano le candidature spontanee per 6–12 mesi e le riattivano quando si apre un ruolo affine.</dd>` +
-   `<dt style="font-weight:600;color:var(--color-heading)">Che benefit offre tipicamente ${eCompany} oltre allo stipendio?</dt>` +
-   `<dd style="margin:0;color:var(--color-body);line-height:1.6">I datori di lavoro nel settore ${eSector} in ${eCanton} offrono tipicamente: 13ª mensilità garantita, 4–5 settimane di vacanza, contributo LPP (previdenza professionale) sopra il minimo legale, formazione continua, eventuale telelavoro fino al 25 % per i frontalieri (limite previsto dal Nuovo Accordo fiscale 2024). Bonus legati a obiettivi e auto aziendale dipendono dalla seniority del ruolo.</dd>` +
-   `<dt style="font-weight:600;color:var(--color-heading)">Quanto dura il processo di selezione?</dt>` +
-   `<dd style="margin:0;color:var(--color-body);line-height:1.6">Per posizioni di livello operativo o intermedio in aziende come ${eCompany}, il processo standard è: screening CV (1–2 settimane), colloquio HR telefonico o video (30–45 minuti), uno o due colloqui tecnici/manageriali, eventuale assessment o case study, offerta. Tempo totale tipico: 4–8 settimane dalla candidatura alla firma. Il Permesso G viene richiesto dal datore dopo la firma e impiega altre 2–6 settimane.</dd>` +
+   `<dl class="s-i7j-Ox">` +
+   `<dt class="s-mRmzDD">${eCompany} accetta candidature spontanee?</dt>` +
+   `<dd class="s-afNmi4">La maggior parte dei datori di lavoro svizzeri delle dimensioni di ${eCompany} mantiene un portale candidature aperto tutto l’anno. Anche se non vedi una posizione aperta corrispondente al tuo profilo, invia CV + lettera di motivazione tramite la sezione carriere ufficiale: gli HR svizzeri archiviano le candidature spontanee per 6–12 mesi e le riattivano quando si apre un ruolo affine.</dd>` +
+   `<dt class="s-mRmzDD">Che benefit offre tipicamente ${eCompany} oltre allo stipendio?</dt>` +
+   `<dd class="s-afNmi4">I datori di lavoro nel settore ${eSector} in ${eCanton} offrono tipicamente: 13ª mensilità garantita, 4–5 settimane di vacanza, contributo LPP (previdenza professionale) sopra il minimo legale, formazione continua, eventuale telelavoro fino al 25 % per i frontalieri (limite previsto dal Nuovo Accordo fiscale 2024). Bonus legati a obiettivi e auto aziendale dipendono dalla seniority del ruolo.</dd>` +
+   `<dt class="s-mRmzDD">Quanto dura il processo di selezione?</dt>` +
+   `<dd class="s-afNmi4">Per posizioni di livello operativo o intermedio in aziende come ${eCompany}, il processo standard è: screening CV (1–2 settimane), colloquio HR telefonico o video (30–45 minuti), uno o due colloqui tecnici/manageriali, eventuale assessment o case study, offerta. Tempo totale tipico: 4–8 settimane dalla candidatura alla firma. Il Permesso G viene richiesto dal datore dopo la firma e impiega altre 2–6 settimane.</dd>` +
    `</dl>` +
    `</section>`
   );
  } else if (locale === 'en') {
   blocks.push(
-   `<section style="margin-top:20px"><h2>Working at ${eCompany} as a cross-border worker</h2>` +
+   `<section class="s-7uP4UM"><h2>Working at ${eCompany} as a cross-border worker</h2>` +
    `<p>${eCompany} hires in the ${eSector} sector across the Canton of ${eCanton}` +
    `${eLocation ? `, with a direct presence in ${eLocation}` : ''}. For Italian cross-border workers, applying to one of the ${jobCount} open roles means entering an employment relationship governed by the G permit: residence in an Italian municipality within 20 km of the border, weekly return to that residence, and a contract signed in Switzerland. ${eCompany}’s typical contract types are ${eContract}, and the reference role for the salary survey on this page is ${eRole}.</p>` +
    `<p>Three things matter more than the headline gross when evaluating an ${eCompany} offer: the <strong>sector salary band for ${eSector}</strong> in ${eCanton} (${juniorBand} for junior roles, ${midBand} for mid roles, ${seniorBand} for senior roles, 13th included); <strong>cantonal withholding tax</strong> and Swiss social charges (see the <a href="${fiscalGuide}">cross-border worker guide</a>); and the <strong>commute distance</strong>${eLocation ? `, particularly if ${eLocation} sits off the standard Brogeda or Stabio crossings` : ''}. Always compare the Swiss net to the Italian net equivalent before accepting.</p>` +
    `</section>`
   );
   blocks.push(
-   `<section style="margin-top:20px"><h2>Average sector salary at ${eCompany}: a CHF→EUR scenario</h2>` +
+   `<section class="s-7uP4UM"><h2>Average sector salary at ${eCompany}: a CHF→EUR scenario</h2>` +
    `<p>To quantify the real upside of joining ${eCompany} we use a ${eRole} at the bottom of the mid band (${grossMid.toLocaleString('en-CH')} CHF gross monthly) as a reference. Across 13 monthly payments that is ${grossYearLabel} gross per year. After withholding tax (~10 % in ${eCanton} for a single filer with no dependants) and Swiss social charges (AHV/IV/EO, ALV, BVG/LPP), the figure lands at roughly ${netYearChfLabel} net per year. Converted at a CHF/EUR rate of 1.04 (12-month average), that’s ${netYearEurLabel} of Italian-side purchasing power.</p>` +
    `<p>The same role under a comparable Italian collective agreement rarely exceeds EUR 28,000 net per year. The headline upside in Ticino is real, but subtract cross-border specifics: fuel and vehicle wear (~CHF 3,000–5,000/year), workplace parking, optional supplementary LAMal premiums if your employer requires them. For a personalised simulation that accounts for age, family status and your home town use the <a href="${calc}">salary calculator</a>; to discover other employers in the ${eSector} sector see the <a href="${sectorHub}">${eCanton} job board</a>.</p>` +
    `</section>`
   );
   blocks.push(
-   `<section style="margin-top:20px"><h2>How to apply &amp; FAQ</h2>` +
+   `<section class="s-7uP4UM"><h2>How to apply &amp; FAQ</h2>` +
    `<p><strong>Methodology.</strong> The ${jobCount} ${eCompany} open positions on this page are aggregated by our crawler every 24 hours from the official "Careers" pages and the main Swiss ATS systems (Greenhouse, Workday, SmartRecruiters, jobs.ch, jobup.ch). Clicking a posting routes you to the original company listing: always apply on the official site, never via unverified intermediaries. Cached entries can lag the upstream feed by up to 24 hours.</p>` +
-   `<dl style="margin:12px 0 0;display:grid;gap:10px">` +
-   `<dt style="font-weight:600;color:var(--color-heading)">Does ${eCompany} accept speculative applications?</dt>` +
-   `<dd style="margin:0;color:var(--color-body);line-height:1.6">Most Swiss employers the size of ${eCompany} run an always-on candidate portal. Even if no current opening matches your profile, send CV + cover letter through the official careers section: Swiss HR teams retain speculative applications for 6–12 months and reactivate them when an adjacent role opens.</dd>` +
-   `<dt style="font-weight:600;color:var(--color-heading)">What benefits does ${eCompany} typically offer beyond salary?</dt>` +
-   `<dd style="margin:0;color:var(--color-body);line-height:1.6">Employers in the ${eSector} sector in ${eCanton} typically offer: a guaranteed 13th-month salary, 4–5 weeks of vacation, an LPP/BVG occupational pension contribution above the legal minimum, ongoing training, and remote work up to 25 % for cross-border employees (per the 2024 fiscal agreement). Performance bonuses and a company car depend on seniority.</dd>` +
-   `<dt style="font-weight:600;color:var(--color-heading)">How long does the hiring process take?</dt>` +
-   `<dd style="margin:0;color:var(--color-body);line-height:1.6">For operational or mid-level roles at companies the size of ${eCompany}, the standard funnel is: CV screening (1–2 weeks), HR phone or video screen (30–45 minutes), one or two technical/managerial interviews, an optional assessment or case study, and an offer. Typical end-to-end: 4–8 weeks from application to signature. The G permit is then requested by the employer and takes another 2–6 weeks to issue.</dd>` +
+   `<dl class="s-i7j-Ox">` +
+   `<dt class="s-mRmzDD">Does ${eCompany} accept speculative applications?</dt>` +
+   `<dd class="s-afNmi4">Most Swiss employers the size of ${eCompany} run an always-on candidate portal. Even if no current opening matches your profile, send CV + cover letter through the official careers section: Swiss HR teams retain speculative applications for 6–12 months and reactivate them when an adjacent role opens.</dd>` +
+   `<dt class="s-mRmzDD">What benefits does ${eCompany} typically offer beyond salary?</dt>` +
+   `<dd class="s-afNmi4">Employers in the ${eSector} sector in ${eCanton} typically offer: a guaranteed 13th-month salary, 4–5 weeks of vacation, an LPP/BVG occupational pension contribution above the legal minimum, ongoing training, and remote work up to 25 % for cross-border employees (per the 2024 fiscal agreement). Performance bonuses and a company car depend on seniority.</dd>` +
+   `<dt class="s-mRmzDD">How long does the hiring process take?</dt>` +
+   `<dd class="s-afNmi4">For operational or mid-level roles at companies the size of ${eCompany}, the standard funnel is: CV screening (1–2 weeks), HR phone or video screen (30–45 minutes), one or two technical/managerial interviews, an optional assessment or case study, and an offer. Typical end-to-end: 4–8 weeks from application to signature. The G permit is then requested by the employer and takes another 2–6 weeks to issue.</dd>` +
    `</dl>` +
    `</section>`
   );
  } else if (locale === 'de') {
   blocks.push(
-   `<section style="margin-top:20px"><h2>Bei ${eCompany} als Grenzgänger arbeiten</h2>` +
+   `<section class="s-7uP4UM"><h2>Bei ${eCompany} als Grenzgänger arbeiten</h2>` +
    `<p>${eCompany} ist ein Arbeitgeber im Bereich ${eSector} im Kanton ${eCanton}` +
    `${eLocation ? `, mit Präsenz in ${eLocation}` : ''}. Für italienische Grenzgänger bedeutet eine Bewerbung auf eine der ${jobCount} offenen Stellen ein Arbeitsverhältnis mit G-Bewilligung: Wohnsitz in einer italienischen Gemeinde innerhalb der 20-km-Grenzzone, wöchentliche Rückkehr an den Wohnort und ein in der Schweiz unterzeichneter Vertrag. Die typischen Vertragsformen bei ${eCompany} sind ${eContract}, und als Referenzrolle für die Lohnübersicht dieser Seite verwenden wir ${eRole}.</p>` +
    `<p>Drei Faktoren wiegen schwerer als die Brutto-Schlagzeile, wenn Sie ein ${eCompany}-Angebot bewerten: die <strong>Lohnbandbreite im Sektor ${eSector}</strong> im ${eCanton} (${juniorBand} für Junior, ${midBand} für mittlere Stufen, ${seniorBand} für Senior, 13. inklusive); die <strong>kantonale Quellensteuer</strong> und schweizerische Sozialabzüge (siehe <a href="${fiscalGuide}">Grenzgänger-Leitfaden</a>); und die <strong>Pendeldistanz</strong>${eLocation ? `, insbesondere wenn ${eLocation} abseits der üblichen Grenzübergänge Brogeda oder Stabio liegt` : ''}. Vergleichen Sie immer das Schweizer Netto mit dem italienischen Netto-Äquivalent, bevor Sie zusagen.</p>` +
    `</section>`
   );
   blocks.push(
-   `<section style="margin-top:20px"><h2>Durchschnittslohn im Sektor von ${eCompany}: CHF→EUR-Szenario</h2>` +
+   `<section class="s-7uP4UM"><h2>Durchschnittslohn im Sektor von ${eCompany}: CHF→EUR-Szenario</h2>` +
    `<p>Um den realen Vorteil eines Engagements bei ${eCompany} zu quantifizieren, verwenden wir als Referenz ${eRole} am unteren Ende der mittleren Bandbreite (${grossMid.toLocaleString('de-CH')} CHF brutto monatlich). Über 13 Monatsgehälter ergibt das ${grossYearLabel} brutto pro Jahr. Nach Quellensteuer (~10 % im ${eCanton} für Alleinstehende ohne unterhaltsberechtigte Kinder) und schweizerischen Sozialabzügen (AHV/IV/EO, ALV, BVG) bleiben rund ${netYearChfLabel} netto pro Jahr. Umgerechnet zu einem CHF/EUR-Kurs von 1,04 (12-Monats-Durchschnitt) sind das ${netYearEurLabel} an italienischer Kaufkraft.</p>` +
    `<p>Dieselbe Rolle unter einem vergleichbaren italienischen GAV erreicht selten EUR 28’000 netto jährlich. Der Vorteil im Tessin ist also real, aber ziehen Sie grenzgänger-spezifische Kosten ab: Treibstoff und Fahrzeugverschleiss (~CHF 3’000–5’000/Jahr), Mitarbeiterparkplatz, optionale ergänzende KVG-Prämien, falls vom Arbeitgeber verlangt. Für eine personalisierte Simulation mit Alter, Familienstand und Wohnort nutzen Sie den <a href="${calc}">Lohnrechner</a>; um andere Arbeitgeber im Sektor ${eSector} zu finden, besuchen Sie die <a href="${sectorHub}">${eCanton}-Stellenbörse</a>.</p>` +
    `</section>`
   );
   blocks.push(
-   `<section style="margin-top:20px"><h2>Bewerbung &amp; häufige Fragen</h2>` +
+   `<section class="s-7uP4UM"><h2>Bewerbung &amp; häufige Fragen</h2>` +
    `<p><strong>Methodik.</strong> Die ${jobCount} offenen Stellen von ${eCompany} auf dieser Seite werden alle 24 Stunden von unserem Crawler aus den offiziellen Karriereseiten und den wichtigsten Schweizer ATS-Systemen (Greenhouse, Workday, SmartRecruiters, jobs.ch, jobup.ch) aggregiert. Ein Klick auf eine Anzeige leitet Sie zur Originalausschreibung der Firma weiter: bewerben Sie sich immer auf der offiziellen Seite, nie über nicht verifizierte Vermittler. Cache-Einträge können bis zu 24 Stunden gegenüber dem Quell-Feed nachhinken.</p>` +
-   `<dl style="margin:12px 0 0;display:grid;gap:10px">` +
-   `<dt style="font-weight:600;color:var(--color-heading)">Akzeptiert ${eCompany} Initiativbewerbungen?</dt>` +
-   `<dd style="margin:0;color:var(--color-body);line-height:1.6">Die meisten Schweizer Arbeitgeber in der Grösse von ${eCompany} führen ein dauerhaft offenes Bewerbungsportal. Auch wenn keine aktuelle Stelle zu Ihrem Profil passt, senden Sie CV und Motivationsschreiben über den offiziellen Karrierebereich: Schweizer HR-Teams archivieren Initiativbewerbungen 6–12 Monate und reaktivieren sie, sobald eine passende Rolle geöffnet wird.</dd>` +
-   `<dt style="font-weight:600;color:var(--color-heading)">Welche Zusatzleistungen bietet ${eCompany} typischerweise?</dt>` +
-   `<dd style="margin:0;color:var(--color-body);line-height:1.6">Arbeitgeber im Sektor ${eSector} im ${eCanton} bieten typischerweise: garantierten 13. Monatslohn, 4–5 Wochen Ferien, BVG-Beitrag über dem gesetzlichen Minimum, kontinuierliche Weiterbildung und Homeoffice bis 25 % für Grenzgänger (gemäss neuem Steuerabkommen 2024). Erfolgsabhängige Boni und Geschäftswagen hängen von der Senioritie ab.</dd>` +
-   `<dt style="font-weight:600;color:var(--color-heading)">Wie lange dauert das Auswahlverfahren?</dt>` +
-   `<dd style="margin:0;color:var(--color-body);line-height:1.6">Für operative oder mittlere Rollen bei Unternehmen wie ${eCompany} verläuft der Standardprozess wie folgt: CV-Screening (1–2 Wochen), HR-Telefon- oder Video-Screening (30–45 Minuten), ein bis zwei Fach- oder Führungsinterviews, optionales Assessment oder Case Study, Angebot. Typische Gesamtdauer: 4–8 Wochen von der Bewerbung bis zur Unterschrift. Die G-Bewilligung wird danach vom Arbeitgeber beantragt und dauert weitere 2–6 Wochen.</dd>` +
+   `<dl class="s-i7j-Ox">` +
+   `<dt class="s-mRmzDD">Akzeptiert ${eCompany} Initiativbewerbungen?</dt>` +
+   `<dd class="s-afNmi4">Die meisten Schweizer Arbeitgeber in der Grösse von ${eCompany} führen ein dauerhaft offenes Bewerbungsportal. Auch wenn keine aktuelle Stelle zu Ihrem Profil passt, senden Sie CV und Motivationsschreiben über den offiziellen Karrierebereich: Schweizer HR-Teams archivieren Initiativbewerbungen 6–12 Monate und reaktivieren sie, sobald eine passende Rolle geöffnet wird.</dd>` +
+   `<dt class="s-mRmzDD">Welche Zusatzleistungen bietet ${eCompany} typischerweise?</dt>` +
+   `<dd class="s-afNmi4">Arbeitgeber im Sektor ${eSector} im ${eCanton} bieten typischerweise: garantierten 13. Monatslohn, 4–5 Wochen Ferien, BVG-Beitrag über dem gesetzlichen Minimum, kontinuierliche Weiterbildung und Homeoffice bis 25 % für Grenzgänger (gemäss neuem Steuerabkommen 2024). Erfolgsabhängige Boni und Geschäftswagen hängen von der Senioritie ab.</dd>` +
+   `<dt class="s-mRmzDD">Wie lange dauert das Auswahlverfahren?</dt>` +
+   `<dd class="s-afNmi4">Für operative oder mittlere Rollen bei Unternehmen wie ${eCompany} verläuft der Standardprozess wie folgt: CV-Screening (1–2 Wochen), HR-Telefon- oder Video-Screening (30–45 Minuten), ein bis zwei Fach- oder Führungsinterviews, optionales Assessment oder Case Study, Angebot. Typische Gesamtdauer: 4–8 Wochen von der Bewerbung bis zur Unterschrift. Die G-Bewilligung wird danach vom Arbeitgeber beantragt und dauert weitere 2–6 Wochen.</dd>` +
    `</dl>` +
    `</section>`
   );
  } else {
   // fr
   blocks.push(
-   `<section style="margin-top:20px"><h2>Travailler chez ${eCompany} comme frontalier</h2>` +
+   `<section class="s-7uP4UM"><h2>Travailler chez ${eCompany} comme frontalier</h2>` +
    `<p>${eCompany} recrute dans le secteur ${eSector} dans le Canton du ${eCanton}` +
    `${eLocation ? `, avec une presence directe a ${eLocation}` : ''}. Pour les frontaliers italiens, postuler a l’un des ${jobCount} postes ouverts signifie entrer dans une relation de travail regie par le permis G : residence dans une commune italienne situee dans la zone frontaère des 20 km, retour hebdomadaire au domicile et contrat signé en Suisse. Les types de contrat typiques chez ${eCompany} sont ${eContract}, et le poste de reference pour la grille salariale de cette page est ${eRole}.</p>` +
    `<p>Trois elements pesent davantage que le brut affiche au moment d’evaluer une offre de ${eCompany} : la <strong>fourchette salariale du secteur ${eSector}</strong> dans le ${eCanton} (${juniorBand} pour les postes juniors, ${midBand} pour les postes intermediaires, ${seniorBand} pour les postes seniors, 13e inclus) ; l’<strong>impôt à la source cantonal</strong> et les charges sociales suisses (voir le <a href="${fiscalGuide}">guide frontalier</a>) ; et la <strong>distance domicile-travail</strong>${eLocation ? `, en particulier si ${eLocation} ne se trouve pas sur les axes habituels de Brogeda ou Stabio` : ''}. Comparez toujours le net suisse avec l’equivalent net italien avant d’accepter.</p>` +
    `</section>`
   );
   blocks.push(
-   `<section style="margin-top:20px"><h2>Salaire moyen dans le secteur de ${eCompany} : scenario CHF→EUR</h2>` +
+   `<section class="s-7uP4UM"><h2>Salaire moyen dans le secteur de ${eCompany} : scenario CHF→EUR</h2>` +
    `<p>Pour quantifier le gain reel d’une embauche chez ${eCompany}, nous prenons comme reference ${eRole} en bas de la fourchette intermediaire (${grossMid.toLocaleString('fr-CH')} CHF brut mensuel). Sur 13 mois, cela donne ${grossYearLabel} brut par an. Apres impôt à la source (~10 % dans le ${eCanton} pour un celibataire sans personne a charge) et charges sociales suisses (AVS/AI/APG, AC, LPP), il reste environ ${netYearChfLabel} net annuel. Converti a un taux CHF/EUR de 1,04 (moyenne 12 mois), cela represente ${netYearEurLabel} de pouvoir d’achat italien.</p>` +
    `<p>Le même poste, sous une convention collective italienne comparable, depasse rarement EUR 28’000 net par an. L’avantage tessinois est reel, mais retranchez les coûts spécifiques au frontalierat : carburant et usure du vehicule (~CHF 3’000–5’000/an), parking d’entreprise eventuel, primes LAMal complementaires si exigees par l’employeur. Pour une simulation personnalisee tenant compte de votre age, situation familiale et ville de residence, utilisez le <a href="${calc}">calculateur de salaire</a> ; pour decouvrir d’autres employeurs du secteur ${eSector}, consultez le <a href="${sectorHub}">job board ${eCanton}</a>.</p>` +
    `</section>`
   );
   blocks.push(
-   `<section style="margin-top:20px"><h2>Comment postuler &amp; FAQ</h2>` +
+   `<section class="s-7uP4UM"><h2>Comment postuler &amp; FAQ</h2>` +
    `<p><strong>Methodologie.</strong> Les ${jobCount} postes ouverts de ${eCompany} affiches sur cette page sont agreges par notre crawler toutes les 24 heures depuis les pages « Carrieres » officielles et les principaux ATS suisses (Greenhouse, Workday, SmartRecruiters, jobs.ch, jobup.ch). Un clic sur une annonce vous redirige vers la fiche d’origine de l’entreprise : postulez toujours sur le site officiel, jamais via des intermediaires non verifies. Le cache peut accuser jusqu’à 24 heures de retard sur le flux source.</p>` +
-   `<dl style="margin:12px 0 0;display:grid;gap:10px">` +
-   `<dt style="font-weight:600;color:var(--color-heading)">${eCompany} accepte-t-elle les candidatures spontanees ?</dt>` +
-   `<dd style="margin:0;color:var(--color-body);line-height:1.6">La plupart des employeurs suisses de la taille de ${eCompany} maintiennent un portail candidatures ouvert toute l’annee. Même en l’absence de poste ouvert correspondant, envoyez votre CV et une lettre de motivation via la section carrieres officielle : les RH suisses conservent les candidatures spontanees 6 a 12 mois et les reactivent dès qu’un poste similaire s’ouvre.</dd>` +
-   `<dt style="font-weight:600;color:var(--color-heading)">Quels avantages ${eCompany} offre-t-elle au-dela du salaire ?</dt>` +
-   `<dd style="margin:0;color:var(--color-body);line-height:1.6">Les employeurs du secteur ${eSector} dans le ${eCanton} proposent typiquement : 13e mois garanti, 4 a 5 semaines de vacances, cotisation LPP au-dessus du minimum legal, formation continue et teletravail jusqu’à 25 % pour les frontaliers (selon le nouvel accord fiscal 2024). Bonus a objectifs et voiture de fonction dependent de la senioritie du poste.</dd>` +
-   `<dt style="font-weight:600;color:var(--color-heading)">Combien de temps dure le processus de selection ?</dt>` +
-   `<dd style="margin:0;color:var(--color-body);line-height:1.6">Pour des rôles operationnels ou intermediaires chez des entreprises de la taille de ${eCompany}, le processus standard est : tri de CV (1 a 2 semaines), entretien RH telephonique ou video (30 a 45 minutes), un ou deux entretiens techniques ou managers, eventuel assessment ou cas pratique, offre. Duree typique de bout en bout : 4 a 8 semaines entre la candidature et la signature. Le permis G est ensuite demande par l’employeur et prend 2 a 6 semaines supplementaires.</dd>` +
+   `<dl class="s-i7j-Ox">` +
+   `<dt class="s-mRmzDD">${eCompany} accepte-t-elle les candidatures spontanees ?</dt>` +
+   `<dd class="s-afNmi4">La plupart des employeurs suisses de la taille de ${eCompany} maintiennent un portail candidatures ouvert toute l’annee. Même en l’absence de poste ouvert correspondant, envoyez votre CV et une lettre de motivation via la section carrieres officielle : les RH suisses conservent les candidatures spontanees 6 a 12 mois et les reactivent dès qu’un poste similaire s’ouvre.</dd>` +
+   `<dt class="s-mRmzDD">Quels avantages ${eCompany} offre-t-elle au-dela du salaire ?</dt>` +
+   `<dd class="s-afNmi4">Les employeurs du secteur ${eSector} dans le ${eCanton} proposent typiquement : 13e mois garanti, 4 a 5 semaines de vacances, cotisation LPP au-dessus du minimum legal, formation continue et teletravail jusqu’à 25 % pour les frontaliers (selon le nouvel accord fiscal 2024). Bonus a objectifs et voiture de fonction dependent de la senioritie du poste.</dd>` +
+   `<dt class="s-mRmzDD">Combien de temps dure le processus de selection ?</dt>` +
+   `<dd class="s-afNmi4">Pour des rôles operationnels ou intermediaires chez des entreprises de la taille de ${eCompany}, le processus standard est : tri de CV (1 a 2 semaines), entretien RH telephonique ou video (30 a 45 minutes), un ou deux entretiens techniques ou managers, eventuel assessment ou cas pratique, offre. Duree typique de bout en bout : 4 a 8 semaines entre la candidature et la signature. Le permis G est ensuite demande par l’employeur et prend 2 a 6 semaines supplementaires.</dd>` +
    `</dl>` +
    `</section>`
   );

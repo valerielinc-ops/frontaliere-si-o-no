@@ -92,10 +92,10 @@ function esc(s: string): string {
 /** Pure renderer — exported for tests so they don't have to call the plugin. */
 export function renderSalaryIndexLinkBlock(target: InjectionTarget): string {
   return (
-    `<aside data-salary-scenarios-link style="margin:1.5rem 0;padding:18px 20px;border:1px solid #e2e8f0;border-radius:14px;background:linear-gradient(135deg,#eef2ff 0%,#f5f3ff 100%);max-width:880px">` +
-    `<p style="margin:0 0 8px;font-size:1rem;font-weight:700;color:#1e293b">${esc(target.title)}</p>` +
-    `<p style="margin:0 0 12px;color:#475569;font-size:.95rem;line-height:1.55">${esc(target.intro)}</p>` +
-    `<p style="margin:0"><a href="${esc(target.indexHref)}" style="display:inline-block;background:#533afd;color:#fff;padding:10px 22px;border-radius:8px;text-decoration:none;font-weight:700;font-size:.95rem">${esc(target.cta)} \u2192</a></p>` +
+    `<aside class="s-Y_0GUe" data-salary-scenarios-link>` +
+    `<p class="s-FlmPwi">${esc(target.title)}</p>` +
+    `<p class="s-5romL6">${esc(target.intro)}</p>` +
+    `<p class="s-q3nqK4"><a class="s-Sj-wyF" href="${esc(target.indexHref)}">${esc(target.cta)} \u2192</a></p>` +
     `</aside>`
   );
 }

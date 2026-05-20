@@ -162,10 +162,10 @@ function renderMatchedPage(entry: HubEntry, distDir: string): string {
     ctaLabel: copy.browseAllLabel,
   };
   const proseHtml = renderCantonSeoProse(proseOpts);
-  const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
-    <header style="margin-bottom:16px"><h1 style="font-size:26px;font-weight:700;color:var(--color-heading);margin:0 0 8px;letter-spacing:-0.01em">${esc(copy.matchedH1(entry.displayName, entry.jobCount))}</h1></header>
-    <p style="margin:0 0 12px;font-size:15.5px">${esc(copy.matchedLede(entry.displayName, entry.jobCount))}</p>
-    <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(buildSectionCanonical(locale))}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
+  const bodyHtml = `<main class="cluster-seo-prose s-zry6VY">
+    <header class="s-v0ohjg"><h1 class="s-hiC5FI">${esc(copy.matchedH1(entry.displayName, entry.jobCount))}</h1></header>
+    <p class="s-cbFAda">${esc(copy.matchedLede(entry.displayName, entry.jobCount))}</p>
+    <p class="s-elb1Sb"><a class="s-nF5mos" href="${esc(buildSectionCanonical(locale))}">${esc(copy.browseAllLabel)} →</a></p>
     ${proseHtml}
   </main>`;
   const breadcrumbLd = buildBridgeBreadcrumbLd({
@@ -212,10 +212,10 @@ function renderUnmatchedPage(entry: HubEntry, distDir: string): string {
     ctaLabel: copy.browseAllLabel,
   };
   const proseHtml = renderCantonSeoProse(proseOpts);
-  const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
-    <header style="margin-bottom:16px"><h1 style="font-size:26px;font-weight:700;color:var(--color-heading);margin:0 0 8px;letter-spacing:-0.01em">${esc(copy.unmatchedH1(entry.displayName))}</h1></header>
-    <p style="margin:0 0 12px;font-size:15.5px">${esc(copy.unmatchedLede)}</p>
-    <p style="margin:12px 0 0;font-size:14.5px"><a href="${esc(sectionPath)}" style="color:var(--color-link);text-decoration:underline;font-weight:600">${esc(copy.browseAllLabel)} →</a></p>
+  const bodyHtml = `<main class="cluster-seo-prose s-zry6VY">
+    <header class="s-v0ohjg"><h1 class="s-hiC5FI">${esc(copy.unmatchedH1(entry.displayName))}</h1></header>
+    <p class="s-cbFAda">${esc(copy.unmatchedLede)}</p>
+    <p class="s-elb1Sb"><a class="s-nF5mos" href="${esc(sectionPath)}">${esc(copy.browseAllLabel)} →</a></p>
     ${proseHtml}
   </main>`;
   const breadcrumbLd = buildBridgeBreadcrumbLd({

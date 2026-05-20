@@ -101,25 +101,25 @@ function renderWeatherSection(locale: Locale, valico: WeatherValico, snapshot: W
   const sectionId = `weatherFusion-${valico.id}`;
 
   const heroHtml = current
-    ? `<div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:1rem;margin:0 0 12px" aria-live="polite">
-<div style="font-size:3.5rem;line-height:1;font-weight:300;color:var(--color-heading);font-variant-numeric:tabular-nums">${Math.round(current.temperature)}°</div>
-<div style="font-size:1.125rem;color:var(--color-strong);font-weight:500">${escapeHtml(wmoText(current.weatherCode, locale))}</div>
+    ? `<div class="s-OWxy_A" aria-live="polite">
+<div class="s-zwYCde">${Math.round(current.temperature)}°</div>
+<div class="s-r41N1n">${escapeHtml(wmoText(current.weatherCode, locale))}</div>
 </div>
-<div style="display:flex;flex-wrap:wrap;gap:8px;font-size:14px;color:var(--color-muted)">
-${current.windSpeedKmh != null ? `<span style="background:var(--color-surface-alt);border:1px solid var(--color-edge);border-radius:8px;padding:6px 10px"><strong style="color:var(--color-strong);font-weight:500">${labelWind(locale)}:</strong> ${Math.round(current.windSpeedKmh)} km/h</span>` : ''}
-${current.humidity != null ? `<span style="background:var(--color-surface-alt);border:1px solid var(--color-edge);border-radius:8px;padding:6px 10px"><strong style="color:var(--color-strong);font-weight:500">${labelHumidity(locale)}:</strong> ${current.humidity}%</span>` : ''}
+<div class="s-8OepXi">
+${current.windSpeedKmh != null ? `<span class="s-bZh1ae"><strong class="s-bslQn6">${labelWind(locale)}:</strong> ${Math.round(current.windSpeedKmh)} km/h</span>` : ''}
+${current.humidity != null ? `<span class="s-bZh1ae"><strong class="s-bslQn6">${labelHumidity(locale)}:</strong> ${current.humidity}%</span>` : ''}
 </div>`
-    : `<p style="color:var(--color-muted);font-style:italic">${escapeHtml(locale === 'it' ? 'Dati meteo non disponibili' : locale === 'en' ? 'Weather data unavailable' : locale === 'de' ? 'Wetterdaten nicht verfügbar' : 'Données météo indisponibles')}</p>`;
+    : `<p class="s-MAFiUN">${escapeHtml(locale === 'it' ? 'Dati meteo non disponibili' : locale === 'en' ? 'Weather data unavailable' : locale === 'de' ? 'Wetterdaten nicht verfügbar' : 'Données météo indisponibles')}</p>`;
 
   const activeAlert = findActiveAlertForValico(valico, snapshot);
   const alertBannerHtml = activeAlert ? renderAlertBanner(locale, activeAlert) : '';
   const linkBackHtml = renderLinkBackToAlertHub(locale);
 
   return `
-<section style="margin:0 0 24px" aria-labelledby="${sectionId}" data-valico="${escapeHtml(valico.id)}">
-<h2 id="${sectionId}" style="margin:2rem 0 1rem;font-size:1.75rem;line-height:1.2;color:var(--color-heading);font-weight:600">${escapeHtml(heading)}</h2>
+<section class="s-ziawP1" aria-labelledby="${sectionId}" data-valico="${escapeHtml(valico.id)}">
+<h2 class="s-Ii6i3Q" id="${sectionId}">${escapeHtml(heading)}</h2>
 ${alertBannerHtml}
-<div style="background:var(--color-surface);border:1px solid var(--color-edge);border-radius:14px;padding:18px 22px">
+<div class="s-mtOcP0">
 ${heroHtml}
 </div>
 ${linkBackHtml}
@@ -173,7 +173,7 @@ function renderAlertBanner(locale: Locale, state: AlertState): string {
   const localePath = locale === 'it' ? '' : `/${locale}`;
   const alertUrl = `${localePath}/${locale === 'it' ? 'allerte' : locale === 'en' ? 'alerts' : locale === 'de' ? 'warnungen' : 'alertes'}/${cfg.slug[locale]}/`;
   const linkLabel = locale === 'it' ? 'Vedi dettagli allerta' : locale === 'en' ? 'See alert details' : locale === 'de' ? 'Warnungsdetails ansehen' : 'Voir les détails';
-  return `<div role="alert" style="background:var(--color-danger-subtle);border:1px solid var(--color-danger-border);border-radius:14px;padding:14px 18px;margin:0 0 14px;color:var(--color-danger)"><strong style="font-weight:600">${escapeHtml(heading)}: ${escapeHtml(cfg.title[locale])}</strong> · <a href="${alertUrl}" style="color:var(--color-danger);text-decoration:underline">${escapeHtml(linkLabel)} →</a></div>`;
+  return `<div class="s-MEWPH-" role="alert"><strong class="s-bovPrI">${escapeHtml(heading)}: ${escapeHtml(cfg.title[locale])}</strong> · <a class="s-F_qn2A" href="${alertUrl}">${escapeHtml(linkLabel)} →</a></div>`;
 }
 
 function renderLinkBackToAlertHub(locale: Locale): string {
@@ -182,7 +182,7 @@ function renderLinkBackToAlertHub(locale: Locale): string {
   const citySlug = locale === 'it' ? 'meteo-frontalieri' : locale === 'en' ? 'commute-weather' : locale === 'de' ? 'pendler-wetter' : 'meteo-frontaliers';
   const allertaLabel = locale === 'it' ? 'Tutte le allerte meteo' : locale === 'en' ? 'All weather alerts' : locale === 'de' ? 'Alle Wetterwarnungen' : 'Toutes les alertes météo';
   const meteoLabel = locale === 'it' ? 'Meteo per altre città' : locale === 'en' ? 'Weather for other cities' : locale === 'de' ? 'Wetter für andere Städte' : 'Météo pour d\'autres villes';
-  return `<nav aria-label="${escapeHtml(allertaLabel)}" style="margin:14px 0 0;font-size:14px"><a href="${localePath}/${hubSlug}/" style="color:var(--color-link);text-decoration:none">${escapeHtml(allertaLabel)} →</a> <span style="color:var(--color-muted);margin:0 8px">·</span> <a href="${localePath}/${citySlug}/" style="color:var(--color-link);text-decoration:none">${escapeHtml(meteoLabel)} →</a></nav>`;
+  return `<nav class="s-YBS3X5" aria-label="${escapeHtml(allertaLabel)}"><a class="s-U9K6Vf" href="${localePath}/${hubSlug}/">${escapeHtml(allertaLabel)} →</a> <span class="s-YC0-WR">·</span> <a class="s-U9K6Vf" href="${localePath}/${citySlug}/">${escapeHtml(meteoLabel)} →</a></nav>`;
 }
 
 function injectBeforeMainClose(html: string, section: string): string {

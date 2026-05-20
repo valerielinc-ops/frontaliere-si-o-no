@@ -101,7 +101,7 @@ export function svgForWmo(code: number, size = 80, isDay = true): string {
  */
 export function iconSprite(): string {
   const stroke = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
-  return `<svg style="display:none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">` +
+  return `<svg class="s-aqNNdD" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">` +
     `<symbol id="i-sun" viewBox="0 0 24 24" ${stroke}><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>` +
     `<symbol id="i-cloud-sun" viewBox="0 0 24 24" ${stroke}><path d="M12 2v2M4.93 4.93l1.41 1.41M20 12h2M19.07 4.93l-1.41 1.41M15.947 12.65a4 4 0 0 0-5.925-4.128M13 22H7a5 5 0 1 1 4.9-6h.1a3 3 0 0 1 0 6Z"/></symbol>` +
     `<symbol id="i-cloud" viewBox="0 0 24 24" ${stroke}><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>` +

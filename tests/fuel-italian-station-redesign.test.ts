@@ -100,7 +100,9 @@ describe('IT per-station page — hero', () => {
     expect(pages[path]).toBeDefined();
     const html = pages[path];
     expect(html).toContain('aria-label="Carrefour Como"');
-    expect(html).toMatch(/font-size:clamp\(2\.2rem,6vw,3rem\);font-weight:800[^>]*>1,650</);
+    // Class-extract migration (2026-05-20): the hero-price font-size:clamp(...)
+    // rule moved from inline `style=` to a content-hashed class in seo-static.css.
+    expect(html).toMatch(/(font-size:clamp\(2\.2rem,6vw,3rem\);font-weight:800|class="s-[A-Za-z0-9_-]+")[^>]*>1,650</);
     expect(html).toContain('EUR/litro · Benzina');
   });
 

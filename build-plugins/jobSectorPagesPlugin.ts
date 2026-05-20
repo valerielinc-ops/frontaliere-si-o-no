@@ -194,13 +194,13 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     de: 'Aktuell keine Angebote. Schauen Sie bald wieder vorbei — die Liste wird mehrmals täglich aktualisiert.',
     fr: "Aucune offre pour l'instant. Revenez bientôt — la liste est mise à jour plusieurs fois par jour.",
   }[locale];
-  const emptyStateHtml = `<p style="margin:0;padding:16px;border-radius:12px;background:var(--color-warning-subtle);color:var(--color-heading);border:1px solid var(--color-warning-border)">${esc(noResultsLabel)}</p>`;
+  const emptyStateHtml = `<p class="s-_Ig0vF">${esc(noResultsLabel)}</p>`;
   const jobsHtml = renderJobCardListHtml(cardItems, { locale, emptyStateHtml });
 
   const faqHtml = seo.faq.length > 0
-    ? `<section style="margin:28px 0 0">
-    <h2 style="margin:0 0 12px;font-size:22px">FAQ</h2>
-    ${seo.faq.map((f) => `<details style="${CARD_STYLE};margin-bottom:8px"><summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.question)}</summary><p style="margin:8px 0 0;color:var(--color-body);line-height:1.6">${esc(f.answer)}</p></details>`).join('')}
+    ? `<section class="s-m_ILbB">
+    <h2 class="s-sOn5-B">FAQ</h2>
+    ${seo.faq.map((f) => `<details style="${CARD_STYLE};margin-bottom:8px"><summary class="s-HBR0NM">${esc(f.question)}</summary><p class="s-bOIp6r">${esc(f.answer)}</p></details>`).join('')}
   </section>`
     : '';
 
@@ -215,10 +215,10 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     de: 'Grenzgänger-Leitfaden: Lohn, G-Bewilligung, Steuer, Rückkehr',
     fr: 'Guide frontaliers : salaire, permis G, fiscalité, retour',
   };
-  const sectorContextHtml = `<details class="hub-seo-context" style="margin:32px 0 0;padding:0;border-top:1px solid var(--color-edge)">
-    <summary style="margin-top:18px;padding:10px 14px;cursor:pointer;color:var(--color-link);font-weight:600;font-size:15px;list-style:none">${hubContextSummary[locale]}</summary>
-    <div style="padding:8px 0 0">
-      <section style="max-width:860px;margin:0;color:var(--color-body);line-height:1.65;font-size:15px">
+  const sectorContextHtml = `<details class="hub-seo-context s-mxdIN0">
+    <summary class="s-1yn7b_">${hubContextSummary[locale]}</summary>
+    <div class="s-yZU6bn">
+      <section class="s-p_RJwm">
         ${renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true, sectorOrType: proseDisplayName })}
       </section>
     </div>
@@ -333,7 +333,7 @@ ${alternates}
   </head>
   <body>
     <div id="root"></div>
-    <main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:var(--color-body);font-family:system-ui,-apple-system,sans-serif">
+    <main class="seo-static-content s-Ziv1Xn">
         <nav style="${BREADCRUMB_STYLE}">
           <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">Home</a>
           <span> / </span>
@@ -341,13 +341,13 @@ ${alternates}
           <span> / </span>
           <span>${esc(seo.h1)}</span>
         </nav>
-        <header style="margin-bottom:24px">
+        <header class="s-sy52lX">
           <p style="${HERO_EYEBROW_STYLE}">${esc(updatedLabelByLocale[locale])} · ${dateStamp}</p>
           <h1 style="${H1_STYLE}">${esc(seo.h1)}</h1>
           <p style="${LEDE_STYLE}">${esc(seo.desc)}</p>
           <p style="${BODY_STYLE}">${esc(seo.intro)}</p>
         </header>
-        <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:0 0 22px">
+        <section class="s-uhqVU-">
           <div style="${STAT_TILE_ACCENT}">
             <div style="${STAT_TILE_LABEL}">${esc(countsLabelByLocale[locale])}</div>
             <div style="${STAT_TILE_VALUE};font-size:32px">${count}</div>
@@ -355,9 +355,9 @@ ${alternates}
           <a href="${sectionRootUrl}" style="${STAT_TILE_WARNING};text-decoration:none;font-weight:700;display:flex;align-items:center">${esc(openAllByLocale[locale])} →</a>
         </section>
         ${prose.html}
-        <section style="margin:0 0 24px">
-          <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
-            <h2 style="margin:0;font-size:24px">${esc(jobsSectionLabelByLocale[locale])}</h2>
+        <section class="s-ziawP1">
+          <div class="s-r2QmTP">
+            <h2 class="s-CqexyJ">${esc(jobsSectionLabelByLocale[locale])}</h2>
           </div>
           ${jobsHtml}
         </section>

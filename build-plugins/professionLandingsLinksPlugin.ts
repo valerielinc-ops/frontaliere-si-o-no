@@ -130,10 +130,10 @@ function renderBlock(target: InjectionTarget): string {
     .map((id) => {
       const href = buildProfessionLandingPath(target.locale, id);
       const label = ANCHOR_LABELS[target.locale][id];
-      return `<li style="margin:0;padding:6px 0"><a href="${esc(href)}" style="color:#1d4ed8;text-decoration:none;font-weight:600">${esc(label)}</a></li>`;
+      return `<li class="s-au6GuP"><a class="s-z9nmhV" href="${esc(href)}">${esc(label)}</a></li>`;
     })
     .join('');
-  return `<aside data-ae3-profession-links style="margin:1.5rem 0;padding:16px 18px;border:1px solid #e2e8f0;border-radius:12px;background:#f8fafc"><p style="margin:0 0 8px;color:#0f172a;font-size:1rem;font-weight:700">${esc(target.title)}</p><p style="margin:0 0 10px;color:#334155;font-size:.95rem;line-height:1.55">${esc(target.intro)}</p><ul style="margin:0;padding:0 0 0 18px;color:#0f172a;font-size:.95rem;line-height:1.6">${items}</ul></aside>`;
+  return `<aside class="s-t3iAsJ" data-ae3-profession-links><p class="s-CwCrzh">${esc(target.title)}</p><p class="s-IZUbGV">${esc(target.intro)}</p><ul class="s-2T6Feu">${items}</ul></aside>`;
 }
 
 /**

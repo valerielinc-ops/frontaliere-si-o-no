@@ -280,10 +280,10 @@ export function renderFastestCrossingCard(
           ? 'Passage le plus rapide maintenant'
           : 'Fastest crossing right now';
 
-  return `<div style="margin:0 0 20px;padding:14px 18px;border-radius:12px;background:var(--color-success-subtle);border:1px solid var(--color-success-border);border-left:4px solid var(--color-success-strong);color:var(--color-text);font-size:15px;line-height:1.5">
+  return `<div class="s-cLZUx7">
        <strong>${esc(label)}:</strong>
-       <a href="${getCrossingHref(best.slug, locale)}" style="color:var(--color-success-strong);text-decoration:underline;font-weight:700">${esc(getCrossingLabel(best, locale))}</a>
-       · <span style="color:var(--color-success-strong);font-weight:600;">${best.waitTimeMinutes} min</span>
+       <a class="s-zFOCI6" href="${getCrossingHref(best.slug, locale)}">${esc(getCrossingLabel(best, locale))}</a>
+       · <span class="s-4sIcQF">${best.waitTimeMinutes} min</span>
      </div>`;
 }
 
@@ -310,9 +310,9 @@ export function renderTrafficFluidBanner(
       body: "Aucune file d'attente significative actuellement. Mise à jour toutes les 15 minutes.",
     },
   }[locale];
-  return `<div style="margin:0 0 20px;padding:16px 20px;border-radius:12px;background:var(--color-success-subtle);border:1px solid var(--color-success-border);border-left:4px solid var(--color-success-strong);">
-       <p style="margin:0 0 4px;font-weight:600;color:var(--color-text);">${esc(copy.title)}</p>
-       <p style="margin:0;color:var(--color-text);font-size:14px;">${esc(copy.body)}</p>
+  return `<div class="s-7IQhM5">
+       <p class="s-m0_4f0">${esc(copy.title)}</p>
+       <p class="s-Dpu_t7">${esc(copy.body)}</p>
      </div>`;
 }
 
@@ -797,9 +797,9 @@ function renderCommuterContextProse(
     `Tenez également compte du contexte fiscal du passage quotidien par ${crossingLabel} : le temps perdu dans la file fait partie des frais de transport déductibles dans le modèle CU du frontalier. Les tables d'imposition à la source du Tessin (TIS) intègrent une indemnité kilométrique pour le trajet domicile-travail, mais le temps supplémentaire dû à la congestion transfrontalière n'est pas explicitement compensé. Pour les pendulaires de l'axe ${regionDisplay}, il est donc judicieux de suivre régulièrement l'évolution des temps d'attente et d'évaluer des alternatives — covoiturage, train (ligne TILO S40 ou S50 selon le passage), ou horaire flexible négocié avec l'employeur suisse. Cette page inclut la carte des passages alternatifs voisins avec leurs temps d'attente actuels et la distance en kilomètres, pour quantifier l'écart en minutes et en coût carburant entre les différentes options dans le même créneau.`,
     `Depuis janvier 2024, le nouvel Accord fiscal Italie–Suisse modifie également la fiscalité des jours de télétravail : les frontaliers peuvent travailler depuis chez eux jusqu'à 25 % des jours ouvrés annuels sans perdre le statut fiscal de frontalier. Pour ceux qui traversent ${crossingLabel} chaque jour, cela signifie que réduire les passages frontaliers ne coûte plus la perte du régime IRPEF avantageux — un facteur concret lorsqu'apparaissent des files chroniques ou des chantiers prolongés sur l'autoroute. Les employeurs tessinois mieux structurés (Lugano, Mendrisio, Bellinzone) ont déjà actualisé les contrats pour intégrer cette flexibilité ; vérifiez avec votre RH si votre employeur propose le travail hybride. Pour comparer net frontalier et net télétravail, utilisez le simulateur de salaires du site : il couvre les deux scénarios avec un calcul à jour pour 2026.`,
   ];
-  return `<section style="margin:0 0 28px;background:var(--color-surface-alt);padding:18px 22px;border-radius:14px;border:1px solid var(--color-edge)">
+  return `<section class="s-6B_yvh">
     <h2 style="${H2_STYLE}">${esc(headline)}</h2>
-    ${paragraphs.map((p) => `<p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(p)}</p>`).join('\n    ')}
+    ${paragraphs.map((p) => `<p class="s-KwuhOL">${esc(p)}</p>`).join('\n    ')}
   </section>`;
 }
 
@@ -874,17 +874,17 @@ function renderLeafLivePlanningProse(
         q2: `Pourquoi je vois quelques minutes ici alors que l'autoroute paraissait fluide ?`,
         a2: `La valeur mesure le temps supplémentaire sur le segment d'approche (~500 m avant le passage) par rapport à la référence sans trafic. Même avec une autoroute fluide, un contrôle douanier, un changement de voie ou un poids lourd qui approche peut faire monter brièvement le nombre. Il est normal que ${crossingLabel} oscille de 5–10 minutes entre deux polls consécutifs en heure de pointe.`,
       };
-  return `<section style="margin:0 0 28px;padding:18px 22px;border-radius:14px;border:1px solid var(--color-edge)">
+  return `<section class="s-fwhUlc">
     <h2 style="${H2_STYLE}">${esc(headline)}</h2>
-    ${paragraphs.map((p) => `<p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(p)}</p>`).join('\n    ')}
-    <h3 style="margin:14px 0 10px;font-size:16px;font-weight:700;color:var(--color-heading)">${esc(faqLabels.title)}</h3>
+    ${paragraphs.map((p) => `<p class="s-KwuhOL">${esc(p)}</p>`).join('\n    ')}
+    <h3 class="s-lGLtkq">${esc(faqLabels.title)}</h3>
     <details style="${CARD_STYLE};margin-bottom:8px">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(faqLabels.q1)}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(faqLabels.a1)}</p>
+      <summary class="s-HBR0NM">${esc(faqLabels.q1)}</summary>
+      <p class="s-OCic8j">${esc(faqLabels.a1)}</p>
     </details>
     <details style="${CARD_STYLE};margin-bottom:0">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(faqLabels.q2)}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(faqLabels.a2)}</p>
+      <summary class="s-HBR0NM">${esc(faqLabels.q2)}</summary>
+      <p class="s-OCic8j">${esc(faqLabels.a2)}</p>
     </details>
   </section>`;
 }
@@ -964,17 +964,17 @@ function renderHubPlanningProse(
         q2: 'Pourquoi certaines lignes restent à « — » après l\'hydratation ?',
         a2: 'Les passages mineurs sans couverture TomTom ou BAZG affichent « — » tant que suffisamment de données statistiques ne sont pas accumulées. Dans ce cas, la valeur est une moyenne historique sur les 30 derniers jours d\'observations : la page de détail du passage affiche le bandeau jaune « Moyennes historiques » pour signaler qu\'il s\'agit d\'une estimation et non d\'une mesure live.',
       };
-  return `<section style="margin:0 0 28px;padding:18px 22px;border-radius:14px;border:1px solid var(--color-edge);background:var(--color-surface-alt)">
+  return `<section class="s-GlcYCp">
     <h2 style="${H2_STYLE}">${esc(headline)}</h2>
-    ${paragraphs.map((p) => `<p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(p)}</p>`).join('\n    ')}
-    <h3 style="margin:14px 0 10px;font-size:16px;font-weight:700;color:var(--color-heading)">${esc(faqLabels.title)}</h3>
+    ${paragraphs.map((p) => `<p class="s-KwuhOL">${esc(p)}</p>`).join('\n    ')}
+    <h3 class="s-lGLtkq">${esc(faqLabels.title)}</h3>
     <details style="${CARD_STYLE};margin-bottom:8px">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(faqLabels.q1)}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(faqLabels.a1)}</p>
+      <summary class="s-HBR0NM">${esc(faqLabels.q1)}</summary>
+      <p class="s-OCic8j">${esc(faqLabels.a1)}</p>
     </details>
     <details style="${CARD_STYLE};margin-bottom:0">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(faqLabels.q2)}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(faqLabels.a2)}</p>
+      <summary class="s-HBR0NM">${esc(faqLabels.q2)}</summary>
+      <p class="s-OCic8j">${esc(faqLabels.a2)}</p>
     </details>
   </section>`;
 }
@@ -987,18 +987,18 @@ function renderWebcamSection(
   copy: Copy,
 ): string {
   if (!webcams || webcams.length === 0) {
-    return `<section aria-label="${esc(copy.webcamLabel)} ${esc(crossingLabel)}" style="margin:0 0 28px">
+    return `<section class="s-KZc0LQ" aria-label="${esc(copy.webcamLabel)} ${esc(crossingLabel)}">
     <h2 style="${H2_STYLE}">${esc(copy.webcamLabel)}</h2>
-    <p style="margin:0;font-size:15px;color:var(--color-subtle);line-height:1.6">${esc(copy.webcamUnavailable)}</p>
+    <p class="s-e9hRDW">${esc(copy.webcamUnavailable)}</p>
   </section>`;
   }
   const figures = webcams
     .map((w) => {
       const refreshMs = w.refreshIntervalMs ?? 60000;
       const licenseHtml = w.license
-        ? `<div style="margin-top:4px;font-size:12px;color:var(--color-subtle)">${esc(w.license)}</div>`
+        ? `<div class="s-DEr6hT">${esc(w.license)}</div>`
         : '';
-      return `<figure style="margin:0 0 16px;padding:0;width:100%;max-width:640px;aspect-ratio:16/9">
+      return `<figure class="s-WFzTLc">
     <img
       src="${esc(w.imageUrl)}"
       alt="${esc(w.label)} — ${esc(copy.updatedLabel)} ${new Date().toISOString().slice(0, 16).replace('T', ' ')}"
@@ -1013,7 +1013,7 @@ function renderWebcamSection(
       onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 640 360%22%3E%3Crect width=%22100%25%22 height=%22100%25%22 fill=%22%23f1f5f9%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23475569%22 text-anchor=%22middle%22 dy=%22.3em%22 font-family=%22sans-serif%22%3EWebcam temporaneamente non disponibile%3C%2Ftext%3E%3C%2Fsvg%3E';"
       style="width:100%;height:100%;object-fit:cover;border-radius:12px;border:1px solid var(--color-edge);background:var(--color-surface-alt)"
     >
-    <figcaption style="margin-top:8px;font-size:14px;color:var(--color-subtle)">
+    <figcaption class="s-7GN3SP">
       <strong>${esc(w.label)}</strong> — ${esc(copy.webcamSource)}:
       <a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(w.sourceName)}</a>
       ${licenseHtml}
@@ -1022,10 +1022,10 @@ function renderWebcamSection(
     })
     .join('\n');
 
-  return `<section aria-label="${esc(copy.webcamLabel)} ${esc(crossingLabel)}" style="margin:0 0 28px">
+  return `<section class="s-KZc0LQ" aria-label="${esc(copy.webcamLabel)} ${esc(crossingLabel)}">
     <h2 style="${H2_STYLE}">${esc(copy.webcamLabel)}</h2>
     ${figures}
-    <p style="margin:8px 0 0;font-size:13px;color:var(--color-subtle);line-height:1.5">${esc(copy.webcamNote)}</p>
+    <p class="s-b81ATu">${esc(copy.webcamNote)}</p>
   </section>`;
 }
 
@@ -1069,7 +1069,7 @@ function renderHourlySvg(buckets: Array<null | { avg: number }>, copy: Copy): st
   const hourLabels = [0, 6, 12, 18, 23]
     .map(
       (h) =>
-        `<text x="${h * (width / 24) + barWidth / 2}" y="${height - 2}" font-size="10" text-anchor="middle" style="fill: var(--color-subtle);">${String(h).padStart(2, '0')}</text>`,
+        `<text class="s-i15lz-" x="${h * (width / 24) + barWidth / 2}" y="${height - 2}" font-size="10" text-anchor="middle">${String(h).padStart(2, '0')}</text>`,
     )
     .join('');
   return `<svg role="img" aria-label="${esc(copy.hourlyTodayLabel)}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:${width}px;height:auto;display:block">
@@ -1112,7 +1112,7 @@ function renderWeeklySvg(matrix: Array<Array<null | { avg: number }>>, copy: Cop
   const hourLabels = [0, 6, 12, 18, 23]
     .map(
       (h) =>
-        `<text x="${h * cellW + cellW / 2}" y="12" font-size="10" text-anchor="middle" style="fill: var(--color-subtle);">${String(h).padStart(2, '0')}</text>`,
+        `<text class="s-i15lz-" x="${h * cellW + cellW / 2}" y="12" font-size="10" text-anchor="middle">${String(h).padStart(2, '0')}</text>`,
     )
     .join('');
   return `<svg role="img" aria-label="${esc(copy.weeklyPatternLabel)}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:${width}px;height:auto;display:block">
@@ -1262,8 +1262,8 @@ function renderAdviceBanner(
   const eyebrow = copy.advice.eyebrow;
   const dataStatus = liveWait === null ? 'unknown' : status;
   return `<aside data-bw-advice data-bw-advice-status="${esc(dataStatus)}" aria-label="${esc(eyebrow)}" style="${tile};margin:0 0 18px">
-    <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--color-subtle)">${esc(eyebrow)}</div>
-    <p data-bw-advice-text style="margin:6px 0 0;font-size:15px;line-height:1.5;color:var(--color-heading);font-weight:500">${esc(text)}</p>
+    <div class="s-a8IQOM">${esc(eyebrow)}</div>
+    <p class="s-f49tDp" data-bw-advice-text>${esc(text)}</p>
   </aside>`;
 }
 
@@ -1344,7 +1344,7 @@ function renderLeafPage(inp: LeafInputs): string {
   // Current-status card
   const sourceText = sourceLabel(liveSource, copy);
   const staticBannerHtml = staticFallback
-    ? `<div style="margin:0 0 18px;padding:14px 18px;border-radius:12px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);color:var(--color-warning);font-size:14px;line-height:1.5">${esc(copy.staticFallbackBanner)}</div>`
+    ? `<div class="s-rUEUjv">${esc(copy.staticFallbackBanner)}</div>`
     : '';
 
   // Live-badge pre-rendered text: defaults to "snapshot di {date}" so SEO/bot
@@ -1360,28 +1360,28 @@ function renderLeafPage(inp: LeafInputs): string {
           ? `instantané du ${dateStamp}`
           : `snapshot of ${dateStamp}`;
 
-  const currentCardHtml = `<section aria-labelledby="currentStatus" style="margin:0 0 24px" data-bw-crossing="${esc(crossing)}">
-    <h2 id="currentStatus" style="${H2_STYLE}">${esc(copy.currentStatusLabel)} <span data-bw-live-badge style="display:inline-block;margin-left:8px;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:600;background:var(--color-surface-alt);color:var(--color-subtle);border:1px solid var(--color-edge);vertical-align:middle">${esc(snapshotBadgeText)}</span></h2>
+  const currentCardHtml = `<section class="s-ziawP1" aria-labelledby="currentStatus" data-bw-crossing="${esc(crossing)}">
+    <h2 id="currentStatus" style="${H2_STYLE}">${esc(copy.currentStatusLabel)} <span class="s-k7sbVR" data-bw-live-badge>${esc(snapshotBadgeText)}</span></h2>
     ${staticBannerHtml}
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px">
+    <div class="s-nzJw8o">
       <div style="padding:18px;border-radius:18px;background:${status.bg};border:1px solid ${status.border}">
         <div style="font-size:12px;color:${status.text};font-weight:700;text-transform:uppercase">${esc(copy.waitMinutesLabel)}</div>
         <div data-bw-field="waitTimeMinutes" style="margin-top:8px;font-size:36px;font-weight:800;color:${status.text}">${esc(waitFmt)}</div>
       </div>
-      <div style="padding:18px;border-radius:18px;background:var(--color-surface-alt);border:1px solid var(--color-edge)">
-        <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase">${esc(copy.sourceLabel)}</div>
-        <div style="margin-top:8px;font-size:14px;color:var(--color-heading);font-weight:700;line-height:1.4">${esc(sourceText)}</div>
+      <div class="s-Zv0TZw">
+        <div class="s-QHHL-d">${esc(copy.sourceLabel)}</div>
+        <div class="s-iUCmjg">${esc(sourceText)}</div>
       </div>
-      <div style="padding:18px;border-radius:18px;background:var(--color-surface-alt);border:1px solid var(--color-edge)">
-        <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase">${esc(copy.updatedLabel)}</div>
-        <div data-bw-field="lastUpdate" style="margin-top:8px;font-size:14px;color:var(--color-heading);font-weight:700">${esc(dateStamp)}</div>
+      <div class="s-Zv0TZw">
+        <div class="s-QHHL-d">${esc(copy.updatedLabel)}</div>
+        <div class="s-54GADM" data-bw-field="lastUpdate">${esc(dateStamp)}</div>
       </div>
     </div>
   </section>`;
 
   // Hourly chart (needs ≥1 day with samples)
   const hourlyHtml = hasToday
-    ? `<section style="margin:0 0 24px" aria-labelledby="hourlyToday">
+    ? `<section class="s-ziawP1" aria-labelledby="hourlyToday">
     <h2 id="hourlyToday" style="${H2_STYLE}">${esc(copy.hourlyTodayLabel)}</h2>
     ${renderHourlySvg(todayBuckets, copy)}
   </section>`
@@ -1389,29 +1389,29 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // Weekly chart (needs ≥7 days to be meaningful)
   const weeklyHtml = hasWeekly
-    ? `<section style="margin:0 0 24px" aria-labelledby="weeklyPattern">
+    ? `<section class="s-ziawP1" aria-labelledby="weeklyPattern">
     <h2 id="weeklyPattern" style="${H2_STYLE}">${esc(copy.weeklyPatternLabel)}</h2>
     ${renderWeeklySvg(weekly, copy)}
-    <p style="margin:12px 0 0;color:var(--color-body);font-size:14px;line-height:1.55">
+    <p class="s-jM-wmV">
       <strong>${esc(copy.bestHoursLabel)}:</strong> ${esc(bestHour)} &nbsp;·&nbsp;
       <strong>${esc(copy.worstHoursLabel)}:</strong> ${esc(worstHour)}
     </p>
   </section>`
-    : `<p style="margin:0 0 24px;padding:14px 18px;border-radius:12px;background:var(--color-surface-alt);color:var(--color-subtle);font-size:14px;line-height:1.5">${esc(copy.noHistory)}</p>`;
+    : `<p class="s-Wnl1Ux">${esc(copy.noHistory)}</p>`;
 
   // Static crossing info
   const infoRows: string[] = [];
   if (reg) {
     infoRows.push(
-      `<li style="padding:8px 0;border-bottom:1px solid var(--color-edge)"><strong>${esc(
+      `<li class="s-IHVixW"><strong>${esc(
         locale === 'it' ? 'Tipo' : locale === 'de' ? 'Typ' : locale === 'fr' ? 'Type' : 'Type',
       )}:</strong> ${esc(copy.crossingTypeLabel[reg.type])}</li>`,
     );
     infoRows.push(
-      `<li style="padding:8px 0;border-bottom:1px solid var(--color-edge)"><strong>${esc(copy.hoursLabel)}:</strong> ${esc(reg.open24h ? copy.open24h : reg.hours)}</li>`,
+      `<li class="s-IHVixW"><strong>${esc(copy.hoursLabel)}:</strong> ${esc(reg.open24h ? copy.open24h : reg.hours)}</li>`,
     );
     infoRows.push(
-      `<li style="padding:8px 0;border-bottom:1px solid var(--color-edge)"><strong>${esc(
+      `<li class="s-IHVixW"><strong>${esc(
         locale === 'it'
           ? 'Media mattina'
           : locale === 'de'
@@ -1422,7 +1422,7 @@ function renderLeafPage(inp: LeafInputs): string {
       )}:</strong> ${esc(reg.avgWaitMorning)}</li>`,
     );
     infoRows.push(
-      `<li style="padding:8px 0;border-bottom:1px solid var(--color-edge)"><strong>${esc(
+      `<li class="s-IHVixW"><strong>${esc(
         locale === 'it'
           ? 'Media sera'
           : locale === 'de'
@@ -1434,9 +1434,9 @@ function renderLeafPage(inp: LeafInputs): string {
     );
   }
   const infoHtml = infoRows.length
-    ? `<section style="margin:0 0 24px" aria-labelledby="infoValico">
+    ? `<section class="s-ziawP1" aria-labelledby="infoValico">
     <h2 id="infoValico" style="${H2_STYLE}">${esc(copy.infoValicoLabel)}</h2>
-    <ul style="list-style:none;margin:0;padding:0;font-size:14px;color:var(--color-body);line-height:1.5">${infoRows.join('')}</ul>
+    <ul class="s-Y-l-tN">${infoRows.join('')}</ul>
   </section>`
     : '';
 
@@ -1471,15 +1471,15 @@ function renderLeafPage(inp: LeafInputs): string {
             const href = `${BASE_URL}${buildOggiPath(locale, slug)}`;
             const altDisp = BORDER_CROSSING_DISPLAY[slug];
             const detail = `${copy.crossingTypeLabel[altReg.type]} · ${altReg.open24h ? copy.open24h : esc(altReg.hours)} · ${esc(altReg.avgWaitMorning)}`;
-            return `<li style="${CARD_STYLE};border-radius:10px;margin-bottom:8px"><a href="${href}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(altDisp)}</a><div style="font-size:13px;color:var(--color-subtle);margin-top:2px">${detail}</div></li>`;
+            return `<li style="${CARD_STYLE};border-radius:10px;margin-bottom:8px"><a href="${href}" style="${LINK_ACCENT_STYLE};font-weight:700">${esc(altDisp)}</a><div class="s-otj8TI">${detail}</div></li>`;
           })
           .filter(Boolean)
           .join('');
         return items
-          ? `<section style="margin:0 0 24px" aria-labelledby="altRoutes">
+          ? `<section class="s-ziawP1" aria-labelledby="altRoutes">
     <h2 id="altRoutes" style="${H2_STYLE}">${esc(h2)}</h2>
-    <p style="margin:0 0 10px;color:var(--color-body);font-size:14px;line-height:1.55">${esc(lead)}</p>
-    <ul style="list-style:none;margin:0;padding:0">${items}</ul>
+    <p class="s-sau7he">${esc(lead)}</p>
+    <ul class="s-eeWB4A">${items}</ul>
   </section>`
           : '';
       })()
@@ -1487,14 +1487,14 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // FAQ
   const faqItems = copy.faq;
-  const faqHtml = `<section style="margin:32px 0 0" aria-labelledby="bwFaq">
+  const faqHtml = `<section class="s-ZqtBbL" aria-labelledby="bwFaq">
     <h2 id="bwFaq" style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
     ${faqItems
       .map(
         (f) =>
           `<details style="${CARD_STYLE};margin-bottom:8px">
-        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(f.q(crossingDisplay))}</summary>
-        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(f.a(crossingDisplay))}</p>
+        <summary class="s-HBR0NM">${esc(f.q(crossingDisplay))}</summary>
+        <p class="s-OCic8j">${esc(f.a(crossingDisplay))}</p>
       </details>`,
       )
       .join('')}
@@ -1669,7 +1669,7 @@ function renderLeafPage(inp: LeafInputs): string {
   // Firestore values once the page is interactive. Vanilla JS, ~2.8 KB.
   const hydrationScript = `\n  ${BORDER_WAIT_HYDRATION_SCRIPT_TAG}`;
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  const bodyHtml = `<article class="s-xzWvwM">
   <nav style="${BREADCRUMB_STYLE}" aria-label="Breadcrumb">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -1679,7 +1679,7 @@ function renderLeafPage(inp: LeafInputs): string {
     <span> / </span>
     <span>${esc(crossingDisplay)}</span>
   </nav>
-  <header style="margin-bottom:22px">
+  <header class="s-Nv0GaD">
     <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(intro)}</p>
@@ -1702,12 +1702,12 @@ function renderLeafPage(inp: LeafInputs): string {
       .map((s) => BORDER_CROSSING_DISPLAY[s])
       .filter(Boolean),
   )}
-  <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-label="${esc(copy.faqTitle ?? 'Contesto')}">
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px">${esc(paragraph)}</p>
+  <section class="s-GCEyQg" aria-label="${esc(copy.faqTitle ?? 'Contesto')}">
+    <p class="s-yOfiVn">${esc(paragraph)}</p>
   </section>
   ${renderDiscoverMore(locale, BORDER_WAIT_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
-  <section style="margin-top:32px" aria-label="advertisement">
+  <section class="s-sC82IX" aria-label="advertisement">
     ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
   </section>
 </article>${webcamRefreshScript}${hydrationScript}`;
@@ -1922,12 +1922,12 @@ function renderHubPage(inp: HubInputs): string {
 
   const commuterImpactPara =
     locale === 'it'
-      ? `Quanto costa un'attesa al valico in termini concreti. Per un frontaliere che passa la dogana 5 giorni a settimana, ogni 10 minuti aggiuntivi di coda valgono mediamente 35–55 EUR/mese di costo opportunità (stipendio orario netto medio in Ticino di 28–34 CHF + carburante consumato a motore acceso). Una mattina con 30 minuti di coda invece dei 5 minuti tipici di Brogeda alle 06:30 costa quindi circa 1,80 EUR in più di carburante più ~12 EUR di tempo perso. La scelta del valico fa una differenza misurabile: chi vive a Como Sud guadagna circa 8 minuti scegliendo Bizzarone–Stabio rispetto a Chiasso-Brogeda dopo le 07:00 in direzione Lugano; chi rientra alla sera dal Mendrisiotto verso Varese trova spesso Gaggiolo più scorrevole di Stabio dopo le 17:30. Combina questi tempi con il prezzo del carburante della giornata e con il <a href="/calcola-stipendio/" style="color:var(--color-link)">simulatore stipendio</a> per vedere il costo netto del pendolarismo della prossima settimana.`
+      ? `Quanto costa un'attesa al valico in termini concreti. Per un frontaliere che passa la dogana 5 giorni a settimana, ogni 10 minuti aggiuntivi di coda valgono mediamente 35–55 EUR/mese di costo opportunità (stipendio orario netto medio in Ticino di 28–34 CHF + carburante consumato a motore acceso). Una mattina con 30 minuti di coda invece dei 5 minuti tipici di Brogeda alle 06:30 costa quindi circa 1,80 EUR in più di carburante più ~12 EUR di tempo perso. La scelta del valico fa una differenza misurabile: chi vive a Como Sud guadagna circa 8 minuti scegliendo Bizzarone–Stabio rispetto a Chiasso-Brogeda dopo le 07:00 in direzione Lugano; chi rientra alla sera dal Mendrisiotto verso Varese trova spesso Gaggiolo più scorrevole di Stabio dopo le 17:30. Combina questi tempi con il prezzo del carburante della giornata e con il <a class="s-IjpSYt" href="/calcola-stipendio/">simulatore stipendio</a> per vedere il costo netto del pendolarismo della prossima settimana.`
       : locale === 'en'
-        ? `What a wait at the crossing actually costs. For a cross-border worker who clears customs five days a week, every additional 10 minutes of queue is worth on average 35–55 EUR/month of opportunity cost (average net hourly wage in Ticino of CHF 28–34 plus fuel burned at idle). A morning with a 30-minute queue instead of the typical 5 minutes at Brogeda at 06:30 therefore costs about 1.80 EUR of extra fuel plus ~12 EUR of lost time. Choosing the right crossing makes a measurable difference: residents of southern Como gain about 8 minutes by picking Bizzarone–Stabio over Chiasso-Brogeda after 07:00 heading to Lugano; those returning in the evening from Mendrisiotto towards Varese often find Gaggiolo smoother than Stabio after 17:30. Combine these wait times with the day's fuel price and the <a href="/en/calculate-salary/" style="color:var(--color-link)">salary simulator</a> to see next week's net commute cost.`
+        ? `What a wait at the crossing actually costs. For a cross-border worker who clears customs five days a week, every additional 10 minutes of queue is worth on average 35–55 EUR/month of opportunity cost (average net hourly wage in Ticino of CHF 28–34 plus fuel burned at idle). A morning with a 30-minute queue instead of the typical 5 minutes at Brogeda at 06:30 therefore costs about 1.80 EUR of extra fuel plus ~12 EUR of lost time. Choosing the right crossing makes a measurable difference: residents of southern Como gain about 8 minutes by picking Bizzarone–Stabio over Chiasso-Brogeda after 07:00 heading to Lugano; those returning in the evening from Mendrisiotto towards Varese often find Gaggiolo smoother than Stabio after 17:30. Combine these wait times with the day's fuel price and the <a class="s-IjpSYt" href="/en/calculate-salary/">salary simulator</a> to see next week's net commute cost.`
         : locale === 'de'
-          ? `Was eine Grenzwartezeit konkret kostet. Für einen Grenzgänger, der fünf Tage pro Woche durch den Zoll fährt, sind jede zusätzlichen 10 Minuten Warteschlange im Schnitt 35–55 EUR/Monat Opportunitätskosten wert (Tessiner Nettostundenlohn von 28–34 CHF plus Treibstoffverbrauch im Standgas). Ein Morgen mit 30 Minuten Wartezeit statt der typischen 5 Minuten in Brogeda um 06:30 kostet also rund 1,80 EUR Treibstoff plus ~12 EUR Zeitverlust. Die Wahl des Übergangs macht einen messbaren Unterschied: Wer in Süd-Como wohnt, gewinnt etwa 8 Minuten mit Bizzarone–Stabio gegenüber Chiasso-Brogeda nach 07:00 Richtung Lugano; abends auf der Rückfahrt vom Mendrisiotto nach Varese ist Gaggiolo nach 17:30 oft flüssiger als Stabio. Kombinieren Sie diese Wartezeiten mit dem Tagespreis des Treibstoffs und dem <a href="/de/gehalt-berechnen/" style="color:var(--color-link)">Lohnsimulator</a>, um die Nettokosten Ihres Pendlerwegs nächste Woche zu sehen.`
-          : `Ce que coûte concrètement une attente au passage. Pour un frontalier qui franchit la douane cinq jours par semaine, chaque tranche supplémentaire de 10 minutes de file vaut en moyenne 35–55 EUR/mois de coût d'opportunité (salaire horaire net moyen au Tessin de 28–34 CHF plus le carburant consommé moteur tournant). Une matinée à 30 minutes de file au lieu des 5 minutes typiques à Brogeda à 06:30 coûte donc environ 1,80 EUR de carburant supplémentaire et ~12 EUR de temps perdu. Choisir le bon passage fait une différence mesurable : les résidents du sud de Côme gagnent environ 8 minutes en privilégiant Bizzarone–Stabio plutôt que Chiasso-Brogeda après 07:00 vers Lugano ; au retour le soir du Mendrisiotto vers Varèse, Gaggiolo est souvent plus fluide que Stabio après 17:30. Combinez ces temps d'attente avec le prix du carburant du jour et le <a href="/fr/calculer-salaire/" style="color:var(--color-link)">simulateur de salaire</a> pour estimer le coût net de votre pendulaire la semaine prochaine.`;
+          ? `Was eine Grenzwartezeit konkret kostet. Für einen Grenzgänger, der fünf Tage pro Woche durch den Zoll fährt, sind jede zusätzlichen 10 Minuten Warteschlange im Schnitt 35–55 EUR/Monat Opportunitätskosten wert (Tessiner Nettostundenlohn von 28–34 CHF plus Treibstoffverbrauch im Standgas). Ein Morgen mit 30 Minuten Wartezeit statt der typischen 5 Minuten in Brogeda um 06:30 kostet also rund 1,80 EUR Treibstoff plus ~12 EUR Zeitverlust. Die Wahl des Übergangs macht einen messbaren Unterschied: Wer in Süd-Como wohnt, gewinnt etwa 8 Minuten mit Bizzarone–Stabio gegenüber Chiasso-Brogeda nach 07:00 Richtung Lugano; abends auf der Rückfahrt vom Mendrisiotto nach Varese ist Gaggiolo nach 17:30 oft flüssiger als Stabio. Kombinieren Sie diese Wartezeiten mit dem Tagespreis des Treibstoffs und dem <a class="s-IjpSYt" href="/de/gehalt-berechnen/">Lohnsimulator</a>, um die Nettokosten Ihres Pendlerwegs nächste Woche zu sehen.`
+          : `Ce que coûte concrètement une attente au passage. Pour un frontalier qui franchit la douane cinq jours par semaine, chaque tranche supplémentaire de 10 minutes de file vaut en moyenne 35–55 EUR/mois de coût d'opportunité (salaire horaire net moyen au Tessin de 28–34 CHF plus le carburant consommé moteur tournant). Une matinée à 30 minutes de file au lieu des 5 minutes typiques à Brogeda à 06:30 coûte donc environ 1,80 EUR de carburant supplémentaire et ~12 EUR de temps perdu. Choisir le bon passage fait une différence mesurable : les résidents du sud de Côme gagnent environ 8 minutes en privilégiant Bizzarone–Stabio plutôt que Chiasso-Brogeda après 07:00 vers Lugano ; au retour le soir du Mendrisiotto vers Varèse, Gaggiolo est souvent plus fluide que Stabio après 17:30. Combinez ces temps d'attente avec le prix du carburant du jour et le <a class="s-IjpSYt" href="/fr/calculer-salaire/">simulateur de salaire</a> pour estimer le coût net de votre pendulaire la semaine prochaine.`;
 
   // Related links context based on "primary" crossing for the region
   const primaryCrossing: BorderCrossingSlug = region === 'ticino-varese' ? 'gaggiolo' : 'chiasso-brogeda';
@@ -1961,9 +1961,9 @@ function renderHubPage(inp: HubInputs): string {
                 : 'This page in other languages';
         const others = (BORDER_WAIT_LOCALES as ReadonlyArray<BorderWaitLocale>).filter((l) => l !== locale);
         const items = others
-          .map((l) => `<li style="margin:.2rem 0"><a href="${BASE_URL}${buildRootHubPath(l)}" hreflang="${l}" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(labels[l])}</a></li>`)
+          .map((l) => `<li class="s-xu5DGK"><a href="${BASE_URL}${buildRootHubPath(l)}" hreflang="${l}" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(labels[l])}</a></li>`)
           .join('');
-        return `<section style="margin:0 0 24px" aria-label="${esc(heading)}"><h2 style="${H2_STYLE}">${esc(heading)}</h2><ul style="margin:0 0 0 1.25rem;padding:0">${items}</ul></section>`;
+        return `<section class="s-ziawP1" aria-label="${esc(heading)}"><h2 style="${H2_STYLE}">${esc(heading)}</h2><ul class="s-dGFnBg">${items}</ul></section>`;
       })()
     : '';
 
@@ -1992,22 +1992,22 @@ function renderHubPage(inp: HubInputs): string {
     de: { open: 'Erfasste Übergänge', ok: 'Fliessend', warn: 'Moderate Schlange', bad: 'Lange Schlange' },
     fr: { open: 'Passages suivis', ok: 'Fluides', warn: 'File modérée', bad: 'File longue' },
   };
-  const hubStatsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:0 0 18px" aria-label="${esc(copy.currentStatusLabel)}">
-    <div style="padding:18px;border-radius:16px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border);color:var(--color-heading)">
-      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(hubTileLabels[locale].open)}</div>
-      <div style="margin-top:8px;font-size:32px;font-weight:800;color:var(--color-heading);line-height:1.1;font-variant-numeric:tabular-nums">${crossingsInScope.length}</div>
+  const hubStatsHtml = `<section class="s-AjDT9y" aria-label="${esc(copy.currentStatusLabel)}">
+    <div class="s-SJxWYS">
+      <div class="s-OYGznH">${esc(hubTileLabels[locale].open)}</div>
+      <div class="s-8HrW26">${crossingsInScope.length}</div>
     </div>
-    <div style="padding:18px;border-radius:16px;background:var(--color-success-subtle);border:1px solid var(--color-success-border);color:var(--color-heading)">
-      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(hubTileLabels[locale].ok)}</div>
-      <div style="margin-top:8px;font-size:24px;font-weight:700;color:var(--color-success);line-height:1.1;font-variant-numeric:tabular-nums">${statusOk}</div>
+    <div class="s-65849O">
+      <div class="s-OYGznH">${esc(hubTileLabels[locale].ok)}</div>
+      <div class="s-Fc1ZH2">${statusOk}</div>
     </div>
-    <div style="padding:18px;border-radius:16px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);color:var(--color-heading)">
-      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(hubTileLabels[locale].warn)}</div>
-      <div style="margin-top:8px;font-size:24px;font-weight:700;color:var(--color-warning);line-height:1.1;font-variant-numeric:tabular-nums">${statusWarn}</div>
+    <div class="s-ZPeCE9">
+      <div class="s-OYGznH">${esc(hubTileLabels[locale].warn)}</div>
+      <div class="s-on9ifx">${statusWarn}</div>
     </div>
-    <div style="padding:18px;border-radius:16px;background:var(--color-danger-subtle);border:1px solid var(--color-danger-border);color:var(--color-heading)">
-      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(hubTileLabels[locale].bad)}</div>
-      <div style="margin-top:8px;font-size:24px;font-weight:700;color:var(--color-danger);line-height:1.1;font-variant-numeric:tabular-nums">${statusBad}</div>
+    <div class="s-Q_Bkga">
+      <div class="s-OYGznH">${esc(hubTileLabels[locale].bad)}</div>
+      <div class="s-2B-deU">${statusBad}</div>
     </div>
   </section>`;
 
@@ -2021,20 +2021,20 @@ function renderHubPage(inp: HubInputs): string {
           ? `instantané du ${dateStamp}`
           : `snapshot of ${dateStamp}`;
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  const bodyHtml = `<article class="s-xzWvwM">
   <nav style="${BREADCRUMB_STYLE}" aria-label="Breadcrumb">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
     ${region ? `<a href="${BASE_URL}${buildRootHubPath(locale)}" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.rootH1.split(' —')[0])}</a><span> / </span><span>${esc(regionDisplay)}</span>` : `<span>${esc(h1)}</span>`}
   </nav>
-  <header style="margin-bottom:22px">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp} <span data-bw-live-badge style="display:inline-block;margin-left:8px;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:600;background:var(--color-surface-alt);color:var(--color-subtle);border:1px solid var(--color-edge);vertical-align:middle">${esc(hubSnapshotBadgeText)}</span></p>
+  <header class="s-Nv0GaD">
+    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp} <span class="s-k7sbVR" data-bw-live-badge>${esc(hubSnapshotBadgeText)}</span></p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(introTagline)}</p>
   </header>
   ${hubStatsHtml}
   ${bestBannerHtml}
-  <section style="margin:0 0 24px" aria-labelledby="crossingTable">
+  <section class="s-ziawP1" aria-labelledby="crossingTable">
     <h2 id="crossingTable" style="${H2_STYLE}">${esc(
       locale === 'it'
         ? 'Tutti i valichi'
@@ -2047,16 +2047,16 @@ function renderHubPage(inp: HubInputs): string {
     ${tableHtml}
   </section>
   ${otherLocaleHubsHtml}
-  <section style="margin:0 0 24px">
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(introLong)}</p>
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(secondary)}</p>
-    <p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(methodologyPara)}</p>
-    <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${commuterImpactPara}</p>
+  <section class="s-ziawP1">
+    <p class="s-KwuhOL">${esc(introLong)}</p>
+    <p class="s-KwuhOL">${esc(secondary)}</p>
+    <p class="s-KwuhOL">${esc(methodologyPara)}</p>
+    <p class="s-E7ZJqo">${commuterImpactPara}</p>
   </section>
   ${renderHubPlanningProse(locale, region, crossingsInScope.length)}
   ${renderDiscoverMore(locale, BORDER_WAIT_DISCOVER_MORE_CTAS[locale])}
   ${generateRelatedLinksBlock(locale, 'border_wait', relatedCtx)}
-  <section style="margin-top:32px" aria-label="advertisement">
+  <section class="s-sC82IX" aria-label="advertisement">
     ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
   </section>
 </article>
@@ -2180,17 +2180,17 @@ function renderArchiveContextProse(
         a2: `Oui : comparez la ligne 17h00–19h00 avec la fenêtre de pointe observée pour ${crossingLabel} (${peakDefault} CET). Si la moyenne est inférieure au pic d'autres secteurs, ${crossingLabel} est une bonne option pour le retour pendulaire. Ajoutez toujours 12–25 minutes pour le tronçon autoroutier Lugano–${crossingLabel}, non inclus dans la valeur de file.`,
       };
 
-  return `<section style="margin:24px 0 0;padding:18px 22px;border-radius:14px;border:1px solid var(--color-edge);background:var(--color-surface-alt)" aria-labelledby="archiveContext">
+  return `<section class="s-_cuQ7T" aria-labelledby="archiveContext">
     <h2 id="archiveContext" style="${H2_STYLE}">${esc(headline)}</h2>
-    ${paragraphs.map((p) => `<p style="margin:0 0 14px;color:var(--color-body);line-height:1.7;max-width:860px">${esc(p)}</p>`).join('\n    ')}
-    <h3 style="margin:14px 0 10px;font-size:16px;font-weight:700;color:var(--color-heading)">${esc(faqLabels.title)}</h3>
+    ${paragraphs.map((p) => `<p class="s-KwuhOL">${esc(p)}</p>`).join('\n    ')}
+    <h3 class="s-lGLtkq">${esc(faqLabels.title)}</h3>
     <details style="${CARD_STYLE};margin-bottom:8px">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(faqLabels.q1)}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(faqLabels.a1)}</p>
+      <summary class="s-HBR0NM">${esc(faqLabels.q1)}</summary>
+      <p class="s-OCic8j">${esc(faqLabels.a1)}</p>
     </details>
     <details style="${CARD_STYLE};margin-bottom:0">
-      <summary style="font-weight:700;cursor:pointer;color:var(--color-heading)">${esc(faqLabels.q2)}</summary>
-      <p style="margin:10px 0 0;color:var(--color-body);line-height:1.6">${esc(faqLabels.a2)}</p>
+      <summary class="s-HBR0NM">${esc(faqLabels.q2)}</summary>
+      <p class="s-OCic8j">${esc(faqLabels.a2)}</p>
     </details>
   </section>`;
 }
@@ -2330,30 +2330,30 @@ function renderArchivePage(inp: ArchiveInputs): string {
     de: { avg: 'Monatsdurchschnitt', peak: 'Schlechteste Stunde', best: 'Beste Stunde', days: 'Datentage' },
     fr: { avg: 'Moyenne mensuelle', peak: 'Heure pire', best: 'Heure meilleure', days: 'Jours de données' },
   };
-  const archiveStatsHtml = `<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:0 0 22px" aria-label="${esc(archiveTileLabels[locale].avg)}">
-    <div style="padding:18px;border-radius:16px;background:var(--color-accent-subtle);border:1px solid var(--color-accent-border);color:var(--color-heading)">
-      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(archiveTileLabels[locale].avg)}</div>
-      <div style="margin-top:8px;font-size:32px;font-weight:800;color:var(--color-heading);line-height:1.1;font-variant-numeric:tabular-nums">${overallAvg === null ? '—' : `${overallAvg} min`}</div>
+  const archiveStatsHtml = `<section class="s-ctzQEF" aria-label="${esc(archiveTileLabels[locale].avg)}">
+    <div class="s-SJxWYS">
+      <div class="s-OYGznH">${esc(archiveTileLabels[locale].avg)}</div>
+      <div class="s-8HrW26">${overallAvg === null ? '—' : `${overallAvg} min`}</div>
     </div>
     ${peakHour
-      ? `<div style="padding:18px;border-radius:16px;background:var(--color-warning-subtle);border:1px solid var(--color-warning-border);color:var(--color-heading)">
-      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(archiveTileLabels[locale].peak)}</div>
-      <div style="margin-top:8px;font-size:22px;font-weight:700;color:var(--color-warning);line-height:1.1;font-variant-numeric:tabular-nums">${esc(fmtHour(peakHour.h))} · ${peakHour.v} min</div>
+      ? `<div class="s-ZPeCE9">
+      <div class="s-OYGznH">${esc(archiveTileLabels[locale].peak)}</div>
+      <div class="s-l-Up0R">${esc(fmtHour(peakHour.h))} · ${peakHour.v} min</div>
     </div>`
       : ''}
     ${bestHour
-      ? `<div style="padding:18px;border-radius:16px;background:var(--color-success-subtle);border:1px solid var(--color-success-border);color:var(--color-heading)">
-      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(archiveTileLabels[locale].best)}</div>
-      <div style="margin-top:8px;font-size:22px;font-weight:700;color:var(--color-success);line-height:1.1;font-variant-numeric:tabular-nums">${esc(fmtHour(bestHour.h))} · ${bestHour.v} min</div>
+      ? `<div class="s-65849O">
+      <div class="s-OYGznH">${esc(archiveTileLabels[locale].best)}</div>
+      <div class="s-AlAsY2">${esc(fmtHour(bestHour.h))} · ${bestHour.v} min</div>
     </div>`
       : ''}
-    <div style="padding:18px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body)">
-      <div style="font-size:12px;color:var(--color-subtle);font-weight:700;text-transform:uppercase;letter-spacing:0.04em">${esc(archiveTileLabels[locale].days)}</div>
-      <div style="margin-top:8px;font-size:24px;font-weight:700;color:var(--color-heading);line-height:1.1;font-variant-numeric:tabular-nums">${daysInMonth.length}</div>
+    <div class="s-I-Jihi">
+      <div class="s-OYGznH">${esc(archiveTileLabels[locale].days)}</div>
+      <div class="s-9IAp2z">${daysInMonth.length}</div>
     </div>
   </section>`;
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  const bodyHtml = `<article class="s-xzWvwM">
         <nav style="${BREADCRUMB_STYLE}" aria-label="Breadcrumb">
           <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
           <span> / </span>
@@ -2361,7 +2361,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
           <span> / </span>
           <span>${esc(monthKey)}</span>
         </nav>
-        <header style="margin-bottom:22px">
+        <header class="s-Nv0GaD">
           <h1 style="${H1_STYLE}">${esc(h1)}</h1>
           <p style="${LEDE_STYLE}">${esc(archiveTaglineByLocale[locale])}</p>
         </header>
@@ -2376,11 +2376,11 @@ function renderArchivePage(inp: ArchiveInputs): string {
             <tbody>${rows}</tbody>
           </table>
         </section>
-        <section style="margin:24px 0 0">
-          <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:860px">${esc(intro)}</p>
+        <section class="s-Va7_33">
+          <p class="s-E7ZJqo">${esc(intro)}</p>
         </section>
         ${archiveProse}
-        <section style="margin-top:32px" aria-label="advertisement">
+        <section class="s-sC82IX" aria-label="advertisement">
           ${adSlotHtml('ARTICLE_END_MULTIPLEX')}
         </section>
       </article>`;

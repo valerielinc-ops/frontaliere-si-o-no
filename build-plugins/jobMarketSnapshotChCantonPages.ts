@@ -443,7 +443,7 @@ function renderSnapshotPage(inp: RenderInputs): string {
     <p style="${LEDE_STYLE}">${esc(c.lede(cantonName, inp.totalJobs))}</p>
   </header>`;
 
-  const tilesBlock = `<section aria-label="${esc(c.totalJobsLabel)}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:16px 0">
+  const tilesBlock = `<section class="s-s0ShLV" aria-label="${esc(c.totalJobsLabel)}">
     <div style="${STAT_TILE_ACCENT}">
       <span style="${STAT_TILE_LABEL}">${esc(c.totalJobsLabel)}</span>
       <span style="${STAT_TILE_VALUE}">${inp.totalJobs}</span>
@@ -458,18 +458,18 @@ function renderSnapshotPage(inp: RenderInputs): string {
     </div>
   </section>`;
 
-  const ctaBlock = `<p style="margin:16px 0 24px"><a href="${esc(inp.hiringHubHref)}" style="${CTA_PRIMARY_STYLE}">${esc(c.ctaLabel)} →</a></p>`;
+  const ctaBlock = `<p class="s-O3JTly"><a href="${esc(inp.hiringHubHref)}" style="${CTA_PRIMARY_STYLE}">${esc(c.ctaLabel)} →</a></p>`;
 
   const cityRows = inp.topCities
     .map(
       (city) =>
-        `<tr><td style="padding:8px 12px">${esc(city.name)}</td><td style="padding:8px 12px;text-align:right;font-variant-numeric:tabular-nums">${city.count}</td></tr>`,
+        `<tr><td class="s-2xx_KF">${esc(city.name)}</td><td class="s-fa9sxU">${city.count}</td></tr>`,
     )
     .join('\n');
   const cityTable = inp.topCities.length
     ? `<section><h2 style="${H2_STYLE}">${esc(c.citiesHeading)}</h2>
-        <div style="${CARD_STYLE}"><table style="width:100%;border-collapse:collapse">
-          <thead><tr><th style="text-align:left;padding:8px 12px">${esc(c.cityColumn)}</th><th style="text-align:right;padding:8px 12px">${esc(c.countColumn)}</th></tr></thead>
+        <div style="${CARD_STYLE}"><table class="s-CuZHSN">
+          <thead><tr><th class="s-Gu4ahz">${esc(c.cityColumn)}</th><th class="s-R7ZZFv">${esc(c.countColumn)}</th></tr></thead>
           <tbody>${cityRows}</tbody>
         </table></div></section>`
     : '';
@@ -477,20 +477,20 @@ function renderSnapshotPage(inp: RenderInputs): string {
   const sectorRows = inp.topSectors
     .map(
       (sector) =>
-        `<tr><td style="padding:8px 12px">${esc(sector.label)}</td><td style="padding:8px 12px;text-align:right;font-variant-numeric:tabular-nums">${sector.count}</td></tr>`,
+        `<tr><td class="s-2xx_KF">${esc(sector.label)}</td><td class="s-fa9sxU">${sector.count}</td></tr>`,
     )
     .join('\n');
   const sectorTable = inp.topSectors.length
     ? `<section><h2 style="${H2_STYLE}">${esc(c.sectorsHeading)}</h2>
-        <div style="${CARD_STYLE}"><table style="width:100%;border-collapse:collapse">
-          <thead><tr><th style="text-align:left;padding:8px 12px">${esc(c.sectorColumn)}</th><th style="text-align:right;padding:8px 12px">${esc(c.countColumn)}</th></tr></thead>
+        <div style="${CARD_STYLE}"><table class="s-CuZHSN">
+          <thead><tr><th class="s-Gu4ahz">${esc(c.sectorColumn)}</th><th class="s-R7ZZFv">${esc(c.countColumn)}</th></tr></thead>
           <tbody>${sectorRows}</tbody>
         </table></div></section>`
     : '';
 
   // Long-form prose below the data area (per CLAUDE.md rules #16/#17 — filler
   // never above the meaty content). Two paragraphs ~110 words each.
-  const methodologyBlock = `<section style="margin-top:32px">
+  const methodologyBlock = `<section class="s-sC82IX">
     <h2 style="${H2_STYLE}">${esc(c.methodologyHeading)}</h2>
     <p>${esc(c.methodologyP1(cantonName, inp.totalJobs))}</p>
     <p>${esc(c.methodologyP2)}</p>
@@ -513,7 +513,7 @@ function renderSnapshotPage(inp: RenderInputs): string {
     ctaLabel: c.ctaLabel,
   });
 
-  const main = `<main class="seo-static-content" style="max-width:960px;margin:0 auto;padding:24px 16px">
+  const main = `<main class="seo-static-content s-wtIcSy">
     ${breadcrumb}
     ${headerBlock}
     ${tilesBlock}
@@ -522,7 +522,7 @@ function renderSnapshotPage(inp: RenderInputs): string {
     ${sectorTable}
     ${methodologyBlock}
     ${snapshotProseBlock}
-    <p style="margin-top:24px"><a href="${esc(inp.hiringHubHref)}" style="${LINK_ACCENT_STYLE}">${esc(c.ctaLabel)} →</a></p>
+    <p class="s-Zti1kS"><a href="${esc(inp.hiringHubHref)}" style="${LINK_ACCENT_STYLE}">${esc(c.ctaLabel)} →</a></p>
   </main>`;
 
   const breadcrumbLd = JSON.stringify({

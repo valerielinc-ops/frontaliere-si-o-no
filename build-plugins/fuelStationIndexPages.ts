@@ -724,7 +724,7 @@ function renderGroup(
     .join('');
 
   const headerBadge = `<span aria-hidden="true" style="${ZONE_HEADER_BADGE_STYLE}">${iconSvg}</span>`;
-  const headerTitle = `<div style="flex:1;min-width:0"><h3 id="zone-${esc(group.slug)}" style="${ZONE_HEADER_TITLE_STYLE}">${esc(group.heading)}</h3>${borderHint ? `<p style="${ZONE_HEADER_META_STYLE}">${esc(borderHint)}</p>` : ''}</div>`;
+  const headerTitle = `<div class="s-KGNylX"><h3 id="zone-${esc(group.slug)}" style="${ZONE_HEADER_TITLE_STYLE}">${esc(group.heading)}</h3>${borderHint ? `<p style="${ZONE_HEADER_META_STYLE}">${esc(borderHint)}</p>` : ''}</div>`;
   const headerCount = `<span style="${ZONE_HEADER_COUNT_STYLE}" aria-label="${esc(`${count} ${noun}`)}">${count}</span>`;
   const header = `<div style="${ZONE_HEADER_STYLE}">${headerBadge}${headerTitle}${headerCount}</div>`;
 
@@ -787,7 +787,7 @@ function renderAdviceBanner(copy: IndexCopy, kind: FuelIndexKind, fuelLabel: str
   const body = copy.advice.bodyByKind(kind, fuelLabel);
   return `<aside style="${ADVICE_STYLE}" aria-label="${esc(copy.advice.label)}">
     <span aria-hidden="true" style="${ADVICE_BADGE_STYLE}">${ICON_NAVIGATION_SVG}</span>
-    <div style="flex:1;min-width:0">
+    <div class="s-KGNylX">
       <span style="${ADVICE_LABEL_STYLE}">${esc(copy.advice.label)}</span>
       <p style="${ADVICE_BODY_STYLE}">${esc(body)}</p>
     </div>
@@ -849,13 +849,13 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   const groupsHtml =
     totalAnchors > 0
       ? groups.map((g) => renderGroup(g, copy, locale, cardIcon)).join('')
-      : `<p style="padding:14px 16px;border-radius:12px;background:var(--color-warning-subtle,#fff7ed);color:var(--color-warning,#9a3412)">${esc(locale === 'it' ? 'Nessuna stazione monitorata oggi.' : locale === 'de' ? 'Heute keine Stationen erfasst.' : locale === 'fr' ? 'Aucune station suivie aujourd\'hui.' : 'No stations tracked today.')}</p>`;
+      : `<p class="s-2n4DG5">${esc(locale === 'it' ? 'Nessuna stazione monitorata oggi.' : locale === 'de' ? 'Heute keine Stationen erfasst.' : locale === 'fr' ? 'Aucune station suivie aujourd\'hui.' : 'No stations tracked today.')}</p>`;
 
   // Cross-links to sibling indexes + daily hub.
   const relatedHtml = relatedLinks.length > 0
-    ? `<aside style="${CARD_STYLE};margin:24px 0;padding:18px 20px"><h2 style="${H2_STYLE};margin:0 0 12px;font-size:18px">${esc(copy.relatedHeading)}</h2><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px">${relatedLinks
+    ? `<aside style="${CARD_STYLE};margin:24px 0;padding:18px 20px"><h2 style="${H2_STYLE};margin:0 0 12px;font-size:18px">${esc(copy.relatedHeading)}</h2><ul class="s-UdsQkK">${relatedLinks
         .map(
-          (rl) => `<li style="margin:0"><a href="${esc(rl.href)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(rl.label)} →</a></li>`,
+          (rl) => `<li class="s-q3nqK4"><a href="${esc(rl.href)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(rl.label)} →</a></li>`,
         )
         .join('')}</ul></aside>`
     : '';
@@ -944,7 +944,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     <p style="${PROSE_BODY_STYLE.replace('margin:0 0 18px;', 'margin:0;')}">${esc(titles.frontaliereContext)}</p>
   </section>`;
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">
+  const bodyHtml = `<article class="s-xzWvwM">
   <nav style="${BREADCRUMB_STYLE}">
     <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.breadcrumbHome)}</a>
     <span> / </span>
@@ -952,7 +952,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     <span> / </span>
     <span>${esc(titles.h1)}</span>
   </nav>
-  <header style="margin-bottom:18px">
+  <header class="s-S1RSUf">
     <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp}</p>
     <h1 style="${H1_STYLE}">${esc(titles.h1)}</h1>
     <p style="${TAGLINE_STYLE}">${esc(tagline)}</p>
@@ -1270,9 +1270,9 @@ export function renderFuelIndexHubLinks(opts: {
     .join('');
 
   const headingId = `fuelIndexHub-${fuel}`;
-  return `<aside style="margin:24px 0" aria-labelledby="${headingId}" data-fuel="${esc(fuelLabel)}">
+  return `<aside class="s-H1qo5-" aria-labelledby="${headingId}" data-fuel="${esc(fuelLabel)}">
     <h2 id="${headingId}" style="${H2_STYLE};margin:0 0 12px;font-size:18px">${esc(copy.relatedHeading)}</h2>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px">${cards}</div>
+    <div class="s-aL88xh">${cards}</div>
   </aside>`;
 }
 

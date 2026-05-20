@@ -351,7 +351,7 @@ function renderEmployersPage(inp: RenderInputs): string {
     <p style="${LEDE_STYLE}">${esc(c.lede(cantonName, inp.totalEmployers, inp.totalJobs))}</p>
   </header>`;
 
-  const tilesBlock = `<section aria-label="${esc(c.eyebrow)}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:16px 0">
+  const tilesBlock = `<section class="s-s0ShLV" aria-label="${esc(c.eyebrow)}">
     <div style="${STAT_TILE_ACCENT}">
       <span style="${STAT_TILE_LABEL}">${esc(c.activeEmployersLabel)}</span>
       <span style="${STAT_TILE_VALUE}">${inp.totalEmployers}</span>
@@ -366,23 +366,23 @@ function renderEmployersPage(inp: RenderInputs): string {
     </div>
   </section>`;
 
-  const ctaBlock = `<p style="margin:16px 0 24px"><a href="${esc(inp.searchHref)}" style="${CTA_PRIMARY_STYLE}">${esc(c.ctaLabel)} →</a></p>`;
+  const ctaBlock = `<p class="s-O3JTly"><a href="${esc(inp.searchHref)}" style="${CTA_PRIMARY_STYLE}">${esc(c.ctaLabel)} →</a></p>`;
 
   const employerRows = inp.topEmployers
     .map(
       (emp) =>
-        `<tr><td style="padding:8px 12px">${esc(emp.employer)}</td><td style="padding:8px 12px;text-align:right;font-variant-numeric:tabular-nums">${emp.count}</td></tr>`,
+        `<tr><td class="s-2xx_KF">${esc(emp.employer)}</td><td class="s-fa9sxU">${emp.count}</td></tr>`,
     )
     .join('\n');
   const employerTable = inp.topEmployers.length
     ? `<section><h2 style="${H2_STYLE}">${esc(c.employersHeading)}</h2>
-        <div style="${CARD_STYLE}"><table style="width:100%;border-collapse:collapse">
-          <thead><tr><th style="text-align:left;padding:8px 12px">${esc(c.employerColumn)}</th><th style="text-align:right;padding:8px 12px">${esc(c.countColumn)}</th></tr></thead>
+        <div style="${CARD_STYLE}"><table class="s-CuZHSN">
+          <thead><tr><th class="s-Gu4ahz">${esc(c.employerColumn)}</th><th class="s-R7ZZFv">${esc(c.countColumn)}</th></tr></thead>
           <tbody>${employerRows}</tbody>
         </table></div></section>`
     : '';
 
-  const methodologyBlock = `<section style="margin-top:32px">
+  const methodologyBlock = `<section class="s-sC82IX">
     <h2 style="${H2_STYLE}">${esc(c.methodologyHeading)}</h2>
     <p>${esc(c.methodologyP1(cantonName, inp.totalEmployers, inp.totalJobs))}</p>
     <p>${esc(c.methodologyP2)}</p>
@@ -405,14 +405,14 @@ function renderEmployersPage(inp: RenderInputs): string {
   };
   const proseHtml = renderCantonSeoProse(proseOpts);
 
-  const main = `<main class="seo-static-content" style="max-width:960px;margin:0 auto;padding:24px 16px">
+  const main = `<main class="seo-static-content s-wtIcSy">
     ${breadcrumb}
     ${headerBlock}
     ${tilesBlock}
     ${ctaBlock}
     ${employerTable}
     ${methodologyBlock}
-    <p style="margin-top:24px"><a href="${esc(inp.searchHref)}" style="${LINK_ACCENT_STYLE}">${esc(c.ctaLabel)} →</a></p>
+    <p class="s-Zti1kS"><a href="${esc(inp.searchHref)}" style="${LINK_ACCENT_STYLE}">${esc(c.ctaLabel)} →</a></p>
     ${proseHtml}
   </main>`;
 

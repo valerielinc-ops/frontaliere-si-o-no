@@ -607,7 +607,7 @@ export function renderStatGrid(
   tiles: ReadonlyArray<{ label: string; value: string; tone?: StatTileTone; href?: string }>,
 ): string {
   const items = tiles.map((t) => renderStatTile(t.label, t.value, t.tone, t.href)).join('');
-  return `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">${items}</div>`;
+  return `<div class="s-XENO3U">${items}</div>`;
 }
 
 /**
@@ -623,12 +623,12 @@ export function renderFooterLinkColumn(
   const items = links
     .map(
       (l) =>
-        `<li style="margin:0;padding:0"><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:6px 0;font-weight:600">${esc(l.label)} →</a></li>`,
+        `<li class="s-6FVpHG"><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:6px 0;font-weight:600">${esc(l.label)} →</a></li>`,
     )
     .join('');
   return `<div>
   <p style="${SMALL_HEADING_STYLE}">${esc(title)}</p>
-  <ul style="list-style:none;padding:0;margin:0">${items}</ul>
+  <ul class="s-QkRjp8">${items}</ul>
 </div>`;
 }
 
@@ -685,7 +685,7 @@ function renderEntityCardVisual(opts: EntityCardOpts): string {
   if (opts.logoUrl) {
     const alt = opts.logoAlt ?? opts.title;
     const onerrorAttr = opts.logoOnerror ? ` onerror="${opts.logoOnerror}"` : '';
-    return `<img src="${esc(opts.logoUrl)}" alt="${esc(alt)}" width="40" height="40" loading="lazy" decoding="async"${onerrorAttr} style="display:block;width:40px;height:40px;border-radius:10px;object-fit:contain;background:var(--color-surface-alt);flex-shrink:0">`;
+    return `<img class="s-1TNWGK" src="${esc(opts.logoUrl)}" alt="${esc(alt)}" width="40" height="40" loading="lazy" decoding="async"${onerrorAttr}>`;
   }
   if (opts.iconSvg) {
     // Inline SVG already sized 24×24 by the caller; wrap in the neutral bubble.
@@ -707,11 +707,11 @@ function renderEntityCardVisual(opts: EntityCardOpts): string {
  */
 export function renderEntityCard(opts: EntityCardOpts): string {
   const visual = renderEntityCardVisual(opts);
-  const titleHtml = `<div style="font-weight:700;font-size:15px;color:var(--color-heading);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(opts.title)}</div>`;
+  const titleHtml = `<div class="s-P98qsc">${esc(opts.title)}</div>`;
   const subtitleHtml = opts.subtitle
-    ? `<div style="margin-top:2px;font-size:13px;color:var(--color-subtle);line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(opts.subtitle)}</div>`
+    ? `<div class="s-BPQHa1">${esc(opts.subtitle)}</div>`
     : '';
-  const middle = `<div style="flex:1;min-width:0">${titleHtml}${subtitleHtml}</div>`;
+  const middle = `<div class="s-KGNylX">${titleHtml}${subtitleHtml}</div>`;
   const tone = opts.metricTone ?? 'default';
   const metricColor = ENTITY_CARD_METRIC_VAR[tone];
   const metricHtml = opts.metric
@@ -783,12 +783,12 @@ export function renderDiscoverMore(
   const items = ctas.slice(0, 3)
     .map(
       (cta) =>
-        `<li style="margin:0;padding:0"><a href="${esc(cta.href)}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:8px 0;font-weight:600;font-size:15px">${esc(cta.title)} →</a></li>`,
+        `<li class="s-6FVpHG"><a href="${esc(cta.href)}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:8px 0;font-weight:600;font-size:15px">${esc(cta.title)} →</a></li>`,
     )
     .join('');
   return `<section style="margin:32px 0 0;padding:20px 24px;${CARD_BODY_STYLE}" aria-label="${esc(heading)}">
   <p style="${SMALL_HEADING_STYLE}">${esc(heading)}</p>
-  <ul style="list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:2px">${items}</ul>
+  <ul class="s-h04l3F">${items}</ul>
 </section>`;
 }
 

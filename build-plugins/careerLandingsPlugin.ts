@@ -233,7 +233,7 @@ function renderStatTiles(
     <div style="${STAT_TILE_VALUE}">${esc(templateB.statTile3.valueFromFresh(snapshot.fresh30Count))}</div>
   </div>`;
 
-  return `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:0 0 24px">${tile1}${tile2}${tile3}</div>`;
+  return `<div class="s-XENO3U">${tile1}${tile2}${tile3}</div>`;
 }
 
 function renderFeaturedJobs(
@@ -246,7 +246,7 @@ function renderFeaturedJobs(
   const title = templateB.featuredJobsTitle ?? shell.featuredJobsTitle;
   const subtitle = templateB.featuredJobsSubtitle?.trim();
   const subtitleHtml = subtitle
-    ? `<p style="margin:0 0 14px;color:var(--color-body);font-size:14px;line-height:1.55;max-width:62ch">${esc(subtitle)}</p>`
+    ? `<p class="s-H1Nmvo">${esc(subtitle)}</p>`
     : '';
   const items = snapshot.featured.map((j) => ({
     job: {
@@ -274,8 +274,8 @@ function renderFeaturedJobs(
   const ctaLabel = snapshot.featured.length > 0 && snapshot.liveCount > 0
     ? pickCtaAllJobs(id, locale, snapshot.liveCount)
     : (shell.featuredJobsCtaAll(snapshot.liveCount) ?? 'Vedi tutti gli annunci →');
-  return `<section style="margin:0 0 28px">
-    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(title)}</h2>
+  return `<section class="s-KZc0LQ">
+    <h2 class="s-8dKmAe">${esc(title)}</h2>
     ${subtitleHtml}
     ${listHtml}
     ${snapshot.featured.length > 0 ? `<a href="${esc(ctaHref)}" style="${LINK_ACCENT_STYLE};font-weight:700;font-size:15px;display:inline-block;margin-top:14px">${esc(ctaLabel)}</a>` : ''}
@@ -305,8 +305,8 @@ function renderEmployerGrid(
     variant: 'compact',
   });
 
-  return `<section style="margin:0 0 28px">
-    <h2 style="margin:0 0 12px;font-size:22px;color:var(--color-heading);font-weight:700">${esc(title)}</h2>
+  return `<section class="s-KZc0LQ">
+    <h2 class="s-8dKmAe">${esc(title)}</h2>
     ${listHtml}
   </section>`;
 }
@@ -329,15 +329,15 @@ export function renderCareerEmployerGridForTest(
 
 function renderEmployerGridReplacement(text: string): string {
   return `<section style="margin:0 0 28px;${CARD_STYLE};max-width:860px">
-    <p style="margin:0;color:var(--color-body);line-height:1.65">${esc(text)}</p>
+    <p class="s-0kQbve">${esc(text)}</p>
   </section>`;
 }
 
 function renderApprofondisciDivider(label: string): string {
-  return `<div role="separator" aria-label="${esc(label)}" style="margin:36px 0 28px;display:flex;align-items:center;gap:14px;color:var(--color-subtle)">
-    <span aria-hidden="true" style="flex:1;height:1px;background:var(--color-edge)"></span>
+  return `<div class="s-7V0OIo" role="separator" aria-label="${esc(label)}">
+    <span class="s-EIg6N7" aria-hidden="true"></span>
     <span style="${SMALL_HEADING_STYLE};margin:0">${esc(label)}</span>
-    <span aria-hidden="true" style="flex:1;height:1px;background:var(--color-edge)"></span>
+    <span class="s-EIg6N7" aria-hidden="true"></span>
   </div>`;
 }
 
@@ -353,7 +353,7 @@ function renderSection(title: string, paragraphs: string[]): string {
   const ps = paragraphs
     .map((p) => `<p style="${BODY_STYLE}">${esc(p)}</p>`)
     .join('');
-  return `<section style="margin:0 0 28px"><h2 style="${H2_STYLE}">${esc(title)}</h2>${ps}</section>`;
+  return `<section class="s-KZc0LQ"><h2 style="${H2_STYLE}">${esc(title)}</h2>${ps}</section>`;
 }
 
 function renderFaqBlock(faqs: CareerLandingCopy['faqs']): string {
@@ -361,8 +361,8 @@ function renderFaqBlock(faqs: CareerLandingCopy['faqs']): string {
     .map(
       (f) => `
       <details style="margin:0 0 10px;${CARD_STYLE};border-radius:12px">
-        <summary style="font-weight:700;cursor:pointer;color:var(--color-heading);line-height:1.45">${esc(f.question)}</summary>
-        <p style="margin:10px 0 0;color:var(--color-body);line-height:1.65">${esc(f.answer)}</p>
+        <summary class="s-ZAbW3N">${esc(f.question)}</summary>
+        <p class="s-XXXebZ">${esc(f.answer)}</p>
       </details>`,
     )
     .join('');
@@ -372,20 +372,20 @@ function renderRelatedLinks(locale: CareerLocale, label: string): string {
   const items = RELATED_LINKS[locale]
     .map(
       (l) =>
-        `<li style="margin:0 0 8px"><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE}">${esc(l.label)}</a></li>`,
+        `<li class="s-Pkexk_"><a href="${esc(l.href)}" style="${LINK_ACCENT_STYLE}">${esc(l.label)}</a></li>`,
     )
     .join('');
-  return `<section style="margin:0 0 28px"><h2 style="${H2_STYLE}">${esc(label)}</h2><ul style="margin:0 0 0 20px;padding:0;color:var(--color-body);line-height:1.55;max-width:860px">${items}</ul></section>`;
+  return `<section class="s-KZc0LQ"><h2 style="${H2_STYLE}">${esc(label)}</h2><ul class="s-Bidr8Y">${items}</ul></section>`;
 }
 
 function renderSources(sources: CareerLandingCopy['sources'], label: string): string {
   const items = sources
     .map(
       (s) =>
-        `<li style="margin:0 0 6px"><a href="${esc(s.href)}" rel="noopener" style="${LINK_ACCENT_STYLE}">${esc(s.label)}</a></li>`,
+        `<li class="s-FakRZl"><a href="${esc(s.href)}" rel="noopener" style="${LINK_ACCENT_STYLE}">${esc(s.label)}</a></li>`,
     )
     .join('');
-  return `<section style="margin:0 0 28px"><h2 style="${H2_STYLE}">${esc(label)}</h2><ul style="margin:0 0 0 20px;padding:0;color:var(--color-subtle);line-height:1.55;max-width:860px;font-size:14px">${items}</ul></section>`;
+  return `<section class="s-KZc0LQ"><h2 style="${H2_STYLE}">${esc(label)}</h2><ul class="s-T1AdGR">${items}</ul></section>`;
 }
 
 // ── Page assembly ────────────────────────────────────────────────────────────
@@ -476,7 +476,7 @@ function renderPage(opts: {
   // ── Template B header → above-the-fold ─────────────────────────────────
   const statTilesHtml = `<div class="seo-fade-in">${renderStatTiles(id, templateB, snapshot, agencyCount, concorsiCount)}</div>`;
 
-  const primaryCtaHtml = `<div style="margin:0 0 28px"><a href="${esc(primaryCtaUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(templateB.primaryCtaLabel)} →</a></div>`;
+  const primaryCtaHtml = `<div class="s-KZc0LQ"><a href="${esc(primaryCtaUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(templateB.primaryCtaLabel)} →</a></div>`;
 
   const featuredHtml = templateB.showFeaturedJobs
     ? renderFeaturedJobs(id, locale, snapshot, templateB)
@@ -511,7 +511,7 @@ function renderPage(opts: {
           openings: snapshot.liveCount,
           medianSalary: snapshot.medianSalaryChf ?? undefined,
         }, copy.h1, templateB.denseLede)
-      : `<header style="margin-bottom:20px">
+      : `<header class="s-YcUNX5">
       <p style="${HERO_EYEBROW_STYLE}">${esc(templateB.eyebrow ?? '')}</p>
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(templateB.denseLede)}</p>
@@ -523,21 +523,21 @@ function renderPage(opts: {
     ${employerHtml}
     ${dividerHtml}
     ${sectionsHtml}
-    <section style="margin:0 0 28px">
+    <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(copy.faqTitle)}</h2>
       ${faqHtml}
     </section>
     ${sourcesHtml}
     ${relatedHtml}
-    <section style="display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px">
+    <section class="s-p1QaOi">
       <a href="${esc(jobBoardUrl)}" style="${CTA_PRIMARY_STYLE}">${esc(copy.ctaJobs)}</a>
-      <a href="${esc(calculatorUrl)}" style="padding:10px 16px;border-radius:10px;background:var(--color-surface);border:1px solid var(--color-edge);color:var(--color-body);text-decoration:none;font-weight:600">${esc(copy.ctaSimulator)}</a>
+      <a class="s-eXgANZ" href="${esc(calculatorUrl)}">${esc(copy.ctaSimulator)}</a>
     </section>
-    <section style="margin:32px 0 0;padding:24px 22px;border-radius:16px;background:var(--color-surface);border:1px solid var(--color-edge)" aria-label="${esc(copy.h1)}">
-      <p style="margin:0;color:var(--color-body);line-height:1.7;max-width:72ch;font-size:15px;font-style:italic">${esc(copy.lede)}</p>
+    <section class="s-GCEyQg" aria-label="${esc(copy.h1)}">
+      <p class="s-y8VKoI">${esc(copy.lede)}</p>
     </section>`;
 
-  const bodyHtml = `<main class="seo-static-content" style="max-width:1100px;margin:0 auto;padding:32px 20px 56px">${body}</main>`;
+  const bodyHtml = `<main class="seo-static-content s-xzWvwM">${body}</main>`;
 
   const extraHead = `    <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">

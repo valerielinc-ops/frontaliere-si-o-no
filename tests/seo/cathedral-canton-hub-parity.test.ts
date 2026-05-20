@@ -33,8 +33,15 @@ describe('Phase 8(g) — canton hub editorial parity with TI', () => {
     expect(blocks).toHaveLength(9);
 
     // Pin the H2 — definition block for AI extraction.
-    expect(blocks[0]).toBe(
-      `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Offerte di Lavoro in Ticino — Bacheca Lavoro per Frontalieri</h2>`,
+    //
+    // Class-extract migration (2026-05-20): inline styles in cantonHubEditorial
+    // were extracted to content-hashed classes (s-* in seo-static.css). The
+    // assertion now matches either the historical inline style OR the new
+    // class form so the original byte-identity invariant against the
+    // pre-Phase-8(g) inline strings still holds transitively via the CSS
+    // ruleset in public/assets/seo-static.css.
+    expect(blocks[0]).toMatch(
+      /^<h2 (style="font-size:1\.05rem;font-weight:700;margin:1rem 0 \.5rem"|class="s-[A-Za-z0-9_-]+")>Offerte di Lavoro in Ticino — Bacheca Lavoro per Frontalieri<\/h2>$/,
     );
     // Intro paragraph mentions Ticino + "oltre 1.500 offerte" (legacy copy).
     expect(blocks[1]).toMatch(/lavoro in Ticino/);

@@ -631,11 +631,11 @@ function renderHero(hero: HubHero): string {
   const variant = hero.variant ?? 'green';
   const style = HERO_GRADIENT[variant];
   const subtitle = hero.subtitle
-    ? `<p style="margin:8px 0 0;font-size:1rem;line-height:1.55;opacity:.92">${esc(hero.subtitle)}</p>`
+    ? `<p class="s-0E4V2z">${esc(hero.subtitle)}</p>`
     : '';
   return `<section class="seo-hub-hero" style="${style};padding:24px 0;margin:0 0 16px">
-  <div style="max-width:80rem;margin:0 auto;padding:0 1rem">
-    <h1 style="margin:0;font-size:clamp(1.5rem,3.5vw,2rem);font-weight:800;letter-spacing:-.01em">${esc(hero.title)}</h1>
+  <div class="s-OGWfQ9">
+    <h1 class="s-ROO7BG">${esc(hero.title)}</h1>
     ${subtitle}
   </div>
 </section>`;

@@ -1006,7 +1006,7 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // unique prose per page (varies by query/city/sector hash so 1,400
   // pages don't share boilerplate).
   const aiIntroHtml = enriched?.intro
-    ? `<p style="margin:0 0 14px;line-height:1.65">${esc(enriched.intro)}</p>`
+    ? `<p class="s-XHYGOJ">${esc(enriched.intro)}</p>`
     : renderSearchQueryIntro(
         locale as 'it' | 'en' | 'de' | 'fr',
         ctx.keyword,
@@ -1023,10 +1023,10 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
     (q) => q.q && q.q.trim() && q.a && q.a.trim(),
   );
   const aiFaqHtml = renderableAiFaqs.length > 0
-    ? `<section style="margin:24px 0 0">
-        <h3 style="font-size:18px;font-weight:700;color:var(--color-heading);margin:0 0 10px">${esc(copy.faqSummary)}</h3>
+    ? `<section class="s-Va7_33">
+        <h3 class="s-BlnHQi">${esc(copy.faqSummary)}</h3>
         ${renderableAiFaqs.map((q) =>
-          `<details style="background:var(--color-surface);border:1px solid var(--color-edge);border-radius:12px;padding:12px 14px;margin-bottom:6px"><summary style="font-weight:600;cursor:pointer;color:var(--color-heading)">${esc(q.q)}</summary><p style="margin:8px 0 0;color:var(--color-body);line-height:1.6">${esc(q.a)}</p></details>`,
+          `<details class="s-YlAYKz"><summary class="s-Jrv0AS">${esc(q.q)}</summary><p class="s-bOIp6r">${esc(q.a)}</p></details>`,
         ).join('')}
       </section>`
     : '';
@@ -1044,16 +1044,16 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // the bottom of the prose block for crawlability and to avoid pushing
   // editorial filler above the fold.
   const relatedHtml = related.length > 0
-    ? `<nav aria-label="${esc(copy.relatedHeading)}" class="rsc-related" style="margin:24px 0 0;padding:18px 0;border-top:1px solid var(--color-edge)">
-        <h3 style="margin:0 0 10px;font-size:18px;font-weight:700;color:var(--color-heading)">${esc(copy.relatedHeading)}</h3>
-        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:6px">${related.map((r) => `<li><a href="${esc(r.url)}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:4px 10px;background:var(--color-surface);border:1px solid var(--color-edge);border-radius:9999px;font-size:13px">${esc(r.keyword)}</a></li>`).join('')}</ul>
+    ? `<nav aria-label="${esc(copy.relatedHeading)}" class="rsc-related s-i-dyT1">
+        <h3 class="s-yj2sXC">${esc(copy.relatedHeading)}</h3>
+        <ul class="s-tQuvrl">${related.map((r) => `<li><a href="${esc(r.url)}" style="${LINK_ACCENT_STYLE};display:inline-block;padding:4px 10px;background:var(--color-surface);border:1px solid var(--color-edge);border-radius:9999px;font-size:13px">${esc(r.keyword)}</a></li>`).join('')}</ul>
       </nav>`
     : '';
 
-  const seoContextBlock = `<details class="cluster-seo-context" style="margin:32px 0 0;padding:0;border-top:1px solid var(--color-edge)">
-    <summary style="margin-top:18px;padding:10px 14px;cursor:pointer;color:var(--color-link);font-weight:600;font-size:15px;list-style:none">${esc(chrome.contextSummary)}</summary>
-    <div style="padding:8px 0 0">
-      <section style="max-width:860px;margin:0;color:var(--color-body);line-height:1.65;font-size:15px">
+  const seoContextBlock = `<details class="cluster-seo-context s-mxdIN0">
+    <summary class="s-1yn7b_">${esc(chrome.contextSummary)}</summary>
+    <div class="s-yZU6bn">
+      <section class="s-p_RJwm">
         ${aiIntroHtml}
       </section>
       ${aiFaqHtml}
@@ -1154,12 +1154,12 @@ function renderPageNavigator(locale: Locale, totalPages: number, currentPage: nu
   for (let p = 1; p <= totalPages; p++) {
     const url = buildHubPath(locale, p);
     if (p === currentPage) {
-      links.push(`<span style="padding:6px 10px;border-radius:8px;background:var(--color-accent);color:var(--color-on-accent);font-weight:700">${p}</span>`);
+      links.push(`<span class="s-v7bb9T">${p}</span>`);
     } else {
       links.push(`<a href="${esc(url)}" style="${LINK_ACCENT_STYLE};padding:6px 10px;border-radius:8px;border:1px solid var(--color-edge);background:var(--color-surface)">${p}</a>`);
     }
   }
-  return `<nav aria-label="${esc(copy.pageNavigatorLabel)}" style="display:flex;flex-wrap:wrap;gap:6px;margin:24px 0">${links.join('')}</nav>`;
+  return `<nav class="s-SU718R" aria-label="${esc(copy.pageNavigatorLabel)}">${links.join('')}</nav>`;
 }
 
 function renderHubPage(input: HubPageInput): { urlPath: string; html: string; loc: string } {
@@ -1173,17 +1173,17 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
 
   const cityBlocks = sortedCities.map((city) => {
     const list = (byCity.get(city) || []).sort((a, b) => a.keyword.localeCompare(b.keyword, locale));
-    return `<section style="margin:0 0 22px">
-      <h3 style="margin:0 0 8px;font-size:18px">${esc(city)}</h3>
-      <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px">${list.map((it) => `<li><a href="${esc(it.url)}" style="${LINK_ACCENT_STYLE}">${esc(capitalize(it.keyword))}</a></li>`).join('')}</ul>
+    return `<section class="s-USY9TF">
+      <h3 class="s-vZUVtO">${esc(city)}</h3>
+      <ul class="s-MwMbiH">${list.map((it) => `<li><a href="${esc(it.url)}" style="${LINK_ACCENT_STYLE}">${esc(capitalize(it.keyword))}</a></li>`).join('')}</ul>
     </section>`;
   }).join('');
 
   const sortedUncat = [...uncategorized].sort((a, b) => a.keyword.localeCompare(b.keyword, locale));
   const uncatBlock = sortedUncat.length > 0
-    ? `<section style="margin:0 0 22px">
-        <h3 style="margin:0 0 8px;font-size:18px">${esc(copy.alphabeticalLabel)}</h3>
-        <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px">${sortedUncat.map((it) => `<li><a href="${esc(it.url)}" style="${LINK_ACCENT_STYLE}">${esc(capitalize(it.keyword))}</a></li>`).join('')}</ul>
+    ? `<section class="s-USY9TF">
+        <h3 class="s-vZUVtO">${esc(copy.alphabeticalLabel)}</h3>
+        <ul class="s-MwMbiH">${sortedUncat.map((it) => `<li><a href="${esc(it.url)}" style="${LINK_ACCENT_STYLE}">${esc(capitalize(it.keyword))}</a></li>`).join('')}</ul>
       </section>`
     : '';
 
@@ -1219,7 +1219,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
     ],
   });
 
-  const bodyHtml = `<article style="max-width:1100px;margin:0 auto;padding:24px 16px 56px;color:var(--color-body)">
+  const bodyHtml = `<article class="s-haN35X">
     <nav style="${BREADCRUMB_STYLE}">
       <a href="${BASE_URL}/" style="${BREADCRUMB_LINK_STYLE}">${esc(copy.homeBreadcrumb)}</a>
       <span> / </span>
@@ -1227,12 +1227,12 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
       <span> / </span>
       <span>${esc(copy.searchBreadcrumb)}</span>
     </nav>
-    <header style="margin-bottom:18px">
-      <h1 style="margin:0 0 10px;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.18">${esc(copy.hubH1)}${page > 1 ? ` — ${copy.pageNavigatorLabel} ${page}` : ''}</h1>
-      <p class="lede" style="margin:0;color:var(--color-body);font-size:16px;line-height:1.55;max-width:820px">${esc(copy.hubIntro(items.length))}</p>
-      <p style="margin:6px 0 0;color:var(--color-subtle);font-size:13px">${esc(dateStamp)}</p>
+    <header class="s-S1RSUf">
+      <h1 class="s-JvjD5-">${esc(copy.hubH1)}${page > 1 ? ` — ${copy.pageNavigatorLabel} ${page}` : ''}</h1>
+      <p class="lede s-zd3YWl">${esc(copy.hubIntro(items.length))}</p>
+      <p class="s-Znu67P">${esc(dateStamp)}</p>
     </header>
-    ${sortedCities.length > 0 ? `<section style="margin:0 0 12px"><h2 style="margin:0 0 12px;font-size:22px">${esc(copy.citySectionLabel)}</h2>${cityBlocks}</section>` : ''}
+    ${sortedCities.length > 0 ? `<section class="s-h0CoDf"><h2 class="s-sOn5-B">${esc(copy.citySectionLabel)}</h2>${cityBlocks}</section>` : ''}
     ${uncatBlock}
     ${navigator}
     ${(() => {
@@ -1243,10 +1243,10 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
         fr: 'Guide frontaliers : salaire, permis G, fiscalité, retour',
       } as Record<Locale, string>)[locale];
       const inner = memoCommuterCtx({ locale, location: 'Ticino', omitCommute: true });
-      return `<details class="hub-seo-context" style="margin:32px 0 0;padding:0;border-top:1px solid var(--color-edge)">
-        <summary style="margin-top:18px;padding:10px 14px;cursor:pointer;color:var(--color-link);font-weight:600;font-size:15px;list-style:none">${summary}</summary>
-        <div style="padding:8px 0 0">
-          <section style="max-width:860px;margin:0;color:var(--color-body);line-height:1.65;font-size:15px">
+      return `<details class="hub-seo-context s-mxdIN0">
+        <summary class="s-1yn7b_">${summary}</summary>
+        <div class="s-yZU6bn">
+          <section class="s-p_RJwm">
             ${inner}
           </section>
         </div>
@@ -1306,7 +1306,7 @@ function injectHubLinkIntoSectionLanding(
   // Idempotent: skip if our marker is already present.
   if (html.includes('data-related-search-hub-link="1"')) return;
 
-  const linkBlock = `<nav data-related-search-hub-link="1" aria-label="${esc(copy.searchBreadcrumb)}" style="max-width:1100px;margin:24px auto 0;padding:0 16px"><a href="${esc(hubUrl)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.hubH1)} →</a></nav>`;
+  const linkBlock = `<nav class="s-4FS1gg" data-related-search-hub-link="1" aria-label="${esc(copy.searchBreadcrumb)}"><a href="${esc(hubUrl)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(copy.hubH1)} →</a></nav>`;
 
   let patched: string | null = null;
   if (html.includes('<!-- end:job-board-main -->')) {

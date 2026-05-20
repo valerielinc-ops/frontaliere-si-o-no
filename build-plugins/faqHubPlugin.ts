@@ -212,7 +212,7 @@ function mdLinks(s: string): string {
   return esc(s).replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
     (_m, label, href) =>
-      `<a href="${String(href).replace(/"/g, '&quot;')}" rel="nofollow" target="_blank" style="color:var(--link,#1d4ed8);text-decoration:underline">${label}</a>`,
+      `<a class="s-TKxoRL" href="${String(href).replace(/"/g, '&quot;')}" rel="nofollow" target="_blank">${label}</a>`,
   );
 }
 

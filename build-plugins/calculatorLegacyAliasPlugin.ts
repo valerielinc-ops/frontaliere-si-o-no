@@ -144,16 +144,16 @@ function renderAliasPage(entry: LegacyAliasEntry, distDir: string): string {
     : entry.locale === 'fr' ? 'Questions fréquentes'
     : 'Frequently asked';
   const faqHtml = entry.faq
-    .map((qa) => `<p style="margin:14px 0 0;font-size:15px"><strong>${qa.q}</strong> ${qa.a}</p>`)
+    .map((qa) => `<p class="s-NVAkjV"><strong>${qa.q}</strong> ${qa.a}</p>`)
     .join('');
 
-  const bodyHtml = `<main class="cluster-seo-prose" style="max-width:860px;margin:0 auto;padding:24px 16px;color:var(--color-body);line-height:1.65">
-    <header style="margin-bottom:16px">
-      <h1 style="font-size:28px;font-weight:700;color:var(--color-heading);margin:0 0 8px;letter-spacing:-0.01em">${entry.h1}</h1>
+  const bodyHtml = `<main class="cluster-seo-prose s-zry6VY">
+    <header class="s-v0ohjg">
+      <h1 class="s-efqLQi">${entry.h1}</h1>
     </header>
-    <p style="margin:0;font-size:15.5px">${entry.prose}</p>
-    <section style="margin-top:24px" aria-label="${faqHeading}">
-      <h2 style="font-size:20px;font-weight:700;color:var(--color-heading);margin:0 0 6px">${faqHeading}</h2>
+    <p class="s-LGtGh9">${entry.prose}</p>
+    <section class="s-Zti1kS" aria-label="${faqHeading}">
+      <h2 class="s--joJ_6">${faqHeading}</h2>
       ${faqHtml}
     </section>
   </main>`;
