@@ -49,6 +49,7 @@ import {
   type WeeklyCountableJob,
 } from './weeklyEmployersPlugin';
 import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale } from './shared/cantonSeoProse';
+import { breadcrumbListLd } from '../services/seo/structuredData';
 import {
   MIN_JOBS_FOR_CANTON_PAGE,
   WEEKLY_EMPLOYERS_SECTION,
@@ -416,16 +417,12 @@ function renderEmployersPage(inp: RenderInputs): string {
     ${proseHtml}
   </main>`;
 
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: c.breadcrumbHome, item: `${BASE_URL}${homeHref}` },
-      { '@type': 'ListItem', position: 2, name: c.breadcrumbSwitzerland, item: `${BASE_URL}${homeHref}` },
-      { '@type': 'ListItem', position: 3, name: cantonName, item: `${BASE_URL}${inp.canonicalPath}` },
-      { '@type': 'ListItem', position: 4, name: c.breadcrumbSection, item: `${BASE_URL}${inp.canonicalPath}` },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: c.breadcrumbHome, url: `${BASE_URL}${homeHref}` },
+    { name: c.breadcrumbSwitzerland, url: `${BASE_URL}${homeHref}` },
+    { name: cantonName, url: `${BASE_URL}${inp.canonicalPath}` },
+    { name: c.breadcrumbSection, url: `${BASE_URL}${inp.canonicalPath}` },
+  ]));
   const faqLd = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
