@@ -51,7 +51,7 @@ const __dirname_col_plugin = np.dirname(fileURLToPath(import.meta.url));
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { WriteCollector } from './batchWrite';
-import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { imageObjectLd, breadcrumbListLd, faqPageLd } from '../services/seo/structuredData';
 import {
   COL_LOCALES,
   COL_CITY_IDS,
@@ -291,27 +291,14 @@ function renderPage(opts: {
   const hubUrl = `${BASE_URL}${L.breadcrumbHubPath}`;
   const calculatorUrl = `${BASE_URL}${CALCULATOR_URL[locale]}`;
 
-  const breadcrumbLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: L.breadcrumbHome, item: homeUrl },
-      { '@type': 'ListItem', position: 2, name: L.breadcrumbHub, item: hubUrl },
-      { '@type': 'ListItem', position: 3, name: cityName, item: canonicalUrl },
-    ],
-  };
+  const breadcrumbLd = breadcrumbListLd([
+    { name: L.breadcrumbHome, url: homeUrl },
+    { name: L.breadcrumbHub, url: hubUrl },
+    { name: cityName, url: canonicalUrl },
+  ]);
 
   const faqs = buildFaqs(locale, city);
-  const faqLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    inLanguage: locale,
-    mainEntity: faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.question,
-      acceptedAnswer: { '@type': 'Answer', text: f.answer },
-    })),
-  };
+  const faqLd = faqPageLd(faqs.map((f) => ({ question: f.question, answer: f.answer })));
 
   const articleLd = {
     '@context': 'https://schema.org',
