@@ -599,7 +599,7 @@
       "id": "marriott-60e874aa2d93",
       "slug": "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
-        "it": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
+        "it": "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier",
         "en": "waiter-tress-bars-winter-26-27-w-verbier-marriott-verbier",
         "de": "waiter-tress-bars-winter-26-27-w-verbier-marriott-international-verbier",
         "fr": "barres-de-serveur-hiver-26-27-w-verbier-marriott-international-verbier"
@@ -654,14 +654,15 @@
       },
       "previousSlugs": [
         "responsabile-revenue-management-marriott-international-geneva",
+        "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
         "umsatzmanager-marriott-international-geneva",
         "responsable-revenue-management-marriott-international-geneva",
-        "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier",
         "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-revenue-management-marriott-international-geneva"
+          "responsabile-revenue-management-marriott-international-geneva",
+          "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
         ],
         "de": [
           "umsatzmanager-marriott-international-geneva"
@@ -686,10 +687,10 @@
     },
     {
       "id": "marriott-c45aed6a9a0c",
-      "slug": "talent-training-assistant-long-term-w-verbier-marriott-verbier",
+      "slug": "talent-training-assistant-lungo-termine-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "talent-training-assistant-long-term-w-verbier-marriott-verbier",
-        "it": "talent-training-assistant-long-term-w-verbier-marriott-verbier",
+        "it": "talent-training-assistant-lungo-termine-w-verbier-marriott-international-verbier",
         "de": "talent-training-assistant-long-term-w-verbier-marriott-verbier",
         "fr": "talent-training-assistant-long-term-w-verbier-marriott-verbier"
       },
@@ -755,7 +756,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:55:38.171Z"
+      "firstSeenAt": "2026-05-19T22:55:38.171Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "talent-training-assistant-long-term-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "talent-training-assistant-long-term-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-d767732201b6",
@@ -937,7 +946,6 @@
       "previousSlugs": [
         "switzerland-voyage-program-september-2026-food-beverage-marriott-geneva",
         "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier",
-        "svizzera-programma-voyage-settembre-2026-ristorazione-marriott-international-geneva",
         "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
       ],
       "previousSlugsByLocale": {
@@ -962,12 +970,12 @@
     },
     {
       "id": "marriott-53df199c442b",
-      "slug": "supervisor-f-b-marriott-geneva",
+      "slug": "supervisore-f-b-marriott-international-geneva",
       "slugByLocale": {
         "en": "supervisor-f-b-marriott-international-geneva",
-        "it": "supervisor-f-b-marriott-geneva",
-        "de": "supervisor-f-b-marriott-geneva",
-        "fr": "supervisor-f-b-marriott-geneva"
+        "it": "supervisore-f-b-marriott-international-geneva",
+        "de": "aufsichtsbehorde-f-b-marriott-international-geneva",
+        "fr": "superviseur-f-b-marriott-international-geneva"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -1033,7 +1041,21 @@
         }
       },
       "firstSeenAt": "2026-05-19T22:55:38.169Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "supervisor-f-b-marriott-geneva"
+        ],
+        "de": [
+          "supervisor-f-b-marriott-geneva"
+        ],
+        "fr": [
+          "supervisor-f-b-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "supervisor-f-b-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-f62411fe05ac",
@@ -1198,7 +1220,6 @@
         "mezzo-capopartita-marriott-international-verbier",
         "partiekoch-marriott-international-verbier",
         "ristoranti-inverno-26-27-w-verbier-marriott-international-verbier",
-        "tirocinante-supervisore-housekeeping-marriott-international-geneva",
         "sushiman-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
       "previousSlugsByLocale": {
@@ -2464,11 +2485,11 @@
     },
     {
       "id": "marriott-525cf711281f",
-      "slug": "lingere-80-cdd-4-mois-marriott-geneva",
+      "slug": "lingerie-80-csd-4-mesi-marriott-international-geneva",
       "slugByLocale": {
         "en": "lingere-80-cdd-4-mois-marriott-geneva",
-        "it": "lingere-80-cdd-4-mois-marriott-geneva",
-        "de": "lingere-80-cdd-4-mois-marriott-geneva",
+        "it": "lingerie-80-csd-4-mesi-marriott-international-geneva",
+        "de": "lingerie-80-csd-4-monate-marriott-international-geneva",
         "fr": "lingere-80-cdd-4-mois-marriott-geneva"
       },
       "company": "Marriott International",
@@ -2533,7 +2554,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:55:38.153Z"
+      "firstSeenAt": "2026-05-19T22:55:38.153Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lingere-80-cdd-4-mois-marriott-geneva"
+        ],
+        "de": [
+          "lingere-80-cdd-4-mois-marriott-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "lingere-80-cdd-4-mois-marriott-geneva"
+      ]
     },
     {
       "id": "marriott-3c27d85a28b1",
@@ -2881,7 +2913,7 @@
       "id": "marriott-5404a16f4356",
       "slug": "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
       "slugByLocale": {
-        "it": "esperienza-degli-ospiti-marriott-international-zurich",
+        "it": "esperto-di-supporto-f-b-stewarding-marriott-international-zurich",
         "en": "f-b-support-expert-stewarding-marriott-zurich",
         "de": "f-b-support-experte-stewarding-marriott-international-zurich",
         "fr": "expert-en-soutien-aux-f-b-et-intendant-marriott-international-zurich"
@@ -2936,12 +2968,13 @@
       },
       "previousSlugs": [
         "f-b-support-expert-stewarding-marriott-zurich",
-        "guest-experience-expert-marriott-zurich",
-        "esperto-di-supporto-f-b-stewarding-marriott-international-zurich"
+        "esperienza-degli-ospiti-marriott-international-zurich",
+        "guest-experience-expert-marriott-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "f-b-support-expert-stewarding-marriott-zurich"
+          "f-b-support-expert-stewarding-marriott-zurich",
+          "esperienza-degli-ospiti-marriott-international-zurich"
         ],
         "de": [
           "f-b-support-expert-stewarding-marriott-zurich"

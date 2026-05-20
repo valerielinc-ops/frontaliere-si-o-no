@@ -302,9 +302,9 @@
     },
     {
       "id": "cnp-ae552df42005",
-      "slug": "coppia-praticante-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
+      "slug": "preghiera-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
       "slugByLocale": {
-        "it": "coppia-praticante-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
+        "it": "preghiera-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
         "en": "peer-practitioner-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
         "de": "peer-practitioner-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
         "fr": "pair-praticien-cnp-la-chaux-de-fonds"
@@ -379,11 +379,13 @@
         ]
       },
       "previousSlugs": [
-        "pair-praticien-cnp-la-chaux-de-fonds"
+        "pair-praticien-cnp-la-chaux-de-fonds",
+        "coppia-praticante-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pair-praticien-cnp-la-chaux-de-fonds"
+          "pair-praticien-cnp-la-chaux-de-fonds",
+          "coppia-praticante-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:44.941Z",
@@ -1592,10 +1594,10 @@
     },
     {
       "id": "cnp-5ac1f21d1b62",
-      "slug": "medico-capo-clinica-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+      "slug": "clinical-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
       "slugByLocale": {
-        "it": "medico-capo-clinica-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
-        "en": "chief-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "it": "clinical-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "en": "tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "de": "chefarzt-arztin-der-klinik-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
         "fr": "medecin-chef-fe-de-clinique-tca-cnp-neuchatel"
       },
@@ -1671,11 +1673,17 @@
         ]
       },
       "previousSlugs": [
-        "medecin-chef-fe-de-clinique-tca-cnp-neuchatel"
+        "medecin-chef-fe-de-clinique-tca-cnp-neuchatel",
+        "medico-capo-clinica-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel",
+        "chief-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-chef-fe-de-clinique-tca-cnp-neuchatel"
+          "medecin-chef-fe-de-clinique-tca-cnp-neuchatel",
+          "medico-capo-clinica-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
+        ],
+        "en": [
+          "chief-medical-officer-tca-centre-neuchatelois-de-psychiatrie-cnp-neuchatel"
         ]
       },
       "firstSeenAt": "2026-05-19T13:03:31.499Z",

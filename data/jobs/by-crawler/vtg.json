@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-epjb6x",
-      "slug": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-epjb6x",
+      "slug": "dispositivo-di-trasmissione-meccanico-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Übermittlungsgerätemechaniker/-in",
       "location": "Bern",
@@ -41,19 +41,27 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-epjb6x",
-        "en": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-epjb6x",
+        "it": "dispositivo-di-trasmissione-meccanico-swiss-armed-forces-vtg-bern",
+        "en": "transmission-device-mechanic-swiss-armed-forces-vtg-bern",
         "de": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-epjb6x",
-        "fr": "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-epjb6x"
+        "fr": "mecanicien-du-dispositif-de-transmission-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern"
+          "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern",
+          "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-epjb6x"
+        ],
+        "en": [
+          "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-epjb6x"
+        ],
+        "fr": [
+          "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-epjb6x"
         ]
       },
       "previousSlugs": [
-        "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern"
+        "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern",
+        "ubermittlungsgeratemechaniker-in-swiss-armed-forces-vtg-bern-epjb6x"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -76,7 +84,7 @@
     },
     {
       "id": "company-jquazu",
-      "slug": "polymechaniker-in-waffenmechaniker-in-swiss-armed-forces-vtg-bern-jquazu",
+      "slug": "meccanica-in-meccanica-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Polymechaniker/-in / Waffenmechaniker/-in",
       "location": "Bern",
@@ -113,19 +121,27 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "polymechaniker-in-waffenmechaniker-in-swiss-armed-forces-vtg-bern-jquazu",
-        "en": "polymechaniker-in-waffenmechaniker-in-swiss-armed-forces-vtg-bern-jquazu",
+        "it": "meccanica-in-meccanica-swiss-armed-forces-vtg-bern",
+        "en": "polymechanics-in-gunmechanics-swiss-armed-forces-vtg-bern",
         "de": "polymechaniker-in-waffenmechaniker-in-swiss-armed-forces-vtg-bern-jquazu",
-        "fr": "polymechaniker-in-waffenmechaniker-in-swiss-armed-forces-vtg-bern-jquazu"
+        "fr": "polymecanique-in-gunmecanique-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-waffenmechaniker-in-swiss-armed-forces-vtg-bern"
+          "polymechaniker-in-waffenmechaniker-in-swiss-armed-forces-vtg-bern",
+          "polymechaniker-in-waffenmechaniker-in-swiss-armed-forces-vtg-bern-jquazu"
+        ],
+        "en": [
+          "polymechaniker-in-waffenmechaniker-in-swiss-armed-forces-vtg-bern-jquazu"
+        ],
+        "fr": [
+          "polymechaniker-in-waffenmechaniker-in-swiss-armed-forces-vtg-bern-jquazu"
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-waffenmechaniker-in-swiss-armed-forces-vtg-bern"
+        "polymechaniker-in-waffenmechaniker-in-swiss-armed-forces-vtg-bern",
+        "polymechaniker-in-waffenmechaniker-in-swiss-armed-forces-vtg-bern-jquazu"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

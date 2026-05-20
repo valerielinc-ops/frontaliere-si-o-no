@@ -220,12 +220,12 @@
     },
     {
       "id": "tecan-f1e527196bc9",
-      "slug": "tecnico-della-documentazione-tecan-mannedorf",
+      "slug": "scrittore-tecnico-tecan-mannedorf",
       "slugByLocale": {
-        "it": "tecnico-della-documentazione-tecan-mannedorf",
+        "it": "scrittore-tecnico-tecan-mannedorf",
         "en": "technical-writer-tecan-mannedorf",
         "de": "technical-writer-tecan-mannedorf",
-        "fr": "ecrivain-technique-tecan-mannedorf"
+        "fr": "redacteur-technique-tecan-mannedorf"
       },
       "company": "Tecan",
       "companyKey": "tecan",
@@ -302,12 +302,18 @@
           "teknik-yazar-tecan-mannedorf"
         ],
         "it": [
-          "technical-writer-tecan-mannedorf"
+          "technical-writer-tecan-mannedorf",
+          "tecnico-della-documentazione-tecan-mannedorf"
+        ],
+        "fr": [
+          "ecrivain-technique-tecan-mannedorf"
         ]
       },
       "previousSlugs": [
+        "teknik-yazar-tecan-mannedorf",
         "technical-writer-tecan-mannedorf",
-        "teknik-yazar-tecan-mannedorf"
+        "tecnico-della-documentazione-tecan-mannedorf",
+        "ecrivain-technique-tecan-mannedorf"
       ],
       "firstSeenAt": "2026-05-19T19:53:27.097Z",
       "salaryMin": 49500,
@@ -421,7 +427,7 @@
         "it": "gestione-delle-operazioni-di-vendita-ivd-ls-tecan-mannedorf",
         "en": "manager-sales-operations-ivd-ls-partnering-tecan-mannedorf",
         "de": "manager-sales-operations-ivd-ls-partnering-tecan-mannedorf",
-        "fr": "manager-des-operations-de-vente-ivd-ls-partnering-tecan-mannedorf"
+        "fr": "gestionnaire-des-operations-commerciales-ivd-ls-partnering-tecan-mannedorf"
       },
       "company": "Tecan",
       "companyKey": "tecan",
@@ -494,11 +500,15 @@
         ]
       },
       "previousSlugs": [
-        "manager-sales-operations-ivd-ls-partnering-tecan-mannedorf"
+        "manager-sales-operations-ivd-ls-partnering-tecan-mannedorf",
+        "manager-des-operations-de-vente-ivd-ls-partnering-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manager-sales-operations-ivd-ls-partnering-tecan-mannedorf"
+        ],
+        "fr": [
+          "manager-des-operations-de-vente-ivd-ls-partnering-tecan-mannedorf"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:26.037Z",
@@ -517,10 +527,10 @@
     },
     {
       "id": "tecan-070f2310a474",
-      "slug": "messtechniker-tecan-mannedorf",
+      "slug": "tecnologia-di-misura-tecan-mannedorf",
       "slugByLocale": {
-        "it": "messtechniker-tecan-mannedorf",
-        "en": "messtechniker-tecan-mannedorf",
+        "it": "tecnologia-di-misura-tecan-mannedorf",
+        "en": "measuring-technology-tecan-mannedorf",
         "de": "messtechniker-tecan-mannedorf",
         "fr": "technologie-de-mesure-tecan-mannedorf"
       },
@@ -596,11 +606,14 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "measuring-technology-tecan-mannedorf"
+          "messtechniker-tecan-mannedorf"
+        ],
+        "it": [
+          "messtechniker-tecan-mannedorf"
         ]
       },
       "previousSlugs": [
-        "measuring-technology-tecan-mannedorf"
+        "messtechniker-tecan-mannedorf"
       ],
       "firstSeenAt": "2026-05-19T19:53:25.507Z",
       "salaryMin": 49500,
@@ -1109,12 +1122,12 @@
     },
     {
       "id": "tecan-c19c9e5f801e",
-      "slug": "responsabile-del-sito-head-operations-tecan-mannedorf",
+      "slug": "gestione-del-sito-e-operazioni-di-testa-tecan-mannedorf",
       "slugByLocale": {
-        "it": "responsabile-del-sito-head-operations-tecan-mannedorf",
+        "it": "gestione-del-sito-e-operazioni-di-testa-tecan-mannedorf",
         "en": "site-manager-head-operations-tecan-mannedorf",
         "de": "standortleiter-betriebsleiter-tecan-mannedorf",
-        "fr": "site-manager-head-operations-tecan-mannedorf"
+        "fr": "gestionnaire-de-site-chef-des-operations-tecan-mannedorf"
       },
       "company": "Tecan",
       "companyKey": "tecan",
@@ -1187,10 +1200,15 @@
         ]
       },
       "previousSlugs": [
-        "site-manager-head-operations-tecan-mannedorf"
+        "site-manager-head-operations-tecan-mannedorf",
+        "responsabile-del-sito-head-operations-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "site-manager-head-operations-tecan-mannedorf",
+          "responsabile-del-sito-head-operations-tecan-mannedorf"
+        ],
+        "fr": [
           "site-manager-head-operations-tecan-mannedorf"
         ]
       },

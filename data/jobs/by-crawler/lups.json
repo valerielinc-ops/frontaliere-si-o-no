@@ -2039,12 +2039,12 @@
     },
     {
       "id": "lups-3670d71dceae",
-      "slug": "zivildiensteinsatz-come-betreuungsassistent-100-luzerner-psychiatrie-lups-luzern",
+      "slug": "servizio-civile-100-luzerner-psychiatrie-lups-luzern",
       "slugByLocale": {
         "de": "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern",
-        "it": "zivildiensteinsatz-come-betreuungsassistent-100-luzerner-psychiatrie-lups-luzern",
-        "en": "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern-2",
-        "fr": "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern-2"
+        "it": "servizio-civile-100-luzerner-psychiatrie-lups-luzern",
+        "en": "civil-service-100-luzerner-psychiatrie-lups-luzern",
+        "fr": "fonction-publique-100-luzerner-psychiatrie-lups-luzern"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -2089,11 +2089,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern-2",
+          "zivildiensteinsatz-come-betreuungsassistent-100-luzerner-psychiatrie-lups-luzern"
+        ],
+        "en": [
+          "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern-2"
+        ],
+        "fr": [
           "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern-2"
         ]
       },
       "previousSlugs": [
-        "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern-2"
+        "zivildiensteinsatz-als-betreuungsassistent-100-lups-luzern-2",
+        "zivildiensteinsatz-come-betreuungsassistent-100-luzerner-psychiatrie-lups-luzern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -7491,12 +7499,12 @@
     },
     {
       "id": "lups-c6ccc2761e2e",
-      "slug": "arztsekretarin-60-100-befristet-per-1-jahr-m-w-d-luzerner-psychiatrie-lups-sursee",
+      "slug": "medico-60-100-terminato-per-1-anno-m-w-d-luzerner-psychiatrie-lups-sursee",
       "slugByLocale": {
         "de": "arztsekretarin-60-100-befristet-fur-1-jahr-m-w-d-lups-sursee",
-        "it": "arztsekretarin-60-100-befristet-per-1-jahr-m-w-d-luzerner-psychiatrie-lups-sursee",
-        "en": "arztsekretarin-60-100-befristet-fur-1-jahr-m-w-d-lups-sursee",
-        "fr": "arztsekretarin-60-100-befristet-fur-1-jahr-m-w-d-lups-sursee"
+        "it": "medico-60-100-terminato-per-1-anno-m-w-d-luzerner-psychiatrie-lups-sursee",
+        "en": "physician-60-100-terminated-for-1-year-m-w-d-luzerner-psychiatrie-lups-sursee",
+        "fr": "medecin-de-60-a-100-ayant-termine-pendant-1-an-m-m-j-luzerner-psychiatrie-lups-sursee"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -7541,11 +7549,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "arztsekretarin-60-100-befristet-fur-1-jahr-m-w-d-lups-sursee",
+          "arztsekretarin-60-100-befristet-per-1-jahr-m-w-d-luzerner-psychiatrie-lups-sursee"
+        ],
+        "en": [
+          "arztsekretarin-60-100-befristet-fur-1-jahr-m-w-d-lups-sursee"
+        ],
+        "fr": [
           "arztsekretarin-60-100-befristet-fur-1-jahr-m-w-d-lups-sursee"
         ]
       },
       "previousSlugs": [
-        "arztsekretarin-60-100-befristet-fur-1-jahr-m-w-d-lups-sursee"
+        "arztsekretarin-60-100-befristet-fur-1-jahr-m-w-d-lups-sursee",
+        "arztsekretarin-60-100-befristet-per-1-jahr-m-w-d-luzerner-psychiatrie-lups-sursee"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

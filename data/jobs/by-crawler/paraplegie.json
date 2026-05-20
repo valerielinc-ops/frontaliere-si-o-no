@@ -7,7 +7,7 @@
       "slug": "co-responsabiledistazione-in-cura-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
         "it": "co-responsabiledistazione-in-cura-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "co-stations-leader-pflege-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "co-station-manager-in-care-schweizer-paraplegiker-gruppe-nottwil",
         "de": "co-stationsleiter-in-pflege-schweizer-paraplegiker-gruppe-nottwil",
         "fr": "co-stations-leader-pflege-schweizer-paraplegiker-gruppe-nottwil"
       },
@@ -66,10 +66,14 @@
         ],
         "it": [
           "co-stationsleiter-in-pflege-paraplegie-nottwil"
+        ],
+        "en": [
+          "co-stations-leader-pflege-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "previousSlugs": [
-        "co-stationsleiter-in-pflege-paraplegie-nottwil"
+        "co-stationsleiter-in-pflege-paraplegie-nottwil",
+        "co-stations-leader-pflege-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "firstSeenAt": "2026-05-19T15:48:40.903Z",
       "salaryMin": 49500,
@@ -163,9 +167,9 @@
       "slug": "aiuto-domestico-stagionale-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
         "it": "aiuto-domestico-stagionale-schweizer-paraplegiker-gruppe-nottwil",
-        "en": "seasonal-domestic-helper-schweizer-paraplegiker-gruppe-nottwil",
+        "en": "holiday-aid-schweizer-paraplegiker-gruppe-nottwil",
         "de": "ferienaushilfe-hauswirtschaft-schweizer-paraplegiker-gruppe-nottwil",
-        "fr": "assistant-domestique-saisonnier-schweizer-paraplegiker-gruppe-nottwil"
+        "fr": "aide-aux-vacances-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -222,10 +226,18 @@
         ],
         "it": [
           "ferienaushilfe-hauswirtschaft-paraplegie-nottwil"
+        ],
+        "en": [
+          "seasonal-domestic-helper-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "fr": [
+          "assistant-domestique-saisonnier-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "previousSlugs": [
-        "ferienaushilfe-hauswirtschaft-paraplegie-nottwil"
+        "ferienaushilfe-hauswirtschaft-paraplegie-nottwil",
+        "seasonal-domestic-helper-schweizer-paraplegiker-gruppe-nottwil",
+        "assistant-domestique-saisonnier-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "firstSeenAt": "2026-05-19T15:48:40.057Z",
       "salaryMin": 49500,
@@ -326,12 +338,12 @@
     },
     {
       "id": "paraplegie-4beaf0e54187",
-      "slug": "applikationsmanager-in-schweizer-paraplegiker-gruppe-nottwil",
+      "slug": "gestione-delle-applicazioni-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
-        "it": "applikationsmanager-in-schweizer-paraplegiker-gruppe-nottwil",
+        "it": "gestione-delle-applicazioni-schweizer-paraplegiker-gruppe-nottwil",
         "en": "application-manager-schweizer-paraplegiker-gruppe-nottwil",
         "de": "applikationsmanager-in-schweizer-paraplegiker-gruppe-nottwil",
-        "fr": "gestionnaire-d-applications-schweizer-paraplegiker-gruppe-nottwil"
+        "fr": "gestionnaire-d-application-dans-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -383,14 +395,20 @@
         ]
       },
       "previousSlugs": [
-        "applikationsmanager-in-paraplegie-nottwil"
+        "applikationsmanager-in-paraplegie-nottwil",
+        "applikationsmanager-in-schweizer-paraplegiker-gruppe-nottwil",
+        "gestionnaire-d-applications-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikationsmanager-in-paraplegie-nottwil"
+          "applikationsmanager-in-paraplegie-nottwil",
+          "applikationsmanager-in-schweizer-paraplegiker-gruppe-nottwil"
         ],
         "de": [
           "applikationsmanager-in-paraplegie-nottwil"
+        ],
+        "fr": [
+          "gestionnaire-d-applications-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "firstSeenAt": "2026-05-19T15:48:39.237Z",
@@ -492,9 +510,9 @@
     },
     {
       "id": "paraplegie-14e1ab0b124d",
-      "slug": "postdoctoral-researcher-schweizer-paraplegiker-gruppe-nottwil",
+      "slug": "ricercatore-post-dottorato-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
-        "it": "postdoctoral-researcher-schweizer-paraplegiker-gruppe-nottwil",
+        "it": "ricercatore-post-dottorato-schweizer-paraplegiker-gruppe-nottwil",
         "en": "postdoctoral-investigador-schweizer-paraplegiker-gruppe-nottwil",
         "de": "postdoctoral-researcher-schweizer-paraplegiker-gruppe-nottwil",
         "fr": "chercheur-postdoctoral-schweizer-paraplegiker-gruppe-nottwil"
@@ -549,11 +567,13 @@
         ]
       },
       "previousSlugs": [
-        "postdoctoral-researcher-paraplegie-nottwil"
+        "postdoctoral-researcher-paraplegie-nottwil",
+        "postdoctoral-researcher-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postdoctoral-researcher-paraplegie-nottwil"
+          "postdoctoral-researcher-paraplegie-nottwil",
+          "postdoctoral-researcher-schweizer-paraplegiker-gruppe-nottwil"
         ],
         "de": [
           "postdoctoral-researcher-paraplegie-nottwil"
@@ -575,12 +595,12 @@
     },
     {
       "id": "paraplegie-64567a7b5402",
-      "slug": "collaboratore-trice-consulenza-tra-pari-schweizer-paraplegiker-gruppe-nottwil",
+      "slug": "staff-in-peer-beratung-schweizer-paraplegiker-gruppe-nottwil",
       "slugByLocale": {
-        "it": "collaboratore-trice-consulenza-tra-pari-schweizer-paraplegiker-gruppe-nottwil",
+        "it": "staff-in-peer-beratung-schweizer-paraplegiker-gruppe-nottwil",
         "en": "peer-counselor-schweizer-paraplegiker-gruppe-nottwil",
         "de": "mitarbeiter-in-peer-beratung-schweizer-paraplegiker-gruppe-nottwil",
-        "fr": "conseiller-ere-par-les-pairs-schweizer-paraplegiker-gruppe-nottwil"
+        "fr": "personnel-a-beratung-schweizer-paraplegiker-gruppe-nottwil"
       },
       "company": "Schweizer Paraplegiker-Gruppe",
       "companyKey": "paraplegie",
@@ -636,11 +656,17 @@
           "mitarbeiter-in-peer-beratung-paraplegie-nottwil"
         ],
         "it": [
-          "mitarbeiter-in-peer-beratung-paraplegie-nottwil"
+          "mitarbeiter-in-peer-beratung-paraplegie-nottwil",
+          "collaboratore-trice-consulenza-tra-pari-schweizer-paraplegiker-gruppe-nottwil"
+        ],
+        "fr": [
+          "conseiller-ere-par-les-pairs-schweizer-paraplegiker-gruppe-nottwil"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-peer-beratung-paraplegie-nottwil"
+        "mitarbeiter-in-peer-beratung-paraplegie-nottwil",
+        "collaboratore-trice-consulenza-tra-pari-schweizer-paraplegiker-gruppe-nottwil",
+        "conseiller-ere-par-les-pairs-schweizer-paraplegiker-gruppe-nottwil"
       ],
       "firstSeenAt": "2026-05-19T15:48:37.948Z",
       "salaryMin": 49500,
@@ -744,7 +770,7 @@
       "slug": "farmacista-o-o-tecnico-a-della-salute-in-funzione-consulenziale-per-ausili-per-la-continenza-e-la-vita-quotidiana",
       "slugByLocale": {
         "it": "farmacista-o-o-tecnico-a-della-salute-in-funzione-consulenziale-per-ausili-per-la-continenza-e-la-vita-quotidiana",
-        "en": "pharmacist-or-health-care-professional-in-an-advisory-role-for-continence-and-daily-living-aids-schweizer-paraplegiker",
+        "en": "drogist-in-or-specialist-health-in-an-advisory-function-for-continual-and-everyday-aids-schweizer-paraplegiker-gruppe",
         "de": "drogist-in-oder-fachfrau-mann-gesundheit-in-beratender-funktion-fur-kontinenz-und",
         "fr": "pharmacien-ne-ou-professionnel-le-de-la-sante-en-fonction-consultative-pour-les-aides-a-l-incontinence-et-la-vie"
       },
@@ -798,11 +824,15 @@
         ]
       },
       "previousSlugs": [
-        "drogist-in-oder-fachfrau-mann-gesundheit-in-beratender-funktion-fur-kontinenz-und"
+        "drogist-in-oder-fachfrau-mann-gesundheit-in-beratender-funktion-fur-kontinenz-und",
+        "pharmacist-or-health-care-professional-in-an-advisory-role-for-continence-and-daily-living-aids-schweizer-paraplegiker"
       ],
       "previousSlugsByLocale": {
         "it": [
           "drogist-in-oder-fachfrau-mann-gesundheit-in-beratender-funktion-fur-kontinenz-und"
+        ],
+        "en": [
+          "pharmacist-or-health-care-professional-in-an-advisory-role-for-continence-and-daily-living-aids-schweizer-paraplegiker"
         ]
       },
       "firstSeenAt": "2026-05-19T15:48:37.098Z",

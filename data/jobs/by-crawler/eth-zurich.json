@@ -8932,11 +8932,11 @@
     },
     {
       "id": "eth-zurich-50c1d337e79e",
-      "slug": "scientific-collaborator-teaching-assistant-eth-zurich-ch",
+      "slug": "collaboratore-scientifico-assistente-didattico-eth-zurich-zurich",
       "slugByLocale": {
         "en": "scientific-collaborator-teaching-assistant-eth-zurich-ch",
-        "it": "scientific-collaborator-teaching-assistant-eth-zurich-ch",
-        "de": "scientific-collaborator-teaching-assistant-eth-zurich-ch",
+        "it": "collaboratore-scientifico-assistente-didattico-eth-zurich-zurich",
+        "de": "wissenschaftlicher-mitarbeiter-lehrassistent-eth-zurich-zurich",
         "fr": "scientific-collaborator-teaching-assistant-eth-zurich-ch"
       },
       "company": "ETH Zürich",
@@ -8991,7 +8991,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-05-19T22:10:55.581Z"
+      "firstSeenAt": "2026-05-19T22:10:55.581Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scientific-collaborator-teaching-assistant-eth-zurich-ch"
+        ],
+        "de": [
+          "scientific-collaborator-teaching-assistant-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "scientific-collaborator-teaching-assistant-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-f208bba3e3be",

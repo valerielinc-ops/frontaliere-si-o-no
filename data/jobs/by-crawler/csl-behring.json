@@ -88,12 +88,12 @@
     },
     {
       "id": "csl-behring-49adef22be8f",
-      "slug": "senior-direttore-global-clinical-program-lead-cardiovascular-renal-csl-behring-bern",
+      "slug": "direttore-senior-programma-clinico-globale-lead-cardiovascular-renal-csl-behring-bern",
       "slugByLocale": {
-        "it": "senior-direttore-global-clinical-program-lead-cardiovascular-renal-csl-behring-bern",
+        "it": "direttore-senior-programma-clinico-globale-lead-cardiovascular-renal-csl-behring-bern",
         "en": "senior-director-global-clinical-program-lead-cardiovascular-renal-csl-behring-ch",
         "de": "senior-director-global-clinical-program-lead-herz-kreislauf-niere-csl-behring-bern",
-        "fr": "senior-director-global-clinical-program-lead-cardiovasculaire-et-renal-csl-behring-bern"
+        "fr": "directeur-principal-programme-clinique-mondial-chef-de-file-cardiopathie-et-renale-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -146,12 +146,18 @@
       "jobReqId": "Regular",
       "previousSlugs": [
         "senior-director-global-clinical-program-lead-cardiovascular-renal-csl-behring-ch",
-        "senior-director-global-clinical-program-lead-cardiovascolare-e-renale-csl-behring-bern"
+        "senior-director-global-clinical-program-lead-cardiovascolare-e-renale-csl-behring-bern",
+        "senior-direttore-global-clinical-program-lead-cardiovascular-renal-csl-behring-bern",
+        "senior-director-global-clinical-program-lead-cardiovasculaire-et-renal-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-director-global-clinical-program-lead-cardiovascular-renal-csl-behring-ch",
-          "senior-director-global-clinical-program-lead-cardiovascolare-e-renale-csl-behring-bern"
+          "senior-director-global-clinical-program-lead-cardiovascolare-e-renale-csl-behring-bern",
+          "senior-direttore-global-clinical-program-lead-cardiovascular-renal-csl-behring-bern"
+        ],
+        "fr": [
+          "senior-director-global-clinical-program-lead-cardiovasculaire-et-renal-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:19:05.366Z",
@@ -375,9 +381,9 @@
     },
     {
       "id": "csl-behring-cd9ad4877033",
-      "slug": "responsabile-dell-ecosistema-di-manutenzione-remote-csl-behring-bern",
+      "slug": "manutenzione-ecosystem-lead-rimozione-csl-behring-bern",
       "slugByLocale": {
-        "it": "responsabile-dell-ecosistema-di-manutenzione-remote-csl-behring-bern",
+        "it": "manutenzione-ecosystem-lead-rimozione-csl-behring-bern",
         "en": "maintenance-ecosystem-lead-remote-csl-behring-ch",
         "de": "fuhrender-wartungssystem-manager-remote-csl-behring-bern",
         "fr": "responsable-de-l-ecosysteme-de-maintenance-a-distance-csl-behring-bern"
@@ -422,11 +428,13 @@
       "requirementsByLocale": {},
       "jobReqId": "Regular",
       "previousSlugs": [
-        "maintenance-ecosystem-lead-remote-csl-behring-ch"
+        "maintenance-ecosystem-lead-remote-csl-behring-ch",
+        "responsabile-dell-ecosistema-di-manutenzione-remote-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "maintenance-ecosystem-lead-remote-csl-behring-ch"
+          "maintenance-ecosystem-lead-remote-csl-behring-ch",
+          "responsabile-dell-ecosistema-di-manutenzione-remote-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:19:03.245Z",
@@ -1021,11 +1029,11 @@
     },
     {
       "id": "csl-behring-14eef3c573e9",
-      "slug": "responsabile-dei-servizi-integrati-di-struttura-e-operativi-csl-behring-bern",
+      "slug": "capo-dei-servizi-integrati-di-facility-operations-csl-behring-bern",
       "slugByLocale": {
-        "it": "responsabile-dei-servizi-integrati-di-struttura-e-operativi-csl-behring-bern",
+        "it": "capo-dei-servizi-integrati-di-facility-operations-csl-behring-bern",
         "en": "head-of-integrated-facility-operations-services-csl-behring-ch",
-        "de": "leiter-fur-integrierte-facility-betriebsservices-csl-behring-bern",
+        "de": "leiterin-integrierter-facility-operations-services-csl-behring-bern",
         "fr": "responsable-des-services-integres-d-installation-et-d-exploitation-csl-behring-bern"
       },
       "company": "CSL Behring",
@@ -1101,15 +1109,21 @@
       "previousSlugs": [
         "head-of-integrated-facility-operations-services-csl-behring-ch",
         "responsabile-di-servizi-integrati-di-facility-operazioni-csl-behring-bern",
-        "directeur-des-services-integres-de-facility-operations-csl-behring-bern"
+        "responsabile-dei-servizi-integrati-di-struttura-e-operativi-csl-behring-bern",
+        "directeur-des-services-integres-de-facility-operations-csl-behring-bern",
+        "leiter-fur-integrierte-facility-betriebsservices-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-integrated-facility-operations-services-csl-behring-ch",
-          "responsabile-di-servizi-integrati-di-facility-operazioni-csl-behring-bern"
+          "responsabile-di-servizi-integrati-di-facility-operazioni-csl-behring-bern",
+          "responsabile-dei-servizi-integrati-di-struttura-e-operativi-csl-behring-bern"
         ],
         "fr": [
           "directeur-des-services-integres-de-facility-operations-csl-behring-bern"
+        ],
+        "de": [
+          "leiter-fur-integrierte-facility-betriebsservices-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:58.256Z",
@@ -1331,7 +1345,7 @@
       "slugByLocale": {
         "it": "direttore-strategia-analitica-recombinante-csl-behring-bern",
         "en": "director-analytical-strategy-recombinant-csl-behring-ch",
-        "de": "leiter-in-strategische-analyse-recombinant-csl-behring-bern",
+        "de": "direktor-analytische-strategie-rekombinant-csl-behring-bern",
         "fr": "director-analytical-strategy-recombinant-csl-behring-ch"
       },
       "company": "CSL Behring",
@@ -1401,11 +1415,15 @@
         ],
         "it": [
           "director-analytical-strategy-recombinant-csl-behring-ch"
+        ],
+        "de": [
+          "leiter-in-strategische-analyse-recombinant-csl-behring-bern"
         ]
       },
       "previousSlugs": [
+        "director-estrategia-analitica-recombinante-csl-behring-bern",
         "director-analytical-strategy-recombinant-csl-behring-ch",
-        "director-estrategia-analitica-recombinante-csl-behring-bern"
+        "leiter-in-strategische-analyse-recombinant-csl-behring-bern"
       ],
       "firstSeenAt": "2026-05-19T17:18:56.183Z",
       "salaryMin": 68000,
@@ -2188,7 +2206,7 @@
       "slugByLocale": {
         "it": "direttore-sviluppo-dei-processi-csl-behring-bern",
         "en": "director-process-development-csl-behring-ch",
-        "de": "direktor-process-development-csl-behring-bern",
+        "de": "direktor-prozessentwicklung-csl-behring-bern",
         "fr": "directeur-developpement-des-processus-csl-behring-bern"
       },
       "company": "CSL Behring",
@@ -2263,14 +2281,14 @@
       "jobReqId": "Regular",
       "previousSlugs": [
         "director-process-development-csl-behring-ch",
-        "direktor-prozessentwicklung-csl-behring-bern"
+        "direktor-process-development-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "director-process-development-csl-behring-ch"
         ],
         "de": [
-          "direktor-prozessentwicklung-csl-behring-bern"
+          "direktor-process-development-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:48.865Z",
@@ -2761,11 +2779,11 @@
     },
     {
       "id": "csl-behring-e78925eca468",
-      "slug": "responsabile-dell-implementazione-aziendale-csl-behring-bern",
+      "slug": "introduzione-all-impresa-csl-behring-bern",
       "slugByLocale": {
-        "it": "responsabile-dell-implementazione-aziendale-csl-behring-bern",
+        "it": "introduzione-all-impresa-csl-behring-bern",
         "en": "enterprise-implementation-lead-csl-behring-ch",
-        "de": "leiter-der-unternehmensimplementierung-csl-behring-bern",
+        "de": "einfuhrung-in-die-unternehmen-csl-behring-bern",
         "fr": "responsable-de-la-mise-en-uvre-en-entreprise-csl-behring-bern"
       },
       "company": "CSL Behring",
@@ -2808,11 +2826,17 @@
       "requirementsByLocale": {},
       "jobReqId": "Regular",
       "previousSlugs": [
-        "enterprise-implementation-lead-csl-behring-ch"
+        "enterprise-implementation-lead-csl-behring-ch",
+        "responsabile-dell-implementazione-aziendale-csl-behring-bern",
+        "leiter-der-unternehmensimplementierung-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "enterprise-implementation-lead-csl-behring-ch"
+          "enterprise-implementation-lead-csl-behring-ch",
+          "responsabile-dell-implementazione-aziendale-csl-behring-bern"
+        ],
+        "de": [
+          "leiter-der-unternehmensimplementierung-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:44.385Z",
@@ -3293,7 +3317,7 @@
         "it": "responsabile-di-progetto-senior-operazioni-tecniche-csl-behring-bern",
         "en": "senior-project-manager-tech-ops-csl-behring-ch",
         "de": "leitender-projektmanager-tech-ops-csl-behring-bern",
-        "fr": "chef-de-projet-senior-tech-ops-csl-behring-bern"
+        "fr": "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3367,14 +3391,14 @@
       "jobReqId": "Regular",
       "previousSlugs": [
         "senior-project-manager-tech-ops-csl-behring-ch",
-        "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern"
+        "chef-de-projet-senior-tech-ops-csl-behring-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-project-manager-tech-ops-csl-behring-ch"
         ],
         "fr": [
-          "gestionnaire-de-projet-principal-operations-techniques-csl-behring-bern"
+          "chef-de-projet-senior-tech-ops-csl-behring-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T17:18:40.182Z",
@@ -3667,12 +3691,12 @@
     },
     {
       "id": "csl-behring-9bf100e26280",
-      "slug": "design-technology-lead-csl-behring-ch",
+      "slug": "progettazione-e-tecnologia-lead-csl-behring-bern",
       "slugByLocale": {
         "en": "design-technology-lead-csl-behring-ch",
-        "it": "design-technology-lead-csl-behring-ch",
+        "it": "progettazione-e-tecnologia-lead-csl-behring-bern",
         "de": "design-technology-lead-csl-behring-ch",
-        "fr": "design-technology-lead-csl-behring-ch"
+        "fr": "responsable-de-la-conception-et-de-la-technologie-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -3728,7 +3752,18 @@
         }
       },
       "postalCode": "3001",
-      "firstSeenAt": "2026-05-19T22:01:48.717Z"
+      "firstSeenAt": "2026-05-19T22:01:48.717Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "design-technology-lead-csl-behring-ch"
+        ],
+        "fr": [
+          "design-technology-lead-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "design-technology-lead-csl-behring-ch"
+      ]
     }
   ]
 }

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "medartis-bb1513c7d9ce",
-      "slug": "responsabile-regulatory-affairs-gruppo-medartis-basel",
+      "slug": "group-manager-affari-regolatori-100-medartis-basel",
       "slugByLocale": {
-        "it": "responsabile-regulatory-affairs-gruppo-medartis-basel",
+        "it": "group-manager-affari-regolatori-100-medartis-basel",
         "en": "group-manager-regulatory-affairs-100-medartis-basel",
         "de": "gruppenleiter-regulatory-affairs-100-medartis-basel",
-        "fr": "responsable-reglementaire-groupe-medartis-basel"
+        "fr": "responsable-d-equipe-affaires-reglementaires-100-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -88,16 +88,16 @@
         ],
         "it": [
           "group-manager-regulatory-affairs-100-medartis-basel",
-          "group-manager-affari-regolatori-100-medartis-basel"
+          "responsabile-regulatory-affairs-gruppo-medartis-basel"
         ],
         "fr": [
-          "responsable-d-equipe-affaires-reglementaires-100-medartis-basel"
+          "responsable-reglementaire-groupe-medartis-basel"
         ]
       },
       "previousSlugs": [
         "group-manager-regulatory-affairs-100-medartis-basel",
-        "group-manager-affari-regolatori-100-medartis-basel",
-        "responsable-d-equipe-affaires-reglementaires-100-medartis-basel"
+        "responsabile-regulatory-affairs-gruppo-medartis-basel",
+        "responsable-reglementaire-groupe-medartis-basel"
       ],
       "firstSeenAt": "2026-05-19T19:53:25.039Z",
       "salaryMin": 68000,
@@ -120,7 +120,7 @@
         "it": "neo-laureato-in-finanza-medartis-basel",
         "en": "new-graduate-finance-medartis-basel",
         "de": "neuer-finanzgraduierter-medartis-basel",
-        "fr": "nouveau-diplome-en-finance-medartis-basel"
+        "fr": "diplome-e-de-fraiche-date-en-finance-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -188,10 +188,14 @@
         ],
         "it": [
           "new-graduate-finance-medartis-basel"
+        ],
+        "fr": [
+          "nouveau-diplome-en-finance-medartis-basel"
         ]
       },
       "previousSlugs": [
-        "new-graduate-finance-medartis-basel"
+        "new-graduate-finance-medartis-basel",
+        "nouveau-diplome-en-finance-medartis-basel"
       ],
       "firstSeenAt": "2026-05-19T19:53:24.561Z",
       "salaryMin": 49500,
@@ -317,12 +321,12 @@
     },
     {
       "id": "medartis-0963ad27118e",
-      "slug": "apprendistato-come-polymechaniker-in-cfc-medartis-basel",
+      "slug": "stage-per-polimeccanico-a-efz-medartis-basel",
       "slugByLocale": {
-        "it": "apprendistato-come-polymechaniker-in-cfc-medartis-basel",
-        "en": "apprenticeship-as-mechanical-engineer-efz-medartis-basel",
+        "it": "stage-per-polimeccanico-a-efz-medartis-basel",
+        "en": "apprenticeship-as-a-polymechanic-efz-medartis-basel",
         "de": "lehrstelle-als-polymechaniker-in-efz-medartis-basel",
-        "fr": "apprentissage-en-technicien-ne-polyvalent-e-en-mecanique-efz-medartis-basel"
+        "fr": "apprentissage-en-tant-que-polytechnicien-efz-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -398,19 +402,21 @@
       "previousSlugs": [
         "lehrstelle-als-polymechaniker-in-efz-medartis-basel",
         "apprendistato-come-polimeccanico-a-efz-medartis-basel",
-        "apprenticeship-as-a-polymechanic-efz-medartis-basel",
-        "apprentissage-en-tant-que-polytechnicien-efz-medartis-basel"
+        "apprendistato-come-polymechaniker-in-cfc-medartis-basel",
+        "apprenticeship-as-mechanical-engineer-efz-medartis-basel",
+        "apprentissage-en-technicien-ne-polyvalent-e-en-mecanique-efz-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-polymechaniker-in-efz-medartis-basel",
-          "apprendistato-come-polimeccanico-a-efz-medartis-basel"
+          "apprendistato-come-polimeccanico-a-efz-medartis-basel",
+          "apprendistato-come-polymechaniker-in-cfc-medartis-basel"
         ],
         "en": [
-          "apprenticeship-as-a-polymechanic-efz-medartis-basel"
+          "apprenticeship-as-mechanical-engineer-efz-medartis-basel"
         ],
         "fr": [
-          "apprentissage-en-tant-que-polytechnicien-efz-medartis-basel"
+          "apprentissage-en-technicien-ne-polyvalent-e-en-mecanique-efz-medartis-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:23.610Z",
@@ -429,12 +435,12 @@
     },
     {
       "id": "medartis-c356649c50c7",
-      "slug": "operatore-operatrice-di-laboratorio-sterile-medartis-basel",
+      "slug": "addetto-a-alla-produzione-in-ambiente-pulito-medartis-basel",
       "slugByLocale": {
-        "it": "operatore-operatrice-di-laboratorio-sterile-medartis-basel",
-        "en": "cleanroom-operator-medartis-basel",
+        "it": "addetto-a-alla-produzione-in-ambiente-pulito-medartis-basel",
+        "en": "clean-room-production-associate-medartis-basel",
         "de": "produktionsmitarbeiter-in-reinraum-medartis-basel",
-        "fr": "operateur-operatrice-en-chambre-sterile-medartis-basel"
+        "fr": "collaborateur-trice-de-production-en-salle-blanche-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -499,20 +505,24 @@
       },
       "previousSlugs": [
         "produktionsmitarbeiter-in-reinraum-medartis-basel",
-        "addetto-a-alla-produzione-in-ambiente-pulito-medartis-basel",
+        "operatore-operatrice-di-laboratorio-sterile-medartis-basel",
         "clean-room-production-worker-medartis-basel",
-        "travailleur-de-production-en-salle-blanche-medartis-basel"
+        "cleanroom-operator-medartis-basel",
+        "travailleur-de-production-en-salle-blanche-medartis-basel",
+        "operateur-operatrice-en-chambre-sterile-medartis-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "produktionsmitarbeiter-in-reinraum-medartis-basel",
-          "addetto-a-alla-produzione-in-ambiente-pulito-medartis-basel"
+          "operatore-operatrice-di-laboratorio-sterile-medartis-basel"
         ],
         "en": [
-          "clean-room-production-worker-medartis-basel"
+          "clean-room-production-worker-medartis-basel",
+          "cleanroom-operator-medartis-basel"
         ],
         "fr": [
-          "travailleur-de-production-en-salle-blanche-medartis-basel"
+          "travailleur-de-production-en-salle-blanche-medartis-basel",
+          "operateur-operatrice-en-chambre-sterile-medartis-basel"
         ]
       },
       "firstSeenAt": "2026-05-19T19:53:23.220Z",

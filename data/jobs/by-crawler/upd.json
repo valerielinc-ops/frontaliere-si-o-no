@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "upd-f67e475aea53",
-      "slug": "fachspezialistin-fachspezialist-patienten-e-leistungsmanagement-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "specialista-specialista-paziente-e-gestione-delle-prestazioni-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-patienten-und-leistungsmanagement-upd-bern",
-        "it": "fachspezialistin-fachspezialist-patienten-e-leistungsmanagement-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "fachspezialistin-fachspezialist-patienten-und-leistungsmanagement-upd-bern",
-        "fr": "fachspezialistin-fachspezialist-patienten-und-leistungsmanagement-upd-bern"
+        "it": "specialista-specialista-paziente-e-gestione-delle-prestazioni-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "specialist-specialist-patient-and-performance-management-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "specialiste-specialiste-patient-et-gestion-des-performances-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -54,11 +54,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachspezialistin-fachspezialist-patienten-und-leistungsmanagement-upd-bern",
+          "fachspezialistin-fachspezialist-patienten-e-leistungsmanagement-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "fachspezialistin-fachspezialist-patienten-und-leistungsmanagement-upd-bern"
+        ],
+        "fr": [
           "fachspezialistin-fachspezialist-patienten-und-leistungsmanagement-upd-bern"
         ]
       },
       "previousSlugs": [
-        "fachspezialistin-fachspezialist-patienten-und-leistungsmanagement-upd-bern"
+        "fachspezialistin-fachspezialist-patienten-und-leistungsmanagement-upd-bern",
+        "fachspezialistin-fachspezialist-patienten-e-leistungsmanagement-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

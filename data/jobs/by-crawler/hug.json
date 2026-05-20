@@ -4271,12 +4271,12 @@
     },
     {
       "id": "hug-cfdaa85593f2",
-      "slug": "medecin-interne-rotation-en-chirurgie-100-hug-geneve",
+      "slug": "medico-interno-rotazione-in-chirurgia-100-hug-geneve",
       "slugByLocale": {
         "fr": "medecin-interne-rotation-en-chirurgie-100-hug-geneve",
-        "it": "medecin-interne-rotation-en-chirurgie-100-hug-geneve",
-        "en": "medecin-interne-rotation-en-chirurgie-100-hug-geneve",
-        "de": "medecin-interne-rotation-en-chirurgie-100-hug-geneve"
+        "it": "medico-interno-rotazione-in-chirurgia-100-hug-geneve",
+        "en": "internal-physician-rotation-in-surgery-100-hug-geneve",
+        "de": "interner-arzt-rotation-in-der-chirurgie-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4332,7 +4332,21 @@
         }
       },
       "postalCode": "1201",
-      "firstSeenAt": "2026-05-19T22:30:39.872Z"
+      "firstSeenAt": "2026-05-19T22:30:39.872Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-interne-rotation-en-chirurgie-100-hug-geneve"
+        ],
+        "en": [
+          "medecin-interne-rotation-en-chirurgie-100-hug-geneve"
+        ],
+        "de": [
+          "medecin-interne-rotation-en-chirurgie-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-interne-rotation-en-chirurgie-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-97e37bc3447e",

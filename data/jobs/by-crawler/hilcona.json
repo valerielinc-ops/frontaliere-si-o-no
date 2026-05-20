@@ -1809,12 +1809,12 @@
     },
     {
       "id": "hilcona-277ed76f4a2e",
-      "slug": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
+      "slug": "elettricista-operativo-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
-        "it": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
+        "it": "elettricista-operativo-bell-schweiz-ag-oensingen",
         "en": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen",
-        "fr": "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
+        "fr": "electricien-en-service-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -1863,7 +1863,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T22:27:14.053Z"
+      "firstSeenAt": "2026-05-19T22:27:14.053Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
+        ]
+      },
+      "previousSlugs": [
+        "betriebselektriker-betriebselektrikerin-bell-schweiz-ag-oensingen"
+      ]
     },
     {
       "id": "hilcona-eab5807f139b",
@@ -3071,12 +3082,12 @@
     },
     {
       "id": "hilcona-4c4281136af9",
-      "slug": "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen",
+      "slug": "meccanico-operativo-foerdertechnik-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen",
-        "it": "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen",
-        "en": "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen",
-        "fr": "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen"
+        "it": "meccanico-operativo-foerdertechnik-bell-schweiz-ag-oensingen",
+        "en": "operational-mechanic-foerdertechnik-bell-schweiz-ag-oensingen",
+        "fr": "mecanicien-operationnel-foerdertechnik-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -3116,10 +3127,20 @@
       "previousSlugsByLocale": {
         "de": [
           "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-hilcona-oensingen"
+        ],
+        "it": [
+          "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen"
+        ],
+        "en": [
+          "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-hilcona-oensingen"
+        "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-hilcona-oensingen",
+        "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -4790,12 +4811,12 @@
     },
     {
       "id": "hilcona-2db07b8d93bb",
-      "slug": "betriebsmechaniker-betriebsmechanikerin-schlachthaus-bell-schweiz-ag-oensingen",
+      "slug": "macello-meccanico-operativo-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "betriebsmechaniker-betriebsmechanikerin-schlachthaus-bell-schweiz-ag-oensingen",
-        "it": "betriebsmechaniker-betriebsmechanikerin-schlachthaus-bell-schweiz-ag-oensingen",
-        "en": "betriebsmechaniker-betriebsmechanikerin-schlachthaus-bell-schweiz-ag-oensingen",
-        "fr": "betriebsmechaniker-betriebsmechanikerin-schlachthaus-bell-schweiz-ag-oensingen"
+        "it": "macello-meccanico-operativo-bell-schweiz-ag-oensingen",
+        "en": "operational-mechanic-slaughterhouse-bell-schweiz-ag-oensingen",
+        "fr": "abattoir-mecanique-operationnel-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -4834,20 +4855,24 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-ag-bell-food-group-landquart"
+          "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-ag-bell-food-group-landquart",
+          "betriebsmechaniker-betriebsmechanikerin-schlachthaus-bell-schweiz-ag-oensingen"
         ],
         "en": [
-          "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-ag-bell-food-group-landquart"
+          "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-ag-bell-food-group-landquart",
+          "betriebsmechaniker-betriebsmechanikerin-schlachthaus-bell-schweiz-ag-oensingen"
         ],
         "de": [
           "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-oensingen"
         ],
         "fr": [
-          "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-ag-bell-food-group-landquart"
+          "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-ag-bell-food-group-landquart",
+          "betriebsmechaniker-betriebsmechanikerin-schlachthaus-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
         "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-ag-bell-food-group-landquart",
+        "betriebsmechaniker-betriebsmechanikerin-schlachthaus-bell-schweiz-ag-oensingen",
         "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-oensingen"
       ],
       "salaryMin": 55500,
