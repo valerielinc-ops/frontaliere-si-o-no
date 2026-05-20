@@ -301,6 +301,63 @@ export function normalizeDescriptionBullets(text) {
 }
 
 /**
+ * Idempotent clean-up of crawler artifacts in job descriptions. Runs at
+ * assemble-time (`scripts/assemble-jobs-dataset.mjs`) alongside
+ * `normalizeDescriptionBullets`. Defensive against malformed input from
+ * AI translation: drops empty `**...**` bolds, strips standalone separator
+ * lines (`______`, `=====`), strips trailing inline separator runs, and
+ * dedupes consecutive identical paragraphs.
+ *
+ * Mirrors the runtime parser in `build-plugins/shared/jobDescription/parser.ts`
+ * but operates on raw text BEFORE the renderer parses. Cleaning here keeps
+ * the assembled dataset (`data/jobs.json`) tidy without rewriting every
+ * by-crawler source file.
+ *
+ * @param {string} text
+ * @returns {string}
+ */
+export function cleanCrawlerArtifacts(text) {
+  if (!text || typeof text !== 'string') return text;
+  let s = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+
+  // 1. Drop empty / whitespace-only bolds (e.g. "** **", "**  **", "** : **")
+  s = s.replace(/\*\*\s*[\s:;,.\-–—]*\s*\*\*/g, ' ');
+
+  // 2. Strip standalone separator-only lines ("______", "===", "----")
+  s = s
+    .split('\n')
+    .filter((line) => !/^[\s_\-=*•·~]{3,}$/.test(line))
+    .join('\n');
+
+  // 3. Strip trailing inline separator runs ("Be part of something. ______")
+  s = s
+    .split('\n')
+    .map((line) => line.replace(/\s+[_\-=~*]{3,}\s*$/g, '').trimEnd())
+    .join('\n');
+
+  // 4. Dedup consecutive identical paragraphs (Panoramica/Descrizione artifact)
+  const paragraphs = s.split(/\n{2,}/);
+  const out = [];
+  const norm = (p) =>
+    p
+      .toLowerCase()
+      .replace(/[\p{P}\p{S}]+/gu, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  const seen = new Set();
+  for (const p of paragraphs) {
+    const t = p.trim();
+    if (!t) continue;
+    const key = norm(t);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(t);
+  }
+
+  return out.join('\n\n');
+}
+
+/**
  * Strip HTML tags and decode common entities. Use for description fields.
  */
 export function stripHtml(html = '') {
