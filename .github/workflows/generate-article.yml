@@ -40,6 +40,33 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 360
     steps:
+      # Free ~25-30 GB on the ubuntu-latest runner before any cache restore
+      # or build output lands on disk. Without this the runner ships with
+      # only ~14 GB free on /, and the build:prod step (Vite emitting ~3-5 k
+      # static HTML/JS files for jobs + SEO landings) crashes mid-emit with
+      # "No space left on device". The worker dies before logs flush, so the
+      # only visible error in the run archive is "runner has received a
+      # shutdown signal" (see runs 26149600283, 26141061841 — 2026-05-20).
+      # Mirror deploy.yml's cleanup: delete toolchains this repo never uses
+      # (Android SDK, .NET, Haskell, CodeQL, Swift, Boost). Node 22, npm
+      # cache, and Python tooling stay intact.
+      - name: Free disk space (remove unused toolchains)
+        shell: bash
+        run: |
+          echo "::group::Disk usage BEFORE cleanup"
+          df -h /
+          echo "::endgroup::"
+          sudo rm -rf /usr/local/lib/android &
+          sudo rm -rf /usr/share/dotnet &
+          sudo rm -rf /opt/ghc &
+          sudo rm -rf /usr/local/share/boost &
+          sudo rm -rf /opt/hostedtoolcache/CodeQL &
+          sudo rm -rf /usr/share/swift &
+          wait
+          echo "::group::Disk usage AFTER cleanup"
+          df -h /
+          echo "::endgroup::"
+
       - name: Checkout
         uses: actions/checkout@v5
         with:
