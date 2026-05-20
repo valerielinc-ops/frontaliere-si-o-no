@@ -117,6 +117,7 @@ import { fetchWordpressSearchHeadlines } from './lib/topic-sources/wordpressSear
 import { extractArticleText } from './lib/extract-article-text.mjs';
 import { hasDomainAnchor } from './lib/discovery/domainAnchor.mjs';
 import { matchesFrontaliereAnchor } from './lib/discovery/frontaliereAnchor.mjs';
+import { LocalizedArticleSchema, ArticleMetaSchema } from './lib/schemas/article.mjs';
 
 // ── Smarter generator inputs (Phase 3 — spec 2026-05-06) ───────
 // data/article-performance.json is produced weekly by Phase 1A.
@@ -7274,6 +7275,44 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     } else {
       console.error(`  ⚠️ Imagen non disponibile, uso immagine di fallback: /images/places/${data.image}`);
     }
+  }
+
+  // Step 3f: Gate AI output on LocalizedArticleSchema (OPTION A — full view)
+  // Assembles a LocalizedArticle-shaped view from the assembled data object
+  // (post-translate, post-sanitize, post-author-assignment) before any file
+  // write. Fails hard on schema violations so invalid AI output never reaches
+  // the source files. body1+body2+body3 are concatenated as bodyHtml; date
+  // uses today's ISO date since the article is being published now.
+  {
+    const itContent = data.content?.it || data.content || {};
+    const bodyHtml = [itContent.body1 || '', itContent.body2 || '', itContent.body3 || '']
+      .filter(Boolean)
+      .join('\n\n');
+
+    const localizedView = {
+      id: data.id,
+      category: data.category,
+      date: new Date().toISOString().slice(0, 10),
+      updatedAt: undefined,
+      image: data.image,
+      hasCalculator: Boolean(data.hasCalculator),
+      authorSlug: data.author?.slug || undefined,
+      authorName: data.author?.name || undefined,
+      locale: 'it',
+      title: itContent.title || '',
+      excerpt: itContent.excerpt || '',
+      bodyHtml,
+    };
+
+    const validation = LocalizedArticleSchema.safeParse(localizedView);
+    if (!validation.success) {
+      const issues = validation.error.issues
+        .map((i) => `${i.path.join('.')}: ${i.message}`)
+        .join('; ');
+      console.error(`[create-article] AI output failed schema validation: ${issues}`);
+      throw new Error(`AI_OUTPUT_INVALID: ${issues}`);
+    }
+    console.error('  ✅ [schema] LocalizedArticleSchema OK');
   }
 
   // Step 4: Modify files
