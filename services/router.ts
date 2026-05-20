@@ -2785,6 +2785,21 @@ export function parsePath(pathname: string): ParseResult {
  // bar + result grid. Returning `staticOverlay: true` here breaks the page
  // because the static body is intentionally sr-only (crawler-only) — the
  // SPA must hydrate the interactive search view for users.
+ //
+ // Build-time static SEO pages emitted under /cerca-lavoro-ticino/:
+ // company hubs (azienda-/company-/unternehmen-/entreprise-), category
+ // listings (categoria-/category-/kategorie-/categorie-), and pagination
+ // (pagina-N / page-N / seite-N). Mirrored from the canton-aware branch
+ // (~line 2542). Without this check, the legacy TI parsing fell through
+ // to `jobSlug = rawSecond` → JobBoard parseCompanySlugFilter treats the
+ // azienda- prefix as a runtime company filter → React main replaces the
+ // static main → user sees an empty filtered list (the TI shard often
+ // doesn't contain the cross-canton entity, e.g. Genossenschaft Migros
+ // Ostschweiz on `/cerca-lavoro-ticino/azienda-migros/` — the static
+ // page lists 26 SG/GR/VS jobs but the SPA filtered list shows 0).
+ if (rawSecond && isCantonStaticOverlaySlug(rawSecond)) {
+ return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', staticOverlay: true }, locale };
+ }
  const jobSlug = rawSecond;
  // P7.1 — legacy /cerca-lavoro-ticino/{slug?} → always TI canton filter.
  return { route: { activeTab: 'job-board', jobBoardCanton: 'TI', ...(jobSlug ? { jobSlug } : {}) }, locale };
