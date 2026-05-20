@@ -16,6 +16,7 @@ import { buildFullPath, LOCALE_CALC_PREFIX, type SalaryHubScenario } from './sal
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderHreflangTags } from './shared/hreflang';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
+import { faqPageLd } from '../services/seo/structuredData';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
 
@@ -555,15 +556,7 @@ export function generateArticleHtml(
     fr: articleUrl(article, 'fr'),
   });
 
-  const faqSchema = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map(f => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  });
+  const faqSchema = JSON.stringify(faqPageLd(faqs.map(f => ({ question: f.q, answer: f.a }))));
 
   const breadcrumbSchema = JSON.stringify({
     '@context': 'https://schema.org',
