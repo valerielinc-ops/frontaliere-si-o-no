@@ -29,6 +29,10 @@ import admin from 'firebase-admin';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  BorderWaitCurrentFileSchema,
+  BorderWaitHistoryFileSchema,
+} from './lib/schemas/borderWait.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -161,6 +165,14 @@ export async function snapshotBorderWaitFiles(db, opts = {}) {
 
   // 1. Current snapshot.
   const current = await fetchTrafficCurrent(db);
+  const currentValidation = BorderWaitCurrentFileSchema.safeParse(current);
+  if (!currentValidation.success) {
+    console.error(
+      '[border-wait] current snapshot failed schema validation:',
+      JSON.stringify(currentValidation.error.issues, null, 2),
+    );
+    throw new Error('[border-wait] Refusing to write invalid border-wait-current.json');
+  }
   fs.writeFileSync(currentPath, JSON.stringify(current, null, 2) + '\n', 'utf-8');
 
   // 2. Daily history aggregate (today, UTC).
@@ -176,10 +188,19 @@ export async function snapshotBorderWaitFiles(db, opts = {}) {
       perCrossing[slug] = Array(24).fill(null);
     }
   }
+  const dayPayload = { date: today, perCrossing };
+  const historyValidation = BorderWaitHistoryFileSchema.safeParse(dayPayload);
+  if (!historyValidation.success) {
+    console.error(
+      `[border-wait] history file for ${today} failed schema validation:`,
+      JSON.stringify(historyValidation.error.issues, null, 2),
+    );
+    throw new Error(`[border-wait] Refusing to write invalid border-wait-history/${today}.json`);
+  }
   const dayFile = path.join(historyDir, `${today}.json`);
   fs.writeFileSync(
     dayFile,
-    JSON.stringify({ date: today, perCrossing }, null, 2) + '\n',
+    JSON.stringify(dayPayload, null, 2) + '\n',
     'utf-8',
   );
 
