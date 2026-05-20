@@ -74,43 +74,67 @@ function detectLocaleFromSlug(slug) {
   return best;
 }
 
+// One-shot cache of (file → jobId → Map<slug, locale>) built lazily
+// when the first job in a file is processed. Subsequent jobs in the
+// same file reuse the cached index → 1 git-log + N git-show per FILE
+// instead of per JOB, which collapses 10–100× of git invocations.
+const _fileLocaleCache = new Map();
+
 /**
- * Walk git history for one slice file and build an index of:
- *   slug → locale (last-seen locale attribution before the slug was dropped)
+ * Build an index for ALL jobs in one slice file in a single pass over
+ * the file's git history. Per-job lookup becomes O(1) afterwards.
+ *
+ * @param {string} file absolute path to the slice file
+ * @param {number} [maxCommits=400] cap on history walked (newest first)
+ * @returns {Map<string, Map<string, string>>} jobId → slug → locale
  */
-function buildSlugLocaleIndex(file, jobId) {
+function buildFileLocaleIndex(file, maxCommits = 400) {
+  if (_fileLocaleCache.has(file)) return _fileLocaleCache.get(file);
   const rel = path.relative(ROOT, file);
   let commits;
   try {
-    commits = execSync(`git log --pretty=format:%H -- ${rel}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024 })
-      .trim().split('\n').filter(Boolean);
+    commits = execSync(
+      `git log --pretty=format:%H -n ${maxCommits} -- ${rel}`,
+      { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024, cwd: ROOT },
+    ).trim().split('\n').filter(Boolean);
   } catch {
-    return new Map();
+    const empty = new Map();
+    _fileLocaleCache.set(file, empty);
+    return empty;
   }
-  const slugLocale = new Map();
+  /** @type {Map<string, Map<string,string>>} */
+  const byJob = new Map();
   for (const commit of commits) {
     let content;
     try {
-      content = execSync(`git show ${commit}:${rel}`, { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024, stdio: ['ignore', 'pipe', 'ignore'] });
+      content = execSync(`git show ${commit}:${rel}`, {
+        encoding: 'utf8', maxBuffer: 100 * 1024 * 1024,
+        stdio: ['ignore', 'pipe', 'ignore'], cwd: ROOT,
+      });
     } catch { continue; }
     let parsed;
     try { parsed = JSON.parse(content); } catch { continue; }
-    const job = (parsed?.jobs || []).find(j => j.id === jobId);
-    if (!job) continue;
-    if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
-      for (const [loc, arr] of Object.entries(job.previousSlugsByLocale)) {
-        for (const s of (arr || [])) {
-          if (s && !slugLocale.has(s)) slugLocale.set(s, loc);
+    if (!Array.isArray(parsed?.jobs)) continue;
+    for (const job of parsed.jobs) {
+      if (!job?.id) continue;
+      let m = byJob.get(job.id);
+      if (!m) { m = new Map(); byJob.set(job.id, m); }
+      if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+        for (const [loc, arr] of Object.entries(job.previousSlugsByLocale)) {
+          for (const s of (arr || [])) {
+            if (s && !m.has(s)) m.set(s, loc);
+          }
+        }
+      }
+      if (job.slugByLocale && typeof job.slugByLocale === 'object') {
+        for (const [loc, s] of Object.entries(job.slugByLocale)) {
+          if (s && !m.has(s)) m.set(s, loc);
         }
       }
     }
-    if (job.slugByLocale && typeof job.slugByLocale === 'object') {
-      for (const [loc, s] of Object.entries(job.slugByLocale)) {
-        if (s && !slugLocale.has(s)) slugLocale.set(s, loc);
-      }
-    }
   }
-  return slugLocale;
+  _fileLocaleCache.set(file, byJob);
+  return byJob;
 }
 
 const recoverList = JSON.parse(fs.readFileSync(INPUT, 'utf8'));
@@ -143,10 +167,12 @@ for (const [file, entries] of filesByName) {
   const byId = new Map(slice.jobs.map(j => [j.id, j]));
   let fileChanged = false;
 
+  // Build the per-file locale index ONCE; per-job lookup is O(1) below.
+  const fileIndex = buildFileLocaleIndex(filePath);
   for (const { jobId, slugs } of entries) {
     const job = byId.get(jobId);
     if (!job) { stats.jobsMissing++; continue; }
-    const slugLocaleIndex = buildSlugLocaleIndex(filePath, jobId);
+    const slugLocaleIndex = fileIndex.get(jobId) || new Map();
     let jobChanged = false;
     for (const slug of slugs) {
       let locale = slugLocaleIndex.get(slug);
