@@ -2339,8 +2339,8 @@ ${hreflangHtml}
  ${ADSENSE_SNIPPET}
  </head>
  <body>
- <div id="root">
- <main class="static-job-page">
+ <div id="root"></div>
+ <main class="seo-static-content static-job-page">
  <nav class="bn"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}`.replace(/\/+/g, '/'))}">&larr; ${esc(allJobsLinkLabel(locale, getCantonDisplayLabel(String(job.canton || DEFAULT_CANTON), locale)))}</a></nav>
  <article class="proposal">
  <section class="hero">
@@ -2645,7 +2645,7 @@ ${hreflangHtml}
  })()}
  </nav>
  </main>
- </div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+ <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
  _qw(np.join(outDir, 'index.html'), html);
