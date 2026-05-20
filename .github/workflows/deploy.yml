@@ -315,7 +315,17 @@ jobs:
           path: |
             node_modules/.vite
             .vite-cache
-          key: vite-${{ runner.os }}-${{ hashFiles('package-lock.json', 'vite.config.ts', 'build-plugins/**/*.ts') }}
+          # Hash MUST include every source path Vite/Rollup compile into the
+          # SPA bundle, otherwise stale optimized deps + AST cache produce
+          # the same chunk content-hash for new source (visible 2026-05-20:
+          # PR #380/#404 edits to components/community/JobBoard.tsx and
+          # services/router.ts kept emitting `JobBoard-lT8fKnYe.js` with
+          # pre-PR-380 content, so the SPA's bridge cross-canton lazy-fetch
+          # never landed despite being merged + redeployed multiple times).
+          # Add components/ + services/ + hooks/ + App.tsx + index.html so
+          # any source change invalidates the cache and forces a clean
+          # bundle pass.
+          key: vite-${{ runner.os }}-${{ hashFiles('package-lock.json', 'vite.config.ts', 'build-plugins/**/*.ts', 'components/**/*.{ts,tsx}', 'services/**/*.{ts,tsx}', 'hooks/**/*.{ts,tsx}', 'App.tsx', 'index.html') }}
           restore-keys: |
             vite-${{ runner.os }}-
 
