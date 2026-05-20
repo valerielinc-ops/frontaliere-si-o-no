@@ -867,7 +867,7 @@
         "de": "manager-fur-cookie-einwilligungen-schindler-winterthur",
         "it": "manager-per-cookie-einwilligungen-schindler-winterthur",
         "en": "manager-fur-cookie-einwilligungen-schindler-winterthur",
-        "fr": "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur"
+        "fr": "manager-fur-cookie-einwilligungen-schindler-winterthur"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -876,15 +876,15 @@
       "titleByLocale": {
         "de": "Manager für Cookie-Einwilligungen",
         "it": "Manager per Cookie-Einwilligungen",
-        "en": "Manager for cookie permissions",
-        "fr": "Gestionnaire pour les autorisations de cookies"
+        "en": "Manager für Cookie-Einwilligungen",
+        "fr": "Manager für Cookie-Einwilligungen"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\r\n\r\n\n\r\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\r\n\n\r\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
       "descriptionByLocale": {
-        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nSchnupperlehre als Polymechaniker*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
-        "it": "Mobility | dal 1874 | in tutto il mondo in uso\n\nLo Schindler Formazione Professionale e forma oltre 300 studenti in tutta la Svizzera – non sei mai solo. Tutto il nostro team si impegna ogni giorno per voi in modo da essere uno specialista altamente qualificato alla fine del vostro periodo di insegnamento.\n\nSchnupperlehre als Polymechaniker* in EFZ con montaggio a fuoco in Winterthur",
-        "en": "Mobility | since 1874 | worldwide in use\n\nThe Schindler Vocational Education and Training forms over 300 learners throughout Switzerland – you are never alone. Our entire team is committed to you every day so that you are a highly trained specialist at the end of your teaching period.\n\nSchnupperlehre als Polymechaniker*in EFZ with focus lift assembly in Winterthur",
-        "fr": "Mobilité à travers le monde depuis 1874\n\nL'enseignement et la formation professionnels Schindler forment plus de 300 apprenants en Suisse – vous n'êtes jamais seul. Toute notre équipe s'engage pour vous tous les jours afin que vous soyez un spécialiste hautement qualifié à la fin de votre période d'enseignement.\n\nSchnupperlehre als Polymechaniker* dans l'EFZ avec montage de lifting à Winterthur"
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\r\n\r\n\n\r\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\r\n\n\r\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
+        "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\r\n\r\n\n\r\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\r\n\n\r\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
+        "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\r\n\r\n\n\r\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\r\n\n\r\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur",
+        "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\r\n\r\n\n\r\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\r\n\n\r\nSchnupperlehre als Anlagen- und Apparatebauer*in EFZ mit Schwerpunkt Liftmontage in Winterthur"
       },
       "location": "Winterthur",
       "canton": "ZH",
@@ -915,11 +915,13 @@
           "manager-fur-cookie-einwilligungen-schindler-winterthur"
         ],
         "fr": [
-          "manager-fur-cookie-einwilligungen-schindler-winterthur"
+          "manager-fur-cookie-einwilligungen-schindler-winterthur",
+          "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur"
         ]
       },
       "previousSlugs": [
-        "manager-fur-cookie-einwilligungen-schindler-winterthur"
+        "manager-fur-cookie-einwilligungen-schindler-winterthur",
+        "gestionnaire-pour-les-autorisations-de-cookies-schindler-winterthur"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,

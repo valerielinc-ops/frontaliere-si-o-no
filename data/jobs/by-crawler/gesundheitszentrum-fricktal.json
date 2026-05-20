@@ -384,7 +384,7 @@
       "titleByLocale": {
         "it": "Dipl. Pflegefachperson im Nachtdienst der IMC/Notfall (m/p/g)",
         "en": "Dipl. Pflegefachperson im Nachtdienst der IMC/Notfall (m/w/d)",
-        "de": "Dipl. Pflegefachperson im Nachtdienst der IMC/Notfall (m/w/d)",
+        "de": "Dipl.-Ing. Pflegefachperson im Nachtdienst der IMC/Notfall (m/w/d)",
         "fr": "Dipl. Pflegefachperson im Nachtdienst der IMC/Notfall (h/w/j)"
       },
       "description": "Bereich: LF Notfall / Überwachungsstation\n\nArt: Teilzeit\n\nBefristung: Unbefristet",
@@ -428,7 +428,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "gesundheitszentrum-fricktal-2fef129373b5",

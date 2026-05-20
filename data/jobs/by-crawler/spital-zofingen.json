@@ -6,34 +6,31 @@
       "id": "spital-zofingen-3cc5e9e43914",
       "slug": "pflegefachperson-hf-in-ausbildung-spital-zofingen-zofingen",
       "slugByLocale": {
+        "de": "pflegefachkraft-hf-in-ausbildung-spital-zofingen-zofingen",
         "it": "pflegefachperson-hf-in-ausbildung-spital-zofingen-zofingen",
         "en": "pflegefachperson-hf-in-ausbildung-spital-zofingen-zofingen",
-        "de": "pflegefachperson-hf-in-ausbildung-spital-zofingen-zofingen",
-        "fr": "specialiste-des-soins-hf-en-formation-spital-zofingen-zofingen"
+        "fr": "pflegefachperson-hf-in-ausbildung-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
       "companyDomain": "spitalzofingen.ch",
       "title": "Pflegefachperson HF in Ausbildung",
       "titleByLocale": {
-        "it": "Pflegefachperson HF ad Ausbildung",
-        "en": "Pflegefachperson HF in Ausbildung",
         "de": "Pflegefachkraft HF in Ausbildung",
-        "fr": "Spécialiste des soins HF en formation"
+        "en": "Pflegefachperson HF in Ausbildung",
+        "it": "Pflegefachperson HF ad Ausbildung",
+        "fr": "Pflegefachperson HF à Ausbildung"
       },
-      "description": "Pflegefachperson HF in Ausbildung bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Bildung Pflege. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen.",
+      "description": "Bereich: Bildung Pflege\n\nArt: Vollzeit\n\nBefristung: befristet",
       "descriptionByLocale": {
-        "de": "Pflegefachperson HF in Ausbildung bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Bildung Pflege. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen.",
-        "it": "Carriera HF in Formazione presso Spital Zofingen AG, Zofingen (4800, AG), Svizzera. Tipo: Tempo pieno. Durata: limitata. Applicazione tramite il portale di carriera di Umantis di Spital Zofingen.",
-        "en": "Career HF in Training at Spital Zofingen AG, Zofingen (4800, AG), Switzerland. Area: Education Care. Type: Full time. Duration: limited. Application via the Umantis career portal of Spital Zofingen.",
-        "fr": "Carrière HF en formation chez Spital Zofingen AG, Zofingen (4800, AG), Suisse. Domaine: Éducation. Type: Temps plein. Durée: limitée. Application via le portail de carrière Umantis de Spital Zofingen."
+        "de": "Bereich: Bildung Pflege\n\nArt: Vollzeit\n\nBefristung: befristet"
       },
       "location": "Zofingen",
       "canton": "AG",
       "url": "https://recruitingapp-22707.umantis.com/Vacancies/1896/Description/1",
       "source": "Spital Zofingen Dedicated Parser (Umantis listing tenant 22707)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:33:44.952Z",
+      "crawledAt": "2026-05-19T11:37:51.164Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -49,16 +46,10 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-22707.umantis.com/Vacancies/1896/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "pflegefachkraft-hf-in-ausbildung-spital-zofingen-zofingen"
-        ]
+      "requirementsByLocale": {
+        "de": []
       },
-      "previousSlugs": [
-        "pflegefachkraft-hf-in-ausbildung-spital-zofingen-zofingen"
-      ],
-      "firstSeenAt": "2026-05-19T11:37:51.164Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -70,15 +61,17 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-05-19T11:37:51.164Z",
+      "retranslationAttempts": 2
     },
     {
       "id": "spital-zofingen-31337739a8b6",
       "slug": "tirocinante-per-centro-di-cura-spital-zofingen-zofingen",
       "slugByLocale": {
+        "de": "praktikant-in-fur-pflegezentrum-spital-zofingen-zofingen",
         "it": "tirocinante-per-centro-di-cura-spital-zofingen-zofingen",
         "en": "nursing-centre-intern-spital-zofingen-zofingen",
-        "de": "praktikant-in-fur-pflegezentrum-spital-zofingen-zofingen",
         "fr": "stagiaire-en-centre-de-soins-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
@@ -86,24 +79,21 @@
       "companyDomain": "spitalzofingen.ch",
       "title": "Praktikant/in für Pflegezentrum",
       "titleByLocale": {
-        "it": "Tirocinante per centro di cura",
-        "en": "Intern for nursing centre",
         "de": "Praktikant/in für Pflegezentrum",
-        "fr": "Stagiaire pour centre de soins infirmiers"
+        "it": "Tirocinante per centro di cura",
+        "en": "Nursing Centre Intern",
+        "fr": "Stagiaire en centre de soins"
       },
-      "description": "Praktikant/in für Pflegezentrum bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Pflegezentrum. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen.",
+      "description": "Bereich: Pflegezentrum\n\nArt: Vollzeit\n\nBefristung: befristet",
       "descriptionByLocale": {
-        "de": "Praktikant/in für Pflegezentrum bei Spital Zofingen AG, Zofingen (4800, AG), Schweiz. Bereich: Pflegezentrum. Art: Vollzeit. Befristung: befristet. Bewerbung über das Umantis-Karriereportal von Spital Zofingen.",
-        "it": "Interno per centro di cura presso Spital Zofingen AG, Zofingen (4800, AG), Svizzera. Area: Centro di cura. Tipo: Tempo pieno. Durata: limitata. Applicazione tramite il portale di carriera di Umantis di Spital Zofingen.",
-        "en": "Intern for nursing center at Spital Zofingen AG, Zofingen (4800, AG), Switzerland. Area: Care center. Type: Full time. Duration: limited. Application via the Umantis career portal of Spital Zofingen.",
-        "fr": "Stagiaire pour centre de soins infirmiers à Spital Zofingen AG, Zofingen (4800, AG), Suisse. Zone: Centre de soins. Type: Temps plein. Durée: limitée. Application via le portail de carrière Umantis de Spital Zofingen."
+        "de": "Bereich: Pflegezentrum\n\nArt: Vollzeit\n\nBefristung: befristet"
       },
       "location": "Zofingen",
       "canton": "AG",
       "url": "https://recruitingapp-22707.umantis.com/Vacancies/2311/Description/1",
       "source": "Spital Zofingen Dedicated Parser (Umantis listing tenant 22707)",
       "sourceLang": "de",
-      "crawledAt": "2026-05-19T23:33:44.271Z",
+      "crawledAt": "2026-05-19T11:37:50.460Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -119,16 +109,17 @@
       "postedDate": "2026-05-19",
       "applyUrl": "https://recruitingapp-22707.umantis.com/Vacancies/2311/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "praktikant-in-fur-pflegezentrum-spital-zofingen-zofingen"
-      ],
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-fur-pflegezentrum-spital-zofingen-zofingen"
         ]
       },
-      "firstSeenAt": "2026-05-19T11:37:50.460Z",
+      "previousSlugs": [
+        "praktikant-in-fur-pflegezentrum-spital-zofingen-zofingen"
+      ],
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -140,7 +131,10 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-05-19T11:37:50.460Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 2
     }
   ]
 }
