@@ -254,13 +254,19 @@ export default function AdSenseBanner({
  observer.observe(el, { attributes: true, attributeFilter: ['data-ad-status'] });
  statusObserverRef.current = observer;
 
+ // Collapse the placeholder when the ad doesn't fill quickly. Was 90s
+ // historically — Privacy Sandbox / Attestation / adblockers now block
+ // AdSense before it can report unfilled, leaving a 400px reservation
+ // on every blocked slot for 90s. Multiple slots × 400px = 800-1200px
+ // of visible dead-space below the fold on every page load (S7).
+ // 8s is plenty for genuine fills (real fills land <2s in practice).
  fillTimeoutRef.current = setTimeout(() => {
  const status = el.getAttribute('data-ad-status');
  if (status === 'filled') return;
  console.info(`[AdSense] fill timeout for slot=${adSlot} (status=${status}), collapsing`);
  cleanupAsyncWatchers();
  setState('collapsed');
- }, 90_000);
+ }, 8_000);
 
  return true;
  };

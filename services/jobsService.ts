@@ -61,6 +61,14 @@ export const AGGREGATE_CANTON_CODE = '_AGGREGATE_' as const;
 /** Default cantons fetched when callers don't specify (backward-compat = TI/GR/VS). */
 export const DEFAULT_AGGREGATE_CANTONS: readonly string[] = ['TI', 'GR', 'VS'] as const;
 
+/** Per-canton shards are not yet emitted to dist/ (planned future deploy).
+ * Until they ship, requesting them generates a noisy 404 in DevTools on every
+ * job-board mount even though the SPA gracefully falls back to the legacy
+ * locale-wide index. Gate the shard fetch behind this flag so we stop poking
+ * a path we know returns 404. Flip to `true` in the same PR that lands the
+ * shard pipeline. (S10a 2026-05-20) */
+export const CANTON_SHARDS_ENABLED = false;
+
 const SHARD_BASE_PATH = '/data/jobs-by-canton';
 const IDB_DB_NAME = 'frontaliere-jobs-cache';
 const IDB_DB_VERSION = 1;
@@ -241,6 +249,12 @@ async function revalidateWithEtag(
 export async function fetchJobsForCanton(cantonCode: string): Promise<Job[]> {
  if (typeof cantonCode !== 'string' || cantonCode.length === 0) {
   throw new Error('[jobsService] fetchJobsForCanton: cantonCode must be a non-empty string');
+ }
+
+ // Short-circuit when shards aren't deployed yet — saves the inevitable 404
+ // and lets the JobBoard caller hit its legacy-loader fallback immediately.
+ if (!CANTON_SHARDS_ENABLED) {
+  return [];
  }
 
  const db = await openCantonCacheDb();
