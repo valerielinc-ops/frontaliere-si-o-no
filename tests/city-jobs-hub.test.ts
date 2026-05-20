@@ -303,3 +303,58 @@ describe('buildCityHubSeo — non-TI cantonDisplay forwarded to title and meta',
     expect(legacyLugano.title).toContain('Ticino');
   });
 });
+
+// ──────────────────────────────────────────────────────────────────────
+// Regression — per-canton city hub HTML shell must be hydration-safe.
+//
+// Bug surfaced 2026-05-20 on /cerca-lavoro-basilea/basel/ (and every other
+// non-TI city hub): the page emitted `<main class="static-job-page">`
+// INSIDE `<div id="root">`. React hydrates `#root` and wipes that static
+// `<main>`; App.tsx then skips rendering its own `<main id="main-content">`
+// because the route is `staticOverlay:true` — leaving end users with a blank
+// page (just header + sub-nav, no content, no footer because there is no
+// `<div id="footer-root">` portal target either). Crawlers (no JS) still saw
+// the SSR content, so audits passed; only SPA users were affected.
+//
+// Fix: emit via `buildSeoPageHtml` (the same shell PR #376 applied to the
+// per-canton COMPANY hub at line ~6344). That helper puts the static body in
+// `<main class="seo-static-content">` OUTSIDE `#root` AND adds the
+// `<div id="footer-root"></div>` portal target — both required by App.tsx +
+// useNavigationState for the lite-shell rendering path.
+// ──────────────────────────────────────────────────────────────────────
+describe('per-canton city hub — hydration-safe SPA shell', () => {
+  it('jobsSeoPagesPlugin per-canton city hub block calls buildSeoPageHtml (not buildSimplePage)', async () => {
+    const { readFileSync } = await import('fs');
+    const { resolve } = await import('path');
+    const src = readFileSync(
+      resolve(__dirname, '../build-plugins/jobsSeoPagesPlugin.ts'),
+      'utf8',
+    );
+    const anchorStart = src.indexOf('Per-canton city hubs (Phase 3.1)');
+    const anchorEnd = src.indexOf('Static paginated listing pages');
+    expect(anchorStart, 'phase 3.1 anchor present').toBeGreaterThan(0);
+    expect(anchorEnd, 'next phase anchor present').toBeGreaterThan(anchorStart);
+    const block = src.slice(anchorStart, anchorEnd);
+    // Reverting to buildSimplePage at this site reintroduces the
+    // blank-on-hydrate bug on /cerca-lavoro-{canton}/{city}/.
+    expect(block, 'must call buildSeoPageHtml').toContain('buildSeoPageHtml({');
+    expect(block, 'must NOT call buildSimplePage').not.toContain('buildSimplePage({');
+  });
+
+  it('buildSeoPageHtml emits main.seo-static-content + footer-root portal', async () => {
+    const { buildSeoPageHtml } = await import('../build-plugins/shared/seoPageShell');
+    const html = buildSeoPageHtml({
+      locale: 'it',
+      title: 'Lavoro Basel 2026',
+      description: 'Test',
+      canonicalUrl: 'https://frontaliereticino.ch/cerca-lavoro-basilea/basel/',
+      bodyHtml: '<h1>373 Offerte di Lavoro a Basel</h1>',
+    });
+    expect(html).toMatch(/<main class="seo-static-content"/);
+    expect(html).toContain('<div id="footer-root">');
+    expect(html).toContain('<div id="root">');
+    // The legacy wrapper would put <main class="static-job-page"> INSIDE
+    // #root — confirm we are NOT emitting that shape for city hubs.
+    expect(html).not.toMatch(/<div id="root">\s*<main class="static-job-page"/);
+  });
+});

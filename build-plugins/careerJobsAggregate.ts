@@ -26,6 +26,7 @@ import {
   CAREER_LOCALES,
   type CareerLocale,
 } from './careerLandingsData';
+import { resolveJobCanton } from './shared/cantonSection';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -547,7 +548,14 @@ export function aggregateCareerLandings(
     };
   }
 
-  const jobs = loadJobs(rootDir);
+  const allJobs = loadJobs(rootDir);
+  // Career landings (agenzie-lavoro-lugano, concorsi-pubblici-lugano, stage-
+  // lugano, contratti-lavoro-frontalieri) are editorially Lugano/Ticino-
+  // themed and link every employer chip at TI's job board
+  // (JOB_BOARD_BASE_PATH below). Filter to canton=TI so the aggregate
+  // (counts, top employers, featured jobs) matches the editorial scope —
+  // mirrors the fix in `aggregateProfessionJobs` / `aggregateNursingJobs`.
+  const jobs = allJobs.filter((job) => resolveJobCanton(job as { canton?: string; location?: string }) === 'TI');
   const staffing = buildStaffingSnapshot(rootDir, jobs, now);
   const publicSector = buildPublicSectorSnapshot(rootDir, jobs, now);
   const internship = buildInternshipSnapshot(jobs, now);

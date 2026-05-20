@@ -82,6 +82,35 @@ describe('profession aggregate FeaturedJob projection', () => {
     expect(result).not.toBeNull();
     expect(result!.companyDomain).toBeNull();
   });
+
+  // Regression — cathedral dataset expansion (2026-05-10) made jobs.json
+  // contain all 26 cantons, but the profession landings at
+  // `/lavoro-ticino-{profession}/` are editorially TI-themed: section
+  // titles say "Chi assume in Ticino" / "Principali datori di lavoro in
+  // Ticino", and every employer chip points at `/cerca-lavoro-ticino/?q=…`.
+  // Without filtering, non-TI employers (Luzerner Psychiatrie, Psychiatrie
+  // Baselland, Stiftung Bachtelen, Universitäts-Kinderspital Zürich, …)
+  // surfaced as "TI employers" with TI-search links that returned zero
+  // results (visible 2026-05-20 on /lavoro-ticino-educatore/). Lock the
+  // canton filter so this can't silently regress.
+  it('aggregateProfessionJobs filters jobs to canton TI before aggregation', async () => {
+    const { readFileSync } = await import('fs');
+    const { resolve } = await import('path');
+    const src = readFileSync(
+      resolve(__dirname, '../../build-plugins/professionJobsAggregate.ts'),
+      'utf8',
+    );
+    // The filter MUST live in aggregateProfessionJobs, applied to loadJobs
+    // output BEFORE the PROFESSION_IDS loop. We assert both the import and
+    // the call so a future "let's broaden to all of CH" attempt fails this
+    // test with a clear diff instead of silently corrupting TI section copy.
+    expect(src, 'imports resolveJobCanton from cantonSection').toMatch(
+      /import\s*\{\s*resolveJobCanton\s*\}\s*from\s*'\.\/shared\/cantonSection'/,
+    );
+    expect(src, 'filters loadJobs output to canton TI inside aggregateProfessionJobs').toMatch(
+      /resolveJobCanton\([\s\S]*?\)\s*===\s*'TI'/,
+    );
+  });
 });
 
 // ── 2. careerJobsAggregate ───────────────────────────────────────────────────

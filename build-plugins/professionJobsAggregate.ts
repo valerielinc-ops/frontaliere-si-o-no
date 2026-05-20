@@ -28,6 +28,7 @@ import {
   type ProfessionId,
   type ProfessionLocale,
 } from './professionLandingsData';
+import { resolveJobCanton } from './shared/cantonSection';
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -307,6 +308,17 @@ function buildSnapshotForProfession(
 /**
  * Aggregate jobs.json into per-profession snapshots. Cached per `rootDir`.
  * Pass `now` to override the clock (used by tests); defaults to Date.now().
+ *
+ * Filters to canton=TI before aggregation. The profession landings
+ * (`/lavoro-ticino-{profession}/`) are editorially Ticino-themed: section
+ * titles say "Chi assume in Ticino" / "Principali datori di lavoro in
+ * Ticino" / "Il mestiere in Ticino", and the employer-chip URLs all point
+ * at `/cerca-lavoro-ticino/?q=<employer>`. Before this filter, the cathedral
+ * dataset expansion (2026-05-10) caused non-TI employers (Luzerner Psychiatrie,
+ * Psychiatrie Baselland, Stiftung Bachtelen, …) to surface in the TI section
+ * and link to a TI search that returned zero results — visible 2026-05-20 on
+ * /lavoro-ticino-educatore/. Filtering at the load boundary keeps content and
+ * link target consistent without rewriting every downstream call site.
  */
 export function aggregateProfessionJobs(
   rootDir: string,
@@ -314,7 +326,8 @@ export function aggregateProfessionJobs(
 ): Record<ProfessionId, ProfessionJobsSnapshot> {
   if (_snapshotCache && _cacheRootDir === rootDir) return _snapshotCache;
 
-  const jobs = loadJobs(rootDir);
+  const allJobs = loadJobs(rootDir);
+  const jobs = allJobs.filter((job) => resolveJobCanton(job as { canton?: string; location?: string }) === 'TI');
   const out = {} as Record<ProfessionId, ProfessionJobsSnapshot>;
   for (const id of PROFESSION_IDS) {
     out[id] = buildSnapshotForProfession(jobs, PROFESSION_MATCHERS[id], now);

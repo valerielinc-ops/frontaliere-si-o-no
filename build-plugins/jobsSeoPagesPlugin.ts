@@ -5406,7 +5406,18 @@ ${alternates}
  return `<p>${cityJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles à ${esc(cityDisplay)} (Canton de ${esc(cDisplay)}). Les annonces sont mises à jour quotidiennement. Pour les frontaliers avec un permis G, le Canton de ${esc(cDisplay)} applique un impôt à la source sur le revenu brut : utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a>.</p>`;
  })();
  const bodyHtml = `<h1>${esc(cityHubSeo.h1)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(backLabel)}</a></p>\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
- const html = buildSimplePage({
+ // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
+ // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
+ // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
+ // skipMainWrap=false + seoContentOutsideRoot=false) wraps the static body
+ // in `<main class="static-job-page">` INSIDE `#root`, and React hydration
+ // wipes that <main> when staticOverlay:true (App.tsx skips React <main>
+ // for staticOverlay routes) — leaving the page visibly blank for end users
+ // (header + sub-nav only). Bug surfaced on
+ // /cerca-lavoro-basilea/basel/ (and every other non-TI canton city hub).
+ // The company-hub sibling at line ~6344 already received the same fix in
+ // PR #376; this aligns per-canton city hubs to the same hydration-safe shell.
+ const html = buildSeoPageHtml({
  locale,
  title: pageTitle,
  description: pageDesc,
@@ -5414,9 +5425,8 @@ ${alternates}
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
  jsonLdScripts: [breadcrumbLd, collectionLd, itemListLd],
- entryJs: hasSpaBundle ? entryJs : undefined,
- entryCss: hasSpaBundle ? entryCss : undefined,
  bodyHtml,
+ distDir,
  });
  // Hard-fail guard mirroring TI city hubs (195 KB budget)
  const CITY_HUB_HARD_BUDGET_BYTES = 195 * 1024;

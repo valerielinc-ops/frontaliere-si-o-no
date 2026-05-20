@@ -23,6 +23,7 @@ import {
   type NursingLocale,
 } from './nursingLandingsData';
 import type { ProfessionJobsSnapshot, FeaturedJob } from './professionJobsAggregate';
+import { resolveJobCanton } from './shared/cantonSection';
 
 // Re-export the snapshot/featured types so the plugin imports a single
 // canonical shape — different alias keeps grep-ability without forking the
@@ -243,6 +244,12 @@ function buildSnapshotForId(
 /**
  * Aggregate jobs.json into per-nursing-id snapshots. Cached per `rootDir`.
  * Pass `now` to override the clock (used by tests); defaults to Date.now().
+ *
+ * Filters to canton=TI before aggregation — nursing landings link every
+ * employer chip at TI's job board (JOB_BOARD_BASE_PATH below). Without the
+ * filter, the cathedral dataset expansion (2026-05-10) surfaced non-TI
+ * employers under TI-themed copy with TI-search links that returned zero
+ * results. Mirrors the fix applied to `aggregateProfessionJobs`.
  */
 export function aggregateNursingJobs(
   rootDir: string,
@@ -250,7 +257,8 @@ export function aggregateNursingJobs(
 ): Record<NursingLandingId, NursingJobsSnapshot> {
   if (_snapshotCache && _cacheRootDir === rootDir) return _snapshotCache;
 
-  const jobs = loadJobs(rootDir);
+  const allJobs = loadJobs(rootDir);
+  const jobs = allJobs.filter((job) => resolveJobCanton(job as { canton?: string; location?: string }) === 'TI');
   const out = {} as Record<NursingLandingId, NursingJobsSnapshot>;
   for (const id of NURSING_LANDING_IDS) {
     out[id] = buildSnapshotForId(jobs, NURSING_MATCHERS[id], now);
