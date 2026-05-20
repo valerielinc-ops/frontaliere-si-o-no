@@ -357,4 +357,32 @@ describe('per-canton city hub — hydration-safe SPA shell', () => {
     // #root — confirm we are NOT emitting that shape for city hubs.
     expect(html).not.toMatch(/<div id="root">\s*<main class="static-job-page"/);
   });
+
+  // Anti-regression sweep — every staticOverlay page emit in jobsSeoPagesPlugin
+  // (pagination / categoria / sector / company-city / keyword / search / combo)
+  // must use buildSeoPageHtml. The legacy buildSimplePage default mode wraps
+  // body in <main class="static-job-page"> INSIDE #root; on hydration React
+  // wipes that node and App.tsx skips its own <main> for staticOverlay routes,
+  // leaving the page visibly blank. Crawlers (no JS) still see SSR content so
+  // audits pass — only SPA users are affected. PR #416 fixed city hubs;
+  // this PR fixed the remaining 9 sites in one sweep.
+  it('jobsSeoPagesPlugin emits ZERO buildSimplePage calls (all staticOverlay pages use buildSeoPageHtml)', async () => {
+    const { readFileSync } = await import('fs');
+    const { resolve } = await import('path');
+    const src = readFileSync(
+      resolve(__dirname, '../build-plugins/jobsSeoPagesPlugin.ts'),
+      'utf8',
+    );
+    // buildSimplePage stays imported (and may appear in comments / type refs);
+    // what we lock down is the CALL — `buildSimplePage({` followed by args.
+    // Every staticOverlay-route emit must go through buildSeoPageHtml so the
+    // shell stays hydration-safe (seo-static-content + footer-root portal).
+    const callMatches = src.match(/\bbuildSimplePage\s*\(\s*\{/g) ?? [];
+    expect(
+      callMatches.length,
+      `jobsSeoPagesPlugin contains ${callMatches.length} buildSimplePage({ ... }) call(s). ` +
+        `All staticOverlay-route emits must use buildSeoPageHtml — otherwise the page ` +
+        `goes blank for SPA users after React hydration. See PR #416 + #418 for context.`,
+    ).toBe(0);
+  });
 });

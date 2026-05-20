@@ -5539,7 +5539,8 @@ ${alternates}
  pgNav.push(`<a href="${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${np2}`.replace(/\/+/g, '/'))}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 12px">${np2}</a>`);
  }
  const pgBackLabel = locale === 'it' ? 'Torna alla lista completa' : locale === 'en' ? 'Back to full listing' : locale === 'de' ? 'Zur\u00fcck zur Liste' : 'Retour \u00e0 la liste';
- const pgHtml = buildSimplePage({
+ // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
+ const pgHtml = buildSeoPageHtml({
  locale,
  title: pgTitle,
  description: pgDesc,
@@ -5548,9 +5549,8 @@ ${alternates}
  hreflangHtml: `${pgAlternates}\n${pgXDefault}`,
  extraHeadHtml: `${pgPrevLink}${pgNextLink}`,
  jsonLdScripts: [pgCollLd, pgItemLd, pgBreadcrumbLd],
- entryJs: hasSpaBundle ? entryJs : undefined,
- entryCss: hasSpaBundle ? entryCss : undefined,
  bodyHtml: `<h1>${esc(pgCopy.heading(pageNum))}</h1>\n <p>${esc(pgDesc)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: 'Ticino', omitCommute: true }))}`,
+ distDir,
  });
  const pgOutDir = np.join(distDir, pgCanonicalPath.slice(1));
  activeJobDirs.add(pgCanonicalPath.slice(1).replace(/\/+$/, ''));
@@ -5659,7 +5659,8 @@ ${alternates}
  pgNav.push(`<a href="${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${np2}`.replace(/\/+/g, '/'))}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 12px">${np2}</a>`);
  }
  const pgBackLabel = locale === 'it' ? 'Torna alla lista completa' : locale === 'en' ? 'Back to full listing' : locale === 'de' ? 'Zur\u00fcck zur Liste' : 'Retour \u00e0 la liste';
- const pgHtml = buildSimplePage({
+ // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
+ const pgHtml = buildSeoPageHtml({
  locale,
  title: pgTitle,
  description: pgDesc,
@@ -5668,9 +5669,8 @@ ${alternates}
  hreflangHtml: `${pgAlternates}\n${pgXDefault}`,
  extraHeadHtml: `${pgPrevLink}${pgNextLink}`,
  jsonLdScripts: [pgCollLd, pgItemLd, pgBreadcrumbLd],
- entryJs: hasSpaBundle ? entryJs : undefined,
- entryCss: hasSpaBundle ? entryCss : undefined,
  bodyHtml: `<h1>${esc(pgHeading)}</h1>\n <p>${esc(pgDesc)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>\n${renderListingPaginationProse(locale, pageNum)}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'canton-hub' }))}`,
+ distDir,
  });
  const pgOutDir = np.join(distDir, pgCanonicalPath.slice(1));
  activeJobDirs.add(pgCanonicalPath.slice(1).replace(/\/+$/, ''));
@@ -5791,7 +5791,8 @@ ${alternates}
  })();
  const catOpenAllLabel = locale === 'it' ? 'Apri il job board completo' : locale === 'en' ? 'Open the full job board' : locale === 'de' ? 'Komplettes Job Board \u00f6ffnen' : 'Ouvrir le job board complet';
  const catNavLabel = locale === 'it' ? 'Altre categorie' : locale === 'en' ? 'Other categories' : locale === 'de' ? 'Weitere Kategorien' : 'Autres cat\u00e9gories';
- const catHtml = buildSimplePage({
+ // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
+ const catHtml = buildSeoPageHtml({
  locale,
  title: catTitle,
  description: catDescription,
@@ -5799,8 +5800,7 @@ ${alternates}
  ogLocale: localeOg[locale],
  hreflangHtml: catAlternates,
  jsonLdScripts: [catCollLd, catBreadcrumbLd],
- entryJs: hasSpaBundle ? entryJs : undefined,
- entryCss: hasSpaBundle ? entryCss : undefined,
+ distDir,
  bodyHtml: (() => {
  const catLocaleParts: Parameters<typeof formatSeoH1>[0] = {
  keyword: catLabel,
@@ -5938,7 +5938,8 @@ ${alternates}
  })();
  const catOpenAllLabel = locale === 'it' ? 'Apri il job board completo' : locale === 'en' ? 'Open the full job board' : locale === 'de' ? 'Komplettes Job Board öffnen' : 'Ouvrir le job board complet';
  const catNavLabel = locale === 'it' ? 'Altre categorie' : locale === 'en' ? 'Other categories' : locale === 'de' ? 'Weitere Kategorien' : 'Autres catégories';
- const catHtml = buildSimplePage({
+ // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
+ const catHtml = buildSeoPageHtml({
  locale,
  title: catTitle,
  description: catDescription,
@@ -5946,8 +5947,7 @@ ${alternates}
  ogLocale: localeOg[locale],
  hreflangHtml: catAlternates,
  jsonLdScripts: [catCollLd, catBreadcrumbLd],
- entryJs: hasSpaBundle ? entryJs : undefined,
- entryCss: hasSpaBundle ? entryCss : undefined,
+ distDir,
  bodyHtml: (() => {
  const catLocaleParts: Parameters<typeof formatSeoH1>[0] = {
  keyword: catLabel,
@@ -6128,7 +6128,8 @@ ${alternates}
  const openAllLabel = locale === 'it' ? `Apri tutte le offerte in ${cDisplay}` : locale === 'en' ? `View all jobs in ${cDisplay}` : locale === 'de' ? `Alle Stellen ${cDisplay}` : `Voir toutes les offres à ${cDisplay}`;
  const listHtml = cappedJobs.map((job: any) => renderJobCardLi(job, locale)).join('');
  const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, sectorOrType: sectorDisplay, cantonDisplay: cDisplay, cantonSlot: 'sectors-hub' }))}`;
- const html = buildSimplePage({
+ // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
+ const html = buildSeoPageHtml({
  locale,
  title: pageTitle,
  description: pageDesc,
@@ -6136,9 +6137,8 @@ ${alternates}
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
  jsonLdScripts: [breadcrumbLd, collectionLd, itemListLd],
- entryJs: hasSpaBundle ? entryJs : undefined,
- entryCss: hasSpaBundle ? entryCss : undefined,
  bodyHtml,
+ distDir,
  });
  // Hard budget guard (mirror per-canton city hub 195 KB cap).
  const SECTOR_CANTON_HARD_BUDGET = 195 * 1024;
@@ -6556,7 +6556,8 @@ ${alternates}
  })();
  const openAllLabel = locale === 'it' ? `Vedi tutte le offerte presso ${companyName}` : locale === 'en' ? `View all jobs at ${companyName}` : locale === 'de' ? `Alle Stellen bei ${companyName}` : `Voir toutes les offres chez ${companyName}`;
  const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>\n<p><a href="${companyHubUrl}">${esc(openAllLabel)}</a></p>\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: `${companyName} — ${cityDisplay}` }))}`;
- const html = buildSimplePage({
+ // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
+ const html = buildSeoPageHtml({
  locale,
  title: pageTitle,
  description: pageDesc,
@@ -6564,9 +6565,8 @@ ${alternates}
  ogLocale: localeOg[locale],
  hreflangHtml: alternates,
  jsonLdScripts: [breadcrumbLd, collectionLd, itemListLd, organizationLd],
- entryJs: hasSpaBundle ? entryJs : undefined,
- entryCss: hasSpaBundle ? entryCss : undefined,
  bodyHtml,
+ distDir,
  });
  const COMPANY_CITY_HARD_BUDGET = 195 * 1024;
  const htmlBytes = Buffer.byteLength(html, 'utf-8');
@@ -6723,7 +6723,8 @@ ${alternates}
  { '@type': 'ListItem', position: 3, name: kwTitle, item: kwCanonicalUrl },
  ],
  });
- const kwHtml = buildSimplePage({
+ // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
+ const kwHtml = buildSeoPageHtml({
  locale,
  title: kwTitle,
  description: kwDesc,
@@ -6731,9 +6732,8 @@ ${alternates}
  ogLocale: localeOg[locale],
  hreflangHtml: kwAlternates,
  jsonLdScripts: [kwBreadcrumbLd, kwCollLd],
- entryJs: hasSpaBundle ? entryJs : undefined,
- entryCss: hasSpaBundle ? entryCss : undefined,
  bodyHtml: `<h1>${esc(itCopy.heading)}</h1>\n <p>${esc(kwDesc)}</p>\n ${kwQueryIntro}\n ${kwIntro}\n <p>${esc(kwCta)}</p>\n <ul style="list-style:none;padding:0;margin:16px 0">${kwListHtml}</ul>\n <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n ${kwMarketSection}\n ${kwCommuterBlock}`,
+ distDir,
  });
  const kwOutDir = np.join(distDir, kwCanonicalPath.slice(1));
  activeJobDirs.add(kwRelDir);
@@ -6884,7 +6884,8 @@ ${alternates}
  // (e.g. `search-lugano-eoc-...` → company hub). Page still emitted at its
  // own path so backlinks resolve.
  const effectiveCanonicalUrl = resolveCanonicalUrl(fullSlug, canonicalUrl);
- const searchHtml = buildSimplePage({
+ // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
+ const searchHtml = buildSeoPageHtml({
  locale,
  title,
  description,
@@ -6904,9 +6905,8 @@ ${alternates}
  hreflangHtml: alternates,
  extraHeadHtml: twitterCards,
  jsonLdScripts: [searchBreadcrumbLd],
- entryJs: hasSpaBundle ? entryJs : undefined,
- entryCss: hasSpaBundle ? entryCss : undefined,
  bodyHtml: `<h1>${esc(copy.heading(name))}</h1>\n <p>${esc(description)}</p>\n${searchBodyParts.join('\n')}`,
+ distDir,
  });
 
  const outDir = np.join(distDir, canonicalPath.slice(1));
@@ -7039,7 +7039,8 @@ ${alternates}
  { '@type': 'ListItem', position: 3, name: copy.heading, item: canonicalUrl },
  ],
  });
- const comboHtml = buildSimplePage({
+ // buildSeoPageHtml (hydration-safe shell). See city-hub fix at line ~5420.
+ const comboHtml = buildSeoPageHtml({
  locale,
  title: copy.title,
  description,
@@ -7048,9 +7049,8 @@ ${alternates}
  hreflangHtml: alternates,
  extraHeadHtml: comboOgImage,
  jsonLdScripts: [comboBreadcrumbLd],
- entryJs: hasSpaBundle ? entryJs : undefined,
- entryCss: hasSpaBundle ? entryCss : undefined,
  bodyHtml: `<h1>${esc(copy.heading)}</h1>\n <p>${esc(description)}</p>\n${comboBodyParts.join('\n')}`,
+ distDir,
  });
 
  const outDir = np.join(distDir, canonicalPath.slice(1));
