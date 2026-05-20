@@ -46,6 +46,7 @@ import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import type { Locale } from '../services/i18n';
+import { breadcrumbListLd } from '../services/seo/structuredData';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -165,14 +166,10 @@ function renderAliasPage(entry: LegacyAliasEntry, distDir: string): string {
   // locales; IT lives at the canonical `/calcola-stipendio/`).
   const homeLabel = entry.locale === 'de' ? 'Startseite' : entry.locale === 'fr' ? 'Accueil' : 'Home';
   const homeUrl = `${BASE_URL}/${entry.locale}/`;
-  const breadcrumbLd = JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: homeLabel, item: homeUrl },
-      { '@type': 'ListItem', position: 2, name: entry.h1, item: legacyAbsoluteUrl },
-    ],
-  });
+  const breadcrumbLd = JSON.stringify(breadcrumbListLd([
+    { name: homeLabel, url: homeUrl },
+    { name: entry.h1, url: legacyAbsoluteUrl },
+  ]));
 
   return buildSeoPageHtml({
     locale: entry.locale,
