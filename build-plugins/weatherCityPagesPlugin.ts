@@ -29,6 +29,7 @@ import {
   useSunset,
   useWind,
 } from './weatherIconsHelper';
+import { breadcrumbListLd } from '../services/seo/structuredData';
 
 /**
  * Closest border crossings (valichi) by city — frontalieri context: the page
@@ -631,16 +632,7 @@ interface WrapOpts {
 }
 
 function breadcrumbJsonLd(items: Array<{ name: string; url: string }>): Record<string, unknown> {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: items.map((it, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: it.name,
-      item: it.url,
-    })),
-  };
+  return breadcrumbListLd(items);
 }
 
 function wrapHtml(opts: WrapOpts & { distDir: string }): string {
