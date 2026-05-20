@@ -18,7 +18,7 @@ Highest priority. No exceptions, workarounds, or "temporary solutions" bypass th
 ## Workflow & Process
 
 8. **Use Playwright for E2E**, not preview tools. Build + serve dist + Playwright.
-9. **Linear tasks reflect reality**: partial completion → close + create follow-up.
+9. **GitHub Issues reflect reality**: partial completion → close + create follow-up.
 10. **Subagents inherit the session model** — don't override unless the task explicitly requires it.
 11. **GitHub: always `gh` CLI.** Never MCP GitHub tools (they route to Enterprise, 404 here). `gh` is pre-authenticated to github.com.
 12. **NEVER run `send-newsletter.mjs --send` locally.** Real sends go through `send-newsletter.yml`. Local testing: `--preview` (stdout) or `--test --target-email <email>`.
@@ -71,7 +71,7 @@ Highest priority. No exceptions, workarounds, or "temporary solutions" bypass th
 - **Live**: `https://frontaliereticino.ch` (no `www`) on GitHub Pages
 - **Primary language**: Italian; i18n for EN/DE/FR
 - **Domain**: Swiss/Italian tax law (2026 New Agreement), LAMal, AVS/LPP, CHF-EUR
-- **Tasks**: Linear ("Frontaliere Ticino")
+- **Tasks**: GitHub Issues on this repo (priority labels `priority:urgent|high|medium|low`)
 - **Crawler scope** (since 2026-05-10): all 26 Swiss cantons. See [docs/CATHEDRAL-IMPLEMENTATION-PLAN.md](docs/CATHEDRAL-IMPLEMENTATION-PLAN.md), [docs/CATHEDRAL-ROLLBACK.md](docs/CATHEDRAL-ROLLBACK.md).
 
 ---
